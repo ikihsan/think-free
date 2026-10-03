@@ -32,7 +32,7 @@ last-verified: 2026-10-03
 | [`T-0017-build-one-source-twice-under-different-source-da.md`](T-0017-build-one-source-twice-under-different-source-da.md) | done | opencode | test -d EXPERIMENTS/008-build-timestamp-attribut | 2026-10-03 |
 | [`T-0018-record-exercised-git-versions-machine-readably-a.md`](T-0018-record-exercised-git-versions-machine-readably-a.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | done |  | test -f EXPERIMENTS/009-lockfile-drift-snapshot/ | 2026-10-03 |
-| [`T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 
 ## How tasks run on another machine
 
