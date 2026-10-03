@@ -72,6 +72,32 @@ _(none recorded)_
 | EXPERIMENTS/008-build-timestamp-attribution/sources.json | 1aa354bb39a9 | 1693 |
 | EXPERIMENTS/008-build-timestamp-attribution/zipdiff.py | 2b188cb735d6 | 8848 |
 | EXPERIMENTS/008-build-timestamp-attribution/builds.py | 225e064983fe | 11070 |
+| tools/originlib/doclint.py | 80ab0f781064 | 9458 |
+| tools/originlib/docfiles.py | 6d480668ccb1 | 2525 |
+| tests/test_doclint.py | d39b7a5deab0 | 8420 |
+| .gitignore | 4b9cd2958518 | 422 |
+| FAILURES-findings-2.md | 9c0c0076ad0f | 12327 |
+| FAILURES.md | ec3d421baf96 | 3834 |
+| HYPOTHESES.md | f26a1b4c0695 | 10342 |
+| HYPOTHESES-results.md | 6b60d23e650d | 13263 |
+| ROADMAP.md | ff3050e2a3d6 | 7181 |
+| STATE.md | c011d029f564 | 17352 |
+| docs/process/experiment-protocol.md | 2f4e4ab7aa48 | 5650 |
+| EXPERIMENTS/008-build-timestamp-attribution/README.md | 4355cd9f90ce | 14205 |
+| EXPERIMENTS/008-build-timestamp-attribution/attribute.py | c2e630217bb7 | 7570 |
+| EXPERIMENTS/008-build-timestamp-attribution/builds.py | 225e064983fe | 11070 |
+| EXPERIMENTS/008-build-timestamp-attribution/fetch_sources.py | e6e359d5c0c2 | 4056 |
+| EXPERIMENTS/008-build-timestamp-attribution/first-failure.json | ce981b51a05d | 6812 |
+| EXPERIMENTS/008-build-timestamp-attribution/results.json | bc482c75c3a6 | 38138 |
+| EXPERIMENTS/008-build-timestamp-attribution/sources.json | 1aa354bb39a9 | 1693 |
+| EXPERIMENTS/008-build-timestamp-attribution/zipdiff.py | 2b188cb735d6 | 8848 |
+| DECISIONS-GATING.md | 0f5c8a056e5b | 10940 |
+| tasks/T-0017-build-one-source-twice-under-different-source-da.md | 6ed5d1403667 | 5765 |
+| tasks/CLAIMS.jsonl | ba32f9be6008 | 17040 |
+| tasks/T-0017-build-one-source-twice-under-different-source-da.md | ef04148c130e | 5762 |
+| sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md | e5bb2248d625 | 9744 |
+| sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log | cacc845bece7 | 8974 |
+| sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl | d84342e59073 | 40489 |
 
 ## Commands
 
@@ -142,18 +168,18 @@ _(none recorded)_
 | 38 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
 | 39 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/builds.py |
 | 40 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/fetch_sources.py |
-| 44 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sdists/packaging-21.3.tar.gz |
-| 45 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sdists/six-1.16.0.tar.gz |
-| 46 | 22:00:59 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sdists/toml-0.10.2.tar.gz |
-| 47 | 22:00:59 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sources.json |
-| 48 | 22:00:59 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/zipdiff.py |
-| 49 | 22:01:38 | command | $ python3 EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
-| 50 | 22:01:49 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/builds.py |
-| 51 | 22:02:27 | command | $ python3 EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
-| 52 | 22:08:16 | experiment_result | Build-timestamp attribution over five pure-Python sdists built 35 times with setuptools 45.2.0 + wheel 0.34.2 on CPython 3.8.10 (T-0017, EXPERIMENTS/0 |
-| 53 | 22:14:31 | command | $ python3 -m unittest discover -s tests |
+| 71 | 22:14:42 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sources.json |
+| 72 | 22:14:42 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/zipdiff.py |
+| 73 | 22:15:11 | decision | Two rules from T-0017's vacuous control: a gate clause is implemented by its own noun rather than a weaker proxy (attributed to a non-timestamp cause  |
+| 74 | 22:15:11 | artifact | wrote DECISIONS-GATING.md |
+| 75 | 22:21:46 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
+| 76 | 22:22:10 | artifact | wrote tasks/CLAIMS.jsonl |
+| 77 | 22:22:10 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
+| 78 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md |
+| 79 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log |
+| 80 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl |
 
-_3 middle events omitted; see `events.jsonl`._
+_30 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
