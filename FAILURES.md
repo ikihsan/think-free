@@ -161,6 +161,36 @@ written in a document, not a measurement. Any statement about what happens when
 two machines act at once has to be exercised by a test with two machines in it,
 otherwise it is a hope with a docstring.
 
+## F006 — Decision-directed advantage does not transfer to a fieldwork-cost budget
+
+Source: `EXPERIMENTS/002-a1-masking/distance.py`, `distance.json`, T-0007.
+
+**Observation.** T-0006 showed DD's advantage holds under a *count* budget
+(150 of 955 crossings) even at the K~budget corner. The open question was
+whether it survives the realistic cost metric: walking distance.
+
+**Experiment.** The same masks, priors, and policies as `masking.py`, but a
+policy's observations are whatever it can visit on a walk from the
+southwest corner that stays under D meters (D ∈ {40, 80, 160} km; the full
+nearest-neighbour tour of the neighbourhood takes ~190 km). 30 seeds, both
+mask modes, K=20, same regret definition.
+
+**Result.** `observed`. Median regret: centrality 16.3 (D=40 km) and 0
+(D ≥ 80 km); decision-directed 85.2 at every D; dd-walk (DD value per
+metre) 134.6 at D=40 km and 85.2 at D ≥ 80 km. The gate (DD within 25% of
+the strongest baseline in every config) failed in 6 of 6 configurations for
+both DD and dd-walk.
+
+**Conclusion.** The mechanism worked because of *what it observed*, not the
+budget: under a count budget DD fills 150 slots in 150 steps; under a walk
+budget its scattered marginal-value picks consume the distance cap after
+~17–60 hops, while space-filling baselines (centrality, tour) cover the
+neighbourhood. The DD-advantage hypothesis is **not confirmed** in the
+fieldwork-cost regime that motivated A1. This does not kill DD as a policy,
+but it kills "budget-limited implies DD wins".
+
+**Lesson.** A budget has a unit, and the unit is part of the hypothesis.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:

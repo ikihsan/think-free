@@ -43,6 +43,25 @@ Conclusion: the A1 mechanism helps in the realistic regime (budget-limited,
 moderate K) and disappears in the degenerate corner; this is a boundary
 result, not a contradiction.
 
+## Distance-budget variant (`distance.json`, T-0007)
+
+Same substrate and masking, but the budget is *walking distance* D from the
+southwest corner (nearest-neighbour full tour ≈ 190 km). A policy's
+observations are whatever it reaches within D metres along the walk it
+proposes. 30 seeds × 2 masks × D ∈ {40, 80, 160} km, K=20.
+
+| D | strongest baseline | decision-directed | dd-walk |
+|---|---|---|---|
+| 40 km | centrality, 16.3 | 85.2 | 134.6 |
+| 80 km | centrality, 0 | 85.2 | 85.2 |
+| 160 km | centrality, 0 | 85.2 | 85.2 |
+
+Gate (DD within 25% of strongest baseline in every config): **fails in 6 of
+6**. Under the realistic cost metric the A1 decision-directed advantage does
+not transfer — its scattered marginal-value picks exhaust the walk after
+~17–60 hops, while space-filling baselines cover the neighbourhood. See
+F006. Reproduce: `python3 EXPERIMENTS/002-a1-masking/distance.py`.
+
 ## Honest caveats
 
 - Per-seed regrets are nearly constant; the design is close to

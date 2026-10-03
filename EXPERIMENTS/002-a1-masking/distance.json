@@ -1,0 +1,222 @@
+{
+ "substrate": "OpenSidewalks/PLoS-cities-complex-systems@4f65e22b19576375b2b031b035631a20806da48e data/seattle.geojson",
+ "neighbourhood_n": 955,
+ "K": 20,
+ "distance_budgets_m": [
+  40000,
+  80000,
+  160000
+ ],
+ "seeds": 30,
+ "summary": {
+  "D40000_random": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 10.0,
+    "median_meters": 38413.88674495759
+   },
+   "centrality": {
+    "median_regret": 16.310000000000002,
+    "median_n_observed": 512.0,
+    "median_meters": 39993.85920994219
+   },
+   "missingness": {
+    "median_regret": 134.55,
+    "median_n_observed": 136.0,
+    "median_meters": 39850.17358715645
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 21.0,
+    "median_meters": 35930.690240222146
+   },
+   "dd-walk": {
+    "median_regret": 134.55,
+    "median_n_observed": 17.0,
+    "median_meters": 39937.96854053025
+   }
+  },
+  "D40000_block": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 10.0,
+    "median_meters": 37502.33300142431
+   },
+   "centrality": {
+    "median_regret": 16.310000000000002,
+    "median_n_observed": 512.0,
+    "median_meters": 39993.85920994219
+   },
+   "missingness": {
+    "median_regret": 113.52000000000001,
+    "median_n_observed": 136.5,
+    "median_meters": 39782.63908065832
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 21.0,
+    "median_meters": 35930.690240222146
+   },
+   "dd-walk": {
+    "median_regret": 134.55,
+    "median_n_observed": 17.0,
+    "median_meters": 39937.96854053025
+   }
+  },
+  "D80000_random": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 21.5,
+    "median_meters": 78045.9458122231
+   },
+   "centrality": {
+    "median_regret": 0.0,
+    "median_n_observed": 853.0,
+    "median_meters": 77951.64898403872
+   },
+   "missingness": {
+    "median_regret": 96.685,
+    "median_n_observed": 263.5,
+    "median_meters": 79702.9303139559
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 33.0,
+    "median_meters": 78448.30096669956
+   },
+   "dd-walk": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 25.0,
+    "median_meters": 78929.37748622333
+   }
+  },
+  "D80000_block": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 21.0,
+    "median_meters": 77337.79671989806
+   },
+   "centrality": {
+    "median_regret": 0.0,
+    "median_n_observed": 853.0,
+    "median_meters": 77951.64898403872
+   },
+   "missingness": {
+    "median_regret": 96.15,
+    "median_n_observed": 280.5,
+    "median_meters": 79805.66600704222
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 33.0,
+    "median_meters": 78448.30096669956
+   },
+   "dd-walk": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 25.0,
+    "median_meters": 78929.37748622333
+   }
+  },
+  "D160000_random": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 43.0,
+    "median_meters": 157671.78023354302
+   },
+   "centrality": {
+    "median_regret": 0.0,
+    "median_n_observed": 955.0,
+    "median_meters": 92360.79815849265
+   },
+   "missingness": {
+    "median_regret": 54.71000000000001,
+    "median_n_observed": 403.5,
+    "median_meters": 159003.2166306864
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 60.0,
+    "median_meters": 159031.74290202232
+   },
+   "dd-walk": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 66.0,
+    "median_meters": 153300.7976159453
+   }
+  },
+  "D160000_block": {
+   "random": {
+    "median_regret": 134.55,
+    "median_n_observed": 43.0,
+    "median_meters": 157849.68405760961
+   },
+   "centrality": {
+    "median_regret": 0.0,
+    "median_n_observed": 955.0,
+    "median_meters": 92360.79815849265
+   },
+   "missingness": {
+    "median_regret": 67.80000000000001,
+    "median_n_observed": 437.0,
+    "median_meters": 157866.4002946508
+   },
+   "tour": {
+    "median_regret": 134.55,
+    "median_n_observed": 150.0,
+    "median_meters": 6898.17263474212
+   },
+   "decision-directed": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 60.0,
+    "median_meters": 159031.74290202232
+   },
+   "dd-walk": {
+    "median_regret": 85.17000000000002,
+    "median_n_observed": 66.0,
+    "median_meters": 153300.7976159453
+   }
+  }
+ },
+ "gate": {
+  "rule": "treatment median regret <= 75% of strongest count-policy baseline in every (D, mode)",
+  "passes": {
+   "D40000_random/decision-directed": false,
+   "D40000_random/dd-walk": false,
+   "D40000_block/decision-directed": false,
+   "D40000_block/dd-walk": false,
+   "D80000_random/decision-directed": false,
+   "D80000_random/dd-walk": false,
+   "D80000_block/decision-directed": false,
+   "D80000_block/dd-walk": false,
+   "D160000_random/decision-directed": false,
+   "D160000_random/dd-walk": false,
+   "D160000_block/decision-directed": false,
+   "D160000_block/dd-walk": false
+  }
+ }
+}
