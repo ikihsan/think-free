@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0011
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/005-knitting-bounded-search/results.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/005-knitting-bounded-search/results.json'));assert d['cases_tested']>0 and 'all_bounded_optimal' in d"
 -->
 
