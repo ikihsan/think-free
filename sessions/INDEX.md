@@ -16,7 +16,7 @@ Showing the 25 most recent. 16 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
-| [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | **unfinished** | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T22:57 |
+| [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
 | [2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f](2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/README.md) | opencode | worked | T-0020: tell an in-flight session apart from an abandoned one in sessi | 2026-10-03T22:56 |
 | [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
