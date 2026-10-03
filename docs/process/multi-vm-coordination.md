@@ -32,7 +32,7 @@ held in a dirty tree on a dead VM blocks the task; release it with
 A claim is a lease, not a lock: it is *in force* until it is released,
 completed, or taken over, and `session verify` treats an unfinished session as
 in flight only while its claim is in force and younger than 12 hours
-(`--lease-hours`, D024). Past that the session is abandoned and fails the gate,
+(`--lease-hours`, D025). Past that the session is abandoned and fails the gate,
 which is how a dead VM is noticed without anyone watching the list.
 
 Because `claim` must be published on top of the base branch, and publishing it

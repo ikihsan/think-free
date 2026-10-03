@@ -132,7 +132,7 @@ An unfinished session is judged by *whose* it is, not merely by existing:
 - a session on another VM is `in flight` while its task claim proves it is still
   being worked on, and `abandoned` — a failure — otherwise. The predicate is
   [`../../tools/originlib/inflight.py`](../../tools/originlib/inflight.py) and
-  the reasoning is D024 in
+  the reasoning is D025 in
   [`DECISIONS-GATING.md`](../../DECISIONS-GATING.md).
 
 ## Recovery after an interruption

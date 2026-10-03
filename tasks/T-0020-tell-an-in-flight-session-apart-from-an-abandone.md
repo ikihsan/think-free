@@ -82,9 +82,26 @@ than `tasks.active_claims()`: a refusal that can name the closing action ("the
 last action is `complete`") tells an operator what to fix.
 
 **Deliberately not done:** publishing claims on a separate ref so in-flight
-sessions never reach the base branch. Rejected in D024 — it hides the claim from
+sessions never reach the base branch. Rejected in D025 — it hides the claim from
 `sync land` and from a reader browsing the base branch.
 
 **Not verified here:** a pushed CI run. Local `session verify --strict` exits 0
-while session 030 is in flight; whether the workflow step behaves the same is a
+while a session is in flight; whether the workflow step behaves the same is a
 claim for the run that lands this branch.
+
+**Landed by session 038, and how.** `sync land` stopped on real content
+conflicts in `DECISIONS-GATING.md`, `FAILURES.md`, `ROADMAP.md`, `STATE.md` and
+`tasks/CLAIMS.jsonl`. Each was resolved by keeping both VMs' claims; the
+append-only claim ledger keeps every entry from both machines and still parses.
+Those regions also carried the `<<<<<<<`/`=======`/`>>>>>>>` markers that
+`instance-20260717-0944` had committed to the shared base (its T-0021), and the
+marker lines were removed where this landing rewrote them — republishing them in
+a commit of my own would have been worse than the overlap. The *gate* that
+detects a marker anywhere in the tree is T-0021's and was not implemented here.
+
+Two corrections landed with it, both forced by evidence rather than planned: the
+predicate gained a fallback for a claim that names the session (D025's clause-1
+note), and `DECISIONS-GATING.md` was split by invariant into
+`DECISIONS-SCREENING.md` because D025 passed the 250-line trigger. The rebase
+carried those into this task's commit, so `git log --stat` on the branch is the
+authority on which commit holds what.
