@@ -84,6 +84,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](../tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](../tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](../tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](../tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -109,6 +110,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/002-a1-masking/README.md`](../EXPERIMENTS/002-a1-masking/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
 | [`EXPERIMENTS/003-information-sufficiency/README.md`](../EXPERIMENTS/003-information-sufficiency/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
 | [`EXPERIMENTS/004-knitting-stage-a/README.md`](../EXPERIMENTS/004-knitting-stage-a/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | The knitting repair candidate's own Stage-A test (HYPOTHESES.md): does a cheap |
+| [`EXPERIMENTS/005-knitting-bounded-search/README.md`](../EXPERIMENTS/005-knitting-bounded-search/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Follow-up to EXPERIMENTS/004-knitting-stage-a (T-0010), testing the repair |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

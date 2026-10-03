@@ -8,13 +8,16 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-25 recorded session(s). One `events.jsonl` per session, so concurrent
+26 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
+
+Showing the 25 most recent. 1 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | **unfinished** | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T19:33 |
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
-| [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | **unfinished** | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T17:41 |
+| [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | worked | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T20:27 |
 | [2026-10-03-022-run-the-knitting-stage-a-planner-compari](2026-10-03-022-run-the-knitting-stage-a-planner-compari/README.md) | opencode | worked | Run the knitting Stage-A planner comparison: local planner vs exhausti | 2026-10-03T17:38 |
 | [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | worked | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:22 |
 | [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | worked | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T17:16 |
@@ -37,7 +40,6 @@ sessions on separate branches never conflict.
 | [2026-10-03-004-stop-declaring-gitignored-build-output-a](2026-10-03-004-stop-declaring-gitignored-build-output-a/README.md) | opencode | worked | stop declaring gitignored build output as artifacts | 2026-10-03T17:19 |
 | [2026-10-03-003-record-the-session-002-reconciliation-ga](2026-10-03-003-record-the-session-002-reconciliation-ga/README.md) | opencode | worked | record the session-002 reconciliation gap honestly and fix the declara | 2026-10-03T17:17 |
 | [2026-10-03-002-build-durable-session-infrastructure-ven](2026-10-03-002-build-durable-session-infrastructure-ven/README.md) | opencode | worked | build durable session infrastructure, vendored skills, and the documen | 2026-10-03T17:09 |
-| [2026-10-03-001-build-durable-session-infrastructure-ven](2026-10-03-001-build-durable-session-infrastructure-ven/README.md) | unknown-agent | failed | build durable session infrastructure, vendored skills, and the documen | 2026-10-03T16:50 |
 
 
 ## Reading a session

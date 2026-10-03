@@ -103,7 +103,7 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (168 tests)
+- [x] Standard-library test suite (173 tests)
 - [x] Environment doctor with presence-only credential checks
 - [ ] Continuous integration running lint, tests, and session verification
 - [ ] `origin release check` validating `RELEASE-MANIFEST.md`

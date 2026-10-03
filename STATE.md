@@ -39,9 +39,9 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 20 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
+| Sessions | 26 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | 260 tracked files; every authored file is under the 300-line cap, and the 13 that exceed it are declared exemptions (vendored, raw results, append-only logs). `doc lint` exits 0 |
+| Documentation | `doc lint` checks 266 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
 
 ## In flight
 
@@ -49,6 +49,13 @@ This is the reload point. A cold session reads this file, then whatever it links
 census. Do not touch it. T-0012 (session 025) and T-0011 (session 023) are
 complete; T-0011 was claimed and run on `instance-20260717-0947` at the same time
 as T-0012, without collision.
+
+**Numbering collision to resolve when T-0013 lands.** Its verify command names
+`EXPERIMENTS/005-build-timestamps/`, and `005-knitting-bounded-search/` was
+claimed and landed first from the other VM. The directories do not collide on
+disk, so nothing breaks, but two different experiments will carry the number
+005. Whoever renumbers must update the task file's `verify` string, the
+directory, `docs/INDEX.md`, and `STATE.md` in one commit.
 
 Nothing else is claimed.
 
