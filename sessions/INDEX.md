@@ -13,7 +13,7 @@ sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | **unfinished** | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:10 |
+| [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
 | [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | **unfinished** | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T17:41 |
 | [2026-10-03-022-run-the-knitting-stage-a-planner-compari](2026-10-03-022-run-the-knitting-stage-a-planner-compari/README.md) | opencode | worked | Run the knitting Stage-A planner comparison: local planner vs exhausti | 2026-10-03T17:38 |
 | [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | worked | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:22 |

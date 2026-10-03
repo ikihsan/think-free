@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-03T19:10:15+00:00
-- **Duration:** ?s
+- **Duration:** 1337.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ screen all six sealed investigations with E's falsifiability and F's adoption cr
 
 ## Summary
 
-_(none recorded)_
+Ran the cross-report screen STATE.md had been carrying (T-0012). Wrote RESEARCH/SYNTHESIS.md: sixteen candidates from A-F in one table, three screens, ranked shortlist. Found that F's C1-C6 cannot discriminate unimplemented candidates and that a third question - what gets built if the gate passes - is the one that rules out E1, the cheapest experiment here. Recorded D020, split DECISIONS.md by invariant at the 300-line cap, added explicit any/all modes to reconcile so the decision gate survives the split without weakening the experiment_result gate, and repaired RESEARCH.md and ROADMAP.md which both still described investigations E and F as not run. doc lint 0; 173 tests pass.
+
+## Next
+
+Run the ventilation measurement kill gate from RESEARCH/C.md: a two-room mass-balance simulator in stdlib Python comparing passive fitting, a fixed door protocol, and adaptive selection at one observation budget, with paired near-identical parameter sets and held-out weather/mixing violations.
 
 ## Artifacts
 
@@ -57,7 +61,7 @@ _(none recorded)_
 
 ## Commands
 
-18 captured, 4 non-zero exit.
+20 captured, 5 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -79,12 +83,13 @@ _(none recorded)_
 | 39 | ['tools/origin', 'doc', 'lint'] | 0 | 1215 |
 | 41 | ['tools/origin', 'doc', 'lint'] | 0 | 1201 |
 | 44 | ['tools/origin', 'task', 'verify', 'T-0012'] | 0 | 1599 |
+| 48 | ['tools/origin', 'doc', 'index'] | 0 | 599 |
+| 49 | ['tools/origin', 'preflight'] | 2 | 1315 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -134,13 +139,18 @@ _(none recorded)_
 | 38 | 19:29:31 | command | $ python3 -m unittest discover -s tests |
 | 39 | 19:29:32 | command | $ tools/origin doc lint |
 | 40 | 19:30:31 | artifact | wrote tests/README.md |
-| 41 | 19:30:32 | command | $ tools/origin doc lint |
-| 42 | 19:31:20 | artifact | wrote STATE.md |
-| 43 | 19:31:40 | artifact | wrote STATE.md |
-| 44 | 19:31:48 | command | $ tools/origin task verify T-0012 |
-| 45 | 19:32:08 | artifact | wrote tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md |
-| 46 | 19:32:08 | artifact | wrote tasks/CLAIMS.jsonl |
 | 47 | 19:32:08 | artifact | wrote tasks/INDEX.md |
+| 48 | 19:32:09 | command | $ tools/origin doc index |
+| 49 | 19:32:11 | command | $ tools/origin preflight |
+| 50 | 19:32:33 | doc_update | updated DECISIONS-FOUNDATION.md |
+| 51 | 19:32:33 | doc_update | updated DECISIONS-PRACTICE.md |
+| 52 | 19:32:33 | doc_update | updated DECISIONS.md |
+| 53 | 19:32:33 | doc_update | updated RESEARCH.md |
+| 54 | 19:32:33 | doc_update | updated ROADMAP.md |
+| 55 | 19:32:33 | doc_update | updated STATE.md |
+| 56 | 19:32:33 | session_end | Ran the cross-report screen STATE.md had been carrying (T-0012). Wrote RESEARCH/SYNTHESIS.md: sixteen candidates from A-F in one table, three screens, |
+
+_6 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
