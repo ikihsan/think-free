@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-16 recorded session(s). One `events.jsonl` per session, so concurrent
+17 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p](2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p/README.md) | unknown-agent | worked | T-0004: make fleet and sync test suites pass, then document multi-VM f | 2026-10-03T16:42 |
 | [2026-10-03-016-sweep-budget-k-block-size-in-002-to-test](2026-10-03-016-sweep-budget-k-block-size-in-002-to-test/README.md) | opencode | worked | Sweep budget/K/block-size in 002 to test sensitivity of the A1 masking | 2026-10-03T16:19 |
 | [2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a](2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a/README.md) | opencode | worked | A1 experiment step 1: pin a PPNA commit and inspect whether a complete | 2026-10-03T16:15 |
 | [2026-10-03-014-fix-missing-pathlib-import-in-session-py](2026-10-03-014-fix-missing-pathlib-import-in-session-py/README.md) | opencode | worked | Fix missing pathlib import in session.py, document it, then run checks | 2026-10-03T16:08 |
