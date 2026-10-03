@@ -121,12 +121,13 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Standard-library test suite (174 tests), green on git 2.25.1 and 2.56.0
 - [x] Environment doctor with presence-only credential checks
 - [x] Continuous integration running lint, tests, and session verification.
-      Five gates, Python pinned with `setup-python`, and failing tests re-emitted
-      as public annotations. It had failed on **all 60** recorded runs because of
-      a git-version defect in `sync land` (`FAILURES.md` F011, fixed in T-0016);
-      whether it is now green end to end is recorded in `STATE.md`, and the
-      strict session gate stays red while a VM's session is in flight on the
-      shared branch.
+      Five gates, Python pinned with `setup-python`, failing tests re-emitted as
+      public annotations. **Measured green** for Tests, doc lint, skills check
+      and vendored integrity (run `37157528596`); it had failed on **all 60**
+      earlier runs because of a git-version defect in `sync land`
+      (`FAILURES.md` F011, fixed in T-0016). The remaining red step is
+      `session verify --strict` while any VM has a session in flight on the
+      shared branch, which is D013 meeting fleet practice rather than a defect.
 - [ ] `origin release check` validating `RELEASE-MANIFEST.md`
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists

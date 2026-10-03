@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-30 recorded session(s). One `events.jsonl` per session, so concurrent
+31 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 5 older session(s) are in the directory listing.
+Showing the 25 most recent. 6 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | **unfinished** | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:12 |
 | [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | **unfinished** | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T21:41 |
 | [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | worked | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T22:09 |
 | [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | worked | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:27 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 5 older session(s) are in the directory listing.
 | [2026-10-03-009-rework-the-multi-vm-agent-flow-isolated](2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/README.md) | opencode | partial | Rework the multi-VM agent flow: isolated worktrees, atomic claims, syn | 2026-10-03T15:06 |
 | [2026-10-03-008-t-0001-write-falsification-kill-gates-fo](2026-10-03-008-t-0001-write-falsification-kill-gates-fo/README.md) | opencode | worked | T-0001: write falsification kill gates for the three held candidates | 2026-10-03T12:51 |
 | [2026-10-03-007-switch-git-identity-to-bot-account-and-c](2026-10-03-007-switch-git-identity-to-bot-account-and-c/README.md) | opencode | worked | Switch git identity to bot account and commit | 2026-10-03T12:46 |
-| [2026-10-03-006-verify-github-app-push-access-with-a-sma](2026-10-03-006-verify-github-app-push-access-with-a-sma/README.md) | opencode | worked | Verify GitHub app push access with a small checkpoint commit | 2026-10-03T12:42 |
 
 
 ## Reading a session

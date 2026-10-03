@@ -41,7 +41,8 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | 28 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | `doc lint` checks 291 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
+| Documentation | `doc lint` checks 298 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
+| Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). The `Session record integrity` step is red while any VM has a session in flight on the shared branch |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -69,23 +70,26 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
 
 **Repository defects known on 2026-10-03**, none of them claimed:
 
-1. **CI is fixed but not yet shown green end to end.** All 60 recorded runs had
-   failed at the `Tests` step with no diagnosable cause. The cause was
-   `git rebase --continue` being interactive from git 2.26, which broke
-   `origin sync land` for any VM with a modern git (`FAILURES.md` F011, fixed in
-   T-0016). The workflow now pins Python 3.12 and re-emits failing tests as
-   public check-run annotations; the suite is green locally on git 2.25.1 and
-   git 2.56.0. **Still open:** reading the next run's conclusion from the public
-   Actions API, and the strict-session interaction above.
-2. **`origin doctor` does not record the git version as a compatibility
-   signal.** That omission is why F010/F011's cause went unnoticed: this
+1. **CI's own gates are green** (`observed`, run `37157528596`): Tests,
+   Documentation lint, Skill layout, and Vendored integrity all pass on commit
+   `b9991bde`. The one red step is `Session record integrity` (exit 4) while
+   `instance-20260717-0944` has a session in flight on the shared branch. The
+   underlying defect — `git rebase --continue` being interactive from git 2.26,
+   which broke `origin sync land` on any modern-git VM — is fixed and recorded as
+   `FAILURES.md` F011.
+2. **An in-flight session on the shared branch reddens every other VM's CI.**
+   D013 wants CI strict, and the fleet practice of committing a session's start
+   makes an unfinished session visible on the base branch. Open question, not a
+   defect: see next action 1.
+3. **`origin doctor` does not record the git version as a compatibility
+   signal.** That omission is why F011's cause went unnoticed: this
    repository's own capability record said git 2.55.0 while the fleet VM had
    2.25.1, and neither number was compared against what the code assumes.
-3. **`DECISIONS-PRACTICE.md` is within a few lines of the 300-line cap.** Split
+4. **`DECISIONS-PRACTICE.md` is within a few lines of the 300-line cap.** Split
    it by invariant before recording another decision there. Do not split it
    while `instance-20260717-0944` is mid-session: two VMs splitting one file is
-   the collision above, with more text.
-4. **Session 029 closed with nine `unlogged_change` events that are not its
+   the identifier collision above, with more text.
+5. **Session 029 closed with nine `unlogged_change` events that are not its
    own.** `tools/origin sync land` rebased that session's branch onto
    `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
    `HYPOTHESES.md`, `HYPOTHESES-results.md`, `RESEARCH.md`,
@@ -184,13 +188,17 @@ Ordered by information gained per unit of effort. Read the ceiling on each befor
 spending effort: a pass still leaves prior art, usefulness, and adoption
 untouched.
 
-1. **Read the next CI run's conclusion from the public Actions API.** T-0016
-   fixed the defect behind 60 red runs (`FAILURES.md` F011) and the suite is
-   green locally on git 2.25.1 and git 2.56.0; what is unproven is the workflow
-   end to end. Two steps can still be red for reasons nobody has fixed: the
-   `Session record integrity` gate while any VM's session is in flight on the
-   shared branch, and nothing else. **Ceiling:** a badge. It validates the
-   tooling, not a candidate — but a gate that has never passed is not a gate.
+1. **CI is green on every gate a commit controls; one gate is red by design.**
+   `observed`, run `37157528596` on commit `b9991bde`: Tests **success**,
+   Documentation lint **success**, Skill layout and mirrors **success**,
+   Vendored content integrity **success**, Session record integrity **failure**
+   (exit 4) — because `instance-20260717-0944`'s session is in flight on the
+   shared branch. That is the whole of the remaining red, and it is the D013
+   rule meeting the fleet's practice, not a defect in the change under test.
+   **Open question for whoever changes either rule:** should an unfinished
+   session on the base branch fail every other VM's build? Reading it as a
+   *warning* keeps D013's intent (a crashed run must not look successful) while
+   stopping one VM's in-flight work from reddening everyone else's push.
 2. **Finish what the fleet's own bookkeeping now blocks.** Record the git
    version in `origin doctor` as a compatibility signal, and split
    `DECISIONS-PRACTICE.md` before the next decision entry needs the space. Both
