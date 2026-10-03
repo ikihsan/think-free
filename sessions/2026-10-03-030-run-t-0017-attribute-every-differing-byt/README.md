@@ -98,6 +98,83 @@ _(none recorded)_
 | sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md | e5bb2248d625 | 9744 |
 | sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log | cacc845bece7 | 8974 |
 | sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl | d84342e59073 | 40489 |
+| .agents/skills/brainstorming/SKILL.md | 4a54a4858b99 | 10047 |
+| .agents/skills/brainstorming/scripts/frame-template.html | 6a8a4e58bd6a | 8094 |
+| .agents/skills/brainstorming/scripts/helper.js | 43c6d69954a4 | 5615 |
+| .agents/skills/brainstorming/scripts/server.cjs | 2d2961ea8d11 | 25693 |
+| .agents/skills/brainstorming/scripts/start-server.sh | a4e5ae84275b | 6908 |
+| .agents/skills/brainstorming/scripts/stop-server.sh | 0b5ccbbd57f6 | 3263 |
+| .agents/skills/brainstorming/spec-document-reviewer-prompt.md | 95a0a195de9d | 1747 |
+| .agents/skills/brainstorming/visual-companion.md | 60cbad29b9dd | 13298 |
+| .agents/skills/dispatching-parallel-agents/SKILL.md | 1968923066f3 | 6078 |
+| .agents/skills/doc-keeper/SKILL.md | bf054363f767 | 4413 |
+| .agents/skills/evidence-record/SKILL.md | e48092f157eb | 5242 |
+| .agents/skills/executing-plans/SKILL.md | c4c3d8b628c5 | 2305 |
+| .agents/skills/falsification-design/SKILL.md | c4ae9c628d30 | 5520 |
+| .agents/skills/finishing-a-development-branch/SKILL.md | d0ac8360ed9d | 7022 |
+| .agents/skills/honest-reporting/SKILL.md | 3d2aeb0643a0 | 4986 |
+| .agents/skills/prior-art-check/SKILL.md | b9bcb2404f4b | 5749 |
+| .agents/skills/receiving-code-review/SKILL.md | 091df1629510 | 6203 |
+| .agents/skills/requesting-code-review/SKILL.md | d71cc01ba56d | 2956 |
+| .agents/skills/requesting-code-review/code-reviewer.md | b2f2ec759692 | 5213 |
+| .agents/skills/session-lifecycle/SKILL.md | 5b0a680e4806 | 5821 |
+| .agents/skills/subagent-driven-development/SKILL.md | 349a08ad8b59 | 28077 |
+| .agents/skills/subagent-driven-development/implementer-prompt.md | 946601616a6f | 5717 |
+| .agents/skills/subagent-driven-development/re-review-prompt.md | e1d8e0e65e58 | 4300 |
+| .agents/skills/subagent-driven-development/scripts/review-package | fac3d4bd7f94 | 1469 |
+| .agents/skills/subagent-driven-development/scripts/sdd-workspace | 95a09d9d3983 | 1586 |
+| .agents/skills/subagent-driven-development/scripts/task-brief | d6954ef7841c | 1158 |
+| .agents/skills/subagent-driven-development/task-reviewer-prompt.md | e3b4a1bfe7cd | 7816 |
+| .agents/skills/systematic-debugging/CREATION-LOG.md | c24733a5b182 | 4257 |
+| .agents/skills/systematic-debugging/SKILL.md | 808fc5717aa8 | 9465 |
+| .agents/skills/systematic-debugging/condition-based-waiting-example.ts | 40ae5ebe497f | 5054 |
+| .agents/skills/systematic-debugging/condition-based-waiting.md | e89fec8400d6 | 3516 |
+| .agents/skills/systematic-debugging/defense-in-depth.md | 1e175fb86fc3 | 3650 |
+| .agents/skills/systematic-debugging/find-polluter.sh | dd7b8f13c4cc | 1986 |
+| .agents/skills/systematic-debugging/root-cause-tracing.md | 6b0622269e09 | 5316 |
+| .agents/skills/systematic-debugging/test-academic.md | fe2ba480d78a | 653 |
+| .agents/skills/systematic-debugging/test-pressure-1.md | 0b6a915db005 | 1900 |
+| .agents/skills/systematic-debugging/test-pressure-2.md | b2030aeffba0 | 2283 |
+| .agents/skills/systematic-debugging/test-pressure-3.md | 96b50a52e2c7 | 2692 |
+| .agents/skills/task-execution/SKILL.md | f01f2f1eb5fe | 4532 |
+| .agents/skills/test-driven-development/SKILL.md | bf1b8216e523 | 9015 |
+| .agents/skills/test-driven-development/writing-good-tests.md | 51471c853306 | 8268 |
+| .agents/skills/using-git-worktrees/SKILL.md | 8cfb86f12126 | 6813 |
+| .agents/skills/using-superpowers/SKILL.md | 55379fe7c1c4 | 3063 |
+| .agents/skills/using-superpowers/references/antigravity-tools.md | 4880f6de3da4 | 1495 |
+| .agents/skills/using-superpowers/references/codex-tools.md | d3f113a8ebbd | 1774 |
+| .agents/skills/using-superpowers/references/gemini-tools.md | 62b9157bcb0e | 4598 |
+| .agents/skills/using-superpowers/references/pi-tools.md | 703dbc83d23e | 1242 |
+| .agents/skills/verification-before-completion/SKILL.md | 2befe7fc55bc | 3646 |
+| .agents/skills/writing-plans/SKILL.md | 72190c88b2b5 | 6907 |
+| .agents/skills/writing-plans/plan-document-reviewer-prompt.md | aa728b96aad6 | 1713 |
+| .agents/skills/writing-skills/SKILL.md | d34db5c8aed6 | 26360 |
+| .agents/skills/writing-skills/anthropic-best-practices.md | 217629b356c0 | 46197 |
+| .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md | 0b379a3415e1 | 5423 |
+| .agents/skills/writing-skills/graphviz-conventions.dot | e2890a593c91 | 5970 |
+| .agents/skills/writing-skills/persuasion-principles.md | a51bc9bf7518 | 5901 |
+| .agents/skills/writing-skills/render-graphs.js | ccda971a87bb | 4857 |
+| .agents/skills/writing-skills/testing-skills-with-subagents.md | c711346852c9 | 12558 |
+| .git/COMMIT_EDITMSG | 64cb610a9c22 | 66 |
+| .git/FETCH_HEAD | c1cb63c3236c | 108 |
+| .git/HEAD | 07d1ce5a2f54 | 32 |
+| .git/ORIG_HEAD | 1f55b797edcd | 41 |
+| .git/config | 6ee3a77a44a7 | 284 |
+| .git/description | 85ab6c163d43 | 73 |
+| .git/hooks/applypatch-msg.sample | 0223497a0b8b | 478 |
+| .git/hooks/commit-msg.sample | 1f74d5e92929 | 896 |
+| .git/hooks/fsmonitor-watchman.sample | 9c34ab652721 | 3079 |
+| .git/hooks/post-update.sample | 81765af2daef | 189 |
+| .git/hooks/pre-applypatch.sample | e15c5b469ea3 | 424 |
+| .git/hooks/pre-commit.sample | d6d114e507a3 | 1638 |
+| .git/hooks/pre-merge-commit.sample | d3825a703379 | 416 |
+| .git/hooks/pre-push.sample | 4b1119e1e13a | 1348 |
+| .git/hooks/pre-rebase.sample | 4febce867790 | 4898 |
+| .git/hooks/pre-receive.sample | a4c3d2b9c7bb | 544 |
+| .git/hooks/prepare-commit-msg.sample | e9ddcaa4189f | 1492 |
+| .git/hooks/update.sample | 751c03732002 | 3610 |
+| .git/index | 98613b7ec838 | 42036 |
+| .git/info/exclude | 6671fe83b7a0 | 240 |
 
 ## Commands
 
@@ -121,8 +198,9 @@ _(none recorded)_
 | session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 1 |
 | redactions applied to command output | 0 |
+|   error | refused artifact .git/logs/HEAD: secret pattern(s) assigned-credential |
 
 ## Timeline
 
@@ -168,18 +246,18 @@ _(none recorded)_
 | 38 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
 | 39 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/builds.py |
 | 40 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/fetch_sources.py |
-| 71 | 22:14:42 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/sources.json |
-| 72 | 22:14:42 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/zipdiff.py |
-| 73 | 22:15:11 | decision | Two rules from T-0017's vacuous control: a gate clause is implemented by its own noun rather than a weaker proxy (attributed to a non-timestamp cause  |
-| 74 | 22:15:11 | artifact | wrote DECISIONS-GATING.md |
-| 75 | 22:21:46 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
-| 76 | 22:22:10 | artifact | wrote tasks/CLAIMS.jsonl |
-| 77 | 22:22:10 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
-| 78 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md |
-| 79 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log |
-| 80 | 22:22:10 | artifact | wrote sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl |
+| 149 | 22:25:33 | artifact | wrote .git/hooks/pre-commit.sample |
+| 150 | 22:25:33 | artifact | wrote .git/hooks/pre-merge-commit.sample |
+| 151 | 22:25:33 | artifact | wrote .git/hooks/pre-push.sample |
+| 152 | 22:25:33 | artifact | wrote .git/hooks/pre-rebase.sample |
+| 153 | 22:25:33 | artifact | wrote .git/hooks/pre-receive.sample |
+| 154 | 22:25:33 | artifact | wrote .git/hooks/prepare-commit-msg.sample |
+| 155 | 22:25:33 | artifact | wrote .git/hooks/update.sample |
+| 156 | 22:25:33 | artifact | wrote .git/index |
+| 157 | 22:25:33 | artifact | wrote .git/info/exclude |
+| 158 | 22:25:33 | integrity_error | refused artifact .git/logs/HEAD: secret pattern(s) assigned-credential |
 
-_30 middle events omitted; see `events.jsonl`._
+_108 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
