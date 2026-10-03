@@ -178,7 +178,7 @@ _(none recorded)_
 
 ## Commands
 
-8 captured, 1 non-zero exit.
+10 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -190,6 +190,8 @@ _(none recorded)_
 | 49 | ['python3', 'EXPERIMENTS/008-build-timestamp-attribution/attribute.py'] | 1 | 38789 |
 | 51 | ['python3', 'EXPERIMENTS/008-build-timestamp-attribution/attribute.py'] | 0 | 37511 |
 | 53 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 93097 |
+| 159 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 94292 |
+| 160 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 92231 |
 
 ## Integrity
 
@@ -246,8 +248,6 @@ _(none recorded)_
 | 38 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
 | 39 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/builds.py |
 | 40 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/fetch_sources.py |
-| 149 | 22:25:33 | artifact | wrote .git/hooks/pre-commit.sample |
-| 150 | 22:25:33 | artifact | wrote .git/hooks/pre-merge-commit.sample |
 | 151 | 22:25:33 | artifact | wrote .git/hooks/pre-push.sample |
 | 152 | 22:25:33 | artifact | wrote .git/hooks/pre-rebase.sample |
 | 153 | 22:25:33 | artifact | wrote .git/hooks/pre-receive.sample |
@@ -256,8 +256,10 @@ _(none recorded)_
 | 156 | 22:25:33 | artifact | wrote .git/index |
 | 157 | 22:25:33 | artifact | wrote .git/info/exclude |
 | 158 | 22:25:33 | integrity_error | refused artifact .git/logs/HEAD: secret pattern(s) assigned-credential |
+| 159 | 22:31:48 | command | $ python3 -m unittest discover -s tests |
+| 160 | 22:35:02 | command | $ python3 -m unittest discover -s tests |
 
-_108 middle events omitted; see `events.jsonl`._
+_110 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
