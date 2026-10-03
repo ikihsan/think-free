@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0012
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-025-screen-all-six-sealed-investigations-wit
+claim-vm: instance-20260717-0944
 verify: test -f RESEARCH/SYNTHESIS.md && grep -q 'origin-meta' RESEARCH/SYNTHESIS.md && grep -q 'Sealed' RESEARCH.md && grep -q 'Investigation E: experimental engineer' ROADMAP.md && ! grep -qE '^\| E \| Experimental engineer \| \*\*Not run\*\*' RESEARCH.md && tools/origin doc lint
 -->
 
