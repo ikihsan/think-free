@@ -32,7 +32,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
 | Investigations | A, B, C, D, E, F all sealed |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient) |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
@@ -50,13 +50,15 @@ fleet/sync suite green (168 tests, `task verify T-0004` exit 0), flow
 documented across process/operations/reference docs, AGENTS.md, and the two
 skills. The stale codex T-0004 claim was taken over with a recorded reason.
 
+T-0010 completed 2026-10-03 in session 022 (this VM); see below.
+
 T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
 survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
 information-insufficient (F007). Push credentialing on VM 0947 was repaired in
 the same session.
 
-## What changed in the last session (session 020, VM 0947)
+## What changed in session 020, VM 0947
 
 - `EXPERIMENTS/003-information-sufficiency/` — one synthetic witness per held
   candidate, each stating two realities with identical permitted inputs and the
@@ -68,10 +70,21 @@ the same session.
 - Push credentialing repaired: App ID recovered, durable JWT generator added
   under `~/.config/github-app/`.
 
-## What changed in the last session
+## What changed in the last session (session 022, VM 0947)
 
-Built the infrastructure the mission was missing, and folded the interrupted
-session's findings into the record:
+T-0010 completed: `EXPERIMENTS/004-knitting-stage-a/` runs the knitting
+candidate's own Stage A. A cheap per-error local heuristic was compared
+against an exhaustive minimum-cost oracle on 10 synthetic cases (9 solved, 1
+refused). The heuristic is valid on all 9 solved cases (never misses an
+error, never emits an illegal closure), refuses unsupported shaping, and is
+suboptimal on exactly one constructed shared-release case (local 5 vs.
+optimum 3) — the same_column_stack case a per-error rule cannot see. No
+full-row-release degeneration. Verdict `narrow`, not `abandon`; next test is
+a bounded-neighbourhood planner against the same oracle before Stage-B
+physical work. `task verify T-0010` exit 0. Push credentials on this VM are
+the durable `~/.config/github-app/` JWT helper from session 020.
+
+## Infrastructure build (sessions 015–016, earlier)
 
 - `tools/origin` — session logging, task dispatch, documentation lint, index
   generation, skill checks, environment doctor. Standard-library Python, no
@@ -111,11 +124,12 @@ session's findings into the record:
 
 Ordered by information gained per unit of effort.
 
-1. **Run the knitting Stage-A planner comparison.** T-0009 repaired the input
-   set (orientation added; witness W2 now distinguishable). The next test is the
-   candidate's own Stage A: a local planner vs. exhaustive search on enumerably
-   small graphs, checking boundary loops, yarn order, pull-through legality, and
-   exact final topology, and refusing unsupported states.
+1. **Test the bounded-neighbourhood planner.** T-0010 showed the naive
+   per-error local heuristic is valid but suboptimal on a shared-release
+   case. The kill-gate does not abandon the candidate; the next test is a
+   planner that closes releases before deciding patches (or searches a
+   bounded neighbourhood) checked against the same exhaustive oracle,
+   before any Stage-B physical work.
 2. **Use the A1 boundary result.** T-0007 (distance-budgeted variant)
    **falsified** the transfer of DD's count-budget advantage to the
    fieldwork-cost regime: space-filling baselines win at every distance

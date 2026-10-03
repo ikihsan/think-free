@@ -235,6 +235,15 @@ the specification: the witness now reports the two realities as distinguishable
 is sufficient for the *decision*; whether a planner can exploit it, and whether
 topology plus orientation is physically sufficient, remain untested.
 
+**Update (T-0010, 2026-10-03).** With the repaired input set, the Stage-A
+comparison ran (`EXPERIMENTS/004-knitting-stage-a/`): a naive per-error
+local heuristic is *valid* on every solved case and refuses unsupported
+shaping, but is *suboptimal* on a shared-release case (local 5 vs.
+exhaustive 3 on `same_column_stack_4x4`). This disproves only the specific
+naive heuristic as a sufficient planner, not the candidate; a
+bounded-neighbourhood planner is the next test. Verdict recorded in the
+experiment README and `HYPOTHESES.md`: `narrow`, not `abandon`.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:

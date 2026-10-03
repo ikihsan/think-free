@@ -81,6 +81,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md`](../tasks/T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md`](../tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0009-repair-the-knitting-witness-input-set-by-adding.md`](../tasks/T-0009-repair-the-knitting-witness-input-set-by-adding.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](../tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -104,6 +105,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/001-photo-baseline/README.md`](../EXPERIMENTS/001-photo-baseline/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/002-a1-masking/README.md`](../EXPERIMENTS/002-a1-masking/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
 | [`EXPERIMENTS/003-information-sufficiency/README.md`](../EXPERIMENTS/003-information-sufficiency/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
+| [`EXPERIMENTS/004-knitting-stage-a/README.md`](../EXPERIMENTS/004-knitting-stage-a/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | The knitting repair candidate's own Stage-A test (HYPOTHESES.md): does a cheap |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

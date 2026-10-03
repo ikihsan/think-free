@@ -1,0 +1,634 @@
+{
+  "all_local_optimal": false,
+  "all_local_valid": true,
+  "cases": [
+    {
+      "cables": [],
+      "case": "single_error_3x3",
+      "errors": [
+        [
+          1,
+          0
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 1 row 2",
+        "release column 1 row 1",
+        "release column 1 row 0",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 3,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 3,
+      "local_cost": 3,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          1,
+          0
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 3
+    },
+    {
+      "cables": [],
+      "case": "two_columns_3x3",
+      "errors": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 0 row 2",
+        "release column 2 row 2",
+        "release column 0 row 1",
+        "release column 2 row 1",
+        "release column 0 row 0",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 5,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 3,
+      "local_cost": 5,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          0,
+          0
+        ]
+      ],
+      "local_released": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 3
+    },
+    {
+      "cables": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "case": "adjacent_coupled_3x3",
+      "errors": [
+        [
+          0,
+          0
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "re-form patched loop at column 0 row 0",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 3,
+      "exhaustive_patched": [
+        [
+          0,
+          0
+        ]
+      ],
+      "exhaustive_released": [],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 3,
+      "local_cost": 3,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          0,
+          0
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 3
+    },
+    {
+      "cables": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "case": "spanning_coupled_3x4",
+      "errors": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "re-form patched loop at column 0 row 0",
+        "re-form patched loop at column 2 row 0",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 6,
+      "exhaustive_patched": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "exhaustive_released": [],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 6,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 3
+    },
+    {
+      "cables": [],
+      "case": "mid_error_4x4",
+      "errors": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 1 row 3",
+        "release column 2 row 3",
+        "release column 1 row 2",
+        "release column 2 row 2",
+        "release column 1 row 1",
+        "release column 2 row 1",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 6,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 6,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 4
+    },
+    {
+      "cables": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      ],
+      "case": "coupled_pair_4x4",
+      "errors": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "re-form patched loop at column 0 row 0",
+        "re-form patched loop at column 3 row 0",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 6,
+      "exhaustive_patched": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "exhaustive_released": [],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 6,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 4
+    },
+    {
+      "cables": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "case": "shared_release_4x4",
+      "errors": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 1 row 3",
+        "release column 2 row 3",
+        "release column 1 row 2",
+        "release column 2 row 2",
+        "release column 1 row 1",
+        "release column 2 row 1",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 6,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 6,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 4
+    },
+    {
+      "cables": [],
+      "case": "same_column_stack_4x4",
+      "errors": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 1 row 3",
+        "release column 1 row 2",
+        "release column 1 row 1",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 3,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 5,
+      "local_optimal": false,
+      "local_patched": [
+        [
+          1,
+          1
+        ]
+      ],
+      "local_released": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "local_valid": true,
+      "suboptimality": 2,
+      "width": 4
+    },
+    {
+      "cables": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "case": "coupled_shared_4x4",
+      "errors": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "exhaustive_actions": [
+        "place a holder above every column being released",
+        "release column 0 row 3",
+        "release column 1 row 3",
+        "release column 0 row 2",
+        "release column 1 row 2",
+        "release column 0 row 1",
+        "release column 1 row 1",
+        "secure the boundary loops and check each column's live edge"
+      ],
+      "exhaustive_cost": 6,
+      "exhaustive_patched": [],
+      "exhaustive_released": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exhaustive_sequence_checkable": true,
+      "exhaustive_valid": true,
+      "height": 4,
+      "local_cost": 6,
+      "local_optimal": true,
+      "local_patched": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "local_released": [],
+      "local_valid": true,
+      "suboptimality": 0,
+      "width": 4
+    },
+    {
+      "case": "unsupported_shaping",
+      "refused": true,
+      "required_behavior": "refuse",
+      "unsupported": "shaping at column 1"
+    }
+  ],
+  "cases_refused": [
+    "unsupported_shaping"
+  ],
+  "cases_solved": 9,
+  "cases_tested": 10,
+  "experiment": "004-knitting-stage-a",
+  "local_minus_exhaustive_total": 2,
+  "local_suboptimal_cases": [
+    "same_column_stack_4x4"
+  ],
+  "note": "Synthetic grid model with a patch-versus-release trade-off. Tests whether a specific greedy local rule reproduces the exhaustive minimum-cost repair. Says nothing about physical feasibility.",
+  "patch_cost": 3,
+  "schema": "origin.experiment.knitting-stage-a/1",
+  "synthetic": true
+}

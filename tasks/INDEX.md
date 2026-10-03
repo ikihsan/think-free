@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-9 task(s). Every task file declares a runnable verification command;
+10 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -22,6 +22,7 @@ last-verified: 2026-10-03
 | [`T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md`](T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md) | done |  | test -f EXPERIMENTS/002-a1-masking/distance.json | 2026-10-03 |
 | [`T-0008-apply-the-information-sufficiency-witness-to-the.md`](T-0008-apply-the-information-sufficiency-witness-to-the.md) | done |  | test -f EXPERIMENTS/003-information-sufficiency/ | 2026-10-03 |
 | [`T-0009-repair-the-knitting-witness-input-set-by-adding.md`](T-0009-repair-the-knitting-witness-input-set-by-adding.md) | done |  | python3 EXPERIMENTS/003-information-sufficiency/ | 2026-10-03 |
+| [`T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | done |  | test -f EXPERIMENTS/004-knitting-stage-a/results | 2026-10-03 |
 
 ## How tasks run on another machine
 

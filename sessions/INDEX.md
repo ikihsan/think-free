@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-21 recorded session(s). One `events.jsonl` per session, so concurrent
+22 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-022-run-the-knitting-stage-a-planner-compari](2026-10-03-022-run-the-knitting-stage-a-planner-compari/README.md) | opencode | worked | Run the knitting Stage-A planner comparison: local planner vs exhausti | 2026-10-03T17:38 |
 | [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | worked | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:22 |
 | [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | worked | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T17:16 |
 | [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |

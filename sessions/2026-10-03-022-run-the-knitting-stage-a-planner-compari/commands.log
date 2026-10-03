@@ -1,0 +1,76 @@
+==============================================================================
+[seq 3] 2026-10-03T17:26:11+00:00
+$ python3 EXPERIMENTS/004-knitting-stage-a/planner.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 6
+all local valid:   True
+all local optimal: True
+  single_error_3x3       opt=3 local=3 valid=True optimal=True full=False
+  two_columns_3x3        opt=5 local=5 valid=True optimal=True full=False
+  adjacent_coupled_3x3   opt=5 local=5 valid=True optimal=True full=False
+  spanning_coupled_3x4   opt=10 local=10 valid=True optimal=True full=False
+  mid_error_4x4          opt=6 local=6 valid=True optimal=True full=False
+  coupled_pair_4x4       opt=14 local=14 valid=True optimal=True full=False
+wrote /home/ubuntu/think-free/EXPERIMENTS/004-knitting-stage-a/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 491  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T17:27:30+00:00
+$ python3 EXPERIMENTS/004-knitting-stage-a/planner.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 7
+all local valid:   True
+all local optimal: False
+  single_error_3x3         opt= 3 local= 3 valid=1 optimal=1 subopt=0
+  two_columns_3x3          opt= 5 local= 5 valid=1 optimal=1 subopt=0
+  adjacent_coupled_3x3     opt= 3 local= 5 valid=1 optimal=0 subopt=2
+  spanning_coupled_3x4     opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  mid_error_4x4            opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  coupled_pair_4x4         opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  shared_release_4x4       opt= 6 local= 6 valid=1 optimal=1 subopt=0
+wrote /home/ubuntu/think-free/EXPERIMENTS/004-knitting-stage-a/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 116  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T17:28:12+00:00
+$ python3 EXPERIMENTS/004-knitting-stage-a/planner.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 9
+all local valid:   True
+all local optimal: False
+  single_error_3x3         opt= 3 local= 3 valid=1 optimal=1 subopt=0
+  two_columns_3x3          opt= 5 local= 5 valid=1 optimal=1 subopt=0
+  adjacent_coupled_3x3     opt= 3 local= 3 valid=1 optimal=1 subopt=0
+  spanning_coupled_3x4     opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  mid_error_4x4            opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  coupled_pair_4x4         opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  shared_release_4x4       opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  same_column_stack_4x4    opt= 3 local= 5 valid=1 optimal=0 subopt=2
+  coupled_shared_4x4       opt= 6 local= 6 valid=1 optimal=1 subopt=0
+wrote /home/ubuntu/think-free/EXPERIMENTS/004-knitting-stage-a/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 100  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T17:30:04+00:00
+$ python3 EXPERIMENTS/004-knitting-stage-a/planner.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 10  (solved 9, refused 1)
+all local valid:   True
+all local optimal: False
+  single_error_3x3         opt= 3 local= 3 valid=1 optimal=1 subopt=0
+  two_columns_3x3          opt= 5 local= 5 valid=1 optimal=1 subopt=0
+  adjacent_coupled_3x3     opt= 3 local= 3 valid=1 optimal=1 subopt=0
+  spanning_coupled_3x4     opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  mid_error_4x4            opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  coupled_pair_4x4         opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  shared_release_4x4       opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  same_column_stack_4x4    opt= 3 local= 5 valid=1 optimal=0 subopt=2
+  coupled_shared_4x4       opt= 6 local= 6 valid=1 optimal=1 subopt=0
+  unsupported_shaping      REFUSED (shaping at column 1)
+wrote /home/ubuntu/think-free/EXPERIMENTS/004-knitting-stage-a/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none

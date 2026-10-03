@@ -98,6 +98,18 @@ input distinguishes the two realities: the witness reports `silent_pair_found`
 algorithmic-advantage question is untouched and awaits the Stage-A planner
 comparison.
 
+**W2 Stage-A comparison (T-0010, `EXPERIMENTS/004-knitting-stage-a/`).**
+`observed`, 2026-10-03. The candidate's cheap local heuristic and an
+exhaustive minimum-cost oracle agree on 8/9 solvable synthetic cases and the
+heuristic is valid (never misses an error, never emits an illegal closure) on
+all 9; it refuses the unsupported-shaping case. It is suboptimal on the
+deliberately constructed `same_column_stack_4x4` shared-release case (local 5
+vs. optimum 3): the per-error rule cannot see that one release covers two
+errors. No full-row-release degeneration, no missing action sequence, no
+silent acceptance. Verdict `narrow`, not `abandon` — recorded in the
+experiment README; next test is a bounded-neighbourhood planner against the
+same oracle before any Stage-B physical work.
+
 **W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
 permitted input set: in each case an askable observation separates the realities,
 so next-observation selection carries decision-relevant information. This is
