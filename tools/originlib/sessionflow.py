@@ -14,7 +14,7 @@ what this repository exists to prevent.
 
 from __future__ import annotations
 
-from . import gitutil, sync
+from . import gitutil, paths, sync
 from .activestate import SessionError
 
 SESSION_OWNED_PREFIX = "sessions/"
@@ -62,15 +62,27 @@ def uncommitted_work(session_id: str) -> list[str]:
     return [
         path
         for path in sync.dirty_paths()
-        if path not in owned and not path.startswith(prefix)
+        if path not in owned
+        and not path.startswith(prefix)
+        and path != "sessions/active.json"
     ]
 
 
 def commit_session_record(session_id: str, outcome: str) -> str:
     """Commit the session's own files, and nothing else. Empty when nothing changed."""
-    gitutil.run(["add", "--", *session_owned_paths(session_id)])
+    # git refuses the whole add when one pathspec matches nothing, so stage
+    # only paths that actually exist. Silently staging nothing is the bug
+    # this guards: `diff --cached --quiet` then looks like "no changes".
+    root = paths.repo_root()
+    existing = [p for p in session_owned_paths(session_id) if (root / p).exists()]
+    if not existing:
+        return ""
+    add = gitutil.run(["add", "--", *existing])
+    if add.returncode != 0:
+        raise SessionError(f"could not stage the session record: {add.stderr.strip()}")
     if gitutil.run(["diff", "--cached", "--quiet"]).returncode == 0:
         return ""
-    if gitutil.run(["commit", "-q", "-m", f"session: {session_id} ({outcome})"]).returncode != 0:
-        return ""
+    commit = gitutil.run(["commit", "-q", "-m", f"session: {session_id} ({outcome})"])
+    if commit.returncode != 0:
+        raise SessionError(f"could not commit the session record: {commit.stderr.strip()}")
     return gitutil.text(["rev-parse", "HEAD"])

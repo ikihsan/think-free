@@ -128,6 +128,8 @@ class SyncTest(RepoTest):
         git(self.vm_a, "checkout", "-q", "-b", "task/T-0001-vm-a", "origin/research/origin")
         # Both VMs regenerate the same generated file with different content,
         # which is what two concurrent sessions actually produce.
+        (self.vm_a / "sessions").mkdir(exist_ok=True)
+        (self.vm_b / "sessions").mkdir(exist_ok=True)
         (self.vm_a / "sessions" / "INDEX.md").write_text(
             "# Sessions index\n\n<!-- origin-meta\nowner: docs/INDEX.md\nstatus: active\nlast-verified: 2026-10-03\n-->\n\nfrom a\n",
             encoding="utf-8",

@@ -38,11 +38,13 @@ tools/origin preflight                  # lint + skills + session integrity
 # 2. Identify yourself honestly in the record
 export ORIGIN_AGENT="opencode-headless" # or codex, claude, ...
 
-# 3. Take a task
+# 3. Take a task, in its own worktree
 tools/origin task list
 TASK=$(tools/origin task list --status open | head -1 | cut -d' ' -f1)
-tools/origin session start --goal "execute $TASK" --task "$TASK"
 tools/origin task claim "$TASK" --agent "$ORIGIN_AGENT" --vm "$(hostname)"
+tools/origin worktree add "$TASK"
+cd ".worktrees/$TASK"
+tools/origin session start --goal "execute $TASK" --task "$TASK"
 
 # 4. Work, logging as you go
 tools/x -- ./tools/origin doctor --offline
@@ -53,12 +55,10 @@ tools/origin task verify "$TASK"
 # 6. Close honestly, whatever happened
 tools/origin task complete "$TASK" --summary "…" --evidence …
 tools/origin doc index
-tools/origin session finish --outcome worked --summary "…" --next "…"
+tools/origin session finish --outcome worked --summary "…" --next "…" --push
 
-# 7. Publish the branch
-git checkout -b "task/$TASK-$(hostname)"
-git add -A && git commit -m "…"
-git push -u origin "task/$TASK-$(hostname)"
+# 7. Land the branch onto the shared base
+tools/origin sync land
 ```
 
 `tools/origin task verify` exits `3` when the declared command fails. That is
@@ -90,7 +90,7 @@ log. A single global `events.jsonl` would conflict on every concurrent run.
 
 | Problem | Current state |
 |---|---|
-| Stale claims from a dead VM | Detected manually via `session verify`; takeover must be logged honestly |
+| Stale claims from a dead VM | `task claim --takeover REASON`; the dead session finished honestly first |
 | Task-to-VM matching | Manual. An agent picks a task and claims it |
 | Budget and quota across VMs | Unimplemented. `doctor` reports resources per machine only |
 | Retry policy | Unimplemented. A failed session is a human decision to resume or cancel |

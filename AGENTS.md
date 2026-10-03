@@ -89,6 +89,8 @@ Rules that matter:
 | `tools/origin doctor` | Verify toolchain, network, git state; writes raw JSON |
 | `tools/origin session …` | Start, log, verify, finish, resume a session |
 | `tools/origin task …` | Create, claim, run, verify, complete dispatchable tasks |
+| `tools/origin sync …` | Fetch, fast-forward, push, and land work for other VMs |
+| `tools/origin worktree …` | Isolate a task in its own directory and branch |
 | `tools/origin doc lint` | Line caps, metadata, links, orphans, stale generated files |
 | `tools/origin doc index` | Regenerate `docs/INDEX.md`, `sessions/INDEX.md`, `tasks/INDEX.md` |
 | `tools/origin skills check` | Verify skill mirroring and naming rules |

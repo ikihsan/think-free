@@ -40,13 +40,17 @@ whose verification always passes is worse than no task.
 
 ```bash
 tools/origin task list
-tools/origin session start --goal "…" --task T-0001 --agent "$AGENT"
 tools/origin task claim T-0001 --agent "$AGENT" --vm "$HOSTNAME"
+tools/origin worktree add T-0001
+tools/origin session start --goal "…" --task T-0001 --agent "$AGENT"
 ```
 
 A second agent claiming a task that another agent holds **fails**. That is the
-whole mechanism: `tasks/CLAIMS.jsonl` is append-only, so claims from different
-branches merge without conflict, and a claim cannot be silently overwritten.
+whole mechanism: the claim is pushed atomically and the remote is the
+authority. A claim nobody has pushed protects nothing, so never use
+`--no-push` for real work. Take over a dead holder's claim with
+`task claim --takeover REASON`, after that session is verified and finished
+honestly.
 
 If you find a task claimed by an agent that is clearly gone, do not take it
 silently. Record your takeover in the session log with the evidence that the
@@ -83,7 +87,8 @@ Never complete a task whose verification has not been run in this session.
 ```bash
 tools/origin task complete T-0001 --summary "what changed" --evidence paths/
 tools/origin doc index
-tools/origin session finish --outcome worked --summary "…" --next "…"
+tools/origin session finish --outcome worked --summary "…" --next "…" --push
+tools/origin sync land
 ```
 
 Completion is a claim about the evidence, not about the effort. If the

@@ -39,6 +39,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/process/experiment-protocol.md`](process/experiment-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | How an experiment is designed, run, and judged. Read this before writing code |
 | [`docs/process/hypothesis-lifecycle.md`](process/hypothesis-lifecycle.md) | `docs/INDEX.md` | active | 2026-10-03 | How a candidate becomes a decision. The aim is that no candidate is ever |
+| [`docs/process/multi-vm-coordination.md`](process/multi-vm-coordination.md) | `docs/INDEX.md` | active | 2026-10-03 | How several machines share this repository safely. The invariant: git is the |
 | [`docs/process/review-protocol.md`](process/review-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | The adversarial step. Its purpose is not to confirm work but to find the reason |
 | [`docs/process/session-protocol.md`](process/session-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | Every working session follows these steps. The goal is that a session's record |
 | [`docs/process/task-lifecycle.md`](process/task-lifecycle.md) | `docs/INDEX.md` | active | 2026-10-03 | A task is a unit of work another machine can pick up without asking a question. |

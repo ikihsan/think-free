@@ -70,9 +70,14 @@ rather than repeating the discovery.
 tools/origin task claim T-0001 --agent "$AGENT" --vm "$HOSTNAME"
 ```
 
-A second agent claiming a held task fails with exit `1` and names the holder.
-This is the only concurrency control, and it is enough for a fleet that respects
-claims.
+A claim is written and then pushed atomically; when the claim has been pushed,
+the remote is the authority. A second agent claiming a held task fails with
+exit `1` and names the holder. This is the main concurrency control, and it is
+enough for a fleet that respects claims. An unpushed claim protects nothing —
+whatever it shows locally is invisible to every other machine.
+
+Work happens in its own directory and branch:
+`tools/origin worktree add T-0001` puts the task in `.worktrees/T-0001/`.
 
 **Stale claims.** A claim whose holder has disappeared blocks the task. Do not
 take it silently. Finish the dead session honestly first:
@@ -82,8 +87,15 @@ tools/origin session verify                 # find the unfinished session
 tools/origin session finish --outcome partial --summary "…" --next "…"
 ```
 
-then claim the task with a note recording the takeover. The audit trail shows the
-gap honestly instead of hiding it.
+then claim the task with a takeover note recording why the old claim is dead:
+
+```bash
+tools/origin task claim T-0001 --agent "$AGENT" --vm "$HOSTNAME" --takeover "holder VM gone since 2026-10-03"
+```
+
+The audit trail shows the gap honestly instead of hiding it. The same rule
+applies to a session that was claimed but never finished: verify first, then
+take over.
 
 ## Verification
 

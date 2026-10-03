@@ -31,6 +31,13 @@ tells you which. A leftover pointer means a session ended without `finish`;
 finish it or delete `sessions/active.json` deliberately, having checked
 `session verify` first.
 
+On a shared repository, `session start` also fetches the remote and
+fast-forwards onto the shared base before recording anything. A tree that
+diverged, or a tree with uncommitted changes while the remote moved, is
+refused — the session never starts from a state nobody else has seen, and
+never merges. The starting event records the remote commit the work branched
+from.
+
 ## 2. Declare artifacts, do not just write files
 
 `tools/origin session artifact <path>` records a file you produced together with
@@ -130,3 +137,8 @@ missing, and `verify` says so. Finish it honestly rather than deleting it.
 Each session writes its own `events.jsonl` under its own directory, so two
 sessions on different branches never conflict. `sessions/INDEX.md` is generated
 and may need regenerating after a merge; that is expected, not corruption.
+
+With `--push`, `session finish` commits only the session's own files and pushes
+the branch. Uncommitted work of your own is refused, not auto-committed, so the
+record and the work travel together. See
+[`multi-vm-coordination.md`](multi-vm-coordination.md) for the full contract.

@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0004
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 
@@ -34,12 +34,12 @@ GitHub remote reachable; existing session, task, and doc tooling understood.
 
 ## Acceptance criteria
 
-- [ ] Two clones cannot both hold one task: the loser is told who won
-- [ ] A VM works in its own worktree and branch, and worktrees are gitignored
-- [ ] session start fetches, fast-forwards, and refuses a stale or dirty tree
-- [ ] session finish --push commits the session record and pushes the branch
-- [ ] Generated index conflicts after a merge are resolved by regeneration
-- [ ] Full test suite and doc lint exit 0
+- [x] Two clones cannot both hold one task: the loser is told who won
+- [x] A VM works in its own worktree and branch, and worktrees are gitignored
+- [x] session start fetches, fast-forwards, and refuses a stale or dirty tree
+- [x] session finish --push commits the session record and pushes the branch
+- [x] Generated index conflicts after a merge are resolved by regeneration
+- [x] Full test suite and doc lint exit 0
 
 ## Verification
 
@@ -57,6 +57,20 @@ Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
 
 ### 2026-10-03, session 009: implementation committed, verification outstanding
+
+### 2026-10-03, session 017: takeover, green verification, docs
+
+Took the task over from a stalled codex claim (`--takeover`; its session
+never ended and its branch was never pushed). Fixed the last three failures:
+`sessionflow.uncommitted_work` flagged `sessions/active.json`, so
+`session finish --push` always refused; `commit_session_record` silently
+no-opped when one owned pathspec matched nothing, so the record was never
+committed before push; `sync land` needed `sessions/` to exist in a fresh
+clone. Also fixed the fleet harness (`session_events` read the wrong clone,
+seed `.gitignore` omitted `sessions/active.json`). Full suite: 168 tests OK,
+`task verify T-0004` exit 0. Documented the flow in
+`docs/process/multi-vm-coordination.md`, session/task protocols, vm-execution,
+CLI reference, AGENTS.md, and the two skills.
 
 Implemented: `sync.py` (status, pull, push, land), `worktree.py` (add, list,
 remove), `taskremote.py` (remote-truth claims, atomic push, takeover, release),

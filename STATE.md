@@ -27,24 +27,20 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims added in session 009, **not yet verified green** |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 11 recorded (010 opencode failed-superseded, 010 codex active); session 009 partial |
+| Sessions | 17 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | 183 tracked files; every authored file is under the 300-line cap, and the 7 that exceed it are declared vendored exemptions. `doc lint` exits 0 |
 
-## In flight: T-0004, multi-VM safety (session 009)
+## In flight
 
-Committed as work-in-progress on 2026-10-03 with tests **not** re-run green. What
-exists: `sync.py` (status/pull/push/land), `worktree.py`, `taskremote.py`
-(remote-truth claims, atomic push, takeover), `sessionflow.py` (fetch on start,
-push-the-record on finish), and `tests/test_fleet.py` + `tests/test_sync.py`. The
-last full run had six failures; four were fixed and the run was interrupted before
-re-verification. **First action for the next session: run the suite.** Remaining
-scope: process and operations documentation, the two skills, `AGENTS.md`, and the
-CLI reference do not yet describe any of this.
+Nothing claimed. T-0004 (multi-VM safety) completed 2026-10-03 in session 017:
+fleet/sync suite green (168 tests, `task verify T-0004` exit 0), flow
+documented across process/operations/reference docs, AGENTS.md, and the two
+skills. The stale codex T-0004 claim was taken over with a recorded reason.
 
 ## What changed in the last session
 
@@ -58,6 +54,9 @@ session's findings into the record:
   the exact log line range, with secrets redacted.
 - Per-session append-only event logs, reconciled against git at session end so
   undeclared changes and documentation gaps are reported rather than assumed away.
+- Multi-VM safety (T-0004, session 017): atomic pushed claims with takeover,
+  per-task worktrees, fetch-on-start, record-only finish pushes, and a green
+  two-clone fleet harness (168 tests, `task verify T-0004` exit 0).
 - Documentation graph: policy, process, operations, and reference documents, all
   metadata-tagged, index-linked, and capped at 300 lines.
 - 21 skills vendored in-repo, mirrored for every supported agent.

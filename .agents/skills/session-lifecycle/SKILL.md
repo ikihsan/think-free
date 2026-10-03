@@ -88,8 +88,15 @@ tools/origin doc index                          # regenerate generated files
 tools/origin doc lint                           # must exit 0
 tools/origin session finish --outcome worked \
   --summary "what actually happened" \
-  --next "the single most useful next action"
+  --next "the single most useful next action" \
+  --push                                        # when a remote is configured
 ```
+
+On a shared repository, `session start` fetched and fast-forwarded before
+recording, and `finish --push` commits only the session record before pushing.
+Do not skip either; a session that starts stale or ends unpublished corrupts
+the reload point for every other machine. See
+`docs/process/multi-vm-coordination.md`.
 
 Outcome values, chosen honestly:
 

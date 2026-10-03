@@ -31,14 +31,14 @@ Records what a working session did. Protocol:
 
 | Command | Effect |
 |---|---|
-| `session start --goal TEXT [--task ID] [--agent NAME]` | Opens the single active session; records goal, agent, host, branch, starting commit, files already dirty |
+| `session start --goal TEXT [--task ID] [--agent NAME]` | Fetches and fast-forwards onto the base, refuses a stale or dirty tree, then opens the single active session; records goal, agent, host, branch, starting commit, files already dirty |
 | `session step TEXT` | Records a milestone |
 | `session note TEXT` | Records an observation |
 | `session decision TEXT [--refs ...]` | Records a decision; implies `DECISIONS.md` must change |
 | `session experiment-result ID TEXT [--refs ...]` | Records an experiment outcome; implies `HYPOTHESES.md` and `FAILURES.md` must change |
 | `session block REASON` | Records a blocker; implies `STATE.md` must change |
 | `session artifact PATH... [--dir DIR]... [--note TEXT]` | Records files with their SHA-256 and size; `--dir` declares every file beneath a directory; refuses files containing credentials |
-| `session finish --outcome O --summary S --next N` | Reconciles against git, checks documentation obligations, closes the stream, regenerates reports |
+| `session finish --outcome O --summary S --next N [--push]` | Reconciles against git, checks documentation obligations, closes the stream, regenerates reports, commits the session record; `--push` also publishes the branch |
 | `session status` | Active session, elapsed time, staleness, event count |
 | `session resume [ID]` | Compressed brief: goal, outcome, decisions, last events |
 | `session list` | Every session and its outcome |
@@ -55,10 +55,28 @@ Dispatchable work. Protocol:
 |---|---|
 | `task new --goal TEXT --verify CMD [...]` | Creates a task file from the template |
 | `task list [--status S]` | Tasks with status and current holder |
-| `task claim ID --agent NAME [--vm NAME]` | Claims a task; fails if another agent holds it |
+| `task claim ID --agent NAME [--vm NAME] [--takeover R] [--push \| --no-push]` | Claims a task and publishes the claim; fails if another agent holds it. `--takeover` replaces a dead holder's claim with a recorded reason |
+| `task release ID --agent NAME [--vm NAME]` | Returns a held task to the pool with a recorded reason |
 | `task verify ID` | Runs the task's declared verification command; exit `3` on failure |
 | `task complete ID --summary S [--evidence ...]` | Marks done and appends to the claim ledger |
 | `task cancel ID --reason R` | Marks cancelled with a reason |
+
+## `sync`
+
+| Command | Effect |
+|---|---|
+| `sync status` | Branch, divergence from the remote base, dirty paths, rebase state |
+| `sync pull` | Fetch and fast-forward onto the base; refuses a dirty tree or a diverged one |
+| `sync push` | Publish the current branch; never forces |
+| `sync land` | Rebase this branch onto the base, regenerate conflicted indexes, push |
+
+## `worktree`
+
+| Command | Effect |
+|---|---|
+| `worktree add T-0001 [--branch NAME]` | Create an isolated worktree and branch for one task |
+| `worktree list` | List worktrees and the tasks they hold |
+| `worktree remove T-0001` | Remove the worktree; the branch is kept |
 
 ## `doc`
 

@@ -45,7 +45,9 @@ def make_repo(test: unittest.TestCase, _existing: Path | None = None) -> Path:
     shutil.rmtree(repo / "tools" / "originlib" / "__pycache__", ignore_errors=True)
     for name in ("docs", "docs/policy", "docs/process", "sessions", "tasks", "tests"):
         (repo / name).mkdir(parents=True, exist_ok=True)
-    (repo / ".gitignore").write_text("__pycache__/\n*.py[cod]\n.origin/\n", encoding="utf-8")
+    (repo / ".gitignore").write_text(
+        "__pycache__/\n*.py[cod]\n.origin/\nsessions/active.json\n", encoding="utf-8"
+    )
     git(repo, "init", "-q")
     # Name the branch explicitly: git's default differs by version and config,
     # and the fleet tests need clones that share one base branch.
@@ -191,7 +193,8 @@ class RepoTest(unittest.TestCase):
     def session_events(self, session: str) -> list[dict]:
         from originlib import events
 
-        return events.read(self.repo / "sessions" / session / "events.jsonl")
+        root = Path(os.environ.get("ORIGIN_ROOT", str(self.repo)))
+        return events.read(root / "sessions" / session / "events.jsonl")
 
     def kinds(self, session: str) -> list[str]:
         return [event.get("kind", "") for event in self.session_events(session)]
