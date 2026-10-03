@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0009
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-021-repair-the-knitting-witness-input-set-by
+claim-vm: instance-20260717-0947
 verify: python3 EXPERIMENTS/003-information-sufficiency/witness.py && python3 -c "import json;d=json.load(open('EXPERIMENTS/003-information-sufficiency/results.json'));w=d['witnesses']['W2_knitting_repair'];assert w['permitted_encoding_can_represent_the_difference'] is True and w['system']=='passive' and w['repaired'] is True"
 -->
 
