@@ -55,6 +55,19 @@ Checks contiguous sequence numbers, exactly one `session_start` and at most one
 unfinished), valid session ids, a generated report per session, and that every
 command event's recorded log line range still exists. Exit `4` on a problem.
 
+## Reading outcomes honestly
+
+`INDEX.md` records the outcome each session declared, including `failed`. A
+`failed` or `partial` outcome is a legitimate record, not a defect to be tidied
+away: an experiment that disproved its own motivating example
+(`FAILURES.md` F001) and a session closed deliberately in order to fix a defect
+before continuing are both more useful in the log than absent from it.
+
+Session `2026-10-03-001` in this repository is the second case. It was closed
+mid-way to add agent-runtime detection, which then identified the runtime
+correctly for session 002 onward. Its record was kept because the log is
+append-only and a discarded attempt is still an attempt that happened.
+
 ## Honest limitation
 
 Recording is cooperative. The design makes omissions **detectable** — git is

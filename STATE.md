@@ -24,8 +24,9 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
+| Sessions | 4 recorded, 3 worked, 1 deliberately abandoned mid-way and kept in the log |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | 162 tracked files, all under the 300-line cap or declared exempt. `doc lint` exits 0 |
+| Documentation | 183 tracked files; every authored file is under the 300-line cap, and the 7 that exceed it are declared vendored exemptions. `doc lint` exits 0 |
 
 ## What changed in the last session
 
