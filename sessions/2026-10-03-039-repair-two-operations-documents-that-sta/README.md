@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T23:26:36+00:00
-- **Duration:** ?s
+- **Duration:** 616.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ repair two operations documents that state requirements the repository has alrea
 
 ## Summary
 
-_(none recorded)_
+Repaired four operations documents that told a fresh VM something untrue, all public. vm-execution.md and bootstrap.md required Python 3.11+ from the development machine's 3.14.6, while this VM runs 3.8.10 with 232 tests green; both now state what is exercised and name the missing Python equivalent of tests/git-versions.json. github-app.md claimed no GitHub App exists while 123 of 133 commits carry a [bot] App identity; it now separates observed from unverified, marks its least-privilege table as a design to check against rather than a reading of reality, and records the result of the key-handling check it was waiting on. That check turned up a private key at mode 0644 inside a 0700 directory on this VM, repaired to 0600. ci.md was stale in the same family: five gates listed, sixth missed, preflight described as covering four when it covers three. Left open and recorded rather than silently fixed: the App's real permissions are unobservable from here, and doctor checks credential environment variables while the App uses a key file, so a VM with a broken helper reports healthy.
+
+## Next
+
+Unclaimed and genuinely useful: (a) a machine-readable record of the Python versions the suite is verified on, mirroring tests/git-versions.json; (b) a credential-presence check in doctor for a key-file App, so a broken helper stops looking healthy; (c) a headless task-runner script for VMs - the roadmap's 'once a VM exists' condition is now met, but scheduling and supervision still need the user's authorization and must not be started. T-0020 remains claimed on instance-20260717-0947 and is the only in-flight work. E2 side B stays time-gated until days after side A.
 
 ## Artifacts
 
@@ -57,7 +61,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -84,6 +87,9 @@ _(none recorded)_
 | 15 | 23:36:33 | artifact | wrote sessions/2026-10-03-039-repair-two-operations-documents-that-sta/README.md |
 | 16 | 23:36:33 | artifact | wrote sessions/2026-10-03-039-repair-two-operations-documents-that-sta/commands.log |
 | 17 | 23:36:33 | artifact | wrote sessions/2026-10-03-039-repair-two-operations-documents-that-sta/events.jsonl |
+| 18 | 23:36:52 | doc_update | updated ROADMAP.md |
+| 19 | 23:36:52 | doc_update | updated STATE.md |
+| 20 | 23:36:52 | session_end | Repaired four operations documents that told a fresh VM something untrue, all public. vm-execution.md and bootstrap.md required Python 3.11+ from the  |
 
 ## Reproduce this record
 
