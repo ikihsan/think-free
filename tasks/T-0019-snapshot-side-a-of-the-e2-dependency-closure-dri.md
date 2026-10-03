@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0019
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu
