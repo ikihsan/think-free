@@ -58,7 +58,7 @@ Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
 
 **Two defects found before the work started, by running the documented
-sequence** (both `FAILURES.md` F013, `FAILURES-findings-3.md`):
+sequence** (both `FAILURES.md` F014, `FAILURES-findings-3.md`):
 
 1. `worktree add` refused the claiming VM's own claim, so step 3 of
    `docs/operations/vm-execution.md` — claim, then isolate — could not be
@@ -66,15 +66,18 @@ sequence** (both `FAILURES.md` F013, `FAILURES-findings-3.md`):
 2. `worktree.WorktreeError` and `sync.SyncError` escaped `cli.main` as
    tracebacks. Now exit `1` with one stderr line.
 
-**Renumbered before landing.** These two findings were F012 and F013 until
-session 038: `instance-20260717-0944` published its E3 attribution finding as
-F012 while this branch was unpublished, so they are F013 and F014 here. The
-collision is recorded in `STATE.md`; the underlying defect — identifiers
-allocated from the local tree — is still unfixed.
+**Renumbered twice before landing, six collisions in all.** These two findings
+were F012 and F013 until session 038: `instance-20260717-0944` published its E3
+attribution finding as F012 while this branch was unpublished. They are F014 and
+F015 because the same VM then took F013 for the conflict-marker defect, and this
+task's session-gate decision moved from D024 to D025 to **D027** after the same VM
+issued D025 and D026 for unrelated decisions. The collisions are recorded in
+`FAILURES.md` and `STATE.md`; the underlying defect — identifiers allocated from
+each VM's own tree — is still unfixed.
 
 **A third, in the code this task reads:** `tasks.active_claims()` ignored the
 `takeover` ledger action while `taskremote.remote_active()` honoured it, so the
-local and remote views of a task's holder disagreed after every takeover (F014).
+local and remote views of a task's holder disagreed after every takeover (F015).
 The classification below reads the ledger, so it would have inherited that.
 
 **Design note.** The classification deliberately reads the *whole* ledger rather
@@ -82,7 +85,7 @@ than `tasks.active_claims()`: a refusal that can name the closing action ("the
 last action is `complete`") tells an operator what to fix.
 
 **Deliberately not done:** publishing claims on a separate ref so in-flight
-sessions never reach the base branch. Rejected in D025 — it hides the claim from
+sessions never reach the base branch. Rejected in D027 — it hides the claim from
 `sync land` and from a reader browsing the base branch.
 
 **Not verified here:** a pushed CI run. Local `session verify --strict` exits 0
@@ -100,8 +103,8 @@ a commit of my own would have been worse than the overlap. The *gate* that
 detects a marker anywhere in the tree is T-0021's and was not implemented here.
 
 Two corrections landed with it, both forced by evidence rather than planned: the
-predicate gained a fallback for a claim that names the session (D025's clause-1
+predicate gained a fallback for a claim that names the session (D027's clause-1
 note), and `DECISIONS-GATING.md` was split by invariant into
-`DECISIONS-SCREENING.md` because D025 passed the 250-line trigger. The rebase
+`DECISIONS-SCREENING.md` because D027 passed the line caps. The rebase
 carried those into this task's commit, so `git log --stat` on the branch is the
 authority on which commit holds what.
