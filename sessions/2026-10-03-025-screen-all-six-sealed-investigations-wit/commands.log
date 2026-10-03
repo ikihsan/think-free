@@ -431,3 +431,41 @@ cwd: /home/ubuntu/think-free
 T-0012: `test -f RESEARCH/SYNTHESIS.md && grep -q 'origin-meta' RESEARCH/SYNTHESIS.md && grep -q 'Sealed' RESEARCH.md && grep -q 'Investigation E: experimental engineer' ROADMAP.md && ! grep -qE '^\| E \| Experimental engineer \| \*\*Not run\*\*' RESEARCH.md && tools/origin doc lint` -> exit 0 in 1.27s
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 1599  redactions: none
+==============================================================================
+[seq 48] 2026-10-03T19:32:09+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated tasks/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 599  redactions: none
+==============================================================================
+[seq 49] 2026-10-03T19:32:11+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 261 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 441 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 25 session(s) checked
+  note  2026-10-03-025-screen-all-six-sealed-investigations-wit: in progress (command)
+  FAIL  2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl: last event is 'session_start'; session may be unfinished
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 1315  redactions: none

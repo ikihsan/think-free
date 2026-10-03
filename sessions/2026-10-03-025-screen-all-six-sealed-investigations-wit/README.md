@@ -51,6 +51,9 @@ _(none recorded)_
 | tests/README.md | a0d63cb02057 | 1567 |
 | STATE.md | 596a650d49cd | 13299 |
 | STATE.md | ca594cb10aae | 13704 |
+| tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md | a9a374f2a76c | 2909 |
+| tasks/CLAIMS.jsonl | 5c5fe2fa7974 | 9122 |
+| tasks/INDEX.md | 9650eb881441 | 3281 |
 
 ## Commands
 
@@ -135,6 +138,9 @@ _(none recorded)_
 | 42 | 19:31:20 | artifact | wrote STATE.md |
 | 43 | 19:31:40 | artifact | wrote STATE.md |
 | 44 | 19:31:48 | command | $ tools/origin task verify T-0012 |
+| 45 | 19:32:08 | artifact | wrote tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md |
+| 46 | 19:32:08 | artifact | wrote tasks/CLAIMS.jsonl |
+| 47 | 19:32:08 | artifact | wrote tasks/INDEX.md |
 
 ## Reproduce this record
 
