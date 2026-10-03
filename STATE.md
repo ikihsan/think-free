@@ -81,10 +81,14 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    D013 wants CI strict, and the fleet practice of committing a session's start
    makes an unfinished session visible on the base branch. Open question, not a
    defect: see next action 1.
-3. **`origin doctor` does not record the git version as a compatibility
-   signal.** That omission is why F011's cause went unnoticed: this
-   repository's own capability record said git 2.55.0 while the fleet VM had
-   2.25.1, and neither number was compared against what the code assumes.
+3. **Nothing compares a VM's git version against what this repository has been
+   exercised on.** `tools/origin doctor` does record it (`git --version`, in
+   `.origin/doctor.json` and in its printed summary), so the gap is not
+   recording. The gap is that `EXPERIMENTS/000-capabilities/` and this file's
+   capability paragraph were copied between VMs without being re-probed, and no
+   gate states which git versions the sync flow has actually run against — which
+   is how F011 went unnoticed for a session on a repository that was printing
+   the answer. **Ceiling:** this is bookkeeping hygiene, not a claim.
 4. **`DECISIONS-PRACTICE.md` is within a few lines of the 300-line cap.** Split
    it by invariant before recording another decision there. Do not split it
    while `instance-20260717-0944` is mid-session: two VMs splitting one file is
@@ -199,8 +203,9 @@ untouched.
    session on the base branch fail every other VM's build? Reading it as a
    *warning* keeps D013's intent (a crashed run must not look successful) while
    stopping one VM's in-flight work from reddening everyone else's push.
-2. **Finish what the fleet's own bookkeeping now blocks.** Record the git
-   version in `origin doctor` as a compatibility signal, and split
+2. **Finish what the fleet's own bookkeeping now blocks.** Say in one
+   machine-readable place which git versions the sync flow has been exercised
+   against (the suite is verified on 2.25.1 and 2.56.0), and split
    `DECISIONS-PRACTICE.md` before the next decision entry needs the space. Both
    are small; both are the kind of thing that costs a later session an hour.
    **Ceiling:** none of this says anything about a candidate.

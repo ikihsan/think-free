@@ -37,7 +37,8 @@ Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.
 
 **The git version is part of the suite's environment.** The land tests failed on
-git 2.56 and passed on git 2.25 until `FAILURES.md` F010 was fixed, because
-`git rebase --continue` opens an editor from git 2.26. Run the suite against the
-git your fleet actually uses — this repository's own VMs disagree (`EXPERIMENTS/000-capabilities/`
-recorded 2.55.0, one VM has 2.25.1).
+git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because
+`git rebase --continue` opens an editor from git 2.26. The suite is verified on
+2.25.1 and 2.56.0; this repository's VMs disagree (`EXPERIMENTS/000-capabilities/`
+recorded 2.55.0, one VM has 2.25.1), so run it against the git your fleet
+actually uses.
