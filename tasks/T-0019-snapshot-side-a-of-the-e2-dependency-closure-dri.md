@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0019
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json'));assert d['schema']=='origin.lockfile-snapshot/1';assert len(d['artifacts'])>=8;assert all(a['sha256'] and a['version'] for a in d['artifacts'])" && tools/origin doc lint
 -->
 
