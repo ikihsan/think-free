@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0015
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-028-run-the-knitting-candidate-s-remaining-k
+claim-vm: instance-20260717-0947
 verify: test -f RESEARCH/PRIOR-ART-KNITTING.md && for f in origin-meta 'Prior art' Inspected Difference 'Why it matters' 'Surviving risk' Confidence 'Query log' Verdict; do grep -q "$f" RESEARCH/PRIOR-ART-KNITTING.md || exit 1; done && grep -q 'PRIOR-ART-KNITTING.md' HYPOTHESES.md && grep -q 'PRIOR-ART-KNITTING.md' STATE.md && tools/origin doc lint
 -->
 
