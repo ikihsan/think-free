@@ -76,7 +76,10 @@ invalid closure) and **refuses the unsupported shaping case**. It is
 shallower cell, and patches nothing (cost 3). The heuristic reasons per error and
 cannot see that one release covers both.
 
-Fresh witness hashes are in `results.json` (`input_hashes`).
+`results.json` holds the per-case table only; it does not carry input hashes. The
+fixtures are the `CASES` list in `planner.py`, so the commit hash of that file
+identifies them. Follow-up:
+[`EXPERIMENTS/005-knitting-bounded-search`](../005-knitting-bounded-search/README.md).
 
 ## What this does and does not show
 

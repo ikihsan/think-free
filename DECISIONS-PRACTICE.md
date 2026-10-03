@@ -209,3 +209,32 @@ Rejected: applying C1–C6 as written and reporting six "not applicable" rows as
 the result, because that is a screen that cannot fail and therefore teaches
 nothing; and ranking by cheapness alone, because the cheapest experiment here
 (E1) is also the one whose outcome changes nothing.
+
+## D021 — An experiment is judged by the setting that can fail, not the best one (2026-10-03)
+
+Observed: the interrupted T-0011 draft defined its "bounded" planner by taking the
+product of every per-neighbourhood candidate. Measured, that product equals the
+oracle's `2**|errors|` on every T-0010 case, so its `all_optimal = true` was a
+tautology of the decomposition rather than a result. The replacement planner
+produces two settings that are also optimal — and two of them (`cap=1, beam=2`,
+`cap=2, beam=4`) turn out to evaluate exactly the oracle's `2**|errors|`
+combinations, because keeping a second candidate per chunk is exhaustive search
+wearing the planner's clothes.
+
+Decision: report the whole sweep, name the setting that fails and the settings
+that only look good, and count work as patch subsets enumerated **plus**
+combinations evaluated, because the combination phase is where the cost hides.
+A kill gate must name the setting it applies to. Settings that turn out to
+enumerate the baseline's own search space are labelled as such in the results and
+never counted as evidence for the planner under test.
+
+Rejected: reporting only the headline setting, because a reader would then take
+the best number as the planner's quality and never learn that the cheap settings
+fail; and "the planner is optimal, so it works", because optimality that follows
+from the model's structure is a check on the implementation, not a discovery.
+
+Consequence: `EXPERIMENTS/005-knitting-bounded-search/README.md` states the cap
+and beam sweep, the family-by-family work ratios (1.28x *worse* than the oracle
+on T-0010's own cases), and the explicit verdict that "bounded neighbourhood" is
+not an efficiency claim at this scale. The chunk cap is recorded as the failure
+boundary: whole neighbourhoods are exact, per-error chunks are not.

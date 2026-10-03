@@ -9,7 +9,11 @@ last-verified: 2026-10-03
 This repository holds two different things: the **product** the mission is
 trying to earn adoption for, and the **process record** that proves how it was
 reached. Only the first belongs on a public front door. This file is the
-authority on that split; `origin release check` validates it.
+authority on that split.
+
+No tool validates it yet: `origin` has no `release` command, so these tables are
+maintained by hand and reviewed, not enforced. Until a `release check` exists,
+a path listed as public here is a human claim rather than a machine guarantee.
 
 ## Public by default
 
@@ -36,9 +40,11 @@ authority on that split; `origin release check` validates it.
 
 1. A path not listed as public is **not** published. There is no wildcard.
 2. Promoting a path requires moving it here in the same commit that changes its
-   audience. `origin release check` fails otherwise.
+   audience. Nothing enforces this yet; review is the only gate.
 3. Nothing internal may contain a secret, a private URL, or an unpublished
-   third-party dataset path. `origin release check` scans for both.
+   third-party dataset path. `tools/origin session artifact` refuses known
+   secret shapes and the session log redacts them, but no release-time scan
+   exists.
 4. The public `README.md` must never describe unreleased behaviour as if it
    shipped. If the product does not exist yet, the README says so.
 

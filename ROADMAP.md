@@ -29,7 +29,7 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: not started.**
+**Status: partial.** Five experiments have run; no candidate has been validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -37,11 +37,13 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Write kill gates for the three held candidates in `HYPOTHESES.md` (T-0001, 2026-10-03)
 - [x] Apply the information-sufficiency test to the three held candidates (`003-information-sufficiency`, T-0008: W1/W3 survive, W2 spec insufficient, F007)
 - [x] Run the A1 masking experiment on the PPNA sidewalk extract (`002-a1-masking`, T-0005/T-0006/T-0007: count-budget gate met, fieldwork-cost gate fails, F006)
+- [x] Test the knitting candidate's Stage-A planner twice: per-error rule
+      suboptimal (`004-knitting-stage-a`, T-0010), whole-neighbourhood search
+      exact (`005-knitting-bounded-search`, T-0011)
 - [ ] Run at least two materially different falsification experiments before any
-      commitment decision. One run: `002-a1-masking` (a masked-real-data
-      decision-policy experiment). `004-knitting-stage-a` is a second mechanism
-      but a third domain; `RESEARCH/SYNTHESIS.md` names the ventilation protocol
-      as the next materially different one.
+      commitment decision. Only the knitting line has had two, and both runs
+      produced no product claim; `RESEARCH/SYNTHESIS.md` names the ventilation
+      protocol as the next materially different one.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
       fairness
 
@@ -101,7 +103,7 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (116 tests)
+- [x] Standard-library test suite (168 tests)
 - [x] Environment doctor with presence-only credential checks
 - [ ] Continuous integration running lint, tests, and session verification
 - [ ] `origin release check` validating `RELEASE-MANIFEST.md`
@@ -112,5 +114,8 @@ Separate from the invention stages, because the mission cannot be run without it
 ## Sequencing note
 
 The infrastructure track finished ahead of stage B because stage B is blocked on
-judgement rather than tooling: no candidate has a kill gate yet. Writing those
-gates is the next action in `STATE.md`.
+judgement rather than tooling. Kill gates now exist for the three held
+candidates, five experiments have run, and none has validated a claim. Stage B is
+now blocked on the open questions in `STATE.md`: C2's simulation kill gate, E3's
+timestamp census, and the prior-art condition still attached to the knitting
+candidate.

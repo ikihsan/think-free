@@ -36,7 +36,7 @@ Files: one self-contained directory per chosen experiment, with `README.md`, run
 - [ ] Select at least two materially different claims to test; this is not product commitment.
 - [ ] Write the design, controls, acceptance/rejection criteria, expected failure modes, and exact reproduction command before implementation.
 - [ ] For nontrivial reusable mechanisms, write and run failing behavioral tests before implementation, then implement and rerun.
-- [x] Run actual experiments and record unexpected/negative outcomes: `002-a1-masking` (gate met computationally, weak-sensitivity caveats).
+- [x] Run actual experiments and record unexpected/negative outcomes: `002-a1-masking` (gate met computationally, weak-sensitivity caveats), `003-information-sufficiency` (W2's input set insufficient), `004-knitting-stage-a` (valid but suboptimal on a shared release), `005-knitting-bounded-search` (exact at whole neighbourhoods, not at any cheaper setting).
 - [ ] Independently reproduce or review results and challenge whether the baseline is fair.
 
 ## Task 4 — Checkpoint and next decision

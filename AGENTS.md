@@ -139,8 +139,8 @@ Vendored superpowers skills behave as upstream, with these local overrides:
 
 - Plan and spec output belongs in `tasks/` or `docs/`, not `docs/superpowers/plans/`.
 - Routine design-approval prompts are superseded for research, experiment, and
-  infrastructure work (see `DECISIONS.md` D003). Ask the human when an action
-  needs authorization, not for ordinary design review.
+  infrastructure work (see `DECISIONS-research.md` D003). Ask the human when an
+  action needs authorization, not for ordinary design review.
 - `writing-plans` and `brainstorming` still produce a written design; it goes to
   `docs/process/` or the task file.
 

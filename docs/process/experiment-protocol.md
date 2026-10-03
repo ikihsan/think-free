@@ -75,9 +75,22 @@ EXPERIMENTS/0nn-slug/
 | Experiment | Result |
 |---|---|
 | `000-capabilities` | Environment probe: toolchain, memory, disk, public HTTPS. No invention claim tested. |
-| `001-photo-baseline` | A plain checksum set difference already explains the motivating photo-migration failure, so that example does not establish an advantage for a semantic auditor. Recorded in `FAILURES.md` and `DECISIONS.md`. |
+| `001-photo-baseline` | A plain checksum set difference already explains the motivating photo-migration failure, so that example does not establish an advantage for a semantic auditor. Recorded in `FAILURES.md` and `DECISIONS-research.md`. |
+| `002-a1-masking` | Gate met computationally, with weak-sensitivity caveats. |
+| `003-information-sufficiency` | W1 and W3 survive; W2's stated input set was insufficient and has been repaired. |
+| `004-knitting-stage-a` | The candidate's per-error rule is valid but suboptimal on a shared-release case. Verdict narrow, not abandon. |
+| `005-knitting-bounded-search` | Whole-neighbourhood search reproduces the oracle on 113/113 checked cases; cheaper settings are not, and two "optimal" settings are exhaustive search in disguise. |
 
-Investigations E and F of the six-role plan have not run. See `STATE.md`.
+Two of these killed or bounded a candidate; none validated a product claim. The
+six investigation roles (A–F) are sealed; see `STATE.md`.
+
+## Shape of a good result here
+
+`D020` in [`DECISIONS-research.md`](../../DECISIONS-research.md) records the
+lesson from `005`: report the settings that fail alongside the ones that pass,
+and count search work as subsets enumerated **plus** combinations evaluated. A
+setting that enumerates the baseline's own search space is the baseline, not an
+improvement on it.
 
 ## Role independence audit
 

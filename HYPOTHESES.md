@@ -18,7 +18,7 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Candidate | Source | State | Next experiment |
 |---|---|---|---|
 | Photo-migration auditor | `RESEARCH/B.md`, E001 | **Motivating example disproved** (`FAILURES.md` F001) | Needs a real case where bytes survive and relationships do not |
-| Knitting repair planner | `RESEARCH/C.md`, E002 | Hold; **witness found the spec information-insufficient** (W2), repaired with mount (T-0009); Stage-A planner valid but suboptimal (`004-knitting-stage-a`) | Bounded-neighbourhood planner vs. the same oracle (T-0011) |
+| Knitting repair planner | `RESEARCH/C.md`, E002 | Hold; **witness repaired** (W2, T-0009) and **Stage-A planner question answered at the mechanism level** (T-0010, T-0011): whole-neighbourhood search is exact 115/115, per-error 85/115, verdict narrow | Prior art on equivalent intervention sequences, then Stage B |
 | Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | Hold; **witness survives** (W3); strong competition | Simulation comparing adaptive against fixed protocol |
 | Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
@@ -109,6 +109,26 @@ errors. No full-row-release degeneration, no missing action sequence, no
 silent acceptance. Verdict `narrow`, not `abandon` — recorded in the
 experiment README; next test is a bounded-neighbourhood planner against the
 same oracle before any Stage-B physical work.
+
+**W2 Stage-A follow-up (T-0011, `EXPERIMENTS/005-knitting-bounded-search/`).**
+`observed`, 2026-10-03. The bounded-neighbourhood planner — group errors whose
+release closures intersect, take each group's minimum-cost local plan, charge the
+union of the releases once — is **valid and cost-identical to the exhaustive
+optimum on 115/115 checked cases** (116/116 with the opt-in `--slow` oracle), on
+both the development and the holdout fixture seed and at every patch cost swept,
+and it **refuses** both unsupported states. 004's per-error rule is optimal on
+85/115 of the same cases. The decomposition's per-chunk costs were separable on
+every case, which is the mechanism the design predicts, so this checks that the
+implementation matches its design rather than discovering anything. Two limits
+matter more than the headline: any *cheaper* setting is suboptimal (chunk cap 1
+fails on 20/115, fourteen of them holdout cases; cap 3 on 2 holdout cases), and two
+settings that look optimal (`cap=1, beam=2`, `cap=2, beam=4`) enumerate exactly
+the oracle's own search space and are exhaustive search in disguise. On T-0010's
+own fixtures the bounded planner does **1.28x more** work than the oracle; the
+saving appears only where closures fragment. Verdict: the Stage-A planner question
+is **answered at the mechanism level** — narrow, not abandoned — and the
+candidate's remaining gate is prior art plus unperformed Stage-B physical work,
+not more synthetic planner search. Recorded in `DECISIONS-PRACTICE.md` D021.
 
 **W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
 permitted input set: in each case an askable observation separates the realities,

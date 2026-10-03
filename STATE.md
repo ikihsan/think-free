@@ -30,9 +30,9 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Area | Verified status |
 |---|---|
-| Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
+| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–025, T-0012) and on `instance-20260717-0947` (sessions 020–023, T-0011) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012) |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon) |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
@@ -45,9 +45,10 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 ## In flight
 
-**T-0011 is claimed by opencode on `instance-20260717-0947`** — the
-bounded-neighbourhood knitting planner. Do not touch it. T-0012 completed in
-session 025 (this VM).
+**T-0013 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
+census. Do not touch it. T-0012 (session 025) and T-0011 (session 023) are
+complete; T-0011 was claimed and run on `instance-20260717-0947` at the same time
+as T-0012, without collision.
 
 Nothing else is claimed.
 
@@ -55,9 +56,45 @@ T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
 survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
 information-insufficient (F007). T-0010 (session 022, VM 0947) then ran the
-knitting Stage-A comparison. T-0004 (multi-VM safety, session 017) is green:
-fleet/sync suite passing, flow documented across process/operations/reference
-docs, AGENTS.md, and the two skills.
+knitting Stage-A comparison and T-0011 (session 023, VM 0947) closed it. T-0004
+(multi-VM safety, session 017) is green: fleet/sync suite passing, flow
+documented across process/operations/reference docs, AGENTS.md, and the two
+skills.
+
+## What changed in session 023, VM 0947
+
+T-0011 completed, on a session another VM had started and abandoned mid-edit.
+
+- `EXPERIMENTS/005-knitting-bounded-search/` tests the repair T-0010 named: close
+  releases *before* deciding patches, searching whole closure-overlap
+  neighbourhoods instead of per error. Model and oracle imported unchanged from
+  004, so the comparison is apples-to-apples. 118 fixtures: 115 with the oracle,
+  2 unsupported, 1 whose `2**24` oracle is opt-in via `--slow`.
+- **Result.** Whole-neighbourhood beam 1 is valid and cost-identical to the
+  exhaustive optimum on 115/115 checked cases (116/116 with `--slow`), on both
+  the development and the holdout fixture seed, at every swept `PATCH_COST`,
+  refusing both unsupported states inside the planner. 004's per-error rule is
+  optimal on 85/115 of the same cases. Verdict `narrow`, not `abandon`.
+- **Two limits that matter more than the headline.** Every cheaper setting is
+  worse: chunk cap 1 fails on 20/115 (14 of them holdout cases the code never
+  saw), cap 3 fails on 2 holdout cases. And two settings that *look* optimal
+  (`cap=1 beam=2`, `cap=2 beam=4`) evaluate exactly `2**|errors|`
+  combinations, so they are exhaustive search in disguise; they are labelled as
+  such and are not evidence for the bounded planner.
+- **"Bounded" is not an efficiency claim at this scale.** Counting patch subsets
+  plus combinations, the bounded planner does 1.28x *more* work than the oracle
+  on T-0010's own fixtures. The saving appears only where closures fragment
+  (48 subsets against `2**24` on the largest fixture).
+- The abandoned draft planner was measured and rejected before replacement: it
+  cross-multiplied its per-neighbourhood candidates, so its search space equalled
+  the oracle's and its `all_optimal = true` was a tautology of the decomposition.
+  Recorded as `DECISIONS-PRACTICE.md` D021.
+- Two pre-existing false claims in the record were corrected: 004's README cited
+  an `input_hashes` key that does not exist, and `RELEASE-MANIFEST.md` claimed an
+  `origin release check` command that `origin` does not have.
+- This VM rebased onto VM 0944's concurrent work (session 025, T-0012) rather than
+  overwriting it. Both decision-log splits existed; 0944's by-invariant split was
+  kept and this session's decision became D021.
 
 ## What changed in session 025, VM 0944
 
@@ -101,7 +138,7 @@ The screen `STATE.md` had been carrying as next action 3, run and recorded.
 - Push credentialing repaired: App ID recovered, durable JWT generator added
   under `~/.config/github-app/`.
 
-## What changed in the last session (session 022, VM 0947)
+## What changed in session 022, VM 0947
 
 T-0010 completed: `EXPERIMENTS/004-knitting-stage-a/` runs the knitting
 candidate's own Stage A. A cheap per-error local heuristic was compared
@@ -180,8 +217,14 @@ prior art, usefulness, and adoption untouched.
 4. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
    not effort-gated: the informative comparison is two snapshots weeks apart, and
    two resolver runs today measure nothing.
-5. **Let T-0011 finish** — bounded-neighbourhood knitting planner, claimed on VM
-   0947. Do not duplicate it.
+5. **Knitting: run the prior-art check on its remaining kill-gate condition.**
+   Stage A is settled (T-0010, T-0011), so the only untested condition is
+   "abandon the algorithmic-advantage claim if existing graph tooling already
+   supplies equivalent intervention sequences" — a literature question, cheap and
+   decisive. **Do not extend the synthetic planner line**: a third experiment
+   would measure the same decomposition again. **Ceiling:** a prior-art hit ends
+   the candidate's algorithmic claim without a line of code; Stage B physical
+   work needs an experienced knitter and authorization.
 6. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high.
 
