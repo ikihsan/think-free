@@ -9,6 +9,9 @@ last-verified: 2026-10-03
 Date: 2026-10-03, Asia/Kolkata. Phase: A complete, infrastructure built, B
 beginning. Mission active; **no product selected**.
 
+Host note: continuation VM `instance-20260717-0944` came online 2026-10-03;
+GitHub remote configured via GitHub App installation on `ikihsan/think-free`.
+
 This is the reload point. A cold session reads this file, then whatever it links.
 
 ## Dashboard
