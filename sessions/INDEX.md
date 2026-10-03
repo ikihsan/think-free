@@ -15,7 +15,7 @@ Showing the 25 most recent. 11 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | **unfinished** | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
+| [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
 | [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
 | [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
