@@ -1,0 +1,150 @@
+{
+  "observed_at_utc": "2026-10-03T10:08:07.048016+00:00",
+  "user_date": "2026-10-03",
+  "platform": "Linux-7.1.8-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "cpu_count": 12,
+  "disk_free_bytes": 9252585472,
+  "memory": {
+    "MemTotal": "16016880 kB",
+    "MemAvailable": "3921388 kB"
+  },
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "Python 3.14.6\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "git version 2.55.0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "v22.23.1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "10.9.8\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "gcc (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "rustc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "rustc 1.96.0 (ac68faa20 2026-05-25)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cargo",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "cargo 1.96.0 (30a34c682 2026-05-25)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "gcc",
+        "/tmp/origin-capability-nw24z599/probe.c",
+        "-o",
+        "/tmp/origin-capability-nw24z599/c-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/origin-capability-nw24z599/c-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "C execution verified\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "rustc",
+        "/tmp/origin-capability-nw24z599/probe.rs",
+        "-o",
+        "/tmp/origin-capability-nw24z599/rust-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/origin-capability-nw24z599/rust-probe"
+      ],
+      "exit_code": 0,
+      "stdout": "Rust execution verified\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "-e",
+        "console.log(\"Node execution verified\")"
+      ],
+      "exit_code": 0,
+      "stdout": "Node execution verified\n",
+      "stderr": ""
+    }
+  ],
+  "network": [
+    {
+      "url": "https://api.github.com/repos/sqlite/sqlite",
+      "status": 200,
+      "bytes_read": 4952,
+      "content_type": "application/json; charset=utf-8",
+      "rate_limit_remaining": "59"
+    },
+    {
+      "url": "https://www.sqlite.org/whentouse.html",
+      "status": 200,
+      "bytes_read": 21223,
+      "content_type": "text/html; charset=utf-8",
+      "rate_limit_remaining": null
+    },
+    {
+      "url": "https://arxiv.org/abs/1805.06358",
+      "status": 200,
+      "bytes_read": 41101,
+      "content_type": "text/html; charset=utf-8",
+      "rate_limit_remaining": null
+    }
+  ],
+  "credential_check": "Only presence of GH_TOKEN/GITHUB_TOKEN checked: both absent. No credentials read. Other authentication methods untested.",
+  "github_write": "Unverified; no gh CLI or connected GitHub API tool found.",
+  "scheduler": "No general autonomous agent scheduler verified. Goal tracking exists; persistence of inference after this interaction is not guaranteed."
+}
