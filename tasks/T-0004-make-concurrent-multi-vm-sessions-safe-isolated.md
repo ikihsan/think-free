@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0004
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: codex-multivm-20261003
+claim-session: 
+claim-vm: codex-local
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint
 -->
 
