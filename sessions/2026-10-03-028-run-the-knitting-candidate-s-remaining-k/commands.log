@@ -1794,3 +1794,19 @@ Ran 173 tests in 88.119s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 88505  redactions: none
+==============================================================================
+[seq 58] 2026-10-03T21:26:49+00:00
+$ tools/origin task verify T-0015
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0015: `test -f RESEARCH/PRIOR-ART-KNITTING.md && for f in origin-meta 'Prior art' Inspected Difference 'Why it matters' 'Surviving risk' Confidence 'Query log' Verdict; do grep -q "$f" RESEARCH/PRIOR-ART-KNITTING.md || exit 1; done && grep -q 'PRIOR-ART-KNITTING.md' HYPOTHESES.md && grep -q 'PRIOR-ART-KNITTING.md' STATE.md && tools/origin doc lint` -> exit 1 in 0.01s
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 312  redactions: none
+==============================================================================
+[seq 60] 2026-10-03T21:27:04+00:00
+$ tools/origin task verify T-0015
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0015: `test -f RESEARCH/PRIOR-ART-KNITTING.md && for f in origin-meta 'Prior art' Inspected Difference 'Why it matters' 'Surviving risk' Confidence 'Query log' Verdict; do grep -q "$f" RESEARCH/PRIOR-ART-KNITTING.md || exit 1; done && grep -q 'PRIOR-ART-KNITTING.md' HYPOTHESES.md && grep -q 'PRIOR-ART-KNITTING.md' STATE.md && tools/origin doc lint` -> exit 0 in 1.01s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1333  redactions: none

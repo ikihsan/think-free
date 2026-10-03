@@ -148,7 +148,7 @@ executed or benchmarked.
 minimum-cost, checkable *intervention sequence* for repairing a structure a
 person has already knitted by hand, where the alternative is unravelling rows.
 
-**Why it would matter — and the honest answer.** Only under two conditions
+**Why it matters — and the honest answer.** Only under two conditions
 that are both unproven here: the plan must save a knitter enough work to beat
 looking up a tutorial, and it must be *checkable*, which means the user must
 supply a correct chart patch and a loop orientation the planner can verify.
