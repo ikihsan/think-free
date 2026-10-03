@@ -23,7 +23,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Area | Verified status |
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
-| Investigations | A, B, C, D, E sealed. F never ran |
+| Investigations | A, B, C, D, E, F all sealed |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
@@ -96,7 +96,7 @@ Ordered by information gained per unit of effort.
    random heuristics at equal budget. Kill gate and acceptance threshold are
    written in `RESEARCH/A.md` step 5. Record whether a usable extract exists
    before investing in the comparison.
-3. **Run investigation F.** The adoption-researcher role has no sealed report, so the candidate set now comes from five perspectives and is missing one.
+3. **Compare the six sealed investigations** and feed only the surviving candidates into the information-sufficiency witness; keep E's and F's criteria as a screen.
 4. **Apply the information-sufficiency test** to the three held candidates. Ten
    lines of code each; it has already killed two proposals cheaply.
 5. **Do not build a product.** Nothing is selected, and the base rate for
@@ -117,9 +117,7 @@ Fresh probe: `tools/origin doctor`, writing `.origin/doctor.json`.
 
 ## Honest limitations of this state
 
-- The experimental-engineering role is now sealed (`RESEARCH/E.md`, three
-  cheap falsifiable mechanisms, none yet run). The adoption-researcher role
-  (F) is the only missing investigation.
+- All six investigation roles are sealed (`RESEARCH/A.md`–`F.md`). Synthesis is now possible; the adoption perspective is recorded but has never touched real users.
 - The one experiment that ran was a baseline check, not a candidate test. No
   invention claim has been validated.
 - Every candidate has substantial prior art; none has passed prior-art review.
