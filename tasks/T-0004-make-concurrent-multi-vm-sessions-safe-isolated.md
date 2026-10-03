@@ -8,9 +8,9 @@ last-verified: 2026-10-03
 id: T-0004
 status: claimed
 created: 2026-10-03
-claim-agent: codex-multivm-20261003
+claim-agent: opencode
 claim-session: 
-claim-vm: codex-local
+claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint
 -->
 
