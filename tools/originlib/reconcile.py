@@ -22,11 +22,11 @@ from . import events, gitutil, paths
 #          hypothesis record and the failure record; weakening that to "either"
 #          would let a disproved candidate be recorded in only one place.
 #   "any"  at least one record must change, and the report names records[0].
-#          The decision log is split by invariant across three files, so the
-#          event cannot say which entry was written and demanding all three
+#          The decision log is split by invariant across four files, so the
+#          event cannot say which entry was written and demanding all four
 #          would report a gap on every correct session.
 IMPLICATIONS = {
-    "decision": ("any", ("DECISIONS.md", "DECISIONS-PRACTICE.md", "DECISIONS-FOUNDATION.md")),
+    "decision": ("any", ("DECISIONS.md", "DECISIONS-PRACTICE.md", "DECISIONS-FOUNDATION.md", "DECISIONS-GATING.md")),
     "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),
     "block": ("all", ("STATE.md",)),
 }

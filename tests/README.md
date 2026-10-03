@@ -32,13 +32,17 @@ interfere with the working repository.
 | `test_sync.py` | Pull, push, land, rebase, divergence reporting; the rebase continue must stay non-interactive |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
+| `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
+| `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because
-`git rebase --continue` opens an editor from git 2.26. The suite is verified on
-2.25.1 and 2.56.0; this repository's VMs disagree (`EXPERIMENTS/000-capabilities/`
-recorded 2.55.0, one VM has 2.25.1), so run it against the git your fleet
-actually uses.
+`git rebase --continue` opens an editor from git 2.26. The machine-readable
+authority is [`git-versions.json`](git-versions.json): every version there has
+carried the full suite green. This repository's VMs disagree
+(`EXPERIMENTS/000-capabilities/` recorded 2.55.0, one VM has 2.25.1), so run
+the suite against the git your fleet actually uses — and when a new version
+goes green, record it in `git-versions.json` rather than in prose alone.

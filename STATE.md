@@ -60,7 +60,9 @@ branch. Whoever changes either rule owns the fix.
 
 Nothing else is claimed. T-0014 (session 027), T-0015 (session 028) and T-0016
 (session 029) are complete on `instance-20260717-0947`; T-0012 and the
-renumbered T-0017 are `instance-20260717-0944`'s.
+renumbered T-0017 are `instance-20260717-0944`'s. T-0018 (this session, bookkeeping:
+machine-readable git versions plus the practice-decisions split) is claimed by
+opencode on `instance-20260717-0947`.
 
 **Identifier collisions are being allocated by reading the local tree, so two
 VMs in the same hour collide by construction.** Twice on 2026-10-03: T-0016 and
@@ -89,10 +91,12 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    gate states which git versions the sync flow has actually run against — which
    is how F011 went unnoticed for a session on a repository that was printing
    the answer. **Ceiling:** this is bookkeeping hygiene, not a claim.
-4. **`DECISIONS-PRACTICE.md` is within a few lines of the 300-line cap.** Split
-   it by invariant before recording another decision there. Do not split it
-   while `instance-20260717-0944` is mid-session: two VMs splitting one file is
-   the identifier collision above, with more text.
+4. **`DECISIONS-PRACTICE.md` was within a few lines of the 300-line cap.**
+   Split it by invariant in T-0018: mechanics (D011–D012, D014–D018) stay,
+   verification and judgement (D013, D019–D023) moved verbatim to
+   `DECISIONS-GATING.md` (149 and 174 lines). No new numbered decision was
+   recorded with the split, so there is no D-number for `instance-20260717-0944`'s
+   in-flight T-0017 session to collide with.
 5. **Session 029 closed with nine `unlogged_change` events that are not its
    own.** `tools/origin sync land` rebased that session's branch onto
    `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
@@ -203,11 +207,12 @@ untouched.
    session on the base branch fail every other VM's build? Reading it as a
    *warning* keeps D013's intent (a crashed run must not look successful) while
    stopping one VM's in-flight work from reddening everyone else's push.
-2. **Finish what the fleet's own bookkeeping now blocks.** Say in one
-   machine-readable place which git versions the sync flow has been exercised
-   against (the suite is verified on 2.25.1 and 2.56.0), and split
-   `DECISIONS-PRACTICE.md` before the next decision entry needs the space. Both
-   are small; both are the kind of thing that costs a later session an hour.
+2. **Fleet bookkeeping is recorded machine-readably (T-0018, this session).**
+   The exercised git versions live in `tests/git-versions.json` (schema
+   `origin.git-versions/1`, covered by `tests/test_gitversions.py`): the suite
+   is verified on 2.25.1 and 2.56.0, and the pre-F011 breakage from 2.26 on is
+   recorded as a known-affected range. `tests/README.md` and
+   `docs/operations/ci.md` point at the file instead of restating versions.
    **Ceiling:** none of this says anything about a candidate.
 3. **E3's census is done; the attribution half is not** (F010, T-0017, claimed
    on `instance-20260717-0944`). The declared 5% gate was met at 0.965 by a

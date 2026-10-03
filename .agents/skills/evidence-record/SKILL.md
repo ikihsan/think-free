@@ -78,7 +78,8 @@ genuinely open and the choice constrains later work — not every edit.
 Which file it goes in is decided by invariant, not by size. `DECISIONS.md` is
 the index; `DECISIONS-FOUNDATION.md` holds what the mission is, what the
 workspace is, and what counts as evidence; `DECISIONS-PRACTICE.md` holds how
-work is recorded, verified, published, and gated.
+work is recorded, moved, and published; `DECISIONS-GATING.md` holds how work
+is verified, screened, and judged.
 
 ```bash
 tools/origin session decision "…" --refs <files>

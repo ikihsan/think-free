@@ -13,22 +13,29 @@ ordinary edits do not.
 | File | Decisions | Governs |
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
-| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D022 | Recording, verifying, publishing, and gating work |
+| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018 | Recording, moving, and publishing work |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D019–D023 | Verifying, screening, and judging work |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
-needs to know *what a session must produce and what stops it* reads only the
-practice file. No entry appears in both, and a new decision goes in the file its
-own statement fits; never split one decision across the boundary.
+needs to know *what a session must produce and move* reads only the
+practice file. A reader who needs to know *what passes and what stops* reads
+only the gating file. No entry appears in more than one file, and a new
+decision goes in the file its own statement fits; never split one decision
+across the boundary.
 
 Split at 2026-10-03 when this file reached the 300-line cap required by
 [`docs/policy/doc-standards.md`](docs/policy/doc-standards.md). The entries were
 moved verbatim; the numbering is continuous and unchanged, so any existing
 reference to a decision id still resolves.
 
+Split again at 2026-10-03 (T-0018) when `DECISIONS-PRACTICE.md` reached 297 of
+the 300 permitted lines: D013 and D019–D023 moved verbatim to
+`DECISIONS-GATING.md` by invariant, not by date.
+
 **Newest decision:** see the end of
-[`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md).
+[`DECISIONS-GATING.md`](DECISIONS-GATING.md).
 
 A recorded `decision` event satisfies this gate when **any** decision record
-changed; `origin` checks all three files for that reason. See
+changed; `origin` checks all four files for that reason. See
 [`docs/process/session-protocol.md`](docs/process/session-protocol.md).

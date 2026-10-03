@@ -34,7 +34,7 @@ Records what a working session did. Protocol:
 | `session start --goal TEXT [--task ID] [--agent NAME]` | Fetches and fast-forwards onto the base, refuses a stale or dirty tree, then opens the single active session; records goal, agent, host, branch, starting commit, files already dirty |
 | `session step TEXT` | Records a milestone |
 | `session note TEXT` | Records an observation |
-| `session decision TEXT [--refs ...]` | Records a decision; implies at least one of `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md` must change |
+| `session decision TEXT [--refs ...]` | Records a decision; implies at least one of `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md`, `DECISIONS-GATING.md` must change |
 | `session experiment-result ID TEXT [--refs ...]` | Records an experiment outcome; implies `HYPOTHESES.md` and `FAILURES.md` must change |
 | `session block REASON` | Records a blocker; implies `STATE.md` must change |
 | `session artifact PATH... [--dir DIR]... [--note TEXT]` | Records files with their SHA-256 and size; `--dir` declares every file beneath a directory; refuses files containing credentials |

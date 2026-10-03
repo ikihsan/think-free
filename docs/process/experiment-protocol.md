@@ -87,7 +87,7 @@ six investigation roles (A–F) are sealed; see `STATE.md`.
 
 ## Shape of a good result here
 
-`D021` in [`DECISIONS-PRACTICE.md`](../../DECISIONS-PRACTICE.md) records the
+`D021` in [`DECISIONS-GATING.md`](../../DECISIONS-GATING.md) records the
 lesson from `005`: report the settings that fail alongside the ones that pass,
 and count search work as subsets enumerated **plus** combinations evaluated. A
 setting that enumerates the baseline's own search space is the baseline, not an

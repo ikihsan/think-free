@@ -104,7 +104,7 @@ failed, `4` integrity violation.
 
 | Zone | Contents | Public |
 |---|---|---|
-| Root records | `MISSION.md` `STATE.md` `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `HYPOTHESES.md` `FAILURES.md` `ROADMAP.md` `RESEARCH.md` | per `RELEASE-MANIFEST.md` |
+| Root records | `MISSION.md` `STATE.md` `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-GATING.md` `HYPOTHESES.md` `FAILURES.md` `ROADMAP.md` `RESEARCH.md` | per `RELEASE-MANIFEST.md` |
 | `RESEARCH/` | Independent investigation reports, sealed | no |
 | `EXPERIMENTS/` | Runnable experiments with raw results | no |
 | `docs/` | Policy, process, operations, reference | yes |

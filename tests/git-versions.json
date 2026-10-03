@@ -1,0 +1,26 @@
+{
+  "schema": "origin.git-versions/1",
+  "updated": "2026-10-03",
+  "verified": [
+    {
+      "git": "2.25.1",
+      "scope": "full suite (174 tests) green",
+      "where": "instance-20260717-0947",
+      "via": "T-0016"
+    },
+    {
+      "git": "2.56.0",
+      "scope": "full suite (174 tests) green",
+      "where": "micromamba-provided git on instance-20260717-0947",
+      "via": "T-0016"
+    }
+  ],
+  "known_affected_before_fix": [
+    {
+      "range": ">= 2.26 without the F011 fix",
+      "symptom": "origin sync land blocks on an editor at git rebase --continue, then fails",
+      "via": "FAILURES.md F011"
+    }
+  ],
+  "note": "Machine-readable authority for which git versions the sync flow has been exercised against. STATE.md named this gap on 2026-10-03: the suite was verified on two versions while the fleet's VMs disagree, and no gate stated the exercised range."
+}

@@ -34,7 +34,7 @@ a path listed as public here is a human claim rather than a machine guarantee.
 | `sessions/` | Raw operational history of agent runs. Interesting to auditors, noise to users. |
 | `tasks/` | Dispatch state for the VM fleet. Meaningless outside the mission. |
 | `RESEARCH/` `EXPERIMENTS/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
-| `MISSION.md` `STATE.md` `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `HYPOTHESES.md` `FAILURES.md` `ROADMAP.md` `RESEARCH.md` | Mission control records. Honest to keep, distracting as a front door. |
+| `MISSION.md` `STATE.md` `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-GATING.md` `HYPOTHESES.md` `FAILURES.md` `ROADMAP.md` `RESEARCH.md` | Mission control records. Honest to keep, distracting as a front door. |
 
 ## Rules
 
