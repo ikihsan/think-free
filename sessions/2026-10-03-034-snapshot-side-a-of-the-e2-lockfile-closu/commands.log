@@ -1,0 +1,71 @@
+==============================================================================
+[seq 2] 2026-10-03T22:26:14+00:00
+$ pip3 download -d /tmp/opencode/e2snap requests six packaging pyparsing
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Collecting requests
+  Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+  Saved /tmp/opencode/e2snap/requests-2.32.4-py3-none-any.whl
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+  Saved /tmp/opencode/e2snap/six-1.17.0-py2.py3-none-any.whl
+Collecting packaging
+  Downloading packaging-26.2-py3-none-any.whl (100 kB)
+  Saved /tmp/opencode/e2snap/packaging-26.2-py3-none-any.whl
+Collecting pyparsing
+  Downloading pyparsing-3.1.4-py3-none-any.whl (104 kB)
+  Saved /tmp/opencode/e2snap/pyparsing-3.1.4-py3-none-any.whl
+Collecting idna<4,>=2.5
+  Downloading idna-3.15-py3-none-any.whl (72 kB)
+  Saved /tmp/opencode/e2snap/idna-3.15-py3-none-any.whl
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.2.3-py3-none-any.whl (126 kB)
+  Saved /tmp/opencode/e2snap/urllib3-2.2.3-py3-none-any.whl
+Collecting certifi>=2017.4.17
+  Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+  Saved /tmp/opencode/e2snap/certifi-2026.7.22-py3-none-any.whl
+Collecting charset_normalizer<4,>=2
+  Downloading charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (253 kB)
+  Saved /tmp/opencode/e2snap/charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+Successfully downloaded requests six packaging pyparsing idna urllib3 certifi charset-normalizer
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7836  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T22:26:17+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+8 artifacts recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 128  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T22:26:25+00:00
+$ tools/origin task verify T-0019
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0019: `test -f EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json'));assert d['schema']=='origin.lockfile-snapshot/1';assert len(d['artifacts'])>=8;assert all(a['sha256'] and a['version'] for a in d['artifacts'])" && tools/origin doc lint` -> exit 2 in 1.29s
+  |   info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  |   info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  |   info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  |   info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  |   info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  |   info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  |   info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  |   info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  |   info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  |   info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  |   info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  |   info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  |   FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  |   FAIL  tasks/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  | doc lint: 2 violation(s)
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 2006  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T22:26:33+00:00
+$ tools/origin task verify T-0019
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0019: `test -f EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json'));assert d['schema']=='origin.lockfile-snapshot/1';assert len(d['artifacts'])>=8;assert all(a['sha256'] and a['version'] for a in d['artifacts'])" && tools/origin doc lint` -> exit 0 in 1.14s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1553  redactions: none

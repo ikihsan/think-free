@@ -15,7 +15,7 @@ Showing the 25 most recent. 9 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | **unfinished** | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:25 |
+| [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
 | [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
 | [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | worked | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:13 |
