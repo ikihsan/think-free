@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0018
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-033-record-git-versions-exercised-and-split
+claim-vm: instance-20260717-0947
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint
 -->
 
