@@ -1,5 +1,11 @@
 # Project Origin
 
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-03
+-->
+
 Started 2026-10-03 (Asia/Kolkata). This repository begins from an empty directory and an independent mandate. No unrelated personal or project memory is part of the research record.
 
 ## Objective

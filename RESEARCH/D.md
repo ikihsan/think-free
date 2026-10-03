@@ -1,5 +1,11 @@
 # D — Independent adversarial investigation
 
+<!-- origin-meta
+owner: RESEARCH.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Sealed initial report, 2026-10-03. Investigator: D / Adversarial Skeptic.
 
 ## Independence and decision

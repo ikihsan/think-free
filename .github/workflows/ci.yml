@@ -1,0 +1,39 @@
+name: ci
+
+# Gates for every push and pull request. Standard library only: no install step,
+# no lockfile, no secret. See docs/operations/ci.md.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show toolchain
+        run: |
+          python3 --version
+          git --version
+
+      - name: Tests
+        run: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -v
+
+      - name: Documentation lint
+        run: tools/origin doc lint
+
+      - name: Skill layout and mirrors
+        run: tools/origin skills check
+
+      - name: Vendored content integrity
+        run: tools/origin skills verify
+
+      - name: Session record integrity
+        run: tools/origin session verify

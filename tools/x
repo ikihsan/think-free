@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# x - run a command with capture, logging, and exit-code passthrough.
+#
+#   tools/x -- pytest -q
+#   tools/x -- git status --porcelain
+#
+# The command's stdout and stderr are appended to the active session's
+# commands.log with its argv, exit code, and duration, and a `command` event is
+# written to the session's event stream. Secrets are redacted before anything
+# reaches disk. The child's exit code becomes this script's exit code, so
+# `tools/x` is transparent inside pipelines and under `set -e`.
+#
+# With no active session the command still runs; output is printed and nothing
+# is recorded, with a warning on stderr.
+set -uo pipefail
+
+root="$(git -C "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)" rev-parse --show-toplevel)"
+export ORIGIN_ROOT="$root"
+export PYTHONPATH="$root/tools${PYTHONPATH:+:$PYTHONPATH}"
+
+if [[ "${1:-}" == "--" ]]; then
+  shift
+fi
+
+if [[ $# -eq 0 ]]; then
+  echo "usage: tools/x -- <command> [args...]" >&2
+  exit 1
+fi
+
+out_file="$(mktemp -t origin-stdout.XXXXXX)"
+err_file="$(mktemp -t origin-stderr.XXXXXX)"
+trap 'rm -f "$out_file" "$err_file"' EXIT
+
+start_ns="$(date +%s%N)"
+"$@" >"$out_file" 2>"$err_file"
+status=$?
+end_ns="$(date +%s%N)"
+duration_ms=$(( (end_ns - start_ns) / 1000000 ))
+
+[[ -s "$out_file" ]] && cat "$out_file"
+[[ -s "$err_file" ]] && cat "$err_file" >&2
+
+python3 - "$status" "$duration_ms" "$PWD" "$out_file" "$err_file" "$@" <<'PY' || true
+import sys
+from pathlib import Path
+
+from originlib import recorder
+
+status, duration_ms, cwd = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
+out_path, err_path = Path(sys.argv[4]), Path(sys.argv[5])
+argv = sys.argv[6:]
+
+chunks = []
+stdout = out_path.read_text(encoding="utf-8", errors="replace")
+stderr = err_path.read_text(encoding="utf-8", errors="replace")
+if stdout.strip():
+    chunks.append(stdout)
+if stderr.strip():
+    if chunks:
+        chunks.append("")
+    chunks.append("[stderr]\n" + stderr)
+output = "\n".join(chunks)
+
+payload = recorder.record_command(argv, status, duration_ms, output, cwd)
+if not payload.get("recorded"):
+    print("tools/x: no active session; command ran but was not recorded", file=sys.stderr)
+elif payload.get("redactions"):
+    print(
+        "tools/x: redacted secret pattern(s) "
+        + ", ".join(payload["redactions"])
+        + " from captured output",
+        file=sys.stderr,
+    )
+PY
+
+exit "$status"

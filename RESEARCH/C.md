@@ -1,5 +1,11 @@
 # C — Cross-domain exploration
 
+<!-- origin-meta
+owner: RESEARCH.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Research date: 2026-10-03. Independent first pass; only `MISSION.md` was read from the project. No personal memory, unrelated repositories, or other agents' research informed this report. Public sources were retrieved on this date. No prototype, physical test, interview, or external mutation was performed. Search results establish prior art and possible experiments, not demand, originality, or correctness.
 
 ## Result

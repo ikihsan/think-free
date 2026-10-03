@@ -1,5 +1,11 @@
 # Coordinator scouting: test the research method
 
+<!-- origin-meta
+owner: RESEARCH.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Retrieved 2026-10-03. This is additional scouting, not one of the six independent role reports. No findings are sent to the initial investigators.
 
 ## Accessibility and document structure

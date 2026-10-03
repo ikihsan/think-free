@@ -1,5 +1,11 @@
 # E001 — Can a simple baseline already explain the photo-migration opportunity?
 
+<!-- origin-meta
+owner: EXPERIMENTS/PLAN.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Status at design: experiment not yet executed. Date: 2026-10-03.
 
 ## Question and predeclared decision

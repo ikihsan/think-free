@@ -1,5 +1,11 @@
 # Initial experimental-discovery plan
 
+<!-- origin-meta
+owner: EXPERIMENTS/PLAN.md
+status: active
+last-verified: 2026-10-03
+-->
+
 Date: 2026-10-03. This is a plan for inquiry, not a selected product design.
 
 ## Constraints

@@ -1,5 +1,11 @@
 # B — Problem archaeology
 
+<!-- origin-meta
+owner: RESEARCH.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Sealed independent first pass: 2026-10-03. Researcher: B. Read `MISSION.md`; did not read other research, unrelated repositories, or personal memory. Public sources retrieved 2026-10-03. No code experiments, user interviews, installations, external writes, or runtime validation were performed. Source claims below are not independently reproduced results.
 
 ## Decision

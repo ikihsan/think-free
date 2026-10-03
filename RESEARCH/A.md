@@ -1,5 +1,11 @@
 # Research A — Fundamental Thinker
 
+<!-- origin-meta
+owner: RESEARCH.md
+status: sealed
+last-verified: 2026-10-03
+-->
+
 Research date: 2026-10-03. Independent first pass; only `MISSION.md` was consulted from this workspace. No personal memories or other research reports were consulted. Public sources were retrieved on this date. No contacts, external writes, installations, or purchases. One standard-library Python experiment ran in memory; its code and complete output are below.
 
 ## Decision

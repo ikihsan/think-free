@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# origin - repository tooling entry point.
+#
+#   tools/origin session start --goal "one sentence"
+#   tools/origin doc lint
+#
+# Resolves the repository root from its own location, so it works from any
+# working directory, then hands off to the standard-library Python package in
+# tools/originlib. No installation, no virtualenv, no third-party dependency.
+set -euo pipefail
+
+here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+root="$(git -C "$here" rev-parse --show-toplevel 2>/dev/null || echo "$here/..")"
+
+export ORIGIN_ROOT="$root"
+export PYTHONPATH="$root/tools${PYTHONPATH:+:$PYTHONPATH}"
+
+exec python3 -m originlib "$@"
