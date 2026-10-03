@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-27 recorded session(s). One `events.jsonl` per session, so concurrent
+28 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 2 older session(s) are in the directory listing.
+Showing the 25 most recent. 3 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | **unfinished** | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:05 |
 | [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 | [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | **unfinished** | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T19:33 |
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 2 older session(s) are in the directory listing.
 | [2026-10-03-006-verify-github-app-push-access-with-a-sma](2026-10-03-006-verify-github-app-push-access-with-a-sma/README.md) | opencode | worked | Verify GitHub app push access with a small checkpoint commit | 2026-10-03T12:42 |
 | [2026-10-03-005-correct-the-tracked-file-census-and-expl](2026-10-03-005-correct-the-tracked-file-census-and-expl/README.md) | opencode | no-change | correct the tracked-file census and explain the abandoned session in t | 2026-10-03T17:20 |
 | [2026-10-03-004-stop-declaring-gitignored-build-output-a](2026-10-03-004-stop-declaring-gitignored-build-output-a/README.md) | opencode | worked | stop declaring gitignored build output as artifacts | 2026-10-03T17:19 |
-| [2026-10-03-003-record-the-session-002-reconciliation-ga](2026-10-03-003-record-the-session-002-reconciliation-ga/README.md) | opencode | worked | record the session-002 reconciliation gap honestly and fix the declara | 2026-10-03T17:17 |
 
 
 ## Reading a session
