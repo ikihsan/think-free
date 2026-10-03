@@ -231,10 +231,12 @@ untouched.
 5. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
-6. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
-   not effort-gated: the informative comparison is two snapshots weeks apart, and
-   two resolver runs today measure nothing. Snapshot one side of that comparison
-   now if a VM is free, so the second snapshot has somewhere to land.
+6. **E2 stays scheduled, side A snapshotted (T-0019, this VM).** The informative
+   comparison is two snapshots weeks apart, and two resolver runs today measure
+   nothing — so side A (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`,
+   8 artifacts: requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2)
+   is banked with no verdict. Take side B no earlier than days later and diff
+   the closures; fast drift shows as a version or hash change.
 7. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
