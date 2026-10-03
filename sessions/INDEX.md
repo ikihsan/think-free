@@ -15,7 +15,7 @@ Showing the 25 most recent. 7 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | **unfinished** | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:13 |
+| [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
 | [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | worked | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:13 |
 | [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | **unfinished** | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T21:41 |
 | [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | worked | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T22:09 |
