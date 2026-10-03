@@ -8,16 +8,17 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-40 recorded session(s). One `events.jsonl` per session, so concurrent
+41 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 15 older session(s) are in the directory listing.
+Showing the 25 most recent. 16 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | **unfinished** | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T22:57 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
+| [2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f](2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/README.md) | opencode | worked | T-0020: tell an in-flight session apart from an abandoned one in sessi | 2026-10-03T22:56 |
 | [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
 | [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
 | [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 15 older session(s) are in the directory listing.
 | [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |
 | [2026-10-03-018-log-state-md-update-from-t-0004-completi](2026-10-03-018-log-state-md-update-from-t-0004-completi/README.md) | unknown-agent | no-change | log STATE.md update from T-0004 completion | 2026-10-03T16:43 |
 | [2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p](2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p/README.md) | unknown-agent | worked | T-0004: make fleet and sync test suites pass, then document multi-VM f | 2026-10-03T16:42 |
-| [2026-10-03-016-sweep-budget-k-block-size-in-002-to-test](2026-10-03-016-sweep-budget-k-block-size-in-002-to-test/README.md) | opencode | worked | Sweep budget/K/block-size in 002 to test sensitivity of the A1 masking | 2026-10-03T16:19 |
 
 
 ## Reading a session

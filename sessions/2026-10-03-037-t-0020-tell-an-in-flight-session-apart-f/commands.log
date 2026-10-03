@@ -1,0 +1,8 @@
+==============================================================================
+[seq 28] 2026-10-03T22:55:33+00:00
+$ tools/origin task verify T-0020
+cwd: /home/ubuntu/think-free/.worktrees/T-0020-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0020: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin session verify --strict && tools/origin doc lint` -> exit 0 in 102.31s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102620  redactions: none
