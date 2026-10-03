@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T21:05:31+00:00
-- **Duration:** ?s
+- **Duration:** 1306.8s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,15 +23,32 @@ Run the knitting candidate's remaining kill-gate prior-art check (three vocabula
 
 ## Summary
 
-_(none recorded)_
+T-0015 complete: the knitting candidate's last kill-gate condition is answered and its algorithmic-advantage claim is abandoned (F009). Prior-art search in three vocabularies plus patents and the GitHub API found no tool supplying an intervention sequence for an existing hand-knit structure, and found the algorithmic core to be established prior art (2007-2026). Stage B usefulness is the only surviving question and needs a knitter's hands plus authorization. While finishing, found that CI has never been green: 60 of 60 recorded runs failed at the Tests step, with the failing step's log unreadable without repository admin rights.
+
+## Next
+
+Diagnose the red CI Tests step (unknown Python version on the runner) and record the runner's version; then E3's timestamp census if the T-0013 claim on 0944 lapses
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| RESEARCH/PRIOR-ART-KNITTING.md | ac36e65054d6 | 18985 |
+| FAILURES-findings-2.md | fe9e74e665a3 | 4637 |
+| FAILURES.md | a63ed1e73f9f | 2986 |
+| FAILURES-findings.md | 9722d8f06af7 | 16651 |
+| HYPOTHESES.md | 759e19cd0726 | 18137 |
+| DECISIONS-PRACTICE.md | 9ac992ce911e | 15245 |
+| STATE.md | b53a7e0a54eb | 12746 |
+| ROADMAP.md | b40c28c243aa | 6173 |
+| RESEARCH.md | 184cede33dd1 | 5872 |
+| tasks/T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md | c1362fa71b61 | 3326 |
+| DECISIONS.md | a3fc239b0aac | 1525 |
+| RESEARCH/PRIOR-ART-KNITTING.md | abd09e2273e5 | 18980 |
 
 ## Commands
 
-41 captured, 3 non-zero exit.
+44 captured, 4 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -80,7 +97,6 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -130,8 +146,18 @@ _none_
 | 38 | 21:20:12 | command | $ bash -c RUN=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs?per_page=1" \| python3 -c "import json,sys;print(j |
 | 39 | 21:20:25 | command | $ bash -c RUN=37153966930; curl -sS -m 40 -L -o /tmp/opencode/ci.log -w "HTTP %{http_code} bytes %{size_download}\n" "https://api.github.com/r |
 | 40 | 21:20:36 | command | $ bash -c SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/commits/research/origin" \| python3 -c "import json,sys;print(j |
-| 41 | 21:20:46 | command | $ bash -c curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/check-runs/111293404392/ann |
-| 42 | 21:21:05 | command | $ bash -c curl -sS -m 30 "https://api.github.com/repos/ikihsan/think-free/actions/runs?per_page=100" \| python3 -c " import json,sys d=json.loa |
+| 59 | 21:27:02 | artifact | wrote RESEARCH/PRIOR-ART-KNITTING.md |
+| 60 | 21:27:04 | command | $ tools/origin task verify T-0015 |
+| 61 | 21:27:17 | doc_update | updated DECISIONS-PRACTICE.md |
+| 62 | 21:27:17 | doc_update | updated DECISIONS.md |
+| 63 | 21:27:17 | doc_update | updated FAILURES.md |
+| 64 | 21:27:17 | doc_update | updated HYPOTHESES.md |
+| 65 | 21:27:17 | doc_update | updated RESEARCH.md |
+| 66 | 21:27:17 | doc_update | updated ROADMAP.md |
+| 67 | 21:27:17 | doc_update | updated STATE.md |
+| 68 | 21:27:17 | session_end | T-0015 complete: the knitting candidate's last kill-gate condition is answered and its algorithmic-advantage claim is abandoned (F009). Prior-art sear |
+
+_18 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

@@ -15,7 +15,7 @@ Showing the 25 most recent. 3 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | **unfinished** | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:05 |
+| [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | worked | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:27 |
 | [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 | [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | **unfinished** | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T19:33 |
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
