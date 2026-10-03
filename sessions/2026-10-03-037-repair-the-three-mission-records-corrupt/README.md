@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T22:42:44+00:00
-- **Duration:** ?s
+- **Duration:** 1567.4s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ repair the three mission records corrupted by a committed merge conflict and add
 
 ## Summary
 
-_(none recorded)_
+Found three mission records on the shared base with committed merge-conflict markers and no gate that could see them (F013). Repaired all three regions keeping both sides, because F011 and F012 are different findings and the renumber's empty side was wrong. Added doc lint rule 6 (tools/originlib/conflicts.py, 25 tests), which the kill gate against the defect's own bytes caught being wrong first: it reported 1 of 4 committed defects because it only flagged malformed blocks. Recorded D025 (a gate must read the property it claims to check) and D026 (a task's verify must run while its own session is open - the declared --strict was unpassable, and T-0020 declares the same). Split findings into a third part and moved STATE.md's per-session detail to STATE-history.md, both at the line cap, and corrected DECISIONS.md's stale D-range. 203 tests, doc lint, session verify green; task verify T-0021 exit 0.
+
+## Next
+
+T-0020 is claimed on instance-20260717-0947 and is the only unblocked infrastructure work: note that its declared verify command cannot pass while its own session is open (D026). Release check against RELEASE-MANIFEST.md is the next unclaimed item on the roadmap; E2 side B is time-gated and must wait days.
 
 ## Artifacts
 
@@ -66,7 +70,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -105,6 +108,12 @@ _(none recorded)_
 | 27 | 23:08:24 | artifact | wrote sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/README.md |
 | 28 | 23:08:24 | artifact | wrote sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/commands.log |
 | 29 | 23:08:24 | artifact | wrote sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/events.jsonl |
+| 30 | 23:08:51 | doc_update | updated DECISIONS-GATING.md |
+| 31 | 23:08:51 | doc_update | updated DECISIONS.md |
+| 32 | 23:08:51 | doc_update | updated FAILURES.md |
+| 33 | 23:08:51 | doc_update | updated ROADMAP.md |
+| 34 | 23:08:51 | doc_update | updated STATE.md |
+| 35 | 23:08:51 | session_end | Found three mission records on the shared base with committed merge-conflict markers and no gate that could see them (F013). Repaired all three region |
 
 ## Reproduce this record
 
