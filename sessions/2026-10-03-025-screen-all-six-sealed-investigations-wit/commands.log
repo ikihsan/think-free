@@ -423,3 +423,11 @@ doc lint: 261 file(s) checked
 doc lint: OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 1201  redactions: none
+==============================================================================
+[seq 44] 2026-10-03T19:31:48+00:00
+$ tools/origin task verify T-0012
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0012: `test -f RESEARCH/SYNTHESIS.md && grep -q 'origin-meta' RESEARCH/SYNTHESIS.md && grep -q 'Sealed' RESEARCH.md && grep -q 'Investigation E: experimental engineer' ROADMAP.md && ! grep -qE '^\| E \| Experimental engineer \| \*\*Not run\*\*' RESEARCH.md && tools/origin doc lint` -> exit 0 in 1.27s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1599  redactions: none

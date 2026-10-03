@@ -46,10 +46,15 @@ _(none recorded)_
 | .agents/skills/session-lifecycle/SKILL.md | 12c193bb1868 | 5797 |
 | .agents/skills/evidence-record/SKILL.md | 38a1087bc27f | 5017 |
 | tests/test_session.py | 97e966a4e53b | 15331 |
+| tests/test_doc_gaps.py | 8eae87ca0d27 | 3876 |
+| tools/originlib/reconcile.py | c9d231a08010 | 5110 |
+| tests/README.md | a0d63cb02057 | 1567 |
+| STATE.md | 596a650d49cd | 13299 |
+| STATE.md | ca594cb10aae | 13704 |
 
 ## Commands
 
-9 captured, 1 non-zero exit.
+18 captured, 4 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -62,6 +67,15 @@ _(none recorded)_
 | 12 | ['tools/origin', 'task', 'verify', 'T-0012'] | 0 | 1589 |
 | 13 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 85612 |
 | 21 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'tests.test_session', '-v'] | 0 | 10412 |
+| 31 | ['tools/origin', 'doc', 'index'] | 0 | 604 |
+| 32 | ['tools/origin', 'doc', 'lint'] | 2 | 1292 |
+| 33 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'tests.test_doc_gaps', '-v'] | 1 | 2699 |
+| 34 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'tests.test_doc_gaps', 'tests.test_session', '-v'] | 1 | 11508 |
+| 35 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'tests.test_doc_gaps', 'tests.test_session'] | 0 | 11700 |
+| 38 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 87815 |
+| 39 | ['tools/origin', 'doc', 'lint'] | 0 | 1215 |
+| 41 | ['tools/origin', 'doc', 'lint'] | 0 | 1201 |
+| 44 | ['tools/origin', 'task', 'verify', 'T-0012'] | 0 | 1599 |
 
 ## Integrity
 
@@ -107,6 +121,20 @@ _(none recorded)_
 | 28 | 19:25:48 | artifact | wrote .agents/skills/evidence-record/SKILL.md |
 | 29 | 19:25:48 | note | tests/test_session.py declares origin-allow-secret-patterns: github-token; suppressed for this file only |
 | 30 | 19:25:48 | artifact | wrote tests/test_session.py |
+| 31 | 19:25:49 | command | $ tools/origin doc index |
+| 32 | 19:25:50 | command | $ tools/origin doc lint |
+| 33 | 19:26:27 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps -v |
+| 34 | 19:27:34 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps tests.test_session -v |
+| 35 | 19:27:55 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps tests.test_session |
+| 36 | 19:28:03 | artifact | wrote tests/test_doc_gaps.py |
+| 37 | 19:28:03 | artifact | wrote tools/originlib/reconcile.py |
+| 38 | 19:29:31 | command | $ python3 -m unittest discover -s tests |
+| 39 | 19:29:32 | command | $ tools/origin doc lint |
+| 40 | 19:30:31 | artifact | wrote tests/README.md |
+| 41 | 19:30:32 | command | $ tools/origin doc lint |
+| 42 | 19:31:20 | artifact | wrote STATE.md |
+| 43 | 19:31:40 | artifact | wrote STATE.md |
+| 44 | 19:31:48 | command | $ tools/origin task verify T-0012 |
 
 ## Reproduce this record
 
