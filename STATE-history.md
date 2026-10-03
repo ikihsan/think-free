@@ -12,6 +12,41 @@ detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers and file names here are the same ones `STATE.md`
 uses.
 
+## What changed in session 038, VM 0944 (T-0022)
+
+`RELEASE-MANIFEST.md` said three times that nothing enforced it. Now something
+does, and the first run showed what that had been hiding.
+
+- **`origin release check`** (`tools/originlib/release.py`, 29 tests) parses the
+  manifest's two tables and checks six properties: no wildcards; every tracked
+  top-level entry classified by exactly one table; a declared path exists unless
+  marked `(pending)`, and a `pending` one does not; no path sits inside a
+  directory of the other audience; no classified path holds credential-shaped
+  text; and the release state declared in the manifest matches the one in
+  `README.md`.
+- **Run against the manifest as it stood, it reported 14 violations.** Nine
+  tracked top-level entries — `.agents/`, `.github/`, `.gitignore`,
+  `RELEASE-MANIFEST.md`, `STATE-history.md`, `HYPOTHESES-results.md`, the three
+  `FAILURES-findings*.md` — were classified by neither table, so each was being
+  published or withheld by accident. `LICENSE`, `CONTRIBUTING.md` and
+  `CODE_OF_CONDUCT.md` were declared public and absent with no way to say so;
+  they are now `(pending)`. All of that is fixed in the same commit.
+- **The check immediately found a real problem in its own new code:** a
+  token-shaped fixture in `tests/test_release.py`, in a directory the manifest
+  classifies public. D012's waiver (`origin-allow-secret-patterns`) is the
+  declared answer, and this is its second use.
+- **What it enforces is agreement, not truth**, and both the manifest and the CLI
+  reference say so: a manifest and a README that agree on a false claim still
+  pass. It does not read a path's meaning, and it does not judge whether a
+  classification is right.
+- One judgement call worth recording: a declared *file* classifies only itself,
+  so `docs/policy/one.md` does not make `docs/` public. Otherwise adding
+  `docs/private.md` would publish it with nobody deciding to. `.agents/` and
+  `.claude/` are therefore declared as directories rather than as
+  `.agents/skills/`.
+- CI gains a sixth step, inserted after `Documentation lint` rather than at the
+  end of the file so a VM editing the session gate below it rebase cleanly.
+
 ## What changed in session 037, VM 0944 (T-0021)
 
 The shared base carried three corrupted mission records and no gate that could

@@ -95,6 +95,18 @@ Dispatchable work. Protocol:
 | `skills hash` | Records per-file hashes of declared vendored skills |
 | `skills verify` | Detects local modification of vendored skills. Exit `4` on a mismatch |
 
+## `release`
+
+Enforces `RELEASE-MANIFEST.md`, which decides what is public. Protocol: the
+manifest's own *What `release check` decides* section.
+
+| Command | Effect |
+|---|---|
+| `release check` | Six properties of the manifest against this tree: no wildcards; every tracked top-level entry classified by exactly one table; a declared path exists unless marked `(pending)`, and a `pending` one does not; no path sits inside a directory of the other audience; no classified path holds credential-shaped text; and the release state declared here matches the one in `README.md`. Exit `2` on a violation |
+
+It enforces **agreement, not truth**. A manifest and a `README.md` that agree on
+a false claim still pass, and it does not read a path's meaning.
+
 ## `doctor` and `preflight`
 
 | Command | Effect |

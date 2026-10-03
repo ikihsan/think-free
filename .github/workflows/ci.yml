@@ -53,6 +53,12 @@ jobs:
       - name: Documentation lint
         run: tools/origin doc lint
 
+      # RELEASE-MANIFEST.md decides what is public. Kept next to the doc lint
+      # step rather than appended at the end, so a VM editing the session gate
+      # below and this one in the same week rebase cleanly.
+      - name: Release manifest
+        run: tools/origin release check
+
       - name: Skill layout and mirrors
         run: tools/origin skills check
 

@@ -1,11 +1,11 @@
-"""CLI handlers for `origin doc`, `origin skills`, `origin doctor`, preflight."""
+"""CLI handlers for `origin doc`, `origin skills`, `origin release`, doctor."""
 
 from __future__ import annotations
 
 import argparse
 import json
 
-from . import docindex, doclint, doctor, events, paths, report, skillsync, tasks
+from . import docindex, doclint, doctor, events, paths, release, report, skillsync, tasks
 from .cli_session import verify_sessions
 
 EXIT_OK = 0
@@ -87,6 +87,14 @@ def dispatch_skills(args: argparse.Namespace) -> int:
         print(result.render())
         return EXIT_OK if result.ok else EXIT_INTEGRITY
     raise Usage(f"unknown skills action: {args.action}")
+
+
+def dispatch_release(args: argparse.Namespace) -> int:
+    if args.action == "check":
+        result = release.check()
+        print(result.render())
+        return EXIT_OK if result.ok else EXIT_LINT
+    raise Usage(f"unknown release action: {args.action}")
 
 
 def doctor(args: argparse.Namespace) -> int:

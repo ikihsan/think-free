@@ -28,6 +28,7 @@ interfere with the working repository.
 | `test_tasks.py` | Task creation, claim conflicts, verification, index |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
 | `test_conflicts.py` | Unresolved merge-conflict markers: every shape git writes, the shapes that must stay silent, the declared waiver |
+| `test_release.py` | `RELEASE-MANIFEST.md` enforcement: one seeded defect per clause, and a fixture that passes |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
 | `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees |
 | `test_sync.py` | Pull, push, land, rebase, divergence reporting; the rebase continue must stay non-interactive |
@@ -44,6 +45,9 @@ defect's own bytes before it is trusted. `test_conflicts.py` carries the three
 committed regions of `fd7b4a1` as literal text with the line numbers the rule
 must report, which is how its first implementation was caught reporting only
 malformed blocks and missing three of four committed defects.
+`test_release.py` seeds one defect per clause of `release check` into a
+throwaway repository, plus a fixture that passes — because a check that only
+ever fails is not a check either.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

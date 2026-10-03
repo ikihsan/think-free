@@ -1,0 +1,116 @@
+==============================================================================
+[seq 2] 2026-10-03T23:17:40+00:00
+$ bash -c cd /home/ubuntu/think-free
+PYTHONPATH=tools python3 - <<"PY"
+import pathlib, shutil, tempfile
+from originlib import release
+
+base = pathlib.Path(tempfile.mkdtemp(prefix="relcheck-"))
+# A copy of this tree, with the pre-T-0022 manifest put back.
+for name in ("README.md", "AGENTS.md", "STATE.md"):
+    shutil.copy2(name, base / name)
+shutil.copy2("/tmp/opencode/relfix/RELEASE-MANIFEST.md", base / "RELEASE-MANIFEST.md")
+# git so docfiles can enumerate the tree; the fixture only needs the two files.
+subprocess_run = __import__("subprocess").run
+subprocess_run(["git", "init", "-q"], cwd=str(base))
+subprocess_run(["git", "add", "-A"], cwd=str(base))
+result = release.check(base)
+print(f"pre-T-0022 manifest: {len(result.violations)} violation(s)")
+for problem in result.violations:
+    print("  " + problem)
+print("EXIT-WOULD-BE", 0 if result.ok else 2)
+PY
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+pre-T-0022 manifest: 27 violation(s)
+  RELEASE-MANIFEST.md: tracked at the top level but classified by neither manifest table
+  CLAUDE.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  GEMINI.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  .github/copilot-instructions.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  LICENSE: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  CONTRIBUTING.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  CODE_OF_CONDUCT.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  docs/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  tools/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  tests/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  .agents/skills/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  .claude/skills/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  vendor/: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  sessions/: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  tasks/: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  RESEARCH/: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  EXPERIMENTS/: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  MISSION.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  DECISIONS.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  DECISIONS-FOUNDATION.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  DECISIONS-PRACTICE.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  DECISIONS-GATING.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  HYPOTHESES.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  FAILURES.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  ROADMAP.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  RESEARCH.md: declared internal but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  RELEASE-MANIFEST.md: no <!-- origin-release-state: ... --> directive, so there is no declared state to check; expected one of no-public-product, public-product
+EXIT-WOULD-BE 2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 215  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T23:17:55+00:00
+$ bash -c cd /home/ubuntu/think-free
+cp RELEASE-MANIFEST.md /tmp/opencode/relfix/new-manifest.md
+cp /tmp/opencode/relfix/RELEASE-MANIFEST.md RELEASE-MANIFEST.md
+tools/origin release check; echo "exit with the pre-T-0022 manifest: $?"
+cp /tmp/opencode/relfix/new-manifest.md RELEASE-MANIFEST.md
+echo "--- restored ---"
+tools/origin release check; echo "exit now: $?"
+git diff --stat RELEASE-MANIFEST.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+release check: 28 path(s) checked
+  FAIL  .agents: tracked at the top level but classified by neither manifest table
+  FAIL  .github: tracked at the top level but classified by neither manifest table
+  FAIL  .gitignore: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-2.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings-3.md: tracked at the top level but classified by neither manifest table
+  FAIL  FAILURES-findings.md: tracked at the top level but classified by neither manifest table
+  FAIL  HYPOTHESES-results.md: tracked at the top level but classified by neither manifest table
+  FAIL  RELEASE-MANIFEST.md: tracked at the top level but classified by neither manifest table
+  FAIL  STATE-history.md: tracked at the top level but classified by neither manifest table
+  FAIL  LICENSE: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  FAIL  CONTRIBUTING.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  FAIL  CODE_OF_CONDUCT.md: declared public but absent; create it or mark it pending so the absence is a decision rather than an oversight
+  FAIL  tests/test_release.py: credential-shaped text (github-token); manifest rule 3 forbids it in a published or internal record
+  FAIL  RELEASE-MANIFEST.md: no <!-- origin-release-state: ... --> directive, so there is no declared state to check; expected one of no-public-product, public-product
+release check: 14 violation(s)
+exit with the pre-T-0022 manifest: 2
+--- restored ---
+release check: 35 path(s) checked
+  FAIL  tests/test_release.py: credential-shaped text (github-token); manifest rule 3 forbids it in a published or internal record
+release check: 1 violation(s)
+exit now: 2
+ RELEASE-MANIFEST.md | 62 ++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 45 insertions(+), 17 deletions(-)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7094  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T23:22:19+00:00
+$ bash -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | grep -E "^Ran|^OK|^FAILED"; echo "--- gates ---"; tools/origin doc lint --quiet; echo "doc lint=$?"; tools/origin release check >/dev/null; echo "release check=$?"; tools/origin session verify >/dev/null; echo "session verify=$?"; tools/origin skills check >/dev/null; echo "skills check=$?"; tools/origin skills verify >/dev/null; echo "skills verify=$?"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Ran 232 tests in 109.684s
+OK
+--- gates ---
+doc lint=0
+release check=0
+session verify=0
+skills check=0
+skills verify=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 117515  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T23:24:39+00:00
+$ tools/origin task verify T-0022
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0022: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin release check && tools/origin doc lint` -> exit 0 in 111.06s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111376  redactions: none

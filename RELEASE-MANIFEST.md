@@ -11,21 +11,28 @@ trying to earn adoption for, and the **process record** that proves how it was
 reached. Only the first belongs on a public front door. This file is the
 authority on that split.
 
-No tool validates it yet: `origin` has no `release` command, so these tables are
-maintained by hand and reviewed, not enforced. Until a `release check` exists,
-a path listed as public here is a human claim rather than a machine guarantee.
+**Enforced by `tools/origin release check`** (T-0022), which parses the two
+tables below. A path is one backticked token in the first cell of a row; a row
+may hold several. Mark a declared path `(pending)` when it is expected to be
+absent, and the check fails the moment it appears.
+
+<!-- origin-release-state: no-public-product -->
 
 ## Public by default
 
 | Path | Why |
 |---|---|
 | `README.md` | The front door. What it is, why it exists, how to run it. |
-| `AGENTS.md` `CLAUDE.md` `GEMINI.md` `.github/copilot-instructions.md` | Agent entry points; part of the contribution story. |
-| `LICENSE` `CONTRIBUTING.md` `CODE_OF_CONDUCT.md` | Required for a credible open-source release. |
-| `docs/` | Policy, process, reference. Shows the method is real. |
+| `AGENTS.md` `CLAUDE.md` `GEMINI.md` | Agent entry points; part of the contribution story. |
+| `LICENSE` (pending) | Required for a credible open-source release. Absent until a product is chosen. |
+| `CONTRIBUTING.md` (pending) | Same; `AGENTS.md` is its foundation for now. |
+| `CODE_OF_CONDUCT.md` (pending) | Same. |
+| `docs/` | Policy, process, operations, reference. Shows the method is real. |
 | `tools/` `tests/` | The infrastructure that makes claims reproducible. |
-| `.agents/skills/` `.claude/skills/` `vendor/` | Skills other agents can reuse, with licences intact. |
-| Product source and its tests | Not created yet. Added here when it exists. |
+| `.agents/` `.claude/` `vendor/` | Canonical skills, their mirrors, and the licences they keep. |
+| `.github/` | The CI gates that enforce those tests, and the agent entry point. |
+| `.gitignore` | A credible repository ships its ignore rules. |
+| `RELEASE-MANIFEST.md` | This file. Publishing the promise is part of keeping it. |
 
 ## Internal by default
 
@@ -34,22 +41,43 @@ a path listed as public here is a human claim rather than a machine guarantee.
 | `sessions/` | Raw operational history of agent runs. Interesting to auditors, noise to users. |
 | `tasks/` | Dispatch state for the VM fleet. Meaningless outside the mission. |
 | `RESEARCH/` `EXPERIMENTS/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
-| `MISSION.md` `STATE.md` `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-GATING.md` `HYPOTHESES.md` `FAILURES.md` `ROADMAP.md` `RESEARCH.md` | Mission control records. Honest to keep, distracting as a front door. |
+| `MISSION.md` `STATE.md` `STATE-history.md` `ROADMAP.md` | Mission control records. Honest to keep, distracting as a front door. |
+| `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-GATING.md` | The decision log, split by invariant. |
+| `HYPOTHESES.md` `HYPOTHESES-results.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` | Candidate and failure records, split at the line cap. |
+| `RESEARCH.md` | Index for the sealed investigations. |
 
 ## Rules
 
-1. A path not listed as public is **not** published. There is no wildcard.
+1. A path not listed as public is **not** published. There is no wildcard, and
+   `release check` fails one.
 2. Promoting a path requires moving it here in the same commit that changes its
-   audience. Nothing enforces this yet; review is the only gate.
+   audience. Nothing enforces that; review is the only gate.
 3. Nothing internal may contain a secret, a private URL, or an unpublished
-   third-party dataset path. `tools/origin session artifact` refuses known
-   secret shapes and the session log redacts them, but no release-time scan
-   exists.
+   third-party dataset path. `release check` scans every classified path for
+   credential shapes; the rest is still review.
 4. The public `README.md` must never describe unreleased behaviour as if it
-   shipped. If the product does not exist yet, the README says so.
+   shipped. The decidable part of that is agreement: the
+   `origin-release-state` directive above and the same directive in `README.md`
+   must match, so publishing a product means changing both in one commit.
+
+## What `release check` decides, and what it does not
+
+It checks six properties: no wildcards; every tracked top-level entry classified
+by exactly one table; a declared path exists unless marked `pending`, and a
+`pending` one does not; no path sits inside a directory of the other audience; no
+classified path holds credential-shaped text; and the two release states agree.
+
+It does **not** decide whether the declared state is true, whether prose is
+accurate, or whether a path deserves its classification. A manifest and a README
+that agree on a false claim pass. That is agreement enforced, not truth.
+
+It reads the same tracked set `doc lint` reads, which skips `.claude/` because
+its entries are symlinks into `.agents/skills/`; `.claude/` is listed above
+anyway, and its coverage is not machine-checked.
 
 ## Current state
 
 **No public product exists.** The repository is a research and infrastructure
-record only. `README.md` currently describes the mission and the tooling, and
-says plainly that no product has been selected. Do not imply otherwise.
+record only. `README.md` describes the mission and the tooling, and says plainly
+that no product has been selected. Do not imply otherwise. Both files declare
+`no-public-product`; the check fails if they ever disagree.

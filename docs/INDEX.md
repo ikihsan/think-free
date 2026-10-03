@@ -93,6 +93,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](../tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](../tasks/T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0021-resolve-the-merge-conflict-markers-committed-to.md`](../tasks/T-0021-resolve-the-merge-conflict-markers-committed-to.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0022-implement-origin-release-check-so-release-manife.md`](../tasks/T-0022-implement-origin-release-check-so-release-manife.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 

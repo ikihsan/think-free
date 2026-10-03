@@ -91,9 +91,10 @@ plausible adoption path. Otherwise continue or pivot. Criteria in
 **Status: not started. Blocked on C and D, and on the user's push authorization.**
 
 - [ ] Licence, install path, demo, honest comparison, contributor guide
-- [ ] `origin release check` implemented against `RELEASE-MANIFEST.md`
+- [x] `origin release check` implemented against `RELEASE-MANIFEST.md` (T-0022)
 - [ ] Push with explicit user authorization
-- [ ] No unreleased behaviour described as shipped
+- [ ] No unreleased behaviour described as shipped — the front-door state
+      directive now makes this an agreement the machine checks, not a promise
 
 ## F — Real-world validation
 
@@ -130,7 +131,8 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Machine-readable exercised-git-versions record (`tests/git-versions.json`, T-0018)
 - [x] Decision log split by invariant a second time (`DECISIONS-GATING.md`, T-0018)
 - [x] Environment doctor with presence-only credential checks
-- [x] Continuous integration running lint, tests, and session verification.
+- [x] Continuous integration running lint, tests, release manifest, and session
+      verification.
       Five gates, Python pinned with `setup-python`, failing tests re-emitted as
       public annotations. **Measured green** for Tests, doc lint, skills check
       and vendored integrity (run `37157528596`); it had failed on **all 60**
@@ -138,7 +140,13 @@ Separate from the invention stages, because the mission cannot be run without it
       (`FAILURES.md` F011, fixed in T-0016). The remaining red step is
       `session verify --strict` while any VM has a session in flight on the
       shared branch, which is D013 meeting fleet practice rather than a defect.
-- [ ] `origin release check` validating `RELEASE-MANIFEST.md`
+      T-0022 adds a sixth step, `release check`, which has not yet run on CI.
+- [x] `origin release check` implemented against `RELEASE-MANIFEST.md` (T-0022):
+      no wildcards, every tracked top-level entry classified exactly once,
+      declared paths present unless `(pending)`, no path inside a directory of
+      the other audience, no credential-shaped text in a classified path, and
+      the front door's declared release state equal to the manifest's. It
+      enforces agreement, not truth.
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised

@@ -11,9 +11,11 @@ honest and recoverable.
 
 **No product exists yet.** Nothing here has been released, and no user has used
 anything in this repository. What exists is a research record and the tooling
-that makes it checkable: four sealed investigations, one completed baseline
-experiment, and a session/documentation system designed so that a claim cannot
-outlive the evidence behind it.
+that makes it checkable: six sealed investigations, nine completed experiments
+of which none validated a candidate, and a session/documentation system designed
+so that a claim cannot outlive the evidence behind it.
+
+<!-- origin-release-state: no-public-product -->
 
 Read [`STATE.md`](STATE.md) for the verified current state.
 [`MISSION.md`](MISSION.md) states the objective, the boundaries, and the
@@ -84,8 +86,8 @@ byte-identical to upstream. See
 
 | Area | State |
 |---|---|
-| Investigations | Four of six roles sealed (`RESEARCH/A.md`–`D.md`) |
-| Experiments | Two complete: environment probe, and a baseline that disproved its own motivating example |
+| Investigations | All six roles sealed; the cross-report screen is `RESEARCH/SYNTHESIS.md` |
+| Experiments | Nine run. Three invention claims disproved, one mechanism confirmed whose candidate died of it. None validated |
 | Hypotheses | Candidates recorded, none selected |
 | Product | None. Not started. |
 | Users, adoption, stars | None. No claims. |

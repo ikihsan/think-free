@@ -204,6 +204,13 @@ def build_parser() -> argparse.ArgumentParser:
     sync = skills_sub.add_parser("sync", help="create missing .claude/skills mirrors")
     sync.add_argument("--copy", action="store_true", help="copy instead of symlink")
 
+    # ------------------------------------------------------------- release
+    release_parser = sub.add_parser(
+        "release", help="enforce RELEASE-MANIFEST.md, the authority on what is public"
+    )
+    release_sub = release_parser.add_subparsers(dest="action", required=True)
+    release_sub.add_parser("check", help="check the manifest against this tree")
+
     # --------------------------------------------------------------- tools
     doc_parser_moved = sub.add_parser("doctor", help="verify this machine can run the work")
     doc_parser_moved.add_argument("--offline", action="store_true")
@@ -222,6 +229,7 @@ DISPATCH = {
     "task": cli_task.dispatch,
     "doc": cli_repo.dispatch_doc,
     "skills": cli_repo.dispatch_skills,
+    "release": cli_repo.dispatch_release,
     "doctor": cli_repo.doctor,
     "preflight": cli_repo.preflight,
     "sync": cli_sync.dispatch_sync,

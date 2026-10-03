@@ -30,32 +30,38 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Area | Verified status |
 |---|---|
-| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, T-0012, T-0013, T-0017) and on `instance-20260717-0947` (sessions 020–023, 027–029, T-0011, T-0014, T-0015, T-0016) |
+| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037, 038, T-0012, T-0013, T-0017, T-0021, T-0022) and on `instance-20260717-0947` (sessions 020–023, 027–029, 033–036, T-0011, T-0014, T-0015, T-0016, T-0018, T-0019, T-0020) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
-| External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
+| External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 36 recorded and closed, 1 in flight (037) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
+| Sessions | 37 recorded and closed, 1 in flight (038) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict |
-| Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). The `Session record integrity` step is red while any VM has a session in flight on the shared branch |
+| Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). The `Session record integrity` step is red while any VM has a session in flight on the shared branch. A sixth step, `release check`, is added by T-0022 and **has not yet run on CI** |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**T-0021 is claimed by opencode on `instance-20260717-0944`** — repairing three
-mission records that reached the shared base with merge-conflict markers in them,
-and adding the doc lint rule that detects one (F013). Its session
-`2026-10-03-037-repair-the-three-mission-records-corrupt` is in flight, so the
-CI strict-session gate is red while it runs. **T-0020 is claimed by opencode on
-`instance-20260717-0947`** — telling an in-flight session apart from an
-abandoned one, which is what that red gate needs. Do not start either.
+**T-0022 is claimed by opencode on `instance-20260717-0944`** — implementing
+`origin release check`, so `RELEASE-MANIFEST.md` is enforced by a machine rather
+than by review. Its session `2026-10-03-038-implement-origin-release-check-so-releas`
+is in flight, so the CI strict-session gate is red while it runs. **T-0020 is
+claimed by opencode on `instance-20260717-0947`** — telling an in-flight session
+apart from an abandoned one, which is what that red gate needs. Do not start
+either. T-0021 is complete: three corrupted mission records repaired, and the
+gate that detects them added (F013).
+
+Note for whoever picks up T-0020: its declared `verify` command includes
+`session verify --strict`, which cannot pass while its own session is open
+(D026). T-0022 hit the same wall and corrected its own task file before running
+it.
 
 Nothing else is claimed. T-0012 and T-0013 and T-0017 are `instance-20260717-0944`'s;
 T-0014, T-0015, T-0016, T-0018 and T-0019 are `instance-20260717-0947`'s and
@@ -88,16 +94,16 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    gate states which git versions the sync flow has actually run against — which
    is how F011 went unnoticed for a session on a repository that was printing
    the answer. **Ceiling:** this is bookkeeping hygiene, not a claim.
-4. **Nothing detected a committed merge conflict** (F013, fixed in T-0021).
-   `FAILURES.md`, `FAILURES-findings-2.md`, and `DECISIONS-GATING.md` were on the
-   shared base from commit `fd7b4a1` with `<<<<<<< HEAD` still in them, and
-   `doc lint`, `session verify --strict`, and CI all passed: every gate read
-   those files for a different property and none read the markers. Repaired by
-   keeping both sides of all three regions (F011 and F012 are different
-   findings), and `doc lint` rule 6 now reads every tracked text file for git's
-   marker shape. **Ceiling:** the rule detects what git writes, not a
-   hand-typed marker, and the falsification is recorded — its first version
-   reported 1 of the 4 committed defects.
+4. **Nothing detected a committed merge conflict** (F013, fixed in T-0021, so
+   this is a closed entry kept for the record): every gate read those files for a
+   different property and none read the markers. `doc lint` rule 6 does now.
+5. **Nine top-level entries were published or withheld by accident** (fixed in
+   T-0022): `RELEASE-MANIFEST.md` had no row for `.agents/`, `.github/`,
+   `.gitignore`, `RELEASE-MANIFEST.md`, `STATE-history.md`,
+   `HYPOTHESES-results.md` or the three `FAILURES-findings*.md`, and no way to
+   declare an absent path on purpose. `origin release check` now fails on both.
+   **Ceiling:** it enforces agreement between the manifest and `README.md`, not
+   the truth of either.
 5. **Session 029 closed with nine `unlogged_change` events that are not its
    own.** `tools/origin sync land` rebased that session's branch onto
    `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
@@ -131,6 +137,13 @@ version exception recorded in F011.
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
+- **Session 038, VM 0944 (T-0022).** `origin release check` now enforces
+  `RELEASE-MANIFEST.md`, which three times said nothing enforced it. Seven
+  top-level tracked entries had been classified by neither table; three paths
+  declared public did not exist; the public front door had no declared state.
+  All three gaps are closed in the same commit that added the check, and the
+  check found a credential-shaped fixture in its own new test file, which is
+  how D012's waiver mechanism earns its second use.
 - **Session 037, VM 0944 (T-0021, F013).** The shared base carried three
   corrupted mission records — `FAILURES.md`, `FAILURES-findings-2.md`, and
   `DECISIONS-GATING.md` — with `<<<<<<< HEAD` in them from commit `fd7b4a1`, and
@@ -202,25 +215,21 @@ untouched.
    D013's intent (a crashed run must not look successful) while stopping one
    VM's in-flight work from reddening everyone else's push. Do not start this
    while T-0020 holds it.
-1b. **No gate yet reads a document for whether it is *resolved*** beyond the
-   conflict-marker rule T-0021 added. That rule is the template for closing the
-   rest: a new gate is falsified against the defect's own bytes before it is
-   trusted (D025). **Ceiling:** the rule detects git's marker shape only.
-2. **Fleet bookkeeping is recorded machine-readably (T-0018, this session).**
-   The exercised git versions live in `tests/git-versions.json` (schema
-   `origin.git-versions/1`, covered by `tests/test_gitversions.py`): the suite
-   is verified on 2.25.1 and 2.56.0, and the pre-F011 breakage from 2.26 on is
-   recorded as a known-affected range. `tests/README.md` and
-   `docs/operations/ci.md` point at the file instead of restating versions.
+1b. **A gate must read the property it claims to check, and must be falsified
+   against the defect's own bytes before it is trusted** (D025, from F013). Two
+   gates now work that way: the conflict-marker rule and `release check`. The
+   pattern for the next one is in `tools/originlib/conflicts.py`. **Ceiling:**
+   the marker rule detects git's marker shape only.
+2. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
+   exercised git versions live in `tests/git-versions.json` (schema
+   `origin.git-versions/1`): the suite is verified on 2.25.1 and 2.56.0, and the
+   pre-F011 breakage from 2.26 on is a recorded known-affected range.
    **Ceiling:** none of this says anything about a candidate.
-3. **E3's census is done; the attribution half is not** (F010, T-0017, claimed
-   on `instance-20260717-0944`). The declared 5% gate was met at 0.965 by a
-   metric that cannot fail, so prevalence is measured and nothing is
-   attributed. The remaining test builds one source under several
-   `SOURCE_DATE_EPOCH` values and attributes every differing byte to a named
-   cause. **Do not re-run the census.** **Ceiling:** even a clean attribution
-   says how big the timestamp component is on one pure-Python source, not
-   whether a user-visible tool follows.
+3. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
+   are the only byte-level cause for the one builder available here, and
+   `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
+   open is the census's per-package heterogeneity, which this run does not
+   explain. **Ceiling:** one builder, pure-Python sources, Linux.
 4. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an

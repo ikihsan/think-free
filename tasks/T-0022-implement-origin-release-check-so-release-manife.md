@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0022
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-038-implement-origin-release-check-so-releas
@@ -34,14 +34,25 @@ The manifest tables must be machine-parseable without losing their prose. Each c
 
 ## Acceptance criteria
 
-- [ ] `tools/origin release check` exits 0 on this tree and exits non-zero on a seeded defect of each kind
-- [ ] Every top-level tracked entry is classified by exactly one table
-- [ ] A path declared public and absent is marked pending, and removing the pending mark fails the check
-- [ ] The manifest and README must agree on the release state, and disagreeing fails
-- [ ] Credential-shaped text in a classified path fails
-- [ ] CI runs it, and the failure output names the file and line
-- [ ] The check's limits are stated in both the manifest and the CLI reference
-- [ ] Full test suite and doc lint green
+- [x] `tools/origin release check` exits 0 on this tree and exits non-zero on a
+      seeded defect of each kind — 29 tests, one defect per test, plus a fixture
+      that passes
+- [x] Every top-level tracked entry is classified by exactly one table
+- [x] A path declared public and absent is marked pending, and removing the
+      pending mark fails the check
+- [x] The manifest and README must agree on the release state, and disagreeing
+      fails
+- [x] Credential-shaped text in a classified path fails
+- [x] CI runs it, as a sixth step after `Documentation lint`
+- [~] **Deviation from what was declared:** the failure output names the path,
+      not the file *and line*. The credential clause cannot name a line, because
+      `secrets.scan_file` returns pattern names only and nothing else — a
+      position would mean changing the shared scanner, which D012's waiver design
+      already covers for its own reports. Every other clause names a path, and
+      the conflict-marker rule names a path and a line.
+- [x] The check's limits are stated in the manifest, the CLI reference, and the
+      module docstring: it enforces agreement, not truth
+- [x] Full test suite (232), `doc lint`, and `release check` green
 
 ## Verification
 
@@ -55,5 +66,24 @@ Revert the module, the CLI wiring, the CI step, and the manifest edits. Nothing 
 
 ## Notes
 
-Append observations here. Record outcomes as events with
-`tools/origin session experiment-result`.
+**The check found a real defect in its own new code**, which is the best
+available evidence that it is not vacuous: `tests/test_release.py` contains a
+token-shaped fixture, and `tests/` is classified public, so manifest rule 3
+failed on it. The declared answer is D012's `origin-allow-secret-patterns`
+waiver, now used in a third file.
+
+Run against the manifest exactly as it stood before this task, the check
+reported **14 violations**: nine unclassified top-level entries, three declared
+public paths that do not exist, the missing release-state directive, and that
+same fixture. All nine entries are now classified and the three paths are
+`(pending)`, in the same commit as the check — which is manifest rule 2.
+
+One judgement call: a declared *file* classifies only itself, so
+`docs/policy/one.md` does not make `docs/` public. Otherwise adding
+`docs/private.md` would publish it with nobody deciding to. `.agents/` and
+`.claude/` are therefore declared as directories rather than as
+`.agents/skills/`, and `tests/test_release.py` has a case pinning that rule.
+
+The front-door state directive makes manifest rule 4 decidable as *agreement*.
+It cannot decide truth: a manifest and a README that agree on a false claim
+still pass. Both documents say so where the claim is made.

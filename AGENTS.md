@@ -91,8 +91,9 @@ Rules that matter:
 | `tools/origin task …` | Create, claim, run, verify, complete dispatchable tasks |
 | `tools/origin sync …` | Fetch, fast-forward, push, and land work for other VMs |
 | `tools/origin worktree …` | Isolate a task in its own directory and branch |
-| `tools/origin doc lint` | Line caps, metadata, links, orphans, stale generated files |
+| `tools/origin doc lint` | Line caps, metadata, links, orphans, stale generated files, unresolved merge conflicts |
 | `tools/origin doc index` | Regenerate `docs/INDEX.md`, `sessions/INDEX.md`, `tasks/INDEX.md` |
+| `tools/origin release check` | Enforce `RELEASE-MANIFEST.md`: what is public, and the front door's agreement about it |
 | `tools/origin skills check` | Verify skill mirroring and naming rules |
 | `tools/x -- <cmd>` | Run a command with capture, logging, and exit-code passthrough |
 | `python3 -m unittest discover -s tests` | Full test suite (stdlib only) |

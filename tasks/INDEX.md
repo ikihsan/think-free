@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-21 task(s). Every task file declares a runnable verification command;
+22 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -34,6 +34,7 @@ last-verified: 2026-10-03
 | [`T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | done |  | test -f EXPERIMENTS/009-lockfile-drift-snapshot/ | 2026-10-03 |
 | [`T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0021-resolve-the-merge-conflict-markers-committed-to.md`](T-0021-resolve-the-merge-conflict-markers-committed-to.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0022-implement-origin-release-check-so-release-manife.md`](T-0022-implement-origin-release-check-so-release-manife.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 
 ## How tasks run on another machine
 
