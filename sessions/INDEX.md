@@ -15,7 +15,7 @@ Showing the 25 most recent. 2 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | **unfinished** | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T20:46 |
+| [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 | [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | **unfinished** | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T19:33 |
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
 | [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | worked | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T20:27 |
