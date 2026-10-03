@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-13 task(s). Every task file declares a runnable verification command;
+14 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -26,6 +26,7 @@ last-verified: 2026-10-03
 | [`T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | done |  | test -f EXPERIMENTS/005-knitting-bounded-search/ | 2026-10-03 |
 | [`T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | done |  | test -f RESEARCH/SYNTHESIS.md && grep -q 'origin | 2026-10-03 |
 | [`T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | claimed | opencode | test -f EXPERIMENTS/005-build-timestamps/results | 2026-10-03 |
+| [`T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md`](T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md) | done |  | test -f EXPERIMENTS/006-ventilation-measurement- | 2026-10-03 |
 
 ## How tasks run on another machine
 

@@ -29,7 +29,8 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Five experiments have run; no candidate has been validated.
+**Status: partial.** Six experiments have run; two invention claims are
+disproved and no candidate is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -40,6 +41,9 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Test the knitting candidate's Stage-A planner twice: per-error rule
       suboptimal (`004-knitting-stage-a`, T-0010), whole-neighbourhood search
       exact (`005-knitting-bounded-search`, T-0011)
+- [x] Run the ventilation candidate's measurement-design kill gate
+      (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
+      stopped (`FAILURES.md` F008)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs
       produced no product claim; `RESEARCH/SYNTHESIS.md` names the ventilation

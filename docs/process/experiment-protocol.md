@@ -80,6 +80,7 @@ EXPERIMENTS/0nn-slug/
 | `003-information-sufficiency` | W1 and W3 survive; W2's stated input set was insufficient and has been repaired. |
 | `004-knitting-stage-a` | The candidate's per-error rule is valid but suboptimal on a shared-release case. Verdict narrow, not abandon. |
 | `005-knitting-bounded-search` | Whole-neighbourhood search reproduces the oracle on 113/113 checked cases; cheaper settings are not, and two "optimal" settings are exhaustive search in disguise. |
+| `006-ventilation-measurement-design` | Kill gate **not met**: a prescribed door-open protocol beats adaptive action selection at equal budget (0.833 vs 0.792). C2 stopped (`FAILURES.md` F008). |
 
 Two of these killed or bounded a candidate; none validated a product claim. The
 six investigation roles (A–F) are sealed; see `STATE.md`.

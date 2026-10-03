@@ -32,30 +32,34 @@ This is the reload point. A cold session reads this file, then whatever it links
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–025, T-0012) and on `instance-20260717-0947` (sessions 020–023, T-0011) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012) |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | One invention claim tested and **disproved**. No candidate validated |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008) |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experimental validation | **Two invention claims tested and disproved** (E001's motivating example, C2's measurement design). No candidate validated. Findings F001–F008 split across `FAILURES-findings.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 26 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
+| Sessions | 27 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 266 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
+
+Per-session detail behind the dashboard is in
+[`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
 **T-0013 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
-census. Do not touch it. T-0012 (session 025) and T-0011 (session 023) are
-complete; T-0011 was claimed and run on `instance-20260717-0947` at the same time
-as T-0012, without collision.
+census. Do not touch it. T-0014 (session 027, this VM) is complete; T-0012
+(session 025) and T-0011 (session 023, also this VM) are complete, the last two
+run on this VM while the first ran on 0944 without collision.
 
 **Numbering collision to resolve when T-0013 lands.** Its verify command names
 `EXPERIMENTS/005-build-timestamps/`, and `005-knitting-bounded-search/` was
-claimed and landed first from the other VM. The directories do not collide on
-disk, so nothing breaks, but two different experiments will carry the number
-005. Whoever renumbers must update the task file's `verify` string, the
-directory, `docs/INDEX.md`, and `STATE.md` in one commit.
+claimed and landed first from this VM. The directories do not collide on disk,
+so nothing breaks, but two different experiments carry the number 005.
+`006-ventilation-measurement-design/` is also taken now. Whoever renumbers must
+update the task file's `verify` string, the directory, `docs/INDEX.md`, and
+`STATE.md` in one commit, and must not take 006.
 
 Nothing else is claimed.
 
@@ -63,101 +67,10 @@ T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
 survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
 information-insufficient (F007). T-0010 (session 022, VM 0947) then ran the
-knitting Stage-A comparison and T-0011 (session 023, VM 0947) closed it. T-0004
-(multi-VM safety, session 017) is green: fleet/sync suite passing, flow
-documented across process/operations/reference docs, AGENTS.md, and the two
-skills.
-
-## What changed in session 023, VM 0947
-
-T-0011 completed, on a session another VM had started and abandoned mid-edit.
-
-- `EXPERIMENTS/005-knitting-bounded-search/` tests the repair T-0010 named: close
-  releases *before* deciding patches, searching whole closure-overlap
-  neighbourhoods instead of per error. Model and oracle imported unchanged from
-  004, so the comparison is apples-to-apples. 118 fixtures: 115 with the oracle,
-  2 unsupported, 1 whose `2**24` oracle is opt-in via `--slow`.
-- **Result.** Whole-neighbourhood beam 1 is valid and cost-identical to the
-  exhaustive optimum on 115/115 checked cases (116/116 with `--slow`), on both
-  the development and the holdout fixture seed, at every swept `PATCH_COST`,
-  refusing both unsupported states inside the planner. 004's per-error rule is
-  optimal on 85/115 of the same cases. Verdict `narrow`, not `abandon`.
-- **Two limits that matter more than the headline.** Every cheaper setting is
-  worse: chunk cap 1 fails on 20/115 (14 of them holdout cases the code never
-  saw), cap 3 fails on 2 holdout cases. And two settings that *look* optimal
-  (`cap=1 beam=2`, `cap=2 beam=4`) evaluate exactly `2**|errors|`
-  combinations, so they are exhaustive search in disguise; they are labelled as
-  such and are not evidence for the bounded planner.
-- **"Bounded" is not an efficiency claim at this scale.** Counting patch subsets
-  plus combinations, the bounded planner does 1.28x *more* work than the oracle
-  on T-0010's own fixtures. The saving appears only where closures fragment
-  (48 subsets against `2**24` on the largest fixture).
-- The abandoned draft planner was measured and rejected before replacement: it
-  cross-multiplied its per-neighbourhood candidates, so its search space equalled
-  the oracle's and its `all_optimal = true` was a tautology of the decomposition.
-  Recorded as `DECISIONS-PRACTICE.md` D021.
-- Two pre-existing false claims in the record were corrected: 004's README cited
-  an `input_hashes` key that does not exist, and `RELEASE-MANIFEST.md` claimed an
-  `origin release check` command that `origin` does not have.
-- This VM rebased onto VM 0944's concurrent work (session 025, T-0012) rather than
-  overwriting it. Both decision-log splits existed; 0944's by-invariant split was
-  kept and this session's decision became D021.
-
-## What changed in session 025, VM 0944
-
-The screen `STATE.md` had been carrying as next action 3, run and recorded.
-
-- `RESEARCH/SYNTHESIS.md` — all sixteen candidates from A–F in one table, three
-  screens, and a ranked shortlist. Applying F's C1–C6 literally yields six
-  "not applicable": they describe a built repository and cannot discriminate six
-  unimplemented candidates. A third question does the work — *if the gate
-  passes, what gets built* — and it is what rules out E1, the cheapest
-  experiment in the repository, because jitter is already in every client
-  library and a pass would confirm a 2015 blog post.
-- Finding no single report contains: **every promoted candidate in A, B and C
-  needs a person or a room this repository cannot reach** — a planner, an
-  experienced knitter's hands, sensors in a room. Three tasks (T-0005/6/0007)
-  bought A1 a falsification, not a decision. Only D, E and F proposed things
-  testable on this machine, and D proposed nothing.
-- `DECISIONS.md` reached the 300-line cap and was split by invariant into
-  `DECISIONS-FOUNDATION.md` (mission, workspace, evidence) and
-  `DECISIONS-PRACTICE.md` (recording, verifying, publishing, gating). Entries
-  moved verbatim; numbering unchanged.
-- D020 records the screen as a gate and keeps C1–C6 as a stage-D release check
-  rather than a candidate screen that cannot fail.
-- `reconcile.IMPLICATIONS` gained an explicit `any`/`all` mode per event kind, so
-  the decision gate survives the split without weakening the `experiment_result`
-  gate, which still demands both `HYPOTHESES.md` and `FAILURES.md`. Five new
-  tests in `tests/test_doc_gaps.py`; 173 tests pass.
-- Repaired two tracked documents that were false: `RESEARCH.md` and `ROADMAP.md`
-  both described investigations E and F as "not run" although both are sealed
-  and their tasks are done.
-
-## What changed in session 020, VM 0947
-
-- `EXPERIMENTS/003-information-sufficiency/` — one synthetic witness per held
-  candidate, each stating two realities with identical permitted inputs and the
-  required divergent output. W1 and W3 survive (an askable observation separates
-  them); W2 is information-insufficient as specified. `task verify T-0008`
-  exit 0.
-- `HYPOTHESES.md` records the E002 gate and its per-candidate outcome;
-  `FAILURES.md` F007 records the knitting input-set finding.
-- Push credentialing repaired: App ID recovered, durable JWT generator added
-  under `~/.config/github-app/`.
-
-## What changed in session 022, VM 0947
-
-T-0010 completed: `EXPERIMENTS/004-knitting-stage-a/` runs the knitting
-candidate's own Stage A. A cheap per-error local heuristic was compared
-against an exhaustive minimum-cost oracle on 10 synthetic cases (9 solved, 1
-refused). The heuristic is valid on all 9 solved cases (never misses an
-error, never emits an illegal closure), refuses unsupported shaping, and is
-suboptimal on exactly one constructed shared-release case (local 5 vs.
-optimum 3) — the same_column_stack case a per-error rule cannot see. No
-full-row-release degeneration. Verdict `narrow`, not `abandon`; next test is
-a bounded-neighbourhood planner against the same oracle before Stage-B
-physical work. `task verify T-0010` exit 0. Push credentials on this VM are
-the durable `~/.config/github-app/` JWT helper from session 020.
+knitting Stage-A comparison, T-0011 (session 023, VM 0947) closed it, and T-0014
+(session 027, VM 0947) stopped the ventilation candidate (F008). T-0004 (multi-VM
+safety, session 017) is green: fleet/sync suite passing, flow documented across
+process/operations/reference docs, AGENTS.md, and the two skills.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -203,28 +116,7 @@ These come from the screen in [`RESEARCH/SYNTHESIS.md`](RESEARCH/SYNTHESIS.md)
 and D020. Read the ceiling on each before spending effort: a pass still leaves
 prior art, usefulness, and adoption untouched.
 
-1. **Run the ventilation measurement kill gate** (`RESEARCH/C.md`, "Smallest
-   runnable falsification experiment"). Unclaimed and locally runnable: a
-   two-room mass-balance simulator in stdlib Python, three protocols at one
-   observation budget, paired parameter sets with near-identical passive traces,
-   and held-out weather and mixing violations that break the estimator model.
-   W3 already showed the mechanism is information-sufficient, so a result is
-   possible at all — that is the only reason it is first. **Ceiling:** a pass
-   means "mathematically possible on correctly specified synthetic models".
-   E's rule 2 and C's own conclusion both say the right outcome on a pass is an
-   extension to NIST or NVAPF, not a new repository.
-2. **Run E3's build-timestamp census**, because it is the cheapest thing here —
-   one command, minutes, a hard kill gate at 5% — not because it is promising.
-   It closes the one E-mechanism whose experiment is both runnable today and
-   genuinely unmeasured. **Ceiling:** a PyPI-wheel rate; it cannot bound npm,
-   conda, or Maven.
-3. **Do not run E1** (retry jitter). It is the cheapest experiment in the
-   repository and the least informative: jitter is already in every modern
-   client library, so a pass changes no build decision. D020, Screen 3.
-4. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
-   not effort-gated: the informative comparison is two snapshots weeks apart, and
-   two resolver runs today measure nothing.
-5. **Knitting: run the prior-art check on its remaining kill-gate condition.**
+1. **Knitting: run the prior-art check on its remaining kill-gate condition.**
    Stage A is settled (T-0010, T-0011), so the only untested condition is
    "abandon the algorithmic-advantage claim if existing graph tooling already
    supplies equivalent intervention sequences" — a literature question, cheap and
@@ -232,8 +124,24 @@ prior art, usefulness, and adoption untouched.
    would measure the same decomposition again. **Ceiling:** a prior-art hit ends
    the candidate's algorithmic claim without a line of code; Stage B physical
    work needs an experienced knitter and authorization.
+2. **C2 is stopped; do not re-run it** (`FAILURES.md` F008). The only survivor of
+   that experiment is that reading a second sensor is more robust than acting on
+   the measured room under poor mixing. That would have to be tested against
+   existing tools, which is a prior-art question before it is an experiment.
+   **Ceiling:** an observation about a protocol, not an invention.
+3. **Run E3's build-timestamp census** if the claim on `instance-20260717-0944`
+   (T-0013) lapses. Cheapest unmeasured thing here — one command, minutes, a hard
+   kill gate at 5%. **Ceiling:** a PyPI-wheel rate; it cannot bound npm, conda,
+   or Maven.
+4. **Do not run E1** (retry jitter). It is the cheapest experiment in the
+   repository and the least informative: jitter is already in every modern
+   client library, so a pass changes no build decision. D020, Screen 3.
+5. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
+   not effort-gated: the informative comparison is two snapshots weeks apart, and
+   two resolver runs today measure nothing.
 6. **Do not build a product.** Nothing is selected, and the base rate for
-   agent-generated ideas with prior art is high.
+   agent-generated ideas with prior art is high. Two candidate lines have now
+   returned negative results.
 
 ### Standing constraints
 

@@ -19,7 +19,7 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 |---|---|---|---|
 | Photo-migration auditor | `RESEARCH/B.md`, E001 | **Motivating example disproved** (`FAILURES.md` F001) | Needs a real case where bytes survive and relationships do not |
 | Knitting repair planner | `RESEARCH/C.md`, E002 | Hold; **witness repaired** (W2, T-0009) and **Stage-A planner question answered at the mechanism level** (T-0010, T-0011): whole-neighbourhood search is exact 115/115, per-error 85/115, verdict narrow | Prior art on equivalent intervention sequences, then Stage B |
-| Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | Hold; **witness survives** (W3); strong competition | Simulation comparing adaptive against fixed protocol |
+| Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | **Stopped as formulated** (`FAILURES.md` F008, T-0014): a prescribed door-open protocol beats adaptive action selection at equal budget, 0.833 vs 0.792 | Only if the surviving robustness observation (read a second sensor under poor mixing) is tested against existing tools |
 | Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
 | Sewing-projector auto-calibration | `RESEARCH/B.md` | Rejected: no material gap shown | — |
@@ -136,6 +136,22 @@ so next-observation selection carries decision-relevant information. This is
 `observed` for the witness construction and `inferred` for the wider claim; it
 does not measure usefulness, differentiation, or adoption, and one construction
 cannot exclude a different silent pair.
+
+**W3 measured (T-0014, `EXPERIMENTS/006-ventilation-measurement-design/`).**
+`observed`, 2026-10-03. The witness says an askable observation separates the
+realities; the experiment asked the follow-up question, which the witness cannot
+answer: does *choosing* that observation beat *being told* one? On 6 paired
+hypothesis families whose passive trace in the measured room is identical by
+construction, with one shared fitter and an identical budget of 12 sample slots
+and one decision, pairwise discrimination accuracy was passive 0.333 (chance),
+prescribed door-open 0.833, adaptive 0.792. The predeclared gate required
+adaptive to beat fixed and was **not met**, so the formulation is stopped. One
+narrower observation survives: under poor mixing, reading a second sensor holds
+0.708 where acting on the measured room drops to 0.542. Recorded as
+`FAILURES.md` F008. **This is a failed claim, not a failed mechanism** — the
+question of which hypotheses remain distinguishable is still answerable, and
+this experiment only shows that the proposed advantage over a fixed protocol did
+not appear.
 
 ## Candidates awaiting a falsification experiment
 

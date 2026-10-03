@@ -85,6 +85,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](../tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](../tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](../tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md`](../tasks/T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -111,6 +112,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/003-information-sufficiency/README.md`](../EXPERIMENTS/003-information-sufficiency/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
 | [`EXPERIMENTS/004-knitting-stage-a/README.md`](../EXPERIMENTS/004-knitting-stage-a/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | The knitting repair candidate's own Stage-A test (HYPOTHESES.md): does a cheap |
 | [`EXPERIMENTS/005-knitting-bounded-search/README.md`](../EXPERIMENTS/005-knitting-bounded-search/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Follow-up to EXPERIMENTS/004-knitting-stage-a (T-0010), testing the repair |
+| [`EXPERIMENTS/006-ventilation-measurement-design/README.md`](../EXPERIMENTS/006-ventilation-measurement-design/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | RESEARCH/C.md hypothesis 2, run as its own predeclared kill gate (T-0014). |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
