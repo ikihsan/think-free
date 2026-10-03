@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0022
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-038-implement-origin-release-check-so-releas
+claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin release check && tools/origin doc lint
 -->
 
