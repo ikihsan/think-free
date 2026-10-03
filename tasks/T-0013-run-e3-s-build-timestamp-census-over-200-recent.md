@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0013
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-026-run-e3-s-build-timestamp-census-over-200
+claim-vm: instance-20260717-0944
 verify: test -f EXPERIMENTS/005-build-timestamps/results.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/005-build-timestamps/results.json'));assert d['sample']['wheels_inspected']>=200;assert 'violation_fraction' in d['census'];assert d['gate']['verdict'] in ('weak-lead','lead-survives')"
 -->
 
