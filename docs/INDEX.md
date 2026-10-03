@@ -74,6 +74,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0001-write-falsification-kill-gates-for-the-three-hel.md`](../tasks/T-0001-write-falsification-kill-gates-for-the-three-hel.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0002-run-investigation-e-the-experimental-engineer-ro.md`](../tasks/T-0002-run-investigation-e-the-experimental-engineer-ro.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md`](../tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](../tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 

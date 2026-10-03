@@ -196,3 +196,62 @@ Reasoning: build output is reproducible from the source that is being declared, 
 recording it adds noise without evidence. This is the same rule already applied to
 vendored content, which is hash-verified rather than declared. It should have been
 applied when `--dir` was introduced; it was found by reading a report instead.
+## D015 — A claim is published, or it is not a claim (2026-10-03)
+
+Observed: `origin task claim` mutated only the local task file, so two VMs could
+both believe they held one task (`FAILURES.md` F005).
+
+Decision: a claim is committed and pushed to the shared base branch, and git's
+ref update is the lock. The claim commit must be the only thing between the
+branch and the base, so a claim can never carry unreviewed work onto the shared
+branch. A rejected push means another VM won: the claim commit is discarded, the
+winner is named, and the loser changes nothing. Taking a dead VM's task requires
+`--takeover "reason"`, which is written to the ledger with the superseded holder.
+
+Rejected: a lock file in the repository, because two VMs writing one file is the
+same lost-update problem one level down. A claim queue service, because the point
+of this repository is that it works with only git. Advisory claims with a
+convention attached, because that is the arrangement that just failed.
+
+Consequence: claiming a task requires the branch to be at the base, so a VM with
+unlanded work is told to land it first instead of quietly publishing it.
+
+## D016 — One worktree and branch per task, not one shared tree (2026-10-03)
+
+Observed: every VM worked in its own clone, so within one machine two agents —
+or one agent and one background run — shared one index, one
+`sessions/active.json` pointer, and one set of uncommitted changes. `session
+start` refuses a second session, so the second agent has nowhere to record
+itself, and `git add -A` cannot tell whose change it is staging.
+
+Decision: `origin worktree add --task T-NNNN` creates `.worktrees/T-NNNN-<vm>`
+on branch `task/T-NNNN-<vm>` from `origin/<base>`. The tooling adds
+`.worktrees/` to `.gitignore` if it is missing, so the isolation mechanism cannot
+commit itself. A worktree is refused when the task is claimed elsewhere, when this
+VM already has one for that task, or when the branch name is taken.
+
+Rejected: relying on agents to `cd` into separate clones, because nothing recorded
+which directory belonged to which task. Nested worktrees inside the repository
+tree, because the parent would then see the child's files.
+
+## D017 — Sessions fetch on the way in; only the record is committed on the way out (2026-10-03)
+
+Observed: a session could start from a tree that was behind the shared base, and
+finish with its record sitting only on that VM.
+
+Decision: `session start` fetches and fast-forwards by default, refuses a dirty
+tree when the remote has moved, and records which remote commit it synced to;
+`--no-sync` is the explicit opt-out for an offline machine. `session finish
+--push` commits the session's own files — its directory and the three generated
+indexes — and pushes the branch, refusing while unrelated edits are uncommitted.
+`origin sync land` rebases a work branch onto the base and pushes it, resolving
+conflicts in generated indexes by regenerating them and stopping on every other
+conflict. Nothing is ever force-pushed.
+
+Rejected: auto-committing the agent's work with a generated message, because a
+commit message is the place where a human-readable claim about the work lives,
+and a generated one would be a claim nobody made. Force-pushing to resolve a
+diverged branch, because it destroys the other VM's work silently.
+
+Consequence: `land` is the only operation that moves work onto the shared branch,
+so it is the place where a real merge conflict becomes visible to a person.

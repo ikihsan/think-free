@@ -50,8 +50,7 @@ def text(args: list[str], root: Path | None = None) -> str:
     return result.stdout.strip() if result.returncode == 0 else ""
 
 
-def state() -> GitState:
-    root = paths.repo_root()
+def state(root: Path | None = None) -> GitState:
     head = text(["rev-parse", "HEAD"], root)
     if not head:
         return GitState(

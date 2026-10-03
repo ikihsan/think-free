@@ -1,0 +1,1885 @@
+==============================================================================
+[seq 2] 2026-10-03T13:21:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+...Forigin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+............F.......................EEEEEEEEEEEEEEEEEE...................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..............................................EEEEEEEEEEEEEEEE..................
+======================================================================
+ERROR: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_remote_list_marks_unknown_tasks (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_claim_requires_a_branch_at_the_remote_base (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_second_vm_is_refused_and_learns_who_won (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_unpushed_local_claim_does_not_lock_the_task (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_add_creates_a_branch_and_a_directory (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_list_reports_registered_worktrees (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_remove_refuses_a_dirty_worktree (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_remove_rejects_a_path_outside_the_worktree_root (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_second_worktree_for_the_same_task_on_one_vm_is_refused (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_two_vms_get_separate_directories_for_one_task (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_worktree_starts_from_the_remote_base (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_finish_without_push_leaves_the_branch_local (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_start_fast_forwards_a_behind_vm (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_pull_fast_forwards_the_base_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_pull_is_a_no_op_when_already_current (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_pull_refuses_a_dirty_tree (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_pull_refuses_when_local_commits_would_be_lost (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_push_publishes_the_current_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+ERROR: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 98, in make_fleet
+    git(remote, "init", "-q", "--bare", "-b", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '--bare', '-b', 'research/origin']' returned non-zero exit status 129.
+
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 168 tests in 88.310s
+
+FAILED (failures=2, errors=34)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 92508  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T13:34:33+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet test_sync
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+======================================================================
+ERROR: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_remote_list_marks_unknown_tasks (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_claim_requires_a_branch_at_the_remote_base (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_second_vm_is_refused_and_learns_who_won (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_unpushed_local_claim_does_not_lock_the_task (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_add_creates_a_branch_and_a_directory (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_list_reports_registered_worktrees (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_remove_refuses_a_dirty_worktree (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_remove_rejects_a_path_outside_the_worktree_root (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_second_worktree_for_the_same_task_on_one_vm_is_refused (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_two_vms_get_separate_directories_for_one_task (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_worktree_starts_from_the_remote_base (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 23, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_finish_without_push_leaves_the_branch_local (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_start_fast_forwards_a_behind_vm (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 170, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_pull_fast_forwards_the_base_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_pull_is_a_no_op_when_already_current (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_pull_refuses_a_dirty_tree (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_pull_refuses_when_local_commits_would_be_lost (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_push_publishes_the_current_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 22, in setUp
+    self.fleet = make_fleet(self)
+  File "/home/ubuntu/think-free/tests/harness.py", line 103, in make_fleet
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', '-u', 'origin', 'research/origin']' returned non-zero exit status 1.
+
+----------------------------------------------------------------------
+Ran 35 tests in 34.410s
+
+FAILED (errors=34)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 36503  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T13:37:45+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet test_sync
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.EEEFEEEEEEEE.EEEEEEEEEEEEEEEEEEEEE
+======================================================================
+ERROR: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 114, in test_list_remote_shows_claims_made_elsewhere
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_remote_list_marks_unknown_tasks (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 120, in test_remote_list_marks_unknown_tasks
+    (self.vm_a / "tasks" / "T-0009-only-here.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-v4mivis7/vm-a/tasks/T-0009-only-here.md'
+
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 43, in test_claim_pushes_and_is_visible_to_the_other_vm
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 61, in test_losing_vm_leaves_no_claim_commit
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 99, in test_release_makes_the_task_available_again
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_second_vm_is_refused_and_learns_who_won (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 51, in test_second_vm_is_refused_and_learns_who_won
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 88, in test_takeover_requires_a_reason_and_is_recorded
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_unpushed_local_claim_does_not_lock_the_task (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 71, in test_unpushed_local_claim_does_not_lock_the_task
+    taskops.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskops.py", line 72, in claim
+    task = find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_add_creates_a_branch_and_a_directory (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 131, in test_add_creates_a_branch_and_a_directory
+    info = worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_list_reports_registered_worktrees (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 175, in test_list_reports_registered_worktrees
+    worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_remove_refuses_a_dirty_worktree (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 181, in test_remove_refuses_a_dirty_worktree
+    info = worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_second_worktree_for_the_same_task_on_one_vm_is_refused (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 153, in test_second_worktree_for_the_same_task_on_one_vm_is_refused
+    worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_two_vms_get_separate_directories_for_one_task (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 167, in test_two_vms_get_separate_directories_for_one_task
+    first = worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 138, in test_worktree_directory_is_gitignored
+    info = worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 159, in test_worktree_refused_when_another_vm_holds_the_claim
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 180, in claim
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_worktree_starts_from_the_remote_base (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 146, in test_worktree_starts_from_the_remote_base
+    info = worktree.add("T-0001", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 103, in add
+    task = tasks.find(task_id)
+  File "/home/ubuntu/think-free/tools/originlib/tasks.py", line 139, in find
+    raise TaskError(f"no such task: {task_id}")
+originlib.tasks.TaskError: no such task: T-0001
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 214, in test_finish_with_push_publishes_the_record
+    session.start("push at the end", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 225, in test_finish_with_push_refuses_uncommitted_work
+    session.start("must commit first", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_finish_without_push_leaves_the_branch_local (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 237, in test_finish_without_push_leaves_the_branch_local
+    session.start("no push requested", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_start_fast_forwards_a_behind_vm (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 182, in test_start_fast_forwards_a_behind_vm
+    active = session.start("start from the newest commit", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 203, in test_start_records_the_remote_state_it_synced_to
+    active = session.start("record the sync point", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 196, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 112, in test_land_rebases_onto_the_base_and_pushes
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 264, in land
+    pushed = push(target, root=root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 183, in push
+    current = gitutil.state(root).branch
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 164, in test_land_reports_a_real_content_conflict_and_keeps_the_work
+    self.assertTrue(sync.status()["rebase_in_progress"])
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 126, in test_land_resolves_generated_index_conflicts_by_regenerating
+    (self.vm_a / "sessions" / "INDEX.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-ugf1nt0v/vm-a/sessions/INDEX.md'
+
+======================================================================
+ERROR: test_pull_fast_forwards_the_base_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 43, in test_pull_fast_forwards_the_base_branch
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_pull_is_a_no_op_when_already_current (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 52, in test_pull_is_a_no_op_when_already_current
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_pull_refuses_a_dirty_tree (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 61, in test_pull_refuses_a_dirty_tree
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_pull_refuses_when_local_commits_would_be_lost (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 71, in test_pull_refuses_when_local_commits_would_be_lost
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 143, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 93, in test_push_never_forces
+    sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 183, in push
+    current = gitutil.state(root).branch
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_push_publishes_the_current_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 80, in test_push_publishes_the_current_branch
+    outcome = sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 183, in push
+    current = gitutil.state(root).branch
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+ERROR: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 35, in test_status_reports_divergence_from_the_remote
+    report = sync.status()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 122, in status
+    state = gitutil.state(root)
+TypeError: state() takes 0 positional arguments but 1 was given
+
+======================================================================
+FAIL: test_claim_requires_a_branch_at_the_remote_base (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 84, in test_claim_requires_a_branch_at_the_remote_base
+    self.assertIn("sync", str(caught.exception).lower())
+AssertionError: 'sync' not found in 'no such task: t-0001'
+
+----------------------------------------------------------------------
+Ran 35 tests in 74.983s
+
+FAILED (failures=1, errors=32)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 76382  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T13:45:12+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet test_sync
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.FFF..E.E.......EF.E...EE..E....E.F
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 106, in test_release_makes_the_task_available_again
+    again = taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 200, in claim
+    _require_at_base()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 141, in _require_at_base
+    raise tasks.TaskError(
+originlib.tasks.TaskError: this branch is 0 commit(s) away from origin/research/origin; sync it first ('tools/origin sync pull' or 'tools/origin sync land') so the claim is published alone
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 96, in test_takeover_requires_a_reason_and_is_recorded
+    taken = taskremote.claim("T-0001", agent="agent-b", vm="vm-b", takeover="vm-a is gone")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 200, in claim
+    _require_at_base()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 141, in _require_at_base
+    raise tasks.TaskError(
+originlib.tasks.TaskError: this branch is 0 commit(s) away from origin/research/origin; sync it first ('tools/origin sync pull' or 'tools/origin sync land') so the claim is published alone
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 143, in test_worktree_directory_is_gitignored
+    result = git(self.vm_a, "check-ignore", "-q", str(info.path))
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'check-ignore', '-q', '/tmp/origin-fleet-f802rpd6/vm-a/.worktrees/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 215, in test_finish_with_push_publishes_the_record
+    result = session.finish("no-change", "nothing changed", "none", push=True)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 181, in finish
+    _prepare_push(active)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 169, in _prepare_push
+    raise SessionError(
+originlib.activestate.SessionError: commit these before finishing with --push, so the record and the work travel together: sessions/
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 205, in test_start_records_the_remote_state_it_synced_to
+    data = next(e for e in events if e["kind"] == "session_start")["data"]
+StopIteration
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 153, in pull
+    raise SyncError(
+originlib.sync.SyncError: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 196, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 35, in sync_before_start
+    raise SyncStartError(
+originlib.sessionflow.SyncStartError: cannot start a session from a stale or dirty tree: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 126, in test_land_resolves_generated_index_conflicts_by_regenerating
+    (self.vm_a / "sessions" / "INDEX.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-p79pl2mj/vm-a/sessions/INDEX.md'
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 99, in test_push_never_forces
+    git(self.vm_b, "push", "-q", "origin", "research/origin:refs/heads/task/T-0001-vm-a")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', 'origin', 'research/origin:refs/heads/task/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+FAIL: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 120, in test_list_remote_shows_claims_made_elsewhere
+    self.assertIn("agent-a", taskremote.render_remote_list(""))
+AssertionError: 'agent-a' not found in 'tasks at origin/research/origin\nTASK     STATUS     HOLDER                 FILE\nT-0001   open       -                      T-0001-contended-task.md'
+
+======================================================================
+FAIL: test_remote_list_marks_unknown_tasks (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 129, in test_remote_list_marks_unknown_tasks
+    self.assertIn("T-0009", text)
+AssertionError: 'T-0009' not found in 'tasks at origin/research/origin\nTASK     STATUS     HOLDER                 FILE\nT-0001   open       -                      T-0001-contended-task.md'
+
+======================================================================
+FAIL: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 50, in test_claim_pushes_and_is_visible_to_the_other_vm
+    self.assertEqual(remote["T-0001"].status, "claimed")
+AssertionError: 'open' != 'claimed'
+- open
++ claimed
+
+
+======================================================================
+FAIL: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 166, in test_worktree_refused_when_another_vm_holds_the_claim
+    worktree.add("T-0001", vm="vm-b")
+AssertionError: WorktreeError not raised
+
+======================================================================
+FAIL: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 36, in test_status_reports_divergence_from_the_remote
+    self.assertEqual(report["behind"], 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 35 tests in 128.099s
+
+FAILED (failures=5, errors=8)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 130481  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T13:49:17+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet test_sync
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+......E.E.......EF.E...EE..E....E..
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 106, in test_release_makes_the_task_available_again
+    again = taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _require_at_base()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 145, in _require_at_base
+    raise tasks.TaskError(
+originlib.tasks.TaskError: this branch is 0 commit(s) away from origin/research/origin; sync it first ('tools/origin sync pull' or 'tools/origin sync land') so the claim is published alone
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 96, in test_takeover_requires_a_reason_and_is_recorded
+    taken = taskremote.claim("T-0001", agent="agent-b", vm="vm-b", takeover="vm-a is gone")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _require_at_base()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 145, in _require_at_base
+    raise tasks.TaskError(
+originlib.tasks.TaskError: this branch is 0 commit(s) away from origin/research/origin; sync it first ('tools/origin sync pull' or 'tools/origin sync land') so the claim is published alone
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 146, in test_worktree_directory_is_gitignored
+    result = git(self.vm_a, "check-ignore", "-q", str(info.path))
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'check-ignore', '-q', '/tmp/origin-fleet-vdx0g_da/vm-a/.worktrees/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 215, in test_finish_with_push_publishes_the_record
+    result = session.finish("no-change", "nothing changed", "none", push=True)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 181, in finish
+    _prepare_push(active)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 169, in _prepare_push
+    raise SessionError(
+originlib.activestate.SessionError: commit these before finishing with --push, so the record and the work travel together: sessions/
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 205, in test_start_records_the_remote_state_it_synced_to
+    data = next(e for e in events if e["kind"] == "session_start")["data"]
+StopIteration
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 160, in pull
+    raise SyncError(
+originlib.sync.SyncError: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 196, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 35, in sync_before_start
+    raise SyncStartError(
+originlib.sessionflow.SyncStartError: cannot start a session from a stale or dirty tree: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 126, in test_land_resolves_generated_index_conflicts_by_regenerating
+    (self.vm_a / "sessions" / "INDEX.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-g1530tg4/vm-a/sessions/INDEX.md'
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 99, in test_push_never_forces
+    git(self.vm_b, "push", "-q", "origin", "research/origin:refs/heads/task/T-0001-vm-a")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', 'origin', 'research/origin:refs/heads/task/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+FAIL: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 169, in test_worktree_refused_when_another_vm_holds_the_claim
+    worktree.add("T-0001", vm="vm-b")
+AssertionError: WorktreeError not raised
+
+----------------------------------------------------------------------
+Ran 35 tests in 121.395s
+
+FAILED (failures=1, errors=8)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 123578  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T13:50:06+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet.RemoteTruthClaimTest.test_release_makes_the_task_available_again test_fleet.WorktreeIsolationTest.test_worktree_directory_is_gitignored test_sync.SyncTest.test_push_never_forces
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EEE
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 106, in test_release_makes_the_task_available_again
+    again = taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _require_at_base()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 145, in _require_at_base
+    raise tasks.TaskError(
+originlib.tasks.TaskError: this branch is 0 commit(s) away from origin/research/origin; sync it first ('tools/origin sync pull' or 'tools/origin sync land') so the claim is published alone
+
+======================================================================
+ERROR: test_worktree_directory_is_gitignored (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 146, in test_worktree_directory_is_gitignored
+    result = git(self.vm_a, "check-ignore", "-q", str(info.path))
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'check-ignore', '-q', '/tmp/origin-fleet-pmgl8xrw/vm-a/.worktrees/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 99, in test_push_never_forces
+    git(self.vm_b, "push", "-q", "origin", "research/origin:refs/heads/task/T-0001-vm-a")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', 'origin', 'research/origin:refs/heads/task/T-0001-vm-a']' returned non-zero exit status 1.
+
+----------------------------------------------------------------------
+Ran 3 tests in 12.407s
+
+FAILED (errors=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 13608  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T13:58:54+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_fleet test_sync
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.....F.............E...EE..E....E..
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 224, in test_finish_with_push_publishes_the_record
+    result = session.finish("no-change", "nothing changed", "none", push=True)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 181, in finish
+    _prepare_push(active)
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 169, in _prepare_push
+    raise SessionError(
+originlib.activestate.SessionError: commit these before finishing with --push, so the record and the work travel together: sessions/
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 214, in test_start_records_the_remote_state_it_synced_to
+    data = next(e for e in events if e["kind"] == "session_start")["data"]
+StopIteration
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 33, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 160, in pull
+    raise SyncError(
+originlib.sync.SyncError: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 205, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 55, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 35, in sync_before_start
+    raise SyncStartError(
+originlib.sessionflow.SyncStartError: cannot start a session from a stale or dirty tree: working tree has uncommitted changes, refusing to fast-forward: dirty.md
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 135, in test_land_resolves_generated_index_conflicts_by_regenerating
+    (self.vm_a / "sessions" / "INDEX.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-eg39p6hf/vm-a/sessions/INDEX.md'
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 103, in test_push_never_forces
+    git(self.vm_b, "push", "-q", "origin", "task/T-0001-vm-a")
+  File "/home/ubuntu/think-free/tests/harness.py", line 23, in git
+    result = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'push', '-q', 'origin', 'task/T-0001-vm-a']' returned non-zero exit status 1.
+
+======================================================================
+FAIL: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 69, in test_losing_vm_leaves_no_claim_commit
+    self.assertNotIn("claim T-0001", git(self.vm_b, "log", "--oneline", "-5"))
+AssertionError: 'claim T-0001' unexpectedly found in 'e602cbd claim T-0001 by agent-a on vm-a\nc255f4f add task\nffacae3 initial'
+
+----------------------------------------------------------------------
+Ran 35 tests in 115.189s
+
+FAILED (failures=1, errors=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 117016  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T14:00:47+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest test_sync.SessionBoundaryTest.test_start_records_the_remote_state_it_synced_to test_sync.SyncTest.test_land_resolves_generated_index_conflicts_by_regenerating
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EE
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 210, in test_start_records_the_remote_state_it_synced_to
+    data = next(e for e in events if e["kind"] == "session_start")["data"]
+StopIteration
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 131, in test_land_resolves_generated_index_conflicts_by_regenerating
+    (self.vm_a / "sessions" / "INDEX.md").write_text(
+  File "/usr/lib/python3.8/pathlib.py", line 1255, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/origin-fleet-w562cg3u/vm-a/sessions/INDEX.md'
+
+----------------------------------------------------------------------
+Ran 2 tests in 6.318s
+
+FAILED (errors=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7708  redactions: none

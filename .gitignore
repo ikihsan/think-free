@@ -9,3 +9,6 @@ target/
 sessions/active.json
 .env
 .env.*
+
+# Agent runtime state, not repository content.
+.opencode/

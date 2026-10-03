@@ -12,7 +12,9 @@ beginning. Mission active; **no product selected**.
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03;
 GitHub remote configured via GitHub App installation on `ikihsan/think-free`.
 Commits from this VM are authored as `Ihsan Ai Server Bot` (global git
-identity, 2026-10-03).
+identity, 2026-10-03). This VM runs **Python 3.8.10 and git 2.25.1**, not the
+3.14.6/2.55.0 recorded from the development machine, so the capability numbers
+below are per machine and must be re-probed here with `tools/origin doctor`.
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
@@ -25,13 +27,24 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. 133 stdlib tests, all passing |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims added in session 009, **not yet verified green** |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 4 recorded, 3 worked, 1 deliberately abandoned mid-way and kept in the log |
+| Sessions | 9 recorded; session 009 in progress |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | 183 tracked files; every authored file is under the 300-line cap, and the 7 that exceed it are declared vendored exemptions. `doc lint` exits 0 |
+
+## In flight: T-0004, multi-VM safety (session 009)
+
+Committed as work-in-progress on 2026-10-03 with tests **not** re-run green. What
+exists: `sync.py` (status/pull/push/land), `worktree.py`, `taskremote.py`
+(remote-truth claims, atomic push, takeover), `sessionflow.py` (fetch on start,
+push-the-record on finish), and `tests/test_fleet.py` + `tests/test_sync.py`. The
+last full run had six failures; four were fixed and the run was interrupted before
+re-verification. **First action for the next session: run the suite.** Remaining
+scope: process and operations documentation, the two skills, `AGENTS.md`, and the
+CLI reference do not yet describe any of this.
 
 ## What changed in the last session
 

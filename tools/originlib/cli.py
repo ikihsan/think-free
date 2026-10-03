@@ -15,7 +15,7 @@ import argparse
 import json
 import sys
 
-from . import cli_repo, cli_session, cli_task, paths, session, tasks
+from . import cli_repo, cli_session, cli_sync, cli_task, paths, session, tasks
 
 EXIT_OK = 0
 EXIT_USAGE = 1
@@ -43,6 +43,12 @@ def build_parser() -> argparse.ArgumentParser:
     start.add_argument("--goal", required=True)
     start.add_argument("--task", default="")
     start.add_argument("--agent", default="")
+    start.add_argument(
+        "--no-sync",
+        dest="sync",
+        action="store_false",
+        help="do not fetch and fast-forward onto the shared base first",
+    )
 
     for name, help_text in (
         ("step", "record a milestone"),
@@ -74,6 +80,11 @@ def build_parser() -> argparse.ArgumentParser:
     finish.add_argument("--outcome", required=True, choices=session.OUTCOMES)
     finish.add_argument("--summary", required=True)
     finish.add_argument("--next", dest="next_steps", required=True)
+    finish.add_argument(
+        "--push",
+        action="store_true",
+        help="commit this session's own record and push the branch before exiting",
+    )
 
     session_sub.add_parser("status", help="show the active session")
     verify = session_sub.add_parser("verify", help="check every session record for integrity")
@@ -101,11 +112,36 @@ def build_parser() -> argparse.ArgumentParser:
 
     listing = task_sub.add_parser("list", help="list tasks")
     listing.add_argument("--status", default="")
+    listing.add_argument(
+        "--remote",
+        action="store_true",
+        help="list the tasks as the shared remote records them, not this working tree",
+    )
 
     claim = task_sub.add_parser("claim", help="claim a task for an agent and machine")
     claim.add_argument("task_id")
     claim.add_argument("--agent", default="")
     claim.add_argument("--vm", default="")
+    claim.add_argument(
+        "--takeover",
+        default="",
+        metavar="REASON",
+        help="claim a task held by a dead VM, recording why",
+    )
+    push_group = claim.add_mutually_exclusive_group()
+    push_group.add_argument(
+        "--push",
+        dest="push",
+        action="store_true",
+        default=None,
+        help="publish the claim so other VMs can see it (default when a remote exists)",
+    )
+    push_group.add_argument(
+        "--no-push",
+        dest="push",
+        action="store_false",
+        help="record the claim in this working tree only; other VMs cannot see it",
+    )
 
     task_sub.add_parser("verify", help="run a task's declared verification command").add_argument(
         "task_id"
@@ -119,6 +155,37 @@ def build_parser() -> argparse.ArgumentParser:
     cancel = task_sub.add_parser("cancel", help="mark a task cancelled")
     cancel.add_argument("task_id")
     cancel.add_argument("--reason", required=True)
+
+    release = task_sub.add_parser("release", help="return a claimed task to the pool")
+    release.add_argument("task_id")
+    release.add_argument("--reason", default="")
+    release.add_argument("--agent", default="")
+    release.add_argument("--vm", default="")
+
+    # ----------------------------------------------------------------- sync
+    sync_parser = sub.add_parser(
+        "sync", help="fetch, fast-forward, publish, and land work for other VMs"
+    )
+    sync_sub = sync_parser.add_subparsers(dest="action", required=True)
+    sync_sub.add_parser("status", help="branch, divergence, dirty paths, rebase state")
+    sync_sub.add_parser("pull", help="fetch and fast-forward onto the shared base")
+    push_cmd = sync_sub.add_parser("push", help="publish the current branch; never forces")
+    push_cmd.add_argument("--branch", default="")
+    push_cmd.add_argument("--set-upstream", action="store_true")
+    land = sync_sub.add_parser("land", help="rebase this branch onto the base and push it")
+    land.add_argument("--branch", default="", help="base branch to land on (default: detected)")
+
+    # ------------------------------------------------------------- worktree
+    wt_parser = sub.add_parser("worktree", help="isolate a task in its own directory and branch")
+    wt_sub = wt_parser.add_subparsers(dest="action", required=True)
+    wt_add = wt_sub.add_parser("add", help="create a worktree and branch for one task")
+    wt_add.add_argument("task")
+    wt_add.add_argument("--vm", default="", help="defaults to this machine's hostname")
+    wt_add.add_argument("--base", default="", help="base branch to branch from (default: detected)")
+    wt_sub.add_parser("list", help="list worktrees and the tasks they hold")
+    wt_remove = wt_sub.add_parser("remove", help="remove a worktree")
+    wt_remove.add_argument("path")
+    wt_remove.add_argument("--force", action="store_true", help="discard uncommitted work")
 
     # ----------------------------------------------------------------- doc
     doc_parser = sub.add_parser("doc", help="documentation lint and index generation")
@@ -157,6 +224,8 @@ DISPATCH = {
     "skills": cli_repo.dispatch_skills,
     "doctor": cli_repo.doctor,
     "preflight": cli_repo.preflight,
+    "sync": cli_sync.dispatch_sync,
+    "worktree": cli_sync.dispatch_worktree,
 }
 
 

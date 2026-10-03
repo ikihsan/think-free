@@ -17,10 +17,17 @@ EXIT_INTEGRITY = 4
 
 def dispatch(args: argparse.Namespace) -> int:
     if args.action == "start":
-        active = session.start(args.goal, agent=args.agent or None, task=args.task or None)
+        active = session.start(
+            args.goal,
+            agent=args.agent or None,
+            task=args.task or None,
+            sync_remote=bool(getattr(args, "sync", True)),
+        )
         print(f"session {active.session} started")
         print(f"  goal:  {active.goal}")
         print(f"  agent: {active.agent}   host: {active.host}   branch: {active.branch}")
+        if not getattr(args, "sync", True):
+            print("  sync:  skipped (--no-sync); this tree may be behind the shared base")
         print("  log work with: tools/x -- <command>")
         return EXIT_OK
     if args.action == "step":
@@ -54,10 +61,14 @@ def dispatch(args: argparse.Namespace) -> int:
             print(f"  skipped (gitignored)  {ignored}")
         return EXIT_OK
     if args.action == "finish":
-        result = session.finish(args.outcome, args.summary, args.next_steps)
+        result = session.finish(
+            args.outcome, args.summary, args.next_steps, push=bool(getattr(args, "push", False))
+        )
         report.regenerate_session(result["session"])
         report.regenerate_sessions_index()
         _print_finish(result)
+        if result.get("pushed"):
+            print(f"  pushed: {result['pushed'][:12]} (session commit {result['session_commit'][:12]})")
         return EXIT_INTEGRITY if (result["unlogged"] or result["missing"]) else EXIT_OK
     if args.action == "status":
         state = session.status()

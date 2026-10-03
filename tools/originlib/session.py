@@ -10,7 +10,7 @@ from __future__ import annotations
 import sys
 import time
 
-from . import events, gitutil, paths
+from . import events, gitutil, paths, sessionflow, sync
 from .activestate import (
     MAX_SLUG,
     OUTCOMES,
@@ -38,7 +38,12 @@ from .sessionlog import (
 )
 
 
-def start(goal: str, agent: str | None = None, task: str | None = None) -> ActiveSession:
+def start(
+    goal: str,
+    agent: str | None = None,
+    task: str | None = None,
+    sync_remote: bool = True,
+) -> ActiveSession:
     existing = load_active()
     if existing is not None:
         raise SessionError(
@@ -47,6 +52,7 @@ def start(goal: str, agent: str | None = None, task: str | None = None) -> Activ
         )
     if not goal.strip():
         raise SessionError("--goal must not be empty")
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
     git = gitutil.state()
     host, _ = gitutil.host_identity()
     session = next_session_id(goal)
@@ -72,6 +78,7 @@ def start(goal: str, agent: str | None = None, task: str | None = None) -> Activ
             "agent": active.agent,
             "task": active.task,
             "dirty_at_start": git.porcelain,
+            **sync_report,
         },
         actor=active.agent,
         host=host,
@@ -139,10 +146,39 @@ def _env(name: str) -> str:
 
 
 
-def finish(outcome: str, summary: str, next_steps: str) -> dict:
+def session_owned_paths(session_id: str) -> tuple[str, ...]:
+    """Files a session's own record consists of, including generated indexes."""
+    return sessionflow.session_owned_paths(session_id)
+
+
+def _prepare_push(active: ActiveSession) -> str:
+    """Refuse to close with unpublished work still sitting in the tree.
+
+    The session record is committed and pushed by `finish`, but the agent's own
+    changes are committed by the agent, with a message that says what the work
+    actually is. Auto-committing unreviewed edits under a generated message is
+    exactly the kind of silent publication this repository is built to prevent.
+    """
+    remote = sync.remote_name()
+    if not remote:
+        raise SessionError(
+            "no git remote configured; commit and push with git, or finish without --push"
+        )
+    stray = sessionflow.uncommitted_work(active.session)
+    if stray:
+        raise SessionError(
+            "commit these before finishing with --push, so the record and the work "
+            "travel together: " + ", ".join(stray[:8])
+        )
+    return remote
+
+
+def finish(outcome: str, summary: str, next_steps: str, push: bool = False) -> dict:
     if outcome not in OUTCOMES:
         raise SessionError(f"--outcome must be one of {', '.join(OUTCOMES)}")
     active = require_active()
+    if push:
+        _prepare_push(active)
     report = reconcile(active)
     gaps = doc_implications(active)
     for record, kinds in gaps.items():
@@ -177,16 +213,28 @@ def finish(outcome: str, summary: str, next_steps: str) -> dict:
             "unlogged_changes": len(report["unlogged"]),
             "missing_artifacts": len(report["missing"]),
             "documentation_gaps": gaps,
+            "push_requested": bool(push),
         },
         actor=active.agent,
         host=active.host,
     )
     clear_pointer()
+    pushed = ""
+    session_commit = ""
+    if push:
+        from . import report as report_module
+
+        report_module.regenerate_session(active.session)
+        report_module.regenerate_sessions_index()
+        session_commit = sessionflow.commit_session_record(active.session, outcome)
+        pushed = sync.push().get("head", "")
     return {
         "session": active.session,
         "outcome": outcome,
         "seq": end.seq,
         "elapsed_s": round(elapsed(active), 1),
+        "pushed": pushed,
+        "session_commit": session_commit,
         **report,
         "documentation_gaps": gaps,
     }

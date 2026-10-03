@@ -30,10 +30,13 @@ def git(repo: Path, *args: str) -> str:
     return result.stdout.strip()
 
 
-def make_repo(test: unittest.TestCase) -> Path:
+def make_repo(test: unittest.TestCase, _existing: Path | None = None) -> Path:
     """Build a minimal repository that passes `origin doc lint`."""
-    repo = Path(tempfile.mkdtemp(prefix="origin-test-"))
-    test.addCleanup(shutil.rmtree, repo, ignore_errors=True)
+    if _existing is not None:
+        repo = Path(_existing)
+    else:
+        repo = Path(tempfile.mkdtemp(prefix="origin-test-"))
+        test.addCleanup(shutil.rmtree, repo, ignore_errors=True)
     shutil.copytree(TOOLS / "originlib", repo / "tools" / "originlib")
     shutil.copy2(TOOLS / "origin", repo / "tools" / "origin")
     shutil.copy2(TOOLS / "x", repo / "tools" / "x")
@@ -44,6 +47,9 @@ def make_repo(test: unittest.TestCase) -> Path:
         (repo / name).mkdir(parents=True, exist_ok=True)
     (repo / ".gitignore").write_text("__pycache__/\n*.py[cod]\n.origin/\n", encoding="utf-8")
     git(repo, "init", "-q")
+    # Name the branch explicitly: git's default differs by version and config,
+    # and the fleet tests need clones that share one base branch.
+    git(repo, "symbolic-ref", "HEAD", "refs/heads/research/origin")
     git(repo, "config", "user.email", "test@example.invalid")
     git(repo, "config", "user.name", "origin-test")
     write_doc(repo / "README.md", "Test repository", "docs/INDEX.md")
@@ -81,6 +87,31 @@ def write_doc(path: Path, title: str, owner: str, extra: str = "") -> Path:
     return path
 
 
+def make_fleet(test: unittest.TestCase, vm_names: tuple[str, ...] = ("vm-a", "vm-b")) -> Path:
+    """Build a bare remote plus one clone per VM name.
+
+    A local bare repository stands in for the GitHub remote: the code under test
+    only ever runs `git fetch`/`git push`, so a file path exercises the same
+    atomic ref update a real remote does, with no network.
+    """
+    base = Path(tempfile.mkdtemp(prefix="origin-fleet-"))
+    test.addCleanup(shutil.rmtree, base, ignore_errors=True)
+    remote = base / "remote.git"
+    remote.mkdir()
+    git(remote, "init", "-q", "--bare")
+    # `git init -b` needs git 2.28; a fleet VM may be older than the dev box.
+    git(remote, "symbolic-ref", "HEAD", "refs/heads/research/origin")
+    seed = make_repo(test, _existing=base / "seed")
+    git(seed, "remote", "add", "origin", str(remote))
+    git(seed, "push", "-q", "-u", "origin", "research/origin")
+    for name in vm_names:
+        clone = base / name
+        git(base, "clone", "-q", str(remote), str(clone))
+        git(clone, "config", "user.email", f"{name}@example.invalid")
+        git(clone, "config", "user.name", name)
+    return base
+
+
 class RepoTest(unittest.TestCase):
     """Base class wiring ORIGIN_ROOT to a fresh repository."""
 
@@ -97,6 +128,20 @@ class RepoTest(unittest.TestCase):
             os.environ.pop("ORIGIN_ROOT", None)
         else:
             os.environ["ORIGIN_ROOT"] = self._previous_root
+
+    def use(self, root: Path) -> Path:
+        """Point ORIGIN_ROOT at another clone, the way a second VM would."""
+        previous = os.environ.get("ORIGIN_ROOT")
+        os.environ["ORIGIN_ROOT"] = str(root)
+
+        def restore() -> None:
+            if previous is None:
+                os.environ.pop("ORIGIN_ROOT", None)
+            else:
+                os.environ["ORIGIN_ROOT"] = previous
+
+        self.addCleanup(restore)
+        return root
 
     def write(self, relative: str, content: str) -> Path:
         path = self.repo / relative

@@ -129,6 +129,38 @@ declared, and it should have been applied when `--dir` was added, minutes earlie
 **Not remediated in session 003.** Its events stay as they are. Editing a closed
 session's append-only stream to remove them would be worse than the noise.
 
+## F005 — Claims were local-only, so two VMs could both own one task
+
+**What happened.** `docs/process/task-lifecycle.md` claimed that "a second agent
+claiming a held task fails with exit 1 and names the holder. This is the only
+concurrency control, and it is enough for a fleet that respects claims." That was
+false for the actual fleet. `origin task claim` read and wrote the *local* task
+file only. Two VMs whose working trees were both at `status: open` both claimed
+successfully, each in its own private copy of the file. The second push to the base
+branch would be the one that survived, and the loser's task file still said
+`claimed` locally.
+
+**Classification.** Design gap in the tooling, not an agent mistake, and not a
+hypothesis failure. Nothing detected it: there was no test with two clones and no
+command that consulted the remote.
+
+**Root cause.** Exclusivity was asserted in prose while the implementation used
+per-machine state. A claim is only mutual exclusion if the loser finds out, which
+requires a shared arbiter. Git already provides one: the remote ref update is an
+atomic compare-and-swap, and a rejected push *is* the loser signal.
+
+**Fix.** `tools/originlib/taskremote.py`: claims are committed **and** pushed to
+the shared base branch, the claim commit must be the only thing between the branch
+and the base, a rejected push discards the claim commit and reports the winner, and
+`--takeover "reason"` is the only way to take a dead VM's task. Task listings
+default to the remote's view. Tests in `tests/test_fleet.py` drive two clones of a
+local bare remote.
+
+**Lesson.** "This is the only concurrency control" was a claim about behaviour
+written in a document, not a measurement. Any statement about what happens when
+two machines act at once has to be exercised by a test with two machines in it,
+otherwise it is a hope with a docstring.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:
