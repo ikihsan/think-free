@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0008
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-020-apply-the-information-sufficiency-witnes
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/003-information-sufficiency/results.json && test -f EXPERIMENTS/003-information-sufficiency/README.md
 -->
 
