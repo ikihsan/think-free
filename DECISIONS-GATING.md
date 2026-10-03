@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-03
 -->
 
-Decisions **D013, D019–D023**. Each entry records a choice that was genuinely open,
+Decisions **D013, D019–D026**. Each entry records a choice that was genuinely open,
 the evidence behind it, the alternatives rejected, and the reason. Decisions that
 constrain later work belong here; ordinary edits do not.
 
@@ -197,15 +197,62 @@ Rejected: reading the first run's verdict, because it was produced by a clause t
 code did not implement; and re-running until the control fires, which would have
 been indistinguishable from picking the result.
 
-<<<<<<< HEAD
 Consequence: the first run is kept as
 `EXPERIMENTS/008-build-timestamp-attribution/first-failure.json`, the second run
 is the one `results.json` holds, and both the experiment README and
-=======
-Consequence: the first run is kept as `EXPERIMENTS/008-build-timestamp-attribution/first-failure.json`,
-the second run is the one `results.json` holds, and both README and
->>>>>>> renumber the E3 attribution finding to F012 and record the third collision
 `FAILURES.md` F012 name the defect. The strengthened check now reports
 `content-differs` on 5 of 5 sources with 40,493–97,407 non-timestamp bytes, which
 is what makes the headline "no residual cause" a result rather than a blind spot.
->>>>>>> renumber the E3 attribution finding to F012 and record the third collision
+
+## D025 — A gate must read the property it claims to check (2026-10-03)
+
+Observed: commit `fd7b4a1` committed three mission records to the shared base
+with `<<<<<<< HEAD` still in them, and every gate passed (`FAILURES.md` F013).
+`doc lint` read 300-odd files for line counts, metadata, links, orphans, and
+generated drift; `session verify` read event streams; `skills verify` read
+vendored hashes. Every gate read the file. None read the conflict markers.
+
+Decision: **a gate that reports a property it never inspected is not a gate for
+that property.** Two obligations follow. First, every declared gate is backed by
+a check that names the property it checks, so the gap is visible in the code
+rather than in a failure six sessions later. Second, a gate added for a defect
+is falsified against the defect's own bytes before it is trusted: T-0021 scanned
+`git show fd7b4a1:<file>` for all three files and required one finding per
+committed defect, which is how the first implementation of the rule was caught
+reporting only malformed blocks (1 finding of 4).
+
+Rejected: scanning every tracked file's prose for *any* `<`/`>`/`=` run, because
+a gate that flags ordinary documentation is a gate that gets waived wholesale.
+Adding the check to `session verify`, whose subject is the event stream and not
+file content. Fixing only the three records, which leaves the mechanism that
+produced them intact — the same shape as F010's near-vacuous metric.
+
+Consequence: `doc lint` rule 6 (`tools/originlib/conflicts.py`) is the
+mechanism, and the honest claim about it is narrow — it detects git's marker
+shape at column 0, which is what git writes and what was committed here. A
+hand-typed marker, or one indented inside a code fence, is not detected; the
+limitation is in the module docstring rather than discovered later.
+
+## D026 — A task's verification must be runnable while its own session is open (2026-10-03)
+
+Observed: T-0021 was declared with `verify: … && tools/origin session verify
+--strict && …`. That command cannot pass, ever, in the session that must run it:
+a task's verification runs on the claiming VM inside that VM's open session, and
+`--strict` fails for every session still in flight — which at that moment is the
+one claiming the task. `session verify` (no flag) reports the same session as in
+progress and exits 0. T-0020, claimed on the other VM the same hour, declares the
+same unpassable command.
+
+Decision: **a task's `verify` command must be satisfiable at the moment it is
+run.** A gate that fails because of the act of verifying is a gate that pushes
+the claimant toward editing the command to make it pass, which
+`docs/process/task-lifecycle.md` forbids and which would destroy the property
+the gate exists for. Local verification therefore uses the tolerant flag; CI
+keeps `--strict`, which is exactly the split D013 already draws, and a task that
+wants the strict reading states it as a CI concern rather than a verify field.
+
+Rejected: running `task verify` after `session finish` to dodge the problem,
+which loses the check inside the session that did the work — the thing
+task-lifecycle says must never happen. Running it with `--strict` and completing
+the task anyway, which is a recorded false pass. Weakening the *other* gates to
+match.

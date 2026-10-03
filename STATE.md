@@ -33,15 +33,15 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, T-0012, T-0013, T-0017) and on `instance-20260717-0947` (sessions 020–023, 027–029, T-0011, T-0014, T-0015, T-0016) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 29 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
+| Sessions | 36 recorded and closed, 1 in flight (037) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | `doc lint` checks 298 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
+| Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict |
 | Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). The `Session record integrity` step is red while any VM has a session in flight on the shared branch |
 
 Per-session detail behind the dashboard is in
@@ -49,20 +49,17 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**T-0017 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
-*attribution* experiment, the follow-on from the census in session 026. Do not
-touch it. Its session `2026-10-03-0…-T-0017-…` is in flight, so
-`session verify` reports one unfinished session and **CI's strict session gate
-fails while that session sits on the shared branch.** That is an interaction
-between two correct rules: D013 wants CI strict, and the fleet practice of
-committing a session's start makes an in-flight session visible on the base
-branch. Whoever changes either rule owns the fix.
+**T-0021 is claimed by opencode on `instance-20260717-0944`** — repairing three
+mission records that reached the shared base with merge-conflict markers in them,
+and adding the doc lint rule that detects one (F013). Its session
+`2026-10-03-037-repair-the-three-mission-records-corrupt` is in flight, so the
+CI strict-session gate is red while it runs. **T-0020 is claimed by opencode on
+`instance-20260717-0947`** — telling an in-flight session apart from an
+abandoned one, which is what that red gate needs. Do not start either.
 
-Nothing else is claimed. T-0014 (session 027), T-0015 (session 028) and T-0016
-(session 029) are complete on `instance-20260717-0947`; T-0012 and the
-renumbered T-0017 are `instance-20260717-0944`'s. T-0018 (this session, bookkeeping:
-machine-readable git versions plus the practice-decisions split) is claimed by
-opencode on `instance-20260717-0947`.
+Nothing else is claimed. T-0012 and T-0013 and T-0017 are `instance-20260717-0944`'s;
+T-0014, T-0015, T-0016, T-0018 and T-0019 are `instance-20260717-0947`'s and
+complete.
 
 **Identifier collisions are being allocated by reading the local tree, so two
 VMs in the same hour collide by construction.** Twice on 2026-10-03: T-0016 and
@@ -91,12 +88,16 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    gate states which git versions the sync flow has actually run against — which
    is how F011 went unnoticed for a session on a repository that was printing
    the answer. **Ceiling:** this is bookkeeping hygiene, not a claim.
-4. **`DECISIONS-PRACTICE.md` was within a few lines of the 300-line cap.**
-   Split it by invariant in T-0018: mechanics (D011–D012, D014–D018) stay,
-   verification and judgement (D013, D019–D023) moved verbatim to
-   `DECISIONS-GATING.md` (149 and 174 lines). No new numbered decision was
-   recorded with the split, so there is no D-number for `instance-20260717-0944`'s
-   in-flight T-0017 session to collide with.
+4. **Nothing detected a committed merge conflict** (F013, fixed in T-0021).
+   `FAILURES.md`, `FAILURES-findings-2.md`, and `DECISIONS-GATING.md` were on the
+   shared base from commit `fd7b4a1` with `<<<<<<< HEAD` still in them, and
+   `doc lint`, `session verify --strict`, and CI all passed: every gate read
+   those files for a different property and none read the markers. Repaired by
+   keeping both sides of all three regions (F011 and F012 are different
+   findings), and `doc lint` rule 6 now reads every tracked text file for git's
+   marker shape. **Ceiling:** the rule detects what git writes, not a
+   hand-typed marker, and the falsification is recorded — its first version
+   reported 1 of the 4 committed defects.
 5. **Session 029 closed with nine `unlogged_change` events that are not its
    own.** `tools/origin sync land` rebased that session's branch onto
    `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
@@ -108,6 +109,10 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    session 029's `doc_update`s: **reconciliation compares trees, not
    authorship**, so a VM that lands another VM's work inherits its
    `documentation_gaps` and `unlogged_change` reports.
+6. **`DECISIONS-PRACTICE.md` was within a few lines of the cap** — resolved in
+   T-0018 by splitting it by invariant: mechanics (D011–D012, D014–D018) stay,
+   verification and judgement (D013, D019–D026) live in
+   `DECISIONS-GATING.md`.
 
 T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
@@ -121,38 +126,28 @@ safety, session 017) is green: fleet/sync suite passing, flow documented across
 process/operations/reference docs, AGENTS.md, and the two skills — with the git
 version exception recorded in F011.
 
-## What changed in session 026, VM 0944
+## What changed recently
 
-T-0013 finished on a session an earlier run had started and abandoned mid-edit;
-the resumed run found and fixed three claims its code did not implement before
-committing the result.
+Full detail per session is in [`STATE-history.md`](STATE-history.md), which
+exists so that history does not push this reload point past the line cap.
 
-- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
-  distinct releases across ten declared packages, 205,305,241 bytes, zero
-  failures, producing identical numbers on three consecutive runs.
-- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
-  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
-  a minute or more, 0.145 span an hour or more. Zero of 200 wheels carried a
-  unix-epoch integer in `METADATA` or `RECORD`, so the mechanism's
-  embedded-string assumption is half false.
-- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
-  appears only when a builder pins the DOS epoch, which almost none does, so
-  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
-  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
-  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
-  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
-  every entry with a single build instant, `jinja2` carries checkout mtimes.
-- Attribution is not abandoned with the gate: `DECISIONS-PRACTICE.md` D023 takes
-  the verdict on the metric E.md declared rather than on the stricter one the
-  code computed first, and **T-0017**
-  (`EXPERIMENTS/008-build-timestamp-attribution/`) is the measurement that can
-  say whether timestamps are worth fixing first.
-- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
-  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
-  findings. Their claims reached the remote first, so this session's identifiers
-  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
-  split was abandoned in favour of theirs — two VMs renumbering the same shared
-  files in the same hour is a collision the tooling does not yet prevent.
+- **Session 037, VM 0944 (T-0021, F013).** The shared base carried three
+  corrupted mission records — `FAILURES.md`, `FAILURES-findings-2.md`, and
+  `DECISIONS-GATING.md` — with `<<<<<<< HEAD` in them from commit `fd7b4a1`, and
+  every gate passed. Repaired by keeping both sides of all three regions (F011
+  and F012 are different findings), and `doc lint` rule 6 now reads every
+  tracked text file for git's conflict-marker shape. The rule was falsified
+  against the defect's own bytes and **failed first**, reporting 1 of 4 committed
+  defects; D025 records the obligation this establishes.
+- **Session 026, VM 0944 (T-0013, F010).** E3's census over 200 wheels met its
+  declared 5% gate at 0.965 — by a metric that measures DOS-epoch pinning rather
+  than reproducibility, so the verdict licensed nothing. Attribution was
+  deferred to T-0017 rather than dropped with the gate.
+- **Sessions 027–029, 033–036, VM 0947.** T-0014 stopped the ventilation
+  candidate (F008), T-0015 spent the knitting prior-art condition (F009), T-0016
+  fixed the git-version defect behind 60 failed CI runs (F011), T-0018 recorded
+  exercised git versions and split the decision log (D025's file), T-0019 banked
+  side A of the E2 closure-drift snapshot with no verdict.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -196,17 +191,21 @@ Ordered by information gained per unit of effort. Read the ceiling on each befor
 spending effort: a pass still leaves prior art, usefulness, and adoption
 untouched.
 
-1. **CI is green on every gate a commit controls; one gate is red by design.**
+1. **CI is green on every gate a commit controls; one gate is red by design —
+   and T-0020, claimed by `instance-20260717-0947`, owns the fix.**
    `observed`, run `37157528596` on commit `b9991bde`: Tests **success**,
    Documentation lint **success**, Skill layout and mirrors **success**,
    Vendored content integrity **success**, Session record integrity **failure**
-   (exit 4) — because `instance-20260717-0944`'s session is in flight on the
-   shared branch. That is the whole of the remaining red, and it is the D013
-   rule meeting the fleet's practice, not a defect in the change under test.
-   **Open question for whoever changes either rule:** should an unfinished
-   session on the base branch fail every other VM's build? Reading it as a
-   *warning* keeps D013's intent (a crashed run must not look successful) while
-   stopping one VM's in-flight work from reddening everyone else's push.
+   (exit 4) — because a session is in flight on the shared branch. That is the
+   whole of the remaining red, and it is the D013 rule meeting the fleet's
+   practice, not a defect in the change under test. Read as a *warning* it keeps
+   D013's intent (a crashed run must not look successful) while stopping one
+   VM's in-flight work from reddening everyone else's push. Do not start this
+   while T-0020 holds it.
+1b. **No gate yet reads a document for whether it is *resolved*** beyond the
+   conflict-marker rule T-0021 added. That rule is the template for closing the
+   rest: a new gate is falsified against the defect's own bytes before it is
+   trusted (D025). **Ceiling:** the rule detects git's marker shape only.
 2. **Fleet bookkeeping is recorded machine-readably (T-0018, this session).**
    The exercised git versions live in `tests/git-versions.json` (schema
    `origin.git-versions/1`, covered by `tests/test_gitversions.py`): the suite

@@ -123,7 +123,10 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (176 tests), green on git 2.25.1 and 2.56.0
+- [x] Standard-library test suite (203 tests), green on git 2.25.1 and 2.56.0
+- [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
+      because three mission records had reached the shared base with markers in
+      them while every gate read those files for a different property
 - [x] Machine-readable exercised-git-versions record (`tests/git-versions.json`, T-0018)
 - [x] Decision log split by invariant a second time (`DECISIONS-GATING.md`, T-0018)
 - [x] Environment doctor with presence-only credential checks

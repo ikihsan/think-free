@@ -7,9 +7,10 @@ last-verified: 2026-10-03
 # Failures — recorded findings, part 2 (F009 onwards)
 
 Continues [`FAILURES-findings.md`](FAILURES-findings.md), which holds F001–F008
-and reached the 300-line cap at F008. **Identifiers are stable across the two
-files**: a reference to `F008` means the same entry wherever it appears, and so
-does `F009`. New findings are appended here.
+and reached the 300-line cap at F008. Continues into
+[`FAILURES-findings-3.md`](FAILURES-findings-3.md) at F013. **Identifiers are
+stable across the files**: a reference to `F008` means the same entry wherever
+it appears, and so does `F009` or `F013`. New findings are appended to part 3.
 
 ## F009 — The knitting planner's algorithmic advantage is prior art, not a gap
 
@@ -139,7 +140,6 @@ real finding — only `cryptography` ships 1980-normalised wheels (7 of 20, all
 `jinja2` carries checkout mtimes — which means "the" ecosystem-wide rate is not
 even well defined. The same shape of near-vacuous gate appeared in F008.
 
-<<<<<<< HEAD
 ## F011 — `sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason
 
 Source: T-0016, `.github/workflows/ci.yml`,
@@ -198,8 +198,7 @@ cannot fail for the reason CI fails. The defect was in the one operation the
 whole multi-VM contract depends on, and 60 red runs did not localise it because
 the evidence needed credentials. The two changes that mattered were both about
 *legibility*: emit failures where anyone can read them, and say what git said.
-=======
->>>>>>> renumber the E3 attribution finding to F012 and record the third collision
+
 ## F012 — E3's ordering claim holds, and that is why there is nothing to build
 
 Source: `EXPERIMENTS/008-build-timestamp-attribution/`, T-0017, completing the
@@ -264,4 +263,3 @@ for building, not only what it implies about the claim.
 whole story — the census's heterogeneity suggests one exists — or a user-facing
 failure that setting `SOURCE_DATE_EPOCH` does not solve. Either would need its own
 predeclared gate; neither is this candidate.
-

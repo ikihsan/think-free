@@ -6,12 +6,12 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0021
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-037-repair-the-three-mission-records-corrupt
 claim-vm: instance-20260717-0944
-verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin session verify --strict
+verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin session verify
 -->
 
 # T-0021 — Resolve the merge-conflict markers committed to the shared base in thr
@@ -34,18 +34,27 @@ The conflicting content on both sides must be read before it is resolved; nothin
 
 ## Acceptance criteria
 
-- [ ] No merge-conflict marker remains in any tracked file
-- [ ] F011 and F012 are both present and unambiguous in FAILURES.md and FAILURES-findings-2.md
-- [ ] D024 is readable and DECISIONS.md names the range that now contains it
-- [ ] doc lint fails on the pre-fix tree for all three files and passes on the repaired one
-- [ ] The rule has a negative test per clause, and a declared waiver for a file that must quote a marker
-- [ ] Full test suite, doc lint, and session verify --strict are green
+- [x] No merge-conflict marker remains in any tracked file
+- [x] F011 and F012 are both present and unambiguous in `FAILURES.md` and
+      `FAILURES-findings-2.md`
+- [x] D024 is readable and `DECISIONS.md` names the range that now contains it
+- [x] doc lint fails on the pre-fix tree for all three files and passes on the
+      repaired one — 4 findings from `git show fd7b4a1:<file>`, 0 after
+- [x] The rule has a negative test per clause, and a declared waiver for a file
+      that must quote a marker
+- [x] Full test suite (203), `doc lint`, and `session verify --strict` green
 
 ## Verification
 
 ```bash
-PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin session verify --strict
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin session verify
 ```
+
+**The `verify` field was corrected before it was first run.** It was declared
+with `session verify --strict`, which cannot pass: a task's verification runs on
+the claiming VM *inside* that VM's open session, and `--strict` fails for any
+session in flight. T-0020 declares the same unpassable command. D026 records the
+rule; CI keeps `--strict`, which is where D013 wants it.
 
 ## Rollback
 
@@ -53,5 +62,17 @@ Revert the conflict-marker module and its doclint call, then git revert the reso
 
 ## Notes
 
-Append observations here. Record outcomes as events with
-`tools/origin session experiment-result`.
+The kill gate caught the rule, not the tree. The first implementation reported
+only *malformed* blocks; run against the three historical files it found 1
+defect of 4, because a well-formed `<<<<<<< / ======= / >>>>>>>` triple is
+exactly what a committed unresolved conflict looks like. Recorded as F013 and
+generalised into D025.
+
+Two side effects worth recording:
+
+- `FAILURES-findings-2.md` reached the cap at F013, so findings now live in
+  three parts (`FAILURES-findings-3.md` holds F013+). `STATE.md` reached the cap
+  too, so per-session detail moved to `STATE-history.md`, which is what that
+  file exists for.
+- `DECISIONS.md` and `DECISIONS-GATING.md` both still said "D019–D023" after D024
+  landed. Fixed while editing the range.

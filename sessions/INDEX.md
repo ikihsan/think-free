@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-36 recorded session(s). One `events.jsonl` per session, so concurrent
+37 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 11 older session(s) are in the directory listing.
+Showing the 25 most recent. 12 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | **unfinished** | repair the three mission records corrupted by a committed merge confli | 2026-10-03T22:42 |
 | [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
 | [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
 | [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 11 older session(s) are in the directory listing.
 | [2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a](2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a/README.md) | opencode | worked | A1 experiment step 1: pin a PPNA commit and inspect whether a complete | 2026-10-03T16:15 |
 | [2026-10-03-014-fix-missing-pathlib-import-in-session-py](2026-10-03-014-fix-missing-pathlib-import-in-session-py/README.md) | opencode | worked | Fix missing pathlib import in session.py, document it, then run checks | 2026-10-03T16:08 |
 | [2026-10-03-013-t-0003-run-investigation-f-adoption-rese](2026-10-03-013-t-0003-run-investigation-f-adoption-rese/README.md) | opencode | worked | T-0003: run investigation F (adoption researcher role) and write RESEA | 2026-10-03T16:03 |
-| [2026-10-03-012-t-0002-run-investigation-e-experimental](2026-10-03-012-t-0002-run-investigation-e-experimental/README.md) | opencode | worked | T-0002: run investigation E (experimental engineer role) and write RES | 2026-10-03T16:02 |
 
 
 ## Reading a session

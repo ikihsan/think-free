@@ -27,6 +27,7 @@ interfere with the working repository.
 | `test_doc_gaps.py` | Documentation-gap implications: `any` and `all` record groups |
 | `test_tasks.py` | Task creation, claim conflicts, verification, index |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
+| `test_conflicts.py` | Unresolved merge-conflict markers: every shape git writes, the shapes that must stay silent, the declared waiver |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
 | `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees |
 | `test_sync.py` | Pull, push, land, rebase, divergence reporting; the rebase continue must stay non-interactive |
@@ -37,6 +38,12 @@ interfere with the working repository.
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.
+
+**Falsifying a new gate.** A gate added for a defect is run against that
+defect's own bytes before it is trusted. `test_conflicts.py` carries the three
+committed regions of `fd7b4a1` as literal text with the line numbers the rule
+must report, which is how its first implementation was caught reporting only
+malformed blocks and missing three of four committed defects.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

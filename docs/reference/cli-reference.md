@@ -82,7 +82,7 @@ Dispatchable work. Protocol:
 
 | Command | Effect |
 |---|---|
-| `doc lint [--quiet]` | Line caps, `origin-meta`, links, orphans, stale generated files. Exit `2` on a violation |
+| `doc lint [--quiet]` | Line caps, `origin-meta`, links, orphans, stale generated files, unresolved merge conflicts. Exit `2` on a violation |
 | `doc index` | Regenerates `docs/INDEX.md`, `sessions/INDEX.md`, `tasks/INDEX.md` |
 | `doc index --check` | Exit `2` if anything would change; does not write |
 

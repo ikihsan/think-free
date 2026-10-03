@@ -14,7 +14,7 @@ ordinary edits do not.
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018 | Recording, moving, and publishing work |
-| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D019–D023 | Verifying, screening, and judging work |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D019–D026 | Verifying, screening, and judging work |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who

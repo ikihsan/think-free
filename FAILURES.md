@@ -19,8 +19,9 @@ Distinguishing the kind of failure matters, because it determines the next step:
 | Access or resources blocked it | Unknown; record the blocker precisely |
 
 Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md) for
-F001–F008 and [`FAILURES-findings-2.md`](FAILURES-findings-2.md) from F009,
-split because the first file reached the 300-line cap:
+F001–F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009–F012, and
+[`FAILURES-findings-3.md`](FAILURES-findings-3.md) from F013, split because each
+file reached the 300-line cap:
 
 | Id | Subject |
 |---|---|
@@ -34,18 +35,17 @@ split because the first file reached the 300-line cap:
 | F008 | Adaptive ventilation measurement selection: prescribing one intervention beats choosing it |
 | F009 | Knitting repair planner: the algorithmic advantage is prior art |
 | F010 | E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not |
-<<<<<<< HEAD
 | F011 | `sync land` broke on git ≥ 2.26, and every CI run failed for that reason |
-=======
->>>>>>> renumber the E3 attribution finding to F012 and record the third collision
 | F012 | E3's ordering claim holds, and that is why there is nothing to build |
+| F013 | Three mission records were committed with conflict markers, and every gate passed |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
-are separated from the live list rather than interleaved with it. The two files
-split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008 and
-`FAILURES-findings-2.md` takes every finding after it. Identifiers are stable: a
-reference to `F012` means the same entry whichever file it is in.
+are separated from the live list rather than interleaved with it. The files
+split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008,
+`FAILURES-findings-2.md` takes F009–F012, and `FAILURES-findings-3.md` takes
+every finding after it. Identifiers are stable: a reference to `F013` means the
+same entry whichever file it is in.
 
 ## Open, not yet disproved
 

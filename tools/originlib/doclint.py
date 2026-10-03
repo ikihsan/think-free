@@ -7,6 +7,8 @@ Rules, in the order they are reported:
 3. relative links must resolve
 4. no orphan documents
 5. generated files must match what the generators produce now
+6. no unresolved merge-conflict marker (rule added in T-0021 after three
+   mission records reached the shared base with one; `FAILURES.md` F013)
 
 Exit code 2 signals a violation. Exempt files are reported as `info` so an
 exception is never invisible.
@@ -18,7 +20,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import paths
+from . import conflicts, paths
 from .docfiles import tracked_files
 
 MAX_LINES = 300
@@ -235,6 +237,19 @@ def check_generated(result: Result) -> None:
             )
 
 
+def check_conflicts(result: Result, files: list[Path]) -> None:
+    """No tracked file may still hold an unresolved merge conflict.
+
+    Nothing else in this linter reads contents for anything but shape, which is
+    why a conflicted file could be committed and pass every gate. A file that
+    declares `origin-allow-conflict-markers` is reported as `info` rather than
+    silently skipped, so a waiver cannot hide.
+    """
+    violations, infos = conflicts.report(files, paths.repo_root())
+    result.violations.extend(violations)
+    result.infos.extend(infos)
+
+
 def events_all() -> list[str]:
     from . import events
 
@@ -263,4 +278,5 @@ def lint(root: Path | None = None) -> Result:
     check_links(result, files)
     check_orphans(result, files, globs)
     check_generated(result)
+    check_conflicts(result, files)
     return result

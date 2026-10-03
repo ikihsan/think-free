@@ -99,6 +99,31 @@ which document is now stale and why, and the next session's first action is to
 repair it. Silent staleness is the failure mode this repository exists to
 avoid.
 
+### 9. No tracked file may hold an unresolved merge conflict
+
+Rules 1–7 read a document for one property each, so a file can satisfy all of
+them and still be a corrupt file. A committed `<<<<<<< HEAD` did exactly that:
+three mission records reached the shared base with markers in them while every
+gate passed (`FAILURES.md` F013).
+
+`doc lint` now reads every tracked text file for git's marker shape — exactly
+seven `<`, `|`, or `>` at column 0 — and reports a block once, at its opening
+line. A seven-character `=` is a divider only inside an open block, because
+`sessions/*/commands.log` is full of bare `=======` separators that are not
+conflicts. Binary and undecodable files are skipped rather than guessed at.
+
+A file whose text must contain a marker at the start of a line — a process
+document showing a reader what an unresolved conflict looks like — declares the
+waiver and is reported as `info`, never silently skipped:
+
+```markdown
+<!-- origin-allow-conflict-markers -->
+```
+
+Stated limitation: a marker indented inside a fenced code block is not
+detected. Git's `text` merge driver writes markers at column 0, and treating an
+indented example in a document as corruption would be the worse failure.
+
 ## Writing for a cold reader
 
 - Lead with what the reader must do, not with history.
