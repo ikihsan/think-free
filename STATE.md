@@ -11,6 +11,8 @@ beginning. Mission active; **no product selected**.
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03;
 GitHub remote configured via GitHub App installation on `ikihsan/think-free`.
+Commits from this VM are authored as `Ihsan Ai Server Bot` (global git
+identity, 2026-10-03).
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
