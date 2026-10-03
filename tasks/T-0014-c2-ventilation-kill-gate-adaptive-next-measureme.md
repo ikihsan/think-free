@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0014
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/006-ventilation-measurement-design/results.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/006-ventilation-measurement-design/results.json'));assert d['pairs_tested']>0 and 'adaptive_better_than_fixed' in d and 'false_precise_rate' in d"
 -->
 
