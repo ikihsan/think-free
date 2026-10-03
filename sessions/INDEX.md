@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-33 recorded session(s). One `events.jsonl` per session, so concurrent
+34 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 8 older session(s) are in the directory listing.
+Showing the 25 most recent. 9 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | **unfinished** | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:25 |
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
 | [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
 | [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | worked | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:13 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 8 older session(s) are in the directory listing.
 | [2026-10-03-012-t-0002-run-investigation-e-experimental](2026-10-03-012-t-0002-run-investigation-e-experimental/README.md) | opencode | worked | T-0002: run investigation E (experimental engineer role) and write RES | 2026-10-03T16:02 |
 | [2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit](2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit/README.md) | opencode | failed | T-0004: make the fleet and sync test suites pass, then document the mu | 2026-10-03T15:57 |
 | [2026-10-03-010-complete-and-verify-exclusive-multi-vm-o](2026-10-03-010-complete-and-verify-exclusive-multi-vm-o/README.md) | codex-multivm-20261003 | failed | Complete and verify exclusive multi-VM ownership and synchronized sess | 2026-10-03T16:50 |
-| [2026-10-03-009-rework-the-multi-vm-agent-flow-isolated](2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/README.md) | opencode | partial | Rework the multi-VM agent flow: isolated worktrees, atomic claims, syn | 2026-10-03T15:06 |
 
 
 ## Reading a session

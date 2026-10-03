@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-18 task(s). Every task file declares a runnable verification command;
+19 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -30,7 +30,8 @@ last-verified: 2026-10-03
 | [`T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md`](T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md) | done |  | test -f RESEARCH/PRIOR-ART-KNITTING.md && for f  | 2026-10-03 |
 | [`T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md`](T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0017-build-one-source-twice-under-different-source-da.md`](T-0017-build-one-source-twice-under-different-source-da.md) | claimed | opencode | test -d EXPERIMENTS/008-build-timestamp-attribut | 2026-10-03 |
-| [`T-0018-record-exercised-git-versions-machine-readably-a.md`](T-0018-record-exercised-git-versions-machine-readably-a.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0018-record-exercised-git-versions-machine-readably-a.md`](T-0018-record-exercised-git-versions-machine-readably-a.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | open |  | test -f EXPERIMENTS/009-lockfile-drift-snapshot/ | 2026-10-03 |
 
 ## How tasks run on another machine
 

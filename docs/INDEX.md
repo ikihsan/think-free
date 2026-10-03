@@ -90,6 +90,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md`](../tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0017-build-one-source-twice-under-different-source-da.md`](../tasks/T-0017-build-one-source-twice-under-different-source-da.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0018-record-exercised-git-versions-machine-readably-a.md`](../tasks/T-0018-record-exercised-git-versions-machine-readably-a.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](../tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
