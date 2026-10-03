@@ -56,6 +56,34 @@ class LineCapTest(RepoTest):
         result = doclint.lint()
         self.assertFalse(any("data.json" in problem for problem in result.violations))
 
+    def test_a_gitignored_file_is_not_repository_content(self) -> None:
+        # An experiment that downloads its inputs pins them by hash instead of
+        # committing them. Before doclint honoured .gitignore, those tarballs
+        # were linted as documents and failed the line cap.
+        ignored = self.repo / "EXPERIMENTS" / "000-probe" / "sdists"
+        ignored.mkdir(parents=True)
+        (ignored / "input.tar.gz").write_text("x\n" * 900, encoding="utf-8")
+        (self.repo / ".gitignore").write_text(
+            "__pycache__/\n*.py[cod]\n.origin/\nsessions/active.json\n"
+            "EXPERIMENTS/*/sdists/\n",
+            encoding="utf-8",
+        )
+        result = doclint.lint()
+        self.assertFalse(
+            any("input.tar.gz" in problem for problem in result.violations),
+            result.violations,
+        )
+
+    def test_an_unignored_long_file_still_fails(self) -> None:
+        # The point of the gitignore change is not to weaken the cap: a file that
+        # is *not* ignored is still linted.
+        kept = self.repo / "EXPERIMENTS" / "000-probe" / "kept.md"
+        kept.parent.mkdir(parents=True)
+        write_doc(kept, "Kept", "docs/INDEX.md", extra="x\n" * 400)
+        result = doclint.lint()
+        self.assertTrue(any("kept.md" in problem and "300-line cap" in problem
+                            for problem in result.violations))
+
 
 class MetadataTest(RepoTest):
     def test_missing_meta_fails(self) -> None:

@@ -1,0 +1,262 @@
+{
+  "checks_as_run": {
+    "G1_arm_n_patch_reaches_identity": {
+      "got": 4,
+      "needs": ">= 3 of 4 sources",
+      "packages": [
+        "six",
+        "toml",
+        "idna",
+        "packaging"
+      ]
+    },
+    "G2_planted_defect_detected": {
+      "got": 4,
+      "needs": "every source the defect was planted on",
+      "packages": [
+        "six",
+        "toml",
+        "idna",
+        "packaging"
+      ]
+    },
+    "G3_arm_h_bit_identical": {
+      "got": 4,
+      "needs": ">= 3 of 4 sources",
+      "packages": [
+        "six",
+        "toml",
+        "idna",
+        "packaging"
+      ]
+    },
+    "G4_arm_n_residual_causes": {
+      "got": 0,
+      "needs": "fewer than 2 sources left with residual differences",
+      "packages": []
+    },
+    "G5_non_timestamp_share": {
+      "got": 0,
+      "needs": "no source with non-timestamp share at or above 0.25",
+      "sources": []
+    }
+  },
+  "experiment": "E3 build-timestamp attribution",
+  "gate_as_run": "timestamps-first",
+  "noise_floor_note": "Non-zero on six, idna and packaging. Cause identified by hand: the .dist-info files the wheel builder generates carry the wall clock at build time, and the DOS timestamp has 2-second resolution, so two builds inside one tick are identical and two across a tick differ in exactly those entries. It is the same cause as the main effect, not a second one.",
+  "outcome": "control C3 did not test what the predeclared gate said",
+  "per_source": {
+    "click": {
+      "arm_h_different_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "arm_n_different_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 146,
+        "ts": 146
+      },
+      "arm_n_repeat_b": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "noise_floor_same_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "planted_content_defect": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      }
+    },
+    "idna": {
+      "arm_h_different_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "arm_n_different_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 82,
+        "ts": 82
+      },
+      "arm_n_repeat_b": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "noise_floor_same_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 8,
+        "ts": 8
+      },
+      "planted_content_defect": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      }
+    },
+    "packaging": {
+      "arm_h_different_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "arm_n_different_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 110,
+        "ts": 110
+      },
+      "arm_n_repeat_b": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "noise_floor_same_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 14,
+        "ts": 14
+      },
+      "planted_content_defect": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 14,
+        "ts": 14
+      }
+    },
+    "six": {
+      "arm_h_different_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "arm_n_different_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 18,
+        "ts": 18
+      },
+      "arm_n_repeat_b": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      },
+      "noise_floor_same_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      },
+      "planted_content_defect": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      }
+    },
+    "toml": {
+      "arm_h_different_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "arm_n_different_mtime": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 50,
+        "ts": 50
+      },
+      "arm_n_repeat_b": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "noise_floor_same_mtime": {
+        "identical": true,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 0,
+        "ts": 0
+      },
+      "planted_content_defect": {
+        "identical": false,
+        "other": 0,
+        "patch_identical": true,
+        "residual": [],
+        "total": 10,
+        "ts": 10
+      }
+    }
+  },
+  "run_at": "2026-10-03T21:58:10.726493+00:00",
+  "why": "The planted file src/__planted__.txt is not packaged by any of these setup.py, so the planted checkout produced an artifact differing from its control only by the wall-clock stamps on the .dist-info files. G2 was implemented as 'identical is false', which that noise satisfies, so the control passed without exercising the detector. The predeclared wording was 'detected and attributed to a non-timestamp cause'; the code implemented less than the clause said. Fixed by planting inside a file the wheel actually contains, and by requiring a content-differs residual cause rather than any difference at all."
+}

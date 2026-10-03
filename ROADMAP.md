@@ -31,9 +31,9 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Seven experiments have run; two invention claims are
-disproved, one declared gate was shown not to be able to fail, and no candidate
-is validated.
+**Status: partial.** Eight experiments have run; three invention claims are
+disproved, one declared gate was shown not to be able to fail, one mechanism was
+confirmed while its candidate died of it, and no candidate is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -54,7 +54,12 @@ is validated.
 - [x] Run E3's build-timestamp census over 200 PyPI wheels
       (`007-build-timestamps`, T-0013): declared 5% gate met at 0.965, but the
       metric measures DOS-epoch pinning rather than reproducibility and attributes
-      no cause, so E3 stays `untested` (`FAILURES.md` F010)
+      no cause (`FAILURES.md` F010)
+- [x] Attribute the byte difference (`008-build-timestamp-attribution`, T-0017):
+      398 of 398 differing bytes are timestamp fields, and `SOURCE_DATE_EPOCH`
+      makes builds bit-identical, so E3's mechanism is supported and its
+      candidate abandoned — the remedy is one environment variable the builder
+      already honours (`FAILURES.md` F011)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs
       produced no product claim; with C2 stopped (F008) and the knitting
@@ -139,7 +144,8 @@ Separate from the invention stages, because the mission cannot be run without it
 
 The infrastructure track finished ahead of stage B because stage B is blocked on
 judgement rather than tooling. Kill gates now exist for the three held
-candidates, seven experiments have run, and none has validated a claim. Stage B is
-now blocked on the open questions in `STATE.md`: the prior-art condition still
-attached to the knitting candidate (T-0015), and E3's attribution measurement
-(T-0017). C2's simulation kill gate and E3's census have both been spent.
+candidates, eight experiments have run, and none has validated a claim. Stage B
+is now blocked on the open questions in `STATE.md`: E2's time-gated drift
+comparison, and the two questions no experiment here can answer — whether a
+knitter follows a generated repair plan, and whether E3's builder-level finding
+generalises beyond the one builder this machine has.

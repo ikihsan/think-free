@@ -19,12 +19,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import paths
+from .docfiles import tracked_files
 
 MAX_LINES = 300
 # Machine-generated data and raw logs are exempt from the cap by extension.
 DATA_SUFFIXES = {".json", ".jsonl", ".log"}
 EXEMPT_PREFIX = "exempt:"
-SKIP_DIRS = {".git", "__pycache__", ".worktrees", "node_modules", ".claude"}
 META_KEYS = ("owner", "status", "last-verified")
 LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 FENCE = re.compile(r"^\s*(```|~~~)")
@@ -56,18 +56,6 @@ class Result:
             lines.append(f"  FAIL  {problem}")
         lines.append("doc lint: OK" if self.ok else f"doc lint: {len(self.violations)} violation(s)")
         return "\n".join(lines)
-
-
-def tracked_files(root: Path | None = None) -> list[Path]:
-    """Files git knows about, plus untracked-but-not-ignored files."""
-    base = root or paths.repo_root()
-    result = sorted(p for p in base.rglob("*") if p.is_file())
-    return [p for p in result if not _skip(p, base)]
-
-
-def _skip(path: Path, base: Path) -> bool:
-    rel = path.relative_to(base)
-    return any(part in SKIP_DIRS for part in rel.parts)
 
 
 def declared_exemptions() -> list[str]:

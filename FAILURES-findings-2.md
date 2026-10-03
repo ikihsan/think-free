@@ -197,3 +197,68 @@ cannot fail for the reason CI fails. The defect was in the one operation the
 whole multi-VM contract depends on, and 60 red runs did not localise it because
 the evidence needed credentials. The two changes that mattered were both about
 *legibility*: emit failures where anyone can read them, and say what git said.
+## F012 — E3's ordering claim holds, and that is why there is nothing to build
+
+Source: `EXPERIMENTS/008-build-timestamp-attribution/`, T-0017, completing the
+experiment declared in `RESEARCH/E.md`.
+
+**Observation.** F010 recorded E3's declared census gate as near-vacuous: 0.965 of
+200 recent PyPI wheels carry a non-1980 entry date, which measures whether a
+builder pins the DOS epoch rather than whether a build is reproducible. The half
+that was missing is the one E3's mechanism section actually names: build the same
+source twice under different `SOURCE_DATE_EPOCH` values and attribute the byte
+difference.
+
+**Experiment.** Five pure-Python sdists (`six`, `toml`, `idna`, `packaging`,
+`click`), each extracted into five checkouts, 35 real `setup.py bdist_wheel`
+builds with setuptools 45.2.0 + wheel 0.34.2. Two checkouts are byte-identical in
+content and 34 months apart in mtime. Attribution is **causal**, not
+correlational: rewrite only the four DOS bytes in each local file header and the
+four in each central-directory entry of artifact A to artifact B's values, and
+check whether A becomes B.
+
+**Result.** `observed`, 2026-10-03. In the epoch-unset arm, 398 of 398 differing
+bytes pooled lie inside zip timestamp fields and the causal patch reproduces the
+other artifact exactly on 5 of 5 sources — so timestamps were the *only* cause.
+In the epoch-set arm, builds are bit-identical: 0 differing bytes on 5 of 5. The
+noise floor was non-zero on three sources and the cause is a second timestamp
+route, not a second kind of cause: the `.dist-info` files the builder generates
+carry the wall clock, and DOS timestamps have 2-second resolution, so two builds
+across a tick differ in exactly those entries. Controls: patching one header half
+does not reach identity (5 of 5), and a planted content defect inside a packaged
+file is attributed to `content-differs` (5 of 5). Predeclared gate met —
+`timestamps-first`.
+
+**Conclusion.** E3's ordering claim is **supported for this builder**: fixing
+timestamps is sufficient for bit-reproducibility, not merely worthwhile. The
+candidate is nevertheless **abandoned**, because the remedy is
+`SOURCE_DATE_EPOCH`, a documented standard this builder already honours and which
+needs one environment variable. A tool that counts these violations duplicates
+`diffoscope` and `reprotest`; a tool that fixes them duplicates the variable. The
+gap the census measured is an *adoption* fact — 0.965 of recent wheels are not
+pinned although the builder can pin them — and adoption of an existing standard
+is not a new repository.
+
+**Classification.** A supported mechanism and a failed candidate. E3 is the first
+mechanism in this repository whose load-bearing claim survived a gate written
+before the run; nothing was validated, because the honest reading of a mechanism
+that turns out to be one environment variable is that there is no product here.
+
+**Limits.** One builder (the only wheel builder on this machine), pure-Python
+sources, five small single-repository packages, Linux, CPython 3.8.10. Compiled
+extensions embed a toolchain the wheel builder does not control. The census's own
+per-package table — `cryptography` ships 1980-pinned wheels, `urllib3` stamps one
+instant, `jinja2` carries checkout mtimes — is unexplained by this run, and that
+spread is the obvious next question rather than a settled one.
+
+**Lesson.** A pass and a product are different outcomes. The gate asked whether
+timestamps come first in the cause ordering and the answer was yes; the
+candidate died *because* the answer was yes, since the thing that fixes it
+already exists as a standard the builder implements. Ask what the pass implies
+for building, not only what it implies about the claim.
+
+**What would reopen it.** A builder or ecosystem where timestamps are **not** the
+whole story — the census's heterogeneity suggests one exists — or a user-facing
+failure that setting `SOURCE_DATE_EPOCH` does not solve. Either would need its own
+predeclared gate; neither is this candidate.
+

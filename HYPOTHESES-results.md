@@ -183,15 +183,33 @@ stated assumption that timestamps hide in embedded strings as well as zip
 headers is **half false** on this population.
 
 **Conclusion.** The gate is met and the mechanism is still `untested`. 0.965
-measures that almost nobody pins the DOS epoch to 1980, not that 96.5% of wheels
+measures that almost nobody pins the DOS epoch, not that 96.5% of wheels
 are irreproducible because of timestamps; and nothing here rebuilds an artifact,
-so no cause is attributed. Recorded as `FAILURES.md` F010 — the measurement was
+so no cause is assigned. Recorded as `FAILURES.md` F010 — the measurement was
 inadequate, not the mechanism wrong. The prevalence is also not one ecosystem
 rate: only `cryptography` ships 1980-normalised wheels (7 of 20, all
 `win_amd64`), `urllib3` stamps every entry with one build instant, and `jinja2`
 carries checkout mtimes.
 
-**Next test.** T-0017, `EXPERIMENTS/008-build-timestamp-attribution/`: build one
-source under several `SOURCE_DATE_EPOCH` values, attribute every differing byte to
-a named cause, and establish the same-epoch noise floor. That is the measurement
-E3's mechanism section names and the only one that can say "worth fixing first".
+**Attribution measured (T-0017, `EXPERIMENTS/008-build-timestamp-attribution/`).**
+`observed`, 2026-10-03. Five pure-Python sdists, 35 real builds with setuptools
+45.2.0 + wheel 0.34.2, two checkouts identical in content and 34 months apart in
+mtime. Attribution is causal: rewriting only the four DOS bytes in each local
+header and each central-directory entry of one artifact to the other's values.
+With `SOURCE_DATE_EPOCH` unset, **398 of 398 differing bytes pooled lie inside
+zip timestamp fields** and the patch reproduces the other artifact exactly on
+5 of 5 sources, so timestamps were the only cause. With it set, builds are
+bit-identical (0 differing bytes, 5 of 5). A second timestamp route was found and
+identified: the `.dist-info` files the builder generates carry the wall clock, so
+two builds across a 2-second DOS tick differ in exactly those entries.
+Predeclared gate met: `timestamps-first`.
+
+**Decision.** `FAILURES.md` F011. E3's ordering claim is **supported for this
+builder** — fixing timestamps is sufficient, not merely worthwhile — and the
+candidate is **abandoned anyway**, because the remedy is `SOURCE_DATE_EPOCH`, a
+standard this builder already honours. The remaining gap is adoption, and
+adoption of an existing standard is not a new repository. E1 and E2 are still
+`untested`; **do not run E1** (D020, Screen 3). E2 is time-gated, not effort-
+gated: two resolver runs today measure nothing, so snapshot one side of that
+comparison while a VM is idle.
+

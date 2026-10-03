@@ -26,8 +26,8 @@ experiment directories are `001-photo-baseline` (E001),
 `003-information-sufficiency` (the E002 witness gate),
 `004-knitting-stage-a` and `005-knitting-bounded-search` (the knitting Stage-A
 pair), `006-ventilation-measurement-design` (C2), and
-`007-build-timestamps` (E3's census, whose attribution half is T-0017,
-`EXPERIMENTS/008-build-timestamp-attribution/`).
+`007-build-timestamps` (E3's prevalence census) and
+`008-build-timestamp-attribution` (its cause attribution).
 
 ## Status summary
 
@@ -37,7 +37,7 @@ pair), `006-ventilation-measurement-design` (C2), and
 | Knitting repair planner | `RESEARCH/C.md`, E002 | **Algorithmic-advantage claim abandoned** (`FAILURES.md` F009): minimum-cost repair planning is prior art from 2007–2026, and no tool was found that supplies an intervention sequence for an existing hand-knit structure. Stage A was already settled (T-0010, T-0011) | Nothing software-side. Only Stage B physical work with an experienced knitter, and only after checking that entering the chart patch does not already imply the user can do the repair |
 | Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | **Stopped as formulated** (`FAILURES.md` F008, T-0014): a prescribed door-open protocol beats adaptive action selection at equal budget, 0.833 vs 0.792 | Only if the surviving robustness observation (read a second sensor under poor mixing) is tested against existing tools |
 | Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
-| Python packaging determinism (E1–E3) | `RESEARCH/E.md` | E3's prevalence census ran and passed its 5% gate at 0.965, but the metric is near-vacuous and attribution is untested (`FAILURES.md` F010); E1 and E2 remain `untested` | E3 attribution via T-0017; **do not run E1** (D020 Screen 3); E2 is time-gated |
+| Python packaging determinism (E1–E3) | `RESEARCH/E.md` | E3's mechanism **supported and its candidate abandoned** (`FAILURES.md` F011): timestamps are the only byte-level cause for the one builder here and `SOURCE_DATE_EPOCH` removes all of it, so there is nothing to build. E1 and E2 remain `untested` | Nothing software-side for E3. **Do not run E1** (D020 Screen 3); E2 is time-gated — snapshot one side while a VM is idle |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
 | Sewing-projector auto-calibration | `RESEARCH/B.md` | Rejected: no material gap shown | — |
 | Automated accessibility certification | `RESEARCH/D.md` | Rejected: universal claim unfalsifiable | — |

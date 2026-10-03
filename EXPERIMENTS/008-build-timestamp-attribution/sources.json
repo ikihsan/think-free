@@ -1,0 +1,47 @@
+{
+  "fetched_at": null,
+  "pip": "pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)",
+  "selection_rule": "Pure-Python sdists with a classic setup.py, a static version, and a small artifact. Five were named and all five are attempted; the kill gate is written over 'at least 3 of 4 sources', so one source may fail without collapsing it.",
+  "sources": [
+    {
+      "bytes": 34041,
+      "file": "six-1.16.0.tar.gz",
+      "package": "six",
+      "sha256": "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
+      "source": "https://pypi.org/pypi/six/1.16.0/json",
+      "version": "1.16.0"
+    },
+    {
+      "bytes": 22253,
+      "file": "toml-0.10.2.tar.gz",
+      "package": "toml",
+      "sha256": "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f",
+      "source": "https://pypi.org/pypi/toml/0.10.2/json",
+      "version": "0.10.2"
+    },
+    {
+      "bytes": 286689,
+      "file": "idna-3.3.tar.gz",
+      "package": "idna",
+      "sha256": "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d",
+      "source": "https://pypi.org/pypi/idna/3.3/json",
+      "version": "3.3"
+    },
+    {
+      "bytes": 84848,
+      "file": "packaging-21.3.tar.gz",
+      "package": "packaging",
+      "sha256": "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb",
+      "source": "https://pypi.org/pypi/packaging/21.3/json",
+      "version": "21.3"
+    },
+    {
+      "bytes": 336121,
+      "file": "click-8.1.7.tar.gz",
+      "package": "click",
+      "sha256": "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de",
+      "source": "https://pypi.org/pypi/click/8.1.7/json",
+      "version": "8.1.7"
+    }
+  ]
+}

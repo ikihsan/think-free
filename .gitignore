@@ -12,3 +12,8 @@ sessions/active.json
 
 # Agent runtime state, not repository content.
 .opencode/
+
+# Third-party inputs an experiment downloads and pins by hash. The record is
+# sources.json, not the bytes: re-running `fetch_sources.py` reproduces them, and
+# a tracked tarball would be vendored input that nothing verifies.
+EXPERIMENTS/*/sdists/

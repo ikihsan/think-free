@@ -158,3 +158,119 @@ cd EXPERIMENTS/008-build-timestamp-attribution && python3 fetch_sources.py && py
 Standard library only, plus the sdists it downloads. Both scripts write
 `results.json`; `fetch_sources.py` records every input's SHA-256 so the sample
 is checkable.
+
+---
+
+# Results (`results.json`, 2026-10-03)
+
+Environment as run: CPython 3.8.10, setuptools 45.2.0, wheel 0.34.2, Linux,
+`python3 setup.py bdist_wheel`. Five sdists, seven builds each, 35 builds, zero
+build failures.
+
+## Gate verdict: `timestamps-first`
+
+| Clause | Needs | Got |
+|---|---|---|
+| G1 arm N, timestamp patch reaches byte-identity | >= 3 of 4 sources | **4 of 4** (and 5 of 5 measured) |
+| G2 planted content defect detected and attributed to a non-timestamp cause | every source | **4 of 4** (and 5 of 5) |
+| G3 arm H bit-identical | >= 3 of 4 sources | **4 of 4** (and 5 of 5) |
+| G4 arm N sources left with residual causes | fewer than 2 | **0** |
+| G5 any source with non-timestamp share >= 0.25 | none | **0** |
+
+## The numbers
+
+| source | arm N differing bytes | in timestamp fields | other | patch reaches identity | arm H differing bytes |
+|---|---|---|---|---|---|
+| `six` 1.16.0 | 18 | 18 | 0 | yes | 0 |
+| `toml` 0.10.2 | 50 | 50 | 0 | yes | 0 |
+| `idna` 3.3 | 74 | 74 | 0 | yes | 0 |
+| `packaging` 21.3 | 110 | 110 | 0 | yes | 0 |
+| `click` 8.1.7 | 146 | 146 | 0 | yes | 0 |
+
+Pooled: **398 of 398 differing bytes (1.0000) lie inside zip timestamp fields**,
+and on every source the causal patch — rewrite the 4+4 DOS bytes per entry to
+the other artifact's values — reproduces the other artifact exactly. That is a
+proof that timestamps were the *only* difference, not a correlation.
+
+**Arm H is bit-reproducible.** With `SOURCE_DATE_EPOCH` fixed, two builds from
+checkouts 34 months apart produce identical bytes on 5 of 5 sources: 0 differing
+bytes. This is the implementation check, and it passes.
+
+## A second timestamp path, found by the noise floor
+
+The noise floor was expected to be zero and was not, on three sources. Cause
+identified by hand rather than guessed: the `.dist-info` files the wheel builder
+*generates* are stamped with the wall clock at build time, and the DOS timestamp
+has 2-second resolution. Two builds inside one tick are byte-identical; two
+across a tick differ in exactly those entries:
+
+```
+six-1.16.0.dist-info/LICENSE     [2026, 10, 3, 21, 59, 36] vs [2026, 10, 3, 21, 59, 42]
+six-1.16.0.dist-info/METADATA    [2026, 10, 3, 21, 59, 36] vs [2026, 10, 3, 21, 59, 42]
+six-1.16.0.dist-info/RECORD      [2026, 10, 3, 21, 59, 36] vs [2026, 10, 3, 21, 59, 42]
+six-1.16.0.dist-info/WHEEL       [2026, 10, 3, 21, 59, 36] vs [2026, 10, 3, 21, 59, 42]
+six-1.16.0.dist-info/top_level.txt [2026, 10, 3, 21, 59, 36] vs [2026, 10, 3, 21, 59, 42]
+```
+
+So there are two timestamp routes, not one: copied source mtimes (arm N's main
+effect) and build-time stamps on generated files. Both are the same *cause*, and
+`SOURCE_DATE_EPOCH` removes both.
+
+## Controls
+
+| Control | Result |
+|---|---|
+| C1 patch local headers only | does **not** reach identity, 5 of 5 |
+| C2 patch central directory only | does **not** reach identity, 5 of 5 |
+| C3 planted content defect | `content-differs` reported, 5 of 5; 40,493–97,407 non-timestamp bytes; patch does not reach identity |
+
+C3 names two entries, the planted file and `RECORD`, whose hash of it changed.
+That is correct, and it is why "no residual cause" in the headline rows is a
+result rather than a blind spot.
+
+## What this establishes, and what it removes
+
+**E3's ordering claim is supported for this builder**: timestamps are not merely
+the most common violation, they are the only one, so normalising them is
+*sufficient* for bit-reproducibility rather than merely worthwhile. F010 said
+prevalence was measured and cause was not; cause is now measured.
+
+**And that is exactly why there is nothing to build.** The remedy is
+`SOURCE_DATE_EPOCH` — a documented standard that this builder already honours,
+with a one-line effect. A tool that counts the violations duplicates
+`diffoscope`/`reprotest`; a tool that fixes them duplicates an environment
+variable. The census measured the remaining gap as an *adoption* fact: 0.965 of
+recent wheels are not 1980-pinned even though the builder can pin them. Adoption
+of a standard is not a new repository. E3 is recorded as a mechanism supported and
+a candidate abandoned (`FAILURES.md` F011).
+
+## Limits
+
+1. **One builder.** setuptools 45.2.0 + wheel 0.34.2 is the only wheel builder on
+   this machine. The census's per-package table is the reason that matters:
+   `cryptography` ships 1980-pinned wheels, `urllib3` stamps one instant per
+   wheel, `jinja2` carries checkout mtimes. Nothing here explains that spread; a
+   verdict from one builder is a bound on that builder.
+2. **Pure-Python sources only.** Compiled extensions embed a toolchain the wheel
+   builder does not control, and their determinism is a separate question.
+3. **Five sources, all small and single-repository.** Not a sample of packaging.
+4. **`click` is reported but not in the gate.** The gate's denominator is four,
+   fixed in the predeclaration; `click` is the fifth and is shown for completeness.
+5. **Arm H is a check, not a discovery** (`wheel` 0.34.2's source already states
+   where every entry's date comes from). The informative cell is arm N.
+6. Nothing here measures whether anyone sets the variable, which is the fact the
+   census says matters.
+
+## First run: a control that tested nothing
+
+The first run returned the same verdict, and it was wrong to accept. C3 planted
+`src/__planted__.txt`, which none of these `setup.py` files packages, so the
+"planted" artifact differed from its control only by the wall-clock stamps above;
+and G2 was implemented as "the artifacts differ", which that noise satisfies on
+its own. The predeclared wording was "detected **and attributed to a non-timestamp
+cause**", so the code implemented less than the clause said.
+
+Fixed by planting inside a file a real build already put in the wheel (read from
+the artifact, not guessed), and by requiring a `content-differs` residual cause.
+The first run is kept in `first-failure.json`; the second run is the one
+`results.json` holds.

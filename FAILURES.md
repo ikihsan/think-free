@@ -35,13 +35,14 @@ split because the first file reached the 300-line cap:
 | F009 | Knitting repair planner: the algorithmic advantage is prior art |
 | F010 | E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not |
 | F011 | `sync land` broke on git ≥ 2.26, and every CI run failed for that reason |
+| F012 | E3's ordering claim holds, and that is why there is nothing to build |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
 are separated from the live list rather than interleaved with it. The two files
 split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008 and
 `FAILURES-findings-2.md` takes every finding after it. Identifiers are stable: a
-reference to `F010` means the same entry whichever file it is in.
+reference to `F012` means the same entry whichever file it is in.
 
 ## Open, not yet disproved
 
@@ -58,10 +59,12 @@ These remain live questions, not settled negatives:
 - **Sidewalk survey prioritisation** (`RESEARCH/A.md`): strong value story,
   substantial prior art; the decision-value advantage is falsified in its
   motivating cost regime (F006) but not in every regime.
-- **Reproducible Python builds** (`RESEARCH/E.md`, E3): prevalence is measured
-  (F010) and attribution is not. The 5% gate is spent and should not be re-run in
-  that form; what remains open is whether timestamps are the *first* cause worth
-  fixing, which is T-0017. E1 (retry jitter) and E2 (lockfile drift) are
+- **Reproducible Python builds** (`RESEARCH/E.md`, E3): the mechanism is
+  supported and the candidate abandoned (F012) — for the one builder available
+  here, timestamps are the only byte-level cause and `SOURCE_DATE_EPOCH` removes
+  all of it. Still open, and not a new repository: the census's per-package
+  heterogeneity, which this run does not explain, and whether compiled-extension
+  builds behave the same way. E1 (retry jitter) and E2 (lockfile drift) remain
   `untested`; D020 rules E1 out of order.
 
 ## Reopening

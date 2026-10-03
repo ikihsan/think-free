@@ -1,0 +1,977 @@
+{
+  "environment": {
+    "builder": "python3 setup.py bdist_wheel",
+    "platform": "linux",
+    "python": "3.8.10",
+    "setuptools": "45.2.0",
+    "wheel": "0.34.2"
+  },
+  "experiment": "E3 build-timestamp attribution",
+  "gate": {
+    "checks": {
+      "G1_arm_n_patch_reaches_identity": {
+        "got": 4,
+        "needs": ">= 3 of 4 sources",
+        "packages": [
+          "six",
+          "toml",
+          "idna",
+          "packaging"
+        ]
+      },
+      "G2_planted_defect_detected": {
+        "got": 4,
+        "needs": "every source the defect was planted on",
+        "packages": [
+          "six",
+          "toml",
+          "idna",
+          "packaging"
+        ]
+      },
+      "G3_arm_h_bit_identical": {
+        "got": 4,
+        "needs": ">= 3 of 4 sources",
+        "packages": [
+          "six",
+          "toml",
+          "idna",
+          "packaging"
+        ]
+      },
+      "G4_arm_n_residual_causes": {
+        "got": 0,
+        "needs": "fewer than 2 sources left with residual differences",
+        "packages": []
+      },
+      "G5_non_timestamp_share": {
+        "got": 0,
+        "needs": "no source with non-timestamp share at or above 0.25",
+        "sources": []
+      }
+    },
+    "control_C3_expected": "identical: false on every planted source",
+    "gate_sources": [
+      "six",
+      "toml",
+      "idna",
+      "packaging"
+    ],
+    "reported_beyond_the_gate": [
+      "click"
+    ],
+    "verdict": "timestamps-first"
+  },
+  "gate_denominator": 4,
+  "mechanism_source": "RESEARCH/E.md, mechanism E3",
+  "order": [
+    "six",
+    "toml",
+    "idna",
+    "packaging",
+    "click"
+  ],
+  "run_at": "2026-10-03T22:01:49.742943+00:00",
+  "sources": [
+    {
+      "builds": {
+        "H:A": {
+          "arm": "H",
+          "bytes": 11053,
+          "duration_s": 0.81,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "H:B": {
+          "arm": "H",
+          "bytes": 11053,
+          "duration_s": 0.87,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "N:A": {
+          "arm": "N",
+          "bytes": 11053,
+          "duration_s": 0.86,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "N:A2": {
+          "arm": "N",
+          "bytes": 11053,
+          "duration_s": 0.83,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "N:B": {
+          "arm": "N",
+          "bytes": 11053,
+          "duration_s": 0.87,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "N:B2": {
+          "arm": "N",
+          "bytes": 11053,
+          "duration_s": 0.81,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        },
+        "N:C": {
+          "arm": "N",
+          "bytes": 11088,
+          "duration_s": 0.81,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'documentation/_build'"
+          ],
+          "wheel": "six-1.16.0-py2.py3-none-any.whl"
+        }
+      },
+      "built_ok": true,
+      "checkouts_identical_in_content": true,
+      "comparisons": {
+        "arm_h_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "223291f3797f84ac07f84b0af8a5b899dc7c9cfbd23e64398fd5c9fda1998371",
+          "patch_identical": true,
+          "patched_sha256": "223291f3797f84ac07f84b0af8a5b899dc7c9cfbd23e64398fd5c9fda1998371",
+          "residual_causes_after_patch": [],
+          "right_sha256": "223291f3797f84ac07f84b0af8a5b899dc7c9cfbd23e64398fd5c9fda1998371",
+          "timestamp_share": null
+        },
+        "arm_n_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 18,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 18,
+          "half_controls": {
+            "central_directory_only_reaches_identity": false,
+            "local_header_only_reaches_identity": false
+          },
+          "identical": false,
+          "left_sha256": "0bb9430a4864a2936751491bef8b36e2e11c4bd3ba9c6adf32da415d29d2353f",
+          "patch_identical": true,
+          "patched_sha256": "f5ea7d52802e5c6ebcefa2fc948697a380958f9f827a02ccab2b881db2450008",
+          "residual_causes_after_patch": [],
+          "right_sha256": "f5ea7d52802e5c6ebcefa2fc948697a380958f9f827a02ccab2b881db2450008",
+          "timestamp_share": 1.0
+        },
+        "arm_n_repeat_b": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "f5ea7d52802e5c6ebcefa2fc948697a380958f9f827a02ccab2b881db2450008",
+          "patch_identical": true,
+          "patched_sha256": "f5ea7d52802e5c6ebcefa2fc948697a380958f9f827a02ccab2b881db2450008",
+          "residual_causes_after_patch": [],
+          "right_sha256": "f5ea7d52802e5c6ebcefa2fc948697a380958f9f827a02ccab2b881db2450008",
+          "timestamp_share": null
+        },
+        "noise_floor_same_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "0bb9430a4864a2936751491bef8b36e2e11c4bd3ba9c6adf32da415d29d2353f",
+          "patch_identical": true,
+          "patched_sha256": "0bb9430a4864a2936751491bef8b36e2e11c4bd3ba9c6adf32da415d29d2353f",
+          "residual_causes_after_patch": [],
+          "right_sha256": "0bb9430a4864a2936751491bef8b36e2e11c4bd3ba9c6adf32da415d29d2353f",
+          "timestamp_share": null
+        },
+        "planted_content_defect": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 10999,
+          "differing_bytes_total": 10999,
+          "identical": false,
+          "left_sha256": "0bb9430a4864a2936751491bef8b36e2e11c4bd3ba9c6adf32da415d29d2353f",
+          "patch_identical": false,
+          "patched_sha256": "f054b6c90a7f7867dbf7589cb2698a911f5ae2518a8bc420a7944a8df9210d37",
+          "residual_causes_after_patch": [
+            {
+              "detail": "sha256 48cbb6df2674 vs c46a80d79246",
+              "entry": "six-1.16.0.dist-info/RECORD",
+              "kind": "content-differs"
+            },
+            {
+              "detail": "sha256 4ce39f422ee7 vs 9fa413cd27c2",
+              "entry": "six.py",
+              "kind": "content-differs"
+            }
+          ],
+          "right_sha256": "53fad70d8f76877cadef23d34951f5b503f8a640663e3e1c303905a225466a5d",
+          "timestamp_share": 0.0
+        }
+      },
+      "content_digests": {
+        "A": "87804e359526aa6fcb72fc8c8100e871ce2d0d6937ab5f7645d5fc9eff9875c8",
+        "A2": "87804e359526aa6fcb72fc8c8100e871ce2d0d6937ab5f7645d5fc9eff9875c8",
+        "B": "87804e359526aa6fcb72fc8c8100e871ce2d0d6937ab5f7645d5fc9eff9875c8",
+        "B2": "87804e359526aa6fcb72fc8c8100e871ce2d0d6937ab5f7645d5fc9eff9875c8",
+        "C": "c7bc9cf4280ec137fe4051e6c1d3f5c31a98064f430d8d03c768ec652599a596"
+      },
+      "package": "six",
+      "planted": {
+        "bytes_added": 34604,
+        "file": "six.py",
+        "wheel_entry": "six.py"
+      },
+      "planted_differs_in_content": true,
+      "sdist_sha256": "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
+      "version": "1.16.0"
+    },
+    {
+      "builds": {
+        "H:A": {
+          "arm": "H",
+          "bytes": 16586,
+          "duration_s": 0.83,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "H:B": {
+          "arm": "H",
+          "bytes": 16586,
+          "duration_s": 0.85,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "N:A": {
+          "arm": "N",
+          "bytes": 16586,
+          "duration_s": 1.1,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "N:A2": {
+          "arm": "N",
+          "bytes": 16586,
+          "duration_s": 0.97,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "N:B": {
+          "arm": "N",
+          "bytes": 16586,
+          "duration_s": 0.88,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "N:B2": {
+          "arm": "N",
+          "bytes": 16586,
+          "duration_s": 0.84,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        },
+        "N:C": {
+          "arm": "N",
+          "bytes": 16626,
+          "duration_s": 0.87,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [],
+          "wheel": "toml-0.10.2-py2.py3-none-any.whl"
+        }
+      },
+      "built_ok": true,
+      "checkouts_identical_in_content": true,
+      "comparisons": {
+        "arm_h_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "54374211d070117e472b6c88b328b55a37cf9abdb0dc673b6ae881e93259a4d8",
+          "patch_identical": true,
+          "patched_sha256": "54374211d070117e472b6c88b328b55a37cf9abdb0dc673b6ae881e93259a4d8",
+          "residual_causes_after_patch": [],
+          "right_sha256": "54374211d070117e472b6c88b328b55a37cf9abdb0dc673b6ae881e93259a4d8",
+          "timestamp_share": null
+        },
+        "arm_n_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 50,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 50,
+          "half_controls": {
+            "central_directory_only_reaches_identity": false,
+            "local_header_only_reaches_identity": false
+          },
+          "identical": false,
+          "left_sha256": "68707820f9f15eeca6099eaaa5d231ddb225a9dce2a638b66ea62ef9ceb1cf6c",
+          "patch_identical": true,
+          "patched_sha256": "0a447c720316acf55ef255eb63abbfe30c013fc80fd9747346b6643550c2300a",
+          "residual_causes_after_patch": [],
+          "right_sha256": "0a447c720316acf55ef255eb63abbfe30c013fc80fd9747346b6643550c2300a",
+          "timestamp_share": 1.0
+        },
+        "arm_n_repeat_b": {
+          "differing_bytes_in_timestamp_fields": 10,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 10,
+          "identical": false,
+          "left_sha256": "0a447c720316acf55ef255eb63abbfe30c013fc80fd9747346b6643550c2300a",
+          "patch_identical": true,
+          "patched_sha256": "68c0ae53d0f98195670f772b57cce33ef4bd49beeff6c3338eb1414a0066c98b",
+          "residual_causes_after_patch": [],
+          "right_sha256": "68c0ae53d0f98195670f772b57cce33ef4bd49beeff6c3338eb1414a0066c98b",
+          "timestamp_share": 1.0
+        },
+        "noise_floor_same_mtime": {
+          "differing_bytes_in_timestamp_fields": 10,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 10,
+          "identical": false,
+          "left_sha256": "68707820f9f15eeca6099eaaa5d231ddb225a9dce2a638b66ea62ef9ceb1cf6c",
+          "patch_identical": true,
+          "patched_sha256": "0e362d22cf37eab025a819240732715fc7ba1a524e7d240858bad4580d1aa92d",
+          "residual_causes_after_patch": [],
+          "right_sha256": "0e362d22cf37eab025a819240732715fc7ba1a524e7d240858bad4580d1aa92d",
+          "timestamp_share": 1.0
+        },
+        "planted_content_defect": {
+          "differing_bytes_in_timestamp_fields": 8,
+          "differing_bytes_other": 16472,
+          "differing_bytes_total": 16480,
+          "identical": false,
+          "left_sha256": "68707820f9f15eeca6099eaaa5d231ddb225a9dce2a638b66ea62ef9ceb1cf6c",
+          "patch_identical": false,
+          "patched_sha256": "2d74891b2a0ea4edea9893a0b5f746e5461424c619041509dad2fa5bef7ec4a0",
+          "residual_causes_after_patch": [
+            {
+              "detail": "sha256 d303f08915a9 vs ccf0751ec516",
+              "entry": "toml-0.10.2.dist-info/RECORD",
+              "kind": "content-differs"
+            },
+            {
+              "detail": "sha256 02ede4a82c0a vs 6ed1113c6d6d",
+              "entry": "toml/__init__.py",
+              "kind": "content-differs"
+            }
+          ],
+          "right_sha256": "c3976c5da18c2b56038d160c41fc3fb081df319e9f4ec9fd6281691563413bb2",
+          "timestamp_share": 0.000485
+        }
+      },
+      "content_digests": {
+        "A": "ab1e93a1dd6a9d9ff8f4610f67152a1558fa9d3e03892182e15ecc497d60f2ba",
+        "A2": "ab1e93a1dd6a9d9ff8f4610f67152a1558fa9d3e03892182e15ecc497d60f2ba",
+        "B": "ab1e93a1dd6a9d9ff8f4610f67152a1558fa9d3e03892182e15ecc497d60f2ba",
+        "B2": "ab1e93a1dd6a9d9ff8f4610f67152a1558fa9d3e03892182e15ecc497d60f2ba",
+        "C": "0c9f8556f5d72410f2ffe652cd70d1fe097b00085a57435924afd91fe41864de"
+      },
+      "package": "toml",
+      "planted": {
+        "bytes_added": 778,
+        "file": "toml/__init__.py",
+        "wheel_entry": "toml/__init__.py"
+      },
+      "planted_differs_in_content": true,
+      "sdist_sha256": "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f",
+      "version": "0.10.2"
+    },
+    {
+      "builds": {
+        "H:A": {
+          "arm": "H",
+          "bytes": 61137,
+          "duration_s": 0.8,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "H:B": {
+          "arm": "H",
+          "bytes": 61137,
+          "duration_s": 0.99,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "N:A": {
+          "arm": "N",
+          "bytes": 61137,
+          "duration_s": 0.83,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "N:A2": {
+          "arm": "N",
+          "bytes": 61137,
+          "duration_s": 0.89,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "N:B": {
+          "arm": "N",
+          "bytes": 61137,
+          "duration_s": 0.87,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "N:B2": {
+          "arm": "N",
+          "bytes": 61137,
+          "duration_s": 0.89,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        },
+        "N:C": {
+          "arm": "N",
+          "bytes": 61178,
+          "duration_s": 0.88,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files matching '*.pyc' found under directory 'tools'",
+            "warning: no previously-included files matching '*.pyc' found under directory 'tests'"
+          ],
+          "wheel": "idna-3.3-py3-none-any.whl"
+        }
+      },
+      "built_ok": true,
+      "checkouts_identical_in_content": true,
+      "comparisons": {
+        "arm_h_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "cc439c1cc03c8e4fb3c7a99d0cbf4f52d0f9c4ddacefae61264fd703b428f5b8",
+          "patch_identical": true,
+          "patched_sha256": "cc439c1cc03c8e4fb3c7a99d0cbf4f52d0f9c4ddacefae61264fd703b428f5b8",
+          "residual_causes_after_patch": [],
+          "right_sha256": "cc439c1cc03c8e4fb3c7a99d0cbf4f52d0f9c4ddacefae61264fd703b428f5b8",
+          "timestamp_share": null
+        },
+        "arm_n_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 74,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 74,
+          "half_controls": {
+            "central_directory_only_reaches_identity": false,
+            "local_header_only_reaches_identity": false
+          },
+          "identical": false,
+          "left_sha256": "b937deec4ccc28d8fca4f416261624f870d1536968544b2a7b6d66ee9b6187bd",
+          "patch_identical": true,
+          "patched_sha256": "54fc718b59cf51cd432b164a6d786349dee65d716241e56fd99068af2bd6cd04",
+          "residual_causes_after_patch": [],
+          "right_sha256": "54fc718b59cf51cd432b164a6d786349dee65d716241e56fd99068af2bd6cd04",
+          "timestamp_share": 1.0
+        },
+        "arm_n_repeat_b": {
+          "differing_bytes_in_timestamp_fields": 10,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 10,
+          "identical": false,
+          "left_sha256": "54fc718b59cf51cd432b164a6d786349dee65d716241e56fd99068af2bd6cd04",
+          "patch_identical": true,
+          "patched_sha256": "cbfef2e4c8a04504b689c4a5b2dea265caa2148ad7120acae020677c30601442",
+          "residual_causes_after_patch": [],
+          "right_sha256": "cbfef2e4c8a04504b689c4a5b2dea265caa2148ad7120acae020677c30601442",
+          "timestamp_share": 1.0
+        },
+        "noise_floor_same_mtime": {
+          "differing_bytes_in_timestamp_fields": 2,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 2,
+          "identical": false,
+          "left_sha256": "b937deec4ccc28d8fca4f416261624f870d1536968544b2a7b6d66ee9b6187bd",
+          "patch_identical": true,
+          "patched_sha256": "ea4cbc5e36f5411dec21c5c014cdac5e166f4400d1439aaa1ac59fae1da8c2ad",
+          "residual_causes_after_patch": [],
+          "right_sha256": "ea4cbc5e36f5411dec21c5c014cdac5e166f4400d1439aaa1ac59fae1da8c2ad",
+          "timestamp_share": 1.0
+        },
+        "planted_content_defect": {
+          "differing_bytes_in_timestamp_fields": 24,
+          "differing_bytes_other": 60620,
+          "differing_bytes_total": 60644,
+          "identical": false,
+          "left_sha256": "b937deec4ccc28d8fca4f416261624f870d1536968544b2a7b6d66ee9b6187bd",
+          "patch_identical": false,
+          "patched_sha256": "fce5ecc956181b685f968fb54cff21e0a9bb3bcd24f1464609255255e3173d0c",
+          "residual_causes_after_patch": [
+            {
+              "detail": "sha256 de60f1525439 vs 7a08832b78cc",
+              "entry": "idna-3.3.dist-info/RECORD",
+              "kind": "content-differs"
+            },
+            {
+              "detail": "sha256 28940dd5e401 vs d3833fd31b1a",
+              "entry": "idna/__init__.py",
+              "kind": "content-differs"
+            }
+          ],
+          "right_sha256": "c2c35c7e08f5224899d94cb5dcda08671b819bcb54a47e08a048d5d72863d89c",
+          "timestamp_share": 0.000396
+        }
+      },
+      "content_digests": {
+        "A": "5e7cf8cd1536a97f2c8d553517d6be46ff744f51b022d9ea8b66953d57f15c66",
+        "A2": "5e7cf8cd1536a97f2c8d553517d6be46ff744f51b022d9ea8b66953d57f15c66",
+        "B": "5e7cf8cd1536a97f2c8d553517d6be46ff744f51b022d9ea8b66953d57f15c66",
+        "B2": "5e7cf8cd1536a97f2c8d553517d6be46ff744f51b022d9ea8b66953d57f15c66",
+        "C": "e7cd6c6bd0da46acbc4d7ce9301de3496c7f4e2b9ee35aa2dcf7a706bc5882bd"
+      },
+      "package": "idna",
+      "planted": {
+        "bytes_added": 904,
+        "file": "idna/__init__.py",
+        "wheel_entry": "idna/__init__.py"
+      },
+      "planted_differs_in_content": true,
+      "sdist_sha256": "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d",
+      "version": "3.3"
+    },
+    {
+      "builds": {
+        "H:A": {
+          "arm": "H",
+          "bytes": 40726,
+          "duration_s": 0.85,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "H:B": {
+          "arm": "H",
+          "bytes": 40726,
+          "duration_s": 0.82,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "N:A": {
+          "arm": "N",
+          "bytes": 40726,
+          "duration_s": 0.89,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "N:A2": {
+          "arm": "N",
+          "bytes": 40726,
+          "duration_s": 0.87,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "N:B": {
+          "arm": "N",
+          "bytes": 40726,
+          "duration_s": 0.89,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "N:B2": {
+          "arm": "N",
+          "bytes": 40726,
+          "duration_s": 0.9,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        },
+        "N:C": {
+          "arm": "N",
+          "bytes": 40760,
+          "duration_s": 0.89,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "warning: no previously-included files found matching 'tests/hello-world.c'",
+            "no previously-included directories found matching 'docs/_build'",
+            "no previously-included directories found matching 'tasks'"
+          ],
+          "wheel": "packaging-21.3-py3-none-any.whl"
+        }
+      },
+      "built_ok": true,
+      "checkouts_identical_in_content": true,
+      "comparisons": {
+        "arm_h_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "bcdcd0ed20d3e55dfa4f2b746610937b9bc696313a441ecfc2bbd731c7114c50",
+          "patch_identical": true,
+          "patched_sha256": "bcdcd0ed20d3e55dfa4f2b746610937b9bc696313a441ecfc2bbd731c7114c50",
+          "residual_causes_after_patch": [],
+          "right_sha256": "bcdcd0ed20d3e55dfa4f2b746610937b9bc696313a441ecfc2bbd731c7114c50",
+          "timestamp_share": null
+        },
+        "arm_n_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 110,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 110,
+          "half_controls": {
+            "central_directory_only_reaches_identity": false,
+            "local_header_only_reaches_identity": false
+          },
+          "identical": false,
+          "left_sha256": "3428cb0424109ff3344a1072ecf2bb43a644e605093ffdcc5f91dfc7043dda49",
+          "patch_identical": true,
+          "patched_sha256": "19b79caa5f72ec309403d77989600a8cf7f3638b454bd28839720f103ab764f8",
+          "residual_causes_after_patch": [],
+          "right_sha256": "19b79caa5f72ec309403d77989600a8cf7f3638b454bd28839720f103ab764f8",
+          "timestamp_share": 1.0
+        },
+        "arm_n_repeat_b": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "19b79caa5f72ec309403d77989600a8cf7f3638b454bd28839720f103ab764f8",
+          "patch_identical": true,
+          "patched_sha256": "19b79caa5f72ec309403d77989600a8cf7f3638b454bd28839720f103ab764f8",
+          "residual_causes_after_patch": [],
+          "right_sha256": "19b79caa5f72ec309403d77989600a8cf7f3638b454bd28839720f103ab764f8",
+          "timestamp_share": null
+        },
+        "noise_floor_same_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "3428cb0424109ff3344a1072ecf2bb43a644e605093ffdcc5f91dfc7043dda49",
+          "patch_identical": true,
+          "patched_sha256": "3428cb0424109ff3344a1072ecf2bb43a644e605093ffdcc5f91dfc7043dda49",
+          "residual_causes_after_patch": [],
+          "right_sha256": "3428cb0424109ff3344a1072ecf2bb43a644e605093ffdcc5f91dfc7043dda49",
+          "timestamp_share": null
+        },
+        "planted_content_defect": {
+          "differing_bytes_in_timestamp_fields": 16,
+          "differing_bytes_other": 40493,
+          "differing_bytes_total": 40509,
+          "identical": false,
+          "left_sha256": "3428cb0424109ff3344a1072ecf2bb43a644e605093ffdcc5f91dfc7043dda49",
+          "patch_identical": false,
+          "patched_sha256": "8100debd1e62b8f5e847865abceae88270f23c49f8595699bf01b2e1221e1708",
+          "residual_causes_after_patch": [
+            {
+              "detail": "sha256 415ab4692a76 vs 7ba0b1d628a5",
+              "entry": "packaging-21.3.dist-info/RECORD",
+              "kind": "content-differs"
+            },
+            {
+              "detail": "sha256 ba001220edb0 vs ef219f02c014",
+              "entry": "packaging/__about__.py",
+              "kind": "content-differs"
+            }
+          ],
+          "right_sha256": "2ba577dea2119c52a186b08c2080b4748d7e52fb67a7da9a3a4ee2a8fe63dff8",
+          "timestamp_share": 0.000395
+        }
+      },
+      "content_digests": {
+        "A": "f4b1a6aab2f689c9e070ee082e9998f99eeb79d414232a7c92be5cbe68379a36",
+        "A2": "f4b1a6aab2f689c9e070ee082e9998f99eeb79d414232a7c92be5cbe68379a36",
+        "B": "f4b1a6aab2f689c9e070ee082e9998f99eeb79d414232a7c92be5cbe68379a36",
+        "B2": "f4b1a6aab2f689c9e070ee082e9998f99eeb79d414232a7c92be5cbe68379a36",
+        "C": "287fc36b81612e13795cafd1396eb93a05e546acbe5e558177a48a416b8aed21"
+      },
+      "package": "packaging",
+      "planted": {
+        "bytes_added": 716,
+        "file": "packaging/__about__.py",
+        "wheel_entry": "packaging/__about__.py"
+      },
+      "planted_differs_in_content": true,
+      "sdist_sha256": "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb",
+      "version": "21.3"
+    },
+    {
+      "builds": {
+        "H:A": {
+          "arm": "H",
+          "bytes": 97936,
+          "duration_s": 1.06,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "H:B": {
+          "arm": "H",
+          "bytes": 97936,
+          "duration_s": 1.01,
+          "returncode": 0,
+          "source_date_epoch": 1600000000,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "N:A": {
+          "arm": "N",
+          "bytes": 97936,
+          "duration_s": 1.48,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "N:A2": {
+          "arm": "N",
+          "bytes": 97936,
+          "duration_s": 1.93,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "N:B": {
+          "arm": "N",
+          "bytes": 97936,
+          "duration_s": 1.01,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "N:B2": {
+          "arm": "N",
+          "bytes": 97936,
+          "duration_s": 1.01,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        },
+        "N:C": {
+          "arm": "N",
+          "bytes": 97978,
+          "duration_s": 1.07,
+          "returncode": 0,
+          "source_date_epoch": null,
+          "stderr_tail": [
+            "no previously-included directories found matching 'docs/_build'",
+            "warning: no previously-included files matching '*.pyc' found anywhere in distribution"
+          ],
+          "wheel": "click-8.1.7-py3-none-any.whl"
+        }
+      },
+      "built_ok": true,
+      "checkouts_identical_in_content": true,
+      "comparisons": {
+        "arm_h_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 0,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 0,
+          "identical": true,
+          "left_sha256": "919f7186c9191df618810c2e09e6e1922051306105c93a472d34482de900499f",
+          "patch_identical": true,
+          "patched_sha256": "919f7186c9191df618810c2e09e6e1922051306105c93a472d34482de900499f",
+          "residual_causes_after_patch": [],
+          "right_sha256": "919f7186c9191df618810c2e09e6e1922051306105c93a472d34482de900499f",
+          "timestamp_share": null
+        },
+        "arm_n_different_mtime": {
+          "differing_bytes_in_timestamp_fields": 146,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 146,
+          "half_controls": {
+            "central_directory_only_reaches_identity": false,
+            "local_header_only_reaches_identity": false
+          },
+          "identical": false,
+          "left_sha256": "8bbee1add203d03a1b4067cd51c449a15e164c1886947df177e732069a3ba8ec",
+          "patch_identical": true,
+          "patched_sha256": "645dcd02a3ae452da27b31a93bee31d5d7e656e1a7cdc4d1249c267e59c1110f",
+          "residual_causes_after_patch": [],
+          "right_sha256": "645dcd02a3ae452da27b31a93bee31d5d7e656e1a7cdc4d1249c267e59c1110f",
+          "timestamp_share": 1.0
+        },
+        "arm_n_repeat_b": {
+          "differing_bytes_in_timestamp_fields": 2,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 2,
+          "identical": false,
+          "left_sha256": "645dcd02a3ae452da27b31a93bee31d5d7e656e1a7cdc4d1249c267e59c1110f",
+          "patch_identical": true,
+          "patched_sha256": "25949366c8c151a74fdac4daa2c0e8b606e78a786e3e7e75aca7011377cc07f8",
+          "residual_causes_after_patch": [],
+          "right_sha256": "25949366c8c151a74fdac4daa2c0e8b606e78a786e3e7e75aca7011377cc07f8",
+          "timestamp_share": 1.0
+        },
+        "noise_floor_same_mtime": {
+          "differing_bytes_in_timestamp_fields": 10,
+          "differing_bytes_other": 0,
+          "differing_bytes_total": 10,
+          "identical": false,
+          "left_sha256": "8bbee1add203d03a1b4067cd51c449a15e164c1886947df177e732069a3ba8ec",
+          "patch_identical": true,
+          "patched_sha256": "9d97d235ad041512c1e70064f4bbb3a5841025d4558cdcba3d0bda5a8abed540",
+          "residual_causes_after_patch": [],
+          "right_sha256": "9d97d235ad041512c1e70064f4bbb3a5841025d4558cdcba3d0bda5a8abed540",
+          "timestamp_share": 1.0
+        },
+        "planted_content_defect": {
+          "differing_bytes_in_timestamp_fields": 8,
+          "differing_bytes_other": 97407,
+          "differing_bytes_total": 97415,
+          "identical": false,
+          "left_sha256": "8bbee1add203d03a1b4067cd51c449a15e164c1886947df177e732069a3ba8ec",
+          "patch_identical": false,
+          "patched_sha256": "545ceb2a5a8167c61311d3d0d6a5c3290e7ea9b009d8c17472ff8d8e14484a54",
+          "residual_causes_after_patch": [
+            {
+              "detail": "sha256 81e42ce8770a vs 64583739cf8b",
+              "entry": "click-8.1.7.dist-info/RECORD",
+              "kind": "content-differs"
+            },
+            {
+              "detail": "sha256 6030db8e6e34 vs 2532da80b602",
+              "entry": "click/__init__.py",
+              "kind": "content-differs"
+            }
+          ],
+          "right_sha256": "181c116dc4f06cc48d9a3c35761759cf4a8afb454806dbaa793105af9b763007",
+          "timestamp_share": 8.2e-05
+        }
+      },
+      "content_digests": {
+        "A": "047c872360c39949cb9aa8965bfee3bfd672beae25e0159572a430fe47359c5f",
+        "A2": "047c872360c39949cb9aa8965bfee3bfd672beae25e0159572a430fe47359c5f",
+        "B": "047c872360c39949cb9aa8965bfee3bfd672beae25e0159572a430fe47359c5f",
+        "B2": "047c872360c39949cb9aa8965bfee3bfd672beae25e0159572a430fe47359c5f",
+        "C": "30ad2ab06dbbfcc0f508fb01405aab3b4e0f32fe7dcacd8e616b2d0bf5942a42"
+      },
+      "package": "click",
+      "planted": {
+        "bytes_added": 3193,
+        "file": "src/click/__init__.py",
+        "wheel_entry": "click/__init__.py"
+      },
+      "planted_differs_in_content": true,
+      "sdist_sha256": "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de",
+      "version": "8.1.7"
+    }
+  ],
+  "stamps": {
+    "arm_h_source_date_epoch": 1600000000,
+    "checkout_a": 1614834367,
+    "checkout_b": 1731394150
+  },
+  "task": "T-0017"
+}

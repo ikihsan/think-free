@@ -11,7 +11,7 @@ created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-030-run-t-0017-attribute-every-differing-byt
 claim-vm: instance-20260717-0944
-verify: test -d EXPERIMENTS/008-build-timestamp-attribution && python3 -c "import json;d=json.load(open('EXPERIMENTS/008-build-timestamp-attribution/results.json'));assert d['builds']>=6;assert d['attribution'];assert d['gate']['verdict'] in ('timestamps-first','timestamps-not-first','inconclusive')" && grep -q '008-build-timestamp-attribution' HYPOTHESES.md && tools/origin doc lint
+verify: test -d EXPERIMENTS/008-build-timestamp-attribution && python3 -c "import json;d=json.load(open('EXPERIMENTS/008-build-timestamp-attribution/results.json'));s=d['sources'];assert len(s)>=4;assert all(r['built_ok'] for r in s);assert all(len(r['builds'])==7 for r in s);c=[r['comparisons']['arm_n_different_mtime'] for r in s];assert all('patch_identical' in x and 'differing_bytes_in_timestamp_fields' in x for x in c);assert all(x['half_controls']['local_header_only_reaches_identity'] is False and x['half_controls']['central_directory_only_reaches_identity'] is False for x in c);p=[r['comparisons']['planted_content_defect'] for r in s];assert all(any(k['kind']=='content-differs' for k in x['residual_causes_after_patch']) for x in p);assert d['gate']['verdict'] in ('timestamps-first','timestamps-not-first','inconclusive')" && grep -q '008-build-timestamp-attribution' HYPOTHESES.md && grep -q 'F011' FAILURES.md && tools/origin doc lint
 -->
 
 # T-0017 — Build one source twice under different SOURCE_DATE_EPOCH values and at
@@ -39,7 +39,7 @@ A predeclared kill gate written before the run; >=6 builds under distinct epochs
 ## Verification
 
 ```bash
-test -d EXPERIMENTS/008-build-timestamp-attribution && python3 -c "import json;d=json.load(open('EXPERIMENTS/008-build-timestamp-attribution/results.json'));assert d['builds']>=6;assert d['attribution'];assert d['gate']['verdict'] in ('timestamps-first','timestamps-not-first','inconclusive')" && grep -q '008-build-timestamp-attribution' HYPOTHESES.md && tools/origin doc lint
+test -d EXPERIMENTS/008-build-timestamp-attribution && python3 -c "import json;d=json.load(open('EXPERIMENTS/008-build-timestamp-attribution/results.json'));s=d['sources'];assert len(s)>=4;assert all(r['built_ok'] for r in s);assert all(len(r['builds'])==7 for r in s);c=[r['comparisons']['arm_n_different_mtime'] for r in s];assert all('patch_identical' in x and 'differing_bytes_in_timestamp_fields' in x for x in c);assert all(x['half_controls']['local_header_only_reaches_identity'] is False and x['half_controls']['central_directory_only_reaches_identity'] is False for x in c);p=[r['comparisons']['planted_content_defect'] for r in s];assert all(any(k['kind']=='content-differs' for k in x['residual_causes_after_patch']) for x in p);assert d['gate']['verdict'] in ('timestamps-first','timestamps-not-first','inconclusive')" && grep -q '008-build-timestamp-attribution' HYPOTHESES.md && grep -q 'F011' FAILURES.md && tools/origin doc lint
 ```
 
 ## Rollback
@@ -53,6 +53,16 @@ Append observations here. Record outcomes as events with
 
 **Numbering.** Created as T-0016 at 21:21:57. Session 029 on
 `instance-20260717-0947` created its own T-0016 at 21:28:52 and pushed it first,
-so this task is T-0017 and its finding is F010, not F009. `task new` allocates
-from the local tree, which two VMs cannot share; the renumber has to happen
-before the push.
+so this task is T-0017. Its finding is F011 rather than F009 because F009 (the
+knitting prior-art result) and F010 (E3's census, from session 026) were both
+taken by the time this result was recorded. `task new` allocates from the local
+tree, which two VMs cannot share; the renumber has to happen before the push.
+
+**The verify string was rewritten.** As created it asserted `d['builds']` and
+`d['attribution']`, keys this task guessed before any run. The schema that
+`results.json` actually holds is `sources[].comparisons` and `sources[].builds`,
+so the original string could never have passed. It now checks what the acceptance
+criteria actually require: five sources built with seven builds each, per-pair
+attribution present, **both half-controls false on every source**, a
+`content-differs` residual on every planted source, a legal verdict, and the two
+record updates. A verify command that cannot run is worse than none.
