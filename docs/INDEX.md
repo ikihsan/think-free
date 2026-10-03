@@ -76,6 +76,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md`](../tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](../tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](../tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md`](../tasks/T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 

@@ -31,6 +31,18 @@ Bounded A1 masking experiment over the PPNA Seattle crossings extract.
 Provisional A1 step-5 gate (≥25% lower median regret than strongest
 baseline in every masking mode): **met** (64.1 vs 109.9 ≈ 42% lower).
 
+## Sensitivity sweep (`sensitivity.json`, T-0006)
+
+Grid over K∈{10,20,40}, budget∈{75,150,300}, masking∈{random,block},
+10 seeds, 5 policies. Decision-directed passes the ≥25%-regret-reduction
+gate in 14 of 18 configurations. All four failures are the same corner:
+**K=40 with budget ≤150** — when the repair set is nearly as large as the
+observation budget, DD and the baselines converge (equal-information
+regime). Under generous budgets (300) DD's advantage reappears.
+Conclusion: the A1 mechanism helps in the realistic regime (budget-limited,
+moderate K) and disappears in the degenerate corner; this is a boundary
+result, not a contradiction.
+
 ## Honest caveats
 
 - Per-seed regrets are nearly constant; the design is close to

@@ -180,20 +180,57 @@ POLICIES = {
 }
 
 
-def run_once(rows, mode, seed):
+def run_config(rows, mode, seed, k, budget):
+    global K, BUDGET
+    K, BUDGET = k, budget
     rng = random.Random(seed)
     hidden = mask(rows, rng, mode)
     p_prior = prior_unsafe(rows, hidden)
     out = {}
-    full = sorted(range(len(rows)), key=lambda i: -score(rows[i]))[:K]
-    full_regret_floor = 0.0  # full knowledge has zero regret by construction
     for name, policy in POLICIES.items():
         observed = {i: False for i in range(len(rows))}
         choose_set(rows, hidden, observed, policy, rng, p_prior)
         est = estimate_scores(rows, hidden, observed, p_prior)
-        picked = rank_pick(rows, est, list(range(len(rows))))[:K]
+        picked = rank_pick(rows, est, list(range(len(rows))))[:k]
         out[name] = regret_of(rows, picked)
     return out
+
+
+def run_once(rows, mode, seed):
+    return run_config(rows, mode, seed, K, BUDGET)
+
+
+def sweep_main():
+    global K, BUDGET
+    neighbourhood_rows = neighbourhood(load())
+    sweep = {}
+    for k in (10, 20, 40):
+        for budget in (75, 150, 300):
+            for mode in ("random", "block"):
+                agg = {p: [] for p in POLICIES}
+                for seed in range(10):
+                    per = run_config(neighbourhood_rows, mode, seed, k, budget)
+                    for p, v in per.items():
+                        agg[p].append(v)
+                sweep[f"K{k}_B{budget}_{mode}"] = {
+                    p: {"median": statistics.median(v), "mean": statistics.mean(v)}
+                    for p, v in agg.items()
+                }
+    dd_wins = 0
+    total = 0
+    for cfg, vals in sweep.items():
+        best_base = min(
+            (v["median"] for p, v in vals.items() if p != "decision-directed"),
+        )
+        dd = vals["decision-directed"]["median"]
+        total += 1
+        if dd <= 0.75 * best_base:
+            dd_wins += 1
+    payload = {"sweep": sweep, "dd_passes_75pct_gate_in": dd_wins,
+               "of_configs": total}
+    with open(OUT.replace("results.json", "sensitivity.json"), "w") as fh:
+        json.dump(payload, fh, indent=1)
+    print(json.dumps({"dd_passes": dd_wins, "of": total}))
 
 
 def main():
@@ -244,4 +281,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if "--sweep" in sys.argv:
+        sweep_main()
+    else:
+        main()

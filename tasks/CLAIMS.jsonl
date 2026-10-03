@@ -14,3 +14,4 @@
 {"action": "complete", "reason": "002-a1-masking: decision-directed observation selection beat strongest baseline by ~42% median regret under random and block masking; provisional step-5 gate met; caveats recorded in README", "schema": "origin.task.claim/1", "task": "T-0005", "ts": "2026-10-03T16:15:38+00:00"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0006", "ts": "2026-10-03T16:16:19+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0006", "ts": "2026-10-03T16:16:31+00:00", "vm": "instance-20260717-0944"}
+{"action": "complete", "reason": "Sweep done: DD passes the provisional gate in 14/18 configs; failure concentrated at K=40 with budget<=150 (degenerate equal-information corner); README and STATE updated", "schema": "origin.task.claim/1", "task": "T-0006", "ts": "2026-10-03T16:19:04+00:00"}

@@ -89,7 +89,7 @@ Ordered by information gained per unit of effort.
 1. **Apply the information-sufficiency witness** to the three held candidates.
    Ten lines of code each; it has already killed two proposals cheaply. Kill
    gates are now written (T-0001).
-2. **Deepen the A1 masking result.** `002-a1-masking` passes its provisional gate with caveats (near-deterministic per-seed regret, one budget/K/block-size point). The informative follow-up is a budget-and-K sweep, not new heuristics.
+2. **Use the A1 boundary result.** `002-a1-masking` passes its provisional gate; the sweep shows DD's advantage vanishes only when the repair set approaches the observation budget. Next informative step is a fieldwork-cost-based (distance-limited) budget, not more ranking heuristics.
 3. **Compare the six sealed investigations** and feed only the surviving candidates into the information-sufficiency witness; keep E's and F's criteria as a screen.
 4. **Apply the information-sufficiency test** to the three held candidates. Ten
    lines of code each; it has already killed two proposals cheaply.

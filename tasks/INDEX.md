@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-5 task(s). Every task file declares a runnable verification command;
+6 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -17,7 +17,8 @@ last-verified: 2026-10-03
 | [`T-0002-run-investigation-e-the-experimental-engineer-ro.md`](T-0002-run-investigation-e-the-experimental-engineer-ro.md) | done |  | test -f RESEARCH/E.md && grep -q 'origin-meta' R | 2026-10-03 |
 | [`T-0003-run-investigation-f-the-adoption-researcher-role.md`](T-0003-run-investigation-f-the-adoption-researcher-role.md) | done |  | test -f RESEARCH/F.md && grep -q 'origin-meta' R | 2026-10-03 |
 | [`T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | claimed | codex-multivm-20261003 | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
-| [`T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | claimed | opencode | test -f EXPERIMENTS/002-a1-masking/results.json  | 2026-10-03 |
+| [`T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | done |  | test -f EXPERIMENTS/002-a1-masking/results.json  | 2026-10-03 |
+| [`T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md`](T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md) | done |  | test -f EXPERIMENTS/002-a1-masking/sensitivity.j | 2026-10-03 |
 
 ## How tasks run on another machine
 
