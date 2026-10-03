@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T23:10:09+00:00
-- **Duration:** ?s
+- **Duration:** 957.1s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ implement 'origin release check' so RELEASE-MANIFEST.md is machine-enforced, and
 
 ## Summary
 
-_(none recorded)_
+Implemented origin release check (T-0022): RELEASE-MANIFEST.md said three times that nothing enforced it, and the first run reported 14 real violations - nine tracked top-level entries classified by neither table and so published or withheld by accident, three paths declared public that do not exist and had no way to say so, the missing release-state directive, and a credential-shaped fixture in the check's own new test file. Six properties enforced, 29 tests seeding one defect per clause plus a fixture that passes. A declared file classifies only itself, so docs/policy/one.md does not make docs/ public; .agents/ and .claude/ are declared as directories for that reason. CI gains a sixth step inserted after Documentation lint so the VM holding T-0020 can rebase cleanly. The check enforces agreement between manifest and README, not truth, and all three places that claim say so. Also corrected two false statements in the front door while there: the README described four sealed investigations and two experiments when there are six and nine.
+
+## Next
+
+Unclaimed infrastructure work left: headless task-runner script for VMs (a VM exists now, so the roadmap's 'once a VM exists' condition is met) and 'origin release check' is now done. Scheduling and supervision need user authorization and must not be started. Three documents remain false and unclaimed: docs/operations/github-app.md still says no GitHub App exists, docs/operations/vm-execution.md requires Python 3.11+ while this VM runs 3.8.10 with the suite green, and both are repairable in one task. E2 side B stays time-gated. T-0020 remains claimed on instance-20260717-0947.
 
 ## Artifacts
 
@@ -62,7 +66,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -95,6 +98,9 @@ _(none recorded)_
 | 21 | 23:24:47 | artifact | wrote sessions/2026-10-03-038-implement-origin-release-check-so-releas/README.md |
 | 22 | 23:24:47 | artifact | wrote sessions/2026-10-03-038-implement-origin-release-check-so-releas/commands.log |
 | 23 | 23:24:48 | artifact | wrote sessions/2026-10-03-038-implement-origin-release-check-so-releas/events.jsonl |
+| 24 | 23:26:06 | doc_update | updated ROADMAP.md |
+| 25 | 23:26:06 | doc_update | updated STATE.md |
+| 26 | 23:26:06 | session_end | Implemented origin release check (T-0022): RELEASE-MANIFEST.md said three times that nothing enforced it, and the first run reported 14 real violation |
 
 ## Reproduce this record
 
