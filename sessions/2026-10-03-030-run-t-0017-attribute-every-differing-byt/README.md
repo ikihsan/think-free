@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T21:41:36+00:00
-- **Duration:** ?s
+- **Duration:** 3251.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Run T-0017: attribute every differing byte between repeated builds of one source
 
 ## Summary
 
-_(none recorded)_
+T-0017 completed: E3's attribution half ran with its gate written and committed before any code. Five pure-Python sdists, 35 real builds with setuptools 45.2.0 + wheel 0.34.2. With SOURCE_DATE_EPOCH unset and two checkouts identical in content but 34 months apart in mtime, 398 of 398 differing bytes pooled lie inside zip timestamp fields, and the causal patch - rewrite the 4+4 DOS bytes per zip entry - reproduces the other artifact exactly on 5 of 5 sources, so timestamps were provably the only cause. With the variable set, builds are bit-identical, 0 differing bytes on 5 of 5. A second timestamp route was found by the noise floor and identified by hand: the .dist-info files the builder generates carry the wall clock, so two builds across a 2-second DOS tick differ in exactly those entries. Controls: patching one header half does not reach identity on 5 of 5, and a planted content defect inside a packaged file is attributed to content-differs with 40,493 to 97,407 non-timestamp bytes on 5 of 5. Verdict timestamps-first, recorded as FAILURES.md F012: the mechanism is supported and the candidate abandoned, because the remedy is SOURCE_DATE_EPOCH which the builder already honours, so counting the violations duplicates diffoscope and reprotest and fixing them duplicates an environment variable. Three defects found and fixed rather than shipped: the first run's planted control was vacuous because the planted file was not packaged and the gate clause had been implemented as a weaker proxy (DECISIONS-GATING.md D024); the task's verify string asserted keys guessed before any run and could never have passed; and doclint walked the filesystem without asking git, so an experiment that pins its inputs by hash had to commit four third-party tarballs or fail the line cap. Landing took three rebases: the other VM completed T-0016, T-0018 and T-0019 in the same window, took F011 for its own finding, and made the same decision-log split independently. task verify T-0017 exit 0; doc lint exit 0 over 327 files; 178 tests pass.
+
+## Next
+
+Fix identifier allocation, the last piece of infrastructure this repository actually needs: task new should push the task file the way task claim does, so allocating a number is itself the compare-and-swap, and finding ids should come from a counter the push arbitrates. Three renumbers happened in one evening (T-0016, F009/D022, F011) because ids come from reading the local tree. STATE.md records it as unclaimed.
 
 ## Artifacts
 
@@ -197,11 +201,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 14 |
 | declared artifacts now missing | 0 |
 | integrity errors | 1 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/009-lockfile-drift-snapshot/README.md |
+|   undeclared | docs/operations/ci.md |
+|   undeclared | tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md |
+|   undeclared | tasks/T-0018-record-exercised-git-versions-machine-readably-a.md |
+|   undeclared | tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md |
+|   undeclared | tests/README.md |
+|   undeclared | tests/test_gitversions.py |
+|   undeclared | tests/test_session_flow.py |
+|   undeclared | tests/test_sync.py |
+|   undeclared | tools/originlib/gitutil.py |
 |   error | refused artifact .git/logs/HEAD: secret pattern(s) assigned-credential |
 
 ## Timeline
@@ -248,18 +261,18 @@ _(none recorded)_
 | 38 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/attribute.py |
 | 39 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/builds.py |
 | 40 | 22:00:58 | artifact | wrote EXPERIMENTS/008-build-timestamp-attribution/fetch_sources.py |
-| 151 | 22:25:33 | artifact | wrote .git/hooks/pre-push.sample |
-| 152 | 22:25:33 | artifact | wrote .git/hooks/pre-rebase.sample |
-| 153 | 22:25:33 | artifact | wrote .git/hooks/pre-receive.sample |
-| 154 | 22:25:33 | artifact | wrote .git/hooks/prepare-commit-msg.sample |
-| 155 | 22:25:33 | artifact | wrote .git/hooks/update.sample |
-| 156 | 22:25:33 | artifact | wrote .git/index |
-| 157 | 22:25:33 | artifact | wrote .git/info/exclude |
-| 158 | 22:25:33 | integrity_error | refused artifact .git/logs/HEAD: secret pattern(s) assigned-credential |
-| 159 | 22:31:48 | command | $ python3 -m unittest discover -s tests |
-| 160 | 22:35:02 | command | $ python3 -m unittest discover -s tests |
+| 173 | 22:35:47 | unlogged_change | changed but never declared as an artifact: tools/originlib/taskremote.py |
+| 174 | 22:35:47 | unlogged_change | changed but never declared as an artifact: tools/originlib/worktree.py |
+| 175 | 22:35:48 | doc_update | updated DECISIONS-GATING.md |
+| 176 | 22:35:48 | doc_update | updated DECISIONS-PRACTICE.md |
+| 177 | 22:35:48 | doc_update | updated DECISIONS.md |
+| 178 | 22:35:48 | doc_update | updated FAILURES.md |
+| 179 | 22:35:48 | doc_update | updated HYPOTHESES.md |
+| 180 | 22:35:48 | doc_update | updated ROADMAP.md |
+| 181 | 22:35:48 | doc_update | updated STATE.md |
+| 182 | 22:35:48 | session_end | T-0017 completed: E3's attribution half ran with its gate written and committed before any code. Five pure-Python sdists, 35 real builds with setuptoo |
 
-_110 middle events omitted; see `events.jsonl`._
+_132 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
