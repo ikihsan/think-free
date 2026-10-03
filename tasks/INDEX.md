@@ -16,7 +16,7 @@ last-verified: 2026-10-03
 | [`T-0001-write-falsification-kill-gates-for-the-three-hel.md`](T-0001-write-falsification-kill-gates-for-the-three-hel.md) | done |  | PYTHONPATH=tools python3 -c "import pathlib,sys; | 2026-10-03 |
 | [`T-0002-run-investigation-e-the-experimental-engineer-ro.md`](T-0002-run-investigation-e-the-experimental-engineer-ro.md) | open |  | test -f RESEARCH/E.md && grep -q 'origin-meta' R | 2026-10-03 |
 | [`T-0003-run-investigation-f-the-adoption-researcher-role.md`](T-0003-run-investigation-f-the-adoption-researcher-role.md) | open |  | test -f RESEARCH/F.md && grep -q 'origin-meta' R | 2026-10-03 |
-| [`T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | claimed | codex-multivm-20261003 | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 
 ## How tasks run on another machine
 
