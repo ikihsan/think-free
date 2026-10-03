@@ -172,7 +172,7 @@ def _commit_paths(paths_to_stage: list[str], message: str) -> bool:
 def _discard_claim_commit(base: str) -> None:
     """Undo a claim commit git refused, so the loser keeps a clean tree."""
     ahead = gitutil.text(["rev-list", "--count", f"{base}..HEAD"])
-    if ahead == "1" and not sync.dirty_paths():
+    if ahead == "1" and not gitutil.dirty_paths():
         gitutil.run(["reset", "--hard", "-q", base])
     else:
         raise tasks.TaskError(

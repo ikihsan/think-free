@@ -31,7 +31,7 @@ _none_
 
 ## Commands
 
-5 captured, 0 non-zero exit.
+25 captured, 10 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -40,6 +40,26 @@ _none_
 | 4 | ['env', 'PYTHONPATH=tools:tests', '/tmp/opencode/py/python/bin/python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 75595 |
 | 5 | ['bash', '-c', 'for id in 37153966930; do curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs/$id/jobs" \| python3 -c "\nimpo | 0 | 1002 |
 | 6 | ['env', 'HOME=/tmp/opencode/fakehome', 'USER=runner', 'GIT_CONFIG_GLOBAL=/dev/null', 'GIT_CONFIG_SYSTEM=/dev/null', 'CI=true', 'GITHUB_ACTIONS=true',  | 0 | 72598 |
+| 7 | ['bash', '-c', 'SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/commits/research/origin" \| python3 -c "import json,sys;print(js | 0 | 1380 |
+| 8 | ['bash', '-c', 'mkdir -p /tmp/opencode/mm && cd /tmp/opencode/mm && curl -sSL -m 300 -o mm.tar.bz2 "https://micro.mamba.pm/api/micromamba/linux-64/lat | 0 | 8611 |
+| 9 | ['bash', '-c', 'cd /tmp/opencode/mm && ./bin/micromamba create -y -p /tmp/opencode/gitenv -c conda-forge "git" 2>&1 \| tail -5; /tmp/opencode/gitenv/b | 0 | 32533 |
+| 10 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 62309 |
+| 11 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 6286 |
+| 12 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 6430 |
+| 13 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 8007 |
+| 14 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 10215 |
+| 15 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 82308 |
+| 16 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 82990 |
+| 17 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests', '-k', 'test_claim_pushes_and_is_visible_to_th | 1 | 1725 |
+| 18 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 93230 |
+| 19 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 124290 |
+| 20 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 94815 |
+| 21 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 92514 |
+| 22 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 92721 |
+| 23 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 118771 |
+| 24 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 334 |
+| 25 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 2298 |
+| 26 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 8493 |
 
 ## Integrity
 
@@ -61,6 +81,26 @@ _none_
 | 4 | 21:31:28 | command | $ env PYTHONPATH=tools:tests /tmp/opencode/py/python/bin/python3 -m unittest discover -s tests -t tests |
 | 5 | 21:32:32 | command | $ bash -c for id in 37153966930; do curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs/$id/jobs" \| python3 -c " impo |
 | 6 | 21:34:11 | command | $ env HOME=/tmp/opencode/fakehome USER=runner GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null CI=true GITHUB_ACTIONS=true PYTHONPATH=t |
+| 7 | 21:37:24 | command | $ bash -c SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/commits/research/origin" \| python3 -c "import json,sys;print(j |
+| 8 | 21:38:07 | command | $ bash -c mkdir -p /tmp/opencode/mm && cd /tmp/opencode/mm && curl -sSL -m 300 -o mm.tar.bz2 "https://micro.mamba.pm/api/micromamba/linux-64/l |
+| 9 | 21:38:44 | command | $ bash -c cd /tmp/opencode/mm && ./bin/micromamba create -y -p /tmp/opencode/gitenv -c conda-forge "git" 2>&1 \| tail -5; /tmp/opencode/gitenv/ |
+| 10 | 21:39:55 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 11 | 21:40:52 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 12 | 21:41:27 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 13 | 21:43:29 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 14 | 21:43:57 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 15 | 21:46:21 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 16 | 21:47:49 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 17 | 21:47:56 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_claim_pushes_and_is_visible_to_the_other_vm |
+| 18 | 21:49:41 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 19 | 21:51:48 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 20 | 21:54:01 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 21 | 21:55:39 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 22 | 21:57:29 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 23 | 21:59:28 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 24 | 21:59:35 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 25 | 21:59:46 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 26 | 22:00:00 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
 
 ## Reproduce this record
 

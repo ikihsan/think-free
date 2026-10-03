@@ -157,7 +157,7 @@ def remove(path: str | Path, force: bool = False) -> Worktree:
     result = gitutil.run(args)
     if result.returncode != 0:
         raise WorktreeError(
-            f"worktree has uncommitted changes ({', '.join(sync.dirty_paths(target)[:5])}); "
+            f"worktree has uncommitted changes ({', '.join(gitutil.dirty_paths(target)[:5])}); "
             "commit, discard deliberately, or pass --force"
         )
     return Worktree(path=target, branch="", head="")

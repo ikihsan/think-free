@@ -6,6 +6,7 @@ callers decide whether a missing HEAD or a dirty tree is fatal.
 
 from __future__ import annotations
 
+import os
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -34,7 +35,20 @@ class GitState:
         }
 
 
-def run(args: list[str], root: Path | None = None, timeout: int = DEFAULT_TIMEOUT) -> subprocess.CompletedProcess:
+def run(
+    args: list[str],
+    root: Path | None = None,
+    timeout: int = DEFAULT_TIMEOUT,
+    env: dict | None = None,
+) -> subprocess.CompletedProcess:
+    """Run one git command.
+
+    `env` is merged over the inherited environment, which is how a child git is
+    forced non-interactive even when the parent VM exports `GIT_EDITOR`.
+    """
+    merged = None
+    if env:
+        merged = {**os.environ, **env}
     return subprocess.run(
         ["git", *args],
         cwd=str(root or paths.repo_root()),
@@ -42,12 +56,59 @@ def run(args: list[str], root: Path | None = None, timeout: int = DEFAULT_TIMEOU
         text=True,
         timeout=timeout,
         check=False,
+        env=merged,
     )
+
+
+def detail(result) -> str:
+    """The first line git printed, for an error message that can be acted on.
+
+    A message that says only what this repository's own code did leaves the
+    reader needing the run log, which for CI means repository admin rights.
+    """
+    text = ((getattr(result, "stderr", "") or "") + " " + (getattr(result, "stdout", "") or "")).strip()
+    if not text:
+        return ""
+    first = next((line.strip() for line in text.splitlines() if line.strip()), "")
+    return f" (git said: {first[:160]})" if first else ""
 
 
 def text(args: list[str], root: Path | None = None) -> str:
     result = run(args, root)
     return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def dirty_paths(root=None) -> list[str]:
+    """Porcelain paths, one per file.
+
+    `--untracked-files=all` matters: the default collapses a new directory into
+    a single `dir/` entry, which would make a freshly created session directory
+    look like unaccounted-for work.
+    """
+    out = []
+    result = run(["status", "--porcelain", "--untracked-files=all"], root)
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+        name = line[3:].strip()
+        if " -> " in name:  # rename: keep the destination
+            name = name.split(" -> ")[-1].strip()
+        out.append(name.strip('"'))
+    return out
+
+
+def rebase_in_progress(root=None) -> bool:
+    base = Path(root or paths.repo_root())
+    for marker in ("rebase-merge", "rebase-apply"):
+        relative = text(["rev-parse", "--git-path", marker], root)
+        if not relative:
+            continue
+        candidate = Path(relative)
+        if not candidate.is_absolute():
+            candidate = base / candidate
+        if candidate.exists():
+            return True
+    return False
 
 
 def state(root: Path | None = None) -> GitState:

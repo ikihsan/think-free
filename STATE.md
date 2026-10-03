@@ -75,6 +75,24 @@ red CI `Tests` step. Do not touch it. T-0013 (session 026, this VM), T-0015
 4. **`DECISIONS-PRACTICE.md` is at 297 of 300 lines.** The next decision entry
    does not fit, so that file has to be split before the next `session decision`
    that is not a correction.
+**T-0013 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
+census. Do not touch it. Its session `2026-10-03-026-…` is still unfinished, so
+`session verify` reports one problem and CI's strict session gate will keep
+failing while it is on the shared branch. That is a real interaction between two
+correct rules: D013 wants CI strict, and the fleet practice of committing a
+session's start makes an in-flight session visible on the base branch. The fix
+belongs to whoever changes either rule, not to the VM that happens to be working.
+T-0015 (session 028) and T-0016 (session 029) are both complete on this VM.
+
+**A CI/defect pair was found and fixed while finishing T-0016.** All 60 recorded
+CI runs had failed at the `Tests` step with no diagnosable cause; the cause was
+`git rebase --continue` being interactive from git 2.26, which broke
+`origin sync land` for any VM with a modern git (`FAILURES.md` F010). The fix
+passes locally on git 2.25.1 and git 2.56.0. **Still open:** whether the workflow
+is green end to end, which needs the next run's conclusion read from the public
+Actions API.
+
+Nothing else is claimed.
 
 T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
@@ -180,6 +198,30 @@ prior art, usefulness, and adoption untouched.
    even a clean attribution result says how big the timestamp component is on one
    pure-Python source, not whether a user-visible tool follows.
 3. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
+1. **Confirm CI is green end to end.** T-0016 diagnosed and fixed the defect
+   behind 60 red runs: `git rebase --continue` is interactive from git 2.26, so
+   `origin sync land` could not land on any modern-git VM in exactly the
+   generated-index-conflict case (`FAILURES.md` F010). The suite is green
+   locally on git 2.25.1 and on git 2.56.0, and the workflow now pins Python and
+   reports failing tests as public annotations. What is left is to read the next
+   run's conclusion from the Actions API — and to note that the
+   `Session record integrity` step will keep failing while any VM has a session
+   started but not finished on the shared branch (see below).
+2. **Two repository defects remain open and unclaimed.** First, the `T-0013`
+   numbering collision, to be resolved when that task lands: its `verify`
+   command names `EXPERIMENTS/005-build-timestamps/`, and
+   `005-knitting-bounded-search/` was claimed and landed first from this VM. The
+   directories do not collide on disk, so nothing breaks, but two different
+   experiments carry the number 005. `006-ventilation-measurement-design/` is
+   also taken now. Whoever renumbers must update the task file's `verify`
+   string, the directory, `docs/INDEX.md`, and `STATE.md` in one commit, and must
+   not take 006. Second, `origin doctor` does not yet record the **git version**
+   as a compatibility signal, which is what hid F010 for a session.
+3. **Run E3's build-timestamp census** if the claim on `instance-20260717-0944`
+   (T-0013) lapses. Cheapest unmeasured thing left — one command, minutes, a hard
+   kill gate at 5%. **Ceiling:** a PyPI-wheel rate; it cannot bound npm, conda,
+   or Maven.
+4. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is now settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an existing
    hand-knit structure. Stage B needs an experienced knitter and authorization.
@@ -190,6 +232,13 @@ prior art, usefulness, and adoption untouched.
    two resolver runs today measure nothing. Snapshot one side of that comparison
    now if a VM is free, so the second snapshot has somewhere to land.
 5. **Do not build a product.** Nothing is selected, and the base rate for
+5. **Do not run E1** (retry jitter). It is the cheapest experiment in the
+   repository and the least informative: jitter is already in every modern
+   client library, so a pass changes no build decision. D020, Screen 3.
+6. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
+   not effort-gated: the informative comparison is two snapshots weeks apart, and
+   two resolver runs today measure nothing.
+7. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.

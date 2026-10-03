@@ -138,3 +138,61 @@ real finding — only `cryptography` ships 1980-normalised wheels (7 of 20, all
 `win_amd64`), and `urllib3` stamps every entry with one build instant while
 `jinja2` carries checkout mtimes — which means "the" ecosystem-wide rate is not
 even well defined. The same shape of near-vacuous gate appeared in F008.
+## F010 — `sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason
+
+Source: T-0016, `.github/workflows/ci.yml`,
+`tools/originlib/sync.py`, `tests/test_sync.py`.
+
+**What happened.** All 60 recorded CI runs failed, every one at the `Tests`
+step. The step's log could not be downloaded — that needs repository admin
+rights — and the only error text the code produced was `rebase could not be
+completed; run 'git rebase --abort'`, which names a remedy but no cause. So
+nothing in the repository said which test failed or why, for nine hours of
+pushes.
+
+**Diagnosis.** Two changes made the failure legible, then a reproduction made it
+explainable. The workflow now re-emits each failing test as an `::error::`
+annotation, which GitHub's public check-run API returns without credentials: the
+failing test was `test_land_resolves_generated_index_conflicts_by_regenerating`.
+That test failed only on a modern git, so git 2.56.0 was installed locally
+(micromamba, conda-forge) and the suite was re-run against it. Two defects, both
+assumptions about an older git:
+
+1. **`git rebase --continue` is interactive from git 2.26.** It opens an editor
+   for the commit message. `land` called it bare. On a VM whose stdin is an
+   inherited pipe it blocked until the 60-second timeout; on a CI runner with no
+   editor it failed immediately, leaving `REBASE_HEAD` behind and producing the
+   error above.
+2. **`REBASE_HEAD` no longer means "a rebase is waiting".** The merge backend
+   leaves that pseudoref behind after a *successful* rebase, so the check
+   reported failure immediately after the rebase had completed. The module
+   already had the correct predicate — `rebase_in_progress`, which looks for
+   `rebase-merge`/`rebase-apply` — and `land` had used the wrong signal.
+
+**Consequence.** Not a test-suite problem. `origin sync land` — the one
+operation D017 makes responsible for moving work onto the shared branch — could
+not land on any VM whose git is 2.26 or newer, in exactly the case two VMs had
+regenerated the same generated index. The dev machine recorded git 2.55.0 in
+`EXPERIMENTS/000-capabilities/`, so the fleet's own capability record said the
+dangerous version was already in use. Every VM that avoided the failure avoided
+it by not colliding, which is luck, not a guarantee.
+
+**Fix.** `gitutil.run` takes an `env` override; `land` continues the rebase with
+`GIT_EDITOR=true`, `GIT_SEQUENCE_EDITOR=true`, `GIT_MERGE_AUTOEDIT=no`, which
+outranks anything the VM exports (`-c core.editor=true` would not have: an
+environment variable wins over configuration). `land` decides "rebase still
+running" with `rebase_in_progress`. Failures now quote git's own first line
+through the new `gitutil.detail`, so the next one needs no log download. Tests:
+`test_land_never_opens_an_editor_to_continue_a_rebase` fails on git 2.56 without
+the fix (verified by reverting it) and passes with it; the full suite is green
+on git 2.25.1 and on git 2.56.0.
+
+**Classification.** Tooling defect, found by reading CI's public annotations
+rather than by a local gate. Both halves of it were untested assumptions about a
+third-party program's behaviour on a version the repository had never exercised.
+
+**Lesson kept.** A test suite that only ever runs on the developer's machine
+cannot fail for the reason CI fails. The defect was in the one operation the
+whole multi-VM contract depends on, and 60 red runs did not localise it because
+the evidence needed credentials. The two changes that mattered were both about
+*legibility*: emit failures where anyone can read them, and say what git said.

@@ -91,39 +91,6 @@ def _ahead_behind(root=None) -> tuple[int, int]:
     return int(parts[0]), int(parts[1])
 
 
-def dirty_paths(root=None) -> list[str]:
-    """Porcelain paths, one per file.
-
-    `--untracked-files=all` matters: the default collapses a new directory into
-    a single `dir/` entry, which would make a freshly created session directory
-    look like unaccounted-for work.
-    """
-    out = []
-    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
-    for line in result.stdout.splitlines():
-        if not line.strip():
-            continue
-        name = line[3:].strip()
-        if " -> " in name:  # rename: keep the destination
-            name = name.split(" -> ")[-1].strip()
-        out.append(name.strip('"'))
-    return out
-
-
-def rebase_in_progress(root=None) -> bool:
-    base = Path(root or paths.repo_root())
-    for marker in ("rebase-merge", "rebase-apply"):
-        relative = gitutil.text(["rev-parse", "--git-path", marker], root)
-        if not relative:
-            continue
-        candidate = Path(relative)
-        if not candidate.is_absolute():
-            candidate = base / candidate
-        if candidate.exists():
-            return True
-    return False
-
-
 def status(root=None, refresh: bool = True) -> dict:
     """Where this VM actually stands, including work pushed by other VMs.
 
@@ -142,8 +109,8 @@ def status(root=None, refresh: bool = True) -> dict:
         "ahead": ahead,
         "behind": behind,
         "clean": state.clean,
-        "dirty": dirty_paths(root),
-        "rebase_in_progress": rebase_in_progress(root),
+        "dirty": gitutil.dirty_paths(root),
+        "rebase_in_progress": gitutil.rebase_in_progress(root),
     }
 
 
@@ -188,7 +155,7 @@ def push(branch: str = "", set_upstream: bool = False, root=None) -> dict:
     remote = remote_name()
     if not remote:
         raise SyncError("no git remote configured; nothing to push to")
-    dirty = dirty_paths(root)
+    dirty = gitutil.dirty_paths(root)
     if dirty:
         raise SyncError(
             "refusing to push a dirty tree; commit or revert: " + ", ".join(dirty[:8])
@@ -247,7 +214,7 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
     remote = remote_name()
     if not remote:
         raise SyncError("no git remote configured; nothing to land")
-    dirty = dirty_paths(root)
+    dirty = gitutil.dirty_paths(root)
     if dirty:
         raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
     target = branch or base_branch(root)
@@ -261,8 +228,19 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
         result = gitutil.run(["rebase", base_ref], root)
         if result.returncode != 0:
             resolved = _resolve_generated_conflicts()
+            unfinished = result
             if resolved:
-                gitutil.run(["rebase", "--continue"], root, timeout=60)
+                # `git rebase --continue` opens an editor for the commit message
+                # on git 2.5x. Nothing in this flow may be interactive: a VM
+                # whose stdin is an open pipe blocks until the timeout, and CI
+                # fails outright. Forcing the child's editor to a no-op outranks
+                # any GIT_EDITOR the VM exports, which `-c core.editor` does not.
+                unfinished = gitutil.run(
+                    ["rebase", "--continue"],
+                    root,
+                    timeout=60,
+                    env={"GIT_EDITOR": "true", "GIT_SEQUENCE_EDITOR": "true", "GIT_MERGE_AUTOEDIT": "no"},
+                )
             conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
             if conflicted:
                 raise SyncError(
@@ -270,8 +248,12 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
                     + ", ".join(conflicted[:8])
                     + "; resolve it (or 'git rebase --abort') and land again"
                 )
-            if gitutil.run(["rev-parse", "--verify", "--quiet", "REBASE_HEAD"], root).returncode == 0:
-                raise SyncError("rebase could not be completed; run 'git rebase --abort'")
+            if gitutil.rebase_in_progress(root):
+                raise SyncError(
+                    "rebase could not be completed"
+                    + gitutil.detail(unfinished)
+                    + "; run 'git rebase --abort'"
+                )
         outcome["rebased"] = True
         try:
             pushed = push(target, root=root)

@@ -61,7 +61,7 @@ def uncommitted_work(session_id: str) -> list[str]:
     prefix = f"{SESSION_OWNED_PREFIX}{session_id}/"
     return [
         path
-        for path in sync.dirty_paths()
+        for path in gitutil.dirty_paths()
         if path not in owned
         and not path.startswith(prefix)
         and path != "sessions/active.json"

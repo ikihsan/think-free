@@ -100,3 +100,1481 @@ Ran 173 tests in 72.202s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 72598  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T21:37:24+00:00
+$ bash -c SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/commits/research/origin" | python3 -c "import json,sys;print(json.load(sys.stdin)[\"sha\"])"); echo "sha=$SHA"; ID=$(curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/commits/$SHA/check-runs" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for cr in d.get(\"check_runs\", []): print(cr[\"id\"]); break
+"); echo "check_run=$ID"; curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/check-runs/$ID/annotations?per_page=100" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for a in d: print(\"-\", a.get(\"annotation_level\"), (a.get(\"message\") or \"\")[:200])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sha=c7bbd15c0ce5a35059ef9b725a8b4c3d0ac16364
+check_run=111298521722
+- warning Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog
+- failure originlib.sync.SyncError: rebase could not be completed; run 'git rebase --abort'
+- failure     raise SyncError("rebase could not be completed; run 'git rebase --abort'")
+- failure   File "/home/runner/work/think-free/think-free/tools/originlib/sync.py", line 274, in land
+- failure               ^^^^^^^^^^^
+- failure     outcome = sync.land()
+- failure   File "/home/runner/work/think-free/think-free/tests/test_sync.py", line 147, in test_land_resolves_generated_index_conflicts_by_regenerating
+- failure Traceback (most recent call last):
+- failure ----------------------------------------------------------------------
+- failure ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest.test_land_resolves_generated_index_conflicts_by_regenerating)
+- notice "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1380  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T21:38:07+00:00
+$ bash -c mkdir -p /tmp/opencode/mm && cd /tmp/opencode/mm && curl -sSL -m 300 -o mm.tar.bz2 "https://micro.mamba.pm/api/micromamba/linux-64/latest" && tar -xjf mm.tar.bz2 bin/micromamba && ./bin/micromamba --version
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+2.9.0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8611  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T21:38:44+00:00
+$ bash -c cd /tmp/opencode/mm && ./bin/micromamba create -y -p /tmp/opencode/gitenv -c conda-forge "git" 2>&1 | tail -5; /tmp/opencode/gitenv/bin/git --version
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -p /tmp/opencode/gitenv mycommand
+
+git version 2.56.0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 32533  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T21:39:55+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land_resolves_generated_index_conflicts -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ERROR
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 147, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 265, in land
+    gitutil.run(["rebase", "--continue"], root, timeout=60)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 38, in run
+    return subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 495, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1028, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1869, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.8/subprocess.py", line 1072, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['git', 'rebase', '--continue']' timed out after 60 seconds
+
+----------------------------------------------------------------------
+Ran 1 test in 61.788s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 62309  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T21:40:52+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest) ... ok
+test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest) ... ok
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ERROR
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 147, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 296, in land
+    raise SyncError(
+originlib.sync.SyncError: rebase could not be completed (git said: Successfully rebased and updated refs/heads/task/T-0001-vm-a.); run 'git rebase --abort'
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.812s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6286  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T21:41:27+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest) ... ok
+test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest) ... ok
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.085s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6430  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T21:43:29+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be. ... ERROR
+test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest) ... ok
+test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest) ... ok
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ERROR
+
+======================================================================
+ERROR: test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 204, in test_land_never_opens_an_editor_to_continue_a_rebase
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 271, in land
+    unfinished = gitutil.run(
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 50, in run
+    merged = {**os.environ, **env}
+NameError: name 'os' is not defined
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 148, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 271, in land
+    unfinished = gitutil.run(
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 50, in run
+    merged = {**os.environ, **env}
+NameError: name 'os' is not defined
+
+----------------------------------------------------------------------
+Ran 4 tests in 7.607s
+
+FAILED (errors=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8007  redactions: none
+==============================================================================
+[seq 14] 2026-10-03T21:43:57+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be. ... ok
+test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest) ... ok
+test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest) ... ok
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.822s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10215  redactions: none
+==============================================================================
+[seq 15] 2026-10-03T21:46:21+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...........................................E.EEEEEEE..E....E....................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+............................................EEEEEEEEEEEEEEEEE..................
+======================================================================
+ERROR: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 119, in test_list_remote_shows_claims_made_elsewhere
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 47, in test_claim_pushes_and_is_visible_to_the_other_vm
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_claim_requires_a_branch_at_the_remote_base (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 88, in test_claim_requires_a_branch_at_the_remote_base
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 65, in test_losing_vm_leaves_no_claim_commit
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 104, in test_release_makes_the_task_available_again
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_second_vm_is_refused_and_learns_who_won (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 55, in test_second_vm_is_refused_and_learns_who_won
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 93, in test_takeover_requires_a_reason_and_is_recorded
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_unpushed_local_claim_does_not_lock_the_task (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 78, in test_unpushed_local_claim_does_not_lock_the_task
+    claimed = taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_remove_refuses_a_dirty_worktree (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 192, in test_remove_refuses_a_dirty_worktree
+    worktree.remove(info.path)
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 160, in remove
+    f"worktree has uncommitted changes ({', '.join(gitutil.dirty_paths(target)[:5])}); "
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 167, in test_worktree_refused_when_another_vm_holds_the_claim
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 277, in test_finish_with_push_publishes_the_record
+    session.start("push at the end", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 288, in test_finish_with_push_refuses_uncommitted_work
+    session.start("must commit first", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_without_push_leaves_the_branch_local (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 300, in test_finish_without_push_leaves_the_branch_local
+    session.start("no push requested", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_fast_forwards_a_behind_vm (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 245, in test_start_fast_forwards_a_behind_vm
+    active = session.start("start from the newest commit", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 266, in test_start_records_the_remote_state_it_synced_to
+    active = session.start("record the sync point", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 259, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 204, in test_land_never_opens_an_editor_to_continue_a_rebase
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 118, in test_land_rebases_onto_the_base_and_pushes
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 223, in test_land_reports_a_real_content_conflict_and_keeps_the_work
+    sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 148, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_fast_forwards_the_base_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 44, in test_pull_fast_forwards_the_base_branch
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_is_a_no_op_when_already_current (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 53, in test_pull_is_a_no_op_when_already_current
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_refuses_a_dirty_tree (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 62, in test_pull_refuses_a_dirty_tree
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_refuses_when_local_commits_would_be_lost (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 72, in test_pull_refuses_when_local_commits_would_be_lost
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 102, in test_push_never_forces
+    sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 158, in push
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_push_publishes_the_current_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 81, in test_push_publishes_the_current_branch
+    outcome = sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 158, in push
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 36, in test_status_reports_divergence_from_the_remote
+    report = sync.status()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+----------------------------------------------------------------------
+Ran 174 tests in 81.839s
+
+FAILED (errors=27)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 82308  redactions: none
+==============================================================================
+[seq 16] 2026-10-03T21:47:49+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...........................................E.EEEEEEE..E....E....................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+............................................EEEEEEEEEEEEEEEEE..................
+======================================================================
+ERROR: test_list_remote_shows_claims_made_elsewhere (test_fleet.RemoteListingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 119, in test_list_remote_shows_claims_made_elsewhere
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 47, in test_claim_pushes_and_is_visible_to_the_other_vm
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_claim_requires_a_branch_at_the_remote_base (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 88, in test_claim_requires_a_branch_at_the_remote_base
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_losing_vm_leaves_no_claim_commit (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 65, in test_losing_vm_leaves_no_claim_commit
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_release_makes_the_task_available_again (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 104, in test_release_makes_the_task_available_again
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_second_vm_is_refused_and_learns_who_won (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 55, in test_second_vm_is_refused_and_learns_who_won
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_takeover_requires_a_reason_and_is_recorded (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 93, in test_takeover_requires_a_reason_and_is_recorded
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_unpushed_local_claim_does_not_lock_the_task (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 78, in test_unpushed_local_claim_does_not_lock_the_task
+    claimed = taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_remove_refuses_a_dirty_worktree (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 192, in test_remove_refuses_a_dirty_worktree
+    worktree.remove(info.path)
+  File "/home/ubuntu/think-free/tools/originlib/worktree.py", line 160, in remove
+    f"worktree has uncommitted changes ({', '.join(gitutil.dirty_paths(target)[:5])}); "
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_worktree_refused_when_another_vm_holds_the_claim (test_fleet.WorktreeIsolationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 167, in test_worktree_refused_when_another_vm_holds_the_claim
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_with_push_publishes_the_record (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 277, in test_finish_with_push_publishes_the_record
+    session.start("push at the end", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 288, in test_finish_with_push_refuses_uncommitted_work
+    session.start("must commit first", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_finish_without_push_leaves_the_branch_local (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 300, in test_finish_without_push_leaves_the_branch_local
+    session.start("no push requested", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_fast_forwards_a_behind_vm (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 245, in test_start_fast_forwards_a_behind_vm
+    active = session.start("start from the newest commit", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_records_the_remote_state_it_synced_to (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 266, in test_start_records_the_remote_state_it_synced_to
+    active = session.start("record the sync point", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_sync.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 259, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    session.start("must not start dirty", agent="agent-a")
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 56, in start
+    sync_report = sessionflow.sync_before_start() if sync_remote else {"remote": ""}
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 34, in sync_before_start
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 204, in test_land_never_opens_an_editor_to_continue_a_rebase
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 118, in test_land_rebases_onto_the_base_and_pushes
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 223, in test_land_reports_a_real_content_conflict_and_keeps_the_work
+    sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 148, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 217, in land
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_fast_forwards_the_base_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 44, in test_pull_fast_forwards_the_base_branch
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_is_a_no_op_when_already_current (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 53, in test_pull_is_a_no_op_when_already_current
+    outcome = sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_refuses_a_dirty_tree (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 62, in test_pull_refuses_a_dirty_tree
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_pull_refuses_when_local_commits_would_be_lost (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 72, in test_pull_refuses_when_local_commits_would_be_lost
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_push_never_forces (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 102, in test_push_never_forces
+    sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 158, in push
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_push_publishes_the_current_branch (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 81, in test_push_publishes_the_current_branch
+    outcome = sync.push()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 158, in push
+    dirty = gitutil.dirty_paths(root)
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+======================================================================
+ERROR: test_status_reports_divergence_from_the_remote (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 36, in test_status_reports_divergence_from_the_remote
+    report = sync.status()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+----------------------------------------------------------------------
+Ran 174 tests in 82.587s
+
+FAILED (errors=27)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 82990  redactions: none
+==============================================================================
+[seq 17] 2026-10-03T21:47:56+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_claim_pushes_and_is_visible_to_the_other_vm
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+E
+======================================================================
+ERROR: test_claim_pushes_and_is_visible_to_the_other_vm (test_fleet.RemoteTruthClaimTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 47, in test_claim_pushes_and_is_visible_to_the_other_vm
+    taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 204, in claim
+    _catch_up()
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 161, in _catch_up
+    sync.pull()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 123, in pull
+    report = status(root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 112, in status
+    "dirty": gitutil.dirty_paths(root),
+  File "/home/ubuntu/think-free/tools/originlib/gitutil.py", line 89, in dirty_paths
+    result = gitutil.run(["status", "--porcelain", "--untracked-files=all"], root)
+NameError: name 'gitutil' is not defined
+
+----------------------------------------------------------------------
+Ran 1 test in 1.356s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1725  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T21:49:41+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+...............................................................................
+----------------------------------------------------------------------
+Ran 174 tests in 92.296s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 93230  redactions: none
+==============================================================================
+[seq 19] 2026-10-03T21:51:48+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+...............................................................................
+----------------------------------------------------------------------
+Ran 174 tests in 123.888s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 124290  redactions: none
+==============================================================================
+[seq 20] 2026-10-03T21:54:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..........................E...E................................................
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_session_flow.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_session_flow.py", line 78, in test_finish_with_push_refuses_uncommitted_work
+    with self.assertRaises(SessionError) as caught:
+NameError: name 'SessionError' is not defined
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_session_flow.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_session_flow.py", line 46, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    with self.assertRaises(SessionError) as caught:
+NameError: name 'SessionError' is not defined
+
+----------------------------------------------------------------------
+Ran 174 tests in 94.422s
+
+FAILED (errors=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 94815  redactions: none
+==============================================================================
+[seq 21] 2026-10-03T21:55:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..........................E...E................................................
+======================================================================
+ERROR: test_finish_with_push_refuses_uncommitted_work (test_session_flow.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_session_flow.py", line 78, in test_finish_with_push_refuses_uncommitted_work
+    with self.assertRaises(SessionError) as caught:
+NameError: name 'SessionError' is not defined
+
+======================================================================
+ERROR: test_start_refuses_a_dirty_tree_when_the_remote_moved (test_session_flow.SessionBoundaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_session_flow.py", line 46, in test_start_refuses_a_dirty_tree_when_the_remote_moved
+    with self.assertRaises(SessionError) as caught:
+NameError: name 'SessionError' is not defined
+
+----------------------------------------------------------------------
+Ran 174 tests in 92.113s
+
+FAILED (errors=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 92514  redactions: none
+==============================================================================
+[seq 22] 2026-10-03T21:57:29+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+...............................................................................
+----------------------------------------------------------------------
+Ran 174 tests in 92.280s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 92721  redactions: none
+==============================================================================
+[seq 23] 2026-10-03T21:59:28+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+...............................................................................
+----------------------------------------------------------------------
+Ran 174 tests in 118.227s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118771  redactions: none
+==============================================================================
+[seq 24] 2026-10-03T21:59:35+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land_never_opens_an_editor
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EEEEEE
+======================================================================
+ERROR: test_cli (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_cli
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_cli.py", line 10, in <module>
+    from originlib import cli, docindex, report, tasks
+  File "/home/ubuntu/think-free/tools/originlib/cli.py", line 18, in <module>
+    from . import cli_repo, cli_session, cli_sync, cli_task, paths, session, tasks
+  File "/home/ubuntu/think-free/tools/originlib/cli_repo.py", line 9, in <module>
+    from .cli_session import verify_sessions
+  File "/home/ubuntu/think-free/tools/originlib/cli_session.py", line 10, in <module>
+    from . import events, paths, report, session
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 14, in <module>
+    from . import events, gitutil, paths, sessionflow, sync
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 17, in <module>
+    from . import gitutil, paths, sync
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+======================================================================
+ERROR: test_doc_gaps (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_doc_gaps
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 17, in <module>
+    from originlib import session
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 14, in <module>
+    from . import events, gitutil, paths, sessionflow, sync
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 17, in <module>
+    from . import gitutil, paths, sync
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+======================================================================
+ERROR: test_fleet (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_fleet
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_fleet.py", line 15, in <module>
+    from originlib import taskops, taskremote, tasks, worktree
+  File "/home/ubuntu/think-free/tools/originlib/taskremote.py", line 17, in <module>
+    from . import gitutil, paths, sync, taskops, tasks
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+======================================================================
+ERROR: test_session (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_session
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_session.py", line 10, in <module>
+    from originlib import paths, recorder, session
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 14, in <module>
+    from . import events, gitutil, paths, sessionflow, sync
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 17, in <module>
+    from . import gitutil, paths, sync
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+======================================================================
+ERROR: test_session_flow (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_session_flow
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_session_flow.py", line 15, in <module>
+    from originlib import session
+  File "/home/ubuntu/think-free/tools/originlib/session.py", line 14, in <module>
+    from . import events, gitutil, paths, sessionflow, sync
+  File "/home/ubuntu/think-free/tools/originlib/sessionflow.py", line 17, in <module>
+    from . import gitutil, paths, sync
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+======================================================================
+ERROR: test_sync (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_sync
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.8/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 14, in <module>
+    from originlib import sync
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 240
+    )            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+                 ^
+SyntaxError: invalid syntax
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (errors=6)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 334  redactions: none
+==============================================================================
+[seq 25] 2026-10-03T21:59:46+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land_never_opens_an_editor
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+E
+======================================================================
+ERROR: test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_sync.py", line 202, in test_land_never_opens_an_editor_to_continue_a_rebase
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 256, in land
+    pushed = push(target, root=root)
+  File "/home/ubuntu/think-free/tools/originlib/sync.py", line 160, in push
+    raise SyncError(
+originlib.sync.SyncError: refusing to push a dirty tree; commit or revert: editor-was-opened
+
+----------------------------------------------------------------------
+Ran 1 test in 1.893s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2298  redactions: none
+==============================================================================
+[seq 26] 2026-10-03T22:00:00+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_land -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be. ... ok
+test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest) ... ok
+test_land_reports_a_real_content_conflict_and_keeps_the_work (test_sync.SyncTest) ... ok
+test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 8.098s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8493  redactions: none
+==============================================================================
+[seq 44] 2026-10-03T22:03:23+00:00
+$ tools/origin task verify T-0016
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0016: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && grep -q actions/setup-python .github/workflows/ci.yml && tools/origin skills check && tools/origin doc lint` -> exit 0 in 96.3s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 96676  redactions: none
