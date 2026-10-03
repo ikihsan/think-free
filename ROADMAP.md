@@ -123,7 +123,7 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Continuous integration running lint, tests, and session verification.
       Five gates, Python pinned with `setup-python`, and failing tests re-emitted
       as public annotations. It had failed on **all 60** recorded runs because of
-      a git-version defect in `sync land` (`FAILURES.md` F010, fixed in T-0016);
+      a git-version defect in `sync land` (`FAILURES.md` F011, fixed in T-0016);
       whether it is now green end to end is recorded in `STATE.md`, and the
       strict session gate stays red while a VM's session is in flight on the
       shared branch.

@@ -138,7 +138,8 @@ real finding — only `cryptography` ships 1980-normalised wheels (7 of 20, all
 `win_amd64`), and `urllib3` stamps every entry with one build instant while
 `jinja2` carries checkout mtimes — which means "the" ecosystem-wide rate is not
 even well defined. The same shape of near-vacuous gate appeared in F008.
-## F010 — `sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason
+
+## F011 — `sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason
 
 Source: T-0016, `.github/workflows/ci.yml`,
 `tools/originlib/sync.py`, `tests/test_sync.py`.

@@ -87,7 +87,7 @@ T-0015 (session 028) and T-0016 (session 029) are both complete on this VM.
 **A CI/defect pair was found and fixed while finishing T-0016.** All 60 recorded
 CI runs had failed at the `Tests` step with no diagnosable cause; the cause was
 `git rebase --continue` being interactive from git 2.26, which broke
-`origin sync land` for any VM with a modern git (`FAILURES.md` F010). The fix
+`origin sync land` for any VM with a modern git (`FAILURES.md` F011). The fix
 passes locally on git 2.25.1 and git 2.56.0. **Still open:** whether the workflow
 is green end to end, which needs the next run's conclusion read from the public
 Actions API.
@@ -201,7 +201,7 @@ prior art, usefulness, and adoption untouched.
 1. **Confirm CI is green end to end.** T-0016 diagnosed and fixed the defect
    behind 60 red runs: `git rebase --continue` is interactive from git 2.26, so
    `origin sync land` could not land on any modern-git VM in exactly the
-   generated-index-conflict case (`FAILURES.md` F010). The suite is green
+   generated-index-conflict case (`FAILURES.md` F011). The suite is green
    locally on git 2.25.1 and on git 2.56.0, and the workflow now pins Python and
    reports failing tests as public annotations. What is left is to read the next
    run's conclusion from the Actions API — and to note that the

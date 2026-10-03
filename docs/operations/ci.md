@@ -61,7 +61,7 @@ machine, which would make the build flaky for reasons unrelated to the change.
 The suite passes on git 2.25 and on git 2.56, and it did not in between, for a
 reason no gate covered: `git rebase --continue` opens an editor from git 2.26,
 which broke `origin sync land` on any VM with a modern git
-(`FAILURES.md` F010). A VM's git version is therefore read, not assumed.
+(`FAILURES.md` F011). A VM's git version is therefore read, not assumed.
 
 ## What CI does not check
 
