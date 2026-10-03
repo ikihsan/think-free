@@ -18,13 +18,37 @@ jobs:
         with:
           fetch-depth: 0
 
+      # The runner image's own Python is not a contract: ubuntu-latest changes
+      # (it migrates to Ubuntu 26 in October 2026) and every 60 recorded runs
+      # failed at the Tests step without anyone being able to say which. Pin it.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Show toolchain
         run: |
           python3 --version
           git --version
 
+      # A failing test in CI is only actionable if its identity is readable
+      # without downloading the run log, which needs repository admin rights.
+      # `::error::` lines become check-run annotations, and those are public.
       - name: Tests
-        run: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -v
+        run: |
+          set +e
+          set +o pipefail
+          PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -v 2>&1 | tee /tmp/unittest.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            awk '
+              /^(FAIL|ERROR): / { grab = 12 }
+              grab > 0 { gsub(/%/, "%%"); gsub(/\r/, ""); printf "::error title=Test failed::%s\n", $0; grab-- }
+            ' /tmp/unittest.log | head -60
+            grep -E '^(Ran|FAILED)' /tmp/unittest.log | tr -d '\r' | while read -r line; do
+              echo "::error title=Test summary::${line//%/%%}"
+            done
+          fi
+          exit "$status"
 
       - name: Documentation lint
         run: tools/origin doc lint
