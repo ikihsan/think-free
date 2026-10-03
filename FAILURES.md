@@ -33,11 +33,14 @@ split because the first file reached the 300-line cap:
 | F007 | Knitting repair planner: the stated input set is information-insufficient |
 | F008 | Adaptive ventilation measurement selection: prescribing one intervention beats choosing it |
 | F009 | Knitting repair planner: the algorithmic advantage is prior art |
+| F010 | E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
-are separated from the live list rather than interleaved with it. Identifiers
-are stable: a reference to `F008` means the same entry in either file.
+are separated from the live list rather than interleaved with it. The two files
+split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008 and
+`FAILURES-findings-2.md` takes every finding after it. Identifiers are stable: a
+reference to `F010` means the same entry whichever file it is in.
 
 ## Open, not yet disproved
 
@@ -54,6 +57,11 @@ These remain live questions, not settled negatives:
 - **Sidewalk survey prioritisation** (`RESEARCH/A.md`): strong value story,
   substantial prior art; the decision-value advantage is falsified in its
   motivating cost regime (F006) but not in every regime.
+- **Reproducible Python builds** (`RESEARCH/E.md`, E3): prevalence is measured
+  (F010) and attribution is not. The 5% gate is spent and should not be re-run in
+  that form; what remains open is whether timestamps are the *first* cause worth
+  fixing, which is T-0017. E1 (retry jitter) and E2 (lockfile drift) are
+  `untested`; D020 rules E1 out of order.
 
 ## Reopening
 

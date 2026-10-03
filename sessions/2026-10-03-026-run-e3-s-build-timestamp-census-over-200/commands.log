@@ -1,0 +1,95 @@
+==============================================================================
+[seq 3] 2026-10-03T19:36:34+00:00
+$ python3 EXPERIMENTS/005-build-timestamps/census.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+inspected 199 wheels from 10 packages
+shapes: {'single-other-date': 78, 'mixed': 116, 'all-1980': 5}
+violation_fraction=0.5829 non_1980_fraction=0.9749
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 109828  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T19:44:20+00:00
+$ python3 census.py
+cwd: /home/ubuntu/think-free/EXPERIMENTS/005-build-timestamps
+------------------------------------------------------------------------------
+inspected 200 wheels from 10 packages
+shapes: {'single-date': 57, 'mixed': 138, 'all-1980': 5}
+spread: {'none': 62, 'days-or-more': 45, 'hours': 4, 'minutes-to-an-hour': 57, 'under-a-minute': 32}
+violation_fraction=0.69 non_1980_fraction=0.975 carried_mtime_fraction=0.245
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 122683  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T21:08:38+00:00
+$ python3 EXPERIMENTS/007-build-timestamps/census.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+inspected 200 wheels from 10 packages
+shapes: {'single-date': 59, 'mixed': 134, 'all-1980': 7}
+spread: {'none': 66, 'days-or-more': 25, 'hours': 4, 'minutes-to-an-hour': 78, 'under-a-minute': 27}
+violation_fraction=0.67 non_1980_fraction=0.965 carried_mtime_fraction=0.145
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80318  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T21:10:42+00:00
+$ python3 EXPERIMENTS/007-build-timestamps/census.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+inspected 200 wheels from 10 packages
+shapes: {'single-date': 59, 'mixed': 134, 'all-1980': 7}
+spread: {'none': 66, 'days-or-more': 25, 'hours': 4, 'minutes-to-an-hour': 78, 'under-a-minute': 27}
+violation_fraction=0.67 non_1980_fraction=0.965 carried_mtime_fraction=0.145
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 36095  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T21:12:25+00:00
+$ python3 EXPERIMENTS/007-build-timestamps/census.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+inspected 200 wheels from 10 packages
+shapes: {'single-date': 59, 'mixed': 134, 'all-1980': 7}
+spread: {'none': 66, 'days-or-more': 25, 'hours': 4, 'minutes-to-an-hour': 78, 'under-a-minute': 27}
+violation_fraction=0.67 non_1980_fraction=0.965 carried_mtime_fraction=0.145
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 36271  redactions: none
+==============================================================================
+[seq 16] 2026-10-03T21:21:34+00:00
+$ python3 EXPERIMENTS/007-build-timestamps/census.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+inspected 200 wheels from 10 packages
+shapes: {'single-date': 59, 'mixed': 134, 'all-1980': 7}
+spread: {'none': 66, 'days-or-more': 25, 'hours': 4, 'minutes-to-an-hour': 78, 'under-a-minute': 27}
+violation_fraction=0.67 non_1980_fraction=0.965 carried_mtime_fraction=0.145
+gate: lead-survives
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37082  redactions: none
+==============================================================================
+[seq 28] 2026-10-03T21:30:29+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..............................................................................
+----------------------------------------------------------------------
+Ran 173 tests in 88.325s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 88813  redactions: none

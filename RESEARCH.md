@@ -93,8 +93,11 @@ Recorded rather than resolved:
 ## The next research action
 
 Apply the screen in [`SYNTHESIS.md`](RESEARCH/SYNTHESIS.md): the surviving
-locally-falsifiable candidates are the ventilation measurement protocol (C2) and
-E's two untested software mechanisms (E2, E3). `STATE.md` carries the ordering;
+locally-falsifiable candidates were the ventilation measurement protocol (C2) and
+E's software mechanisms (E2, E3). Both of those named experiments have since been
+spent — C2's gate was not met (F008), and E3's census gate could not fail (F010)
+— so what remains open is E2's drift and E3's attribution. `STATE.md` carries
+the ordering;
 the protocol is in
 [`docs/process/hypothesis-lifecycle.md`](docs/process/hypothesis-lifecycle.md).
 

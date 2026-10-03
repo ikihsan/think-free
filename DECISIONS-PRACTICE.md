@@ -265,3 +265,33 @@ the algorithmic-advantage claim is recorded as `FAILURES.md` F009, and the
 surviving physical question (Stage B) is stated as the only thing left for the
 candidate. Any future kill gate that gates on prior art should be written with
 its claims separated in the first place.
+
+## D023 — Honour the declared gate metric; record that it cannot fail separately (2026-10-03)
+
+Observed: E3's predeclared kill gate is "below 5% non-normalized wheel
+timestamps, E3 is a weak lead". `EXPERIMENTS/007-build-timestamps/` measured
+0.965 on that metric (T-0013), and the same run computed two stricter fractions
+— 0.670 of wheels with disagreeing entry dates, 0.145 spanning an hour or more —
+which the earlier interrupted run had printed first. 1980-01-01 appears in a wheel
+only when the builder pins the DOS epoch, which almost nothing does, so the
+declared metric is met by any ecosystem that does not pin, whether or not it is
+reproducible. Zero of 200 wheels carried a unix-epoch string in `METADATA` or
+`RECORD`, so the mechanism's stated assumption is half false as well.
+
+Decision: the verdict is taken on the metric the report declared, not on the
+stricter one the code happened to compute first, and the stricter fractions are
+reported beside it as lower bounds that cannot overrule it. A gate whose metric
+cannot fail is recorded as its own finding (`FAILURES.md` F010) with the
+follow-up measurement that could decide the claim (T-0017), rather than fixed by
+silently swapping in a metric chosen after seeing the data.
+
+Rejected: (a) ruling on the stricter metric, because a gate is a commitment made
+before the data and choosing the metric once the numbers exist makes the gate a
+rationalisation; (b) ruling the gate invalid and declaring the experiment
+uninformative, which discards a real prevalence measurement because the stated
+metric is weak; (c) reporting only the favourable 0.965, which is the failure this
+decision exists to prevent — the same shape of near-vacuous gate as F008.
+
+Consequence: the census reports `lead-survives` and F010 explains why that
+verdict licenses nothing yet. The attribution measurement is T-0017
+(`EXPERIMENTS/008-build-timestamp-attribution/`).

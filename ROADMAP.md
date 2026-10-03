@@ -19,7 +19,9 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Preserve the mission and boundaries (`MISSION.md`)
 - [x] Sealed reports A–D (`RESEARCH/A.md`–`D.md`)
 - [x] Investigation E: experimental engineer — three cheap falsifiable
-      mechanisms. Sealed 2026-10-03 (T-0002); all three remain `untested`.
+      mechanisms. Sealed 2026-10-03 (T-0002). E1 and E2 remain `untested`; E3's
+      census ran (T-0013) and its declared gate turned out not to be able to fail
+      (`FAILURES.md` F010), so E3's load-bearing claim is still `untested`.
 - [x] Investigation F: adoption researcher — six pre-release checkable criteria.
       Sealed 2026-10-03 (T-0003); the criteria become a gate at stage D, not a
       candidate screen.
@@ -29,8 +31,9 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Six experiments have run; two invention claims are
-disproved and no candidate is validated.
+**Status: partial.** Seven experiments have run; two invention claims are
+disproved, one declared gate was shown not to be able to fail, and no candidate
+is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -48,6 +51,10 @@ disproved and no candidate is validated.
 - [x] Run the ventilation candidate's measurement-design kill gate
       (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
       stopped (`FAILURES.md` F008)
+- [x] Run E3's build-timestamp census over 200 PyPI wheels
+      (`007-build-timestamps`, T-0013): declared 5% gate met at 0.965, but the
+      metric measures DOS-epoch pinning rather than reproducibility and attributes
+      no cause, so E3 stays `untested` (`FAILURES.md` F010)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs
       produced no product claim; with C2 stopped (F008) and the knitting
@@ -127,7 +134,7 @@ Separate from the invention stages, because the mission cannot be run without it
 
 The infrastructure track finished ahead of stage B because stage B is blocked on
 judgement rather than tooling. Kill gates now exist for the three held
-candidates, five experiments have run, and none has validated a claim. Stage B is
-now blocked on the open questions in `STATE.md`: C2's simulation kill gate, E3's
-timestamp census, and the prior-art condition still attached to the knitting
-candidate.
+candidates, seven experiments have run, and none has validated a claim. Stage B is
+now blocked on the open questions in `STATE.md`: the prior-art condition still
+attached to the knitting candidate (T-0015), and E3's attribution measurement
+(T-0017). C2's simulation kill gate and E3's census have both been spent.

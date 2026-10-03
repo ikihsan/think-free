@@ -4,7 +4,13 @@ status: active
 last-verified: 2026-10-03
 -->
 
-# Hypotheses
+# Hypotheses — what is being considered and what would kill it
+
+The live index. One row per candidate, the predeclared kill gate and witness for
+each held candidate, and the cautions that apply to all of them.
+
+What an experiment actually returned, with its numbers and limits, is in
+[`HYPOTHESES-results.md`](HYPOTHESES-results.md).
 
 No candidate has been selected. This file records what is being considered, what
 would kill it, and what has actually been observed. Format and required fields:
@@ -12,6 +18,16 @@ would kill it, and what has actually been observed. Format and required fields:
 
 Labels: `observed`, `source-supported`, `inferred`, `speculative`, `untested`.
 Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels.md).
+
+## Experiments that have run
+
+Every result lives in [`HYPOTHESES-results.md`](HYPOTHESES-results.md). The
+experiment directories are `001-photo-baseline` (E001),
+`003-information-sufficiency` (the E002 witness gate),
+`004-knitting-stage-a` and `005-knitting-bounded-search` (the knitting Stage-A
+pair), `006-ventilation-measurement-design` (C2), and
+`007-build-timestamps` (E3's census, whose attribution half is T-0017,
+`EXPERIMENTS/008-build-timestamp-attribution/`).
 
 ## Status summary
 
@@ -21,6 +37,7 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Knitting repair planner | `RESEARCH/C.md`, E002 | **Algorithmic-advantage claim abandoned** (`FAILURES.md` F009): minimum-cost repair planning is prior art from 2007–2026, and no tool was found that supplies an intervention sequence for an existing hand-knit structure. Stage A was already settled (T-0010, T-0011) | Nothing software-side. Only Stage B physical work with an experienced knitter, and only after checking that entering the chart patch does not already imply the user can do the repair |
 | Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | **Stopped as formulated** (`FAILURES.md` F008, T-0014): a prescribed door-open protocol beats adaptive action selection at equal budget, 0.833 vs 0.792 | Only if the surviving robustness observation (read a second sensor under poor mixing) is tested against existing tools |
 | Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
+| Python packaging determinism (E1–E3) | `RESEARCH/E.md` | E3's prevalence census ran and passed its 5% gate at 0.965, but the metric is near-vacuous and attribution is untested (`FAILURES.md` F010); E1 and E2 remain `untested` | E3 attribution via T-0017; **do not run E1** (D020 Screen 3); E2 is time-gated |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
 | Sewing-projector auto-calibration | `RESEARCH/B.md` | Rejected: no material gap shown | — |
 | Automated accessibility certification | `RESEARCH/D.md` | Rejected: universal claim unfalsifiable | — |
@@ -29,158 +46,17 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Capture-and-reproduce-any-computation | `RESEARCH/D.md` | Rejected: ReproZip and reprotest prior art | — |
 | Universal local-first sync layer | `RESEARCH/D.md` | Rejected: invariants not preserved | — |
 
-## The one experiment that has run
-
-### E001 — Is a plain checksum baseline sufficient?
-
-**Claim under test.** The published four-image photo-migration failure requires a
-relationship-aware mechanism to reveal its missing media.
-
-**Kill gate (predeclared).** If checksum identity alone finds all missing media
-described in the trace, without original/edit inference, the example establishes a
-failure of importer reporting and **not** an advantage for a semantic auditor.
-
-**Baseline.** The cheapest available: source-relative checksum set difference
-between the Takeout fixture and the destination model implied by the published API
-trace. No relationship inference, no importer-specific instrumentation.
-
-**Controls.** Complete destination yields no missing identities; renamed identical
-bytes yield no missing identities; accepted-operation model reproduces the reported
-missing filenames; operation counts match; relationship-only damage with all
-identities retained is invisible to the baseline.
-
-**Result.** `observed`, 2026-10-03. The kill gate was met. The baseline recovered
-the exact reported pair; all controls behaved as predicted. Artifacts:
-`EXPERIMENTS/001-photo-baseline/results.json`, including the pinned source
-revision and SHA-256 of every downloaded input.
-
-**Conclusion.** `FAILURES.md` F001. The example does not support building the
-verifier.
-
-**Remaining uncertainty.** Whether relationship-only loss occurs in real archives
-at a rate that matters; whether the importer bug still exists; whether users need a
-standalone product at all.
-
-**Reconsider when.** A real case is found in which all bytes survive and important
-relationships do not, **and** the existing reporting does not already surface it.
-
-## The information-sufficiency gate (E002, run 2026-10-03)
-
-Before any candidate is implemented, two realities that give it identical
-permitted inputs but require different outputs must be constructed. A passive
-system fails this gate outright; an active system fails only if no permitted
-observation separates the pair. Experiment `EXPERIMENTS/003-information-sufficiency/`
-runs one small synthetic witness per held candidate. All inputs are synthetic;
-the witness can falsify an unbounded claim but measures no prevalence.
-
-| Witness | Candidate | Result | Consequence |
-|---|---|---|---|
-| W1 | Decision-directed sidewalk survey | **Survives** (`observed`) | The mechanism is not structurally information-insufficient given known OD pairs; the A1 masking experiment supplies the measured comparison |
-| W2 | Knitting repair planner | **Spec was insufficient; repaired** (`observed`) | The original input set omitted loop orientation (F007); adding mount makes the two realities distinguishable (T-0009) |
-| W3 | Adaptive ventilation measurement | **Survives** (`observed`) | An ordinary permitted action (`co-locate`, `close-internal-door`) separates two realities whose passive traces coincide within noise |
-
-Full claim, oracle, and limits per witness:
-[`EXPERIMENTS/003-information-sufficiency/README.md`](EXPERIMENTS/003-information-sufficiency/README.md).
-
-**W2 finding.** `observed`, 2026-10-03. Two stitch states with identical
-chart-level inputs (same symbols, connectivity, live stitches, and facing side)
-require different repairs because one is mounted twisted and the other is not.
-Mount is not in the candidate's stated input set, so the planner cannot choose
-between "re-form in place" and "re-form and untwist" from its permitted input.
-This is not a refutation of the mechanism: a knitter can observe orientation, so
-the fix is to add orientation to the input (or refuse). It bounds the input and
-rules out the current, narrower claim. Recorded as `FAILURES.md` F007.
-
-**W2 repair (T-0009).** `observed`, 2026-10-03. Adding each loop's mount to the
-input distinguishes the two realities: the witness reports `silent_pair_found`
-`true → false` and `permitted_encoding_can_represent_the_difference`
-`false → true`. The specification is now sufficient for the decision; the
-algorithmic-advantage question is untouched and awaits the Stage-A planner
-comparison.
-
-**W2 Stage-A comparison (T-0010, `EXPERIMENTS/004-knitting-stage-a/`).**
-`observed`, 2026-10-03. The candidate's cheap local heuristic and an
-exhaustive minimum-cost oracle agree on 8/9 solvable synthetic cases and the
-heuristic is valid (never misses an error, never emits an illegal closure) on
-all 9; it refuses the unsupported-shaping case. It is suboptimal on the
-deliberately constructed `same_column_stack_4x4` shared-release case (local 5
-vs. optimum 3): the per-error rule cannot see that one release covers two
-errors. No full-row-release degeneration, no missing action sequence, no
-silent acceptance. Verdict `narrow`, not `abandon` — recorded in the
-experiment README; next test is a bounded-neighbourhood planner against the
-same oracle before any Stage-B physical work.
-
-**W2 Stage-A follow-up (T-0011, `EXPERIMENTS/005-knitting-bounded-search/`).**
-`observed`, 2026-10-03. The bounded-neighbourhood planner — group errors whose
-release closures intersect, take each group's minimum-cost local plan, charge the
-union of the releases once — is **valid and cost-identical to the exhaustive
-optimum on 115/115 checked cases** (116/116 with the opt-in `--slow` oracle), on
-both the development and the holdout fixture seed and at every patch cost swept,
-and it **refuses** both unsupported states. 004's per-error rule is optimal on
-85/115 of the same cases. The decomposition's per-chunk costs were separable on
-every case, which is the mechanism the design predicts, so this checks that the
-implementation matches its design rather than discovering anything. Two limits
-matter more than the headline: any *cheaper* setting is suboptimal (chunk cap 1
-fails on 20/115, fourteen of them holdout cases; cap 3 on 2 holdout cases), and two
-settings that look optimal (`cap=1, beam=2`, `cap=2, beam=4`) enumerate exactly
-the oracle's own search space and are exhaustive search in disguise. On T-0010's
-own fixtures the bounded planner does **1.28x more** work than the oracle; the
-saving appears only where closures fragment. Verdict: the Stage-A planner question
-is **answered at the mechanism level** — narrow, not abandoned — and the
-candidate's remaining gate is prior art plus unperformed Stage-B physical work,
-not more synthetic planner search. Recorded in `DECISIONS-PRACTICE.md` D021.
-
-**W2 prior-art check (T-0015, `RESEARCH/PRIOR-ART-KNITTING.md`).**
-`observed` for what was retrieved, `inferred` for the judgement. The kill gate's
-prior-art condition conflates two claims, and the report separates them. **The
-domain condition is not met:** no tool, paper, repository or patent was found
-that supplies an ordered, checkable intervention sequence for a structure
-someone has already knitted by hand — KnitPick (UIST 2019) and `knit_graph`
-provide the graph layer, EnvisioKnit's Chart Checker catches unknittable charts
-*before* knitting, KnittingFix diagnoses from photos, and the 1929–1953
-mending-machine patents show the physical capability existed as hardware. **The
-novelty condition is met and decisive:** computing a minimum-cost set of
-interventions under constraints, decomposed over neighbourhoods that cannot
-interact, is established work from 2007 to 2026 (optimal repairs for functional
-dependencies, repair *programs* as ordered operation sequences, graph repair
-ranking). T-0011 had already recorded that its own optimality follows from the
-model's structure.
-
-**Consequence.** The algorithmic-advantage claim is abandoned (`FAILURES.md`
-F009); no third synthetic planner experiment is warranted. What survives is a
-craft-tool question — would a knitter follow a generated plan and save real
-work — which is Stage B, needs an experienced knitter and authorization, and
-cannot run in this repository.
-
-**W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
-permitted input set: in each case an askable observation separates the realities,
-so next-observation selection carries decision-relevant information. This is
-`observed` for the witness construction and `inferred` for the wider claim; it
-does not measure usefulness, differentiation, or adoption, and one construction
-cannot exclude a different silent pair.
-
-**W3 measured (T-0014, `EXPERIMENTS/006-ventilation-measurement-design/`).**
-`observed`, 2026-10-03. The witness says an askable observation separates the
-realities; the experiment asked the follow-up question, which the witness cannot
-answer: does *choosing* that observation beat *being told* one? On 6 paired
-hypothesis families whose passive trace in the measured room is identical by
-construction, with one shared fitter and an identical budget of 12 sample slots
-and one decision, pairwise discrimination accuracy was passive 0.333 (chance),
-prescribed door-open 0.833, adaptive 0.792. The predeclared gate required
-adaptive to beat fixed and was **not met**, so the formulation is stopped. One
-narrower observation survives: under poor mixing, reading a second sensor holds
-0.708 where acting on the measured room drops to 0.542. Recorded as
-`FAILURES.md` F008. **This is a failed claim, not a failed mechanism** — the
-question of which hypotheses remain distinguishable is still answerable, and
-this experiment only shows that the proposed advantage over a fixed protocol did
-not appear.
-
 ## Candidates awaiting a falsification experiment
 
-Each entry below is summarised here; the full reasoning is in the sealed
-investigation report. Kill gates for all three were written in T-0001, and the
-information-sufficiency gate (E002) has now been applied to all three; only the
-sidewalk entry has had its measurement claim tested (A1, below).
+Each entry below carries the kill gate it was written with; the full reasoning is
+in the sealed investigation report. Kill gates for all three were written in
+T-0001 and the information-sufficiency gate (E002) was applied to all three in
+T-0008. All three have since been measured and none survived: the sidewalk entry
+fails its cost regime (F006), the ventilation entry fails its design gate (F008),
+and the knitting entry's algorithmic claim is prior art (F009). What is left is
+not another experiment on this file's account — it is the question each entry's
+*reconsider when* clause names, and for two of the three that question needs a
+person this repository cannot reach.
 
 | Candidate | Claim | Strongest objection |
 |---|---|---|

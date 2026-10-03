@@ -30,57 +30,94 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Area | Verified status |
 |---|---|
-| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–025, T-0012) and on `instance-20260717-0947` (sessions 020–023, T-0011) |
+| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, T-0012, T-0013) and on `instance-20260717-0947` (sessions 020–023, 027–029, T-0011, T-0014, T-0015, T-0016) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage). No candidate validated. Findings F001–F009 split across `FAILURES-findings.md` and `FAILURES-findings-2.md` |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010) |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), plus one declared gate shown not to be able to fail (E3, F010). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F010 in `FAILURES-findings-2.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | 28 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | `doc lint` checks 266 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
+| Documentation | `doc lint` checks 291 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs) |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**T-0013 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
-census. Do not touch it. T-0015 (session 028, this VM) is complete: the knitting
-candidate's last kill-gate condition is answered and the algorithmic-advantage
-claim is abandoned (`FAILURES.md` F009).
+**T-0016 is claimed by opencode on `instance-20260717-0947`** (session 029) — the
+red CI `Tests` step. Do not touch it. T-0013 (session 026, this VM), T-0015
+(session 028) and T-0014 (session 027) are complete.
 
-**Two repository defects were found while finishing that session**, both
-unclaimed and both safe to pick up:
+**Three repository defects were found on 2026-10-03**, two of them still open:
 
-1. **CI has never been green.** `.github/workflows/ci.yml` runs five gates;
-   all **60** recorded runs failed, every one at the `Tests` step
+1. **CI has never been green.** `.github/workflows/ci.yml` runs five gates; all
+   **60** recorded runs failed, every one at the `Tests` step
    (`- PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests`).
    The run log needs repository admin rights to download, so the failing test is
    not yet identified. Locally the suite passes on this VM's Python 3.8.10
-   (173 tests); the runner's Python version is unknown and unrecorded.
-2. **A numbering collision**, still to be resolved when T-0013 lands: its
-   `verify` command names `EXPERIMENTS/005-build-timestamps/`, and
-   `005-knitting-bounded-search/` was claimed and landed first from this VM.
-   The directories do not collide on disk, so nothing breaks, but two different
-   experiments carry the number 005. `006-ventilation-measurement-design/` is
-   also taken now. Whoever renumbers must update the task file's `verify` string,
-   the directory, `docs/INDEX.md`, and `STATE.md` in one commit, and must not take
-   006.
-
-Nothing else is claimed.
+   (173 tests); the runner's Python version is unknown and unrecorded. T-0016.
+2. ~~**A numbering collision** in T-0013's experiment directory.~~ **Resolved in
+   session 026**: `005-knitting-bounded-search/` and
+   `006-ventilation-measurement-design/` were claimed and landed while T-0013 was
+   in flight, so the census became `EXPERIMENTS/007-build-timestamps/` and the
+   task file's `verify` string, `docs/INDEX.md` and this file moved together.
+3. **A numbering collision across two VMs, hit again the same hour.** Both this
+   session and session 029 on `instance-20260717-0947` created a task numbered
+   T-0016, and both used the identifiers F009 and D022 for different findings.
+   The other VM's claims were pushed first, so it kept T-0016, F009 and D022; this
+   session's became **T-0017**, **F010** and **D023**. Task numbers are allocated
+   by reading the local tree, so two VMs in the same hour collide by construction;
+   the renumber has to happen before the push, not after.
+4. **`DECISIONS-PRACTICE.md` is at 297 of 300 lines.** The next decision entry
+   does not fit, so that file has to be split before the next `session decision`
+   that is not a correction.
 
 T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
 survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
 information-insufficient (F007). T-0010 (session 022, VM 0947) then ran the
-knitting Stage-A comparison, T-0011 (session 023, VM 0947) closed it, and T-0014
-(session 027, VM 0947) stopped the ventilation candidate (F008). T-0004 (multi-VM
-safety, session 017) is green: fleet/sync suite passing, flow documented across
+knitting Stage-A comparison, T-0011 (session 023, VM 0947) closed it, T-0014
+(session 027, VM 0947) stopped the ventilation candidate (F008), and T-0013
+(session 026, this VM) spent E3's declared census gate. T-0004 (multi-VM safety,
+session 017) is green: fleet/sync suite passing, flow documented across
 process/operations/reference docs, AGENTS.md, and the two skills.
+
+## What changed in session 026, VM 0944
+
+T-0013 finished on a session an earlier run had started and abandoned mid-edit;
+the resumed run found and fixed three claims its code did not implement before
+committing the result.
+
+- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
+  distinct releases across ten declared packages, 205,305,241 bytes, zero
+  failures, producing identical numbers on three consecutive runs.
+- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
+  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
+  a minute or more, 0.145 span an hour or more. Zero of 200 wheels carried a
+  unix-epoch integer in `METADATA` or `RECORD`, so the mechanism's
+  embedded-string assumption is half false.
+- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
+  appears only when a builder pins the DOS epoch, which almost none does, so
+  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
+  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
+  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
+  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
+  every entry with a single build instant, `jinja2` carries checkout mtimes.
+- Attribution is not abandoned with the gate: `DECISIONS-PRACTICE.md` D023 takes
+  the verdict on the metric E.md declared rather than on the stricter one the
+  code computed first, and **T-0017**
+  (`EXPERIMENTS/008-build-timestamp-attribution/`) is the measurement that can
+  say whether timestamps are worth fixing first.
+- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
+  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
+  findings. Their claims reached the remote first, so this session's identifiers
+  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
+  split was abandoned in favour of theirs — two VMs renumbering the same shared
+  files in the same hour is a collision the tooling does not yet prevent.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -122,32 +159,41 @@ process/operations/reference docs, AGENTS.md, and the two skills.
 
 Ordered by information gained per unit of effort.
 
-1. **Fix the red CI.** It has failed 60 of 60 recorded runs at the `Tests` step
-   and nothing has been diagnosed, because the run log needs repository admin
-   rights. Cheapest useful step: fetch the runner's Python version from the
-   workflow API or reproduce with a modern interpreter, then find the test that
-   3.8 passes and 3.12+ does not. **Ceiling:** a green badge. It validates the
-   tooling, not a candidate — but a gate that has never passed is not a gate.
-2. **Run E3's build-timestamp census** if the claim on `instance-20260717-0944`
-   (T-0013) lapses. Cheapest unmeasured thing left — one command, minutes, a hard
-   kill gate at 5%. **Ceiling:** a PyPI-wheel rate; it cannot bound npm, conda,
-   or Maven.
+These come from the screen in [`RESEARCH/SYNTHESIS.md`](RESEARCH/SYNTHESIS.md)
+and D020. Read the ceiling on each before spending effort: a pass still leaves
+prior art, usefulness, and adoption untouched.
+
+1. **Fix the red CI** (T-0016, claimed on `instance-20260717-0947`). It has failed
+   60 of 60 recorded runs at the `Tests` step and nothing has been diagnosed,
+   because the run log needs repository admin rights. Cheapest useful step: fetch
+   the runner's Python version from the workflow API or reproduce with a modern
+   interpreter, then find the test that 3.8 passes and 3.12+ does not.
+   **Ceiling:** a green badge. It validates the tooling, not a candidate — but a
+   gate that has never passed is not a gate.
+2. **E3's census is done; the attribution half is not** (F010). The declared 5%
+   gate was met at 0.965 by a metric that cannot fail, so prevalence is measured
+   and nothing is attributed. **T-0017** is the remaining test — build one source
+   under several `SOURCE_DATE_EPOCH` values, attribute every differing byte to a
+   named cause, and establish the same-epoch noise floor. **Do not re-run the
+   census** and **do not run E1** (retry jitter: jitter is already in every modern
+   client library, so a pass changes no build decision, D020 Screen 3). **Ceiling:**
+   even a clean attribution result says how big the timestamp component is on one
+   pure-Python source, not whether a user-visible tool follows.
 3. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is now settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an existing
    hand-knit structure. Stage B needs an experienced knitter and authorization.
    **Ceiling:** nothing software-side remains; the only live question is
    usefulness, which this repository cannot measure.
-4. **Do not run E1** (retry jitter). It is the cheapest experiment in the
-   repository and the least informative: jitter is already in every modern
-   client library, so a pass changes no build decision. D020, Screen 3.
-5. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
+4. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
    not effort-gated: the informative comparison is two snapshots weeks apart, and
-   two resolver runs today measure nothing.
-6. **Do not build a product.** Nothing is selected, and the base rate for
+   two resolver runs today measure nothing. Snapshot one side of that comparison
+   now if a VM is free, so the second snapshot has somewhere to land.
+5. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.
+
 
 ### Standing constraints
 
@@ -175,10 +221,11 @@ Fresh probe: `tools/origin doctor`, writing `.origin/doctor.json`.
 - All six investigation roles are sealed (`RESEARCH/A.md`–`F.md`), and
   `RESEARCH/SYNTHESIS.md` compares them. The synthesis is `inferred` from prose:
   it reorders and screens existing claims and measures nothing itself.
-- No invention claim has been validated. Three claims have been **disproved**:
-  A1 in its motivating regime (F006), C2's measurement-design advantage (F008),
-  and the knitting planner's algorithmic advantage (F009, by prior art rather
-  than by measurement). E's three software mechanisms remain `untested`.
+- No invention claim has been validated. Three claims have been **disproved**: A1
+  in its motivating regime (F006), C2's measurement-design advantage (F008), and
+  the knitting planner's algorithmic advantage (F009, by prior art rather than by
+  measurement). E's mechanisms remain unvalidated: E1 and E2 are `untested`, and
+  E3's declared gate could not fail (F010).
 - Every candidate has substantial prior art; none has passed prior-art review.
   One prior-art review is now recorded and negative in its decisive half
   (`RESEARCH/PRIOR-ART-KNITTING.md`).

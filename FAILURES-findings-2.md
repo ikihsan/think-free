@@ -79,3 +79,62 @@ art (here), and the hardware capability was prior art (the patents). What
 remained was a report format and an unobserved user. That is the shape most
 agent-generated candidates have, and it is cheaper to discover in a day of
 searching than in weeks of building.
+
+## F010 — E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not
+
+Source: `EXPERIMENTS/007-build-timestamps/`, T-0013, following the kill gate
+declared in `RESEARCH/E.md` mechanism E3.
+
+**Observation.** E3 claims embedded build timestamps are the cheapest
+determinism violation to count and therefore the cheapest to fix first. Its
+predeclared experiment counts the fraction of 200 recent PyPI wheels with
+"non-normalized" zip entry dates, and ends E3 below 5%.
+
+**Experiment.** 200 wheels, one per release, from ten declared packages; the 20
+most recently uploaded wheel releases per package, smallest wheel per release,
+distinct releases enforced. Every value read from the artifact: each
+`ZipInfo.date_time` in the zip, plus a scan of `METADATA` and `RECORD` for
+unix-epoch integers. Zero failures over 205,305,241 bytes. Numbers reproduced
+identically on three consecutive runs.
+
+**Result.** `observed`, 2026-10-03. Gate metric 0.965 (95% CI 0.940–0.990)
+against a 0.05 threshold, so the gate **passes at 19x**. Stricter fractions,
+reported but not used to overrule the stated gate: 0.670 of wheels carry two or
+more distinct entry dates, 0.535 span at least a minute, 0.145 span at least an
+hour, and the widest is `requests-2.26.0-py2.py3-none-any.whl` at 23 entries
+spanning 789 days. Zero of 200 wheels carried a unix-epoch integer in
+`METADATA` or `RECORD`.
+
+**Conclusion.** The gate passes, and passing it means very little. 1980-01-01
+appears in a wheel only when the DOS epoch is *pinned*, which almost no builder
+does; a builder that honours `SOURCE_DATE_EPOCH` with a real commit time still
+produces non-1980 dates. So 0.965 mostly says "nobody pins the DOS epoch". The
+measurement establishes **prevalence** and says nothing about **attribution**:
+nothing here rebuilds an artifact, so no cause is assigned to a byte difference.
+The second half of E3's own experiment — build the same source under two epochs
+and attribute the difference — was not performed. E3's load-bearing claim
+("worth fixing *first*") remains `untested`; only its cheap gate is now spent.
+
+**Classification.** The measurement was inadequate, not the mechanism wrong. The
+gate is met and should not be re-run in this form; the fix is a different
+measurement, recorded as **T-0017**
+(`EXPERIMENTS/008-build-timestamp-attribution/`).
+
+**Limits.** Ten hand-picked packages, mostly pure-Python or source-heavy, sampled
+from release history rather than downloads; it bounds nothing about npm, conda,
+or Maven, and nothing about a user-weighted sample. Zip dates have 2-second
+resolution, so the 27 wheels spanning under a minute are neither evidence nor
+counter-evidence. Prevalence of a *detectable timestamp* is not prevalence of a
+*reproducibility failure*: `diffoscope` and `reprotest` attribute diffs per
+cause and nothing here does. An earlier run of the same census with a weaker
+selection rule returned 0.975 / 0.69 / 0.245 against 0.965 / 0.67 / 0.145, so
+the verdict is not an artefact of sampling.
+
+**Lesson.** A kill gate should be written so that a plausible world fails it.
+E3's threshold was 5% against a metric that only a builder pinning the DOS epoch
+to 1980 can pass; the gate could have been met by any ecosystem-wide turn of
+policy that changed nothing about reproducibility. The heterogeneity is the
+real finding — only `cryptography` ships 1980-normalised wheels (7 of 20, all
+`win_amd64`), and `urllib3` stamps every entry with one build instant while
+`jinja2` carries checkout mtimes — which means "the" ecosystem-wide rate is not
+even well defined. The same shape of near-vacuous gate appeared in F008.
