@@ -25,7 +25,7 @@ Files: `000-capabilities/results.json`, root mission and state records.
 
 Files: `RESEARCH/A.md` through `RESEARCH/F.md`.
 
-- [ ] Obtain six sealed reports with materially different methods and primary-source checks.
+- [x] Obtain six sealed reports with materially different methods and primary-source checks.
 - [ ] Require nearest prior art, reasons to abandon, and an executable test for serious candidates.
 - [ ] Consolidate only after initial reports are complete; preserve disagreements.
 
@@ -36,7 +36,7 @@ Files: one self-contained directory per chosen experiment, with `README.md`, run
 - [ ] Select at least two materially different claims to test; this is not product commitment.
 - [ ] Write the design, controls, acceptance/rejection criteria, expected failure modes, and exact reproduction command before implementation.
 - [ ] For nontrivial reusable mechanisms, write and run failing behavioral tests before implementation, then implement and rerun.
-- [ ] Run actual experiments and record unexpected/negative outcomes.
+- [x] Run actual experiments and record unexpected/negative outcomes: `002-a1-masking` (gate met computationally, weak-sensitivity caveats).
 - [ ] Independently reproduce or review results and challenge whether the baseline is fair.
 
 ## Task 4 — Checkpoint and next decision

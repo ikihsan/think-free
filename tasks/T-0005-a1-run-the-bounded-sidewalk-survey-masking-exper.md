@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0005
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a

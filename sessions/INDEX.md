@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-14 recorded session(s). One `events.jsonl` per session, so concurrent
+15 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a](2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a/README.md) | opencode | worked | A1 experiment step 1: pin a PPNA commit and inspect whether a complete | 2026-10-03T16:15 |
 | [2026-10-03-014-fix-missing-pathlib-import-in-session-py](2026-10-03-014-fix-missing-pathlib-import-in-session-py/README.md) | opencode | worked | Fix missing pathlib import in session.py, document it, then run checks | 2026-10-03T16:08 |
 | [2026-10-03-013-t-0003-run-investigation-f-adoption-rese](2026-10-03-013-t-0003-run-investigation-f-adoption-rese/README.md) | opencode | worked | T-0003: run investigation F (adoption researcher role) and write RESEA | 2026-10-03T16:03 |
 | [2026-10-03-012-t-0002-run-investigation-e-experimental](2026-10-03-012-t-0002-run-investigation-e-experimental/README.md) | opencode | worked | T-0002: run investigation E (experimental engineer role) and write RES | 2026-10-03T16:02 |

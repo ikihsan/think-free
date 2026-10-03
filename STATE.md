@@ -24,7 +24,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
 | Investigations | A, B, C, D, E, F all sealed |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims added in session 009, **not yet verified green** |
@@ -89,13 +89,7 @@ Ordered by information gained per unit of effort.
 1. **Apply the information-sufficiency witness** to the three held candidates.
    Ten lines of code each; it has already killed two proposals cheaply. Kill
    gates are now written (T-0001).
-2. **Run the A1 masking experiment.** Pin a commit of
-   `OpenSidewalks/PLoS-cities-complex-systems`, extract one neighbourhood, hide
-   curb and incline facts at random and in contiguous blocks, and compare
-   decision-directed observation selection against centrality, missingness, and
-   random heuristics at equal budget. Kill gate and acceptance threshold are
-   written in `RESEARCH/A.md` step 5. Record whether a usable extract exists
-   before investing in the comparison.
+2. **Deepen the A1 masking result.** `002-a1-masking` passes its provisional gate with caveats (near-deterministic per-seed regret, one budget/K/block-size point). The informative follow-up is a budget-and-K sweep, not new heuristics.
 3. **Compare the six sealed investigations** and feed only the surviving candidates into the information-sufficiency witness; keep E's and F's criteria as a screen.
 4. **Apply the information-sufficiency test** to the three held candidates. Ten
    lines of code each; it has already killed two proposals cheaply.

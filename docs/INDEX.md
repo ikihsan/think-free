@@ -75,6 +75,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0002-run-investigation-e-the-experimental-engineer-ro.md`](../tasks/T-0002-run-investigation-e-the-experimental-engineer-ro.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md`](../tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](../tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](../tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -96,6 +97,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`EXPERIMENTS/000-capabilities/README.md`](../EXPERIMENTS/000-capabilities/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/001-photo-baseline/README.md`](../EXPERIMENTS/001-photo-baseline/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/002-a1-masking/README.md`](../EXPERIMENTS/002-a1-masking/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
