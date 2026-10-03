@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T16:57:50+00:00
-- **Duration:** ?s
+- **Duration:** 1105.5s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Apply the information-sufficiency witness to the three held candidates and recor
 
 ## Summary
 
-_(none recorded)_
+Applied the information-sufficiency witness to the three held candidates: W1 sidewalk survey and W3 ventilation survive (a permitted observation separates realities with identical inputs); W2 knitting repair planner is information-insufficient as specified (orientation absent; F007). Also repaired push credentialing on this VM (durable JWT generator; App ID recovered) and recorded D018/D019. task verify T-0008 exit 0; 168 tests green; doc lint OK.
+
+## Next
+
+Repair the knitting candidate's input set (add orientation or require refusal), then run its Stage-A local-planner vs. exhaustive-search comparison
 
 ## Artifacts
 
@@ -36,10 +40,13 @@ _(none recorded)_
 | EXPERIMENTS/003-information-sufficiency/witness.py | 879b5200ebd7 | 2592 |
 | EXPERIMENTS/003-information-sufficiency/witness_vent.py | 6fa6c4b41882 | 6975 |
 | EXPERIMENTS/003-information-sufficiency/witnesses.py | de209bb5ad21 | 7428 |
+| DECISIONS.md | bc124895e526 | 15808 |
+| ROADMAP.md | 3f88e4f570be | 4563 |
+| STATE.md | 09f3a82eb877 | 9121 |
 
 ## Commands
 
-9 captured, 2 non-zero exit.
+10 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -52,16 +59,17 @@ _(none recorded)_
 | 9 | ['python3', 'EXPERIMENTS/003-information-sufficiency/witness.py'] | 0 | 127 |
 | 18 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 85278 |
 | 19 | ['tools/origin', 'doc', 'lint'] | 0 | 825 |
+| 22 | ['tools/origin', 'doc', 'lint'] | 0 | 817 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md |
 
 ## Timeline
 
@@ -86,6 +94,19 @@ _(none recorded)_
 | 17 | 17:11:42 | artifact | wrote EXPERIMENTS/003-information-sufficiency/witnesses.py |
 | 18 | 17:13:12 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 19 | 17:13:20 | command | $ tools/origin doc lint |
+| 20 | 17:15:34 | decision | App JWT generator and App ID live under ~/.config/github-app/, not ephemeral /tmp |
+| 21 | 17:15:34 | decision | Run the information-sufficiency witness for every held candidate before implementing any of them |
+| 22 | 17:15:41 | command | $ tools/origin doc lint |
+| 23 | 17:15:45 | artifact | wrote DECISIONS.md |
+| 24 | 17:15:46 | artifact | wrote ROADMAP.md |
+| 25 | 17:15:46 | artifact | wrote STATE.md |
+| 26 | 17:16:15 | unlogged_change | changed but never declared as an artifact: tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md |
+| 27 | 17:16:15 | doc_update | updated DECISIONS.md |
+| 28 | 17:16:15 | doc_update | updated FAILURES.md |
+| 29 | 17:16:15 | doc_update | updated HYPOTHESES.md |
+| 30 | 17:16:15 | doc_update | updated ROADMAP.md |
+| 31 | 17:16:15 | doc_update | updated STATE.md |
+| 32 | 17:16:15 | session_end | Applied the information-sufficiency witness to the three held candidates: W1 sidewalk survey and W3 ventilation survive (a permitted observation separ |
 
 ## Reproduce this record
 
