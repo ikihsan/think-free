@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `failed`
 - **Agent:** `codex-multivm-20261003`
 - **Started:** 2026-10-03T20:47:49+05:30
-- **Duration:** ?s
+- **Duration:** 0.0s
 - **Host:** `fedora`
 - **Branch:** `task/T-0004-codex-local`
 
@@ -23,7 +23,11 @@ Complete and verify exclusive multi-VM ownership and synchronized session bounda
 
 ## Summary
 
-_(none recorded)_
+codex session on host fedora ended without a session_end; T-0004 taken over by opencode in session 017 with recorded reason; the codex task branch was never pushed
+
+## Next
+
+none
 
 ## Artifacts
 
@@ -39,7 +43,6 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -51,6 +54,7 @@ _none_
 |---|---|---|---|
 | 1 | 20:47:49 | session_start | Complete and verify exclusive multi-VM ownership and synchronized session boundaries |
 | 2 | 20:47:49 | note | Startup: fetched origin, created isolated task worktree from 911ef96, published T-0004 claim before work. Original checkout paused rebase and six unpu |
+| 3 | 16:50:35 | session_end | codex session on host fedora ended without a session_end; T-0004 taken over by opencode in session 017 with recorded reason; the codex task branch was |
 
 ## Reproduce this record
 
