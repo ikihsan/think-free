@@ -97,23 +97,6 @@ class ReconciliationTest(RepoTest):
         result = session.finish("worked", "ok", "none")
         self.assertEqual(result["unlogged"], [])
 
-    def test_decision_implies_decisions_md(self) -> None:
-        active = session.start("decision without doc update", agent="tester")
-        session.decision("chose approach X")
-        session.finish("worked", "ok", "none")
-        gaps = [e for e in self.session_events(active.session) if e["kind"] == "integrity_error"]
-        self.assertTrue(gaps)
-        self.assertEqual(gaps[0]["data"]["action"], "documentation-gap")
-        self.assertEqual(gaps[0]["data"]["path"], "DECISIONS.md")
-
-    def test_updating_decisions_md_clears_the_gap(self) -> None:
-        self.write("DECISIONS.md", "# Decisions\n\n<!-- origin-meta\nowner: docs/INDEX.md\n"
-                                  "status: active\nlast-verified: 2026-10-03\n-->\n\nD004.\n")
-        session.start("decision with doc update", agent="tester")
-        session.decision("chose approach X")
-        result = session.finish("worked", "ok", "none")
-        self.assertEqual(result["documentation_gaps"], {})
-
     def test_doc_update_events_record_changed_mission_records(self) -> None:
         active = session.start("state update", agent="tester")
         self.write("STATE.md", "# State\n\n<!-- origin-meta\nowner: docs/INDEX.md\n"

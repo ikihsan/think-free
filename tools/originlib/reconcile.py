@@ -15,10 +15,20 @@ from . import events, gitutil, paths
 # A mission record is *implicated* by these event kinds. If such an event lands
 # but the corresponding record did not change in git, that is an integrity gap
 # worth reporting rather than leaving for a reader to notice.
+#
+# Each entry is (mode, records):
+#
+#   "all"  every record must change. An experiment result has to reach both the
+#          hypothesis record and the failure record; weakening that to "either"
+#          would let a disproved candidate be recorded in only one place.
+#   "any"  at least one record must change, and the report names records[0].
+#          The decision log is split by invariant across three files, so the
+#          event cannot say which entry was written and demanding all three
+#          would report a gap on every correct session.
 IMPLICATIONS = {
-    "decision": ("DECISIONS.md",),
-    "experiment_result": ("HYPOTHESES.md", "FAILURES.md"),
-    "block": ("STATE.md",),
+    "decision": ("any", ("DECISIONS.md", "DECISIONS-PRACTICE.md", "DECISIONS-FOUNDATION.md")),
+    "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),
+    "block": ("all", ("STATE.md",)),
 }
 
 
@@ -109,14 +119,25 @@ def _is_generated(rel: str) -> bool:
 
 
 def doc_implications(active) -> dict[str, list[str]]:
-    """Mission records implied by this session's events that did not change."""
+    """Mission records implied by this session's events that did not change.
+
+    Each event kind carries its own mode: "any" reports one gap naming the group
+    when nothing in it moved, "all" reports one gap per record that did not.
+    """
     changed = set(gitutil.changed_paths(active.start_head))
-    implied: dict[str, set[str]] = {}
+    triggered: dict[str, set[str]] = {}
     for event in events.events_for(active.session):
-        for record in IMPLICATIONS.get(event.kind, ()):
-            implied.setdefault(record, set()).add(event.kind)
-    return {
-        record: sorted(kinds)
-        for record, kinds in sorted(implied.items())
-        if record not in changed
-    }
+        implication = IMPLICATIONS.get(event.kind)
+        if implication:
+            triggered[event.kind] = set(implication[1])
+    gaps: dict[str, list[str]] = {}
+    for kind, records in triggered.items():
+        mode, group = IMPLICATIONS[kind]
+        if mode == "any":
+            if any(record in changed for record in records):
+                continue
+            gaps[group[0]] = [kind]
+            continue
+        for record in sorted(records - changed):
+            gaps[record] = sorted(gaps.get(record, []) + [kind])
+    return gaps

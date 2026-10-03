@@ -75,7 +75,10 @@ tools/origin session block "needs a VM with GPU"
 ```
 
 These are not decoration. On `finish`, a `decision` event that is not matched by
-a change to `DECISIONS.md` becomes an `integrity_error`. The same applies to
+a change to any decision record becomes an `integrity_error`. The log is split
+by invariant across `DECISIONS.md` (index), `DECISIONS-FOUNDATION.md`, and
+`DECISIONS-PRACTICE.md`, so *any one* of them satisfies the check — demanding all
+three would report a gap on every correct session. The same applies to
 `experiment_result` and `HYPOTHESES.md`, `FAILURES.md`, and `block` and
 `STATE.md`. The tooling enforces that the record and the documents agree.
 

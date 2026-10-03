@@ -13,17 +13,19 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## A — Independent exploration
 
-**Status: partial.** Four of six roles sealed.
+**Status: partial.** All six roles sealed; the consolidation below is partial.
 
 - [x] Verify the environment and record actual limits (`EXPERIMENTS/000-capabilities`)
 - [x] Preserve the mission and boundaries (`MISSION.md`)
 - [x] Sealed reports A–D (`RESEARCH/A.md`–`D.md`)
-- [ ] Investigation E: experimental engineer — mechanisms that can be cheaply
-      subjected to hard tests. **Not run.**
-- [ ] Investigation F: adoption researcher — what makes a difficult capability
-      understandable and adoptable. **Not run.**
-- [ ] Consolidate the four reports into competing hypotheses, preserving
-      disagreements. Partly done in `HYPOTHESES.md`.
+- [x] Investigation E: experimental engineer — three cheap falsifiable
+      mechanisms. Sealed 2026-10-03 (T-0002); all three remain `untested`.
+- [x] Investigation F: adoption researcher — six pre-release checkable criteria.
+      Sealed 2026-10-03 (T-0003); the criteria become a gate at stage D, not a
+      candidate screen.
+- [ ] Consolidate the reports into competing hypotheses, preserving
+      disagreements. Partly done in `HYPOTHESES.md`; the cross-report screen is
+      `RESEARCH/SYNTHESIS.md` (T-0012).
 
 ## B — Experimental discovery
 
@@ -36,7 +38,10 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Apply the information-sufficiency test to the three held candidates (`003-information-sufficiency`, T-0008: W1/W3 survive, W2 spec insufficient, F007)
 - [x] Run the A1 masking experiment on the PPNA sidewalk extract (`002-a1-masking`, T-0005/T-0006/T-0007: count-budget gate met, fieldwork-cost gate fails, F006)
 - [ ] Run at least two materially different falsification experiments before any
-      commitment decision
+      commitment decision. One run: `002-a1-masking` (a masked-real-data
+      decision-policy experiment). `004-knitting-stage-a` is a second mechanism
+      but a third domain; `RESEARCH/SYNTHESIS.md` names the ventilation protocol
+      as the next materially different one.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
       fairness
 

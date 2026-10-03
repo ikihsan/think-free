@@ -58,3 +58,368 @@ cwd: /home/ubuntu/think-free
 landed on research/origin at 65c39e6b23ca
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 3714  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T19:16:02+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated sessions/INDEX.md
+updated tasks/INDEX.md
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1195  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T19:16:03+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 258 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1318  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T19:16:10+00:00
+$ tools/origin task verify T-0012
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0012: `test -f RESEARCH/SYNTHESIS.md && grep -q 'origin-meta' RESEARCH/SYNTHESIS.md && grep -q 'Sealed' RESEARCH.md && grep -q 'Investigation E: experimental engineer' ROADMAP.md && ! grep -qE '^\| E \| Experimental engineer \| \*\*Not run\*\*' RESEARCH.md && tools/origin doc lint` -> exit 0 in 1.22s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1589  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T19:17:39+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.........................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+................................................................................
+----------------------------------------------------------------------
+Ran 168 tests in 85.216s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 85612  redactions: none
+==============================================================================
+[seq 21] 2026-10-03T19:24:14+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_session -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_directory_expands_to_files (tests.test_session.ArtifactBatchTest) ... ok
+test_duplicate_paths_are_declared_once (tests.test_session.ArtifactBatchTest) ... ok
+test_missing_directory_is_a_usage_error (tests.test_session.ArtifactBatchTest) ... origin: --dir is not a directory: nope
+ok
+test_multiple_paths_are_declared_individually (tests.test_session.ArtifactBatchTest) ... ok
+test_no_arguments_is_a_usage_error (tests.test_session.ArtifactBatchTest) ... origin: give one or more paths, or at least one --dir
+ok
+test_command_is_logged_with_line_range_and_exit_code (tests.test_session.CommandCaptureTest) ... ok
+test_non_zero_exit_is_preserved (tests.test_session.CommandCaptureTest) ... ok
+test_secret_in_output_is_redacted_before_disk (tests.test_session.CommandCaptureTest) ... ok
+test_without_a_session_nothing_is_recorded (tests.test_session.CommandCaptureTest) ... ok
+test_report_is_generated_and_within_the_line_cap (tests.test_session.GeneratedReportTest) ... ok
+test_report_regeneration_is_idempotent (tests.test_session.GeneratedReportTest) ... ok
+test_directory_sweep_skips_ignored_files (tests.test_session.IgnoredArtifactTest) ... ok
+test_explicit_ignored_path_is_skipped_not_fatal (tests.test_session.IgnoredArtifactTest) ... ok
+test_ignored_file_is_refused (tests.test_session.IgnoredArtifactTest) ... ok
+test_empty_goal_is_refused (tests.test_session.LifecycleTest) ... ok
+test_finish_clears_the_pointer_and_closes_the_stream (tests.test_session.LifecycleTest) ... ok
+test_finish_rejects_an_unknown_outcome (tests.test_session.LifecycleTest) ... ok
+test_require_active_without_a_session_raises (tests.test_session.LifecycleTest) ... ok
+test_second_start_is_refused (tests.test_session.LifecycleTest) ... ok
+test_session_ids_increment_within_a_day (tests.test_session.LifecycleTest) ... ok
+test_start_writes_a_pointer_and_an_event (tests.test_session.LifecycleTest) ... ok
+test_status_is_quiet_without_a_session (tests.test_session.LifecycleTest) ... ok
+test_status_reports_the_active_session (tests.test_session.LifecycleTest) ... ok
+test_decision_group_reports_one_path_not_three (tests.test_session.ReconciliationTest) ... ok
+test_decision_implies_decisions_md (tests.test_session.ReconciliationTest) ... ok
+test_declared_artifact_is_not_reported (tests.test_session.ReconciliationTest) ... ok
+test_deleted_artifact_is_reported (tests.test_session.ReconciliationTest) ... ok
+test_doc_update_events_record_changed_mission_records (tests.test_session.ReconciliationTest) ... ok
+test_session_bookkeeping_is_not_flagged (tests.test_session.ReconciliationTest) ... ok
+test_undeclared_change_emits_an_event (tests.test_session.ReconciliationTest) ... ok
+test_undeclared_change_is_detected (tests.test_session.ReconciliationTest) ... ok
+test_updating_any_decision_file_clears_the_gap (tests.test_session.ReconciliationTest)
+The decision log is split by invariant; any member satisfies the gate. ... ok
+test_updating_decisions_md_clears_the_gap (tests.test_session.ReconciliationTest) ... ok
+test_updating_the_foundation_record_also_clears_the_gap (tests.test_session.ReconciliationTest) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 10.070s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10412  redactions: none
+==============================================================================
+[seq 31] 2026-10-03T19:25:49+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 604  redactions: none
+==============================================================================
+[seq 32] 2026-10-03T19:25:50+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 260 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  FAIL  tests/test_session.py: 319 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 1292  redactions: none
+==============================================================================
+[seq 33] 2026-10-03T19:26:27+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_decision_without_any_record_change_is_reported (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_group_reports_one_path_not_three (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_updating_the_foundation_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_updating_the_index_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_updating_the_practice_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_experiment_result_without_records_is_reported (tests.test_doc_gaps.ExperimentGapTest) ... FAIL
+test_writing_only_the_failure_record_still_reports_the_gap (tests.test_doc_gaps.ExperimentGapTest) ... FAIL
+
+======================================================================
+FAIL: test_experiment_result_without_records_is_reported (tests.test_doc_gaps.ExperimentGapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 75, in test_experiment_result_without_records_is_reported
+    self.assertEqual(sorted(result["documentation_gaps"]),
+AssertionError: Lists differ: ['HYPOTHESES.md'] != ['FAILURES.md', 'HYPOTHESES.md']
+
+First differing element 0:
+'HYPOTHESES.md'
+'FAILURES.md'
+
+Second list contains 1 additional elements.
+First extra element 1:
+'HYPOTHESES.md'
+
+- ['HYPOTHESES.md']
++ ['FAILURES.md', 'HYPOTHESES.md']
+
+======================================================================
+FAIL: test_writing_only_the_failure_record_still_reports_the_gap (tests.test_doc_gaps.ExperimentGapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 83, in test_writing_only_the_failure_record_still_reports_the_gap
+    self.assertEqual(list(result["documentation_gaps"]), ["HYPOTHESES.md"])
+AssertionError: Lists differ: [] != ['HYPOTHESES.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'HYPOTHESES.md'
+
+- []
++ ['HYPOTHESES.md']
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.396s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2699  redactions: none
+==============================================================================
+[seq 34] 2026-10-03T19:27:34+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps tests.test_session -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_decision_without_any_record_change_is_reported (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_group_reports_one_path_not_three (tests.test_doc_gaps.DecisionGapTest) ... ok
+test_updating_the_foundation_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... FAIL
+test_updating_the_index_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... FAIL
+test_updating_the_practice_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest) ... FAIL
+test_experiment_result_without_records_is_reported (tests.test_doc_gaps.ExperimentGapTest) ... ok
+test_writing_only_the_failure_record_still_reports_the_gap (tests.test_doc_gaps.ExperimentGapTest) ... ok
+test_directory_expands_to_files (tests.test_session.ArtifactBatchTest) ... ok
+test_duplicate_paths_are_declared_once (tests.test_session.ArtifactBatchTest) ... ok
+test_missing_directory_is_a_usage_error (tests.test_session.ArtifactBatchTest) ... origin: --dir is not a directory: nope
+ok
+test_multiple_paths_are_declared_individually (tests.test_session.ArtifactBatchTest) ... ok
+test_no_arguments_is_a_usage_error (tests.test_session.ArtifactBatchTest) ... origin: give one or more paths, or at least one --dir
+ok
+test_command_is_logged_with_line_range_and_exit_code (tests.test_session.CommandCaptureTest) ... ok
+test_non_zero_exit_is_preserved (tests.test_session.CommandCaptureTest) ... ok
+test_secret_in_output_is_redacted_before_disk (tests.test_session.CommandCaptureTest) ... ok
+test_without_a_session_nothing_is_recorded (tests.test_session.CommandCaptureTest) ... ok
+test_report_is_generated_and_within_the_line_cap (tests.test_session.GeneratedReportTest) ... ok
+test_report_regeneration_is_idempotent (tests.test_session.GeneratedReportTest) ... ok
+test_directory_sweep_skips_ignored_files (tests.test_session.IgnoredArtifactTest) ... ok
+test_explicit_ignored_path_is_skipped_not_fatal (tests.test_session.IgnoredArtifactTest) ... ok
+test_ignored_file_is_refused (tests.test_session.IgnoredArtifactTest) ... ok
+test_empty_goal_is_refused (tests.test_session.LifecycleTest) ... ok
+test_finish_clears_the_pointer_and_closes_the_stream (tests.test_session.LifecycleTest) ... ok
+test_finish_rejects_an_unknown_outcome (tests.test_session.LifecycleTest) ... ok
+test_require_active_without_a_session_raises (tests.test_session.LifecycleTest) ... ok
+test_second_start_is_refused (tests.test_session.LifecycleTest) ... ok
+test_session_ids_increment_within_a_day (tests.test_session.LifecycleTest) ... ok
+test_start_writes_a_pointer_and_an_event (tests.test_session.LifecycleTest) ... ok
+test_status_is_quiet_without_a_session (tests.test_session.LifecycleTest) ... ok
+test_status_reports_the_active_session (tests.test_session.LifecycleTest) ... ok
+test_declared_artifact_is_not_reported (tests.test_session.ReconciliationTest) ... ok
+test_deleted_artifact_is_reported (tests.test_session.ReconciliationTest) ... ok
+test_doc_update_events_record_changed_mission_records (tests.test_session.ReconciliationTest) ... ok
+test_session_bookkeeping_is_not_flagged (tests.test_session.ReconciliationTest) ... ok
+test_undeclared_change_emits_an_event (tests.test_session.ReconciliationTest) ... ok
+test_undeclared_change_is_detected (tests.test_session.ReconciliationTest) ... ok
+
+======================================================================
+FAIL: test_updating_the_foundation_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 57, in test_updating_the_foundation_record_clears_the_gap
+    self.assertEqual(result["documentation_gaps"], {})
+AssertionError: {'DECISIONS.md': ['decision']} != {}
+- {'DECISIONS.md': ['decision']}
++ {}
+
+======================================================================
+FAIL: test_updating_the_index_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 45, in test_updating_the_index_record_clears_the_gap
+    self.assertEqual(result["documentation_gaps"], {})
+AssertionError: {'DECISIONS.md': ['decision']} != {}
+- {'DECISIONS.md': ['decision']}
++ {}
+
+======================================================================
+FAIL: test_updating_the_practice_record_clears_the_gap (tests.test_doc_gaps.DecisionGapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doc_gaps.py", line 51, in test_updating_the_practice_record_clears_the_gap
+    self.assertEqual(result["documentation_gaps"], {})
+AssertionError: {'DECISIONS.md': ['decision']} != {}
+- {'DECISIONS.md': ['decision']}
++ {}
+
+----------------------------------------------------------------------
+Ran 36 tests in 11.103s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 11508  redactions: none
+==============================================================================
+[seq 35] 2026-10-03T19:27:55+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_doc_gaps tests.test_session
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.........................
+----------------------------------------------------------------------
+Ran 36 tests in 11.326s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11700  redactions: none
+==============================================================================
+[seq 38] 2026-10-03T19:29:31+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..............................................................................
+----------------------------------------------------------------------
+Ran 173 tests in 87.400s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 87815  redactions: none
+==============================================================================
+[seq 39] 2026-10-03T19:29:32+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 261 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 379 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1215  redactions: none
+==============================================================================
+[seq 41] 2026-10-03T19:30:32+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 261 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 402 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1201  redactions: none

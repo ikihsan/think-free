@@ -24,9 +24,12 @@ interfere with the working repository.
 | `test_events.py` | Event ordering, schema validation, malformed-line handling |
 | `test_secrets.py` | Secret detection, redaction, artifact refusal |
 | `test_session.py` | Lifecycle, reconciliation, command capture, reports |
+| `test_doc_gaps.py` | Documentation-gap implications: `any` and `all` record groups |
 | `test_tasks.py` | Task creation, claim conflicts, verification, index |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
+| `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees |
+| `test_sync.py` | Pull, push, land, rebase, divergence reporting |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,

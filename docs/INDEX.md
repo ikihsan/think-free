@@ -82,6 +82,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md`](../tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0009-repair-the-knitting-witness-input-set-by-adding.md`](../tasks/T-0009-repair-the-knitting-witness-input-set-by-adding.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](../tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](../tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](../tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -96,6 +98,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`RESEARCH/F.md`](../RESEARCH/F.md) | `RESEARCH.md` | sealed | 2026-10-03 | Independent report. Written 2026-10-03 after reading MISSION.md only; |
 | [`RESEARCH/README.md`](../RESEARCH/README.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
 | [`RESEARCH/ROOT-SCOUTING.md`](../RESEARCH/ROOT-SCOUTING.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
+| [`RESEARCH/SYNTHESIS.md`](../RESEARCH/SYNTHESIS.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
 
 ## EXPERIMENTS
 

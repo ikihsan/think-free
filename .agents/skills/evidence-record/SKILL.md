@@ -71,16 +71,22 @@ Requirements:
 
 ## Decision record
 
-`DECISIONS.md` entries: identifier, date, what was decided, the evidence, the
+Decision-log entries: identifier, date, what was decided, the evidence, the
 alternatives rejected, and the reason. Record a decision when a choice was
 genuinely open and the choice constrains later work — not every edit.
+
+Which file it goes in is decided by invariant, not by size. `DECISIONS.md` is
+the index; `DECISIONS-FOUNDATION.md` holds what the mission is, what the
+workspace is, and what counts as evidence; `DECISIONS-PRACTICE.md` holds how
+work is recorded, verified, published, and gated.
 
 ```bash
 tools/origin session decision "…" --refs <files>
 ```
 
 `session finish` fails with a documentation gap if a `decision` event exists and
-`DECISIONS.md` did not change. That check is the point.
+no decision record changed. Any one of the three clears it. That check is the
+point.
 
 ## Failure record
 

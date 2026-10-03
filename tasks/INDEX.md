@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-10 task(s). Every task file declares a runnable verification command;
+12 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -23,6 +23,8 @@ last-verified: 2026-10-03
 | [`T-0008-apply-the-information-sufficiency-witness-to-the.md`](T-0008-apply-the-information-sufficiency-witness-to-the.md) | done |  | test -f EXPERIMENTS/003-information-sufficiency/ | 2026-10-03 |
 | [`T-0009-repair-the-knitting-witness-input-set-by-adding.md`](T-0009-repair-the-knitting-witness-input-set-by-adding.md) | done |  | python3 EXPERIMENTS/003-information-sufficiency/ | 2026-10-03 |
 | [`T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | done |  | test -f EXPERIMENTS/004-knitting-stage-a/results | 2026-10-03 |
+| [`T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | claimed | opencode | test -f EXPERIMENTS/005-knitting-bounded-search/ | 2026-10-03 |
+| [`T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | claimed | opencode | test -f RESEARCH/SYNTHESIS.md && grep -q 'origin | 2026-10-03 |
 
 ## How tasks run on another machine
 

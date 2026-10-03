@@ -26,9 +26,13 @@ ZONES = (
 )
 
 # Root-level mission records that a session may need to update.
+# The decision log is split by invariant (see DECISIONS.md); all three files are
+# listed so a change to any of them is logged as a doc update.
 MISSION_RECORDS = (
     "STATE.md",
     "DECISIONS.md",
+    "DECISIONS-FOUNDATION.md",
+    "DECISIONS-PRACTICE.md",
     "HYPOTHESES.md",
     "FAILURES.md",
     "ROADMAP.md",

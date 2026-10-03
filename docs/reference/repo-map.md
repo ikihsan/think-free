@@ -67,10 +67,11 @@ Edit the source, never the output.
 `sessions/<id>/events.jsonl`, append-only.
 
 **The documents** are authoritative for conclusions: `HYPOTHESES.md`,
-`DECISIONS.md`, `FAILURES.md`, `STATE.md`.
+`DECISIONS.md` (with its two split siblings `DECISIONS-FOUNDATION.md` and
+`DECISIONS-PRACTICE.md`), `FAILURES.md`, `STATE.md`.
 
 They are cross-checked rather than merged. `session finish` reports a gap when a
-decision was recorded but `DECISIONS.md` did not change. A mismatch means one of
+decision was recorded but no decision record changed. A mismatch means one of
 the two is stale, and the fix is to correct whichever is wrong, not to soften the
 check.
 
