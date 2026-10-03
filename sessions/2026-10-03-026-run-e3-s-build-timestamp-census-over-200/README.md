@@ -49,10 +49,21 @@ _(none recorded)_
 | docs/INDEX.md | d6c4767e65ca | 11736 |
 | tasks/INDEX.md | 2470dd3092d2 | 4083 |
 | EXPERIMENTS/007-build-timestamps/census.py | d718786e343a | 10966 |
+| HYPOTHESES.md | 28ded247861e | 10230 |
+| HYPOTHESES-results.md | 966d372bba37 | 12112 |
+| DECISIONS-PRACTICE.md | 736a7a445dfd | 17163 |
+| FAILURES.md | 8d6e8757ccf0 | 3598 |
+| FAILURES-findings-2.md | d313b217ae1b | 8293 |
+| STATE.md | 06dc09344051 | 16351 |
+| tasks/CLAIMS.jsonl | cc828fe0c508 | 13607 |
+| tasks/T-0017-build-one-source-twice-under-different-source-da.md | cfdfdcecc229 | 3782 |
+| EXPERIMENTS/007-build-timestamps/README.md | 20fad5641c55 | 9062 |
+| ROADMAP.md | f6fa15051e2d | 6735 |
+| RESEARCH.md | 8e368d938b27 | 6052 |
 
 ## Commands
 
-7 captured, 0 non-zero exit.
+8 captured, 0 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -63,6 +74,7 @@ _(none recorded)_
 | 12 | ['python3', 'EXPERIMENTS/007-build-timestamps/census.py'] | 0 | 36271 |
 | 16 | ['python3', 'EXPERIMENTS/007-build-timestamps/census.py'] | 0 | 37082 |
 | 28 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 88813 |
+| 36 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 87601 |
 
 ## Integrity
 
@@ -113,6 +125,19 @@ _(none recorded)_
 | 33 | 21:30:36 | artifact | wrote tasks/INDEX.md |
 | 34 | 21:30:36 | milestone | T-0013 complete: census landed as EXPERIMENTS/007-build-timestamps, gate met at 0.965 but recorded as near-vacuous (F009), attribution deferred to T-0 |
 | 35 | 21:31:33 | artifact | wrote EXPERIMENTS/007-build-timestamps/census.py |
+| 36 | 21:38:19 | command | $ python3 -m unittest discover -s tests |
+| 37 | 21:38:43 | decision | Rebased T-0013 onto the other VM's concurrent T-0015 landing and renumbered this session's identifiers to T-0017, F010 and D023: session 029 on instan |
+| 38 | 21:38:51 | artifact | wrote HYPOTHESES.md |
+| 39 | 21:38:51 | artifact | wrote HYPOTHESES-results.md |
+| 40 | 21:38:51 | artifact | wrote DECISIONS-PRACTICE.md |
+| 41 | 21:38:51 | artifact | wrote FAILURES.md |
+| 42 | 21:38:51 | artifact | wrote FAILURES-findings-2.md |
+| 43 | 21:38:51 | artifact | wrote STATE.md |
+| 44 | 21:38:51 | artifact | wrote tasks/CLAIMS.jsonl |
+| 45 | 21:38:52 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
+| 46 | 21:38:52 | artifact | wrote EXPERIMENTS/007-build-timestamps/README.md |
+| 47 | 21:38:52 | artifact | wrote ROADMAP.md |
+| 48 | 21:38:52 | artifact | wrote RESEARCH.md |
 
 ## Reproduce this record
 

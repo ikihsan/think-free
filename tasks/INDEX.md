@@ -25,7 +25,7 @@ last-verified: 2026-10-03
 | [`T-0010-run-the-knitting-stage-a-planner-comparison-loca.md`](T-0010-run-the-knitting-stage-a-planner-comparison-loca.md) | done |  | test -f EXPERIMENTS/004-knitting-stage-a/results | 2026-10-03 |
 | [`T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md`](T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md) | done |  | test -f EXPERIMENTS/005-knitting-bounded-search/ | 2026-10-03 |
 | [`T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | done |  | test -f RESEARCH/SYNTHESIS.md && grep -q 'origin | 2026-10-03 |
-| [`T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | claimed | opencode | test -f EXPERIMENTS/007-build-timestamps/results | 2026-10-03 |
+| [`T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | done |  | test -f EXPERIMENTS/007-build-timestamps/results | 2026-10-03 |
 | [`T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md`](T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md) | done |  | test -f EXPERIMENTS/006-ventilation-measurement- | 2026-10-03 |
 | [`T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md`](T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md) | done |  | test -f RESEARCH/PRIOR-ART-KNITTING.md && for f  | 2026-10-03 |
 | [`T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md`](T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |

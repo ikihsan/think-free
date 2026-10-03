@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0013
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 2026-10-03-026-run-e3-s-build-timestamp-census-over-200
