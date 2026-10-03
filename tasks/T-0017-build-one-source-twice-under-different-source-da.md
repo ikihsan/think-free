@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0017
-status: open
+status: claimed
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+claim-vm: instance-20260717-0944
 verify: test -d EXPERIMENTS/008-build-timestamp-attribution && python3 -c "import json;d=json.load(open('EXPERIMENTS/008-build-timestamp-attribution/results.json'));assert d['builds']>=6;assert d['attribution'];assert d['gate']['verdict'] in ('timestamps-first','timestamps-not-first','inconclusive')" && grep -q '008-build-timestamp-attribution' HYPOTHESES.md && tools/origin doc lint
 -->
 
