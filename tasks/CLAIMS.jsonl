@@ -58,3 +58,4 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0019", "ts": "2026-10-03T22:25:41+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu", "task": "T-0019", "ts": "2026-10-03T22:25:53+00:00", "vm": "instance-20260717-0947"}
 {"action": "complete", "evidence": ["EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json"], "reason": "Side A banked: 8 artifacts with sha256 in snapshot-a.json; README states no verdict until side B", "schema": "origin.task.claim/1", "task": "T-0019", "ts": "2026-10-03T22:26:44+00:00"}
+{"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0019", "ts": "2026-10-03T22:26:54+00:00", "vm": "instance-20260717-0947"}
