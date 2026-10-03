@@ -18,7 +18,7 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Candidate | Source | State | Next experiment |
 |---|---|---|---|
 | Photo-migration auditor | `RESEARCH/B.md`, E001 | **Motivating example disproved** (`FAILURES.md` F001) | Needs a real case where bytes survive and relationships do not |
-| Knitting repair planner | `RESEARCH/C.md`, E002 | Hold; **witness repaired** (W2, T-0009) and **Stage-A planner question answered at the mechanism level** (T-0010, T-0011): whole-neighbourhood search is exact 115/115, per-error 85/115, verdict narrow | Prior art on equivalent intervention sequences, then Stage B |
+| Knitting repair planner | `RESEARCH/C.md`, E002 | **Algorithmic-advantage claim abandoned** (`FAILURES.md` F009): minimum-cost repair planning is prior art from 2007–2026, and no tool was found that supplies an intervention sequence for an existing hand-knit structure. Stage A was already settled (T-0010, T-0011) | Nothing software-side. Only Stage B physical work with an experienced knitter, and only after checking that entering the chart patch does not already imply the user can do the repair |
 | Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | **Stopped as formulated** (`FAILURES.md` F008, T-0014): a prescribed door-open protocol beats adaptive action selection at equal budget, 0.833 vs 0.792 | Only if the surviving robustness observation (read a second sensor under poor mixing) is tested against existing tools |
 | Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
@@ -129,6 +129,28 @@ saving appears only where closures fragment. Verdict: the Stage-A planner questi
 is **answered at the mechanism level** — narrow, not abandoned — and the
 candidate's remaining gate is prior art plus unperformed Stage-B physical work,
 not more synthetic planner search. Recorded in `DECISIONS-PRACTICE.md` D021.
+
+**W2 prior-art check (T-0015, `RESEARCH/PRIOR-ART-KNITTING.md`).**
+`observed` for what was retrieved, `inferred` for the judgement. The kill gate's
+prior-art condition conflates two claims, and the report separates them. **The
+domain condition is not met:** no tool, paper, repository or patent was found
+that supplies an ordered, checkable intervention sequence for a structure
+someone has already knitted by hand — KnitPick (UIST 2019) and `knit_graph`
+provide the graph layer, EnvisioKnit's Chart Checker catches unknittable charts
+*before* knitting, KnittingFix diagnoses from photos, and the 1929–1953
+mending-machine patents show the physical capability existed as hardware. **The
+novelty condition is met and decisive:** computing a minimum-cost set of
+interventions under constraints, decomposed over neighbourhoods that cannot
+interact, is established work from 2007 to 2026 (optimal repairs for functional
+dependencies, repair *programs* as ordered operation sequences, graph repair
+ranking). T-0011 had already recorded that its own optimality follows from the
+model's structure.
+
+**Consequence.** The algorithmic-advantage claim is abandoned (`FAILURES.md`
+F009); no third synthetic planner experiment is warranted. What survives is a
+craft-tool question — would a knitter follow a generated plan and save real
+work — which is Stage B, needs an experienced knitter and authorization, and
+cannot run in this repository.
 
 **W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
 permitted input set: in each case an askable observation separates the realities,

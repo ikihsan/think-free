@@ -1,0 +1,1796 @@
+==============================================================================
+[seq 2] 2026-10-03T21:07:30+00:00
+$ bash -c for u in "https://html.duckduckgo.com/html/?q=test" "https://lite.duckduckgo.com/lite/?q=test" "https://search.marcia.cc/?q=test" "https://www.bing.com/search?q=test" "https://api.crossref.org/works?query=knitting&rows=1" "https://export.arxiv.org/api/query?search_query=all:knitting&max_results=1"; do code=$(curl -sS -o /dev/null -w "%{http_code}" -m 20 -A "Mozilla/5.0" "$u"); echo "$code  $u"; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+200  https://html.duckduckgo.com/html/?q=test
+202  https://lite.duckduckgo.com/lite/?q=test
+200  https://search.marcia.cc/?q=test
+200  https://www.bing.com/search?q=test
+200  https://api.crossref.org/works?query=knitting&rows=1
+200  https://export.arxiv.org/api/query?search_query=all:knitting&max_results=1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4408  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T21:07:47+00:00
+$ python3 /tmp/opencode/ddg.py fix knitting mistake without unraveling dropped stitch repair
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+QUERY  fix knitting mistake without unraveling dropped stitch repair
+HTTP   202  sha256=8ffbc8842640ffdd  bytes=14314
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 227  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T21:07:52+00:00
+$ bash -c curl -sS -m 25 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36" "https://html.duckduckgo.com/html/?q=knitted+fabric+repair+algorithm" | sed -e "s/<[^>]*>/ /g" | tr -s " \n" " \n" | head -c 1200; echo; echo "=== BING ==="; curl -sS -m 25 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36" "https://www.bing.com/search?q=knitted+fabric+repair+algorithm&count=20" | sed -e "s/<[^>]*>/ /g" | tr -s " \n" " \n" | head -c 1500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ DuckDuckGo
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ DuckDuckGo 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Unfortunately, bots use DuckDuckGo too. 
+ Please complete the following challenge to confirm this search was made by a human. 
+ Select all squares containing a duck: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Submit 
+ 
+ 
+ Images not loading? 
+ 
+ Please email the following code to: 
+ error-lite+4a8a@duckduckgo.com 
+ Code: 4a8a 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ here . //-->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== BING ===
+ "use strict";//<![CDATA[
+window.si_ST=new Date
+//]]> knitted fabric repair algorithm - Search <link rel="alternate"
+ href="/search?format=rss&amp;q=knitted+fabric+repair+algorithm&amp;count=20"title='XML'type='text/xml' /><link rel="alternate"
+ href="/search?format=rss&amp;q=knitted+fabric+repair+algorithm&amp;count=20"title='RSS'type='application/rss+xml' /><link rel="icon"
+ href="/sa/simg/favicon-trans-bg-blue-mg.svg" /><link rel="manifest"
+ href="/cricket/manifest.json"title='Bing'type='application/json' /> //<![CDATA[
+"use strict";
+window._G={Region:"IN",Lang:"en-US",ST:(typeof si_ST!=='undefined'?si_ST:new Date),Mkt:"en-US",RevIpCC:"in",RTL:false,Ver:"40",IG:"9008957BF672495594072626DEE279DF",EventID:"6ac16ea862b749438bbe799d962f2537",V:"web",P:"SERP",DA:"PUSE01",CID:"0811197C44F96B2235F30E9B455D6A19",SUIH:"P6ceQH_KdMsZRruRfdHafQ",adc:"b_ad",EF:{swapphases:1,bmcov:1,crossdomainfix:1,bmasynctrigger:1,bmasynctrigger3:1,getslctspt:1,clicktodynevent:1,newtabsloppyclick:1,chevroncheckmousemove:1,sharepreview:1,shareoutimage:1,sharefixreadnum:1,clickbackRSAfterOnP1:1,clickbackRSonTopW:1,cbRSHoveronTopW:1,clickbackRSonAdAlgo:1,cbrsmoprssup:1,enableClickbackRSInTab:1,isClickbackRSInTab:1,clickbackAjaxRsFlare:1,cbRSOnAnswer:1,cbrsAnswerHover:1,cbRSOnAnswerFlare:1,cbRSOnAnswerCF:1,cbrsEndAjaxFlare:1,cbRSInLastMLTA:1,cbRSInLastMLTAFlare:1,cbRSBelowMLTA:1,cbrsOffscreen:1,cbrsOnP1Delay:1,cbrsScrollGate:1,cbrscopyboprs:1,ensnrbopmrs:1,enableMultiCBRS:1,multiCBRSLog:1,disMultiCB
+
+[stderr]
+curl: (23) Failed writing body (3860 != 16284)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 497  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T21:08:06+00:00
+$ python3 /tmp/opencode/search.py web fix knitting mistake without unraveling dropped stitch repair
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### web  fix knitting mistake without unraveling dropped stitch repair
+HTTP 200  bytes=4943  sha256=68572c245497c967
+ 1. iFixit: The Free Repair Manual
+    https://www.ifixit.com/
+    Get the instructions you need with quality repair parts and tools and the expertise of a robust community. Learn how to fix anything with simple, easy-to-follow instructions created by real fixers. Precision tools and th
+ 2. FIX Definition & Meaning - Merriam-Webster
+    https://www.merriam-webster.com/dictionary/fix
+    The meaning of FIX is to make something whole or able to work properly again : repair, mend. How to use fix in a sentence. Synonym Discussion of Fix.
+ 3. FIX | English meaning - Cambridge Dictionary
+    https://dictionary.cambridge.org/dictionary/english/fix
+    FIX definition: 1. to repair something: 2. to arrange or agree a time, place, price, etc.: 3. to fasten something…. Learn more.
+ 4. THE FIX | Official Trailer | In Theaters September 11
+    https://www.youtube.com/watch?v=NYC0v8xqQdM
+    TICKETS ON SALE NOW at: TheFixMov.com THE FIX follows a group of war-torn CIA operators mentored by “Larry” (Liam Neeson) and led by “Tucker” (Zachary Levi) who, after their mission in...
+ 5. FIX | definition in the Cambridge English Dictionary
+    https://dictionary.cambridge.org/us/dictionary/english/fix
+    FIX meaning: 1. to repair something: 2. to arrange or agree a time, place, price, etc.: 3. to fasten something…. Learn more.
+ 6. Fix - definition of fix by The Free Dictionary
+    https://www.thefreedictionary.com/fix
+    Define fix. fix synonyms, fix pronunciation, fix translation, English dictionary definition of fix. v. fixed , fix·ing , fix·es v. tr. 1. a. To correct or set right; adjust: fix a misspelling; fix the out-of-date account
+ 7. The Fix Exclusive Trailer (2026) - YouTube
+    https://www.youtube.com/watch?v=dK1jCc2vlVQ
+    Check out the Official Trailer for The Fix starring Liam Neeson! Buy Tickets on Fandango: https://www.fandango.com/the-fix-2026...
+ 8. Fix.com | Your Source for Genuine Parts & DIY Repair Help
+    https://www.fix.com/
+    Fix.com is a one-stop source for fixing products in and around your home. Millions of quality OEM replacement parts, repair videos, instructions, and same-day shipping available!
+ 9. 5% on prepaid order offer on prepaid – Fixderma Skincare
+    https://www.fixderma.com/
+    With Fixderma's Brightening Lip Balm with SPF 50 PA+++, your daily fix for hydration, sun protection, and a visibly more even lip tone. It’s light, practical, and made to suit both men and women who want soft, healthy-lo
+10. Fix - Definition, Meaning & Synonyms | Vocabulary.com
+    https://www.vocabulary.com/dictionary/fix
+    verb prepare for eating by applying heat “ fix breakfast for the guests, please” synonyms: cook, make, prepare, ready make gather and light the materials for
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 440  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T21:08:16+00:00
+$ bash -c for u in "https://www.mojeek.com/search?q=knitted+fabric+repair+algorithm" "https://lite.duckduckgo.com/lite/?q=knitted+fabric+repair+algorithm" "https://searx.be/search?q=knitted+fabric+repair&format=json" "https://search.marcia.cc/search?q=test" "https://www.bing.com/search?format=rss&q=%22knitted+fabric%22+repair+algorithm"; do echo "--- $u"; curl -sS -m 25 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36" "$u" -w "[HTTP %{http_code} bytes %{size_download}]\n" -o /tmp/opencode/probe.html; grep -o -i -E "knit[a-z]*" /tmp/opencode/probe.html | head -5; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+--- https://www.mojeek.com/search?q=knitted+fabric+repair+algorithm
+[HTTP 200 bytes 5520]
+knitted
+--- https://lite.duckduckgo.com/lite/?q=knitted+fabric+repair+algorithm
+[HTTP 202 bytes 14236]
+knitted
+knitted
+--- https://searx.be/search?q=knitted+fabric+repair&format=json
+[HTTP 200 bytes 11354]
+--- https://search.marcia.cc/search?q=test
+[HTTP 302 bytes 0]
+--- https://www.bing.com/search?format=rss&q=%22knitted+fabric%22+repair+algorithm
+[HTTP 200 bytes 4988]
+knitted
+knitted
+knitted
+knitted
+Knit
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3880  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T21:08:53+00:00
+$ bash -c 
+probe() { echo "--- $1"; curl -sS -m 25 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36" "$1" -o /tmp/opencode/p.html -w "[HTTP %{http_code} bytes %{size_download}]\n"; head -c 400 /tmp/opencode/p.html | tr -s "\n" " " | sed -e "s/<[^>]*>/ /g" | tr -s " "; echo; }
+probe "https://api.openalex.org/works?search=knitted%20fabric%20repair&per-page=3&select=id,title,publication_year,doi"
+probe "https://api.semanticscholar.org/graph/v1/paper/search?query=knitted+fabric+repair&limit=3&fields=title,year,abstract,externalIds"
+probe "https://patents.google.com/xhr/query?url=q%3Dknitted%2Bfabric%2Brepair"
+probe "https://www.mojeek.com/search?q=knitted+fabric+repair+algorithm"
+probe "https://search.marginalia.nu/search?query=knitted+fabric+repair"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+--- https://api.openalex.org/works?search=knitted%20fabric%20repair&per-page=3&select=id,title,publication_year,doi
+[HTTP 200 bytes 1041]
+{"meta": {"count": 8738, "db_response_time_ms": 45, "page": 1, "per_page": 3, "groups_count": null, "x_query": {"oql": "works where full text has (knitted fabric repair)", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search", "value": "knitted fabric repair", "operator": "has"}]}, "url": "/works?filter=fulltext.search:knitted fabric repair&per_page=3"}, "cost_usd": 0.001}, 
+--- https://api.semanticscholar.org/graph/v1/paper/search?query=knitted+fabric+repair&limit=3&fields=title,year,abstract,externalIds
+[HTTP 200 bytes 6656]
+{"total": 15842, "offset": 0, "next": 3, "data": [{"paperId": "16e68f71fd590f2206e7c1bf99ebb54f3ce5c6ca", "externalIds": {"MAG": "2546480156", "DOI": "10.1016/j.jmbbm.2016.10.016", "CorpusId": 4246473, "PubMed": "27838593"}, "title": "The effect of fabric structure on the mechanical properties of warp knitted surgical mesh for hernia repair.", "year": 2017, "openAccessPdf": {"url": "", "status": "
+--- https://patents.google.com/xhr/query?url=q%3Dknitted%2Bfabric%2Brepair
+[HTTP 200 bytes 31086]
+{"results":{"total_num_results":123821,"total_num_pages":100,"many_results":false,"num_page":0,"cluster":[{"result":[{"id":"patent/CN107385655B/en","rank":0,"patent":{"title":" The production method of weft-knitted rib-loop tmaterial","snippet":" The present invention provides a kind of production method of weft-knitted rib-loop tmaterial, comprising the following steps: step 1 makes the correspon
+--- https://www.mojeek.com/search?q=knitted+fabric+repair+algorithm
+[HTTP 200 bytes 5520]
+ <meta name="monetization"
+--- https://search.marginalia.nu/search?query=knitted+fabric+repair
+[HTTP 302 bytes 145]
+ 
+ 302 Found 
+ 
+ 302 Found 
+ nginx/1.26.3 
+ 
+ 
+ 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5634  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T21:09:04+00:00
+$ bash -c 
+probe() { echo "--- $1"; curl -sS -m 25 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36" "$1" -o /tmp/opencode/p2.html -w "[HTTP %{http_code} bytes %{size_download}]\n"; grep -c -o -i "knit" /tmp/opencode/p2.html; }
+probe "https://search.brave.com/search?q=knitted+fabric+repair+algorithm"
+probe "https://www.ecosia.org/search?q=knitted+fabric+repair+algorithm"
+probe "https://yandex.com/search/?text=knitted+fabric+repair+algorithm"
+probe "https://www.google.com/search?q=knitted+fabric+repair+algorithm"
+probe "https://lite.duckduckgo.com/lite/?q=knitted+fabric+repair+algorithm"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+--- https://search.brave.com/search?q=knitted+fabric+repair+algorithm
+[HTTP 429 bytes 73804]
+0
+--- https://www.ecosia.org/search?q=knitted+fabric+repair+algorithm
+[HTTP 403 bytes 4607]
+1
+--- https://yandex.com/search/?text=knitted+fabric+repair+algorithm
+[HTTP 302 bytes 0]
+0
+--- https://www.google.com/search?q=knitted+fabric+repair+algorithm
+[HTTP 200 bytes 92478]
+2
+--- https://lite.duckduckgo.com/lite/?q=knitted+fabric+repair+algorithm
+[HTTP 202 bytes 14254]
+2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2195  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T21:09:37+00:00
+$ python3 /tmp/opencode/prior.py patent q="mending" "knitted fabric" knitting machine
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### patent  q="mending" "knitted fabric" knitting machine
+HTTP 200  bytes=16098  sha256=4e67fab63a2e404d  total_results=22
+- DE836074C | Methods and devices for producing and <b>mending</b> knitted and hosiery goods
+
+
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 80, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 50, in patent
+    assignees = [a.get("name") for a in (pat.get("assignee") or [])]
+  File "/tmp/opencode/prior.py", line 50, in <listcomp>
+    assignees = [a.get("name") for a in (pat.get("assignee") or [])]
+AttributeError: 'str' object has no attribute 'get'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1190  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T21:09:46+00:00
+$ python3 /tmp/opencode/prior.py patent q="mending" "knitted fabric" knitting machine
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### patent  q="mending" "knitted fabric" knitting machine
+HTTP 200  bytes=16095  sha256=fa7235ff45bc75e2  total_results=22
+- DE836074C | Methods and devices for producing and <b>mending</b> knitted and hosiery goods
+    filed 1950-03-31; granted 1952-04-07; priority 1950-03-31; assignee L, i, e, s, e, l, o, t, t, e,  , H, e, i, n, e,  , G, e, b,  , L, e, h, m, a, n,; inventor L, i, e, s, e, l, o, t, t, e,  , H, e, i, n, e,  , G, e, b, 
+    PATENT CLAIMS: i. Method for producing and <b>mending</b> knitted and hosiery goods and similar types of goods, characterized in that the loop is formed from one or more main threads, one or more auxiliary threads being looped one or more times around and / or
+- JP3382684B2 | Method and apparatus for stitching two ends of a knitted tubular product
+    filed 1993-10-12; granted 2003-03-04; priority 1992-10-09; assignee フ, ァ, ブ, リ, テ, ッ, ク, ス,  , エ, ッ, セ,  , エ, ッ, レ,  , エ, ッ, レ; inventor ア, ル, ベ, ル, ト,  , フ, ル, リ, ッ, ニ
+    1. A cylinder of a single cylinder circular <b>knitting machine</b>, starting from an elastic end and ending on the toe side open in order to sew two ends of a knitted tubular product, especially socks. A method including a step of manufacturing a strip-shaped
+- DE660148C | <b>Knitting darning machine</b>
+    filed 1936-05-23; granted 1938-05-18; priority 1936-05-22; assignee P, a, u, l,  , O, b, e, r, m, a, y, r
+    7. <b>knitting machine</b> according to claim 6, characterized in that that the star cross disks (23, 2.4) driven by bevel gears, one of which Left and the other right hand, by means of pawls (30, 31), which of an adjustable pin (29) are triggered alternately 
+- JP2017183414A | Laminate
+    filed 2016-03-29; priority 2016-03-29; assignee 三, 井, 化, 学, 株, 式, 会, 社; inventor 中, 村,  , 雄, 三
+    &hellip; be collectively referred to as “base material”. As a base material used for this embodiment, it can select from a resin film, a foamed resin sheet, an elastomer sheet, a woven <b>fabric, a knitted fabric</b>, a nonwoven fabric, paper, felt, natural le
+- US880013A | Stop-motion for <b>knitting-machines</b>.
+    filed 1903-03-31; granted 1908-02-25; priority 1903-03-31; assignee J, o, h, n,  , S,  , C, r, a, n, e; inventor J, o, h, n,  , S,  , C, r, a, n, e
+    PATENTED FEB. 25, 1903 v J. s. 0mm. STOP MOTION FOR <b>KNITTING MACHINES</b>. APPLICATION FILED MAR. 31, 1903. &#39; 5 $HEETS-SHEET 1. \A/ITN EESE5 INVENTCII li- No. 880,013. PATENTED FEB. 25; 1908. J. s. CRANE. $TOP MOTION FOR-<b>KNITTING MACHINES</b>. APPLIC
+- JPH11222739A | Composite textured yarn and fabric
+    filed 1998-02-03; priority 1998-02-03; assignee A, s, a, h, i,  , C, h, e, m,  , I, n, d,  , C, o,  , L, t, d; inventor S, a, t, o, s, h, i,  , H, i, r, a, g, a
+    B. Fabric production and dyeing were performed by the following methods. (1) Production of Cloth The composite processed yarn was knitted in a sheet-laying structure using a single cylinder <b>knitting machine</b> having a gauge of 26 inches and a kettle diame
+- US1845516A | Machine for repairing knitted fabrics
+    filed 1929-06-12; granted 1932-02-16; priority 1929-06-12; assignee P, a, t, e, n, t,  , D, e, v,  , C, o; inventor J, o, s, e, p, h,  , S,  , P, e, c, k, e, r
+    Another object of the invention is to provide a means of illumination which will not be in the direct line of vision of the operator -of the machine and in which the film of an electric lamp will bev entirely out of the direct <b>q</b> vision of the operator a
+- DE616198C | Single thread <b>knitting machine</b> for <b>mending</b> knitted goods
+    filed 1933-04-25; granted 1935-07-30; priority 1932-07-02; assignee S, a, m, u, e, l,  , S, c, h, a, p, i, r, o
+    <b>Knitting machine</b> according to Claims 1 to 3, characterized in that the guide needles (16) are pivotably mounted about a common axis (15) and individually by one cams (9i) lying in the plane of the puncture needle are controlled. 5. <b>Knitting machine</
+- DE192972C | Patent DE192972C
+    
+    I. Machine for <b>mending</b> damaged knitwear with a device in the manner of a <b>knitting machine</b>, characterized in that the needles in their Upper position holding lock parts are movable like a slide in the direction of the goods train and in their work
+- DE892655C | Holders for machines for <b>mending</b> damaged knitted, hosiery and woven goods
+    filed 1943-06-08; granted 1953-10-08; priority 1943-06-07; assignee E, m, i, l,  , O, t, t, o; inventor T, r, a, u, g, o, t, t,  , N, e, h, e, r
+    Finally, the deep holder comes with a thin, rectangular or also equipped with a round bar attached to the main part of the deep holder premature slamming of the tongues of those who flick upwards and immediately downwards again Prevents needles so that no drop
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1210  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T21:09:59+00:00
+$ python3 /tmp/opencode/prior.py patent q=knitting machine "mending" device "fault" fabric repair automatic
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### patent  q=knitting machine "mending" device "fault" fabric repair automatic
+HTTP 200  bytes=12037  sha256=5951ce12e4d18752  total_results=4
+- WO2020254935A1 | Systems and methods for automatic fabric inspection
+    filed 2020-06-15; priority 2019-06-19; assignee U s t e r   T e c h n o l o g i e s   L t d .; inventor S h m u e l   C o h e n
+    5. The <b>device</b> (1) according to claim 0 or 0, wherein the illumination means comprise a one-dimensional array of light emitting diodes (32), one light emitting diode or several light emitting diodes being assigned to each segment (31) of the map. 6. The 
+- CN107025618A | Human life moves the holistic medicine technology of comprehensive information
+    filed 2016-01-31; priority 2016-01-31; assignee 王 科 甲; inventor 王 科 甲
+    as various lymph nodes, skin disease, various sores, Subcutaneous fat knurl, polyp, or even those various in-vivo tumours etc..These are all that each visceral system is organized in human body life The <b>fault</b>-signal produced during destiny is dynamic, t
+- CN103197730A | System and method for sending Chinese culture and foreign culture information &hellip;
+    filed 2012-01-09; priority 2012-01-09; assignee 陈 华 玲; inventor 陈 华 玲
+    The display platform <b>device</b> comprises: Data/or image/or sound <b>equipment</b>/or the symbol memory storage: for storing Chinese culture and alien culture information; Information data/or image/or sound <b>equipment</b>/or symbol dispensing <b>device</b
+- CN101163461A | Methods, materials and <b>devices</b> for treating bone and other tissues
+    filed 2006-02-22; priority 2005-02-22; assignee 光 碟 - O - 特 克 医 学 科 技 有 限 公 司; inventor M · 贝 亚
+    &hellip; -P and-RO (Stryker Orthopaedics; Mahwah, NJ, USA).These cement is characterized by after mixing, and are liquid phase before the viscosity that obtains 500 handkerchiefs second (Pascal second).In typical use occasion, available cement is filled in the
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 914  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T21:10:13+00:00
+$ bash -c for q in "q=title:mending+knitted" "q=title:repair+knitted+fabric" "q=mending+knitted+fabric+re-knit" "q=knitted+fabric+damage+repair+reconstruction"; do python3 /tmp/opencode/prior.py patent "$q"; echo; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### patent  q=title:mending+knitted
+HTTP 200  bytes=60648  sha256=211416034bf04d9d  total_results=2185
+- JP6783301B2 | Compressible accessory assembly with mounting layer
+    filed 2016-09-21; granted 2020-11-11; priority 2015-09-30; assignee エ シ コ ン   エ ル エ ル シ ー Ｅ ｔ ｈ ｉ ｃ ｏ ｎ   Ｌ Ｌ Ｃ; inventor ベ ン デ リ ー ・ マ イ ケ ル ・ ジ ェ イ
+    The present invention relates to surgical instruments and, in various arrangements, surgical staples and cutting instruments designed for stapled and cutting tissue and staple cartridges for use with them. The features of the various embodiments are described 
+- JP6862434B2 | Implantable appendages with glued layers
+    filed 2016-09-21; granted 2021-04-21; priority 2015-09-30; assignee エ シ コ ン   エ ル エ ル シ ー Ｅ ｔ ｈ ｉ ｃ ｏ ｎ   Ｌ Ｌ Ｃ; inventor ハ リ ス ・ ジ ェ イ ソ ン ・ エ ル
+    Staple cartridge assembly Cartridge body with deck and Staples that are detachably stored in the cartridge body and The implantable accessory, which comprises an implantable accessory located on the deck, comprises the implantable accessory. A first outer laye
+- ES2691221T3 | Protective clothing unit with shrapnel protection equipment preferably textile
+    filed 2015-04-17; granted 2018-11-26; priority 2014-07-11; assignee B L ü C H E R   G M B H; inventor K a t r i n   F R E I E R
+    Protective clothing unit (1), in particular protective clothing unit with shrapnel protection, preferably with shrapnel protection function produced and / or released by detonation and / or explosion, with outer clothing and / or underwear and if necessary wit
+- AU2013296145B2 | Patient interface and method for making same
+    filed 2013-07-26; granted 2015-12-17; priority 2012-07-27; assignee R e s M e d   P t y   L t d; inventor A n t h o n y   P a u l   B a r b a r a
+    A patient interface for delivery of a supply of pressurised air or breathable gas to an entrance of a patient&#39;s airways comprising: a cushion member that includes a retaining structure and a seal-forming structure permanently connected to the retaining str
+- CN106031181B | Broadcast signal transmission apparatus, broadcast signal reception apparatus, &hellip;
+    filed 2015-04-08; granted 2019-06-14; priority 2014-04-18; assignee L g 电 子 株 式 会 社; inventor 李 晋 源
+    Provide a kind of method for sending broadcast singal.Method according to the present invention for sending broadcast singal can be broadcasted content sending method, method includes the following steps: generating the first Media Stream of broadcasted conten
+- KR101998007B1 | Hydroxy containing fxr (nr1h4) modulating compounds
+    filed 2015-12-14; granted 2019-07-08; priority 2014-12-17; assignee 길 리 애 드   사 이 언 시 즈 ,   인 코 포 레 이 티 드; inventor 올 라 프   킨 젤
+    The present invention relates to Compound 1 which binds to the NR1 H4 receptor (FXR) and acts as an agonist of FXR. The present invention further relates to the use of compounds for the manufacture of medicaments for the treatment of diseases and / or conditio
+- JP2023138953A | Biocompatible encapsulation of sensor-enabled negative pressure wound therapy &hellip;
+    filed 2023-06-20; priority 2017-07-25; assignee ス ミ ス   ア ン ド   ネ フ ュ ー   ピ ー エ ル シ ー; inventor ア ラ ン ・ ケ ネ ス ・ フ レ イ ジ ャ ー ・ グ ル ー ジ ョ ン ・ ハ ン ト
+    To provide devices and methods for encapsulating a portion of a wound dressing with a biocompatible coating.SOLUTION: In some embodiments, a method includes coating a first side of a flexible wound contact layer of the wound dressing with a hydrophobic coating
+- AU2018337030B2 | Hazardous contaminant collection kit and rapid testing
+    filed 2018-09-18; granted 2025-04-10; priority 2017-09-21; assignee B e c t o n ,   D i c k i n s o n   A n d   C o m p a n y; inventor M a r c e l   A R A N T E S   S O U Z A
+    Contamination detection systems, kits, and techniques are described for testing surfaces for the presence of hazardous contaminants, while minimizing user exposure to these contaminants. Even trace amounts of contaminants can be detected. A collection kit prov
+- AU2017203609B2 | Patient Interface and Method for Making Same
+    filed 2017-05-30; granted 2019-09-12; priority 2013-01-16; assignee R e s M e d   P t y   L t d; inventor A n t h o n y   P a u l   B a r b a r a
+    9 (H A patient interface for delivery of a supply of pressurised air or breathable gas to an entrance of a patient&#39;s airways comprising: a cushion member that includes a retaining structure and a seal-forming structure permanently connected to the retainin
+- US8772275B2 | Mediators of hedgehog signaling pathways, compositions and uses related thereto
+    filed 2012-12-12; granted 2014-07-08; priority 2001-07-27; assignee C u r i s ,   I n c .; inventor L e e   L .   R u b i n
+    The present invention makes available methods and reagents for inhibiting aberrant growth states resulting from hedgehog gain-of-function, ptc loss-of-function or smoothened gain-of-function comprising contacting the cell with a hedgehog antagonist, such as a 
+
+### patent  q=title:repair+knitted+fabric
+HTTP 200  bytes=76263  sha256=8666b3ecdb7e13a8  total_results=16556
+- AU2012313576B2 | Stretch knitted fabric and clothes
+    filed 2012-05-21; granted 2015-09-24; priority 2011-09-29; assignee A s a h i   K a s e i   K a b u s h i k i   K a i s h a; inventor M a y u m i   N O T S U
+    The present invention pertains to a stretch knitted fabric which exhibits an instantaneous temperature rise when stretched and which, by the repetition of stretching and relaxation, lastingly generates heat when stretched. A stretch knitted fabric which is com
+- ES2691221T3 | Protective clothing unit with shrapnel protection equipment preferably textile
+    filed 2015-04-17; granted 2018-11-26; priority 2014-07-11; assignee B L ü C H E R   G M B H; inventor K a t r i n   F R E I E R
+    Protective clothing unit (1), in particular protective clothing unit with shrapnel protection, preferably with shrapnel protection function produced and / or released by detonation and / or explosion, with outer clothing and / or underwear and if necessary wit
+- RU2738359C2 | Pesticidally active polycyclic derivatives with sulfur-containing substitutes
+    filed 2015-10-30; granted 2020-12-11; priority 2014-11-07; assignee З и н г е н т а   П а р т и с и п е й ш н с   А г; inventor Э н д р ь ю   Э д м у н д з
+    FIELD: agriculture.SUBSTANCE: invention relates to compounds of formulas Ia-1, Ia-2, Ia-3 suitable for agro-industrial complex or agrochemically acceptable salts thereof, compositions based thereon and use thereof against pests selected from insects or represe
+- KR20230107167A | Drone, air craft, mobility, unmanned aerial vehicle and shooting, control, &hellip;
+    filed 2023-07-03; priority 2021-06-25; assignee 주 식 회 사   한 국 산 업 기 술 원; inventor 정 하 익
+    The present invention relates to: (a) a mobility for flying, gliding, driving, moving, filming, measuring, surveying, sensing, mapping, observing, watching, controlling, patrolling, working, transmitting, receiving, communicating, mediating, communicating, tra
+- JP6907195B2 | Implantable layer containing plastically deformed fibers
+    filed 2016-09-21; granted 2021-07-21; priority 2015-09-30; assignee エ シ コ ン   エ ル エ ル シ ー Ｅ ｔ ｈ ｉ ｃ ｏ ｎ   Ｌ Ｌ Ｃ; inventor ハ リ ス ・ ジ ェ イ ソ ン ・ エ ル
+    Staple cartridge assembly Cartridge body with deck and With multiple staples, With an implantable layer located on the deck, the implantable layer comprises a plurality of woven fibers, each of which comprises a strand having a twisted configuration. The fiber
+- JP6862434B2 | Implantable appendages with glued layers
+    filed 2016-09-21; granted 2021-04-21; priority 2015-09-30; assignee エ シ コ ン   エ ル エ ル シ ー Ｅ ｔ ｈ ｉ ｃ ｏ ｎ   Ｌ Ｌ Ｃ; inventor ハ リ ス ・ ジ ェ イ ソ ン ・ エ ル
+    Staple cartridge assembly Cartridge body with deck and Staples that are detachably stored in the cartridge body and The implantable accessory, which comprises an implantable accessory located on the deck, comprises the implantable accessory. A first outer laye
+- RU2765282C2 | Pesticide-active heterocyclic derivatives with sulphur-containing substituents
+    filed 2015-12-10; granted 2022-01-28; priority 2014-12-17; assignee З и н г е н т а   П а р т и с и п е й ш н с   А г; inventor О т т м а р   Ф р а н ц   Х ю т е р
+    FIELD: chemistry.SUBSTANCE: invention relates to compounds by the formula I, an insecticidal composition, a method for pest control.EFFECT: synthesis of new compounds applicable as insecticides.13 cl, 8 tbl
+- KR20230028341A | AI, IoT, ICT, App, equipment, material, object, product, work, cleanup, &hellip;
+    filed 2023-02-13; priority 2021-08-11; assignee 주 식 회 사   한 국 산 업 기 술 원; inventor 정 하 익
+    The present invention is eco, nano, mini, bb, green, clean, purification, sterilization, disinfection, detox, treatment, earthquake-proof, dust-proof, delivery, courier, automatic, manual, robot, magnetization, vibration, excitation, ozone, function, functiona
+- US10919839B2 | Silicon-containing compositions and their methods of use
+    filed 2018-06-11; granted 2021-02-16; priority 2017-07-11; assignee A d i t y a   B i r l a   C h e m i c a l s   ( U s a )   L l c; inventor S z y m o n   K o s i n s k i
+    Provided herein are silicon-containing recyclable polyamino compounds; epoxy resin compositions containing these silicon-containing reworkable or recyclable polyamino compounds; and methods of their use.
+- AU2018337030B2 | Hazardous contaminant collection kit and rapid testing
+    filed 2018-09-18; granted 2025-04-10; priority 2017-09-21; assignee B e c t o n ,   D i c k i n s o n   A n d   C o m p a n y; inventor M a r c e l   A R A N T E S   S O U Z A
+    Contamination detection systems, kits, and techniques are described for testing surfaces for the presence of hazardous contaminants, while minimizing user exposure to these contaminants. Even trace amounts of contaminants can be detected. A collection kit prov
+
+### patent  q=mending+knitted+fabric+re-knit
+HTTP 200  bytes=32151  sha256=2f111d6d87041293  total_results=3415
+- CN103572494B | Method for weaving warp knitting seamless bottomless pantyhose
+    filed 2013-11-08; granted 2015-05-06; priority 2013-11-08; assignee 江 南 大 学; inventor 蒋 高 明
+    The invention relates to a method for weaving warp-knitted seamless bottomless pantyhose, which is produced on a double-needle-bed warp-knitting machine, with two half-gauge jacquard bars for reverse padding movement on each of the front and rear needle beds, 
+- CN107385655B | The production method of weft-knitted rib-loop tmaterial
+    filed 2017-09-15; granted 2019-04-02; priority 2017-09-15; assignee 广 东 溢 达 纺 织 有 限 公 司; inventor 刘 呈 刚
+    The present invention provides a kind of production method of weft-knitted rib-loop tmaterial, comprising the following steps: step 1 makes the corresponding each needle yarn in dials face both participate in the braiding of dials face and lopping, and the cor
+- ES2548862T3 | A textile manufacturing method
+    filed 2007-07-04; granted 2015-10-21; priority 2007-07-04; assignee P e n n   T e x t i l e   S o l u t i o n s   G m b h; inventor M a r k u s   R e g e n s t e i n
+    A method of manufacturing a fabric blank, comprising the steps of: - preparing a first plurality of cotton threads; - preparing a second plurality of non-cotton yarns; said first plurality of cotton yarns and said second plurality of non-cotton yarns forming w
+- RU2014110627A | COMPRESSION ROUND-KNITTED PRODUCT FOR APPLICATION AROUND CONTAINING EXTREMITUS &hellip;
+    filed 2014-03-20; priority 2013-04-18; assignee М е д и   Г м б х   У н д   К о .   К г; inventor Я н   А Т М А Н С П А Х Е Р
+    1. Compression circular knit product for laying around the joint containing the limb, consisting of a knitting thread and an elastic thread that form loops, and an embedded elastic weft thread, containing: - two first knitted sections (2) located at a distance
+- CN101487164A | Knitting method for warp-knitting jacquard seamless fabric
+    filed 2009-02-14; priority 2009-02-14; assignee 江 南 大 学; inventor 蒋 高 明
+    The invention discloses a weaving method of a warp-knitted jacquard seamless fabric. The specific technological process is as follows: firstly determine the basic weaving process; For the base fabric, each use a jacquard bar to weave the main jacquard pattern 
+- CN108691088A | The method for weaving of three color jacquard fabric of warp JIA card
+    filed 2018-06-12; priority 2018-06-12; assignee 江 南 大 学; inventor 董 智 佳
+    The invention relates to a weaving method of warp-knitted jacquard three-color jacquard fabric. The weaving method is used for weaving three-color jacquard fabric, including A-color pattern area, B-color pattern area, C-color bottom mesh area, pattern outline 
+- CN104032476A | Integrally-formed double fabric edge-covered hollow-out jacquard seamless &hellip;
+    filed 2013-03-05; priority 2013-03-05; assignee 高 要 市 红 雨 伞 服 饰 有 限 公 司; inventor 莫 运 洪
+    The invention relates to integrally-formed double fabric edge-covered hollow-out jacquard seamless pantyhose and a manufacturing method thereof. The integrally-formed double fabric edge-covered hollow-out jacquard seamless pantyhose is formed by connecting a f
+- CN111778621B | Method for knitting integrated braided fabric with accessories
+    filed 2020-06-23; granted 2022-04-22; priority 2020-06-23; assignee 内 蒙 古 鹿 王 羊 绒 有 限 公 司; inventor 王 新 泉
+    The invention discloses a knitting method of an integrated fabric with accessories, which is characterized in that a clothing blank and the accessories are integrally formed and knitted together when the clothing blank is knitted, so that the clothing blank is
+- JP2020193430A5 | Patent JP2020193430A5
+    filed 2020-09-02
+    A weft knitted fabric containing an inelastic thread and an elastic thread and having a front surface and a back surface, wherein the elastic thread connects the front surface and the back surface, and the inelastic thread is formed on the front surface and th
+- JP6509785B2 | Stretchable warp knitted fabric having separated structure and method of &hellip;
+    filed 2016-06-27; granted 2019-05-08; priority 2016-06-27; assignee ア サ ヒ マ カ ム 株 式 会 社; inventor 静 史   樋 爪
+    A stretchable warp knitted fabric in which a plurality of knitted fabric portions are separably connected by a connecting portion in which a connecting portion made of an inelastic thread and an elastic thread is knitted, and in the connecting portion, the out
+
+### patent  q=knitted+fabric+damage+repair+reconstruction
+HTTP 200  bytes=48481  sha256=0182bb6023dfec8e  total_results=7508
+- US9416471B2 | Lightweight quadriaxial surgical mesh
+    filed 2013-08-02; granted 2016-08-16; priority 2008-06-27; assignee H e r n i a m e s h   S . R . L .; inventor E r m a n n o   E .   T r a b u c c o
+    A method for making a lightweight surgical mesh, having the steps of applying a first set of filaments in a first wale direction and forming a first series of loops at each of a plurality of courses. Applying a second set of filaments in the first wale directi
+- EP3027796A1 | Method for making a lightweight quadriaxial surgical mesh
+    filed 2014-06-16; priority 2013-08-02; assignee H e r n i a m e s h   S . R . L .; inventor E r m a n n o   E .   T R A B U C C O
+    A method for making a lightweight surgical mesh, having the steps of applying a first set of filaments in a first wale direction and forming a first series of loops at each of a plurality of courses. Applying a second set of filaments in the first wale directi
+- US8680991B2 | Personal emergency response appliance
+    filed 2011-03-21; granted 2014-03-25; priority 2006-06-30; assignee B a o   T r a n; inventor B a o   T r a n
+    A personal emergency system includes a motion sensor wearable by a human being to sense motion of the human being; a processor; wireless communications circuitry; computer code to match the acceleration signature with at least one of a plurality of stored acce
+- US20220160345A1 | Tissue fixation system and method
+    filed 2021-10-27; priority 2004-10-26; assignee P   T e c h ,   L l c; inventor P e t e r   M .   B o n u t t i
+    Methods and devices for stabilizing spinal anatomical structures. Some example methods may include introducing a curved segment of an elongate fastener placement rod adjacent to a bone, providing a fastener at the leading end of the curved segment, and/or secu
+- US11786632B2 | Hernia repair, breast reconstruction and sling devices containing poly(butylene &hellip;
+    filed 2019-03-01; granted 2023-10-17; priority 2018-03-01; assignee T e p h a ,   I n c .; inventor S i m o n   F .   W i l l i a m s
+    Resorbable implants comprising poly(butylene succinate) and copolymers thereof have been developed. The implants implants are preferably sterilized, and contain less than 20 endotoxin units per device as determined by the limulus amebocyte lysate (LAL) assay, 
+- US12151050B2 | Medical devices containing compositions of poly(butylene succinate) and &hellip;
+    filed 2020-08-28; granted 2024-11-26; priority 2018-03-01; assignee T e p h a ,   I n c .; inventor S i m o n   F .   W i l l i a m s
+    Resorbable implants, coverings and receptacles comprising poly(butylene succinate) and copolymers thereof have been developed. The implants are preferably sterilized, and contain less than 20 endotoxin units per device as determined by the limulus amebocyte ly
+- US9545268B2 | Devices and methods for stabilizing tissue and implants
+    filed 2014-03-12; granted 2017-01-17; priority 2004-10-26; assignee P   T e c h ,   L l c; inventor P e t e r   M .   B o n u t t i
+    An implant for repairing a joint between a first bone and a second bone includes a first section constructed of a substantially rigid material and a graft constructed of soft tissue having a first end and a second end. The first section has a first end surface
+- US9789157B2 | Compositions for prevention of adhesions and other barrier applications
+    filed 2015-10-16; granted 2017-10-17; priority 2005-04-25; assignee A r c h   B i o s u r g e r y ,   I n c .; inventor R u t l e d g e   E l l i s - B e h n k e
+    A method has been developed of preventing or limiting formation of adhesions by administering to a site in need thereof, in the absence of or after bleeding or leakage of fluid has been substantially stopped, a self-assembling material which forms a barrier to
+- CN109006111B | Method for ecological construction by utilizing soilless culture system
+    filed 2018-07-16; granted 2023-03-31; priority 2018-07-16; assignee 雷 学 军; inventor 雷 学 军
+    The invention discloses an ecological construction method, which is used for carrying out ecological construction on a backlight shading area by utilizing a soilless culture system. The three-dimensional soilless culture system suitable for indoor and basement
+- JP7010823B2 | Compounds useful in the treatment and / or care of skin, hair, nails and / or &hellip;
+    filed 2016-12-08; granted 2022-01-26; priority 2015-12-10; assignee ル ブ リ ゾ ル   ア ド バ ン ス ド   マ テ リ ア ル ズ ，   イ ン コ ー ポ レ イ テ ッ ド; inventor ド メ ネ ク ，   ヌ リ ア   ア ル ミ ニ ャ ナ
+    General formula (I) Compounds, stereoisomers thereof and / or cosmetically or pharmaceutically acceptable salts thereof. (I) AA 1 is Gln, AA 2 is Glu, AA 3 is Met, AA 4 is Arg, AA 5 is Met, and AA 6 is Gln. ,or (Ii) AA 1 is Gln, AA 2 is Glu, AA 3 is Met, AA 4 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6306  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T21:10:46+00:00
+$ bash -c for q in "q=\"mending knitted fabric\"" "q=\"repairing knitted fabric\"" "q=\"knitted fabric\" \"mending machine\"" "q=\"automatic mending\" fabric"; do python3 /tmp/opencode/prior.py patent "$q"; echo; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4028  redactions: none
+==============================================================================
+[seq 14] 2026-10-03T21:10:52+00:00
+$ bash -c python3 /tmp/opencode/prior.py patent "q=\"mending knitted fabric\"" ; echo; python3 /tmp/opencode/prior.py patent "q=\"repairing knitted fabric\""
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 82, in <module>
+    {"patent": patent, "openalex": openalex}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2189  redactions: none
+==============================================================================
+[seq 15] 2026-10-03T21:11:02+00:00
+$ bash -c for q in "knitted fabric repair algorithm" "knitting machine fault detection mending" "repair planning graph transformation sequence" "re-knitting defect knitted fabric reconstruction"; do python3 /tmp/opencode/prior.py openalex "$q"; echo; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### openalex  knitted fabric repair algorithm
+HTTP 200  bytes=11721  sha256=df7252b41938c4c3  total=917
+- [2024] cited_by=64  Programming mechanics in knitted materials, stitch by stitch
+    Nature Communications  article  https://doi.org/10.1038/s41467-024-46498-z
+- [2021] cited_by=0  Analysis of measurements of defects in multiaxial warp knitted fabrics for CFRP composites
+      other  https://doi.org/10.32920/ryerson.14664231
+- [2017] cited_by=4  Experimental and Numerical Analysis of the Tendon Repair Process Using Tubular Braided Fabrics
+    Autex Research Journal  article  https://doi.org/10.1515/aut-2017-0007
+- [2018] cited_by=0  Poly(ε-caprolactone) Resorbable Knitted Auxetic Scaffolds for Craniofacial Skeletal Muscle Regeneration.
+    NCSU Libraries Repository (North Carolina State University Libraries)  article  https://openalex.org/W2942556138
+- [2019] cited_by=46  Reconstructing Human Joint Motion with Computational Fabrics
+    Proceedings of the ACM on Interactive Mobile Wearable and Ubiquitous Technologies  article  https://doi.org/10.1145/3314406
+- [2019] cited_by=37  Design and Actuation of a Fabric-Based Worm-Like Robot
+    Biomimetics  article  https://doi.org/10.3390/biomimetics4010013
+- [2026] cited_by=0  Mechanically Recycling Metallicized Fabrics
+      conference-paper  https://doi.org/10.21606/ti-2026.115
+- [2026] cited_by=0  Comparative analysis of knitted resistive strain sensors in joint motion measurements
+    Frontiers in Computer Science  article  https://doi.org/10.3389/fcomp.2026.1841675
+- [2020] cited_by=24  Poly(ε-Caprolactone) Resorbable Auxetic Designed Knitted Scaffolds for Craniofacial Skeletal Muscle Regenerati
+    Bioengineering  article  https://doi.org/10.3390/bioengineering7040134
+- [2018] cited_by=12  Experimental Study on Bi-Axial Mechanical Properties of Warp-knitted Meshes with and without Initial Notches
+    Materials  article  https://doi.org/10.3390/ma11101999
+
+### openalex  knitting machine fault detection mending
+HTTP 200  bytes=11300  sha256=e148e7662c24f295  total=15
+- [2014] cited_by=1  Mindful Mending: The R epair of Thou ght and Action Amidst Technologies
+    Loyola eCommons (Loyola University of Chicago)  article  https://openalex.org/W2437484983
+- [2020] cited_by=1  A Diagnostic Expert System for the Coloration of Textile Fiber Blends.
+    NCSU Libraries Repository (North Carolina State University Libraries)  article  https://openalex.org/W3019546530
+- [1998] cited_by=0  The education of girls and women in Nottingham between 1870 and 1914: with special reference to domestic ideol
+    Loughborough University Institutional Repository (Loughborough University)  dissertation  https://openalex.org/W2885544807
+- [2008] cited_by=0  Feminism, Food, and the Politics of Home Cooking
+    PhilPapers (PhilPapers Foundation)  article  https://openalex.org/W92075854
+- [1939] cited_by=0  Technical Institute, Kevin Street : Prospectus, 1939- 40
+    Arrow - TU Dublin (Technological University Dublin)  other  https://openalex.org/W7209680881
+- [2015] cited_by=0  Building Resilience of Returning Citizens: Creative ways to survive prison and thrive outside without crime
+    University of the Arts London Research Online (University of the Arts London)  book-chapter  https://openalex.org/W857923412
+- [2014] cited_by=0  Seeing as knowing
+      dissertation  https://doi.org/10.12681/eadd/36106
+- [2001] cited_by=0  Beyond the attic door : a feminist social history of imprisonment at the Portage Gaol from 1945 to 1970
+    Mspace (University of Manitoba)  dissertation  https://openalex.org/W2792528393
+- [2026] cited_by=0  The Human Element in Advancing 21st-Century Space Exploration
+    Directory of Open access Books (OAPEN Foundation)  article  https://openalex.org/W7204069073
+- [2016] cited_by=2  Strategies to improve design and testing for clothing longevity. Report for Defra
+    Nottingham Trent University's Institutional Repository (Nottingham Trent Repository)  book  https://openalex.org/W2999514540
+
+### openalex  repair planning graph transformation sequence
+HTTP 200  bytes=12283  sha256=df7afe6b31c5171d  total=27396
+- [2026] cited_by=1  Using weakest application conditions to rank graph transformations for graph repair
+    Logical Methods in Computer Science  article  https://doi.org/10.46298/lmcs-22(1:10)2026
+- [2012] cited_by=19  Abstract graph transformation
+      dissertation  https://doi.org/10.3990/1.9789036534772
+- [2010] cited_by=0  Repairing web service compositions based on planning graph
+    Spectrum Research Repository (Concordia University)  dissertation  https://openalex.org/W110768368
+- [2024] cited_by=2  Empowering model repair: a rule-based approach to graph repair without side effects—extended version
+    Innovations in Systems and Software Engineering  article  https://doi.org/10.1007/s11334-024-00587-w
+- [2013] cited_by=63  Categorical Frameworks for Graph Transformation and HLR Systems Based on the DPO Approach
+    Open Repository and Bibliography (University of Luxembourg)  article  https://openalex.org/W2106925277
+- [2024] cited_by=1  Interactive Graph Repairs for Neighborhood Constraints
+    HAL (Le Centre pour la Communication Scientifique Directe)  conference-paper  https://doi.org/10.48786/edbt.2024.16
+- [2010] cited_by=0  Graph Transformation for Consolidation of Creativity Sessions Results
+    VBN Forskningsportal (Aalborg Universitet)  article  https://openalex.org/W2211019812
+- [1996] cited_by=0  Graph Transformations in Computer Science (Dagstuhl Seminar 9637)
+    DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)  report  https://doi.org/10.4230/dagsemrep.155
+- [2024] cited_by=0  Empowering model repair: A rule-based approach to graph repair without side effects -- Extended Version
+    Research Square  preprint  https://doi.org/10.21203/rs.3.rs-3860049/v1
+- [2025] cited_by=0  Experimenting with Reaction Systems using Graph Transformation and GROOVE
+    Natural Computing  article  https://doi.org/10.1007/s11047-025-10045-6
+
+### openalex  re-knitting defect knitted fabric reconstruction
+HTTP 200  bytes=12943  sha256=353b90d9aaf6d51f  total=196
+- [2026] cited_by=0  TSFabrics: A Time-Series Fabric Dataset for Real-Time Defect Detection on Circular Knitting Machines
+    Scientific Data  data-paper  https://doi.org/10.1038/s41597-026-06748-9
+- [2021] cited_by=140  Fabric Defect Detection in Textile Manufacturing: A Survey of the State of the Art
+    Security and Communication Networks  article  https://doi.org/10.1155/2021/9948808
+- [2013] cited_by=46  Online Fabric Defect Inspection Using Smart Visual Sensors
+    Sensors  article  https://doi.org/10.3390/s130404659
+- [2020] cited_by=206  Fabric Defect Detection Using Computer Vision Techniques: A Comprehensive Review
+    Mathematical Problems in Engineering  article  https://doi.org/10.1155/2020/8189403
+- [2023] cited_by=4  Automated Density Measurement of Weft Knitted Fabrics Using Backlight Imaging
+    Wuhan University Journal of Natural Sciences  article  https://doi.org/10.1051/wujns/2023286508
+- [2023] cited_by=3  Fabric Defect Analysis In Textile Manufacturing: Evaluating Methods For Generic And Jacquard Fabrics
+    Journal of Propulsion Technology  article  https://doi.org/10.52783/tjjpt.v44.i3.2064
+- [2019] cited_by=30  E-Knitted Textile with Polymer Optical Fibers for Friction and Pressure Monitoring in Socks
+    Sensors  article  https://doi.org/10.3390/s19133011
+- [2024] cited_by=42  Toward Automated Fabric Defect Detection: A Survey of Recent Computer Vision Approaches
+    Electronics  article  https://doi.org/10.3390/electronics13183728
+- [2026] cited_by=0  Development and Application of an AI Visual Defect Detection System for Warp-Knitted Lace Based on 5G+ Technol
+    Information  article  https://doi.org/10.3390/info17070623
+- [2017] cited_by=2  Mini Review: Advances in Medical Knits
+    Journal of Textile Engineering & Fashion Technology  article  https://doi.org/10.15406/jteft.2017.03.00095
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3690  redactions: none
+==============================================================================
+[seq 16] 2026-10-03T21:11:34+00:00
+$ bash -c for q in "knitting repair planner" "knit graph repair" "knit stitch repair algorithm" "knitting error correction"; do python3 /tmp/opencode/gh.py "$q"; echo; sleep 2; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### github  knitting repair planner
+HTTP 200  bytes=55  sha256=4af480b8ee5b87b3  total=0
+
+### github  knit graph repair
+HTTP 200  bytes=55  sha256=4af480b8ee5b87b3  total=0
+
+### github  knit stitch repair algorithm
+HTTP 200  bytes=55  sha256=4af480b8ee5b87b3  total=0
+
+### github  knitting error correction
+HTTP 200  bytes=55  sha256=4af480b8ee5b87b3  total=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9968  redactions: none
+==============================================================================
+[seq 17] 2026-10-03T21:11:55+00:00
+$ bash -c for q in "knit repair" "knit graph" "knitting computer" "stitch graph"; do python3 /tmp/opencode/gh.py "$q"; echo; sleep 3; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### github  knit repair
+HTTP 200  bytes=18317  sha256=b9ae2de07ff3b2dc  total=1
+- unnatisilks12/madhuri/madhuri  stars=6  pushed=2019-08-30  lang=None
+    Just a few years ago, a company formed by three individuals decided that it would be making skateboards and sunglasses from recycled nylon.  They were basing their efforts upon “trash” floating in the
+    https://github.com/unnatisilks12/madhuri
+
+### github  knit graph
+HTTP 200  bytes=68189  sha256=6dbf088e5c3d278e  total=23
+- PierreBarrat/TreeKnit.jl/TreeKnit.jl  stars=14  pushed=2025-02-18  lang=Julia
+    TreeKnit is a package that infers Ancestral Reassortment Graphs for segmented genomes (typically, human influenza).
+    https://github.com/PierreBarrat/TreeKnit.jl
+- rahul-mitra13/KnitGraphToStitchMesh/KnitGraphToStitchMesh  stars=5  pushed=2026-03-10  lang=C++
+    
+    https://github.com/rahul-mitra13/KnitGraphToStitchMesh
+- kitt-technology/protoc-gen-graphql/protoc-gen-graphql  stars=5  pushed=2026-09-24  lang=Go
+    PGG is a protoc plugin that generates a performant GraphQL server to seamlessly knit together your gRPC services.
+    https://github.com/kitt-technology/protoc-gen-graphql
+- C-you-know/Domain-Tagging-and-Generation/Domain-Tagging-and-Generation  stars=3  pushed=2025-12-16  lang=Python
+    Real-time domain tagging using Wikipedia-based knowledge graphs, fuzzy matching, and TF-IDF scoring. My first research project at KNIT Space under Prof. Prakash Hegade.
+    https://github.com/C-you-know/Domain-Tagging-and-Generation
+- mhofmann-Khoury/knit_graph/knit_graph  stars=1  pushed=2026-04-03  lang=Python
+    A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships
+    https://github.com/mhofmann-Khoury/knit_graph
+- nielsrhansen/knitrflow/knitrflow  stars=1  pushed=2017-09-15  lang=R
+    An R package for knitr dataflow graphs
+    https://github.com/nielsrhansen/knitrflow
+- AlistairGluck/Life-Exp_vs_GDP/Life-Exp_vs_GDP  stars=1  pushed=2019-04-11  lang=HTML
+    This Repository's Rmd file, when knitted, produces an animated graph displaying life expectency vs GDP of many countries in the world, faceted by continent. 
+    https://github.com/AlistairGluck/Life-Exp_vs_GDP
+- AlistairGluck/harvard_course_offerings/harvard_course_offerings  stars=1  pushed=2019-04-11  lang=HTML
+    The Rmd file in this repository, when knitted, produces a horizontal bar graph that displays data on Change in number of courses offered by different departments between Spring 2019 and Fall 2018.
+    https://github.com/AlistairGluck/harvard_course_offerings
+- ecoaspect/knitr-demos/knitr-demos  stars=0  pushed=2014-02-16  lang=None
+    A collection of knitr documents with interactive plotly graphs
+    https://github.com/ecoaspect/knitr-demos
+- ProyectoAether/KNIT/KNIT  stars=0  pushed=2023-07-04  lang=Python
+    Tool for automatically exploring BioPortal repositories and creating a draft knowledge graph with designated keywords.
+    https://github.com/ProyectoAether/KNIT
+- anonymousresearcher1111/KnitGraph-Viewer/KnitGraph-Viewer  stars=0  pushed=2026-01-22  lang=JavaScript
+    
+    https://github.com/anonymousresearcher1111/KnitGraph-Viewer
+- aprksy/knitknot/knitknot  stars=0  pushed=2026-09-23  lang=Go
+    A lightweight, embeddable property graph engine with a fluent query DSL
+    https://github.com/aprksy/knitknot
+
+### github  knitting computer
+HTTP 200  bytes=68476  sha256=8f6a17effa62bd4f  total=13
+- knitty/firmware/firmware  stars=18  pushed=2016-01-08  lang=Arduino
+    The connection between the knitting machine and a computer
+    https://github.com/knitty/firmware
+- bikibird/JournalSix/JournalSix  stars=9  pushed=2022-01-21  lang=None
+    Computer Aided Design Software for PASSAP E6000 Knitting Machine
+    https://github.com/bikibird/JournalSix
+- MaurinElectroTextile/KnitHack_KH940/KnitHack_KH940  stars=8  pushed=2023-01-04  lang=C++
+    Computer controlled knitting machine
+    https://github.com/MaurinElectroTextile/KnitHack_KH940
+- eTextile/soundKnit/soundKnit  stars=4  pushed=2025-11-29  lang=GLSL
+    Computer controlled knitting machine
+    https://github.com/eTextile/soundKnit
+- DataScienceNigeria/MIT-CSAIL-computer-aided-knitting-system/MIT-CSAIL-computer-aided-knitting-system  stars=1  pushed=2019-08-19  lang=None
+    
+    https://github.com/DataScienceNigeria/MIT-CSAIL-computer-aided-knitting-system
+- popmechanic/knitting.computer/knitting.computer  stars=0  pushed=2025-12-29  lang=HTML
+    
+    https://github.com/popmechanic/knitting.computer
+- bwbellmath/woolygraphs/woolygraphs  stars=0  pushed=2026-09-27  lang=HTML
+    Comprehensive Computer Knitting Suite
+    https://github.com/bwbellmath/woolygraphs
+- cotabas/cakd/cakd  stars=0  pushed=2025-06-14  lang=JavaScript
+    Computer Aided Knitting Design
+    https://github.com/cotabas/cakd
+- saktheeswaranswan/transgender-dignity-preserving-networks-jasmine-knitting-computer-vision/transgender-dignity-preserving-networks-jasmine-knitting-computer-vision  stars=0  pushed=2023-07-15  lang=Python
+    transgender-dignity-preserving-networks-jasmine-knitting-computer-vision but its free for tansgender
+    https://github.com/saktheeswaranswan/transgender-dignity-preserving-networks-jasmine-knitting-computer-vision
+- pateldivyam26/Computational-Knitting/Computational-Knitting  stars=0  pushed=2022-07-10  lang=JavaScript
+    This project aims to develop an algorithm for Computational Knitting that can transform 3D meshes directly into instructions for a computer-controlled knitting machine.
+    https://github.com/pateldivyam26/Computational-Knitting
+- dutra/knitter/knitter  stars=0  pushed=2015-04-29  lang=Assembly
+    Final project for 6.115 - Transforms a knitting machine into a "printer" capable of knitting images from a computer
+    https://github.com/dutra/knitter
+- Uguisu3/Final_CSC474/Final_CSC474  stars=0  pushed=2019-06-15  lang=C
+    Final Project for a computer graphics course in animation. Shows a person (stick figure) in a room knitting
+    https://github.com/Uguisu3/Final_CSC474
+
+### github  stitch graph
+HTTP 200  bytes=69215  sha256=11339a4a4597e3fe  total=184
+- ardatan/graphql-tools/graphql-tools  stars=5429  pushed=2026-10-02  lang=TypeScript
+    :wrench: Utility library for GraphQL to build, stitch and mock GraphQL schemas in the SDL-first approach
+    https://github.com/ardatan/graphql-tools
+- dotansimha/graphql-binding/graphql-binding  stars=380  pushed=2022-06-18  lang=TypeScript
+    Auto-generated SDK for your GraphQL API (supports schema stitching & codegen)
+    https://github.com/dotansimha/graphql-binding
+- Cyanilux/ShaderGraphToPNG/ShaderGraphToPNG  stars=134  pushed=2021-06-13  lang=C#
+    📸🖼️ Screenshots a Shader Graph in multiple sections, stitches them together and saves the result as a PNG
+    https://github.com/Cyanilux/ShaderGraphToPNG
+- graph-quilt/graphql-orchestrator-java/graphql-orchestrator-java  stars=73  pushed=2025-01-29  lang=Groovy
+    GraphQL Orchestrator stitches the schemas from multiple micro-services and orchestrates the graphql queries to these services accurately at runtime
+    https://github.com/graph-quilt/graphql-orchestrator-java
+- david-novicki/graphql-microservices-example/graphql-microservices-example  stars=55  pushed=2022-12-07  lang=JavaScript
+    GraphQL Microservices example with Remote Stitching using NodeJS and ExpressJS
+    https://github.com/david-novicki/graphql-microservices-example
+- ForestAdmin/graphql-stitcher/graphql-stitcher  stars=43  pushed=2019-04-23  lang=JavaScript
+    Make the implementation of GraphQL Schema Stitching easy.
+    https://github.com/ForestAdmin/graphql-stitcher
+- gmac/graphql-stitching-ruby/graphql-stitching-ruby  stars=41  pushed=2026-06-15  lang=Ruby
+    GraphQL Schema Stitching for Ruby
+    https://github.com/gmac/graphql-stitching-ruby
+- rohitghatol/graphql-tools-schema-stitching-with-subscriptions/graphql-tools-schema-stitching-with-subscriptions  stars=33  pushed=2018-03-02  lang=TypeScript
+    This is an Example of GraphQL Tools Schema Stitching with Subscriptions. This examples highlights how to stitching multiple GraphQL Schemas which also have subscriptions.
+    https://github.com/rohitghatol/graphql-tools-schema-stitching-with-subscriptions
+- herronelou/nuke_dag_capture/nuke_dag_capture  stars=28  pushed=2025-03-09  lang=Python
+    Script to screenshot Nuke Node graph (automatic tile capture and stitching)
+    https://github.com/herronelou/nuke_dag_capture
+- hasura/graphql-schema-stitching-demo/graphql-schema-stitching-demo  stars=21  pushed=2018-07-03  lang=JavaScript
+    Schema Stitching Example with Hasura GraphQL + MetaWeather API
+    https://github.com/hasura/graphql-schema-stitching-demo
+- qortmdgh4141/GAS/GAS  stars=20  pushed=2025-12-09  lang=Python
+    Graph-Assisted Stitching for Offline Hierarchical Reinforcement Learning (ICML 2025)
+    https://github.com/qortmdgh4141/GAS
+- wagnerde/STITCH/STITCH  stars=18  pushed=2021-05-11  lang=MATLAB
+    Assembles a graph manifold from time series single-cell RNAseq data
+    https://github.com/wagnerde/STITCH
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 15119  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T21:12:34+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://github.com/mhofmann-Khoury/knit_graph" "loop,yarn,stitch,repair,crossing,limitation,roadmap,undo,next" 3000; echo; python3 /tmp/opencode/page.py "https://www.knittingfix.com/" "repair,price,coming soon,plan,AI,diagnos" 2500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://github.com/mhofmann-Khoury/knit_graph
+HTTP 200  bytes=290455  sha256=2bbaf812f917a08b
+TITLE GitHub - mhofmann-Khoury/knit_graph: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships · GitHub
+META description: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships - mhofmann-Khoury/knit_graph
+META og:title: GitHub - mhofmann-Khoury/knit_graph: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships
+META og:description: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships - mhofmann-Khoury/knit_graph
+LINES 323 total, showing 11 (keywords=loop,yarn,stitch,repair,crossing,limitation,roadmap,undo,next)
+0: GitHub - mhofmann-Khoury/knit_graph: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships · GitHub
+195: The knit-graphs packaged provides a data structure for representing knitted structures formed of loops of yarn (nodes) connected by various edge structures. Loops are connected by: floats (yarn-edges) in a yarn graph structure, stitch edges (loops pulled through loops), and crossed over each other i
+213: provides a library of basic knit graphs to generate such as casting on loops of a knitted structure, creating Jersey (aka Stockinette) tubes and swatches, and other basic textures.
+241: For example, we can visualize a swatch of seed stitch (checkered knit and purl stitches) with the following code.
+253: Stitch_Visualizer
+255: visualize_stitches
+270: visualize_stitches
+274: The visualizer shows knit stitches (loops pulled from the back of the fabric to the front) as blue edges and purl stitches (loops pulled from the front to back) (aka back-knits) as red edges. Loop nodes are circles labeled with their time-ordered index and colored to match their yarn (defaults to da
+276: Stitch Visualizer Tests Module
+281: The inclusion of the Artin-Braide wale crossing construction was inspired by
+290: A graph representation of knitted structures where each loop is a node and edges represent yarn and stictch relationships
+
+URL https://www.knittingfix.com/
+HTTP 200  bytes=143264  sha256=a5f56f8193571ced
+TITLE KnittingFix — Fix Knitting Mistakes Fast | AI Help + Expert Emma
+META description: Fix dropped stitches, holes, ladders, and cable mistakes fast. KnittingFix AI diagnoses your knitting problem from photos in minutes — expert Emma as backup. 2,400+ knitters helped.
+META og:title: KnittingFix — Fix Knitting Mistakes Fast
+META og:description: Fix dropped stitches, holes, ladders, and cable mistakes fast. AI diagnoses your knitting problem from photos in minutes — expert Emma as backup.
+LINES 161 total, showing 28 (keywords=repair,price,coming soon,plan,ai,diagnos)
+0: KnittingFix — Fix Knitting Mistakes Fast | AI Help + Expert Emma
+10: Never frog alone again
+14: Share a photo or video of what's gone wrong. Our AI gives you a clear fix in minutes — and Emma, a knitting expert, steps in personally for the tricky cases.
+25: AI diagnoses it
+26: Our AI reads your images using computer vision and diagnoses exactly what went wrong — and how to fix it.
+32: Unlimited AI help
+33: Ask as many questions as you need. No daily limits, no throttling. Knitting problems don't keep office hours.
+37: Illustrated articles covering everything from casting on to complex lace patterns and fair isle colourwork.
+44: the AI needs backup
+45: Emma started knitting as a teenager and quickly became obsessed with the craft. She specialises in sweater construction, colourwork, and lace — and has a real talent for explaining even the trickiest techniques in a way that actually makes sense.
+47: Responds with video explanations for tricky fixes
+49: Available for 1-on-1 calls (Expert tier)
+69: I was ready to frog an entire sweater I'd been working on for three months. The AI told me it was a simple dropped yarn-over and showed me how to fix it without losing a single row. Life-changing.
+76: I started knitting at 72 to keep my hands busy. When I got stuck on a Norwegian pattern, I didn't know who to ask. KnittingFix explained everything so clearly. I felt like I had a knitting friend again.
+86: 3 AI questions / month
+94: Unlimited AI diagnoses
+98: Coming soon
+108: Coming soon
+117: Coming soon
+118: All plans include the full knowledge base. Free plan: 3 AI questions/month.
+119: Compare all plans →
+123: How does KnittingFix diagnose my knitting problem?
+124: Upload a photo or video of your knitting problem. Our AI analyses the image using computer vision and diagnoses exactly what went wrong — then gives you a step-by-step fix in under 2 minutes.
+126: Yes. Dropped stitches are the most common problem we solve. The AI identifies the dropped stitch from your photo and walks you through picking it back up with a crochet hook, row by row.
+128: Emma is a real knitting expert with over 20 years of experience. When the AI confidence is below 75%, Emma reviews your case personally and provides a written or video response.
+130: Yes. The Free plan includes 3 AI diagnoses per month, full knowledge base access, and community forum read access. No credit card required.
+133: Your project is waiting to be finished
+136: Whether you've been knitting for 40 years or just picked up your first pair of needles — we've got you, every stitch of the way.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1861  redactions: none
+==============================================================================
+[seq 19] 2026-10-03T21:12:55+00:00
+$ bash -c for q in "physical repair fabrication error 3D print planning" "textile repair robot reknitting automation" "consistency repair closure minimal deletion database"; do python3 /tmp/opencode/prior.py openalex "$q"; echo; sleep 1; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### openalex  physical repair fabrication error 3D print planning
+HTTP 200  bytes=12812  sha256=27689d6a422d4440  total=5539
+- [2022] cited_by=4  Modelling and fabrication procedure for a 3D printed cardiac model - surgical planning of Left Ventricular Ane
+    MethodsX  article  https://doi.org/10.1016/j.mex.2022.101822
+- [2016] cited_by=366  3D-printed patient-specific applications in orthopedics
+    Orthopedic Research and Reviews  article  https://doi.org/10.2147/orr.s99614
+- [2022] cited_by=190  3D-printed microrobots from design to translation
+    Nature Communications  article  https://doi.org/10.1038/s41467-022-33409-3
+- [2021] cited_by=32  A Composite Lactide-Mineral 3D-Printed Scaffold for Bone Repair and Regeneration
+    Frontiers in Cell and Developmental Biology  article  https://doi.org/10.3389/fcell.2021.654518
+- [2022] cited_by=351  Unraveling of Advances in 3D-Printed Polymer-Based Bone Scaffolds
+    Polymers  article  https://doi.org/10.3390/polym14030566
+- [2021] cited_by=77  3D Printed Gelatin/Sodium Alginate Hydrogel Scaffolds Doped with Nano-Attapulgite for Bone Tissue Repair
+    International Journal of Nanomedicine  article  https://doi.org/10.2147/ijn.s339500
+- [2025] cited_by=1  Design, fabrication, and multi-objective optimization of 3D-printed PLA screws
+    Rapid Prototyping Journal  article  https://doi.org/10.1108/rpj-08-2025-0393
+- [2017] cited_by=174  In situ repair of bone and cartilage defects using 3D scanning and 3D printing
+    Scientific Reports  article  https://doi.org/10.1038/s41598-017-10060-3
+- [2021] cited_by=341  3D-printed self-healing hydrogels via Digital Light Processing
+    Nature Communications  article  https://doi.org/10.1038/s41467-021-22802-z
+- [2017] cited_by=283  From medical imaging data to 3D printed anatomical models
+    PLoS ONE  article  https://doi.org/10.1371/journal.pone.0178540
+
+### openalex  textile repair robot reknitting automation
+HTTP 200  bytes=492  sha256=f0143003bb36813c  total=0
+
+### openalex  consistency repair closure minimal deletion database
+HTTP 200  bytes=11122  sha256=0341e31e5e721484  total=824
+- [1984] cited_by=153  Optimism and consistency in partitioned distributed database systems
+    ACM Transactions on Database Systems  article  https://doi.org/10.1145/1270.1499
+- [2017] cited_by=16  Detecting Ambiguity in Prioritized Database Repairing
+    DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)  article  https://doi.org/10.4230/lipics.icdt.2017.17
+- [2006] cited_by=15  Computational methods for database repair by signed formulae*
+    Annals of Mathematics and Artificial Intelligence  article  https://doi.org/10.1007/s10472-005-9012-z
+- [2016] cited_by=1  Detecting Ambiguity in Prioritized Database Repairing
+    arXiv (Cornell University)  preprint  https://doi.org/10.4230/lipics.icdt.2017.17
+- [2012] cited_by=1  Repair-oriented relational schemas for multidimensional databases
+      dissertation  https://doi.org/10.22215/etd/2012-07441
+- [2007] cited_by=9  Optimizing and implementing repair programs for consistent query answering in databases
+      dissertation  https://doi.org/10.22215/etd/2007-06172
+- [2026] cited_by=0  Frameworks for Semantically Meaningful Data Deletion: Inference-Resilient Erasure in Databases
+    eScholarship (California Digital Library)  dissertation  https://openalex.org/W7213861331
+- [2007] cited_by=3  Optimizing and implementing repair programs for consistent query answering in databases
+    Carleton University's Institutional Repository (MacOdrum Library, Carleton University)  dissertation  https://doi.org/10.22215/etd/2007-06172
+- [2019] cited_by=16  A Logic-Based Incremental Approach to Graph Repair
+    Lecture notes in computer science  conference-paper  https://doi.org/10.1007/978-3-030-16722-6_9
+- [2018] cited_by=74  Computing Optimal Repairs for Functional Dependencies
+    ACM Transactions on Database Systems  article  https://doi.org/10.1145/3196959.3196980
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5585  redactions: none
+==============================================================================
+[seq 20] 2026-10-03T21:13:15+00:00
+$ bash -c for q in "GenProg automated program repair genetic programming" "repair program sequence of operations database consistent answer" "physical repair 3D printed object fabrication error"; do python3 /tmp/opencode/prior.py s2 "$q"; echo; sleep 2; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 99, in <module>
+    {"patent": patent, "openalex": openalex, "s2": s2}[mode](query)
+  File "/tmp/opencode/prior.py", line 83, in s2
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: 
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 99, in <module>
+    {"patent": patent, "openalex": openalex, "s2": s2}[mode](query)
+  File "/tmp/opencode/prior.py", line 83, in s2
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: 
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 99, in <module>
+    {"patent": patent, "openalex": openalex, "s2": s2}[mode](query)
+  File "/tmp/opencode/prior.py", line 83, in s2
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8938  redactions: none
+==============================================================================
+[seq 21] 2026-10-03T21:13:39+00:00
+$ bash -c for q in "GenProg automated program repair" "repair programs sequence of operations consistent query answering" "physical repair of 3D printed objects fabrication errors"; do python3 /tmp/opencode/s2.py "$q"; echo; sleep 3; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### s2 GenProg automated program repair
+ERROR HTTPError HTTP Error 429: 
+
+### s2 repair programs sequence of operations consistent query answering
+ERROR HTTPError HTTP Error 429: 
+
+### s2 physical repair of 3D printed objects fabrication errors
+ERROR HTTPError HTTP Error 429: 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11897  redactions: none
+==============================================================================
+[seq 22] 2026-10-03T21:13:57+00:00
+$ bash -c for q in "GenProg Genetic Programming Based Automated Program Repair" "Consistency and repair Arenas Bonchi Perez" "Repairing 3D prints physical repair additive manufacturing"; do python3 /tmp/opencode/search.py cross "$q"; echo; sleep 2; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### crossref  GenProg Genetic Programming Based Automated Program Repair
+HTTP 200  bytes=4013  sha256=83e15f436861140c
+
+### crossref  Consistency and repair Arenas Bonchi Perez
+HTTP 200  bytes=3239  sha256=9118ef893b9c2b05
+
+### crossref  Repairing 3D prints physical repair additive manufacturing
+HTTP 200  bytes=3414  sha256=8fd4a118b31c322e
+
+
+
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/search.py", line 78, in <module>
+    {"web": web, "arxiv": arxiv, "cross": cross}[mode](rest)
+  File "/tmp/opencode/search.py", line 65, in cross
+    root = ET.fromstring(body)
+  File "/usr/lib/python3.8/xml/etree/ElementTree.py", line 1320, in XML
+    parser.feed(text)
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 0
+Traceback (most recent call last):
+  File "/tmp/opencode/search.py", line 78, in <module>
+    {"web": web, "arxiv": arxiv, "cross": cross}[mode](rest)
+  File "/tmp/opencode/search.py", line 65, in cross
+    root = ET.fromstring(body)
+  File "/usr/lib/python3.8/xml/etree/ElementTree.py", line 1320, in XML
+    parser.feed(text)
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 0
+Traceback (most recent call last):
+  File "/tmp/opencode/search.py", line 78, in <module>
+    {"web": web, "arxiv": arxiv, "cross": cross}[mode](rest)
+  File "/tmp/opencode/search.py", line 65, in cross
+    root = ET.fromstring(body)
+  File "/usr/lib/python3.8/xml/etree/ElementTree.py", line 1320, in XML
+    parser.feed(text)
+xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10192  redactions: none
+==============================================================================
+[seq 23] 2026-10-03T21:14:18+00:00
+$ bash -c for q in "GenProg Genetic Programming Based Automated Program Repair" "Consistency and repair Arenas Bonchi Perez" "Repairing 3D prints physical repair"; do python3 /tmp/opencode/search.py cross "$q"; echo; sleep 2; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### crossref  GenProg Genetic Programming Based Automated Program Repair
+HTTP 200  bytes=7361  sha256=8a6f1d777baf552d
+ 1. [2016] Toward Developer-like Automated Program Repair — Modification Comparisons between GenProg and Developers
+    Nakajima, Higo, Yokoyama | 2016 23rd Asia-Pacific Software Engineering Conference (APSEC) | proceedings-article | doi:10.1109/apsec.2016.042
+ 2. [None] Automatic Program Repair Using Genetic Programming
+    Le Goues |  | dissertation | doi:10.18130/v3kz3c
+ 3. [2022] Scaling genetic improvement and automated program repair
+    Harman | Proceedings of the Third International Workshop on Automated Program Repair | proceedings-article | doi:10.1145/3524459.3527353
+ 4. [2021] Applying Automated Program Repair to Dataflow Programming Languages
+    Huang, Ahmad, Forrest | 2021 IEEE/ACM International Workshop on Genetic Improvement (GI) | proceedings-article | doi:10.1109/gi52543.2021.00013
+ 5. [2016] Automated program repair using genetic programming and model checking
+    Zojaji, Ladani, Khalilian | Applied Intelligence | journal-article | doi:10.1007/s10489-016-0804-0
+ 6. [2013] Does Genetic Programming Work Well on Automated Program Repair?
+    Qi, Mao, Lei | 2013 International Conference on Computational and Information Sciences | proceedings-article | doi:10.1109/iccis.2013.490
+ 7. [2024] Automated Program Repair for Introductory Programming Assignments via Bidirectional Refactoring
+    Xie, Li, Pei | Proceedings of the 5th ACM/IEEE International Workshop on Automated Program Repair | proceedings-article | doi:10.1145/3643788.3648017
+ 8. [2023] FixEval: Execution-based Evaluation of Program Fixes for Programming Problems
+    Anjum Haque, Ahmad, Lourentzou | 2023 IEEE/ACM International Workshop on Automated Program Repair (APR) | proceedings-article | doi:10.1109/apr59189.2023.00009
+
+### crossref  Consistency and repair Arenas Bonchi Perez
+HTTP 200  bytes=4127  sha256=deb7901244a154c1
+ 1. [None] A representação em arenas extraparlamentares: os Conselhos Gestores de Políticas Públicas
+    Perez |  | dissertation | doi:10.11606/t.8.2010.tde-30092010-125049
+ 2. [2018] nSPARQL: A Navigational Language for RDF
+    Perez, Arenas, Gutiérrez |  | posted-content | doi:10.2139/ssrn.3199487
+ 3. [2020] Marginalized Knowledges
+    Arenas, Perez | Oxford Research Encyclopedia of Education | reference-entry | doi:10.1093/acrefore/9780190264093.013.689
+ 4. [2016] Arenas and Other Minigames
+    Perez | Beginning RPG Maker MV | book-chapter | doi:10.1007/978-1-4842-1967-6_7
+ 5. [2014] Arenas and Other Minigames
+    Perez | Beginning RPG Maker VX Ace | book-chapter | doi:10.1007/978-1-4842-0784-0_7
+ 6. [2021] The BFP (Benford-Fibonacci-Perez) Method Validates the Consistency of COVID-19 Epidemiological Data in France 
+    Perez |  | posted-content | doi:10.20944/preprints202106.0187.v2
+ 7. [2021] The BFP (Benford-Fibonacci-Perez) Method Validates the Consistency of COVID-19 Epidemiological Data in France 
+    Perez |  | posted-content | doi:10.20944/preprints202106.0187.v1
+ 8. [2021] The BFP (Benford-Fibonacci-Perez) Method Validates the Consistency of COVID-19 Epidemiological Data in France 
+    Perez |  | posted-content | doi:10.20944/preprints202106.0187.v3
+
+### crossref  Repairing 3D prints physical repair
+HTTP 200  bytes=2827  sha256=6fedd5f494632a85
+ 1. [1854] Repairing old prints
+    N. J. A. | Notes and Queries | journal-article | doi:10.1093/nq/s1-ix.223.104e
+ 2. [2023] Patent Law and 3D Printing Applications in Repairing Medical Equipment: Australia Needs To Adopt an Explicit R
+    Abbas, PhD |  | posted-content | doi:10.2139/ssrn.4525038
+ 3. [2022] Is Repair Repairing Architecture?
+    Ioannou | Repair | book-chapter | doi:10.4324/9781003244028-24
+ 4. [2024] Repairing Paper
+     | Simple Book Repair Techniques | other | doi:10.5040/9798216426875.ch-005
+ 5. [2019] Repairing Russia
+    Murawski | Repair, Brokenness, Breakthrough | book-chapter | doi:10.2307/j.ctv1850hkq.17
+ 6. [2022] Repairing Imaginations
+    Muzaffar | Repair | book-chapter | doi:10.4324/9781003244028-23
+ 7. [1999] Repairing  Interior Hinges
+     | Basic Book Repair Methods | other | doi:10.5040/9798400616587.ch-004
+ 8. [2024] Repairing Children’S Books
+     | Simple Book Repair Techniques | other | doi:10.5040/9798216426875.ch-007
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8932  redactions: none
+==============================================================================
+[seq 24] 2026-10-03T21:14:42+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://www.envisioknit.com/manual/chart-editor-other-features/" "chart checker,error,unknittable,repair,fix,balance" 2500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://www.envisioknit.com/manual/chart-editor-other-features/
+HTTP 200  bytes=29214  sha256=8d3704b4874800f7
+TITLE Chart Editor: Other Features - EnvisioKnit Design Studio User's Manual
+META description: Knitting design software for creating professional knitting patterns and charts.
+LINES 344 total, showing 17 (keywords=chart checker,error,unknittable,repair,fix,balance)
+268: balanced. EnvisioKnit has a grayscale viewing option that you can enable.
+306: The Chart Checker
+307: No errors found
+308: Chart contains errors
+310: Chart Errors Indicated on Chart
+312: Chart Checker
+313: is a tool for finding errors in your chart that would make it unknittable.
+315: previous row. If that is not the case, a chart error is flagged. The chart checker errors are only
+318: Chart Checker status icon
+320: chart errors
+321: are found, the indicator shows a green check icon. If there are errors, a red flag is shown. The chart
+323: Clicking the Chart Checker icon will open the Chart Checker window. If there are errors in the chart, it will
+325: list of them. Each error specifies the row it occurs on and the
+326: reason why it was flagged. Selecting an error in the list will highlight its row in the chart editor window.
+327: In the example shown here, there are two rows with errors found. As indicated in the
+328: Chart Checker
+334: is also listed as lacking a decrease, which could be fixed with a double-decrease
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1891  redactions: none
+==============================================================================
+[seq 25] 2026-10-03T21:14:48+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://patents.google.com/patent/US1845516A/en" "repair,knitted,loop,claim,needle,inventor,filing,priority,assignee,abstract" 3500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://patents.google.com/patent/US1845516A/en
+ERROR HTTPError: HTTP Error 503: Service Unavailable
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 767  redactions: none
+==============================================================================
+[seq 26] 2026-10-03T21:15:04+00:00
+$ bash -c for q in "KnitPick KnitPicking Texture programming modifying knitted textures" "unravelling repair knitted structure graph planning intervention" "knit graph repair algorithm unravelling ladder"; do python3 /tmp/opencode/prior.py openalex "$q"; echo; sleep 1; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### openalex  KnitPick KnitPicking Texture programming modifying knitted textures
+HTTP 200  bytes=10650  sha256=b25f73c19c166453  total=25
+- [2019] cited_by=72  KnitPicking Textures
+      conference-paper  https://doi.org/10.1145/3332165.3347886
+- [2024] cited_by=64  Programming mechanics in knitted materials, stitch by stitch
+    Nature Communications  article  https://doi.org/10.1038/s41467-024-46498-z
+- [2021] cited_by=34  Knit sketching
+    ACM Transactions on Graphics  article  https://doi.org/10.1145/3450626.3459752
+- [2026] cited_by=1  Knittable electronic textiles for intelligent soft wearables
+    npj Flexible Electronics  article  https://doi.org/10.1038/s41528-026-00611-y
+- [2021] cited_by=40  Wearable 3D Machine Knitting: Automatic Generation of Shaped Knit Sheets to Cover Real-World Objects
+    IEEE Transactions on Visualization and Computer Graphics  article  https://doi.org/10.1109/tvcg.2021.3056101
+- [2025] cited_by=0  Developing a Computational Design to Fabrication Method for 3D Knitted Stay-in-Place Moulds for Building Envel
+    Computational design and robotic fabrication  conference-paper  https://doi.org/10.1007/978-981-96-3433-0_7
+- [2023] cited_by=5  Exploring Self-Embedded Knitting Programs with Twine
+      conference-paper  https://doi.org/10.1145/3609023.3609805
+- [2021] cited_by=101  KnitUI: Fabricating Interactive and Sensing Textiles with Machine Knitting
+      conference-paper  https://doi.org/10.1145/3411764.3445780
+- [2021] cited_by=46  Engineering Multifunctional Spacer Fabrics Through Machine Knitting
+      conference-paper  https://doi.org/10.1145/3411764.3445564
+- [2024] cited_by=0  Wooly Graphs : A Mathematical Framework For Knitting
+    arXiv (Cornell University)  preprint  https://doi.org/10.48550/arxiv.2407.00511
+
+### openalex  unravelling repair knitted structure graph planning intervention
+HTTP 200  bytes=12014  sha256=2da1d50b2335b4b2  total=69
+- [2024] cited_by=11  Unraveling bacterial stress responses: implications for next-generation antimicrobial solutions
+    World Journal of Microbiology and Biotechnology  article  https://doi.org/10.1007/s11274-024-04090-z
+- [2021] cited_by=0  Networks and Contexts: Variation in the Structure of Social Ties
+    Carolina Digital Repository (University of North Carolina at Chapel Hill)  article  https://doi.org/10.17615/2snx-x005
+- [2012] cited_by=1  House as a city : re-contructing Vancouver's urban imaginary in master-planned neighbourhoods, South False Cre
+      dissertation  https://doi.org/10.22215/etd/2012-09556
+- [2026] cited_by=0  A dual view interactive framework with linked 2D and 3D visualisation enhances cerebral artery exploration in 
+    Discover Computing  article  https://doi.org/10.1007/s10791-026-10482-6
+- [2025] cited_by=0  From Semantic Modeling to Precision Radiotherapy: An AI Framework Linking Radiobiology, Oncology, and Public H
+    Preprints.org  preprint  https://doi.org/10.20944/preprints202510.1518.v1
+- [2023] cited_by=15  Explanatory Journalism within European Fact Checking Platforms: An Ally against Disinformation in the Post-COV
+    Societies  article  https://doi.org/10.3390/soc13110237
+- [2022] cited_by=322  A literature review of Artificial Intelligence applications in railway systems
+    Transportation Research Part C Emerging Technologies  article  https://doi.org/10.1016/j.trc.2022.103679
+- [2026] cited_by=0  “Nobody should have to live with that kind of desperation” : a case study of hidden and at-risk homelessness i
+    Saint Mary's University Institutional Repository (Saint Mary's University)  article  https://openalex.org/W7169749289
+- [1998] cited_by=1  The use of support groups in the treatment of cancer : an interactional approach
+    Unisa Institutional Repository (University of South Africa)  dissertation  https://openalex.org/W1556299256
+- [2012] cited_by=0  Hikoitanga tapuwae o te hunga ke To take a walk in another's shoes: Using process drama to teach the underlyin
+    Research Commons (University of Waikato)  dissertation  https://openalex.org/W167889950
+
+### openalex  knit graph repair algorithm unravelling ladder
+HTTP 200  bytes=3754  sha256=bb7cb58071991d5a  total=3
+- [2018] cited_by=0  Last Year at Betty and Bob's
+    Punctum Books  book  https://doi.org/10.21983/p3.0234.1.00
+- [1991] cited_by=0  Library trends: Intellectual access to graphic information
+    Information Processing & Management  article  https://doi.org/10.1016/0306-4573(91)90012-b
+- [2015] cited_by=0  Guilty by Association: Small-World Problem Emphasizes Critical Need for Business Strategies in Response to the
+    bepress Legal Repository  article  https://doi.org/10.17613/1fc4-9z41
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7012  redactions: none
+==============================================================================
+[seq 27] 2026-10-03T21:15:16+00:00
+$ bash -c curl -sS -m 30 "https://api.openalex.org/works/doi:10.1145/3332165.3347886?select=id,title,publication_year,abstract_inverted_index,cited_by_count,primary_location" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"HTTP 200  title:\", d.get(\"title\"), d.get(\"publication_year\"), \"cited_by\", d.get(\"cited_by_count\"))
+idx=d.get(\"abstract_inverted_index\") or {}
+if not idx: print(\"(no abstract in OpenAlex)\")
+else:
+    words=sorted(((pos,w) for w,ps in idx.items() for pos in ps))
+    print(\" \".join(w for _,w in words))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+HTTP 200  title: KnitPicking Textures 2019 cited_by 72
+Knitting creates complex, soft fabrics with unique texture properties that can be used to create interactive objects.However, little work addresses the challenges of designing and using knitted textures computationally. We present KnitPick: a pipeline for interpreting hand-knitting texture patterns into KnitGraphs which can be output to machine and hand-knitting instructions. Using KnitPick, we contribute a measured and photographed data set of 472 knitted textures. Based on findings from this data set, we contribute two algorithms for manipulating KnitGraphs. KnitCarving shapes a graph while respecting a texture, and KnitPatching combines graphs with disparate textures while maintaining a consistent shape. KnitPick is the first system to bridge the gap between hand- and machine-knitting when creating complex knitted textures.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 425  redactions: none
+==============================================================================
+[seq 28] 2026-10-03T21:15:25+00:00
+$ bash -c curl -sS -m 30 "http://export.arxiv.org/api/query?id_list=2604.20580&max_results=1" | python3 -c "
+import sys,re
+b=sys.stdin.read()
+t=re.search(r\"<title>(.*?)</title>\", b[b.find(\"<entry>\"):], re.S)
+s=re.search(r\"<summary>(.*?)</summary>\", b, re.S)
+p=re.search(r\"<published>(.*?)</published>\", b, re.S)
+print(\"ARXIV HTTP 200\")
+print(\"title:\", \" \".join(t.group(1).split()) if t else None)
+print(\"published:\", p.group(1) if p else None)
+print(\"abstract:\", \" \".join(s.group(1).split())[:1500] if s else None)
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ARXIV HTTP 200
+title: None
+published: None
+abstract: None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118  redactions: none
+==============================================================================
+[seq 29] 2026-10-03T21:15:30+00:00
+$ bash -c curl -sS -m 30 -w "[HTTP %{http_code}]\n" "https://export.arxiv.org/api/query?search_query=ti:%22laddering%22+AND+all:%22knitted%22&max_results=5" -o /tmp/opencode/ax.xml; python3 -c "
+import re
+b=open(\"/tmp/opencode/ax.xml\").read()
+print(\"bytes\",len(b))
+for m in re.finditer(r\"<entry>(.*?)</entry>\", b, re.S):
+    e=m.group(1)
+    t=re.search(r\"<title>(.*?)</title>\", e, re.S); p=re.search(r\"<published>(.*?)</published>\", e, re.S)
+    i=re.search(r\"<id>(.*?)</id>\", e, re.S); s=re.search(r\"<summary>(.*?)</summary>\", e, re.S)
+    print(\"-\", \" \".join(t.group(1).split()) if t else None, \"|\", p.group(1)[:10] if p else \"\", \"|\", i.group(1) if i else \"\")
+    print(\"  \", \" \".join(s.group(1).split())[:400] if s else \"\")
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[HTTP 200]
+bytes 4580
+- Laddering of a knitted fabric: a topology-induced failure | 2026-04-22 | http://arxiv.org/abs/2604.20580v1
+   Laddering is the propagation of a topological defect in an everyday-life material: weft knitted fabrics, following a broken thread or a dropped stitch. What is a minor frustration when damaging a pair of tights is a more serious issue for industrial-scale production, but might inspire new solutions to limit and mitigate damage to architected materials. In this work, laddering is investigated in a 
+- Knitting distributed cluster state ladders with spin chains | 2011-04-22 | http://arxiv.org/abs/1104.4434v2
+   There has been much recent study on the application of spin chains to quantum state transfer and communication. Here we discuss the utilisation of spin chains (set up for perfect quantum state transfer) for the knitting of distributed cluster state structures, between spin qubits repeatedly injected and extracted at the ends of the chain. The cluster states emerge from the natural evolution of the
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1194  redactions: none
+==============================================================================
+[seq 30] 2026-10-03T21:15:40+00:00
+$ bash -c python3 -c "
+import re
+b=open(\"/tmp/opencode/ax.xml\").read()
+m=re.search(r\"<entry>(.*?)</entry>\", b, re.S).group(1)
+s=re.search(r\"<summary>(.*?)</summary>\", m, re.S)
+print(\"LADDERING ABSTRACT:\", \" \".join(s.group(1).split()))
+"; echo; curl -sS -m 30 "https://api.openalex.org/works/doi:10.1038/s41467-024-46498-z?select=abstract_inverted_index" | python3 -c "
+import json,sys
+d=json.load(sys.stdin); idx=d.get(\"abstract_inverted_index\") or {}
+print(\"NATCOMM ABSTRACT:\", \" \".join(w for _,w in sorted((p,w) for w,ps in idx.items() for p in ps)) if idx else \"(none)\")
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+LADDERING ABSTRACT: Laddering is the propagation of a topological defect in an everyday-life material: weft knitted fabrics, following a broken thread or a dropped stitch. What is a minor frustration when damaging a pair of tights is a more serious issue for industrial-scale production, but might inspire new solutions to limit and mitigate damage to architected materials. In this work, laddering is investigated in a pre-stressed model knit through experiments and Discrete Element Rod simulations. The control parameter is the initial tension applied on the fabric. A force threshold due to the stitch's natural curvature is evidenced. It controls both the propagation onset and arrest, as tension is relaxed by the thread length freed by ladder growth, and enables damage prediction at moderate tension. Furthermore, we uncovered that the laddering velocity is of the order of the velocity of bending waves and exhibits an unexpected linear scaling with the fabric tension, that arises from a complex combination of elastic and friction forces. Finally, we discuss the implications of our results from the perspective of damage control and mitigation.
+
+NATCOMM ABSTRACT: Knitting turns yarn, a 1D material, into a 2D fabric that is flexible, durable, and can be patterned to adopt a wide range of 3D geometries. Like other mechanical metamaterials, the elasticity of knitted fabrics is an emergent property of the local stitch topology and pattern that cannot solely be attributed to the yarn itself. Thus, knitting can be viewed as an additive manufacturing technique that allows for stitch-by-stitch programming of elastic properties and has applications in many fields ranging from soft robotics and wearable electronics to engineered tissue and architected materials. However, predicting these mechanical properties based on the stitch type remains elusive. Here we untangle the relationship between changes in stitch topology and emergent elasticity in several types of knitted fabrics. We combine experiment and simulation to construct a constitutive model for the nonlinear bulk response of these fabrics. This model serves as a basis for composite fabrics with bespoke mechanical properties, which crucially do not depend on the constituent yarn.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 448  redactions: none
+==============================================================================
+[seq 31] 2026-10-03T21:15:48+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://patents.google.com/patent/US1845516A/en" "abstract,repair,knitted,loop,needle,claim,1929,1932" 2500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://patents.google.com/patent/US1845516A/en
+ERROR HTTPError: HTTP Error 503: Service Unavailable
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 742  redactions: none
+==============================================================================
+[seq 32] 2026-10-03T21:16:01+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://en.wikipedia.org/wiki/Darning_machine" "knitted,repair,loom,hosiery,history,needle,19" 2600
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://en.wikipedia.org/wiki/Darning_machine
+ERROR HTTPError: HTTP Error 404: Not Found
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 993  redactions: none
+==============================================================================
+[seq 33] 2026-10-03T21:16:09+00:00
+$ bash -c python3 /tmp/opencode/page.py "https://en.wikipedia.org/w/index.php?search=darning+machine+knitwear&title=Special:Search&fulltext=1" "darning,machine,knit" 1500; echo; python3 /tmp/opencode/page.py "https://en.wikipedia.org/wiki/Mending" "darning,knit,repair,loom,history" 2500
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+URL https://en.wikipedia.org/w/index.php?search=darning+machine+knitwear&title=Special:Search&fulltext=1
+HTTP 200  bytes=61973  sha256=106f3f2241c3a98c
+TITLE darning machine knitwear - Search results - Wikipedia
+META og:title: darning machine knitwear - Search results - Wikipedia
+LINES 117 total, showing 19 (keywords=darning,machine,knit)
+0: darning machine knitwear - Search results - Wikipedia
+57: machine knitwear
+59: Darning machine knitwear
+65: Knitted fabric
+67: Knitwear
+70: knitwear
+71: designers include Diane von Fürstenberg. Knitting Knitting
+72: machine
+73: Basic knitted fabrics Jersey (fabric)...
+75: Knitting
+77: Machine
+78: knitting
+81: darning
+82: needle are often useful in binding/casting off or in joining two knitted pieces edge-to-edge. The
+83: darning
+89: darning
+95: knitwear
+97: darning
+98: , knitting, reticulation, spinning, weaving nefxen
+
+URL https://en.wikipedia.org/wiki/Mending
+HTTP 200  bytes=227362  sha256=cb7b1b221bc2a861
+TITLE Maintenance - Wikipedia
+META og:title: Maintenance - Wikipedia
+LINES 974 total, showing 27 (keywords=darning,knit,repair,loom,history)
+102: View history
+110: View history
+140: "Repair" and "repairman" redirect here. For home repair, see
+141: Home repair
+143: A tractor being mechanically repaired in
+146: Field repair of aircraft engine (1915–1916)
+149: involves functional checks, servicing, repairing or replacing of necessary devices, equipment,
+170: maintenance, repair and overhaul
+174: maintenance, repair and operations
+185: Any activity—such as tests, measurements, replacements, adjustments, and repairs—intended to retain or restore a
+193: , testing, servicing, classification as to serviceability, repair,
+199: All supply and repair action taken to keep a force in condition to carry out its mission.
+220: maintenance, repair and overhaul
+229: The performance of tasks required to ensure the continuing airworthiness of an aircraft, including any one or combination of overhaul, inspection, replacement, defect rectification, and the embodiment of a modification or a repair.
+236: Road repair
+253: maintenance, repair and overhaul
+266: , where equipment is repaired or replaced after wear, malfunction or break down
+301: ) during seasonal changes, neglect, or normal wear (preventable items), which Planned Maintenance and Condition Based Maintenance help to achieve by replacing worn components before they actually fail. Maintenance activities include partial or complete overhauls at specified periods, oil changes, lu
+501: Corrective maintenance is a type of maintenance used for equipment after equipment break down or malfunction is often most expensive – not only can worn equipment damage other parts and cause multiple damage, but consequential repair and replacement costs and loss of revenues due to down time during
+512: repair
+530: Darning
+531: – Sewing technique for repairing holes
+533: Design for repair
+547: – Rail yard for cleaning, repairing and maintaining locomotives
+566: Repair shop (disambiguation)
+569: Right to repair
+665: "What's Different in the M.T.A.'s New Plan for Repairing the L Train Tunnel"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3039  redactions: none
+==============================================================================
+[seq 34] 2026-10-03T21:16:40+00:00
+$ bash -c python3 /tmp/opencode/prior.py patent "q=\"mending\" \"knitted fabric\" after=priority:20050101"; echo; python3 /tmp/opencode/prior.py patent "q=\"knitted fabric\" \"mending device\" assignee:Shima"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 99, in <module>
+    {"patent": patent, "openalex": openalex, "s2": s2}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+Traceback (most recent call last):
+  File "/tmp/opencode/prior.py", line 99, in <module>
+    {"patent": patent, "openalex": openalex, "s2": s2}[mode](query)
+  File "/tmp/opencode/prior.py", line 28, in patent
+    status, body = fetch(url)
+  File "/tmp/opencode/prior.py", line 20, in fetch
+    with urllib.request.urlopen(req, timeout=45) as resp:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 503: Service Unavailable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2149  redactions: none
+==============================================================================
+[seq 35] 2026-10-03T21:16:55+00:00
+$ bash -c for q in "knitting fix mistakes" "knit chart"; do python3 /tmp/opencode/gh.py "$q"; echo; sleep 3; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### github  knitting fix mistakes
+HTTP 200  bytes=55  sha256=4af480b8ee5b87b3  total=0
+
+### github  knit chart
+HTTP 200  bytes=66010  sha256=2a93699f9fd77e38  total=68
+- knitscape/knitscape/knitscape  stars=64  pushed=2026-09-25  lang=JavaScript
+    Knitscape is a chart-based design and simulation tool for knitting stitch patterns.
+    https://github.com/knitscape/knitscape
+- notwaldorf/knit-a-stitch/knit-a-stitch  stars=52  pushed=2017-12-23  lang=JavaScript
+    🎀 Draw a pattern that you want to knit, and get the knitting chart for it!
+    https://github.com/notwaldorf/knit-a-stitch
+- marnen/knitting_symbols/knitting_symbols  stars=13  pushed=2019-05-15  lang=Ruby
+    SVG images of standard stitch symbols used on knitting charts.
+    https://github.com/marnen/knitting_symbols
+- leifrogers/cyc-svgs/cyc-svgs  stars=5  pushed=2026-06-16  lang=HTML
+    Vector reproductions of the Craft Yarn Council standard knit chart symbols. Customize color, size, and background — preview live, then download individual SVGs or the whole set as a ZIP.
+    https://github.com/leifrogers/cyc-svgs
+- jamesmahler/knitting_chart/knitting_chart  stars=3  pushed=2022-02-10  lang=Rust
+    A program designed to take in a knitting text file and output a knitting pattern.
+    https://github.com/jamesmahler/knitting_chart
+- michaelmelanson/knitting-charter/knitting-charter  stars=2  pushed=2023-01-03  lang=Ruby
+    
+    https://github.com/michaelmelanson/knitting-charter
+- callmebyneon/light-knitting-chart/light-knitting-chart  stars=1  pushed=2026-07-30  lang=TypeScript
+    뜨개 차트를 간단하게 그리기 위한 드로잉 툴 | Make knitting chart lightly
+    https://github.com/callmebyneon/light-knitting-chart
+- amberweinberg/KnittingCSS/KnittingCSS  stars=1  pushed=2016-07-07  lang=PHP
+    KnittingCSS is a collection of modern and vintage fair isle charts, reproduced entirely in code.
+    https://github.com/amberweinberg/KnittingCSS
+- mzetasmith/knitting-project/knitting-project  stars=1  pushed=2024-12-14  lang=Python
+    converting knitting charts into knitting instructions
+    https://github.com/mzetasmith/knitting-project
+- terriko/knitpy/knitpy  stars=1  pushed=2015-04-01  lang=Python
+    KnitPy is a free knitting chart making tool, written in Python
+    https://github.com/terriko/knitpy
+- Jeanneveev/Knitting-Pattern-to-Chart-Translator/Knitting-Pattern-to-Chart-Translator  stars=1  pushed=2026-09-29  lang=Python
+    A program to translate knitting patterns into knitting charts
+    https://github.com/Jeanneveev/Knitting-Pattern-to-Chart-Translator
+- lanyii22/KnittingLab/KnittingLab  stars=1  pushed=2026-01-05  lang=JavaScript
+    KnittingLab is a platform for modeling knitting structures at the yarn and loop level, combining professional stitch charts with physically-based 3D simulation.
+    https://github.com/lanyii22/KnittingLab
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7361  redactions: none
+==============================================================================
+[seq 36] 2026-10-03T21:19:01+00:00
+$ bash -c for u in https://patents.google.com/patent/DE836074C/en https://patents.google.com/patent/US1845516A/en; do echo -n "$u -> "; curl -sS -o /dev/null -m 25 -w "%{http_code}\n" "$u"; sleep 5; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+https://patents.google.com/patent/DE836074C/en -> 503
+https://patents.google.com/patent/US1845516A/en -> 503
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10919  redactions: none
+==============================================================================
+[seq 37] 2026-10-03T21:19:46+00:00
+$ bash -c echo "=== CI workflow ==="; sed -n "1,40p" .github/workflows/ci.yml; echo "=== runs ==="; curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs?per_page=5" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"total_runs:\", d.get(\"total_count\"))
+for r in (d.get(\"workflow_runs\") or [])[:5]:
+    print(\" \", r.get(\"name\"), r.get(\"status\"), r.get(\"conclusion\"), r.get(\"created_at\"), r.get(\"head_branch\"))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== CI workflow ===
+name: ci
+
+# Gates for every push and pull request. Standard library only: no install step,
+# no lockfile, no secret. See docs/operations/ci.md.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show toolchain
+        run: |
+          python3 --version
+          git --version
+
+      - name: Tests
+        run: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -v
+
+      - name: Documentation lint
+        run: tools/origin doc lint
+
+      - name: Skill layout and mirrors
+        run: tools/origin skills check
+
+      - name: Vendored content integrity
+        run: tools/origin skills verify
+
+      # Strict: nothing is in flight on a pushed commit, so an unfinished
+      # session is a real failure.
+      - name: Session record integrity
+=== runs ===
+total_runs: 60
+  ci completed failure 2026-10-03T21:07:02Z research/origin
+  ci completed failure 2026-10-03T21:06:32Z research/origin
+  ci completed failure 2026-10-03T21:03:30Z research/origin
+  ci completed failure 2026-10-03T20:46:38Z research/origin
+  ci completed failure 2026-10-03T20:46:33Z research/origin
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 892  redactions: none
+==============================================================================
+[seq 38] 2026-10-03T21:20:12+00:00
+$ bash -c RUN=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs?per_page=1" | python3 -c "import json,sys;print(json.load(sys.stdin)[\"workflow_runs\"][0][\"id\"])"); echo "run=$RUN"; curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs/$RUN/jobs" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for job in d.get(\"jobs\", []):
+    print(\"JOB\", job[\"name\"], job[\"status\"], job[\"conclusion\"])
+    for step in job.get(\"steps\", []):
+        print(\"   [%s] %s\" % (step.get(\"conclusion\"), step.get(\"name\")))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+run=37153966930
+JOB verify completed failure
+   [success] Set up job
+   [success] Run actions/checkout@v4
+   [success] Show toolchain
+   [failure] Tests
+   [skipped] Documentation lint
+   [skipped] Skill layout and mirrors
+   [skipped] Vendored content integrity
+   [skipped] Session record integrity
+   [success] Post Run actions/checkout@v4
+   [success] Complete job
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1038  redactions: none
+==============================================================================
+[seq 39] 2026-10-03T21:20:25+00:00
+$ bash -c RUN=37153966930; curl -sS -m 40 -L -o /tmp/opencode/ci.log -w "HTTP %{http_code} bytes %{size_download}\n" "https://api.github.com/repos/ikihsan/think-free/actions/runs/$RUN/logs"; file /tmp/opencode/ci.log; head -c 300 /tmp/opencode/ci.log
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+HTTP 403 bytes 180
+/tmp/opencode/ci.log: JSON data
+{
+  "message": "Must have admin rights to Repository.",
+  "documentation_url": "https://docs.github.com/rest/actions/workflow-runs#download-workflow-run-logs",
+  "status": "403"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 344  redactions: none
+==============================================================================
+[seq 40] 2026-10-03T21:20:36+00:00
+$ bash -c SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/commits/research/origin" | python3 -c "import json,sys;print(json.load(sys.stdin)[\"sha\"])"); echo "sha=$SHA"; curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/commits/$SHA/check-runs" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"total\", d.get(\"total_count\"))
+for cr in d.get(\"check_runs\", []):
+    print(cr.get(\"name\"), cr.get(\"status\"), cr.get(\"conclusion\"), \"id=\", cr.get(\"id\"))
+    out = cr.get(\"output\") or {}
+    t = (out.get(\"text\") or \"\")
+    print(\"   text:\", t[:500])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sha=f6e38dab0ce8e2383c71fdc3b81041995c5c56e1
+total 1
+verify completed failure id= 111293404392
+   text: 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1113  redactions: none
+==============================================================================
+[seq 41] 2026-10-03T21:20:46+00:00
+$ bash -c curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/check-runs/111293404392/annotations?per_page=100" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"annotations:\", len(d) if isinstance(d,list) else d)
+for a in (d if isinstance(d,list) else [])[:20]:
+    print(\"-\", a.get(\"path\"), a.get(\"start_line\"), a.get(\"annotation_level\"), (a.get(\"message\") or \"\")[:300])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+annotations: 3
+- .github 2 warning Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+- .github 203 failure Process completed with exit code 1.
+- .github 1 notice "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 403  redactions: none
+==============================================================================
+[seq 42] 2026-10-03T21:21:05+00:00
+$ bash -c curl -sS -m 30 "https://api.github.com/repos/ikihsan/think-free/actions/runs?per_page=100" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+runs=d.get(\"workflow_runs\") or []
+from collections import Counter
+print(\"total_count\", d.get(\"total_count\"), \"fetched\", len(runs))
+print(Counter((r.get(\"conclusion\")) for r in runs))
+succ=[r for r in runs if r.get(\"conclusion\")==\"success\"]
+print(\"earliest\", runs[-1][\"created_at\"] if runs else None, \"latest\", runs[0][\"created_at\"] if runs else None)
+for r in runs[-3:]: print(\"old:\", r[\"created_at\"], r.get(\"conclusion\"), r.get(\"head_sha\",\"\")[:8])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+total_count 60 fetched 60
+Counter({'failure': 60})
+earliest 2026-10-03T11:58:57Z latest 2026-10-03T21:07:02Z
+old: 2026-10-03T12:42:47Z failure 9115e52e
+old: 2026-10-03T12:42:20Z failure 70cf4a1d
+old: 2026-10-03T11:58:57Z failure fb523722
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1842  redactions: none
+==============================================================================
+[seq 43] 2026-10-03T21:25:42+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+................................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+..............................................................................
+----------------------------------------------------------------------
+Ran 173 tests in 88.119s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 88505  redactions: none

@@ -8,6 +8,8 @@ last-verified: 2026-10-03
 
 One entry per disproved or bounded claim. Each records the source, what was
 run, what was observed, how it is classified, and what it does not cover.
+F009 onwards continues in [`FAILURES-findings-2.md`](FAILURES-findings-2.md),
+which this file's line cap forced; identifiers mean the same thing in both.
 Live questions are in [`FAILURES.md`](FAILURES.md).
 
 ## F001 — Photo-migration auditor: the motivating example is not evidence

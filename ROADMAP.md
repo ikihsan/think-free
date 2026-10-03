@@ -41,13 +41,17 @@ disproved and no candidate is validated.
 - [x] Test the knitting candidate's Stage-A planner twice: per-error rule
       suboptimal (`004-knitting-stage-a`, T-0010), whole-neighbourhood search
       exact (`005-knitting-bounded-search`, T-0011)
+- [x] Search the knitting candidate's last kill-gate condition in three
+      vocabularies (`RESEARCH/PRIOR-ART-KNITTING.md`, T-0015): the algorithmic
+      advantage is prior art (`FAILURES.md` F009), no tool supplies an
+      intervention sequence for an existing hand-knit
 - [x] Run the ventilation candidate's measurement-design kill gate
       (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
       stopped (`FAILURES.md` F008)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs
-      produced no product claim; `RESEARCH/SYNTHESIS.md` names the ventilation
-      protocol as the next materially different one.
+      produced no product claim; with C2 stopped (F008) and the knitting
+      algorithmic claim abandoned (F009), no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
       fairness
 
@@ -109,7 +113,11 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
 - [x] Standard-library test suite (173 tests)
 - [x] Environment doctor with presence-only credential checks
-- [ ] Continuous integration running lint, tests, and session verification
+- [ ] Continuous integration running lint, tests, and session verification.
+      The workflow exists (`.github/workflows/ci.yml`, five gates) but **all 60
+      recorded runs failed**, every one of them at the `Tests` step; the failing
+      step's log is not readable without repository admin rights, so the cause
+      is unrecorded. Fix before claiming CI is green.
 - [ ] `origin release check` validating `RELEASE-MANIFEST.md`
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists

@@ -25,6 +25,7 @@ Method: [`docs/process/hypothesis-lifecycle.md`](docs/process/hypothesis-lifecyc
 | [`E.md`](RESEARCH/E.md) | Experimental engineer | Sealed | Retry synchronization, lockfile closure drift, timestamp determinism — three cheap falsifiable mechanisms |
 | [`F.md`](RESEARCH/F.md) | Adoption researcher | Sealed | Time-to-first-value, distribution, comprehension cost, six pre-release checkable criteria |
 | [`SYNTHESIS.md`](RESEARCH/SYNTHESIS.md) | Cross-report screen | Active | All six reports screened with E's falsifiability criterion and F's time-to-first-value lens; ranked survivor list |
+| [`PRIOR-ART-KNITTING.md`](RESEARCH/PRIOR-ART-KNITTING.md) | Prior-art check | Sealed | The knitting candidate's last kill-gate condition, searched in three vocabularies plus patents and the GitHub API (T-0015) |
 
 [`EXPERIMENT-PROTOCOL.md`](RESEARCH/EXPERIMENT-PROTOCOL.md) was promoted to
 [`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md);

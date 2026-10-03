@@ -238,3 +238,30 @@ and beam sweep, the family-by-family work ratios (1.28x *worse* than the oracle
 on T-0010's own cases), and the explicit verdict that "bounded neighbourhood" is
 not an efficiency claim at this scale. The chunk cap is recorded as the failure
 boundary: whole neighbourhoods are exact, per-error chunks are not.
+
+## D022 — A kill-gate condition naming "prior art" must name which claim it gates (2026-10-03)
+
+Observed: the knitting candidate's kill gate read "abandon the
+algorithmic-advantage claim if existing graph tooling already supplies equivalent
+intervention sequences". One sentence, two different claims: whether a *knitting*
+tool already does this, and whether the *algorithm* is new. T-0015 answered both,
+in opposite directions — no tool was found, and the mechanism has been published
+since 2007 — so a single verdict would have been wrong whichever way it went, and
+a later session reading only the verdict could not tell which claim died.
+
+Decision: when a kill gate's condition contains the words prior art, no novelty,
+or differentiated, the report must answer **one row per claim inside the
+condition**, each with its own result and its own confidence label. A condition
+whose reading is ambiguous is split in the record, not resolved silently by the
+agent running it.
+
+Rejected: picking the reading that made the candidate look best, because that is
+the failure the gate exists to prevent; and rewriting the kill gate after seeing
+the result, which turns a predeclared gate into a rationalisation (the D020
+reasoning in a new place).
+
+Consequence: `RESEARCH/PRIOR-ART-KNITTING.md` carries the two-row verdict table,
+the algorithmic-advantage claim is recorded as `FAILURES.md` F009, and the
+surviving physical question (Stage B) is stated as the only thing left for the
+candidate. Any future kill gate that gates on prior art should be written with
+its claims separated in the first place.

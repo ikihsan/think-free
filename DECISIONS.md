@@ -13,7 +13,7 @@ ordinary edits do not.
 | File | Decisions | Governs |
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
-| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011– | Recording, verifying, publishing, and gating work |
+| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D022 | Recording, verifying, publishing, and gating work |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who

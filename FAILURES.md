@@ -18,7 +18,9 @@ Distinguishing the kind of failure matters, because it determines the next step:
 | The measurement was inadequate | Unknown; fix the experiment |
 | Access or resources blocked it | Unknown; record the blocker precisely |
 
-Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md):
+Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md) for
+F001–F008 and [`FAILURES-findings-2.md`](FAILURES-findings-2.md) from F009,
+split because the first file reached the 300-line cap:
 
 | Id | Subject |
 |---|---|
@@ -30,6 +32,7 @@ Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md):
 | F006 | Decision-directed advantage does not transfer to a fieldwork-cost budget |
 | F007 | Knitting repair planner: the stated input set is information-insufficient |
 | F008 | Adaptive ventilation measurement selection: prescribing one intervention beats choosing it |
+| F009 | Knitting repair planner: the algorithmic advantage is prior art |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
@@ -41,8 +44,9 @@ are stable: a reference to `F008` means the same entry in either file.
 These remain live questions, not settled negatives:
 
 - **Knitting repair planning** (`RESEARCH/C.md`): graph representation is prior
-  art; whether an *intervention* planner is differentiated and physically
-  feasible is untested. Stage A is settled mechanically (T-0010, T-0011).
+  art and so is the algorithmic core (F009). What is untested is whether a
+  knitter follows a generated plan and saves real work — Stage B, unperformable
+  in this repository. Stage A is settled mechanically (T-0010, T-0011).
 - **Adaptive ventilation measurement selection** (`RESEARCH/C.md`): stopped as
   formulated (F008). NVAPF and NIST tools occupy uncertainty-aware estimation;
   the surviving reading-a-second-sensor robustness observation is untested
