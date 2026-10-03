@@ -139,6 +139,7 @@ real finding — only `cryptography` ships 1980-normalised wheels (7 of 20, all
 `jinja2` carries checkout mtimes — which means "the" ecosystem-wide rate is not
 even well defined. The same shape of near-vacuous gate appeared in F008.
 
+<<<<<<< HEAD
 ## F011 — `sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason
 
 Source: T-0016, `.github/workflows/ci.yml`,
@@ -197,6 +198,8 @@ cannot fail for the reason CI fails. The defect was in the one operation the
 whole multi-VM contract depends on, and 60 red runs did not localise it because
 the evidence needed credentials. The two changes that mattered were both about
 *legibility*: emit failures where anyone can read them, and say what git said.
+=======
+>>>>>>> renumber the E3 attribution finding to F012 and record the third collision
 ## F012 — E3's ordering claim holds, and that is why there is nothing to build
 
 Source: `EXPERIMENTS/008-build-timestamp-attribution/`, T-0017, completing the

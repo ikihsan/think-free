@@ -242,7 +242,7 @@ with a one-line effect. A tool that counts the violations duplicates
 variable. The census measured the remaining gap as an *adoption* fact: 0.965 of
 recent wheels are not 1980-pinned even though the builder can pin them. Adoption
 of a standard is not a new repository. E3 is recorded as a mechanism supported and
-a candidate abandoned (`FAILURES.md` F011).
+a candidate abandoned (`FAILURES.md` F012).
 
 ## Limits
 

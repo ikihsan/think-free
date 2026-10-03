@@ -59,7 +59,7 @@ confirmed while its candidate died of it, and no candidate is validated.
       398 of 398 differing bytes are timestamp fields, and `SOURCE_DATE_EPOCH`
       makes builds bit-identical, so E3's mechanism is supported and its
       candidate abandoned — the remedy is one environment variable the builder
-      already honours (`FAILURES.md` F011)
+      already honours (`FAILURES.md` F012)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs
       produced no product claim; with C2 stopped (F008) and the knitting

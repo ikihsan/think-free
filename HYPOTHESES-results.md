@@ -204,7 +204,7 @@ identified: the `.dist-info` files the builder generates carry the wall clock, s
 two builds across a 2-second DOS tick differ in exactly those entries.
 Predeclared gate met: `timestamps-first`.
 
-**Decision.** `FAILURES.md` F011. E3's ordering claim is **supported for this
+**Decision.** `FAILURES.md` F012. E3's ordering claim is **supported for this
 builder** — fixing timestamps is sufficient, not merely worthwhile — and the
 candidate is **abandoned anyway**, because the remedy is `SOURCE_DATE_EPOCH`, a
 standard this builder already honours. The remaining gap is adoption, and

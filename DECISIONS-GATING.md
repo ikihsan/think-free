@@ -172,3 +172,40 @@ decision exists to prevent — the same shape of near-vacuous gate as F008.
 Consequence: the census reports `lead-survives` and F010 explains why that
 verdict licenses nothing yet. The attribution measurement is T-0017
 (`EXPERIMENTS/008-build-timestamp-attribution/`).
+
+## D024 — A gate clause must be implemented as written, and a control must be able to fail (2026-10-03)
+
+Observed: T-0017's predeclared G2 reads "a planted content change is detected
+**and attributed to a non-timestamp cause**". The code implemented "the artifacts
+differ". The planted file was `src/__planted__.txt`, which none of the five
+`setup.py` files packages, so the planted artifact differed from its control only
+by the wall-clock stamps on its `.dist-info` files — and *that* difference is
+exactly what the experiment was measuring elsewhere. The control passed, the gate
+was reported met, and nothing had been tested. The proxy clause was satisfied on
+four sources while `residual_causes_after_patch` was empty on all of them.
+
+Decision: two rules for every gate written from here on. **A control clause is
+implemented by its own noun, not by a weaker proxy** — "attributed to a
+non-timestamp cause" is checked by looking for that cause, never by looking for
+any difference. **A control's expected failure is asserted, not assumed**: if the
+planted defect cannot be observed, the run reports the control as unfired rather
+than as passed. Planting is done by reading a real build's artifact and editing a
+file the artifact demonstrably contains, because a control aimed at a path no build
+writes is a control that measures the harness.
+
+Rejected: reading the first run's verdict, because it was produced by a clause the
+code did not implement; and re-running until the control fires, which would have
+been indistinguishable from picking the result.
+
+<<<<<<< HEAD
+Consequence: the first run is kept as
+`EXPERIMENTS/008-build-timestamp-attribution/first-failure.json`, the second run
+is the one `results.json` holds, and both the experiment README and
+=======
+Consequence: the first run is kept as `EXPERIMENTS/008-build-timestamp-attribution/first-failure.json`,
+the second run is the one `results.json` holds, and both README and
+>>>>>>> renumber the E3 attribution finding to F012 and record the third collision
+`FAILURES.md` F012 name the defect. The strengthened check now reports
+`content-differs` on 5 of 5 sources with 40,493–97,407 non-timestamp bytes, which
+is what makes the headline "no residual cause" a result rather than a blind spot.
+>>>>>>> renumber the E3 attribution finding to F012 and record the third collision

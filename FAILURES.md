@@ -34,7 +34,10 @@ split because the first file reached the 300-line cap:
 | F008 | Adaptive ventilation measurement selection: prescribing one intervention beats choosing it |
 | F009 | Knitting repair planner: the algorithmic advantage is prior art |
 | F010 | E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not |
+<<<<<<< HEAD
 | F011 | `sync land` broke on git ≥ 2.26, and every CI run failed for that reason |
+=======
+>>>>>>> renumber the E3 attribution finding to F012 and record the third collision
 | F012 | E3's ordering claim holds, and that is why there is nothing to build |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
