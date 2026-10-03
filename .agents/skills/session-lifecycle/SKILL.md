@@ -49,11 +49,17 @@ tools/origin session decision "chose a fixed-point render over suppressing
   self-summaries, because suppression loses information" --refs tools/originlib/docindex.py
 ```
 
-Declare files you produced. The hash is what makes them checkable:
+Declare files you produced **as you produce them**, not in one batch at the end.
+The hash is what makes them checkable:
 
 ```bash
 tools/origin session artifact docs/reference/skill-inventory.md
+tools/origin session artifact --dir docs/reference      # sweep a directory
 ```
+
+Session 002 declared 57 artifacts in a final batch and missed 55 committed files.
+Reconciliation reported every one and exited `4`. The work was fine; the record was
+not. See `FAILURES.md` F003.
 
 Run anything whose output a conclusion depends on through the wrapper:
 

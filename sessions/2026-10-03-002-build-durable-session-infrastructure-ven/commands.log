@@ -1,0 +1,778 @@
+==============================================================================
+[seq 3] 2026-10-03T16:54:46+05:30
+$ ./tools/origin skills sync
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 21 skill(s) in .agents/skills
+  warn  created 21 mirror(s): brainstorming, dispatching-parallel-agents, doc-keeper, evidence-record, executing-plans, falsification-design, finishing-a-development-branch, honest-reporting, prior-art-check, receiving-code-review, requesting-code-review, session-lifecycle, subagent-driven-development, systematic-debugging, task-execution, test-driven-development, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 110  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T16:54:46+05:30
+$ ./tools/origin skills check
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 21 skill(s) in .agents/skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 90  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T16:54:46+05:30
+$ ./tools/origin skills hash
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+recorded vendored hashes in vendor/hashes.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T16:54:46+05:30
+$ ./tools/origin skills verify
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 14 skill(s) in .agents/skills
+  warn  doc-keeper: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  evidence-record: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  falsification-design: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  honest-reporting: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  prior-art-check: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  session-lifecycle: recorded as vendored upstream but not declared in MANIFEST.md
+  warn  task-execution: recorded as vendored upstream but not declared in MANIFEST.md
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 82  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T16:54:57+05:30
+$ ./tools/origin skills hash
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+recorded vendored hashes in vendor/hashes.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 88  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T16:54:57+05:30
+$ ./tools/origin skills verify
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 14 skill(s) in .agents/skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 77  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T16:55:32+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.......................................................................................................
+----------------------------------------------------------------------
+Ran 116 tests in 2.557s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2646  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T16:59:58+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+updated sessions/INDEX.md
+updated tasks/INDEX.md
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 113  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T16:59:58+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 152 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  FAIL  .agents/skills/brainstorming/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/spec-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/visual-companion.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/dispatching-parallel-agents/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/doc-keeper/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/executing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/finishing-a-development-branch/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/receiving-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/code-reviewer.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/implementer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/re-review-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/task-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/CREATION-LOG.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/condition-based-waiting.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/defense-in-depth.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/root-cause-tracing.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-academic.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-1.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-2.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-3.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/writing-good-tests.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-git-worktrees/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/antigravity-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/codex-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/gemini-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/pi-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/verification-before-completion/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/plan-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/anthropic-best-practices.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/persuasion-principles.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/testing-skills-with-subagents.md: missing <!-- origin-meta --> block
+  FAIL  .github/copilot-instructions.md: must start with a level-1 title
+  FAIL  AGENTS.md: must start with a level-1 title
+  FAIL  CLAUDE.md: must start with a level-1 title
+  FAIL  DECISIONS.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/000-capabilities/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/001-photo-baseline/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/PLAN.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/README.md: missing <!-- origin-meta --> block
+  FAIL  FAILURES.md: missing <!-- origin-meta --> block
+  FAIL  GEMINI.md: must start with a level-1 title
+  FAIL  HYPOTHESES.md: missing <!-- origin-meta --> block
+  FAIL  MISSION.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  RELEASE-MANIFEST.md: must start with a level-1 title
+  FAIL  RESEARCH/A.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/B.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/C.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/D.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/EXPERIMENT-PROTOCOL.md: must start with a level-1 title
+  FAIL  RESEARCH/README.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/ROOT-SCOUTING.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH.md: missing <!-- origin-meta --> block
+  FAIL  ROADMAP.md: missing <!-- origin-meta --> block
+  FAIL  STATE.md: missing <!-- origin-meta --> block
+  FAIL  docs/operations/bootstrap.md: must start with a level-1 title
+  FAIL  docs/operations/github-app.md: must start with a level-1 title
+  FAIL  docs/operations/scheduling-and-supervision.md: must start with a level-1 title
+  FAIL  docs/operations/vm-execution.md: must start with a level-1 title
+  FAIL  docs/policy/doc-standards.md: must start with a level-1 title
+  FAIL  docs/policy/evidence-labels.md: must start with a level-1 title
+  FAIL  docs/policy/logging-standard.md: must start with a level-1 title
+  FAIL  docs/policy/permissions-and-safety.md: must start with a level-1 title
+  FAIL  docs/process/experiment-protocol.md: must start with a level-1 title
+  FAIL  docs/process/hypothesis-lifecycle.md: must start with a level-1 title
+  FAIL  docs/process/review-protocol.md: must start with a level-1 title
+  FAIL  docs/process/session-protocol.md: must start with a level-1 title
+  FAIL  docs/process/task-lifecycle.md: must start with a level-1 title
+  FAIL  docs/reference/cli-reference.md: must start with a level-1 title
+  FAIL  docs/reference/repo-map.md: must start with a level-1 title
+  FAIL  docs/reference/skill-inventory.md: must start with a level-1 title
+  FAIL  sessions/README.md: must start with a level-1 title
+  FAIL  tasks/README.md: must start with a level-1 title
+  FAIL  tests/README.md: must start with a level-1 title
+  FAIL  vendor/MANIFEST.md: must start with a level-1 title
+  FAIL  vendor/superpowers/PROVENANCE.md: must start with a level-1 title
+  FAIL  .agents/skills/doc-keeper/SKILL.md: broken link -> ../../docs/policy/doc-standards.md
+  FAIL  .agents/skills/doc-keeper/SKILL.md: broken link -> ../../docs/INDEX.md
+  FAIL  .agents/skills/evidence-record/SKILL.md: broken link -> ../../docs/policy/evidence-labels.md
+  FAIL  .agents/skills/evidence-record/SKILL.md: broken link -> ../../docs/process/experiment-protocol.md
+  FAIL  .agents/skills/falsification-design/SKILL.md: broken link -> ../../docs/process/experiment-protocol.md
+  FAIL  .agents/skills/honest-reporting/SKILL.md: broken link -> ../../docs/policy/evidence-labels.md
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: broken link -> ../../docs/process/session-protocol.md
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: broken link -> ../../docs/policy/logging-standard.md
+  FAIL  .agents/skills/task-execution/SKILL.md: broken link -> ../../docs/process/task-lifecycle.md
+  FAIL  .agents/skills/task-execution/SKILL.md: broken link -> ../../tasks/INDEX.md
+  FAIL  sessions/INDEX.md: broken link -> 2026-10-03-002-build-durable-session-infrastructure-ven/README.md
+  FAIL  tasks/README.md: broken link -> ../process/task-lifecycle.md
+  FAIL  tasks/README.md: broken link -> ../process/session-protocol.md
+  FAIL  vendor/superpowers/PROVENANCE.md: broken link -> ../LICENSE
+  FAIL  .agents/skills/brainstorming/spec-document-reviewer-prompt.md: orphan document; no other document links to it
+  FAIL  .agents/skills/systematic-debugging/CREATION-LOG.md: orphan document; no other document links to it
+  FAIL  .agents/skills/systematic-debugging/test-academic.md: orphan document; no other document links to it
+  FAIL  .agents/skills/systematic-debugging/test-pressure-1.md: orphan document; no other document links to it
+  FAIL  .agents/skills/systematic-debugging/test-pressure-2.md: orphan document; no other document links to it
+  FAIL  .agents/skills/systematic-debugging/test-pressure-3.md: orphan document; no other document links to it
+  FAIL  .agents/skills/writing-plans/plan-document-reviewer-prompt.md: orphan document; no other document links to it
+  FAIL  vendor/superpowers/PROVENANCE.md: orphan document; no other document links to it
+  FAIL  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/README.md: generated file missing
+doc lint: 113 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 128  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T17:00:16+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none
+==============================================================================
+[seq 14] 2026-10-03T17:00:16+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 152 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  FAIL  .agents/skills/brainstorming/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/spec-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/visual-companion.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/dispatching-parallel-agents/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/doc-keeper/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/executing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/finishing-a-development-branch/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/receiving-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/code-reviewer.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/implementer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/re-review-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/task-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/CREATION-LOG.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/condition-based-waiting.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/defense-in-depth.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/root-cause-tracing.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-academic.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-1.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-2.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-3.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/writing-good-tests.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-git-worktrees/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/antigravity-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/codex-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/gemini-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/pi-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/verification-before-completion/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/plan-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/anthropic-best-practices.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/persuasion-principles.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/testing-skills-with-subagents.md: missing <!-- origin-meta --> block
+  FAIL  .github/copilot-instructions.md: must start with a level-1 title
+  FAIL  AGENTS.md: must start with a level-1 title
+  FAIL  CLAUDE.md: must start with a level-1 title
+  FAIL  DECISIONS.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/000-capabilities/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/001-photo-baseline/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/PLAN.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/README.md: missing <!-- origin-meta --> block
+  FAIL  FAILURES.md: missing <!-- origin-meta --> block
+  FAIL  GEMINI.md: must start with a level-1 title
+  FAIL  HYPOTHESES.md: missing <!-- origin-meta --> block
+  FAIL  MISSION.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  RELEASE-MANIFEST.md: must start with a level-1 title
+  FAIL  RESEARCH/A.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/B.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/C.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/D.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/EXPERIMENT-PROTOCOL.md: must start with a level-1 title
+  FAIL  RESEARCH/README.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/ROOT-SCOUTING.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH.md: missing <!-- origin-meta --> block
+  FAIL  ROADMAP.md: missing <!-- origin-meta --> block
+  FAIL  STATE.md: missing <!-- origin-meta --> block
+  FAIL  docs/operations/bootstrap.md: must start with a level-1 title
+  FAIL  docs/operations/github-app.md: must start with a level-1 title
+  FAIL  docs/operations/scheduling-and-supervision.md: must start with a level-1 title
+  FAIL  docs/operations/vm-execution.md: must start with a level-1 title
+  FAIL  docs/policy/doc-standards.md: must start with a level-1 title
+  FAIL  docs/policy/evidence-labels.md: must start with a level-1 title
+  FAIL  docs/policy/logging-standard.md: must start with a level-1 title
+  FAIL  docs/policy/permissions-and-safety.md: must start with a level-1 title
+  FAIL  docs/process/experiment-protocol.md: must start with a level-1 title
+  FAIL  docs/process/hypothesis-lifecycle.md: must start with a level-1 title
+  FAIL  docs/process/review-protocol.md: must start with a level-1 title
+  FAIL  docs/process/session-protocol.md: must start with a level-1 title
+  FAIL  docs/process/task-lifecycle.md: must start with a level-1 title
+  FAIL  docs/reference/cli-reference.md: must start with a level-1 title
+  FAIL  docs/reference/repo-map.md: must start with a level-1 title
+  FAIL  docs/reference/skill-inventory.md: must start with a level-1 title
+  FAIL  sessions/README.md: must start with a level-1 title
+  FAIL  tasks/README.md: must start with a level-1 title
+  FAIL  tests/README.md: must start with a level-1 title
+  FAIL  vendor/MANIFEST.md: must start with a level-1 title
+  FAIL  vendor/superpowers/PROVENANCE.md: must start with a level-1 title
+  FAIL  sessions/INDEX.md: broken link -> 2026-10-03-002-build-durable-session-infrastructure-ven/README.md
+  FAIL  vendor/superpowers/PROVENANCE.md: orphan document; no other document links to it
+  FAIL  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/README.md: generated file missing
+doc lint: 93 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 127  redactions: none
+==============================================================================
+[seq 15] 2026-10-03T17:00:42+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 97  redactions: none
+==============================================================================
+[seq 16] 2026-10-03T17:00:42+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 344 lines (exempt from cap)
+  FAIL  .agents/skills/brainstorming/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/spec-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/visual-companion.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/dispatching-parallel-agents/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/doc-keeper/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/executing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/finishing-a-development-branch/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/receiving-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/code-reviewer.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/implementer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/re-review-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/task-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/CREATION-LOG.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/condition-based-waiting.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/defense-in-depth.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/root-cause-tracing.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-academic.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-1.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-2.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-3.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/writing-good-tests.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-git-worktrees/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/antigravity-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/codex-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/gemini-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/pi-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/verification-before-completion/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/plan-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/anthropic-best-practices.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/persuasion-principles.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/testing-skills-with-subagents.md: missing <!-- origin-meta --> block
+  FAIL  DECISIONS.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/000-capabilities/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/001-photo-baseline/README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/PLAN.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/README.md: missing <!-- origin-meta --> block
+  FAIL  FAILURES.md: missing <!-- origin-meta --> block
+  FAIL  HYPOTHESES.md: missing <!-- origin-meta --> block
+  FAIL  MISSION.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/A.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/B.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/C.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/D.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/README.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH/ROOT-SCOUTING.md: missing <!-- origin-meta --> block
+  FAIL  RESEARCH.md: missing <!-- origin-meta --> block
+  FAIL  ROADMAP.md: missing <!-- origin-meta --> block
+  FAIL  STATE.md: missing <!-- origin-meta --> block
+  FAIL  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/README.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 64 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 112  redactions: none
+==============================================================================
+[seq 17] 2026-10-03T17:01:11+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T17:01:11+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 432 lines (exempt from cap)
+  FAIL  .agents/skills/brainstorming/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/spec-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/brainstorming/visual-companion.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/dispatching-parallel-agents/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/doc-keeper/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/executing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/finishing-a-development-branch/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/receiving-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/requesting-code-review/code-reviewer.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/implementer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/re-review-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/subagent-driven-development/task-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/CREATION-LOG.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/condition-based-waiting.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/defense-in-depth.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/root-cause-tracing.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-academic.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-1.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-2.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/systematic-debugging/test-pressure-3.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/test-driven-development/writing-good-tests.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-git-worktrees/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/antigravity-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/codex-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/gemini-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/using-superpowers/references/pi-tools.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/verification-before-completion/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-plans/plan-document-reviewer-prompt.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/anthropic-best-practices.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/persuasion-principles.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/writing-skills/testing-skills-with-subagents.md: missing <!-- origin-meta --> block
+  FAIL  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/README.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 46 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 121  redactions: none
+==============================================================================
+[seq 19] 2026-10-03T17:01:21+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 96  redactions: none
+==============================================================================
+[seq 20] 2026-10-03T17:01:22+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 502 lines (exempt from cap)
+  FAIL  .agents/skills/doc-keeper/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+doc lint: 7 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 121  redactions: none
+==============================================================================
+[seq 21] 2026-10-03T17:01:43+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 525 lines (exempt from cap)
+  FAIL  .agents/skills/evidence-record/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/falsification-design/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/honest-reporting/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/prior-art-check/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/session-lifecycle/SKILL.md: missing <!-- origin-meta --> block
+  FAIL  .agents/skills/task-execution/SKILL.md: missing <!-- origin-meta --> block
+doc lint: 6 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 139  redactions: none
+==============================================================================
+[seq 22] 2026-10-03T17:02:30+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 547 lines (exempt from cap)
+  FAIL  .agents/skills/using-superpowers/SKILL.md: must start with a level-1 title
+  FAIL  .agents/skills/using-superpowers/references/codex-tools.md: must start with a level-1 title
+doc lint: 2 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 137  redactions: none
+==============================================================================
+[seq 23] 2026-10-03T17:02:52+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 153 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 565 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 135  redactions: none
+==============================================================================
+[seq 24] 2026-10-03T17:02:55+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...........................................................F..FFF......................................
+======================================================================
+FAIL: test_declared_artifact_is_not_reported (test_session.ReconciliationTest.test_declared_artifact_is_not_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_session.py", line 69, in test_declared_artifact_is_not_reported
+    self.assertEqual(result["unlogged"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['sessions/INDEX.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'sessions/INDEX.md'
+
+- ['sessions/INDEX.md']
++ []
+
+======================================================================
+FAIL: test_session_bookkeeping_is_not_flagged (test_session.ReconciliationTest.test_session_bookkeeping_is_not_flagged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_session.py", line 97, in test_session_bookkeeping_is_not_flagged
+    self.assertEqual(result["unlogged"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['sessions/INDEX.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'sessions/INDEX.md'
+
+- ['sessions/INDEX.md']
++ []
+
+======================================================================
+FAIL: test_undeclared_change_emits_an_event (test_session.ReconciliationTest.test_undeclared_change_emits_an_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_session.py", line 82, in test_undeclared_change_emits_an_event
+    self.assertEqual(len(unlogged), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_undeclared_change_is_detected (test_session.ReconciliationTest.test_undeclared_change_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_session.py", line 75, in test_undeclared_change_is_detected
+    self.assertEqual(result["unlogged"], ["surprise.txt"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['sessions/INDEX.md', 'surprise.txt'] != ['surprise.txt']
+
+First differing element 0:
+'sessions/INDEX.md'
+'surprise.txt'
+
+First list contains 1 additional elements.
+First extra element 1:
+'surprise.txt'
+
+- ['sessions/INDEX.md', 'surprise.txt']
++ ['surprise.txt']
+
+----------------------------------------------------------------------
+Ran 116 tests in 2.581s
+
+FAILED (failures=4)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2664  redactions: none
+==============================================================================
+[seq 25] 2026-10-03T17:03:20+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.......................................................................................................
+----------------------------------------------------------------------
+Ran 116 tests in 2.548s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2630  redactions: none
+==============================================================================
+[seq 30] 2026-10-03T17:06:40+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 98  redactions: none
+==============================================================================
+[seq 31] 2026-10-03T17:06:40+05:30
+$ ./tools/origin doc lint
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 159 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 694 lines (exempt from cap)
+  FAIL  RESEARCH.md: broken link -> A.md
+  FAIL  RESEARCH.md: broken link -> B.md
+  FAIL  RESEARCH.md: broken link -> C.md
+  FAIL  RESEARCH.md: broken link -> D.md
+  FAIL  RESEARCH.md: broken link -> ROOT-SCOUTING.md
+  FAIL  RESEARCH.md: broken link -> EXPERIMENT-PROTOCOL.md
+  FAIL  RESEARCH.md: broken link -> ../docs/process/experiment-protocol.md
+  FAIL  RESEARCH.md: broken link -> ../docs/process/review-protocol.md
+  FAIL  RESEARCH.md: broken link -> ../docs/process/hypothesis-lifecycle.md
+  FAIL  docs/operations/ci.md: broken link -> ci.yml
+doc lint: 10 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 112  redactions: none
+==============================================================================
+[seq 32] 2026-10-03T17:06:52+05:30
+$ ./tools/origin doc index
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 85  redactions: none
+==============================================================================
+[seq 33] 2026-10-03T17:07:04+05:30
+$ ./tools/origin session verify
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+session verify: 2 session(s) checked
+  FAIL  2026-10-03-002-build-durable-session-infrastructure-ven: last event is 'command'; session may be unfinished
+session verify: 1 problem(s)
+------------------------------------------------------------------------------
+exit: 4  duration_ms: 85  redactions: none
+==============================================================================
+[seq 34] 2026-10-03T17:07:04+05:30
+$ ./tools/origin skills verify
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 14 skill(s) in .agents/skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80  redactions: none
+==============================================================================
+[seq 35] 2026-10-03T17:07:04+05:30
+$ ./tools/origin skills check
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 21 skill(s) in .agents/skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80  redactions: none
+==============================================================================
+[seq 36] 2026-10-03T17:08:03+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.......................................................................................................
+----------------------------------------------------------------------
+Ran 116 tests in 2.582s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2668  redactions: none

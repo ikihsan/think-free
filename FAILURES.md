@@ -74,6 +74,35 @@ successful run (F001).
 explicitly, so a later reader does not read a parser bug as a refutation. The
 original `first-failure.json` was left in place rather than deleted.
 
+## F003 — Session 002 under-declared its artifacts; reconciliation caught it
+
+**What happened.** The first full working session (`2026-10-03-002-build-durable-session-infrastructure-ven`)
+finished with 57 declared artifacts and 55 further files that had been created and
+committed without ever being declared. `session finish` reported all 55 as
+`UNLOGGED` and exited `4`.
+
+**Classification.** A process failure in the agent's own bookkeeping, not a tooling
+failure and not a hypothesis failure. The tooling behaved exactly as designed: it
+compared the working tree against the record and reported the difference.
+
+**Root cause.** Artifacts were declared in one batch at the end of the session, from
+a hand-written list. With 57 items that list was inevitably incomplete, and there was
+no way to sweep a directory without enumerating it by hand.
+
+**Not remediated by backfill.** The event stream is append-only by contract and the
+session was closed, so writing artifact events afterwards would have broken the
+invariant that `session_end` is the last event. The omission stands in the record.
+This entry is the remedy.
+
+**Fix applied.** `origin session artifact` now accepts several paths and a repeatable
+`--dir`, so a directory of authored files can be declared in one command. Each file
+still gets its own hash, because a hash of a directory says nothing about its contents.
+Covered by five tests in `tests/test_session.py` (`ArtifactBatchTest`).
+
+**Lesson.** Declare artifacts as they are created, not in a batch at the end. A
+reconciliation report that fires on a correct piece of work is still a correct report:
+the work was complete and the record was not.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:

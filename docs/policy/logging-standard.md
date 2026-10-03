@@ -80,6 +80,21 @@ so captured output is written with matches replaced by
 `<REDACTED:pattern>` and a `redaction` event naming the patterns. Terminal
 output is not redacted, because suppressing it would hide command failures.
 
+**Deliberate fixtures may declare themselves.** A test for a credential scanner
+has to contain a credential that looks real. A file can say so, by naming the
+patterns it contains:
+
+```python
+# origin-allow-secret-patterns: github-token, aws-access-key-id
+```
+
+The directive applies to that file only, must appear within its first 40 lines,
+and suppresses exactly the patterns named. Suppressing a specific pattern also
+silences the generic rule that re-reported the same span, so one name is enough.
+Every use is recorded as a `note` event when the file is declared as an artifact,
+so a suppression is visible in the session log and reviewable in a diff. It is not
+a way to declare a real credential harmless.
+
 Before committing anything containing a credential, rotate it. Removing the
 string from the file does not undo a leak.
 

@@ -60,9 +60,15 @@ def build_parser() -> argparse.ArgumentParser:
     result.add_argument("text")
     result.add_argument("--refs", nargs="*", default=[])
 
-    artifact = session_sub.add_parser("artifact", help="record a produced file with its hash")
-    artifact.add_argument("path")
+    artifact = session_sub.add_parser("artifact", help="record produced files with their hashes")
+    artifact.add_argument("paths", nargs="*")
     artifact.add_argument("--note", dest="note_text", default="")
+    artifact.add_argument(
+        "--dir",
+        action="append",
+        default=[],
+        help="record every file under this directory (repeatable)",
+    )
 
     finish = session_sub.add_parser("finish", help="reconcile, close, and regenerate reports")
     finish.add_argument("--outcome", required=True, choices=session.OUTCOMES)
@@ -70,7 +76,12 @@ def build_parser() -> argparse.ArgumentParser:
     finish.add_argument("--next", dest="next_steps", required=True)
 
     session_sub.add_parser("status", help="show the active session")
-    session_sub.add_parser("verify", help="check every session record for integrity")
+    verify = session_sub.add_parser("verify", help="check every session record for integrity")
+    verify.add_argument(
+        "--strict",
+        action="store_true",
+        help="also fail for a session that is still in flight (use in CI)",
+    )
     resume = session_sub.add_parser("resume", help="compressed brief for continuing work")
     resume.add_argument("session_id", nargs="?", default="")
     session_sub.add_parser("list", help="list recorded sessions")
@@ -130,7 +141,12 @@ def build_parser() -> argparse.ArgumentParser:
     doc_parser_moved = sub.add_parser("doctor", help="verify this machine can run the work")
     doc_parser_moved.add_argument("--offline", action="store_true")
     doc_parser_moved.add_argument("--json", action="store_true", help="print raw JSON")
-    sub.add_parser("preflight", help="lint plus session verification, for CI and VM start")
+    preflight = sub.add_parser("preflight", help="lint plus session verification, for CI and VM start")
+    preflight.add_argument(
+        "--strict",
+        action="store_true",
+        help="also fail for a session that is still in flight (use in CI)",
+    )
     return parser
 
 
@@ -152,7 +168,7 @@ def main(argv: list[str] | None = None) -> int:
         if handler is None:
             raise Usage(f"unknown command group: {args.group}")
         return handler(args)
-    except Usage as exc:
+    except (Usage, ValueError) as exc:
         print(f"origin: {exc}", file=sys.stderr)
         return EXIT_USAGE
     except (session.SessionError, tasks.TaskError) as exc:

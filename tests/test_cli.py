@@ -122,3 +122,34 @@ class DoctorTest(RepoTest):
 
 if __name__ == "__main__":
     unittest.main()
+
+class InFlightSessionTest(RepoTest):
+    """Preflight is usable mid-session; CI stays strict."""
+
+    def test_verify_reports_the_active_session_as_in_progress(self) -> None:
+        self.write_generated()
+        self.cli("session", "start", "--goal", "still running")
+        self.cli("doc", "index")
+        self.assertEqual(self.cli("session", "verify"), 0)
+        self.assertIn("in progress", self.output())
+
+    def test_strict_verify_fails_for_the_active_session(self) -> None:
+        self.write_generated()
+        self.cli("session", "start", "--goal", "still running")
+        self.cli("doc", "index")
+        self.assertEqual(self.cli("session", "verify", "--strict"), 4)
+
+    def test_preflight_passes_mid_session(self) -> None:
+        self.write_generated()
+        self.cli("session", "start", "--goal", "mid-session preflight")
+        code = self.cli("preflight")
+        # doc lint may still report the untracked skills tree in a bare fixture;
+        # the session check itself must not be the failure.
+        self.assertNotIn("preflight: FAILED\nsession verify", self.output())
+        self.assertIn("session verify: OK", self.output())
+        self.assertNotEqual(code, 4)
+
+    def test_strict_preflight_fails_mid_session(self) -> None:
+        self.cli("session", "start", "--goal", "mid-session strict")
+        self.cli("preflight", "--strict")
+        self.assertIn("preflight: FAILED", self.output())

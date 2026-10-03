@@ -40,6 +40,27 @@ PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ),
 )
 
+# A file may declare that it deliberately contains fake credentials, which is
+# what a scanner's own test fixtures must do. The directive names the exact
+# patterns it suppresses, applies to that file only, and is recorded in the
+# session log so a suppression is never invisible.
+ALLOW_DIRECTIVE = re.compile(
+    r"^[ \t]*(?:#|//)[ \t]*origin-allow-secret-patterns[ \t]*:[ \t]*"
+    r"(?P<patterns>[A-Za-z0-9_, -]+?)[ \t]*$",
+    re.MULTILINE,
+)
+DIRECTIVE_WINDOW_LINES = 40
+
+
+def declared_suppressions(text: str) -> set[str]:
+    """Patterns this file declares itself exempt from, by name."""
+    head = "\n".join(text.splitlines()[:DIRECTIVE_WINDOW_LINES])
+    match = ALLOW_DIRECTIVE.search(head)
+    if not match:
+        return set()
+    return {name.strip() for name in match.group("patterns").split(",") if name.strip()}
+
+
 # Values that look like credentials but are not. Keeps obvious test fixtures
 # from blocking every commit.
 ALLOW_EXACT = frozenset(
@@ -64,14 +85,17 @@ class Finding:
     priority: int = 0
 
 
-def scan(text: str) -> list[Finding]:
+def scan(text: str, suppress: set[str] | None = None) -> list[Finding]:
     """Return every secret-pattern match in text, without exposing values.
 
     Overlapping matches collapse to the pattern declared earliest in
     `PATTERNS`, because that list is ordered most-specific first. Without this,
     `TOKEN=ghp_...` would be reported twice: once usefully as a GitHub token and
     once unhelpfully as a generic assigned credential.
+
+    `suppress` names patterns the caller has declared exempt for this text.
     """
+    suppressed = suppress or set()
     raw: list[Finding] = []
     for priority, (name, pattern) in enumerate(PATTERNS):
         for match in pattern.finditer(text):
@@ -79,13 +103,29 @@ def scan(text: str) -> list[Finding]:
                 continue
             raw.append(Finding(name, match.start(), match.end(), priority))
     raw.sort(key=lambda f: (f.priority, f.start))
-    kept: list[Finding] = []
+    collapsed: list[Finding] = []
     for finding in raw:
         overlaps = any(
-            finding.start < other.end and other.start < finding.end for other in kept
+            finding.start < other.end and other.start < finding.end for other in collapsed
         )
         if not overlaps:
-            kept.append(finding)
+            collapsed.append(finding)
+
+    if not suppressed:
+        collapsed.sort(key=lambda f: (f.start, f.pattern))
+        return collapsed
+
+    # Dropping a specific pattern also drops any looser pattern that merely
+    # re-reported the same text. The generic `assigned-credential` rule exists
+    # to catch spans a named rule already covers, so suppressing the named rule
+    # should not leave its echo behind.
+    waived = [f for f in collapsed if f.pattern in suppressed]
+    kept = [
+        f
+        for f in collapsed
+        if f.pattern not in suppressed
+        and not any(f.start <= w.start and f.end >= w.end for w in waived)
+    ]
     kept.sort(key=lambda f: (f.start, f.pattern))
     return kept
 
@@ -110,24 +150,30 @@ def redact(text: str) -> tuple[str, list[str]]:
     return "".join(pieces), names(findings)
 
 
-def scan_file(path) -> list[str]:
+def scan_file(path, report_suppressions: bool = False):
     """Read a file as text and return any pattern names found.
 
     Undecodable files are skipped rather than guessed at; a binary artifact
     cannot be committed with a plaintext credential by accident in a way this
     scan would catch anyway.
+
+    With `report_suppressions`, returns `(names, suppressed)`.
     """
     try:
         data = path.read_bytes()
     except OSError:
-        return []
+        return ([], set()) if report_suppressions else []
     if b"\x00" in data[:8192]:
-        return []
+        return ([], set()) if report_suppressions else []
     try:
         text = data.decode("utf-8")
     except UnicodeDecodeError:
         try:
             text = data.decode("latin-1")
         except UnicodeDecodeError:
-            return []
-    return names(scan(text))
+            return ([], set()) if report_suppressions else []
+    suppressed = declared_suppressions(text)
+    found = names(scan(text, suppressed))
+    if report_suppressions:
+        return found, suppressed
+    return found

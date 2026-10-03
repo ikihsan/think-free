@@ -18,10 +18,13 @@ Workflow: [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml).
 | Tests | `python3 -m unittest discover -s tests -t tests` | Any test failure |
 | Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file |
 | Skills | `tools/origin skills check` | Naming, frontmatter, missing or wrong cross-agent mirror |
-| Session integrity | `tools/origin session verify` | Malformed event stream, unfinished session, missing report, dangling command log reference |
+| Session integrity | `tools/origin session verify --strict` | Malformed event stream, unfinished session, missing report, dangling command log reference |
 | Vendored integrity | `tools/origin skills verify` | Local modification of a vendored skill |
 
-`tools/origin preflight` covers the first four in one command.
+`tools/origin preflight` covers the first four in one command. CI passes
+`--strict` to both, because on a pushed commit nothing is in flight and an
+unfinished session really is a failure. Locally, `preflight` reports the
+current session as in progress rather than failing, so it is usable mid-task.
 
 ## Design decisions
 
@@ -54,6 +57,8 @@ tools/origin preflight
 PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
 tools/origin skills verify
 ```
+
+Locally `preflight` is not strict about the session you are currently running.
 
 All four must pass locally. A red local run that is fixed by re-running CI is a
 wasted cycle.

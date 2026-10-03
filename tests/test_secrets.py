@@ -1,5 +1,6 @@
 """Secret detection and the two redaction policies."""
 
+# origin-allow-secret-patterns: github-app-private-key, github-token, github-fine-grained-pat, aws-access-key-id, openai-key, anthropic-key, slack-token, google-api-key, assigned-credential
 from __future__ import annotations
 
 import unittest
@@ -129,3 +130,44 @@ class ArtifactRefusalTest(RepoTest):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SuppressionTest(RepoTest):
+    """A file may declare fake credentials on purpose, by naming the patterns."""
+
+    DIRECTIVE = "# origin-allow-secret-patterns: github-token\n"
+
+    def test_directive_suppresses_the_named_pattern_only(self) -> None:
+        text = self.DIRECTIVE + "TOKEN=ghp_abcdefghijklmnopqrstuvwxyz012345\nAKIAIOSFODNN7EXAMPLE\n"
+        path = self.write("fixture.env", text)
+        found, suppressed = __import__("originlib.secrets", fromlist=["x"]).scan_file(
+            path, report_suppressions=True
+        )
+        self.assertEqual(suppressed, {"github-token"})
+        self.assertEqual(found, ["aws-access-key-id"])
+
+    def test_without_the_directive_the_pattern_is_found(self) -> None:
+        path = self.write("plain.env", "TOKEN=ghp_abcdefghijklmnopqrstuvwxyz012345\n")
+        found = secrets.scan_file(path)
+        self.assertIn("github-token", found)
+
+    def test_directive_outside_the_header_window_does_not_apply(self) -> None:
+        padding = "\n".join(f"# line {index}" for index in range(60))
+        path = self.write("late.env", padding + "\n" + self.DIRECTIVE + "TOKEN=ghp_abcdefghijklmnopqrstuvwxyz012345\n")
+        self.assertEqual(secrets.declared_suppressions(path.read_text(encoding="utf-8")), set())
+
+    def test_unknown_pattern_name_in_the_directive_is_simply_ignored(self) -> None:
+        path = self.write("odd.env", "# origin-allow-secret-patterns: not-a-pattern\nclean\n")
+        found, suppressed = secrets.scan_file(path, report_suppressions=True)
+        self.assertEqual(found, [])
+        self.assertEqual(suppressed, {"not-a-pattern"})
+
+    def test_declaring_a_fixture_lets_it_be_recorded_and_logs_the_suppression(self) -> None:
+        from originlib import session
+
+        self.cli("session", "start", "--goal", "declare a fixture with fake credentials")
+        path = self.write("fixture.env", self.DIRECTIVE + "TOKEN=ghp_abcdefghijklmnopqrstuvwxyz012345\n")
+        event = session.artifact(str(path))
+        self.assertEqual(event.data["path"], "fixture.env")
+        notes = [e for e in self.session_events(session.load_active().session) if e["kind"] == "note"]
+        self.assertTrue(any("origin-allow-secret-patterns" in n["data"]["summary"] for n in notes))

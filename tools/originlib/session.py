@@ -1,26 +1,16 @@
-"""Session lifecycle: start, log, artifact, finish.
+"""Session lifecycle: start, finish, status.
 
-Active-session state lives in `activestate`, command capture in `recorder`, and
-the git-versus-record comparison in `reconcile`.
-
-Re-exported for callers, which should import from this module only:
-`SessionError`, `OUTCOMES`, `STALE_HOURS`, `MAX_SLUG`, `ActiveSession`,
-`load_active`, `require_active`, `elapsed`, `hours_since`, `slugify`,
-`next_session_id`, `write_pointer`, `clear_pointer`, `reconcile`,
-`doc_implications`.
-
-Those names are imported below for that purpose and are not all used in this
-file.
+Event helpers live in `sessionlog`, active-session state in `activestate`, git
+reconciliation in `reconcile`. All of them are re-exported here so callers need
+one import.
 """
 
 from __future__ import annotations
 
-import hashlib
 import sys
 import time
-from pathlib import Path
 
-from . import events, gitutil, paths, secrets
+from . import events, gitutil, paths
 from .activestate import (
     MAX_SLUG,
     OUTCOMES,
@@ -37,7 +27,15 @@ from .activestate import (
     write_pointer,
 )
 from .reconcile import doc_implications, reconcile
-
+from .sessionlog import (
+    artifact,
+    block,
+    decision,
+    experiment_result,
+    log,
+    note,
+    step,
+)
 
 
 def start(goal: str, agent: str | None = None, task: str | None = None) -> ActiveSession:
@@ -138,90 +136,6 @@ def _env(name: str) -> str:
     import os
 
     return os.environ.get(name, "")
-
-
-def log(kind: str, summary: str, data: dict | None = None, **extra) -> events.Event:
-    """Append an event to the active session."""
-    active = require_active()
-    payload = {"summary": summary}
-    payload.update(data or {})
-    return events.append(active.session, kind, payload, actor=active.agent, host=active.host, **extra)
-
-
-def step(summary: str) -> events.Event:
-    return log("milestone", summary)
-
-
-def note(summary: str) -> events.Event:
-    return log("note", summary)
-
-
-def decision(summary: str, refs: list[str] | None = None) -> events.Event:
-    return log("decision", summary, {"refs": refs or []})
-
-
-def block(reason: str) -> events.Event:
-    return log("block", reason)
-
-
-def experiment_result(experiment: str, decision_text: str, refs: list[str] | None = None) -> events.Event:
-    return log("experiment_result", decision_text, {"experiment": experiment, "refs": refs or []})
-
-
-def artifact(path: str, note_text: str = "") -> events.Event:
-    """Record a file the session produced, with its content hash.
-
-    Refuses when a secret pattern matches: the file itself would become the
-    exposure, and redacting it would corrupt the artifact.
-    """
-    active = require_active()
-    target = Path(path)
-    if not target.is_absolute():
-        target = paths.repo_root() / target
-    rel = _relative(target)
-    if not target.exists():
-        raise SessionError(f"artifact does not exist: {rel}")
-    if target.is_dir():
-        raise SessionError(f"artifact is a directory, record files individually: {rel}")
-    found = secrets.scan_file(target)
-    if found:
-        events.append(
-            active.session,
-            "integrity_error",
-            {
-                "summary": f"refused artifact {rel}: secret pattern(s) {', '.join(found)}",
-                "path": rel,
-                "patterns": found,
-                "action": "artifact-not-recorded",
-            },
-            actor=active.agent,
-            host=active.host,
-        )
-        raise SessionError(
-            f"refusing to record {rel}: matched secret pattern(s) {', '.join(found)}. "
-            "Rotate the credential if it is real, remove it from the file, then re-run."
-        )
-    digest = hashlib.sha256(target.read_bytes()).hexdigest()
-    return events.append(
-        active.session,
-        "artifact",
-        {
-            "summary": note_text or f"wrote {rel}",
-            "path": rel,
-            "sha256": digest,
-            "bytes": target.stat().st_size,
-            "tracked": gitutil.is_tracked(rel),
-        },
-        actor=active.agent,
-        host=active.host,
-    )
-
-
-def _relative(target: Path) -> str:
-    try:
-        return target.resolve().relative_to(paths.repo_root()).as_posix()
-    except ValueError:
-        return target.as_posix()
 
 
 

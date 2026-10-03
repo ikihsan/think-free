@@ -1,5 +1,6 @@
 """Session lifecycle, git reconciliation, and command capture."""
 
+# origin-allow-secret-patterns: github-token
 from __future__ import annotations
 
 import unittest
@@ -192,3 +193,54 @@ class GeneratedReportTest(RepoTest):
 
 if __name__ == "__main__":
     unittest.main()
+
+class ArtifactBatchTest(RepoTest):
+    """Declaration ergonomics, added after session 002 under-declared 55 files."""
+
+    def test_multiple_paths_are_declared_individually(self) -> None:
+        session.start("batch declaration", agent="tester")
+        self.write("one.txt", "one\n")
+        self.write("two.txt", "two\n")
+        code = self.cli("session", "artifact", "one.txt", "two.txt")
+        self.assertEqual(code, 0)
+        paths = [
+            event["data"]["path"]
+            for event in self.session_events(session.load_active().session)
+            if event["kind"] == "artifact"
+        ]
+        self.assertEqual(paths, ["one.txt", "two.txt"])
+
+    def test_directory_expands_to_files(self) -> None:
+        session.start("directory declaration", agent="tester")
+        self.write("docs/policy/alpha.md", "a\n")
+        self.write("docs/policy/beta.md", "b\n")
+        self.write("docs/policy/nested/gamma.md", "c\n")
+        self.assertEqual(self.cli("session", "artifact", "--dir", "docs/policy"), 0)
+        paths = sorted(
+            event["data"]["path"]
+            for event in self.session_events(session.load_active().session)
+            if event["kind"] == "artifact"
+        )
+        # docs/policy/doc-standards.md already exists in the fixture.
+        self.assertEqual(paths, ["docs/policy/alpha.md", "docs/policy/beta.md",
+                                 "docs/policy/doc-standards.md",
+                                 "docs/policy/nested/gamma.md"])
+
+    def test_no_arguments_is_a_usage_error(self) -> None:
+        session.start("empty declaration", agent="tester")
+        self.assertEqual(self.cli("session", "artifact"), 1)
+
+    def test_missing_directory_is_a_usage_error(self) -> None:
+        session.start("bad directory", agent="tester")
+        self.assertEqual(self.cli("session", "artifact", "--dir", "nope"), 1)
+
+    def test_duplicate_paths_are_declared_once(self) -> None:
+        session.start("duplicate declaration", agent="tester")
+        self.write("dup.txt", "x\n")
+        self.cli("session", "artifact", "dup.txt", "dup.txt")
+        artifacts = [
+            event
+            for event in self.session_events(session.load_active().session)
+            if event["kind"] == "artifact"
+        ]
+        self.assertEqual(len(artifacts), 1)

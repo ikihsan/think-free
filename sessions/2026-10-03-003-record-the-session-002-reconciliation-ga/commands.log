@@ -1,0 +1,471 @@
+==============================================================================
+[seq 8] 2026-10-03T17:10:12+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...........................................F.origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+======================================================================
+FAIL: test_directory_expands_to_files (test_session.ArtifactBatchTest.test_directory_expands_to_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_session.py", line 223, in test_directory_expands_to_files
+    self.assertEqual(paths, ["docs/policy/alpha.md", "docs/policy/beta.md",
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             "docs/policy/nested/gamma.md"])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['doc[42 chars] 'docs/policy/doc-standards.md', 'docs/policy/nested/gamma.md'] != ['doc[42 chars] 'docs/policy/nested/gamma.md']
+
+First differing element 2:
+'docs/policy/doc-standards.md'
+'docs/policy/nested/gamma.md'
+
+First list contains 1 additional elements.
+First extra element 3:
+'docs/policy/nested/gamma.md'
+
++ ['docs/policy/alpha.md', 'docs/policy/beta.md', 'docs/policy/nested/gamma.md']
+- ['docs/policy/alpha.md',
+-  'docs/policy/beta.md',
+-  'docs/policy/doc-standards.md',
+-  'docs/policy/nested/gamma.md']
+
+----------------------------------------------------------------------
+Ran 121 tests in 2.716s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2807  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T17:10:28+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.............................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+----------------------------------------------------------------------
+Ran 121 tests in 2.685s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2777  redactions: none
+==============================================================================
+[seq 17] 2026-10-03T17:11:37+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+...Forigin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+........F....................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest.test_lint_quiet_prints_nothing_when_clean)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest.test_a_document_at_the_limit_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 121 tests in 2.721s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2832  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T17:12:21+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...............................E.EE..........origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+======================================================================
+ERROR: test_artifact_with_a_secret_is_refused (test_secrets.ArtifactRefusalTest.test_artifact_with_a_secret_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 97, in test_artifact_with_a_secret_is_refused
+    session.artifact(str(path))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/ihsan/Works/think-free/tools/originlib/sessionlog.py", line 89, in artifact
+    raise SessionError(
+          ^^^^^^^^^^^^
+NameError: name 'SessionError' is not defined. Did you mean: 'PermissionError'?
+
+======================================================================
+ERROR: test_directory_artifact_is_refused (test_secrets.ArtifactRefusalTest.test_directory_artifact_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 128, in test_directory_artifact_is_refused
+    session.artifact("docs")
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/ihsan/Works/think-free/tools/originlib/sessionlog.py", line 59, in artifact
+    raise SessionError(f"artifact is a directory, record files individually: {rel}")
+          ^^^^^^^^^^^^
+NameError: name 'SessionError' is not defined. Did you mean: 'PermissionError'?
+
+======================================================================
+ERROR: test_missing_artifact_raises (test_secrets.ArtifactRefusalTest.test_missing_artifact_raises)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 121, in test_missing_artifact_raises
+    session.artifact("does/not/exist.txt")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ihsan/Works/think-free/tools/originlib/sessionlog.py", line 57, in artifact
+    raise SessionError(f"artifact does not exist: {rel}")
+          ^^^^^^^^^^^^
+NameError: name 'SessionError' is not defined. Did you mean: 'PermissionError'?
+
+----------------------------------------------------------------------
+Ran 121 tests in 2.684s
+
+FAILED (errors=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2781  redactions: none
+==============================================================================
+[seq 19] 2026-10-03T17:12:46+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.............................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+----------------------------------------------------------------------
+Ran 121 tests in 2.757s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2847  redactions: none
+==============================================================================
+[seq 20] 2026-10-03T17:13:00+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+...........................................E.FF...origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+======================================================================
+ERROR: test_declaring_a_fixture_lets_it_be_recorded_and_logs_the_suppression (test_secrets.SuppressionTest.test_declaring_a_fixture_lets_it_be_recorded_and_logs_the_suppression)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 170, in test_declaring_a_fixture_lets_it_be_recorded_and_logs_the_suppression
+    event = session.artifact(str(path))
+  File "/home/ihsan/Works/think-free/tools/originlib/sessionlog.py", line 89, in artifact
+    raise SessionError(
+    ...<2 lines>...
+    )
+originlib.activestate.SessionError: refusing to record fixture.env: matched secret pattern(s) assigned-credential. Rotate the credential if it is real, remove it from the file, then re-run.
+
+======================================================================
+FAIL: test_directive_suppresses_the_named_pattern_only (test_secrets.SuppressionTest.test_directive_suppresses_the_named_pattern_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 147, in test_directive_suppresses_the_named_pattern_only
+    self.assertEqual(found, ["aws-access-key-id"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['assigned-credential', 'aws-access-key-id'] != ['aws-access-key-id']
+
+First differing element 0:
+'assigned-credential'
+'aws-access-key-id'
+
+First list contains 1 additional elements.
+First extra element 1:
+'aws-access-key-id'
+
+- ['assigned-credential', 'aws-access-key-id']
++ ['aws-access-key-id']
+
+======================================================================
+FAIL: test_unknown_pattern_name_in_the_directive_is_simply_ignored (test_secrets.SuppressionTest.test_unknown_pattern_name_in_the_directive_is_simply_ignored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_secrets.py", line 163, in test_unknown_pattern_name_in_the_directive_is_simply_ignored
+    self.assertEqual(suppressed, {"not-a-pattern"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+'not-a-pattern\nclean'
+Items in the second set but not the first:
+'not-a-pattern'
+
+----------------------------------------------------------------------
+Ran 126 tests in 2.828s
+
+FAILED (failures=2, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2915  redactions: none
+==============================================================================
+[seq 21] 2026-10-03T17:13:29+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+..................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+----------------------------------------------------------------------
+Ran 126 tests in 2.836s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2939  redactions: none
+==============================================================================
+[seq 96] 2026-10-03T17:14:58+05:30
+$ ./tools/origin preflight
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 163 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 3 session(s) checked
+  FAIL  2026-10-03-003-record-the-session-002-reconciliation-ga: last event is 'milestone'; session may be unfinished
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 125  redactions: none
+==============================================================================
+[seq 97] 2026-10-03T17:15:13+05:30
+$ ./tools/origin preflight
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 163 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 313 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 3 session(s) checked
+  FAIL  2026-10-03-003-record-the-session-002-reconciliation-ga: last event is 'command'; session may be unfinished
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 129  redactions: none
+==============================================================================
+[seq 98] 2026-10-03T17:15:44+05:30
+$ ./tools/origin preflight
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 163 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 336 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 3 session(s) checked
+  note  2026-10-03-003-record-the-session-002-reconciliation-ga: in progress (command)
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 134  redactions: none
+==============================================================================
+[seq 99] 2026-10-03T17:15:44+05:30
+$ ./tools/origin preflight --strict
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 163 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 359 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 3 session(s) checked
+  FAIL  2026-10-03-003-record-the-session-002-reconciliation-ga: last event is 'command'; session may be unfinished
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 124  redactions: none
+==============================================================================
+[seq 100] 2026-10-03T17:15:53+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+....F.................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+======================================================================
+FAIL: test_verify_reports_the_active_session_as_in_progress (test_cli.InFlightSessionTest.test_verify_reports_the_active_session_as_in_progress)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ihsan/Works/think-free/tests/test_cli.py", line 131, in test_verify_reports_the_active_session_as_in_progress
+    self.assertEqual(self.cli("session", "verify"), 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 4 != 0
+
+----------------------------------------------------------------------
+Ran 130 tests in 3.043s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3149  redactions: none
+==============================================================================
+[seq 101] 2026-10-03T17:16:24+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+......................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+.............................................................
+----------------------------------------------------------------------
+Ran 130 tests in 2.931s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3028  redactions: none
+==============================================================================
+[seq 113] 2026-10-03T17:16:42+05:30
+$ ./tools/origin preflight
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 163 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 439 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 3 session(s) checked
+  note  2026-10-03-003-record-the-session-002-reconciliation-ga: in progress (decision)
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 129  redactions: none
+==============================================================================
+[seq 114] 2026-10-03T17:16:45+05:30
+$ ./tools/origin skills verify
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+skills: 14 skill(s) in .agents/skills
+skills: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 78  redactions: none

@@ -27,7 +27,7 @@ interfere with the working repository.
 | `test_tasks.py` | Task creation, claim conflicts, verification, index |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
-| `test_cli.py` | Exit codes, index generation, doctor, preflight |
+| `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.

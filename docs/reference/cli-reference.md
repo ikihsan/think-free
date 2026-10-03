@@ -37,12 +37,12 @@ Records what a working session did. Protocol:
 | `session decision TEXT [--refs ...]` | Records a decision; implies `DECISIONS.md` must change |
 | `session experiment-result ID TEXT [--refs ...]` | Records an experiment outcome; implies `HYPOTHESES.md` and `FAILURES.md` must change |
 | `session block REASON` | Records a blocker; implies `STATE.md` must change |
-| `session artifact PATH [--note TEXT]` | Records a file with its SHA-256 and size; refuses files containing credentials |
+| `session artifact PATH... [--dir DIR]... [--note TEXT]` | Records files with their SHA-256 and size; `--dir` declares every file beneath a directory; refuses files containing credentials |
 | `session finish --outcome O --summary S --next N` | Reconciles against git, checks documentation obligations, closes the stream, regenerates reports |
 | `session status` | Active session, elapsed time, staleness, event count |
 | `session resume [ID]` | Compressed brief: goal, outcome, decisions, last events |
 | `session list` | Every session and its outcome |
-| `session verify` | Integrity across every session. Exit `4` on a problem |
+| `session verify [--strict]` | Integrity across every session. Exit `4` on a problem. The session in flight is reported as in progress rather than failed; `--strict` fails for it too, which is what CI uses |
 
 `--outcome` is one of `worked`, `partial`, `failed`, `no-change`.
 
@@ -82,7 +82,7 @@ Dispatchable work. Protocol:
 | Command | Effect |
 |---|---|
 | `doctor [--offline] [--json]` | Environment probe; writes `.origin/doctor.json` (gitignored) |
-| `preflight` | `doc lint` + `skills check` + `session verify`, for CI and for a VM before it claims a task |
+| `preflight [--strict]` | `doc lint` + `skills check` + `session verify`, for a VM before it claims a task and for CI |
 
 `doctor` reports only whether credential environment variables are **present**.
 It never reads, prints, or stores a value.

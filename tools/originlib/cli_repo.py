@@ -102,12 +102,12 @@ def doctor(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
-def preflight(_args: argparse.Namespace) -> int:
+def preflight(args: argparse.Namespace) -> int:
     lint_result = doclint.lint()
     print(lint_result.render())
     skills_result = skillsync.check()
     print(skills_result.render())
-    session_result = verify_sessions()
+    session_result = verify_sessions(strict=bool(getattr(args, "strict", False)))
     ok = lint_result.ok and skills_result.ok and session_result == EXIT_OK
     print("preflight: OK" if ok else "preflight: FAILED")
     return EXIT_OK if ok else EXIT_LINT

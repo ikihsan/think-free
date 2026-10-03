@@ -8,6 +8,7 @@ from __future__ import annotations
 import json
 
 from . import events, paths, report, session
+from .doclint import active_session_id
 
 EXIT_OK = 0
 EXIT_INTEGRITY = 4
@@ -42,8 +43,13 @@ def dispatch(args: argparse.Namespace) -> int:
         print(f"seq {event.seq}  experiment result recorded")
         return EXIT_OK
     if args.action == "artifact":
-        event = session.artifact(args.path, args.note_text)
-        print(f"seq {event.seq}  {event.data['path']}  {event.data['sha256'][:12]}")
+        if not args.paths and not args.dir:
+            raise ValueError("give one or more paths, or at least one --dir")
+        targets = _expand_artifact_targets(args.paths, args.dir)
+        for target in targets:
+            event = session.artifact(target, args.note_text)
+            print(f"seq {event.seq}  {event.data['path']}  {event.data['sha256'][:12]}")
+        print(f"{len(targets)} artifact(s) recorded")
         return EXIT_OK
     if args.action == "finish":
         result = session.finish(args.outcome, args.summary, args.next_steps)
@@ -64,8 +70,39 @@ def dispatch(args: argparse.Namespace) -> int:
     if args.action == "resume":
         return _resume(args.session_id)
     if args.action == "verify":
-        return verify_sessions()
+        return verify_sessions(strict=bool(getattr(args, "strict", False)))
     raise Usage(f"unknown session action: {args.action}")
+
+
+def _expand_artifact_targets(paths: list[str], directories: list[str]) -> list[str]:
+    """Expand --dir into individual files, so every artifact gets its own hash.
+
+    Declaration is per file by design: a hash of a directory says nothing about
+    the contents, and the whole point is that a reader can check one artifact.
+    """
+    from pathlib import Path
+
+    targets: list[str] = list(paths)
+    for directory in directories:
+        base = Path(paths_module_root() or ".").resolve() / directory
+        if not base.is_dir():
+            raise ValueError(f"--dir is not a directory: {directory}")
+        for item in sorted(base.rglob("*")):
+            if item.is_file():
+                targets.append(item.relative_to(Path(paths_module_root())).as_posix())
+    seen: set[str] = set()
+    unique: list[str] = []
+    for target in targets:
+        if target not in seen:
+            seen.add(target)
+            unique.append(target)
+    return unique
+
+
+def paths_module_root() -> str:
+    from . import paths
+
+    return str(paths.repo_root())
 
 
 def _print_finish(result: dict) -> None:
@@ -114,8 +151,17 @@ def _resume(session_id: str) -> int:
     return EXIT_OK
 
 
-def verify_sessions() -> int:
+def verify_sessions(strict: bool = False) -> int:
+    """Check every session record. Exit 4 on a problem.
+
+    The session currently in flight is reported as in-progress rather than
+    failed: by definition it has no `session_end` yet, and flagging that would
+    make `preflight` unusable during work. CI passes `strict`, where nothing is
+    in flight and an unfinished session really is a failure.
+    """
     problems: list[str] = []
+    notes: list[str] = []
+    in_flight = active_session_id()
     sessions = events.all_sessions()
     for name in sessions:
         path = paths.events_file(name)
@@ -136,7 +182,11 @@ def verify_sessions() -> int:
         if kinds.count("session_end") > 1:
             problems.append(f"{name}: more than one session_end")
         if kinds and kinds[-1] != "session_end":
-            problems.append(f"{name}: last event is {kinds[-1]!r}; session may be unfinished")
+            message = f"{name}: last event is {kinds[-1]!r}; session may be unfinished"
+            if name == in_flight and not strict:
+                notes.append(f"{name}: in progress ({kinds[-1]})")
+            else:
+                problems.append(message)
         if not events.SESSION_ID.match(name):
             problems.append(f"{name}: directory name is not a valid session id")
         if not paths.session_report(name).exists():
@@ -161,6 +211,8 @@ def verify_sessions() -> int:
         if not (paths.repo_root() / name).exists():
             problems.append(f"{name}: generated index missing")
     print(f"session verify: {len(sessions)} session(s) checked")
+    for note in notes:
+        print(f"  note  {note}")
     for problem in problems:
         print(f"  FAIL  {problem}")
     print("session verify: OK" if not problems else f"session verify: {len(problems)} problem(s)")

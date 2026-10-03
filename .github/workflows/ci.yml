@@ -35,5 +35,7 @@ jobs:
       - name: Vendored content integrity
         run: tools/origin skills verify
 
+      # Strict: nothing is in flight on a pushed commit, so an unfinished
+      # session is a real failure.
       - name: Session record integrity
-        run: tools/origin session verify
+        run: tools/origin session verify --strict

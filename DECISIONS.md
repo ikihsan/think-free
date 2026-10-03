@@ -136,3 +136,50 @@ mission records now, rather than leaving them for a later session.
 
 Reasoning: an experiment whose result is not in the record will be re-run or
 misread, and the cost of writing it down is minutes.
+
+## D011 — Artifact declaration takes several paths and a directory (2026-10-03)
+
+Observed: session 002 declared 57 artifacts in a single hand-written list at the
+end of the session and omitted 55 committed files. `session finish` reported every
+one and exited `4`. Recorded in `FAILURES.md` F003.
+
+Decision: `origin session artifact` accepts multiple paths and a repeatable
+`--dir`, which declares every file beneath a directory. Each file still receives
+its own SHA-256, because a hash of a directory says nothing about its contents.
+
+Rejected: leaving the command single-file and relying on discipline, because the
+failure was a foreseeable consequence of the interface, not of carelessness.
+Allowing a directory to be declared as one artifact, because it would remove the
+per-file verifiability that makes the record worth having.
+
+## D012 — Secret scanning can be waived per file, by name, and only visibly (2026-10-03)
+
+Observed: a scanner's own test fixtures must contain credentials that look real.
+The scanner correctly refused to record such a file as an artifact, which left no
+way to declare a test file at all.
+
+Decision: a file may declare `# origin-allow-secret-patterns: <names>` within its
+first 40 lines. It suppresses exactly the patterns named, applies to that file
+only, and is recorded as a `note` event when the file is declared. Suppressing a
+specific pattern also silences the generic `assigned-credential` rule when that
+rule merely re-reported the same span, so one name is enough.
+
+Reasoning: the alternative was to weaken the scanner, which protects a git history
+that cannot be rewritten. A named, per-file, logged waiver keeps the default safe
+while making the legitimate case expressible. A waiver for a real credential is
+still wrong; it is only narrower, not endorsed.
+
+## D013 — Local verification tolerates an in-flight session; CI does not (2026-10-03)
+
+Observed: `origin preflight` failed whenever it was run during a session, because
+the current session has no `session_end` yet. A gate that cannot be run while
+working is a gate that gets skipped.
+
+Decision: `session verify` and `preflight` report the session in flight as
+"in progress" and exit `0`. Both accept `--strict`, which fails for it; CI uses
+`session verify --strict`, since on a pushed commit nothing is in flight and an
+unfinished session genuinely is a failure.
+
+Rejected: dropping the check for unfinished sessions entirely, because then a
+crashed run would be indistinguishable from a completed one. Making strictness the
+only mode, because it would make local use useless.
