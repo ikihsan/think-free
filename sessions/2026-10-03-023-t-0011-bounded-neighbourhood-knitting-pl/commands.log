@@ -1,0 +1,501 @@
+==============================================================================
+[seq 3] 2026-10-03T19:08:29+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/bounded.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 10  (solved 9, refused 1)
+all bounded valid:   True
+all bounded optimal: True
+  single_error_3x3         opt= 3 bounded= 3 valid=1 optimal=1 subopt=0
+  two_columns_3x3          opt= 5 bounded= 5 valid=1 optimal=1 subopt=0
+  adjacent_coupled_3x3     opt= 3 bounded= 3 valid=1 optimal=1 subopt=0
+  spanning_coupled_3x4     opt= 6 bounded= 6 valid=1 optimal=1 subopt=0
+  mid_error_4x4            opt= 6 bounded= 6 valid=1 optimal=1 subopt=0
+  coupled_pair_4x4         opt= 6 bounded= 6 valid=1 optimal=1 subopt=0
+  shared_release_4x4       opt= 6 bounded= 6 valid=1 optimal=1 subopt=0
+  same_column_stack_4x4    opt= 3 bounded= 3 valid=1 optimal=1 subopt=0
+  coupled_shared_4x4       opt= 6 bounded= 6 valid=1 optimal=1 subopt=0
+  unsupported_shaping      REFUSED (shaping at column 1)
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 200  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T19:25:34+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 117  (oracle 113, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+subsets enumerated: bounded 590 vs oracle 816
+004 local rule optimal on 84/113 cases
+
+  cap=None,beam=1    cases=113  valid=1 optimal=1 subopt_total=0    subsets=590/816
+  cap=None,beam=2    cases=113  valid=1 optimal=1 subopt_total=0    subsets=590/816
+  cap=None,beam=4    cases=113  valid=1 optimal=1 subopt_total=0    subsets=590/816
+  cap=3,beam=1       cases=113  valid=1 optimal=0 subopt_total=2    subsets=572/816
+  cap=2,beam=1       cases=113  valid=1 optimal=0 subopt_total=6    subsets=544/816
+  cap=2,beam=4       cases=113  valid=1 optimal=1 subopt_total=0    subsets=544/816
+  cap=1,beam=1       cases=113  valid=1 optimal=0 subopt_total=40   subsets=544/816
+  cap=1,beam=2       cases=113  valid=1 optimal=1 subopt_total=0    subsets=544/816
+  cap=1,beam=4       cases=113  valid=1 optimal=1 subopt_total=0    subsets=544/816
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 local_optimal=113/113
+    PATCH_COST=2   optimal=1 local_optimal=88/113
+    PATCH_COST=3   optimal=1 local_optimal=84/113
+    PATCH_COST=5   optimal=1 local_optimal=90/113
+    PATCH_COST=8   optimal=1 local_optimal=105/113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle skipped, bounded=24 local=24 valid=1
+  large_mesh_12x8          oracle skipped, bounded=24 local=24 valid=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 319811  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T19:32:55+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 113, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 590 subsets + 113 combinations vs oracle 816 subsets
+004 local rule optimal on 84/113 cases
+
+  cap=None,beam=1  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=113
+  cap=None,beam=2  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=488
+  cap=None,beam=4  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=716
+  cap=3,beam=1     cases=113  valid=1 optimal=0 subopt=2   subsets=572   combos=113
+  cap=2,beam=1     cases=113  valid=1 optimal=0 subopt=6   subsets=544   combos=113
+  cap=2,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=1     cases=113  valid=1 optimal=0 subopt=40  subsets=544   combos=113
+  cap=1,beam=2     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle skipped: bounded=24 local=24 valid=1 subsets=48 budget_applied=False
+  large_mesh_12x8          oracle skipped: bounded=24 local=24 valid=1 subsets=16 budget_applied=False
+  large_column_stack_12x8  oracle skipped: bounded=6 local=8 valid=1 subsets=8 budget_applied=False
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 314776  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T19:38:39+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 113, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 590 subsets + 113 combinations vs oracle 816 subsets
+004 local rule optimal on 84/113 cases
+
+  cap=None,beam=1  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=113
+  cap=None,beam=2  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=488
+  cap=None,beam=4  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=716
+  cap=3,beam=1     cases=113  valid=1 optimal=0 subopt=2   subsets=572   combos=113
+  cap=2,beam=1     cases=113  valid=1 optimal=0 subopt=6   subsets=544   combos=113
+  cap=2,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=1     cases=113  valid=1 optimal=0 subopt=40  subsets=544   combos=113
+  cap=1,beam=2     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle skipped: bounded=24 local=24 valid=1
+    cap=None,beam=2  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=None,beam=4  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=2,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=2     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+  large_mesh_12x8          oracle skipped: bounded=24 local=24 valid=1
+  large_column_stack_12x8  oracle skipped: bounded=6 local=8 valid=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 317744  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T19:48:49+00:00
+$ ./tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 256 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 42383 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  FAIL  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md: missing <!-- origin-meta --> block
+  FAIL  tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 5 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 905  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T19:54:46+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 113, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 590 subsets + 113 combinations vs oracle 816 subsets
+004 local rule optimal on 84/113 cases
+
+  cap=None,beam=1  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=113
+  cap=None,beam=2  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=488
+  cap=None,beam=4  cases=113  valid=1 optimal=1 subopt=0   subsets=590   combos=716
+  cap=3,beam=1     cases=113  valid=1 optimal=0 subopt=2   subsets=572   combos=113
+  cap=2,beam=1     cases=113  valid=1 optimal=0 subopt=6   subsets=544   combos=113
+  cap=2,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=1     cases=113  valid=1 optimal=0 subopt=40  subsets=544   combos=113
+  cap=1,beam=2     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+  cap=1,beam=4     cases=113  valid=1 optimal=1 subopt=0   subsets=544   combos=816
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle skipped: bounded=24 local=24 valid=1
+    cap=None,beam=2  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=None,beam=4  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=2,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=2     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+  large_mesh_12x8          oracle skipped: bounded=24 local=24 valid=1
+  large_column_stack_12x8  oracle skipped: bounded=6 local=8 valid=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 339788  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T20:14:06+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 291, in <module>
+    raise SystemExit(main())
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 160, in main
+    rows = [evaluate(n, p, True) for n, p in compared]
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 160, in <listcomp>
+    rows = [evaluate(n, p, True) for n, p in compared]
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 74, in evaluate
+    row = {"case": name, "family": fixtures.family(name), "errors": len(patch.errors)}
+  File "/home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/fixtures.py", line 108, in family
+    if name in {n for n, _, _ in constructed_cases() + large_cases()}:
+  File "/home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/fixtures.py", line 108, in <setcomp>
+    if name in {n for n, _, _ in constructed_cases() + large_cases()}:
+ValueError: not enough values to unpack (expected 3, got 2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 812  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T20:14:18+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 291, in <module>
+    raise SystemExit(main())
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 162, in main
+    rows.append(evaluate(name, patch, oracle_feasible or slow))
+  File "EXPERIMENTS/005-knitting-bounded-search/run.py", line 74, in evaluate
+    row = {"case": name, "family": fixtures.family(name), "errors": len(patch.errors)}
+  File "/home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/fixtures.py", line 111, in family
+    return "large_with_oracle" if oracle else "large_oracle_skipped"
+NameError: name 'oracle' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 993  redactions: none
+==============================================================================
+[seq 14] 2026-10-03T20:14:31+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 115, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 614 subsets + 115 combinations vs oracle 1080 subsets
+004 local rule optimal on 85/115 cases
+
+  cap=None,beam=1  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=115
+  cap=None,beam=2  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=506
+  cap=None,beam=4  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=976
+  cap=3,beam=1     cases=115  valid=1 optimal=0 subopt=2   subsets=596   combos=115
+  cap=2,beam=1     cases=115  valid=1 optimal=0 subopt=8   subsets=566   combos=115
+  cap=2,beam=4     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+  cap=1,beam=1     cases=115  valid=1 optimal=0 subopt=42  subsets=566   combos=115
+  cap=1,beam=2     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+  cap=1,beam=4     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+  large_with_oracle     2 True       24     264       2       1/2
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle not run (24 errors): bounded=24 local=24 valid=1
+    cap=None,beam=2  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=None,beam=4  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=2,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=2     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+  large_mesh_12x8          oracle=24 bounded=24 local=24 optimal=1
+  large_column_stack_12x8  oracle=6 bounded=6 local=8 optimal=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json  (wall 2.3s)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2506  redactions: none
+==============================================================================
+[seq 15] 2026-10-03T20:20:15+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py --slow
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 116, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 662 subsets + 116 combinations vs oracle 16778296 subsets
+004 local rule optimal on 86/116 cases
+
+  cap=None,beam=1  cases=116  valid=1 optimal=1 subopt=0   subsets=662   combos=116
+  cap=None,beam=2  cases=116  valid=1 optimal=1 subopt=0   subsets=662   combos=507
+  cap=None,beam=4  cases=116  valid=1 optimal=1 subopt=0   subsets=662   combos=977
+  cap=3,beam=1     cases=116  valid=1 optimal=0 subopt=2   subsets=644   combos=116
+  cap=2,beam=1     cases=116  valid=1 optimal=0 subopt=8   subsets=614   combos=116
+  cap=2,beam=4     cases=116  valid=1 optimal=1 subopt=0   subsets=614   combos=1081
+  cap=1,beam=1     cases=116  valid=1 optimal=0 subopt=42  subsets=614   combos=116
+  cap=1,beam=2     cases=116  valid=1 optimal=1 subopt=0   subsets=614   combos=1081
+  cap=1,beam=4     cases=116  valid=1 optimal=1 subopt=0   subsets=614   combos=1081
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+  large_oracle_skipped     1 True       48 16777216       1       1/1
+  large_with_oracle     2 True       24     264       2       1/2
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle=24 bounded=24 local=24 optimal=1
+    cap=None,beam=2  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=None,beam=4  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=2,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=2     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+  large_mesh_12x8          oracle=24 bounded=24 local=24 optimal=1
+  large_column_stack_12x8  oracle=6 bounded=6 local=8 optimal=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json  (wall 334.8s)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 335003  redactions: none
+==============================================================================
+[seq 16] 2026-10-03T20:21:30+00:00
+$ python3 EXPERIMENTS/005-knitting-bounded-search/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cases tested: 118  (oracle 115, refused 2)
+headline cap=None,beam=1: valid=True optimal=True
+work: bounded 614 subsets + 115 combinations vs oracle 1080 subsets
+004 local rule optimal on 85/115 cases
+
+  cap=None,beam=1  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=115
+  cap=None,beam=2  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=506
+  cap=None,beam=4  cases=115  valid=1 optimal=1 subopt=0   subsets=614   combos=976
+  cap=3,beam=1     cases=115  valid=1 optimal=0 subopt=2   subsets=596   combos=115
+  cap=2,beam=1     cases=115  valid=1 optimal=0 subopt=8   subsets=566   combos=115
+  cap=2,beam=4     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+  cap=1,beam=1     cases=115  valid=1 optimal=0 subopt=42  subsets=566   combos=115
+  cap=1,beam=2     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+  cap=1,beam=4     cases=115  valid=1 optimal=1 subopt=0   subsets=566   combos=1080
+
+  family           cases  opt  subsets  oracle  combos local_opt
+  from_004             9 True       32      32       9       8/9
+  constructed          4 True       44     104       4       3/4
+  dev_random          40 True      180     240      40     30/40
+  holdout_random      60 True      334     440      60     43/60
+  large_with_oracle     2 True       24     264       2       1/2
+
+  patch_cost sensitivity (headline):
+    PATCH_COST=1   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=2   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=3   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=5   optimal=1 subopt_total=0 cases=113
+    PATCH_COST=8   optimal=1 subopt_total=0 cases=113
+
+  unsupported_shaping      REFUSED (shaping at column 1) emitted_plan=False
+  unsupported_tension_4x4  REFUSED (yarn tension change at column 1) emitted_plan=False
+  large_fragmented_24x4    oracle not run (24 errors): bounded=24 local=24 valid=1
+    cap=None,beam=2  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=None,beam=4  required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=2,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=2     required 16777216 combinations, over budget: fell back to each chunk's local best
+    cap=1,beam=4     required 16777216 combinations, over budget: fell back to each chunk's local best
+  large_mesh_12x8          oracle=24 bounded=24 local=24 optimal=1
+  large_column_stack_12x8  oracle=6 bounded=6 local=8 optimal=1
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/005-knitting-bounded-search/results.json  (wall 3.1s)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3983  redactions: none
+==============================================================================
+[seq 17] 2026-10-03T20:23:32+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.........................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+................................................................................
+----------------------------------------------------------------------
+Ran 168 tests in 90.698s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 91176  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T20:23:39+00:00
+$ ./tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 256 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 429 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 900  redactions: none
+==============================================================================
+[seq 38] 2026-10-03T20:26:06+00:00
+$ ./tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 256 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 453 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 880  redactions: none
+==============================================================================
+[seq 40] 2026-10-03T20:27:21+00:00
+$ ./tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 256 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 477 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 889  redactions: none
