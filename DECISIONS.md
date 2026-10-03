@@ -255,3 +255,46 @@ diverged branch, because it destroys the other VM's work silently.
 
 Consequence: `land` is the only operation that moves work onto the shared branch,
 so it is the place where a real merge conflict becomes visible to a person.
+
+## D018 — The App JWT generator lives under `~/.config`, not `/tmp` (2026-10-03)
+
+Observed: on `instance-20260717-0947` the git credential helper invoked
+`/tmp/github-app-jwt.sh`. `/tmp` was cleared, so every push failed with
+`could not read Username` even though the private key and the helper survived.
+The App ID itself was not stored anywhere durable and had to be recovered.
+
+Decision: the JWT generator is a small script at
+`~/.config/github-app/jwt.py`; the App ID is a `0600` file at
+`~/.config/github-app/app-id`; the credential helper references the script in
+`~/.config` rather than `/tmp`. The App ID (5173845) was recovered from the
+bot's public avatar URL, which for GitHub Apps embeds the app id.
+
+Rejected: recreating the script in `/tmp` on every session, because an ephemeral
+path silently removes the ability to push and the failure looks like an auth
+error rather than a missing file. Storing the App ID in the repository, because
+it is credential-adjacent configuration and the private key must stay per-VM.
+
+Consequence: a VM's ability to push no longer depends on `/tmp` surviving.
+The helper still reads the private key at the moment of use and never copies it.
+
+## D019 — A candidate may not be implemented until its witness is run (2026-10-03)
+
+Observed: `HYPOTHESES.md` carried "information-sufficiency witness" prose for
+three candidates but none had been executed, while the A1 masking experiment was
+already being deepened.
+
+Decision: run the witness for every held candidate before any implementation.
+A passive candidate that cannot separate two realities with identical inputs and
+different outputs is information-insufficient and must narrow its input or permit
+refusal; an active candidate fails only when *no* permitted observation
+separates the pair. Results are recorded per candidate in `HYPOTHESES.md`, and a
+disproved input set is recorded in `FAILURES.md`.
+
+Rejected: treating the witness as a formality after the fact, because a gate
+written after seeing results is a rationalisation; and applying it only to the
+candidate then in focus, because the two others were cheap to screen in the same
+session and one (knitting) failed.
+
+Consequence: the knitting candidate's input set must add loop orientation or
+refuse (F007); the sidewalk and ventilation candidates may proceed to their
+behavioural experiments under their stated scope conditions.

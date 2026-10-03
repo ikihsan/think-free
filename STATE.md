@@ -16,6 +16,14 @@ identity, 2026-10-03). This VM runs **Python 3.8.10 and git 2.25.1**, not the
 3.14.6/2.55.0 recorded from the development machine, so the capability numbers
 below are per machine and must be re-probed here with `tools/origin doctor`.
 
+Push-credential note: on `instance-20260717-0947` the git credential helper
+depended on `/tmp/github-app-jwt.sh`, lost when `/tmp` was cleared, so pushes
+failed. Recovered the GitHub App ID (`5173845`, from the bot's avatar URL) and
+added a durable RS256 JWT generator at `~/.config/github-app/jwt.py` (App ID in
+`~/.config/github-app/app-id`, key already `0600`); the helper now points at it.
+A helper that reads from `/tmp` is fragile and should live under
+`~/.config/github-app/` on every VM.
+
 This is the reload point. A cold session reads this file, then whatever it links.
 
 ## Dashboard
@@ -24,14 +32,14 @@ This is the reload point. A cold session reads this file, then whatever it links
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
 | Investigations | A, B, C, D, E, F all sealed |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient) |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 17 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
+| Sessions | 18 recorded (010 opencode failed-superseded, one codex session failed-interrupted and taken over at T-0004); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | 183 tracked files; every authored file is under the 300-line cap, and the 7 that exceed it are declared vendored exemptions. `doc lint` exits 0 |
 
@@ -41,6 +49,24 @@ Nothing claimed. T-0004 (multi-VM safety) completed 2026-10-03 in session 017:
 fleet/sync suite green (168 tests, `task verify T-0004` exit 0), flow
 documented across process/operations/reference docs, AGENTS.md, and the two
 skills. The stale codex T-0004 claim was taken over with a recorded reason.
+
+T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
+information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
+survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
+information-insufficient (F007). Push credentialing on VM 0947 was repaired in
+the same session.
+
+## What changed in the last session (session 020, VM 0947)
+
+- `EXPERIMENTS/003-information-sufficiency/` — one synthetic witness per held
+  candidate, each stating two realities with identical permitted inputs and the
+  required divergent output. W1 and W3 survive (an askable observation separates
+  them); W2 is information-insufficient as specified. `task verify T-0008`
+  exit 0.
+- `HYPOTHESES.md` records the E002 gate and its per-candidate outcome;
+  `FAILURES.md` F007 records the knitting input-set finding.
+- Push credentialing repaired: App ID recovered, durable JWT generator added
+  under `~/.config/github-app/`.
 
 ## What changed in the last session
 
@@ -85,19 +111,21 @@ session's findings into the record:
 
 Ordered by information gained per unit of effort.
 
-1. **Apply the information-sufficiency witness** to the three held candidates.
-   Ten lines of code each; it has already killed two proposals cheaply. Kill
-   gates are now written (T-0001).
+1. **Repair the knitting candidate's input set, then re-run its witness.** W2
+   (T-0008) showed the stated inputs omit loop orientation, so the planner cannot
+   choose between "re-form in place" and "re-form and untwist" (F007). Add mount
+   to the input or require refusal, then run the Stage-A local-planner vs.
+   exhaustive-search comparison in a fresh witness.
 2. **Use the A1 boundary result.** T-0007 (distance-budgeted variant)
    **falsified** the transfer of DD's count-budget advantage to the
    fieldwork-cost regime: space-filling baselines win at every distance
    budget, DD's gate fails 6/6. Recorded as F006. The A1 line is now a
    negative result in its motivating regime; treat any future A1 claim as
    requiring a real fieldwork-cost model from the start.
-3. **Compare the six sealed investigations** and feed only the surviving candidates into the information-sufficiency witness; keep E's and F's criteria as a screen.
-4. **Apply the information-sufficiency test** to the three held candidates. Ten
-   lines of code each; it has already killed two proposals cheaply.
-5. **Do not build a product.** Nothing is selected, and the base rate for
+3. **Compare the six sealed investigations** and feed only the surviving
+   candidates into the information-sufficiency gate; keep E's and F's criteria
+   as a screen.
+4. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high.
 
 ## Capability evidence

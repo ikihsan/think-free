@@ -79,6 +79,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](../tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md`](../tasks/T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md`](../tasks/T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md`](../tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
@@ -101,6 +102,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/000-capabilities/README.md`](../EXPERIMENTS/000-capabilities/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/001-photo-baseline/README.md`](../EXPERIMENTS/001-photo-baseline/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/002-a1-masking/README.md`](../EXPERIMENTS/002-a1-masking/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
+| [`EXPERIMENTS/003-information-sufficiency/README.md`](../EXPERIMENTS/003-information-sufficiency/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

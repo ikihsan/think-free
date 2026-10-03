@@ -191,6 +191,43 @@ but it kills "budget-limited implies DD wins".
 
 **Lesson.** A budget has a unit, and the unit is part of the hypothesis.
 
+## F007 — Knitting repair planner: the stated input set is information-insufficient
+
+Source: `EXPERIMENTS/003-information-sufficiency/`, witness W2, T-0008.
+
+**Observation.** `RESEARCH/C.md` proposes a local repair planner whose inputs are
+"the intended chart, the actual local error, the current live stitches, and the
+side facing the user". The information-sufficiency witness asks whether two
+underlying realities can share exactly those inputs yet need different repairs.
+
+**Experiment.** Witness W2 in `EXPERIMENTS/003-information-sufficiency/witnesses.py`.
+Reality A: the dropped loops are mounted normally, so the repair is to re-form
+them in place. Reality B: the same loops are mounted twisted, so the repair is to
+re-form them *and* untwist. Both present the same chart symbols, connectivity,
+live stitches, and facing side; physical mount is not in the input.
+
+**Result.** `observed`. The two realities share identical permitted inputs and
+require different repairs, and nothing in the stated input set can represent the
+difference.
+
+**Conclusion.** The candidate's *input specification* is information-insufficient:
+as described, no implementation can choose between the two repairs. This is a
+failed claim about the input set, **not** a failed mechanism — a knitter can see
+orientation, so adding mount (or refusing ambiguous states) repairs the
+specification. The design as written must be narrowed before any planner is
+built.
+
+**Classification.** The stated input set is disproved as sufficient. The
+intervention-planning idea is not disproved; it is under-specified.
+
+**Limits.** A four-loop synthetic patch with one error class. It does not measure
+how often real errors are ambiguous, nor whether physical slack or friction
+dominates repair success (the candidate's own Stage-B doubt). It cannot show that
+*no* fix exists — only that the present one does not.
+
+**Lesson.** "What are the inputs?" is a falsifiable claim. Test it before writing
+the algorithm, because the algorithm cannot recover a fact its inputs omit.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:

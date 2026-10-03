@@ -18,9 +18,9 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Candidate | Source | State | Next experiment |
 |---|---|---|---|
 | Photo-migration auditor | `RESEARCH/B.md`, E001 | **Motivating example disproved** (`FAILURES.md` F001) | Needs a real case where bytes survive and relationships do not |
-| Knitting repair planner | `RESEARCH/C.md` | Hold; representation is prior art | Local planner vs. exhaustive search on small graphs |
-| Adaptive ventilation measurement | `RESEARCH/C.md` | Hold; strong competition | Simulation comparing adaptive against fixed protocol |
-| Decision-directed sidewalk survey | `RESEARCH/A.md` | Advance to bounded experiment | Masking experiment on the PPNA extract |
+| Knitting repair planner | `RESEARCH/C.md` | Hold; **witness found the spec information-insufficient** (W2) | Add orientation to the input, then local planner vs. exhaustive search |
+| Adaptive ventilation measurement | `RESEARCH/C.md` | Hold; **witness survives** (W3) | Simulation comparing adaptive against fixed protocol |
+| Decision-directed sidewalk survey | `RESEARCH/A.md` | Advance; **witness survives** (W1), A1 masking gate met with caveats | Fieldwork-cost sensitivity and a planner review |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
 | Sewing-projector auto-calibration | `RESEARCH/B.md` | Rejected: no material gap shown | — |
 | Automated accessibility certification | `RESEARCH/D.md` | Rejected: universal claim unfalsifiable | — |
@@ -63,6 +63,40 @@ standalone product at all.
 
 **Reconsider when.** A real case is found in which all bytes survive and important
 relationships do not, **and** the existing reporting does not already surface it.
+
+## The information-sufficiency gate (E002, run 2026-10-03)
+
+Before any candidate is implemented, two realities that give it identical
+permitted inputs but require different outputs must be constructed. A passive
+system fails this gate outright; an active system fails only if no permitted
+observation separates the pair. Experiment `EXPERIMENTS/003-information-sufficiency/`
+runs one small synthetic witness per held candidate. All inputs are synthetic;
+the witness can falsify an unbounded claim but measures no prevalence.
+
+| Witness | Candidate | Result | Consequence |
+|---|---|---|---|
+| W1 | Decision-directed sidewalk survey | **Survives** (`observed`) | The mechanism is not structurally information-insufficient given known OD pairs; the A1 masking experiment supplies the measured comparison |
+| W2 | Knitting repair planner | **Spec information-insufficient** (`observed`) | The stated input set omits loop orientation; repair must add orientation or refuse ambiguous states |
+| W3 | Adaptive ventilation measurement | **Survives** (`observed`) | An ordinary permitted action (`co-locate`, `close-internal-door`) separates two realities whose passive traces coincide within noise |
+
+Full claim, oracle, and limits per witness:
+[`EXPERIMENTS/003-information-sufficiency/README.md`](EXPERIMENTS/003-information-sufficiency/README.md).
+
+**W2 finding.** `observed`, 2026-10-03. Two stitch states with identical
+chart-level inputs (same symbols, connectivity, live stitches, and facing side)
+require different repairs because one is mounted twisted and the other is not.
+Mount is not in the candidate's stated input set, so the planner cannot choose
+between "re-form in place" and "re-form and untwist" from its permitted input.
+This is not a refutation of the mechanism: a knitter can observe orientation, so
+the fix is to add orientation to the input (or refuse). It bounds the input and
+rules out the current, narrower claim. Recorded as `FAILURES.md` F007.
+
+**W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
+permitted input set: in each case an askable observation separates the realities,
+so next-observation selection carries decision-relevant information. This is
+`observed` for the witness construction and `inferred` for the wider claim; it
+does not measure usefulness, differentiation, or adoption, and one construction
+cannot exclude a different silent pair.
 
 ## Candidates awaiting a falsification experiment
 

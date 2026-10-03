@@ -1,0 +1,211 @@
+==============================================================================
+[seq 3] 2026-10-03T17:03:50+00:00
+$ python3 EXPERIMENTS/003-information-sufficiency/witness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/003-information-sufficiency/witness.py", line 422, in <module>
+    raise SystemExit(main())
+  File "EXPERIMENTS/003-information-sufficiency/witness.py", line 405, in main
+    "input_hashes": {name: _stable(w) for name, w in witnesses.items()},
+  File "EXPERIMENTS/003-information-sufficiency/witness.py", line 405, in <dictcomp>
+    "input_hashes": {name: _stable(w) for name, w in witnesses.items()},
+  File "EXPERIMENTS/003-information-sufficiency/witness.py", line 386, in _stable
+    json.dumps(obj, sort_keys=True, default=str).encode()
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+TypeError: keys must be str, int, float, bool or None, not tuple
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 607  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T17:04:08+00:00
+$ python3 EXPERIMENTS/003-information-sufficiency/witness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== W1_sidewalk_survey: decision-directed sidewalk survey ==
+   system: active
+   verdict: survives-within-vocabulary: an askable crossing inspection separates realities that differ in crossing condition, so decision-directed selection adds information there. It is information-insufficient for realities that differ only in demand, which is outside the permitted measurement set, so the claim must be narrowed to 'given known demand'.
+
+== W2_knitting_repair: knitting repair planner ==
+   system: passive
+   verdict: information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input.
+
+== W3_ventilation: adaptive ventilation measurement ==
+   system: active
+   verdict: survives: the passive traces are indistinguishable within noise, but a permitted ordinary action separates the two realities, so next-observation selection adds decision-relevant information. Separating actions: co-locate, close-internal-door.
+   separating actions: ['co-locate', 'close-internal-door']
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/003-information-sufficiency/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 110  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T17:06:19+00:00
+$ python3 EXPERIMENTS/003-information-sufficiency/witness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== W1_sidewalk_survey: decision-directed sidewalk survey ==
+   system: active
+   verdict: survives: two realities share identical permitted inputs (masked crossings and the same OD pairs) yet need different repair packages, and an askable crossing inspection separates them, so decision-directed selection adds decision-relevant information the current data lacks. No silently-different pair was found inside the permitted input set; the decision only fails if the OD pairs themselves are dropped from the inputs, which RESEARCH/A.md step 2 does not do. Scope condition: the claim is 'given known origin/destination pairs'.
+
+== W2_knitting_repair: knitting repair planner ==
+   system: passive
+   verdict: information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input.
+
+== W3_ventilation: adaptive ventilation measurement ==
+   system: active
+   verdict: survives: the passive traces are indistinguishable within noise, but a permitted ordinary action separates the two realities, so next-observation selection adds decision-relevant information. Separating actions: co-locate, close-internal-door.
+   separating actions: ['co-locate', 'close-internal-door']
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/003-information-sufficiency/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 210  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T17:07:27+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 232 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 334 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  FAIL  EXPERIMENTS/003-information-sufficiency/witness.py: 426 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/README.md: missing <!-- origin-meta --> block
+  FAIL  tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 6 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 821  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T17:07:33+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated sessions/INDEX.md
+updated tasks/INDEX.md
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 608  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T17:09:19+00:00
+$ python3 EXPERIMENTS/003-information-sufficiency/witness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== W1_sidewalk_survey: decision-directed sidewalk survey ==
+   system: active
+   verdict: survives: two realities share identical permitted inputs (masked crossings and the same OD pairs) yet need different repair packages, and an askable crossing inspection separates them, so decision-directed selection adds decision-relevant information the current data lacks. No silently-different pair was found inside the permitted input set; the decision only fails if the OD pairs themselves are dropped from the inputs, which RESEARCH/A.md step 2 does not do. Scope condition: the claim is 'given known origin/destination pairs'.
+
+== W2_knitting_repair: knitting repair planner ==
+   system: passive
+   verdict: information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input.
+
+== W3_ventilation: adaptive ventilation measurement ==
+   system: active
+   verdict: survives: the passive traces are indistinguishable within noise, but a permitted ordinary action separates the two realities, so next-observation selection adds decision-relevant information. Separating actions: co-locate, close-internal-door.
+   separating actions: ['co-locate', 'close-internal-door']
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/003-information-sufficiency/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T17:10:29+00:00
+$ python3 EXPERIMENTS/003-information-sufficiency/witness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== W1_sidewalk_survey: decision-directed sidewalk survey ==
+   system: active
+   verdict: survives: two realities share identical permitted inputs (masked crossings and the same OD pairs) yet need different repair packages, and an askable crossing inspection separates them, so decision-directed selection adds decision-relevant information the current data lacks. No silently-different pair was found inside the permitted input set; the decision only fails if the OD pairs themselves are dropped from the inputs, which RESEARCH/A.md step 2 does not do. Scope condition: the claim is 'given known origin/destination pairs'.
+
+== W2_knitting_repair: knitting repair planner ==
+   system: passive
+   verdict: information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input.
+
+== W3_ventilation: adaptive ventilation measurement ==
+   system: active
+   verdict: survives: the passive traces are indistinguishable within noise, but a permitted ordinary action separates the two realities, so next-observation selection adds decision-relevant information. Separating actions: co-locate, close-internal-door.
+   separating actions: ['co-locate', 'close-internal-door']
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/003-information-sufficiency/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 127  redactions: none
+==============================================================================
+[seq 18] 2026-10-03T17:13:12+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS [--push]
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+.........................................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+................................................................................
+----------------------------------------------------------------------
+Ran 168 tests in 84.809s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 85278  redactions: none
+==============================================================================
+[seq 19] 2026-10-03T17:13:20+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 234 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 334 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 825  redactions: none
+==============================================================================
+[seq 22] 2026-10-03T17:15:41+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 234 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 334 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 817  redactions: none

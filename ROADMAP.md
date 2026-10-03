@@ -33,8 +33,8 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
       disproved (`FAILURES.md` F001)
 - [x] Write kill gates for the three held candidates in `HYPOTHESES.md` (T-0001, 2026-10-03)
-- [ ] Apply the information-sufficiency test to each held candidate
-- [ ] Run the A1 masking experiment on the PPNA sidewalk extract
+- [x] Apply the information-sufficiency test to the three held candidates (`003-information-sufficiency`, T-0008: W1/W3 survive, W2 spec insufficient, F007)
+- [x] Run the A1 masking experiment on the PPNA sidewalk extract (`002-a1-masking`, T-0005/T-0006/T-0007: count-budget gate met, fieldwork-cost gate fails, F006)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision
 - [ ] Independently reproduce or review each result, checking oracle and baseline

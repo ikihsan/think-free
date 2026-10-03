@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-19 recorded session(s). One `events.jsonl` per session, so concurrent
+20 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | **unfinished** | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T16:57 |
 | [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |
 | [2026-10-03-018-log-state-md-update-from-t-0004-completi](2026-10-03-018-log-state-md-update-from-t-0004-completi/README.md) | unknown-agent | no-change | log STATE.md update from T-0004 completion | 2026-10-03T16:43 |
 | [2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p](2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p/README.md) | unknown-agent | worked | T-0004: make fleet and sync test suites pass, then document multi-VM f | 2026-10-03T16:42 |

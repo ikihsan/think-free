@@ -1,0 +1,334 @@
+{
+  "experiment": "003-information-sufficiency",
+  "input_hashes": {
+    "W1_sidewalk_survey": "800b016953f2054b",
+    "W2_knitting_repair": "93c4f0c9ed89a9f5",
+    "W3_ventilation": "42247093d117dae3"
+  },
+  "note": "All inputs are synthetic. A synthetic witness can falsify an unbounded claim; it cannot measure how often the ambiguity occurs in real data.",
+  "schema": "origin.experiment.information-sufficiency/1",
+  "synthetic": true,
+  "witnesses": {
+    "W1_sidewalk_survey": {
+      "candidate": "decision-directed sidewalk survey",
+      "pair_within_measurement_vocabulary": {
+        "outputs_differ": true,
+        "permitted_inputs_identical": true,
+        "permitted_observation_separates": true,
+        "reality_A": {
+          "condition": {
+            "c1": true,
+            "c2": false
+          },
+          "demand": {
+            "D1": true,
+            "D2": true
+          }
+        },
+        "reality_B": {
+          "condition": {
+            "c1": false,
+            "c2": true
+          },
+          "demand": {
+            "D1": true,
+            "D2": true
+          }
+        },
+        "required_output_A": [
+          10,
+          [
+            "c1"
+          ]
+        ],
+        "required_output_B": [
+          6,
+          [
+            "c2"
+          ]
+        ],
+        "separating_action": "c1"
+      },
+      "permitted_input": {
+        "crossings": {
+          "c1": "unknown",
+          "c2": "unknown"
+        },
+        "origin_destination_pairs": [
+          "D1",
+          "D2"
+        ]
+      },
+      "silent_pair_found": false,
+      "system": "active",
+      "verdict": "survives: two realities share identical permitted inputs (masked crossings and the same OD pairs) yet need different repair packages, and an askable crossing inspection separates them, so decision-directed selection adds decision-relevant information the current data lacks. No silently-different pair was found inside the permitted input set; the decision only fails if the OD pairs themselves are dropped from the inputs, which RESEARCH/A.md step 2 does not do. Scope condition: the claim is 'given known origin/destination pairs'."
+    },
+    "W2_knitting_repair": {
+      "candidate": "knitting repair planner",
+      "inputs_identical": true,
+      "outputs_differ": true,
+      "permitted_encoding_can_represent_the_difference": false,
+      "permitted_input": {
+        "live_stitches": [
+          "c1r2",
+          "c2r2"
+        ],
+        "loops": {
+          "c1r1": {
+            "next": [
+              "c0r1",
+              "c2r1",
+              "c1r0",
+              "c1r2"
+            ],
+            "stitch": "knit"
+          },
+          "c1r2": {
+            "next": [
+              "c2r2",
+              "c1r1"
+            ],
+            "stitch": "purl"
+          },
+          "c2r1": {
+            "next": [
+              "c1r1",
+              "c3r1",
+              "c2r0",
+              "c2r2"
+            ],
+            "stitch": "knit"
+          },
+          "c2r2": {
+            "next": [
+              "c1r2",
+              "c2r1"
+            ],
+            "stitch": "purl"
+          }
+        },
+        "side": "public"
+      },
+      "reality_A": {
+        "mount": {
+          "c1r1": "normal",
+          "c2r1": "normal"
+        }
+      },
+      "reality_B": {
+        "mount": {
+          "c1r1": "twisted",
+          "c2r1": "twisted"
+        }
+      },
+      "required_output_A": [
+        "re-form (1,1) and (2,1) in place"
+      ],
+      "required_output_B": [
+        "re-form (1,1) and (2,1) in place and untwist each"
+      ],
+      "system": "passive",
+      "verdict": "information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input."
+    },
+    "W3_ventilation": {
+      "action_separation": {
+        "close-internal-door": {
+          "max_abs_difference": 56.3774,
+          "relative_to_peak": 0.1458,
+          "separates_beyond_2pct": true
+        },
+        "co-locate": {
+          "max_abs_difference": 49.7649,
+          "relative_to_peak": 0.1478,
+          "separates_beyond_2pct": true
+        },
+        "passive": {
+          "max_abs_difference": 6.6124,
+          "relative_to_peak": 0.0196,
+          "separates_beyond_2pct": false
+        },
+        "unoccupied-decay": {
+          "max_abs_difference": 5.5701,
+          "relative_to_peak": 0.0188,
+          "separates_beyond_2pct": false
+        }
+      },
+      "candidate": "adaptive ventilation measurement",
+      "inputs_identical_within_noise": true,
+      "outputs_differ": true,
+      "passive_max_abs_difference": 6.6124,
+      "passive_relative_to_peak": 0.0196,
+      "passive_trace_P": [
+        25.0,
+        43.8,
+        61.474,
+        78.0913,
+        93.7169,
+        108.4116,
+        122.2324,
+        135.2328,
+        147.4628,
+        158.9694,
+        169.7966,
+        179.9857,
+        189.5752,
+        198.6016,
+        207.0988,
+        215.0987,
+        222.6313,
+        229.7246,
+        236.405,
+        242.6973,
+        248.6245,
+        254.2085,
+        259.4698,
+        264.4275,
+        269.0996,
+        273.5031,
+        277.6538,
+        281.5666,
+        285.2557,
+        288.734,
+        292.0141,
+        295.1075,
+        298.0251,
+        300.7773,
+        303.3735,
+        305.8231,
+        308.1343,
+        310.3154,
+        312.3737,
+        314.3164,
+        316.1502,
+        317.8814,
+        319.5158,
+        321.0589,
+        322.5161,
+        323.8922,
+        325.1919,
+        326.4195,
+        327.5791,
+        328.6746,
+        329.7096,
+        330.6875,
+        331.6116,
+        332.4849,
+        333.3103,
+        334.0904,
+        334.8278,
+        335.525,
+        336.184,
+        336.8072
+      ],
+      "passive_trace_Q": [
+        25.0,
+        43.8,
+        61.472,
+        78.0837,
+        93.6987,
+        108.3767,
+        122.1741,
+        135.1437,
+        147.3351,
+        158.795,
+        169.5673,
+        179.6932,
+        189.2116,
+        198.1589,
+        206.5694,
+        214.4752,
+        221.9067,
+        228.8923,
+        235.4588,
+        241.6313,
+        247.4334,
+        252.8874,
+        258.0141,
+        262.8333,
+        267.3633,
+        271.6215,
+        275.6242,
+        279.3867,
+        282.9235,
+        286.2481,
+        289.3732,
+        292.3108,
+        295.0722,
+        297.6679,
+        300.1078,
+        302.4013,
+        304.5572,
+        306.5838,
+        308.4888,
+        310.2795,
+        311.9627,
+        313.5449,
+        315.0322,
+        316.4303,
+        317.7445,
+        318.9798,
+        320.141,
+        321.2326,
+        322.2586,
+        323.2231,
+        324.1297,
+        324.9819,
+        325.783,
+        326.536,
+        327.2439,
+        327.9092,
+        328.5347,
+        329.1226,
+        329.6752,
+        330.1947
+      ],
+      "reality_P": {
+        "bias": 5.0,
+        "k": 0.01,
+        "lam1": 0.05,
+        "lam2": 0.05,
+        "source": 20.0
+      },
+      "reality_Q": {
+        "bias": 5.0,
+        "k": 0.0,
+        "lam1": 0.06,
+        "lam2": 0.05,
+        "source": 20.0
+      },
+      "required_output_P": "high outdoor exchange, low inter-room",
+      "required_output_Q": "low outdoor exchange, high inter-room",
+      "search": {
+        "constraint": "lam1 + k held equal so total loss matches",
+        "grid": {
+          "k": [
+            0.0,
+            0.005,
+            0.01,
+            0.02,
+            0.03,
+            0.05,
+            0.08,
+            0.12
+          ],
+          "lam1": [
+            0.02,
+            0.03,
+            0.04,
+            0.05,
+            0.06,
+            0.08,
+            0.1
+          ],
+          "lam2": 0.05
+        }
+      },
+      "separating_actions": [
+        "co-locate",
+        "close-internal-door"
+      ],
+      "system": "active",
+      "verdict": "survives: the passive traces are indistinguishable within noise, but a permitted ordinary action separates the two realities, so next-observation selection adds decision-relevant information. Separating actions: co-locate, close-internal-door."
+    }
+  }
+}
