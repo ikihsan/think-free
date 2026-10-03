@@ -8,7 +8,7 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-15 task(s). Every task file declares a runnable verification command;
+16 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -27,7 +27,8 @@ last-verified: 2026-10-03
 | [`T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md`](T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md) | done |  | test -f RESEARCH/SYNTHESIS.md && grep -q 'origin | 2026-10-03 |
 | [`T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | claimed | opencode | test -f EXPERIMENTS/005-build-timestamps/results | 2026-10-03 |
 | [`T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md`](T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md) | done |  | test -f EXPERIMENTS/006-ventilation-measurement- | 2026-10-03 |
-| [`T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md`](T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md) | claimed | opencode | test -f RESEARCH/PRIOR-ART-KNITTING.md && for f  | 2026-10-03 |
+| [`T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md`](T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md) | done |  | test -f RESEARCH/PRIOR-ART-KNITTING.md && for f  | 2026-10-03 |
+| [`T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md`](T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 
 ## How tasks run on another machine
 

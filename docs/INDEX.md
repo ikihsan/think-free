@@ -87,6 +87,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md`](../tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md`](../tasks/T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md`](../tasks/T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md`](../tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 
