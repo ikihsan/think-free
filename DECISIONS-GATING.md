@@ -10,13 +10,12 @@ Decisions **D013, D024–D027**. Each entry records a choice that was genuinely 
 the evidence behind it, the alternatives rejected, and the reason. Decisions that
 constrain later work belong here; ordinary edits do not.
 
-**Invariant:** every entry here governs *how work is verified and how a verdict
-is read* — verification strictness, kill gates, and verdict rules. A decision
-about *which candidates are screened* belongs in
-[`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md); one that can be restated as
-"how work is recorded, moved, or published" belongs in
-[`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md). The index is
-[`DECISIONS.md`](DECISIONS.md).
+**Invariant:** every entry here governs *how this repository verifies itself* —
+verification strictness, and the shape a gate or its control must have before it
+is trusted. What *passes* — candidate screens, kill-gate conditions, verdict
+metrics — belongs in [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md); how work
+is recorded, moved, or published in [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md).
+The index is [`DECISIONS.md`](DECISIONS.md).
 
 Split from `DECISIONS-PRACTICE.md` on 2026-10-03 (T-0018) when that file reached
 297 of the 300 permitted lines. Entries moved verbatim; numbering is continuous
@@ -119,7 +118,6 @@ which loses the check inside the session that did the work — the thing
 task-lifecycle says must never happen. Running it with `--strict` and completing
 the task anyway, which is a recorded false pass. Weakening the *other* gates to
 match.
-
 ## D027 — An unfinished session fails CI only when it is provably abandoned (2026-10-03)
 
 Observed: D013's premise does not hold for this fleet. `task claim` requires

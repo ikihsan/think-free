@@ -1,41 +1,50 @@
 # Decisions — screening candidates and judging experiments
+
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
 last-verified: 2026-10-03
 -->
+
 Decisions **D019–D023**. Each entry records a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason.
+
 **Invariant:** every entry here governs *what passes*: which candidates and
 experiments are screened in or out, what a kill-gate condition may mean, and
 which metric a verdict is taken on. How this repository's own gates are written
 and run belongs in [`DECISIONS-GATING.md`](DECISIONS-GATING.md); recording and
 publishing in [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md). The index is
 [`DECISIONS.md`](DECISIONS.md).
+
 Split out of `DECISIONS-GATING.md` on 2026-10-03 (T-0020), first when D027 pushed
 that file past the 250-line split trigger and again when D024–D027 took it past
-the 300-line cap in
-[`docs/policy/doc-standards.md`](docs/policy/doc-standards.md). Entries moved
-verbatim; numbering is continuous and unchanged, so any existing reference to a
-decision id still resolves.
+the 300-line cap. Entries moved verbatim; numbering is continuous and unchanged,
+so any existing reference to a decision id still resolves.
+
 ## D019 — A candidate may not be implemented until its witness is run (2026-10-03)
+
 Observed: `HYPOTHESES.md` carried "information-sufficiency witness" prose for
 three candidates but none had been executed, while the A1 masking experiment was
 already being deepened.
+
 Decision: run the witness for every held candidate before any implementation.
 A passive candidate that cannot separate two realities with identical inputs and
 different outputs is information-insufficient and must narrow its input or permit
 refusal; an active candidate fails only when *no* permitted observation
 separates the pair. Results are recorded per candidate in `HYPOTHESES.md`, and a
 disproved input set is recorded in `FAILURES.md`.
+
 Rejected: treating the witness as a formality after the fact, because a gate
 written after seeing results is a rationalisation; and applying it only to the
 candidate then in focus, because the two others were cheap to screen in the same
 session and one (knitting) failed.
+
 Consequence: the knitting candidate's input set must add loop orientation or
 refuse (F007); the sidewalk and ventilation candidates may proceed to their
 behavioural experiments under their stated scope conditions.
+
 ## D020 — Screen candidates by whether a surviving result changes a build decision (2026-10-03)
+
 Observed: `STATE.md` asked for the six sealed investigations to be compared with
 E's and F's criteria as a screen. Applying them literally produced nothing — F's
 C1–C6 describe a built repository (a runnable README, one-command install, CI
@@ -43,6 +52,7 @@ coverage) and score **not applicable** against six unimplemented candidates, so
 they discriminate nothing. Applying E's entry criterion alone also failed to
 separate the software candidates: E1 and E3 both have killing experiments much
 smaller than the argument for them.
+
 Decision: screen on three questions in order, and require all three before an
 experiment is scheduled. (1) Is the experiment that could kill the candidate
 smaller than the argument for keeping it (E)? (2) What does a user receive, in
@@ -52,16 +62,20 @@ with a nameable owner, or nothing? Question 3 is the discriminator E and F left
 out, and it is the one that killed E1: jitter is in every modern client library,
 so a passing simulator would confirm a 2015 blog post and change no build
 decision.
+
 Consequence: F's C1–C6 stay a **gate at stage D**, applied to a repository that
 exists, and are not cited as a candidate screen. E1 is not run despite being the
 cheapest experiment in the repository. The screen itself, with the full
 per-candidate tables and the ranked next actions, is
 [`RESEARCH/SYNTHESIS.md`](RESEARCH/SYNTHESIS.md).
+
 Rejected: applying C1–C6 as written and reporting six "not applicable" rows as
 the result, because that is a screen that cannot fail and therefore teaches
 nothing; and ranking by cheapness alone, because the cheapest experiment here
 (E1) is also the one whose outcome changes nothing.
+
 ## D021 — An experiment is judged by the setting that can fail, not the best one (2026-10-03)
+
 Observed: the interrupted T-0011 draft defined its "bounded" planner by taking the
 product of every per-neighbourhood candidate. Measured, that product equals the
 oracle's `2**|errors|` on every T-0010 case, so its `all_optimal = true` was a
@@ -70,21 +84,25 @@ produces two settings that are also optimal — and two of them (`cap=1, beam=2`
 `cap=2, beam=4`) turn out to evaluate exactly the oracle's `2**|errors|`
 combinations, because keeping a second candidate per chunk is exhaustive search
 wearing the planner's clothes.
+
 Decision: report the whole sweep, name the setting that fails and the settings
 that only look good, and count work as patch subsets enumerated **plus**
 combinations evaluated, because the combination phase is where the cost hides.
 A kill gate must name the setting it applies to. Settings that turn out to
 enumerate the baseline's own search space are labelled as such in the results and
 never counted as evidence for the planner under test.
+
 Rejected: reporting only the headline setting, because a reader would then take
 the best number as the planner's quality and never learn that the cheap settings
 fail; and "the planner is optimal, so it works", because optimality that follows
 from the model's structure is a check on the implementation, not a discovery.
+
 Consequence: `EXPERIMENTS/005-knitting-bounded-search/README.md` states the cap
 and beam sweep, the family-by-family work ratios (1.28x *worse* than the oracle
 on T-0010's own cases), and the explicit verdict that "bounded neighbourhood" is
 not an efficiency claim at this scale. The chunk cap is recorded as the failure
 boundary: whole neighbourhoods are exact, per-error chunks are not.
+
 ## D022 — A kill-gate condition naming "prior art" must name which claim it gates (2026-10-03)
 
 Observed: the knitting candidate's kill gate read "abandon the

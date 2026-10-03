@@ -20,10 +20,10 @@ ordinary edits do not.
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
 needs to know *what a session must produce and move* reads only the
-practice file. A reader who needs to know *what passes and what stops* reads
-only the gating file. No entry appears in more than one file, and a new
-decision goes in the file its own statement fits; never split one decision
-across the boundary.
+practice file. A reader who needs to know *what passes* reads only the screening
+file, and one who needs to know *how this repository verifies itself* reads only
+the gating file. No entry appears in more than one file, and a new decision goes
+in the file its own statement fits; never split one decision across the boundary.
 
 Split at 2026-10-03 when this file reached the 300-line cap required by
 [`docs/policy/doc-standards.md`](docs/policy/doc-standards.md). The entries were
@@ -41,9 +41,8 @@ A recorded `decision` event satisfies this gate when **any** decision record
 changed; `origin` checks all five files for that reason. See
 [`docs/process/session-protocol.md`](docs/process/session-protocol.md).
 
-Split a third time at 2026-10-03 (T-0020) when D027 passed
-`DECISIONS-GATING.md`'s line caps: D019–D023 moved verbatim to
-`DECISIONS-SCREENING.md`, leaving how the repository verifies itself in the
-gating file. Every split is by invariant, never by date, and numbering is continuous and
-unchanged in each, so an existing reference to a decision id still resolves
-wherever the entry now lives.
+Split a third time at 2026-10-03 (T-0020) when D024–D027 took
+`DECISIONS-GATING.md` past the 300-line cap: D019–D023 moved verbatim to
+`DECISIONS-SCREENING.md`. Every split is by invariant, never by date, and numbering
+is continuous and unchanged in each, so an existing reference to a decision id
+still resolves wherever the entry now lives.
