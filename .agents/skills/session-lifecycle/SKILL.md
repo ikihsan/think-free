@@ -57,6 +57,9 @@ tools/origin session artifact docs/reference/skill-inventory.md
 tools/origin session artifact --dir docs/reference      # sweep a directory
 ```
 
+A sweep skips gitignored files and prints what it skipped. Never declare build
+output: session 003 swept `tools/` and recorded 13 `.pyc` files (`FAILURES.md` F004).
+
 Session 002 declared 57 artifacts in a final batch and missed 55 committed files.
 Reconciliation reported every one and exited `4`. The work was fine; the record was
 not. See `FAILURES.md` F003.

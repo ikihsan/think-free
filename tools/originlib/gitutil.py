@@ -86,6 +86,16 @@ def is_tracked(path: str) -> bool:
     return run(["ls-files", "--error-unmatch", "--", path]).returncode == 0
 
 
+def is_ignored(path: str) -> bool:
+    """True when git would not track this path.
+
+    Declaring an ignored file is always a mistake: build output is reproducible
+    from the source that is being declared, and recording it adds noise to the
+    record without adding evidence.
+    """
+    return run(["check-ignore", "--quiet", "--", path]).returncode == 0
+
+
 def host_identity() -> tuple[str, str]:
     """Return (hostname, username-ish) without importing os.path surprises."""
     import getpass

@@ -183,3 +183,16 @@ unfinished session genuinely is a failure.
 Rejected: dropping the check for unfinished sessions entirely, because then a
 crashed run would be indistinguishable from a completed one. Making strictness the
 only mode, because it would make local use useless.
+
+## D014 — Gitignored paths are never artifacts (2026-10-03)
+
+Observed: a `--dir tools` sweep declared 13 `__pycache__/*.pyc` files, which then
+appeared in a generated session report as deliverables. `FAILURES.md` F004.
+
+Decision: `origin session artifact` refuses a named file that git ignores, and a
+directory sweep skips ignored files while printing what it skipped.
+
+Reasoning: build output is reproducible from the source that is being declared, so
+recording it adds noise without evidence. This is the same rule already applied to
+vendored content, which is hash-verified rather than declared. It should have been
+applied when `--dir` was introduced; it was found by reading a report instead.

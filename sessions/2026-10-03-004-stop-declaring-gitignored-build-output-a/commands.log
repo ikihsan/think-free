@@ -1,0 +1,47 @@
+==============================================================================
+[seq 12] 2026-10-03T17:18:42+05:30
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....usage: origin session finish [-h] --outcome {worked,partial,failed,no-change}
+                             --summary SUMMARY --next NEXT_STEPS
+origin session finish: error: argument --outcome: invalid choice: 'brilliant' (choose from 'worked', 'partial', 'failed', 'no-change')
+....origin: no active session; run 'tools/origin session start --goal "..."' first
+.....origin: no such task: T-9999
+......................................................origin: --dir is not a directory: nope
+..origin: give one or more paths, or at least one --dir
+................................................................
+----------------------------------------------------------------------
+Ran 133 tests in 3.073s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3153  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T17:18:43+05:30
+$ ./tools/origin preflight
+cwd: /home/ihsan/Works/think-free
+------------------------------------------------------------------------------
+doc lint: 166 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 4 session(s) checked
+  note  2026-10-03-004-stop-declaring-gitignored-build-output-a: in progress (command)
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 130  redactions: none

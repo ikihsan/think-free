@@ -103,6 +103,32 @@ Covered by five tests in `tests/test_session.py` (`ArtifactBatchTest`).
 reconciliation report that fires on a correct piece of work is still a correct report:
 the work was complete and the record was not.
 
+## F004 — The new directory sweep declared 13 build-output files
+
+**What happened.** Immediately after F003 was fixed, a `--dir tools` sweep
+declared every file beneath `tools/`, including 13 `__pycache__/*.pyc` artefacts.
+They appeared in session 003's generated report as if they were deliverables.
+
+**Classification.** Tooling defect, found by reading the report rather than by a
+gate. `session verify` cannot detect it: the files were genuinely declared, with
+genuine hashes, and the event stream is valid.
+
+**Root cause.** The sweep expanded a directory to all of its files without asking
+git which of them are tracked. A directory sweep is exactly the operation that
+walks into build output.
+
+**Fix.** `gitutil.is_ignored` now backs both paths: an explicitly named ignored
+file is refused with an explanation, and a directory sweep skips ignored files and
+prints what it skipped. Three tests in `tests/test_session.py` (`IgnoredArtifactTest`).
+
+**Lesson.** A sweep that trusts the filesystem will eventually sweep the build
+directory. Anything derived from a source file is noise in an evidence record.
+This is the same reasoning that makes vendored content hash-verified rather than
+declared, and it should have been applied when `--dir` was added, minutes earlier.
+
+**Not remediated in session 003.** Its events stay as they are. Editing a closed
+session's append-only stream to remove them would be worse than the noise.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:

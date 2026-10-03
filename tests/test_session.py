@@ -244,3 +244,46 @@ class ArtifactBatchTest(RepoTest):
             if event["kind"] == "artifact"
         ]
         self.assertEqual(len(artifacts), 1)
+
+
+class IgnoredArtifactTest(RepoTest):
+    """Gitignored files are never declared: build output is not evidence."""
+
+    IGNORED = ("__pycache__/", "*.py[cod]\n")
+
+    def test_ignored_file_is_refused(self) -> None:
+        from originlib import session
+
+        (self.repo / ".gitignore").write_text("*.log\n", encoding="utf-8")
+        session.start("refuse ignored", agent="tester")
+        path = self.write("build.log", "compiled output\n")
+        with self.assertRaises(session.SessionError) as caught:
+            session.artifact(str(path))
+        self.assertIn("gitignore", str(caught.exception))
+
+    def test_directory_sweep_skips_ignored_files(self) -> None:
+        (self.repo / ".gitignore").write_text("*.log\n", encoding="utf-8")
+        session.start("sweep skips ignored", agent="tester")
+        self.write("src/real.txt", "real\n")
+        self.write("src/noise.log", "noise\n")
+        self.cli("session", "artifact", "--dir", "src")
+        artifacts = [
+            event["data"]["path"]
+            for event in self.session_events(session.load_active().session)
+            if event["kind"] == "artifact"
+        ]
+        self.assertEqual(artifacts, ["src/real.txt"])
+        self.assertIn("skipped (gitignored)  src/noise.log", self.output())
+
+    def test_explicit_ignored_path_is_skipped_not_fatal(self) -> None:
+        (self.repo / ".gitignore").write_text("*.log\n", encoding="utf-8")
+        session.start("explicit ignored", agent="tester")
+        self.write("thing.log", "noise\n")
+        code = self.cli("session", "artifact", "thing.log")
+        self.assertEqual(code, 0)
+        artifacts = [
+            event
+            for event in self.session_events(session.load_active().session)
+            if event["kind"] == "artifact"
+        ]
+        self.assertEqual(artifacts, [])

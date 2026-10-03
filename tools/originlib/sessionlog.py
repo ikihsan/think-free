@@ -57,6 +57,10 @@ def artifact(path: str, note_text: str = "") -> events.Event:
         raise SessionError(f"artifact does not exist: {rel}")
     if target.is_dir():
         raise SessionError(f"artifact is a directory, record files individually: {rel}")
+    if gitutil.is_ignored(rel):
+        raise SessionError(
+            f"{rel} is excluded by .gitignore; declare the source that produces it instead"
+        )
     found, suppressed = secrets.scan_file(target, report_suppressions=True)
     if suppressed:
         events.append(

@@ -45,11 +45,13 @@ def dispatch(args: argparse.Namespace) -> int:
     if args.action == "artifact":
         if not args.paths and not args.dir:
             raise ValueError("give one or more paths, or at least one --dir")
-        targets = _expand_artifact_targets(args.paths, args.dir)
+        targets, skipped = _expand_artifact_targets(args.paths, args.dir)
         for target in targets:
             event = session.artifact(target, args.note_text)
             print(f"seq {event.seq}  {event.data['path']}  {event.data['sha256'][:12]}")
         print(f"{len(targets)} artifact(s) recorded")
+        for ignored in skipped:
+            print(f"  skipped (gitignored)  {ignored}")
         return EXIT_OK
     if args.action == "finish":
         result = session.finish(args.outcome, args.summary, args.next_steps)
@@ -74,7 +76,7 @@ def dispatch(args: argparse.Namespace) -> int:
     raise Usage(f"unknown session action: {args.action}")
 
 
-def _expand_artifact_targets(paths: list[str], directories: list[str]) -> list[str]:
+def _expand_artifact_targets(paths: list[str], directories: list[str]) -> tuple[list[str], list[str]]:
     """Expand --dir into individual files, so every artifact gets its own hash.
 
     Declaration is per file by design: a hash of a directory says nothing about
@@ -82,21 +84,29 @@ def _expand_artifact_targets(paths: list[str], directories: list[str]) -> list[s
     """
     from pathlib import Path
 
-    targets: list[str] = list(paths)
+    from . import gitutil
+
+    targets: list[str] = [item for item in paths if not gitutil.is_ignored(item)]
+    skipped: list[str] = [item for item in paths if gitutil.is_ignored(item)]
     for directory in directories:
         base = Path(paths_module_root() or ".").resolve() / directory
         if not base.is_dir():
             raise ValueError(f"--dir is not a directory: {directory}")
         for item in sorted(base.rglob("*")):
-            if item.is_file():
-                targets.append(item.relative_to(Path(paths_module_root())).as_posix())
+            if not item.is_file():
+                continue
+            rel = item.relative_to(Path(paths_module_root())).as_posix()
+            if gitutil.is_ignored(rel):
+                skipped.append(rel)
+                continue
+            targets.append(rel)
     seen: set[str] = set()
     unique: list[str] = []
     for target in targets:
         if target not in seen:
             seen.add(target)
             unique.append(target)
-    return unique
+    return unique, skipped
 
 
 def paths_module_root() -> str:

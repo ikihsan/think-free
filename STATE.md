@@ -18,14 +18,14 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, 3 commits. No remote configured |
 | Investigations | A, B, C, D sealed. E and F never ran |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met |
-| Disproved | F001 photo-auditor motivating example; F002 E001 first-run parser failure (implementation, not hypothesis). Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. 116 stdlib tests, all passing |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, doctor. 133 stdlib tests, all passing |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | 153 tracked files, all under the 300-line cap or declared exempt. `doc lint` exits 0 |
+| Documentation | 162 tracked files, all under the 300-line cap or declared exempt. `doc lint` exits 0 |
 
 ## What changed in the last session
 
@@ -43,8 +43,12 @@ session's findings into the record:
   metadata-tagged, index-linked, and capped at 300 lines.
 - 21 skills vendored in-repo, mirrored for every supported agent.
 - `HYPOTHESES.md`, `FAILURES.md`, `DECISIONS.md` now record E001's outcome and
-  the decisions this session made. The interrupted session's dangling
+  the decisions these sessions made. The interrupted session's dangling
   `first-failure.json` is classified rather than left open.
+- Two defects in this record-keeping were found by running it on itself and are
+  recorded rather than quietly repaired: session 002 under-declared 55 committed
+  files (F003), and a directory sweep recorded build output as artifacts (F004).
+  Both fixes are covered by tests.
 
 ## Resume procedure
 

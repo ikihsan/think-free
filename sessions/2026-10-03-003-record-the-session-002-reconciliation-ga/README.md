@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T17:09:28+05:30
-- **Duration:** ?s
+- **Duration:** 467.6s
 - **Host:** `fedora`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ record the session-002 reconciliation gap honestly and fix the declaration ergon
 
 ## Summary
 
-_(none recorded)_
+Recorded the session-002 reconciliation gap as FAILURES F003 instead of backfilling it, and fixed the three things it exposed: batch artifact declaration, per-file secret-scanning waivers for scanner fixtures, and gates that tolerate an in-flight session locally while CI stays strict. 130 tests passing, doc lint exits 0, vendored content verified.
+
+## Next
+
+Write falsification kill gates for the three held candidates in HYPOTHESES.md (task T-0001). No candidate may be tested before its gate exists.
 
 ## Artifacts
 
@@ -148,7 +152,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 1 |
@@ -199,18 +202,18 @@ _(none recorded)_
 | 38 | 17:13:37 | artifact | tooling after the sessionlog split and suppression support |
 | 39 | 17:13:37 | artifact | tooling after the sessionlog split and suppression support |
 | 40 | 17:13:37 | artifact | tooling after the sessionlog split and suppression support |
-| 107 | 17:16:35 | artifact | wrote .agents/skills/task-execution/SKILL.md |
-| 108 | 17:16:35 | artifact | wrote tools/originlib/cli_session.py |
-| 109 | 17:16:35 | artifact | wrote tools/originlib/cli.py |
-| 110 | 17:16:35 | artifact | wrote tools/originlib/cli_repo.py |
 | 111 | 17:16:35 | artifact | wrote tests/test_cli.py |
 | 112 | 17:16:41 | decision | preflight and session verify tolerate the in-flight session locally; --strict is what CI uses, because on a pushed commit nothing is in flight |
 | 113 | 17:16:42 | command | $ ./tools/origin preflight |
 | 114 | 17:16:45 | command | $ ./tools/origin skills verify |
 | 115 | 17:17:00 | artifact | wrote DECISIONS.md |
 | 116 | 17:17:00 | artifact | wrote tests/README.md |
+| 117 | 17:17:00 | milestone | D013 recorded; all gates green mid-session |
+| 118 | 17:17:16 | doc_update | updated DECISIONS.md |
+| 119 | 17:17:16 | doc_update | updated FAILURES.md |
+| 120 | 17:17:16 | session_end | Recorded the session-002 reconciliation gap as FAILURES F003 instead of backfilling it, and fixed the three things it exposed: batch artifact declarat |
 
-_66 middle events omitted; see `events.jsonl`._
+_70 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
