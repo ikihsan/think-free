@@ -22,6 +22,7 @@ Method: [`docs/process/hypothesis-lifecycle.md`](docs/process/hypothesis-lifecyc
 | [`C.md`](RESEARCH/C.md) | Cross-domain explorer | Sealed | Knitting repair planning; adaptive ventilation measurement selection |
 | [`D.md`](RESEARCH/D.md) | Adversarial skeptic | Sealed | Six rejected claim families; the reusable adversarial protocol |
 | [`ROOT-SCOUTING.md`](RESEARCH/ROOT-SCOUTING.md) | Coordinator | Sealed | Accessibility remediation and CAD interoperability counterevidence |
+| [`E.md`](RESEARCH/E.md) | Experimental engineer | Sealed | Retry synchronization, lockfile closure drift, timestamp determinism — three cheap falsifiable mechanisms |
 | E | Experimental engineer | **Not run** | — |
 | F | Adoption researcher | **Not run** | — |
 

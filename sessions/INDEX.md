@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-11 recorded session(s). One `events.jsonl` per session, so concurrent
+12 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-012-t-0002-run-investigation-e-experimental](2026-10-03-012-t-0002-run-investigation-e-experimental/README.md) | opencode | worked | T-0002: run investigation E (experimental engineer role) and write RES | 2026-10-03T16:02 |
 | [2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit](2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit/README.md) | opencode | failed | T-0004: make the fleet and sync test suites pass, then document the mu | 2026-10-03T15:57 |
 | [2026-10-03-010-complete-and-verify-exclusive-multi-vm-o](2026-10-03-010-complete-and-verify-exclusive-multi-vm-o/README.md) | codex-multivm-20261003 | **unfinished** | Complete and verify exclusive multi-VM ownership and synchronized sess | 2026-10-03T20:47 |
 | [2026-10-03-009-rework-the-multi-vm-agent-flow-isolated](2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/README.md) | opencode | partial | Rework the multi-VM agent flow: isolated worktrees, atomic claims, syn | 2026-10-03T15:06 |

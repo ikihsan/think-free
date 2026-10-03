@@ -22,8 +22,8 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Area | Verified status |
 |---|---|
-| Workspace | Git repository on `research/origin`, 3 commits. No remote configured |
-| Investigations | A, B, C, D sealed. E and F never ran |
+| Workspace | Git repository on `research/origin`, synced with origin. Agent: opencode on instance-20260717-0944 |
+| Investigations | A, B, C, D, E sealed. F never ran |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | One invention claim tested and **disproved**. No candidate validated |
@@ -31,7 +31,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door; nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 9 recorded; session 009 in progress |
+| Sessions | 11 recorded (010 opencode failed-superseded, 010 codex active); session 009 partial |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | 183 tracked files; every authored file is under the 300-line cap, and the 7 that exceed it are declared vendored exemptions. `doc lint` exits 0 |
 
@@ -96,9 +96,7 @@ Ordered by information gained per unit of effort.
    random heuristics at equal budget. Kill gate and acceptance threshold are
    written in `RESEARCH/A.md` step 5. Record whether a usable extract exists
    before investing in the comparison.
-3. **Run investigations E and F.** The experimental-engineering and
-   adoption-researcher roles have no sealed report, so the current candidate set
-   comes from four perspectives and is missing two.
+3. **Run investigation F.** The adoption-researcher role has no sealed report, so the candidate set now comes from five perspectives and is missing one.
 4. **Apply the information-sufficiency test** to the three held candidates. Ten
    lines of code each; it has already killed two proposals cheaply.
 5. **Do not build a product.** Nothing is selected, and the base rate for
@@ -115,15 +113,13 @@ present; SciPy, pytest, and Z3 absent. `crontab` and `systemctl` present,
 
 Fresh probe: `tools/origin doctor`, writing `.origin/doctor.json`.
 
-**Unverified and not to be assumed:** authenticated GitHub writes, remote VM
-fleet access, unattended supervision, GPU availability. No git remote is
-configured; pushing requires the user's authorization per
-`docs/policy/permissions-and-safety.md`.
+**Unverified and not to be assumed:** fleet access, unattended supervision, GPU availability. This VM pushes via the GitHub App as `Ihsan Ai Server Bot`.
 
 ## Honest limitations of this state
 
-- One of two planned initial investigations is missing (E, F), so the candidate
-  set rests on four perspectives.
+- The experimental-engineering role is now sealed (`RESEARCH/E.md`, three
+  cheap falsifiable mechanisms, none yet run). The adoption-researcher role
+  (F) is the only missing investigation.
 - The one experiment that ran was a baseline check, not a candidate test. No
   invention claim has been validated.
 - Every candidate has substantial prior art; none has passed prior-art review.

@@ -6,3 +6,4 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0004", "ts": "2026-10-03T13:00:58+00:00"}
 {"action": "claim", "agent": "codex-multivm-20261003", "schema": "origin.task.claim/1", "task": "T-0004", "ts": "2026-10-03T20:47:19+05:30", "vm": "codex-local"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0002", "ts": "2026-10-03T15:58:34+00:00", "vm": "instance-20260717-0944"}
+{"action": "complete", "reason": "RESEARCH/E.md sealed with three cheap falsifiable mechanisms (E1 retry synchronization, E2 lockfile closure drift, E3 timestamp determinism), each with observation/mechanism/assumptions/prior art/objection/falsifying experiment/limits; verify command passes; doc lint OK", "schema": "origin.task.claim/1", "task": "T-0002", "ts": "2026-10-03T16:00:55+00:00"}
