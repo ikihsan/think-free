@@ -8,14 +8,15 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-29 recorded session(s). One `events.jsonl` per session, so concurrent
+30 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 4 older session(s) are in the directory listing.
+Showing the 25 most recent. 5 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | **unfinished** | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T21:28 |
+| [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | **unfinished** | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T21:41 |
+| [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | worked | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T22:09 |
 | [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | worked | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:27 |
 | [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 | [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | worked | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T21:39 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 4 older session(s) are in the directory listing.
 | [2026-10-03-008-t-0001-write-falsification-kill-gates-fo](2026-10-03-008-t-0001-write-falsification-kill-gates-fo/README.md) | opencode | worked | T-0001: write falsification kill gates for the three held candidates | 2026-10-03T12:51 |
 | [2026-10-03-007-switch-git-identity-to-bot-account-and-c](2026-10-03-007-switch-git-identity-to-bot-account-and-c/README.md) | opencode | worked | Switch git identity to bot account and commit | 2026-10-03T12:46 |
 | [2026-10-03-006-verify-github-app-push-access-with-a-sma](2026-10-03-006-verify-github-app-push-access-with-a-sma/README.md) | opencode | worked | Verify GitHub app push access with a small checkpoint commit | 2026-10-03T12:42 |
-| [2026-10-03-005-correct-the-tracked-file-census-and-expl](2026-10-03-005-correct-the-tracked-file-census-and-expl/README.md) | opencode | no-change | correct the tracked-file census and explain the abandoned session in t | 2026-10-03T17:20 |
 
 
 ## Reading a session

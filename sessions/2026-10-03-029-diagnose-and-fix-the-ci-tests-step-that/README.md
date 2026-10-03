@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T21:28:52+00:00
-- **Duration:** ?s
+- **Duration:** 2421.8s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,15 +23,38 @@ Diagnose and fix the CI Tests step that has failed on all 60 recorded runs
 
 ## Summary
 
-_(none recorded)_
+T-0016 complete: CI's 60 red runs diagnosed and fixed. The failure was not a Python problem - the suite passes on Python 3.8, on a downloaded 3.12, and with CI-like environment variables. It was git: git rebase --continue opens an editor from git 2.26, so origin sync land could not land on any modern-git VM in exactly the generated-index-conflict case, and REBASE_HEAD no longer means 'a rebase is waiting'. Both fixed, regression test verified to fail without the fix, suite green on git 2.25.1 and 2.56.0. Also made CI failures legible to anyone without repository admin rights. Landed through a real content conflict with VM 0944's concurrent T-0017 session, preserving both sets of edits and renumbering my unpublished finding to F011 after they published F010.
+
+## Next
+
+Read the next CI run's conclusion from the public Actions API to confirm the workflow is green end to end; record the git version in origin doctor as a compatibility signal; split DECISIONS-PRACTICE.md before the next decision entry needs the space
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| tools/originlib/sync.py | ad055180310d | 10496 |
+| tools/originlib/gitutil.py | 113abdbbfdb9 | 5653 |
+| tools/originlib/taskremote.py | 1030196149ee | 9982 |
+| tools/originlib/worktree.py | a42f61e6319f | 6343 |
+| tools/originlib/sessionflow.py | 8d0af1af249d | 3437 |
+| tests/test_sync.py | 10d74c974e0e | 10403 |
+| tests/test_session_flow.py | 5278fb0f52b5 | 4153 |
+| tests/README.md | d6238302a8c9 | 2094 |
+| .github/workflows/ci.yml | caf21d916386 | 2107 |
+| docs/operations/ci.md | 3346661fbaa8 | 4302 |
+| FAILURES.md | 18d50169e2df | 3072 |
+| FAILURES-findings-2.md | 0998f00d8bcf | 8248 |
+| ROADMAP.md | 597db1e65b9b | 6330 |
+| STATE.md | 1292d8327399 | 13422 |
+| tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md | 253fdab1fc4d | 2258 |
+| STATE.md | 0bbc88564996 | 17395 |
+| FAILURES.md | 50bee54b69fb | 3684 |
+| FAILURES-findings-2.md | a21148c6882a | 11904 |
 
 ## Commands
 
-25 captured, 10 non-zero exit.
+27 captured, 10 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -60,16 +83,26 @@ _none_
 | 24 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 334 |
 | 25 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 1 | 2298 |
 | 26 | ['env', 'PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin',  | 0 | 8493 |
+| 44 | ['tools/origin', 'task', 'verify', 'T-0016'] | 0 | 96676 |
+| 48 | ['tools/origin', 'task', 'verify', 'T-0016'] | 0 | 95298 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 9 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-PRACTICE.md |
+|   undeclared | EXPERIMENTS/007-build-timestamps/README.md |
+|   undeclared | EXPERIMENTS/007-build-timestamps/census.py |
+|   undeclared | EXPERIMENTS/007-build-timestamps/sampling.py |
+|   undeclared | HYPOTHESES-results.md |
+|   undeclared | HYPOTHESES.md |
+|   undeclared | RESEARCH.md |
+|   undeclared | tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md |
+|   undeclared | tasks/T-0017-build-one-source-twice-under-different-source-da.md |
 
 ## Timeline
 
@@ -101,6 +134,32 @@ _none_
 | 24 | 21:59:35 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
 | 25 | 21:59:46 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
 | 26 | 22:00:00 | command | $ env PATH=/tmp/opencode/gitenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/b |
+| 27 | 22:01:38 | milestone | land defect reproduced on git 2.56, fixed, and both gits green |
+| 28 | 22:01:39 | decision | Forced the rebase continue's child git to a no-op editor via GIT_EDITOR/GIT_SEQUENCE_EDITOR env rather than -c core.editor, because an environment var |
+| 29 | 22:01:41 | artifact | wrote tools/originlib/sync.py |
+| 30 | 22:01:41 | artifact | wrote tools/originlib/gitutil.py |
+| 31 | 22:01:41 | artifact | wrote tools/originlib/taskremote.py |
+| 32 | 22:01:41 | artifact | wrote tools/originlib/worktree.py |
+| 33 | 22:01:41 | artifact | wrote tools/originlib/sessionflow.py |
+| 34 | 22:01:41 | artifact | wrote tests/test_sync.py |
+| 35 | 22:01:41 | artifact | wrote tests/test_session_flow.py |
+| 36 | 22:01:41 | artifact | wrote tests/README.md |
+| 37 | 22:01:41 | artifact | wrote .github/workflows/ci.yml |
+| 38 | 22:01:41 | artifact | wrote docs/operations/ci.md |
+| 39 | 22:01:41 | artifact | wrote FAILURES.md |
+| 40 | 22:01:41 | artifact | wrote FAILURES-findings-2.md |
+| 55 | 22:09:13 | unlogged_change | changed but never declared as an artifact: RESEARCH.md |
+| 56 | 22:09:13 | unlogged_change | changed but never declared as an artifact: tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md |
+| 57 | 22:09:13 | unlogged_change | changed but never declared as an artifact: tasks/T-0017-build-one-source-twice-under-different-source-da.md |
+| 58 | 22:09:14 | doc_update | updated DECISIONS-PRACTICE.md |
+| 59 | 22:09:14 | doc_update | updated FAILURES.md |
+| 60 | 22:09:14 | doc_update | updated HYPOTHESES.md |
+| 61 | 22:09:14 | doc_update | updated RESEARCH.md |
+| 62 | 22:09:14 | doc_update | updated ROADMAP.md |
+| 63 | 22:09:14 | doc_update | updated STATE.md |
+| 64 | 22:09:14 | session_end | T-0016 complete: CI's 60 red runs diagnosed and fixed. The failure was not a Python problem - the suite passes on Python 3.8, on a downloaded 3.12, an |
+
+_14 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

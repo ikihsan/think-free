@@ -48,61 +48,66 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**T-0016 is claimed by opencode on `instance-20260717-0947`** (session 029) — the
-red CI `Tests` step. Do not touch it. T-0013 (session 026, this VM), T-0015
-(session 028) and T-0014 (session 027) are complete.
+**T-0017 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
+*attribution* experiment, the follow-on from the census in session 026. Do not
+touch it. Its session `2026-10-03-0…-T-0017-…` is in flight, so
+`session verify` reports one unfinished session and **CI's strict session gate
+fails while that session sits on the shared branch.** That is an interaction
+between two correct rules: D013 wants CI strict, and the fleet practice of
+committing a session's start makes an in-flight session visible on the base
+branch. Whoever changes either rule owns the fix.
 
-**Three repository defects were found on 2026-10-03**, two of them still open:
+Nothing else is claimed. T-0014 (session 027), T-0015 (session 028) and T-0016
+(session 029) are complete on `instance-20260717-0947`; T-0012 and the
+renumbered T-0017 are `instance-20260717-0944`'s.
 
-1. **CI has never been green.** `.github/workflows/ci.yml` runs five gates; all
-   **60** recorded runs failed, every one at the `Tests` step
-   (`- PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests`).
-   The run log needs repository admin rights to download, so the failing test is
-   not yet identified. Locally the suite passes on this VM's Python 3.8.10
-   (173 tests); the runner's Python version is unknown and unrecorded. T-0016.
-2. ~~**A numbering collision** in T-0013's experiment directory.~~ **Resolved in
-   session 026**: `005-knitting-bounded-search/` and
-   `006-ventilation-measurement-design/` were claimed and landed while T-0013 was
-   in flight, so the census became `EXPERIMENTS/007-build-timestamps/` and the
-   task file's `verify` string, `docs/INDEX.md` and this file moved together.
-3. **A numbering collision across two VMs, hit again the same hour.** Both this
-   session and session 029 on `instance-20260717-0947` created a task numbered
-   T-0016, and both used the identifiers F009 and D022 for different findings.
-   The other VM's claims were pushed first, so it kept T-0016, F009 and D022; this
-   session's became **T-0017**, **F010** and **D023**. Task numbers are allocated
-   by reading the local tree, so two VMs in the same hour collide by construction;
-   the renumber has to happen before the push, not after.
-4. **`DECISIONS-PRACTICE.md` is at 297 of 300 lines.** The next decision entry
-   does not fit, so that file has to be split before the next `session decision`
-   that is not a correction.
-**T-0013 is claimed by opencode on `instance-20260717-0944`** — E3's build-timestamp
-census. Do not touch it. Its session `2026-10-03-026-…` is still unfinished, so
-`session verify` reports one problem and CI's strict session gate will keep
-failing while it is on the shared branch. That is a real interaction between two
-correct rules: D013 wants CI strict, and the fleet practice of committing a
-session's start makes an in-flight session visible on the base branch. The fix
-belongs to whoever changes either rule, not to the VM that happens to be working.
-T-0015 (session 028) and T-0016 (session 029) are both complete on this VM.
+**Identifier collisions are being allocated by reading the local tree, so two
+VMs in the same hour collide by construction.** Twice on 2026-10-03: T-0016 and
+F009/F010/D022 all went to two different sessions, and both renumbered before
+pushing (D023, and this session's F011). The renumbering is manual and happens
+*after* the fact, which is how a finding ends up described in the wrong place.
 
-**A CI/defect pair was found and fixed while finishing T-0016.** All 60 recorded
-CI runs had failed at the `Tests` step with no diagnosable cause; the cause was
-`git rebase --continue` being interactive from git 2.26, which broke
-`origin sync land` for any VM with a modern git (`FAILURES.md` F011). The fix
-passes locally on git 2.25.1 and git 2.56.0. **Still open:** whether the workflow
-is green end to end, which needs the next run's conclusion read from the public
-Actions API.
+**Repository defects known on 2026-10-03**, none of them claimed:
 
-Nothing else is claimed.
+1. **CI is fixed but not yet shown green end to end.** All 60 recorded runs had
+   failed at the `Tests` step with no diagnosable cause. The cause was
+   `git rebase --continue` being interactive from git 2.26, which broke
+   `origin sync land` for any VM with a modern git (`FAILURES.md` F011, fixed in
+   T-0016). The workflow now pins Python 3.12 and re-emits failing tests as
+   public check-run annotations; the suite is green locally on git 2.25.1 and
+   git 2.56.0. **Still open:** reading the next run's conclusion from the public
+   Actions API, and the strict-session interaction above.
+2. **`origin doctor` does not record the git version as a compatibility
+   signal.** That omission is why F010/F011's cause went unnoticed: this
+   repository's own capability record said git 2.55.0 while the fleet VM had
+   2.25.1, and neither number was compared against what the code assumes.
+3. **`DECISIONS-PRACTICE.md` is within a few lines of the 300-line cap.** Split
+   it by invariant before recording another decision there. Do not split it
+   while `instance-20260717-0944` is mid-session: two VMs splitting one file is
+   the collision above, with more text.
+4. **Session 029 closed with nine `unlogged_change` events that are not its
+   own.** `tools/origin sync land` rebased that session's branch onto
+   `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
+   `HYPOTHESES.md`, `HYPOTHESES-results.md`, `RESEARCH.md`,
+   `DECISIONS-PRACTICE.md`, `tasks/T-0013-…` and `tasks/T-0017-…` appeared in its
+   working tree. Their own sessions declare those files, and a closed event
+   stream must not be edited to say so, so the report stands unexplained in the
+   log and is explained here instead. The same mechanism recorded those files as
+   session 029's `doc_update`s: **reconciliation compares trees, not
+   authorship**, so a VM that lands another VM's work inherits its
+   `documentation_gaps` and `unlogged_change` reports.
 
 T-0008 (`003-information-sufficiency`, session 020 on VM 0947) completed the
 information-sufficiency gate for the three held candidates. Witness W1 (sidewalk
 survey) and W3 (ventilation) survive; W2 (knitting) found the stated input set
 information-insufficient (F007). T-0010 (session 022, VM 0947) then ran the
 knitting Stage-A comparison, T-0011 (session 023, VM 0947) closed it, T-0014
-(session 027, VM 0947) stopped the ventilation candidate (F008), and T-0013
-(session 026, this VM) spent E3's declared census gate. T-0004 (multi-VM safety,
-session 017) is green: fleet/sync suite passing, flow documented across
-process/operations/reference docs, AGENTS.md, and the two skills.
+(session 027, VM 0947) stopped the ventilation candidate (F008), T-0015
+(session 028, VM 0947) spent the knitting prior-art condition (F009), and
+session 026 on VM 0944 spent E3's declared census gate (F010). T-0004 (multi-VM
+safety, session 017) is green: fleet/sync suite passing, flow documented across
+process/operations/reference docs, AGENTS.md, and the two skills — with the git
+version exception recorded in F011.
 
 ## What changed in session 026, VM 0944
 
@@ -175,74 +180,47 @@ committing the result.
 
 ## Current next actions
 
-Ordered by information gained per unit of effort.
+Ordered by information gained per unit of effort. Read the ceiling on each before
+spending effort: a pass still leaves prior art, usefulness, and adoption
+untouched.
 
-These come from the screen in [`RESEARCH/SYNTHESIS.md`](RESEARCH/SYNTHESIS.md)
-and D020. Read the ceiling on each before spending effort: a pass still leaves
-prior art, usefulness, and adoption untouched.
-
-1. **Fix the red CI** (T-0016, claimed on `instance-20260717-0947`). It has failed
-   60 of 60 recorded runs at the `Tests` step and nothing has been diagnosed,
-   because the run log needs repository admin rights. Cheapest useful step: fetch
-   the runner's Python version from the workflow API or reproduce with a modern
-   interpreter, then find the test that 3.8 passes and 3.12+ does not.
-   **Ceiling:** a green badge. It validates the tooling, not a candidate — but a
-   gate that has never passed is not a gate.
-2. **E3's census is done; the attribution half is not** (F010). The declared 5%
-   gate was met at 0.965 by a metric that cannot fail, so prevalence is measured
-   and nothing is attributed. **T-0017** is the remaining test — build one source
-   under several `SOURCE_DATE_EPOCH` values, attribute every differing byte to a
-   named cause, and establish the same-epoch noise floor. **Do not re-run the
-   census** and **do not run E1** (retry jitter: jitter is already in every modern
-   client library, so a pass changes no build decision, D020 Screen 3). **Ceiling:**
-   even a clean attribution result says how big the timestamp component is on one
-   pure-Python source, not whether a user-visible tool follows.
-3. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
-1. **Confirm CI is green end to end.** T-0016 diagnosed and fixed the defect
-   behind 60 red runs: `git rebase --continue` is interactive from git 2.26, so
-   `origin sync land` could not land on any modern-git VM in exactly the
-   generated-index-conflict case (`FAILURES.md` F011). The suite is green
-   locally on git 2.25.1 and on git 2.56.0, and the workflow now pins Python and
-   reports failing tests as public annotations. What is left is to read the next
-   run's conclusion from the Actions API — and to note that the
-   `Session record integrity` step will keep failing while any VM has a session
-   started but not finished on the shared branch (see below).
-2. **Two repository defects remain open and unclaimed.** First, the `T-0013`
-   numbering collision, to be resolved when that task lands: its `verify`
-   command names `EXPERIMENTS/005-build-timestamps/`, and
-   `005-knitting-bounded-search/` was claimed and landed first from this VM. The
-   directories do not collide on disk, so nothing breaks, but two different
-   experiments carry the number 005. `006-ventilation-measurement-design/` is
-   also taken now. Whoever renumbers must update the task file's `verify`
-   string, the directory, `docs/INDEX.md`, and `STATE.md` in one commit, and must
-   not take 006. Second, `origin doctor` does not yet record the **git version**
-   as a compatibility signal, which is what hid F010 for a session.
-3. **Run E3's build-timestamp census** if the claim on `instance-20260717-0944`
-   (T-0013) lapses. Cheapest unmeasured thing left — one command, minutes, a hard
-   kill gate at 5%. **Ceiling:** a PyPI-wheel rate; it cannot bound npm, conda,
-   or Maven.
+1. **Read the next CI run's conclusion from the public Actions API.** T-0016
+   fixed the defect behind 60 red runs (`FAILURES.md` F011) and the suite is
+   green locally on git 2.25.1 and git 2.56.0; what is unproven is the workflow
+   end to end. Two steps can still be red for reasons nobody has fixed: the
+   `Session record integrity` gate while any VM's session is in flight on the
+   shared branch, and nothing else. **Ceiling:** a badge. It validates the
+   tooling, not a candidate — but a gate that has never passed is not a gate.
+2. **Finish what the fleet's own bookkeeping now blocks.** Record the git
+   version in `origin doctor` as a compatibility signal, and split
+   `DECISIONS-PRACTICE.md` before the next decision entry needs the space. Both
+   are small; both are the kind of thing that costs a later session an hour.
+   **Ceiling:** none of this says anything about a candidate.
+3. **E3's census is done; the attribution half is not** (F010, T-0017, claimed
+   on `instance-20260717-0944`). The declared 5% gate was met at 0.965 by a
+   metric that cannot fail, so prevalence is measured and nothing is
+   attributed. The remaining test builds one source under several
+   `SOURCE_DATE_EPOCH` values and attributes every differing byte to a named
+   cause. **Do not re-run the census.** **Ceiling:** even a clean attribution
+   says how big the timestamp component is on one pure-Python source, not
+   whether a user-visible tool follows.
 4. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
-   the prior-art condition is now settled (T-0015): the algorithmic advantage is
-   prior art (F009) and no tool supplies an intervention sequence for an existing
-   hand-knit structure. Stage B needs an experienced knitter and authorization.
-   **Ceiling:** nothing software-side remains; the only live question is
-   usefulness, which this repository cannot measure.
-4. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
-   not effort-gated: the informative comparison is two snapshots weeks apart, and
-   two resolver runs today measure nothing. Snapshot one side of that comparison
-   now if a VM is free, so the second snapshot has somewhere to land.
-5. **Do not build a product.** Nothing is selected, and the base rate for
+   the prior-art condition is settled (T-0015): the algorithmic advantage is
+   prior art (F009) and no tool supplies an intervention sequence for an
+   existing hand-knit structure. Stage B needs an experienced knitter and
+   authorization. **Ceiling:** nothing software-side remains; the only live
+   question is usefulness, which this repository cannot measure.
 5. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
 6. **Schedule E2** (lockfile closure drift), do not run it now. It is time-gated,
    not effort-gated: the informative comparison is two snapshots weeks apart, and
-   two resolver runs today measure nothing.
+   two resolver runs today measure nothing. Snapshot one side of that comparison
+   now if a VM is free, so the second snapshot has somewhere to land.
 7. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.
-
 
 ### Standing constraints
 
