@@ -78,15 +78,16 @@ genuinely open and the choice constrains later work — not every edit.
 Which file it goes in is decided by invariant, not by size. `DECISIONS.md` is
 the index; `DECISIONS-FOUNDATION.md` holds what the mission is, what the
 workspace is, and what counts as evidence; `DECISIONS-PRACTICE.md` holds how
-work is recorded, moved, and published; `DECISIONS-GATING.md` holds how work
-is verified, screened, and judged.
+work is recorded, moved, and published; `DECISIONS-SCREENING.md` holds which
+candidates are screened in or out; `DECISIONS-GATING.md` holds how work is
+verified and how a verdict is read.
 
 ```bash
 tools/origin session decision "…" --refs <files>
 ```
 
 `session finish` fails with a documentation gap if a `decision` event exists and
-no decision record changed. Any one of the three clears it. That check is the
+no decision record changed. Any one of them clears it. That check is the
 point.
 
 ## Failure record

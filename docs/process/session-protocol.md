@@ -77,9 +77,9 @@ tools/origin session block "needs a VM with GPU"
 These are not decoration. On `finish`, a `decision` event that is not matched by
 a change to any decision record becomes an `integrity_error`. The log is split
 by invariant across `DECISIONS.md` (index), `DECISIONS-FOUNDATION.md`,
-`DECISIONS-PRACTICE.md`, and `DECISIONS-GATING.md`, so *any one* of them
-satisfies the check — demanding all
-four would report a gap on every correct session. The same applies to
+`DECISIONS-PRACTICE.md`, `DECISIONS-SCREENING.md`, and `DECISIONS-GATING.md`,
+so *any one* of them satisfies the check — demanding all five would report a
+gap on every correct session. The same applies to
 `experiment_result` and `HYPOTHESES.md`, `FAILURES.md`, and `block` and
 `STATE.md`. The tooling enforces that the record and the documents agree.
 
@@ -125,6 +125,16 @@ one `session_end`, the last event is `session_end` (or the session is reported
 unfinished), valid session ids, a report for every session, and that every
 command event's log lines exist.
 
+An unfinished session is judged by *whose* it is, not merely by existing:
+
+- the session running in this working tree is `in progress` locally and a
+  failure under `--strict` (D013);
+- a session on another VM is `in flight` while its task claim proves it is still
+  being worked on, and `abandoned` — a failure — otherwise. The predicate is
+  [`../../tools/originlib/inflight.py`](../../tools/originlib/inflight.py) and
+  the reasoning is D024 in
+  [`DECISIONS-GATING.md`](../../DECISIONS-GATING.md).
+
 ## Recovery after an interruption
 
 ```bash
@@ -141,6 +151,12 @@ missing, and `verify` says so. Finish it honestly rather than deleting it.
 Each session writes its own `events.jsonl` under its own directory, so two
 sessions on different branches never conflict. `sessions/INDEX.md` is generated
 and may need regenerating after a merge; that is expected, not corruption.
+
+A session that is in flight on another VM is *expected to be visible on the
+shared base branch*, because `task claim` cannot publish a claim atomically
+unless the session's own start record is already there. `verify` therefore
+distinguishes in flight from abandoned rather than treating both as unfinished;
+see [`operations/ci.md`](../operations/ci.md).
 
 With `--push`, `session finish` commits only the session's own files and pushes
 the branch. Uncommitted work of your own is refused, not auto-committed, so the

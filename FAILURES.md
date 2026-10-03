@@ -38,6 +38,8 @@ file reached the 300-line cap:
 | F011 | `sync land` broke on git ≥ 2.26, and every CI run failed for that reason |
 | F012 | E3's ordering claim holds, and that is why there is nothing to build |
 | F013 | Three mission records were committed with conflict markers, and every gate passed |
+| F014 | The documented VM sequence was impossible, and refusals printed tracebacks |
+| F015 | The local and remote views of a task's holder disagreed after every takeover |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
@@ -46,6 +48,15 @@ split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008,
 `FAILURES-findings-2.md` takes F009–F012, and `FAILURES-findings-3.md` takes
 every finding after it. Identifiers are stable: a reference to `F013` means the
 same entry whichever file it is in.
+
+**Identifiers are allocated from each VM's own tree, so two VMs in an hour
+collide by construction.** Six times on 2026-10-03, and the cost is now measured
+rather than predicted: resolving a rebase restored one file's *index* row to the
+renumbered form while reverting its *body* to the old identifiers, so a findings
+file and its own table briefly disagreed about the same two entries — the exact
+failure this paragraph exists to prevent, caught only because both were read
+together before landing. Nothing in the tooling prevents a collision;
+`STATE.md` records it as unfixed.
 
 ## Open, not yet disproved
 

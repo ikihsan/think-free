@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 
-from . import events, paths, report, session
+from . import events, inflight, paths, report, session
 from .doclint import active_session_id
 
 EXIT_OK = 0
@@ -83,7 +83,10 @@ def dispatch(args: argparse.Namespace) -> int:
     if args.action == "resume":
         return _resume(args.session_id)
     if args.action == "verify":
-        return verify_sessions(strict=bool(getattr(args, "strict", False)))
+        return verify_sessions(
+            strict=bool(getattr(args, "strict", False)),
+            lease_hours=getattr(args, "lease_hours", None),
+        )
     raise Usage(f"unknown session action: {args.action}")
 
 
@@ -172,14 +175,22 @@ def _resume(session_id: str) -> int:
     return EXIT_OK
 
 
-def verify_sessions(strict: bool = False) -> int:
+def verify_sessions(strict: bool = False, lease_hours: float | None = None) -> int:
     """Check every session record. Exit 4 on a problem.
 
     The session currently in flight is reported as in-progress rather than
     failed: by definition it has no `session_end` yet, and flagging that would
     make `preflight` unusable during work. CI passes `strict`, where nothing is
-    in flight and an unfinished session really is a failure.
+    in flight and an unfinished session genuinely is a failure.
+
+    A session on *another* VM is judged by `inflight.classify`, not by this
+    VM's knowledge: an unfinished session whose task is still claimed by that
+    session is in flight, and one whose claim is gone, closed, superseded, or
+    older than the lease is abandoned. `lease_hours=None` uses the recorded
+    default rather than a value frozen here, so the flag and the constant
+    cannot drift apart.
     """
+    lease = inflight.DEFAULT_LEASE_HOURS if lease_hours is None else lease_hours
     problems: list[str] = []
     notes: list[str] = []
     in_flight = active_session_id()
@@ -207,7 +218,12 @@ def verify_sessions(strict: bool = False) -> int:
             if name == in_flight and not strict:
                 notes.append(f"{name}: in progress ({kinds[-1]})")
             else:
-                problems.append(message)
+                start = next((e for e in raw if e.get("kind") == "session_start"), {})
+                verdict = inflight.classify(name, start, lease_hours=lease)
+                if verdict.in_flight:
+                    notes.append(verdict.note(name))
+                else:
+                    problems.append(f"{message}; {verdict.reason}")
         if not events.SESSION_ID.match(name):
             problems.append(f"{name}: directory name is not a valid session id")
         if not paths.session_report(name).exists():

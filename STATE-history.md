@@ -265,3 +265,36 @@ full-row-release degeneration. Verdict `narrow`, not `abandon`; next test is
 a bounded-neighbourhood planner against the same oracle before Stage-B
 physical work. `task verify T-0010` exit 0. Push credentials on this VM are
 the durable `~/.config/github-app/` JWT helper from session 020.
+
+## What changed in session 026, VM 0944
+
+T-0013 finished on a session an earlier run had started and abandoned mid-edit;
+the resumed run found and fixed three claims its code did not implement before
+committing the result.
+
+- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
+  distinct releases across ten declared packages, 205,305,241 bytes, zero
+  failures, producing identical numbers on three consecutive runs.
+- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
+  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
+  a minute or more, 0.145 span an hour or more. Zero of 200 wheels carried a
+  unix-epoch integer in `METADATA` or `RECORD`, so the mechanism's
+  embedded-string assumption is half false.
+- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
+  appears only when a builder pins the DOS epoch, which almost none does, so
+  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
+  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
+  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
+  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
+  every entry with a single build instant, `jinja2` carries checkout mtimes.
+- Attribution is not abandoned with the gate: `DECISIONS-PRACTICE.md` D023 takes
+  the verdict on the metric E.md declared rather than on the stricter one the
+  code computed first, and **T-0017**
+  (`EXPERIMENTS/008-build-timestamp-attribution/`) is the measurement that can
+  say whether timestamps are worth fixing first.
+- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
+  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
+  findings. Their claims reached the remote first, so this session's identifiers
+  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
+  split was abandoned in favour of theirs — two VMs renumbering the same shared
+  files in the same hour is a collision the tooling does not yet prevent.

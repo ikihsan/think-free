@@ -19,7 +19,7 @@ Workflow: [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml).
 | Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file, unresolved merge conflict |
 | Release manifest | `tools/origin release check` | A path unclassified or classified twice, a declared path absent without `pending`, a wildcard, a credential shape in a classified path, or the front door disagreeing with the manifest about what exists |
 | Skills | `tools/origin skills check` | Naming, frontmatter, missing or wrong cross-agent mirror |
-| Session integrity | `tools/origin session verify --strict` | Malformed event stream, unfinished session, missing report, dangling command log reference |
+| Session integrity | `tools/origin session verify --strict` | Malformed event stream, **abandoned** session, missing report, dangling command log reference |
 | Vendored integrity | `tools/origin skills verify` | Local modification of a vendored skill |
 
 `tools/origin preflight` runs three of these — documentation, skills, and
@@ -29,6 +29,43 @@ CI passes `--strict` to the session gate, because on a pushed commit nothing is
 in flight and an unfinished session really is a failure. Locally, `preflight`
 reports the current session as in progress rather than failing, so it is usable
 mid-task.
+
+## In flight is not the same as abandoned
+
+An unfinished session is not a failure on a shared base branch. `task claim`
+requires HEAD to equal the remote base before it publishes a claim, so a VM that
+claims a task must push its `session_start` first: an in-flight session is
+*supposed* to be on the base branch, and while one is open every VM's push would
+otherwise be red. The predicate is `tools/originlib/inflight.py` and it must
+all hold:
+
+| Clause | Question it answers |
+|---|---|
+| `session_start` names a task, **or** a claim in the ledger names the session | Is any work open at all? |
+| The task is `claimed` | Is it still open? |
+| The claim names this session, by `claim-session` or by `claim-agent` + `claim-vm` | Is it *this* session holding it? |
+| The last ledger entry for the task is `claim` or `takeover` | Was the claim closed behind the task file's back? |
+| The claim is younger than `--lease-hours` (12) | Is the holding VM plausibly alive? |
+
+All five are read from the tree: no network, no new state. The first clause has an
+alternative because `--task` is optional on `session start` and a session may claim
+work without it — that exception was added after the live record showed the gate
+calling a working session abandoned. The first clause has
+an alternative because `--task` is optional on `session start` and a session may
+claim work without it — that exception was added after the live record showed
+the gate calling a working session abandoned.
+
+A session failing any clause is **abandoned**, and the gate fails naming the
+clause. A session passing all five prints `in flight (task T-0017, claimed by
+opencode on instance-20260717-0944 1.0h ago)` and CI re-emits that as a
+`::warning::` annotation.
+
+**What the gate no longer catches:** a crash *inside* the lease window. The
+claim stays in force for up to 12 hours, so a dead VM's session keeps CI green
+for that long; `task list --remote` names the holder and its claim time, and
+`--lease-hours` shortens the window. See
+[`../../DECISIONS-GATING.md`](../../DECISIONS-GATING.md) D027 for the reasoning
+and the alternatives rejected.
 
 ## Design decisions
 
@@ -52,6 +89,13 @@ returns check-run annotations from its public API, so a `curl` against
 `/repos/<owner>/<repo>/commits/<sha>/check-runs` names the failing test to anyone
 who can read the repository. That is the only reason the CI failure was
 diagnosable at all; keep it when editing that step.
+
+**A pass that hides why is a pass nobody can trust.** The session step writes the
+verifier's own output to a log and re-emits each in-flight line as a
+`::warning::` annotation, for the same reason the test step re-emits failures:
+the annotation is public, the run log is not. A green build that says nothing
+about the live sessions on the fleet is how the previous version of this gate
+went unread for hours.
 
 **No secrets.** The workflow needs none. Nothing here can deploy, publish, or
 push; a pull request cannot use a credential the workflow does not have.

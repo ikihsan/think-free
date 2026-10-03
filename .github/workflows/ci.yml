@@ -65,7 +65,18 @@ jobs:
       - name: Vendored content integrity
         run: tools/origin skills verify
 
-      # Strict: nothing is in flight on a pushed commit, so an unfinished
-      # session is a real failure.
+      # Strict: no session runs in this checkout, so an unfinished session is a
+      # real failure unless its task claim proves it is still being worked on
+      # elsewhere. In-flight sessions are warnings, not errors (D024), re-emitted
+      # as annotations for the same reason failing tests are: nobody without
+      # admin rights can read the run log.
       - name: Session record integrity
-        run: tools/origin session verify --strict
+        run: |
+          set +e
+          set +o pipefail
+          tools/origin session verify --strict 2>&1 | tee /tmp/session-verify.log
+          status=${PIPESTATUS[0]}
+          grep -E '^  note  .*in flight' /tmp/session-verify.log \
+            | sed -e 's|^  note  |::warning title=Session in flight on another VM::|' \
+            || true
+          exit "$status"

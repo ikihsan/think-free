@@ -34,11 +34,17 @@ interfere with the working repository.
 | `test_sync.py` | Pull, push, land, rebase, divergence reporting; the rebase continue must stay non-interactive |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
+| `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.
+
+**A test that cannot fail is worse than no test.** Every clause of the in-flight
+predicate was checked by deleting the clause and re-running: each produced a
+failing test. Do the same before believing a new gate is covered — F011, F013,
+F014 and F015 all sat in code paths whose tests could only have passed.
 
 **Falsifying a new gate.** A gate added for a defect is run against that
 defect's own bytes before it is trusted. `test_conflicts.py` carries the three

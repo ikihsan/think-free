@@ -155,28 +155,39 @@ class RepoTest(unittest.TestCase):
         return (self.repo / relative).read_text(encoding="utf-8")
 
     def cli(self, *args: str) -> int:
-        """Run the CLI in-process, capturing stdout."""
+        """Run the CLI in-process, capturing stdout and stderr separately."""
         from originlib.cli import main
 
         captured: list[str] = []
-        original = sys.stdout
+        errors: list[str] = []
 
         class Capture:
+            def __init__(self, sink: list[str]) -> None:
+                self.sink = sink
+
             def write(self, text: str) -> None:
-                captured.append(text)
+                self.sink.append(text)
 
             def flush(self) -> None:
                 return None
 
-        sys.stdout = Capture()  # type: ignore[assignment]
+        original, original_err = sys.stdout, sys.stderr
+        sys.stdout = Capture(captured)  # type: ignore[assignment]
+        sys.stderr = Capture(errors)  # type: ignore[assignment]
         self._stdout = captured
+        self._stderr = errors
         try:
             return main(list(args))
         finally:
             sys.stdout = original  # type: ignore[assignment]
+            sys.stderr = original_err  # type: ignore[assignment]
 
     def output(self) -> str:
         return "".join(getattr(self, "_stdout", []))
+
+    def errors(self) -> str:
+        """What the CLI wrote to stderr. A refusal belongs here, not in a traceback."""
+        return "".join(getattr(self, "_stderr", []))
 
     def write_generated(self) -> None:
         """Generate the three indexes in dependency order."""

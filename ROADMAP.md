@@ -137,7 +137,15 @@ Separate from the invention stages, because the mission cannot be run without it
       public annotations. **Measured green** for Tests, doc lint, skills check
       and vendored integrity (run `37157528596`); it had failed on **all 60**
       earlier runs because of a git-version defect in `sync land`
-      (`FAILURES.md` F011, fixed in T-0016). The remaining red step is
+      (`FAILURES.md` F011, fixed in T-0016).
+- [x] Session gate that tells an in-flight session from an abandoned one
+      (`tools/originlib/inflight.py`, T-0020). `session verify --strict` failed
+      on every push of every VM whenever the fleet was working, because `task
+      claim` requires the session's start to be on the base branch first. Now
+      five clauses read off the tree, plus a 12-hour claim lease (D027).
+- [x] The documented VM sequence is executable end to end: `worktree add` no
+      longer refuses the claiming VM's own claim, and every flow refusal exits 1
+      with one line instead of a traceback (`FAILURES.md` F014). The remaining red step is
       `session verify --strict` while any VM has a session in flight on the
       shared branch, which is D013 meeting fleet practice rather than a defect.
       T-0022 adds a sixth step, `release check`, which has not yet run on CI.
@@ -162,7 +170,15 @@ Separate from the invention stages, because the mission cannot be run without it
 The infrastructure track finished ahead of stage B because stage B is blocked on
 judgement rather than tooling. Kill gates now exist for the three held
 candidates, eight experiments have run, and none has validated a claim. Stage B
-is now blocked on the open questions in `STATE.md`: E2's time-gated drift
-comparison, and the two questions no experiment here can answer — whether a
-knitter follows a generated repair plan, and whether E3's builder-level finding
-generalises beyond the one builder this machine has.
+is blocked on what no experiment here can answer: whether a knitter follows a
+generated repair plan, and whether E3's builder-level finding generalises beyond
+the one builder this machine has. E2's time-gated drift comparison is scheduled
+(side A banked, T-0019).
+
+The tooling itself is not finished, and what remains is *fleet* work rather than
+invention work: `doctor` does not compare a VM's git against
+`tests/git-versions.json`; reconciliation compares trees rather than authorship,
+so a VM that lands another's work inherits its reports; and identifiers are
+allocated from each VM's own tree, so two VMs in an hour collide and renumber
+afterwards — six times on 2026-10-03. T-0020 is the pattern for the rest: run
+the documented sequence, and fix what it actually does.

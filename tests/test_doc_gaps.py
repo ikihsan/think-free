@@ -56,6 +56,21 @@ class DecisionGapTest(RepoTest):
         result = session.finish("worked", "ok", "none")
         self.assertEqual(result["documentation_gaps"], {})
 
+    def test_updating_the_screening_record_clears_the_gap(self) -> None:
+        # The decision log is split by invariant across five files (T-0020).
+        # A decision written into the screening file must satisfy the gate, or
+        # every session that screens a candidate reports a false gap.
+        self._record("DECISIONS-SCREENING.md", "D020.")
+        self._decision_session("decision into the screening record")
+        result = session.finish("worked", "ok", "none")
+        self.assertEqual(result["documentation_gaps"], {})
+
+    def test_updating_the_gating_record_clears_the_gap(self) -> None:
+        self._record("DECISIONS-GATING.md", "D024.")
+        self._decision_session("decision into the gating record")
+        result = session.finish("worked", "ok", "none")
+        self.assertEqual(result["documentation_gaps"], {})
+
     def test_group_reports_one_path_not_three(self) -> None:
         active = self._decision_session("decision without any doc update")
         result = session.finish("worked", "ok", "none")

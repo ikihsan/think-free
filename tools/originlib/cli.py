@@ -15,7 +15,18 @@ import argparse
 import json
 import sys
 
-from . import cli_repo, cli_session, cli_sync, cli_task, paths, session, tasks
+from . import (
+    cli_repo,
+    cli_session,
+    cli_sync,
+    cli_task,
+    inflight,
+    paths,
+    session,
+    sync,
+    tasks,
+    worktree,
+)
 
 EXIT_OK = 0
 EXIT_USAGE = 1
@@ -91,7 +102,17 @@ def build_parser() -> argparse.ArgumentParser:
     verify.add_argument(
         "--strict",
         action="store_true",
-        help="also fail for a session that is still in flight (use in CI)",
+        help="also fail for the session running in this working tree (use in CI)",
+    )
+    verify.add_argument(
+        "--lease-hours",
+        type=float,
+        default=None,
+        metavar="H",
+        help=(
+            "how old a task claim may be while its unfinished session still counts as "
+            f"in flight (default {inflight.DEFAULT_LEASE_HOURS:g})"
+        ),
     )
     resume = session_sub.add_parser("resume", help="compressed brief for continuing work")
     resume.add_argument("session_id", nargs="?", default="")
@@ -219,7 +240,14 @@ def build_parser() -> argparse.ArgumentParser:
     preflight.add_argument(
         "--strict",
         action="store_true",
-        help="also fail for a session that is still in flight (use in CI)",
+        help="also fail for the session running in this working tree (use in CI)",
+    )
+    preflight.add_argument(
+        "--lease-hours",
+        type=float,
+        default=None,
+        metavar="H",
+        help="claim age at which an unfinished session stops counting as in flight",
     )
     return parser
 
@@ -249,6 +277,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"origin: {exc}", file=sys.stderr)
         return EXIT_USAGE
     except (session.SessionError, tasks.TaskError) as exc:
+        print(f"origin: {exc}", file=sys.stderr)
+        return EXIT_USAGE
+    except (sync.SyncError, worktree.WorktreeError) as exc:
+        # A refusal the fleet flow is *meant* to produce, not a crash. Uncaught,
+        # it printed a traceback and exited 1 by accident of the interpreter
+        # rather than by the contract, so a caller could not tell a refusal from
+        # a bug.
         print(f"origin: {exc}", file=sys.stderr)
         return EXIT_USAGE
     except KeyboardInterrupt:

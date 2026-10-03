@@ -121,9 +121,9 @@ found. Three outcomes need action:
 - **`MISSING`** — you declared a file that no longer exists. Either restore it or
   record why it was removed.
 - **`DOC GAP`** — you recorded a decision but no decision record changed. Edit
-  `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md`, or
-`DECISIONS-GATING.md` in this
-  same commit. Any one of the four satisfies the check.
+  `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md`,
+  `DECISIONS-SCREENING.md`, or `DECISIONS-GATING.md` in this same commit. Any
+  one of the five satisfies the check.
 
 Exit code `4` means the reconciliation found something. A clean exit means the
 record and the repository agree.

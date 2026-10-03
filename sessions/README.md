@@ -46,14 +46,22 @@ visible instead of disappearing.
 ## Integrity
 
 ```bash
-tools/origin session verify            # local: the session in flight is "in progress"
-tools/origin session verify --strict   # CI: nothing in flight, so unfinished is a failure
+tools/origin session verify                     # local
+tools/origin session verify --strict            # CI
+tools/origin session verify --lease-hours 6     # tighten the in-flight lease
 ```
 
 Checks contiguous sequence numbers, exactly one `session_start` and at most one
 `session_end`, that the last event is `session_end` (or the session is reported
 unfinished), valid session ids, a generated report per session, and that every
 command event's recorded log line range still exists. Exit `4` on a problem.
+
+Unfinished is not the same as abandoned. A session in *this* working tree is
+"in progress" locally and a failure under `--strict`. A session on another VM is
+"in flight" while its task claim is in force and younger than `--lease-hours`
+(12), and abandoned otherwise — on a shared base branch an unfinished session is
+expected while the fleet works, so only an abandoned one fails. See
+[`../docs/operations/ci.md`](../docs/operations/ci.md).
 
 ## Reading outcomes honestly
 

@@ -16,7 +16,7 @@ last-verified: 2026-10-03
 | [`T-0001-write-falsification-kill-gates-for-the-three-hel.md`](T-0001-write-falsification-kill-gates-for-the-three-hel.md) | done |  | PYTHONPATH=tools python3 -c "import pathlib,sys; | 2026-10-03 |
 | [`T-0002-run-investigation-e-the-experimental-engineer-ro.md`](T-0002-run-investigation-e-the-experimental-engineer-ro.md) | done |  | test -f RESEARCH/E.md && grep -q 'origin-meta' R | 2026-10-03 |
 | [`T-0003-run-investigation-f-the-adoption-researcher-role.md`](T-0003-run-investigation-f-the-adoption-researcher-role.md) | done |  | test -f RESEARCH/F.md && grep -q 'origin-meta' R | 2026-10-03 |
-| [`T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md`](T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md) | done | codex-multivm-20261003 | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md`](T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md) | done |  | test -f EXPERIMENTS/002-a1-masking/results.json  | 2026-10-03 |
 | [`T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md`](T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md) | done |  | test -f EXPERIMENTS/002-a1-masking/sensitivity.j | 2026-10-03 |
 | [`T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md`](T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md) | done |  | test -f EXPERIMENTS/002-a1-masking/distance.json | 2026-10-03 |
@@ -32,7 +32,7 @@ last-verified: 2026-10-03
 | [`T-0017-build-one-source-twice-under-different-source-da.md`](T-0017-build-one-source-twice-under-different-source-da.md) | done | opencode | test -d EXPERIMENTS/008-build-timestamp-attribut | 2026-10-03 |
 | [`T-0018-record-exercised-git-versions-machine-readably-a.md`](T-0018-record-exercised-git-versions-machine-readably-a.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md`](T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md) | done |  | test -f EXPERIMENTS/009-lockfile-drift-snapshot/ | 2026-10-03 |
-| [`T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
+| [`T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0021-resolve-the-merge-conflict-markers-committed-to.md`](T-0021-resolve-the-merge-conflict-markers-committed-to.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0022-implement-origin-release-check-so-release-manife.md`](T-0022-implement-origin-release-check-so-release-manife.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0023-repair-the-two-operations-documents-whose-stated.md`](T-0023-repair-the-two-operations-documents-whose-stated.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |

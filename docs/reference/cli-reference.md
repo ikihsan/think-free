@@ -34,7 +34,7 @@ Records what a working session did. Protocol:
 | `session start --goal TEXT [--task ID] [--agent NAME]` | Fetches and fast-forwards onto the base, refuses a stale or dirty tree, then opens the single active session; records goal, agent, host, branch, starting commit, files already dirty |
 | `session step TEXT` | Records a milestone |
 | `session note TEXT` | Records an observation |
-| `session decision TEXT [--refs ...]` | Records a decision; implies at least one of `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md`, `DECISIONS-GATING.md` must change |
+| `session decision TEXT [--refs ...]` | Records a decision; implies at least one of `DECISIONS.md`, `DECISIONS-FOUNDATION.md`, `DECISIONS-PRACTICE.md`, `DECISIONS-SCREENING.md`, `DECISIONS-GATING.md` must change |
 | `session experiment-result ID TEXT [--refs ...]` | Records an experiment outcome; implies `HYPOTHESES.md` and `FAILURES.md` must change |
 | `session block REASON` | Records a blocker; implies `STATE.md` must change |
 | `session artifact PATH... [--dir DIR]... [--note TEXT]` | Records files with their SHA-256 and size; `--dir` declares every file beneath a directory; refuses files containing credentials |
@@ -42,7 +42,7 @@ Records what a working session did. Protocol:
 | `session status` | Active session, elapsed time, staleness, event count |
 | `session resume [ID]` | Compressed brief: goal, outcome, decisions, last events |
 | `session list` | Every session and its outcome |
-| `session verify [--strict]` | Integrity across every session. Exit `4` on a problem. The session in flight is reported as in progress rather than failed; `--strict` fails for it too, which is what CI uses |
+| `session verify [--strict] [--lease-hours H]` | Integrity across every session. Exit `4` on a problem. A session running in this tree is "in progress" locally and a failure under `--strict`; a session on another VM is "in flight" while its task claim is in force and younger than `--lease-hours` (default 12), and "abandoned" otherwise |
 
 `--outcome` is one of `worked`, `partial`, `failed`, `no-change`.
 
@@ -74,7 +74,7 @@ Dispatchable work. Protocol:
 
 | Command | Effect |
 |---|---|
-| `worktree add T-0001 [--branch NAME]` | Create an isolated worktree and branch for one task |
+| `worktree add T-0001 [--branch NAME]` | Create an isolated worktree and branch for one task; refuses when the task is claimed on another VM, not on this one |
 | `worktree list` | List worktrees and the tasks they hold |
 | `worktree remove T-0001` | Remove the worktree; the branch is kept |
 
@@ -112,7 +112,7 @@ a false claim still pass, and it does not read a path's meaning.
 | Command | Effect |
 |---|---|
 | `doctor [--offline] [--json]` | Environment probe; writes `.origin/doctor.json` (gitignored) |
-| `preflight [--strict]` | `doc lint` + `skills check` + `session verify`, for a VM before it claims a task and for CI |
+| `preflight [--strict] [--lease-hours H]` | `doc lint` + `skills check` + `session verify`, for a VM before it claims a task and for CI |
 
 `doctor` reports only whether credential environment variables are **present**.
 It never reads, prints, or stores a value.

@@ -170,6 +170,30 @@ class WorktreeIsolationTest(FleetTest):
             worktree.add("T-0001", vm="vm-b")
         self.assertIn("agent-a", str(caught.exception))
 
+    def test_worktree_allowed_after_this_vm_claimed_the_task(self) -> None:
+        # docs/operations/vm-execution.md sequences claim before worktree add,
+        # so refusing our own claim made the documented flow impossible (F012).
+        self.use(self.vm_a)
+        taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+        info = worktree.add("T-0001", vm="vm-a")
+        self.assertTrue(info.path.is_dir())
+
+    def test_worktree_refused_when_the_claim_records_no_vm(self) -> None:
+        # An unattributable claim cannot be shown to be ours.
+        self.use(self.vm_a)
+        taskremote.claim("T-0001", agent="agent-a", vm="")
+        with self.assertRaises(WorktreeError):
+            worktree.add("T-0001", vm="vm-a")
+
+    def test_a_refusal_exits_one_without_a_traceback(self) -> None:
+        # A refusal the flow is meant to produce is not a crash (F012).
+        self.use(self.vm_a)
+        taskremote.claim("T-0001", agent="agent-a", vm="vm-a")
+        self.use(self.vm_b)
+        self.assertEqual(self.cli("worktree", "add", "T-0001", "--vm", "vm-b"), 1)
+        self.assertNotIn("Traceback", self.errors())
+        self.assertIn("agent-a", self.errors())
+
     def test_two_vms_get_separate_directories_for_one_task(self) -> None:
         self.use(self.vm_a)
         first = worktree.add("T-0001", vm="vm-a")

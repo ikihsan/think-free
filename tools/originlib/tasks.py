@@ -180,13 +180,19 @@ def claims() -> list[dict]:
 
 
 def active_claims() -> dict[str, dict]:
-    """Task id -> the claim currently in force."""
+    """Task id -> the claim currently in force.
+
+    `takeover` opens a claim exactly as `claim` does. It used to be ignored
+    here while `taskremote.remote_active` honoured it, so the local and remote
+    views of who holds a task disagreed after every takeover — which is the
+    view that decides whether an unfinished session is still live.
+    """
     state: dict[str, dict] = {}
     for entry in claims():
         task_id = entry.get("task")
         if not task_id or "malformed" in entry:
             continue
-        if entry.get("action") == "claim":
+        if entry.get("action") in {"claim", "takeover"}:
             state[task_id] = entry
         elif entry.get("action") in {"release", "complete", "cancel"}:
             state.pop(task_id, None)

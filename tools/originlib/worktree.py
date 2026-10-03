@@ -107,9 +107,17 @@ def list_worktrees() -> list[Worktree]:
 def add(task_id: str, vm: str = "", base: str = "", allow_contended: bool = False) -> Worktree:
     """Create an isolated worktree and branch for one task on one VM.
 
-    Refuses when the task is already claimed elsewhere, when this VM already has
-    a worktree for it, or when the branch name is taken: each refusal is a case
-    where two agents would otherwise end up editing the same files.
+    Refuses when the task is already claimed on *another* VM, when this VM
+    already has a worktree for it, or when the branch name is taken: each
+    refusal is a case where two agents would otherwise end up editing the same
+    files.
+
+    A claim held by this VM does not refuse. `docs/operations/vm-execution.md`
+    sequences `task claim` before `worktree add`, so refusing our own claim made
+    the documented sequence impossible; and the VM is the unit of isolation
+    anyway, because two agents on one machine share one working tree, one git
+    index, and one `sessions/active.json`. A claim with no recorded VM is
+    refused, since an unattributable claim cannot be shown to be ours.
     """
     from . import tasks
 
@@ -119,7 +127,7 @@ def add(task_id: str, vm: str = "", base: str = "", allow_contended: bool = Fals
     base = base or sync.base_branch()
 
     holder = taskremote.holder(task_id)
-    if holder and holder.get("agent") and not allow_contended:
+    if holder and holder.get("agent") and holder.get("vm") != vm and not allow_contended:
         raise WorktreeError(
             f"{task_id} is claimed by {holder['agent']} on {holder.get('vm', '?')} "
             f"since {holder.get('ts', '?')}; pick another task or record a takeover"

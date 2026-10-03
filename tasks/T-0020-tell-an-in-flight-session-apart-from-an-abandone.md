@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0020
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 
@@ -56,3 +56,29 @@ Revert the module, the verify_sessions branch, the flag, and the ci.yml step. No
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**Two defects found before the work started, by running the documented
+sequence** (both `FAILURES.md` F012, `FAILURES-findings-3.md`):
+
+1. `worktree add` refused the claiming VM's own claim, so step 3 of
+   `docs/operations/vm-execution.md` — claim, then isolate — could not be
+   executed. Now refuses only a claim held by a *different* VM.
+2. `worktree.WorktreeError` and `sync.SyncError` escaped `cli.main` as
+   tracebacks. Now exit `1` with one stderr line.
+
+**A third, in the code this task reads:** `tasks.active_claims()` ignored the
+`takeover` ledger action while `taskremote.remote_active()` honoured it, so the
+local and remote views of a task's holder disagreed after every takeover (F013).
+The classification below reads the ledger, so it would have inherited that.
+
+**Design note.** The classification deliberately reads the *whole* ledger rather
+than `tasks.active_claims()`: a refusal that can name the closing action ("the
+last action is `complete`") tells an operator what to fix.
+
+**Deliberately not done:** publishing claims on a separate ref so in-flight
+sessions never reach the base branch. Rejected in D024 — it hides the claim from
+`sync land` and from a reader browsing the base branch.
+
+**Not verified here:** a pushed CI run. Local `session verify --strict` exits 0
+while session 030 is in flight; whether the workflow step behaves the same is a
+claim for the run that lands this branch.

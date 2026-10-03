@@ -20,7 +20,8 @@ work is verified, screened, or judged, it belongs in
 [`DECISIONS.md`](DECISIONS.md).
 
 Split on 2026-10-03 (T-0018) when this file reached 297 of the 300 permitted
-lines: D013 and D019–D023 moved verbatim to `DECISIONS-GATING.md`. Numbering is
+lines: D013 and D019–D023 moved verbatim to `DECISIONS-GATING.md`; D019–D021 then
+moved again to `DECISIONS-SCREENING.md` (T-0020). Numbering is
 continuous and unchanged.
 
 ## D011 — Artifact declaration takes several paths and a directory (2026-10-03)

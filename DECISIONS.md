@@ -14,7 +14,8 @@ ordinary edits do not.
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018 | Recording, moving, and publishing work |
-| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D019–D026 | Verifying, screening, and judging work |
+| [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D024–D027 | How this repository's own gates are written and run |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
@@ -37,5 +38,12 @@ the 300 permitted lines: D013 and D019–D023 moved verbatim to
 [`DECISIONS-GATING.md`](DECISIONS-GATING.md).
 
 A recorded `decision` event satisfies this gate when **any** decision record
-changed; `origin` checks all four files for that reason. See
+changed; `origin` checks all five files for that reason. See
 [`docs/process/session-protocol.md`](docs/process/session-protocol.md).
+
+Split a third time at 2026-10-03 (T-0020) when D027 passed
+`DECISIONS-GATING.md`'s line caps: D019–D023 moved verbatim to
+`DECISIONS-SCREENING.md`, leaving how the repository verifies itself in the
+gating file. Every split is by invariant, never by date, and numbering is continuous and
+unchanged in each, so an existing reference to a decision id still resolves
+wherever the entry now lives.

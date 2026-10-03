@@ -115,7 +115,10 @@ def preflight(args: argparse.Namespace) -> int:
     print(lint_result.render())
     skills_result = skillsync.check()
     print(skills_result.render())
-    session_result = verify_sessions(strict=bool(getattr(args, "strict", False)))
+    session_result = verify_sessions(
+        strict=bool(getattr(args, "strict", False)),
+        lease_hours=getattr(args, "lease_hours", None),
+    )
     ok = lint_result.ok and skills_result.ok and session_result == EXIT_OK
     print("preflight: OK" if ok else "preflight: FAILED")
     return EXIT_OK if ok else EXIT_LINT

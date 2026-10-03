@@ -14,8 +14,10 @@ appears. New findings are appended here.
 **The invariant is unchanged by the split.** Findings are separated from
 `FAILURES.md`'s live list because a reader must be able to tell a disproved
 claim from a still-open question. The files split by line cap, not by subject:
-part 1 holds F001–F008, part 2 every finding after it up to the cap, part 3 the
-rest.
+part 1 holds F001–F008, part 2 F009–F012, part 3 the rest. F014 and F015 were
+written on a second VM while this file was being written on the first, and were
+renumbered into place when both branches landed; `STATE.md` records the collision
+and what it cost.
 
 ## F013 — Three mission records were committed with conflict markers, and every gate passed
 
@@ -60,3 +62,65 @@ damage outlived the session that caused it.
 in content, and a repair performed by hand during a rebase is the highest-risk
 edit in the repository. What made this survivable was that the markers were
 still text: nothing had been lost, only made ambiguous.
+
+## F014 — The documented VM sequence was impossible, and refusals printed tracebacks
+
+**What failed.** `docs/operations/vm-execution.md` §3 tells a VM to
+`task claim` and then `worktree add`. Observed 2026-10-03: the second command
+refused, because `worktree.add` rejected *any* claim, including the one the same
+VM had just published. The isolation step of the whole fleet flow could not be
+reached by following the document that specifies it.
+
+**Second defect, same command.** `worktree.WorktreeError` and `sync.SyncError`
+were not in `cli.main`'s handlers, so the refusal escaped as a Python traceback.
+The exit status was `1` by accident of an uncaught exception rather than by the
+documented contract, and a caller could not distinguish a refusal from a crash.
+
+**Consequence.** Two agents following the documentation on one VM: one keeps
+working in the shared tree (the isolation the docs call "the thing that removes
+the collision at the filesystem level" never happens), the other is deterred.
+Nothing detected either state; the refusal is an exit code and a stack trace,
+which is exactly the output nobody pastes into a bug report.
+
+**Fix.** `worktree.add` refuses only a claim held by a *different* VM. The VM is
+the right unit of isolation: two agents on one machine already share a working
+tree, a git index, and one `sessions/active.json`, which is the collision
+`worktree` exists to remove. A claim with no recorded VM is still refused, since
+an unattributable claim cannot be shown to be ours. `cli.main` now maps both
+errors to exit `1` with one stderr line. Tests in `tests/test_fleet.py`: a claim
+from another VM is still refused, a claim from this VM is accepted, and the CLI
+returns `1` with no traceback.
+
+**Classification.** Documentation and implementation disagreed, and the
+implementation's error path was unhandled. Both found by following the
+documented sequence rather than by reading it.
+
+**Lesson kept.** A procedure nobody has executed end to end is a description,
+not a contract. `worktree add` had been exercised in the fleet tests only
+*before* a claim existed, so the two features had never met.
+
+## F015 — The local and remote views of a task's holder disagreed after every takeover
+
+**What failed.** `tasks.active_claims()` opened a claim only for the ledger
+action `claim`, while `taskremote.remote_active()` opened it for `claim` **or**
+`takeover`. A takeover is how this fleet legally takes a dead VM's work, and
+after one the local view reported no holder while the remote view reported the
+new holder.
+
+**Consequence.** Two views of the same file disagreeing is worse than one wrong
+view: `tasks/INDEX.md` and `task list` printed a holder that a fetched
+`task list --remote` contradicted, so a reader could not tell which was true. It
+also matters mechanically — the in-flight classification added by T-0020 reads the
+ledger to decide whether an unfinished session is still being worked on, and an
+ignored takeover would have made a legitimately re-claimed task look abandoned.
+
+**Fix.** `active_claims()` honours `takeover`, matching the remote view, and the
+behaviour is pinned by a test that appends `release` then `takeover` and asserts
+the claim is still in force locally.
+
+**Classification.** Implementation defect, duplicated logic in two places with
+no shared definition. The two functions had drifted because nothing compared
+them.
+
+**Lesson kept.** When two modules answer the same question from the same file,
+one of them must call the other.
