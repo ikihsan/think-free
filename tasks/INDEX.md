@@ -13,7 +13,7 @@ last-verified: 2026-10-03
 
 | Task | Status | Claimed by | Verify | Created |
 |---|---|---|---|---|
-| [`T-0001-write-falsification-kill-gates-for-the-three-hel.md`](T-0001-write-falsification-kill-gates-for-the-three-hel.md) | open |  | PYTHONPATH=tools python3 -c "import pathlib,sys; | 2026-10-03 |
+| [`T-0001-write-falsification-kill-gates-for-the-three-hel.md`](T-0001-write-falsification-kill-gates-for-the-three-hel.md) | done |  | PYTHONPATH=tools python3 -c "import pathlib,sys; | 2026-10-03 |
 | [`T-0002-run-investigation-e-the-experimental-engineer-ro.md`](T-0002-run-investigation-e-the-experimental-engineer-ro.md) | open |  | test -f RESEARCH/E.md && grep -q 'origin-meta' R | 2026-10-03 |
 | [`T-0003-run-investigation-f-the-adoption-researcher-role.md`](T-0003-run-investigation-f-the-adoption-researcher-role.md) | open |  | test -f RESEARCH/F.md && grep -q 'origin-meta' R | 2026-10-03 |
 

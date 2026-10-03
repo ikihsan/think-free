@@ -73,9 +73,9 @@ session's findings into the record:
 
 Ordered by information gained per unit of effort.
 
-1. **Write kill gates for the three held candidates** in `HYPOTHESES.md`. No
-   candidate may be tested before its gate exists. Highest priority: the
-   decision-directed sidewalk survey, which `RESEARCH/A.md` recommends advancing.
+1. **Apply the information-sufficiency witness** to the three held candidates.
+   Ten lines of code each; it has already killed two proposals cheaply. Kill
+   gates are now written (T-0001).
 2. **Run the A1 masking experiment.** Pin a commit of
    `OpenSidewalks/PLoS-cities-complex-systems`, extract one neighbourhood, hide
    curb and incline facts at random and in contiguous blocks, and compare

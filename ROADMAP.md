@@ -32,7 +32,7 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
       disproved (`FAILURES.md` F001)
-- [ ] Write kill gates for the three held candidates in `HYPOTHESES.md`
+- [x] Write kill gates for the three held candidates in `HYPOTHESES.md` (T-0001, 2026-10-03)
 - [ ] Apply the information-sufficiency test to each held candidate
 - [ ] Run the A1 masking experiment on the PPNA sidewalk extract
 - [ ] Run at least two materially different falsification experiments before any

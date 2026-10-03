@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-7 recorded session(s). One `events.jsonl` per session, so concurrent
+8 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-008-t-0001-write-falsification-kill-gates-fo](2026-10-03-008-t-0001-write-falsification-kill-gates-fo/README.md) | opencode | worked | T-0001: write falsification kill gates for the three held candidates | 2026-10-03T12:51 |
 | [2026-10-03-007-switch-git-identity-to-bot-account-and-c](2026-10-03-007-switch-git-identity-to-bot-account-and-c/README.md) | opencode | worked | Switch git identity to bot account and commit | 2026-10-03T12:46 |
 | [2026-10-03-006-verify-github-app-push-access-with-a-sma](2026-10-03-006-verify-github-app-push-access-with-a-sma/README.md) | opencode | worked | Verify GitHub app push access with a small checkpoint commit | 2026-10-03T12:42 |
 | [2026-10-03-005-correct-the-tracked-file-census-and-expl](2026-10-03-005-correct-the-tracked-file-census-and-expl/README.md) | opencode | no-change | correct the tracked-file census and explain the abandoned session in t | 2026-10-03T17:20 |

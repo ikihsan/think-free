@@ -76,6 +76,70 @@ precondition for the next experiment.
 | Adaptive ventilation measurement selection | Choosing the next cheap observation to separate competing explanations beats a fixed protocol | Too little information may be available at household cost, and the willing users can already use established tools |
 | Decision-directed sidewalk survey | Spending the next survey hour where it changes a feasible repair decision beats centrality or missingness heuristics | Procurement, utility relocation, and legal constraints may dominate survey prioritisation entirely; graph error may outweigh attribute uncertainty |
 
+### Sidewalk survey — kill gate and witness (proposed, untested)
+
+**Kill gate (transcribed from `RESEARCH/A.md` step 5).** Go only if the
+decision-directed policy achieves at least 25% lower median repair-decision
+regret than the strongest simple baseline (random, highest centrality, highest
+missingness/entropy, shortest fieldwork tour) across 30 fixed masking seeds,
+including contiguous block-missingness cases, at no greater fieldwork cost.
+Report distributions, not only the mean. Failure (stop) if gains disappear
+under modest cost/profile/priors changes, if most recommendations depend on
+unmeasured structural data, or if useful regret cannot be defined without
+arbitrary demand assumptions.
+
+**Information-sufficiency witness.** Two underlying networks with identical
+currently-observable measurements but different feasible next repair packages:
+if no askable observation separates them in decision value, the policy has no
+advantage over the existing data. Run this witness before the full
+comparison.
+
+**Reconsider when.** A planner and affected residents reviewing one anonymized
+case confirm that no requested measurement could change a decision they
+control. Until then this remains `speculative`.
+
+### Knitting repair planner — kill gate and witness (proposed, untested)
+
+**Kill gate.** Stage A: the local planner must reproduce the exhaustive-search
+repair set on enumerably small graphs, preserve boundary loops, yarn order,
+pull-through legality, and exact final topology on every transition, and
+refuse unsupported shaping/ambiguous states rather than accepting them
+silently. Abandon the algorithmic-advantage claim if existing graph tooling
+already supplies equivalent intervention sequences, or if the planner
+repeatedly degenerates to full-row release in the supposedly useful cases.
+Stage B (physical): at least one nontrivial error class saves substantial
+undo work relative to tutorial and full-row rollback, with no unsupported
+operation silently accepted and no recurring undocumented interventions.
+
+**Information-sufficiency witness.** Two error configurations with identical
+chart-level inputs but different valid repairs: if the local planner cannot
+distinguish them from the patch alone, graph-level repair planning carries no
+additional information for choosing the intervention.
+
+**Reconsider when.** Stage B shows slack, friction, or manipulation access
+dominates repair success, or users must already read the full stitch structure
+to supply the patch (the tool then serves only those who can already solve
+it).
+
+### Adaptive ventilation measurement — kill gate and witness (proposed, untested)
+
+**Kill gate (transcribed from `RESEARCH/C.md`).** Stop if adaptive selection
+cannot distinguish the paired near-identical-trace hypotheses more reliably
+than the fixed door-open/door-closed protocol at equal observation budget, or
+if it produces confident wrong answers under common violations (changing
+weather, poor mixing). A gain on correctly specified synthetic models only
+establishes mathematical possibility; independent room measurements are
+required before any practical claim. No hardware spend before the simulation
+changes the decision.
+
+**Information-sufficiency witness.** Two parameter sets that produce nearly
+identical passive traces: if the adaptive action menu yields no observation
+that separates them, next-observation selection adds nothing over the fixed
+protocol. Run this witness before the paired-protocol comparison.
+
+**Reconsider when.** Adequate observations prove unavailable at household
+cost, or the willing users are already served by QICO2/NVAPF-class tools.
+
 ## Standing cautions
 
 1. Agreement among the sealed investigations is weak evidence: they share a model,

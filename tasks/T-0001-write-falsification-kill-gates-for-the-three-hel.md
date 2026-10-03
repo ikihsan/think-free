@@ -6,11 +6,11 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0001
-status: open
+status: done
 created: 2026-10-03
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-03-008-t-0001-write-falsification-kill-gates-fo
+claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools python3 -c "import pathlib,sys; t=pathlib.Path('HYPOTHESES.md').read_text(); sys.exit(0 if all(k in t for k in ('Kill gate','information-sufficiency','Reconsider when')) else 1)"
 -->
 
