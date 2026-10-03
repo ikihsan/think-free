@@ -1,0 +1,15 @@
+==============================================================================
+[seq 2] 2026-10-03T21:42:42+00:00
+$ python3 -c 
+import setuptools, wheel, sys
+print('python', sys.version.split()[0])
+print('setuptools', setuptools.__version__)
+print('wheel', wheel.__version__)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+python 3.8.10
+setuptools 45.2.0
+wheel 0.34.2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 695  redactions: none

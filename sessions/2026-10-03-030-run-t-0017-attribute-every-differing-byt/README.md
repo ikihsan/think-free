@@ -31,9 +31,11 @@ _none_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+1 captured, 0 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 2 | ['python3', '-c', "\nimport setuptools, wheel, sys\nprint('python', sys.version.split()[0])\nprint('setuptools', setuptools.__version__)\nprint('wheel | 0 | 695 |
 
 ## Integrity
 
@@ -50,6 +52,7 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 21:41:36 | session_start | Run T-0017: attribute every differing byte between repeated builds of one source under different SOURCE_DATE_EPOCH values, with the kill gate written  |
+| 2 | 21:42:42 | command | $ python3 -c  import setuptools, wheel, sys print('python', sys.version.split()[0]) print('setuptools', setuptools.__version__) print('wheel', |
 
 ## Reproduce this record
 

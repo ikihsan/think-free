@@ -121,6 +121,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/005-knitting-bounded-search/README.md`](../EXPERIMENTS/005-knitting-bounded-search/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Follow-up to EXPERIMENTS/004-knitting-stage-a (T-0010), testing the repair |
 | [`EXPERIMENTS/006-ventilation-measurement-design/README.md`](../EXPERIMENTS/006-ventilation-measurement-design/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | RESEARCH/C.md hypothesis 2, run as its own predeclared kill gate (T-0014). |
 | [`EXPERIMENTS/007-build-timestamps/README.md`](../EXPERIMENTS/007-build-timestamps/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | E3's build-timestamp census: RESEARCH/E.md's smallest falsifying experiment |
+| [`EXPERIMENTS/008-build-timestamp-attribution/README.md`](../EXPERIMENTS/008-build-timestamp-attribution/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Task T-0017. The second half of E3's own falsifying experiment: build the same |
 | [`EXPERIMENTS/009-lockfile-drift-snapshot/README.md`](../EXPERIMENTS/009-lockfile-drift-snapshot/README.md) | `docs/INDEX.md` | active | 2026-10-03 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
