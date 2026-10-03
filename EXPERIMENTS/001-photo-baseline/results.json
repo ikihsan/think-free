@@ -1,0 +1,66 @@
+{
+  "experiment": "E001",
+  "python": "3.14.6",
+  "source_revision": "54ec80b139e357b0039f8f3251d9ba6463ca6232",
+  "artifacts": {
+    "repro-takeout.zip": {
+      "url": "https://raw.githubusercontent.com/gthb/immich-go/54ec80b139e357b0039f8f3251d9ba6463ca6232/repro-takeout.zip",
+      "bytes": 32580,
+      "sha256": "d3a9f7f52b17c1aa22da90a678a99e2c1cc12f7f54d05d336bef667703ecc7c5"
+    },
+    "api-trace-excerpt.txt": {
+      "url": "https://raw.githubusercontent.com/gthb/immich-go/54ec80b139e357b0039f8f3251d9ba6463ca6232/api-trace-excerpt.txt",
+      "bytes": 3615,
+      "sha256": "1e168381b1200f476e8ac992717cc27dc8a01c8dcd7d4f54fc6b4b30894fd2af"
+    },
+    "immich-go-run.log": {
+      "url": "https://raw.githubusercontent.com/gthb/immich-go/54ec80b139e357b0039f8f3251d9ba6463ca6232/immich-go-run.log",
+      "bytes": 4378,
+      "sha256": "515dcc52e51656a4e2076f3de120d0181502bc050908885aed8fd50eaae3da89"
+    }
+  },
+  "source_files": [
+    {
+      "name": "Takeout/Google Photos/BugRepro/REPRO_eaaed6cd_A-edited.jpg",
+      "trace_sha1_base64": "59W3cd5bUmgOjUj/0puffg4pylU="
+    },
+    {
+      "name": "Takeout/Google Photos/BugRepro/REPRO_eaaed6cd_B.jpg",
+      "trace_sha1_base64": "7uyyLEj+bxO6z8h56dfnuVtMyvo="
+    },
+    {
+      "name": "Takeout/Google Photos/BugRepro/REPRO_eaaed6cd_A.jpg",
+      "trace_sha1_base64": "mmGqtld+Rm7ArIXNlu/wYmdK8cM="
+    },
+    {
+      "name": "Takeout/Google Photos/BugRepro/REPRO_eaaed6cd_B-edited.jpg",
+      "trace_sha1_base64": "otr6W4t9tqcytIGR16dm8uYi3vE="
+    }
+  ],
+  "created_assets_in_excerpt": 3,
+  "accepted_deletions_in_excerpt": 1,
+  "accepted_operation_model_remaining_assets": 2,
+  "missing_files_detected_by_plain_checksum_set_difference": [
+    "REPRO_eaaed6cd_A-edited.jpg",
+    "REPRO_eaaed6cd_B.jpg"
+  ],
+  "importer_log_error_summary_lines": [
+    "2026-08-18 13:24:20 INF   Errors:              0  (0 B)"
+  ],
+  "controls": {
+    "complete_destination_has_no_missing_content": true,
+    "renaming_preserves_content_identity": true,
+    "accepted_operations_match_reported_missing_contents": true,
+    "expected_trace_operation_counts": true,
+    "checksum_blind_to_relationship_only_loss": true
+  },
+  "decision": "Motivating content-loss example does not establish an advantage over source-relative checksum comparison. Semantic-only cases and real destination observation remain separate untested opportunities.",
+  "limitations": [
+    "Published generated fixture and trace, not independent live reproduction.",
+    "Accepted deletion may complete asynchronously or fail; model is not a measured final server state.",
+    "No current importer version tested; no conclusion about whether the bug is fixed.",
+    "Checksum equality does not establish preserved dates, albums, stacks, or tags.",
+    "Not an implementation or benchmark of rclone or other existing audit tools.",
+    "No user usefulness, novelty, or adoption measured."
+  ]
+}

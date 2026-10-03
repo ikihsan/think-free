@@ -1,0 +1,11 @@
+{
+  "failure": "AssertionError",
+  "controls": {
+    "complete_destination_has_no_missing_content": true,
+    "renaming_preserves_content_identity": true,
+    "accepted_operations_match_reported_missing_contents": false,
+    "expected_trace_operation_counts": false,
+    "checksum_blind_to_relationship_only_loss": true
+  },
+  "classification": "Implementation/parser failure, not hypothesis falsification; diagnosis in progress."
+}

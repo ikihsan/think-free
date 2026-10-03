@@ -12,8 +12,8 @@ Files: `000-capabilities/results.json`, root mission and state records.
 
 - [x] Verify the directory is empty and outside another Git repository.
 - [x] Initialize an isolated repository and the mission record.
-- [ ] Check runtime execution and public networking, recording raw outputs.
-- [ ] Record actual resource and persistence limits.
+- [x] Check runtime execution and public networking, recording raw outputs.
+- [x] Record actual resource and persistence limits.
 
 ## Task 2 — Independent exploration
 
