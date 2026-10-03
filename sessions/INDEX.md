@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-38 recorded session(s). One `events.jsonl` per session, so concurrent
+39 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 13 older session(s) are in the directory listing.
+Showing the 25 most recent. 14 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | **unfinished** | repair two operations documents that state requirements the repository | 2026-10-03T23:26 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
 | [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
 | [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 13 older session(s) are in the directory listing.
 | [2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p](2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p/README.md) | unknown-agent | worked | T-0004: make fleet and sync test suites pass, then document multi-VM f | 2026-10-03T16:42 |
 | [2026-10-03-016-sweep-budget-k-block-size-in-002-to-test](2026-10-03-016-sweep-budget-k-block-size-in-002-to-test/README.md) | opencode | worked | Sweep budget/K/block-size in 002 to test sensitivity of the A1 masking | 2026-10-03T16:19 |
 | [2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a](2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a/README.md) | opencode | worked | A1 experiment step 1: pin a PPNA commit and inspect whether a complete | 2026-10-03T16:15 |
-| [2026-10-03-014-fix-missing-pathlib-import-in-session-py](2026-10-03-014-fix-missing-pathlib-import-in-session-py/README.md) | opencode | worked | Fix missing pathlib import in session.py, document it, then run checks | 2026-10-03T16:08 |
 
 
 ## Reading a session

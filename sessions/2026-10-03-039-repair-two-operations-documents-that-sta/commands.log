@@ -1,0 +1,112 @@
+==============================================================================
+[seq 2] 2026-10-03T23:27:05+00:00
+$ bash -c cd /home/ubuntu/think-free
+echo "python3: $(python3 --version 2>&1)"
+echo "--- author census over all commits ---"
+git log --format="%an <%ae>" | sort | uniq -c | sort -rn
+echo "--- bot authorship means a GitHub App, not a user: the [bot] suffix is how GitHub marks it ---"
+git log --format="%an <%ae>" | grep -c [bot]@users.noreply.github.com
+echo "--- credential presence, not values ---"
+test -f ~/.config/github-app/private-key.pem && echo "private key present (0600: $(stat -c %a ~/.config/github-app/private-key.pem))"
+test -f ~/.config/github-app/app-id && echo "app-id present"
+echo "--- helper referenced by git ---"
+git config --get credential.helper
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+python3: Python 3.8.10
+--- author census over all commits ---
+    123 Ihsan Ai Server Bot <ihsan-ai-server-bot[bot]@users.noreply.github.com>
+      9 ihsan <ihsanpops@gmail.com>
+      1 Project Origin Research <origin@localhost>
+--- bot authorship means a GitHub App, not a user: the [bot] suffix is how GitHub marks it ---
+0
+--- credential presence, not values ---
+private key present (0600: 644)
+--- helper referenced by git ---
+/home/ubuntu/.config/github-app/git-credential-helper.sh
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 103  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T23:27:39+00:00
+$ bash -c cd /home/ubuntu/think-free
+echo "--- does the App key material appear anywhere in the repository? ---"
+PYTHONPATH=tools python3 - <<"PY"
+import pathlib
+from originlib import secrets
+hits = 0
+scanned = 0
+for path in pathlib.Path("sessions").rglob("*"):
+    if path.is_file():
+        scanned += 1
+        found = secrets.scan_file(path)
+        if found:
+            hits += 1
+            print("  HIT", path, found)
+print(f"scanned {scanned} file(s) under sessions/; {hits} with a secret shape")
+import json
+doctor = pathlib.Path(".origin/doctor.json")
+if doctor.exists():
+    print("doctor.json present; secret shapes:", secrets.names(secrets.scan(doctor.read_text())))
+else:
+    print("doctor.json not written on this VM yet (gitignored)")
+PY
+echo "--- credential presence check in doctor ---"
+grep -n "CREDENTIAL_ENV" tools/originlib/doctor.py | head -3
+sed -n "/^CREDENTIAL_ENV/,/^)/p" tools/originlib/doctor.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+--- does the App key material appear anywhere in the repository? ---
+scanned 111 file(s) under sessions/; 0 with a secret shape
+doctor.json not written on this VM yet (gitignored)
+--- credential presence check in doctor ---
+30:CREDENTIAL_ENV = ("GH_TOKEN", "GITHUB_TOKEN", "ANTHROPIC_API_KEY", "OPENAI_API_KEY")
+121:        "credentials_present": {name: bool(os.environ.get(name)) for name in CREDENTIAL_ENV},
+CREDENTIAL_ENV = ("GH_TOKEN", "GITHUB_TOKEN", "ANTHROPIC_API_KEY", "OPENAI_API_KEY")
+VERSIONS = (
+    ("python3", ["--version"]),
+    ("git", ["--version"]),
+    ("node", ["--version"]),
+    ("rustc", ["--version"]),
+    ("gcc", ["--version"]),
+)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1134  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T23:27:49+00:00
+$ bash -c cd /home/ubuntu/think-free
+PYTHONPATH=tools python3 - <<"PY"
+import pathlib
+from originlib import secrets
+p = pathlib.Path(".origin/doctor.json")
+print("doctor.json secret shapes:", secrets.names(secrets.scan(p.read_text())) or "none")
+print("doctor.json mentions the App key path:", "github-app" in p.read_text())
+PY
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doctor.json secret shapes: none
+doctor.json mentions the App key path: False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 127  redactions: none
+==============================================================================
+[seq 5] 2026-10-03T23:34:18+00:00
+$ bash -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | grep -E "^Ran|^OK|^FAILED"; echo "--- gates ---"; tools/origin doc lint --quiet; echo "doc lint=$?"; tools/origin release check >/dev/null; echo "release check=$?"; tools/origin session verify >/dev/null; echo "session verify=$?"; tools/origin skills check >/dev/null; echo "skills check=$?"; tools/origin skills verify >/dev/null; echo "skills verify=$?"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Ran 232 tests in 107.449s
+OK
+--- gates ---
+doc lint=0
+release check=0
+session verify=0
+skills check=0
+skills verify=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 114733  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T23:36:23+00:00
+$ tools/origin task verify T-0023
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0023: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check` -> exit 0 in 111.32s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111683  redactions: none

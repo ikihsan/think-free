@@ -50,7 +50,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/operations/bootstrap.md`](operations/bootstrap.md) | `docs/INDEX.md` | active | 2026-10-03 | Getting a fresh machine able to work on this repository. The design goal is that |
 | [`docs/operations/ci.md`](operations/ci.md) | `docs/INDEX.md` | active | 2026-10-03 | Runs on every push and pull request. The gates are the same ones a session must |
-| [`docs/operations/github-app.md`](operations/github-app.md) | `docs/INDEX.md` | active | 2026-10-03 | Status: design, not implemented. No GitHub App exists yet. Nothing in this |
+| [`docs/operations/github-app.md`](operations/github-app.md) | `docs/INDEX.md` | active | 2026-10-03 | Status: one App exists and authenticates every push. The design below was |
 | [`docs/operations/scheduling-and-supervision.md`](operations/scheduling-and-supervision.md) | `docs/INDEX.md` | active | 2026-10-03 | Whether agent work can run unattended, and what has actually been verified. The |
 | [`docs/operations/vm-execution.md`](operations/vm-execution.md) | `docs/INDEX.md` | active | 2026-10-03 | How a task gets executed on another machine. The design constraint is that the |
 
@@ -94,6 +94,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0020-tell-an-in-flight-session-apart-from-an-abandone.md`](../tasks/T-0020-tell-an-in-flight-session-apart-from-an-abandone.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0021-resolve-the-merge-conflict-markers-committed-to.md`](../tasks/T-0021-resolve-the-merge-conflict-markers-committed-to.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0022-implement-origin-release-check-so-release-manife.md`](../tasks/T-0022-implement-origin-release-check-so-release-manife.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0023-repair-the-two-operations-documents-whose-stated.md`](../tasks/T-0023-repair-the-two-operations-documents-whose-stated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 
 ## RESEARCH
 

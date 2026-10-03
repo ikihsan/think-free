@@ -147,6 +147,12 @@ Separate from the invention stages, because the mission cannot be run without it
       the other audience, no credential-shaped text in a classified path, and
       the front door's declared release state equal to the manifest's. It
       enforces agreement, not truth.
+- [ ] Operations documents agree with what the fleet has actually run (T-0023
+      repaired the Python floor and the GitHub App status; the App's real
+      permissions still need a human with its settings page, and `doctor` reports
+      no credential for a key-file App)
+- [ ] A machine-readable record of the Python versions the suite is verified on,
+      the way `tests/git-versions.json` records git versions
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised

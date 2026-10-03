@@ -16,15 +16,19 @@ Workflow: [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml).
 | Gate | Command | Fails on |
 |---|---|---|
 | Tests | `python3 -m unittest discover -s tests -t tests` | Any test failure |
-| Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file |
+| Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file, unresolved merge conflict |
+| Release manifest | `tools/origin release check` | A path unclassified or classified twice, a declared path absent without `pending`, a wildcard, a credential shape in a classified path, or the front door disagreeing with the manifest about what exists |
 | Skills | `tools/origin skills check` | Naming, frontmatter, missing or wrong cross-agent mirror |
 | Session integrity | `tools/origin session verify --strict` | Malformed event stream, unfinished session, missing report, dangling command log reference |
 | Vendored integrity | `tools/origin skills verify` | Local modification of a vendored skill |
 
-`tools/origin preflight` covers the first four in one command. CI passes
-`--strict` to both, because on a pushed commit nothing is in flight and an
-unfinished session really is a failure. Locally, `preflight` reports the
-current session as in progress rather than failing, so it is usable mid-task.
+`tools/origin preflight` runs three of these — documentation, skills, and
+session integrity — and is deliberately not the whole list: the test suite and
+the release check stay separate commands so a VM can run them on their own.
+CI passes `--strict` to the session gate, because on a pushed commit nothing is
+in flight and an unfinished session really is a failure. Locally, `preflight`
+reports the current session as in progress rather than failing, so it is usable
+mid-task.
 
 ## Design decisions
 
@@ -70,24 +74,26 @@ versions must agree with it.
 
 - Whether a claim in a document is true. That is what experiments and
   [`docs/process/review-protocol.md`](../../docs/process/review-protocol.md) are
-  for.
+  for. `release check` is the sharpest case of the limit: it proves the manifest
+  and `README.md` agree about what exists, not that either is right.
 - Whether the tooling's tests are good enough. They cover the rules the tooling
   enforces; they do not establish that the rules are the right ones.
 - Whether documentation is *good*. Lint checks structure: caps, links, metadata,
-  freshness.
+  freshness, conflict markers.
 
 ## Before opening a pull request
 
 ```bash
 tools/origin preflight
 PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+tools/origin release check
 tools/origin skills verify
 ```
 
 Locally `preflight` is not strict about the session you are currently running.
 
-All four must pass locally. A red local run that is fixed by re-running CI is a
-wasted cycle.
+All of them must pass locally. A red local run that is fixed by re-running CI is
+a wasted cycle.
 
 ## Exit codes CI branches on
 

@@ -12,6 +12,37 @@ detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers and file names here are the same ones `STATE.md`
 uses.
 
+## What changed in session 039, VM 0944 (T-0023)
+
+Two documents a fresh VM relies on stated requirements the repository had
+already falsified. Both are public (`docs/` is public by
+`RELEASE-MANIFEST.md`), so a reader outside the mission was being misled.
+
+- **The Python floor was invented from one machine.** `vm-execution.md` and
+  `bootstrap.md` both required "3.11 or newer", justified by the development
+  machine's 3.14.6. `instance-20260717-0944` runs **3.8.10** and the whole suite
+  is green there; nothing in `tools/originlib` uses newer syntax. Both now state
+  what is exercised — 3.8.10 here, 3.12 in CI — and name the gap that no gate
+  pins a Python range, the same class of gap `tests/git-versions.json` closed
+  for git.
+- **The GitHub App exists.** `github-app.md` opened with "Status: design, not
+  implemented. No GitHub App exists yet" while 123 of 133 commits are authored
+  `Ihsan Ai Server Bot <ihsan-ai-server-bot[bot]@users.noreply.github.com>`, and
+  `[bot]` is how GitHub marks an App identity rather than a user. It now leads
+  with a table separating what is observable from what is not, and the
+  least-privilege table is explicitly marked as the design the real App should
+  be *checked against* rather than a reading of it.
+- **The key-handling check the document was waiting on was run, and it passed:**
+  111 files under `sessions/` and `.origin/doctor.json` carry no secret shape.
+  In the course of it, `~/.config/github-app/private-key.pem` on this VM was
+  found at mode `0644` inside a `0700` directory and repaired to `0600`. The
+  directory protected it; the file mode is what D018 requires, and it was wrong.
+- **Newly open, and recorded in the document rather than glossed:** `doctor`
+  checks four credential *environment variables* and the App uses a key file plus
+  a helper, so a VM whose helper is broken reports no credential problem at all.
+- `ci.md` was stale in the same family: it listed five gates, missed the sixth,
+  and claimed `preflight` covers "the first four" when it covers three.
+
 ## What changed in session 038, VM 0944 (T-0022)
 
 `RELEASE-MANIFEST.md` said three times that nothing enforced it. Now something

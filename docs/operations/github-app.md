@@ -4,11 +4,20 @@ status: active
 last-verified: 2026-10-03
 -->
 
-# GitHub App design
+# GitHub App
 
-**Status: design, not implemented.** No GitHub App exists yet. Nothing in this
-repository depends on one. This document exists so that creating it later is a
-known, reviewable step rather than an improvisation.
+**Status: one App exists and authenticates every push.** The design below was
+written before it existed and has **never been checked against the App that was
+actually configured** — its least-privilege table is an intention, not a
+verification. Read the two sections apart.
+
+| Claim | Evidence |
+|---|---|
+| An App installation pushes to this repository | `observed`: 123 of 133 commits are authored `Ihsan Ai Server Bot <ihsan-ai-server-bot[bot]@users.noreply.github.com>`, and `[bot]` is the suffix GitHub gives an App identity rather than a user. Pushes fail without it (D018) |
+| Its identity is durable across reboots | `observed`: App id `5173845`, recorded in D018; the private key and a JWT generator live under `~/.config/github-app/`, not `/tmp` |
+| Its **permissions** are least-privilege | **Unverified.** Nothing in this repository can read an App's permission set. Assume the table below describes intent until someone reads the App's settings |
+| Its **installation scope** is one repository | **Unverified** beyond this repository. The remote here is one repository; other installations are not observable from here |
+| Key material never reaches the record | `observed` 2026-10-03: 111 files under `sessions/` and `.origin/doctor.json` carry no secret shape |
 
 Safety rules that constrain any implementation:
 [`../policy/permissions-and-safety.md`](../policy/permissions-and-safety.md).
@@ -25,7 +34,9 @@ misconfigured workflow is a pull request that a human declines to merge.
 
 ## Least-privilege permissions
 
-Repository permissions, per the App's actual need:
+Repository permissions, per the App's actual need. **This table has not been
+compared with the App's real settings**; it is the design the App should be
+checked against, and that check is still outstanding.
 
 | Permission | Level | Why |
 |---|---|---|
@@ -101,26 +112,40 @@ without discussion.
 
 ## Implementation checklist
 
-Not yet done, in dependency order:
+Ticked only where this repository can show it happened. Everything about the
+App's own settings stays open, because an agent cannot observe them.
 
-- [ ] Create the App in repository settings with the permissions above.
-- [ ] Install it on exactly the repositories intended.
-- [ ] Generate the private key; store it on the runner with `0600`.
-- [ ] Verify the key never appears in `sessions/`, in `doctor.json`, or in any
-      log: run a command that uses it and check with
-      `tools/origin skills check` and `origin session verify`.
+- [x] Create the App in repository settings with the permissions above.
+      **Existence** observed through bot authorship; the permission set is not.
+- [x] Install it on `ikihsan/think-free`. Installed elsewhere is not observable.
+- [x] Generate the private key; store it on the runner with `0600`. One key on
+      `instance-20260717-0944` was found at `0644` inside a `0700` directory and
+      repaired on 2026-10-03 (T-0023); the file mode is the requirement, not the
+      enclosing directory.
+- [x] Verify the key never appears in `sessions/`, in `doctor.json`, or in any
+      log: 111 files under `sessions/` and `.origin/doctor.json` carry no secret
+      shape (T-0023). This is the check that had to pass before the App was used
+      alongside other credentials, and it passes.
+- [ ] Compare the App's real permissions against the table above. **The largest
+      open item on this page.**
 - [ ] Add a credential-presence check to `doctor` for the App (presence only).
-- [ ] Implement claim-and-run against one repository.
-- [ ] Implement PR creation with the contents above.
-- [ ] Add a workflow that reports the task's verification status.
+      `doctor` currently checks `GH_TOKEN`, `GITHUB_TOKEN`, `ANTHROPIC_API_KEY`
+      and `OPENAI_API_KEY`; the App uses a key file and a helper, so nothing
+      reports it and a VM with a broken helper looks healthy.
+- [ ] Implement claim-and-run against one repository. Tasks are claimed and the
+      claim is pushed today, but by an interactive agent using the App's
+      credential, not by the App reacting to an event.
+- [ ] Implement PR creation with the contents below. Branches are pushed
+      directly to `research/origin`; no VM opens a pull request.
+- [ ] Add a workflow that reports the task's verification status. CI reports
+      branch status; nothing reports *per task*.
 - [ ] Write a rotation procedure and a revocation procedure.
-
-Until the key-handling verification passes, the App must not be used on a
-machine holding other credentials.
 
 ## Open questions
 
-- Single repository or several? The design assumes one.
+- Do the App's real permissions match the table above? Nothing here answers it.
+- Single repository or several? The design assumes one; only this one is
+  observable.
 - Poll interval or push-based trigger? Undecided; polling is simpler and wastes
   quota.
 - Should PR creation require a human to press a button, or be automatic for

@@ -49,14 +49,13 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**T-0022 is claimed by opencode on `instance-20260717-0944`** — implementing
-`origin release check`, so `RELEASE-MANIFEST.md` is enforced by a machine rather
-than by review. Its session `2026-10-03-038-implement-origin-release-check-so-releas`
-is in flight, so the CI strict-session gate is red while it runs. **T-0020 is
-claimed by opencode on `instance-20260717-0947`** — telling an in-flight session
-apart from an abandoned one, which is what that red gate needs. Do not start
-either. T-0021 is complete: three corrupted mission records repaired, and the
-gate that detects them added (F013).
+**T-0023 is claimed by opencode on `instance-20260717-0944`** — repairing two
+operations documents whose stated requirements the repository had already
+falsified (session `2026-10-03-039-repair-two-operations-documents-that-sta` is
+in flight). **T-0020 is claimed by opencode on `instance-20260717-0947`** —
+telling an in-flight session apart from an abandoned one, which is what the red
+CI strict-session gate needs. Do not start either. T-0021 and T-0022 are
+complete.
 
 Note for whoever picks up T-0020: its declared `verify` command includes
 `session verify --strict`, which cannot pass while its own session is open
@@ -86,17 +85,13 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    D013 wants CI strict, and the fleet practice of committing a session's start
    makes an unfinished session visible on the base branch. Open question, not a
    defect: see next action 1.
-3. **Nothing compares a VM's git version against what this repository has been
-   exercised on.** `tools/origin doctor` does record it (`git --version`, in
-   `.origin/doctor.json` and in its printed summary), so the gap is not
-   recording. The gap is that `EXPERIMENTS/000-capabilities/` and this file's
-   capability paragraph were copied between VMs without being re-probed, and no
-   gate states which git versions the sync flow has actually run against — which
-   is how F011 went unnoticed for a session on a repository that was printing
-   the answer. **Ceiling:** this is bookkeeping hygiene, not a claim.
-4. **Nothing detected a committed merge conflict** (F013, fixed in T-0021, so
-   this is a closed entry kept for the record): every gate read those files for a
-   different property and none read the markers. `doc lint` rule 6 does now.
+3. **`doctor` records a VM's git version but nothing compares it** against what
+   the suite has been exercised on. That is how F011 went unnoticed on a
+   repository printing the answer. Closed for git in T-0018; no equivalent record
+   exists for Python. **Ceiling:** bookkeeping hygiene, not a claim.
+4. **Nothing detected a committed merge conflict** (F013, fixed in T-0021): every
+   gate read those files for a different property and none read the markers.
+   `doc lint` rule 6 does now.
 5. **Nine top-level entries were published or withheld by accident** (fixed in
    T-0022): `RELEASE-MANIFEST.md` had no row for `.agents/`, `.github/`,
    `.gitignore`, `RELEASE-MANIFEST.md`, `STATE-history.md`,
@@ -104,6 +99,13 @@ pushing (D023, and this session's F011). The renumbering is manual and happens
    declare an absent path on purpose. `origin release check` now fails on both.
    **Ceiling:** it enforces agreement between the manifest and `README.md`, not
    the truth of either.
+6. **The App's real permissions and installation scope are unverified**
+   (`github-app.md`, T-0023). The document's least-privilege table is the design
+   it should be checked against, not a reading of what was configured, and no
+   agent can read an App's settings from here. Someone with the configuration
+   page has to do it. Related: `doctor` checks four credential environment
+   variables and the App uses a key file, so a VM with a broken helper looks
+   healthy.
 5. **Session 029 closed with nine `unlogged_change` events that are not its
    own.** `tools/origin sync land` rebased that session's branch onto
    `instance-20260717-0944`'s pushed work, so `EXPERIMENTS/007-build-timestamps/`,
@@ -137,21 +139,23 @@ version exception recorded in F011.
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
-- **Session 038, VM 0944 (T-0022).** `origin release check` now enforces
-  `RELEASE-MANIFEST.md`, which three times said nothing enforced it. Seven
-  top-level tracked entries had been classified by neither table; three paths
-  declared public did not exist; the public front door had no declared state.
-  All three gaps are closed in the same commit that added the check, and the
-  check found a credential-shaped fixture in its own new test file, which is
-  how D012's waiver mechanism earns its second use.
-- **Session 037, VM 0944 (T-0021, F013).** The shared base carried three
-  corrupted mission records — `FAILURES.md`, `FAILURES-findings-2.md`, and
-  `DECISIONS-GATING.md` — with `<<<<<<< HEAD` in them from commit `fd7b4a1`, and
-  every gate passed. Repaired by keeping both sides of all three regions (F011
-  and F012 are different findings), and `doc lint` rule 6 now reads every
-  tracked text file for git's conflict-marker shape. The rule was falsified
-  against the defect's own bytes and **failed first**, reporting 1 of 4 committed
-  defects; D025 records the obligation this establishes.
+- **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
+  VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
+  (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
+  exists while 123 of 133 commits carry a `[bot]` App identity. Both repaired.
+  **The App's real permissions remain unverified** — no agent can read them.
+- **Session 038, VM 0944 (T-0022).** `origin release check` enforces
+  `RELEASE-MANIFEST.md`, which three times said nothing did. Nine top-level
+  entries had been classified by neither table; three declared public paths did
+  not exist; the front door had no declared state. All closed in the same commit
+  as the check.
+- **Session 037, VM 0944 (T-0021, F013).** Three mission records reached the
+  shared base with `<<<<<<< HEAD` in them and every gate passed. Repaired by
+  keeping both sides of all three regions (F011 and F012 are different findings),
+  and `doc lint` rule 6 now reads every tracked text file for git's marker shape.
+  The rule was falsified against the defect's own bytes and **failed first**,
+  reporting 1 of 4 committed defects; D025 records the obligation this
+  establishes.
 - **Session 026, VM 0944 (T-0013, F010).** E3's census over 200 wheels met its
   declared 5% gate at 0.965 — by a metric that measures DOS-epoch pinning rather
   than reproducibility, so the verdict licensed nothing. Attribution was
@@ -159,8 +163,8 @@ exists so that history does not push this reload point past the line cap.
 - **Sessions 027–029, 033–036, VM 0947.** T-0014 stopped the ventilation
   candidate (F008), T-0015 spent the knitting prior-art condition (F009), T-0016
   fixed the git-version defect behind 60 failed CI runs (F011), T-0018 recorded
-  exercised git versions and split the decision log (D025's file), T-0019 banked
-  side A of the E2 closure-drift snapshot with no verdict.
+  exercised git versions and split the decision log, T-0019 banked side A of the
+  E2 closure-drift snapshot with no verdict.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -223,8 +227,9 @@ untouched.
 2. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
    exercised git versions live in `tests/git-versions.json` (schema
    `origin.git-versions/1`): the suite is verified on 2.25.1 and 2.56.0, and the
-   pre-F011 breakage from 2.26 on is a recorded known-affected range.
-   **Ceiling:** none of this says anything about a candidate.
+   pre-F011 breakage from 2.26 on is a recorded known-affected range. No
+   equivalent record exists for Python. **Ceiling:** neither says anything about
+   a candidate.
 3. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still

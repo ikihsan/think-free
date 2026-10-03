@@ -99,13 +99,23 @@ log. A single global `events.jsonl` would conflict on every concurrent run.
 
 ## Requirements on a VM
 
-Verified locally on the development machine; a fleet VM must be checked with
-`doctor` rather than assumed:
+Checked with `doctor` rather than assumed. What is actually exercised:
 
-- Python 3.11 or newer. No other runtime is needed for the tooling.
+- **CPython 3.8 or newer.** `observed`: the full suite is green on 3.8.10
+  (`instance-20260717-0944`, git 2.25.1) and CI pins 3.12. Nothing in
+  `tools/originlib` uses syntax newer than 3.8. An earlier version of this
+  document demanded 3.11 and was wrong: it would have refused a machine the
+  tooling supports, on the strength of the development machine's version rather
+  than a test.
 - `git`. No package installation step: the tooling is standard library only.
 - Network access to the git remote, and to public sources for research tasks.
 - Sufficient disk for the experiment. `doctor` reports free bytes.
 
 Not required, and their absence is not a blocker: a GPU, Docker, `gh` CLI,
 pytest, or any system-wide install.
+
+**The honest gap:** no gate pins a Python range, the way
+[`../../tests/git-versions.json`](../../tests/git-versions.json) pins git
+versions. A version that breaks the suite would be found by running it, not
+predicted. That is the same class of gap T-0018 closed for git, and closing it
+here is unclaimed work.
