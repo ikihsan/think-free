@@ -8,13 +8,14 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-34 recorded session(s). One `events.jsonl` per session, so concurrent
+35 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 9 older session(s) are in the directory listing.
+Showing the 25 most recent. 10 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
 | [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
 | [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 9 older session(s) are in the directory listing.
 | [2026-10-03-013-t-0003-run-investigation-f-adoption-rese](2026-10-03-013-t-0003-run-investigation-f-adoption-rese/README.md) | opencode | worked | T-0003: run investigation F (adoption researcher role) and write RESEA | 2026-10-03T16:03 |
 | [2026-10-03-012-t-0002-run-investigation-e-experimental](2026-10-03-012-t-0002-run-investigation-e-experimental/README.md) | opencode | worked | T-0002: run investigation E (experimental engineer role) and write RES | 2026-10-03T16:02 |
 | [2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit](2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit/README.md) | opencode | failed | T-0004: make the fleet and sync test suites pass, then document the mu | 2026-10-03T15:57 |
-| [2026-10-03-010-complete-and-verify-exclusive-multi-vm-o](2026-10-03-010-complete-and-verify-exclusive-multi-vm-o/README.md) | codex-multivm-20261003 | failed | Complete and verify exclusive multi-VM ownership and synchronized sess | 2026-10-03T16:50 |
 
 
 ## Reading a session
