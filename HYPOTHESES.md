@@ -18,9 +18,9 @@ Full definitions: [`docs/policy/evidence-labels.md`](docs/policy/evidence-labels
 | Candidate | Source | State | Next experiment |
 |---|---|---|---|
 | Photo-migration auditor | `RESEARCH/B.md`, E001 | **Motivating example disproved** (`FAILURES.md` F001) | Needs a real case where bytes survive and relationships do not |
-| Knitting repair planner | `RESEARCH/C.md` | Hold; **witness found the spec information-insufficient** (W2) | Add orientation to the input, then local planner vs. exhaustive search |
-| Adaptive ventilation measurement | `RESEARCH/C.md` | Hold; **witness survives** (W3) | Simulation comparing adaptive against fixed protocol |
-| Decision-directed sidewalk survey | `RESEARCH/A.md` | Advance; **witness survives** (W1), A1 masking gate met with caveats | Fieldwork-cost sensitivity and a planner review |
+| Knitting repair planner | `RESEARCH/C.md`, E002 | Hold; **witness found the spec information-insufficient** (W2), repaired with mount (T-0009); Stage-A planner valid but suboptimal (`004-knitting-stage-a`) | Bounded-neighbourhood planner vs. the same oracle (T-0011) |
+| Adaptive ventilation measurement | `RESEARCH/C.md`, E002 | Hold; **witness survives** (W3); strong competition | Simulation comparing adaptive against fixed protocol |
+| Decision-directed sidewalk survey | `RESEARCH/A.md`, E002 | **Falsified in its motivating regime**: count-budget gate met, fieldwork-cost gate fails (`FAILURES.md` F006) | No product build; treat A1 as a negative result and require a real cost model up front |
 | Care-handoff discrepancy packet | `RESEARCH/B.md` | Rejected: prior art too direct | — |
 | Sewing-projector auto-calibration | `RESEARCH/B.md` | Rejected: no material gap shown | — |
 | Automated accessibility certification | `RESEARCH/D.md` | Rejected: universal claim unfalsifiable | — |
@@ -120,8 +120,9 @@ cannot exclude a different silent pair.
 ## Candidates awaiting a falsification experiment
 
 Each entry below is summarised here; the full reasoning is in the sealed
-investigation report. None has a kill gate yet, and writing one is the
-precondition for the next experiment.
+investigation report. Kill gates for all three were written in T-0001, and the
+information-sufficiency gate (E002) has now been applied to all three; only the
+sidewalk entry has had its measurement claim tested (A1, below).
 
 | Candidate | Claim | Strongest objection |
 |---|---|---|
@@ -150,6 +151,16 @@ comparison.
 **Reconsider when.** A planner and affected residents reviewing one anonymized
 case confirm that no requested measurement could change a decision they
 control. Until then this remains `speculative`.
+
+**Outcome (E002, 2026-10-03, `EXPERIMENTS/002-a1-masking/`).** Under a
+count budget (150 of 955 crossings, 30 seeds, random and block masks) the
+gate **passed**: DD median regret 64.1 vs 109.9 for the strongest baseline.
+The T-0006 sweep confirmed it across 18 configs, failing only at the
+K~budget degenerate corner. Under a fieldwork-cost budget (T-0007,
+`distance.json`), DD's regret stayed at 85.2 across D ∈ {40, 80, 160} km
+while centrality reached 0–16.3; the gate failed 6/6. Recorded in
+`FAILURES.md` F006: the A1 mechanism's advantage does not transfer to the
+realistic cost model.
 
 ### Knitting repair planner — kill gate and witness (proposed, untested)
 
