@@ -1,0 +1,64 @@
+==============================================================================
+[seq 2] 2026-10-03T16:46:02+00:00
+$ python3 EXPERIMENTS/002-a1-masking/distance.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+D1000_random strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 35.0, 'decision-directed': 0.0, 'dd-walk': 1.0}
+D1000_block strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 35.0, 'decision-directed': 0.0, 'dd-walk': 1.0}
+D3000_random strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 101.0, 'decision-directed': 0.0, 'dd-walk': 1.0}
+D3000_block strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 101.0, 'decision-directed': 0.0, 'dd-walk': 1.0}
+D8000_random strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 150.0, 'decision-directed': 14.0, 'dd-walk': 10.0}
+D8000_block strongest: random 134.55 | dd: 134.55 | dd-walk: 134.55 | median n: {'tour': 150.0, 'decision-directed': 14.0, 'dd-walk': 10.0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 43746  redactions: none
+==============================================================================
+[seq 3] 2026-10-03T16:48:54+00:00
+$ python3 EXPERIMENTS/002-a1-masking/distance.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+D40000_random strongest: centrality 16.310000000000002 | dd: 85.17000000000002 | dd-walk: 134.55 | median n: {'tour': 150.0, 'decision-directed': 21.0, 'dd-walk': 17.0}
+D40000_block strongest: centrality 16.310000000000002 | dd: 85.17000000000002 | dd-walk: 134.55 | median n: {'tour': 150.0, 'decision-directed': 21.0, 'dd-walk': 17.0}
+D80000_random strongest: centrality 0.0 | dd: 85.17000000000002 | dd-walk: 85.17000000000002 | median n: {'tour': 150.0, 'decision-directed': 33.0, 'dd-walk': 25.0}
+D80000_block strongest: centrality 0.0 | dd: 85.17000000000002 | dd-walk: 85.17000000000002 | median n: {'tour': 150.0, 'decision-directed': 33.0, 'dd-walk': 25.0}
+D160000_random strongest: centrality 0.0 | dd: 85.17000000000002 | dd-walk: 85.17000000000002 | median n: {'tour': 150.0, 'decision-directed': 60.0, 'dd-walk': 66.0}
+D160000_block strongest: centrality 0.0 | dd: 85.17000000000002 | dd-walk: 85.17000000000002 | median n: {'tour': 150.0, 'decision-directed': 60.0, 'dd-walk': 66.0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 74605  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T16:49:57+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated sessions/INDEX.md
+updated tasks/INDEX.md
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1131  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T16:49:58+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 228 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1284  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T16:49:59+00:00
+$ tools/origin task verify T-0007
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0007: `test -f EXPERIMENTS/002-a1-masking/distance.json && grep -q gate EXPERIMENTS/002-a1-masking/distance.json` -> exit 0 in 0.01s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 375  redactions: none

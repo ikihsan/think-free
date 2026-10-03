@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-18 recorded session(s). One `events.jsonl` per session, so concurrent
+19 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |
 | [2026-10-03-018-log-state-md-update-from-t-0004-completi](2026-10-03-018-log-state-md-update-from-t-0004-completi/README.md) | unknown-agent | no-change | log STATE.md update from T-0004 completion | 2026-10-03T16:43 |
 | [2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p](2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p/README.md) | unknown-agent | worked | T-0004: make fleet and sync test suites pass, then document multi-VM f | 2026-10-03T16:42 |
 | [2026-10-03-016-sweep-budget-k-block-size-in-002-to-test](2026-10-03-016-sweep-budget-k-block-size-in-002-to-test/README.md) | opencode | worked | Sweep budget/K/block-size in 002 to test sensitivity of the A1 masking | 2026-10-03T16:19 |
