@@ -10,10 +10,10 @@ last-verified: 2026-10-03
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-03T19:33:16+00:00
-- **Duration:** ?s
+- **Duration:** 7570.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Run E3's build-timestamp census over 200 recent PyPI wheels and apply its kill g
 
 ## Summary
 
-_(none recorded)_
+Resumed the abandoned session 026 and finished T-0013. The E3 build-timestamp census ran over 200 wheels from 200 distinct releases across ten declared packages, 205,305,241 bytes, zero failures, identical numbers on three consecutive runs. E.md's declared 5% gate is met at 0.965 (95% CI 0.940-0.990), verdict lead-survives; stricter lower bounds 0.670 disagreeing-dates and 0.145 hour-or-more spread; 0 of 200 wheels carried a unix-epoch integer in METADATA or RECORD. The gate passes and licenses nothing, which is the finding: 1980-01-01 appears only when a builder pins the DOS epoch, so the metric measures pinning rather than reproducibility and nothing was rebuilt, so no cause is attributed. Recorded as F010 with D023; attribution is T-0017. Three code claims the interrupted run did not implement were fixed first (rebound failure list, selection keyed on JSON order, top-up allowing one release twice). Renumbered 005 to 007 for the collision STATE.md had flagged. Then rebased onto session 029's concurrent T-0015 landing: its T-0016/F009/D022 reached the remote first, so mine became T-0017/F010/D023 and my findings-file split was dropped for theirs. HYPOTHESES.md split at 310 lines into HYPOTHESES.md plus HYPOTHESES-results.md. task verify T-0013 exit 0; doc lint exit 0 over 297 files; 173 tests pass.
+
+## Next
+
+Run T-0017 (EXPERIMENTS/008-build-timestamp-attribution/): build one source under several SOURCE_DATE_EPOCH values, attribute every differing byte to a named cause, and establish the same-epoch noise floor, with the gate written before the run. E3's prevalence is measured and nothing is attributed, so this is the only thing left that could say whether timestamps are worth fixing first.
 
 ## Artifacts
 
@@ -80,11 +84,25 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 21 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 5 |
 | redactions applied to command output | 0 |
+|   undeclared | AGENTS.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/004-knitting-stage-a/README.md |
+|   undeclared | EXPERIMENTS/005-knitting-bounded-search/README.md |
+|   undeclared | EXPERIMENTS/005-knitting-bounded-search/fixtures.py |
+|   undeclared | EXPERIMENTS/005-knitting-bounded-search/planner.py |
+|   undeclared | EXPERIMENTS/005-knitting-bounded-search/run.py |
+|   undeclared | EXPERIMENTS/006-ventilation-measurement-design/README.md |
+|   undeclared | EXPERIMENTS/006-ventilation-measurement-design/estimator.py |
+|   undeclared | EXPERIMENTS/006-ventilation-measurement-design/run.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/005-build-timestamps/census.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/005-build-timestamps/sampling.py |
+|   error | declared artifact no longer exists: FAILURES-claims.md |
+|   error | declared artifact no longer exists: FAILURES-process.md |
+|   error | declared artifact no longer exists: tasks/T-0016-build-one-source-twice-under-different-source-da.md |
 
 ## Timeline
 
@@ -130,14 +148,18 @@ _(none recorded)_
 | 38 | 21:38:51 | artifact | wrote HYPOTHESES.md |
 | 39 | 21:38:51 | artifact | wrote HYPOTHESES-results.md |
 | 40 | 21:38:51 | artifact | wrote DECISIONS-PRACTICE.md |
-| 41 | 21:38:51 | artifact | wrote FAILURES.md |
-| 42 | 21:38:51 | artifact | wrote FAILURES-findings-2.md |
-| 43 | 21:38:51 | artifact | wrote STATE.md |
-| 44 | 21:38:51 | artifact | wrote tasks/CLAIMS.jsonl |
-| 45 | 21:38:52 | artifact | wrote tasks/T-0017-build-one-source-twice-under-different-source-da.md |
-| 46 | 21:38:52 | artifact | wrote EXPERIMENTS/007-build-timestamps/README.md |
-| 47 | 21:38:52 | artifact | wrote ROADMAP.md |
-| 48 | 21:38:52 | artifact | wrote RESEARCH.md |
+| 73 | 21:39:26 | integrity_error | declared artifact no longer exists: FAILURES-process.md |
+| 74 | 21:39:26 | integrity_error | declared artifact no longer exists: tasks/T-0016-build-one-source-twice-under-different-source-da.md |
+| 75 | 21:39:26 | doc_update | updated DECISIONS-PRACTICE.md |
+| 76 | 21:39:26 | doc_update | updated DECISIONS.md |
+| 77 | 21:39:26 | doc_update | updated FAILURES.md |
+| 78 | 21:39:26 | doc_update | updated HYPOTHESES.md |
+| 79 | 21:39:26 | doc_update | updated RESEARCH.md |
+| 80 | 21:39:26 | doc_update | updated ROADMAP.md |
+| 81 | 21:39:26 | doc_update | updated STATE.md |
+| 82 | 21:39:26 | session_end | Resumed the abandoned session 026 and finished T-0013. The E3 build-timestamp census ran over 200 wheels from 200 distinct releases across ten declare |
+
+_32 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
