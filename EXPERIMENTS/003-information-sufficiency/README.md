@@ -72,28 +72,35 @@ stitches, and the facing side, produce a bounded, checkable intervention plan.
 
 **Inputs (synthetic).** A four-loop patch with chart symbols and connectivity, a
 declared error, the live stitches, and the public-facing side. Physical
-**mount** (whether a loop is twisted) is deliberately absent from the input, to
-test whether the stated input set is sufficient.
+**mount** (whether a loop is twisted) is deliberately absent from the original
+input, to test whether the stated input set is sufficient.
 
 **Oracle.** The exact valid repair for each underlying stitch state.
 
 **Construction.** Reality A: the dropped loops are mounted normally → repair by
 re-forming in place. Reality B: the same loops are mounted twisted → repair by
-re-forming **and** untwisting. The permitted chart-level inputs are identical;
-the valid repairs differ.
+re-forming **and** untwisting. The original chart-level inputs are identical; the
+valid repairs differ.
 
-**Result.** `observed`. The two realities share identical permitted inputs yet
-require different repairs, and no input in the stated set can represent the
-difference. **Verdict: information-insufficient as specified — narrow the input
-or permit refusal.** This does **not** kill the mechanism: a knitter can see a
-twist, so orientation *can* be added to the input (or the planner can refuse
-ambiguous states). It bounds the input set, exactly as the candidate's own
-kill-gate text anticipates ("refuse unsupported shaping/ambiguous states rather
-than accepting them silently").
+**Result — original input set.** `observed`. The two realities share identical
+permitted inputs yet require different repairs, and no field in the stated set
+can represent the difference. **Verdict: information-insufficient as
+specified — narrow the input or permit refusal.** Recorded as `FAILURES.md`
+F007. This does **not** kill the mechanism: a knitter can see a twist, so
+orientation *can* be added to the input.
 
-**Limit.** A four-loop synthetic patch with one error class. It shows the
-specification is silent about orientation; it does not measure how often real
-errors are ambiguous, nor whether physical manipulation defeats the plan.
+**Result — repaired input set (T-0009).** `observed`. Adding each loop's mount
+to the input makes the two realities distinguishable: `silent_pair_found` goes
+from `true` (original) to `false` (repaired), and
+`permitted_encoding_can_represent_the_difference` from `false` to `true`. The
+specification is now sufficient for the decision.
+
+**Limit.** A four-loop synthetic patch with one error class. It shows the input
+*can* represent orientation; it does not show a knitter can always perceive it,
+nor whether physical slack, friction, or manipulation access dominates repair
+success (the candidate's own Stage-B doubt). It says nothing about the
+algorithmic-advantage claim, which needs the Stage-A planner-vs-exhaustive-search
+comparison.
 
 ## W3 — adaptive ventilation measurement
 

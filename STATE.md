@@ -111,11 +111,11 @@ session's findings into the record:
 
 Ordered by information gained per unit of effort.
 
-1. **Repair the knitting candidate's input set, then re-run its witness.** W2
-   (T-0008) showed the stated inputs omit loop orientation, so the planner cannot
-   choose between "re-form in place" and "re-form and untwist" (F007). Add mount
-   to the input or require refusal, then run the Stage-A local-planner vs.
-   exhaustive-search comparison in a fresh witness.
+1. **Run the knitting Stage-A planner comparison.** T-0009 repaired the input
+   set (orientation added; witness W2 now distinguishable). The next test is the
+   candidate's own Stage A: a local planner vs. exhaustive search on enumerably
+   small graphs, checking boundary loops, yarn order, pull-through legality, and
+   exact final topology, and refusing unsupported states.
 2. **Use the A1 boundary result.** T-0007 (distance-budgeted variant)
    **falsified** the transfer of DD's count-budget advantage to the
    fieldwork-cost regime: space-filling baselines win at every distance

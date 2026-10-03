@@ -2,7 +2,7 @@
   "experiment": "003-information-sufficiency",
   "input_hashes": {
     "W1_sidewalk_survey": "800b016953f2054b",
-    "W2_knitting_repair": "93c4f0c9ed89a9f5",
+    "W2_knitting_repair": "9f1dd43968b8dba9",
     "W3_ventilation": "42247093d117dae3"
   },
   "note": "All inputs are synthetic. A synthetic witness can falsify an unbounded claim; it cannot measure how often the ambiguity occurs in real data.",
@@ -65,49 +65,122 @@
     },
     "W2_knitting_repair": {
       "candidate": "knitting repair planner",
-      "inputs_identical": true,
-      "outputs_differ": true,
-      "permitted_encoding_can_represent_the_difference": false,
-      "permitted_input": {
-        "live_stitches": [
-          "c1r2",
-          "c2r2"
-        ],
-        "loops": {
-          "c1r1": {
-            "next": [
-              "c0r1",
-              "c2r1",
-              "c1r0",
-              "c1r2"
-            ],
-            "stitch": "knit"
-          },
-          "c1r2": {
-            "next": [
-              "c2r2",
-              "c1r1"
-            ],
-            "stitch": "purl"
-          },
-          "c2r1": {
-            "next": [
-              "c1r1",
-              "c3r1",
-              "c2r0",
+      "inputs_identical": false,
+      "original": {
+        "inputs_identical": true,
+        "outputs_differ": true,
+        "permitted_encoding_can_represent_the_difference": false,
+        "permitted_input": {
+          "chart": {
+            "live_stitches": [
+              "c1r2",
               "c2r2"
             ],
-            "stitch": "knit"
-          },
-          "c2r2": {
-            "next": [
-              "c1r2",
-              "c2r1"
-            ],
-            "stitch": "purl"
+            "loops": {
+              "c1r1": {
+                "next": [
+                  "c0r1",
+                  "c2r1",
+                  "c1r0",
+                  "c1r2"
+                ],
+                "stitch": "knit"
+              },
+              "c1r2": {
+                "next": [
+                  "c2r2",
+                  "c1r1"
+                ],
+                "stitch": "purl"
+              },
+              "c2r1": {
+                "next": [
+                  "c1r1",
+                  "c3r1",
+                  "c2r0",
+                  "c2r2"
+                ],
+                "stitch": "knit"
+              },
+              "c2r2": {
+                "next": [
+                  "c1r2",
+                  "c2r1"
+                ],
+                "stitch": "purl"
+              }
+            },
+            "side": "public"
           }
         },
-        "side": "public"
+        "reality_A": {
+          "mount": {
+            "c1r1": "normal",
+            "c2r1": "normal"
+          }
+        },
+        "reality_B": {
+          "mount": {
+            "c1r1": "twisted",
+            "c2r1": "twisted"
+          }
+        },
+        "required_output_A": [
+          "re-form (1,1) and (2,1) in place"
+        ],
+        "required_output_B": [
+          "re-form (1,1) and (2,1) in place and untwist each"
+        ],
+        "silent_pair_found": true
+      },
+      "outputs_differ": true,
+      "permitted_encoding_can_represent_the_difference": true,
+      "permitted_input": {
+        "chart": {
+          "live_stitches": [
+            "c1r2",
+            "c2r2"
+          ],
+          "loops": {
+            "c1r1": {
+              "next": [
+                "c0r1",
+                "c2r1",
+                "c1r0",
+                "c1r2"
+              ],
+              "stitch": "knit"
+            },
+            "c1r2": {
+              "next": [
+                "c2r2",
+                "c1r1"
+              ],
+              "stitch": "purl"
+            },
+            "c2r1": {
+              "next": [
+                "c1r1",
+                "c3r1",
+                "c2r0",
+                "c2r2"
+              ],
+              "stitch": "knit"
+            },
+            "c2r2": {
+              "next": [
+                "c1r2",
+                "c2r1"
+              ],
+              "stitch": "purl"
+            }
+          },
+          "side": "public"
+        },
+        "mount": {
+          "c1r1": "normal",
+          "c2r1": "normal"
+        }
       },
       "reality_A": {
         "mount": {
@@ -121,14 +194,115 @@
           "c2r1": "twisted"
         }
       },
+      "repaired": true,
+      "repaired_input_set": {
+        "inputs_identical": false,
+        "permitted_encoding_can_represent_the_difference": true,
+        "permitted_input_A": {
+          "chart": {
+            "live_stitches": [
+              "c1r2",
+              "c2r2"
+            ],
+            "loops": {
+              "c1r1": {
+                "next": [
+                  "c0r1",
+                  "c2r1",
+                  "c1r0",
+                  "c1r2"
+                ],
+                "stitch": "knit"
+              },
+              "c1r2": {
+                "next": [
+                  "c2r2",
+                  "c1r1"
+                ],
+                "stitch": "purl"
+              },
+              "c2r1": {
+                "next": [
+                  "c1r1",
+                  "c3r1",
+                  "c2r0",
+                  "c2r2"
+                ],
+                "stitch": "knit"
+              },
+              "c2r2": {
+                "next": [
+                  "c1r2",
+                  "c2r1"
+                ],
+                "stitch": "purl"
+              }
+            },
+            "side": "public"
+          },
+          "mount": {
+            "c1r1": "normal",
+            "c2r1": "normal"
+          }
+        },
+        "permitted_input_B": {
+          "chart": {
+            "live_stitches": [
+              "c1r2",
+              "c2r2"
+            ],
+            "loops": {
+              "c1r1": {
+                "next": [
+                  "c0r1",
+                  "c2r1",
+                  "c1r0",
+                  "c1r2"
+                ],
+                "stitch": "knit"
+              },
+              "c1r2": {
+                "next": [
+                  "c2r2",
+                  "c1r1"
+                ],
+                "stitch": "purl"
+              },
+              "c2r1": {
+                "next": [
+                  "c1r1",
+                  "c3r1",
+                  "c2r0",
+                  "c2r2"
+                ],
+                "stitch": "knit"
+              },
+              "c2r2": {
+                "next": [
+                  "c1r2",
+                  "c2r1"
+                ],
+                "stitch": "purl"
+              }
+            },
+            "side": "public"
+          },
+          "mount": {
+            "c1r1": "twisted",
+            "c2r1": "twisted"
+          }
+        },
+        "silent_pair_found": false
+      },
       "required_output_A": [
         "re-form (1,1) and (2,1) in place"
       ],
       "required_output_B": [
         "re-form (1,1) and (2,1) in place and untwist each"
       ],
+      "silent_pair_found": false,
       "system": "passive",
-      "verdict": "information-insufficient as specified: two stitch states with identical chart-level inputs need different repairs because mount (twist) is not a permitted input. The claim must be narrowed to include orientation, or the planner must refuse. This does not kill the mechanism; it bounds its input."
+      "verdict": "repaired: the original specification (chart symbols, connectivity, live stitches, side) was information-insufficient because loop orientation was absent, so two realities required different repairs from identical inputs (F007). Adding each loop's mount to the input distinguishes the two realities; no silent pair remains. Residual limit: this shows the input *can* represent orientation, not that a knitter can always perceive it, nor that topology-only analysis is physically sufficient."
     },
     "W3_ventilation": {
       "action_separation": {

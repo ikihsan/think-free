@@ -76,7 +76,7 @@ the witness can falsify an unbounded claim but measures no prevalence.
 | Witness | Candidate | Result | Consequence |
 |---|---|---|---|
 | W1 | Decision-directed sidewalk survey | **Survives** (`observed`) | The mechanism is not structurally information-insufficient given known OD pairs; the A1 masking experiment supplies the measured comparison |
-| W2 | Knitting repair planner | **Spec information-insufficient** (`observed`) | The stated input set omits loop orientation; repair must add orientation or refuse ambiguous states |
+| W2 | Knitting repair planner | **Spec was insufficient; repaired** (`observed`) | The original input set omitted loop orientation (F007); adding mount makes the two realities distinguishable (T-0009) |
 | W3 | Adaptive ventilation measurement | **Survives** (`observed`) | An ordinary permitted action (`co-locate`, `close-internal-door`) separates two realities whose passive traces coincide within noise |
 
 Full claim, oracle, and limits per witness:
@@ -90,6 +90,13 @@ between "re-form in place" and "re-form and untwist" from its permitted input.
 This is not a refutation of the mechanism: a knitter can observe orientation, so
 the fix is to add orientation to the input (or refuse). It bounds the input and
 rules out the current, narrower claim. Recorded as `FAILURES.md` F007.
+
+**W2 repair (T-0009).** `observed`, 2026-10-03. Adding each loop's mount to the
+input distinguishes the two realities: the witness reports `silent_pair_found`
+`true → false` and `permitted_encoding_can_represent_the_difference`
+`false → true`. The specification is now sufficient for the decision; the
+algorithmic-advantage question is untouched and awaits the Stage-A planner
+comparison.
 
 **W1 and W3.** `observed`, 2026-10-03. No silent pair was found within the
 permitted input set: in each case an askable observation separates the realities,

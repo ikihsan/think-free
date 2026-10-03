@@ -114,20 +114,27 @@ def sidewalk_witness() -> dict:
 
 
 def knitting_witness() -> dict:
-    """Two stitch states with identical chart-level inputs, different repairs.
+    """Two input sets for the knitting planner: original and repaired.
 
-    The permitted input is the chart (stitch symbol) plus connectivity, mirroring
-    RESEARCH/C.md's stated inputs ("the intended chart, the actual local error,
-    the current live stitches, and the side facing the user").  Physical mount
-    (whether a loop is twisted) is deliberately absent, to test whether the
-    stated input set is sufficient.
+    The permitted input in the *original* specification is the chart (stitch
+    symbol) plus connectivity, live stitches, and facing side, mirroring
+    RESEARCH/C.md's stated inputs.  Physical mount (whether a loop is twisted)
+    is deliberately absent, to test whether the stated input set is sufficient.
 
     Reality A: dropped loops are mounted normally -> re-form in place.
     Reality B: the same loops are mounted twisted -> re-form and untwist.
-    The chart-level input is identical; the valid repairs differ.
+
+    The witness reports two cases:
+
+      - original: both realities share identical permitted inputs and need
+        different repairs, and no input field can represent the difference, so
+        the specification is information-insufficient (F007).
+      - repaired: orientation (mount) is added to the input, so the two
+        realities no longer share identical inputs.  The silent pair is gone and
+        the input is sufficient for the decision.
     """
 
-    permitted_chart = {
+    chart = {
         "loops": {
             "c1r1": {"stitch": "knit", "next": ["c0r1", "c2r1", "c1r0", "c1r2"]},
             "c2r1": {"stitch": "knit", "next": ["c1r1", "c3r1", "c2r0", "c2r2"]},
@@ -144,27 +151,75 @@ def knitting_witness() -> dict:
     repair_a = ("re-form (1,1) and (2,1) in place",)
     repair_b = ("re-form (1,1) and (2,1) in place and untwist each",)
 
-    # Is mount among the permitted inputs?  If not, the two states are
-    # indistinguishable from the permitted input.
-    permitted_encodes_mount = any(
-        "mount" in node for node in permitted_chart["loops"].values()
-    )
+    # Original specification: no orientation field anywhere in the input.
+    original_input = {"chart": chart}
+    original_encodes_mount = "mount" in _jsonish_keys(chart)
+
+    # Repaired specification: each loop carries its mount, and the level is
+    # derived from it.  The input now distinguishes A from B.
+    repaired_a = {
+        "chart": chart,
+        "mount": reality_a["mount"],
+    }
+    repaired_b = {
+        "chart": chart,
+        "mount": reality_b["mount"],
+    }
+    repaired_encodes_mount = repaired_a != repaired_b
 
     return {
         "candidate": "knitting repair planner",
         "system": "passive",
-        "permitted_input": permitted_chart,
+        "original": {
+            "permitted_input": original_input,
+            "reality_A": reality_a,
+            "reality_B": reality_b,
+            "inputs_identical": not original_encodes_mount,
+            "required_output_A": repair_a,
+            "required_output_B": repair_b,
+            "outputs_differ": repair_a != repair_b,
+            "permitted_encoding_can_represent_the_difference": original_encodes_mount,
+            "silent_pair_found": not original_encodes_mount,
+        },
+        "repaired_input_set": {
+            "permitted_input_A": repaired_a,
+            "permitted_input_B": repaired_b,
+            "inputs_identical": repaired_a == repaired_b,
+            "permitted_encoding_can_represent_the_difference": repaired_encodes_mount,
+            "silent_pair_found": repaired_a == repaired_b,
+        },
+        # Flat mirrors of the repaired result so a caller can assert on them
+        # without descending into the nested dict.
+        "permitted_input": repaired_a,
         "reality_A": reality_a,
         "reality_B": reality_b,
-        "inputs_identical": not permitted_encodes_mount,
+        "inputs_identical": repaired_a == repaired_b,
         "required_output_A": repair_a,
         "required_output_B": repair_b,
         "outputs_differ": repair_a != repair_b,
-        "permitted_encoding_can_represent_the_difference": permitted_encodes_mount,
+        "permitted_encoding_can_represent_the_difference": repaired_encodes_mount,
+        "silent_pair_found": repaired_a == repaired_b,
+        "repaired": True,
         "verdict": (
-            "information-insufficient as specified: two stitch states with identical "
-            "chart-level inputs need different repairs because mount (twist) is not a "
-            "permitted input. The claim must be narrowed to include orientation, or the "
-            "planner must refuse. This does not kill the mechanism; it bounds its input."
+            "repaired: the original specification (chart symbols, connectivity, live "
+            "stitches, side) was information-insufficient because loop orientation was "
+            "absent, so two realities required different repairs from identical inputs "
+            "(F007). Adding each loop's mount to the input distinguishes the two "
+            "realities; no silent pair remains. Residual limit: this shows the input "
+            "*can* represent orientation, not that a knitter can always perceive it, nor "
+            "that topology-only analysis is physically sufficient."
         ),
     }
+
+
+def _jsonish_keys(obj):
+    """Collect every dict key appearing anywhere in a JSON-like structure."""
+    found = set()
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            found.add(k)
+            found |= _jsonish_keys(v)
+    elif isinstance(obj, (list, tuple)):
+        for item in obj:
+            found |= _jsonish_keys(item)
+    return found

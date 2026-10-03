@@ -8,11 +8,12 @@ last-verified: 2026-10-03
 
 <!-- generated-by: origin; do not edit by hand -->
 
-20 recorded session(s). One `events.jsonl` per session, so concurrent
+21 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | **unfinished** | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:17 |
 | [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | worked | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T17:16 |
 | [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |
 | [2026-10-03-018-log-state-md-update-from-t-0004-completi](2026-10-03-018-log-state-md-update-from-t-0004-completi/README.md) | unknown-agent | no-change | log STATE.md update from T-0004 completion | 2026-10-03T16:43 |

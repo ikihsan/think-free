@@ -228,6 +228,13 @@ dominates repair success (the candidate's own Stage-B doubt). It cannot show tha
 **Lesson.** "What are the inputs?" is a falsifiable claim. Test it before writing
 the algorithm, because the algorithm cannot recover a fact its inputs omit.
 
+**Update (T-0009, 2026-10-03).** Adding each loop's mount to the input repairs
+the specification: the witness now reports the two realities as distinguishable
+(`silent_pair_found` `true → false`,
+`permitted_encoding_can_represent_the_difference` `false → true`). The input set
+is sufficient for the *decision*; whether a planner can exploit it, and whether
+topology plus orientation is physically sufficient, remain untested.
+
 ## Open, not yet disproved
 
 These remain live questions, not settled negatives:
