@@ -32,7 +32,8 @@ interfere with the working repository.
 | `test_release.py` | `RELEASE-MANIFEST.md` enforcement: one seeded defect per clause, and a fixture that passes |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
 | `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees |
-| `test_sync.py` | Pull, push, land, rebase, divergence reporting; the rebase continue must stay non-interactive |
+| `test_sync.py` | Status, pull and push: divergence reporting, fast-forward, the refusals on a dirty tree and on local commits that would be lost, and that a push never forces |
+| `test_land.py` | `sync land`, split out at the line cap by operation: publishes the branch, regenerates a *conflicted* generated file, rebuilds one that merged **cleanly** and was therefore stale (defect 13), never lets `rebase --continue` open an editor, and stops for a human on a real conflict with the work intact |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
 | `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |

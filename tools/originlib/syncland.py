@@ -27,28 +27,71 @@ from .sync import (
 
 GENERATED_FILES = ("docs/INDEX.md", "sessions/INDEX.md", "tasks/INDEX.md")
 RETRY_LIMIT = 3
+STALE_COMMIT = "land: rebuild the generated indexes the rebase left stale"
+
+
+def _render_generated(name: str) -> str:
+    from . import docindex, report, tasks
+
+    if name == "docs/INDEX.md":
+        return docindex.render()
+    if name == "sessions/INDEX.md":
+        return report.render_sessions_index()
+    return tasks.render_tasks_index()
+
+
+def _generated_path(name: str):
+    if name == "docs/INDEX.md":
+        return paths.docs_index()
+    if name == "sessions/INDEX.md":
+        return paths.sessions_index()
+    return paths.tasks_index()
+
+
+def _refresh_generated() -> list[str]:
+    """Rewrite any generated file that is not what its renderer produces, and commit.
+
+    `_resolve_generated_conflicts` only touches files git reports as conflicted,
+    which is the wrong question. A generated file is a function of the whole tree,
+    so two sessions added on two VMs *merge cleanly* and are stale the moment they
+    do: `sessions/INDEX.md` on `e942225`, which `land` pushed, red on the
+    Documentation lint. Comparing each file with its renderer is the property
+    `doc lint` checks, so asking the same question here is what makes the pushed
+    tree lintable by construction rather than by luck.
+    """
+    changed = []
+    for name in GENERATED_FILES:
+        path = _generated_path(name)
+        expected = _render_generated(name)
+        # A missing generated file is as stale as a wrong one: `doc lint` calls
+        # that a violation too, so the renderer is the authority either way.
+        if path.exists() and path.read_text(encoding="utf-8") == expected:
+            continue
+        # The directory may not exist either: git does not track an empty one, so
+        # a clone of a repository whose `tasks/` held only generated files has no
+        # `tasks/` at all.
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(expected, encoding="utf-8")
+        gitutil.run(["add", "--", name])
+        changed.append(name)
+    if changed:
+        gitutil.run(["commit", "-q", "-m", STALE_COMMIT])
+    return changed
 
 
 def _resolve_generated_conflicts() -> list[str]:
-    """Regenerate the generated indexes and stage them.
+    """Regenerate the generated indexes git reports as conflicted, and stage them.
 
     Their content is a pure function of the merged tree, so regeneration is a
-    resolution rather than a guess. Only files git actually reports as
-    conflicted are touched.
+    resolution rather than a guess. A file that merges *cleanly* can still be
+    stale, which is what `_refresh_generated` is for.
     """
-    from . import docindex, report, tasks
-
     unmerged = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
-    resolved: list[str] = []
+    resolved = []
     for name in unmerged:
         if name not in GENERATED_FILES:
             continue
-        if name == "docs/INDEX.md":
-            paths.docs_index().write_text(docindex.render(), encoding="utf-8")
-        elif name == "sessions/INDEX.md":
-            paths.sessions_index().write_text(report.render_sessions_index(), encoding="utf-8")
-        else:
-            paths.tasks_index().write_text(tasks.render_tasks_index(), encoding="utf-8")
+        _generated_path(name).write_text(_render_generated(name), encoding="utf-8")
         gitutil.run(["add", "--", name])
         resolved.append(name)
     return resolved
@@ -126,6 +169,10 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
                     + "; run 'git rebase --abort'"
                 )
         outcome["rebased"] = True
+        # A clean merge of a generated file is still a stale one. Ask the same
+        # question `doc lint` asks, and commit the answer, before the push — the
+        # push refuses a dirty tree, so this has to happen here or not at all.
+        refreshed = _refresh_generated()
         # What arrived is what the new base holds and the pre-rebase tip did
         # not: `base..HEAD` after a rebase is this branch's own rewritten work,
         # which is the opposite of the arrival. Read before the push, because the
@@ -145,5 +192,6 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
         record_arrival("sync land", before, after, root, arrived=arrived)
         outcome.update(pushed)
         outcome["resolved"] = outcome["resolved"] or resolved
+        outcome["refreshed"] = refreshed
         return outcome
     raise SyncError(f"base branch {target} kept moving after {retries} attempts; run it again")

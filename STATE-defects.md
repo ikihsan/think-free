@@ -156,6 +156,28 @@ heading they belong in when they are closed.
     **Ceiling:** the tooling cannot tell an intentional declaration from an
     automatic one, so an automatic declaration weakens the signal it repairs.
 
+13. **`sync land` regenerated only the generated files git reported as conflicted,
+    so a cleanly merged one was published stale** (solved in T-0041). The three
+    generated files are functions of the whole tree, so two VMs adding one session
+    each produce two *different* renders of the same file. When git merges them
+    without a conflict — different lines, no overlapping hunk — the merged file is
+    stale, and `_resolve_generated_conflicts` asks git what conflicted and
+    correctly hears nothing. Commit `e942225` was published that way and `doc
+    lint` on it says `sessions/INDEX.md: generated file is stale`; the next commit
+    rebuilt it. **This is the fourth arrival of one defect family and the third
+    repair that did not generalise** — T-0026/T-0027 fixed the *task* commands,
+    session 015 fixed the *appenders*, and this layer is neither: it is the one
+    that *merges* trees. **Repair:** after every rebase, `land` asks the question
+    `doc lint` asks — is each generated file equal to its renderer — and commits
+    the answer before the push, which refuses a dirty tree anyway. A missing file
+    is rebuilt too, since `doc lint` calls that a violation as well. Falsified
+    first: with the call removed the new test fails
+    (`'sessions/INDEX.md' not found in []`) and its control stays green.
+    **Ceiling:** the rebuild is a commit nobody claimed, on a tree that was just
+    rebased, so an operator reading the log sees a commit between the work and the
+    session that recorded it. `land` prints what it rebuilt and the commit says so
+    in its own message, which is the only attribution available.
+
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by
    reading the local tree, so two VMs in an hour took the same numbers. Six times
@@ -259,32 +281,12 @@ reach and passed anyway — the failure of the falsification, not of the gate �
 it was redone by reverting the generators instead. See D025 in
 [`DECISIONS-GATING.md`](DECISIONS-GATING.md).
 
-**A gate that has never fired looks exactly like a gate with nothing to report.**
-T-0030's first decision-index check matched no row in any commit, because the
-regex did not allow a Markdown link around the filename, so the sweep of all 174
-commits passed while that half of the rule did nothing. The control test — the two
-`FAILURES.md` rows this repository deliberately paraphrases — was what caught it,
-and it had already caught the other half of the same draft, which compared index
-rows to headings as strings and flagged 83 of 174 commits. Both are in the
-session's `commands.log`.
-
-**A stale generated file is the same defect whichever file it is.** Three
-commits in this repository's history have reddened CI by carrying one, and the
-first two repairs did not generalise: T-0026 and T-0027 made the *task* commands
-rebuild `tasks/INDEX.md` and `docs/INDEX.md`, and a third instance reached CI
-anyway (run `37180487906`: all seven `Tests` jobs green, `Documentation lint` red
-on a session report; the next run of the same tree, `37180491269`, is green).
-The cause was the same shape one level over: the session report is generated from
-the event stream, so **every append invalidates it**, and only `session start` and
-`finish` regenerated it. `session step`, `note`, `decision`, `block`,
-`experiment-result`, `artifact` and every `tools/x` capture did not, so any commit
-in between published a stale report. Fixed in session 015 by moving the
-regeneration into the appenders - `sessionlog.log`, `sessionlog.artifact`,
-`recorder.record_command` - and by making `session.refresh_reports` public,
-because the invariant belongs at the appender and not in the CLI: a caller using
-the module API must not be able to break it. Falsified by removing the two calls,
-which fails 4 of 7 tests in `GeneratedReportTest`; the control in the same class
-shows the assertion is not vacuous. **The lesson for the next generated file:**
-find the appender, not the command that happens to be running when someone
-notices.
-
+**Two of the three lessons below are written up where they are used rather than
+here**, because both now live in [`tests/README.md`](tests/README.md) next to the
+tests they describe, and a rule copied into two places is a rule that will drift:
+how a gate is falsified and what each failure taught — the T-0030 control that
+caught a decision-index regex matching no row in any of 174 commits, and a stale
+generated file arriving four times because each repair fixed the layer that
+happened to be running (the task commands, then the CLI, then — at last — the
+appenders and the merge). Read that file for the mechanism; the entries above
+carry the dates and the commits.

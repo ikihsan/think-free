@@ -111,6 +111,16 @@ different content. These are deterministic functions of the tree, so conflicts
 between them are resolved by deleting and regenerating — `sync land` does this
 automatically rather than leaving an unanswerable conflict.
 
+**A generated file can also merge cleanly and still be stale**, because the
+render depends on the whole tree and each VM rendered only what it could see.
+That is the commoner case, and git reports nothing about it, so `land` asks the
+question `doc lint` asks instead: after every rebase, is each generated file equal
+to its renderer? If not, it is rebuilt and committed before the push — the push
+refuses a dirty tree, so this is the only place it can happen. Without it, `land`
+published `e942225` with a stale `sessions/INDEX.md` and a red Documentation lint.
+A missing generated file is rebuilt on the same pass, since `doc lint` reports that
+too.
+
 ## Append-only conflicts
 
 `tasks/CLAIMS.jsonl` is append-only, and two VMs appending different lines is the

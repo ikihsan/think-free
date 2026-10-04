@@ -37,6 +37,11 @@ def dispatch_sync(args: argparse.Namespace) -> int:
         print(f"landed on {outcome['branch']} at {outcome.get('head', '')[:12]}")
         for name in resolved:
             print(f"  regenerated {name} to resolve the merge")
+        # A generated file that merged cleanly is still stale, and the pushed tree
+        # is red on the Documentation lint if it is not rebuilt. Say it happened:
+        # the commit is not the session's, so nobody else will attribute it.
+        for name in outcome.get("refreshed") or []:
+            print(f"  rebuilt {name}, which the rebase left stale")
         return EXIT_OK
     raise ValueError(f"unknown sync action: {args.action}")
 
