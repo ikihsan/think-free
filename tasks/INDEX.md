@@ -8,7 +8,7 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-31 task(s). Every task file declares a runnable verification command;
+32 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -44,6 +44,7 @@ last-verified: 2026-10-04
 | [`T-0029-make-origin-doctor-report-the-push-credential-me.md`](T-0029-make-origin-doctor-report-the-push-credential-me.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
 | [`T-0030-refuse-a-commit-that-gives-one-finding-decision.md`](T-0030-refuse-a-commit-that-gives-one-finding-decision.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md`](T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0032-record-the-python-versions-the-suite-has-actuall.md`](T-0032-record-the-python-versions-the-suite-has-actuall.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 
 ## How tasks run on another machine
 

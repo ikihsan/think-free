@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-48 recorded session(s). One `events.jsonl` per session, so concurrent
+49 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 23 older session(s) are in the directory listing.
+Showing the 25 most recent. 24 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | **unfinished** | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:05 |
 | [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
 | [2026-10-04-004-t-0028-record-the-ci-run-history-around](2026-10-04-004-t-0028-record-the-ci-run-history-around/README.md) | opencode | worked | T-0028: record the CI run history around the orphan fix with verified  | 2026-10-04T01:07 |
 | [2026-10-04-003-t-0027-the-published-claim-commit-must-c](2026-10-04-003-t-0027-the-published-claim-commit-must-c/README.md) | opencode | worked | T-0027: the published claim commit must carry the regenerated indexes, | 2026-10-04T01:03 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 23 older session(s) are in the directory listing.
 | [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 | [2026-10-03-026-run-e3-s-build-timestamp-census-over-200](2026-10-03-026-run-e3-s-build-timestamp-census-over-200/README.md) | unknown-agent | worked | Run E3's build-timestamp census over 200 recent PyPI wheels and apply  | 2026-10-03T21:39 |
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
-| [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | worked | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T20:27 |
 
 
 ## Reading a session
