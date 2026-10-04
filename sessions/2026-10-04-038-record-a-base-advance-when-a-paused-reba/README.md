@@ -31,11 +31,12 @@ _none_
 
 ## Commands
 
-1 captured, 1 non-zero exit.
+2 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 4 | ['tools/origin', 'task', 'claim', 'T-0053'] | 1 | 3012 |
+| 6 | ['tools/origin', 'task', 'claim', 'T-0053'] | 1 | 2974 |
 
 ## Integrity
 
@@ -55,6 +56,8 @@ _none_
 | 2 | 14:13:51 | task_rewrite | rewrote tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md (status: claimed) |
 | 3 | 14:13:51 | task_rewrite | appended a claim record for T-0053 |
 | 4 | 14:13:52 | command | $ tools/origin task claim T-0053 |
+| 5 | 14:14:02 | task_rewrite | appended a claim record for T-0053 |
+| 6 | 14:14:03 | command | $ tools/origin task claim T-0053 |
 
 ## Reproduce this record
 
