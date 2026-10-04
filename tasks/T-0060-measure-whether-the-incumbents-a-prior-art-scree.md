@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0060
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-04-054-test-whether-prior-art-exists-means-the
+claim-vm: 
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -3
 -->
 

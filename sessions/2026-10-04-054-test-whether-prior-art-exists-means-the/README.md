@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 21:44:25 | session_start | Test whether 'prior art exists' means 'the need is served', using incumbents named by the mission's own prior-art kills plus the strongest-recurrence  |
+| 2 | 21:45:59 | task_rewrite | appended a create record for T-0060 |
+| 3 | 21:46:46 | task_rewrite | rewrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md (status: claimed) |
 
 ## Reproduce this record
 
