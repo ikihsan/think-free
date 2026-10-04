@@ -8,7 +8,7 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-27 task(s). Every task file declares a runnable verification command;
+28 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -40,6 +40,7 @@ last-verified: 2026-10-04
 | [`T-0025-record-the-measured-result-of-the-pushed-ci-run.md`](T-0025-record-the-measured-result-of-the-pushed-ci-run.md) | done |  | grep -q '37165413909' STATE.md && tools/origin d | 2026-10-04 |
 | [`T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md`](T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0027-make-the-published-claim-commit-carry-the-regene.md`](T-0027-make-the-published-claim-commit-carry-the-regene.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0028-record-the-ci-run-history-around-the-orphan-fix.md`](T-0028-record-the-ci-run-history-around-the-orphan-fix.md) | open |  | grep -q '37166490623' STATE.md && tools/origin d | 2026-10-04 |
 
 ## How tasks run on another machine
 
