@@ -224,3 +224,21 @@ cwd: /home/ubuntu/think-free
 origin: rebase is resolved but not committed, and sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/events.jsonl is dirty and not staged; commit or revert it first, so the continuation does not sweep it into the rebase's commit
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 605  redactions: none
+==============================================================================
+[seq 36] 2026-10-04T14:50:09+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase could not be completed (git said: error: Failed to merge in the changes.); run 'git rebase --abort'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1287  redactions: none
+==============================================================================
+[seq 37] 2026-10-04T14:50:45+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase is resolved but not committed, and sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/events.jsonl is dirty and not staged; commit or revert it first, so the continuation does not sweep it into the rebase's commit
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 599  redactions: none

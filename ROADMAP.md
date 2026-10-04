@@ -292,7 +292,7 @@ rest: run the documented sequence, and fix what it actually does.
       `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths, 50 the ledger. The
       general form: an exemption is a claim about what another check covers, and the cheap way to
       write one is to borrow a predicate.
-- [x] Standard-library test suite (521 tests on git 2.25.1), with
+- [x] Standard-library test suite (535 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
       each git version has actually run. A test's correctness depends on every clock the
       code under it reads: three tests behind the in-flight gate read one the fixture never
