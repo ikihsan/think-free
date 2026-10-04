@@ -78,3 +78,4 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0025", "ts": "2026-10-04T00:37:05+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0025", "ts": "2026-10-04T00:37:16+00:00", "vm": "instance-20260717-0947"}
 {"action": "complete", "evidence": ["STATE.md", "STATE-defects.md"], "reason": "The pushed CI run for T-0024 is read and recorded: run 37165413909 on 9e865a4, all six steps green. The two earlier red runs were caused by a pushed task file whose generated index was not rebuilt (defect 5), not by the clock; D029's CI consequence therefore stays inferred. STATE.md split at 293 lines, with the defect list moved to STATE-defects.md.", "schema": "origin.task.claim/1", "task": "T-0025", "ts": "2026-10-04T00:41:09+00:00"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0026", "ts": "2026-10-04T00:43:06+00:00"}
