@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T00:56:54+00:00
-- **Duration:** ?s
+- **Duration:** 402.6s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0027: the published claim commit must carry the regenerated indexes, and task 
 
 ## Summary
 
-_(none recorded)_
+T-0027 done: a published claim stages the regenerated indexes, so the commit every other VM reads first is lintable. T-0026's verification had passed over a live defect because a lint on the author's own tree cannot see what a pushed commit contains; the new test lints a fetched tree on a second clone. 276 tests green; task verified and completed.
+
+## Next
+
+Read the pushed CI run for T-0027 before claiming it green, and check that the claim commit d3e3a90/580ad67 carried the indexes - that is the first commit in this repository where the claim path did it for itself. Then the two open defects in STATE-defects.md: identifier allocation (a detector, not an allocator) and the missing Python-versions record named in docs/operations/vm-execution.md. STATE.md is at 267 lines and STATE-history.md at 300, so the next session that adds detail to either must split rather than append.
 
 ## Artifacts
 
@@ -39,6 +43,7 @@ _(none recorded)_
 | docs/INDEX.md | b3761be9a08f | 14411 |
 | tasks/INDEX.md | 2b4cae2add53 | 6309 |
 | sessions/INDEX.md | e3890d63854a | 6692 |
+| STATE.md | f9f792e9d521 | 20257 |
 
 ## Commands
 
@@ -54,7 +59,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -78,6 +82,10 @@ _(none recorded)_
 | 12 | 01:00:23 | artifact | wrote tasks/INDEX.md |
 | 13 | 01:00:23 | artifact | wrote sessions/INDEX.md |
 | 14 | 01:02:58 | command | $ tools/origin task verify T-0027 |
+| 15 | 01:03:25 | artifact | wrote STATE.md |
+| 16 | 01:03:37 | doc_update | updated ROADMAP.md |
+| 17 | 01:03:37 | doc_update | updated STATE.md |
+| 18 | 01:03:37 | session_end | T-0027 done: a published claim stages the regenerated indexes, so the commit every other VM reads first is lintable. T-0026's verification had passed  |
 
 ## Reproduce this record
 
