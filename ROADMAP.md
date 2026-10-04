@@ -184,10 +184,10 @@ Separate from the invention stages, because the mission cannot be run without it
       Documentation lint step until `tasks/INDEX.md` was rebuilt, so `new`,
       `claim`, `complete` and `release` now rebuild the generated indexes
 - [x] Operations documents agree with what the fleet has actually run (T-0023
-      repaired the Python floor and the GitHub App status; T-0028 closed the
+      repaired the Python floor and the GitHub App status; T-0029 closed the
       `doctor` gap). The App's real permissions still need a human with its
       settings page — nothing here can read them
-- [x] `doctor` reports the push credential mechanism (T-0028): the configured
+- [x] `doctor` reports the push credential mechanism (T-0029): the configured
       `credential.helper`, whether each named helper exists and is executable,
       App key files by path and mode, whether the helper depends on anything
       outside `~/.config`, and whether `git credential fill` obtains a

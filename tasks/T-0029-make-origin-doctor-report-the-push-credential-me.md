@@ -5,7 +5,7 @@ last-verified: 2026-10-03
 -->
 
 <!-- task-meta
-id: T-0028
+id: T-0029
 status: done
 created: 2026-10-03
 claim-agent:
@@ -14,7 +14,7 @@ claim-vm:
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check && tools/origin skills verify
 -->
 
-# T-0028 — Make 'origin doctor' report the push credential mechanism it never ins
+# T-0029 — Make 'origin doctor' report the push credential mechanism it never ins
 
 ## Goal
 
@@ -57,7 +57,7 @@ the generator it now calls is `~/.config/github-app/jwt.sh`.
 ## Notes
 
 **This task was renumbered twice, and six collisions happened between two
-VMs in one hour.** T-0024, then T-0025, then T-0026, then T-0027, then T-0028:
+VMs in one hour.** T-0024, then T-0025, then T-0026, then T-0027, then T-0029:
 `instance-20260717-0947` created and claimed each of those numbers while this
 session was working or rebasing. Identifiers are allocated by reading the
 local tree, so two VMs collide by construction. The renumbering cost two full

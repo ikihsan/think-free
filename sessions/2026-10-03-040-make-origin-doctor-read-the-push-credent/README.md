@@ -38,7 +38,7 @@ _(none recorded)_
 
 ## Commands
 
-24 captured, 5 non-zero exit.
+26 captured, 5 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -66,6 +66,8 @@ _(none recorded)_
 | 36 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -8'] | 0 | 1958 |
 | 37 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 157620 |
 | 38 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -6'] | 0 | 1772 |
+| 39 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 153515 |
+| 40 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -6'] | 0 | 1814 |
 
 ## Integrity
 
@@ -119,6 +121,8 @@ _(none recorded)_
 | 36 | 00:53:52 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -8 |
 | 37 | 01:02:11 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
 | 38 | 01:02:26 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -6 |
+| 39 | 01:06:10 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
+| 40 | 01:06:19 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -6 |
 
 ## Reproduce this record
 
