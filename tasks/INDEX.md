@@ -8,7 +8,7 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-39 task(s). Every task file declares a runnable verification command;
+40 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -52,6 +52,7 @@ last-verified: 2026-10-04
 | [`T-0037-explain-the-four-red-ci-runs-since-the-version-m.md`](T-0037-explain-the-four-red-ci-runs-since-the-version-m.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0038-record-that-the-public-check-run-annotations-wer.md`](T-0038-record-that-the-public-check-run-annotations-wer.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0039-make-acceptance-and-steps-append-on-task-new-so.md`](T-0039-make-acceptance-and-steps-append-on-task-new-so.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md`](T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 
 ## How tasks run on another machine
 

@@ -114,6 +114,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0037-explain-the-four-red-ci-runs-since-the-version-m.md`](../tasks/T-0037-explain-the-four-red-ci-runs-since-the-version-m.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0038-record-that-the-public-check-run-annotations-wer.md`](../tasks/T-0038-record-that-the-public-check-run-annotations-wer.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md`](../tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md`](../tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
