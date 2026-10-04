@@ -11,7 +11,7 @@ created: 2026-10-04
 claim-agent: unknown-agent
 claim-session: 2026-10-04-047-decide-and-execute-the-highest-informati
 claim-vm: instance-20260717-0947
-verify: python3 -m unittest discover -s tests 2>&1 | tail -3
+verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -3
 -->
 
 # T-0059 — Measure whether 'prior art exists' can predict anything about adoption

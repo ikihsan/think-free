@@ -72,11 +72,13 @@ in the artifact?" answers *yes*, since `113` also sits at
 `resultnumbers.py` decides the property from the number's *shape*, and
 `tests/test_result_numbers_falsified.py` asserts the rejected rule's blindness.
 
-**Both machine-fact gates are closed, and the second was invisible from
-outside** (defects 8 and 9 in [`STATE-defects.md`](STATE-defects.md)): each was
-green on the VM that wrote it and red elsewhere for opposite reasons, and neither
-cause was readable from outside because the run log needs admin rights. Check
-`tools/origin task list --remote` before taking anything.
+**Identifier collisions between two VMs are closed** (T-0030, T-0031): allocate
+with `origin id next`, renumber on the side that has **not** been pushed, and
+record the collision where the next reader looks — never by editing a closed event
+stream. Keep both lines when two VMs' commits meet and regenerate the indexes
+rather than merging them. **The work-collision case still has no detector**, so
+read the remote task list first. Detail in
+[`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
 
 **A gate belongs in the one command the protocol tells every agent to run**
 (T-0045). T-0042 added `DECISIONS-RECORDS.md` at the top level, classified
@@ -96,36 +98,13 @@ can never pass again. Run `37190842104` at `f566ff0` is red on it. This is F018 
 F019 with the environment being time, and nothing scans for the pairing of a
 fixed instant in a fixture with a wall clock in the code.
 
-**A decision number is written in three places, and one of the three had no
-reader at all** (defect 14, T-0042). The heading and the index row in
-`DECISIONS.md` were held to each other by T-0030, the numbered defect list was
-added by T-0036, and the header under each record's title had no check until
-T-0042 found `DECISIONS-GATING.md` naming D013 — which lives in another file —
-while omitting three of its own entries, with both index rows correct throughout.
-
-**Collisions were allocated by reading the local tree, so two VMs in an hour
-collided by construction.** Twelve times in two days; the allocation cause is
-closed in T-0031 (`origin id next` reads `origin/<base>` and prints the record it
-read) and the detector in T-0030 — and the twelfth happened while fixing it. **Rule
-unchanged:** renumber on the side that has not been pushed, and record the
-collision where the next reader looks — never by editing a closed event stream.
-When two VMs' commits meet, keep both facts and let the generated indexes be
-regenerated rather than merged; a ledger conflict is resolved by keeping both
-lines. **A work collision is the same case with no detector at all:** T-0054 and
-T-0055 were one defect found by two VMs nine minutes apart, each VM giving it a
-different number, and the unpushed side yielded. Read the remote task list first.
-
-**Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
-repaired**: a session that landed a colleague's work reported it as undeclared
-(D028), generated files stamped `last-verified` with the render date (D029), and
-the orphan rule bit six real CI runs because `task new` did not rebuild the indexes
-and `task claim` did not stage them — T-0026 and T-0027, and the second took two
-tasks, because a lint on the author's own tree cannot see what the claim commit
-published. **Rebase a moving base with `origin sync land`:** a rebase run by
-hand records nothing — T-0053 recovers that arrival from `ORIG_HEAD` and the
-reflog, while a pull, cherry-pick or reset run by hand still leaves its paths
-reported. Sessions 040 and 012 hit the old ceiling through seven and two hand-run
-rebases respectively, and the stream is closed and is not edited, as with session 029.
+**Defect 14 (a decision number written in three places with one reader) and
+defects 1–4 and 7 are closed**; the full accounts are items 2(a) and 2(c) of
+[`STATE-next-actions.md`](STATE-next-actions.md), and the mechanisms live in
+[`STATE-defects.md`](STATE-defects.md) rather than being quietly repaired. **One
+rule survives here:** rebase a moving base with `origin sync land`, because a
+hand-run rebase records nothing and its paths are then attributed to whoever
+holds the tree (T-0053; sessions 040 and 012 hit that ceiling seven and twice).
 
 
 ## What changed recently
@@ -159,6 +138,18 @@ five times, and each repair moved material to the file whose invariant owns it.
   every candidate lives. Census in
   [`EXPERIMENTS/011-niche-adoption-census`](EXPERIMENTS/011-niche-adoption-census/README.md).
   **Which axis replaces the criterion is an owner decision**, and is recorded as such.
+
+- **Session 047, VM 0947 (T-0059). Twelve prior-art deaths are not twelve
+  pieces of evidence.** Measuring installs rather than stars in five niches:
+  three young vocabularies have 88–100% of their leading implementations with
+  no measurable monthly install, and stars do not predict installs in any niche,
+  mature included — which retracts the reading F028 was offered as support for.
+  A crowded niche is the normal state of every niche. Two instrument defects
+  were found by pre-flight and would each have flattered the hypothesis: an npm
+  endpoint that answers in two different shapes, and an HTTP 200 that means
+  *rate limited*. A third — a package name matching a repository it does not
+  belong to, 25% of the time — would have under-counted the mature arm's leader
+  by three orders of magnitude. F032.
 - **Session 045, VM 0947 (F026, F027).** This repository's own tooling was tested
   as a candidate for the first time and is prior art: `gitreceipts` reconciles a
   coding-agent session log against git history in both directions, covering more
@@ -216,17 +207,25 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 [`STATE-next-actions.md`](STATE-next-actions.md). Ordered by information gained
 per unit of effort; the top item is:
 
-**The selection procedure is now the suspect, not any one candidate.** F026 and
-F027 put the mission at **twelve candidates and twelve prior-art deaths**, the
-twelfth being its own tooling. Three of stage C's four criteria are now flat or
-negative in the one niche this mission has been working in: differentiation is
-falsified for the mechanism, "plausible adoption path" returns the same answer
-for every project including ours, and practical value has never been measured by
-anyone. **Prior-art survival cannot be the filter, because nothing this mission
-produces passes it.** The next candidate must therefore be chosen on a different
-axis than novelty, and the axis is an owner decision, not a tooling decision.
-**Ceiling:** F027 is a small self-selected sample of one niche, and weak proxies
-(0 stars) have well-known false negatives — `ripgrep` and `jq` are not refuted.
+**The selection axis has a measured candidate for the first time, and the old
+finding it replaces was measuring the wrong thing.** F026 and F027 put the
+mission at **twelve candidates and twelve prior-art deaths**; F028 concluded the
+flat adoption tail was vocabulary age — from **stars**. T-0059 counted
+**installs** in five niches and found stars do not predict them anywhere
+(`|rho| ≤ 0.35`, mature included), so F028's heavy tail is not evidence of
+adoption and its flat tail is not evidence against it. In three young
+vocabularies **88–100% of the leading implementations have no measurable monthly
+install**, and the leaderboard's own first entry has none in four of five
+niches. A crowded niche is therefore the *expected state of every crowded
+vocabulary*, compatible with none of its members being used: "prior art exists"
+cannot mean "served". **Ceiling, and it is a real one:** registry installs are
+not users — `thought-machine/please`, a 2,616-star incumbent, ships as a Bazel
+binary and is invisible to this instrument, so the gate's dead branch was never
+fully executable. The axis now on offer is the **install path** (does a user run
+a command, or find and trust a repository?), answerable before a build, with no
+users. It is `inferred` from five niches of 25; its obvious falsifier is a
+crowded niche whose incumbents are heavily installed. F029,
+[`EXPERIMENTS/012-prior-art-predicts-adoption`](EXPERIMENTS/012-prior-art-predicts-adoption/README.md).
 
 **The gaps in that pattern, both found by colliding with it, and one of them in
 the record rather than in a red run.** Rule 7 did not read the numbered list in

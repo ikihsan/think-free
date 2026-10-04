@@ -27,13 +27,17 @@ _(none recorded)_
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/012-prior-art-predicts-adoption/results.json | ab5cb539e002 | 54863 |
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+1 captured, 0 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 6 | ['tools/origin', 'doc', 'lint'] | 0 | 3814 |
 
 ## Integrity
 
@@ -53,6 +57,9 @@ _none_
 | 2 | 20:25:04 | task_rewrite | appended a create record for T-0059 |
 | 3 | 20:26:16 | task_rewrite | rewrote tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md (status: claimed) |
 | 4 | 20:26:16 | task_rewrite | appended a claim record for T-0059 |
+| 5 | 20:50:50 | artifact | wrote EXPERIMENTS/012-prior-art-predicts-adoption/results.json |
+| 6 | 21:02:21 | command | $ tools/origin doc lint |
+>>>>>>> T-0059: a crowded niche is not a solved one (F029)
 
 ## Reproduce this record
 

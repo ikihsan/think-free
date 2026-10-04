@@ -1,0 +1,8 @@
+pre-flight: 9/9 packages resolved, 4/4 attributions correct
+agent-session-log    young  n=25  used_at_star_rank=13   used>0=0.08   max=1864       unverif=9
+lockfile-drift       young  n=25  used_at_star_rank=4    used>0=0.12   max=3100       unverif=8
+knitting-chart       young  n=25  used_at_star_rank=None used>0=0.0    max=0          unverif=5
+reproducible-build   mature n=25  used_at_star_rank=18   used>0=0.16   max=4519       unverif=4
+exif-metadata        mature n=25  used_at_star_rank=15   used>0=0.28   max=16599464   unverif=5
+
+VERDICT: H SURVIVES: in >=3 niches the most-used implementation is not the leaderboard's first, and >=half of every young niche's implementations have no measurable use at all

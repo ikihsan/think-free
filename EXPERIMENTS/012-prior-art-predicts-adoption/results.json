@@ -1,0 +1,1831 @@
+{
+  "experiment": "012-prior-art-predicts-adoption",
+  "task": "T-0059",
+  "measured": "2026-10-04T20:49:13Z",
+  "usage_window": "last 30 days: npm last-month, PyPI per-month via shields.io, crates.io summed per-day rows",
+  "self_check": [
+    {
+      "registry": "npm",
+      "package": "vite",
+      "downloads": 779837152,
+      "resolved": true
+    },
+    {
+      "registry": "npm",
+      "package": "webpack",
+      "downloads": 237837878,
+      "resolved": true
+    },
+    {
+      "registry": "npm",
+      "package": "rollup",
+      "downloads": 529553636,
+      "resolved": true
+    },
+    {
+      "registry": "npm",
+      "package": "eslint",
+      "downloads": 680003787,
+      "resolved": true
+    },
+    {
+      "registry": "pypi",
+      "package": "requests",
+      "downloads": 1200000000,
+      "resolved": true
+    },
+    {
+      "registry": "pypi",
+      "package": "numpy",
+      "downloads": 795000000,
+      "resolved": true
+    },
+    {
+      "registry": "pypi",
+      "package": "flask",
+      "downloads": 136000000,
+      "resolved": true
+    },
+    {
+      "registry": "crates",
+      "package": "serde",
+      "downloads": 291223677,
+      "resolved": true
+    },
+    {
+      "registry": "crates",
+      "package": "tokio",
+      "downloads": 137654687,
+      "resolved": true
+    }
+  ],
+  "self_check_pass": true,
+  "ownership_check": [
+    {
+      "repo": "vitejs/vite",
+      "package": "npm:vite",
+      "declared_repo": "vitejs/vite",
+      "expected_match": true,
+      "matched": true,
+      "ok": true
+    },
+    {
+      "repo": "keszybz/add-determinism",
+      "package": "crates:add-determinism",
+      "declared_repo": "keszybz/add-determinism",
+      "expected_match": true,
+      "matched": true,
+      "ok": true
+    },
+    {
+      "repo": "thought-machine/please",
+      "package": "npm:please",
+      "declared_repo": "mrdrozdov/please",
+      "expected_match": false,
+      "matched": false,
+      "ok": true
+    },
+    {
+      "repo": "psf/requests",
+      "package": "pypi:requests",
+      "declared_repo": "psf/requests",
+      "expected_match": true,
+      "matched": true,
+      "ok": true
+    }
+  ],
+  "ownership_pass": true,
+  "niches": [
+    {
+      "key": "agent-session-log",
+      "query": "agent session log",
+      "age": "young",
+      "why": "F026/F027 niche: the mission's own tooling died here",
+      "n": 25,
+      "star_rank_of_most_used": 13,
+      "used_fraction_over_0": 0.08,
+      "used_fraction_over_1k": 0.04,
+      "used_fraction_over_100k": 0.0,
+      "spearman_stars_vs_usage": -0.15704398460978844,
+      "top5_overlap_fraction": 0.6,
+      "top5_chance_fraction": 1.0,
+      "max_stars": 40136,
+      "max_usage": 1864,
+      "registries_that_refused": 0,
+      "unverified_attributions": 9,
+      "org_fraction": 0.24,
+      "repos": [
+        {
+          "full_name": "PostHog/posthog",
+          "stars": 40136,
+          "forks": 3473,
+          "created_at": "2020-01-23T22:46:58Z",
+          "pushed_at": "2026-10-04T20:48:17Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:posthog",
+            "pypi:posthog"
+          ]
+        },
+        {
+          "full_name": "zszszszsz/.config",
+          "stars": 359,
+          "forks": 96,
+          "created_at": "2020-06-23T17:51:35Z",
+          "pushed_at": "2023-10-05T22:52:42Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "danderfer/Comp_Sci_Sem_2",
+          "stars": 213,
+          "forks": 43,
+          "created_at": "2022-06-07T20:15:11Z",
+          "pushed_at": "2023-04-03T17:47:53Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "gebruder/wirken",
+          "stars": 187,
+          "forks": 9,
+          "created_at": "2026-03-25T07:40:19Z",
+          "pushed_at": "2026-10-04T12:30:12Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Don-No7/Hack-SQL",
+          "stars": 148,
+          "forks": 24,
+          "created_at": "2022-01-30T17:26:02Z",
+          "pushed_at": "2024-06-19T17:09:52Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "angieruiz17/codex-gpt-plugin",
+          "stars": 142,
+          "forks": 1048,
+          "created_at": "2026-07-08T14:53:58Z",
+          "pushed_at": "2026-09-14T07:55:03Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "jsslkeylog/jsslkeylog",
+          "stars": 126,
+          "forks": 25,
+          "created_at": "2020-06-04T18:43:43Z",
+          "pushed_at": "2025-10-04T14:07:27Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "ZIZKA-AI-SL/ZizkaDB",
+          "stars": 119,
+          "forks": 25,
+          "created_at": "2026-05-10T01:21:37Z",
+          "pushed_at": "2026-10-03T11:17:54Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "CNTRUN/Termux-command",
+          "stars": 117,
+          "forks": 0,
+          "created_at": "2018-04-27T02:06:41Z",
+          "pushed_at": "2018-04-27T02:06:41Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "cozyblaze/portal-agent",
+          "stars": 98,
+          "forks": 8,
+          "created_at": "2026-09-07T04:40:30Z",
+          "pushed_at": "2026-09-07T05:05:11Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "unixzii/agent-explorer",
+          "stars": 59,
+          "forks": 4,
+          "created_at": "2026-06-24T14:57:30Z",
+          "pushed_at": "2026-09-05T09:03:45Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:agent-explorer"
+          ]
+        },
+        {
+          "full_name": "agent-session-protocol/universal-session-log",
+          "stars": 54,
+          "forks": 0,
+          "created_at": "2026-08-29T19:58:16Z",
+          "pushed_at": "2026-10-03T05:23:38Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "amlyczz/dsh-lark-link",
+          "stars": 41,
+          "forks": 7,
+          "created_at": "2026-08-13T19:28:01Z",
+          "pushed_at": "2026-09-21T07:53:55Z",
+          "owner_is_org": false,
+          "usage_30d": 1864,
+          "usage_registry": "npm:dsh-lark-link",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "ratacat/pro-cli",
+          "stars": 38,
+          "forks": 6,
+          "created_at": "2026-05-07T15:33:57Z",
+          "pushed_at": "2026-07-31T01:38:12Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:pro-cli",
+            "npm:pro-cli"
+          ]
+        },
+        {
+          "full_name": "finchvox/finchvox",
+          "stars": 34,
+          "forks": 8,
+          "created_at": "2025-12-28T13:01:29Z",
+          "pushed_at": "2026-08-05T14:07:52Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:finchvox"
+          ]
+        },
+        {
+          "full_name": "eric8810/authy",
+          "stars": 24,
+          "forks": 5,
+          "created_at": "2026-02-17T05:45:35Z",
+          "pushed_at": "2026-02-26T13:14:26Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:authy",
+            "npm:authy",
+            "pypi:authy"
+          ]
+        },
+        {
+          "full_name": "cobibean/agent-memory-wiki",
+          "stars": 23,
+          "forks": 0,
+          "created_at": "2026-06-13T16:34:34Z",
+          "pushed_at": "2026-07-29T18:13:21Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "ahmar00987/Fb-Clonin",
+          "stars": 22,
+          "forks": 6,
+          "created_at": "2021-12-09T10:25:25Z",
+          "pushed_at": "2021-12-09T10:25:26Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mrgoonie/maskara",
+          "stars": 20,
+          "forks": 3,
+          "created_at": "2026-06-21T09:08:07Z",
+          "pushed_at": "2026-06-23T03:44:33Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:maskara"
+          ]
+        },
+        {
+          "full_name": "Phamdung2009/xxx",
+          "stars": 20,
+          "forks": 9,
+          "created_at": "2021-04-21T07:39:06Z",
+          "pushed_at": "2021-04-21T07:42:13Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:xxx",
+            "npm:xxx",
+            "pypi:xxx"
+          ]
+        },
+        {
+          "full_name": "everettjf/coding-agent-visualizer",
+          "stars": 18,
+          "forks": 1,
+          "created_at": "2026-06-15T02:49:22Z",
+          "pushed_at": "2026-06-23T17:11:33Z",
+          "owner_is_org": false,
+          "usage_30d": 45,
+          "usage_registry": "npm:coding-agent-visualizer",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "WeZZard/minelogue",
+          "stars": 17,
+          "forks": 0,
+          "created_at": "2026-07-02T10:50:13Z",
+          "pushed_at": "2026-07-02T16:42:40Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "HlaingPhyoAung/sqlmap",
+          "stars": 17,
+          "forks": 4,
+          "created_at": "2018-09-21T02:27:03Z",
+          "pushed_at": "2019-02-07T15:47:50Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:sqlmap",
+            "pypi:sqlmap"
+          ]
+        },
+        {
+          "full_name": "ahmar00987/ahsam",
+          "stars": 17,
+          "forks": 2,
+          "created_at": "2021-12-11T16:44:35Z",
+          "pushed_at": "2021-12-11T16:46:09Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "alloevil/AgentXRay",
+          "stars": 16,
+          "forks": 2,
+          "created_at": "2026-04-03T02:59:54Z",
+          "pushed_at": "2026-10-01T14:22:14Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:agentxray"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lockfile-drift",
+      "query": "lockfile drift",
+      "age": "young",
+      "why": "F028 sample, young vocabulary",
+      "n": 25,
+      "star_rank_of_most_used": 4,
+      "used_fraction_over_0": 0.12,
+      "used_fraction_over_1k": 0.08,
+      "used_fraction_over_100k": 0.0,
+      "spearman_stars_vs_usage": 0.34958355064779606,
+      "top5_overlap_fraction": 0.8,
+      "top5_chance_fraction": 1.0,
+      "max_stars": 6,
+      "max_usage": 3100,
+      "registries_that_refused": 0,
+      "unverified_attributions": 8,
+      "org_fraction": 0.04,
+      "repos": [
+        {
+          "full_name": "mcptrust/mcptrust",
+          "stars": 6,
+          "forks": 2,
+          "created_at": "2025-12-16T01:30:35Z",
+          "pushed_at": "2026-03-19T02:19:05Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "nivinvysakh/syncmydep",
+          "stars": 4,
+          "forks": 3,
+          "created_at": "2026-08-21T15:50:43Z",
+          "pushed_at": "2026-10-03T17:08:10Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "nbialk/quiver-cli",
+          "stars": 3,
+          "forks": 0,
+          "created_at": "2026-06-03T16:22:11Z",
+          "pushed_at": "2026-09-21T06:21:44Z",
+          "owner_is_org": false,
+          "usage_30d": 1159,
+          "usage_registry": "npm:quiver-cli",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "yudelevi/mpat",
+          "stars": 2,
+          "forks": 0,
+          "created_at": "2026-09-09T18:08:39Z",
+          "pushed_at": "2026-09-17T15:48:11Z",
+          "owner_is_org": false,
+          "usage_30d": 3100,
+          "usage_registry": "pypi:mpat",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Wannavf/mcp-sentinel",
+          "stars": 2,
+          "forks": 0,
+          "created_at": "2026-05-07T10:16:27Z",
+          "pushed_at": "2026-05-08T22:21:43Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:mcp-sentinel",
+            "pypi:mcp-sentinel"
+          ]
+        },
+        {
+          "full_name": "kushankurdas/npm-sentinel",
+          "stars": 2,
+          "forks": 0,
+          "created_at": "2026-04-07T19:35:00Z",
+          "pushed_at": "2026-04-11T14:30:31Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:npm-sentinel",
+            "npm:npm-sentinel"
+          ]
+        },
+        {
+          "full_name": "AndrewDongminYoo/cc-agents-kit",
+          "stars": 2,
+          "forks": 1,
+          "created_at": "2026-08-18T06:55:33Z",
+          "pushed_at": "2026-10-04T14:23:05Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "rogerchappel/lockfilelens",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-05-02T04:09:31Z",
+          "pushed_at": "2026-10-04T20:33:48Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Grar00t/runprint",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-09-07T00:55:45Z",
+          "pushed_at": "2026-09-28T23:51:55Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:runprint"
+          ]
+        },
+        {
+          "full_name": "MaXiMo000/lockstep",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-09-09T19:09:42Z",
+          "pushed_at": "2026-10-02T01:06:23Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:lockstep",
+            "npm:lockstep",
+            "pypi:lockstep"
+          ]
+        },
+        {
+          "full_name": "mlane/deterministic-dependency-reset",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-05-14T21:26:26Z",
+          "pushed_at": "2026-05-17T03:06:37Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "yubinkim444/promptlock",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-05-18T18:26:03Z",
+          "pushed_at": "2026-08-26T20:15:18Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:promptlock"
+          ]
+        },
+        {
+          "full_name": "peterbarbosa/tether-mcp",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-08-24T01:48:58Z",
+          "pushed_at": "2026-08-24T03:00:27Z",
+          "owner_is_org": false,
+          "usage_30d": 38,
+          "usage_registry": "npm:tether-mcp",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "qwexvf/aegis-cli",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-05-03T03:05:19Z",
+          "pushed_at": "2026-10-04T17:13:51Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:aegis-cli",
+            "npm:aegis-cli",
+            "pypi:aegis-cli"
+          ]
+        },
+        {
+          "full_name": "BryanFiFife/CatalogLock",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-08-26T23:41:11Z",
+          "pushed_at": "2026-08-28T15:03:24Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "gsdfgfdsg1-wq/lockfile-drift-checker",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-07-12T22:05:28Z",
+          "pushed_at": "2026-07-12T22:05:32Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "BCS911/mcp-lockfile-audit",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-07-20T07:34:20Z",
+          "pushed_at": "2026-07-20T07:34:48Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "astegmaier/playground-pnpm-lockfile-drift-bug",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-06-23T18:52:38Z",
+          "pushed_at": "2026-07-20T12:08:58Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "maxi-maxima/mcp-server-consent-drift-lockfile-20260727",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-07-27T14:06:53Z",
+          "pushed_at": "2026-07-27T14:06:59Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "significancemoloch680/driftcheck",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-04-16T21:00:30Z",
+          "pushed_at": "2026-10-03T07:29:35Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mizcausevic-dev/dependency-drift-watch",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-05-15T17:29:03Z",
+          "pushed_at": "2026-08-04T16:31:58Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "maxi-maxima/model-context-protocol-server-drift-checker",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-06-23T02:52:28Z",
+          "pushed_at": "2026-06-23T02:52:43Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "enached134-ctrl/driftlock",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-07-16T16:15:26Z",
+          "pushed_at": "2026-08-06T21:35:14Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:driftlock",
+            "pypi:driftlock"
+          ]
+        },
+        {
+          "full_name": "mitosisdev/dep-drift",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-06-07T22:34:37Z",
+          "pushed_at": "2026-06-09T02:08:03Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "kriskimmerle/lockdiff",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-02-09T18:14:23Z",
+          "pushed_at": "2026-02-09T18:14:26Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:lockdiff"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "knitting-chart",
+      "query": "knitting chart",
+      "age": "young",
+      "why": "candidate C1's niche, rejected on prior art",
+      "n": 25,
+      "star_rank_of_most_used": null,
+      "used_fraction_over_0": 0.0,
+      "used_fraction_over_1k": 0.0,
+      "used_fraction_over_100k": 0.0,
+      "spearman_stars_vs_usage": null,
+      "top5_overlap_fraction": 1.0,
+      "top5_chance_fraction": 1.0,
+      "max_stars": 64,
+      "max_usage": 0,
+      "registries_that_refused": 0,
+      "unverified_attributions": 5,
+      "org_fraction": 0.04,
+      "repos": [
+        {
+          "full_name": "knitscape/knitscape",
+          "stars": 64,
+          "forks": 9,
+          "created_at": "2023-07-26T00:12:04Z",
+          "pushed_at": "2026-09-25T21:18:37Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "notwaldorf/knit-a-stitch",
+          "stars": 52,
+          "forks": 5,
+          "created_at": "2017-12-19T03:56:23Z",
+          "pushed_at": "2017-12-23T16:55:23Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "marnen/knitting_symbols",
+          "stars": 13,
+          "forks": 3,
+          "created_at": "2017-01-07T18:03:08Z",
+          "pushed_at": "2019-05-15T03:25:56Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "astraknots/ncis",
+          "stars": 8,
+          "forks": 2,
+          "created_at": "2017-09-24T18:38:34Z",
+          "pushed_at": "2024-12-14T22:37:04Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:ncis"
+          ]
+        },
+        {
+          "full_name": "nonnameavailable/Charty-McChartface",
+          "stars": 6,
+          "forks": 1,
+          "created_at": "2024-01-11T20:39:32Z",
+          "pushed_at": "2025-03-10T21:50:38Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "bpeel/stitchify",
+          "stars": 6,
+          "forks": 0,
+          "created_at": "2024-02-13T08:15:41Z",
+          "pushed_at": "2026-02-08T10:51:41Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "jamesmahler/knitting_chart",
+          "stars": 3,
+          "forks": 0,
+          "created_at": "2020-07-20T22:52:49Z",
+          "pushed_at": "2022-02-10T02:07:27Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:knitting_chart"
+          ]
+        },
+        {
+          "full_name": "eyewitnesshsu-ops/illusion-stitch-studio",
+          "stars": 3,
+          "forks": 0,
+          "created_at": "2026-07-19T12:10:51Z",
+          "pushed_at": "2026-09-29T10:21:49Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "michaelmelanson/knitting-charter",
+          "stars": 2,
+          "forks": 0,
+          "created_at": "2010-10-04T21:30:37Z",
+          "pushed_at": "2023-01-03T22:42:30Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "iurrutia/image2pattern",
+          "stars": 2,
+          "forks": 0,
+          "created_at": "2020-06-02T18:39:25Z",
+          "pushed_at": "2020-06-11T00:54:10Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mzetasmith/knitting-project",
+          "stars": 1,
+          "forks": 1,
+          "created_at": "2024-09-20T16:16:15Z",
+          "pushed_at": "2024-12-14T18:57:17Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Jeanneveev/Knitting-Pattern-to-Chart-Translator",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2025-06-23T02:30:05Z",
+          "pushed_at": "2026-09-29T20:39:24Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "priiw/ITEC4000",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2019-03-20T15:26:54Z",
+          "pushed_at": "2019-04-02T20:45:21Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "amberweinberg/KnittingCSS",
+          "stars": 1,
+          "forks": 1,
+          "created_at": "2016-07-07T23:28:34Z",
+          "pushed_at": "2016-07-07T23:28:38Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "callmebyneon/light-knitting-chart",
+          "stars": 1,
+          "forks": 1,
+          "created_at": "2026-04-17T15:59:15Z",
+          "pushed_at": "2026-07-30T08:32:20Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "lanyii22/KnittingLab",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-01-03T10:23:53Z",
+          "pushed_at": "2026-01-05T08:08:48Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "heino17/Knitting-Pattern-Editor",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2026-07-04T15:14:57Z",
+          "pushed_at": "2026-08-10T09:59:09Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "terriko/knitpy",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2015-04-01T05:20:16Z",
+          "pushed_at": "2015-04-01T07:16:30Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:knitpy"
+          ]
+        },
+        {
+          "full_name": "lhackman/fairisle-chart-generator",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2016-02-03T07:17:28Z",
+          "pushed_at": "2016-02-03T18:40:01Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "dpearyer/FiberCanvas",
+          "stars": 1,
+          "forks": 1,
+          "created_at": "2024-01-12T02:54:37Z",
+          "pushed_at": "2024-01-19T05:41:49Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "LefseTime/Knitteracy",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2019-02-14T17:34:01Z",
+          "pushed_at": "2019-03-14T15:56:34Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "LenySauzet/TriGrid",
+          "stars": 1,
+          "forks": 0,
+          "created_at": "2023-06-29T21:27:56Z",
+          "pushed_at": "2023-06-29T21:32:50Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Neverlix/knitting",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2026-02-16T18:35:18Z",
+          "pushed_at": "2026-05-22T13:00:22Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:knitting"
+          ]
+        },
+        {
+          "full_name": "connienguyen/knitting",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2014-07-12T23:43:23Z",
+          "pushed_at": "2014-10-29T02:11:01Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:knitting"
+          ]
+        },
+        {
+          "full_name": "VB6Hobbyst7/KnittingChart",
+          "stars": 0,
+          "forks": 0,
+          "created_at": "2021-08-15T05:29:35Z",
+          "pushed_at": "2020-01-02T19:24:45Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        }
+      ]
+    },
+    {
+      "key": "reproducible-build",
+      "query": "reproducible build",
+      "age": "mature",
+      "why": "F028 heavy tail at 4135 stars: the contrast case",
+      "n": 25,
+      "star_rank_of_most_used": 18,
+      "used_fraction_over_0": 0.16,
+      "used_fraction_over_1k": 0.12,
+      "used_fraction_over_100k": 0.0,
+      "spearman_stars_vs_usage": 0.03011829603693343,
+      "top5_overlap_fraction": 0.4,
+      "top5_chance_fraction": 1.0,
+      "max_stars": 2616,
+      "max_usage": 4519,
+      "registries_that_refused": 0,
+      "unverified_attributions": 4,
+      "org_fraction": 0.44,
+      "repos": [
+        {
+          "full_name": "thought-machine/please",
+          "stars": 2616,
+          "forks": 221,
+          "created_at": "2016-02-02T11:27:05Z",
+          "pushed_at": "2026-10-02T11:31:39Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:please",
+            "npm:please",
+            "pypi:please"
+          ]
+        },
+        {
+          "full_name": "Hamza417/Inure",
+          "stars": 1940,
+          "forks": 115,
+          "created_at": "2021-03-07T18:31:46Z",
+          "pushed_at": "2026-10-04T03:24:40Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "openSUSE/open-build-service",
+          "stars": 1081,
+          "forks": 492,
+          "created_at": "2011-07-14T06:52:57Z",
+          "pushed_at": "2026-10-02T14:46:56Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "retentioneering/retentioneering-tools",
+          "stars": 920,
+          "forks": 137,
+          "created_at": "2019-07-02T13:37:30Z",
+          "pushed_at": "2026-10-04T13:23:45Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "JamieMason/shrinkpack",
+          "stars": 799,
+          "forks": 27,
+          "created_at": "2015-02-13T18:20:14Z",
+          "pushed_at": "2023-02-16T23:23:21Z",
+          "owner_is_org": false,
+          "usage_30d": 1812,
+          "usage_registry": "npm:shrinkpack",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "kpcyrd/rebuilderd",
+          "stars": 430,
+          "forks": 34,
+          "created_at": "2019-12-12T19:19:37Z",
+          "pushed_at": "2026-09-26T16:00:10Z",
+          "owner_is_org": false,
+          "usage_30d": 31,
+          "usage_registry": "crates:rebuilderd",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "256lights/zb",
+          "stars": 409,
+          "forks": 20,
+          "created_at": "2024-05-03T15:13:14Z",
+          "pushed_at": "2026-09-25T16:57:49Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:zb",
+            "npm:zb",
+            "pypi:zb"
+          ]
+        },
+        {
+          "full_name": "chrissotraidis/harkinianpad",
+          "stars": 389,
+          "forks": 29,
+          "created_at": "2026-07-24T07:40:35Z",
+          "pushed_at": "2026-10-04T11:15:33Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "microsoft/vs-tools-for-ai",
+          "stars": 362,
+          "forks": 81,
+          "created_at": "2017-09-21T18:50:51Z",
+          "pushed_at": "2023-06-12T20:27:14Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "reproducible-containers/buildkit-cache-dance",
+          "stars": 336,
+          "forks": 73,
+          "created_at": "2023-09-13T16:36:13Z",
+          "pushed_at": "2026-08-25T15:54:08Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "jasonwhite/ducible",
+          "stars": 271,
+          "forks": 24,
+          "created_at": "2016-07-10T08:05:45Z",
+          "pushed_at": "2019-10-02T21:06:00Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "cytopia/docker-ansible",
+          "stars": 247,
+          "forks": 67,
+          "created_at": "2019-06-10T11:24:14Z",
+          "pushed_at": "2026-08-03T02:03:38Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "dotnet/reproducible-builds",
+          "stars": 223,
+          "forks": 26,
+          "created_at": "2021-04-28T18:50:54Z",
+          "pushed_at": "2026-06-18T21:02:35Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:reproducible-builds"
+          ]
+        },
+        {
+          "full_name": "reproducible-containers/buildkit-nix",
+          "stars": 191,
+          "forks": 19,
+          "created_at": "2021-12-03T12:53:28Z",
+          "pushed_at": "2023-09-13T10:51:18Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Calix-L/awesome-latex-skills",
+          "stars": 178,
+          "forks": 4,
+          "created_at": "2026-05-02T15:45:57Z",
+          "pushed_at": "2026-10-04T20:49:37Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "JackHCC/Computer-Generated-Hologram",
+          "stars": 176,
+          "forks": 22,
+          "created_at": "2021-11-29T13:40:48Z",
+          "pushed_at": "2022-12-23T09:09:34Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "kpcyrd/i-probably-didnt-backdoor-this",
+          "stars": 160,
+          "forks": 10,
+          "created_at": "2021-08-19T21:42:54Z",
+          "pushed_at": "2023-08-21T08:35:36Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "keszybz/add-determinism",
+          "stars": 155,
+          "forks": 11,
+          "created_at": "2024-03-16T14:25:42Z",
+          "pushed_at": "2026-06-03T14:45:45Z",
+          "owner_is_org": false,
+          "usage_30d": 4519,
+          "usage_registry": "crates:add-determinism",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "avirshup/DockerMake",
+          "stars": 139,
+          "forks": 25,
+          "created_at": "2015-12-04T23:21:29Z",
+          "pushed_at": "2025-04-21T19:36:07Z",
+          "owner_is_org": false,
+          "usage_30d": 2000,
+          "usage_registry": "pypi:dockermake",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:dockermake"
+          ]
+        },
+        {
+          "full_name": "polygon/nix-buildproxy",
+          "stars": 130,
+          "forks": 5,
+          "created_at": "2024-02-18T12:45:26Z",
+          "pushed_at": "2024-02-29T13:18:06Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "emacs-twist/twist.nix",
+          "stars": 121,
+          "forks": 16,
+          "created_at": "2021-12-13T08:02:33Z",
+          "pushed_at": "2026-09-22T04:01:19Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "lessw2020/Ranger-Mish-ImageWoof-5",
+          "stars": 115,
+          "forks": 25,
+          "created_at": "2019-08-28T15:03:49Z",
+          "pushed_at": "2019-11-16T17:15:50Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "sscs-ose/sscs-chipathon-2026",
+          "stars": 104,
+          "forks": 20,
+          "created_at": "2026-03-05T03:41:13Z",
+          "pushed_at": "2026-09-29T22:54:05Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "kamilchm/go2nix",
+          "stars": 94,
+          "forks": 15,
+          "created_at": "2015-11-02T19:38:24Z",
+          "pushed_at": "2021-08-26T12:35:04Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "inno-devops-labs/DevOps-Core-Course",
+          "stars": 91,
+          "forks": 283,
+          "created_at": "2025-01-22T20:57:08Z",
+          "pushed_at": "2026-07-02T13:16:52Z",
+          "owner_is_org": true,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        }
+      ]
+    },
+    {
+      "key": "exif-metadata",
+      "query": "exif metadata",
+      "age": "mature",
+      "why": "long-lived vocabulary with non-engineer users",
+      "n": 25,
+      "star_rank_of_most_used": 15,
+      "used_fraction_over_0": 0.28,
+      "used_fraction_over_1k": 0.28,
+      "used_fraction_over_100k": 0.16,
+      "spearman_stars_vs_usage": 0.06992763455475547,
+      "top5_overlap_fraction": 0.2,
+      "top5_chance_fraction": 1.0,
+      "max_stars": 5757,
+      "max_usage": 16599464,
+      "registries_that_refused": 1,
+      "unverified_attributions": 5,
+      "org_fraction": 0.04,
+      "repos": [
+        {
+          "full_name": "wiltodelta/remove-ai-watermarks",
+          "stars": 5757,
+          "forks": 528,
+          "created_at": "2026-03-25T18:15:24Z",
+          "pushed_at": "2026-10-04T18:03:46Z",
+          "owner_is_org": false,
+          "usage_30d": 8100,
+          "usage_registry": "pypi:remove-ai-watermarks",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "exif-js/exif-js",
+          "stars": 4980,
+          "forks": 1254,
+          "created_at": "2009-09-05T11:54:59Z",
+          "pushed_at": "2024-05-31T01:46:13Z",
+          "owner_is_org": true,
+          "usage_30d": 802976,
+          "usage_registry": "npm:exif-js",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "blueimp/JavaScript-Load-Image",
+          "stars": 4457,
+          "forks": 914,
+          "created_at": "2011-12-12T22:22:36Z",
+          "pushed_at": "2021-10-20T14:18:03Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "drewnoakes/metadata-extractor",
+          "stars": 2834,
+          "forks": 506,
+          "created_at": "2014-11-19T00:13:55Z",
+          "pushed_at": "2026-07-28T04:25:06Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:metadata-extractor",
+            "pypi:metadata-extractor"
+          ]
+        },
+        {
+          "full_name": "szTheory/exifcleaner",
+          "stars": 2721,
+          "forks": 167,
+          "created_at": "2019-12-05T05:08:18Z",
+          "pushed_at": "2026-10-04T02:03:34Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [
+            "pypi"
+          ],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mattwilson1024/google-photos-exif",
+          "stars": 1098,
+          "forks": 155,
+          "created_at": "2020-09-04T17:31:40Z",
+          "pushed_at": "2024-05-06T00:49:51Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "drewnoakes/metadata-extractor-dotnet",
+          "stars": 1074,
+          "forks": 188,
+          "created_at": "2015-06-21T17:06:56Z",
+          "pushed_at": "2026-09-10T07:51:11Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "ianare/exif-py",
+          "stars": 972,
+          "forks": 214,
+          "created_at": "2012-06-01T00:45:09Z",
+          "pushed_at": "2026-06-10T14:55:25Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "ianare/exif-samples",
+          "stars": 664,
+          "forks": 145,
+          "created_at": "2013-02-07T23:57:12Z",
+          "pushed_at": "2025-04-22T21:25:20Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "gomfunkel/node-exif",
+          "stars": 588,
+          "forks": 93,
+          "created_at": "2011-01-28T22:24:40Z",
+          "pushed_at": "2023-05-18T01:08:27Z",
+          "owner_is_org": false,
+          "usage_30d": 138748,
+          "usage_registry": "npm:exif",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Tommy-Geenexus/exif-eraser",
+          "stars": 428,
+          "forks": 9,
+          "created_at": "2020-06-05T16:18:22Z",
+          "pushed_at": "2026-10-01T03:32:37Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "d2phap/ExifGlass",
+          "stars": 304,
+          "forks": 13,
+          "created_at": "2023-03-07T14:30:40Z",
+          "pushed_at": "2026-07-15T12:39:57Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "barasher/go-exiftool",
+          "stars": 299,
+          "forks": 48,
+          "created_at": "2019-05-12T20:34:09Z",
+          "pushed_at": "2025-08-03T21:07:11Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "LeoHsiao1/pyexiv2",
+          "stars": 247,
+          "forks": 45,
+          "created_at": "2019-06-23T16:59:43Z",
+          "pushed_at": "2026-09-20T15:46:14Z",
+          "owner_is_org": false,
+          "usage_30d": 61000,
+          "usage_registry": "pypi:pyexiv2",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "bwindels/exif-parser",
+          "stars": 229,
+          "forks": 55,
+          "created_at": "2013-05-29T01:44:55Z",
+          "pushed_at": "2021-09-12T21:42:00Z",
+          "owner_is_org": false,
+          "usage_30d": 16599464,
+          "usage_registry": "npm:exif-parser",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "Ckitakishi/MetaX",
+          "stars": 226,
+          "forks": 17,
+          "created_at": "2018-05-04T07:59:17Z",
+          "pushed_at": "2026-04-15T12:40:40Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "npm:metax",
+            "pypi:metax"
+          ]
+        },
+        {
+          "full_name": "jim-easterbrook/Photini",
+          "stars": 215,
+          "forks": 25,
+          "created_at": "2012-09-26T07:43:19Z",
+          "pushed_at": "2026-10-02T08:18:16Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:photini"
+          ]
+        },
+        {
+          "full_name": "evanoberholster/imagemeta",
+          "stars": 177,
+          "forks": 16,
+          "created_at": "2018-10-25T15:59:14Z",
+          "pushed_at": "2026-09-27T07:31:31Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "crates:imagemeta"
+          ]
+        },
+        {
+          "full_name": "devongovett/exif-reader",
+          "stars": 174,
+          "forks": 25,
+          "created_at": "2015-03-06T06:02:57Z",
+          "pushed_at": "2025-12-12T14:43:11Z",
+          "owner_is_org": false,
+          "usage_30d": 629242,
+          "usage_registry": "npm:exif-reader",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "NextWeb4/photo-metadata-editor",
+          "stars": 164,
+          "forks": 0,
+          "created_at": "2026-07-12T06:07:24Z",
+          "pushed_at": "2026-07-22T14:15:38Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "lucasgelfond/exiftool-web",
+          "stars": 158,
+          "forks": 10,
+          "created_at": "2025-02-22T19:38:11Z",
+          "pushed_at": "2026-01-10T18:07:32Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "oozcitak/exiflibrary",
+          "stars": 149,
+          "forks": 51,
+          "created_at": "2015-05-07T06:38:00Z",
+          "pushed_at": "2024-03-29T13:07:11Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mz2/Carpaccio",
+          "stars": 127,
+          "forks": 14,
+          "created_at": "2016-05-07T23:01:55Z",
+          "pushed_at": "2023-06-10T06:49:52Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "mindeng/nom-exif",
+          "stars": 124,
+          "forks": 20,
+          "created_at": "2024-02-15T04:05:16Z",
+          "pushed_at": "2026-09-07T04:07:02Z",
+          "owner_is_org": false,
+          "usage_30d": 55147,
+          "usage_registry": "crates:nom-exif",
+          "usage_refused": [],
+          "usage_unverified": []
+        },
+        {
+          "full_name": "jeonghyeon-net/exif-frame",
+          "stars": 119,
+          "forks": 34,
+          "created_at": "2024-03-27T14:24:47Z",
+          "pushed_at": "2026-05-06T17:15:29Z",
+          "owner_is_org": false,
+          "usage_30d": 0,
+          "usage_registry": "none",
+          "usage_refused": [],
+          "usage_unverified": [
+            "pypi:exif-frame"
+          ]
+        }
+      ]
+    }
+  ],
+  "verdict": "H SURVIVES: in >=3 niches the most-used implementation is not the leaderboard's first, and >=half of every young niche's implementations have no measurable use at all",
+  "gate": {
+    "answered": [
+      "agent-session-log",
+      "lockfile-drift",
+      "reproducible-build",
+      "exif-metadata"
+    ],
+    "most_used_is_leader": [],
+    "most_used_not_leader": [
+      "agent-session-log",
+      "lockfile-drift",
+      "reproducible-build",
+      "exif-metadata"
+    ],
+    "undecided_niches": [
+      "knitting-chart"
+    ],
+    "young_mostly_unused": true,
+    "rhos": [
+      {
+        "key": "agent-session-log",
+        "age": "young",
+        "rho": -0.15704398460978844
+      },
+      {
+        "key": "lockfile-drift",
+        "age": "young",
+        "rho": 0.34958355064779606
+      },
+      {
+        "key": "reproducible-build",
+        "age": "mature",
+        "rho": 0.03011829603693343
+      },
+      {
+        "key": "exif-metadata",
+        "age": "mature",
+        "rho": 0.06992763455475547
+      }
+    ]
+  }
+}

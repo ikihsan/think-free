@@ -65,6 +65,7 @@ side per the rule in
 | F029 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
 | F030 | A prior-art verdict from one search query is unreliable in both directions |
 | F031 | Measured from outside, the mission was spending its effort on its own record |
+| F032 | Stars do not predict installs in any of five niches, so F028's flat tail was never a statement about adoption; and "prior art exists" cannot mean "served" |
 
 
 **The invariant that makes the split sensible.** A finding is only useful if a

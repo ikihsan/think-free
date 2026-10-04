@@ -169,3 +169,91 @@ descriptions, stars as a weak proxy; `ripgrep`-class false negatives still
 unrefuted, and no measurement of usefulness is made. What survives is the
 narrow, decision-changing half: do not read a stars search as evidence
 for or against a candidate in a vocabulary less than a few years old.
+
+## F029 — Stars do not measure adoption in any of five niches, so F028's flat tail was never a statement about adoption
+
+Source: session `2026-10-04-047`, T-0059. Raw results:
+[`EXPERIMENTS/012-prior-art-predicts-adoption/results.json`](EXPERIMENTS/012-prior-art-predicts-adoption/results.json).
+Instrument `observed` 2026-10-04.
+
+**The belief under test.** `STATE-next-actions.md` item 0 holds that
+prior-art survival cannot be the selection filter, on the inference that a
+crowded niche is a solved niche. That inference has two links and neither had
+been measured: F027 and F028 counted **votes**, and F028's conclusion — that the
+flat adoption tail is vocabulary age — was drawn from stars. This entry measures
+**installs** in the same five kinds of niche and reports what the two measures
+have to do with each other.
+
+**Measured, `observed`.** Top 25 repositories by stars in each of five niches,
+then registry downloads over one month — npm `last-month`, PyPI per-month,
+crates.io summed daily rows — with the largest single-registry figure credited
+and the registry recorded.
+
+| Niche | Age | Any measurable install | >1k/mo | max monthly installs | top-by-stars project | its installs | Spearman(stars, installs) |
+|---|---|---|---|---|---|---|---|
+| `agent session log` | young | 2/25 (0.08) | 1 | 1,864 | `PostHog/posthog` (40,135★) | **0** | −0.157 |
+| `lockfile drift` | young | 3/25 (0.12) | 2 | 3,100 | `mcptrust/mcptrust` (6★) | 0 | 0.350 |
+| `knitting chart` | young | **0/25** | 0 | 0 | `knitscape/knitscape` (64★) | 0 | undefined |
+| `reproducible build` | mature | 4/25 (0.16) | 3 | 4,519 | `thought-machine/please` (2,616★) | **0** | 0.030 |
+| `exif metadata` | mature | 7/25 (0.28) | 7 | 16,599,464 | `remove-ai-watermarks` (5,757★) | 8,100 | 0.070 |
+
+**Three results, and the first two were not the ones expected.**
+
+1. **Stars do not predict installs anywhere, including the mature niches.**
+   `|rho| ≤ 0.35` in all five, and negative in one. So F028's heavy star tail
+   in `reproducible builds` is **not** evidence of adoption, and its flat tail
+   in young vocabularies is not evidence against it. F028 measured one thing;
+   this measures another; the two are decoupled, which removes the reading
+   either was offered as support for. F028's own ceiling already said stars were
+   "a weak proxy"; the measurement says the proxy is unrelated.
+2. **Measured on installs, vocabulary age does not rescue a niche.** Four of
+   five niches are flat *including* the mature one: `reproducible build` tops out
+   at 4,519 installs/month and its 2,616-star leader has none. Only
+   `exif metadata` has real volume, and it is the one niche whose artifact is a
+   small library with an unambiguous install path. This **contradicts** the
+   prediction F028's framing invited, and it is the finding that matters.
+3. **The instrument, not the world, produced two of the numbers.** 31 of 125
+   projects (25%) had a package whose name matched the repository but whose
+   metadata named a different owner. Unverified, the first run credited
+   39,000,000 installs/month to `PostHog/posthog` — an analytics platform
+   returned by a search for "agent session log" — and gave the mature niche's
+   real incumbent 47 installs via an unrelated `npm:please` belonging to
+   `mrdrozdov/please`. Both were wrong and both flattered the hypothesis.
+   Attribution now requires the package's own declared repository to be the
+   project measured, falsified in both directions before any result is used.
+
+**What this rules out.** That "prior art exists" can mean "the problem is
+served", *as a selection filter*. In three young vocabularies 88–100% of the
+leading implementations have no measurable install, and the leaderboard's own
+first entry has none in four of five. A niche being full of implementations is
+the **expected state of every crowded vocabulary**, and is compatible with none
+of them being used. Twelve prior-art deaths are therefore not twelve pieces of
+evidence against twelve candidates.
+
+**What it does not rule out.** It does not make any of the twelve candidates
+worth building; it removes one reason for discarding them and supplies none.
+It says nothing about usefulness, which stays `unmeasured`. It does not
+vindicate stars as a proxy for the mature arm either — that is precisely what
+result 1 refutes.
+
+**Ceiling, and the gate's dead branch was not fully executable.** Registry
+downloads count installs of packages. `thought-machine/please` is a real
+2,616-star build system with real users and is invisible here, because it ships
+as a Bazel binary. **Zero measured installs is not zero users**, and the mature
+arm's most important incumbent is exactly the kind this instrument cannot see.
+The pre-declared kill gate ("a dominant incumbent does exist somewhere, which
+would vindicate the filter") could therefore not have fired on this sample, so
+H surviving is a weaker result than the same verdict on a measurable arm would
+be. Also: installs are not active use, and a package pulled by a CI default
+counts once per job. One snapshot, one endpoint family, one machine, search over
+names and descriptions. Renamed repositories, monorepos and packages that
+declare no repository are dropped, which biases the measurement **downwards**.
+
+**The axis this opens, offered as the next thing to falsify.** If
+implementation count is universal and adoption is near-zero in every crowded
+vocabulary, then the scarce thing is neither novelty nor reach but the
+**install path**: whether a person who wants the artifact ends up running a
+command, or has to find a repository, read it and trust it. That question is
+answerable about a candidate *before it is built*, with no users and no market.
+It is `inferred` from five niches of 25 and is not yet tested; the obvious
+falsifier is a crowded niche whose incumbents are heavily installed.

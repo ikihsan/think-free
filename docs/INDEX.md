@@ -170,6 +170,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/010-annotation-rendering/README.md`](../EXPERIMENTS/010-annotation-rendering/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-04 | Task T-0046. Does GitHub file a check-run annotation on the workflow command's |
 | [`EXPERIMENTS/011-niche-adoption-census/README.md`](../EXPERIMENTS/011-niche-adoption-census/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/012-candidate-harvest/README.md`](../EXPERIMENTS/012-candidate-harvest/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| [`EXPERIMENTS/012-prior-art-predicts-adoption/README.md`](../EXPERIMENTS/012-prior-art-predicts-adoption/README.md) | `docs/INDEX.md` | active | 2026-10-04 | F027 and F028 counted stars. This counts installs, because "does prior |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

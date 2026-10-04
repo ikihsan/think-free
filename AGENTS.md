@@ -97,7 +97,7 @@ Rules that matter:
 | `tools/origin release check` | Enforce `RELEASE-MANIFEST.md`: what is public, and the front door's agreement about it |
 | `tools/origin skills check` | Verify skill mirroring and naming rules |
 | `tools/x -- <cmd>` | Run a command with capture, logging, and exit-code passthrough |
-| `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests` | Full test suite (stdlib only) |
+| `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests` | Full test suite (stdlib only). The `PYTHONPATH` and `-t tests` are required; without them 42 test modules fail to import `originlib` and the healthy suite reads as broken |
 
 Exit codes: `0` success, `1` usage error, `2` lint violation, `3` verification
 failed, `4` integrity violation.
