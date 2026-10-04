@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0057
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 2026-10-04-043-t-0057-claim-the-task-and-verify-it

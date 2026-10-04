@@ -72,6 +72,7 @@ _none_
 | 11 | 19:12:47 | milestone | T-0057: repaired the annotation window, falsified against the defect's own bytes, renumbered to defect 23 / F025 after the identifier collision |
 | 12 | 19:12:47 | experiment_result | three tests failed CI on identical bytes and the annotations carried no cause; the window dropped the exception, which is always the last line |
 | 13 | 19:13:14 | note | Correction: the previous event's identifier E001 is wrong and carries no meaning here - E001 is the photo-baseline experiment of 2026-10-03. The event |
+| 14 | 19:13:36 | task_rewrite | rewrote tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md (status: done) |
 
 ## Reproduce this record
 
