@@ -3,14 +3,19 @@
 `tools/originlib/paths.py` and `tools/originlib/reconcile.py` each name every
 `DECISIONS*.md` file, for different reasons: the first decides which records a
 session's documentation obligation covers, the second which of them satisfy a
-recorded `decision` event. The log was split five times, and each split added a
+recorded `decision` event. The log was split six times, and each split added a
 file to both lists by hand — the sixth, `DECISIONS-RECORDS.md` on 2026-10-04
 (T-0042), is the first that did not have to be remembered in two places at once,
 because a list nobody checks is the same shape as the identifier list T-0036
 found unread.
 
+`DECISION_FILES` below is a *third* copy, and it is the one that earns its keep:
+T-0054 added `DECISIONS-PUBLISHING.md` to the two tuples and this module failed
+until the third was updated, naming the file rather than a count. A gate that
+compares counts tells you a number changed; this one tells you which file.
+
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
-is narrow and real: a sixth split cannot leave a decision file that no
+is narrow and real: a seventh split cannot leave a decision file that no
 documentation obligation reaches, which would make a recorded decision satisfy a
 gate by changing nothing.
 """
@@ -29,6 +34,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
+    "DECISIONS-PUBLISHING.md",
     "DECISIONS-RECORDS.md",
 )
 

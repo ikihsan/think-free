@@ -33,7 +33,7 @@ interfere with the working repository.
 | `test_conflicts.py` | Unresolved merge-conflict markers: every shape git writes, the shapes that must stay silent, the declared waiver |
 | `test_release.py` | `RELEASE-MANIFEST.md` enforcement: one seeded defect per clause, and a fixture that passes |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |
-| `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees |
+| `test_fleet.py` | Two-clone fleet: remote-truth claims, takeovers, worktrees, and — the composition the fleet actually runs — a claim made with a session open still excluding the other VM, which neither `test_claim_in_session.py` nor the rest of this file covers on its own (defect 21) |
 | `test_sync.py` | Status, pull and push: divergence reporting, fast-forward, the refusals on a dirty tree and on local commits that would be lost, and that a push never forces |
 | `test_land.py` | `sync land`, split out at the line cap by operation: publishes the branch, regenerates a *conflicted* generated file, rebuilds one that merged **cleanly** and was therefore stale (defect 13), never lets `rebase --continue` open an editor, and stops for a human on a real conflict with the work intact |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |

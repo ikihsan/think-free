@@ -34,7 +34,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
-| Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18), and `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039) |
+| Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
@@ -96,7 +96,9 @@ unchanged:** renumber on the side that has not been pushed, and record the
 collision where the next reader looks — never by editing a closed event stream.
 When two VMs' commits meet, keep both facts and let the generated indexes be
 regenerated rather than merged; a ledger conflict is resolved by keeping both
-lines.
+lines. **A work collision is the same case with no detector at all:** T-0054 and
+T-0055 were one defect found by two VMs nine minutes apart, each VM giving it a
+different number, and the unpushed side yielded. Read the remote task list first.
 
 **Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
 repaired**: a session that landed a colleague's work reported it as undeclared
@@ -108,9 +110,7 @@ published. **Rebase a moving base with `origin sync land`:** a rebase run by
 hand records nothing — T-0053 recovers that arrival from `ORIG_HEAD` and the
 reflog, while a pull, cherry-pick or reset run by hand still leaves its paths
 reported. Sessions 040 and 012 hit the old ceiling through seven and two hand-run
-rebases respectively, and the stream is closed and is not edited, as with
-session 029. It is D028's stated ceiling and the
-intended direction of failure.
+rebases respectively, and the stream is closed and is not edited, as with session 029.
 
 
 ## What changed recently
@@ -119,6 +119,16 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
 push this reload point past the line cap.
 
+- **Session 040, VM 0947 (T-0054, cancelled).** **Two VMs found defect 21 nine
+  minutes apart.** This VM hit `task claim`'s refusal at 15:08Z and created T-0054 to
+  fix it; the other hit the same refusal at 15:17Z, created T-0055 and landed the fix
+  (`0522052`). Different numbers, so neither allocator nor detector had anything to
+  say — and that was right: no identifier collided, the *finding* did. **T-0054 was
+  cancelled and its unpushed commits dropped whole**, two modules publishing a claim's
+  paths being worse than one. What survived is the gap the landed fix left: a claim
+  under an open session is proved to publish and a published claim to exclude, but not
+  composed, which is the order the fleet runs. Full account and the rule:
+  [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
   nothing, so its paths were attributed to the session that happened to hold the
   tree: session 034's nine `unlogged_change` events were exactly that. Now

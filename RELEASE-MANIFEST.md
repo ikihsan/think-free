@@ -42,7 +42,7 @@ absent, and the check fails the moment it appears.
 | `tasks/` | Dispatch state for the VM fleet. Meaningless outside the mission. |
 | `RESEARCH/` `EXPERIMENTS/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
 | `MISSION.md` `STATE.md` `STATE-defects.md` `STATE-history.md` `STATE-history-2.md` `STATE-next-actions.md` `ROADMAP.md` | Mission control records. Honest to keep, distracting as a front door. |
-| `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-SCREENING.md` `DECISIONS-GATING.md` `DECISIONS-SESSIONS.md` `DECISIONS-RECORDS.md` | The decision log, split by invariant. |
+| `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-SCREENING.md` `DECISIONS-GATING.md` `DECISIONS-SESSIONS.md` `DECISIONS-PUBLISHING.md` `DECISIONS-RECORDS.md` | The decision log, split by invariant. |
 | `HYPOTHESES.md` `HYPOTHESES-results.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` `FAILURES-findings-4.md` `FAILURES-findings-5.md` | Candidate and failure records, split at the line cap. |
 | `RESEARCH.md` | Index for the sealed investigations. |
 

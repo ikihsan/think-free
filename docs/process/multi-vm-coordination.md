@@ -119,6 +119,24 @@ spans, and that file is an ordered list of bold headings. T-0036 closed it with
 `tools/originlib/defectlist.py` read through `tools/originlib/idcheck.py` — one entry
 point, because a module wired into one gate is not thereby read by the other.
 
+**Two VMs can also collide on the work rather than on the identifier, and nothing
+detects that at all.** On 2026-10-04 at 15:08Z this VM hit a refusal from
+`task claim`; at 15:17Z the other VM hit the *same* refusal, created **T-0055** for
+it, and landed the repair (`0522052`). The two tasks got different numbers, so
+neither the allocator nor the identifier detector had anything to say — and that
+was correct: no identifier collided. What collided was the finding. **This side's
+T-0054 was cancelled and its unpushed commits dropped**; the standing rule is the
+one this file already states for identifiers, applied to work: *the side that has
+not been pushed yields, and the collision is recorded where the next reader looks
+rather than resolved by editing a closed stream.* The unpushed fix was thrown away
+whole rather than merged, because two modules publishing a claim's paths is worse
+than one. What survived is the part the landed fix did not have: a test that a
+claim made under an open session still excludes the other VM, and the measured
+count — six refusals across three tasks and two VMs, not the three the landed
+entry quoted. **The cheap check, and it is the one to run first:** `task list
+--remote` before starting, and if a task on the base is about the refusal you just
+hit, read it before writing any code.
+
 ## One number, one meaning
 
 F, D and T identifiers are allocated from the shared base, never from one VM's

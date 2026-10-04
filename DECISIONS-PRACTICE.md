@@ -32,6 +32,11 @@ this file's invariant. They left `DECISIONS-GATING.md` because D030 had reached
 289 of its 300 permitted lines. Entries moved verbatim; numbering is continuous
 and unchanged, so a reference to D013, D027 or D028 still resolves.
 
+D040, D042, D044 and D045 left again on 2026-10-04 (T-0054) to
+[`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md), which asks a different
+question — what a command's own write is, and what must be published with it —
+rather than whose change a path is. This file held them for one day.
+
 ## D011 — Artifact declaration takes several paths and a directory (2026-10-03)
 
 Observed: session 002 declared 57 artifacts in a single hand-written list at the

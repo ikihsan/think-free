@@ -13,8 +13,9 @@ ordinary edits do not.
 | File | Decisions | Governs |
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
-| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording, moving, and publishing work |
-| [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028, D040, D042, D044 | Whether a session is finished, and whose change a recorded path is |
+| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording and moving work |
+| [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
+| [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D044–D045 | What a command's own write is, and what must travel with it when published |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
 | [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
@@ -22,10 +23,21 @@ ordinary edits do not.
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
 needs to know *what a session must produce and move* reads only the
-practice file. A reader who needs to know *what passes* reads only the screening
-file, and one who needs to know *how this repository verifies itself* reads only
-the gating file. No entry appears in more than one file, and a new decision goes
-in the file its own statement fits; never split one decision across the boundary.
+practice file. A reader who needs to know *what a command wrote on the agent's
+behalf, and what has to be published with it* reads only the publishing file. A
+reader who needs to know *what passes* reads only the screening file, and one who
+needs to know *how this repository verifies itself* reads only the gating file. No
+entry appears in more than one file, and a new decision goes in the file its own
+statement fits; never split one decision across the boundary.
+
+The third file was added on 2026-10-04 (T-0054), and the reason is the pattern
+this repository keeps meeting: the first split of this log moved entries to make
+a file fit and was reversed within the hour. **A decision file has to have an
+invariant before it has a line count**, and the one that governed
+`DECISIONS-SESSIONS.md` after its second split did not cover the four entries it
+held. A gate's reading of the header and the index is what catches that — two of
+those entries would have stayed inconsistent with this table and with their own
+file's header, and `decisionheader.py` reported both directions before the move.
 
 Split at 2026-10-03 when this file reached the 300-line cap required by
 [`docs/policy/doc-standards.md`](docs/policy/doc-standards.md). The entries were

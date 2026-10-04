@@ -12,7 +12,7 @@ from pathlib import Path
 
 from harness import RepoTest, git, make_fleet
 
-from originlib import taskops, taskremote, tasks, worktree
+from originlib import session, taskops, taskremote, tasks, worktree
 from originlib.tasks import TaskError
 from originlib.worktree import WorktreeError
 
@@ -111,6 +111,33 @@ class RemoteTruthClaimTest(FleetTest):
         path = clone / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
+
+
+class ClaimUnderOpenSessionExclusionTest(FleetTest):
+    """Exclusivity and an open session, in the order the protocol documents them.
+
+    Two separate properties, each covered on its own after T-0055 and neither of
+    them covering the other: `tests/test_claim_in_session.py` proves a claim made
+    with a session open reaches the remote, and `RemoteTruthClaimTest` above proves
+    a published claim excludes the other VM — but with no session open in either.
+    The composition is the one the fleet actually runs, because `session start` must
+    precede `task claim` for the claim to be publishable at all. It is also the
+    composition the defect lived in: a claim that could not be published protected
+    nothing, so "it is published" and "it excludes" have to hold together or the
+    first is not the property anyone wanted.
+    """
+
+    def test_a_claim_made_under_a_session_still_excludes_the_other_vm(self) -> None:
+        self.use(self.vm_a)
+        active = session.start("claim it for real", agent="agent-a", sync_remote=False)
+        taskremote.claim("T-0001", agent="agent-a", vm="vm-a", session=active.session)
+
+        self.use(self.vm_b)
+        git(self.vm_b, "fetch", "-q")
+        with self.assertRaises(TaskError) as caught:
+            taskremote.claim("T-0001", agent="agent-b", vm="vm-b")
+        self.assertIn("agent-a", str(caught.exception))
+        self.assertIn("vm-a", str(caught.exception))
 
 
 class RemoteListingTest(FleetTest):

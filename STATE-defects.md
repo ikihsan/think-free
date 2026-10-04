@@ -239,16 +239,16 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
    assertion and nothing else. **Repair:** the test states the disjunction it can
    support, and `tests/test_ci_matrix.py` holds the workflow's matrix to the record in
    both directions. **Ceiling:** the record is hand-maintained and CI covers only
-   what `actions/setup-python` publishes.
+   what `actions/setup-python` publishes, so a matrix row is evidence about that row.
 
-9. **The suite asserted that this machine's git is in the record** (solved in
-   T-0034, F019). The same class as 8, one function away: every CI row was red from
-   T-0033 onward while the runner image ships **git 2.55.0** and the record named
-   2.25.1 and 2.56.0, the run log needs admin rights so the cause was invisible from
-   outside, and the stated reason at the time — that the public check-runs API returns
-   no annotations — was false for this very run (F020). **Repair:** the assertion is
-   the comparator's contract — four reachable states, an `exercised` verdict carrying
-   its entry's scope and machine — with a control that emptying the record moves every
+9. **The suite asserted that this machine's git is in the record** (solved in T-0034,
+   F019). The same class as 8, one function away: every CI row was red from T-0033
+   onward while the runner image ships **git 2.55.0** and the record named 2.25.1 and
+   2.56.0, the run log needs admin rights so the cause was invisible from outside, and
+   the stated reason at the time — that the public check-runs API returns no
+   annotations — was false for this very run (F020). **Repair:** the assertion is the
+   comparator's contract — four reachable states, an `exercised` verdict carrying its
+   entry's scope and machine — with a control that emptying the record moves every
    version off `exercised`; adding the 2.55.0 entry alone would have made CI green and
    left the assumption in place. **With 8, 15 and 19: a gate that reads its own
    environment is only as portable as the record of it.**
@@ -257,29 +257,27 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     step failed** (solved in T-0046). Each of the five file-reading gate steps carried
     `if: matrix.python-version == '3.12'` and no status function, so an implicit
     `success()` skipped all five on a red `Tests` step: runs `37189825232` and
-    `37190842104`, 2026-10-04. It is also what made the record wrong twice (F021). See
-    [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
+    `37190842104`, 2026-10-04. It is also what made the record wrong twice (F021).
 
 17. **A gate's report named a step and nothing else** (solved in T-0040, two faults in the
-    same path; method and ceiling in
-    [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
+    same path; method and ceiling in [`ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
 
 19. **A link's verdict was a function of the checkout's neighbours rather than of the
     repository** (solved in T-0051, D041). Rule 3 tested its candidates for existence
     *wherever they landed*, so `../../docs/x.md` from `tasks/` was decided by what the
-    checkout's parent held — T-0047's `doc lint` passing in a worktree and failing in the
-    main checkout on identical bytes. Containment is now decided lexically.
+    checkout's parent held — T-0047's `doc lint` passing in a worktree, failing in the
+    main checkout, on identical bytes. Containment is now decided lexically.
 
 20. **A merge duplicated a `STATE.md` dashboard row and every gate passed** (solved in
     T-0052, D043). Commit `eff1126` was a rebase of one VM's T-0047 branch onto a base
     the other had already extended, carrying `STATE.md` with a byte-identical second copy
-    of its `Implemented (2)` dashboard row: one from each VM. The reload point a cold
-    session reads first showed two rows that are one fact, and the next session removed
-    one by hand. **Repair:** a hand-authored document may not repeat a table row, the
-    exemption keyed on the `generated-by` marker rather than a path — 47 documents repeat
-    a row and all 47 are generated reports, where an artifact listed once per event is
-    the truth. **Ceiling:** rows are compared as exact text. With 19, the shape of 8 and
-    9: **a property a gate does not read, in a place a merge can change.** Method in
+    of its `Implemented (2)` dashboard row: one from each VM, so the reload point a cold
+    session reads first showed two rows that are one fact. **Repair:** a hand-authored
+    document may not repeat a table row, the exemption keyed on the `generated-by` marker
+    rather than a path — 47 documents repeat a row and all 47 are generated reports, where
+    an artifact listed once per event is the truth. **Ceiling:** rows are compared as
+    exact text. With 19, the shape of 8 and 9: **a property a gate does not read, in a
+    place a merge can change.** Method in
     [`gate-falsification.md`](docs/policy/gate-falsification.md).
 
 21. **A task claim could not be published from inside a session, and the refusal
@@ -291,10 +289,12 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     *commit or revert*. So the claim stayed local and unpushed: **no other VM
     could see it, so the exclusivity the command exists to provide was not in
     force**, and each retry appended another `claim` line to the append-only
-    ledger. `observed` at session 038: three refusals, three identical `claim` lines
-    for T-0053, thirty minutes to land by hand. **Repair:** the claim commit carries
+    ledger. `observed`: **six refusals across three tasks and two VMs** — three for T-0053
+    at session 038 on `instance-20260717-0947`, two for T-0054 at session 040 on that VM,
+    one for T-0055 on `instance-20260717-0944` — and **T-0054 and T-0055 were the same
+    defect found independently nine minutes apart.** **Repair:** the claim commit carries
     the open session's own record — the invariant `multi-vm-coordination.md` already
     stated and no code implemented — and foreign uncommitted work is refused *before*
     anything is written. **Ceiling:** the claim is no longer a commit touching only
     `tasks/`, and `sync land` still refuses a dirty tree because a rebase needs one.
-    [`FAILURES-findings-5.md`](FAILURES-findings-5.md) F023, D044.
+    F023, D044.
