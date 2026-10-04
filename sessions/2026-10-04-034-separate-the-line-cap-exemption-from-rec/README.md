@@ -54,7 +54,7 @@ _(none recorded)_
 
 ## Commands
 
-45 captured, 19 non-zero exit.
+47 captured, 20 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -153,8 +153,6 @@ _(none recorded)_
 | 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
 | 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
 | 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
-| 62 | 13:09:56 | command | $ tools/origin doc lint |
-| 63 | 13:13:59 | command | $ tools/origin doc lint |
 | 64 | 13:14:12 | command | $ tools/origin doc lint |
 | 65 | 13:15:41 | command | $ tools/origin doc lint |
 | 66 | 13:16:52 | command | $ tools/origin doc lint |
@@ -163,8 +161,10 @@ _(none recorded)_
 | 69 | 13:17:28 | command | $ python3 -m unittest discover -s tests -p test_identifier_enforcement.py -v |
 | 70 | 13:17:29 | command | $ python3 -m unittest discover -s tests -p test_decision_files.py -v |
 | 71 | 13:21:35 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import report print(report.render_session_report('2026-10-04-034-separate- |
+| 72 | 13:21:56 | command | $ tools/origin doc lint |
+| 73 | 13:22:04 | command | $ tools/origin sync push |
 
-_21 middle events omitted; see `events.jsonl`._
+_23 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
