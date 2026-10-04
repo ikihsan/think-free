@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-76 recorded session(s). One `events.jsonl` per session, so concurrent
+77 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 51 older session(s) are in the directory listing.
+Showing the 25 most recent. 52 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | **unfinished** | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T11:45 |
 | [2026-10-04-033-repair-the-broken-link-t-0047-published](2026-10-04-033-repair-the-broken-link-t-0047-published/README.md) | opencode | worked | repair the broken link T-0047 published in the base's task file, and t | 2026-10-04T11:36 |
 | [2026-10-04-031-record-the-measured-ci-state-on-the-tip](2026-10-04-031-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip, and the first red run whose c | 2026-10-04T11:20 |
 | [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | worked | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T11:13 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 51 older session(s) are in the directory listing.
 | [2026-10-04-012-measure-the-test-suite-on-every-cpython](2026-10-04-012-measure-the-test-suite-on-every-cpython/README.md) | opencode | worked | Measure the test suite on every CPython minor from 3.8 to 3.14 and mak | 2026-10-04T05:38 |
 | [2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git](2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/README.md) | opencode | worked | T-0033: make doctor compare this VM's git and interpreter against the  | 2026-10-04T03:25 |
 | [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | worked | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:48 |
-| [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
 
 
 ## Reading a session
