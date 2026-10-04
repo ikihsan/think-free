@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-89 recorded session(s). One `events.jsonl` per session, so concurrent
+90 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 64 older session(s) are in the directory listing.
+Showing the 25 most recent. 65 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | **unfinished** | Decide and execute the highest-information research action after 12 pr | 2026-10-04T20:22 |
 | [2026-10-04-046-test-whether-zero-adoption-is-general-or](2026-10-04-046-test-whether-zero-adoption-is-general-or/README.md) | unknown-agent | worked | Test whether zero-adoption is general or specific to the agent-auditin | 2026-10-04T20:20 |
 | [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
 | [2026-10-04-044-record-the-measured-ci-state-after-t-005](2026-10-04-044-record-the-measured-ci-state-after-t-005/README.md) | unknown-agent | worked | record the measured CI state after T-0057 and the fixture-cost questio | 2026-10-04T19:24 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 64 older session(s) are in the directory listing.
 | [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | worked | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T09:01 |
 | [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | worked | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:37 |
 | [2026-10-04-023-correct-the-continuous-integration-row-w](2026-10-04-023-correct-the-continuous-integration-row-w/README.md) | unknown-agent | worked | Correct the continuous-integration row with the runs this VM published | 2026-10-04T08:12 |
-| [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | worked | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:10 |
 
 
 ## Reading a session

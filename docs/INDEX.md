@@ -134,6 +134,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0056-hold-a-mission-record-s-restated-experiment-numb.md`](../tasks/T-0056-hold-a-mission-record-s-restated-experiment-numb.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md`](../tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md`](../tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md`](../tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
