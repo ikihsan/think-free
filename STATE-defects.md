@@ -148,6 +148,24 @@ heading they belong in when they are closed.
    hand-maintained, and CI can only cover what `actions/setup-python` publishes,
    so a matrix row is evidence about that row and nothing beyond it.
 
+8. **The suite asserted that this machine's git is in the record** (solved in
+   T-0034, F019). Every CI row was red at the `Tests` step from T-0033 onward,
+   including rows whose interpreter had just been measured green on a VM, and the
+   run log needs admin rights while the public check-runs API returned no
+   annotations — so the cause was invisible from outside. Reproduced: the runner
+   image ships **git 2.55.0** (`actions/runner-images` readme, `source-supported`)
+   and `tests/git-versions.json` named 2.25.1 and 2.56.0. A conda-forge 2.55.0
+   unpacked outside the repository reproduced the failure exactly. Same class as
+   defect 7 and one function away from it: **a gate that reads its own environment
+   is only as portable as the record of that environment.**
+   **Repair:** the assertion is now the module's contract — four states reachable,
+   an `exercised` verdict carrying its entry's scope and machine — with a negative
+   control that emptying the record's list moves every version off `exercised`.
+   Adding the 2.55.0 entry alone would have made CI green and left the assumption
+   in place. **Also:** the git record gained a `not_exercised` list and a
+   `where` on every entry, with test clauses, so the gap is nameable rather than
+   inferred from two points.
+
 ## What a fix costs to believe
 
 Every entry above marked solved was falsified against its own defect first: the

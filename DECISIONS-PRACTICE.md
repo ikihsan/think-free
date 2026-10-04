@@ -211,7 +211,7 @@ Decision: **the exercised interpreters live in
 [`tests/python-versions.json`](tests/python-versions.json) (schema
 `origin.python-versions/1`), and the test that validates it checks honesty
 clauses rather than schema alone.** Every entry carries the scope it has actually
-run — 3.8.10 has run all 388 tests, the standalone 3.12.15 only the 173 that
+run — 3.8.10 has run all 392 tests, the standalone 3.12.15 only the 173 that
 existed when T-0016 recorded it, a CI entry only the minor version, because
 the run log needs repository admin rights. `not_exercised` named 3.9 through
 3.11, 3.13 and newer, and any non-CPython or non-Linux target when this was

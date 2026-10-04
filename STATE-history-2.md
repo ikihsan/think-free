@@ -8,8 +8,8 @@ last-verified: 2026-10-04
 
 What each older session changed, newest first. Continues
 [`STATE-history.md`](STATE-history.md), which holds sessions 005 through 037 and
-reached the 300-line cap twice on 2026-10-04 — once at session 005, and again
-when session 012 was added to it. Identifiers here are the same ones
+reached the 300-line cap three times on 2026-10-04 — at session 005, when
+session 012 was added to it, and when session 012's second half was. Identifiers here are the same ones
 `STATE.md` uses.
 
 ## What changed in session 027, VM 0947
@@ -41,6 +41,79 @@ not met**.
   passive trace is identical by construction.
 - `FAILURES.md` reached the 300-line cap and was split by invariant into
   `FAILURES-findings.md` (F001–F008) and a stub carrying the live list.
+
+## What changed in session 026, VM 0944 (T-0013)
+
+T-0013 finished on a session an earlier run had started and abandoned mid-edit;
+the resumed run found and fixed three claims its code did not implement before
+committing the result.
+
+- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
+  distinct releases across ten declared packages, 205,305,241 bytes, zero
+  failures, producing identical numbers on three consecutive runs.
+- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
+  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
+  a minute or more, 0.145 span an hour or more. No wheel carried a unix-epoch
+  integer in `METADATA` or `RECORD`, so the mechanism's embedded-string
+  assumption is half false.
+- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
+  appears only when a builder pins the DOS epoch, which almost none does, so
+  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
+  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
+  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
+  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
+  every entry with a single build instant, `jinja2` carries checkout mtimes.
+- Attribution was not abandoned with the gate: D023 takes the verdict on the
+  metric E.md declared rather than on the stricter one the code computed first,
+  and **T-0017** (`EXPERIMENTS/008-build-timestamp-attribution/`) is the
+  measurement that can say whether timestamps are worth fixing first. It ran
+  (session 030) and found 398 of 398 differing bytes are timestamp fields, so
+  E3's mechanism is supported and its candidate abandoned (F012).
+- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
+  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
+  findings. Their claims reached the remote first, so this session's identifiers
+  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
+  split was abandoned in favour of theirs — two VMs renumbering the same shared
+  files in the same hour is a collision the tooling does not yet prevent.
+
+## What changed in session 023, VM 0947
+
+T-0011 completed, on a session another VM had started and abandoned mid-edit.
+
+- `EXPERIMENTS/005-knitting-bounded-search/` tests the repair T-0010 named: close
+  releases *before* deciding patches, searching whole closure-overlap
+  neighbourhoods instead of per error. Model and oracle imported unchanged from
+  004, so the comparison is apples-to-apples. 118 fixtures: 115 with the oracle,
+  2 unsupported, 1 whose `2**24` oracle is opt-in via `--slow`.
+- **Result.** Whole-neighbourhood beam 1 is valid and cost-identical to the
+  exhaustive optimum on 115/115 checked cases (116/116 with `--slow`), on both
+  the development and the holdout fixture seed, at every swept `PATCH_COST`,
+  refusing both unsupported states inside the planner. 004's per-error rule is
+  optimal on 85/115 of the same cases. Verdict `narrow`, not `abandon`.
+- **Two limits that matter more than the headline.** Every cheaper setting is
+  worse: chunk cap 1 fails on 20/115 (14 of them holdout cases the code never
+  saw), cap 3 fails on 2 holdout cases. And two settings that *look* optimal
+  (`cap=1 beam=2`, `cap=2 beam=4`) evaluate exactly `2**|errors|`
+  combinations, so they are exhaustive search in disguise; they are labelled as
+  such and are not evidence for the bounded planner.
+- **"Bounded" is not an efficiency claim at this scale.** Counting patch subsets
+  plus combinations, the bounded planner does 1.28x *more* work than the oracle
+  on T-0010's own fixtures. The saving appears only where closures fragment
+  (48 subsets against `2**24` on the largest fixture).
+- The abandoned draft planner was measured and rejected before replacement: it
+  cross-multiplied its per-neighbourhood candidates, so its search space equalled
+  the oracle's and its `all_optimal = true` was a tautology of the decomposition.
+  Recorded as `DECISIONS-PRACTICE.md` D021.
+- Two pre-existing false claims in the record were corrected: 004's README cited
+  an `input_hashes` key that does not exist, and `RELEASE-MANIFEST.md` claimed an
+  `origin release check` command that `origin` does not have.
+- This VM rebased onto VM 0944's concurrent work (session 025, T-0012) rather than
+  overwriting it. Both decision-log splits existed; 0944's by-invariant split was
+  kept and this session's decision became D021.
+
+Older sessions, moved to [`STATE-history-2.md`](STATE-history-2.md) on
+2026-10-04, twice: when this file reached the 300-line cap, and again when
+session 012 did.
 
 ## What changed in session 025, VM 0944
 

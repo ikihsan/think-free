@@ -44,8 +44,8 @@ finding out otherwise meant opening a JSON file by hand.
 The `versions *` lines now answer it, and they name the record they consulted:
 
 ```
-versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (388 tests at T-0034); run on instance-20260717-0947, git 2.25.1
-versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (388 tests at T-0034); run on instance-20260717-0944 and instance-20260717-0947
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (392 tests at T-0034); run on instance-20260717-0947, git 2.25.1
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (392 tests at T-0034); run on instance-20260717-0944 and instance-20260717-0947
 versions rustc     (none)     no record - no record covers this tool
 ```
 

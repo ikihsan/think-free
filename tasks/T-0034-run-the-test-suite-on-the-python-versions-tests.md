@@ -109,20 +109,31 @@ constrains nothing and is a real answer.
 
 ### Measured result
 
-388 tests, green on 3.8.10 (this VM) and on all five portable builds, captured in
-`commands.log`. `tests/python-versions.json` now carries an entry per environment
-— a patch-level one for each portable build and the VM, a minor-level one per CI
+392 tests, green on 3.8.10 (this VM), on all five portable builds, and on
+git 2.55.0 — the version the CI runner image ships, unpacked from conda-forge
+outside the repository. Captured in `commands.log`.
+
+`tests/python-versions.json` now carries an entry per environment — a
+patch-level one for each portable build and the VM, a minor-level one per CI
 row — because `versions.compare` picks the longest match and a patch-level entry
 can otherwise shadow the CI entry for its own minor. `doctor` now prints the
 matched entry's `where`, so `exercised` cannot be read as a claim about the
-reader's own machine.
+reader's own machine. `tests/git-versions.json` gained a 2.55.0 entry, a `where`
+on every entry, and a `not_exercised` list (2.26–2.54, 2.57+), with test
+clauses for all three.
 
 ### Ceilings
 
 - A matrix row is evidence about that row. Nothing checks the `floor` claim
   itself; widening the range is a decision somebody has to read.
-- Nothing from 3.15 upwards has run, and no gate widens that.
-- The local measurements are CPython on Linux x86_64 only.
+- Nothing from 3.15 upwards has run, and no gate widens that. Git 2.26–2.54 and
+  2.57+ have not run either, and now say so.
+- The local measurements are CPython on Linux x86_64 only, and the git 2.55.0 run
+  is a conda-forge build on this VM rather than GitHub's runner: the *version*
+  matches what the runner ships (`source-supported`, `actions/runner-images`
+  readme) but the machine does not.
 - The definitive confirmation of the matrix is the pushed CI run, read from the
   public API; the run log needs repository admin rights, so each CI entry claims
-  the minor version only.
+  the minor version only — and the `::error::` annotations the docs used to rely
+  on are **not** returned to an unauthenticated caller, so a red run names a
+  version and a step, not a test.

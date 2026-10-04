@@ -33,9 +33,9 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 388 tests) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 392 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
@@ -49,12 +49,16 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**No task is claimed on the base.** T-0030 (the detector that refuses a commit
-giving one identifier two definitions) and T-0031 (the allocator that reads
-`origin/<base>`) both closed defect 5 on 2026-10-04.
-`instance-20260717-0944` held T-0012, T-0013, T-0017, T-0021–T-0023, T-0029 and
-T-0031–T-0033; `instance-20260717-0947` held T-0011, T-0014–T-0016,
-T-0018–T-0020, T-0024–T-0028, T-0030 and T-0034. Check
+**Both machine-fact gates are closed, and the second was invisible from
+outside.** T-0033 added two assertions that this machine's tools are in the
+records (F018, F019). Each was green on the VM that wrote it and red elsewhere for
+opposite reasons — the interpreter one on every version the record lacked, the git
+one on the CI runner, whose **git 2.55.0** the record did not name. Seven rows
+were red, the run log needs admin rights, and the public check-runs API returned
+no annotations, so the cause came from elimination and then a reproduction with a
+conda-forge 2.55.0 unpacked outside the repository. Both are now the module's
+contract; the portable form is in D035. `instance-20260717-0947` closed T-0035 in
+session 013 while this session was open. Check
 `tools/origin task list --remote` before taking anything.
 
 **Identifier collisions were allocated by reading the local tree, so two VMs in
@@ -198,17 +202,16 @@ exists so that history does not push this reload point past the line cap.
 
 `tools/origin` (session logging, task dispatch, documentation lint, index
 generation, skill checks, environment doctor), `tools/x` (command capture with
-exit codes and secret redaction), per-session append-only logs reconciled
-against git, multi-VM safety with a two-clone fleet harness (T-0004), the
+exit codes and secret redaction), per-session append-only logs reconciled against
+git, multi-VM safety with a two-clone fleet harness (T-0004), the
 metadata-tagged documentation graph, and 21 skills vendored in-repo and mirrored.
-Standard-library Python, no installation step. The current state of each is the
-**Implemented** row above and the infrastructure track in
-[`ROADMAP.md`](ROADMAP.md); the session-by-session account is in
-[`STATE-history.md`](STATE-history.md) and [`STATE-history-2.md`](STATE-history-2.md).
-Two defects in that record-keeping were found by running it on itself and are
-recorded rather than quietly repaired: session 002 under-declared 55 committed
-files (F003), and a directory sweep recorded build output as artifacts (F004).
-Both fixes are covered by tests.
+Standard-library Python, no installation step. Current state: the **Implemented**
+row above and the infrastructure track in [`ROADMAP.md`](ROADMAP.md); the
+session-by-session account is in [`STATE-history.md`](STATE-history.md) and
+[`STATE-history-2.md`](STATE-history-2.md). Two defects in that record-keeping
+were found by running it on itself and are recorded rather than quietly repaired:
+session 002 under-declared 55 committed files (F003), and a directory sweep
+recorded build output as artifacts (F004). Both fixes are covered by tests.
 
 ## Resume procedure
 
@@ -218,10 +221,7 @@ Both fixes are covered by tests.
 4. `git status` and `git log --oneline -5` before editing. Preserve anything
    unexpected; another agent or an earlier session may own it.
 5. Read the raw evidence for the next experiment, not a summary of it.
-6. Continue the highest-information experiment. Update this file and make a
-   focused checkpoint.
-7. Do not load unrelated personal memory. Do not restart discovery from scratch;
-   the evidence is in `RESEARCH/`, `EXPERIMENTS/`, and `sessions/`.
+6. Continue the highest-information experiment, and update this file with it.
 
 ## Next actions
 
@@ -246,15 +246,14 @@ five interpreters the record had never heard of found the suite red on all five
 ## Capability evidence
 
 `EXPERIMENTS/000-capabilities/results.json`, probed 2026-10-03 on the development
-machine: 12 logical CPUs; ~15.3 GiB RAM; ~8.6 GiB free disk at probe (shared,
-fluctuating); Python 3.14.6; Node 22.23.1; Rust 1.96.0; GCC 16.1.1; `git` 2.55.0.
-Public GitHub API, SQLite, and arXiv HTTPS returned 200. NumPy present; SciPy,
-pytest, and Z3 absent. `crontab` and `systemctl` present, `systemd --user`
-running, no user units. `gh` CLI absent. A VM's own numbers come from
-`tools/origin doctor`, which writes `.origin/doctor.json`; this one reports 2
-CPUs, Python 3.8.10, `git` 2.25.1.
+machine: 12 logical CPUs; ~15.3 GiB RAM; Python 3.14.6; Node 22.23.1; Rust 1.96.0;
+GCC 16.1.1; `git` 2.55.0. GitHub API, SQLite and arXiv HTTPS all 200; NumPy
+present, SciPy/pytest/Z3 absent; `gh` absent; `systemd --user` running with no
+user units. A VM's own numbers come from `tools/origin doctor`, which writes
+`.origin/doctor.json`; this one reports 2 CPUs, Python 3.8.10, `git` 2.25.1, and
+pushes via the GitHub App as `Ihsan Ai Server Bot`.
 
-**Unverified and not to be assumed:** fleet access, unattended supervision, GPU availability. This VM pushes via the GitHub App as `Ihsan Ai Server Bot`.
+**Unverified and not to be assumed:** fleet access, unattended supervision, GPU availability.
 
 ## Honest limitations of this state
 

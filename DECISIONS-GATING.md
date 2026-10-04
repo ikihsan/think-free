@@ -274,3 +274,24 @@ restored file green as the control. One non-detection is recorded rather than
 hidden: moving every guard to a *different real row* passes, because which row
 carries the file-reading gates is a decision in `docs/operations/ci.md` and not a
 property this gate can read without duplicating that decision.
+
+**The same principle, one function away, and the form that generalises.** Two
+gates in `test_doctor_versions.py` asserted that the environment running them
+matched a hand-maintained list: one about the interpreter (F018) and one about
+git (F019). Each was green on the machine that wrote it, and each was red
+somewhere else for an opposite reason — the interpreter assertion failed on every
+version the record lacked, the git assertion failed on the runner, which ships a
+git nobody recorded. **A gate that reads its own environment is only as portable
+as the record of that environment**, and adding the missing entry fixes the run
+without fixing the assumption.
+
+The portable form separates the two questions. What the *artefacts* must agree on
+is checked on the artefacts: every CI matrix row has a recorded scope, and
+nothing a row runs is still called unexercised. What the *environment* does not
+cover is stated as data — `not_exercised` in both records, with a test that the
+list is non-empty, because an empty list reads as "the fleet is complete". And
+what a version comparison must do is a property of the comparison: four reachable
+states, an `exercised` verdict carrying its entry's scope and the machine it ran
+on, and a negative control that emptying the record moves every version off
+`exercised` so the weaker assertion cannot pass for the wrong reason. `doctor`
+prints "this machine is not in the record"; the suite must not assert it.

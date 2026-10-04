@@ -38,7 +38,7 @@ interfere with the working repository.
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
 | `test_idalloc.py` | Identifier allocation reads the shared base: a clone whose tree is behind it, a withdrawn number, an unreachable base, and the three states the source line distinguishes |
-| `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
+| `test_gitversions.py` | Schema of `git-versions.json`, that the docs point at it, and the honesty clauses added after F019: every entry has a scope with a count and a machine, and the unexercised ranges are named |
 | `test_identifiers.py` | The identifier rule: the two definitions of F010 as commit `e6eb992` wrote them, index rows with and without a body, task numbers, and the paraphrased rows that must stay silent |
 | `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree |
 | `pushcred_fixture.py` | Throwaway HOME, git config, App directory, and **cleared credential-token environment** for the push-credential tests. It clears `GH_TOKEN`/`GITHUB_TOKEN` because `pushprobe` counts an environment token as a mechanism, so inheriting the runner's token made a test asserting `unavailable` read `broken` — green on both VMs, red on any runner that exports one (CI runs `37174050724`, `37174316639`, `37174309822`). A fixture must build the machine it claims to build |
@@ -117,11 +117,21 @@ of (T-0034) failed on all five, on an assertion that had nothing to do with the
 code (`FAILURES.md` F018). Two tests in `test_doctor_versions.py` claimed *this
 interpreter* is recorded, from two different sources — `platform.python_version`
 and the `python3` on `PATH` — that agreed only because this VM's `PATH`
-interpreter is one of the two recorded ones. The repair states the disjunction
-the situation supports, and `test_ci_matrix.py` holds the CI matrix to the record
-so the coupling is checked on the two artefacts instead of being discovered by
-running a download. The general form: a gate that reads a *record* needs an input
-the record does not contain before it can be trusted.
+interpreter is one of the two recorded ones. A third, one function away, claimed
+*this machine's git* is recorded, and had CI's seven matrix rows red for two hours
+because the runner ships git 2.55.0 and the record named 2.25.1 and 2.56.0
+(F019). The repairs state the disjunction each situation supports, and
+`test_ci_matrix.py` holds the CI matrix to the record so that coupling is
+checked on the two artefacts instead of being discovered by running a download.
+
+The general form, which is what both findings are instances of: **a gate that
+reads its own environment is only as portable as the record of that
+environment.** Assert about the artefacts, state the environment's gaps as data
+— `not_exercised` in both records, each with a test that the list is non-empty —
+and keep "this machine is not covered" a warning `doctor` prints rather than an
+assertion the suite makes. `test_gitversions.py` grew the honesty clauses for
+this after F019: every entry names a scope with a count and a machine, and the
+unexercised list may not be empty.
 
 **A test can exercise a module and miss the report a reader sees.** Falsifying
 `doctor`'s version comparison, removing the single line that renders it left

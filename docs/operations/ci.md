@@ -129,12 +129,31 @@ minor version, so `exercised` alone would describe somebody else's machine. It
 cannot tell you about an interpreter nobody has run, because nothing here can:
 that is what the `not_exercised` list in the record is for.
 
-**A failing test must be identifiable without admin rights.** The `Tests` step
-re-emits every `FAIL:`/`ERROR:` block as an `::error::` annotation. GitHub
-returns check-run annotations from its public API, so a `curl` against
-`/repos/<owner>/<repo>/commits/<sha>/check-runs` names the failing test to anyone
-who can read the repository. That is the only reason the CI failure was
-diagnosable at all; keep it when editing that step.
+**A failing test should be identifiable without admin rights — and as of
+2026-10-04 that does not work.** The `Tests` step re-emits every `FAIL:`/`ERROR:`
+block as an `::error::` annotation, and it was believed that GitHub returns
+check-run annotations from its public API, so a `curl` against
+`/repos/<owner>/<repo>/commits/<sha>/check-runs` would name the failing test to
+anyone who can read the repository. `observed`, run `37178057818`: seven failing
+checks, every one returning `annotation_count: None` and no annotations, to an
+unauthenticated request. **That is why F019 took an hour to find**: the run was
+red on all seven rows, the log needed admin rights, and the annotation route was
+believed to work and did not. Keep the re-emission — it is what a viewer *with*
+the log or with a token sees — but do not rely on it. The diagnostic that works
+without rights is a **check name per unit of work**: see *Reading a red run*
+below.
+
+**Reading a red run without admin rights.** Two facts are readable: each job's
+step conclusions, and the check-run names. That is enough to localise a failure to
+a step and, with the matrix, to a version — `verify (3.14)` failing while
+`verify (3.12)` passes is a statement about one interpreter. It is *not* enough
+to name a failing test, because the whole suite is one step named `Tests`. The
+fix, when it is worth making, is to run the suite per file and let the check name
+carry the file: the suite is 40-odd files and the slowest is the fleet harness, so
+one job per file is affordable and would make the failure legible from the public
+API. Until then, local reproduction is the diagnostic: every version the matrix
+runs can be reproduced on a VM with a portable interpreter, and any git version
+with a package unpacked outside the repository.
 
 **A pass that hides why is a pass nobody can trust.** The session step writes the
 verifier's own output to a log and re-emits each in-flight line as a
@@ -159,6 +178,16 @@ which broke `origin sync land` on any VM with a modern git
 machine-readable list of exercised versions is
 [`tests/git-versions.json`](../../tests/git-versions.json); prose that names
 versions must agree with it.
+
+**The runner's git is 2.55.0, and for two hours nothing said so.** `T-0033` added
+a test asserting that whichever git ran the suite was in that record, and CI's
+was not — 2.25.1 and 2.56.0 were the entries, and neither is 2.55.0. The version
+is `source-supported` from the runner image's own readme
+(`actions/runner-images`), and the suite has now been run on it locally, so the
+record carries a 2.55.0 entry. The assertion itself was still wrong and was
+replaced (`FAILURES.md` F019): the record also grew a `not_exercised` list,
+because a record with two entries and no gaps reads as a claim about a line nobody
+measured.
 
 ## One number, one thing
 

@@ -52,21 +52,33 @@ class RealRecordTest(RepoTest):
         super().setUp()
         self.use(real_repo())
 
-    def test_this_vms_versions_are_exercised_against_the_real_records(self) -> None:
-        # The strongest claim available and the one that must not be faked: the
-        # records are this repository's, and this VM's versions must be found in
-        # them because T-0018, T-0032 and this session all ran here.
+    def test_every_probed_tool_reaches_one_of_the_four_states(self) -> None:
+        # The module's contract, stated without a claim about this machine: each
+        # probed tool reaches exactly one of the four states, and an `exercised`
+        # verdict carries the matched entry's own scope and the machine it ran
+        # on.
         #
-        # `doctor` probes `python3` from PATH, which is the interpreter that would
-        # run `tools/origin` — so on a CI matrix row this asserts against that
-        # row's version, and it holds only because
-        # `tests/test_ci_matrix.py` refuses a matrix row the record does not
-        # name. Without that gate this test goes red on any row the record has
-        # never heard of (F018).
+        # This test used to assert something stronger and untrue — that *this*
+        # VM's interpreter and git are both in the records. That holds on the
+        # machine it was written on and nowhere else: the CI runner ships git
+        # 2.55.0, the git record names 2.25.1 and 2.56.0, and every row went red
+        # on it (F019). "This machine is not in the record" is `doctor`'s warning
+        # to print, not a property the suite can assert.
         collected = doctor.collect(network=False)
         matches = {m.tool: m for m in versions.compare_all(collected["versions"])}
-        self.assertEqual(matches["python3"].state, versions.EXERCISED, matches["python3"])
-        self.assertEqual(matches["git"].state, versions.EXERCISED, matches["git"])
+        self.assertEqual(
+            set(matches), {"git", "gcc", "node", "python3", "rustc"}, sorted(matches)
+        )
+        for match in matches.values():
+            self.assertIn(
+                match.state,
+                (versions.EXERCISED, versions.UNRECORDED, versions.UNREADABLE),
+                match,
+            )
+            if match.state != versions.EXERCISED:
+                continue
+            self.assertTrue(match.scope.strip(), f"an exercised verdict needs a scope: {match}")
+            self.assertTrue(match.matched, f"an exercised verdict names its entry: {match}")
 
     def test_doctor_reports_the_comparison(self) -> None:
         rendered = doctor.summarize(doctor.collect(network=False))
@@ -130,6 +142,13 @@ class RecordReadingTest(RepoTest):
         match = versions.compare("python3", "3.8.10")
         self.assertEqual(match.state, versions.EXERCISED)
         self.assertEqual(match.scope, "full suite green")
+
+    def test_a_record_naming_nothing_exercises_nothing(self) -> None:
+        # The control for `RealRecordTest` above, which cannot assert that this
+        # machine is in the record: an emptied list has to move every version off
+        # `exercised`, or the weaker assertion would pass for the wrong reason.
+        seed_record(self, PY_RECORD, "python", [])
+        self.assertEqual(versions.compare("python3", "3.8.10").state, versions.UNRECORDED)
 
     def test_a_version_no_entry_names_is_unrecorded(self) -> None:
         seed_record(self, PY_RECORD, "python", [

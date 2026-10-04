@@ -4,15 +4,33 @@
   "verified": [
     {
       "git": "2.25.1",
-      "scope": "full suite green (388 tests at T-0034)",
+      "scope": "full suite green (392 tests at T-0034)",
       "where": "instance-20260717-0944 and instance-20260717-0947",
       "via": "T-0024, scope updated in T-0034"
     },
     {
+      "git": "2.55.0",
+      "scope": "full suite green (392 tests at T-0034)",
+      "where": "conda-forge git build on instance-20260717-0947. This is also the version the CI runner image ships: source-supported from actions/runner-images, where the Ubuntu 24.04 and Ubuntu 26.04 readmes both list Git 2.55.0. The suite run itself is observed here, not inferred from the runner",
+      "via": "T-0034"
+    },
+    {
       "git": "2.56.0",
-      "scope": "full suite (174 tests) green; the 95 tests added after T-0016 have not been run on this version",
+      "scope": "full suite (174 tests) green; the tests added since have not been run on this version",
       "where": "micromamba-provided git on instance-20260717-0947",
       "via": "T-0016"
+    }
+  ],
+  "not_exercised": [
+    {
+      "range": "2.26 through 2.54",
+      "why": "never run; the two VMs have 2.25.1, and the CI runner's 2.55.0 was only added to this record in T-0034",
+      "consequence": "a defect that appears only in that range would not be caught by any gate here, and the record says so rather than leaving the range to be inferred from two points"
+    },
+    {
+      "range": "2.57 and newer",
+      "why": "not yet released on either VM or on the runner image this repository uses",
+      "consequence": "the same, at the other end of the line"
     }
   ],
   "known_affected_before_fix": [
@@ -22,5 +40,5 @@
       "via": "FAILURES.md F011"
     }
   ],
-  "note": "Machine-readable authority for which git versions the sync flow has been exercised against. STATE.md named this gap on 2026-10-03: the suite was verified on two versions while the fleet's VMs disagree, and no gate stated the exercised range. Each entry's scope says how much of the suite that version has actually run, because a version that ran an older suite is not evidence about the current one."
+  "note": "Machine-readable authority for which git versions the sync flow has been exercised against. STATE.md named this gap on 2026-10-03: the suite was verified on two versions while the fleet's VMs disagree, and no gate stated the exercised range. Each entry's scope says how much of the suite that version has actually run, because a version that ran an older suite is not evidence about the current one, and each entry's where says which machine it ran on, because doctor prints it and `exercised` must not describe somebody else's runner. The not_exercised list exists because the absence of one is what let T-0033's assertion about this VM's git sit red on every CI run for two hours without a name attached (F019)."
 }

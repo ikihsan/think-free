@@ -35,6 +35,30 @@ defect 7 in [`STATE-defects.md`](STATE-defects.md).
 - **Why adding the matrix without the repair would have been worse than not
   adding it.** Five of seven rows red for a reason about the record invites two
   responses, weaken the assertion or drop the rows, and both reduce measurement.
+- **The second machine-fact gate, one function away, and this one was invisible
+  from outside.** T-0033 had also added an assertion that *this machine's* git is
+  in `tests/git-versions.json`. The matrix's seven rows were all red at the
+  `Tests` step, including rows whose interpreter had just been measured green on a
+  VM; the run log needs admin rights and the public check-runs API returned
+  `annotation_count: None` for every failing check, so the annotation route
+  `docs/operations/ci.md` relies on does not work unauthenticated. Found by
+  elimination (every row's minor version was green locally, so not the
+  interpreter) and then by reading the runner image's own readme, which lists
+  **Git 2.55.0** — a version the git record did not name. A conda-forge 2.55.0
+  was unpacked outside the repository and reproduced the failure exactly.
+  `FAILURES.md` F019, defect 8.
+- **What was actually repaired.** Not the missing entry — the assertion. It is
+  now the module's contract (four states reachable, an `exercised` verdict
+  carrying its entry's scope and machine), with a control that emptying the
+  record moves every version off `exercised`. Adding the 2.55.0 entry alone would
+  have made CI green and left the assumption in place. The git record gained a
+  2.55.0 entry, a `where` on every entry, and a `not_exercised` list — 2.26–2.54
+  and 2.57+ — with test clauses, so the gap is named rather than inferred from
+  two points.
+- **`docs/operations/ci.md` no longer claims the annotation route works.** It
+  says what is readable without rights — step conclusions and check names, which
+  with a matrix is enough to localise a failure to a version — and names the fix
+  that would make it enough to localise it to a test: one check per test file.
 - **The other VM found the same assertion from the other end, an hour later.**
   Its CI run was red on the same test for the mirror-image reason: on a CI row the
   matched entry is `3.12`, whose scope names a run id rather than a test count.
@@ -63,7 +87,8 @@ defect 7 in [`STATE-defects.md`](STATE-defects.md).
   can shadow the minor-level one, and `exercised` alone would describe a runner
   the reader has never seen. The matched entry's own `where` travels with the
   verdict.
-- 388 tests green on 3.8.10 and on all five portable builds. D035 in
+- 392 tests green on 3.8.10, on all five portable builds, and on git 2.55.0 —
+  the runner's own git. D035 in
   [`DECISIONS-GATING.md`](DECISIONS-GATING.md).
 
 ## What changed in session 005, VM 0947 (T-0030)
@@ -223,76 +248,3 @@ see it. Both halves are closed.
   column 0 and treating an indented example in a document as corruption would be
   the worse failure.
 - 203 tests pass (178 before this session), `doc lint` and `session verify` green.
-
-## What changed in session 026, VM 0944 (T-0013)
-
-T-0013 finished on a session an earlier run had started and abandoned mid-edit;
-the resumed run found and fixed three claims its code did not implement before
-committing the result.
-
-- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
-  distinct releases across ten declared packages, 205,305,241 bytes, zero
-  failures, producing identical numbers on three consecutive runs.
-- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
-  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
-  a minute or more, 0.145 span an hour or more. No wheel carried a unix-epoch
-  integer in `METADATA` or `RECORD`, so the mechanism's embedded-string
-  assumption is half false.
-- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
-  appears only when a builder pins the DOS epoch, which almost none does, so
-  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
-  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
-  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
-  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
-  every entry with a single build instant, `jinja2` carries checkout mtimes.
-- Attribution was not abandoned with the gate: D023 takes the verdict on the
-  metric E.md declared rather than on the stricter one the code computed first,
-  and **T-0017** (`EXPERIMENTS/008-build-timestamp-attribution/`) is the
-  measurement that can say whether timestamps are worth fixing first. It ran
-  (session 030) and found 398 of 398 differing bytes are timestamp fields, so
-  E3's mechanism is supported and its candidate abandoned (F012).
-- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
-  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
-  findings. Their claims reached the remote first, so this session's identifiers
-  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
-  split was abandoned in favour of theirs — two VMs renumbering the same shared
-  files in the same hour is a collision the tooling does not yet prevent.
-
-## What changed in session 023, VM 0947
-
-T-0011 completed, on a session another VM had started and abandoned mid-edit.
-
-- `EXPERIMENTS/005-knitting-bounded-search/` tests the repair T-0010 named: close
-  releases *before* deciding patches, searching whole closure-overlap
-  neighbourhoods instead of per error. Model and oracle imported unchanged from
-  004, so the comparison is apples-to-apples. 118 fixtures: 115 with the oracle,
-  2 unsupported, 1 whose `2**24` oracle is opt-in via `--slow`.
-- **Result.** Whole-neighbourhood beam 1 is valid and cost-identical to the
-  exhaustive optimum on 115/115 checked cases (116/116 with `--slow`), on both
-  the development and the holdout fixture seed, at every swept `PATCH_COST`,
-  refusing both unsupported states inside the planner. 004's per-error rule is
-  optimal on 85/115 of the same cases. Verdict `narrow`, not `abandon`.
-- **Two limits that matter more than the headline.** Every cheaper setting is
-  worse: chunk cap 1 fails on 20/115 (14 of them holdout cases the code never
-  saw), cap 3 fails on 2 holdout cases. And two settings that *look* optimal
-  (`cap=1 beam=2`, `cap=2 beam=4`) evaluate exactly `2**|errors|`
-  combinations, so they are exhaustive search in disguise; they are labelled as
-  such and are not evidence for the bounded planner.
-- **"Bounded" is not an efficiency claim at this scale.** Counting patch subsets
-  plus combinations, the bounded planner does 1.28x *more* work than the oracle
-  on T-0010's own fixtures. The saving appears only where closures fragment
-  (48 subsets against `2**24` on the largest fixture).
-- The abandoned draft planner was measured and rejected before replacement: it
-  cross-multiplied its per-neighbourhood candidates, so its search space equalled
-  the oracle's and its `all_optimal = true` was a tautology of the decomposition.
-  Recorded as `DECISIONS-PRACTICE.md` D021.
-- Two pre-existing false claims in the record were corrected: 004's README cited
-  an `input_hashes` key that does not exist, and `RELEASE-MANIFEST.md` claimed an
-  `origin release check` command that `origin` does not have.
-- This VM rebased onto VM 0944's concurrent work (session 025, T-0012) rather than
-  overwriting it. Both decision-log splits existed; 0944's by-invariant split was
-  kept and this session's decision became D021.
-
-Older sessions, moved to [`STATE-history-2.md`](STATE-history-2.md) on
-2026-10-04, twice: when this file reached the 300-line cap, and again when
-session 012 did.

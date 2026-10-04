@@ -224,14 +224,16 @@ invention work: the exercised-version records exist and `doctor` reads them
 portable builds on one VM, and one matrix row per minor in CI (T-0034, D035).
 The floor claim is still two things it is not: it says nothing about 3.15
 onwards, which nothing has ever run, and a green row is evidence about that row
-and not about the version below it. Git is unchanged and weaker, because a git
-version is a property of a machine rather than of a workflow step: the suite has
-run on 2.25.1 and 2.56.0 and on nothing between, and no gate widens that.
-
-A suite that only passes where its author works is not a suite. The credential
-fixture was green on both VMs for a day and red on every runner that exports
-`GITHUB_TOKEN` (T-0035, defect 7): the interpreter range was being widened while
-the one thing every runner shares went untested.
+and not about the version below it. Git is weaker in kind, because a git
+version is a property of a machine rather than of a workflow step: T-0034 added
+the runner's own 2.55.0 to the record by running the suite on it, and
+`git-versions.json` now names what it does **not** run against (2.26-2.54 and
+2.57+). A suite that only passes where its author works is not a suite, and that
+is now a recorded pattern rather than a coincidence: the interpreter assertion
+failed on every version the record lacked (F018), the git assertion on every
+runner whose git nobody recorded (F019), and the credential fixture on every
+runner that exports `GITHUB_TOKEN` (T-0035). Each was green on the machine that
+wrote it.
 Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see

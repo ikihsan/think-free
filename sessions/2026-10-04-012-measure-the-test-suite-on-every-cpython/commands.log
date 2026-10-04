@@ -165,3 +165,130 @@ cwd: /home/ubuntu/think-free
 T-0034: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check` -> exit 0 in 234.07s
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 234486  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T04:53:31+00:00
+$ env PYTHONPATH=tools:tests /tmp/opencode/pythons/cpython-3.12.11/bin/python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.....................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 389 tests in 191.750s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 193735  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T05:07:33+00:00
+$ env PATH=/tmp/opencode/conda/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin LD_LIBRARY_PATH=/tmp/opencode/conda/root/lib bash -c git --version; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git version 2.55.0
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+git: /lib/x86_64-linux-gnu/libpcre2-8.so.0: no version information available (required by git)
+........................................................................................................F............................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doctor_versions.py", line 69, in test_this_vms_versions_are_exercised_against_the_real_records
+    self.assertEqual(
+AssertionError: 'unrecorded' != 'exercised'
+- unrecorded
++ exercised
+ : Match(tool='git', version='2.55.0', state='unrecorded', record='tests/git-versions.json', scope='', matched='', detail='no entry in tests/git-versions.json names 2.55.0', where='', entries=['2.25.1', '2.56.0'])
+
+----------------------------------------------------------------------
+Ran 389 tests in 290.886s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 292203  redactions: none
+==============================================================================
+[seq 18] 2026-10-04T05:17:10+00:00
+$ env PATH=/tmp/opencode/conda/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin LD_LIBRARY_PATH=/tmp/opencode/conda/root/lib bash -c git --version; python3 --version; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git version 2.55.0
+Python 3.8.10
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+git: /lib/x86_64-linux-gnu/libpcre2-8.so.0: no version information available (required by git)
+........................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 392 tests in 333.144s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 334221  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T05:22:30+00:00
+$ env PATH=/tmp/opencode/conda/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin LD_LIBRARY_PATH=/tmp/opencode/conda/root/lib bash -c git --version; python3 --version; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests; echo "suite exit=$?"; tools/origin doc lint; tools/origin release check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git version 2.55.0
+Python 3.8.10
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+suite exit=0
+doc lint: 433 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+doc lint: OK
+release check: 40 path(s) checked
+  FAIL  FAILURES-findings-4.md: tracked at the top level but classified by neither manifest table
+release check: 1 violation(s)
+
+
+[stderr]
+git: /lib/x86_64-linux-gnu/libpcre2-8.so.0: no version information available (required by git)
+........................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 392 tests in 273.396s
+
+OK
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 280287  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T05:26:59+00:00
+$ tools/origin task verify T-0034
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0034: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check` -> exit 0 in 237.69s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 238070  redactions: none
