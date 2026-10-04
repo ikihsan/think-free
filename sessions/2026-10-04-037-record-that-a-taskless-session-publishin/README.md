@@ -34,12 +34,13 @@ _(none recorded)_
 
 ## Commands
 
-2 captured, 0 non-zero exit.
+3 captured, 0 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 2 | ['tools/origin', 'doc', 'lint'] | 0 | 3796 |
 | 3 | ['tools/origin', 'doc', 'lint'] | 0 | 2718 |
+| 7 | ['tools/origin', 'sync', 'push'] | 0 | 3725 |
 
 ## Integrity
 
@@ -61,6 +62,7 @@ _(none recorded)_
 | 4 | 14:01:19 | artifact | wrote STATE-next-actions.md |
 | 5 | 14:01:19 | artifact | wrote docs/operations/ci.md |
 | 6 | 14:01:20 | milestone | taskless-session red run measured at five in one day, three from this VM; cause read off the annotation in both cases |
+| 7 | 14:01:24 | command | $ tools/origin sync push |
 
 ## Reproduce this record
 
