@@ -140,6 +140,24 @@ whatever it shows locally is invisible to every other machine.
 Work happens in its own directory and branch:
 `tools/origin worktree add T-0001` puts the task in `.worktrees/T-0001/`.
 
+**The claim publishes its own commit, so it carries the session record with it.**
+Since T-0055 the claim's commit also carries the open session's own files, read
+from `sessionflow.session_owned_paths`. Two rules that were both correct met badly:
+`push` refuses a dirty tree, and `session start` dirties one by construction, so
+every agent that opened a session before claiming — the order `AGENTS.md` mandates —
+got a refusal naming the session's own record and an instruction to *commit or
+revert* it. The claim stayed local and unpushed, which is the part that mattered:
+no other VM could see it, so the exclusivity the claim exists to provide was not in
+force, and every retry appended another line to the append-only ledger (three
+identical ones for T-0053). Uncommitted work that is *not* the session's record is
+still refused, named, and refused **before** anything is written — so a claim that
+cannot be published costs a message and leaves no trace. Either order now works:
+
+```bash
+tools/origin task claim T-0055 --agent "$AGENT" --vm "$HOSTNAME"   # before session start
+tools/origin session start --goal "…" --task T-0055                 # or after
+```
+
 **Stale claims.** A claim whose holder has disappeared blocks the task. Do not
 take it silently. Finish the dead session honestly first:
 

@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D013, D027, D028, D040, D042**. Each entry records a choice that was
+Decisions **D013, D027, D028, D040, D042, D044**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -244,3 +244,43 @@ event forged with a whole-file digest for a task file would be honoured — the 
 are only as trustworthy as the appender that wrote them, the same trust D040 rests on.
 And the repair is forward-only: a closed stream is not edited, so 50 historical
 sessions now report a file they cannot declare, and nothing reads them.
+
+## D044 — The session's own record is not uncommitted work, and the claim says so
+
+Evidence: T-0055, session `2026-10-04-041`, 2026-10-04. Defect 21 in
+[`STATE-defects.md`](STATE-defects.md); [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
+F023.
+
+**The choice.** A claim's commit carries the open session's own record, and
+anything else uncommitted refuses the claim **before** anything is written. Both
+halves were open. The alternative was to keep `push`'s blanket dirty-tree refusal
+and tell agents to commit their session record by hand before claiming, which is
+what happened for thirty minutes at session 038.
+
+Decision: **a command that publishes its own write must decide what "publishable"
+means, and the session's record is part of the command's own output rather than the
+agent's unreviewed work.** `claimpublish.claim_paths` reads the session's paths from
+`sessionflow.session_owned_paths` — the module that owns that definition — and
+`claimpublish.refuse_uncommitted_work` asks `sessionflow.uncommitted_work`, the
+predicate `session finish --push` already used for exactly this question. Neither
+list is written out a second time.
+
+Rejected: making `sync.push` tolerant of any dirty tree that is session-owned.
+Broader than the defect and it weakens the primitive every other caller relies on;
+the composition belongs in the caller that composes it. Rejected: having the claim
+commit the session record in a *separate* commit first. It would have needed the
+record to be clean before the claim's own `task_rewrite` event, which is written
+during the claim — so the second commit still has to come after, and the separate
+commit breaks `_discard_claim_commit`, whose whole contract is `ahead == 1`.
+Rejected: staging `sessions/<id>` by hand rather than through `session_owned_paths`.
+The first attempt did exactly that and the test caught it: `sessions/INDEX.md` was
+still dirty and the refusal was byte-identical to the defect's. A list written twice
+is a list that will be wrong once.
+
+**Ceiling.** The claim commit is no longer confined to `tasks/`, so a reader of
+`git log` sees session events beside the ledger. `sync land` still refuses a dirty
+tree outright, because a rebase genuinely needs a clean one and the same reasoning
+does not reach that command. And the commit-then-push window remains: a crash
+between `_commit_paths` and `sync.push` leaves one local commit that the next
+`_require_at_base` names — which is the direction of failure, and it is a message
+rather than a silent claim.

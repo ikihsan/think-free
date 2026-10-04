@@ -6,19 +6,19 @@ last-verified: 2026-10-04
 
 # Known defects
 
-Every defect this repository's own tooling and records have shown, whether or not
-it is fixed. Split out of [`STATE.md`](STATE.md) on 2026-10-04 when that file reached
-293 of the 300 permitted lines. **The rule:** a defect is *solved* only when a gate
-fails on its own bytes and passes on the repair; a repair not falsified against its
-defect is open. Method: [`gate-falsification.md`](docs/policy/gate-falsification.md).
+Every defect this repository's own tooling and records have shown, whether or not it is
+fixed. Split out of [`STATE.md`](STATE.md) on 2026-10-04 when that file reached 293 of the
+300 permitted lines. **The rule:** a defect is *solved* only when a gate fails on its own
+bytes and passes on the repair; a repair not falsified against its defect is open. Method:
+[`gate-falsification.md`](docs/policy/gate-falsification.md).
 
 1. **An in-flight session reddened every other VM's CI** (solved in T-0020). Two
    correct rules met — `task claim` needs HEAD on the remote base, so a claiming VM
    must publish its `session_start` first, and D013 then failed every push — and the
    live record corrected its own predicate once already: clause 1 required the session
    to name a task, the other VM started one without `--task`, and the gate called a
-   working session abandoned. `inflight.py` now separates in flight from abandoned
-   from the tree alone (D027; F014, F015), counting a claim in the ledger.
+   working session abandoned. `inflight.py` now separates the two from the tree alone
+   (D027; F014, F015), counting a claim in the ledger.
 
 2. **Reconciliation compared trees, not authorship** (solved in T-0024, D028). A VM
    that landed another VM's work inherited its `unlogged_change` and
@@ -26,18 +26,15 @@ defect is open. Method: [`gate-falsification.md`](docs/policy/gate-falsification
    them its own. `sync pull`/`sync land` now record a `base_advance` naming the
    commits that arrived, and reconciliation attributes a path by the newest thing
    that touched it. **Ceiling:** attribution knows only about base moves it can prove —
-   reached by sessions
-   012 and 040 through hand-run `git rebase --continue`.
-   T-0053 recovers that one from `ORIG_HEAD` and the reflog; a hand-run
-   pull, cherry-pick, or reset remains unrecorded. That is the intended
-   direction of failure, and `session finish` refuses events for a *closed* stream.
+   reached by sessions 012 and 040 through hand-run `git rebase --continue`. T-0053
+   recovers that one from `ORIG_HEAD` and the reflog; a hand-run pull, cherry-pick or
+   reset remains unrecorded. That is the intended direction of failure.
 
 3. **Every generated file stamped `last-verified` with the render date** (solved
    in T-0024, D029), so `doc lint` failed on 42 committed session reports and all
    three indexes on 2026-10-04 — the day after they were written. Each generator now
    stamps from the content it renders. The CI consequence is `inferred` from that local
-   reproduction: no pushed run has failed this way, the two red runs at 23:58 on
-   2026-10-03 having a different and verified cause (defect 5).
+   reproduction, and no pushed run has failed this way.
 
 4. **A pushed task file without `doc index` reddens CI** (solved in T-0026 and
    T-0027). Runs `37163434868` and `37163438950` failed on Documentation lint: this VM
@@ -93,14 +90,13 @@ defect is open. Method: [`gate-falsification.md`](docs/policy/gate-falsification
     cannot read its input must say so, because a parser that quietly stops matching
     looks exactly like a clean tree — D025's shape from a new direction.
     **Ceiling:** a gap in the numbering is not reported, since a dropped entry and a
-    withdrawn defect produce the same bytes; nothing is checked about what a reference
-    points at; and there is no allocator here, so this is the detection half of a race
-    it cannot prevent. See [`tests/README.md`](tests/README.md).
+    withdrawn defect produce the same bytes; and there is no allocator here, so this
+    is the detection half of a race it cannot prevent. See
+    [`tests/README.md`](tests/README.md).
 
 ## Open
 
-Numbering is continuous and never reused, so a solved defect keeps its number and this
-section is not in numeric order: an entry lands under whichever heading fits it when closed.
+Numbering is continuous and never reused, so a solved defect keeps its number and this section is not in numeric order.
 
 11. **`task new` silently keeps one `--acceptance` line and drops the rest** (solved
     in T-0039). Five criteria were passed on the command line and the task file
@@ -111,10 +107,8 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     that most of it is missing. Found by using the documented workflow, which is the
     only way this class of defect shows up.
     **Repair:** both flags accumulate, one line per occurrence, joined in
-    `cli_task.py` so `taskops.create` keeps taking a string. Falsified first: three
-    flags wrote one line, and three `--steps` wrote only `3. third`. A fourth control
-    came from the same run — `taskops.create` defaults `acceptance` to a bare
-    `- [ ] `, which the CLI made unreachable; the test now pins the empty section.
+    `cli_task.py`. Falsified first: three flags wrote one line, and three `--steps`
+    wrote only `3. third`.
     **Ceiling:** only the two flags a writer repeats are changed. Every other `--`
     flag in `cli_args.py` is still last-wins, and the general rule — *a flag that
     collects more than one thing must say so* — is not enforced anywhere.
@@ -136,19 +130,15 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     while both still match. So the command's write is not reported and the agent's
     next edit to the same file is. The appender, not the four commands that call it:
     a rule attached to the command that happened to run is a rule the next one
-    misses. `session finish` names what it excluded, for D028's reason.
-    Falsified both ways — removing the clause in `reconcile` fails 4 of 14 new tests,
-    removing only the digest bound fails 3 — and the first attempt at the first
-    mutation **passed all 14**, because the patch pattern did not match. See D040.
+    misses. `session finish` names what it excluded, for D028's reason. Falsified both ways,
+    and the first attempt at the first mutation **passed all 14** because the patch
+    pattern did not match. See D040.
     **The false negative this entry never measured is closed (T-0050, D042, F022).**
     `reconcile` asked `doclint.is_exempt` — the *cap's* question, true for every
-    `.json`, `.jsonl` and `.log` — so a data-file edit was excluded from `unlogged` and
-    `tests/python-versions.json` could change with nothing said. Reconciliation asks the
-    declared question only now, and the ledger and `vendor/hashes.json` are declared by
-    the bytes their writers wrote. Priced **before** the change by
-    `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths across 77
-    closed sessions, 50 the ledger — so 50 closed sessions now report a file they cannot
-    declare, and F022 records that rather than leaving it a surprise.
+    `.json`, `.jsonl` and `.log` — so a data-file edit was excluded from
+    `unlogged`. Reconciliation asks the declared question only now, and the repair is
+    forward-only: 50 closed sessions now report a ledger they cannot declare, since a
+    closed stream is not edited. [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
     **Ceiling:** a command run with no session open records nothing.
 
 15. **The lease tests dated a claim from a fixed date while the gate read the
@@ -163,17 +153,16 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     began failing at **2026-10-04T09:00Z exactly** — 24 hours after the fixed
     instant — with `AssertionError: 4 != 0`. Run `37190842104` at `f566ff0` is red
     on it and its annotations name the test and the line. The failure is permanent
-    and grows. **This is F018 and F019 with the environment being time rather than a
-    tool version** — a test that reads a clock is a gate whose correctness depends on
-    a record that is not in it.
+    and grows: this is 8 and 9 with the environment being time rather than a tool
+    version — a test that reads a clock is a gate whose correctness depends on a
+    record that is not in it.
     **Repair:** the fixture gained `backdate_claim_now`, which dates the entry from
     `datetime.now`, and the three CLI tests use it, so a claim is N hours old, which
     is what a lease assertion is about. `backdate_claim` keeps the fixed clock for
     the unit tests, which do pass it. Two methods rather than a flag, because the
     clocks differ by however long ago the suite was written and a flag lets a test
     pick the wrong one silently. The negative control the expired assertion lacked
-    was added too: a claim older than the *widest* lease is still abandoned — falsified
-    by moving its age under the threshold (`0 != 4`).
+    was added too: a claim older than the *widest* lease is still abandoned.
     **Ceiling:** the fix dates the fixture rather than injecting a clock into the CLI,
     so those three tests still depend on the wall clock agreeing with itself within a
     test's runtime. Any other test pairing a fixed instant with production code reading
@@ -197,13 +186,11 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     **Repair:** `tools/originlib/decisionheader.py` reads the header as the third
     source and reports both directions, through `idcheck` — the one entry point both
     publishing gates call. A header it cannot read is itself reported, which is
-    D025's second obligation and the failure defect 10's control found. Falsified
-    against the defect's own bytes: `d451169` carried both false headers,
-    `idcheck.report` on the real tree returned **nothing** before the repair and
-    twelve findings after it, and the repaired tip is silent.
+    D025's second obligation. Falsified against the defect's own bytes: `d451169`
+    carried both false headers, `idcheck.report` on the real tree returned
+    **nothing** before the repair and twelve findings after it, and the tip is silent.
     **Ceiling:** the header is compared as a set of identifiers and not as wording,
-    it reads one line per record and nothing outside `DECISIONS*.md`, and a document
-    defining decisions elsewhere would not be asked for one. See
+    it reads one line per record and nothing outside `DECISIONS*.md`. See
     [`tests/README.md`](tests/README.md).
 
 13. **`sync land` regenerated only the generated files git reported as conflicted,
@@ -220,9 +207,8 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     renderer — and commits the answer before the push, which refuses a dirty tree anyway;
     a missing file is rebuilt too. Falsified first: with the call removed the new test
     fails (`'sessions/INDEX.md' not found in []`) and its control stays green.
-    **Ceiling:** the rebuild is a commit nobody claimed, on a tree that was just rebased,
-    so an operator reading the log sees a commit between the work and the session that
-    recorded it. `land` prints what it rebuilt, the only attribution available.
+    **Ceiling:** the rebuild is a commit nobody claimed, on a tree that was just rebased.
+    `land` prints what it rebuilt, the only attribution available.
 
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by
@@ -237,8 +223,7 @@ section is not in numeric order: an entry lands under whichever heading fits it 
    falsified first, since with the old allocator a clone behind the base allocated
    `T-0002` where the base already defined it. `idcheck.report` then refuses a
    colliding tree in `sync land` and reports it in `doc lint` rule 7; over all 174
-   commits it flags exactly one (`e6eb992`), and it found a live desync on its
-   first run — D030 missing from `DECISIONS.md`.
+   commits it flags exactly one (`e6eb992`).
    **Residual, stated:** two VMs allocating between their own fetches still collide and
    an unpushed number reserves nothing; the push rejection and the detector catch it,
    nothing prevents it, and **this cost one collision in the act of fixing it** — VM
@@ -248,14 +233,13 @@ section is not in numeric order: an entry lands under whichever heading fits it 
 
 8. **The suite was red on every interpreter it had never run on** (solved in
    T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions nobody
-   had run, and `test_doctor_versions.py` — written hours earlier — asserted that
-   the interpreter running it was in that record: a fact about the record, not the
-   code. On 3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2 the suite failed on
-   exactly that assertion and nothing else. **Repair:** the test states the
-   disjunction it can support, and `tests/test_ci_matrix.py` holds the workflow's
-   matrix to the record in both directions. **Ceiling:** the record is hand-maintained
-   and CI covers only what `actions/setup-python` publishes, so a matrix row is
-   evidence about that row and nothing beyond it.
+   had run, and `test_doctor_versions.py` — written hours earlier — asserted that the
+   interpreter running it was in that record: a fact about the record, not the code.
+   On 3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2 the suite failed on exactly that
+   assertion and nothing else. **Repair:** the test states the disjunction it can
+   support, and `tests/test_ci_matrix.py` holds the workflow's matrix to the record in
+   both directions. **Ceiling:** the record is hand-maintained and CI covers only
+   what `actions/setup-python` publishes.
 
 9. **The suite asserted that this machine's git is in the record** (solved in
    T-0034, F019). The same class as 8, one function away: every CI row was red from
@@ -266,8 +250,8 @@ section is not in numeric order: an entry lands under whichever heading fits it 
    the comparator's contract — four reachable states, an `exercised` verdict carrying
    its entry's scope and machine — with a control that emptying the record moves every
    version off `exercised`; adding the 2.55.0 entry alone would have made CI green and
-   left the assumption in place. **The general form of 8, 9, 15 and 19: a gate that
-   reads its own environment is only as portable as the record of it.**
+   left the assumption in place. **With 8, 15 and 19: a gate that reads its own
+   environment is only as portable as the record of it.**
 
 18. **Every step whose only job is to emit a diagnostic was skipped when an earlier
     step failed** (solved in T-0046). Each of the five file-reading gate steps carried
@@ -284,8 +268,7 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     repository** (solved in T-0051, D041). Rule 3 tested its candidates for existence
     *wherever they landed*, so `../../docs/x.md` from `tasks/` was decided by what the
     checkout's parent held — T-0047's `doc lint` passing in a worktree and failing in the
-    main checkout on identical bytes. Containment is now decided lexically, so the
-    existence check is the only read.
+    main checkout on identical bytes. Containment is now decided lexically.
 
 20. **A merge duplicated a `STATE.md` dashboard row and every gate passed** (solved in
     T-0052, D043). Commit `eff1126` was a rebase of one VM's T-0047 branch onto a base
@@ -298,3 +281,20 @@ section is not in numeric order: an entry lands under whichever heading fits it 
     the truth. **Ceiling:** rows are compared as exact text. With 19, the shape of 8 and
     9: **a property a gate does not read, in a place a merge can change.** Method in
     [`gate-falsification.md`](docs/policy/gate-falsification.md).
+
+21. **A task claim could not be published from inside a session, and the refusal
+    asked for the one thing an agent must not do by hand** (solved in T-0055,
+    D044). `taskremote.claim` commits the claim then calls `sync.push`, which
+    refuses a dirty tree — and an open session guarantees one, because
+    `session start` writes `sessions/INDEX.md` and a session directory and every
+    later event dirties them again. The refusal named those paths and said
+    *commit or revert*. So the claim stayed local and unpushed: **no other VM
+    could see it, so the exclusivity the command exists to provide was not in
+    force**, and each retry appended another `claim` line to the append-only
+    ledger. `observed` at session 038: three refusals, three identical `claim` lines
+    for T-0053, thirty minutes to land by hand. **Repair:** the claim commit carries
+    the open session's own record — the invariant `multi-vm-coordination.md` already
+    stated and no code implemented — and foreign uncommitted work is refused *before*
+    anything is written. **Ceiling:** the claim is no longer a commit touching only
+    `tasks/`, and `sync land` still refuses a dirty tree because a rebase needs one.
+    [`FAILURES-findings-5.md`](FAILURES-findings-5.md) F023, D044.

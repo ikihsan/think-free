@@ -48,6 +48,15 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**A claim that could not be published was the fleet's only concurrency control,
+and the refusal that caused it asked for the one action an agent must not take by
+hand** (defect 21, T-0055, D044, F023). `task claim` committed the claim and then
+called `push`, which refuses a dirty tree — and an open session guarantees one. The
+claim stayed local and unpushed, so no other VM could see it, and each retry added
+another `claim` line to the append-only ledger. The claim commit now carries the
+session's own record, and foreign uncommitted work refuses the claim before anything
+is written.
+
 **Both machine-fact gates are closed, and the second was invisible from
 outside** (defects 8 and 9 in [`STATE-defects.md`](STATE-defects.md)): each was
 green on the VM that wrote it and red elsewhere for opposite reasons, and neither

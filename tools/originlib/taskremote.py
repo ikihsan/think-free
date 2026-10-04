@@ -14,7 +14,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 
-from . import gitutil, paths, sync, taskops, tasks
+from . import claimpublish, gitutil, paths, sync, taskops, tasks
 
 RETRY_LIMIT = 3
 
@@ -126,78 +126,6 @@ def render_remote_list(status_filter: str = "") -> str:
     return "\n".join([header, *rows])
 
 
-def _require_at_base() -> str:
-    """A claim commit must be the only thing between this branch and the base.
-
-    Pushing `HEAD` to the base branch would otherwise land unrelated work along
-    with the claim, which is how an agent publishes something it never reviewed.
-    """
-    remote = sync.remote_name()
-    base = sync.base_branch()
-    local = gitutil.text(["rev-parse", "HEAD"])
-    upstream = gitutil.text(["rev-parse", f"{remote}/{base}"])
-    if not upstream:
-        raise tasks.TaskError(
-            f"{remote}/{base} is unknown on this machine; run 'tools/origin sync pull' first"
-        )
-    if local != upstream:
-        ahead, behind = sync._ahead_behind()
-        if ahead:
-            raise tasks.TaskError(
-                f"this branch carries {ahead} unpublished commit(s) that are not on "
-                f"{remote}/{base}; land them first ('tools/origin sync land') so the "
-                "claim is published on its own"
-            )
-        raise tasks.TaskError(
-            f"this branch is {behind} commit(s) behind {remote}/{base}; "
-            "run 'tools/origin sync pull' so the claim is published on top of the current record"
-        )
-    return upstream
-
-
-def _catch_up() -> None:
-    """Fast-forward onto the shared base before writing shared state."""
-    try:
-        sync.pull()
-    except sync.SyncError as exc:
-        raise tasks.TaskError(str(exc)) from exc
-
-
-def _commit_paths(paths_to_stage: list[str], message: str) -> bool:
-    gitutil.run(["add", "--", *paths_to_stage])
-    result = gitutil.run(["commit", "-q", "-m", message])
-    return result.returncode == 0
-
-
-def _discard_claim_commit(base: str) -> None:
-    """Undo a claim commit git refused, so the loser keeps a clean tree."""
-    ahead = gitutil.text(["rev-list", "--count", f"{base}..HEAD"])
-    if ahead == "1" and not gitutil.dirty_paths():
-        gitutil.run(["reset", "--hard", "-q", base])
-    else:
-        raise tasks.TaskError(
-            "the claim push was refused and this branch has other commits; "
-            "rebase onto the base branch by hand, then claim again"
-        )
-
-
-def _claim_paths(task) -> list[str]:
-    """The paths a published claim must carry, indexes included.
-
-    A task file is a document, and `doc lint` calls a document no index mentions
-    an orphan. The claim is the commit every other VM sees first, so if it leaves
-    the regenerated indexes behind, the pushed tree is red: that is what runs
-    `37163434868` and `37163438950` were (T-0025). Rebuild first, stage second.
-    """
-    taskops.refresh_indexes()
-    return [
-        f"tasks/{task.path.name}",
-        "tasks/CLAIMS.jsonl",
-        "tasks/INDEX.md",
-        "docs/INDEX.md",
-    ]
-
-
 def claim(
     task_id: str,
     agent: str,
@@ -217,8 +145,11 @@ def claim(
         return taskops.claim(task_id, agent, vm, session)
     base = sync.base_branch()
     ref = f"{remote}/{base}"
+    # Before the loop, and before any write: a claim that cannot be published must
+    # not reach the ledger or the branch at all (defect 21, `claimpublish`).
+    claimpublish.refuse_uncommitted_work()
     for attempt in range(1, RETRY_LIMIT + 1):
-        _catch_up()
+        claimpublish.catch_up()
         remote_task = remote_tasks(ref).get(task_id)
         if remote_task is None:
             raise tasks.TaskError(
@@ -232,34 +163,23 @@ def claim(
                     f"{current.get('vm', '?')} since {current.get('ts', '?')}; "
                     "choose another task, or record a takeover with --takeover \"reason\""
                 )
-        _require_at_base()
-        task = tasks.find(task_id)
-        taskops._set_meta(
-            task,
-            {
-                "status": "claimed",
-                "claim-agent": agent,
-                "claim-vm": vm,
-                "claim-session": session,
-            },
-        )
+        claimpublish.require_at_base()
         action = "takeover" if (takeover and current) else "claim"
-        tasks.append_claim(
+        claimpublish.write_claim(
+            tasks.find(task_id),
             task_id,
+            agent,
+            vm,
+            session,
             action,
-            agent=agent,
-            vm=vm,
-            session=session,
-            reason=takeover or None,
+            takeover,
             superseded=current.get("agent") if action == "takeover" else None,
         )
-        if not _commit_paths(_claim_paths(task), f"claim {task_id} by {agent} on {vm or 'unknown-vm'}"):
-            raise tasks.TaskError(f"could not commit the claim for {task_id}")
         result = sync.push(base)
         if result.get("pushed"):
-            return tasks.load(task.path)
+            return tasks.load(tasks.find(task_id).path)
         fetch()
-        _discard_claim_commit(ref)
+        claimpublish.discard_claim_commit(ref)
         if holder(task_id, ref).get("agent") not in (None, agent):
             raise tasks.TaskError(
                 f"{task_id} was claimed by another VM while this claim was in flight"
@@ -276,16 +196,21 @@ def release(task_id: str, agent: str, vm: str = "", reason: str = "", push: bool
         return tasks.load(task.path)
     base = sync.base_branch()
     ref = f"{remote}/{base}"
-    _catch_up()
+    # The same precondition as `claim`, and for the same reason: a release is
+    # published by the command that writes it, so a tree it cannot push from must
+    # be refused before the ledger grows. A rule attached to the command that
+    # happened to be running is a rule the next command misses (D040).
+    claimpublish.refuse_uncommitted_work()
+    claimpublish.catch_up()
     current = holder(task_id, ref)
     if current and current.get("agent") != agent and not reason:
         raise tasks.TaskError(
             f"{task_id} is held by {current.get('agent')}; releasing it needs a reason"
         )
-    _require_at_base()
+    claimpublish.require_at_base()
     task = tasks.find(task_id)
     taskops._set_meta(task, {"status": "open", "claim-agent": "", "claim-vm": "", "claim-session": ""})
     tasks.append_claim(task_id, "release", agent=agent, vm=vm, reason=reason or None)
-    _commit_paths(_claim_paths(task), f"release {task_id} by {agent}")
+    claimpublish.commit_paths(claimpublish.claim_paths(task), f"release {task_id} by {agent}")
     sync.push(base)
     return tasks.load(task.path)

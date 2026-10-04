@@ -39,6 +39,18 @@ Because `claim` must be published on top of the base branch, and publishing it
 requires HEAD to equal the base, **a claiming VM pushes its session start first**.
 An unfinished session on the shared branch is therefore normal, not a defect.
 
+**And the claim carries that record with it** (T-0055, D044, defect 21). The rule
+above was written down and no code implemented it, because the two rules a claim
+rests on — `push` refuses a dirty tree, `session start` makes one — compose into a
+livelock: the claim commits, the push refuses on the session's own files, and the
+refusal tells the agent to *commit or revert* them. The claim stayed local, so the
+exclusivity above was not in force on any other VM for the length of the
+trouble, and each retry added a line to the append-only ledger. `claimpublish.py`
+now stages the open session's own paths into the claim commit, and refuses foreign
+uncommitted work before writing anything. `sync land` still refuses a dirty tree
+outright, because a rebase genuinely needs a clean one — the same composition does
+not reach that command.
+
 ## One task, one directory
 
 Two agents sharing one working tree share one index and one

@@ -49,6 +49,7 @@ file reached the 300-line cap:
 | F020 | The check-run annotations were readable all along; their silence has four causes and three are not "none" |
 | F021 | The annotator's rendering was declared unmeasured on a run whose annotating steps never ran |
 | F022 | The exemption that answered the wrong question hid every data-file edit from the report |
+| F023 | A refusal whose remedy was the one thing an agent must not do by hand |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

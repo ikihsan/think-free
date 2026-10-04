@@ -99,3 +99,67 @@ move the session recorded is attributed the way `landed.landed_paths` attributes
 it and no more finely; and the residual above is not machine-checked at all, only
 recorded. Nothing scans for a `.json`/`.jsonl`/`.log` edit in a *closed* stream,
 which is the shape a future defect would take.
+
+## F023 — A refusal whose remedy was the one thing an agent must not do by hand
+
+Source: T-0055, session `2026-10-04-041`, 2026-10-04. Repair:
+`tools/originlib/claimpublish.py`, `tools/originlib/taskremote.py`;
+`tests/test_claim_in_session.py`. Defect 21 in [`STATE-defects.md`](STATE-defects.md).
+
+**What happened, `observed`.** `task claim` rewrites the task file, appends to the
+ledger, commits, and calls `sync.push` — and `push` refuses a dirty tree. An open
+session guarantees a dirty tree: `session start` writes `sessions/INDEX.md` and a
+session directory, and every later event, including the claim's own `task_rewrite`
+event, dirties them again. So the refusal was unconditional for any agent that had
+followed the protocol's own first step. It named the session's own paths and said
+*commit or revert*:
+
+```
+origin: refusing to push a dirty tree; commit or revert: sessions/INDEX.md,
+sessions/2026-10-04-038-.../README.md, sessions/2026-10-04-038-.../events.jsonl
+```
+
+**What it cost, measured rather than described.** Three things, none of them the
+exit code. The claim commit stayed on the local branch and unpushed, so **no other
+VM could see the claim** — the exclusivity the command exists to provide was not in
+force for the whole window, and `tasks/CLAIMS.jsonl` on the remote said the task was
+open. Each retry appended another `claim` line to the append-only ledger: T-0053
+carries three identical ones at 14:13:51, 14:14:02 and 14:14:19. And the retry's
+own advice was worse than useless — `sync land`, which the second refusal names,
+refuses the same dirty tree for the same reason, so the documented escape from the
+first refusal was refused by the tool that gave it. That is D039's rule (T-0048)
+reached from a different command: **a refusal must be followable by the tool that
+gave it.** It took thirty minutes and a hand-run `git commit` of the session record
+to publish a claim that is supposed to be one command.
+
+**Why it survived the fleet's own testing.** The documented order in
+`task-execution/SKILL.md` and `operations/vm-execution.md` is *claim, then start the
+session*, which works: with no session open there is no record to be dirty, and the
+claim's own writes are staged by the same commit. So the defect is only reachable by
+an agent that opens the session first — which `AGENTS.md` tells every agent to do,
+in bold, as the step that must precede everything. Two documents in this repository
+give opposite orders and the one that fails is the mandated one.
+
+**Falsified both ways, and a third time on real bytes.** `tests/test_claim_in_session.py`
+fails against the unmodified code with the refusal quoted above, and passes after.
+The control asserts the other direction: uncommitted work that is *not* the
+session's record is still refused, and a refused claim appends nothing to the
+ledger and leaves the branch level with the base. Then the same sequence was run on
+a clone of this repository's own history with the patch applied — `session start`,
+`task claim T-0055`, exit 0, remote equal to local, and the session record carried
+in the claim commit.
+
+**Lesson kept.** A refusal is a message *and* a route. Two rules here were both
+written down and neither was implemented: `push` refuses a dirty tree, and
+`multi-vm-coordination.md` says a claiming VM pushes its session start first. The
+composition of two correct rules was a livelock, and only the composition was
+wrong. When one command's precondition is another's side effect, the reader that
+resolves it has to be named — here `sessionflow.uncommitted_work`, which already
+drew the distinction for `session finish --push`.
+
+**Ceiling.** The claim commit is no longer confined to `tasks/`; it carries the
+session's record, so `git log` on a claim shows session events beside the ledger.
+`sync land` still refuses a dirty tree outright, because a rebase genuinely needs a
+clean one — the same reasoning, and it does not reach that command. And the
+commit-then-push window remains: between `_commit_paths` and `sync.push` a crash
+still leaves one local commit, which the next `_require_at_base` names.

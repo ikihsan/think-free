@@ -126,8 +126,8 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, table rows, orphans, generated
       freshness. A link resolves *inside* the repository without asking the filesystem,
       and a hand-authored document says each table row once (T-0051/52, D041/D043)
-- [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored
-      in-repo and mirrored for every supported agent
+- [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored in-repo and
+      mirrored for every supported agent
 - [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
@@ -167,36 +167,29 @@ Separate from the invention stages, because the mission cannot be run without it
       a gate nobody runs from the command the protocol points at is a gate the
       next agent repeats the omission against: T-0042 added a root document,
       classified nothing, and its own `verify` passed
-- [x] Reconciliation attributes a landed base move to the VM that wrote it
-      (T-0024, D028). A session that merged a colleague's work closed with nine
-      false `unlogged_change` events, four false `doc_update` events and an
-      inherited `documentation_gaps` report; `sync` now records what arrived.
-      A hand-run rebase is still reported, which is the intended direction of
-      failure.
-- [x] Generated files are functions of the tree, not of the clock (T-0024, D029).
-      Every generator stamped `last-verified` with the render date, so `doc lint`
-      failed on 42 committed reports and three indexes the day after they were
-      written. The CI consequence is `inferred`: the red runs of 2026-10-03 had a
-      different, verified cause (defect 5 in `STATE-defects.md`).
+- [x] Reconciliation attributes a landed base move to the VM that wrote it (T-0024, D028). A
+      session that merged a colleague's work closed with nine false `unlogged_change` events,
+      four false `doc_update` events and an inherited `documentation_gaps` report; `sync` now
+      records what arrived. A hand-run rebase is still reported, which is the intended direction
+      of failure.
+- [x] Generated files are functions of the tree, not of the clock (T-0024, D029). Every
+      generator stamped `last-verified` with the render date, so `doc lint` failed on 42
+      committed reports and three indexes the day after they were written.
 - [x] `task new` leaves no orphan behind (T-0026 and T-0027, `observed` in runs
       `37163434868`, `37163438950` and four more on 2026-10-04): `new`, `claim`,
       `complete` and `release` rebuild the generated indexes, and a published
       claim stages them, so the commit every other VM reads first is lintable
-- [x] Operations documents agree with what the fleet has actually run (T-0023
-      repaired the Python floor and the GitHub App status; T-0029 closed the
-      `doctor` gap). The App's real permissions still need a human with its
-      settings page — nothing here can read them
+- [x] Operations documents agree with what the fleet has actually run (T-0023 repaired the
+      Python floor and the GitHub App status; T-0029 closed the `doctor` gap). The App's real
+      permissions still need a human with its settings page — nothing here can read them
 - [x] `doctor` reports the push credential mechanism (T-0029): the configured
       `credential.helper`, whether each named helper exists and is executable,
-      App key files by path and mode, whether the helper depends on anything
-      outside `~/.config`, and whether `git credential fill` obtains a
-      credential. Three-valued verdict (`configured`/`broken`/`unavailable`),
-      no value ever recorded, and `configured` explicitly does not mean the
-      credential can push (`docs/operations/doctor.md`)
-- [x] A machine-readable record of the Python versions the suite is verified on,
-      the way `tests/git-versions.json` records git versions
-      (`tests/python-versions.json`, T-0032), including the versions nobody has
-      run
+      App key files by path and mode, whether the helper depends on anything outside
+      `~/.config`, and whether `git credential fill` obtains a credential. Three-valued verdict
+      (`configured`/`broken`/`unavailable`), no value ever recorded, and `configured` explicitly
+      does not mean the credential can push (`docs/operations/doctor.md`)
+- [x] A machine-readable record of the Python versions the suite is verified on, the way
+      `tests/git-versions.json` records git versions (`tests/python-versions.json`, T-0032)
 - [x] `doctor` compares this VM's git and interpreter against both records
       (T-0033), reporting `exercised` / `NOT exercised` / `record unreadable` /
       `no record` with the matched entry's own scope attached, so an unexercised
@@ -292,7 +285,14 @@ rest: run the documented sequence, and fix what it actually does.
       `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths, 50 the ledger. The
       general form: an exemption is a claim about what another check covers, and the cheap way to
       write one is to borrow a predicate.
-- [x] Standard-library test suite (535 tests on git 2.25.1), with
+- [x] A claim is publishable from inside the session that made it (T-0055, D044, defect 21,
+      F023). `task claim` committed the claim then called `push`, which refuses a dirty tree —
+      and an open session guarantees one, so the refusal named the session's own record and told
+      the agent to commit or revert it. The claim stayed local and unpushed, so **no other VM
+      could see it**: the exclusivity the command exists to provide was not in force, and each
+      retry added another `claim` line to the ledger (three identical ones for T-0053). Falsified
+      both ways, and on a clone of this repository's own history
+- [x] Standard-library test suite (537 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
       each git version has actually run. A test's correctness depends on every clock the
       code under it reads: three tests behind the in-flight gate read one the fixture never
