@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-42 recorded session(s). One `events.jsonl` per session, so concurrent
+43 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 17 older session(s) are in the directory listing.
+Showing the 25 most recent. 18 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | **unfinished** | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:37 |
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 17 older session(s) are in the directory listing.
 | [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | worked | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T17:16 |
 | [2026-10-03-020-annotate-hypotheses-md-with-e002-outcome](2026-10-03-020-annotate-hypotheses-md-with-e002-outcome/README.md) | opencode | no-change | annotate HYPOTHESES.md with E002 outcome | 2026-10-03T16:52 |
 | [2026-10-03-019-t-0007-distance-budget-variant-of-002-a1](2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/README.md) | unknown-agent | worked | T-0007: distance-budget variant of 002-a1-masking | 2026-10-03T16:50 |
-| [2026-10-03-018-log-state-md-update-from-t-0004-completi](2026-10-03-018-log-state-md-update-from-t-0004-completi/README.md) | unknown-agent | no-change | log STATE.md update from T-0004 completion | 2026-10-03T16:43 |
 
 
 ## Reading a session

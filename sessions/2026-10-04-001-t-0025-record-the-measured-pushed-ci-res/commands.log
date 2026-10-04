@@ -1,0 +1,83 @@
+==============================================================================
+[seq 2] 2026-10-04T00:37:35+00:00
+$ bash -c for id in 37165413909 37165405776 37163438950 37163434868; do curl -sS -m 30 "https://api.github.com/repos/ikihsan/think-free/actions/runs/$id" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"run\", d[\"id\"], d[\"head_sha\"][:12], d[\"status\"], d[\"conclusion\"], d[\"created_at\"], d[\"updated_at\"])
+"; done; echo "--- steps of 37165413909 ---"; curl -sS -m 30 "https://api.github.com/repos/ikihsan/think-free/actions/runs/37165413909/jobs" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for j in d.get(\"jobs\", []):
+    print(\"job\", j[\"name\"], j[\"conclusion\"], j.get(\"runner_name\"))
+    for s in j.get(\"steps\", []):
+        if s[\"name\"] not in (\"Set up job\",\"Complete job\") and not s[\"name\"].startswith(\"Post \"):
+            print(\"   %-32s %s\" % (s[\"name\"], s[\"conclusion\"]))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+run 37165413909 9e865a42b152 completed success 2026-10-04T00:35:29Z 2026-10-04T00:36:10Z
+run 37165405776 9e865a42b152 completed success 2026-10-04T00:35:19Z 2026-10-04T00:35:58Z
+run 37163438950 8898f0a2fa99 completed failure 2026-10-03T23:58:16Z 2026-10-03T23:58:52Z
+run 37163434868 83aa9a4c43fb completed failure 2026-10-03T23:58:10Z 2026-10-03T23:58:45Z
+--- steps of 37165413909 ---
+job verify success GitHub Actions 1000000437
+   Run actions/checkout@v4          success
+   Run actions/setup-python@v5      success
+   Show toolchain                   success
+   Tests                            success
+   Documentation lint               success
+   Release manifest                 success
+   Skill layout and mirrors         success
+   Vendored content integrity       success
+   Session record integrity         success
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2179  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T00:37:42+00:00
+$ bash -c for id in 37163438950; do SHA=$(curl -sS -m 25 "https://api.github.com/repos/ikihsan/think-free/actions/runs/$id" | python3 -c "import json,sys;print(json.load(sys.stdin)[\"head_sha\"])"); echo "sha=$SHA"; CR=$(curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/commits/$SHA/check-runs" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for c in d.get(\"check_runs\", []): print(c[\"id\"]); break
+"); echo "check_run=$CR"; curl -sS -m 25 -H "Accept: application/vnd.github+json" "https://api.github.com/repos/ikihsan/think-free/check-runs/$CR/annotations?per_page=100" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for a in d[:12]:
+    print(\"-\", a.get(\"annotation_level\"), (a.get(\"message\") or \"\")[:180])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+bash: -c: line 10: syntax error: unexpected end of file
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T00:37:55+00:00
+$ python3 /tmp/opencode/ci_annotations.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+run 37163438950 8898f0a2fa99 failure 2026-10-03T23:58:16Z
+check verify failure 111321451998
+   - warning Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more inform
+   - failure Process completed with exit code 2.
+   - notice "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1375  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T00:38:26+00:00
+$ python3 /tmp/opencode/ci_steps.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== run 37163438950 8898f0a2fa99 failure 2026-10-03T23:58:16Z
+   step Documentation lint failure
+== run 37163434868 83aa9a4c43fb failure 2026-10-03T23:58:10Z
+   step Documentation lint failure
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1643  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T00:41:02+00:00
+$ tools/origin task verify T-0025
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0025: `grep -q '37165413909' STATE.md && tools/origin doc lint` -> exit 0 in 1.6s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1920  redactions: none

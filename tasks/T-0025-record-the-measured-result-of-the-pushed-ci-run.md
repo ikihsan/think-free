@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0025
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 
@@ -34,10 +34,10 @@ The pushed commit must be reachable from origin/research/origin and its run read
 
 ## Acceptance criteria
 
-- [ ] STATE.md names the run id, the commit, and all six step conclusions as observed, not inferred.
-- [ ] The two 23:58 failures are recorded with the cause (date rollover, D029) rather than left unexplained.
-- [ ] The standing CI row says what is now observed and what is still not (no second runner, no re-run of the 2.56.0 git path).
-- [ ] doc lint exits 0.
+- [x] STATE.md names the run id, the commit, and all six step conclusions as observed, not inferred.
+- [x] The two 23:58 failures are recorded with the cause rather than left unexplained.
+- [x] The standing CI row says what is now observed and what is still not (no second runner, no re-run of the 2.56.0 git path).
+- [x] doc lint exits 0.
 
 ## Verification
 
@@ -48,6 +48,27 @@ grep -q '37165413909' STATE.md && tools/origin doc lint
 ## Rollback
 
 Revert the STATE.md commit; nothing else changes and no record is rewritten.
+
+## Notes
+
+Append observations here. Record outcomes as events with
+`tools/origin session experiment-result`.
+
+**The assumption this task existed to check was wrong.** T-0024's D029 predicted
+that a push after local midnight would fail Documentation lint. Two runs ten
+minutes earlier *had* failed — and their failing step was Documentation lint, so
+the prediction looked confirmed. Reading the step conclusions and then
+`git show 8898f0a:tasks/INDEX.md` falsified it: that commit carries the new task
+file and an index that does not list it, so the **orphan** rule fired. The clock
+was still 23:58 UTC. The date defect was real (reproduced locally on 2026-10-04)
+and is fixed; its CI consequence stays `inferred`, and defect 5 in
+[`STATE-defects.md`](../STATE-defects.md) records the cause that actually reddened
+two runs.
+
+**Split while here.** `STATE.md` reached 293 lines, so the defect list moved to
+[`STATE-defects.md`](../STATE-defects.md) with the solve/open status each entry
+carries, and `RELEASE-MANIFEST.md` classifies the new file. That is the split the
+doc standards ask for at 250 lines, done where the pressure actually was.
 
 ## Notes
 

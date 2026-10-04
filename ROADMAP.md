@@ -135,11 +135,12 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Environment doctor with presence-only credential checks
 - [x] Continuous integration running lint, tests, release manifest, and session
       verification.
-      Five gates, Python pinned with `setup-python`, failing tests re-emitted as
-      public annotations. **Measured green** for Tests, doc lint, skills check
-      and vendored integrity (run `37157528596`); it had failed on **all 60**
-      earlier runs because of a git-version defect in `sync land`
-      (`FAILURES.md` F011, fixed in T-0016).
+      Six gates, Python pinned with `setup-python`, failing tests re-emitted as
+      public annotations. **Measured green on all six steps** on a pushed commit
+      (run `37165413909`, `9e865a4`, T-0025); it had failed on **all 60** earlier
+      runs because of a git-version defect in `sync land`
+      (`FAILURES.md` F011, fixed in T-0016), and twice more on 2026-10-03 because a
+      task file was pushed before `tasks/INDEX.md` was rebuilt.
 - [x] Session gate that tells an in-flight session from an abandoned one
       (`tools/originlib/inflight.py`, T-0020). `session verify --strict` failed
       on every push of every VM whenever the fleet was working, because `task
@@ -166,7 +167,11 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Generated files are functions of the tree, not of the clock (T-0024, D029).
       Every generator stamped `last-verified` with the render date, so `doc lint`
       failed on 42 committed reports and three indexes the day after they were
-      written — and would have failed CI on any push after local midnight.
+      written. The CI consequence is `inferred`: the red runs of 2026-10-03 had a
+      different, verified cause (defect 5 in `STATE-defects.md`).
+- [ ] `task new` leaves no orphan behind (T-0025 found it, `observed` in runs
+      `37163434868` and `37163438950`): a pushed task file breaks the
+      Documentation lint step until `tasks/INDEX.md` is rebuilt
 - [ ] Operations documents agree with what the fleet has actually run (T-0023
       repaired the Python floor and the GitHub App status; the App's real
       permissions still need a human with its settings page, and `doctor` reports

@@ -42,7 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Sessions | 41 recorded and closed, 1 in flight (042, T-0024, VM 0947) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
-| Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). `Session record integrity` was red on every push while any VM had a session in flight; T-0020 separates in flight from abandoned, so that step is green **locally** (`observed`, sessions 037–038) while a session was in flight. A pushed run has not been observed since, so CI is not claimed green |
+| Continuous integration | **Green on all six steps, observed on a pushed run** (`observed`, run `37165413909`, commit `9e865a4`, 2026-10-04T00:35Z, `GitHub Actions 1000000437`): Tests, Documentation lint, Release manifest, Skill layout, Vendored integrity, and **Session record integrity**, which had been red on every push while any VM held a session. Two runs ten minutes earlier (`37163434868`, `37163438950`) failed on Documentation lint, and the cause was *not* the clock: this VM pushed the new task file without regenerating `tasks/INDEX.md`, so the orphan rule fired. Ceiling: one commit, one runner image, one day |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -56,47 +56,17 @@ T-0015, T-0016, T-0018, T-0019, T-0020 and now T-0024. Check
 `tools/origin task list --remote` before taking anything.
 
 **Identifier collisions are allocated by reading the local tree, so two VMs in
-an hour collide by construction.** Six times on 2026-10-03: T-0016 and
-F009/F010/D022; session 029's F012 against session 026's F010; session 030's F012
-for E3's attribution against this VM's F012 for the worktree defect; D024 issued
-twice for unrelated decisions; then F013, `FAILURES-findings-3.md`, D025 and D026
-all taken here while this VM held the same numbers. This VM's two findings became
-F014 and F015 and its session-gate decision D027. **The cost is now measured:** a
-rebase resolution restored one file's index row to the renumbered form while
-reverting its body, so a findings file and its own table disagreed about the same
-entries until both were read together.
+an hour collide by construction.** Six times on 2026-10-03, and the cost is
+measured: a rebase resolution restored one file's index row to the renumbered
+form while reverting its body, so a findings file and its own table disagreed
+about the same entries. The full list is defect 4 in
+[`STATE-defects.md`](STATE-defects.md), which holds every defect this repository
+has shown, solved or not, and is the only fleet defect still unfixed.
 
-**Repository defects known on 2026-10-03:**
-
-1. **Solved in T-0020: an in-flight session reddened every other VM's CI.** Two
-   correct rules met — `task claim` needs HEAD on the remote base, so a claiming
-   VM must publish its `session_start` first, and D013 then failed every push.
-   `tools/originlib/inflight.py` now separates in flight from abandoned from the
-   tree alone (D027; F014 and F015).
-2. **The live record corrected that predicate once already.** Clause 1 required
-   the session to name a task; the other VM started a session without `--task`,
-   so the gate called a working session abandoned. A claim in the ledger naming
-   the session now counts (D027's clause-1 note).
-3. **`doctor` does not compare this VM's git against what the suite has been
-   exercised on.** Partly closed in T-0018 (`tests/git-versions.json`).
-   **Ceiling:** bookkeeping hygiene, not a claim.
-4. **Solved in T-0024 (D028): reconciliation compared trees, not authorship**, so
-   a VM that landed another VM's work inherited its `unlogged_change` and
-   `documentation_gaps` reports (session 029, nine events). `sync pull`/`sync
-   land` now record a `base_advance` naming the commits that arrived, and
-   reconciliation attributes a path by the newest thing that touched it. The
-   original reports stand in a closed event stream that must not be edited, so
-   they are still explained here. **Ceiling:** attribution knows only about base
-   moves the tooling performed; a rebase run by hand stays reported, by design.
-5. **Identifier allocation is the one fleet defect still unfixed.** It is cheap
-   and it corrupts a later session's reading — a rebase restored one findings
-   file's index row to the renumbered form while reverting its body, so the file
-   and its own table disagreed about the same entries.
-6. **Solved in T-0024 (D029): every generated file stamped `last-verified` with
-   the render date**, so `doc lint` failed on 42 committed session reports and
-   all three indexes on 2026-10-04 — and would have failed in CI for any push
-   after local midnight. Generators now stamp from the content they render.
-   Found while running T-0024's own verification, which could not pass.
+Two of the seven defects there were closed on 2026-10-04 (D028 attribution of
+landed work, D029 clock-dependent generated files) and a third was found by
+reading the pushed CI run (defect 5: a pushed task file without `doc index`
+reddens the Documentation lint step, `observed` twice).
 
 ## What changed recently
 
@@ -117,6 +87,13 @@ exists so that history does not push this reload point past the line cap.
   against their own defect before being trusted. 269 tests green.
   [`STATE-history.md`](STATE-history.md) is at the 300-line cap, so this session's
   detail lives in D028 and its own record rather than there.
+- **Session 001, VM 0947 (T-0025).** The pushed CI run for T-0024 is read and
+  recorded: all six steps green on `9e865a4`, including the session-integrity
+  step that had been red on every push while a VM was working. The two failures
+  from ten minutes earlier were **not** the date defect this session's predecessor
+  assumed: their failing step was Documentation lint, and the cause was a task
+  file pushed without regenerating `tasks/INDEX.md`. **Reading the run rather than
+  the expectation is what caught it.**
 - **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
   VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
   (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
@@ -186,46 +163,52 @@ Ordered by information gained per unit of effort. Read the ceiling on each befor
 spending effort: a pass still leaves prior art, usefulness, and adoption
 untouched.
 
-1. **Read the pushed CI run and record its result here** (T-0020, landed by
-   sessions 037–038). `tools/origin session verify --strict` exits `0` **locally**
-   while a session on either VM is in flight and names it, and exits `4` with the
-   failing clause named once the claim is closed or past the 12-hour lease. Five
-   clauses, each with a test proven to fail when the clause is removed. Local
-   green is not the same claim as a green run.
-   **Ceiling:** a crash inside the lease window is not caught by this gate;
-   `task list --remote` names the holder (D027).
-1b. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Two
-   gates now work that way: the conflict-marker rule and `release check`. The
-   pattern for the next one is in `tools/originlib/conflicts.py`. **Ceiling:**
-   the marker rule detects git's marker shape only.
-2. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
+1. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
+   commit `9e865a4`, all six steps green, `observed`). The standing "CI is not
+   claimed green" caveat is closed for that commit. Two things stay open: the
+   Documentation lint step still breaks when a VM pushes a task file without
+   rebuilding `tasks/INDEX.md` (defect 7 above), and a run says nothing about a
+   second runner image or a rebase conflict.
+2. **A gate must read the property it claims to check, and must be falsified
+   against the defect's own bytes before it is trusted** (D025, from F013). Three
+   gates now work that way: the conflict-marker rule, `release check`, and the
+   landed-work attribution and generated-stamp rules (both falsified in T-0024,
+   one of them after a first falsification attempt that failed to falsify
+   anything). The pattern for the next one is in `tools/originlib/conflicts.py`.
+   **Ceiling:** the marker rule detects git's marker shape only.
+3. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
    exercised git versions live in `tests/git-versions.json` (schema
-   `origin.git-versions/1`): the suite is verified on 2.25.1 and 2.56.0, and the
-   pre-F011 breakage from 2.26 on is a recorded known-affected range. No
-   equivalent record exists for Python. **Ceiling:** neither says anything about
-   a candidate.
-3. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
+   `origin.git-versions/1`), updated by T-0024 to say how much of the suite each
+   version has actually run: 2.25.1 has run all 269 tests, 2.56.0 only the 174
+   that existed when T-0016 recorded it. **No equivalent record exists for
+   Python**, which `docs/operations/vm-execution.md` names as unclaimed work.
+   **Ceiling:** neither says anything about a candidate.
+4. **Identifier allocation is the one fleet defect still unfixed** (defect 5
+   above). A gate that reads the local tree cannot see the other VM's tree, so
+   two VMs allocate the same F/D/T numbers within the hour — six times on
+   2026-10-03. **Ceiling:** a detector, not an allocator: it can refuse a commit
+   that reuses an identifier, not stop two VMs racing.
+5. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
    open is the census's per-package heterogeneity, which this run does not
    explain. **Ceiling:** one builder, pure-Python sources, Linux.
-4. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
+5. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an
    existing hand-knit structure. Stage B needs an experienced knitter and
    authorization. **Ceiling:** nothing software-side remains; the only live
    question is usefulness, which this repository cannot measure.
-5. **Do not run E1** (retry jitter). It is the cheapest experiment in the
+6. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
-6. **E2 stays scheduled, side A snapshotted (T-0019, this VM).** The informative
+7. **E2 stays scheduled, side A snapshotted (T-0019, this VM).** The informative
    comparison is two snapshots weeks apart, and two resolver runs today measure
    nothing — so side A (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`,
    8 artifacts: requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2)
-   is banked with no verdict. Take side B no earlier than days later and diff
+   is banked with no verdict. Take side B no earliest than days later and diff
    the closures; fast drift shows as a version or hash change.
-7. **Do not build a product.** Nothing is selected, and the base rate for
+8. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.

@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -96,6 +96,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0022-implement-origin-release-check-so-release-manife.md`](../tasks/T-0022-implement-origin-release-check-so-release-manife.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0023-repair-the-two-operations-documents-whose-stated.md`](../tasks/T-0023-repair-the-two-operations-documents-whose-stated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md`](../tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
+| [`tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md`](../tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
