@@ -18,7 +18,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime
 
-from . import gitutil, paths, pushcred, pushprobe
+from . import gitutil, paths, pushcred, pushprobe, versions
 
 OUTPUT = ".origin/doctor.json"
 PROBES = (
@@ -117,6 +117,13 @@ def collect(network: bool = True) -> dict:
         "memory": _memory(),
         "disk": _disk(),
         "versions": {name: _version(name, args) for name, args in VERSIONS},
+        # Compared, not just reported: a version the suite has never run on is a
+        # different fact from one it has, and the two records say which is which
+        # (`tests/git-versions.json`, `tests/python-versions.json`).
+        "version_records": [
+            match.as_dict()
+            for match in versions.compare_all({name: _version(name, args) for name, args in VERSIONS})
+        ],
         "git": git.as_dict(),
         "credentials_present": {name: bool(os.environ.get(name)) for name in CREDENTIAL_ENV},
         "push_credential": pushprobe.collect(network=network),
@@ -127,6 +134,9 @@ def collect(network: bool = True) -> dict:
             "push_credential reports whether a mechanism is present and git can obtain a "
             "credential from it; 'configured' does not mean the credential can push",
             "resource figures are a snapshot on shared hardware and will fluctuate",
+            "version_records compares this VM's git and interpreter against the "
+            "exercised-version records; 'unreadable' means the record could not be "
+            "read, which is not the same as 'not exercised'",
         ],
     }
 
@@ -149,6 +159,7 @@ def summarize(data: dict) -> str:
     ]
     for name, info in data["versions"].items():
         lines.append(f"tool {name:<11} {info.get('version') or ('absent' if not info.get('present') else 'unknown')}")
+    lines += versions.summarize([versions.Match(**row) for row in data.get("version_records", [])])
     for name, info in (data["network"] if isinstance(data["network"], dict) else {}).items():
         lines.append(f"net  {name:<11} status={info.get('status')} {info.get('error', '')}".rstrip())
     present = [name for name, value in data["credentials_present"].items() if value]

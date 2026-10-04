@@ -14,8 +14,6 @@ The rule for this list: a defect is *solved* only when a gate fails on its own
 bytes and passes on the repair. A repair that has not been falsified against the
 defect is listed as open.
 
-## Solved
-
 1. **An in-flight session reddened every other VM's CI** (solved in T-0020). Two
    correct rules met — `task claim` needs HEAD on the remote base, so a claiming
    VM must publish its `session_start` first, and D013 then failed every push.
@@ -24,6 +22,7 @@ defect is listed as open.
    once already: clause 1 required the session to name a task, the other VM
    started one without `--task`, so the gate called a working session abandoned. A
    claim in the ledger naming the session now counts.
+
 2. **Reconciliation compared trees, not authorship** (solved in T-0024, D028). A VM
    that landed another VM's work inherited its `unlogged_change` and
    `documentation_gaps` reports — session 029 emitted nine of the first, none of
@@ -32,12 +31,14 @@ defect is listed as open.
    that touched it. **Ceiling:** attribution knows only about base moves the
    tooling performed, so a rebase run by hand still reports; that is the intended
    direction of failure.
+
 3. **Every generated file stamped `last-verified` with the render date** (solved
    in T-0024, D029), so `doc lint` failed on 42 committed session reports and all
    three indexes on 2026-10-04 — the day after they were written. Each generator
    now stamps from the content it renders. The CI consequence is `inferred` from
    that local reproduction: no pushed run has failed this way, because the two
    red runs at 23:58 on 2026-10-03 had a different and verified cause (defect 5).
+
 4. **A pushed task file without `doc index` reddens CI** (solved in T-0026 and
    T-0027). Runs `37163434868` and `37163438950` failed on Documentation lint:
    this VM created a task, committed it and pushed it without rebuilding the
@@ -51,9 +52,29 @@ defect is listed as open.
    **Residual:** the create commit is the agent's own, so `task new` prints the
    command that stages the indexes; nothing can enforce that step.
 
+5. **`doctor` did not compare this VM's interpreter or git against what the suite
+   has been exercised on** (solved in T-0033). Both records existed and were
+   schema-checked — `tests/git-versions.json` (T-0018) and
+   `tests/python-versions.json` (T-0032) — and nothing read either at run time,
+   so a VM on Python 3.9 was indistinguishable in the report from one on 3.8.10.
+   `tools/originlib/versions.py` now compares each probed tool against the record
+   covering it and reports four states: `exercised` with the entry's own `scope`
+   attached, `NOT exercised`, `record unreadable`, and `no record` for the three
+   tools no record covers. **The third state is the load-bearing one** — a
+   comparison that cannot tell "we looked and it is not there" from "we could not
+   look" reports a confident answer in both, which is the failure T-0025 found in
+   this same report. Falsified four ways before it was trusted: a comparison that
+   always said `exercised` (3 failures), a missing record read as `unexercised`
+   (5), a summary dropping the record name (2), and `doctor` not reporting the
+   comparison at all (1). Its first implementation also matched entries in file
+   order, so a VM on 3.12.15 got CI's `3.12` entry's scope instead of its own;
+   the longest entry now wins, and a test says so.
+   **Ceiling:** `exercised` means a run happened, not that the version is
+   supported, and no interpreter between 3.8 and 3.12 has ever run this suite.
+
 ## Open
 
-5. **Identifier allocation collides by construction** (both halves solved:
+6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by
    reading the local tree, so two VMs in an hour took the same numbers. Six times
    on 2026-10-03: T-0016 and F009/F010/D022; session 029's F012 against session
@@ -86,18 +107,6 @@ defect is listed as open.
    detector catch it; nothing prevents it. **This cost one collision in the act of
    fixing it:** VM 0947's D032 and this VM's D032 were both published, and this
    side renumbered to D033 during the rebase.
-6. **`doctor` does not compare this VM's interpreter or git against what the
-   suite has been exercised on** (open, twice-partly closed). `tests/git-versions.json`
-   (T-0018) and `tests/python-versions.json` (T-0032) record what has run, per
-   version and per scope, so the claim exists and is checked: T-0032's test fails
-   when a version has no scope, when the floor names a minor version no entry
-   ran, when the unexercised list is empty, or when CI is credited with a patch
-   version the public API cannot report. **Still open:** nothing *reads* either
-   record at run time. `doctor` reports the interpreter and git it found and
-   stops there, so a VM on 3.9 is undocumented rather than warned.
-   **Ceiling:** bookkeeping hygiene, not a claim about a candidate — but it is
-   the difference between a record that is true and a VM that knows it is
-   unverified.
 
 ## What a fix costs to believe
 

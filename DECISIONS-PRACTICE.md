@@ -241,3 +241,45 @@ and what remains is that nothing reads it at run time.
 [`vm-execution.md`](docs/operations/vm-execution.md) says so instead of calling the
 work unclaimed, and [`ci.md`](docs/operations/ci.md) states that pinning 3.12 is a
 recorded decision rather than evidence about the fleet.
+
+## D034 — An environment record is read at run time, and "could not look" is its own answer (2026-10-04)
+
+Observed: `tests/git-versions.json` (T-0018) and `tests/python-versions.json`
+(T-0032) recorded what the suite has run on, and `doctor` printed
+`tool python3 Python 3.8.10` beside a git version without ever consulting
+either. A VM on Python 3.9 was indistinguishable in the report from one on
+3.8.10, and the only way to learn the difference was to open a JSON file by hand —
+the same class of failure T-0025 found in this report when it printed
+`credentials none present` for three different machines (D025, D030).
+
+Decision: **a record of what has been exercised is read by the diagnostic that
+reports the environment, and the comparison distinguishes four states.** `doctor`
+now prints `exercised` with the matched entry's own `scope` attached, `NOT
+exercised` for a version no entry names, `record unreadable` for a record that is
+missing or does not parse, and `no record` for the three probed tools no record
+covers. Matching is by dotted prefix with the longest entry first, because the
+records mix patch-level entries (`3.8.10`) with a minor-level one (`3.12`, CI's
+pin, whose run log needs admin rights) and a VM on `3.12.7` must find it.
+
+Rejected: a bare yes/no. It collapses "the suite has never run here" and "we
+could not check", which is the exact confusion D030 was written about, and it is
+the confusion this very report had already made once. Rejected: treating a missing
+record as an unexercised VM, because it would blame a machine for a missing file.
+Rejected: dropping the entry's `scope`, which makes a version that ran 173 tests
+look identical to one that has run all 373. Rejected: making `doctor` *fail* on
+an unexercised version — a VM with an unusual interpreter can still do the work,
+and `doctor`'s job is to report, not to refuse.
+
+Falsified four ways before it was trusted, per D025: a comparison that always
+said `exercised` (3 failures), a missing record read as `unexercised` (5), a
+summary dropping the record name (2), and `doctor` not reporting the comparison
+at all (1). The fourth is the instructive one: removing the single line in
+`summarize` left every unit test of the comparison green, because the tests
+exercised the module rather than the report a reader sees.
+
+Consequence: [`doctor.md`](docs/operations/doctor.md) states the four states and
+their ceilings, and the two records' scopes were updated to name the tests they
+have now run — a stale scope is the same defect in the opposite direction. The
+ceiling is written down rather than implied: `exercised` means a run happened,
+not that the version is supported, and no interpreter between 3.8 and 3.12 has
+ever run this suite.

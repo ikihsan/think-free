@@ -35,11 +35,11 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029, found independently. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030, 333 tests) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030, 333 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 51 recorded, 0 in flight once this one closes (sessions 006–007, T-0032, VM 0944) |
+| Sessions | 52 recorded, 0 in flight once this one closes (session 011, T-0033, VM 0944) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict, and since T-0030 on an identifier defined twice or indexed without a body. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
 | Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Now exercised, once:** a rebase conflict between VMs — run `37171841544` (commit `09684f2`) failed Documentation lint, and the cause is a broken relative link in a task file this VM had just written; reproduced locally at `09684f2` and fixed in `00cd829`, which is green (run `37172039525`). A conflict-marker block committed to `tasks/CLAIMS.jsonl` in the same rebase was caught by `tests/test_conflicts.py` before the push, so it never reached a run. **Not exercised by any run:** the git 2.56.0 path — CI runs 3.12 on one runner image only |
@@ -75,19 +75,19 @@ measured cost of the old behaviour, a rebase that restored a file's index row
 while reverting its body so a findings file and its own table disagreed, is defect
 5 in [`STATE-defects.md`](STATE-defects.md).
 
-Five of the six defects there were closed on 2026-10-04: D028 (a session that
-landed a colleague's work reported it as undeclared), D029 (generated files
-stamped `last-verified` with the render date), the orphan rule biting six
-real CI runs because `task new` did not rebuild the indexes and `task claim` did
-not stage them, and — in T-0030 — **defect 5 itself, on the detector side.** A
-collision is created by the merge, so `sync land` now refuses to publish a tree
-where one identifier has two definitions, and `doc lint` rule 7 reports the same
-thing on any route to the base. Run over all 174 commits it reports **one**:
-`e6eb992`, the collision that already reached the base. Refusing the commit does
-not stop two VMs racing, which is the ceiling defect 5 records. The orphan defect was found by reading pushed runs
-rather than by pushing something and watching, and it took two tasks to close:
-T-0026's verification passed while the defect was still live, because a lint on
-the author's own tree cannot see what the claim commit published.
+**All six defects there were closed on 2026-10-04.** D028 (a session that landed
+a colleague's work reported it as undeclared), D029 (generated files stamped
+`last-verified` with the render date), the orphan rule biting six real CI runs
+because `task new` did not rebuild the indexes and `task claim` did not stage
+them, **defect 5 on the detector side** (T-0030: a collision is created by the
+merge, so `sync land` refuses to publish a tree where one identifier has two
+definitions and `doc lint` rule 7 reports it on any route to the base — one
+commit of 174 flagged, `e6eb992`), **defect 5 on the allocation side** (T-0031)
+and `doctor`'s version comparison (defect 6, T-0033). The orphan defect was
+found by reading pushed runs rather than by pushing something and watching, and
+it took two tasks to close: T-0026's verification passed while the defect was
+still live, because a lint on the author's own tree cannot see what the claim
+commit published.
 
 **The rebase that met T-0030 produced two collisions, and both are now
 recorded.** This VM's `D032` and VM 0947's `D032` were different decisions, so
@@ -123,6 +123,14 @@ exists so that history does not push this reload point past the line cap.
   second half that matched no row at all passed the sweep while doing nothing. The
   rule found a real desync on its first run: D030 was missing from its index row.
   333 tests green. Detail in [`STATE-history.md`](STATE-history.md).
+- **Session 011, VM 0944 (T-0033, D034).** `doctor` reads both exercised-version
+  records now, so a VM outside the exercised set is warned rather than
+  undocumented. Four states, not two: `exercised` with the entry's own scope,
+  `NOT exercised`, `record unreadable`, `no record`. The third is the point —
+  "we looked and it is not there" and "we could not look" are different claims,
+  which is the confusion T-0025 found in this same report. Falsified four ways,
+  one of which removed the single rendering line and left every module test green.
+  **Defect 6 is closed.**
 - **Sessions 006–007, VM 0944 (T-0032, D033).** The Python equivalent of
   `git-versions.json`, which `vm-execution.md` had named as unclaimed work:
   `tests/python-versions.json` records each interpreter with the scope it ran and
@@ -153,31 +161,12 @@ exists so that history does not push this reload point past the line cap.
   from the base, and reconciliation attributes a path by the newest thing that
   touched it. Git authorship was falsified as the baseline first: both VMs commit
   as `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed
-  are known; a hand-run rebase stays reported. 265 tests green.
-  A second defect surfaced in the same session: every generated file stamped
-  `last-verified` with the render date, so `doc lint` failed on 42 committed
-  reports the day after they were written (D029). Both fixes were falsified
-  against their own defect before being trusted. 269 tests green.
-  - **Session 040, VM 0944 (T-0029, D030, F016, F017).** `doctor` reported a property it
-  never read — `credentials none present` for a working App credential, for the recorded
-  `instance-20260717-0947` failure, and for no credential at all. It now reports the
-  configured `credential.helper`, whether it is executable, App key files by mode,
-  dependencies outside `~/.config`, and whether `git credential fill` obtains a
-  credential, with `configured` explicitly not meaning it can push. It found a live
-  defect here: the helper invoked `/tmp/github-app-jwt.sh`, repaired and proven by
-  deleting it. **F016:** this session's own harness overwrote the real
-  `~/.gitconfig`. **F017:** clock-stamped generated dates, found independently of
-  D029; the landed implementation was kept rather than shipping two.
-- **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
-  VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
-  (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
-  exists while 123 of 133 commits carry a `[bot]` App identity. Both repaired.
-  **The App's real permissions remain unverified** — no agent can read them.
-- **Session 038, VM 0944 (T-0022).** `origin release check` enforces
-  `RELEASE-MANIFEST.md`, which three times said nothing did. Nine top-level
-  entries had been classified by neither table; three declared public paths did
-  not exist; the front door had no declared state. All closed in the same commit
-  as the check.
+  are known; a hand-run rebase stays reported — and session 040 then hit exactly
+  that ceiling through seven hand-run rebases. 265 tests green. A second defect
+  surfaced in the same session: every generated file stamped `last-verified` with
+  the render date, so `doc lint` failed on 42 committed reports the day after
+  they were written (D029). Both fixes were falsified against their own defect
+  before being trusted. 269 tests green.
 - **Session 037, VM 0944 (T-0021, F013).** Three mission records reached the
   shared base with `<<<<<<< HEAD` in them and every gate passed. Repaired by
   keeping both sides of all three regions (F011 and F012 are different findings),

@@ -1,0 +1,425 @@
+==============================================================================
+[seq 2] 2026-10-04T02:50:31+00:00
+$ sh -c tools/origin doc index>/dev/null; tools/origin doctor --offline 2>&1 | grep -E "^versions|^tool (python3|git)"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+tool python3     Python 3.8.10
+tool git         git version 2.25.1
+versions gcc       9.4.0      no record - no record covers this tool
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite (269 tests) green
+versions node      22.14.0    no record - no record covers this tool
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite (329 tests) green
+versions rustc     (none)     no record - no record covers this tool
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1312  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T02:50:50+00:00
+$ sh -c tools/origin doctor --offline 2>&1 | grep -E "^versions (python3|git)"; echo "=== tests ==="; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py -v 2>&1|tail -8
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (356 tests at T-0033)
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (356 tests at T-0033)
+=== tests ===
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 155, in test_doctor_reports_the_comparison
+    self.assertIn("exercised", rendered)
+AssertionError: 'exercised' not found in 'platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29\npython          3.8.10\ncpus            2\nmemory          975068 kB (available 315064 kB)\ndisk free       32384 MiB\ngit             head=f95cce42 branch=research/origin clean=True\ntool python3     Python 3.8.10\ntool git         git version 2.25.1\ntool node        v22.14.0\ntool rustc       absent\ntool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\nversions gcc       9.4.0      no record - no record covers this tool\nversions git       2.25.1     record unreadable - tests/git-versions.json is absent\nversions node      22.14.0    no record - no record covers this tool\nversions python3   3.8.10     record unreadable - tests/python-versions.json is absent\nversions rustc     (none)     no record - no record covers this tool\ncredentials     none present\npush credential OK: /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (no https remote to authenticate against)\nscheduler       crontab=True systemd_user=True'
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.416s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4392  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T02:50:59+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep -A9 "^FAIL: "
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+FAIL: test_the_longest_matching_entry_wins (test_doctor_versions.PrefixMatchingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 102, in test_the_longest_matching_entry_wins
+    self.assertEqual(versions.compare("python3", "3.12.15").scope, "full suite green")
+AssertionError: 'minor only' != 'full suite green'
+- minor only
++ full suite green
+
+
+--
+FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RecordReadingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 43, in test_this_vms_versions_are_exercised_against_the_real_records
+    self.assertEqual(matches["python3"].state, versions.EXERCISED, matches["python3"])
+AssertionError: 'unreadable' != 'exercised'
+- unreadable
++ exercised
+ : Match(tool='python3', version='3.8.10', state='unreadable', record='tests/python-versions.json', scope='', matched='', detail='tests/python-versions.json is absent', entries=[])
+
+--
+FAIL: test_doctor_reports_the_comparison (test_doctor_versions.SummaryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 155, in test_doctor_reports_the_comparison
+    self.assertIn("exercised", rendered)
+AssertionError: 'exercised' not found in 'platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29\npython          3.8.10\ncpus            2\nmemory          975068 kB (available 314284 kB)\ndisk free       32384 MiB\ngit             head=bbccd4ca branch=research/origin clean=True\ntool python3     Python 3.8.10\ntool git         git version 2.25.1\ntool node        v22.14.0\ntool rustc       absent\ntool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\nversions gcc       9.4.0      no record - no record covers this tool\nversions git       2.25.1     record unreadable - tests/git-versions.json is absent\nversions node      22.14.0    no record - no record covers this tool\nversions python3   3.8.10     record unreadable - tests/python-versions.json is absent\nversions rustc     (none)     no record - no record covers this tool\ncredentials     none present\npush credential OK: /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (no https remote to authenticate against)\nscheduler       crontab=True systemd_user=True'
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.418s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3791  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T02:51:32+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py -v 2>&1|tail -10
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+test_a_missing_record_is_unreadable_not_unrecorded (test_doctor_versions.RecordReadingTest) ... ok
+test_a_record_without_a_verified_list_is_unreadable (test_doctor_versions.RecordReadingTest) ... ok
+test_a_version_no_entry_names_is_unrecorded (test_doctor_versions.RecordReadingTest) ... ok
+test_an_exercised_entry_carries_its_scope (test_doctor_versions.RecordReadingTest) ... ok
+test_the_three_states_are_readable_and_distinguishable (test_doctor_versions.SummaryTest) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 4.166s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4486  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T02:52:10+00:00
+$ sh -c 
+echo "=== F1: always report exercised ==="
+python3 -c "
+from pathlib import Path
+p=Path(\"tools/originlib/versions.py\"); t=p.read_text()
+t=t.replace(\"        match.state = UNRECORDED\n    match.detail\",\"        match.state = EXERCISED\n    match.detail\")
+t=t.replace(\"    match.state = UNRECORDED\n    match.detail = f\\\"no entry\",\"    match.state = EXERCISED\n    match.detail = f\\\"no entry\")
+p.write_text(t)
+"
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3
+cp /tmp/opencode/versions-good.py tools/originlib/versions.py
+echo "=== F2: treat a missing record as unexercised rather than unreadable ==="
+python3 -c "
+from pathlib import Path
+p=Path(\"tools/originlib/versions.py\"); t=p.read_text()
+t=t.replace(\"        match.state = UNREADABLE\n        match.detail = why\",\"        match.state = UNRECORDED\n        match.detail = why\")
+p.write_text(t)
+"
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3
+cp /tmp/opencode/versions-good.py tools/originlib/versions.py
+echo "=== F3: drop the record name from the summary ==="
+python3 -c "
+from pathlib import Path
+p=Path(\"tools/originlib/versions.py\"); t=p.read_text()
+t=t.replace(\"exercised ({match.record}: {match.matched})\",\"exercised\")
+p.write_text(t)
+"
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3
+cp /tmp/opencode/versions-good.py tools/originlib/versions.py
+echo "=== F4: doctor does not report the comparison at all ==="
+python3 -c "
+from pathlib import Path
+p=Path(\"tools/originlib/doctor.py\"); t=p.read_text()
+t=t.replace(\"    lines += versions.summarize([\",\"    lines += [] or versions.summarize([\")
+p.write_text(t)
+"
+python3 -c "
+from pathlib import Path
+p=Path(\"tools/originlib/doctor.py\"); t=p.read_text()
+t=t.replace(\"\"\"    lines += [] or versions.summarize([
+        versions.Match(**{**row, \\\"entries\\\": row.get(\\\"entries\\\", [])})
+        for row in data.get(\\\"version_records\\\", [])
+    ])\"\"\",\"    pass\")
+p.write_text(t)
+"
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3
+git checkout -- tools/originlib/doctor.py 2>/dev/null || true
+echo "=== restored ==="
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3
+git diff --stat tools/originlib/versions.py tools/originlib/doctor.py | cat
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+=== F1: always report exercised ===
+Ran 17 tests in 3.922s
+
+FAILED (failures=3)
+=== F2: treat a missing record as unexercised rather than unreadable ===
+Ran 17 tests in 3.829s
+
+FAILED (failures=5)
+=== F3: drop the record name from the summary ===
+Ran 17 tests in 3.829s
+
+FAILED (failures=2)
+=== F4: doctor does not report the comparison at all ===
+Ran 17 tests in 3.902s
+
+FAILED (failures=1)
+=== restored ===
+Ran 17 tests in 3.724s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 21496  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T02:52:35+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3; tools/origin doctor --offline 2>&1|grep "^versions"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+Ran 17 tests in 4.555s
+
+OK
+versions gcc       9.4.0      no record - no record covers this tool
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (356 tests at T-0033)
+versions node      22.14.0    no record - no record covers this tool
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (356 tests at T-0033)
+versions rustc     (none)     no record - no record covers this tool
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5515  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T02:53:09+00:00
+$ sh -c 
+echo "=== F1: always report exercised ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tools/originlib/versions.py"); t=p.read_text()
+t=t.replace("    match.state = UNRECORDED\n    match.detail = f\"no entry","    match.state = EXERCISED\n    match.detail = f\"no entry")
+p.write_text(t)
+PY
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep -c "^FAIL: \|AssertionError"
+cp /tmp/opencode/v-good.py tools/originlib/versions.py
+echo "=== F2: missing record read as unexercised ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tools/originlib/versions.py"); t=p.read_text()
+t=t.replace("        match.state = UNREADABLE\n        match.detail = why","        match.state = UNRECORDED\n        match.detail = why")
+p.write_text(t)
+PY
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep "^FAILED\|^OK"
+cp /tmp/opencode/v-good.py tools/originlib/versions.py
+echo "=== F3: summary drops the record name ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tools/originlib/versions.py"); t=p.read_text()
+t=t.replace("exercised ({match.record}: {match.matched})","exercised")
+p.write_text(t)
+PY
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep "^FAILED\|^OK"
+cp /tmp/opencode/v-good.py tools/originlib/versions.py
+echo "=== F4: doctor stops reporting the comparison ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tools/originlib/doctor.py"); t=p.read_text()
+t=t.replace("    lines += versions.summarize([versions.Match(**row) for row in data.get(\"version_records\", [])])","    pass")
+p.write_text(t)
+PY
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep "^FAILED\|^OK"
+cp /tmp/opencode/d-good.py tools/originlib/doctor.py
+echo "=== restored ==="
+PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|grep "^FAILED\|^OK"
+git diff --stat tools/ | cat; echo "(empty = identical to the versions just tested)"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+=== F1: always report exercised ===
+6
+=== F2: missing record read as unexercised ===
+FAILED (failures=5)
+=== F3: summary drops the record name ===
+FAILED (failures=2)
+=== F4: doctor stops reporting the comparison ===
+FAILED (failures=1)
+=== restored ===
+OK
+ tools/originlib/doctor.py | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+(empty = identical to the versions just tested)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 21806  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T03:00:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.......................................................................................F.............................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_doctor_reports_the_comparison (test_doctor_versions.RealRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 66, in test_doctor_reports_the_comparison
+    self.assertIn("versions python3", rendered)
+AssertionError: 'versions python3' not found in 'platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29\npython          3.8.10\ncpus            2\nmemory          975068 kB (available 309864 kB)\ndisk free       32383 MiB\ngit             head=4401bd2c branch=task/T-0033-instance-20260717-0944 clean=False\ntool python3     Python 3.8.10\ntool git         git version 2.25.1\ntool node        v22.14.0\ntool rustc       absent\ntool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\ncredentials     none present\npush credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (offline)\nscheduler       crontab=True systemd_user=True'
+
+----------------------------------------------------------------------
+Ran 373 tests in 193.041s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 193597  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T03:04:07+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|grep -A12 "^FAIL: "
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+FAIL: test_doctor_reports_the_comparison (test_doctor_versions.RealRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 66, in test_doctor_reports_the_comparison
+    self.assertIn("versions python3", rendered)
+AssertionError: 'versions python3' not found in 'platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29\npython          3.8.10\ncpus            2\nmemory          975068 kB (available 328636 kB)\ndisk free       32383 MiB\ngit             head=4401bd2c branch=task/T-0033-instance-20260717-0944 clean=False\ntool python3     Python 3.8.10\ntool git         git version 2.25.1\ntool node        v22.14.0\ntool rustc       absent\ntool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\ncredentials     none present\npush credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (offline)\nscheduler       crontab=True systemd_user=True'
+
+----------------------------------------------------------------------
+Ran 373 tests in 192.993s
+
+FAILED (failures=1)
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 193486  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T03:05:11+00:00
+$ sh -c for m in test_cli test_pushcred_safety test_doctor_versions; do echo "--- $m then doctor_versions"; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p "$m.py" >/dev/null 2>&1; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_doctor_reports_the_comparison 2>&1|tail -3; done
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+--- test_cli then doctor_versions
+Ran 1 test in 0.396s
+
+FAILED (failures=1)
+--- test_pushcred_safety then doctor_versions
+Ran 1 test in 0.824s
+
+FAILED (failures=1)
+--- test_doctor_versions then doctor_versions
+Ran 1 test in 0.387s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 21410  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T03:05:21+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k test_doctor_reports_the_comparison 2>&1|grep -B3 -A6 "AssertionError"|head -20; echo "=== direct ==="; PYTHONPATH=tools python3 -c "
+import sys; sys.path.insert(0,\"tools\")
+from originlib import doctor
+d=doctor.collect(network=False)
+print(\"keys:\", [k for k in d if \"version\" in k])
+print(\"n records:\", len(d[\"version_records\"]))
+"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944/tests/test_doctor_versions.py", line 66, in test_doctor_reports_the_comparison
+    self.assertIn("versions python3", rendered)
+AssertionError: 'versions python3' not found in 'platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29\npython          3.8.10\ncpus            2\nmemory          975068 kB (available 315800 kB)\ndisk free       32383 MiB\ngit             head=4401bd2c branch=task/T-0033-instance-20260717-0944 clean=False\ntool python3     Python 3.8.10\ntool git         git version 2.25.1\ntool node        v22.14.0\ntool rustc       absent\ntool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\ncredentials     none present\npush credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (offline)\nscheduler       crontab=True systemd_user=True'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.400s
+
+FAILED (failures=1)
+=== direct ===
+keys: ['versions']
+
+
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+KeyError: 'version_records'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1593  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T03:06:04+00:00
+$ sh -c tools/origin doc index>/dev/null; PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doctor_versions.py 2>&1|tail -3; tools/origin doctor --offline|grep "^versions (python3|git)"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+Ran 17 tests in 3.914s
+
+OK
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5596  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T03:06:10+00:00
+$ sh -c tools/origin doctor --offline 2>&1|grep "^versions"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+versions gcc       9.4.0      no record - no record covers this tool
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite (269 tests) green
+versions node      22.14.0    no record - no record covers this tool
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite (329 tests) green
+versions rustc     (none)     no record - no record covers this tool
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 617  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T03:10:15+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; tools/origin doctor --offline|grep "^versions (python3|git)"; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 199109  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T03:10:21+00:00
+$ sh -c tools/origin doctor --offline
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29
+python          3.8.10
+cpus            2
+memory          975068 kB (available 337792 kB)
+disk free       32384 MiB
+git             head=4401bd2c branch=task/T-0033-instance-20260717-0944 clean=False
+tool python3     Python 3.8.10
+tool git         git version 2.25.1
+tool node        v22.14.0
+tool rustc       absent
+tool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+versions gcc       9.4.0      no record - no record covers this tool
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (373 tests at T-0033)
+versions node      22.14.0    no record - no record covers this tool
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (373 tests at T-0033)
+versions rustc     (none)     no record - no record covers this tool
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); probe skipped (offline)
+scheduler       crontab=True systemd_user=True
+raw          .origin/doctor.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 611  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T03:14:22+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.....................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 373 tests in 193.522s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194015  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T03:24:50+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"; tools/origin preflight 2>&1|tail -2
+cwd: /home/ubuntu/think-free/.worktrees/T-0033-instance-20260717-0944
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 195016  redactions: none

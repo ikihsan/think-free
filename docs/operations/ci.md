@@ -96,6 +96,12 @@ workflow's `'3.12'` is one entry in it — the minor version only, because the r
 log needs repository admin rights and the public API does not report the patch.
 The same applies to git: CI is one runner's git, not the fleet's.
 
+`tools/origin doctor` reads both records and reports whether this VM's versions
+are among them (T-0033), so a VM outside the exercised set says so at the point
+where an agent decides whether it can do the work. It cannot tell you about an
+interpreter CI has never run, because nothing here can: that is what the
+`not_exercised` list in the record is for.
+
 **A failing test must be identifiable without admin rights.** The `Tests` step
 re-emits every `FAIL:`/`ERROR:` block as an `::error::` annotation. GitHub
 returns check-run annotations from its public API, so a `curl` against

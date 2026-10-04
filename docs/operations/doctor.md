@@ -24,20 +24,46 @@ running it in CI would make the build flaky for reasons unrelated to the change
 | `platform`, `python`, `cpu_count` | The running interpreter and `os.cpu_count()` |
 | `memory`, `disk free` | `/proc/meminfo` and `shutil.disk_usage` on shared hardware, so they fluctuate |
 | `tool *` | `--version` of each of `python3`, `git`, `node`, `rustc`, `gcc` |
+| `versions *` | the same versions compared against the exercised-version records — see below |
 | `git` | head, branch, clean, porcelain paths |
 | `credentials_present` | **environment-variable presence only**, four names |
 | `push_credential` | the mechanism git would actually use — see below |
 | `scheduler` | `crontab`, `systemctl`, whether `systemd --user` is running |
 | `network` | one HTTP status per probe URL |
 
-**What `doctor` does not yet do.** A VM's git or Python version being *recorded*
-is not the same as it being *compared*. Two records now exist —
+## What the versions mean
+
+Added in T-0033. `doctor` used to print the `tool *` versions it found and stop,
+while two records state what the suite has actually run on —
 [`../../tests/git-versions.json`](../../tests/git-versions.json) and
-[`../../tests/python-versions.json`](../../tests/python-versions.json) — and
-`doctor` reads **neither**. It reports the `tool *` versions it found and stops,
-so a VM on an unexercised interpreter is undocumented rather than warned. That is
-the reading half of defect 6 in [`../../STATE-defects.md`](../../STATE-defects.md),
-and it is the honest statement of this gate's remaining gap.
+[`../../tests/python-versions.json`](../../tests/python-versions.json). A VM on
+Python 3.9 was therefore indistinguishable in the report from one on 3.8.10, and
+finding out otherwise meant opening a JSON file by hand.
+
+The `versions *` lines now answer it, and they name the record they consulted:
+
+```
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (373 tests at T-0033)
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (373 tests at T-0033)
+versions rustc     (none)     no record - no record covers this tool
+```
+
+| State | What it means |
+|---|---|
+| `exercised (<record>: <entry>)` | An entry names this version. The entry's own `scope` follows, because a version that ran an older suite is not evidence about the current one |
+| `NOT exercised - <detail>` | The record was read and does not name this version. This is the state worth acting on |
+| `record unreadable - <detail>` | The record is missing or does not parse. **Not** the same claim as the line above: this is "we could not look" |
+| `no record - <detail>` | No record covers this tool at all. `node`, `rustc` and `gcc` are probed and are not covered by any suite record, and saying so is more honest than leaving them out |
+
+**Ceilings, stated rather than implied.** `exercised` means a run happened, not
+that the version is supported: the entry's `scope` is the honest wording and it
+travels with the verdict. Matching is by dotted prefix, longest entry first,
+because the records mix patch-level entries (`3.8.10`) with a minor-level one
+(`3.12`, CI's pin — its run log needs admin rights) and a VM on `3.12.7` must
+find it. The three-way distinction is the load-bearing part: a comparison that
+cannot tell "we looked and it is not there" from "we could not look" reports a
+confident answer in both cases, which is the failure T-0025 found in this very
+report (`DECISIONS-GATING.md` D025, D030).
 
 ## The push credential
 

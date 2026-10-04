@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0033
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 
@@ -50,3 +50,48 @@ Delete the comparison from tools/originlib/doctor.py and tests/test_doctor_versi
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+## Outcome
+
+`observed`. `tools/originlib/versions.py` compares each probed tool against the
+record that covers it, and `doctor` prints the comparison:
+
+```
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (373 tests at T-0033)
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (373 tests at T-0033)
+versions rustc     (none)     no record - no record covers this tool
+```
+
+**Four states, not two.** `exercised` (with the entry's own `scope` attached),
+`NOT exercised`, `record unreadable`, and `no record` for the three probed tools
+no record covers. The third is the load-bearing one: a comparison that cannot
+tell "we looked and it is not there" from "we could not look" reports a confident
+answer in both cases, which is the failure T-0025 found in this same report.
+
+**Falsified four ways before it was trusted**, all in the session command log: a
+comparison that always said `exercised` (3 failures), a missing record read as
+`unexercised` (5), a summary that dropped the record name (2), and `doctor` not
+reporting the comparison at all (1). The last one is worth naming: removing the
+single line in `summarize` left every unit test of the comparison passing, which
+is the shape of a gate that tests a module rather than the report a reader sees.
+
+**Two defects in the first implementation, found by the tests.**
+
+- Entries were matched in file order, so a VM on `3.12.15` got CI's `3.12`
+  entry's scope instead of its own. The longest matching entry now wins.
+- The real-record tests initially ran against the `RepoTest` fixture, which ships
+  neither record — making every assertion about `exercised` vacuous, and the
+  whole file failed for that reason. They now point `ORIGIN_ROOT` at the working
+  repository, and a test asserts the files it reads exist.
+
+**Matching is by dotted prefix, longest entry first.** The records mix
+patch-level entries (`3.8.10`) with a minor-level one (`3.12`, CI's pin), so a
+VM on `3.12.7` must find the `3.12` entry or the record under-reports. Dotted, so
+`2.25` cannot match `2.250.1`.
+
+**Ceiling.** `exercised` means a run happened, not that the version is
+supported, and no interpreter between 3.8 and 3.12 has ever run this suite. Both
+records' scopes were updated to name the 373 tests they have now run, because a
+stale scope is the same defect in the opposite direction.
+
+373 tests green; `doc lint` and `release check` exit 0.

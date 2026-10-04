@@ -44,6 +44,7 @@ interfere with the working repository.
 | `pushcred_fixture.py` | Throwaway HOME, git config, and App directory for the push-credential tests; never names a real path |
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
 | `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
+| `test_doctor_versions.py` | `doctor`'s comparison of this VM's git and interpreter against the exercised-version records: the four states, dotted-prefix matching with the longest entry first, and a real-record class that reads this repository rather than the fixture |
 | `test_pythonversions.py` | `python-versions.json`: every entry has a scope, the floor is supported by an entry that ran it, the unexercised versions are named, and CI is not credited with a patch version the public API cannot report |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 | `python-versions.json` | The same record for interpreters, with the versions nobody has run named rather than implied (schema `origin.python-versions/1`) |
@@ -108,6 +109,16 @@ be empty, and an entry located on CI may claim the minor version only — the ru
 log needs repository admin rights, so a patch version there would be a number
 nobody could check. All four were falsified against the record before it was
 trusted.
+
+**A test can exercise a module and miss the report a reader sees.** Falsifying
+`doctor`'s version comparison, removing the single line that renders it left
+every unit test of the comparison green — the tests read `versions.compare`, and
+nothing asserted that `doctor.summarize` printed it. The fourth falsification
+caught it, and `RealRecordTest` now renders the whole report rather than calling
+the comparator. The same class of gap: the "real record" tests were originally
+written against the `RepoTest` fixture, which ships neither record, so every
+assertion about `exercised` was vacuous and the whole file failed for that
+reason instead of the one it was written for.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

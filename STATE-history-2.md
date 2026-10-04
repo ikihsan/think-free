@@ -65,3 +65,29 @@ constructed shared-release case (local 5 vs optimum 3) — the
 degeneration. Verdict `narrow`, not `abandon`; the next test is a
 bounded-neighbourhood planner against the same oracle before Stage-B physical
 work. `task verify T-0010` exit 0.
+
+## What changed in sessions 038–040, VM 0944
+
+Moved here from `STATE.md` on 2026-10-04 (T-0033) when the reload point
+passed 300 lines again. Newest first within the group.
+
+- **Session 040, VM 0944 (T-0029, D030, F016, F017).** `doctor` reported a property it
+  never read — `credentials none present` for a working App credential, for the recorded
+  `instance-20260717-0947` failure, and for no credential at all. It now reports the
+  configured `credential.helper`, whether it is executable, App key files by mode,
+  dependencies outside `~/.config`, and whether `git credential fill` obtains a
+  credential, with `configured` explicitly not meaning it can push. It found a live
+  defect here: the helper invoked `/tmp/github-app-jwt.sh`, repaired and proven by
+  deleting it. **F016:** this session's own harness overwrote the real
+  `~/.gitconfig`. **F017:** clock-stamped generated dates, found independently of
+  D029; the landed implementation was kept rather than shipping two.
+- **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
+  VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
+  (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
+  exists while 123 of 133 commits carry a `[bot]` App identity. Both repaired.
+  **The App's real permissions remain unverified** — no agent can read them.
+- **Session 038, VM 0944 (T-0022).** `origin release check` enforces
+  `RELEASE-MANIFEST.md`, which three times said nothing did. Nine top-level
+  entries had been classified by neither table; three declared public paths did
+  not exist; the front door had no declared state. All closed in the same commit
+  as the check.

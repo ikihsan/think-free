@@ -192,10 +192,12 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] A machine-readable record of the Python versions the suite is verified on,
       the way `tests/git-versions.json` records git versions
       (`tests/python-versions.json`, T-0032), including the versions nobody has
-      run. What is left is the reading half: `doctor` does not compare this VM's
-      interpreter against it
-- [ ] `doctor` compares this VM's git and interpreter against the records those
-      two files now hold, so an unexercised VM is warned rather than undocumented
+      run
+- [x] `doctor` compares this VM's git and interpreter against both records
+      (T-0033), reporting `exercised` / `NOT exercised` / `record unreadable` /
+      `no record` with the matched entry's own scope attached, so an unexercised
+      VM is warned rather than undocumented and an unreadable record cannot read
+      as a failing machine
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised
@@ -211,10 +213,10 @@ the one builder this machine has. E2's time-gated drift comparison is scheduled
 (side A banked, T-0019).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than
-invention work: `doctor` reports this VM's git and interpreter without comparing
-either against `tests/git-versions.json` or `tests/python-versions.json`, so a VM
-outside the exercised range is undocumented rather than warned — the claim
-exists and is checked, and nothing reads it at run time.
+invention work: the exercised-version records exist and `doctor` reads them
+(T-0033), but the range is still two points on a line — nothing between 3.8 and
+3.12 has ever run this suite, and a CI matrix row is the only thing that would
+change that.
 Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see

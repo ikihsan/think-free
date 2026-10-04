@@ -118,11 +118,17 @@ Checked with `doctor` rather than assumed. What is actually exercised:
 Not required, and their absence is not a blocker: a GPU, Docker, `gh` CLI,
 pytest, or any system-wide install.
 
-**What the record does not do.** `python-versions.json` states what the suite
-has actually run on, per version, and `tests/test_pythonversions.py` fails when a
-version has no scope, when the floor claims a minor version no entry recorded,
-or when the unexercised list is empty. It does **not** compare this VM's
-interpreter against it, which is the remaining half of defect 6 in
-[`../../STATE-defects.md`](../../STATE-defects.md): a VM on 3.9 is not warned,
-it is merely undocumented. `doctor` reads the git half of this record and not the
-Python half.
+**`doctor` reads both records, as of T-0033.** `python-versions.json` states
+what the suite has actually run on, per version, and
+`tests/test_pythonversions.py` fails when a version has no scope, when the floor
+claims a minor version no entry recorded, or when the unexercised list is empty.
+`tools/origin doctor` then compares this VM's interpreter and git against it and
+prints one of four states — `exercised`, `NOT exercised`, `record unreadable`, or
+`no record` — with the entry's own scope attached. A VM on 3.9 is now warned
+rather than merely undocumented, and an unreadable record is distinguishable from
+a version nobody has run. The contract and its ceilings are in
+[`doctor.md`](doctor.md).
+
+**What still is not claimed.** `exercised` means a run happened, not that the
+version is supported, and the suite has never run on an interpreter between 3.8
+and 3.12. A pass on this VM is evidence about 3.8.10 and nothing else.
