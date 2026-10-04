@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0059
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-04-047-decide-and-execute-the-highest-informati
+claim-vm: instance-20260717-0947
 verify: python3 -m unittest discover -s tests 2>&1 | tail -3
 -->
 
