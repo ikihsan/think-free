@@ -127,3 +127,4 @@
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera", "task": "T-0041", "ts": "2026-10-04T08:03:32+00:00", "vm": "instance-20260717-0947"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera", "task": "T-0041", "ts": "2026-10-04T08:03:51+00:00", "vm": "instance-20260717-0947"}
 {"action": "complete", "evidence": ["tools/originlib/syncland.py", "tools/originlib/cli_sync.py", "tests/test_land.py", "STATE-defects.md"], "reason": "sync land rebuilds any generated file the rebase left stale, not only the conflicted ones.", "schema": "origin.task.claim/1", "task": "T-0041", "ts": "2026-10-04T08:09:15+00:00"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0042", "ts": "2026-10-04T08:17:50+00:00"}

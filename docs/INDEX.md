@@ -116,6 +116,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md`](../tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md`](../tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0041-make-sync-land-rebuild-any-generated-file-the-re.md`](../tasks/T-0041-make-sync-land-rebuild-any-generated-file-the-re.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md`](../tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
