@@ -13,6 +13,7 @@ from datetime import datetime
 from . import paths
 from .tasktemplate import TEMPLATE
 from .tasks import (
+    DIGEST_KEYS,
     META_KEY,
     STATUSES,
     Task,
@@ -21,6 +22,7 @@ from .tasks import (
     append_claim,
     find,
     load,
+    meta_digests,
     next_task_id,
     slugify,
     write_index,
@@ -55,6 +57,60 @@ def _set_meta(task: Task, updates: dict[str, str]) -> None:
             block = block.rstrip() + f"\n{key}: {value}\n"
     new_text = text[: match.start(1)] + block + text[match.end(1) :]
     task.path.write_text(new_text, encoding="utf-8")
+    record_rewrite(task, updates.get("status", ""))
+
+
+def record_rewrite(task: Task, status: str = "") -> None:
+    """Declare the file this command just rewrote, and the bytes it wrote.
+
+    `_set_meta` is the only function that rewrites a task file's meta block, so
+    the declaration belongs here rather than in the four commands that call it:
+    a rule attached to the command that happened to be running is a rule the
+    next command misses.
+
+    Why it is needed at all: reconciliation reports a file this session changed
+    without declaring it, and `task claim`, `task complete` and `task release`
+    all change the task file. Every one of them therefore closed its session
+    with exit 4 naming the tooling's own write — 37 such reports across the 21
+    sessions in this repository's history (`observed` 2026-10-04, defect 12).
+
+    The digests are what make the declaration safe rather than a blanket
+    exemption. A command that declared "this file" would silence every later
+    edit to it, including the agent's own; declaring the bytes it wrote silences
+    only the write it made, so ticking an acceptance checkbox afterwards is
+    reported again. The trade-off defect 12 refused is answered here rather than
+    assumed away.
+    """
+    from . import activestate, events, session
+
+    active = activestate.load_active()
+    if active is None:
+        # Outside a session there is no record to write into, and inventing one
+        # would be a worse lie than the missing entry.
+        return
+    digests = meta_digests(task.path)
+    if any(
+        event.kind == "task_rewrite"
+        and event.data.get("path") == paths.paths_repo_relative(task.path)
+        and all(event.data.get(key) == digests[key] for key in DIGEST_KEYS)
+        for event in events.events_for(active.session)
+    ):
+        return
+    rel = paths.paths_repo_relative(task.path)
+    events.append(
+        active.session,
+        "task_rewrite",
+        {
+            "summary": f"rewrote {rel} (status: {status or 'unchanged'})",
+            "path": rel,
+            "task": task.task_id,
+            "status": status,
+            **digests,
+        },
+        actor=active.agent,
+        host=active.host,
+    )
+    session.refresh_reports(active.session)
 
 
 def create(goal: str, verify: str, **fields) -> Task:

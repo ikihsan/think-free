@@ -8,6 +8,7 @@ survives in git even if a claim is forgotten.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -87,6 +88,50 @@ def find(task_id: str) -> Task:
         if task.task_id == task_id or task.path.name == f"{task_id}.md":
             return task
     raise TaskError(f"no such task: {task_id}")
+
+
+# ---------------------------------------------------------------- file bytes
+
+
+def meta_digests(path) -> dict:
+    """sha256 of a task file's meta block and of everything outside it.
+
+    Two digests, because the two halves have different owners: a task command
+    rewrites the meta block, and an agent rewrites the body. Naming both is what
+    lets a caller say "this file still holds exactly the bytes that command
+    wrote", which is the whole basis of the `task_rewrite` declaration —
+    reconciliation reads it so a command's own write is not reported as an
+    undeclared change, and so an agent's later edit to the same file is
+    (defect 12).
+    """
+    text = path.read_text(encoding="utf-8")
+    match = META_KEY.search(text)
+    if not match:
+        raise TaskError(f"{path.name} has no task-meta block")
+    body = text[: match.start(1)] + text[match.end(1) :]
+    return {
+        "meta_sha256": hashlib.sha256(match.group(1).encode("utf-8")).hexdigest(),
+        "body_sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
+    }
+
+
+def digests_match(path, recorded: dict) -> bool:
+    """True when `path` still holds exactly the bytes `recorded` names.
+
+    False rather than raising for a file that is gone or unreadable: the caller
+    is asking whether a claim about the past still describes the tree, and a
+    missing or unparseable file does not.
+    """
+    if not recorded or not path.is_file():
+        return False
+    try:
+        current = meta_digests(path)
+    except (TaskError, OSError, UnicodeDecodeError):
+        return False
+    return all(current.get(key) == recorded.get(key) for key in DIGEST_KEYS)
+
+
+DIGEST_KEYS = ("meta_sha256", "body_sha256")
 
 
 def all_tasks() -> list[Task]:

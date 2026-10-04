@@ -35,6 +35,7 @@ KINDS = frozenset(
         "doc_update",
         "task_claim",
         "task_status",
+        "task_rewrite",
         "experiment_result",
         "redaction",
         "integrity_error",

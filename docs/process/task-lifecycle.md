@@ -179,7 +179,12 @@ tools/origin task complete T-0001 --summary "…" --evidence paths/to/artifacts/
 ```
 
 Completion writes the status, appends to the claim ledger, and prints a reminder
-that `STATE.md` and `ROADMAP.md` may need updating. That reminder is not
+that `STATE.md` and `ROADMAP.md` may need updating. Every one of those commands rewrites the task file, which used to make the
+session close with exit 4 on the tooling's own write; since T-0047 the command
+declares it, with the digests of the bytes it wrote, so the command is not a
+reason to run `session artifact` on the task file — but **your** edit to that
+file afterwards still is, because it changes a digest. See
+[`session-protocol.md`](session-protocol.md). That reminder is not
 advisory: a session that completes a task and does not update `STATE.md` leaves
 the reload point lying to the next agent.
 

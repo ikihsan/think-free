@@ -18,6 +18,16 @@ renumbered through T-0026, T-0027, T-0028 and T-0029 in four separate commits
 before it could be published. `observed`, from the history rather than from a
 report about it.
 
+**The thirteenth was the residual race below, caught exactly as it predicts.**
+On 2026-10-04, 35 seconds apart, both VMs ran `task new` and both took
+**T-0046**: this VM at `10:06:54Z`, `instance-20260717-0944` at `10:07:29Z`.
+The other VM published its T-0046 (`measure how GitHub files an annotation on the
+`file=` property`, `b2b8f34`) and claimed it; this VM's push was refused
+non-fast-forward, which is the first of the two catches named below. The unpushed
+side renumbered to **T-0047**, landed, and resolved the `tasks/CLAIMS.jsonl`
+conflict by keeping all four lines. The 35 seconds are the measurement: the window
+is *two VMs allocating between their own fetches*, and nothing here closes it.
+
 ## The rule
 
 **Read the shared base. Never read the working tree alone.**
