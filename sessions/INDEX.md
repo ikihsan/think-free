@@ -15,7 +15,7 @@ Showing the 25 most recent. 63 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | **unfinished** | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:33 |
+| [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
 | [2026-10-04-044-record-the-measured-ci-state-after-t-005](2026-10-04-044-record-the-measured-ci-state-after-t-005/README.md) | unknown-agent | worked | record the measured CI state after T-0057 and the fixture-cost questio | 2026-10-04T19:24 |
 | [2026-10-04-043-t-0057-claim-the-task-and-verify-it](2026-10-04-043-t-0057-claim-the-task-and-verify-it/README.md) | unknown-agent | worked | T-0057: claim the task and verify it | 2026-10-04T19:16 |
 | [2026-10-04-042-hold-a-mission-record-s-restated-experim](2026-10-04-042-hold-a-mission-record-s-restated-experim/README.md) | opencode | worked | Hold a mission record's restated experiment number to the artifact it  | 2026-10-04T18:00 |
