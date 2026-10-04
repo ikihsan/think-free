@@ -15,7 +15,7 @@ Showing the 25 most recent. 55 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | **unfinished** | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T13:58 |
+| [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
 | [2026-10-04-036-record-the-measured-ci-state-on-the-tip](2026-10-04-036-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip and T-0050's one red run, from | 2026-10-04T13:53 |
 | [2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu](2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/README.md) | opencode | worked | make doc lint's broken-link verdict a function of the repository, not  | 2026-10-04T12:39 |
 | [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | worked | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T13:35 |

@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T13:58:45+00:00
-- **Duration:** ?s
+- **Duration:** 171.3s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Record that a taskless session publishing a code commit is red on its own stream
 
 ## Summary
 
-_(none recorded)_
+Measured the taskless-session red-run case at five runs in one day (three from this VM) from its annotations, and recorded what is cheap and what is untested about it.
+
+## Next
+
+Unclaimed: T-0053 for sync land recording the base move of a rebase a human completed; and the gate that would read a closed stream's task_rewrite events, deciding whether the 50 sessions owing a CLAIMS.jsonl declaration stay a permanent debt.
 
 ## Artifacts
 
@@ -46,7 +50,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -63,6 +66,7 @@ _(none recorded)_
 | 5 | 14:01:19 | artifact | wrote docs/operations/ci.md |
 | 6 | 14:01:20 | milestone | taskless-session red run measured at five in one day, three from this VM; cause read off the annotation in both cases |
 | 7 | 14:01:24 | command | $ tools/origin sync push |
+| 8 | 14:01:36 | session_end | Measured the taskless-session red-run case at five runs in one day (three from this VM) from its annotations, and recorded what is cheap and what is u |
 
 ## Reproduce this record
 
