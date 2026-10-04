@@ -52,10 +52,11 @@ _(none recorded)_
 | tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md | f0a5c2b79b85 | 3386 |
 | RELEASE-MANIFEST.md | 2dbca6aea2b4 | 4565 |
 | ROADMAP.md | a67c716fcc3e | 19116 |
+| ROADMAP.md | a67c716fcc3e | 19116 |
 
 ## Commands
 
-57 captured, 25 non-zero exit.
+58 captured, 25 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -154,8 +155,6 @@ _(none recorded)_
 | 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
 | 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
 | 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
-| 79 | 13:31:08 | command | $ tools/origin doc lint |
-| 80 | 13:31:40 | command | $ tools/origin doc lint |
 | 81 | 13:32:06 | command | $ tools/origin doc lint |
 | 82 | 13:33:08 | command | $ tools/origin doc lint |
 | 83 | 13:33:23 | command | $ tools/origin doc lint |
@@ -164,8 +163,10 @@ _(none recorded)_
 | 86 | 13:34:08 | command | $ python3 -m unittest discover -s tests -p test_task_index_freshness.py -p test_generated_stamps.py |
 | 87 | 13:34:11 | command | $ python3 -m unittest discover -s tests -p test_report_freshness.py -v |
 | 88 | 13:34:38 | milestone | T-0050 completed; ROADMAP.md gained the entry and lost two lines elsewhere to stay under the cap |
+| 89 | 13:34:46 | command | $ tools/origin preflight |
+| 90 | 13:34:53 | artifact | wrote ROADMAP.md |
 
-_38 middle events omitted; see `events.jsonl`._
+_40 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
