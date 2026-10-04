@@ -130,3 +130,4 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0042", "ts": "2026-10-04T08:17:50+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "session": "2026-10-04-024-hold-each-decision-file-s-own-header-to", "task": "T-0042", "ts": "2026-10-04T08:18:11+00:00", "vm": "instance-20260717-0947"}
 {"action": "complete", "evidence": ["STATE-defects.md"], "reason": "A decision number has three sources and only two had readers: two of five decision records carried a false Decisions header while every gate passed. decisionheader.py reads the third through idcheck, D036 records T-0036's unrecorded decision, and D029/D032/D035 moved verbatim to DECISIONS-RECORDS.md so the log was no longer at its cap.", "schema": "origin.task.claim/1", "task": "T-0042", "ts": "2026-10-04T08:37:03+00:00"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0043", "ts": "2026-10-04T08:44:51+00:00"}

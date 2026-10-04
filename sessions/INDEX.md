@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-67 recorded session(s). One `events.jsonl` per session, so concurrent
+68 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 42 older session(s) are in the directory listing.
+Showing the 25 most recent. 43 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | **unfinished** | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T08:44 |
 | [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | worked | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:37 |
 | [2026-10-04-023-correct-the-continuous-integration-row-w](2026-10-04-023-correct-the-continuous-integration-row-w/README.md) | unknown-agent | worked | Correct the continuous-integration row with the runs this VM published | 2026-10-04T08:12 |
 | [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | worked | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:10 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 42 older session(s) are in the directory listing.
 | [2026-10-04-003-t-0027-the-published-claim-commit-must-c](2026-10-04-003-t-0027-the-published-claim-commit-must-c/README.md) | opencode | worked | T-0027: the published claim commit must carry the regenerated indexes, | 2026-10-04T01:03 |
 | [2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in](2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/README.md) | opencode | worked | T-0026: make task new regenerate tasks/INDEX.md so a created task is n | 2026-10-04T00:52 |
 | [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
-| [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
 
 
 ## Reading a session
