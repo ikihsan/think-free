@@ -33,9 +33,11 @@ _(none recorded)_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+1 captured, 0 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 4 | ['tools/origin', 'preflight'] | 0 | 8617 |
 
 ## Integrity
 
@@ -54,6 +56,7 @@ _none_
 | 1 | 13:53:06 | session_start | Record the measured CI state on the tip and T-0050's one red run, from its annotations |
 | 2 | 13:53:23 | artifact | wrote STATE.md |
 | 3 | 13:53:24 | milestone | run 37206580954 green on all seven rows at 3c49642; run 37206132901 red for the recorded expected case |
+| 4 | 13:53:33 | command | $ tools/origin preflight |
 
 ## Reproduce this record
 
