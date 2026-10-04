@@ -34,13 +34,27 @@ No task holds the identifier rule; preflight green on origin/research/origin@e57
 
 ## Acceptance criteria
 
-- [ ] STATE-defects.md and STATE-next-actions.md record the gap as closed, with its ceiling
+Five were passed to `task new` and **only the last survived**: `--acceptance` does
+not append, so four were silently dropped. Restored here by hand, and the cause is
+defect 11 in [`STATE-defects.md`](../STATE-defects.md). Every one of them was met.
+
+- [x] doc lint reports one defect number defined twice, naming both lines of
+      STATE-defects.md
+- [x] the rule fires on e53ca23's and e701ad8's own bytes and on no other commit
+      that touches STATE-defects.md
+- [x] this repository's own tree is clean, and a list item that is not a
+      bold-titled entry is not a definition
+- [x] sync land refuses to publish a tree with a duplicate defect number
+- [x] STATE-defects.md and STATE-next-actions.md record the gap as closed, with its
+      ceiling
 
 ## Verification
 
 ```bash
 PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
 ```
+
+418 tests green in 260s on Python 3.8.10, git 2.25.1, `observed` 2026-10-04.
 
 ## Rollback
 
@@ -50,3 +64,19 @@ git revert the two new modules, the two call sites and the new tests; nothing el
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**What the falsification found.** Each commit's real tree, extracted from git, was
+put to both wirings: the previous one reports **nothing** on `e53ca23` and
+`e701ad8`, which is why the collision survived — each VM's own tree was internally
+consistent and only the merge was wrong. The new rule names defect 7 with both
+lines on those two, and reports nothing on `157e463` or the tip, so it costs
+nothing on a correct tree. An earlier run of the same script hand-listed the
+records to extract, missed `FAILURES-findings-4.md`, and printed two F018/F019
+lines that were an artifact of the extraction; the list now comes from
+`git ls-tree`.
+
+**Two controls failed before the rule was trusted.** A file whose only numbered
+list is unbolded is both "no item here is a definition" and "nothing could be read
+at all", and the second reading has to win — which is why `STATE-defects.md` with
+no readable entry is itself a violation. The second failure was a test that
+expected "two duplicates" where the collision is one number taken twice.

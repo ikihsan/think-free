@@ -124,6 +124,18 @@ Numbering is continuous and never reused, so a solved defect keeps its
 number and this section is not in numeric order: entries land under whichever
 heading they belong in when they are closed.
 
+11. **`task new` silently keeps one `--acceptance` line and drops the rest** (open,
+    found 2026-10-04 in T-0036). Five criteria were passed on the command line and
+    the task file recorded one, with no warning: `--acceptance` and `--steps` are
+    declared with `default=""` and no `action="append"`, so argparse keeps the last
+    occurrence. **The cost is a task that reads as complete against a truncated
+    definition of complete** — the same shape as F010's near-vacuous gate: the field
+    is filled in, and nobody can tell that most of it is missing. Observed on this
+    repository's own task file and repaired there by hand.
+    **Ceiling:** every `--` flag in `cli_args.py` is declared the same way, so the
+    open question is which ones a user would reasonably repeat. `--acceptance` and
+    `--steps` are; `--refs` and `--evidence` are already `nargs="*"`.
+
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by
    reading the local tree, so two VMs in an hour took the same numbers. Six times

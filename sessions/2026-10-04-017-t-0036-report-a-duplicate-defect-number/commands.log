@@ -327,3 +327,35 @@ Ran 26 tests in 7.200s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 7582  redactions: none
+==============================================================================
+[seq 30] 2026-10-04T06:53:02+00:00
+$ python3 -c 
+import sys; sys.path.insert(0,'tools')
+from originlib import cli_args
+p = cli_args.build() if hasattr(cli_args,'build') else None
+print([n for n in dir(cli_args) if not n.startswith('_')])
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+['annotations', 'argparse', 'build_parser', 'inflight', 'session']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 196  redactions: none
+==============================================================================
+[seq 31] 2026-10-04T06:53:13+00:00
+$ python3 -c 
+import sys; sys.path.insert(0,'tools')
+from originlib import cli_args
+a = cli_args.build_parser().parse_args(['task','new','--goal','g','--verify','true',
+  '--acceptance','one','--acceptance','two','--acceptance','three'])
+print('acceptance =', repr(a.acceptance))
+print('steps =', repr(a.steps))
+b = cli_args.build_parser().parse_args(['task','new','--goal','g','--verify','true'])
+print('default acceptance =', repr(b.acceptance))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+acceptance = 'three'
+steps = ''
+default acceptance = ''
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 315  redactions: none

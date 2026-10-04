@@ -44,7 +44,7 @@ _(none recorded)_
 
 ## Commands
 
-13 captured, 2 non-zero exit.
+15 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -61,6 +61,8 @@ _(none recorded)_
 | 13 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 261725 |
 | 14 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests', '-p', 'test_defectlist.py'] | 0 | 3417 |
 | 15 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests', '-p', 'test_identifier*.py'] | 0 | 7582 |
+| 30 | ['python3', '-c', "\nimport sys; sys.path.insert(0,'tools')\nfrom originlib import cli_args\np = cli_args.build() if hasattr(cli_args,'build') else No | 0 | 196 |
+| 31 | ['python3', '-c', "\nimport sys; sys.path.insert(0,'tools')\nfrom originlib import cli_args\na = cli_args.build_parser().parse_args(['task','new','--g | 0 | 315 |
 
 ## Integrity
 
@@ -105,6 +107,8 @@ _(none recorded)_
 | 27 | 06:49:59 | note | Falsification, captured: extracted e53ca23, e701ad8, 157e463 and e576e26 from git and asked both wirings. The previous wiring (identifiers only) repor |
 | 28 | 06:50:00 | decision | One entry point for the identifier record: idcheck.report, called by both doc lint and sync land, over identifiers.py and defectlist.py. Not recorded  |
 | 29 | 06:51:19 | artifact | wrote DECISIONS.md |
+| 30 | 06:53:02 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import cli_args p = cli_args.build() if hasattr(cli_args,'build') else Non |
+| 31 | 06:53:13 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import cli_args a = cli_args.build_parser().parse_args(['task','new','--go |
 
 ## Reproduce this record
 
