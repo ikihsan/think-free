@@ -6,8 +6,9 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D013, D027, D028**. Each entry records a choice that was genuinely
-open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D013, D027, D028, D040**. Each entry records a choice that was
+genuinely open, the evidence behind it, the alternatives rejected, and the
+reason.
 
 **Invariant:** every entry here governs *the state of a session's own record* —
 whether an unfinished session is in flight or provably abandoned, and which
@@ -150,3 +151,62 @@ code first: 4 failures and 1 error, naming the very paths session 029
 mis-attributed. With the exclusion removed again, 3 of the 6 fail; the 3 that
 still pass are the negative controls, which must not change. Both runs are in this
 session's `commands.log`.
+
+## D040 — A path is attributed by the bytes a command wrote, not by the file's name (2026-10-04)
+
+Observed: `task claim`, `task complete` and `task release` rewrite the task file
+they manage, and reconciliation reports every file this session changed without
+declaring it. So every one of those commands closed its session with exit 4
+naming the tooling's own write. The record understated it: defect 12 counted
+"three such events in two sessions", because it was read from two sessions, and
+a sweep of every closed session's stream finds **37 reports naming a task file,
+across 21 sessions** (`observed` 2026-10-04, by reading each
+`sessions/*/events.jsonl` out of git). Session `2026-10-04-019` is the clean
+instance: it declared seven artifacts, ran `task complete`, and closed `worked`
+with `unlogged_changes: 1` naming `tasks/T-0039-*.md`.
+
+Decision: **the tooling declares its own writes, and the declaration names the
+bytes rather than the file.** `_set_meta` is the only function that rewrites a
+task file's meta block, so it — and not the four commands that call it — appends a
+`task_rewrite` event carrying the path, the task, the status, and two SHA-256
+digests: one of the meta block and one of everything outside it.
+`reconcile.command_rewrites` honours a path only while both digests still match.
+Two consequences follow, and the second is the point. The command's write is not
+reported. And an agent's *next* edit to the same file changes one of the two
+digests and is reported, so ticking an acceptance checkbox is still a declared
+change or a reported gap. The path is also printed on a `REWRITTEN by task
+commands` line at finish, because an excluded path an operator cannot see is an
+excluded path they cannot check — the reason D028 prints what it excluded.
+
+Rejected: **exclude `tasks/*.md`**, the cheapest form and the one the defect's own
+note called the trade-off. It silences every later edit to every task file, which
+is the signal rather than the noise. Rejected: **let the agent declare the task
+file by hand**, which is what was happening and what produced 37 false reports; it
+also asks the agent to remember a second command immediately after running one,
+which is the state in which remembering is least likely. Rejected: **drop the
+status from the task file and read it from the ledger alone** — the one design
+with no second copy of the truth, and a much larger change to the task model than
+a bookkeeping defect justifies. Rejected: **write the declaration into
+`tasks/CLAIMS.jsonl`**, where the command already writes, because attribution then
+has to decide which VM appended a line, and the session's own stream answers that
+without a rule.
+
+**Falsified in both directions, and the first attempt falsified nothing.** With
+the clause in `reconcile` removed, 4 of the 14 new tests fail, one of them the
+defect's own shape. With only the digest bound removed, 3 fail, and they are
+exactly the two hand-edit controls plus the digest unit test. The first attempt at
+the first mutation *passed all 14*: the patch script's `str.replace` pattern did
+not match the file's real indentation, so nothing was mutated and a green run was
+read as a control. The pattern is now asserted before the run — **a mutation that
+does not check it landed cannot fail, which makes it the weakest link in a
+falsification rather than the strongest.**
+
+**Ceiling.** The declaration is per path and per byte-range: it covers the meta
+block and the body as they were, so a task file that later gained a third region
+is not covered, and one with a second `task-meta` block is compared against the
+first. A command run with no session open records nothing, so the next session
+reports the file — the intended direction of failure, and the same asymmetry D028
+is built on. Nothing here changes what the ledger or the indexes say; this decides
+whose change a recorded path is, and nothing else. Defect 12 measured the false
+positives; it says nothing about the false negative recorded beside it, which is
+a separate question and an open one.

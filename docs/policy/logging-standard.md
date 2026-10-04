@@ -33,15 +33,25 @@ narrative after the fact has to leave a trace.
 | `note` | An observation worth keeping | summary |
 | `block` | Progress stops | reason |
 | `base_advance` | `sync pull`/`sync land` moved the base under an open session | reason, from, to, commits that arrived |
+| `task_rewrite` | A task command rewrote the task file it manages | path, task, status, meta and body digests |
 | `unlogged_change` | Reconciliation finds one | path |
 | `doc_update` | A mission record changed | path |
-| `task_claim` / `task_status` | Task state moves | task, action |
+| `task_claim` / `task_status` | **Declared, emitted by nothing**; kept so an old stream still verifies | task, action |
 | `redaction` | A secret was masked | patterns, argv |
 | `integrity_error` | A rule was broken | what, action |
 | `session_end` | A session closes | outcome, summary, next, counts |
 
 Unknown kinds are rejected at write time. A typo becomes an error rather than an
 event nothing else understands.
+
+**The table is a claim about code, and one row of it was false.**
+`task_claim` and `task_status` were listed here as "Task state moves" from the
+day the session record was designed, and no code path has ever emitted either:
+a task's claim state lives in `tasks/CLAIMS.jsonl` and in the task file's meta
+block, and the session stream now records the file the command rewrote instead
+(T-0047). They stay in `events.KINDS` so that dropping them cannot make an old
+stream unverifiable, and the row above says so instead of what the author hoped
+was true. `observed` 2026-10-04, while adding the kind that *is* emitted.
 
 ## Required event fields
 

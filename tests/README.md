@@ -44,6 +44,7 @@ interfere with the working repository.
 | `test_gitversions.py` | Schema of `git-versions.json`, that the docs point at it, and the honesty clauses added after F019: every entry has a scope with a count and a machine, and the unexercised ranges are named |
 | `test_identifiers.py` | The identifier rule: the two definitions of F010 as commit `e6eb992` wrote them, index rows with and without a body, task numbers, and the paraphrased rows that must stay silent |
 | `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree — for both sources of definitions |
+| `test_task_rewrite.py` | Whose change is a task file `task complete` just rewrote: the command's own write is declared with the **bytes** it wrote, so an agent's later edit to the same file — body or meta block — is reported again, and a file changed with no command run at all is still reported. Falsified by mutation in both directions, and against session 2026-10-04-019's own stream, which declared seven artifacts and closed `worked` with `unlogged_changes: 1` naming its own task file (defect 12) |
 | `test_defectlist.py` | The defect list as an identifier record: the two entries both numbered 7 as `e53ca23` and `e701ad8` wrote them, a sweep over every commit that touches the file, and the four shapes that must stay silent (prose, a plain numbered list, an indented nested item, out-of-order numbering) |
 | `test_decision_header.py` | The third source of a decision identifier: a record's own `Decisions **…**` header, held to the decisions that file defines in both directions. Falsified against `d451169`'s own bytes, which carried two false headers while every gate passed, and silent on the repair (defect 14) |
 | `test_decision_files.py` | The two hand-maintained lists of decision records — `paths.MISSION_RECORDS` and `reconcile.IMPLICATIONS` — held to the files on disk, because the log was split five times and each split added a file to both by hand |
@@ -253,6 +254,17 @@ because the first attempt put the repair in the CLI, where a module caller could
 still break it. Two rules earned here: find the appender rather than the command
 that happened to be running when someone noticed, and put a generated-file
 invariant below the layer that changes the input.
+
+**A mutation that cannot be applied cannot falsify anything, and it looks
+exactly like a control that held.** Removing the clause that honours a
+`task_rewrite` event should fail `test_task_rewrite.py` — the defect's own shape.
+The first attempt at that mutation left all 14 tests green, because the patch
+script's `str.replace` pattern did not match the file's real indentation: nothing
+was mutated, and the green run was read as "the clause is not load-bearing". The
+same pattern removed only the digest bound *did* fail 3, so the two mutations were
+distinguishable only because one of them was applied twice by hand. **Assert that
+the patch landed before trusting the run**, and treat a mutation that needed no
+repair as the suspicious result rather than the reassuring one.
 
 ## Running a subset
 

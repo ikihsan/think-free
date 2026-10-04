@@ -17,7 +17,7 @@ from . import (
     skillsync,
     tasks,
 )
-from .cli_session import verify_sessions
+from .sessionverify import verify_sessions
 from .usage import Usage
 
 EXIT_OK = 0

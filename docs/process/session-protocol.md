@@ -56,6 +56,20 @@ events, session 015 with 4 — and neither could be logged afterwards, because a
 closed stream accepts nothing. The tool cannot tell an interesting file from a
 dull one; it can only tell a declared one from an undeclared one.
 
+**One exception, and it is not yours to declare.** `task claim`, `task complete`
+and `task release` rewrite the task file they manage, so every one of them used
+to close its session with exit 4 naming the tooling's own write — 37 such
+reports across the 21 closed sessions in this repository's history. Since
+T-0047 the command declares it: a `task_rewrite` event records the path together
+with the digests of the meta block and of everything outside it, and
+reconciliation honours it only while the file still holds those bytes. So the
+command's write is not reported, and **your** edit to the same file afterwards —
+ticking an acceptance box, adding a note — is reported as before, because it
+changes a digest. `session finish` names the rewritten paths on a `REWRITTEN by
+task commands` line, so an excluded path is never invisible. If a task command
+is run with no session open there is nothing to record into and the next session
+reports the file; that is the intended direction of failure.
+
 **Commit the work with the paths it names, not `git add -A`.** `session finish`
 rewrites the session's own report and `sessions/INDEX.md`, so a `git add -A` in
 the work commit sweeps the session-finish commit's contents into the commit

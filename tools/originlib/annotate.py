@@ -73,7 +73,7 @@ class Gate:
 class SessionGate(Gate):
     """`session verify`, which prints rather than returning a result.
 
-    `cli_session.session_report` exists because of this class: it returns the
+    `sessionverify.session_report` exists because of this class: it returns the
     rendered report and the violations together, so nothing has to be recovered
     from captured output.
     """
@@ -82,7 +82,7 @@ class SessionGate(Gate):
         super().__init__(lambda: None, "violations", EXIT_INTEGRITY, ("--strict", "--lease-hours"))
 
     def report(self, words: list[str]):
-        from .cli_session import session_report
+        from .sessionverify import session_report
 
         strict = "--strict" in words
         hours = None

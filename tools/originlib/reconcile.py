@@ -58,12 +58,15 @@ def reconcile(active) -> dict:
         for event in events.events_for(active.session)
         if event.kind == "artifact" and event.data.get("path")
     }
+    rewritten = command_rewrites(active)
     landed_paths = landed.landed_paths(active.session)
     changed = landed.session_changes(active)
     unlogged = [
         rel
         for rel in changed
-        if rel not in declared and not _is_own_session_file(active, rel)
+        if rel not in declared
+        and rel not in rewritten
+        and not _is_own_session_file(active, rel)
     ]
     for rel in unlogged:
         events.append(
@@ -93,9 +96,34 @@ def reconcile(active) -> dict:
         "declared": sorted(declared),
         "own": changed,
         "landed": sorted(landed_paths),
+        "rewritten": sorted(rewritten),
         "unlogged": unlogged,
         "missing": missing,
     }
+
+
+def command_rewrites(active) -> dict:
+    """Task files this session's own commands rewrote, still byte-identical.
+
+    The counterpart of D028 for the tooling's own writes. A `task_rewrite` event
+    names the file a command changed together with the two digests of what it
+    wrote, so the answer depends on the bytes rather than on the session having
+    declared something. A task file edited after the command changed one of the
+    digests and is reported, which is the half that keeps this from being the
+    blanket exemption defect 12 warned about.
+    """
+    from . import tasks
+
+    found: dict[str, dict] = {}
+    for event in events.events_for(active.session):
+        if event.kind != "task_rewrite":
+            continue
+        rel = event.data.get("path")
+        if not rel:
+            continue
+        if tasks.digests_match(paths.repo_root() / rel, event.data):
+            found[rel] = event.data
+    return found
 
 
 GENERATED_MARK = "generated-by: origin"
