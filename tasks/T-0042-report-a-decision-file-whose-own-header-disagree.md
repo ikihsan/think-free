@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0042
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-024-hold-each-decision-file-s-own-header-to
+claim-vm: instance-20260717-0947
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_identifiers tests.test_identifier_enforcement tests.test_defectlist -q && tools/origin doc lint && tools/origin preflight
 -->
 
