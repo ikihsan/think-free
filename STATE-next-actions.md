@@ -27,7 +27,10 @@ of those it cannot touch.
    without users, distribution, domain knowledge, or something not yet named),
    and whether publishing the tooling as-is is ever on the table. **Ceiling:**
    F027's sample is small and self-selected, and 0 stars is a weak proxy with
-   known false negatives (`ripgrep`, `jq`). Nothing here is blocked on tooling.
+   known false negatives (`ripgrep`, `jq`). T-0058 extended the sample (F028):
+   the flat tail reproduces in two other young vocabularies and appears only
+   in established ones, so the criterion is uninformative specifically for
+   vocabularies younger than a few years. Nothing here is blocked on tooling.
  0b. **Measure the CI flake — deferred, and the deferral is a decision rather
     than an oversight.** Three tests failed on identical bytes (runs
     `37219755262`, `37220040091`) and six full suite runs on

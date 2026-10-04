@@ -55,6 +55,7 @@ file reached the 300-line cap:
 | F025 | The window that made a red run explicable ended one line before the answer |
 | F026 | The byproduct thesis is disconfirmed: this mission's own tooling is prior art, and so is its discipline |
 | F027 | Every project in this niche has zero users, so "plausible adoption path" cannot discriminate here |
+| F028 | The flat adoption tail is vocabulary age, not niche, so "adoption path" is uninformative for young candidates |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

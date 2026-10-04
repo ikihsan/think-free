@@ -132,3 +132,40 @@ is narrow and it is the one that changes a decision: **do not select the next
 candidate from this niche, because this niche cannot distinguish candidates from
 each other.** That is a reason to look elsewhere. It is not a reason to
 conclude that nothing here is worth building.
+## F028 — The flat adoption tail is a property of vocabulary age, not of this niche
+
+Source: session `2026-10-04-046`, task T-0058. Raw census:
+[`EXPERIMENTS/011-niche-adoption-census/results.json`](EXPERIMENTS/011-niche-adoption-census/results.json),
+taken 2026-10-04 from the GitHub search API.
+
+**Belief under test.** F027 left three readings open: flat adoption is
+specific to agent-session auditing, general everywhere, or specific to
+young vocabularies. This census probes all three with seven search
+vocabularies.
+
+**Measured, `observed` 2026-10-04.** In the same young vocabulary cluster
+as F027's niche, the flat tail reproduces exactly: `lockfile drift` tops
+out at 6 stars and `dependency quarantine` at 8 stars, with totals of 57
+and 29 repositories. In established vocabularies the tail is heavy —
+`reproducible builds` (top 4135), `build provenance` (top 1050),
+`supply chain audit` (top 772), `artifact provenance` (top 1050) — but
+the outliers are long-lived or vendor-official (`please` since 2016,
+Open Build Service since 2011, GitHub's own attestation action). In
+`agent session log` the first result is the 40k-star incumbent and
+everything below it is under 400 stars.
+
+**What this says.** A young problem-vocabulary contains only young
+projects, and young projects score zero adoption whatever their merit, so
+a stars-based "plausible adoption path" criterion is uninformative for
+exactly the vocabulary this mission's twelve candidates were screened in.
+The criterion discriminates only where the vocabulary is decades old —
+where every survivor is already entrenched. That sharpens the F027
+reading: the axis problem is not "this mission picks bad niches" but
+"adoption-as-stars cannot discriminate among young candidate domains at
+all."
+
+**Ceiling.** One snapshot, one endpoint, search over names and
+descriptions, stars as a weak proxy; `ripgrep`-class false negatives still
+unrefuted, and no measurement of usefulness is made. What survives is the
+narrow, decision-changing half: do not read a stars search as evidence
+for or against a candidate in a vocabulary less than a few years old.

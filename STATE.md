@@ -130,23 +130,27 @@ push this reload point past the line cap.
   log against the git history it claims to explain", in **both** directions, so on
   that axis it covers more than this repository's `unlogged_change` (not all of
   its reconciliation: base-advance attribution and declared exemptions are absent).
-  Worse for the mission's self-image: that project's `KNOWN-LIMITATIONS.md` argues the same three positions this repository reached over 87 sessions — do
-  not loosen a match until it launders real losses, three renderings of one
-  receipt, and delete a field that cannot mean what its name says. **Twelve
-  candidates, twelve prior-art deaths**, so prior-art survival cannot be the
-  selection filter. **The baseline was not run** — `cargo` is absent here, so
-  the head-to-head is `unperformed`. Full account:
-  [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md); F026, F027.
-- **Session 040, VM 0947 (T-0054, cancelled).** **Two VMs found defect 21 nine
-  minutes apart.** This VM hit `task claim`'s refusal at 15:08Z and created T-0054 to
-  fix it; the other hit the same refusal at 15:17Z, created T-0055 and landed the fix
-  (`0522052`). Different numbers, so neither allocator nor detector had anything to
-  say — and that was right: no identifier collided, the *finding* did. **T-0054 was
-  cancelled and its unpushed commits dropped whole**, two modules publishing a claim's
-  paths being worse than one. What survived is the gap the landed fix left: a claim
-  under an open session is proved to publish and a published claim to exclude, but not
-  composed, which is the order the fleet runs. Full account and the rule:
-  [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+  Worse for the mission's self-image: that project's
+  `KNOWN-LIMITATIONS.md` argues the same three positions this repository
+  reached over 87 sessions — do not loosen a match until it launders real
+  losses, three renderings of one receipt, and delete a field that cannot
+  mean what its name says. **Twelve candidates, twelve prior-art
+  deaths**, so prior-art survival cannot be the selection filter.
+  Full account: [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md);
+  F026, F027.
+- **Session 046, VM 0947 (T-0058). The flat tail in F027 is vocabulary
+  age, not niche.** `lockfile drift` (top 6 stars, 57 repos) and
+  `dependency quarantine` (top 8, 29 repos) reproduce F027's flat tail in
+  the same young-vocabulary cluster, while `reproducible builds` /
+  `build provenance` / `supply chain audit` / `artifact provenance` carry
+  heavy tails whose outliers are long-lived or vendor-official. So a
+  stars-based "plausible adoption path" criterion is uninformative for
+  every vocabulary younger than a few years — which is where all twelve
+  candidates lived. F028,
+  [`EXPERIMENTS/011-niche-adoption-census`](EXPERIMENTS/011-niche-adoption-census/README.md).
+- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21
+  nine minutes apart; the unpushed side yielded, and the rule it left is
+  in [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
   nothing, so its paths were attributed to the session that happened to hold the
   tree: session 034's nine `unlogged_change` events were exactly that. Now
@@ -155,12 +159,8 @@ push this reload point past the line cap.
   fast-forward, or an arrival the tooling already recorded is refused. Both
   directions are falsified: with the `recover` call removed, the arrival is
   reported undeclared again, and a merge or fast-forward never matches.
-- **Sessions 034 and 036, VM 0947/0944 (T-0050, T-0052).** Two record-integrity
-  findings whose full accounts are in [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
-  (F022) and in defect 20: a reconcile rule that reused the line cap's exemption
-  predicate, and a rebase that carried a duplicated dashboard row past every
-  gate. Compressed here to pointers; both remain open to the next reader at
-  those two places.
+- **Sessions 034 and 036 (T-0050, T-0052).** Two record-integrity
+  findings; F022 in [`FAILURES-findings-5.md`](FAILURES-findings-5.md) and defect 20.
 
 ## Infrastructure build (sessions 015–016, earlier)
 

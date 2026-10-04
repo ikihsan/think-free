@@ -1,0 +1,250 @@
+{
+  "taken_utc": "2026-10-04T20:08:05Z",
+  "terms": {
+    "reproducible builds": {
+      "total_count": 2673,
+      "top": [
+        {
+          "full_name": "cpm-cmake/CPM.cmake",
+          "stars": 4135,
+          "created": "2019-04-09",
+          "description": "\ud83d\udce6 CMake's missing package manager. A small CMake script for setup-free, cross-platform, reproducible"
+        },
+        {
+          "full_name": "thought-machine/please",
+          "stars": 2616,
+          "created": "2016-02-02",
+          "description": "High-performance extensible build system for reproducible multi-language builds."
+        },
+        {
+          "full_name": "Hamza417/Inure",
+          "stars": 1940,
+          "created": "2021-03-07",
+          "description": "An elegant and beautiful premium Android app manager with Root and Shizuku support, a built-in termi"
+        },
+        {
+          "full_name": "openSUSE/open-build-service",
+          "stars": 1081,
+          "created": "2011-07-14",
+          "description": "Build and distribute Linux packages from sources in an automatic, consistent and reproducible way #o"
+        },
+        {
+          "full_name": "retentioneering/retentioneering-tools",
+          "stars": 920,
+          "created": "2019-07-02",
+          "description": "Python toolkit, MCP server, and agent skills for reproducible, auditable clickstream and event log a"
+        }
+      ]
+    },
+    "build provenance": {
+      "total_count": 413,
+      "top": [
+        {
+          "full_name": "actions/attest-build-provenance",
+          "stars": 1050,
+          "created": "2024-02-20",
+          "description": "Action for generating build provenance attestations for workflow artifacts"
+        },
+        {
+          "full_name": "mchmarny/s3cme",
+          "stars": 104,
+          "created": "2023-01-12",
+          "description": "Template Go app repo with local test/lint/build/vulnerability check workflow, and on tag image test/"
+        },
+        {
+          "full_name": "lucmoreau/ProvToolbox",
+          "stars": 83,
+          "created": "2011-08-30",
+          "description": "Java toolkit to create and convert W3C PROV data model representations, and build provenance-enabled"
+        },
+        {
+          "full_name": "kubernetes-sigs/tejolote",
+          "stars": 74,
+          "created": "2022-07-09",
+          "description": "A highly configurable build executor and observer designed to generate signed SLSA provenance attest"
+        },
+        {
+          "full_name": "github-early-access/generate-build-provenance",
+          "stars": 62,
+          "created": "2023-10-09",
+          "description": "Publish a signed build provenance from your GitHub Actions workflow"
+        }
+      ]
+    },
+    "supply chain audit": {
+      "total_count": 721,
+      "top": [
+        {
+          "full_name": "aquasecurity/chain-bench",
+          "stars": 772,
+          "created": "2022-05-12",
+          "description": "An open-source tool for auditing your software supply chain stack for security compliance based on a"
+        },
+        {
+          "full_name": "getagentseal/agentseal",
+          "stars": 376,
+          "created": "2026-03-03",
+          "description": "Security toolkit for AI agents. Scan your machine for dangerous skills and MCP configs, monitor for "
+        },
+        {
+          "full_name": "graygnatconsole/mcp-audit-tool",
+          "stars": 91,
+          "created": "2026-09-26",
+          "description": "\ud83d\udee1\ufe0f Security audit CLI for Model Context Protocol (MCP) servers \u2014 scan AI agent configs for tool pois"
+        },
+        {
+          "full_name": "bokuweb/sakimori",
+          "stars": 77,
+          "created": "2026-04-18",
+          "description": "Cross-platform supply-chain guard for CI: supervised-run audit/block (eBPF/ETW) + minimum-release-ag"
+        },
+        {
+          "full_name": "UseAI-pro/openclaw-skills-security",
+          "stars": 72,
+          "created": "2026-02-05",
+          "description": "Curated, security-first OpenClaw skills (Markdown-based). Security audit skills - detect prompt inje"
+        }
+      ]
+    },
+    "lockfile drift": {
+      "total_count": 57,
+      "top": [
+        {
+          "full_name": "mcptrust/mcptrust",
+          "stars": 6,
+          "created": "2025-12-16",
+          "description": "Runtime security proxy for MCP: lockfile enforcement, drift detection, artifact pinning, Sigstore/Ed"
+        },
+        {
+          "full_name": "skills-lock/skil-lock",
+          "stars": 6,
+          "created": "2026-05-13",
+          "description": "Pin AI Skill behavior. Block unapproved drift in CI. See exactly what changed in every PR."
+        },
+        {
+          "full_name": "nivinvysakh/syncmydep",
+          "stars": 4,
+          "created": "2026-08-21",
+          "description": "A composite GitHub Action to automatically detect package drifts, run audits, sync lockfiles, and su"
+        },
+        {
+          "full_name": "nbialk/quiver-cli",
+          "stars": 3,
+          "created": "2026-06-03",
+          "description": "Compose skills, slash commands & MCP servers from a central catalog into any repo as native configs "
+        },
+        {
+          "full_name": "yudelevi/mpat",
+          "stars": 2,
+          "created": "2026-09-09",
+          "description": "Lockfile-based upstream drift tracking for Python monkeypatches"
+        }
+      ]
+    },
+    "dependency quarantine": {
+      "total_count": 29,
+      "top": [
+        {
+          "full_name": "alphaparkinc/genpark-supply-chain-package-dependency-quarantine-scanner-skill",
+          "stars": 8,
+          "created": "2026-09-02",
+          "description": "Supply-chain malicious package quarantine & SBOM auditor (Snyk / Socket.dev)"
+        },
+        {
+          "full_name": "alphaparkinc/genpark-dependency-firewall-cve-quarantine-package-proxy-skill",
+          "stars": 8,
+          "created": "2026-08-30",
+          "description": "Dependency firewall package proxy & CVE quarantine gatekeeper (GitLab Firewall style)"
+        },
+        {
+          "full_name": "VAIXLNS/VAIXLNS",
+          "stars": 5,
+          "created": "2026-07-01",
+          "description": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u0623\u0631\u0649 \u0623\u0646 \u0647\u0630\u0627 \u0623\u0635\u0628\u062d \u0623\u0642\u0631\u0628 \u0625\u0644\u0649 Blueprint \u0633\u064a\u0627\u062f\u064a \u0648\u0644\u064a\u0633 \u0645\u062c\u0631\u062f \u0645\u062e\u0637\u0637 \u0646\u0638\u0627\u0645. \u0648"
+        },
+        {
+          "full_name": "Splinters-io/sup",
+          "stars": 3,
+          "created": "2026-03-31",
+          "description": "Supply chain quarantine tool \u2014 time-based trust gate for dependencies"
+        },
+        {
+          "full_name": "gyanpattnaik/E-commerce-Data-Quality-System",
+          "stars": 1,
+          "created": "2026-04-20",
+          "description": "Contract-driven event validation on a quarantine-first philosophy. Five rule categories, 35 tests, z"
+        }
+      ]
+    },
+    "artifact provenance": {
+      "total_count": 557,
+      "top": [
+        {
+          "full_name": "actions/attest-build-provenance",
+          "stars": 1050,
+          "created": "2024-02-20",
+          "description": "Action for generating build provenance attestations for workflow artifacts"
+        },
+        {
+          "full_name": "in-toto/witness",
+          "stars": 547,
+          "created": "2021-12-03",
+          "description": "Witness is a pluggable framework for software supply chain risk management.  It automates, normalize"
+        },
+        {
+          "full_name": "Sidiora-Labs/machine-genome",
+          "stars": 151,
+          "created": "2026-07-20",
+          "description": "Machine Genome is an open identity and provenance protocol for models, agents, harnesses, datasets, "
+        },
+        {
+          "full_name": "devallibus/shiplog",
+          "stars": 55,
+          "created": "2026-03-14",
+          "description": "SUPERCHARGE AI-assisted development by using Git. Cross-model review gates, evidence-linked closure,"
+        },
+        {
+          "full_name": "maoyadongsh/siq-agent-security",
+          "stars": 51,
+          "created": "2026-08-13",
+          "description": "Research artifacts for provenance-bound agent authorization, signed effect evidence, and reproducibl"
+        }
+      ]
+    },
+    "agent session log": {
+      "total_count": 504,
+      "top": [
+        {
+          "full_name": "PostHog/posthog",
+          "stars": 40135,
+          "created": "2020-01-23",
+          "description": ":hedgehog: PostHog is the leading platform for building self-driving products. Our developer tools \u2013"
+        },
+        {
+          "full_name": "zszszszsz/.config",
+          "stars": 359,
+          "created": "2020-06-23",
+          "description": "# # Automatically generated file; DO NOT EDIT. # OpenWrt Configuration # CONFIG_MODULES=y CONFIG_HAV"
+        },
+        {
+          "full_name": "danderfer/Comp_Sci_Sem_2",
+          "stars": 213,
+          "created": "2022-06-07",
+          "description": "According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings"
+        },
+        {
+          "full_name": "gebruder/wirken",
+          "stars": 187,
+          "created": "2026-03-25",
+          "description": "The enterprise gateway for autonomous agents. Identity management, per-channel isolation, credential"
+        },
+        {
+          "full_name": "Don-No7/Hack-SQL",
+          "stars": 148,
+          "created": "2022-01-30",
+          "description": "-- -- File generated with SQLiteStudio v3.2.1 on Sun Feb 7 14:58:28 2021 -- -- Text encoding used: S"
+        }
+      ]
+    }
+  }
+}
