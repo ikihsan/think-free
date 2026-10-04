@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0034
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent: 
-claim-session: 
-claim-vm: 
+claim-agent: opencode
+claim-session: 2026-10-04-012-measure-the-test-suite-on-every-cpython
+claim-vm: instance-20260717-0947
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check
 -->
 
