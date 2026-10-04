@@ -15,7 +15,7 @@ Showing the 25 most recent. 21 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-004-t-0028-record-the-ci-run-history-around](2026-10-04-004-t-0028-record-the-ci-run-history-around/README.md) | opencode | **unfinished** | T-0028: record the CI run history around the orphan fix with verified  | 2026-10-04T01:05 |
+| [2026-10-04-004-t-0028-record-the-ci-run-history-around](2026-10-04-004-t-0028-record-the-ci-run-history-around/README.md) | opencode | worked | T-0028: record the CI run history around the orphan fix with verified  | 2026-10-04T01:07 |
 | [2026-10-04-003-t-0027-the-published-claim-commit-must-c](2026-10-04-003-t-0027-the-published-claim-commit-must-c/README.md) | opencode | worked | T-0027: the published claim commit must carry the regenerated indexes, | 2026-10-04T01:03 |
 | [2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in](2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/README.md) | opencode | worked | T-0026: make task new regenerate tasks/INDEX.md so a created task is n | 2026-10-04T00:52 |
 | [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
