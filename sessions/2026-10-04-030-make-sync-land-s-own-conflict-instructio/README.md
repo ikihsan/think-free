@@ -93,6 +93,7 @@ _(none recorded)_
 | 21 | 11:09:48 | decision | A refusal is part of a diagnostic, and a diagnostic whose instruction the same tool cannot follow is not finished: sync land completes a rebase it sto |
 | 22 | 11:09:48 | milestone | 489 tests green, preflight OK, task verify exit 0 |
 | 23 | 11:10:52 | artifact | wrote ROADMAP.md |
+| 24 | 11:12:08 | milestone | T-0048 committed: land completes its own paused rebase and attributes the arrival correctly |
 
 ## Reproduce this record
 
