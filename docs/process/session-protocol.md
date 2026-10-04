@@ -165,8 +165,18 @@ The honest claim is "gaps are detected", not "nothing is ever missed".
 
 ```bash
 tools/origin session verify     # every session, every event
-tools/origin preflight          # lint + skills + sessions, for CI and VM start
+tools/origin preflight          # lint + skills + sessions + release check
 ```
+
+**A task's `verify` must include every gate its change can break, and `preflight`
+is where a new gate goes.** T-0042 added a root-level document, classified
+nothing in [`RELEASE-MANIFEST.md`](../../RELEASE-MANIFEST.md), and its `verify`
+passed — because the command ran the suite, `doc lint` and `preflight`, and
+`preflight` did not run `release check` (T-0045). The general rule is the one the
+generated-file repairs already state for another layer: **a gate belongs in the
+single command this protocol tells every agent to run**, so a change that adds a
+document, a session, a skill or an identifier cannot pass verification without
+meeting the gate that reads it.
 
 `verify` checks: contiguous sequences, exactly one `session_start` and at most
 one `session_end`, the last event is `session_end` (or the session is reported

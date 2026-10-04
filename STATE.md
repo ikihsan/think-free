@@ -42,7 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Sessions | 55 recorded, 0 in flight once this one closes (session 012, T-0034, VM 0947) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 431 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict, and since T-0030 on an identifier defined twice or indexed without a body. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
-| Continuous integration | **Red on the shared base until this session's T-0043 lands, and the run says why.** Run `37189825232` at `ea3bfb5` is red on all seven jobs, `observed` 2026-10-04: merging T-0042 with VM 0944's T-0040 took `tools/originlib/identifiers.py` to 307 of the 300 permitted lines, because each VM added to it and each was under the cap alone. Split in T-0043 into `identifiers`, `findingindex` and `decisionindex`. Before that merge the newest green run on this VM's own pushes was `37187713652` at `8e83d2b`, and the other VM's T-0040 landed green on all seven at `24f67f4` (run `37188740546`) — so **the merge itself was the only red thing about it.** The run is also the first red `Documentation lint` whose annotations are readable without admin rights: 11 per check-run, naming `test_annotate.GateTest.test_a_clean_gate_emits_nothing_at_all` and, in the message, `tools/originlib/identifiers.py: 307 lines exceeds the 300-line cap`. **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish, and the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row |
+| Continuous integration | **Red on the base for three consecutive landed commits, each from a different cause, and green only from T-0045 onward.** Runs `37189825232` at `ea3bfb5` (the merge took `identifiers.py` over the line cap), `37190842104` at `f566ff0` (defect 15, a lease test that expired on a schedule) and `37191658964` at `c9e89e1` (`DECISIONS-RECORDS.md` unclassified in the release manifest) were each red on all seven rows, `observed` 2026-10-04. **All three are this VM's, and all three were found by reading the run's annotations rather than by reproducing anything.** Before them, the other VM's T-0040 landed green on all seven at `24f67f4` (run `37188740546`). The run is also how the annotation mechanism was exercised on a real `Documentation lint` failure for the first time: 11 per check-run, naming the failing test and the file to open. **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish, and the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -58,20 +58,29 @@ the run log needs admin rights, and the cause came from elimination plus a
 reproduction with that git unpacked outside the repository. Check
 `tools/origin task list --remote` before taking anything.
 
+**A gate belongs in the one command the protocol tells every agent to run**
+(T-0045). T-0042 added `DECISIONS-RECORDS.md` at the top level, classified
+nothing in `RELEASE-MANIFEST.md`, and its own `verify` passed — because the
+command ran the suite, `doc lint` and `preflight`, and `preflight` did not run
+`release check`. Three commits carried it to the base before run `37191658964`
+named it. `release check` now runs from `preflight`, and the rule is written into
+[`docs/process/session-protocol.md`](docs/process/session-protocol.md) rather than
+left as something to remember.
+
 **A test can read a clock the code does not, and it expires on a schedule rather
-than intermittently** (defect 15, T-0044). The three CLI tests behind the in-flight
-gate dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while `session verify`
-reads the real one, so a 13-hour claim aged by an hour every hour and the
-24-hour-lease assertion began failing at **2026-10-04T09:00Z exactly** and can
-never pass again. Run `37190842104` at `f566ff0` is red on it. This is F018 and
+than intermittently** (defect 15, T-0044). The three CLI tests behind the
+in-flight gate dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while
+`session verify` reads the real one, so a 13-hour claim aged by an hour every hour
+and the 24-hour-lease assertion began failing at **2026-10-04T09:00Z exactly** and
+can never pass again. Run `37190842104` at `f566ff0` is red on it. This is F018 and
 F019 with the environment being time, and nothing scans for the pairing of a
 fixed instant in a fixture with a wall clock in the code.
 
 **A decision number is written in three places, and one of the three had no
 reader at all** (defect 14, T-0042). The heading and the index row in
 `DECISIONS.md` were held to each other by T-0030, the numbered defect list was
-added by T-0036, and the header under each record's title had no check until this
-session found `DECISIONS-GATING.md` naming D013 — which lives in another file —
+added by T-0036, and the header under each record's title had no check until
+T-0042 found `DECISIONS-GATING.md` naming D013 — which lives in another file —
 while omitting three of its own entries, with both index rows correct throughout.
 
 **Collisions were allocated by reading the local tree, so two VMs in an hour
@@ -82,8 +91,7 @@ unchanged:** renumber on the side that has not been pushed, and record the
 collision where the next reader looks — never by editing a closed event stream.
 When two VMs' commits meet, keep both facts and let the generated indexes be
 regenerated rather than merged; a ledger conflict is resolved by keeping both
-lines. Two rebase conflicts in this one hour cost one red CI run (`37171841544`, a
-broken link this VM had just written, fixed in `00cd829`).
+lines.
 
 **Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
 repaired**: a session that landed a colleague's work reported it as undeclared
@@ -164,19 +172,6 @@ Now `FAILURES.md` **F020**, with the four answers that endpoint can give and the
   were machine-environment faults: a gate that reads its own environment is only
   as portable as the record of that environment (F018, F019). Detail in
   [`STATE-defects.md`](STATE-defects.md) and the two task files.
-- **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
-  work was reported as having changed that work: session 029 closed with nine
-  false `unlogged_change` events and inherited four false `doc_update` events and
-  a `documentation_gaps` report. `sync pull`/`sync land` now record what arrived
-  from the base, and reconciliation attributes a path by the newest thing that
-  touched it. Git authorship was falsified as the baseline first: both VMs commit
-  as `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed
-  are known; a hand-run rebase stays reported — and session 040 then hit exactly
-  that ceiling through seven hand-run rebases. 265 tests green. A second defect
-  surfaced in the same session: every generated file stamped `last-verified` with
-  the render date, so `doc lint` failed on 42 committed reports the day after
-  they were written (D029). Both fixes were falsified against their own defect
-  before being trusted. 269 tests green.
 - **Session 037, VM 0944 (T-0021, F013).** Three mission records reached the
   shared base with `<<<<<<< HEAD` in them and every gate passed. Repaired by
   keeping both sides of all three regions (F011 and F012 are different findings),
@@ -293,6 +288,4 @@ pushes via the GitHub App as `Ihsan Ai Server Bot`.
   interrupted run recoverable, plus detection that reveals when it did not happen.
 
 Three earlier sessions are recorded in [`STATE-history.md`](STATE-history.md)
-rather than here: T-0025 read the pushed CI run, T-0026 made `task new` rebuild
-the generated indexes, and T-0027 made a published claim stage them. They had
-drifted into this section, and two of them had run together on one line.
+rather than here, as are all three red runs this VM published on 2026-10-04.

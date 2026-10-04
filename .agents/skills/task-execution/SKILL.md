@@ -99,7 +99,7 @@ write down what remains.
 
 ```bash
 tools/origin doctor --offline     # can this machine do the work at all?
-tools/origin preflight            # lint + skills + session integrity
+tools/origin preflight            # lint + skills + sessions + release check
 ```
 
 Run `doctor` **before** claiming a task on a new machine. An environment

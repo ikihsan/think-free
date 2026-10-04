@@ -166,7 +166,10 @@ Separate from the invention stages, because the mission cannot be run without it
       declared paths present unless `(pending)`, no path inside a directory of
       the other audience, no credential-shaped text in a classified path, and
       the front door's declared release state equal to the manifest's. It
-      enforces agreement, not truth.
+      enforces agreement, not truth — **and `preflight` runs it** (T-0045), because
+      a gate nobody runs from the command the protocol points at is a gate the
+      next agent repeats the omission against: T-0042 added a root document,
+      classified nothing, and its own `verify` passed
 - [x] Reconciliation attributes a landed base move to the VM that wrote it
       (T-0024, D028). A session that merged a colleague's work closed with nine
       false `unlogged_change` events, four false `doc_update` events and an

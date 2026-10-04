@@ -33,7 +33,7 @@ git clone <repo> && cd <repo>
 
 # 1. Can this machine do the work at all?
 tools/origin doctor                     # writes .origin/doctor.json
-tools/origin preflight                  # lint + skills + session integrity
+tools/origin preflight                  # lint + skills + sessions + manifest
 
 # 2. Identify yourself honestly in the record
 export ORIGIN_AGENT="opencode-headless" # or codex, claude, ...

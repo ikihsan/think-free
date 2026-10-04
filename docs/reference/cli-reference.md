@@ -122,7 +122,7 @@ a false claim still pass, and it does not read a path's meaning.
 | Command | Effect |
 |---|---|
 | `doctor [--offline] [--json]` | Environment probe; writes `.origin/doctor.json` (gitignored) |
-| `preflight [--strict] [--lease-hours H]` | `doc lint` + `skills check` + `session verify`, for a VM before it claims a task and for CI |
+| `preflight [--strict] [--lease-hours H]` | `doc lint` + `skills check` + `session verify` + `release check`, for a VM before it claims a task and for CI |
 
 `doctor` reports the push credential **mechanism** as well as the presence of
 four environment variables: which `credential.helper` is configured, whether each

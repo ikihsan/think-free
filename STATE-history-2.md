@@ -10,7 +10,9 @@ What each older session changed, newest first. Continues
 [`STATE-history.md`](STATE-history.md), which holds sessions 005 through 037 and
 reached the 300-line cap three times on 2026-10-04 — at session 005, when
 session 012 was added to it, and when session 012's second half was. Identifiers here are the same ones
-`STATE.md` uses.
+`STATE.md` uses. Session 042's entry was moved here from `STATE.md` on
+2026-10-04 (T-0045), when four entries for one session pushed the reload point
+back over its own cap.
 
 ## What changed in session 027, VM 0947
 
@@ -195,3 +197,16 @@ passed 300 lines again. Newest first within the group.
   entries had been classified by neither table; three declared public paths did
   not exist; the front door had no declared state. All closed in the same commit
   as the check.
+- **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
+  work was reported as having changed that work: session 029 closed with nine
+  false `unlogged_change` events and inherited four false `doc_update` events and
+  a `documentation_gaps` report. `sync pull`/`sync land` now record what arrived
+  from the base, and reconciliation attributes a path by the newest thing that
+  touched it. Git authorship was falsified as the baseline first: both VMs commit
+  as `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed
+  are known; a hand-run rebase stays reported — and session 040 then hit exactly
+  that ceiling through seven hand-run rebases. 265 tests green. A second defect
+  surfaced in the same session: every generated file stamped `last-verified` with
+  the render date, so `doc lint` failed on 42 committed reports the day after
+  they were written (D029). Both fixes were falsified against their own defect
+  before being trusted. 269 tests green.

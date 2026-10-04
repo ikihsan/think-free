@@ -30,9 +30,14 @@ The `Tests` step runs on every matrix row; the other five run on one. So "the
 six gates are green" means seven jobs: one per interpreter for the tests, and the
 five file-reading gates once, on 3.12.
 
-`tools/origin preflight` runs three of these — documentation, skills, and
-session integrity — and is deliberately not the whole list: the test suite and
-the release check stay separate commands so a VM can run them on their own.
+`tools/origin preflight` runs four of these — documentation, skills, session
+integrity and the release manifest — and deliberately leaves the test suite as a
+separate command, because it takes minutes and the rest take seconds. The release
+check joined it on 2026-10-04 (T-0045): T-0042 added `DECISIONS-RECORDS.md` at the
+top level and classified nothing, and this command passed, because the gate that
+would have said so was not among the ones it ran. **A gate nobody runs from the one
+place the protocol points at is a gate the next agent repeats the omission
+against.**
 CI passes `--strict` to the session gate, because on a pushed commit nothing is
 in flight and an unfinished session really is a failure. Locally, `preflight`
 reports the current session as in progress rather than failing, so it is usable

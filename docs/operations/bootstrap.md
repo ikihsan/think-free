@@ -36,7 +36,7 @@ git clone <repo-url> think-free
 cd think-free
 
 tools/origin doctor              # environment probe; writes .origin/doctor.json
-tools/origin preflight           # lint + skills + session integrity
+tools/origin preflight           # lint + skills + sessions + manifest
 python3 -m unittest discover -s tests -t tests   # needs PYTHONPATH, see below
 ```
 

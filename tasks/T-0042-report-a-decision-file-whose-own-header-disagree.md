@@ -97,3 +97,15 @@ source. Found by `doc lint`, fixed by dropping the link from the summary
 sentence. The generator is not wrong and nothing was changed in it: the
 constraint belongs to the author of the document, and it is now implicit in the
 one document that tripped it.
+
+**Added after the task closed: this task left a real violation on the base.**
+`DECISIONS-RECORDS.md` is tracked at the top level and was classified by neither
+table in `RELEASE-MANIFEST.md`, which `origin release check` enforces. The `verify`
+command above passed anyway, because it runs the suite, `doc lint` and
+`preflight` — and `preflight` was lint, skills and sessions, with no release
+check in it. Run `37191658964` at `c9e89e1` is red with the violation named in an
+annotation. Repaired in T-0045, which classified the file and moved `release check`
+into `preflight` so that the next root document cannot be added without meeting the
+gate that reads it. Recorded here rather than only in T-0045 because this is the
+task whose `verify` passed, and the task file is where a reader checks whether
+that claim was honest.

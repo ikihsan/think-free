@@ -36,6 +36,7 @@ interfere with the working repository.
 | `test_land.py` | `sync land`, split out at the line cap by operation: publishes the branch, regenerates a *conflicted* generated file, rebuilds one that merged **cleanly** and was therefore stale (defect 13), never lets `rebase --continue` open an editor, and stops for a human on a real conflict with the work intact |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
+| `test_preflight_gates.py` | That `preflight` runs every gate a change here can break, not three of four: an unclassified root document must make it fail, a classified one must leave it silent, and the gate's line must be printed before the verdict it decides |
 | `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate, and **the two clocks the fixture can date a claim from** — a fixed `NOW` for the tests that pass `now=` and the real one for the three that drive the CLI, because dating the CLI's claim from `NOW` made one assertion expire 24 hours later and never pass again (defect 15) |
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
@@ -119,6 +120,19 @@ because the clocks differ by however long ago the suite was written, and the fix
 added the negative control the expired assertion lacked — a claim older than the
 *widest* lease is still abandoned, so a longer lease moves the threshold rather
 than removing it.
+
+**A gate belongs in the one command the protocol tells you to run.** T-0042 added
+`DECISIONS-RECORDS.md` at the top level, declared nothing about it in
+`RELEASE-MANIFEST.md`, and its own `verify` passed — the command ran the suite,
+`doc lint` and `preflight`, and `preflight` was lint, skills and sessions. Run
+`37191658964` is red with the violation named, and the fix was not "remember to
+run `release check`": `release check` now runs from `preflight`, so a change that
+adds a document, a session, a skill or an identifier cannot pass verification
+without meeting the gate that reads it. `test_preflight_gates.py` falsifies it in
+the direction that matters — with `release check` out, `preflight`'s output has no
+`release check:` line at all, so the test cannot pass for the wrong reason. The
+same statement as the generated-file rule, about a different layer: put the
+invariant below the thing that changes its input.
 
 **The interpreter is part of it too.**
 [`python-versions.json`](python-versions.json) says the same thing for Python,

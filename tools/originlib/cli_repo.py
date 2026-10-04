@@ -146,6 +146,16 @@ def doctor(args: argparse.Namespace) -> int:
 
 
 def preflight(args: argparse.Namespace) -> int:
+    """Every gate an agent is told to run before committing.
+
+    `release check` belongs here for the same reason the generated-file rules do:
+    T-0042 added `DECISIONS-RECORDS.md` at the top level, classified nothing, and
+    this command passed, because it did not run the gate that would have said so
+    — run `37191658964` is red on it. A gate nobody runs from the one place the
+    protocol points at is a gate the next agent repeats the omission against.
+    """
+    from . import release
+
     lint_result = doclint.lint()
     print(lint_result.render())
     skills_result = skillsync.check()
@@ -154,7 +164,14 @@ def preflight(args: argparse.Namespace) -> int:
         strict=bool(getattr(args, "strict", False)),
         lease_hours=getattr(args, "lease_hours", None),
     )
-    ok = lint_result.ok and skills_result.ok and session_result == EXIT_OK
+    release_result = release.check()
+    print(release_result.render())
+    ok = (
+        lint_result.ok
+        and skills_result.ok
+        and session_result == EXIT_OK
+        and release_result.ok
+    )
     print("preflight: OK" if ok else "preflight: FAILED")
     return EXIT_OK if ok else EXIT_LINT
 

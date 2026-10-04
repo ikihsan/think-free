@@ -62,7 +62,7 @@ Standard-library Python and bash. No installation step, no dependencies.
 
 ```bash
 tools/origin doctor                      # what can this machine do?
-tools/origin preflight                   # lint, skills, session integrity
+tools/origin preflight                   # lint, skills, sessions, release manifest
 tools/origin session start --goal "…"    # begin a recorded session
 tools/x -- python3 -m unittest discover -s tests -t tests
 tools/origin doc lint                    # documentation gates

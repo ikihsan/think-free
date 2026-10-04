@@ -172,10 +172,20 @@ of those it cannot touch.
   elsewhere for opposite reasons — the interpreter one on every version the record
   lacked, the git one on a CI runner shipping git 2.55.0. Assert the artefacts and
   the contract, and state the environment gap as data (`not_exercised`).
+- **A gate belongs in the one command the protocol tells every agent to run**
+  (T-0045). T-0042's `verify` passed over an unclassified root document because
+  `preflight` did not run `release check`; `preflight` runs four gates now, and
+  the rule is written into `docs/process/session-protocol.md` rather than left as
+  something to remember. Its falsification is an *absence* — with the gate out,
+  preflight's output has no `release check:` line at all — which is why the test
+  asserts on that line and not on the exit code.
 - **When a gate is red somewhere you cannot reproduce, check the task ledger
   before reproducing anything.** VM 0947 was already diagnosing the same four runs
   (F019) while this VM created T-0037 to do it, and about forty minutes of
   elimination was duplicated work. `task list --remote` answers it in a second.
+  **The run's annotations answer the next question just as fast:** three
+  consecutive red runs on the base were each diagnosed by reading them, with no
+  reproduction at all (`observed` 2026-10-04).
 - A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines. The
   ledger is a sequence of events, so the union is correct; only the order is in
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
