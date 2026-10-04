@@ -70,12 +70,8 @@ rule in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordina
 | F028 | The flat adoption tail is vocabulary age, not niche, so "adoption path" is uninformative for young candidates |
 | F029 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
 | F030 | A prior-art verdict from one search query is unreliable in both directions |
-
 | F031 | Measured from outside, the mission was spending its effort on its own record |
 
-| F025 | Measured from outside, the mission was spending its effort on its own record |
-| F028 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
-| F029 | A prior-art verdict from one search query is unreliable in both directions |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

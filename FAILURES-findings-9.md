@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
@@ -6,38 +5,21 @@ last-verified: 2026-10-04
 -->
 
 # Failures — recorded findings, part 9 (F029)
-=======
-=======
-# Failures — recorded findings, part 9 (F028)
->>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 
 
 Source: session `2026-10-04-044`. The candidate generator tested here was a live
 harvest of practitioner need statements; it is refuted, and the corpus is kept
-<<<<<<< HEAD
 demoted. Runnable evidence: `EXPERIMENTS/012-candidate-harvest/`.
 
 ## F029 — A live corpus of unmet needs produced no candidate that survives the screens
 
 Source: session `2026-10-04-044`, 2026-10-04, this VM. Every number is
 re-runnable from `EXPERIMENTS/012-candidate-harvest/`. Nothing here is a claim
-=======
-demoted. Runnable evidence: `EXPERIMENTS/011-candidate-harvest/`.
-
-## F028 — A live corpus of unmet needs produced no candidate that survives the screens
-
-Source: session `2026-10-04-044`, 2026-10-04, this VM. Every number is
-re-runnable from `EXPERIMENTS/011-candidate-harvest/`. Nothing here is a claim
->>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 about any candidate, and no candidate moved as a result.
 
 ## The question, and why it was worth one session
 
-<<<<<<< HEAD
 F031 measured that the mission was spending its effort on its own record and
-=======
-F025 measured that the mission was spending its effort on its own record and
->>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 that [`STATE-next-actions.md`](STATE-next-actions.md) carried no action able to
 produce a candidate. D048 gave that list an invention seat, and the seat's own
 text said the next informative candidate is one "generated from live sources".
@@ -132,11 +114,7 @@ not rest on the part of the measurement that is weakest.
   as gaps.
 - **A thin count is not a gap.** `verify_prior_art.py` returning 1 hit for
   selective staging does not mean nothing exists — the same script returns
-<<<<<<< HEAD
   10768 for monitoring, and F030 is about exactly this.
-=======
-  10768 for monitoring, and F029 is about exactly this.
->>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 - **Issue counts are self-selected and full-text.** `"unrelated changes"` in
   14510 issues is a floor, not a population, and many hits are low-signal
   repositories. Filtering by repository signal is required before the number
@@ -154,8 +132,4 @@ problem-statement corpus*, and the pipeline's missing ingredient is named
 instead: **a filtered recurrence signal from a repository-denominated issue
 corpus.** D049. The next action is to build that filter and re-harvest through
 it, and the cluster with the strongest measured recurrence — unrequested agent
-<<<<<<< HEAD
 edits — is the one to test first, with its own falsification.
-=======
-edits — is the one to test first, with its own falsification.
->>>>>>> E011: a live corpus of unmet needs is not a candidate generator
