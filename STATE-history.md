@@ -11,7 +11,7 @@ point and carries only what a cold session must act on; this file is the
 detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers here are the same ones `STATE.md` uses.
 
-## What changed in session 040, VM 0944 (T-0027)
+## What changed in session 040, VM 0944 (T-0028)
 
 `doctor` reported a property it never read, and the check that repaired it found a
 live defect on the VM that wrote it. Contract in
