@@ -36,6 +36,7 @@ _(none recorded)_
 | STATE-defects.md | 11d1004d615b | 20283 |
 | docs/process/multi-vm-coordination.md | d296f78b4975 | 8848 |
 | tests/README.md | 0b585a6a4488 | 15453 |
+| STATE.md | 1c18dfff3735 | 22300 |
 
 ## Commands
 
@@ -69,6 +70,7 @@ _(none recorded)_
 | 8 | 08:04:06 | artifact | wrote tests/README.md |
 | 9 | 08:04:06 | milestone | T-0041: land asks doc lint's question after every rebase; falsified first, and test_sync.py split by operation into test_land.py |
 | 10 | 08:08:12 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 11 | 08:09:46 | artifact | wrote STATE.md |
 
 ## Reproduce this record
 

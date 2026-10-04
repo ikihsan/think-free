@@ -221,11 +221,13 @@ was cited against** (see the correction above). What is left is the half that is
 real: three of the four red runs sampled emit nothing but boilerplate, because
 their steps emit no `::error::` lines.
 
-**A third stale-generated-file defect, and the repair that finally generalises:**
-T-0026/T-0027 made the *task* commands rebuild the task and docs indexes, and a
-third instance reached CI anyway (run `37180487906`) because the session report is
-generated from the event stream and only `start` and `finish` rewrote it. Now in
-the appenders, so it holds for the module API too.
+**A stale generated file is the same defect whichever file it is, and four
+repairs have now missed a layer.** Three commits have reddened CI by carrying one
+and a fourth was published by `land` itself (`e942225`, this session's
+`4c5349d`). T-0026/T-0027 fixed the *task* commands, session 015 fixed the *CLI*,
+and only now has the layer that *merges* trees been covered: after every rebase
+`sync land` asks `doc lint`'s question — is each generated file equal to its
+renderer — and commits the answer before the push (T-0041, defect 13).
 
 Recently closed there: a CI matrix row per CPython minor from 3.8 to 3.14, held to
 `tests/python-versions.json` in both directions (T-0034, D035, F018, F019). Run
