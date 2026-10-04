@@ -58,3 +58,49 @@ Revert the doclint/reconcile split and the ledger declaration; nothing outside t
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+### The nine undeclared paths at `session finish`, and whose they are
+
+`session finish` closed this session with nine `unlogged_change` events. **None of
+the nine is this session's work.** Read with `git log -1 -- <path>`, every one is
+the other VM's:
+
+| path | last commit |
+|---|---|
+| `DECISIONS-RECORDS.md` | `91958d9` T-0051 |
+| `docs/policy/doc-standards.md` | `26abba1` T-0051 |
+| `docs/policy/gate-falsification.md` | `26abba1` T-0051 |
+| `sessions/2026-10-04-035-*/commands.log` | `ec705c5` session 035 finished |
+| `sessions/2026-10-04-035-*/events.jsonl` | `ec705c5` session 035 finished |
+| `tasks/T-0051-*.md` | `91958d9` T-0051 |
+| `tasks/T-0052-*.md` | `df14061` claim T-0052 |
+| `tests/test_link_escape.py` | `26abba1` T-0051 |
+| `tools/mutate_link_rule.py` | `26abba1` T-0051 |
+
+**Why they were reported at all: defect 2's stated ceiling, reached through a
+message.** `sync land` stopped on a real content conflict in `STATE.md` and
+`STATE-defects.md` and said *resolve it and land again*; the conflict was
+resolved, and the rebase then had to be completed with a hand-run
+`git rebase --continue` because the conflict resolution left the tree dirty and
+`land` refuses a dirty tree. A hand-run rebase records **no `base_advance` event**,
+and this session's stream carries none — checked, not assumed. So the base move
+that brought the other VM's T-0051 and T-0052 into this branch is invisible to
+attribution, and every path it carried stays reported. That is the ceiling
+`landed.py` documents in its own words: *"The tooling never silences a file it
+cannot prove belongs to someone else."*
+
+**It is the same instance defect 2 and D039 both name, for the third time.** The
+gap D039 closed was a refusal the tool could not follow; here the tool's
+instruction was followable and the *following* of it was what left the record
+short, because the step that follows a resolution is the one step the tooling
+does not own. This is worth its own task rather than another line in defect 2's
+entry: **`sync land` should record the base move for a rebase it stopped on even
+when the human completes it** — the arrived commits are readable from git's own
+`REBASE_HEAD` and the `base_advance` write does not need the tooling to have run
+the continuation.
+
+**Not repaired here, deliberately.** The stream is closed and is not edited, and
+the session that could have declared those paths is not this one. Repairing it
+here would mean either fabricating declarations for work another VM did or
+leaving the tree in a state the next reader has to unpick.
+

@@ -16,7 +16,7 @@ Showing the 25 most recent. 53 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu](2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/README.md) | opencode | worked | make doc lint's broken-link verdict a function of the repository, not  | 2026-10-04T12:39 |
-| [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | **unfinished** | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T11:45 |
+| [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | worked | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T13:35 |
 | [2026-10-04-033-repair-the-broken-link-t-0047-published](2026-10-04-033-repair-the-broken-link-t-0047-published/README.md) | opencode | worked | repair the broken link T-0047 published in the base's task file, and t | 2026-10-04T11:36 |
 | [2026-10-04-031-record-the-measured-ci-state-on-the-tip](2026-10-04-031-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip, and the first red run whose c | 2026-10-04T11:20 |
 | [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | worked | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T11:13 |

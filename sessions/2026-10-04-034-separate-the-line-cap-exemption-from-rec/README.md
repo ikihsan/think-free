@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T11:45:49+00:00
-- **Duration:** ?s
+- **Duration:** 6565.8s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Separate the line-cap exemption from reconciliation so a data-file edit cannot p
 
 ## Summary
 
-_(none recorded)_
+Closed defect 12's stated false negative (T-0050, D042, F022): a data file's suffix no longer decides whether a session declared it, the claim ledger and vendor/hashes.json are declared by the bytes their writers wrote, and the change was priced before it was made at 72 (session, path) pairs over 17 paths.
+
+## Next
+
+The 50 closed sessions that appended to tasks/CLAIMS.jsonl now report a file they cannot declare, and nothing reads a closed stream. Either a gate reads a closed stream's task_rewrite events and reports the mismatch, or that debt is written into the defect list as permanent. Also open: T-0052 on the other VM, and the next unclaimed item in STATE-next-actions.md.
 
 ## Artifacts
 
@@ -56,7 +60,7 @@ _(none recorded)_
 
 ## Commands
 
-58 captured, 25 non-zero exit.
+59 captured, 25 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -105,11 +109,19 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 9 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-RECORDS.md |
+|   undeclared | docs/policy/doc-standards.md |
+|   undeclared | docs/policy/gate-falsification.md |
+|   undeclared | sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log |
+|   undeclared | sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/events.jsonl |
+|   undeclared | tasks/T-0051-make-doc-lint-s-broken-link-verdict-a-function-o.md |
+|   undeclared | tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md |
+|   undeclared | tests/test_link_escape.py |
+|   undeclared | tools/mutate_link_rule.py |
 
 ## Timeline
 
@@ -155,18 +167,18 @@ _(none recorded)_
 | 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
 | 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
 | 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
-| 81 | 13:32:06 | command | $ tools/origin doc lint |
-| 82 | 13:33:08 | command | $ tools/origin doc lint |
-| 83 | 13:33:23 | command | $ tools/origin doc lint |
-| 84 | 13:33:52 | command | $ tools/origin doc lint |
-| 85 | 13:34:05 | artifact | wrote ROADMAP.md |
-| 86 | 13:34:08 | command | $ python3 -m unittest discover -s tests -p test_task_index_freshness.py -p test_generated_stamps.py |
-| 87 | 13:34:11 | command | $ python3 -m unittest discover -s tests -p test_report_freshness.py -v |
-| 88 | 13:34:38 | milestone | T-0050 completed; ROADMAP.md gained the entry and lost two lines elsewhere to stay under the cap |
-| 89 | 13:34:46 | command | $ tools/origin preflight |
-| 90 | 13:34:53 | artifact | wrote ROADMAP.md |
+| 98 | 13:35:15 | unlogged_change | changed but never declared as an artifact: tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md |
+| 99 | 13:35:15 | unlogged_change | changed but never declared as an artifact: tests/test_link_escape.py |
+| 100 | 13:35:15 | unlogged_change | changed but never declared as an artifact: tools/mutate_link_rule.py |
+| 101 | 13:35:15 | doc_update | updated DECISIONS-RECORDS.md |
+| 102 | 13:35:15 | doc_update | updated DECISIONS-SESSIONS.md |
+| 103 | 13:35:15 | doc_update | updated DECISIONS.md |
+| 104 | 13:35:15 | doc_update | updated FAILURES.md |
+| 105 | 13:35:15 | doc_update | updated ROADMAP.md |
+| 106 | 13:35:15 | doc_update | updated STATE.md |
+| 107 | 13:35:15 | session_end | Closed defect 12's stated false negative (T-0050, D042, F022): a data file's suffix no longer decides whether a session declared it, the claim ledger  |
 
-_40 middle events omitted; see `events.jsonl`._
+_57 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

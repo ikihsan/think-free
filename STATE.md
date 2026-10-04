@@ -60,11 +60,10 @@ and it was found by asking what the predicate was for** (T-0050, F022).
 `tests/python-versions.json`, which decides whether this VM can run the work.
 `tools/sweep_unlogged_data.py` priced it before the repair: **72 (session, path)
 pairs over 17 paths** across 77 closed sessions, 50 of them the claim ledger.
-**The residual is forward-only and is the point of the repair:** a closed stream
-is not edited, so those 50 sessions now report a file they cannot declare, and
-nothing reads them. Sixteen raw experiment captures now need an artifact event
-they never needed before. Check `tools/origin task list --remote` before taking
-anything.
+**The residual is forward-only and is the point of the repair:** a closed stream is
+not edited, so those 50 sessions now report a file they cannot declare, and nothing
+reads them; sixteen raw experiment captures now need an artifact event they never
+needed before. Check `tools/origin task list --remote` before taking anything.
 
 **A gate belongs in the one command the protocol tells every agent to run**
 (T-0045). T-0042 added `DECISIONS-RECORDS.md` at the top level, classified
@@ -76,12 +75,11 @@ named it. `release check` now runs from `preflight`, and the rule is written int
 left as something to remember.
 
 **A test can read a clock the code does not, and it expires on a schedule rather
-than intermittently** (defect 15, T-0044). The three CLI tests behind the
-in-flight gate dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while
-`session verify` reads the real one, so a 13-hour claim aged by an hour every hour
-and the 24-hour-lease assertion began failing at **2026-10-04T09:00Z exactly** and
-can never pass again. Run `37190842104` at `f566ff0` is red on it. This is F018 and
-F019 with the environment being time, and nothing scans for the pairing of a
+than intermittently** (defect 15, T-0044). Three CLI tests behind the in-flight gate
+dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while `session verify` reads
+the real one, so the 24-hour-lease assertion began failing at **2026-10-04T09:00Z
+exactly** and can never pass again; run `37190842104` at `f566ff0` is red on it. F018
+and F019 with the environment being time, and nothing scans for the pairing of a
 fixed instant in a fixture with a wall clock in the code.
 
 **A decision number is written in three places, and one of the three had no
@@ -102,16 +100,21 @@ regenerated rather than merged; a ledger conflict is resolved by keeping both
 lines.
 
 **Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
-repaired**: a session that landed a colleague's work reported it as undeclared
-(D028), generated files stamped `last-verified` with the render date (D029), and
-the orphan rule bit six real CI runs because `task new` did not rebuild the indexes
-and `task claim` did not stage them — T-0026 and T-0027, and the second took two
-tasks, because a lint on the author's own tree cannot see what the claim commit
-published. **Rebase a moving base with `origin sync land`:** a hand-run rebase
-records nothing, so its paths stay reported as undeclared. Sessions 040 and 012 hit
-that ceiling through seven and two hand-run rebases respectively, and the stream is
-closed and is not edited, as with session 029. It is D028's stated ceiling and the
-intended direction of failure.
+repaired**: a session that landed a colleague's work reported it as undeclared (D028),
+generated files stamped `last-verified` with the render date (D029), and the orphan rule
+bit six real CI runs because `task new` did not rebuild the indexes and `task claim` did
+not stage them — T-0026 and T-0027, and the second took two tasks, because a lint on the
+author's own tree cannot see what the claim commit published. **Rebase a moving base with
+`origin sync land`:** a hand-run rebase records nothing, so its paths stay reported as
+undeclared. Sessions 040 and 012 hit that ceiling through seven and two hand-run rebases
+respectively, and **session 034 hit it through a message rather than a mistake** (T-0050):
+`land` stopped on a real conflict and said *resolve it and land again*, the resolution
+left the tree dirty, and completing the rebase was therefore a hand-run `git rebase
+--continue`. Its nine `unlogged_change` events were all the other VM's T-0051 and T-0052
+paths, named with the commit that wrote each in the task file because the stream was
+closed. **`land` should record the base move for a rebase it stopped on even when a human
+completes it** — the arrived commits are readable from git's own `REBASE_HEAD`, and that
+one step is the only one the tooling does not own.
 
 
 ## What changed recently
@@ -123,27 +126,24 @@ push this reload point past the line cap.
 - **Session 035, VM 0944 (T-0051, D041, defect 19).** `doc lint` judged a link that left
   the repository by asking the *checkout's parent directory* whether the target existed, so
   T-0047's `../../docs/…` from `tasks/` passed in a worktree and failed in the main checkout
-  on identical bytes — the run its own note could not identify. Measured: one probe
-  document at two checkout locations, `broken link` in one and nothing in the other.
-  **Containment is now decided lexically**, so the existence check is the only read, and an
-  escaping link is its own violation that `annotate` files. One mutation falsifies both
-  directions, because removing the filter *is* the previous rule. A gate's verdict must be
-  a function of the repository alone; method in
+  on identical bytes. Measured: one probe document at two locations, `broken link` in one and
+  nothing in the other. **Containment is now decided lexically**, so the existence check is
+  the only read, and an escaping link is its own violation that `annotate` files. One mutation
+  falsifies both directions, because removing the filter *is* the previous rule. A gate's
+  verdict must be a function of the repository alone; method in
   [`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md).
-- **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own
-  false negative in a clause and no gate read it: `reconcile` reused the *line
-  cap's* exemption predicate, which answers yes for every `.json`, `.jsonl` and
-  `.log`, so `tests/python-versions.json` — the record that decides whether a VM
-  can run the work — changed with nothing declared and nothing reported. **Priced
-  before the repair, by a committed script:** 72 (session, path) pairs over 17
-  paths across 77 closed sessions, 50 of them the ledger. 50 closed sessions
-  therefore now report a file they cannot declare; a closed stream is not edited,
-  so the residual is written down rather than discovered. Two new files: the
-  ledger and `vendor/hashes.json` are declared by the bytes their writers wrote.
-  Falsified both ways — removing the clause fails 10 of 16, and the first attempt
-  at that mutation passed all 16 because the patch did not land, the second time
-  this repository has been caught by it. Account in
-  [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
+- **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own false
+  negative in a clause and no gate read it: `reconcile` reused the *line cap's* exemption
+  predicate, which answers yes for every `.json`, `.jsonl` and `.log`, so `tests/python-
+  versions.json` — the record that decides whether a VM can run the work — changed with
+  nothing declared and nothing reported. **Priced before the repair, by a committed
+  script:** 72 (session, path) pairs over 17 paths across 77 closed sessions, 50 of them the
+  ledger. 50 closed sessions therefore now report a file they cannot declare; a closed
+  stream is not edited, so the residual is written down rather than discovered. Two new
+  files: the ledger and `vendor/hashes.json` are declared by the bytes their writers wrote.
+  Falsified both ways — removing the clause fails 10 of 16, and the first attempt at that
+  mutation passed all 16 because the patch did not land, the second time this repository has
+  been caught by it. Account in [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
 - **Session 030, VM 0944 (T-0048, D039).** `sync land` stopped on a real content conflict in `tasks/CLAIMS.jsonl` and said *resolve it and land again*; the second `land` refused on the dirty tree that resolving leaves, so the only way out was a hand-run `git rebase --continue`, which records no `base_advance`. **The defect was in the refusal message.** `land` now completes the rebase, and the pre-rebase tip comes from git's own `orig-head` rather than a `HEAD` that has already moved onto the base. Falsified both ways. Account in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Session 030, VM 0947 (T-0047, D040, defect 12).** The last open defect is closed: a
   task file rewritten by `task claim`/`complete`/`release` closed its session with exit 4
