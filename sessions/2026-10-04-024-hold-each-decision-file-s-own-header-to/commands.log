@@ -1,0 +1,368 @@
+==============================================================================
+[seq 2] 2026-10-04T08:18:23+00:00
+$ python3 -c 
+import sys; sys.path.insert(0, 'tools')
+from pathlib import Path
+import originlib.idcheck as idcheck
+import originlib.identifiers as ident
+root = Path('.').resolve()
+print('idcheck.report on the real tree:', idcheck.report(root))
+defs = [d for d in ident.definitions(root) if d.ident.startswith('D')]
+for f in sorted(p.name for p in root.glob('DECISIONS*.md')):
+    here = sorted(d.ident for d in defs if Path(d.path).name == f)
+    print(f, 'defines', len(here), here)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+idcheck.report on the real tree: []
+DECISIONS-FOUNDATION.md defines 10 ['D001', 'D002', 'D003', 'D004', 'D005', 'D006', 'D007', 'D008', 'D009', 'D010']
+DECISIONS-GATING.md defines 7 ['D024', 'D025', 'D026', 'D029', 'D030', 'D032', 'D035']
+DECISIONS-PRACTICE.md defines 10 ['D011', 'D012', 'D014', 'D015', 'D016', 'D017', 'D018', 'D031', 'D033', 'D034']
+DECISIONS-SCREENING.md defines 5 ['D019', 'D020', 'D021', 'D022', 'D023']
+DECISIONS-SESSIONS.md defines 3 ['D013', 'D027', 'D028']
+DECISIONS.md defines 0 []
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 138  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T08:20:51+00:00
+$ python3 -c 
+import sys; sys.path.insert(0, 'tools')
+from pathlib import Path
+import originlib.decisionheader as dh
+import originlib.idcheck as idcheck
+root = Path('.').resolve()
+print('decisionheader.report on the real tree:')
+for line in dh.report(root): print('  ', line)
+print('idcheck.report (both gates\' entry point):')
+for line in idcheck.report(root): print('  ', line)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+decisionheader.report on the real tree:
+   DECISIONS-GATING.md:9: D030 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: D032 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: D035 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: header names D013, which this file does not define
+   DECISIONS-GATING.md:9: header names D027, which this file does not define
+   DECISIONS-GATING.md:9: header names D028, which this file does not define
+   DECISIONS-PRACTICE.md:9: D031 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: D033 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: D034 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: header names D013, which this file does not define
+   DECISIONS-PRACTICE.md:9: header names D027, which this file does not define
+   DECISIONS-PRACTICE.md:9: header names D028, which this file does not define
+idcheck.report (both gates' entry point):
+   DECISIONS-GATING.md:9: D030 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: D032 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: D035 is defined in this file but its own header does not name it
+   DECISIONS-GATING.md:9: header names D013, which this file does not define
+   DECISIONS-GATING.md:9: header names D027, which this file does not define
+   DECISIONS-GATING.md:9: header names D028, which this file does not define
+   DECISIONS-PRACTICE.md:9: D031 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: D033 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: D034 is defined in this file but its own header does not name it
+   DECISIONS-PRACTICE.md:9: header names D013, which this file does not define
+   DECISIONS-PRACTICE.md:9: header names D027, which this file does not define
+   DECISIONS-PRACTICE.md:9: header names D028, which this file does not define
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T08:22:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_header -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_the_defect_fires_on_the_committed_bytes (tests.test_decision_header.CommittedBytesTest) ... ok
+test_the_repair_commit_is_silent (tests.test_decision_header.CommittedBytesTest) ... FAIL
+test_a_file_that_defines_no_decision_is_not_asked_for_a_header (tests.test_decision_header.ControlTest) ... ok
+test_a_prose_mention_outside_the_bold_span_is_not_a_declaration (tests.test_decision_header.ControlTest) ... ok
+test_a_range_spelled_with_a_hyphen_is_the_same_set (tests.test_decision_header.ControlTest) ... ok
+test_order_and_spacing_are_not_compared (tests.test_decision_header.ControlTest) ... ok
+test_a_correct_header_is_silent (tests.test_decision_header.HeaderAgreementTest) ... FAIL
+test_a_decision_the_header_names_but_the_file_lacks_is_reported (tests.test_decision_header.HeaderAgreementTest) ... ok
+test_a_decision_the_header_omits_is_reported (tests.test_decision_header.HeaderAgreementTest) ... ok
+test_a_record_with_no_readable_header_is_reported (tests.test_decision_header.HeaderAgreementTest) ... ok
+test_the_report_names_the_file_and_the_line_to_edit (tests.test_decision_header.HeaderAgreementTest) ... ok
+test_doc_lint_fails_on_a_stale_decision_header (tests.test_decision_header.WiringTest) ... ok
+test_land_refuses_to_publish_a_stale_decision_header (tests.test_decision_header.WiringTest) ... ok
+
+======================================================================
+FAIL: test_the_repair_commit_is_silent (tests.test_decision_header.CommittedBytesTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 195, in test_the_repair_commit_is_silent
+    self.assertEqual(decisionheader.report(repo_root), [])
+AssertionError: Lists differ: ['DECISIONS-GATING.md:9: D030 is defined i[973 chars]ine'] != []
+
+First list contains 12 additional elements.
+First extra element 0:
+'DECISIONS-GATING.md:9: D030 is defined in this file but its own header does not name it'
+
+Diff is 1097 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_a_correct_header_is_silent (tests.test_decision_header.HeaderAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 117, in test_a_correct_header_is_silent
+    self.assertEqual(self.report(), [])
+AssertionError: Lists differ: ['DECISIONS-GATING.md:3: header names D025[107 chars]ine'] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+'DECISIONS-GATING.md:3: header names D025, which this file does not define'
+
++ []
+- ['DECISIONS-GATING.md:3: header names D025, which this file does not define',
+-  'DECISIONS-GATING.md:3: header names D026, which this file does not define']
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.539s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3903  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T08:25:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_header tests.test_decision_files tests.test_identifiers tests.test_identifier_enforcement tests.test_defectlist -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+----------------------------------------------------------------------
+Ran 56 tests in 15.712s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16070  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T08:25:10+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 483 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2300  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T08:27:05+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+updated docs/INDEX.md
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1203  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T08:27:08+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 484 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  FAIL  STATE-defects.md: 314 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  docs/INDEX.md: broken link -> ../../STATE-defects.md
+doc lint: 2 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2227  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T08:29:55+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 834  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T08:29:58+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 484 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  FAIL  STATE-next-actions.md: broken link -> ../docs/policy/gate-falsification.md
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2299  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T08:30:13+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 484 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2233  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T08:34:36+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 441 tests in 255.510s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 256002  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T08:35:03+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_header -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+======================================================================
+FAIL: test_doc_lint_fails_on_a_stale_decision_header (tests.test_decision_header.WiringTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 213, in test_doc_lint_fails_on_a_stale_decision_header
+    self.assertTrue(
+AssertionError: False is not true : ['DECISIONS-GATING.md: missing <!-- origin-meta --> block', 'AGENTS.md: orphan document; no other document links to it', 'DECISIONS-GATING.md: orphan document; no other document links to it', 'MISSION.md: orphan document; no other document links to it', 'README.md: orphan document; no other document links to it', 'RELEASE-MANIFEST.md: orphan document; no other document links to it', 'STATE.md: orphan document; no other document links to it', 'docs/policy/doc-standards.md: orphan document; no other document links to it', 'docs/process/session-protocol.md: orphan document; no other document links to it', 'docs/process/task-lifecycle.md: orphan document; no other document links to it', 'docs/reference/skill-inventory.md: orphan document; no other document links to it', 'sessions/INDEX.md: generated file missing', "docs/INDEX.md: generated file is stale; run 'tools/origin doc index'", 'tasks/INDEX.md: generated file missing']
+
+======================================================================
+FAIL: test_land_refuses_to_publish_a_stale_decision_header (tests.test_decision_header.WiringTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 225, in test_land_refuses_to_publish_a_stale_decision_header
+    syncland._refuse_identifier_collision()
+AssertionError: SyncError not raised
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.212s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4900  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T08:35:12+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_header -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+----------------------------------------------------------------------
+Ran 13 tests in 3.484s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3725  redactions: none
+==============================================================================
+[seq 35] 2026-10-04T08:36:28+00:00
+$ tools/origin task verify T-0042
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0042: `PYTHONPATH=tools:tests python3 -m unittest tests.test_identifiers tests.test_identifier_enforcement tests.test_defectlist -q && tools/origin doc lint && tools/origin preflight` -> exit 0 in 15.6s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 15964  redactions: none

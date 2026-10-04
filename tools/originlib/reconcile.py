@@ -22,9 +22,12 @@ from . import events, landed, paths
 #          hypothesis record and the failure record; weakening that to "either"
 #          would let a disproved candidate be recorded in only one place.
 #   "any"  at least one record must change, and the report names records[0].
-#          The decision log is split by invariant across five files, so the
-#          event cannot say which entry was written and demanding all five
-#          would report a gap on every correct session.
+#          The decision log is split by invariant across six files, so the
+#          event cannot say which entry was written and demanding all six
+#          would report a gap on every correct session. `DECISIONS-SESSIONS.md`
+#          joined on 2026-10-04 (T-0030) and `DECISIONS-RECORDS.md` on the same
+#          day (T-0042); `tests/test_decision_files.py` holds this tuple to
+#          `paths.MISSION_RECORDS` and to the files on disk.
 IMPLICATIONS = {
     "decision": (
         "any",
@@ -35,6 +38,7 @@ IMPLICATIONS = {
             "DECISIONS-SCREENING.md",
             "DECISIONS-GATING.md",
             "DECISIONS-SESSIONS.md",
+            "DECISIONS-RECORDS.md",
         ),
     ),
     "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),

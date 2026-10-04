@@ -156,6 +156,38 @@ heading they belong in when they are closed.
     **Ceiling:** the tooling cannot tell an intentional declaration from an
     automatic one, so an automatic declaration weakens the signal it repairs.
 
+14. **A decision record's own header was false in two of five files, and the
+    identifier rule read every other source** (solved in T-0042). A decision
+    number is written in three places that must agree: the `## Dnnn — …` heading
+    that defines it, the index row in [`DECISIONS.md`](DECISIONS.md) that says
+    which file holds it, and the `Decisions **…**` line under each record's
+    title — the first thing a reader sees. T-0030 held the second to the first in
+    both directions and T-0036 added the numbered defect list; neither read the
+    third. `DECISIONS-GATING.md` said `Decisions **D013, D024–D029**` while
+    defining D024, D025, D026, D029, D030, D032 and D035 — naming D013, which
+    lives in `DECISIONS-SESSIONS.md`, and omitting three of its own entries.
+    `DECISIONS-PRACTICE.md` said `Decisions **D011–D018, D027–D028**` while
+    defining D011, D012, D014–D018, D031, D033 and D034, so its range covered
+    exactly the three entries that moved to `DECISIONS-SESSIONS.md` when T-0030's
+    split was reversed, and it omitted three of its own. **Both index rows in
+    `DECISIONS.md` were correct throughout**, which is what a reader checking one
+    source concludes. The `D011–D018` range is the general form: a range is a
+    claim about a contiguous block, and a split moves entries out of the middle
+    of one without changing either end.
+    **Repair:** `tools/originlib/decisionheader.py` reads the header as the
+    third source and reports, in both directions, an identifier the file defines
+    and its header does not name and one its header names and the file does not
+    define; reached through `idcheck`, the single entry point both publishing
+    gates call. A decision record whose header cannot be read is itself reported,
+    which is D025's second obligation and the failure defect 10's control found.
+    Falsified against the defect's own bytes: `d451169` carried both false
+    headers, `idcheck.report` on the real tree returned **nothing** before the
+    repair and twelve findings after it, and the repaired tip is silent.
+    **Ceiling:** the header is compared as a set of identifiers and not as
+    wording; it reads one line per decision record and nothing outside
+    `DECISIONS*.md`; and a document that defined decisions without living there
+    would not be asked for a header.
+
 13. **`sync land` regenerated only the generated files git reported as conflicted,
     so a cleanly merged one was published stale** (solved in T-0041). The three
     generated files are functions of the whole tree, so two VMs adding one session
@@ -248,45 +280,20 @@ heading they belong in when they are closed.
    `where` on every entry, with test clauses, so the gap is nameable rather than
    inferred from two points.
 
-**Defect numbering collided, and the gate that catches identifier collisions did
-not read this file — that gap is now closed (defect 10, T-0036).** T-0034 and
-T-0035 were written on two VMs at the same time and both took **defect 7**: this
-VM's on the interpreter assertion, the other's on the credential fixture. Both are
-in the same list, and `doc lint` rule 7 reported nothing, because it read findings,
-findings index rows and decision spans, and this file is an ordered list of bold
-headings. The unpushed side renumbered (7, 8 became 8, 9) in `157e463`, and the
-rule that would have said so arrived two commits later. The numbers are unique and
-the list is still not in ascending order: T-0035's block sits above `## Open`
-because a rebase put it there, and moving it is not worth a conflict with a VM that
-may still be working.
-
 **Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
-reached again.** Session 012 closed with 24 `unlogged_change` events: its own
-documentation edits, which were recorded as `doc_update` but never declared as
-artifacts, and the other VM's T-0035 files, which arrived through two hand-run
-`git rebase --continue` calls. D028's rule attributes a path only from a base
-move the tooling performed, so a hand-run continuation leaves the paths reported
-— session 040 hit the same ceiling through seven hand-run rebases, and this is
-the second time. It is the intended direction of failure and it is also the
-reason this session has to record here what a *closed* stream cannot accept:
-`session finish` will not take the events, and editing the stream afterwards
-would be worse than leaving the gap visible.
+reached twice.** Session 012 closed with 24 `unlogged_change` events and session
+040 with its own, both times including the other VM's files, which arrived
+through hand-run `git rebase --continue` calls. D028 attributes a path only from
+a base move the tooling performed, so those paths stay reported — the intended
+direction of failure, and the reason a session has to record here what a
+*closed* stream cannot accept: `session finish` will not take the events, and
+editing the stream afterwards would be worse than leaving the gap visible.
 
 ## What a fix costs to believe
 
-Every entry above marked solved was falsified against its own defect first: the
-new tests were run against the unfixed code and had to fail. One of those
-falsifications (T-0024's second attempt) mutated a code path the callers never
-reach and passed anyway — the failure of the falsification, not of the gate — so
-it was redone by reverting the generators instead. See D025 in
-[`DECISIONS-GATING.md`](DECISIONS-GATING.md).
-
-**Two of the three lessons below are written up where they are used rather than
-here**, because both now live in [`tests/README.md`](tests/README.md) next to the
-tests they describe, and a rule copied into two places is a rule that will drift:
-how a gate is falsified and what each failure taught — the T-0030 control that
-caught a decision-index regex matching no row in any of 174 commits, and a stale
-generated file arriving four times because each repair fixed the layer that
-happened to be running (the task commands, then the CLI, then — at last — the
-appenders and the merge). Read that file for the mechanism; the entries above
-carry the dates and the commits.
+The method every entry above is held to — falsify against the defect's own bytes,
+in both directions, and say so when the input cannot be read — is in
+[`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md), split
+out of this file on 2026-10-04 (T-0042) when a new entry took it past the
+300-line cap. The mechanism and the lessons from five falsifications that failed
+are in [`tests/README.md`](tests/README.md), next to the tests they describe.

@@ -16,7 +16,8 @@ ordinary edits do not.
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording, moving, and publishing work |
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
-| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D029–D030, D032, D035 | How this repository's own gates are written and run |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036 | How a gate, a diagnostic, or its control must be written before it is trusted |
+| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
@@ -56,17 +57,22 @@ that its own file's row does not list, and a listed id nothing defines. It
 reported the gap in the row above on its first run, ten minutes after D030 was
 written.
 
-**The next gating decision cannot be recorded, and the reason is here rather than
-in the file it wants.** `DECISIONS-GATING.md` is at 297 of 300 lines after D035,
-and its own header records a split that was attempted and reversed on 2026-10-04
-because two VMs were claiming incompatible invariants in the same hour. T-0036 made
-a gating decision — one entry point, `tools/originlib/idcheck.py`, for the
-identifier record that `doc lint` and `sync land` both read, over findings,
-decisions, tasks **and** the numbered defect list, plus the obligation that a gate
-which cannot read its input must report that — and it is written in
-`tools/originlib/idcheck.py`, `tools/originlib/defectlist.py` and
-[`docs/operations/ci.md`](docs/operations/ci.md) rather than here, because putting
-it in whichever decision file had room is the mistake the reversed split was made
-of. Recording the constraint in the log, and not only in the state file, is the
-point: the next agent should find it where the decisions are. **The split is owed,
-deliberately, on a quiet base.**
+Split a fifth time at 2026-10-04 (T-0042), when `DECISIONS-GATING.md` stood at
+297 of the 300 permitted lines and **the next gating decision had nowhere to go**.
+D029, D032 and D035 moved verbatim to
+[`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md), and the decision T-0036 had to
+leave in code — one entry point for every source of an identifier, and a rule
+that cannot read its input reports that — is D036, in the file its own invariant
+names. Every split is by invariant, never by date, and numbering is continuous
+and unchanged in each, so an existing reference to a decision id still resolves
+wherever the entry now lives.
+
+**The index row above is not the only declaration, and for a while it was the
+only checked one.** Each decision record also opens with its own
+`Decisions **…**` header, and two of the five files had gone stale while this
+table stayed correct: `DECISIONS-GATING.md` named D013 — which lives in
+`DECISIONS-SESSIONS.md` — and omitted D030, D032 and D035, and
+`DECISIONS-PRACTICE.md` named a `D011–D018` range covering three entries that had
+moved out. The line under the title is the first thing a reader sees, and it is
+now held by `tools/originlib/decisionheader.py` in both directions, so the three
+sources of a decision number — heading, index row, header — must all agree.

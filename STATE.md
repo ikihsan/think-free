@@ -35,7 +35,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, and the defect list — through one entry point both publishing gates call (T-0036). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 418 tests) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 418 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
@@ -57,6 +57,13 @@ the CI runner, whose **git 2.55.0** the record did not name. Seven rows were red
 the run log needs admin rights, and the cause came from elimination plus a
 reproduction with that git unpacked outside the repository. Check
 `tools/origin task list --remote` before taking anything.
+
+**A decision number is written in three places, and one of the three had no
+reader at all** (defect 14, T-0042). The heading and the index row in
+`DECISIONS.md` were held to each other by T-0030, the numbered defect list was
+added by T-0036, and the header under each record's title had no check until this
+session found `DECISIONS-GATING.md` naming D013 — which lives in another file —
+while omitting three of its own entries, with both index rows correct throughout.
 
 **Collisions were allocated by reading the local tree, so two VMs in an hour
 collided by construction.** Twelve times in two days; the allocation cause is
@@ -206,24 +213,33 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 per unit of effort; the top item is:
 
 **A gate must read the property it claims to check, and must be falsified
-against the defect's own bytes before it is trusted** (D025, from F013). Five
-gates now work that way, and the newest adds a second kind of falsification —
+against the defect's own bytes before it is trusted** (D025, from F013). Six
+gates now work that way, and the newest adds a third kind of falsification —
 run the thing on an input the record does not name, rather than mutating the
 code. **Ceiling:** each rule detects only the shape it was written against.
 
-**The gap in that pattern, found by colliding with it — half closed, half
-falsified.** Rule 7 did not read the numbered list in `STATE-defects.md`, so two
-VMs took defect 7 in the same hour and nothing said so; T-0036 closes that, and
-adds the second half of the pattern: a gate that cannot read its input has to say
-so. Reading a red CI run named a step and a version rather than a test, and the
-stated reason — that the public API has no annotations — is **false for the run it
-was cited against** (see the correction above). What is left is the half that is
-real: three of the four red runs sampled emit nothing but boilerplate, because
-their steps emit no `::error::` lines.
+**The gap in that pattern, found twice by colliding with it — closed, and the
+second collision was in the record rather than in a red run.** Rule 7 did not
+read the numbered list in `STATE-defects.md`, so two VMs took defect 7 in the same
+hour and nothing said so (T-0036). It then did not read the third place a
+decision number is written — the `Decisions **…**` header under each record's
+title — so two of the five records were false while every gate passed, with both
+index rows in `DECISIONS.md` correct throughout (T-0042, defect 14). One entry
+point reads all three sources now. What is left of the earlier gap is the half
+that is real: three of the four red runs sampled emit nothing but boilerplate,
+because their steps emit no `::error::` lines.
+
+**The decision log could not record its own next decision, and that is now
+paid off.** `DECISIONS-GATING.md` stood at 297 of 300 permitted lines and its own
+header said so, so T-0036's decision — one entry point for every source of an
+identifier, and a rule that cannot read its input must report that — lived in code
+and in the state file instead of the log, which is the opposite of what a decision
+log is for. D036 is recorded there, in the file its own invariant names, and
+D029/D032/D035 moved verbatim to `DECISIONS-RECORDS.md`.
 
 **A stale generated file is the same defect whichever file it is, and four
 repairs have now missed a layer.** Three commits have reddened CI by carrying one
-and a fourth was published by `land` itself (`e942225`, this session's
+and a fourth was published by `land` itself (`e942225`, session 022's
 `4c5349d`). T-0026/T-0027 fixed the *task* commands, session 015 fixed the *CLI*,
 and only now has the layer that *merges* trees been covered: after every rebase
 `sync land` asks `doc lint`'s question — is each generated file equal to its

@@ -210,6 +210,12 @@ Separate from the invention stages, because the mission cannot be run without it
       two VMs took defect 7 in an hour and both copies reached the base with each
       VM's own tree internally consistent. It also reports a list it cannot read,
       because a parser that stops matching looks like a clean tree
+- [x] The same rule reads the third source of a decision identifier — the
+      `Decisions **…**` header under each record's title (T-0042, defect 14,
+      D036). Two of the five records were false while every gate passed, with
+      both index rows in `DECISIONS.md` correct throughout, and one record named a
+      `D011–D018` range covering exactly the entries that had moved out of it. The
+      rule is compared as identifier sets, and a header it cannot read is reported
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised

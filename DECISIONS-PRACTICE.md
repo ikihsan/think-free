@@ -6,9 +6,10 @@ status: active
 last-verified: 2026-10-03
 -->
 
-Decisions **D011–D018, D027–D028**. Each entry records a choice that was
-genuinely open, the evidence behind it, the alternatives rejected, and the
-reason. Decisions that constrain later work belong here; ordinary edits do not.
+Decisions **D011–D012, D014–D018, D031, D033–D034**. Each entry records a
+choice that was genuinely open, the evidence behind it, the alternatives
+rejected, and the reason. Decisions that constrain later work belong here;
+ordinary edits do not.
 
 **Invariant:** every entry in this file governs *how work is recorded, moved, or
 published* — the tooling and the mechanics a session must satisfy. If a decision

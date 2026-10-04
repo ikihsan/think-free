@@ -18,15 +18,18 @@ of those it cannot touch.
 ## Ordered by information gained per unit of effort
 
 1. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Five
+   against the defect's own bytes before it is trusted** (D025, from F013). Six
    gates now work that way: the conflict-marker rule, `release check`, the
    landed-work attribution and generated-stamp rules (both falsified in T-0024,
    one after a first attempt that falsified nothing), the identifier allocation
    of T-0031, whose first falsification run also exposed two defects in the
-   implementation it was testing, and the CI-matrix gate of T-0034. The pattern
-   is in `tools/originlib/conflicts.py`.
+   implementation it was testing, the CI-matrix gate of T-0034, and the
+   decision-header rule of T-0042. The pattern is in
+   `tools/originlib/conflicts.py` and the method is in
+   `docs/policy/gate-falsification.md`.
    **Ceiling:** each rule detects only the shape it was written against.
-2. **The two gaps in that pattern, both found by hitting them.** (a) **Closed in
+2. **The gaps in that pattern, both found by hitting them — closed, and the
+   second found by reading the record rather than by a red run.** (a) **Closed in
    T-0036.** Doc lint rule 7 read findings definitions, findings index rows and
    decision spans, and not the numbered list in
    [`STATE-defects.md`](STATE-defects.md), so T-0034 and T-0035 — written on two
@@ -43,13 +46,22 @@ of those it cannot touch.
    **Ceiling:** a repeated number and nothing else. A gap in the numbering is not
    reported — a dropped entry and a withdrawn defect are the same bytes — and there
    is no allocator here, so this is the detection half of a race it cannot prevent.
-   (b) A red CI run names a **step and a version**, not a test: the run log needs
-   admin rights, which is why F019 took an hour to find. The fix proposed here is
-   one check per test file — the suite is 40-odd files and the slowest is the fleet
-   harness, so it is affordable. **The premise under this half is now itself in
-   question; see item 3.**
-   **Ceiling:** neither closes the general problem; they narrow where a
-   hand-maintained identifier list and an unreadable log can hide a defect.
+   (b) **A red CI run names a step and a version, not a test**, and this half is
+   settled by item 3, which falsified its premise.
+   (c) **Closed in T-0042.** A decision number is written in three places that must
+   agree — the `## Dnnn` heading, the index row in [`DECISIONS.md`](DECISIONS.md),
+   and the `Decisions **…**` header under each record's title — and only the first
+   two had a reader. Two of the five records were false while every gate passed:
+   `DECISIONS-GATING.md` named D013, which lives in another file, and omitted
+   D030, D032 and D035 of its own; `DECISIONS-PRACTICE.md` named a `D011–D018`
+   range covering exactly the three entries that had moved out when T-0030's split
+   was reversed. Both index rows were correct throughout, which is what a reader
+   checking one source concludes. `tools/originlib/decisionheader.py` reads the
+   third, through the same entry point, and reports a header it cannot read.
+   Falsified against `d451169`'s own bytes: twelve findings where the previous
+   wiring reported **none**, and the repaired tip silent.
+   **Ceiling:** identifier sets rather than wording, one line per record, and
+   nothing outside `DECISIONS*.md`.
    A third, cheaper observation belongs here: a commit published while a session
    with **no task and no claim** is open is red on the session step, twice in an
    hour on 2026-10-04 (runs `37174316639`, `37181374433`), each green on the next
@@ -57,6 +69,8 @@ of those it cannot touch.
    taskless session has nothing to point at. `docs/operations/ci.md` now says how
    to recognise this case from the run alone, which is the cheap half; the other
    half is whether a taskless session should publish code commits at all.
+   **Ceiling:** none of these closes the general problem; they narrow where a
+   hand-maintained identifier list and an unreadable log can hide a defect.
 3. **Read a red run from the annotations it already publishes** — the successor to
    2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
    is false, and the finding is `FAILURES.md` F020.** The public check-runs API
@@ -158,10 +172,10 @@ of those it cannot touch.
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
   rather than only before committing — `observed`, and written up in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- `DECISIONS-GATING.md` is at **297 of 300** lines, and its own header records a
-  split that was attempted and reversed on 2026-10-04 (T-0030). So the next gating
-  decision cannot simply be appended: it needs that file split by invariant on a
-  quiet base, or its cap deliberately changed. A decision does **not** go into
-  whichever decision file happens to have room — that is the mistake the reversed
-  split was made of. `tools/originlib/doclint.py` is at 299 of 300 for the same
-  reason, and the next check added to it has to split it.
+- The decision-log split is **paid** (T-0042): `DECISIONS-GATING.md` is at 221 of
+  300 lines, `DECISIONS-RECORDS.md` holds D029, D032 and D035, and D036 is
+  recorded where its own invariant puts it. The lesson from T-0030's reversal still
+  binds: a decision does **not** go into whichever decision file happens to have
+  room. `DECISIONS-PRACTICE.md` is now the largest at 288 of 300, and the next
+  split has to be by invariant on a quiet base. `tools/originlib/doclint.py` is at
+  299 of 300 for the same reason, and the next check added to it has to split it.

@@ -10,15 +10,24 @@ adding a third source is a change to this file and nothing else.
 The order is the modules' order, and neither is sorted against the other. A
 reader who is renumbering wants findings before defect numbers, because that is
 the order they collided in.
+
+Three modules, because a decision number is written in three places that must
+agree: the `## Dnnn` heading, the index row in `DECISIONS.md`, and the
+`Decisions **…**` header a decision record opens with. T-0042 added the third
+after finding the first two false in two of the five files.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
-from . import defectlist, identifiers
+from . import decisionheader, defectlist, identifiers
 
 
 def report(root: Path) -> list[str]:
     """Every identifier collision in the mission record, one per line."""
-    return identifiers.report(root) + defectlist.report(root)
+    return (
+        identifiers.report(root)
+        + defectlist.report(root)
+        + decisionheader.report(root)
+    )

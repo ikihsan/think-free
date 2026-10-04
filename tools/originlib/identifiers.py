@@ -30,6 +30,14 @@ What the rule checks:
 3. a decision heading in a file `DECISIONS.md` does not list, and an identifier
    `DECISIONS.md` lists that nothing defines.
 
+A third source — the `Decisions **…**` line a decision record opens with — is
+read by `decisionheader`, which this module's `declarations` helper serves. It
+is a separate module because this file is at the line cap, which is the same
+reason `defectlist` is its own module, and for the same reason it must be
+routed through `idcheck`: a source added to this module alone would be read by
+the two gates only because they call `idcheck`, and a source added anywhere else
+would be read by neither.
+
 Wording is deliberately **not** compared. Two rows in the current tree are
 shortened paraphrases of their headings (`F009`, `F011`), which a
 string-equality rule flags: an earlier draft of this check reported 83 of 162
@@ -171,8 +179,14 @@ def _finding_index(root: Path) -> tuple[dict[str, list[int]], bool]:
     return rows, present or bool(rows)
 
 
-def _declared_ids(spec: str) -> set[str]:
-    """Identifiers named by one `DECISIONS.md` cell, expanding ranges."""
+def declarations(spec: str) -> set[str]:
+    """Identifiers named by one specification cell, expanding ranges.
+
+    One implementation, read by both this module's index check and
+    `decisionheader`, which parses the same `D011–D018, D027–D028` shape in a
+    decision record's own header. Two parsers for one notation would be two
+    things to teach a new spelling to.
+    """
     ids: set[str] = set()
     for low, high in RANGE.findall(spec):
         ids.update(f"D{n:03d}" for n in range(int(low), int((high or low)) + 1))
@@ -189,7 +203,7 @@ def _decision_index(root: Path) -> dict[str, set[str]]:
     for line in _read(root / DECISION_INDEX):
         match = DECISION_ROW.match(line)
         if match:
-            index[match.group(1)] = _declared_ids(match.group(2))
+            index[match.group(1)] = declarations(match.group(2))
     return index
 
 

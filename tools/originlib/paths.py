@@ -28,8 +28,12 @@ ZONES = (
 # Root-level mission records that a session may need to update.
 # The decision log is split by invariant (see DECISIONS.md); every file is listed
 # so a change to any of them is logged as a doc update. `DECISIONS-SESSIONS.md`
-# joined that list on 2026-10-04 (T-0030), so a decision about a session's own
-# state counts as a decision record for the gate that checks this.
+# joined that list on 2026-10-04 (T-0030) and `DECISIONS-RECORDS.md` on the same
+# day (T-0042), each time because a new split put a session-state or a
+# record-keeping decision somewhere the list had not been.
+# `tests/test_decision_files.py` asserts that this tuple and the one in
+# `reconcile.IMPLICATIONS` still cover every `DECISIONS*.md` on disk, because two
+# hand-maintained lists of the same files are two things to forget.
 MISSION_RECORDS = (
     "STATE.md",
     "DECISIONS.md",
@@ -38,6 +42,7 @@ MISSION_RECORDS = (
     "DECISIONS-SCREENING.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
+    "DECISIONS-RECORDS.md",
     "HYPOTHESES.md",
     "FAILURES.md",
     "ROADMAP.md",

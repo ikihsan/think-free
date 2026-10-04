@@ -30,6 +30,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
 | [`docs/policy/evidence-labels.md`](policy/evidence-labels.md) | `docs/INDEX.md` | active | 2026-10-03 | Every claim carries one of these labels. They are not decoration: an unlabelled |
+| [`docs/policy/gate-falsification.md`](policy/gate-falsification.md) | `docs/INDEX.md` | active | 2026-10-04 | Split out of STATE-defects.md on 2026-10-04 (T-0042), when adding a defect |
 | [`docs/policy/logging-standard.md`](policy/logging-standard.md) | `docs/INDEX.md` | active | 2026-10-03 | What must be recorded, in what form, and what is deliberately exempt. The |
 | [`docs/policy/permissions-and-safety.md`](policy/permissions-and-safety.md) | `docs/INDEX.md` | active | 2026-10-03 | What an agent may do without asking, what needs explicit authorization, and |
 
