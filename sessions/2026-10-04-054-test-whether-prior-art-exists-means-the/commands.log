@@ -1,0 +1,229 @@
+==============================================================================
+[seq 5] 2026-10-04T22:54:10+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................E..EEEEEEEEEEEEEEEEEEE...EEEEE........................................................................................................................................
+======================================================================
+ERROR: test_a_rejected_attribution_is_recorded_rather_than_dropped (test_serving_stats.AttributionTest)
+An unverified figure must be visible to the reader, not silently gone.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 71, in test_a_rejected_attribution_is_recorded_rather_than_dropped
+    self.assertEqual(stats.classify(r), (0, 0, True))
+AttributeError: module 'stats' has no attribute 'classify'
+
+======================================================================
+ERROR: test_a_docker_pull_count_does_not_borrow_the_release_floor (test_serving_stats.FloorsTest)
+The two cumulative channels are floored independently, so a figure
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 96, in test_a_docker_pull_count_does_not_borrow_the_release_floor
+    self.assertFalse(stats.served(row(cumulative=[50000],
+AttributeError: module 'stats' has no attribute 'served'
+
+======================================================================
+ERROR: test_a_refused_everywhere_row_is_undecided_in_both_arms (test_serving_stats.FloorsTest)
+A refusal is not an absence, and neither arm may count it as one.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 162, in test_a_refused_everywhere_row_is_undecided_in_both_arms
+    self.assertTrue(stats.classify(r)[2])
+AttributeError: module 'stats' has no attribute 'classify'
+
+======================================================================
+ERROR: test_a_row_no_channel_could_read_is_undecided_not_zero (test_serving_stats.FloorsTest)
+Nothing read is not the same finding as nothing there.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 109, in test_a_row_no_channel_could_read_is_undecided_not_zero
+    rate, cumulative, undecided = stats.classify(row())
+AttributeError: module 'stats' has no attribute 'classify'
+
+======================================================================
+ERROR: test_a_zero_registry_figure_is_read_and_is_a_finding (test_serving_stats.FloorsTest)
+A registry that recognises a package and reports 0 downloads has
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 119, in test_a_zero_registry_figure_is_read_and_is_a_finding
+    rate, cumulative, undecided = stats.classify(r)
+AttributeError: module 'stats' has no attribute 'classify'
+
+======================================================================
+ERROR: test_below_the_rate_floor_is_not_served (test_serving_stats.FloorsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 78, in test_below_the_rate_floor_is_not_served
+    self.assertFalse(stats.served(row(rate=[999])))
+AttributeError: module 'stats' has no attribute 'served'
+
+======================================================================
+ERROR: test_docker_floor_is_a_hundred_thousand (test_serving_stats.FloorsTest)
+Docker pulls are cumulative over the image's whole life, so a lower
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 88, in test_docker_floor_is_a_hundred_thousand
+    self.assertFalse(stats.served(row(cumulative=[99999],
+AttributeError: module 'stats' has no attribute 'served'
+
+======================================================================
+ERROR: test_publishing_nothing_is_not_a_figure_about_use (test_serving_stats.FloorsTest)
+The defect this experiment's first run contained.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 137, in test_publishing_nothing_is_not_a_figure_about_use
+    self.assertTrue(stats.classify(r)[2])
+AttributeError: module 'stats' has no attribute 'classify'
+
+======================================================================
+ERROR: test_release_floor_is_ten_thousand (test_serving_stats.FloorsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 82, in test_release_floor_is_ten_thousand
+    self.assertFalse(stats.served(row(cumulative=[9999])))
+AttributeError: module 'stats' has no attribute 'served'
+
+======================================================================
+ERROR: test_the_correction_moves_the_share_upward (test_serving_stats.FloorsTest)
+Stated so a later reader can see which way the correction moved it.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 154, in test_the_correction_moves_the_share_upward
+    t = stats.tally(silent + quiet)
+AttributeError: module 'stats' has no attribute 'tally'
+
+======================================================================
+ERROR: test_the_two_classes_are_reported_separately (test_serving_stats.FloorsTest)
+A cumulative hit is not a rate hit, and the tally says which.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 102, in test_the_two_classes_are_reported_separately
+    t = stats.tally([r])
+AttributeError: module 'stats' has no attribute 'tally'
+
+======================================================================
+ERROR: test_a_floor_that_fires_on_a_known_unused_control_is_reported (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 231, in test_a_floor_that_fires_on_a_known_unused_control_is_reported
+    verdict, reason, _, _ = stats.gate(self.many(9), [], placebo)
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_an_empty_sample_is_not_a_result (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 211, in test_an_empty_sample_is_not_a_result
+    verdict, _, _, _ = stats.gate([], [])
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_an_exercised_clean_arm_leaves_the_population_to_decide (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 238, in test_an_exercised_clean_arm_leaves_the_population_to_decide
+    self.assertEqual(stats.gate(self.many(9), [], placebo)[0], "dead")
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_an_unreadable_placebo_arm_is_not_a_pass (test_serving_stats.GateTest)
+The declared placebo was five unreadable zero-star repositories.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 224, in test_an_unreadable_placebo_arm_is_not_a_pass
+    verdict, reason, _, _ = stats.gate(self.many(9), [], placebo)
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_gate_is_inconclusive_above_the_declared_undecided_share (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 197, in test_gate_is_inconclusive_above_the_declared_undecided_share
+    verdict, reason, _, _ = stats.gate(rows, [])
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_gate_is_inconclusive_when_a_placebo_is_served (test_serving_stats.GateTest)
+The instrument's own falsification arm outranks the population.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 191, in test_gate_is_inconclusive_when_a_placebo_is_served
+    verdict, reason, _, _ = stats.gate(self.many(9), placebo)
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_gate_says_dead_at_or_above_the_declared_half (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 185, in test_gate_says_dead_at_or_above_the_declared_half
+    verdict, _, _, _ = stats.gate(self.many(5), [])
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_gate_says_inconclusive_when_nothing_was_read (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 206, in test_gate_says_inconclusive_when_nothing_was_read
+    verdict, reason, _, _ = stats.gate([row(repo="o/a")], [])
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_gate_says_survives_below_the_declared_half (test_serving_stats.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 181, in test_gate_says_survives_below_the_declared_half
+    verdict, _, _, _ = stats.gate(self.many(4), [])
+AttributeError: module 'stats' has no attribute 'gate'
+
+======================================================================
+ERROR: test_a_matching_description_keeps_the_repository (test_serving_stats.OnTopicTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 286, in test_a_matching_description_keeps_the_repository
+    self.assertTrue(stats.is_ontopic(row))
+AttributeError: module 'stats' has no attribute 'is_ontopic'
+
+======================================================================
+ERROR: test_a_real_content_term_survives (test_serving_stats.OnTopicTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 273, in test_a_real_content_term_survives
+    self.assertIn("flashcard", stats.content_terms("flashcard spaced repetition"))
+AttributeError: module 'stats' has no attribute 'content_terms'
+
+======================================================================
+ERROR: test_an_off_topic_repository_is_excluded (test_serving_stats.OnTopicTest)
+The case that motivated the arm: 373k stars, nothing to do with anki.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 281, in test_an_off_topic_repository_is_excluded
+    self.assertFalse(stats.is_ontopic(row))
+AttributeError: module 'stats' has no attribute 'is_ontopic'
+
+======================================================================
+ERROR: test_stopwords_and_short_tokens_are_not_content_terms (test_serving_stats.OnTopicTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 266, in test_stopwords_and_short_tokens_are_not_content_terms
+    terms = stats.content_terms("a tool for the web")
+AttributeError: module 'stats' has no attribute 'content_terms'
+
+======================================================================
+ERROR: test_the_filter_selects_a_subset_never_a_superset (test_serving_stats.OnTopicTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_serving_stats.py", line 291, in test_the_filter_selects_a_subset_never_a_superset
+    self.assertEqual([r["repo"] for r in stats.ontopic(rows)], ["a/anki"])
+AttributeError: module 'stats' has no attribute 'ontopic'
+
+----------------------------------------------------------------------
+Ran 640 tests in 372.913s
+
+FAILED (errors=25)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 374096  redactions: none

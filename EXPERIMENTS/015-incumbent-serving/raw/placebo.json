@@ -1,0 +1,197 @@
+{
+ "candidates": 56,
+ "controls": [
+  {
+   "cumulative": [
+    {
+     "assets": 2,
+     "channel": "ghreleases",
+     "releases": 7,
+     "value": 24
+    }
+   ],
+   "guessed": [
+    "jadeocr"
+   ],
+   "need": "flashcard spaced repetition",
+   "rate": [],
+   "refused": [],
+   "repo": "jadeocr/jadeocr",
+   "served": false,
+   "stars": 30,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 9,
+     "channel": "ghreleases",
+     "releases": 9,
+     "value": 201
+    }
+   ],
+   "guessed": [
+    "ProcrastiLearn",
+    "procrastilearn"
+   ],
+   "need": "flashcard spaced repetition",
+   "rate": [],
+   "refused": [],
+   "repo": "Vladyslav-Soldatenko/ProcrastiLearn",
+   "served": false,
+   "stars": 23,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 2,
+     "channel": "ghreleases",
+     "releases": 2,
+     "value": 15
+    }
+   ],
+   "guessed": [
+    "uptimepage"
+   ],
+   "need": "uptime monitor",
+   "rate": [],
+   "refused": [],
+   "repo": "uptimepage/uptimepage",
+   "served": false,
+   "stars": 39,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 0,
+     "channel": "ghreleases",
+     "releases": 0,
+     "value": 0
+    }
+   ],
+   "guessed": [
+    "monitor-internet-connection"
+   ],
+   "need": "uptime monitor",
+   "rate": [
+    {
+     "channel": "pypi:monitor-internet-connection",
+     "value": 18
+    }
+   ],
+   "refused": [],
+   "repo": "mfoc/monitor-internet-connection",
+   "served": false,
+   "stars": 35,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 6,
+     "channel": "ghreleases",
+     "releases": 2,
+     "value": 545
+    }
+   ],
+   "guessed": [
+    "uptimerobot-prometheus-exporter"
+   ],
+   "need": "uptime monitor",
+   "rate": [],
+   "refused": [],
+   "repo": "masaruhoshi/uptimerobot-prometheus-exporter",
+   "served": false,
+   "stars": 33,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 243,
+     "channel": "ghreleases",
+     "releases": 27,
+     "value": 563
+    }
+   ],
+   "guessed": [
+    "stupid-simple-s3"
+   ],
+   "need": "s3 object storage server",
+   "rate": [],
+   "refused": [],
+   "repo": "espebra/stupid-simple-s3",
+   "served": false,
+   "stars": 32,
+   "unverified": []
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 0,
+     "channel": "ghreleases",
+     "releases": 0,
+     "value": 0
+    },
+    {
+     "channel": "dockerpulls",
+     "value": 6381
+    }
+   ],
+   "guessed": [
+    "mcp"
+   ],
+   "need": "s3 object storage server",
+   "rate": [],
+   "refused": [],
+   "repo": "rustfs/mcp",
+   "served": false,
+   "stars": 25,
+   "unverified": [
+    "crates:mcp",
+    "npm:mcp",
+    "pypi:mcp"
+   ]
+  },
+  {
+   "cumulative": [
+    {
+     "assets": 0,
+     "channel": "ghreleases",
+     "releases": 0,
+     "value": 0
+    },
+    {
+     "channel": "dockerpulls",
+     "value": 5214
+    }
+   ],
+   "guessed": [
+    "selfhost_s3"
+   ],
+   "need": "s3 object storage server",
+   "rate": [],
+   "refused": [],
+   "repo": "Notifuse/selfhost_s3",
+   "served": false,
+   "stars": 19,
+   "unverified": []
+  }
+ ],
+ "false_positives": [],
+ "queries": [
+  "flashcard spaced repetition",
+  "web scraper",
+  "uptime monitor",
+  "s3 object storage server",
+  "ebook library server calibre",
+  "webp encoder",
+  "ai agent memory server",
+  "version control partial stage"
+ ],
+ "readable_controls": 8,
+ "star_ceiling": 40,
+ "verdict": "a floor fired on 0 of 8 readable controls"
+}

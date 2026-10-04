@@ -27,7 +27,8 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-8.md`](FAILURES-findings-8.md) (F031),
 [`FAILURES-findings-9.md`](FAILURES-findings-9.md) (F029) and
 [`FAILURES-findings-10.md`](FAILURES-findings-10.md) (F030) and
-[`FAILURES-findings-11.md`](FAILURES-findings-11.md) (F033), split because each
+[`FAILURES-findings-11.md`](FAILURES-findings-11.md) (F033) and
+[`FAILURES-findings-12.md`](FAILURES-findings-12.md) (F034), split because each
 file reached the 300-line cap. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
 side per the rule in
@@ -68,6 +69,7 @@ side per the rule in
 | F031 | Measured from outside, the mission was spending its effort on its own record |
 | F032 | Stars do not predict installs in any of five niches, so F028's flat tail was never a statement about adoption; and "prior art exists" cannot mean "served" |
 | F033 | Full-text issue counts inflated E012's strongest cluster ~200× |
+| F034 | The prior-art screen's premise holds in mature vocabularies and largely fails in young ones |
 
 
 **The invariant that makes the split sensible.** A finding is only useful if a
