@@ -47,7 +47,7 @@ last-verified: 2026-10-04
 | [`T-0032-record-the-python-versions-the-suite-has-actuall.md`](T-0032-record-the-python-versions-the-suite-has-actuall.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md`](T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0034-run-the-test-suite-on-the-python-versions-tests.md`](T-0034-run-the-test-suite-on-the-python-versions-tests.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
-| [`T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md`](T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md`](T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 
 ## How tasks run on another machine
 
