@@ -283,11 +283,17 @@ actually does.
       `observed` on run `37191658964`, whose `Documentation lint` annotation carries
       `path: DECISIONS-RECORDS.md`. That measurement was owed because the run the
       record had quoted for it never reached the annotator (F021).
-- [x] A step whose only job is to emit a diagnostic runs whenever the job runs, and
-      the mechanism is measured by a probe on the same run (T-0046, defect 18,
-      `FAILURES.md` F021, D038). An `if:` naming no status function gets an implicit
-      `success()`, so a red `Tests` step skipped all five gate steps on two runs and
-      four gates did not run at all with nothing in the annotations to say so.
-      `always() &&` on each, held by a test that was falsified against the workflow as
-      it was, plus `tools/origin probe`: one annotation per rendering shape on every
-      push, emitting only levels a green run already publishes
+- [x] A step whose only job is to emit a diagnostic runs whenever the job runs, and the
+      mechanism is measured by a probe on the same run (T-0046, defect 18, F021, D038).
+      An `if:` naming no status function gets an implicit `success()`, so a red `Tests`
+      step skipped all five gate steps on two runs. `always() &&` on each, plus
+      `tools/origin probe`: one annotation per rendering shape on every push, emitting
+      only levels a green run already publishes
+- [x] A refusal is followable by the tool that gave it (T-0048, D039,
+      `tools/originlib/landrebase.py`). `sync land` stopped on a real conflict and said
+      *resolve it and land again*; the second `land` refused on the dirty tree that
+      resolving leaves, so the only way out was a hand-run `git rebase --continue`, which
+      records no `base_advance` — defect 2's ceiling reached through a message rather than a
+      mistake. `land` now completes the rebase, and reads the pre-rebase tip from git's own
+      `orig-head` rather than a `HEAD` already moved onto the base. Falsified both ways
+

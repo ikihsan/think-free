@@ -160,6 +160,24 @@ table, so the union is correct and the only question is order. Remove the
 `<<<<<<<`, `=======` and `>>>>>>>` lines and leave both entries; the file has no
 table to disagree with.
 
+**Then run `land` again — it finishes the rebase itself.** T-0048. Until then the
+second `land` refused on a dirty tree, which is exactly the state resolving a
+conflict leaves, so the instruction above could not be followed by the tool that
+gave it: the only way out was `git rebase --continue` by hand, which records no
+`base_advance`, so every path the base brought was attributed to the session that
+resolved the conflict. That is defect 2's ceiling, reached through a refusal
+message rather than by a mistake. `land` now completes a rebase it stopped on
+once no path is still conflicted, using the same non-interactive environment its
+generated-file continuation uses, and reports `resumed: true`.
+
+Three things it still refuses, all deliberately:
+
+| Situation | What it says |
+|---|---|
+| A path is still conflicted | the conflict refusal, naming the path — the same words as before |
+| Something is dirty and **not staged** | commit or revert it, because `--continue` commits the whole index and would sweep it into the rebase's commit |
+| The continuation itself fails | `git rebase --abort`, with git's own first line |
+
 **Then check that you did.** `observed` on 2026-10-04 (session 007): a rebase
 against the shared base resolved this file by leaving a conflict-marker block in
 the commit, and `tests/test_conflicts.py` caught it — the rule added in T-0021

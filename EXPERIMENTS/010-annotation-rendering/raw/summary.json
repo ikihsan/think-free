@@ -83,5 +83,33 @@
     },
     "run": "37192717297",
     "why": "clean tree: the control, where the annotator must stay silent"
+  },
+  {
+    "annotations": 11,
+    "arm": "E",
+    "check_run_id": "111419268340",
+    "conclusion": "failure",
+    "head_sha": "5f88354cdce84b42fea774f254353f8b206c75b1",
+    "paths": [
+      ".github",
+      "FAILURES.md",
+      "HYPOTHESES.md",
+      "MISSION.md",
+      "README.md",
+      "ROADMAP.md",
+      "STATE.md",
+      "sessions/2026-10-04-029-measure-how-github-files-an-annotation-o/events.jsonl"
+    ],
+    "rows": {
+      "verify (3.10)": "success",
+      "verify (3.11)": "success",
+      "verify (3.12)": "failure",
+      "verify (3.13)": "success",
+      "verify (3.14)": "success",
+      "verify (3.8)": "success",
+      "verify (3.9)": "success"
+    },
+    "run": "37196459285",
+    "why": "the first run carrying origin probe: every shape, measured"
   }
 ]

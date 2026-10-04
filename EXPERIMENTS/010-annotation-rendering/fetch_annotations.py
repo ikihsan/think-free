@@ -47,6 +47,10 @@ RUNS = [
     ("37189825232", "B", "Tests red, so every later step with an if: was skipped"),
     ("37190842104", "C", "Tests red on all seven rows, same shape as B"),
     ("37192717297", "D", "clean tree: the control, where the annotator must stay silent"),
+    # Added after the arms above ran, and labelled rather than folded into them:
+    # arm E is the first pushed run on which the probe executed, so it is the
+    # measurement the other four could only set up.
+    ("37196459285", "E", "the first run carrying origin probe: every shape, measured"),
 ]
 
 

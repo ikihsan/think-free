@@ -161,15 +161,22 @@ reports a failure also carries the reference for reading it. `tests/test_probe.p
 the shape list literally, so a shape cannot be dropped from the code, the test and this
 table together.
 
-| Shape | Command property | What it settles |
-|---|---|---|
-| `filed-with-line` | `file`, `line` | that `start_line` comes back as the line emitted |
-| `filed-no-line` | `file` | the `start_line: 0` case arm A observed, re-measured |
-| `message-percent` | `file`, a `%` in the message | that `%` arrives escaped and cannot split the command |
-| `message-colon-comma` | `file`, `:` and `,` in the message | that a colon and a comma are data in a message |
-| `message-newline` | `file`, a newline in the message | that it arrives as one annotation, not two commands |
-| `warning-level` | `file`, level `warning` | that a level other than `error` is filed too |
-| `no-file` | neither | what a fileless command looks like, beside a filed one |
+| Shape | Command property | What it settles | Measured on run `37196459285` |
+|---|---|---|---|
+| `filed-with-line` | `file`, `line` | that `start_line` comes back as the line emitted | `path: STATE.md`, `start_line: 7` |
+| `filed-no-line` | `file` | the `start_line: 0` case arm A observed | `path: MISSION.md`, `start_line: 0` |
+| `message-percent` | `file`, a `%` in the message | that `%` arrives escaped and cannot split the command | `50% of this sentence…`, one annotation |
+| `message-colon-comma` | `file`, `:` and `,` in the message | that a colon and a comma are data in a message | identical, comma and em dash intact |
+| `message-newline` | `file`, a newline in the message | that it arrives as one annotation, not two commands | `two\nlines…` as **one** annotation |
+| `warning-level` | `file`, level `warning` | that a level other than `error` is filed on the path | `path: README.md`, level `warning` |
+| `no-file` | neither | what a fileless command looks like, beside a filed one | `path: .github` |
+
+**Read the right-hand column off the run you are looking at.** Every run carries
+its own seven, so the reference is never from a different run — which is the whole
+reason the probe is in the workflow rather than in this document. `line=` fidelity
+and a `warning` **with** a `file=` were never observed before that run; without it
+the mechanism's behaviour was inferred from whichever run happened to be red, and
+that inference was wrong twice (F021).
 
 It exits 0 whatever the tree says and emits only `notice` and `warning`, both of which a
 green run already publishes — a measurement that can redden the run it measures is a

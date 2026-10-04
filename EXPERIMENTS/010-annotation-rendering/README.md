@@ -41,6 +41,7 @@ the annotating step ran at all, and that difference is the whole trap.
 | B | `37189825232` | `ea3bfb5` | all seven red, `Tests` among them | the run the record quoted. `Tests` failed, so every later step with an `if:` was skipped |
 | C | `37190842104` | `f566ff0` | all seven red, `Tests` among them | B's shape on a different defect, so B is not a one-off |
 | D | `37192717297` | `cfaf4ed` | green | **the control.** A clean tree must produce no annotation from the annotator, and the three it does carry say what a fileless command looks like |
+| E | `37196459285` | `5f88354` | only `verify (3.12)` red, on the session step | **added after the four above ran**, and labelled rather than folded in: the first pushed run on which `origin probe` executed, so it is the measurement the other four only set up |
 
 ## Kill gate, declared before the fetch
 
@@ -81,6 +82,7 @@ the one run where the renderer never spoke.
 | B | 11 | `.github` | all `Test failed`; no annotator output, because its steps were skipped |
 | C | 10 | `.github` | as B, on a different defect |
 | D | 3 | `.github` | green run: the runner's Node deprecation warning, the `ubuntu-latest` notice, and the session step's in-flight `::warning` |
+| E | 11 | seven paths, one per probe shape | every shape filed on the path it named, `start_line` equal to the line emitted, and the escaped message whole |
 
 **`start_line: 0` is not a defect.** Arm A's violation names no line — it is
 `release check`'s whole-file verdict on `DECISIONS-RECORDS.md` — so no `line=` was
@@ -94,23 +96,45 @@ discarded". Confounded by construction until D is read: B and C on their own are
 consistent with a renderer that ignores `file=` entirely, which is the reading the
 record held.
 
-## What this does not settle
+## Arm E: what the probe measured on its first run
 
-- **`line=` fidelity.** No annotation in any of the four runs carries a line, so
-  whether `start_line` comes back as the line emitted is unobserved. `origin
-  probe`'s `filed-with-line` shape measures it on every run from now on.
-- **Escaping.** No recorded annotation carries a `%`, a newline, a `:` or a `,`,
-  so the escaping in `tools/originlib/finding.py` is `source-supported` from
-  `actions/toolkit`'s `command.ts` and nothing more. Four probe shapes cover it.
+`observed` 2026-10-04 on run `37196459285` at `5f88354`. Seven shapes, seven
+annotations, and every question the four arms left open is now answered by a run
+rather than by a reading of one:
+
+| Shape | Emitted | Came back as |
+|---|---|---|
+| `filed-with-line` | `file=STATE.md,line=7` | `path: STATE.md`, `start_line: 7` |
+| `filed-no-line` | `file=MISSION.md` | `path: MISSION.md`, `start_line: 0` |
+| `message-percent` | `50%25 of this sentence…` | `50% of this sentence…` |
+| `message-colon-comma` | `keys: a, b; c — …` | identical, colon, comma and em dash intact |
+| `message-newline` | `two%0Alines…` | `two\nlines…` — **one** annotation, and the newline survived |
+| `warning-level` | `::warning file=README.md,line=1::` | `path: README.md`, `start_line: 1`, level `warning` |
+| `no-file` | `::notice::` | `path: .github`, `start_line: 19` |
+
+Two of those were the ones worth having. `line=` fidelity was never observed
+before: `start_line` is the line emitted, so a reader gets a position and not a
+file. And a `warning` **with** a `file=` is filed on the path, where the same
+level **without** one is `.github` — so the two cases are distinguishable on the
+run that needs them, which is the whole reason the probe is in the workflow.
+
+## What this still does not settle
+
 - **A `file=` value containing `:` or `,`.** This repository has no file whose name
-  contains either, so the property escaping has no real input here; a synthetic
-  one would measure a path that cannot exist.
-- **GitHub's own annotation cap**, the 60-line window inherited from the `awk`, and
-  whether `::error` on a green job would change its conclusion. The probe emits
-  only `notice` and `warning`, so that question is never put to the platform.
-- **Rows other than 3.12.** The gate steps are guarded to one row, so the other six
-  rows' annotations come from the `Tests` step alone, and on a run where `Tests`
-  is green and a gate is red only that one row says anything.
+  contains either, so the property escaping has no real input here; a synthetic one
+  would measure a path that cannot exist. The escaping stays
+  `source-supported` from `actions/toolkit`'s `command.ts` and nothing more.
+- **GitHub's own annotation cap**, and the 60-line window inherited from the `awk`.
+  Four runs have produced at most 11 annotations, so nothing here comes near
+  either number.
+- **Whether an `::error` annotation can change a green job's conclusion.** Never
+  put to the platform, deliberately: the probe emits only levels a green run
+  already publishes. The gates emit `::error` and exit non-zero, so nothing
+  depends on the answer.
+- **Rows other than 3.12.** The gate steps and the probe are guarded to one row,
+  so the other six rows' annotations come from the `Tests` step alone.
+- **Another renderer, another runner image, another repository.** One workflow on
+  `ubuntu-latest` is the whole scope.
 
 ## Reproduce
 
@@ -122,4 +146,4 @@ Standard library, no token. Reads `/rate_limit` first and refuses to proceed
 without a verified limit, because a 403 from the 60-per-hour unauthenticated cap
 and an empty annotation list look identical to a shell pipeline — and treating the
 first as the second is how this repository recorded a false premise for two
-sessions. Overwrites `raw/`; the four run ids above are the arms.
+sessions. Overwrites `raw/`; the five run ids above are the arms.

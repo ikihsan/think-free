@@ -11,11 +11,16 @@ VMs is created by the merge: each branch is internally consistent, and each VM's
 own `doc lint` sees nothing wrong with its own tree. `push` and `task claim` are
 deliberately not gated — refusing them would block a VM from publishing the
 session record it needs in order to renumber its way out of the collision (D031).
+
+What git's rebase state looks like, and how to finish a rebase this module
+stopped on, is [`landrebase.py`](landrebase.py) — separated for the same reason
+`doclint_tree.py` was: reading git's state and acting on it are different jobs, and
+the second one grew past this file's cap (T-0048).
 """
 
 from __future__ import annotations
 
-from . import gitutil, paths
+from . import gitutil, landrebase, paths
 from .sync import (
     SyncError,
     record_arrival,
@@ -127,35 +132,40 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
     remote = remote_name()
     if not remote:
         raise SyncError("no git remote configured; nothing to land")
+    # A rebase this flow stopped on a real conflict, that the reader has since
+    # resolved, is finished here rather than by hand. Without this the only way
+    # out of the conflict refusal is `git rebase --continue` run by hand, which
+    # records nothing — so every path the base brought is attributed to the session
+    # that resolved the conflict (defect 2's ceiling, reached through the tool's
+    # own instruction rather than by a mistake). It runs *before* the dirty-tree
+    # refusal, because resolving the conflict is what makes the tree dirty and that
+    # is the tree state this exists to resolve.
+    resumed = landrebase.resume(root)
     dirty = gitutil.dirty_paths(root)
     if dirty:
         raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
     target = branch or base_branch(root)
-    outcome: dict = {"remote": remote, "branch": target, "resolved": [], "rebased": False}
+    outcome: dict = {"remote": remote, "branch": target, "resolved": [], "rebased": False, "resumed": False}
     for attempt in range(1, max(1, retries) + 1):
         resolved: list[str] = []
         fetch(root)
         base_ref = f"{remote}/{target}"
         if not gitutil.text(["rev-parse", "--verify", "--quiet", base_ref], root):
             raise SyncError(f"{base_ref} does not exist; check the branch name")
-        before = gitutil.text(["rev-parse", "HEAD"], root)
+        before = resumed or gitutil.text(["rev-parse", "HEAD"], root)
+        outcome["resumed"] = outcome["resumed"] or bool(resumed)
         result = gitutil.run(["rebase", base_ref], root)
         if result.returncode != 0:
             resolved = _resolve_generated_conflicts()
             unfinished = result
             if resolved:
-                # `git rebase --continue` opens an editor for the commit message
-                # on git 2.5x. Nothing in this flow may be interactive: a VM
-                # whose stdin is an open pipe blocks until the timeout, and CI
-                # fails outright. Forcing the child's editor to a no-op outranks
-                # any GIT_EDITOR the VM exports, which `-c core.editor` does not.
+                # Non-interactive, for the reason `landrebase.NON_INTERACTIVE`
+                # states: `git rebase --continue` opens an editor for the commit
+                # message on git 2.26 and later.
                 unfinished = gitutil.run(
-                    ["rebase", "--continue"],
-                    root,
-                    timeout=60,
-                    env={"GIT_EDITOR": "true", "GIT_SEQUENCE_EDITOR": "true", "GIT_MERGE_AUTOEDIT": "no"},
+                    ["rebase", "--continue"], root, timeout=60, env=landrebase.NON_INTERACTIVE
                 )
-            conflicted = gitutil.run(["diff", "--name-only", "--diff-filter=U"]).stdout.split()
+            conflicted = landrebase.unresolved_paths(root)
             if conflicted:
                 raise SyncError(
                     "rebase stopped on a real content conflict in "

@@ -78,7 +78,7 @@ was read from. Rule and ceiling:
 | `sync status` | Branch, divergence from the remote base, dirty paths, rebase state |
 | `sync pull` | Fetch and fast-forward onto the base; refuses a dirty tree or a diverged one |
 | `sync push` | Publish the current branch; never forces |
-| `sync land` | Rebase this branch onto the base, regenerate conflicted indexes, push |
+| `sync land` | Rebase this branch onto the base, regenerate conflicted indexes, push. On a tree whose rebase a previous `land` stopped on, it first completes that rebase once no path is still conflicted — reporting `resumed: true` — so its own "resolve it and land again" instruction is followable by the tool that gave it. A path dirty and not staged is refused rather than swept into the rebase's commit |
 
 ## `worktree`
 

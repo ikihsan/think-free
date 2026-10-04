@@ -16,7 +16,7 @@ ordinary edits do not.
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording, moving, and publishing work |
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
-| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D038 | How a gate, a diagnostic, or its control must be written before it is trusted |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
 | [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
@@ -66,6 +66,18 @@ that cannot read its input reports that — is D036, in the file its own invaria
 names. Every split is by invariant, never by date, and numbering is continuous
 and unchanged in each, so an existing reference to a decision id still resolves
 wherever the entry now lives.
+
+Split attempted and reversed on 2026-10-04 (T-0030). D013, D027 and D028
+were moved out to `DECISIONS-PRACTICE.md` because D030 had reached 289 of the 300
+permitted lines — and `instance-20260717-0944`, working in the same hour, appended
+D031 to that file. Both moves overflowed their destination: this one reached 323
+lines, and the other put a fifth session-state decision where no other session-state
+decision had ever been. The entries are therefore back where they were, and the
+reason is recorded rather than the attempt: **a split is a claim about an
+invariant, and the two VMs were claiming incompatible ones in the same hour.** A
+file at 289 lines with a real invariant is a smaller problem than two files whose
+prose contradicts each other. `DECISIONS-SESSIONS.md` now holds those three
+entries and its own header names them, which the rule added in T-0042 checks.
 
 **The index row above is not the only declaration, and for a while it was the
 only checked one.** Each decision record also opens with its own

@@ -25,9 +25,10 @@ in-flight note), so the probe adds nothing that can fail a job. `::error` with a
 **Ceiling.** Nothing here measures GitHub's annotation cap, a path outside the
 checkout, or a `file=` value containing `:` or `,` — this repository has no file
 whose name contains either, so the property escaping has no real input on this
-tree and a synthetic one would measure a path that cannot exist. `line=` is
-emitted here for the first time by shape 1, and arm A's `start_line: 0` is the
-only observation of a `file=` with no `line=`.
+tree and a synthetic one would measure a path that cannot exist. The first run to
+carry it, `37196459285`, answered everything else it claims to: `start_line` is the
+line emitted, a `warning` with a `file=` is filed on the path, and a newline in a
+message arrives as one annotation.
 """
 
 from __future__ import annotations

@@ -198,6 +198,15 @@ of those it cannot touch.
   **The run's annotations answer the next question just as fast:** three
   consecutive red runs on the base were each diagnosed by reading them, with no
   reproduction at all (`observed` 2026-10-04).
+- **A refusal must be followable by the tool that gave it** (D039, T-0048). `sync land`
+  stopped on a real conflict and said *resolve it and land again*; the second `land`
+  refused on the dirty tree that resolving leaves, so the instruction could not be
+  followed and the only way out was a hand-run `git rebase --continue` — which records
+  no `base_advance` and so attributes the base's own paths to whoever resolved the
+  conflict. That is defect 2's ceiling reached through a message rather than a mistake.
+  `land` now completes the rebase itself; **still refused:** an unresolved conflict, a
+  path dirty and *not* staged (the continuation commits the whole index), and a
+  continuation that fails.
 - A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines. The
   ledger is a sequence of events, so the union is correct; only the order is in
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards

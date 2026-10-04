@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D024–D026, D030, D036–D038**. Each entry records a choice that was
+Decisions **D024–D026, D030, D036–D039**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason. Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -32,18 +32,6 @@ the one D032 and D035 already used in their own text — *the check must read th
 property* says nothing about **which** property, while each of D029, D032 and
 D035 is about one artefact this repository keeps. Entries moved verbatim;
 numbering is continuous and unchanged.
-
-Split attempted and reversed on 2026-10-04 (T-0030). D013, D027 and D028
-were moved out to `DECISIONS-PRACTICE.md` because D030 had reached 289 of the 300
-permitted lines — and `instance-20260717-0944`, working in the same hour, appended
-D031 to that file. Both moves overflowed their destination: this one reached 323
-lines, and the other put a fifth session-state decision where no other session-state
-decision had ever been. The entries are therefore back where they were, and the
-reason is recorded rather than the attempt: **a split is a claim about an
-invariant, and the two VMs were claiming incompatible ones in the same hour.** A
-file at 289 lines with a real invariant is a smaller problem than two files whose
-prose contradicts each other. `DECISIONS-SESSIONS.md` now holds those three
-entries and its own header names them, which the rule added in T-0042 checks.
 
 **This file's header was false until 2026-10-04 and no gate said so.** It read
 `Decisions **D013, D024–D029**` while defining D024, D025, D026, D029, D030,
@@ -278,3 +266,31 @@ only levels a green run already publishes.
 passed from one GitHub chose to skip; only a run says that, which is what the probe is
 for. And the probe measures the shapes it lists, so a shape not listed is not measured —
 `tests/test_probe.py` holds the list literally for that reason.
+
+## D039 — A refusal the tool's own next command cannot carry out is not yet a refusal (2026-10-04)
+
+Observed: `sync land` stopped on a real content conflict in `tasks/CLAIMS.jsonl` and
+said *resolve it and land again*. The second `land` could not: it refuses on a dirty
+tree, and resolving the conflict is what makes the tree dirty. The only way out was
+`git rebase --continue` by hand, which records no `base_advance`, so every path the
+base brought was attributed to the session that resolved the conflict — defect 2's
+ceiling, reached through a refusal message rather than by anybody's mistake.
+
+Decision: **a refusal is part of a diagnostic, and a diagnostic whose instruction the
+same tool cannot follow is not finished.** `land` completes a rebase it stopped on
+once no path is still conflicted, and the three answers git's state has to give are
+read in one place: both rebase backends (2.25 writes `rebase-apply`, 2.26
+`rebase-merge`, and reading one is a check that passes on half the fleet), the
+unresolved paths, and the pre-rebase tip from git's own `orig-head` rather than
+`HEAD`, which mid-rebase is already the base carrying this branch's commits.
+
+Rejected: making the reader commit the resolution, which asks for a judgement about
+a conflict the tooling detected. Rejected: auto-resolving a ledger conflict the way
+the generated indexes are auto-resolved — right for a file that is a function of the
+tree, wrong for a record, since dropping a claim line loses the fact that two VMs
+believed they held a task. Rejected: reading the tip from `HEAD` and accepting the
+attribution, which is the defect.
+
+**Ceiling.** A rebase an operator started by hand is resumed just the same, because
+git's recorded state does not say who began it; and a path dirty and *not* staged is
+refused rather than absorbed, since the continuation commits the whole index.
