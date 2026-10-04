@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T08:03:22+00:00
-- **Duration:** ?s
+- **Duration:** 406.4s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0041: make sync land rebuild any generated file the rebase left stale
 
 ## Summary
 
-_(none recorded)_
+T-0041: sync land now asks doc lint's question after every rebase - is each generated file equal to its renderer - and commits the answer before the push, so a cleanly merged stale file is no longer published. Falsified first: with the call removed the new test fails and its control stays green. test_sync.py split by operation into test_sync.py and test_land.py. 424 tests green, doc lint green.
+
+## Next
+
+The remaining open defects are recorded with their ceilings: 12 (task commands change the task file and declare nothing) and the next-actions items. VM 0944 holds T-0040, which gives the doc lint and release steps an annotation naming the file - do not duplicate it.
 
 ## Artifacts
 
@@ -50,11 +54,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/T-0041-make-sync-land-rebuild-any-generated-file-the-re.md |
 
 ## Timeline
 
@@ -71,6 +75,9 @@ _(none recorded)_
 | 9 | 08:04:06 | milestone | T-0041: land asks doc lint's question after every rebase; falsified first, and test_sync.py split by operation into test_land.py |
 | 10 | 08:08:12 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 11 | 08:09:46 | artifact | wrote STATE.md |
+| 12 | 08:10:08 | unlogged_change | changed but never declared as an artifact: tasks/T-0041-make-sync-land-rebuild-any-generated-file-the-re.md |
+| 13 | 08:10:08 | doc_update | updated STATE.md |
+| 14 | 08:10:08 | session_end | T-0041: sync land now asks doc lint's question after every rebase - is each generated file equal to its renderer - and commits the answer before the p |
 
 ## Reproduce this record
 

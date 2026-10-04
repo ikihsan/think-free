@@ -15,7 +15,7 @@ Showing the 25 most recent. 40 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | **unfinished** | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:03 |
+| [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | worked | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:10 |
 | [2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch](2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/README.md) | opencode | **unfinished** | Give the file-reading CI gate steps a check-run annotation that names  | 2026-10-04T07:35 |
 | [2026-10-04-019-t-0039-make-acceptance-and-steps-append](2026-10-04-019-t-0039-make-acceptance-and-steps-append/README.md) | unknown-agent | worked | T-0039: make --acceptance and --steps append on task new | 2026-10-04T07:35 |
 | [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
