@@ -68,7 +68,13 @@ def mutate(path: pathlib.Path, needle: str, replacement: str) -> bool:
 
 def run_suite(root: pathlib.Path) -> tuple[int, str]:
     result = subprocess.run(
-        [sys.executable, "-m", "unittest", "tests.test_result_numbers"],
+        [
+            sys.executable,
+            "-m",
+            "unittest",
+            "tests.test_result_numbers",
+            "tests.test_result_numbers_falsified",
+        ],
         cwd=str(root),
         capture_output=True,
         text=True,

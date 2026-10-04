@@ -163,3 +163,67 @@ session's record, so `git log` on a claim shows session events beside the ledger
 clean one — the same reasoning, and it does not reach that command. And the
 commit-then-push window remains: between `_commit_paths` and `sync.push` a crash
 still leaves one local commit, which the next `_require_at_base` names.
+
+## F024 — A restated experiment number was false, and the obvious gate cannot see it
+
+Source: T-0056, session `2026-10-04-042`, 2026-10-04. Repair:
+`tools/originlib/resultnumbers.py`. Defect 22 in
+[`STATE-defects.md`](STATE-defects.md).
+
+**Observation.** `docs/process/experiment-protocol.md` stated that
+`005-knitting-bounded-search` "reproduces the oracle on **113/113** checked
+cases". That experiment's `results.json` says `cases_with_oracle = 115` and
+`cases_tested = 118`; its own README says 115/115, and `HYPOTHESES-results.md`
+and `FAILURES-findings.md` both say 115/115. **The wrong number was in `318374a`,
+the commit that published the artifact**, so no later edit introduced it and no
+merge could have: it was wrong on arrival. Every gate passed, because nothing in
+this repository read a number in a mission record against the machine-readable
+result it restates. `git log -S` confirms the row and the artifact arrived
+together.
+
+**The load-bearing half is the rule that *fails* to catch it.** The obvious
+repair — "does this number occur anywhere in the artifact?" — answers **yes**.
+`113` also sits at `patch_cost_sensitivity/*/cases`, a per-patch-cost count that
+has nothing to do with how many cases the headline result is about. So the loose
+rule is *green on the defect*, and had it been written, shipped, and trusted, it
+would have added a gate that cannot fail to a repository whose recorded lesson is
+that such gates are worse than none. This is D025's shape with a new
+environment: not a field that means something else, but a **number** that occurs
+in a place that means something else. Measured on the defect's own bytes and
+asserted in `LooseRuleTest`, so the false negative cannot be reintroduced
+quietly.
+
+**Result.** `observed`, 2026-10-04. The rule is read by `doc lint`, and therefore
+by `preflight` and by CI. Falsified three ways by mutation
+(`tools/mutate_result_rule.py`), each patch asserting that it landed before its
+run is believed — the T-0047 and T-0050 lesson, hit three times in this
+repository. 20 new tests; the suite is 564.
+
+**Two bugs the falsification found in the gate itself, both recorded because a
+gate that reads nothing looks exactly like a clean tree.** The first version of
+the decimal pattern rejected *any* following dot, so it silently discarded every
+number that ended a sentence — a rule reading nothing, discovered because a test
+asserting `met at 0.965.` returned zero findings. And the measurement script
+excluded nested repositories by testing for `.worktrees` in a path's parts, which
+is false for the worktree this very task runs in, so it reported **zero
+documents** — defect 19's shape again, a verdict decided by where the checkout
+sits rather than by what the repository holds, caught by a count of zero that a
+reader should never have to accept.
+
+**Lesson kept.** The evidence for the property was one function call away and
+written down in the artifact itself: `cases_with_oracle`. A restated number is
+checkable the moment the record says *which* number, and no rule can guess which
+one a prose sentence meant. So the rule reads the shapes whose meaning is
+decidable — a fraction's denominator, and a distinctive decimal — and declines
+the rest, rather than approximating "the headline value" by guessing which nested
+field a writer had in mind.
+
+**Ceiling.** One table row per experiment in one index. A count restated in prose,
+a bare integer that is not a denominator, and `STATE.md`'s dashboard row — which
+names all nine experiments at once and so cannot be attributed — are unexamined. A
+**tool version written inside a results row is reported**, because `2.30` and
+`0.30` are the same shape; the remedy is to keep environment facts out of the
+results table, and that is the intended direction rather than an exemption nobody
+can police. And a number quoted from a run whose artifact was not committed —
+`116/116` from 005's `--slow` run — would be reported, since nothing here can
+check it.

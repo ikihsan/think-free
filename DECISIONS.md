@@ -18,7 +18,7 @@ ordinary edits do not.
 | [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D044–D045 | What a command's own write is, and what must travel with it when published |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
-| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
+| [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D045 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who

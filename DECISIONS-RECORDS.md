@@ -6,9 +6,9 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041, D043**. Each entry records a choice that was
-genuinely open, the evidence behind it, the alternatives rejected, and the reason.
-Decisions that constrain later work belong here; ordinary edits do not.
+Decisions **D029, D032, D035, D041, D043, D045**. Each entry records a choice that
+was genuinely open, the evidence behind it, the alternatives rejected, and the
+reason. Decisions that constrain later work belong here; ordinary edits do not.
 
 **Invariant:** every entry here governs *a particular record or artefact this
 repository keeps* — what it must be a function of, what may not collide, and
@@ -245,3 +245,44 @@ rule read by one gate is not thereby read by the others.
 one cell is a different row; only pipes-delimited tables in `.md` files are read, and
 the rule reads the working tree rather than what a renderer would produce, so a stale
 generated file remains `doclint_tree`'s subject.
+
+## D045 — A restated number is held to the artifact it names, by the number's shape
+
+Evidence: T-0056, session `2026-10-04-042`, 2026-10-04. Defect 22 in
+[`STATE-defects.md`](STATE-defects.md); [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
+F024.
+
+**The choice.** A mission record's restated number is checked against the
+machine-readable result it names, and the check is decided by what the number
+*is*: a fraction `N/M` is a claim about a countable population, so `M` must be a
+count the artifact declares; a decimal is distinctive enough to match against any
+value the artifact states. A bare integer, and a number in a line naming two
+experiments, are not read.
+
+Rejected: **"does this number occur anywhere in the artifact?"** — the obvious
+one, and it is *green on the defect*. `113` also sits at
+`patch_cost_sensitivity/*/cases`. A rule that reads every value in a file
+concludes about a different property than the one a sentence claimed, which is
+D025 with a new environment: not a field that means something else but a **value**
+that occurs where something else is meant. Written and shipped on that reasoning,
+it would have added a gate that cannot fail — the worse outcome, because it looks
+like coverage. Rejected: **guessing which nested field is the "headline"** by
+depth or by key. That is the borrowed-predicate mistake D042 records, one level
+up: it needs a case per artifact, and on this tree it admits either `113` (depth
+3 in `patch_cost_sensitivity`) or the true values of `006` (depth 3 under its own
+`kill_gate`), never both. Rejected: **requiring every restated number to cite the
+field it came from.** This is the only design that generalises, and it is a change
+to the shape of a hand-maintained index rather than a gate; it is the right next
+step if the coverage this leaves is ever found wanting.
+
+Rejected: exempting a **tool version** written in a results row, behind a keyword
+list. `2.30` and `0.30` are the same shape, and a keyword list is a rule that
+guesses. Reported instead, with the remedy in the message: environment facts
+belong outside the results table.
+
+**Ceiling.** One row per experiment in one index. Prose is not read, and neither is
+`STATE.md`'s dashboard row, which names all nine experiments at once — so the most
+prominent restatement of these numbers in the repository is *not* covered, which is
+stated here rather than left to be discovered. The loose rule's blindness is
+asserted in `tests/test_result_numbers.py`, so the restriction cannot be dropped
+quietly.
