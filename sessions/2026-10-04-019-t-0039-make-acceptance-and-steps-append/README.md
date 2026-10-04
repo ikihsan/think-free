@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T07:18:16+00:00
-- **Duration:** ?s
+- **Duration:** 1031.9s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0039: make --acceptance and --steps append on task new
 
 ## Summary
 
-_(none recorded)_
+T-0039: --steps and --acceptance now accumulate, so five criteria reach the task file as five lines. Falsified first against the unmodified parser (3 flags wrote 1 line; only '3. third' of the steps survived), and a fourth control found taskops' unreachable placeholder default, which is now pinned as an empty section. Defect 11 closed; defect 12 recorded for the task-file declaration gap. 422 tests green, doc lint green.
+
+## Next
+
+The half of next-actions 2(b) that survives F020: make the doc lint, release manifest and session steps emit one ::error:: line naming their violation, with a gate that every gate step emits annotations - otherwise a red Documentation lint names a step and nothing else.
 
 ## Artifacts
 
@@ -53,11 +57,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md |
 
 ## Timeline
 
@@ -77,6 +81,8 @@ _(none recorded)_
 | 12 | 07:23:11 | artifact | wrote tests/README.md |
 | 13 | 07:23:12 | milestone | T-0039: --steps and --acceptance append; falsified first (3 flags wrote 1 line, and only '3. third' of the steps); a fourth control found taskops' unr |
 | 14 | 07:27:25 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 15 | 07:35:28 | unlogged_change | changed but never declared as an artifact: tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md |
+| 16 | 07:35:28 | session_end | T-0039: --steps and --acceptance now accumulate, so five criteria reach the task file as five lines. Falsified first against the unmodified parser (3  |
 
 ## Reproduce this record
 
