@@ -223,7 +223,7 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     [`FAILURES-findings-5.md`](FAILURES-findings-5.md) F023, D044.
 
 22. **A mission record restated an experiment number, and it was wrong** (solved
-    in T-0056, D045, F024). `docs/process/experiment-protocol.md` said
+    in T-0056, D047, F024). `docs/process/experiment-protocol.md` said
     `005-knitting-bounded-search` "reproduces the oracle on **113/113** checked
     cases"; that artifact's `results.json` says `cases_with_oracle = 115` and
     `cases_tested = 118`, and the experiment's own README says 115/115. The wrong

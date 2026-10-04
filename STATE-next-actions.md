@@ -20,7 +20,7 @@ of those it cannot touch.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated
-   experiment number to its artifact (T-0056, D045, defect 22). Its case is the
+   experiment number to its artifact (T-0056, D047, defect 22). Its case is the
    sharpest yet, because the **obvious rule is green on the defect**: "does this
    number occur anywhere in the artifact?" answers *yes* for `113`, which also
    sits at `patch_cost_sensitivity/*/cases`. What settles it is reading the

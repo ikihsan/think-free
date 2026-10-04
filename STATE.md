@@ -49,26 +49,15 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 ## In flight
 
 **A restated experiment number was false, and the obvious gate is blind to
-it** (defect 22, T-0056, D045, F024). `docs/process/experiment-protocol.md` claimed
+it** (defect 22, T-0056, D047, F024). `docs/process/experiment-protocol.md` claimed
 `005-knitting-bounded-search` was exact on **113/113** checked cases; that artifact's
-`results.json` says `cases_with_oracle = 115` and `cases_tested = 118`. The wrong
-number was in `318374a` — the commit that published the artifact — so it was wrong on
-arrival, and every gate passed because nothing read a number in a mission record
-against the result it restates. **The load-bearing half is the rule that cannot see
-it:** "does this number occur anywhere in the artifact?" answers *yes*, since `113`
-also sits at `patch_cost_sensitivity/*/cases`, so the obvious gate would have been
-green on the defect. `resultnumbers.py` decides the property from the number's
-*shape* instead, and `tests/test_result_numbers_falsified.py` asserts the rejected
-rule's blindness so the restriction cannot be dropped quietly.
-
-**A claim that could not be published was the fleet's only concurrency control,
-and the refusal that caused it asked for the one action an agent must not take by
-hand** (defect 21, T-0055, D044, F023). `task claim` committed the claim and then
-called `push`, which refuses a dirty tree — and an open session guarantees one. The
-claim stayed local and unpushed, so no other VM could see it, and each retry added
-another `claim` line to the append-only ledger. The claim commit now carries the
-session's own record, and foreign uncommitted work refuses the claim before anything
-is written.
+`results.json` says `cases_with_oracle = 115`, and the wrong number was in `318374a` —
+the commit that published the artifact — so it was wrong on arrival and every gate passed.
+**The load-bearing half is the rule that cannot see it:** "does this number occur anywhere
+in the artifact?" answers *yes*, since `113` also sits at
+`patch_cost_sensitivity/*/cases`, so the obvious gate would have been green on the defect.
+`resultnumbers.py` decides the property from the number's *shape*, and
+`tests/test_result_numbers_falsified.py` asserts the rejected rule's blindness.
 
 **Both machine-fact gates are closed, and the second was invisible from
 outside** (defects 8 and 9 in [`STATE-defects.md`](STATE-defects.md)): each was

@@ -103,7 +103,7 @@ fixture written after the repair, and asserts both lines are byte-identical — 
 shape is a merge artefact, not a document that repeats itself.
 
 **A value occurring where something else is meant is the same shape, with a new
-environment** (D045, defect 22, T-0056). `docs/process/experiment-protocol.md`
+environment** (D047, defect 22, T-0056). `docs/process/experiment-protocol.md`
 claimed `005-knitting-bounded-search` was exact on `113/113` checked cases while
 its `results.json` says `cases_with_oracle: 115`. The tempting rule — *does this
 number occur anywhere in the artifact?* — answers **yes**, because `113` also sits

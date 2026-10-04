@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041, D043, D045, D046**. Each entry records a choice that
+Decisions **D029, D032, D035, D041, D043, D046, D047**. Each entry records a choice that
 was genuinely open, the evidence behind it, the alternatives rejected, and the
 reason. Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -231,7 +231,7 @@ one cell is a different row; only pipes-delimited tables in `.md` files are read
 the rule reads the working tree rather than what a renderer would produce, so a stale
 generated file remains `doclint_tree`'s subject.
 
-## D045 — A restated number is held to the artifact it names, by the number's shape
+## D047 — A restated number is held to the artifact it names, by the number's shape
 
 Evidence: T-0056, session `2026-10-04-042`, 2026-10-04. Defect 22 in
 [`STATE-defects.md`](STATE-defects.md); [`FAILURES-findings-5.md`](FAILURES-findings-5.md)

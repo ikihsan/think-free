@@ -220,7 +220,7 @@ Separate from the invention stages, because the mission cannot be run without it
       alone, and the merge concatenated them to 307 of 300: run `37189825232` red on
       all seven rows, and `observed` from the public annotations
 - [x] An experiment number a mission record restates is held to the artifact it names
-      (`tools/originlib/resultnumbers.py`, T-0056, D045, defect 22, F024).
+      (`tools/originlib/resultnumbers.py`, T-0056, D047, defect 22, F024).
       `docs/process/experiment-protocol.md` claimed `113/113` checked cases for an artifact
       whose `cases_with_oracle` is 115 — wrong in the commit that published the artifact, with
       every gate green. **The obvious rule is blind to it**: "does this number occur anywhere in
