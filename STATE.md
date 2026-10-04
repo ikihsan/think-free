@@ -42,7 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Sessions | 51 recorded, 0 in flight once this one closes (sessions 006–007, T-0032, VM 0944) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict, and since T-0030 on an identifier defined twice or indexed without a body. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
-| Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Not exercised by any run:** a rebase conflict between VMs, and the git 2.56.0 path — CI runs 3.12 on one runner image only |
+| Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Now exercised, once:** a rebase conflict between VMs — run `37171841544` (commit `09684f2`) failed Documentation lint, and the cause is a broken relative link in a task file this VM had just written; reproduced locally at `09684f2` and fixed in `00cd829`, which is green (run `37172039525`). A conflict-marker block committed to `tasks/CLAIMS.jsonl` in the same rebase was caught by `tests/test_conflicts.py` before the push, so it never reached a run. **Not exercised by any run:** the git 2.56.0 path — CI runs 3.12 on one runner image only |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -66,8 +66,8 @@ VM renumbered to T-0029, F016, F017 and D030, two of those rounds *during one
 rebase* because the other VM pushed twice more while it resolved. **Rule
 unchanged:** renumber on the side that has not been pushed, and record the
 collision where the next reader looks — never by editing a closed event stream.
-That rule was followed when these two sessions' commits met: both had taken D031,
-and this side renumbered to D032. **The allocation cause is closed in T-0031**
+That rule was followed again when these two VMs' commits met in T-0032's
+rebase. **The allocation cause is closed in T-0031**
 (`tools/originlib/idalloc.py` reads `origin/<base>` for F, D and T and prints the
 record it read); **the detector is T-0030**, because a residual race — two VMs
 allocating between their own fetches — still collides and has to be caught. The
@@ -83,12 +83,21 @@ not stage them, and — in T-0030 — **defect 5 itself, on the detector side.**
 collision is created by the merge, so `sync land` now refuses to publish a tree
 where one identifier has two definitions, and `doc lint` rule 7 reports the same
 thing on any route to the base. Run over all 174 commits it reports **one**:
-`e6eb992`, the collision that already reached the base. **The allocator is still
-unfixed** — this refuses the commit, it does not stop two VMs racing, which is
-the ceiling defect 5 records. The orphan defect was found by reading pushed runs
+`e6eb992`, the collision that already reached the base. Refusing the commit does
+not stop two VMs racing, which is the ceiling defect 5 records. The orphan defect was found by reading pushed runs
 rather than by pushing something and watching, and it took two tasks to close:
 T-0026's verification passed while the defect was still live, because a lint on
 the author's own tree cannot see what the claim commit published.
+
+**The rebase that met T-0030 produced two collisions, and both are now
+recorded.** This VM's `D032` and VM 0947's `D032` were different decisions, so
+this side renumbered to D033 during the rebase; and the rebase resolved the
+append-only `tasks/CLAIMS.jsonl` by leaving a conflict-marker block in a commit,
+which `tests/test_conflicts.py` caught — the T-0021 rule doing the job it was
+written for, on a recurrence of F013 in a new file. Both are repaired, the
+resolution rule for a ledger conflict is now written down in
+`docs/process/multi-vm-coordination.md`, and **the fix cost one red CI run**
+(`37171841544`, a broken link this VM had just written, fixed in `00cd829`).
 
 **Session 040 closed with 61 `unlogged_change` events that are not its own.** Nearly
 all are the other VM's files — `landed.py`, `inflight.py`, `sync.py`, its task files,

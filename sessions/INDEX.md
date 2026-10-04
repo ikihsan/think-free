@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-52 recorded session(s). One `events.jsonl` per session, so concurrent
+53 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 27 older session(s) are in the directory listing.
+Showing the 25 most recent. 28 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | **unfinished** | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:47 |
 | [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
 | [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 27 older session(s) are in the directory listing.
 | [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | worked | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:13 |
 | [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | worked | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T22:35 |
 | [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | worked | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T22:09 |
-| [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | worked | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:27 |
 
 
 ## Reading a session
