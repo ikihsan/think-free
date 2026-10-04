@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-64 recorded session(s). One `events.jsonl` per session, so concurrent
+65 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 39 older session(s) are in the directory listing.
+Showing the 25 most recent. 40 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | **unfinished** | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:03 |
 | [2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch](2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/README.md) | opencode | **unfinished** | Give the file-reading CI gate steps a check-run annotation that names  | 2026-10-04T07:35 |
 | [2026-10-04-019-t-0039-make-acceptance-and-steps-append](2026-10-04-019-t-0039-make-acceptance-and-steps-append/README.md) | unknown-agent | worked | T-0039: make --acceptance and --steps append on task new | 2026-10-04T07:35 |
 | [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 39 older session(s) are in the directory listing.
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
 | [2026-10-03-040-make-origin-doctor-read-the-push-credent](2026-10-03-040-make-origin-doctor-read-the-push-credent/README.md) | opencode | worked | Make 'origin doctor' read the push credential it reports (T-0024) | 2026-10-04T01:17 |
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
-| [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
 
 
 ## Reading a session
