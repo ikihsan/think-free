@@ -98,6 +98,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md`](../tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md`](../tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md`](../tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md`](../tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
