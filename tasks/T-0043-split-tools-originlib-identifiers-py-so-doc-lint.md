@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0043
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-025-split-tools-originlib-identifiers-py-at
+claim-vm: instance-20260717-0947
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_identifiers tests.test_identifier_enforcement tests.test_decision_header tests.test_defectlist -q && tools/origin doc lint && tools/origin preflight
 -->
 
