@@ -5,7 +5,7 @@ last-verified: 2026-10-03
 -->
 
 <!-- task-meta
-id: T-0024
+id: T-0027
 status: done
 created: 2026-10-03
 claim-agent:
@@ -14,7 +14,7 @@ claim-vm:
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check && tools/origin skills verify
 -->
 
-# T-0024 — Make 'origin doctor' report the push credential mechanism it never ins
+# T-0027 — Make 'origin doctor' report the push credential mechanism it never ins
 
 ## Goal
 

@@ -334,3 +334,18 @@ Ran 305 tests in 153.797s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 154287  redactions: none
+==============================================================================
+[seq 36] 2026-10-04T00:53:52+00:00
+$ sh -c git push origin HEAD:research/origin 2>&1 | tail -8
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+To https://github.com/ikihsan/think-free.git
+ ! [rejected]        HEAD -> research/origin (fetch first)
+error: failed to push some refs to 'https://github.com/ikihsan/think-free.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1958  redactions: none
