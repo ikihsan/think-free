@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-92 recorded session(s). One `events.jsonl` per session, so concurrent
+93 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 67 older session(s) are in the directory listing.
+Showing the 25 most recent. 68 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | **unfinished** | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:41 |
 | [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | **unfinished** | Decide and execute the highest-information research action after 12 pr | 2026-10-04T20:22 |
 | [2026-10-04-046-test-whether-zero-adoption-is-general-or](2026-10-04-046-test-whether-zero-adoption-is-general-or/README.md) | unknown-agent | worked | Test whether zero-adoption is general or specific to the agent-auditin | 2026-10-04T20:20 |
 | [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 67 older session(s) are in the directory listing.
 | [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
 | [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 | [2026-10-04-026-record-the-run-on-t-0043-s-landed-commit](2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/README.md) | opencode | worked | Record the run on T-0043's landed commit and the session-commit mistak | 2026-10-04T09:16 |
-| [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | worked | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T09:01 |
 
 
 ## Reading a session
