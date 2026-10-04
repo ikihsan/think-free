@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0052
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 
+claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows -q && tools/origin doc lint && tools/origin preflight
 -->
 
