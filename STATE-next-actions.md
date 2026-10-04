@@ -17,15 +17,28 @@ of those it cannot touch.
 
 ## Ordered by information gained per unit of effort
 
-0. **Measure the CI flake before theorising about it.** Three tests failed on
-   identical bytes (runs `37219755262`, `37220040091`) and six full suite runs on
-   `instance-20260717-0947` did not reproduce it; T-0057 made the annotation carry
-   the exception so the *next* occurrence names itself, which is the cheap half.
-   The expensive half is the measurement nobody has taken: `make_fleet` copies the
-   whole tooling tree into a fresh bare remote plus two clones **per test class**,
-   so fixture cost scales with the number of tests and a 2-CPU runner is the only
-   place it shows. Instrument `make_fleet` — bytes written and git subprocesses per
-   class — and the ceiling is a number rather than a hunch.
+0. **Decide what the mission selects candidates on, now that novelty cannot be
+   the filter.** Twelve candidates, twelve prior-art deaths, the twelfth being
+   `tools/origin` itself — mechanism prior art six weeks old, discipline
+   independently reinvented, and every project in the niche at zero adoption
+   (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). Prior-art survival cannot be
+   the selection procedure, because nothing this mission produces passes it.
+   This is an **owner decision**: which axis replaces it (usefulness measured
+   without users, distribution, domain knowledge, or something not yet named),
+   and whether publishing the tooling as-is is ever on the table. **Ceiling:**
+   F027's sample is small and self-selected, and 0 stars is a weak proxy with
+   known false negatives (`ripgrep`, `jq`). Nothing here is blocked on tooling.
+ 0b. **Measure the CI flake — deferred, and the deferral is a decision rather
+    than an oversight.** Three tests failed on identical bytes (runs
+    `37219755262`, `37220040091`) and six full suite runs on
+    `instance-20260717-0947` did not reproduce it; T-0057 made the annotation
+    carry the exception so the *next* occurrence names itself, which is the
+    cheap half. The expensive half is the measurement nobody has taken:
+    `make_fleet` copies the whole tooling tree into a fresh bare remote plus two
+    clones **per test class**, so fixture cost scales with the number of tests
+    and a 2-CPU runner is the only place it shows. **It is 0b because CI is
+    green and nothing is blocked on it.** Worth taking when a VM is otherwise
+    idle; not worth displacing a research question for.
 
 
 1. **A gate must read the property it claims to check, and must be falsified

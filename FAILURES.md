@@ -22,7 +22,8 @@ Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md) for
 F001–F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009–F012,
 [`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013–F017,
 [`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021, and
-[`FAILURES-findings-5.md`](FAILURES-findings-5.md) from F022, split because each
+[`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022–F025, and
+[`FAILURES-findings-6.md`](FAILURES-findings-6.md) from F026, each split because a
 file reached the 300-line cap:
 
 | Id | Subject |
@@ -52,6 +53,8 @@ file reached the 300-line cap:
 | F023 | A refusal whose remedy was the one thing an agent must not do by hand |
 | F024 | A restated experiment number was false, and the obvious gate cannot see it |
 | F025 | The window that made a red run explicable ended one line before the answer |
+| F026 | The byproduct thesis is disconfirmed: this mission's own tooling is prior art, and so is its discipline |
+| F027 | Every project in this niche has zero users, so "plausible adoption path" cannot discriminate here |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

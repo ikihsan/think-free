@@ -32,7 +32,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
+| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21) |
 | Users and adoption | None. No product, no release, no claims |
@@ -121,6 +121,22 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
 push this reload point past the line cap.
 
+- **Session 045, VM 0947. The byproduct thesis is disconfirmed, and the
+  disconfirmation is the finding.** `tools/origin` had never been counted among
+  the candidates because it never was one — it is a byproduct of two VMs
+  coordinating. Tested as a candidate under three vocabularies, its mechanism is
+  prior art: [`gitreceipts`](https://github.com/jagmeetchawla/gitreceipts) (MIT,
+  Rust, published 2026-08-10, 158 downloads) "reconciles a coding-agent session
+  log against the git history it claims to explain", in **both** directions, so
+  it is a strict superset of this repository's `unlogged_change`. Worse for the
+  mission's self-image: that project's `KNOWN-LIMITATIONS.md` argues the same
+  three positions this repository reached over 87 sessions — do not loosen a
+  match until it launders real losses, three renderings of one receipt, and
+  remove a field that cannot mean what its name says. **Twelve candidates, twelve
+  prior-art deaths**, so prior-art survival cannot be the selection filter. Full
+  account: [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md); F026,
+  F027. **The baseline was not run** — `cargo` is absent on this VM, so the
+  head-to-head is `unperformed` and no comparative claim is made.
 - **Session 040, VM 0947 (T-0054, cancelled).** **Two VMs found defect 21 nine
   minutes apart.** This VM hit `task claim`'s refusal at 15:08Z and created T-0054 to
   fix it; the other hit the same refusal at 15:17Z, created T-0055 and landed the fix
@@ -139,26 +155,12 @@ push this reload point past the line cap.
   fast-forward, or an arrival the tooling already recorded is refused. Both
   directions are falsified: with the `recover` call removed, the arrival is
   reported undeclared again, and a merge or fast-forward never matches.
-- **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own false
-  negative in a clause and no gate read it: `reconcile` reused the *line cap's* exemption
-  predicate, which answers yes for every `.json`, `.jsonl` and `.log`, so
-  `tests/python-versions.json` — the record that decides whether a VM can run the work —
-  changed with nothing declared and nothing reported. **Priced before the repair, by a
-  committed script:** 72 (session, path) pairs over 17 paths across 77 closed sessions,
-  50 of them the ledger, so 50 closed sessions now report a file they cannot declare; a
-  closed stream is not edited, so the residual is written down rather than discovered.
-  Falsified both ways, and the first mutation passed all 16 because the patch did not
-  land — the second time this repository has been caught by it. In
-  [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
-- **Session 036, VM 0944 (T-0052, D043, defect 20).** Commit `eff1126` — a rebase of one
-  VM's branch onto a base the other had already extended — carried `STATE.md` with a
-  byte-identical second copy of its `Implemented (2)` dashboard row, one per VM, and
-  every gate passed: the reload point a cold session reads first showed two rows that
-  are one fact, and the next session removed one by hand. Measured: 47 documents repeat
-  a table row, **all 47 generated reports**, where an artifact listed once per event is
-  the truth. **A hand-authored document may not say a thing twice**, with the exemption
-  read from the `generated-by` marker rather than from a path. Falsified both ways — the
-  rule removed reports nothing, the exemption removed reports 47 on a clean tree.
+- **Sessions 034 and 036, VM 0947/0944 (T-0050, T-0052).** Two record-integrity
+  findings whose full accounts are in [`FAILURES-findings-5.md`](FAILURES-findings-5.md)
+  (F022) and in defect 20: a reconcile rule that reused the line cap's exemption
+  predicate, and a rebase that carried a duplicated dashboard row past every
+  gate. Compressed here to pointers; both remain open to the next reader at
+  those two places.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -191,11 +193,17 @@ Full list, with the ceiling on each item and the reasoning behind it, is in
 [`STATE-next-actions.md`](STATE-next-actions.md). Ordered by information gained
 per unit of effort; the top item is:
 
-**A gate must read the property it claims to check, and must be falsified
-against the defect's own bytes before it is trusted** (D025, from F013). Six
-gates now work that way, and the newest adds a third kind of falsification —
-run the thing on an input the record does not name, rather than mutating the
-code. **Ceiling:** each rule detects only the shape it was written against.
+**The selection procedure is now the suspect, not any one candidate.** F026 and
+F027 put the mission at **twelve candidates and twelve prior-art deaths**, the
+twelfth being its own tooling. Three of stage C's four criteria are now flat or
+negative in the one niche this mission has been working in: differentiation is
+falsified for the mechanism, "plausible adoption path" returns the same answer
+for every project including ours, and practical value has never been measured by
+anyone. **Prior-art survival cannot be the filter, because nothing this mission
+produces passes it.** The next candidate must therefore be chosen on a different
+axis than novelty, and the axis is an owner decision, not a tooling decision.
+**Ceiling:** F027 is a small self-selected sample of one niche, and weak proxies
+(0 stars) have well-known false negatives — `ripgrep` and `jq` are not refuted.
 
 **The gap in that pattern, found twice by colliding with it — closed, and the
 second collision was in the record rather than in a red run.** Rule 7 did not

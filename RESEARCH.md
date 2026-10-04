@@ -26,6 +26,7 @@ Method: [`docs/process/hypothesis-lifecycle.md`](docs/process/hypothesis-lifecyc
 | [`F.md`](RESEARCH/F.md) | Adoption researcher | Sealed | Time-to-first-value, distribution, comprehension cost, six pre-release checkable criteria |
 | [`SYNTHESIS.md`](RESEARCH/SYNTHESIS.md) | Cross-report screen | Active | All six reports screened with E's falsifiability criterion and F's time-to-first-value lens; ranked survivor list |
 | [`PRIOR-ART-KNITTING.md`](RESEARCH/PRIOR-ART-KNITTING.md) | Prior-art check | Sealed | The knitting candidate's last kill-gate condition, searched in three vocabularies plus patents and the GitHub API (T-0015) |
+| [`PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md) | Prior-art check | Sealed | The mission's own tooling, tested as a candidate for the first time: mechanism prior art six weeks old, discipline reinvented independently, niche adoption flat (F026, F027) |
 
 [`EXPERIMENT-PROTOCOL.md`](RESEARCH/EXPERIMENT-PROTOCOL.md) was promoted to
 [`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md);

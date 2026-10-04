@@ -146,6 +146,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`RESEARCH/EXPERIMENT-PROTOCOL.md`](../RESEARCH/EXPERIMENT-PROTOCOL.md) | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | The canonical text is now |
 | [`RESEARCH/F.md`](../RESEARCH/F.md) | `RESEARCH.md` | sealed | 2026-10-03 | Independent report. Written 2026-10-03 after reading MISSION.md only; |
 | [`RESEARCH/PRIOR-ART-KNITTING.md`](../RESEARCH/PRIOR-ART-KNITTING.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
+| [`RESEARCH/PRIOR-ART-ORIGIN.md`](../RESEARCH/PRIOR-ART-ORIGIN.md) | `RESEARCH.md` | sealed | 2026-10-04 | Written 2026-10-04, session 2026-10-04-045. Follows the method of |
 | [`RESEARCH/README.md`](../RESEARCH/README.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
 | [`RESEARCH/ROOT-SCOUTING.md`](../RESEARCH/ROOT-SCOUTING.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
 | [`RESEARCH/SYNTHESIS.md`](../RESEARCH/SYNTHESIS.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
