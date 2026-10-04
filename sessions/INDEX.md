@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-95 recorded session(s). One `events.jsonl` per session, so concurrent
+96 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 70 older session(s) are in the directory listing.
+Showing the 25 most recent. 71 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-053-classify-the-three-findings-files-releas](2026-10-04-053-classify-the-three-findings-files-releas/README.md) | unknown-agent | **unfinished** | Classify the three findings files release check named, and confirm pre | 2026-10-04T21:12 |
 | [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | worked | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:10 |
 | [2026-10-04-051-close-the-three-documentation-gaps-sessi](2026-10-04-051-close-the-three-documentation-gaps-sessi/README.md) | unknown-agent | worked | Close the three documentation gaps session 050 reported, and record wh | 2026-10-04T21:02 |
 | [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | worked | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:44 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 70 older session(s) are in the directory listing.
 | [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | worked | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T11:13 |
 | [2026-10-04-030-attribute-a-task-file-that-a-task-comman](2026-10-04-030-attribute-a-task-file-that-a-task-comman/README.md) | opencode | worked | attribute a task file that a task command rewrote to that command, ver | 2026-10-04T11:01 |
 | [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | worked | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:47 |
-| [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
 
 
 ## Reading a session
