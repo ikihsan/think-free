@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0053
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-04-038-record-a-base-advance-when-a-paused-reba
+claim-vm: 
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_land_hand_completed_rebase -q && tools/origin preflight
 -->
 

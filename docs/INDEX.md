@@ -128,6 +128,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md`](../tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0051-make-doc-lint-s-broken-link-verdict-a-function-o.md`](../tasks/T-0051-make-doc-lint-s-broken-link-verdict-a-function-o.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md`](../tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md`](../tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
