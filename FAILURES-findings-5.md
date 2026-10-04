@@ -228,7 +228,6 @@ can police. And a number quoted from a run whose artifact was not committed —
 `116/116` from 005's `--slow` run — would be reported, since nothing here can
 check it.
 
-<<<<<<< HEAD
 ## F025 — The window that made a red run explicable ended one line before the answer
 
 Evidence: runs `37219755262` and `37220040091`, 2026-10-04, on identical bytes.

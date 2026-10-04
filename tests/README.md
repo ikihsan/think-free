@@ -13,13 +13,12 @@ fresh VM with nothing installed.
 PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
 ```
 
-**Both parts of that line are load-bearing, and `AGENTS.md` had only
+**Both parts are load-bearing, and `AGENTS.md` had only
 `python3 -m unittest discover -s tests` until 2026-10-04.** The shorter form
-collects the tests and then fails all 42 modules with
-`ModuleNotFoundError: No module named 'harness'` or `'originlib'`, because the
-test tree imports the tooling by bare module name. An agent following the
-shorter command concludes the suite is broken. `observed` on this VM, Python
-3.8.10; the repair corrected the instruction set, and no code changed.
+fails all 42 modules with `ModuleNotFoundError` for `harness` or `originlib`,
+because the test tree imports the tooling by bare module name, so an agent
+following it concludes the suite is broken. `observed`, Python 3.8.10; the
+repair corrected the instruction set and no code changed.
 
 Each test builds a throwaway git repository in a temporary directory, copies the
 tooling into it, and points `ORIGIN_ROOT` at it. Tests therefore exercise the
@@ -294,7 +293,6 @@ to be named separately in the first place. Price that class of change **before**
 making it — `tools/sweep_unlogged_data.py` answers "how many reports would appear"
 from git and the committed streams, and the answer (72 pairs over 17 paths) is what
 told this repair its residual had to be written down rather than discovered.
-
 ## Running a subset
 
 About four minutes on two cores, so iterate on one file instead:

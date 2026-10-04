@@ -19,24 +19,18 @@ Distinguishing the kind of failure matters, because it determines the next step:
 | Access or resources blocked it | Unknown; record the blocker precisely |
 
 Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md) for
-F001–F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009–F012,
-[`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013–F017,
-[`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021, and
-[`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022–F025, and
-[`FAILURES-findings-8.md`](FAILURES-findings-8.md) from F031, each split because a
-file reached the 300-line cap. **F025, F026 and F027 were taken by the other VM
-first**, so this side's findings are renumbered F029 onwards on the unpushed
-side, per the rule in
+F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
+[`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013-F017,
+[`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018-F021,
+[`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022-F025,
+[`FAILURES-findings-6.md`](FAILURES-findings-6.md) for F026 onward, and
+[`FAILURES-findings-8.md`](FAILURES-findings-8.md) (F031),
+[`FAILURES-findings-9.md`](FAILURES-findings-9.md) (F029) and
+[`FAILURES-findings-10.md`](FAILURES-findings-10.md) (F030), split because each
+file reached the 300-line cap. **F025 through F028 were taken by the other VM
+first**, so this side's findings are F029 onward, renumbered on the unpushed
+side per the rule in
 [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
-
-[`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021,
-[`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022–F025,
-[`FAILURES-findings-6.md`](FAILURES-findings-6.md) for F028, and
-[`FAILURES-findings-7.md`](FAILURES-findings-7.md) from F029, split because each
-file reached the 300-line cap. **F026 and F027 belong to the other VM's pushed
-findings** (the byproduct thesis, and adoption in this niche), so this side's
-need-corpus findings were renumbered F028/F029 on the unpushed side per the
-rule in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
 
 | Id | Subject |
 |---|---|

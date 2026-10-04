@@ -188,7 +188,7 @@ infrastructure item.
 
 ## D049 — A need corpus supplies problem statements; recurrence comes from a repository-denominated issue corpus (2026-10-04)
 
-Observed: F028. A harvest of 1401 unmet-need statements from Hacker News
+Observed: F029. A harvest of 1401 unmet-need statements from Hacker News
 comments created after 2024-01-01, screened by a stated rule that drew 50 of
 them, yielded **zero survivors** — 38% already served by a tool, 30% stating
 no mechanism, 24% not software needs, 8% needing hardware. The prior generator's
@@ -197,7 +197,7 @@ no internal recurrence signal either: term recurrence over 1273 clauses returns
 only function words. But the same cluster, measured in a different unit, gives
 5805 open issues across 28 repositories for `"not asked for"` and 14510 across
 29 for `"unrelated changes"`, with `claude-code` and `copilot-cli` in the sets.
-F029: one search query decides a prior-art verdict wrongly in both directions —
+F030: one search query decides a prior-art verdict wrongly in both directions —
 502 hits from `in:readme` that were `awesome-go`, and 0 hits that became 29-83
 on a second phrasing.
 
@@ -213,12 +213,12 @@ one corpus, with the phrasings written down.
 Rejected: (a) keeping the harvest as the candidate generator, refuted by the
 0-against-50 measurement; (b) taking GitHub's issue count as a measure of
 prevalence, which is full-text self-selection and needs a repository-signal
-filter before it means anything; (c) treating F029's four revised verdicts as
+filter before it means anything; (c) treating F030's four revised verdicts as
 candidate gaps, which is the error the decision exists to prevent; (d) declaring
 candidate generation solved and moving on, since 0 of 50 says this generator is
 spent, not that the pipeline is.
 
-Consequence: `EXPERIMENTS/011-candidate-harvest/` is retained with its raw
+Consequence: `EXPERIMENTS/012-candidate-harvest/` is retained with its raw
 capture and four runnable probes. The next candidate action is to build the
 repository-signal filter and re-harvest through it, testing first the cluster
 with the strongest measured recurrence — changes a coding agent makes that

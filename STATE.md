@@ -31,12 +31,9 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029, T-0040) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028, T-0042–T-0045) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F025 a red-run cause was made readable but never explained; F026 this mission's own tooling is prior art as a candidate; F027 every project in that niche has zero users; F028 the flat adoption tail is vocabulary age, not niche; F029 a live corpus of 1401 need statements yielded 0 of 50 candidates that survive the screens; F030 a prior-art verdict from one search query is wrong in both directions. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** **Two more candidate lines were opened and closed in one day**: this repository's own tooling as a byproduct candidate (F026) and a live need corpus as a generator (F029). No candidate validated. Findings F001-F008 in `FAILURES-findings.md`, F009-F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md`, F022-F025 in `FAILURES-findings-5.md`, F026+ in `FAILURES-findings-6.md`, F029/F030/F031 in `FAILURES-findings-9.md`, `-10.md`, `-8.md` |
 
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021); `011-candidate-harvest` complete (1401 harvested needs, 50 drawn by rule, **0 survived the screens**; the corpus cannot carry recurrence, the repository can, F028) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F028 a live corpus of 1401 practitioner need statements yielded 0 of 50 candidates that survive the screens, so a need statement is not a candidate; F029 a prior-art verdict from one search query is wrong in both directions — 502 hits that were `awesome-go`, 0 hits for an idea with 29–83 repositories. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21) |
 | Users and adoption | None. No product, no release, no claims |
@@ -53,14 +50,14 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 ## In flight
 
 **The candidate generator was tested against a live corpus and refuted; the
-missing input is named** (defect none, `EXPERIMENTS/011`, D049, F028, F029).
+missing input is named** (`EXPERIMENTS/012`, D049, F029, F030).
 1401 practitioner need statements harvested from Hacker News comments since
 2024-01-01; 50 drawn by a stated rule; **0 survived** — 38% prior art, 30% no
 mechanism, 24% not software, 8% needing hardware, against the prior generator's
 own 3-of-16. The corpus cannot supply the one signal that matters, recurrence:
 term recurrence returns only function words. Counted by **repository** the same
 cluster is unambiguous — 5805 open issues across 28 repositories. D049 makes
-problem statements and recurrence separate inputs. **F029:** a prior-art verdict
+problem statements and recurrence separate inputs. **F030:** a prior-art verdict
 from one search query is wrong in both directions — 502 hits that were
 `awesome-go`, and 0 hits for an idea with 29–83 repositories behind it.
 
@@ -137,85 +134,42 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
 push this reload point past the line cap.
 
-- **Session 045, VM 0947. The byproduct thesis is disconfirmed, and the
-  disconfirmation is the finding.** `tools/origin` was never counted among the
-  candidates because it never was one — it is a byproduct of two VMs
-  coordinating. Tested as a candidate under three vocabularies, its mechanism is
-  prior art: [`gitreceipts`](https://github.com/jagmeetchawla/gitreceipts) (MIT,
-  Rust, published 2026-08-10, 158 downloads) "reconciles a coding-agent session
-  log against the git history it claims to explain", in **both** directions, so on
-  that axis it covers more than this repository's `unlogged_change` (not all of
-  its reconciliation: base-advance attribution and declared exemptions are absent).
-  Worse for the mission's self-image: that project's
-  `KNOWN-LIMITATIONS.md` argues the same three positions this repository
-  reached over 87 sessions — do not loosen a match until it launders real
-  losses, three renderings of one receipt, and delete a field that cannot
-  mean what its name says. **Twelve candidates, twelve prior-art
-  deaths**, so prior-art survival cannot be the selection filter.
-  Full account: [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md);
-  F026, F027.
-- **Session 046, VM 0947 (T-0058). The flat tail in F027 is vocabulary
-  age, not niche.** `lockfile drift` (top 6 stars, 57 repos) and
-  `dependency quarantine` (top 8, 29 repos) reproduce F027's flat tail in
-  the same young-vocabulary cluster, while `reproducible builds` /
-  `build provenance` / `supply chain audit` / `artifact provenance` carry
-  heavy tails whose outliers are long-lived or vendor-official. So a
-  stars-based "plausible adoption path" criterion is uninformative for
-  every vocabulary younger than a few years — which is where all twelve
-  candidates lived. F028,
+- **Session 047, VM 0947 (T-0058, F028).** The flat adoption tail is vocabulary
+  age, not niche: `build provenance` / `supply chain audit` carry long-lived or
+  vendor-official outliers, so a stars-based "plausible adoption path" criterion
+  is uninformative for a vocabulary younger than a few years — which is where
+  every candidate lives. Census in
   [`EXPERIMENTS/011-niche-adoption-census`](EXPERIMENTS/011-niche-adoption-census/README.md).
-- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21
-  nine minutes apart; the unpushed side yielded, and the rule it left is
-  in [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-
-  Worse for the mission's self-image: that project's `KNOWN-LIMITATIONS.md` argues the same three positions this repository reached over 87 sessions — do
-  not loosen a match until it launders real losses, three renderings of one
-  receipt, and delete a field that cannot mean what its name says. **Twelve
-  candidates, twelve prior-art deaths**, so prior-art survival cannot be the
-  selection filter. **The baseline was not run** — `cargo` is absent here, so
-  the head-to-head is `unperformed`. Full account:
-  [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md); F026, F027.
-
-- **Sessions 043–044, VM 0944.** Session 043 was found open with its work
-  uncommitted; its measured half is landed as **F030** (effort allocation:
-  1.3% of day-two commits touched `EXPERIMENTS/`, 4.8:1 record to measurement)
-  and **D048** (the next-action list must carry an invention item). Session 044
-  took the E2 side-B snapshot the protocol had scheduled — `EXPERIMENTS/009`
-  shows **zero lockfile drift at ~21h**, a fast-drift null only — and then spent
-  the session on the invention seat itself: **F028** (1401 harvested needs,
-  50 drawn by rule, 0 survived the screens), **F029** (one query decides a
-  prior-art verdict wrongly in both directions), **D049** (problem statement and
-  recurrence are separate inputs), and `EXPERIMENTS/011`.
-- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21 nine minutes
-  apart and gave it different numbers, so neither allocator nor detector had
-  anything to say — and that was right: no identifier collided, the *finding* did.
-  The unpushed side yielded whole; what survived is the gap the landed fix left, a
-  claim published and an exclusion proven but not composed. Full account and the
-  rule: [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
-  nothing, so its paths were attributed to the session that happened to hold the
-  tree: session 034's nine `unlogged_change` events were exactly that. Now
-  `landrebase.recover` records a hand-completed rebase's arrival from
-  `ORIG_HEAD` plus the `rebase …: checkout` reflog entry, and a merge, a
-  fast-forward, or an arrival the tooling already recorded is refused. Both
-  directions are falsified: with the `recover` call removed, the arrival is
-  reported undeclared again, and a merge or fast-forward never matches.
-- **Sessions 034 and 036 (T-0050, T-0052).** Two record-integrity
-  findings; F022 in [`FAILURES-findings-5.md`](FAILURES-findings-5.md) and defect 20.
-
-  nothing, so its paths were attributed to whoever held the tree. `landrebase
-  .recover` now records a hand-completed rebase from `ORIG_HEAD` plus the reflog
-  entry, and refuses a merge, a fast-forward, or an arrival already recorded.
-- **Session 034, VM 0947 (T-0050, D042, F022).** `reconcile` reused the *line cap's*
-  exemption predicate, so version records and the ledger changed with nothing
-  declared and nothing reported. Priced before the repair by a committed script
-  (72 session/path pairs) and falsified both directions, the first time failing
-  because the patch did not land. In
-  [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
-- **Session 036, VM 0944 (T-0052, D043, defect 20).** A rebase carried `STATE.md` with
-  a byte-identical second copy of one dashboard row and every gate passed. **A
-  hand-authored document may not say a thing twice**, exemption read from the
-  `generated-by` marker rather than from a path; falsified both ways.
+  **Which axis replaces the criterion is an owner decision**, and is recorded as
+  such.
+- **Session 045, VM 0947 (F026, F027).** This repository's own tooling was tested
+  as a candidate for the first time, and it is prior art: `gitreceipts`
+  reconciles a coding-agent session log against git history in both directions,
+  which covers more than `unlogged_change`. Worse for the mission's self-image,
+  that project's `KNOWN-LIMITATIONS.md` argues the same three positions this
+  repository reached over 87 sessions. Twelve candidates, twelve prior-art
+  deaths, so prior-art survival cannot be the selection filter. The head-to-head
+  was **not run** — `cargo` is absent here. Full account:
+  [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md).
+- **Sessions 043-044, VM 0944 (F031, D048, D049, E012).** Session 043 measured
+  where effort went — 1.3% of day-two commits touched `EXPERIMENTS/`, 4.8:1
+  record to measurement (F031) — and D048 gave the list an invention item.
+  Session 044 took the scheduled E2 side-B snapshot (**zero lockfile drift at
+  ~21h**, a fast-drift null only) and then tested the invention seat itself:
+  **1401 need statements harvested, 50 drawn by a stated rule, 0 survived the
+  screens** (F029), a prior-art verdict from one query is wrong in both
+  directions (F030), and the missing input named — recurrence counted by
+  repository, not by request (D049). **Renumbered F028/F029 → F029/F030 and
+  `EXPERIMENTS/011` → `012` on the unpushed side**, because the other VM had
+  taken those first.
+- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21 nine
+  minutes apart; the unpushed side yielded whole. Rule in
+  [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+- **Sessions 034-038 (T-0050, T-0052, T-0053).** `reconcile` reused the line
+  cap's exemption predicate, so version records changed undeclared and unpriced
+  (F022, `FAILURES-findings-5.md`); a rebase carried a duplicated dashboard row
+  past every gate (D043); a hand-run rebase recorded nothing, so its paths were
+  attributed to whoever held the tree (T-0053).
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -260,63 +214,41 @@ axis than novelty, and the axis is an owner decision, not a tooling decision.
 **Ceiling:** F027 is a small self-selected sample of one niche, and weak proxies
 (0 stars) have well-known false negatives — `ripgrep` and `jq` are not refuted.
 
-**The gap in that pattern, found twice by colliding with it — closed, and the
-second collision was in the record rather than in a red run.** Rule 7 did not
-read the numbered list in `STATE-defects.md`, so two VMs took defect 7 in the same
-hour and nothing said so (T-0036). It then did not read the third place a
-decision number is written — the `Decisions **…**` header under each record's
-title — so two of the five records were false while every gate passed, with both
-index rows in `DECISIONS.md` correct throughout (T-0042, defect 14). One entry
-point reads all three sources now, and the CI annotations confirm it reaches
-`doc lint`.
+**The gaps in that pattern, both found by colliding with it, and one of them in
+the record rather than in a red run.** Rule 7 did not read the numbered list in
+`STATE-defects.md`, so two VMs took defect 7 in the same hour and nothing said so
+(T-0036). It then did not read the third place a decision number is written — the
+`Decisions **...**` header under each record's title — so two of five records were
+false while every gate passed, with both index rows in `DECISIONS.md` correct
+throughout (T-0042, defect 14). One entry point reads all three sources now.
 
-**What the three red runs on 2026-10-04 say about the general rule.** Each was
-diagnosed by reading annotations rather than by reproducing anything, and two of
-the three were this VM's own omissions — a merge that crossed a line cap, and a
-root document nothing classified. The pattern is not "gates are missing" but
-**gates that exist and are never run**: a task's `verify` omits the one gate its
-change can break, a fixture omits the clock the code reads, a split leaves one
-reader unwired. T-0045's fix is the general one: put the gate in the command the
-protocol already points at, so there is nothing left to forget.
+**The pattern in the red runs of 2026-10-04 is not "gates are missing" but gates
+that exist and are never run**: a task's `verify` omits the one gate its change can
+break, a fixture omits the clock the code reads, a split leaves one reader unwired.
+T-0045's fix is the general one — put the gate in the command the protocol already
+points at, so there is nothing to forget. A gate must also read the property it
+claims to check and be falsified against the defect's own bytes (D025, F013); nine
+gates work that way, the newest holding a restated experiment number to its
+artifact by the number's *shape* (T-0056, F024, defect 22).
 
-**The decision log could not record its own next decision, and that is now
-paid off.** `DECISIONS-GATING.md` stood at 297 of 300 permitted lines and its own
-header said so, so T-0036's decision — one entry point for every source of an
-identifier, and a rule that cannot read its input must report that — lived in code
-and in the state file instead of the log, which is the opposite of what a decision
-log is for. D036 is recorded there, in the file its own invariant names, and
-D029/D032/D035 moved verbatim to `DECISIONS-RECORDS.md`.
+**Line caps are the standing friction, and each repair moved material to the file
+whose invariant owns it.** `STATE.md`, `STATE-defects.md`,
+`FAILURES-findings-4.md` and `tests/README.md` have each hit 300 of 300 and been
+split. `STATE-defects.md` cannot be split inside its own numbered list without
+`defectlist.py` reading more than one file, so that split is a task.
 
-**A stale generated file is the same defect whichever file it is, and four
-repairs have now missed a layer.** Three commits have reddened CI by carrying one
-and a fourth was published by `land` itself (`e942225`, session 022's
-`4c5349d`). T-0026/T-0027 fixed the *task* commands, session 015 fixed the *CLI*,
-and only now has the layer that *merges* trees been covered: after every rebase
-`sync land` asks `doc lint`'s question — is each generated file equal to its
-renderer — and commits the answer before the push (T-0041, defect 13).
+**Four repair rounds have missed a layer, and the layer that *merges* trees was
+the one nobody covered.** A stale generated file is the same defect whichever file
+it is: three commits reddened CI by carrying one and a fourth was published by
+`land` itself (`e942225`). T-0026/T-0027 fixed the *task* commands, session 015
+fixed the *CLI*, and only T-0041 covered the *merge* (defect 13). This session
+saw the same class again — a merge carried a duplicated dashboard row past every
+gate, which D043 already named.
 
-**A gate step that says nothing is read by elimination, and a step that never runs is
-read as one that passed** (T-0046, defect 18, F021). Each of the five file-reading steps
-carried an `if:` with no status function, so GitHub's implicit `success()` skipped all
-five on a red `Tests` step: runs `37189825232` and `37190842104` carry no annotation the
-annotator emitted, and four gates did not run at all with nothing to say so. Each such
-step says `always() &&` now, held by a test falsified against the workflow as it was,
-and `tools/origin probe` publishes one annotation per rendering shape on every run, so
-the reference and the failure come from the same place. **What it cost:** the record had
-declared the annotator's rendering `unmeasured` and quoted a run that never reached it.
-
-**Line caps are the standing friction, and each repair moved material to the file whose
-invariant owns it.** `STATE.md` and `STATE-defects.md` were both at 300 of 300; T-0046
-landed its entries by deleting a section that restated a rule the preamble already gave
-and by moving five older session entries to `STATE-history-2.md`; T-0047 cut duplication
-out of four entries whose detail already lives in `tests/README.md` and
-`docs/reference/identifier-allocation.md`. Both bought a few entries and no headroom.
-`syncland.py` reached 310 with the rebase resume and is now split by the division
-`doclint_tree.py` used. `DECISIONS-GATING.md` is at 296 after T-0048's relocation,
-`FAILURES-findings-4.md` is at 297, `tasks.py` is the next code file to reach the cap at
-295, and `STATE-defects.md` cannot be split inside its own numbered list without
-`defectlist.py` reading more than one file. The gating decision T-0040 owed is written,
-as D037 and D038, in the file its invariant names.
+**The decision log could not record its own next decision, and that is now paid
+off.** `DECISIONS-GATING.md` stood at 297 of 300 permitted lines, so T-0036's
+decision lived in code and in this file instead of the log. D036 is recorded there,
+in the file its own invariant names.
 
 ## Capability evidence
 
