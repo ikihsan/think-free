@@ -130,6 +130,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md`](../tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md`](../tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0054-measure-every-commit-on-the-base-branch-that-red.md`](../tasks/T-0054-measure-every-commit-on-the-base-branch-that-red.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0055-publish-a-task-claim-from-inside-an-open-session.md`](../tasks/T-0055-publish-a-task-claim-from-inside-an-open-session.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 

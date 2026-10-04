@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-83 recorded session(s). One `events.jsonl` per session, so concurrent
+84 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 58 older session(s) are in the directory listing.
+Showing the 25 most recent. 59 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-041-repair-the-red-base-state-md-over-the-li](2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md) | opencode | **unfinished** | Repair the red base (STATE.md over the line cap) and fix the task-clai | 2026-10-04T15:12 |
 | [2026-10-04-040-measure-the-taskless-session-red-ci-run](2026-10-04-040-measure-the-taskless-session-red-ci-run/README.md) | unknown-agent | **unfinished** | measure the taskless-session red CI run across the whole base and answ | 2026-10-04T15:07 |
 | [2026-10-04-038-record-a-base-advance-when-a-paused-reba](2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md) | unknown-agent | worked | Record a base_advance when a paused rebase is completed by hand (T-005 | 2026-10-04T14:53 |
 | [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 58 older session(s) are in the directory listing.
 | [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
 | [2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc](2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/README.md) | opencode | worked | T-0037: explain the four red CI runs since the version matrix landed | 2026-10-04T07:15 |
 | [2026-10-04-017-t-0036-report-a-duplicate-defect-number](2026-10-04-017-t-0036-report-a-duplicate-defect-number/README.md) | unknown-agent | worked | T-0036: report a duplicate defect number in STATE-defects.md as a doc  | 2026-10-04T06:58 |
-| [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | worked | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:05 |
 
 
 ## Reading a session
