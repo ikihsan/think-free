@@ -11,8 +11,7 @@ it is fixed. Split out of [`STATE.md`](STATE.md) on 2026-10-04 when that file
 reached 293 of the 300 permitted lines, so the reload point stays a reload point.
 
 The rule for this list: a defect is *solved* only when a gate fails on its own
-bytes and passes on the repair. A repair that has not been falsified against the
-defect is listed as open.
+bytes and passes on the repair. A repair not falsified against its defect is open.
 
 1. **An in-flight session reddened every other VM's CI** (solved in T-0020). Two
    correct rules met — `task claim` needs HEAD on the remote base, so a claiming
@@ -110,9 +109,9 @@ defect is listed as open.
 
 ## Open
 
-Numbering is continuous and never reused, so a solved defect keeps its
-number and this section is not in numeric order: entries land under whichever
-heading they belong in when they are closed.
+Numbering is continuous and never reused, so a solved defect keeps its number and
+this section is not in numeric order: an entry lands under whichever heading
+belongs to it when it is closed.
 
 11. **`task new` silently keeps one `--acceptance` line and drops the rest** (solved
     in T-0039). Five criteria were passed on the command line and the task file
@@ -289,6 +288,9 @@ heading they belong in when they are closed.
 **Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
 reached twice** — sessions 012 and 040, both through hand-run
 `git rebase --continue`. See defect 2.
+
+17. **A gate's report named a step and nothing else** (solved in T-0040, with two faults in
+    the same path; see [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
 
 ## What a fix costs to believe
 

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # Multi-VM coordination
@@ -76,6 +76,23 @@ edits afterwards is its own again.
 rebase or pull run by hand leaves the same tree and no record, so its paths stay
 reported as undeclared. That is the intended direction of failure: an extra
 report costs a minute of reading, a wrongly silenced file costs the record.
+
+## Ceilings worth reading before you trust a rebase
+
+**A hand-run rebase leaves its paths reported, on purpose.** D028 attributes a path
+to the base only from a base move the tooling performed, so `git rebase` or
+`git rebase --continue` run by hand leaves the arriving files reported as this
+session's own undeclared changes. Session 040 reached that ceiling through seven
+hand-run rebases and session 012 through two; both closed with `unlogged_change`
+events for files nobody touched. This is the intended direction of failure — an
+extra report costs a minute of reading, a wrongly silenced file costs the record.
+
+**Where the collision detector did not look.** On 2026-10-04 two VMs took **defect
+7** in `STATE-defects.md` in the same hour, both copies reached the shared base, and
+no gate said so: `doc lint` rule 7 read findings, findings index rows and decision
+spans, and that file is an ordered list of bold headings. T-0036 closed it with
+`tools/originlib/defectlist.py` read through `tools/originlib/idcheck.py` — one entry
+point, because a module wired into one gate is not thereby read by the other.
 
 ## One number, one meaning
 

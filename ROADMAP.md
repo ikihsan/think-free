@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # Evidence-driven roadmap
@@ -271,3 +271,12 @@ that the endpoint answers "nothing" in three different ways, one of them a 403
 from the unauthenticated rate limit.
 T-0020 is the pattern for the rest: run the documented sequence, and fix what it
 actually does.
+- [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
+      defect 17). The five file-reading steps ran a gate, printed a report and
+      exited, so the check run's only annotation was "Process completed with exit
+      code 2" and the run log that says which rule failed needs admin rights. A
+      violation now carries the file and line its own rule knows, and the workflow
+      publishes it; falsified against `e53ca23`'s own bytes in both directions. The
+      same session found the workflow's awk escaping `%` wrongly, and four CLI handlers
+      raising a `Usage` they had never imported — all three in `STATE-defects.md`.
+      **Unrun:** no pushed commit has exercised the annotator yet

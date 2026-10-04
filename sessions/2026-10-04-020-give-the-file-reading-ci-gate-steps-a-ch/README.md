@@ -31,7 +31,7 @@ _none_
 
 ## Commands
 
-9 captured, 2 non-zero exit.
+10 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -44,6 +44,7 @@ _none_
 | 8 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate | 0 | 2304 |
 | 9 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate | 0 | 2606 |
 | 10 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint on | 1 | 6720 |
+| 12 | ['tools/origin', 'task', 'verify', 'T-0040'] | 0 | 217687 |
 
 ## Integrity
 
@@ -69,6 +70,8 @@ _none_
 | 8 | 08:02:22 | command | $ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annota |
 | 9 | 08:03:06 | command | $ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annota |
 | 10 | 08:05:10 | command | $ bash -c cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint |
+| 11 | 08:23:01 | base_advance | sync land: base moved c5edfe0fe8f1 -> 24f67f43944f, 13 commit(s) arrived from the shared base |
+| 12 | 08:47:13 | command | $ tools/origin task verify T-0040 |
 
 ## Reproduce this record
 

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # AGENTS.md — agent contract for this repository
@@ -92,6 +92,7 @@ Rules that matter:
 | `tools/origin sync …` | Fetch, fast-forward, push, and land work for other VMs |
 | `tools/origin worktree …` | Isolate a task in its own directory and branch |
 | `tools/origin doc lint` | Line caps, metadata, links, orphans, stale generated files, unresolved merge conflicts |
+| `tools/origin annotate -- <gate>` | Run a gate and re-emit each violation as a check-run annotation naming the file; what CI runs |
 | `tools/origin doc index` | Regenerate `docs/INDEX.md`, `sessions/INDEX.md`, `tasks/INDEX.md` |
 | `tools/origin release check` | Enforce `RELEASE-MANIFEST.md`: what is public, and the front door's agreement about it |
 | `tools/origin skills check` | Verify skill mirroring and naming rules |

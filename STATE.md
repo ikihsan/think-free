@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # Verified state
@@ -9,20 +9,18 @@ last-verified: 2026-10-03
 Date: 2026-10-03, Asia/Kolkata. Phase: A complete, infrastructure built, B
 beginning. Mission active; **no product selected**.
 
-Host note: continuation VM `instance-20260717-0944` came online 2026-10-03;
-GitHub remote configured via GitHub App installation on `ikihsan/think-free`.
-Commits from this VM are authored as `Ihsan Ai Server Bot` (global git
-identity, 2026-10-03). This VM runs **Python 3.8.10 and git 2.25.1**, not the
-3.14.6/2.55.0 recorded from the development machine, so the capability numbers
-below are per machine and must be re-probed here with `tools/origin doctor`.
+Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
+GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
+runs **Python 3.8.10 and git 2.25.1**, not the 3.14.6/2.55.0 recorded from the development
+machine, so the capability numbers below are per machine and are re-probed with
+`tools/origin doctor`.
 
-Push-credential note, corrected 2026-10-04. The note here used to say a durable JWT generator
-had been added under `~/.config/github-app/` and "the helper now points at it". That is
-true of `instance-20260717-0947` and was **not** true of `instance-20260717-0944`: its helper
-still invoked `/tmp/github-app-jwt.sh`, which is how `0947` lost a day of pushes in the first
-place. Repaired there in T-0029 — the generator is `~/.config/github-app/jwt.sh`, the helper
-points at it, and the `/tmp` copy was deleted to prove it. `doctor` now reports such a
-dependency before it fails ([`docs/operations/doctor.md`](docs/operations/doctor.md)).
+Push-credential note, corrected 2026-10-04. The note here used to say a durable JWT
+generator had been added under `~/.config/github-app/` and that the helper points at
+it. That was true of `instance-20260717-0947` and not of `instance-20260717-0944`, whose
+helper still invoked `/tmp/github-app-jwt.sh` — which is how `0947` lost a day of pushes.
+Repaired there in T-0029 and `doctor` now reports such a dependency before it fails
+([`docs/operations/doctor.md`](docs/operations/doctor.md)).
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
@@ -35,8 +33,8 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 418 tests) |
-| Users and adoption | None. No product, no release, no claims |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests) |
+ Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17).| Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | 58 recorded; four on this VM today (024, 025, 026, 027), all `worked`. VM 0944's session 020 is in flight on T-0040 and correctly reported as such rather than as a failure (D027) |
@@ -44,8 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Documentation | `doc lint` checks 506 files and exits 0; every authored file is under the 300-line cap, and the declared exemptions are vendored skills, raw machine-generated results, and append-only command logs. Since T-0021 it also fails on an unresolved merge conflict, since T-0030 on an identifier defined twice or indexed without a body, since T-0036 on a defect list it cannot read, and since T-0042 on a decision record's own header disagreeing with that record. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar. **The cap bit this VM three times in two sessions** — `identifiers.py` at 307 after a merge, and `STATE-defects.md` and `STATE.md` after new findings — and each time the repair was to move material to the file whose invariant it belongs in |
 | Continuous integration | **Green on all seven rows, `observed` 2026-10-04 on run `37192717297` at `cfaf4ed`** — reached after three consecutive red runs on the base, each from a different cause and all three this VM's: `37189825232` at `ea3bfb5` (the merge took `identifiers.py` over the line cap, T-0043), `37190842104` at `f566ff0` (defect 15, a lease test that expired on a schedule, T-0044) and `37191658964` at `c9e89e1` (`DECISIONS-RECORDS.md` unclassified in the release manifest, T-0045). **All three were diagnosed by reading the run's annotations, with no reproduction at all**, which is the method F020 and T-0038 pointed at and the first time it was used on three real failures in a row. Those runs are also how T-0040's annotation mechanism was exercised on a real `Documentation lint` failure: 11 per check-run, naming the failing test and the file to open. The green run's three annotations on the 3.12 row are the runner's own Node.js deprecation warning, D027's in-flight note for the other VM, and an `ubuntu-latest` migration notice. **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish, and the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row |
 
-Per-session detail behind the dashboard is in
-[`STATE-history.md`](STATE-history.md).
+Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
@@ -111,24 +108,12 @@ intended direction of failure.
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
-**Corrected 2026-10-04, and it is the one correction in this record made by
-reading a source rather than a tree.** The claim that "the public check-runs API
-returns no annotations" is true of the red runs this VM had read — Documentation
-lint failures, whose step emits no `::error::` lines, so their one failure
-annotation says only "Process completed with exit code 2" — and **false of the run
-F019 was about**: run `37178057818` at commit `687961f` carries 11 annotations on
-`verify (3.12)`, and one of them is
-`FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest…)`,
-with `tests/test_doctor_versions.py`, line 69 in the next one up. Read from the
-public endpoint on 2026-10-04; no rights required, and the same call returns the
-full annotation list rather than the empty `output.text` that a first reading of
-the check-run object shows. The hour was spent on a conclusion generalised from one
-shape of failure to the case that needed it, and the general form is already
-recorded as D025: **read the property, not the field you happened to look at.**
-Now `FAILURES.md` **F020**, with the four answers that endpoint can give and the
-60-requests-an-hour limit that makes three of them look like "none"; the method is
-[`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
-
+- **Session 020, VM 0944 (T-0040, defect 17).** Every file-reading CI gate now
+  re-emits each violation as a check-run annotation naming the file
+  (`tools/origin annotate`), measured on a worktree of this repository's own history
+  in both directions. **Unrun:** no pushed commit has exercised it. Account in
+  [`STATE-defects.md`](STATE-defects.md) and
+  [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
 - **Session 017, VM 0947 (T-0036).** `doc lint` rule 7 now reads the numbered list
   in `STATE-defects.md`, where two VMs had taken **defect 7** in the same hour and
   both copies reached the base with each VM's own tree internally consistent.
@@ -180,10 +165,10 @@ Now `FAILURES.md` **F020**, with the four answers that endpoint can give and the
   reporting 1 of 4 committed defects; D025 records the obligation this
   establishes.
 - **Sessions 026–029, 033–036, VM 0947 and 0944.** T-0014 stopped the ventilation
-  candidate (F008), T-0015 spent the knitting prior-art condition (F009), T-0016
-  fixed the git-version defect behind 60 failed CI runs (F011), T-0018 recorded
-  exercised git versions, T-0019 banked side A of the E2 closure-drift snapshot.
-  Detail in [`STATE-history-2.md`](STATE-history-2.md).
+  candidate (F008), T-0015 spent the knitting prior-art condition (F009), T-0016 fixed
+  the git-version defect behind 60 failed CI runs (F011), T-0018 recorded exercised git
+  versions, T-0019 banked side A of the E2 closure-drift snapshot. Detail in
+  [`STATE-history-2.md`](STATE-history-2.md).
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -256,6 +241,22 @@ and a fourth was published by `land` itself (`e942225`, session 022's
 and only now has the layer that *merges* trees been covered: after every rebase
 `sync land` asks `doc lint`'s question — is each generated file equal to its
 renderer — and commits the answer before the push (T-0041, defect 13).
+
+**A gate step that fails silently is a gate step diagnosed by elimination.**
+T-0040 closed the remaining half of item 3 below: the five file-reading steps run
+`tools/origin annotate`, so each violation becomes a check-run annotation naming
+the file. **Ceiling:** no pushed run has exercised it yet, the cap of 60 is the old
+awk window's rather than a measured platform limit, and the `Tests` step still
+carries untested shell. Also found and fixed in the same session: that shell
+escaped `%` wrongly, and four CLI handlers raised a `Usage` they had never
+imported — both invisible until a run needed them, and both folded into defect 17.
+
+**Three records are at their caps** — `STATE-defects.md` and `STATE.md` at 300 of 300,
+`docs/operations/ci.md` at 274 — so the next entry in any of them needs a split. **A
+gating decision is owed for T-0040 and could not be written:** a violation carries the
+location its own rule knows, and the workflow publishes it. The prose is in
+`docs/operations/ci.md`; the log entry waits for `DECISIONS-GATING.md`'s room, because
+D036 went to T-0042 and a decision does not go in whichever decision file has room.
 
 Recently closed there: a CI matrix row per CPython minor from 3.8 to 3.14, held to
 `tests/python-versions.json` in both directions (T-0034, D035, F018, F019). Run

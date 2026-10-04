@@ -14,7 +14,7 @@ claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint
 -->
 
-# T-0040 — Make a red doc lint, release check or skills gate step annotate the fi
+# T-0040 — Make a red doc lint, release check or skills gate step annotate the file it rejected
 
 ## Goal
 
@@ -22,19 +22,58 @@ Make a red doc lint, release check or skills gate step annotate the file it reje
 
 ## Why this matters
 
-FAILURES.md F020 measured it from the public API: the Tests step emits ::error:: lines and its annotations are public, but Documentation lint and Release manifest print no ::error:: at all, and the session step emits ::warning:: only for in-flight sessions, which is not what fails it. So a red doc lint on a pushed commit names a step and nothing else - run 37180487906 (a stale session report) and the four runs of defect 4 (37163434868 and later) were all diagnosed by elimination or by rebuilding a tree on a VM, not by reading the run. docs/operations/ci-diagnosis.md gives the four answers the endpoint can give and says the general form is D030: a diagnostic must distinguish never-configured from stopped-working. Here three of the five gate steps answer nothing at all, and the workflow's own emission is what would have answered.
+`FAILURES.md` F020 measured it from the public API: the `Tests` step emits
+`::error::` lines and its annotations are public, but `Documentation lint` and
+`Release manifest` printed no `::error::` at all, and the session step emitted
+`::warning::` only for in-flight sessions, which is not what fails it. So a red doc
+lint on a pushed commit named a step and nothing else — run `37180487906` (a stale
+session report) and the four runs of defect 4 (`37163434868` and later) were all
+diagnosed by elimination or by rebuilding a tree on a VM, not by reading the run.
+`docs/operations/ci-diagnosis.md` gives the four answers the endpoint can give and
+says the general form is D030: a diagnostic must distinguish "never configured" from
+"stopped working". Three of the five gate steps answered nothing at all, and the
+workflow's own emission is what would have answered.
 
 ## Preconditions
 
-origin/research/origin has defect 11 open (T-0039, claimed on instance-20260717-0947): task new keeps only the last --steps and --acceptance, so this task passes each exactly once, as one multi-line string, and says so here.
+At the time this task was created, `origin/research/origin` had defect 11 open
+(T-0039, claimed on `instance-20260717-0947`): `task new` kept only the last
+`--steps` and `--acceptance`. Each flag is therefore passed exactly once, as one
+multi-line string. **It bit anyway** — see Notes.
 
 ## Steps
 
-The claim, in one sentence with its scope: for every violation the five file-reading gates report, tools/origin annotate emits one GitHub workflow command naming the violating file, and emits none at all on a tree every gate accepts. Baseline, named: the awk window in the workflow's own Tests step, which is the strongest existing implementation of the same idea in this repository and is proven on a real run (37178057818 carried 11 annotations). It escapes percent and strips CR, and it has no file or line property; the renderer must match it on escaping and add the location, without changing what the Tests step does.
+1. Measure the baseline first: extract the real tree of `e53ca23` as a git
+   worktree and run the present CI command over it.
+2. Give a violation the location its own rule knows, as a `str` subclass so every
+   existing assertion keeps testing what it was written to test.
+3. Render it as a workflow command with the toolkit's escaping, and publish
+   `file=`/`line=` only when true.
+4. Wire the five gate steps through one command, and fix the awk's escaping.
+5. Split `doclint.py` by what a rule may read, because the conversions had nowhere
+   to go at 299 of 300 lines.
+6. Falsify against the defect's own bytes in both directions, then plant a tree
+   with one violation of each shape and run the real command over it.
 
 ## Acceptance criteria
 
-Kill gate, fixed before observing: on the real tree of commit e53ca23 - the duplicate defect 7 that reached the shared base and that T-0036 already extracted - the renderer must emit at least one ::error naming STATE-defects.md. If it emits none, or emits one without file=, the mechanism is dead and the task is cancelled rather than reworked. Second half of the same gate: the CI step's present command, tools/origin doc lint, run on that same tree must emit zero ::error:: lines, measured and kept, because the whole claim is that it emits none today.
+- [x] Defect 14 in [`STATE-defects.md`](../STATE-defects.md) is closed with its
+      ceiling, and 15 and 16 with theirs — all three found by running the code.
+- [x] On `e53ca23`'s real tree the new command emits one `::error` naming
+      `STATE-defects.md`, where the present command emits **zero**. On this tip
+      both emit none.
+- [x] All five file-reading steps run `tools/origin annotate -- <gate>`, and each
+      gate keeps its own exit code.
+- [x] `tests/test_annotate.py` and `tests/test_ci_annotations.py` hold the
+      controls: structured path beats the message, a directory or absent path and
+      a line past the end of a file are dropped, `%` is `%25`, a newline cannot
+      inject a second command, the cap is announced, a clean tree emits nothing,
+      an unread gate or flag is refused with exit 1.
+- [x] `docs/operations/ci-diagnosis.md` no longer says a gate step emits nothing,
+      and the method, the escaping and the ceiling are in one place.
+- [x] The suite is green and `doc lint` exits 0. **Unrun and stated as such:** no
+      pushed commit has exercised the annotator, so how GitHub renders one is
+      `unmeasured`.
 
 ## Verification
 
@@ -44,9 +83,40 @@ PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/o
 
 ## Rollback
 
-Ceiling, declared now rather than discovered: annotations are the workflow's own emission and GitHub renders them, so nothing here proves a conclusion - it names a file. The Tests step keeps its awk. The cap is the 60 lines the awk already uses; the platform's own limit was not measured.
+Revert `tools/originlib/annotate.py`, `finding.py`, `doclint_tree.py`, `usage.py`
+and the `Finding` conversions together with the five `ci.yml` steps. Reverting one
+side alone is the defect: a step that runs a wrapper the wrapper's own gate does not
+cover is a red run that names only a step.
 
 ## Notes
 
-Append observations here. Record outcomes as events with
-`tools/origin session experiment-result`.
+**The kill gate failed first, which is what it is for.** On `e53ca23`'s tree the
+first run emitted `::error::identifier collision: …` with **no** `file=`, because
+`check_identifiers` wrapped each line from `idcheck` in a prefix and dropped the
+structured path it was carrying. The gate's second half — "or emits one without
+`file=`, the mechanism is dead" — is what said so.
+
+**Measured, in this order, all from `commands.log`:**
+
+| Run | Input | Result |
+|---|---|---|
+| Baseline | `e53ca23`'s tree, the present `doc lint` | 1 violation, exit 2, **0** `::` lines |
+| After | the same tree, `annotate -- doc lint` | 1 violation, exit 2, `::error file=STATE-defects.md::…` |
+| Tip | this repository | 0 violations, **0** `::` lines |
+| Planted | a broken link, a 328-line file, an orphan, a stale index, a conflict marker | six commands; `file=` on all five that name a real file, `line=4` and `line=9` where the rule knows one, `file=docs/INDEX.md` for the whole-file verdict |
+| Planted | a `.claude/skills` mirror that is a real directory | `::error::…` with **no** `file=` |
+| Planted | a missing generated index | `::error::sessions/INDEX.md: …` with no `file=`, because the file is not there to point at |
+
+**Two more defects came out of running it rather than reading it.** `Finding` is a
+`str` subclass, and a three-argument call raised `TypeError` until `__init__` was
+defined as well as `__new__` — found by the planted conflict marker. And
+`conflicts.py` already had a `Finding` of its own, which shadowed the import by two
+lines of file order.
+
+**This task file was truncated on creation, by the defect it names.** The fields
+were passed as a shell array built with `mapfile -t`, which splits on **lines**, not
+on blank lines, so seven of the twelve paragraphs passed to `task new` were dropped
+and the sections landed one field early. The acceptance criteria above were written
+afterwards. The repair is the file you are reading; the lesson is the one defect 11
+already carries, and it was cheaper here only because this task was about making a
+record say what it means.

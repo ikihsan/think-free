@@ -18,7 +18,9 @@ from the public API on 2026-10-04.
 repository, and this repository is private. F019 spent an hour of elimination
 before establishing that, and recorded the reason as "the public check-runs API
 returns no annotations". **That reason does not hold.** The annotations are
-public; they were simply not where the first reading looked.
+public; they were simply not where the first reading looked, and for three of
+the five gate steps there were none to find until `origin annotate` made them
+(*A red gate names its file*, below).
 
 ## Two calls
 
@@ -50,8 +52,9 @@ run `37179073002`.
 
 | What you see | What it means |
 |---|---|
-| Annotations, one starting `FAIL:` or `ERROR:` | The step emits. Read them. |
-| Three annotations, the failure being `Process completed with exit code N` | The step emits nothing naming its violation. `Documentation lint` and `Release manifest` print no `::error::` at all, and the session step emits `::warning::` only for in-flight sessions — which is not what fails it |
+| Annotations, one starting `FAIL:` or `ERROR:` | The `Tests` step emits. Read them. |
+| One annotation per violation, each with `file=` | A file-reading gate emits, through `origin annotate` (T-0040) |
+| Three annotations, the failure being `Process completed with exit code N` | The step emitted nothing naming its violation. Every gate step now runs through the annotator, so on the tip this shape means the step is one that has not been converted, or the run predates 2026-10-04 |
 | No annotations object, or `annotation_count: None` | The jobs endpoint has none. The field a check run carries is `output.annotations_count`, and on run `37178057818` it read 11 |
 | HTTP 403 | The unauthenticated rate limit: 60 requests an hour per IP, and this VM has no token in its environment |
 
@@ -72,3 +75,56 @@ prefix of them. Nothing here verifies a conclusion — it names a test, so the
 conclusion can be checked on a VM, which is where F019's cause was actually
 settled. And one run's rows need not agree: run `37178057818` annotates a second,
 different test on its 3.11 row, which no single-cause explanation covers.
+
+## A red gate names its file: `origin annotate`
+
+The `Tests` step re-emits failing tests itself. The five file-reading steps ran
+the gate, printed its report, and exited, so the check run's only annotation was
+`Process completed with exit code 2` — which is what the three of the four answers
+above are. Since T-0040 each of them runs `tools/origin annotate -- <gate>`
+instead, which runs the same gate in process and prints one command per
+violation:
+
+```
+$ tools/origin annotate -- doc lint          # on a tree with two planted violations
+::error file=STATE.md,line=4::STATE.md: broken link -> nowhere.md
+::error file=docs/INDEX.md::docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+```
+
+Run the same string locally and you reproduce the run you cannot read. The
+modules are [`../../tools/originlib/annotate.py`](../../tools/originlib/annotate.py)
+(which gates exist and what they exit with) and
+[`../../tools/originlib/finding.py`](../../tools/originlib/finding.py)
+(a violation that knows where it is, and the escaping).
+
+**Three properties, each a test** in
+[`../../tests/test_annotate.py`](../../tests/test_annotate.py):
+
+| Property | Why it is not the obvious thing |
+|---|---|
+| The `file` and `line` come from the rule's **structured** fields | A renderer that parsed the leading path out of the message would be right on most `doc lint` violations and wrong on `identifier collision: …`, which starts with a word. That is D025's shape: reading the field you happened to look at |
+| A tree every gate accepts emits **no** `::` line | A renderer that always annotates looks exactly like one that found something |
+| A `path` that is a directory or absent, and a `line` past the end of the file, are dropped | `skills check` reports `.claude/skills/<name>` for a mirror that is a real directory, and a generated index can be shorter than the line the previous commit recorded |
+
+**Escaping is the toolkit's, and this file used to have it wrong.** In a message
+`%` is `%25`, CR is `%0D`, LF is `%0A`; in a property value `:` is `%3A` and `,`
+is `%2C` (`source-supported`, read from
+`packages/core/src/command.ts` in `actions/toolkit` on 2026-10-04). The awk in
+the workflow's `Tests` step doubled the percent, which renders one `%` as two —
+defect 13. Nothing measured it, because no recorded annotation carried a percent.
+
+**Ceiling, and one part of it is now measured.** Run `37189825232` (2026-10-04, the
+first red `Documentation lint` whose annotations can be read) came back with 11
+annotations per check-run, the failing test named, and
+`::error file=tools/originlib/identifiers.py::…` in the **message** — while the
+annotation's own structured `path` was `.github` and its line was inside the
+workflow. So the location reaches the reader, and whether GitHub files the
+annotation on that path is `unmeasured`: which of the emitter and GitHub's renderer
+is responsible was not determined. Read this file's `file=` claim as "the reader is
+told which file", not "the annotation is attached to it".
+
+The rest is the same on both sides: annotations are the workflow's own emission and
+the runner decides how many it renders; the cap is 60, inherited from the awk window
+rather than from a measured platform limit; and passing it emits one further
+annotation saying how many were dropped, because a silent truncation is the failure
+this repository keeps paying for.

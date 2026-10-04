@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # Continuous integration
@@ -63,10 +63,7 @@ all hold:
 All five are read from the tree: no network, no new state. The first clause has an
 alternative because `--task` is optional on `session start` and a session may claim
 work without it — that exception was added after the live record showed the gate
-calling a working session abandoned. The first clause has
-an alternative because `--task` is optional on `session start` and a session may
-claim work without it — that exception was added after the live record showed
-the gate calling a working session abandoned.
+calling a working session abandoned.
 
 A session failing any clause is **abandoned**, and the gate fails naming the
 clause. A session passing all five prints `in flight (task T-0017, claimed by
@@ -134,31 +131,26 @@ minor version, so `exercised` alone would describe somebody else's machine. It
 cannot tell you about an interpreter nobody has run, because nothing here can:
 that is what the `not_exercised` list in the record is for.
 
-**A failing test should be identifiable without admin rights — and as of
-2026-10-04 that does not work.** The `Tests` step re-emits every `FAIL:`/`ERROR:`
-block as an `::error::` annotation, and it was believed that GitHub returns
-check-run annotations from its public API, so a `curl` against
-`/repos/<owner>/<repo>/commits/<sha>/check-runs` would name the failing test to
-anyone who can read the repository. `observed`, run `37178057818`: seven failing
-checks, every one returning `annotation_count: None` and no annotations, to an
-unauthenticated request. **That is why F019 took an hour to find**: the run was
-red on all seven rows, the log needed admin rights, and the annotation route was
-believed to work and did not. Keep the re-emission — it is what a viewer *with*
-the log or with a token sees — but do not rely on it. The diagnostic that works
-without rights is a **check name per unit of work**: see *Reading a red run*
-below.
+**A red run is diagnosable without admin rights, through annotations.** The
+`Tests` step re-emits every `FAIL:`/`ERROR:` block as an `::error::` annotation,
+and since T-0040 each file-reading gate re-emits each of its violations the same
+way, naming the file. `observed` on run `37178057818`: 11 annotations on the
+3.12 row, one naming the failing test and its line, readable from the public
+check-runs API with no token. **That corrects a conclusion this file held for a
+session** — it said the public API returns no annotations, generalised from the
+runs whose step emits none (`FAILURES.md` F020, and see the correction in
+[`../../STATE.md`](../../STATE.md)). Three of the four earlier "no annotations"
+answers are not "nothing": the wrong endpoint, the wrong sub-resource, and a 403
+from the 60-per-hour unauthenticated limit. All of it is in
+[`ci-diagnosis.md`](ci-diagnosis.md), which is the method; this is the statement.
 
-**Reading a red run without admin rights.** Two facts are readable: each job's
-step conclusions, and the check-run names. That is enough to localise a failure to
-a step and, with the matrix, to a version — `verify (3.14)` failing while
-`verify (3.12)` passes is a statement about one interpreter. It is *not* enough
-to name a failing test, because the whole suite is one step named `Tests`. The
-fix, when it is worth making, is to run the suite per file and let the check name
-carry the file: the suite is 40-odd files and the slowest is the fleet harness, so
-one job per file is affordable and would make the failure legible from the public
-API. Until then, local reproduction is the diagnostic: every version the matrix
-runs can be reproduced on a VM with a portable interpreter, and any git version
-with a package unpacked outside the repository.
+**What annotations are not.** They name a file or a test, not a conclusion, and
+they are this repository's own emission: the runner decides how many it renders,
+and past the cap the run is annotated as truncated rather than silently. They are
+also only as complete as the gate that emitted them, which is why a violation
+whose rule knows no single file — an identifier taken twice in two files, a mirror
+that is a directory rather than a file — is published with **no** `file=`
+property instead of one that would point somewhere wrong.
 
 **One red step is not a defect: a session in flight.** The session step passes
 `--strict`, and a commit published while a session is open has an unfinished
@@ -171,6 +163,13 @@ failure. Observed on 2026-10-04 twice in an hour — runs `37174316639` and
 next commit, which is the session commit that closes it. **So a red session step
 on a commit that is not the last one on the branch is expected**, and the way to
 confirm it is to look at the following run rather than the log.
+
+**A red gate names its file.** The four gate steps that print a report and exit
+give the runner nothing to attach, so their only annotation is "Process completed
+with exit code 2" — the shape F019 spent an hour on. `tools/origin annotate` runs
+a gate in process and prints one `::error` per violation, naming the file; the
+method, the escaping, and what an annotation may not claim are in
+[`ci-diagnosis.md`](ci-diagnosis.md).
 
 **A pass that hides why is a pass nobody can trust.** The session step writes the
 verifier's own output to a log and re-emits each in-flight line as a

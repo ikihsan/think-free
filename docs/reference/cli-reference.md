@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # CLI reference
@@ -116,6 +116,24 @@ manifest's own *What `release check` decides* section.
 
 It enforces **agreement, not truth**. A manifest and a `README.md` that agree on
 a false claim still pass, and it does not read a path's meaning.
+
+## `annotate`
+
+| Command | Effect |
+|---|---|
+| `annotate -- doc lint` | Runs the gate, prints its report, and re-emits each violation as a `::error` naming the file; exits with the gate's own code |
+| `annotate -- release check` | As above |
+| `annotate -- skills check` | As above, exit `2` |
+| `annotate -- skills verify` | As above, exit `4` |
+| `annotate -- session verify [--strict] [--lease-hours H]` | As above, exit `4`; the session gate's own flags are read here |
+
+This is what CI runs for the five file-reading gates, and the same string
+reproduces a run you cannot read. It publishes `file=` and `line=` only when the
+rule that found the violation knows them: a path that is a directory or absent,
+and a line past the end of a file, are dropped rather than guessed, and a clean
+tree emits no command at all. An unknown gate or an unread flag is refused with
+exit `1` rather than quietly running something else. Method and escaping:
+[`../operations/ci-diagnosis.md`](../operations/ci-diagnosis.md).
 
 ## `doctor` and `preflight`
 

@@ -92,13 +92,25 @@ of those it cannot touch.
    red `Documentation lint` whose annotations can be read at all**, which is T-0040
    on the other VM's work: 11 per check-run, the failing test named, and the
    offending file and line in the message as
-   `::error file=tools/originlib/identifiers.py::…`. The annotation's own
-   structured `path` is `.github` and its line is inside the workflow, so the
-   location travels in the **text** rather than as the structured `file`/`line`
-   the emitter escapes. `observed`; which of the workflow's emitter and GitHub's
-   renderer is responsible was not determined, and a reader parsing `path` gets
-   `.github` rather than the file to open.
-4. **Identifier allocation: the allocation half is done (T-0031), the detector
+   `::error file=tools/originlib/identifiers.py::…`. The annotation's own structured
+   `path` is `.github` and its line is inside the workflow, so the location travels in
+   the **text** rather than as the structured `file`/`line` the emitter escapes.
+   `observed`; which of the emitter and GitHub's renderer is responsible was not
+   determined, and a reader parsing `path` gets `.github` rather than the file to open.
+4. **The half above is closed in T-0040, and its own ceiling is partly measured.** All
+   five file-reading steps run `tools/origin annotate`, so a violation becomes a
+   check-run annotation naming the file, and the same string reproduces a run a VM
+   cannot read. Falsified against `e53ca23`'s real bytes in both directions: the present
+   command emits zero `::` lines there and the new one emits
+   `file=STATE-defects.md`, while on the tip both emit none. **What that does not
+   settle:** whether GitHub honours the `file` property at all — the run above came
+   back with `path=.github` — so the claim is that the location reaches the reader, not
+   that GitHub files the annotation on it. Also open: the cap of 60 is the old awk
+   window's rather than a measured platform limit, the `Tests` step keeps untested
+   shell, and a violation whose rule knows no single file is published with no `file=`
+   at all. Defect 17 in [`STATE-defects.md`](STATE-defects.md); method in
+   [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
+5. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from
    `origin/<base>` plus this working tree, and every command that hands out a
@@ -108,7 +120,7 @@ of those it cannot touch.
    **Ceiling:** two VMs allocating between their own fetches still collide, and
    an unpushed number reserves nothing. Rule and states:
    [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-5. **Fleet bookkeeping is now end to end** (T-0018, T-0032, T-0033). The records
+6. **Fleet bookkeeping is now end to end** (T-0018, T-0032, T-0033). The records
    exist — `tests/git-versions.json` (`origin.git-versions/1`) and
    `tests/python-versions.json` (`origin.python-versions/1`) — each entry saying
    how much of the suite that version actually ran, each record naming the
@@ -119,32 +131,32 @@ of those it cannot touch.
    **Ceiling:** bookkeeping hygiene, not a claim about a candidate. `exercised`
    means a run happened, and nothing between 3.8 and 3.12 has ever run this
    suite.
-6. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
+7. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
    commit `9e865a4`, all six steps green, `observed`), which closes the standing
    "CI is not claimed green" caveat for that commit. A run says nothing about a
    second runner image or a rebase conflict.
-7. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
+8. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
    open is the census's per-package heterogeneity, which this run does not
    explain. **Ceiling:** one builder, pure-Python sources, Linux.
-8. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
+9. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an
    existing hand-knit structure. Stage B needs an experienced knitter and
    authorization. **Ceiling:** nothing software-side remains; the only live
    question is usefulness, which this repository cannot measure.
-9. **Do not run E1** (retry jitter). It is the cheapest experiment in the
+10. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
-10. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947).** The informative
+11. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947).** The informative
    comparison is two snapshots weeks apart, and two resolver runs on one day
    measure nothing — so side A
    (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`, 8 artifacts:
    requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2) is banked with
    no verdict. Take side B no earlier than days later and diff the closures; fast
    drift shows as a version or hash change.
-11. **Do not build a product.** Nothing is selected, and the base rate for
+12. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.
@@ -191,10 +203,14 @@ of those it cannot touch.
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
   rather than only before committing — `observed`, and written up in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- The decision-log split is **paid** (T-0042): `DECISIONS-GATING.md` is at 221 of
-  300 lines, `DECISIONS-RECORDS.md` holds D029, D032 and D035, and D036 is
-  recorded where its own invariant puts it. The lesson from T-0030's reversal still
-  binds: a decision does **not** go into whichever decision file happens to have
-  room. `DECISIONS-PRACTICE.md` is now the largest at 288 of 300, and the next
-  split has to be by invariant on a quiet base. `tools/originlib/doclint.py` is at
-  299 of 300 for the same reason, and the next check added to it has to split it.
+- `DECISIONS-GATING.md` is at **297 of 300** lines, and its own header records a
+  split that was attempted and reversed on 2026-10-04 (T-0030). So the next gating
+  decision cannot simply be appended: it needs that file split by invariant on a
+  quiet base, or its cap deliberately changed. A decision does **not** go into
+  whichever decision file happens to have room — that is the mistake the reversed
+  split was made of. **T-0042 claimed that split on 2026-10-04** and also the number
+  D036, so a gating decision recorded on another VM in the same hour collides by
+  construction: allocate with `origin id next D` after reading the base, and expect
+  D036 to be taken. `tools/originlib/doclint.py` reached the same wall and was split
+  into `doclint_tree.py` in T-0040; `STATE.md` and `STATE-defects.md` are now both at
+  300 of 300 and their next entry needs a split too.

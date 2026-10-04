@@ -40,7 +40,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/process/experiment-protocol.md`](process/experiment-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | How an experiment is designed, run, and judged. Read this before writing code |
 | [`docs/process/hypothesis-lifecycle.md`](process/hypothesis-lifecycle.md) | `docs/INDEX.md` | active | 2026-10-03 | How a candidate becomes a decision. The aim is that no candidate is ever |
-| [`docs/process/multi-vm-coordination.md`](process/multi-vm-coordination.md) | `docs/INDEX.md` | active | 2026-10-03 | How several machines share this repository safely. The invariant: git is the |
+| [`docs/process/multi-vm-coordination.md`](process/multi-vm-coordination.md) | `docs/INDEX.md` | active | 2026-10-04 | How several machines share this repository safely. The invariant: git is the |
 | [`docs/process/review-protocol.md`](process/review-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | The adversarial step. Its purpose is not to confirm work but to find the reason |
 | [`docs/process/session-protocol.md`](process/session-protocol.md) | `docs/INDEX.md` | active | 2026-10-03 | Every working session follows these steps. The goal is that a session's record |
 | [`docs/process/task-lifecycle.md`](process/task-lifecycle.md) | `docs/INDEX.md` | active | 2026-10-03 | A task is a unit of work another machine can pick up without asking a question. |
@@ -51,7 +51,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/operations/bootstrap.md`](operations/bootstrap.md) | `docs/INDEX.md` | active | 2026-10-03 | Getting a fresh machine able to work on this repository. The design goal is that |
 | [`docs/operations/ci-diagnosis.md`](operations/ci-diagnosis.md) | `docs/INDEX.md` | active | 2026-10-04 | How to find out which test failed on a pushed commit, without repository admin |
-| [`docs/operations/ci.md`](operations/ci.md) | `docs/INDEX.md` | active | 2026-10-03 | Runs on every push and pull request. The gates are the same ones a session must |
+| [`docs/operations/ci.md`](operations/ci.md) | `docs/INDEX.md` | active | 2026-10-04 | Runs on every push and pull request. The gates are the same ones a session must |
 | [`docs/operations/doctor.md`](operations/doctor.md) | `docs/INDEX.md` | active | 2026-10-04 | tools/origin doctor answers one question: can this machine do the work a |
 | [`docs/operations/github-app.md`](operations/github-app.md) | `docs/INDEX.md` | active | 2026-10-03 | Status: one App exists and authenticates every push. The design below was |
 | [`docs/operations/scheduling-and-supervision.md`](operations/scheduling-and-supervision.md) | `docs/INDEX.md` | active | 2026-10-03 | Whether agent work can run unattended, and what has actually been verified. The |
@@ -61,7 +61,7 @@ Skill bodies under `.agents/skills/` are indexed by
 
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
-| [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-03 | Every command the repository's tooling provides. Stdlib Python only, so no |
+| [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-04 | Every command the repository's tooling provides. Stdlib Python only, so no |
 | [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
 | [`docs/reference/skill-inventory.md`](reference/skill-inventory.md) | `docs/INDEX.md` | active | 2026-10-03 | Twenty-one skills in .agents/skills/<name>/SKILL.md, mirrored into |
 

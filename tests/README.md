@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 # Tests
@@ -53,6 +53,8 @@ interfere with the working repository.
 | `test_doctor_versions.py` | `doctor`'s comparison of this VM's git and interpreter against the exercised-version records: the four states, dotted-prefix matching with the longest entry first, and a real-record class that reads this repository rather than the fixture |
 | `test_pythonversions.py` | `python-versions.json`: every entry has a scope, the floor is supported by an entry that ran it, the unexercised versions are named, and CI is not credited with a patch version the public API cannot report — with the allowed set read from the workflow, so a new matrix row cannot slip past that clause |
 | `test_ci_matrix.py` | The CI `python-version` matrix and the exercised-version record held to each other: every row recorded, nothing a row runs still called unexercised, `fail-fast` off, the file-reading gates guarded to one row that exists, and every shape the parsers do not understand a failure rather than a pass |
+| `test_annotate.py` | A violation becomes one workflow command naming the file: the structured path wins over the message, a directory or absent path and a line past the end of a file are dropped rather than guessed, `%` is `%25`, a newline cannot inject a second command, the cap is announced, a clean tree emits nothing, and the wrapper keeps each gate's own exit code and refuses a gate or flag it cannot read |
+| `test_ci_annotations.py` | The two things the annotator exists for: `e53ca23`'s real bytes produce an annotation naming `STATE-defects.md` where the previous wiring produced none and this tip produces none, and every gate step in the workflow runs through it |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 | `python-versions.json` | The same record for interpreters, with the versions nobody has run named rather than implied (schema `origin.python-versions/1`) |
 
@@ -76,6 +78,13 @@ ever fails is not a check either.
 unfixed code first: 4 failures and 1 error naming session 029's mis-attributed
 paths. Reverting the exclusion failed 3 of its 6 tests while the 3 negative
 controls stayed green, which is the shape a falsifiable control should have.
+
+`test_ci_annotations.py` is the same discipline against a real commit rather than a
+fixture: `e53ca23`'s `STATE-defects.md` is read out of git with `git show`, and both
+directions are asserted — that tree yields an annotation naming the file, and this tip
+yields none. The first run of the mechanism also failed its own kill gate, because
+`check_identifiers` wrapped the collision's location away when it added its prefix; the
+gate is what caught it, and the fix is in the code the gate reads.
 
 `test_idalloc.py` was run against the unfixed allocator before the repair: the
 stale-clone test reported `T-0002` where the base already defined `T-0002`, which
