@@ -124,17 +124,37 @@ Numbering is continuous and never reused, so a solved defect keeps its
 number and this section is not in numeric order: entries land under whichever
 heading they belong in when they are closed.
 
-11. **`task new` silently keeps one `--acceptance` line and drops the rest** (open,
-    found 2026-10-04 in T-0036). Five criteria were passed on the command line and
-    the task file recorded one, with no warning: `--acceptance` and `--steps` are
-    declared with `default=""` and no `action="append"`, so argparse keeps the last
-    occurrence. **The cost is a task that reads as complete against a truncated
-    definition of complete** — the same shape as F010's near-vacuous gate: the field
-    is filled in, and nobody can tell that most of it is missing. Observed on this
-    repository's own task file and repaired there by hand.
-    **Ceiling:** every `--` flag in `cli_args.py` is declared the same way, so the
-    open question is which ones a user would reasonably repeat. `--acceptance` and
-    `--steps` are; `--refs` and `--evidence` are already `nargs="*"`.
+11. **`task new` silently keeps one `--acceptance` line and drops the rest** (solved
+    in T-0039). Five criteria were passed on the command line and the task file
+    recorded one, with no warning: `--acceptance` and `--steps` were declared with
+    `default=""` and no `action="append"`, so argparse kept the last occurrence.
+    **The cost is a task that reads as complete against a truncated definition of
+    complete** — the same shape as F010's near-vacuous gate: the field is filled in,
+    and nobody can tell that most of it is missing. Found by using the documented
+    workflow, which is the only way this class of defect shows up.
+    **Repair:** both flags accumulate, one line per occurrence, joined in
+    `cli_task.py` so `taskops.create` keeps taking a string and its other callers
+    are unaffected. Falsified first: three flags wrote one line, and three `--steps`
+    wrote only `3. third`. A fourth control came from the same run —
+    `taskops.create` defaults `acceptance` to a bare `- [ ] `, which the CLI made
+    unreachable by always passing a value; the test now pins the empty section
+    instead, because a checkbox nobody wrote is worse than an empty heading.
+    **Ceiling:** only the two flags a writer repeats are changed. Every other `--`
+    flag in `cli_args.py` is still last-wins, and the general rule — *a flag that
+    collects more than one thing must say so* — is not enforced anywhere.
+
+12. **A task file is changed by the commands that manage it and declared by
+    neither** (open, found 2026-10-04 across sessions 017 and 018). `task claim` and
+    `task complete` rewrite the task file, and reconciliation reports any
+    changed-but-undeclared path as an `unlogged_change`. Three such events in two
+    sessions, every one of them the task file, on tasks that were otherwise
+    complete. The protocol's answer is to declare it, and an agent that has just
+    run `task complete` is at the least alert state for remembering one more
+    command. **The fix has a real trade-off and is not made here:** the task
+    commands could declare the file they change, which removes the gap and also
+    removes a place where the agent could have declared something *else* on purpose.
+    **Ceiling:** the tooling cannot tell an intentional declaration from an
+    automatic one, so an automatic declaration weakens the signal it repairs.
 
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by

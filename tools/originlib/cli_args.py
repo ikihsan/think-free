@@ -100,8 +100,12 @@ def build_parser() -> argparse.ArgumentParser:
     new.add_argument("--goal", required=True)
     new.add_argument("--verify", required=True, help="runnable command that proves completion")
     new.add_argument("--rationale", default="")
-    new.add_argument("--steps", default="")
-    new.add_argument("--acceptance", default="")
+    # `append`, because these two are the ones a writer repeats. Declared with a
+    # string default and no action, argparse keeps the *last* occurrence and drops
+    # the rest without a word: five `--acceptance` values left one line in the task
+    # file, which is the record of what "done" means (defect 11).
+    new.add_argument("--steps", action="append", default=[], metavar="STEP")
+    new.add_argument("--acceptance", action="append", default=[], metavar="CRITERION")
     new.add_argument("--preconditions", default="")
     new.add_argument("--rollback", default="")
 

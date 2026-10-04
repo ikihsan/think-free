@@ -15,8 +15,12 @@ def dispatch(args: argparse.Namespace) -> int:
             args.goal,
             args.verify,
             rationale=args.rationale,
-            steps=args.steps,
-            acceptance=args.acceptance,
+            # `--steps` and `--acceptance` accumulate, one list entry per
+            # occurrence, and `taskops.create` takes the rendered text. Joining
+            # here rather than there keeps the module API a string, which is what
+            # its other callers pass.
+            steps="\n".join(args.steps),
+            acceptance="\n".join(args.acceptance),
             preconditions=args.preconditions,
             rollback=args.rollback,
         )

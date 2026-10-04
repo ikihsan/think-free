@@ -37,10 +37,21 @@ tools/origin task new \
   --verify "tools/origin doc lint" \
   --rationale "why this matters now" \
   --preconditions "what must be true first" \
-  --steps "1. …" \
-  --acceptance "- [ ] …" \
+  --steps "1. …" --steps "2. …" \
+  --acceptance "- [ ] …" --acceptance "- [ ] …" \
   --rollback "how to undo a bad outcome"
 ```
+
+**Repeat `--steps` and `--acceptance`; do not pack them into one string.** Both
+flags accumulate, one line per occurrence. They did not until T-0039: declared
+with a string default and no `action="append"`, argparse kept the *last* value and
+dropped the rest without a word, so five criteria reached the file as one (defect
+11). The acceptance criteria are the record of what "done" means, so a truncated
+one makes a completed task look complete against a definition no reader can see —
+the shape F010's near-vacuous gate had. Packing everything into one flag works,
+but it makes the criteria unreadable in a terminal. Omitting both flags leaves
+those sections **empty**, which is the honest result: nothing was asked for, so
+nothing is claimed.
 
 **The number comes from the shared base, and the command says so.**
 

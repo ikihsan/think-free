@@ -26,7 +26,7 @@ interfere with the working repository.
 | `test_session.py` | Lifecycle, reconciliation, command capture, reports |
 | `test_report_freshness.py` | The generated session report equals its render after every append — capture, redaction, artifact, milestone — because a stale one is a red CI run (`STATE-defects.md`, run 37180487906) |
 | `test_doc_gaps.py` | Documentation-gap implications: `any` and `all` record groups |
-| `test_tasks.py` | Task creation, claim conflicts, verification, index |
+| `test_tasks.py` | Task creation, claim conflicts, verification, index, and the flags a writer repeats: three `--acceptance` values must reach the file as three lines, which the unmodified parser reduced to one (defect 11) |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
 | `test_conflicts.py` | Unresolved merge-conflict markers: every shape git writes, the shapes that must stay silent, the declared waiver |
 | `test_release.py` | `RELEASE-MANIFEST.md` enforcement: one seeded defect per clause, and a fixture that passes |
