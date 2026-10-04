@@ -88,7 +88,16 @@ of those it cannot touch.
    wrong endpoint, the wrong sub-resource, and a 403 from the 60-requests-an-hour
    unauthenticated limit. What survives of 2(b) is the half that is real: three
    gate steps emit no annotations at all, so a red `Documentation lint` still names
-   a step and nothing more.
+   a step and nothing more. **Measured 2026-10-04 on run `37189825232`, the first
+   red `Documentation lint` whose annotations can be read at all**, which is T-0040
+   on the other VM's work: 11 per check-run, the failing test named, and the
+   offending file and line in the message as
+   `::error file=tools/originlib/identifiers.py::…`. The annotation's own
+   structured `path` is `.github` and its line is inside the workflow, so the
+   location travels in the **text** rather than as the structured `file`/`line`
+   the emitter escapes. `observed`; which of the workflow's emitter and GitHub's
+   renderer is responsible was not determined, and a reader parsing `path` gets
+   `.github` rather than the file to open.
 4. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from

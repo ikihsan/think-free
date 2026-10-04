@@ -160,6 +160,20 @@ definition" and "nothing could be read at all", and the second reading has to wi
 because a parser that quietly stops matching is indistinguishable from a clean
 tree.
 
+**Three sources, three modules, one entry point — and the split by record was not
+a size decision.** `identifiers` keeps what a definition is and whether one number
+means two things; `findingindex` holds `FAILURES.md`'s table to the findings;
+`decisionindex` holds `DECISIONS.md`'s rows to the decisions; `decisionheader`
+holds each record's own header to what it defines; `defectlist` reads the numbered
+defect list. T-0043 split `identifiers` after T-0042 and T-0040 each added to it
+from a different VM — each under the cap alone, the merge at 307 of 300, and run
+`37189825232` red on all seven rows. The line drawn was one module per **record**,
+because two records with the same shape and different tables are two rules, and
+one file holding both grows by half each time a check is added to either. The
+refactor's own falsification was an equivalence, not a mutation: the report on a
+fixture tree carrying 28 findings is byte-identical before and after the move,
+which is the only claim a relocation can honestly make.
+
 **A third source was the same story again, and it was found by reading the record
 rather than by a red run.** T-0036 added the defect list to the entry point and
 said so; T-0042 found that a decision number is written in three places that must

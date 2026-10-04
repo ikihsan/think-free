@@ -216,6 +216,12 @@ Separate from the invention stages, because the mission cannot be run without it
       both index rows in `DECISIONS.md` correct throughout, and one record named a
       `D011–D018` range covering exactly the entries that had moved out of it. The
       rule is compared as identifier sets, and a header it cannot read is reported
+- [x] The two index checks live one per record — `findingindex` for `FAILURES.md`,
+      `decisionindex` for `DECISIONS.md` — with `identifiers` keeping what a
+      definition is and whether one number means two things (T-0043). Two VMs each
+      added to `identifiers.py` from a different hour, each stayed under the cap
+      alone, and the merge concatenated them to 307 of 300: run `37189825232` red on
+      all seven rows, and `observed` from the public annotations
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised

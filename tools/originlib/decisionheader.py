@@ -30,7 +30,7 @@ What the rule does not do, stated rather than implied:
 
 * It does not compare wording. It compares identifier sets, so a range that
   expands to the right numbers passes however the range is spelled.
-* It does not read `DECISIONS.md`'s index; `identifiers.py` already holds that
+* It does not read `DECISIONS.md`'s index; `decisionindex` already holds that
   row to the headings in both directions. This module reads the *third* source.
 * It does not care about the order of the identifiers or their case. A header
   that lists a decision twice is not reported, because the duplicate-number rule
@@ -42,7 +42,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from .identifiers import declarations, definitions
+from .decisionindex import declarations
+from .identifiers import definitions
 
 # `Decisions **D013, D024–D029**. Each entry records …`. The bold span is
 # non-greedy so the trailing prose after the closing `**` is not swallowed.

@@ -24,7 +24,16 @@ from pathlib import Path
 
 from harness import RepoTest
 
-from originlib import defectlist, doclint, idcheck, identifiers, paths, sync, syncland
+from originlib import (
+    decisionindex,
+    defectlist,
+    doclint,
+    idcheck,
+    identifiers,
+    paths,
+    sync,
+    syncland,
+)
 
 COLLIDING_BODY = "## F020 — one\n"
 COLLIDING_OTHER = "## F020 — two\n"
@@ -65,6 +74,8 @@ class ThisRepositoryTest(unittest.TestCase):
         # A module wired into one gate is not read by the other, so the two
         # gates call one function and this asserts what it contains. A third
         # source of definitions is a change to `idcheck.report` and to this test.
+        # It is a third *source* and not a third *rule* since T-0043, which split
+        # the two index checks out of `identifiers` by record.
         root = self.real_root()
         self.assertEqual(
             sorted(idcheck.report(root)),
@@ -77,7 +88,7 @@ class ThisRepositoryTest(unittest.TestCase):
         # the rule's own report is the assertion.
         root = self.real_root()
         defined = {d.ident for d in identifiers.definitions(root) if d.ident.startswith("D")}
-        listed = set().union(*identifiers._decision_index(root).values())
+        listed = set().union(*decisionindex.rows(root).values())
         self.assertEqual(sorted(defined - listed), [], "a decision no index row lists")
         self.assertEqual(sorted(listed - defined), [], "an index row nothing defines")
 
