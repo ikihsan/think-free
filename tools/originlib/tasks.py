@@ -212,6 +212,18 @@ def index_stamp() -> str:
     return max([stamp for stamp in stamps if stamp], default="unknown")
 
 
+def write_index() -> bool:
+    """Write `tasks/INDEX.md` if the render differs. True when it wrote.
+
+    Called by `origin doc index` and by the task commands themselves: every
+    path that changes a row in this table rewrites it, so a task cannot be
+    created, claimed or completed without the index following it.
+    """
+    from .report import write_if_changed
+
+    return write_if_changed(paths.tasks_index(), render_tasks_index())
+
+
 def render_tasks_index() -> str:
     tasks = all_tasks()
     active = active_claims()

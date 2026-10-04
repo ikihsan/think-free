@@ -38,10 +38,17 @@ defect is listed as open.
    now stamps from the content it renders. The CI consequence is `inferred` from
    that local reproduction: no pushed run has failed this way, because the two
    red runs at 23:58 on 2026-10-03 had a different and verified cause (defect 5).
+4. **A pushed task file without `doc index` reddens CI** (solved in T-0026). Runs
+   `37163434868` and `37163438950` failed on Documentation lint: this VM created a
+   task, committed it and pushed it without rebuilding the generated indexes, so
+   the orphan rule rejected the file the VM had just created. `task new`, `claim`,
+   `complete` and `release` now rebuild `tasks/INDEX.md` and `docs/INDEX.md`.
+   **The rule is unchanged** — a file no command wrote is still an orphan, which
+   the new tests assert — because the omission was the defect, not the strictness.
 
 ## Open
 
-4. **Identifier allocation collides by construction** (open). Identifiers are
+5. **Identifier allocation collides by construction** (open). Identifiers are
    allocated by reading the local tree, so two VMs in an hour take the same
    numbers. Six times on 2026-10-03: T-0016 and F009/F010/D022; session 029's
    F012 against session 026's F010; session 030's F012 for E3's attribution
@@ -53,11 +60,6 @@ defect is listed as open.
    its body, so a findings file and its own table disagreed about the same entries
    until both were read together. **Ceiling of any fix:** a detector can refuse a
    commit that reuses an identifier; it cannot stop two VMs allocating at once.
-5. **A pushed task file without `doc index` reddens CI** (open, T-0025,
-   `observed` in runs `37163434868` and `37163438950`). `task new` writes a
-   document that the orphan rule rejects until the generated index is rebuilt, so
-   the cheapest sequence a VM can run — create a task, push it — breaks the
-   Documentation lint step. This VM did exactly that twice on 2026-10-03.
 6. **`doctor` does not compare this VM's git against what the suite has been
    exercised on** (open, partly closed in T-0018 with `tests/git-versions.json`).
    There is still no equivalent record for Python, which

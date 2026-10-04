@@ -134,6 +134,18 @@ def index_stamp(docs: list[Path]) -> str:
     return max([stamp for stamp in stamps if stamp], default="unknown")
 
 
+def write_index() -> bool:
+    """Write `docs/INDEX.md` if the render differs. True when it wrote.
+
+    Called by `origin doc index` and by the task commands, because a new task
+    file is a new document: without a rebuilt index the orphan rule rejects the
+    tree, which reddened two CI runs on 2026-10-03 (`STATE-defects.md` defect 5).
+    """
+    from .report import write_if_changed
+
+    return write_if_changed(paths.docs_index(), render())
+
+
 def render() -> str:
     index_file = paths.docs_index()
     root = paths.repo_root()

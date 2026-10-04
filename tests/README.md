@@ -36,6 +36,7 @@ interfere with the working repository.
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
 | `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
+| `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 

@@ -39,7 +39,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 41 recorded and closed, 1 in flight (042, T-0024, VM 0947) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
+| Sessions | 43 recorded and closed, 1 in flight (002, T-0026, VM 0947) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
 | Continuous integration | **Green on all six steps, observed on a pushed run** (`observed`, run `37165413909`, commit `9e865a4`, 2026-10-04T00:35Z, `GitHub Actions 1000000437`): Tests, Documentation lint, Release manifest, Skill layout, Vendored integrity, and **Session record integrity**, which had been red on every push while any VM held a session. Two runs ten minutes earlier (`37163434868`, `37163438950`) failed on Documentation lint, and the cause was *not* the clock: this VM pushed the new task file without regenerating `tasks/INDEX.md`, so the orphan rule fired. Ceiling: one commit, one runner image, one day |
@@ -59,14 +59,15 @@ T-0015, T-0016, T-0018, T-0019, T-0020 and now T-0024. Check
 an hour collide by construction.** Six times on 2026-10-03, and the cost is
 measured: a rebase resolution restored one file's index row to the renumbered
 form while reverting its body, so a findings file and its own table disagreed
-about the same entries. The full list is defect 4 in
-[`STATE-defects.md`](STATE-defects.md), which holds every defect this repository
-has shown, solved or not, and is the only fleet defect still unfixed.
+about the same entries. That is defect 5 in
+[`STATE-defects.md`](STATE-defects.md), the list of every defect this repository
+has shown, solved or not.
 
-Two of the seven defects there were closed on 2026-10-04 (D028 attribution of
-landed work, D029 clock-dependent generated files) and a third was found by
-reading the pushed CI run (defect 5: a pushed task file without `doc index`
-reddens the Documentation lint step, `observed` twice).
+Three of the six defects there were closed on 2026-10-04: D028 (a session that
+landed a colleague's work reported it as undeclared), D029 (generated files
+stamped `last-verified` with the render date), and the orphan rule biting two
+real CI runs because `task new` did not rebuild the indexes. The third was found
+by reading a pushed run rather than by pushing something and watching.
 
 ## What changed recently
 
@@ -87,6 +88,13 @@ exists so that history does not push this reload point past the line cap.
   against their own defect before being trusted. 269 tests green.
   [`STATE-history.md`](STATE-history.md) is at the 300-line cap, so this session's
   detail lives in D028 and its own record rather than there.
+- **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
+  indexes, because two CI runs failed on 2026-10-03 for exactly that: a task
+  file was pushed before `tasks/INDEX.md` was rebuilt and the orphan rule
+  rejected the file the VM had just created. The rule is unchanged — a file no
+  command wrote is still an orphan, which the new tests assert. **The task file
+  for this work guessed the wrong index:** the stale one was `docs/INDEX.md`,
+  which lists task files by path. 274 tests green.
 - **Session 001, VM 0947 (T-0025).** The pushed CI run for T-0024 is read and
   recorded: all six steps green on `9e865a4`, including the session-integrity
   step that had been red on every push while a VM was working. The two failures
@@ -179,15 +187,15 @@ untouched.
 3. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
    exercised git versions live in `tests/git-versions.json` (schema
    `origin.git-versions/1`), updated by T-0024 to say how much of the suite each
-   version has actually run: 2.25.1 has run all 269 tests, 2.56.0 only the 174
+   version has actually run: 2.25.1 has run all 274 tests, 2.56.0 only the 174
    that existed when T-0016 recorded it. **No equivalent record exists for
    Python**, which `docs/operations/vm-execution.md` names as unclaimed work.
    **Ceiling:** neither says anything about a candidate.
-4. **Identifier allocation is the one fleet defect still unfixed** (defect 5
-   above). A gate that reads the local tree cannot see the other VM's tree, so
-   two VMs allocate the same F/D/T numbers within the hour — six times on
-   2026-10-03. **Ceiling:** a detector, not an allocator: it can refuse a commit
-   that reuses an identifier, not stop two VMs racing.
+4. **Identifier allocation is the one fleet defect still unfixed** (defect 5 in
+   `STATE-defects.md`). A gate that reads the local tree cannot see the other
+   VM's tree, so two VMs allocate the same F/D/T numbers within the hour — six
+   times on 2026-10-03. **Ceiling:** a detector, not an allocator: it can refuse a
+   commit that reuses an identifier, not stop two VMs racing.
 5. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still

@@ -52,6 +52,14 @@ The `--verify` command is the important field. It must:
 A task whose verification cannot fail is worse than no task, because it produces
 false completion signals at scale.
 
+**Creating a task also rebuilds the indexes.** `task new`, `task claim`,
+`task complete` and `task release` rewrite `tasks/INDEX.md` and `docs/INDEX.md`,
+because a task file is a document and `doc lint` calls an unlinked document an
+orphan. Skipping that step is not a faster route to a green tree: it is what
+turned two CI runs red on 2026-10-03, when a VM pushed the cheapest possible
+sequence — create a task, commit it, push it — and the Documentation lint step
+failed on the file the VM had just created.
+
 ## Statuses
 
 ```

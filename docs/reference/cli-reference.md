@@ -53,7 +53,7 @@ Dispatchable work. Protocol:
 
 | Command | Effect |
 |---|---|
-| `task new --goal TEXT --verify CMD [...]` | Creates a task file from the template |
+| `task new --goal TEXT --verify CMD [...]` | Creates a task file from the template, then rebuilds `tasks/INDEX.md` and `docs/INDEX.md` so the new document is linked rather than an orphan |
 | `task list [--status S]` | Tasks with status and current holder |
 | `task claim ID --agent NAME [--vm NAME] [--takeover R] [--push \| --no-push]` | Claims a task and publishes the claim; fails if another agent holds it. `--takeover` replaces a dead holder's claim with a recorded reason |
 | `task release ID --agent NAME [--vm NAME]` | Returns a held task to the pool with a recorded reason |

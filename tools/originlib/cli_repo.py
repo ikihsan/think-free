@@ -62,11 +62,11 @@ def _read(path) -> str:
 
 
 def docindex_write() -> None:
-    report.write_if_changed(paths.docs_index(), docindex.render())
+    docindex.write_index()
 
 
 def tasks_index_write() -> None:
-    report.write_if_changed(paths.tasks_index(), tasks.render_tasks_index())
+    tasks.write_index()
 
 
 def dispatch_skills(args: argparse.Namespace) -> int:

@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0026
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 
@@ -34,11 +34,11 @@ The generated-file check already compares committed bytes with what the generato
 
 ## Acceptance criteria
 
-- [ ] After 'origin task new' in a clean repository, 'tools/origin doc lint' exits 0 with no intervening 'doc index'.
-- [ ] tasks/INDEX.md on disk equals render_tasks_index() immediately after create, claim and complete, without a manual regeneration.
-- [ ] A file that no command created is still reported as an orphan: the rule stays, only the omission is fixed.
-- [ ] The kill gate fails against the pre-change code, captured not asserted.
-- [ ] Full suite, doc lint, release check, skills check and session verify all exit 0.
+- [x] After 'origin task new' in a clean repository, 'tools/origin doc lint' exits 0 with no intervening 'doc index'.
+- [x] tasks/INDEX.md on disk equals render_tasks_index() immediately after create, claim and complete, without a manual regeneration.
+- [x] A file that no command created is still reported as an orphan: the rule stays, only the omission is fixed.
+- [x] The kill gate fails against the pre-change code, captured not asserted.
+- [x] Full suite, doc lint, release check, skills check and session verify all exit 0.
 
 ## Verification
 
@@ -48,9 +48,29 @@ PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/o
 
 ## Rollback
 
-Revert tools/originlib/{tasks,taskops}.py and the new tests. tasks/INDEX.md content is unchanged by the revert - the generator is the same, only who calls it changes - so no committed file needs regenerating.
+Revert tools/originlib/{tasks,taskops,cli_repo}.py and the new tests.
+`tasks/INDEX.md` content is unchanged by the revert - the generator is the same,
+only who calls it changes - so no committed file needs regenerating.
 
 ## Notes
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**The cause was `docs/INDEX.md`, not `tasks/INDEX.md`.** The task file for this
+defect assumed the stale index was `tasks/INDEX.md`. `git show 8898f0a:docs/INDEX.md`
+shows the real one: that commit carries `tasks/T-0024-*.md` and a documentation
+index that does not list it, and the documentation index lists every task file by
+path. Both indexes are stale in that commit; the orphan is reported for whichever
+document no index mentions. The fix therefore rebuilds both, in that order.
+
+**Falsified first.** Five tests; with the three `refresh_indexes()` calls removed,
+four fail - the two byte-equality checks and both lint checks. The negative control
+(a file no command wrote is still an orphan) passes either way, which is what a
+control is for: it must not move when the thing under test moves. Suite: 274 tests.
+
+**Also found while writing the test:** the fixture repository in
+`tests/harness.py` ships no generated indexes, so `doc lint` there reports every
+placeholder document as an orphan until `write_generated()` runs. The first
+version of this test measured that instead of the defect, and said so in a comment
+rather than by loosening the assertion.

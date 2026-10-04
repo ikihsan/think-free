@@ -23,7 +23,22 @@ from .tasks import (
     load,
     next_task_id,
     slugify,
+    write_index,
 )
+
+
+def refresh_indexes() -> None:
+    """Rebuild the generated indexes after a task row moved.
+
+    `create` adds a document, so an index that predates it makes the new task an
+    orphan and fails `doc lint` - observed as two red CI runs on 2026-10-03
+    (`STATE-defects.md` defect 5). Both indexes are pure functions of the tree,
+    so writing them here is a rebuild rather than an edit.
+    """
+    from . import docindex
+
+    write_index()
+    docindex.write_index()
 
 
 def _set_meta(task: Task, updates: dict[str, str]) -> None:
@@ -65,6 +80,7 @@ def create(goal: str, verify: str, **fields) -> Task:
     paths.ensure_dir(paths.tasks_dir())
     path.write_text(body, encoding="utf-8")
     append_claim(task_id, "create")
+    refresh_indexes()
     return load(path)
 
 
@@ -78,6 +94,7 @@ def claim(task_id: str, agent: str, vm: str = "", session: str = "") -> Task:
         )
     _set_meta(task, {"status": "claimed", "claim-agent": agent, "claim-vm": vm, "claim-session": session})
     append_claim(task.task_id, "claim", agent=agent, vm=vm, session=session)
+    refresh_indexes()
     return load(task.path)
 
 
@@ -88,6 +105,7 @@ def transition(task_id: str, status: str, reason: str = "", **fields) -> Task:
     _set_meta(task, {"status": status})
     action = {"done": "complete", "cancelled": "cancel"}.get(status, status)
     append_claim(task.task_id, action, reason=reason, **fields)
+    refresh_indexes()
     return load(task.path)
 
 
