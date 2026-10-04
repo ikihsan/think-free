@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T02:49:27+00:00
-- **Duration:** ?s
+- **Duration:** 2159.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `task/T-0033-instance-20260717-0944`
 
@@ -23,7 +23,11 @@ T-0033: make doctor compare this VM's git and interpreter against the records th
 
 ## Summary
 
-_(none recorded)_
+T-0033: doctor compares this VM's git and interpreter against tests/git-versions.json and tests/python-versions.json and reports exercised / NOT exercised / record unreadable / no record, with the matched entry's own scope attached. Falsified four ways first, one of which removed the single rendering line and left every module-level test green - the shape of a gate that tests a module rather than the report. Two further defects in the first implementation were found by the tests. Defect 6 closed, and with it all six in STATE-defects.md. 373 tests green; doc lint, release check and preflight exit 0.
+
+## Next
+
+Land the branch. Defect 5's residual race remains the only open item in STATE-defects.md and nothing prevents it by design. The next unclaimed work is in ROADMAP: a CI matrix row for a second Python version, which is what would turn the two-point exercised range into a range. Seed tasks from STATE-next-actions is also still unchecked.
 
 ## Artifacts
 
@@ -71,11 +75,14 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 4 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS.md |
+|   undeclared | docs/operations/ci.md |
+|   undeclared | docs/operations/vm-execution.md |
+|   undeclared | tools/originlib/doctor.py |
 
 ## Timeline
 
@@ -113,6 +120,15 @@ _(none recorded)_
 | 30 | 03:25:00 | artifact | wrote tests/README.md |
 | 31 | 03:25:00 | artifact | wrote DECISIONS-PRACTICE.md |
 | 32 | 03:25:00 | artifact | wrote tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md |
+| 33 | 03:25:27 | unlogged_change | changed but never declared as an artifact: DECISIONS.md |
+| 34 | 03:25:27 | unlogged_change | changed but never declared as an artifact: docs/operations/ci.md |
+| 35 | 03:25:27 | unlogged_change | changed but never declared as an artifact: docs/operations/vm-execution.md |
+| 36 | 03:25:27 | unlogged_change | changed but never declared as an artifact: tools/originlib/doctor.py |
+| 37 | 03:25:27 | doc_update | updated DECISIONS-PRACTICE.md |
+| 38 | 03:25:27 | doc_update | updated DECISIONS.md |
+| 39 | 03:25:27 | doc_update | updated ROADMAP.md |
+| 40 | 03:25:27 | doc_update | updated STATE.md |
+| 41 | 03:25:27 | session_end | T-0033: doctor compares this VM's git and interpreter against tests/git-versions.json and tests/python-versions.json and reports exercised / NOT exerc |
 
 ## Reproduce this record
 
