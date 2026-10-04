@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T23:45:14+00:00
-- **Duration:** ?s
+- **Duration:** 5542.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Make 'origin doctor' read the push credential it reports (T-0024)
 
 ## Summary
 
-_(none recorded)_
+T-0029: doctor now reports the push-credential mechanism, falsified against the defect's own bytes before the fix (one report for three distinct environments, then three). It found a live /tmp dependency on this VM and repaired it, proven by deleting the file. Two of this session's own defects recorded (F016 harness overwrote ~/.gitconfig; F017 clock-derived generated dates). Landed after seven identifier collisions with the other VM.
+
+## Next
+
+Fix identifier allocation: task new should take the next id from the remote's claim ledger, not the local tree. That is the only fleet defect left open and it caused seven renumberings tonight. Then side B of E2's drift snapshot, no earlier than days after side A.
 
 ## Artifacts
 
@@ -79,11 +83,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 61 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | .agents/skills/evidence-record/SKILL.md |
+|   undeclared | .agents/skills/session-lifecycle/SKILL.md |
+|   undeclared | .github/workflows/ci.yml |
+|   undeclared | AGENTS.md |
+|   undeclared | DECISIONS-GATING.md |
+|   undeclared | DECISIONS-PRACTICE.md |
+|   undeclared | DECISIONS-SCREENING.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | FAILURES-findings-3.md |
+|   undeclared | FAILURES.md |
 
 ## Timeline
 
@@ -129,15 +142,18 @@ _(none recorded)_
 | 38 | 01:02:26 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -6 |
 | 39 | 01:06:10 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
 | 40 | 01:06:19 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -6 |
-| 41 | 01:12:13 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
-| 42 | 01:12:15 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -5 |
-| 43 | 01:14:18 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -4 |
-| 44 | 01:17:01 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
-| 45 | 01:17:24 | milestone | Work landed on research/origin (bec018a) after seven identifier collisions with instance-20260717-0947 and seven rebases. 312 tests green on the merge |
-| 46 | 01:17:24 | decision | Renumber on the side that has not been pushed, and record the collision in STATE.md rather than editing a closed event stream. Observed: seven collisi |
-| 47 | 01:17:25 | decision | Keep the other VM's implementation of the generated-stamp rule and drop this VM's duplicate. Both VMs found the same clock-derived date defect indepen |
-| 48 | 01:17:25 | artifact | wrote tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md |
-| 49 | 01:17:25 | artifact | wrote docs/operations/doctor.md |
+| 109 | 01:17:36 | unlogged_change | changed but never declared as an artifact: tools/originlib/tasks.py |
+| 110 | 01:17:36 | unlogged_change | changed but never declared as an artifact: tools/originlib/worktree.py |
+| 111 | 01:17:37 | doc_update | updated DECISIONS-GATING.md |
+| 112 | 01:17:37 | doc_update | updated DECISIONS-PRACTICE.md |
+| 113 | 01:17:37 | doc_update | updated DECISIONS-SCREENING.md |
+| 114 | 01:17:37 | doc_update | updated DECISIONS.md |
+| 115 | 01:17:37 | doc_update | updated FAILURES.md |
+| 116 | 01:17:37 | doc_update | updated ROADMAP.md |
+| 117 | 01:17:37 | doc_update | updated STATE.md |
+| 118 | 01:17:37 | session_end | T-0029: doctor now reports the push-credential mechanism, falsified against the defect's own bytes before the fix (one report for three distinct envir |
+
+_68 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

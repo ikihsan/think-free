@@ -79,6 +79,15 @@ passed while the defect was still live, because a lint on the author's own tree
 cannot see what the claim commit published. The gate that could is a second clone
 linting what it fetched.
 
+**Session 040 closed with 61 `unlogged_change` events that are not its own.** Nearly
+all are the other VM's files — `landed.py`, `inflight.py`, `sync.py`, its task files,
+its tests — which arrived through **seven hand-run `git rebase`s**. D028 attributes a
+path only from a base move *the tooling performed* (`sync pull`/`sync land`), so
+attribution had nothing to work from: a raw rebase is not one. That is the ceiling
+D028 states on purpose, and this is the first case to hit it. The stream is closed
+and is not edited, as with session 029. **Fix is procedural:** rebase a moving base
+with `origin sync land`, which records what arrived.
+
 ## What changed recently
 
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
@@ -178,10 +187,8 @@ spending effort: a pass still leaves prior art, usefulness, and adoption
 untouched.
 
 1. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
-   commit `9e865a4`, all six steps green, `observed`). The standing "CI is not
-   claimed green" caveat is closed for that commit. Two things stay open: the
-   Documentation lint step still breaks when a VM pushes a task file without
-   rebuilding `tasks/INDEX.md` (defect 7 above), and a run says nothing about a
+   commit `9e865a4`, all six steps green, `observed`), which closes the standing
+   "CI is not claimed green" caveat for that commit. A run says nothing about a
    second runner image or a rebase conflict.
 2. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Three
