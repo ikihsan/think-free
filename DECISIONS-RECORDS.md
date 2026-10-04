@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035**. Each entry records a choice that was genuinely
+Decisions **D029, D032, D035, D041**. Each entry records a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason.
 Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -179,3 +179,36 @@ states, an `exercised` verdict carrying its entry's scope and the machine it ran
 on, and a negative control that emptying the record moves every version off
 `exercised` so the weaker assertion cannot pass for the wrong reason. `doctor`
 prints "this machine is not in the record"; the suite must not assert it.
+
+## D041 — A link's verdict is a function of the repository, never of the checkout's neighbours (2026-10-04)
+
+Observed: T-0047 shipped `../../docs/reference/identifier-allocation.md` from a task
+file and recorded that `doc lint` passed on it in the worktree the branch was built
+in and failed on the same bytes in the main checkout after landing — and that it
+could not reproduce which run decided it. `check_links` built two candidates and
+asked `exists()` of each, so a link leaving the root was decided by whatever the
+checkout's *parent directory* held. Measured here: one probe document, identical
+bytes, two checkout locations — no finding where the parent held
+`docs/reference/identifier-allocation.md`, `broken link` where it did not. The
+general form is D035's, one question further out: F018 and F019 read a record of
+the environment inside the repository, and this read the filesystem *outside* it,
+which no record of the tree can pin.
+
+Decision: **a link must resolve inside the repository, and containment is decided
+lexically** from the link and the root — `os.path.relpath`, never `Path.resolve()`,
+so the rule asks the filesystem nothing beyond the existence check it already made.
+An escaping link is its own violation rather than a broken one, so the reason
+printed is the reason found and `origin annotate` files it on the run that needs it.
+A link with at least one candidate inside the repository is judged exactly as
+before, which is why this file's own links are unaffected: none of them leaves it.
+
+Rejected: `Path.resolve()` plus a prefix test, which follows symlinks and so reads
+the disk again — the same defect one indirection away. Rejected: warning rather
+than reporting, which leaves a tree publishable that CI cannot diagnose.
+Rejected: reporting an escaping link as `broken`, which names the wrong reason and
+would still differ between two machines, since the whole point is that it does not.
+
+**Ceiling.** Inline links only: a reference link (`[x][1]`), a bare autolink, and a
+link that resolves inside the repository to the wrong document are all unexamined,
+and `check_links` still trusts git for the file list, so an untracked document is
+invisible to it as to every other rule.

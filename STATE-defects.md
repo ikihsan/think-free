@@ -15,13 +15,12 @@ defect is open. The method is in
 mechanism in [`tests/README.md`](tests/README.md), beside the tests.
 
 1. **An in-flight session reddened every other VM's CI** (solved in T-0020). Two
-   correct rules met — `task claim` needs HEAD on the remote base, so a claiming
-   VM must publish its `session_start` first, and D013 then failed every push.
-   `tools/originlib/inflight.py` separates in flight from abandoned from the tree
-   alone (D027; findings F014 and F015). The live record corrected that predicate once
-   already: clause 1 required the session to name a task, the other VM started one
-   without `--task`, and the gate called a working session abandoned. A claim in the
-   ledger naming the session now counts.
+   correct rules met — `task claim` needs HEAD on the remote base, so a claiming VM
+   must publish its `session_start` first, and D013 then failed every push — and the
+   live record corrected its own predicate once already: clause 1 required the session
+   to name a task, the other VM started one without `--task`, and the gate called a
+   working session abandoned. `inflight.py` now separates in flight from abandoned
+   from the tree alone (D027; F014, F015), counting a claim in the ledger.
 
 2. **Reconciliation compared trees, not authorship** (solved in T-0024, D028). A VM
    that landed another VM's work inherited its `unlogged_change` and
@@ -30,43 +29,41 @@ mechanism in [`tests/README.md`](tests/README.md), beside the tests.
    commits that arrived, and reconciliation attributes a path by the newest thing
    that touched it. **Ceiling:** attribution knows only about base moves the
    tooling performed, so a rebase run by hand still reports — reached by sessions
-   012 and 040, both through hand-run `git rebase --continue`. That is the
-   intended direction of failure, and it is also why a session has to record such
-   a gap where a *closed* stream cannot accept it: `session finish` will not take
-   the events, and editing the stream afterwards would be worse.
+   012 and 040, both through hand-run `git rebase --continue`. That is the intended
+   direction of failure, and why a session has to record such a gap where a *closed*
+   stream cannot accept it: `session finish` will not take the events, and editing
+   the stream afterwards would be worse.
 
 3. **Every generated file stamped `last-verified` with the render date** (solved
    in T-0024, D029), so `doc lint` failed on 42 committed session reports and all
-   three indexes on 2026-10-04 — the day after they were written. Each generator
-   now stamps from the content it renders. The CI consequence is `inferred` from
-   that local reproduction: no pushed run has failed this way, because the two
-   red runs at 23:58 on 2026-10-03 had a different and verified cause (defect 5).
+   three indexes on 2026-10-04 — the day after they were written. Each generator now
+   stamps from the content it renders. The CI consequence is `inferred` from that local
+   reproduction: no pushed run has failed this way, the two red runs at 23:58 on
+   2026-10-03 having a different and verified cause (defect 5).
 
 4. **A pushed task file without `doc index` reddens CI** (solved in T-0026 and
-   T-0027). Runs `37163434868` and `37163438950` failed on Documentation lint:
-   this VM created a task, committed it and pushed it without rebuilding the
-   generated indexes, so the orphan rule rejected the file the VM had just
-   created. `task new`, `claim`, `complete` and `release` now rebuild both
-   indexes, and a *published claim* also stages them, because that commit is the
-   first thing every other VM reads (four more red runs, `37165502352`–
-   `37165807196`, were the same defect one step later). **The rule is unchanged**—
-   a file no command wrote is still an orphan, which the new tests assert —
-   because the omission was the defect, not the strictness. **Residual:** the create
-   commit is the agent's own, so `task new` prints the command that stages the
-   indexes; nothing can enforce that step.
+   T-0027). Runs `37163434868` and `37163438950` failed on Documentation lint: this VM
+   created a task, committed it and pushed it without rebuilding the generated indexes,
+   so the orphan rule rejected the file the VM had just created. `task new`, `claim`,
+   `complete` and `release` now rebuild both indexes, and a *published claim* also
+   stages them, because that commit is the first thing every other VM reads (four more
+   red runs, `37165502352`–`37165807196`, were the same defect one step later). **The
+   rule is unchanged** — a file no command wrote is still an orphan, which the new
+   tests assert — because the omission was the defect, not the strictness. **Residual:**
+   the create commit is the agent's own, so `task new` prints the command that stages
+   the indexes; nothing can enforce that step.
 
 5. **`doctor` did not compare this VM's interpreter or git against what the suite
    has been exercised on** (solved in T-0033). Both records existed and were
-   schema-checked — `tests/git-versions.json` and `tests/python-versions.json` —
-   and nothing read either at run time, so a VM on Python 3.9 was
-   indistinguishable in the report from one on 3.8.10. `tools/originlib/versions.py`
-   now reports `exercised` with the entry's own `scope`, `NOT exercised`,
-   `record unreadable`, and `no record`, and **the third is the load-bearing
-   one**: a comparison that cannot tell "we looked and it is not there" from "we
-   could not look" reports a confident answer in both. Falsified four ways, and
-   its first implementation matched record entries in file order, so a VM on
-   3.12.15 got CI's `3.12` scope; the longest entry wins and a test says so.
-   **Ceiling:** `exercised` means a run happened, not that the version is
+   schema-checked — `tests/git-versions.json` and `tests/python-versions.json` — and
+   nothing read either at run time, so a VM on Python 3.9 was indistinguishable in the
+   report from one on 3.8.10. `tools/originlib/versions.py` now reports `exercised` with
+   the entry's own `scope`, `NOT exercised`, `record unreadable`, and `no record`, and
+   **the third is the load-bearing one**: a comparison that cannot tell "we looked and
+   it is not there" from "we could not look" reports a confident answer in both.
+   Falsified four ways, and its first implementation matched record entries in file
+   order, so a VM on 3.12.15 got CI's `3.12` scope; the longest entry wins and a test
+   says so. **Ceiling:** `exercised` means a run happened, not that the version is
    supported. Contract: [`docs/operations/doctor.md`](docs/operations/doctor.md).
 
 7. **A test fixture inherited the runner's environment** (solved in T-0035).
@@ -146,13 +143,10 @@ is closed.
     next edit to the same file is. The appender, not the four commands that call it:
     a rule attached to the command that happened to run is a rule the next one
     misses. `session finish` names what it excluded, for D028's reason.
-    **The trade-off the entry above refused is answered, not assumed away:** a
-    declaration naming the *file* would silence every later edit to it, so the
-    declaration names the *bytes*.
     Falsified both ways — removing the clause in `reconcile` fails 4 of 14 new tests,
     removing only the digest bound fails 3 — and the first attempt at the first
     mutation **passed all 14**, because the patch pattern did not match and a green
-    run was read as a control. See D039 for the rejected alternatives.
+    run was read as a control. See D040 for the rejected alternatives.
     **Ceiling:** a command run with no session open records nothing and the next
     session reports the file; and the *false negative* this entry never measured is
     open — a `*.json`/`*.jsonl` edit is excluded from `unlogged` by the same
@@ -183,13 +177,12 @@ is closed.
     pick the wrong one silently. The negative control the expired assertion lacked
     was added too: a claim older than the *widest* lease is still abandoned — falsified
     by moving its age under the threshold, which fails it with `0 != 4`.
-    **Ceiling:** the fix dates the fixture rather than injecting a clock into the
-    CLI, so those three tests still depend on the wall clock agreeing with itself
-    within a test's runtime, and nothing here injects one at the `session verify`
-    boundary. Any other test that dates a record against a fixed instant and then
-    lets production code read the real clock has the same defect, and nothing scans
-    for the pairing. The general form is in
-    [`tests/README.md`](tests/README.md), beside the tests.
+    **Ceiling:** the fix dates the fixture rather than injecting a clock into the CLI,
+    so those three tests still depend on the wall clock agreeing with itself within a
+    test's runtime. Any other test that dates a record against a fixed instant and then
+    lets production code read the real clock has the same defect, and nothing scans for
+    the pairing. The general form is in [`tests/README.md`](tests/README.md), beside the
+    tests.
 
 14. **A decision record's own header was false in two of five files, and the
     identifier rule read every other source** (solved in T-0042). A decision number
@@ -225,9 +218,9 @@ is closed.
     without a conflict — different lines, no overlapping hunk — the merged file is
     stale, and `_resolve_generated_conflicts` asks git what conflicted and correctly
     hears nothing. Commit `e942225` was published that way. **This is the fourth
-    arrival of one defect family and the third repair that did not generalise** —
-    T-0026/T-0027 fixed the *task* commands, session 015 fixed the *appenders*, and
-    this layer is neither: it is the one that *merges* trees. **Repair:** after every
+    arrival of one defect family and the third repair that did not generalise**:
+    T-0026/T-0027 fixed the *task* commands, session 015 fixed the *appenders*, and this
+    layer is neither — it is the one that *merges* trees. **Repair:** after every
     rebase, `land` asks the question
     `doc lint` asks — is each generated file equal to its renderer — and commits
     the answer before the push, which refuses a dirty tree anyway; a missing file is
@@ -253,12 +246,11 @@ is closed.
    colliding tree in `sync land` and reports it in `doc lint` rule 7; over all 174
    commits it flags exactly one (`e6eb992`), and it found a live desync on its
    first run — D030 missing from `DECISIONS.md`.
-   **Residual, stated:** two VMs allocating between their own fetches still
-   collide and an unpushed number reserves nothing; the push rejection and the
-   detector catch it, nothing prevents it, and **this cost one collision in the act
-   of fixing it** — VM 0947's D032 and this VM's D032 were both published, and this
-   side renumbered to D033 during the rebase. The allocation rule, the renumbering
-   rule and every collision are listed in
+   **Residual, stated:** two VMs allocating between their own fetches still collide and
+   an unpushed number reserves nothing; the push rejection and the detector catch it,
+   nothing prevents it, and **this cost one collision in the act of fixing it** — VM
+   0947's D032 and this VM's D032 were both published, and this side renumbered to D033
+   during the rebase. Allocation, renumbering and every collision are listed in
    [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
 
 8. **The suite was red on every interpreter it had never run on** (solved in
@@ -281,20 +273,27 @@ is closed.
    the comparator's contract — four reachable states, an `exercised` verdict carrying
    its entry's scope and machine — with a control that emptying the record moves every
    version off `exercised`; adding the 2.55.0 entry alone would have made CI green and
-   left the assumption in place. **The general form of 8, 9 and 15: a gate that reads
-   its own environment is only as portable as the record of that environment**, and 15
-   is the third instance with the environment being time.
+   left the assumption in place. **The general form of 8, 9, 15 and 19: a gate that
+   reads its own environment is only as portable as the record of that environment.**
 
 18. **Every step whose only job is to emit a diagnostic was skipped when an earlier
     step failed** (solved in T-0046). Each of the five file-reading gate steps carried
     `if: matrix.python-version == '3.12'` and no status function, so an implicit
     `success()` skipped all five on a red `Tests` step: runs `37189825232` and
-    `37190842104`, 2026-10-04. It is also what made the record wrong twice (F021).
-    Account, evidence and ceiling in
+    `37190842104`, 2026-10-04. It is also what made the record wrong twice (F021); the
+    evidence and ceiling are in
     [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
 
-17. **A gate's report named a step and nothing else** (solved in T-0040, with two faults in
-    the same path; method and ceiling in [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
+17. **A gate's report named a step and nothing else** (solved in T-0040, two faults in the
+    same path; method and ceiling in
+    [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
 
-The hand-run-rebase ceiling named in defect 2 was reached twice more, by sessions 012
-and 040, both through `git rebase --continue`; the stream is closed and is not edited.
+19. **A link's verdict was a function of the checkout's neighbours rather than of the
+    repository** (solved in T-0051, D041). Rule 3 tested its candidates for existence
+    *wherever they landed*, so `../../docs/x.md` from `tasks/` was decided by what the
+    checkout's parent held — T-0047's `doc lint` passing in a worktree and failing in the
+    main checkout on identical bytes, which its note could not explain. Containment is now
+    decided lexically, so the existence check is the only read, and removing that filter
+    brings the parent-dependence back. Instance of the form named in 9, the environment
+    being the filesystem *outside* the repository. Measurement and ceiling in
+    [`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md).

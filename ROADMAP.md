@@ -124,10 +124,12 @@ Separate from the invention stages, because the mission cannot be run without it
       (T-0047, D040, defect 12)
 - [x] Command capture with exit codes and secret redaction; task dispatch with an
       append-only claim ledger
-- [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
+- [x] Documentation lint: line cap, metadata, links, orphans, generated freshness.
+      A link must resolve *inside* the repository, decided without asking the
+      filesystem, so the verdict is a property of the tree (T-0051, D041, defect 19)
 - [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored
       in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (488 tests on git 2.25.1), with
+- [x] Standard-library test suite (513 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of
       the suite each git version has actually run. A test's correctness depends
       on every clock the code under it reads, and three tests behind the
