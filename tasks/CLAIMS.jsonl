@@ -75,3 +75,4 @@
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0024", "ts": "2026-10-03T23:57:52+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0024", "ts": "2026-10-03T23:58:11+00:00", "vm": "instance-20260717-0947"}
 {"action": "complete", "evidence": ["tests/test_landed_work.py", "tests/test_generated_stamps.py", "tools/originlib/landed.py"], "reason": "Reconciliation attributes by the recorded base move: a session that lands a colleague's commits no longer reports them as its own undeclared changes (D028). The same run found a second defect that reddened doc lint every day after a generated file was written (D029).", "schema": "origin.task.claim/1", "task": "T-0024", "ts": "2026-10-04T00:30:36+00:00"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0025", "ts": "2026-10-04T00:37:05+00:00"}
