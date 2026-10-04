@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-03T23:58:25+00:00
-- **Duration:** ?s
+- **Duration:** 2207.8s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `task/T-0024-instance-20260717-0947`
 
@@ -23,7 +23,11 @@ T-0024: stop reconciliation and the documentation-gap gate from blaming a sessio
 
 ## Summary
 
-_(none recorded)_
+T-0024 done: reconciliation attributes a landed base move to the VM that wrote it (D028), and generated files no longer depend on the clock (D029). Both falsified against their own defect before being trusted; 269 tests green; task verified and completed.
+
+## Next
+
+Land the branch onto research/origin, then read the pushed CI run and record its result in STATE.md: local green is not the same claim, and the D029 fix specifically needs a pushed run to show the Documentation lint step green on a later day. Still unfixed and now the only fleet defect named in STATE.md: identifier allocation. Also unclaimed: a machine-readable record of the Python versions the suite is verified on (named in docs/operations/vm-execution.md), and STATE-history.md is at the 300-line cap and needs a split before the next session adds detail to it.
 
 ## Artifacts
 
@@ -52,10 +56,14 @@ _(none recorded)_
 | docs/INDEX.md | 723aefe0e7de | 13834 |
 | tasks/INDEX.md | 8fa5e48028d6 | 5708 |
 | sessions/INDEX.md | 7345fcb50b3b | 6629 |
+| ROADMAP.md | bca9c9f93272 | 10778 |
+| tests/git-versions.json | c2f5516173d1 | 1108 |
+| tools/originlib/reconcile.py | c42b716793df | 5721 |
+| tools/originlib/docindex.py | 84c1f7670fee | 6382 |
 
 ## Commands
 
-16 captured, 7 non-zero exit.
+18 captured, 7 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -75,12 +83,13 @@ _(none recorded)_
 | 26 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 137969 |
 | 43 | ['tools/origin', 'preflight'] | 0 | 1874 |
 | 44 | ['tools/origin', 'task', 'verify', 'T-0024'] | 0 | 139001 |
+| 48 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests', '-k', 'gitversion'] | 0 | 405 |
+| 49 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 141006 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -130,10 +139,18 @@ _(none recorded)_
 | 38 | 00:27:51 | artifact | wrote tools/originlib/docindex.py |
 | 39 | 00:27:51 | artifact | wrote tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md |
 | 40 | 00:27:51 | artifact | wrote docs/INDEX.md |
-| 41 | 00:27:51 | artifact | wrote tasks/INDEX.md |
-| 42 | 00:27:51 | artifact | wrote sessions/INDEX.md |
-| 43 | 00:28:00 | command | $ tools/origin preflight |
-| 44 | 00:30:29 | command | $ tools/origin task verify T-0024 |
+| 47 | 00:31:37 | milestone | task T-0024 verified (exit 0) and completed; ROADMAP and git-versions record updated with what each version has actually run |
+| 48 | 00:31:50 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k gitversion |
+| 49 | 00:34:46 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 50 | 00:34:56 | artifact | wrote tools/originlib/reconcile.py |
+| 51 | 00:34:56 | artifact | wrote tools/originlib/docindex.py |
+| 52 | 00:35:13 | doc_update | updated DECISIONS-GATING.md |
+| 53 | 00:35:13 | doc_update | updated DECISIONS.md |
+| 54 | 00:35:13 | doc_update | updated ROADMAP.md |
+| 55 | 00:35:13 | doc_update | updated STATE.md |
+| 56 | 00:35:13 | session_end | T-0024 done: reconciliation attributes a landed base move to the VM that wrote it (D028), and generated files no longer depend on the clock (D029). Bo |
+
+_6 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
