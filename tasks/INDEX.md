@@ -50,7 +50,7 @@ last-verified: 2026-10-04
 | [`T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md`](T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0036-report-a-duplicate-defect-number-in-state-defect.md`](T-0036-report-a-duplicate-defect-number-in-state-defect.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0037-explain-the-four-red-ci-runs-since-the-version-m.md`](T-0037-explain-the-four-red-ci-runs-since-the-version-m.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
-| [`T-0038-record-that-the-public-check-run-annotations-wer.md`](T-0038-record-that-the-public-check-run-annotations-wer.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0038-record-that-the-public-check-run-annotations-wer.md`](T-0038-record-that-the-public-check-run-annotations-wer.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 
 ## How tasks run on another machine
 
