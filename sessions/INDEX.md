@@ -8,10 +8,10 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-46 recorded session(s). One `events.jsonl` per session, so concurrent
+47 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 21 older session(s) are in the directory listing.
+Showing the 25 most recent. 22 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -20,6 +20,7 @@ Showing the 25 most recent. 21 older session(s) are in the directory listing.
 | [2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in](2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/README.md) | opencode | worked | T-0026: make task new regenerate tasks/INDEX.md so a created task is n | 2026-10-04T00:52 |
 | [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
+| [2026-10-03-040-make-origin-doctor-read-the-push-credent](2026-10-03-040-make-origin-doctor-read-the-push-credent/README.md) | opencode | **unfinished** | Make 'origin doctor' read the push credential it reports (T-0024) | 2026-10-03T23:45 |
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 21 older session(s) are in the directory listing.
 | [2026-10-03-025-screen-all-six-sealed-investigations-wit](2026-10-03-025-screen-all-six-sealed-investigations-wit/README.md) | unknown-agent | worked | screen all six sealed investigations with E's falsifiability and F's a | 2026-10-03T19:32 |
 | [2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl](2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/README.md) | opencode | worked | T-0011: bounded-neighbourhood knitting planner vs the same exhaustive  | 2026-10-03T20:27 |
 | [2026-10-03-022-run-the-knitting-stage-a-planner-compari](2026-10-03-022-run-the-knitting-stage-a-planner-compari/README.md) | opencode | worked | Run the knitting Stage-A planner comparison: local planner vs exhausti | 2026-10-03T17:38 |
-| [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | worked | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:22 |
 
 
 ## Reading a session

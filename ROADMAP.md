@@ -169,6 +169,7 @@ Separate from the invention stages, because the mission cannot be run without it
       failed on 42 committed reports and three indexes the day after they were
       written. The CI consequence is `inferred`: the red runs of 2026-10-03 had a
       different, verified cause (defect 5 in `STATE-defects.md`).
+<<<<<<< HEAD
 - [x] `task new` leaves no orphan behind (T-0026 and T-0027, `observed` in runs
       `37163434868`, `37163438950` and four more on 2026-10-04): `new`, `claim`,
       `complete` and `release` rebuild the generated indexes, and a published
@@ -177,6 +178,23 @@ Separate from the invention stages, because the mission cannot be run without it
       repaired the Python floor and the GitHub App status; the App's real
       permissions still need a human with its settings page, and `doctor` reports
       no credential for a key-file App)
+=======
+- [x] `task new` leaves no orphan behind (T-0026, `observed` in runs
+      `37163434868` and `37163438950`): a pushed task file used to break the
+      Documentation lint step until `tasks/INDEX.md` was rebuilt, so `new`,
+      `claim`, `complete` and `release` now rebuild the generated indexes
+- [x] Operations documents agree with what the fleet has actually run (T-0023
+      repaired the Python floor and the GitHub App status; T-0027 closed the
+      `doctor` gap). The App's real permissions still need a human with its
+      settings page — nothing here can read them
+- [x] `doctor` reports the push credential mechanism (T-0027): the configured
+      `credential.helper`, whether each named helper exists and is executable,
+      App key files by path and mode, whether the helper depends on anything
+      outside `~/.config`, and whether `git credential fill` obtains a
+      credential. Three-valued verdict (`configured`/`broken`/`unavailable`),
+      no value ever recorded, and `configured` explicitly does not mean the
+      credential can push (`docs/operations/doctor.md`)
+>>>>>>> T-0024: make doctor read the push credential it reports
 - [ ] A machine-readable record of the Python versions the suite is verified on,
       the way `tests/git-versions.json` records git versions
 - [ ] Seed tasks from `STATE.md` next actions

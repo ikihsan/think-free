@@ -90,6 +90,82 @@ class IndexCommandTest(RepoTest):
         self.assertEqual(before, after)
 
 
+class GeneratedStampTest(RepoTest):
+    """A generated file's date must come from its inputs, not the clock.
+
+    `doc lint` fails when a committed generated file differs from a fresh render.
+    Every generator used to stamp `last-verified` with today's date, so the
+    documentation gate failed at midnight on a repository nobody had changed —
+    and running `doc index` rewrote thirty-five session reports to say they had
+    been verified that day. `FAILURES.md` F015.
+    """
+
+    def stamps(self) -> dict[str, str]:
+        import re
+
+        out = {}
+        for name in ("sessions/INDEX.md", "tasks/INDEX.md", "docs/INDEX.md"):
+            text = (self.repo / name).read_text(encoding="utf-8")
+            out[name] = re.search(r"last-verified: (\S+)", text).group(1)
+        return out
+
+    def test_the_index_carries_a_session_date_not_the_clock(self) -> None:
+        import json
+
+        from originlib import events
+
+        old = "2026-10-01T09:00:00+00:00"
+        name = "2026-10-01-001-a-session-from-three-days-ago"
+        write = self.repo / "sessions" / name / "events.jsonl"
+        write.parent.mkdir(parents=True, exist_ok=True)
+        for seq, kind in ((1, "session_start"), (2, "session_end")):
+            write.write_text(
+                json.dumps(
+                    {
+                        "schema": "origin.session.event/1",
+                        "seq": seq,
+                        "ts": old,
+                        "session": name,
+                        "kind": kind,
+                        "data": {"goal": "old", "outcome": "worked", "summary": "s", "next": "n"},
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+        self.write_generated()
+        self.cli("doc", "index")
+        index = (self.repo / "sessions" / "INDEX.md").read_text(encoding="utf-8")
+        self.assertIn("last-verified: 2026-10-01", index)
+        self.assertNotIn(f"last-verified: {events.now_iso()[:10]}", index)
+
+    def test_regenerating_twice_changes_nothing(self) -> None:
+        self.write_generated()
+        before = self.stamps()
+        self.cli("doc", "index")
+        self.cli("doc", "index")
+        self.assertEqual(self.stamps(), before)
+
+    def test_a_session_report_carries_its_own_session_date(self) -> None:
+        self.write_generated()
+        self.cli("session", "start", "--goal", "dated by its own record")
+        self.cli("doc", "index")
+        report = sorted(self.repo.glob("sessions/2026-*/README.md"))[-1]
+        text = report.read_text(encoding="utf-8")
+        from originlib import events
+
+        self.assertIn(events.now_iso()[:10], text)
+
+    def test_the_stamp_follows_the_newest_session_not_the_day(self) -> None:
+        self.write_generated()
+        self.cli("session", "start", "--goal", "first")
+        self.cli("doc", "index")
+        first = self.stamps()["sessions/INDEX.md"]
+        self.cli("session", "finish", "--outcome", "no-change", "--summary", "s", "--next", "n")
+        self.cli("doc", "index")
+        self.assertEqual(self.stamps()["sessions/INDEX.md"], first)
+
+
 class DoctorTest(RepoTest):
     def test_offline_doctor_reports_the_environment(self) -> None:
         self.assertEqual(self.cli("doctor", "--offline"), 0)

@@ -40,6 +40,8 @@ file reached the 300-line cap:
 | F013 | Three mission records were committed with conflict markers, and every gate passed |
 | F014 | The documented VM sequence was impossible, and refusals printed tracebacks |
 | F015 | The local and remote views of a task's holder disagreed after every takeover |
+| F016 | A falsification harness overwrote this VM's real `~/.gitconfig` |
+| F017 | A generated file's date came from the clock, so the docs gate failed at midnight |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

@@ -124,3 +124,80 @@ them.
 
 **Lesson kept.** When two modules answer the same question from the same file,
 one of them must call the other.
+## F016 — A falsification harness overwrote this VM's real `~/.gitconfig`
+
+Source: T-0024, session `2026-10-03-040`, 2026-10-04. Guard:
+`tests/pushcred_fixture.py` and `tests/test_pushcred_safety.py`.
+
+**What happened.** The falsification harness for the push-credential probe ran
+three environments, each meant to get a throwaway `HOME` and its own
+`credential.helper` config. Two of the three cases passed `Path.home()` as that
+sandbox. The harness then wrote its own `.gitconfig` into it, which overwrote
+`/home/ubuntu/.gitconfig`: `user.name`, `user.email`, and the real
+`credential.helper` were replaced by a helper line pointing at a file that does
+not exist. `git commit` stopped working on the machine with *"Please tell me who
+you are"*.
+
+Repaired in the same session from values read earlier in it — the bot identity
+was confirmed against the 125 committed commits that carry it — and verified by
+`git credential fill` returning exit 0 with four fields. No secret was lost: the
+key file and helper live under `~/.config/github-app/` and were untouched.
+
+**Why it is a finding and not a note.** The damage was to machine state outside
+the repository, in a file no gate watches, from a tool whose whole purpose was
+to be safe. It is the same shape as F004, where a directory sweep declared build
+output as artifacts: an operation that writes somewhere it was not pointed. The
+difference is severity — F004 polluted a record, F014 broke the machine — and the
+correction is the same. **A sweep must be unable to address anything outside its
+own sandbox, and that has to be enforced rather than remembered.**
+
+**What it also falsified.** My first reading of an unrelated error — git
+reporting `invalid credential line: eyJ…` from `git credential fill` — was that
+the App's credential helper was incompatible with git's protocol. That was
+wrong. The corrupted gitconfig had pointed `credential.helper` at
+`/tmp/github-app-jwt.sh`, a JWT *generator*, not a credential helper, which is
+exactly what produced the warning. A diagnosis made in a broken environment is
+not evidence about the code.
+
+**Lesson kept.** The harness now refuses to run if any case's HOME resolves
+outside its own directory, and every test fixture builds its paths inside a
+sandbox. A related fixture defect surfaced the same morning: a test naming
+`/tmp/github-app-jwt.sh` passed on this VM for the wrong reason, because that
+file happens to exist here. **A fixture that names a real path is a fixture whose
+result the machine decides.**
+
+## F017 — A generated file's date came from the clock, so the docs gate failed at midnight
+
+Source: T-0024, session `2026-10-03-040`, 2026-10-04. Repair:
+`tools/originlib/report.py`, `tools/originlib/docindex.py`,
+`tools/originlib/tasks.py`; tests in `tests/test_cli.py` (`GeneratedStampTest`).
+
+**What happened.** Running `doc index` on 2026-10-04 rewrote **thirty-five**
+session reports, every one for the same single reason: their `last-verified` had
+advanced from `2026-10-03` to `2026-10-04`. `report._meta`, `docindex.render`,
+and `tasks.render_tasks_index` all stamped `events.now_iso()[:10]`.
+
+**Why that is a defect and not cosmetics.** `doc lint` fails when a committed
+generated file differs from what the generator produces now — that check is the
+point of the rule. A clock-derived stamp therefore means the documentation gate
+fails at 00:05 on a repository nobody has changed, in CI, for a reason with no
+connection to the commit under test. The green CI run this repository can point
+to (`37157528596`) happened to execute on the same day its commit was made, so
+nothing had caught it. It is the same shape as F010: a gate whose outcome is
+decided by something other than what it claims to measure.
+
+**Repair.** Every stamp is now a function of the record it summarises:
+`report.session_date` uses the session's own last event, `docindex._stamp` uses
+the newest `last-verified` among the documents being indexed (excluding itself,
+so the index cannot date itself from its own previous output), and
+`tasks._stamp` uses the newest date in the task files or the claim ledger. Each
+keeps the clock only as a fallback for an empty repository, where there is
+nothing to derive from.
+
+**Lesson kept.** A generated file's metadata must be a function of its inputs.
+Where it is a function of the clock, the staleness check stops measuring staleness
+and starts measuring the time of day — and it does so silently, because the file
+looks updated. The corollary is worth stating for any future generator: a test
+must be able to render the same inputs on two different days and get the same
+bytes. `GeneratedStampTest` does exactly that, with a session dated three days
+before the run.

@@ -53,9 +53,13 @@ record of it is permanent. The correct sequence is:
 
 Removing the string alone is not remediation. Rotating first is.
 
-`tools/origin doctor` reports only whether credential environment variables
-are **present**, never their values, and never writes a value to disk. Keep it
-that way: a diagnostic that logs secrets is a secret store.
+`tools/origin doctor` never records a credential value. Environment tokens are
+checked for **presence only**, the App's key files are reported by path, mode,
+and byte count, and `git credential fill` — which *does* return a live token — is
+run with its output captured, reduced to a boolean, and dropped. Keep it that way:
+a diagnostic that logs secrets is a secret store. What it may report about a
+mechanism, and what a `configured` verdict does not claim, is in
+[`../operations/doctor.md`](../operations/doctor.md).
 
 ## Third-party material
 

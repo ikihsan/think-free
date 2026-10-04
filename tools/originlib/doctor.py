@@ -18,7 +18,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime
 
-from . import gitutil, paths
+from . import gitutil, paths, pushcred, pushprobe
 
 OUTPUT = ".origin/doctor.json"
 PROBES = (
@@ -119,10 +119,13 @@ def collect(network: bool = True) -> dict:
         "versions": {name: _version(name, args) for name, args in VERSIONS},
         "git": git.as_dict(),
         "credentials_present": {name: bool(os.environ.get(name)) for name in CREDENTIAL_ENV},
+        "push_credential": pushprobe.collect(network=network),
         "scheduler": _scheduler(),
         "network": {label: _http(url) for label, url in PROBES} if network else "skipped",
         "notes": [
             "credential checks test environment-variable presence only; values are never read",
+            "push_credential reports whether a mechanism is present and git can obtain a "
+            "credential from it; 'configured' does not mean the credential can push",
             "resource figures are a snapshot on shared hardware and will fluctuate",
         ],
     }
@@ -150,6 +153,7 @@ def summarize(data: dict) -> str:
         lines.append(f"net  {name:<11} status={info.get('status')} {info.get('error', '')}".rstrip())
     present = [name for name, value in data["credentials_present"].items() if value]
     lines.append(f"credentials     {', '.join(present) if present else 'none present'}")
+    lines.append(pushcred.summarize(data["push_credential"]))
     sched = data["scheduler"]
     lines.append(
         f"scheduler       crontab={sched['crontab']} systemd_user={sched['systemd_user_running']}"

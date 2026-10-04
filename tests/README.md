@@ -38,6 +38,9 @@ interfere with the working repository.
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
+| `pushcred_fixture.py` | Throwaway HOME, git config, and App directory for the push-credential tests; never names a real path |
+| `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
+| `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
@@ -60,6 +63,15 @@ ever fails is not a check either.
 unfixed code first: 4 failures and 1 error naming session 029's mis-attributed
 paths. Reverting the exclusion failed 3 of its 6 tests while the 3 negative
 controls stayed green, which is the shape a falsifiable control should have.
+
+`test_pushcred.py` does the same thing for a diagnostic rather than a gate: three
+environments that must be distinguishable — a working credential, the recorded
+`instance-20260717-0947` failure, and no credential at all — built from real
+helper scripts and a real `git credential fill`. The pre-fix `doctor` reported
+one identical line for all three, which is recorded in the session command log
+rather than here. **A fixture must build its paths inside its own sandbox**:
+the first version named `/tmp/github-app-jwt.sh`, which exists on one VM and not
+another, so it passed for the wrong reason where it happened to exist.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

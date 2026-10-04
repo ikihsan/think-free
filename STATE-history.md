@@ -9,8 +9,42 @@ last-verified: 2026-10-03
 What each recent session changed, newest first. `STATE.md` is the reload
 point and carries only what a cold session must act on; this file is the
 detail behind it, kept so that history does not push the reload point past
-the line cap. Identifiers and file names here are the same ones `STATE.md`
-uses.
+the line cap. Identifiers here are the same ones `STATE.md` uses.
+
+## What changed in session 040, VM 0944 (T-0026)
+
+`doctor` reported a property it never read, and the check that repaired it found a
+live defect on the VM that wrote it. Contract in
+[`docs/operations/doctor.md`](docs/operations/doctor.md); the rule is D027.
+
+- **`doctor` could not see the credential this fleet uses.** It read four
+  environment variables and printed `credentials     none present` — on a machine
+  whose pushes are made by a GitHub App key reached through git's
+  `credential.helper`, on one whose helper pointed at a file `/tmp` had taken, and
+  on one with no credential at all. One line, three realities: D025's failure mode
+  in a diagnostic rather than a gate.
+- **The falsification ran before the fix, as D025 requires.** Three environments
+  built from real helper scripts, each with its own `HOME`: a working credential,
+  the recorded `instance-20260717-0947` failure, and no credential. `git
+  credential fill` told them apart (exit 0 vs 128, two distinct git complaints);
+  `doctor` produced **one** distinct report for all three. Both runs are in the
+  session command log, as is the rejected `git ls-remote` probe, which cannot fail
+  because this remote is public.
+- **The verdict is three-valued and the difference is load-bearing.** The first
+  implementation reported a fresh VM with no credential as `broken`, the same
+  verdict as the machine that lost a day of pushes; the harness caught it.
+- **A live defect, on this VM.** `~/.config/github-app/git-credential-helper.sh`
+  was intact, mode `0700`, and working — and invoked `/tmp/github-app-jwt.sh`,
+  one `/tmp` clear from failing. Repaired: the generator moved to
+  `~/.config/github-app/jwt.sh`, the helper was repointed, and
+  `/tmp/github-app-jwt.sh` was then **deleted**. `git credential fill` still exits
+  0 and the warning is gone, so the dependency disappeared because the helper
+  changed and not because the check stopped looking.
+- **`F014`: this session's own harness overwrote this VM's `~/.gitconfig`,**
+  destroying the git identity and `credential.helper` that 125 commits are
+  authored with, because two of its three sandboxes were `Path.home()`. Repaired
+  and verified in the same session; the harness now refuses any HOME outside its
+  own directory.
 
 ## What changed in session 039, VM 0944 (T-0023)
 
@@ -122,9 +156,9 @@ committing the result.
   failures, producing identical numbers on three consecutive runs.
 - **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
   fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
-  a minute or more, 0.145 span an hour or more. Zero of 200 wheels carried a
-  unix-epoch integer in `METADATA` or `RECORD`, so the mechanism's
-  embedded-string assumption is half false.
+  a minute or more, 0.145 span an hour or more. No wheel carried a unix-epoch
+  integer in `METADATA` or `RECORD`, so the mechanism's embedded-string
+  assumption is half false.
 - **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
   appears only when a builder pins the DOS epoch, which almost none does, so
   0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
@@ -243,58 +277,24 @@ The screen `STATE.md` had been carrying as next action 3, run and recorded.
 ## What changed in session 020, VM 0947
 
 - `EXPERIMENTS/003-information-sufficiency/` — one synthetic witness per held
-  candidate, each stating two realities with identical permitted inputs and the
-  required divergent output. W1 and W3 survive (an askable observation separates
-  them); W2 is information-insufficient as specified. `task verify T-0008`
-  exit 0.
+  candidate: two realities with identical permitted inputs and a required
+  divergent output. W1 and W3 survive; W2 is information-insufficient as
+  specified. `task verify T-0008` exit 0.
 - `HYPOTHESES.md` records the E002 gate and its per-candidate outcome;
   `FAILURES.md` F007 records the knitting input-set finding.
-- Push credentialing repaired: App ID recovered, durable JWT generator added
-  under `~/.config/github-app/`.
+- Push credentialing repaired **on that VM only**: App ID recovered, JWT generator
+  added under `~/.config/github-app/`. It never reached `instance-20260717-0944`,
+  which is what session 040 found.
 
 ## What changed in session 022, VM 0947
 
 T-0010 completed: `EXPERIMENTS/004-knitting-stage-a/` runs the knitting
-candidate's own Stage A. A cheap per-error local heuristic was compared
-against an exhaustive minimum-cost oracle on 10 synthetic cases (9 solved, 1
-refused). The heuristic is valid on all 9 solved cases (never misses an
-error, never emits an illegal closure), refuses unsupported shaping, and is
-suboptimal on exactly one constructed shared-release case (local 5 vs.
-optimum 3) — the same_column_stack case a per-error rule cannot see. No
-full-row-release degeneration. Verdict `narrow`, not `abandon`; next test is
-a bounded-neighbourhood planner against the same oracle before Stage-B
-physical work. `task verify T-0010` exit 0. Push credentials on this VM are
-the durable `~/.config/github-app/` JWT helper from session 020.
-
-## What changed in session 026, VM 0944
-
-T-0013 finished on a session an earlier run had started and abandoned mid-edit;
-the resumed run found and fixed three claims its code did not implement before
-committing the result.
-
-- `EXPERIMENTS/007-build-timestamps/` ran E3's census over 200 wheels from 200
-  distinct releases across ten declared packages, 205,305,241 bytes, zero
-  failures, producing identical numbers on three consecutive runs.
-- **E3's declared 5% gate is met at 0.965** (95% CI 0.940–0.990). Stricter
-  fractions beside it: 0.670 of wheels carry disagreeing entry dates, 0.535 span
-  a minute or more, 0.145 span an hour or more. Zero of 200 wheels carried a
-  unix-epoch integer in `METADATA` or `RECORD`, so the mechanism's
-  embedded-string assumption is half false.
-- **The verdict licenses nothing yet, and that is the finding.** 1980-01-01
-  appears only when a builder pins the DOS epoch, which almost none does, so
-  0.965 measures pinning rather than reproducibility, and nothing was rebuilt so
-  no cause is attributed. Recorded as `FAILURES.md` F010: the measurement was
-  inadequate, not the mechanism wrong. The prevalence is not one ecosystem rate
-  either — only `cryptography` ships 1980-normalised wheels, `urllib3` stamps
-  every entry with a single build instant, `jinja2` carries checkout mtimes.
-- Attribution is not abandoned with the gate: `DECISIONS-PRACTICE.md` D023 takes
-  the verdict on the metric E.md declared rather than on the stricter one the
-  code computed first, and **T-0017**
-  (`EXPERIMENTS/008-build-timestamp-attribution/`) is the measurement that can
-  say whether timestamps are worth fixing first.
-- **The commit was rebased, not pushed blind.** Session 029 on the other VM had
-  completed T-0015 in the same hour and taken T-0016, F009 and D022 for its own
-  findings. Their claims reached the remote first, so this session's identifiers
-  moved to T-0017, F010 and D023, and this session's own `FAILURES-findings.md`
-  split was abandoned in favour of theirs — two VMs renumbering the same shared
-  files in the same hour is a collision the tooling does not yet prevent.
+candidate's own Stage A. A cheap per-error local heuristic was compared against an
+exhaustive minimum-cost oracle on 10 synthetic cases (9 solved, 1 refused). The
+heuristic is valid on all 9 solved cases (never misses an error, never emits an
+illegal closure), refuses unsupported shaping, and is suboptimal on exactly one
+constructed shared-release case (local 5 vs optimum 3) — the
+`same_column_stack` case a per-error rule cannot see. No full-row-release
+degeneration. Verdict `narrow`, not `abandon`; the next test is a
+bounded-neighbourhood planner against the same oracle before Stage-B physical
+work. `task verify T-0010` exit 0.

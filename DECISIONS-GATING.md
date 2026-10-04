@@ -180,7 +180,6 @@ Split on 2026-10-03 (T-0020): D019–D023 moved verbatim to
 the gating file past the 300-line cap. D025 and D026 were written on
 `instance-20260717-0944` while this branch was unpublished, so the session-gate
 decision drafted as D025 is D027. Numbering is unchanged.
-
 ## D028 — Reconciliation attributes by the recorded base move, not by authorship (2026-10-04)
 
 Observed: session 029 (T-0016) closed with exit `4` and nine `unlogged_change`
@@ -259,3 +258,32 @@ error, with `doc lint` reporting the four stale files. A first attempt at this
 falsification failed to falsify anything — it mutated the fallback inside
 `_meta`, which the two callers never reach — and was redone by reverting the
 three generators. Both runs are in this session's `commands.log`.
+## D030 — A diagnostic must distinguish "never configured" from "stopped working" (2026-10-04)
+
+Observed: T-0025's first verdict logic tested the functional probe before it
+tested whether any mechanism existed, so a fresh VM with no credential was
+reported `broken` — the same verdict as the machine that lost every push to a
+`/tmp` clear. That is the incident `STATE.md` records for
+`instance-20260717-0947`, and the repair for it would have been to go looking for
+a helper that was never configured. The harness caught it: three environments
+that must be distinguishable produced two distinct reports instead of three.
+
+Decision: **a diagnostic reports absence and breakage as different states, and
+says which one it means.** `doctor` uses `configured`, `broken`, and
+`unavailable`, ordered so the question "is anything configured at all?" is
+answered before "does it work?". This extends D025 to diagnostics rather than
+gates: D025 requires the check to read the property it claims, and a check that
+cannot tell two states apart has not read either.
+
+Rejected: a single `ok: false`, which is what the original line was; a warning
+list without a verdict, which leaves the reader to re-derive the state; calling
+absence `broken`, which is the defect. Also rejected: `git ls-remote <remote>`
+as the functional probe, because this remote is public and `ls-remote` exits 0
+with no credential at all — a check that cannot fail, F010 with extra steps —
+and a report built from listing the helper's files, because
+`instance-20260717-0947`'s helper survived and the script it invoked did not.
+
+Consequence: `docs/operations/doctor.md` states the whole contract, including
+that `configured` does **not** mean the credential can push. The verdict is
+deliberately coarser than "works", and the ceiling is written down rather than
+left to be discovered by someone who reads `configured` as permission.

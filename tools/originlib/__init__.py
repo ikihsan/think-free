@@ -12,6 +12,8 @@ __all__ = [
     "events",
     "gitutil",
     "paths",
+    "pushcred",
+    "pushprobe",
     "report",
     "secrets",
     "session",

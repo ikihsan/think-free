@@ -17,7 +17,7 @@ verification. Read the two sections apart.
 | Its identity is durable across reboots | `observed`: App id `5173845`, recorded in D018; the private key and a JWT generator live under `~/.config/github-app/`, not `/tmp` |
 | Its **permissions** are least-privilege | **Unverified.** Nothing in this repository can read an App's permission set. Assume the table below describes intent until someone reads the App's settings |
 | Its **installation scope** is one repository | **Unverified** beyond this repository. The remote here is one repository; other installations are not observable from here |
-| Key material never reaches the record | `observed` 2026-10-03: 111 files under `sessions/` and `.origin/doctor.json` carry no secret shape |
+| Key material never reaches the record | `observed` 2026-10-03: 111 files under `sessions/` and `.origin/doctor.json` carry no secret shape. `doctor` now also runs `git credential fill`, whose output is discarded: `tests/test_pushcred_safety.py` asserts the token is absent from the report, the summary, `doctor.json`, and stdout |
 
 Safety rules that constrain any implementation:
 [`../policy/permissions-and-safety.md`](../policy/permissions-and-safety.md).
@@ -99,6 +99,12 @@ keep only when something must happen **without a human present**:
 
 Steps 2 and 3 are the only ones the App performs.
 
+**Where the credential must live.** The helper and everything it invokes belong
+under `~/.config/github-app/`. A generator under `/tmp` works until `/tmp` is
+cleared, and `STATE.md` records that this cost `instance-20260717-0947` a day of
+pushes. `doctor` reports such a dependency before it fails; see
+[`doctor.md`](doctor.md).
+
 ## What a PR from a VM must contain
 
 - The task id and the exact verification command with its exit code.
@@ -128,10 +134,15 @@ App's own settings stays open, because an agent cannot observe them.
       alongside other credentials, and it passes.
 - [ ] Compare the App's real permissions against the table above. **The largest
       open item on this page.**
-- [ ] Add a credential-presence check to `doctor` for the App (presence only).
-      `doctor` currently checks `GH_TOKEN`, `GITHUB_TOKEN`, `ANTHROPIC_API_KEY`
-      and `OPENAI_API_KEY`; the App uses a key file and a helper, so nothing
-      reports it and a VM with a broken helper looks healthy.
+- [x] Add a credential-presence check to `doctor` for the App (presence only).
+      T-0024: `doctor` now reports the configured `credential.helper`, whether each
+      named helper exists and is executable, App key files by path and mode, and
+      whether `git credential fill` obtains a credential — under the key name
+      `push_credential`. See [`doctor.md`](doctor.md) for the contract and its
+      ceilings. Values are never read, printed, or written. It found a live
+      defect on `instance-20260717-0944`: the helper was intact but invoked
+      `/tmp/github-app-jwt.sh`, one `/tmp` clear from failing, exactly as
+      `instance-20260717-0947` had been.
 - [ ] Implement claim-and-run against one repository. Tasks are claimed and the
       claim is pushed today, but by an interactive agent using the App's
       credential, not by the App reacting to an event.

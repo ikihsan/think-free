@@ -50,6 +50,7 @@ Skill bodies under `.agents/skills/` are indexed by
 |---|---|---|---|---|
 | [`docs/operations/bootstrap.md`](operations/bootstrap.md) | `docs/INDEX.md` | active | 2026-10-03 | Getting a fresh machine able to work on this repository. The design goal is that |
 | [`docs/operations/ci.md`](operations/ci.md) | `docs/INDEX.md` | active | 2026-10-03 | Runs on every push and pull request. The gates are the same ones a session must |
+| [`docs/operations/doctor.md`](operations/doctor.md) | `docs/INDEX.md` | active | 2026-10-04 | tools/origin doctor answers one question: can this machine do the work a |
 | [`docs/operations/github-app.md`](operations/github-app.md) | `docs/INDEX.md` | active | 2026-10-03 | Status: one App exists and authenticates every push. The design below was |
 | [`docs/operations/scheduling-and-supervision.md`](operations/scheduling-and-supervision.md) | `docs/INDEX.md` | active | 2026-10-03 | Whether agent work can run unattended, and what has actually been verified. The |
 | [`docs/operations/vm-execution.md`](operations/vm-execution.md) | `docs/INDEX.md` | active | 2026-10-03 | How a task gets executed on another machine. The design constraint is that the |
@@ -97,6 +98,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0023-repair-the-two-operations-documents-whose-stated.md`](../tasks/T-0023-repair-the-two-operations-documents-whose-stated.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md`](../tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md`](../tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0026-make-origin-doctor-report-the-push-credential-me.md`](../tasks/T-0026-make-origin-doctor-report-the-push-credential-me.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md`](../tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md`](../tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md`](../tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |

@@ -1,0 +1,307 @@
+==============================================================================
+[seq 2] 2026-10-03T23:45:45+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                ls-remote  doctor credentials line  push-credential keys
+--------------------------------------------------------------------------------------------------------------
+A working credential                        0                           ['credentials_present']
+B recorded defect (/tmp helper gone)          0                           ['credentials_present']
+C no credential                             0                           ['credentials_present']
+
+distinct ls-remote exit codes: [0]  -> the property is real, 1 outcomes, 3 cases
+distinct doctor credential lines: 1
+VERDICT: cases are not distinguishable by ls-remote either; the harness is wrong, not the probe.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3111  redactions: none
+==============================================================================
+[seq 4] 2026-10-03T23:47:28+00:00
+$ sh -c printf "[credential]\n\thelper = %s\n" "$HOME/.config/github-app/git-credential-helper.sh"; echo "helper mode: $(stat -c %a "$HOME/.config/github-app/git-credential-helper.sh")"; echo "jwt script:  $(stat -c %a /tmp/github-app-jwt.sh 2>&1) at /tmp/github-app-jwt.sh"; ls "$HOME/.config/github-app/"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[credential]
+	helper = /home/ubuntu/.config/github-app/git-credential-helper.sh
+helper mode: 700
+jwt script:  700 at /tmp/github-app-jwt.sh
+get-token.py
+git-credential-helper.sh
+private-key.pem
+private-key1.pem
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10  redactions: none
+==============================================================================
+[seq 6] 2026-10-03T23:48:46+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/falsify-doctor-current.py", line 63, in <module>
+    def credential_fill(env: dict) -> tuple[int, str]:
+TypeError: 'type' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 633  redactions: none
+==============================================================================
+[seq 7] 2026-10-03T23:48:56+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/falsify-doctor-current.py", line 151, in <module>
+    sys.exit(main())
+  File "/tmp/opencode/falsify-doctor-current.py", line 128, in main
+    rows[label] = (code, doctor_says(env), err)
+  File "/tmp/opencode/falsify-doctor-current.py", line 85, in doctor_says
+    subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '/home/ubuntu/think-free/tools/origin', 'doctor', '--offline']' returned non-zero exit status 1.
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1672  redactions: none
+==============================================================================
+[seq 8] 2026-10-03T23:49:13+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                    git credential fill  reported                                                   git's own complaint
+------------------------------------------------------------------------------------------------------------------------------------------------------
+A working credential                                      0  none present | (no push_credential section: the defect)    
+B recorded defect (helper path gone)                    128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+C no credential                                         128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+
+distinct git credential fill exits : [0, 128] over 3 cases
+distinct doctor credential lines  : 1 over 3 cases
+VERDICT: the harness failed to separate the cases; fix the harness.
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 3953  redactions: none
+==============================================================================
+[seq 9] 2026-10-03T23:49:29+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                    git credential fill  reported                                                   git's own complaint
+------------------------------------------------------------------------------------------------------------------------------------------------------
+A working credential                                      0  none present | (no push_credential section: the defect)    
+B recorded defect (helper path gone)                    128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+C no credential                                         128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+
+
+
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/falsify-doctor-current.py", line 154, in <module>
+    sys.exit(main())
+  File "/tmp/opencode/falsify-doctor-current.py", line 138, in main
+    print(f"git credential fill: exits {sorted(fills)}, "
+NameError: name 'fills' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2642  redactions: none
+==============================================================================
+[seq 10] 2026-10-03T23:49:39+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                    git credential fill  reported                                                   git's own complaint
+------------------------------------------------------------------------------------------------------------------------------------------------------
+A working credential                                      0  none present | (no push_credential section: the defect)    
+B recorded defect (helper path gone)                    128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+C no credential                                         128  none present | (no push_credential section: the defect)    fatal: could not read Username for 'https://github.com': terminal prompts disabled
+
+git credential fill: exits [0, 128], 2 outcomes over 3 cases, 2 distinct complaints
+distinct doctor reports: 1 over 3 cases
+VERDICT: the cases are real - git tells them apart, with two distinct
+         complaints - and doctor reports the same thing for all three.
+         The probe reports a property it never inspected.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2186  redactions: none
+==============================================================================
+[seq 11] 2026-10-03T23:51:07+00:00
+$ ./tools/origin doctor
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29
+python          3.8.10
+cpus            2
+memory          975068 kB (available 306616 kB)
+disk free       32392 MiB
+git             head=ecebafa1 branch=research/origin clean=False
+tool python3     Python 3.8.10
+tool git         git version 2.25.1
+tool node        v22.14.0
+tool rustc       absent
+tool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+net  github_api  status=200
+net  arxiv       status=200
+credentials     none present
+push credential broken: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); no credential obtained
+  warn  fatal: refusing to work with credential missing host field
+  warn  /home/ubuntu/.config/github-app/git-credential-helper.sh depends on /tmp/github-app-jwt.sh, outside this user's home directory
+  warn  an App key is present under /home/ubuntu/.config/github-app but no app-id file is; a helper cannot identify itself without one
+scheduler       crontab=True systemd_user=True
+raw          .origin/doctor.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1182  redactions: none
+==============================================================================
+[seq 12] 2026-10-03T23:52:11+00:00
+$ ./tools/origin doctor
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29
+python          3.8.10
+cpus            2
+memory          975068 kB (available 289872 kB)
+disk free       32392 MiB
+git             head=ecebafa1 branch=research/origin clean=False
+tool python3     Python 3.8.10
+tool git         git version 2.25.1
+tool node        v22.14.0
+tool rustc       absent
+tool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+net  github_api  status=200
+net  arxiv       status=200
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); credential obtained
+  warn  /home/ubuntu/.config/github-app/git-credential-helper.sh depends on /tmp/github-app-jwt.sh, outside this user's home directory
+scheduler       crontab=True systemd_user=True
+raw          .origin/doctor.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1506  redactions: none
+==============================================================================
+[seq 13] 2026-10-03T23:52:57+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                    git credential fill  reported                                                   git's own complaint
+------------------------------------------------------------------------------------------------------------------------------------------------------
+A working credential                                      0  none present | configured (1 warning(s))                   
+B recorded defect (helper path gone)                    128  none present | broken (1 warning(s))                       fatal: could not read Username for 'https://github.com': terminal prompts disabled
+C no credential                                         128  none present | broken (1 warning(s))                       fatal: could not read Username for 'https://github.com': terminal prompts disabled
+
+git credential fill: exits [0, 128], 2 outcomes over 3 cases, 2 distinct complaints
+distinct doctor reports: 2 over 3 cases
+VERDICT: doctor separates only 2 of 3 cases.
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 3614  redactions: none
+==============================================================================
+[seq 14] 2026-10-03T23:53:22+00:00
+$ python3 /tmp/opencode/falsify-doctor-current.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                                    git credential fill  reported                                                   git's own complaint
+------------------------------------------------------------------------------------------------------------------------------------------------------
+A working credential                                      0  none present | configured (1 warning(s))                   
+B recorded defect (helper path gone)                    128  none present | broken (1 warning(s))                       fatal: could not read Username for 'https://github.com': terminal prompts disabled
+C no credential                                         128  none present | unavailable (1 warning(s))                  fatal: could not read Username for 'https://github.com': terminal prompts disabled
+
+git credential fill: exits [0, 128], 2 outcomes over 3 cases, 2 distinct complaints
+distinct doctor reports: 3 over 3 cases
+VERDICT: doctor now separates all three cases, where before it reported one thing for all three.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3015  redactions: none
+==============================================================================
+[seq 15] 2026-10-03T23:57:21+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -6; echo "--- real doctor ---"; ./tools/origin doctor 2>&1 | grep -E "^(credentials|push credential|  warn)"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+----------------------------------------------------------------------
+Ran 258 tests in 112.780s
+
+FAILED (failures=2)
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+--- real doctor ---
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); credential obtained
+  warn  /home/ubuntu/.config/github-app/git-credential-helper.sh depends on /tmp/github-app-jwt.sh, outside this user's home directory
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 114643  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T00:03:06+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -5; echo "--- real doctor ---"; ./tools/origin doctor 2>&1 | grep -E "^(credentials|push credential|  warn)"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Ran 264 tests in 114.375s
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+--- real doctor ---
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); credential obtained
+  warn  /home/ubuntu/.config/github-app/git-credential-helper.sh depends on /tmp/github-app-jwt.sh, outside this user's home directory
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 116986  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T00:05:04+00:00
+$ ./tools/origin doctor
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+platform        Linux-5.15.0-1081-oracle-x86_64-with-glibc2.29
+python          3.8.10
+cpus            2
+memory          975068 kB (available 307516 kB)
+disk free       32397 MiB
+git             head=ecebafa1 branch=research/origin clean=False
+tool python3     Python 3.8.10
+tool git         git version 2.25.1
+tool node        v22.14.0
+tool rustc       absent
+tool gcc         gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+net  github_api  status=200
+net  arxiv       status=200
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); credential obtained
+scheduler       crontab=True systemd_user=True
+raw          .origin/doctor.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1421  redactions: none
+==============================================================================
+[seq 29] 2026-10-04T00:17:22+00:00
+$ tools/origin task verify T-0024
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0024: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check && tools/origin skills verify` -> exit 0 in 124.78s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 125114  redactions: none
+==============================================================================
+[seq 30] 2026-10-04T00:23:40+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -4; echo "--- doctor ---"; ./tools/origin doctor 2>&1 | grep -E "^(credentials|push credential|  warn)"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+--- doctor ---
+credentials     none present
+push credential OK: https://github.com via /home/ubuntu/.config/github-app/git-credential-helper.sh; 2 App key file(s); credential obtained
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121397  redactions: none
+==============================================================================
+[seq 31] 2026-10-04T00:25:43+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | grep -E "^Ran |^OK|^FAILED"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Ran 268 tests in 117.002s
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 117485  redactions: none
+==============================================================================
+[seq 32] 2026-10-04T00:26:07+00:00
+$ tools/origin task complete T-0024 --summary doctor now reports the push-credential mechanism (configured/broken/unavailable), falsified against the defect's own bytes before the fix; it found and this session repaired a live /tmp dependency on this VM. F014 (harness overwrote ~/.gitconfig) and F015 (clock-derived generated dates redden the docs gate at midnight) recorded. --evidence tools/originlib/pushcred.py tools/originlib/pushprobe.py docs/operations/doctor.md tests/test_pushcred.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0024 completed
+  remember to update STATE.md and ROADMAP.md in this session's commit
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 392  redactions: none
+==============================================================================
+[seq 33] 2026-10-04T00:49:45+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | grep -E "^Ran |^OK|^FAILED"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Ran 305 tests in 151.111s
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 151626  redactions: none

@@ -114,8 +114,14 @@ a false claim still pass, and it does not read a path's meaning.
 | `doctor [--offline] [--json]` | Environment probe; writes `.origin/doctor.json` (gitignored) |
 | `preflight [--strict] [--lease-hours H]` | `doc lint` + `skills check` + `session verify`, for a VM before it claims a task and for CI |
 
-`doctor` reports only whether credential environment variables are **present**.
-It never reads, prints, or stores a value.
+`doctor` reports the push credential **mechanism** as well as the presence of
+four environment variables: which `credential.helper` is configured, whether each
+named helper exists and is executable, which App key files are present and at
+what mode, whether the helper depends on anything outside `~/.config`, and
+whether `git credential fill` obtained a credential. The verdict is
+`configured`, `broken`, or `unavailable`, and **`configured` does not mean the
+credential can push**. It never reads, prints, or stores a value; the contract
+and its ceilings are in [`../operations/doctor.md`](../operations/doctor.md).
 
 ## `tools/x`
 
