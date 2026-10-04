@@ -17,6 +17,17 @@ of those it cannot touch.
 
 ## Ordered by information gained per unit of effort
 
+0. **Measure the CI flake before theorising about it.** Three tests failed on
+   identical bytes (runs `37219755262`, `37220040091`) and six full suite runs on
+   `instance-20260717-0947` did not reproduce it; T-0057 made the annotation carry
+   the exception so the *next* occurrence names itself, which is the cheap half.
+   The expensive half is the measurement nobody has taken: `make_fleet` copies the
+   whole tooling tree into a fresh bare remote plus two clones **per test class**,
+   so fixture cost scales with the number of tests and a 2-CPU runner is the only
+   place it shows. Instrument `make_fleet` — bytes written and git subprocesses per
+   class — and the ceiling is a number rather than a hunch.
+
+
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated
