@@ -15,7 +15,7 @@ Showing the 25 most recent. 42 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | **unfinished** | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:17 |
+| [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | worked | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:37 |
 | [2026-10-04-023-correct-the-continuous-integration-row-w](2026-10-04-023-correct-the-continuous-integration-row-w/README.md) | unknown-agent | worked | Correct the continuous-integration row with the runs this VM published | 2026-10-04T08:12 |
 | [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | worked | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:10 |
 | [2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch](2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/README.md) | opencode | **unfinished** | Give the file-reading CI gate steps a check-run annotation that names  | 2026-10-04T07:35 |

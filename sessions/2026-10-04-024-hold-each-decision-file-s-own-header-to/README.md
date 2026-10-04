@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T08:17:39+00:00
-- **Duration:** ?s
+- **Duration:** 1194.7s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Hold each decision file's own header to the identifiers it defines, record the g
 
 ## Summary
 
-_(none recorded)_
+T-0042: found and closed defect 14 - a decision number's third source, each record's own Decisions header, had no reader, so two of five records were false while every gate passed. Added tools/originlib/decisionheader.py through idcheck, repaired both headers, recorded D036 (the decision T-0036 could not record), and split DECISIONS-GATING.md into GATING and RECORDS so the log was no longer at its cap. 441 tests green, doc lint OK, task verify exit 0.
+
+## Next
+
+Land this work, then read STATE-next-actions.md item 1: the ceiling on the gate-falsification pattern is still that each rule detects only the shape it was written against, and T-0040 on instance-20260717-0944 is unclaimed-by-this-VM work in the same area - check 'task list --remote' before starting anything in it.
 
 ## Artifacts
 
@@ -75,7 +79,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -123,6 +126,13 @@ _(none recorded)_
 | 36 | 08:36:41 | decision | A decision number is written in three places that must agree - the heading, the index row in DECISIONS.md, and the Decisions header under each record' |
 | 37 | 08:36:50 | artifact | wrote tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md |
 | 38 | 08:36:50 | milestone | 441 tests green, doc lint OK, task verify exit 0; falsified by removing the one line from idcheck.report, which fails exactly the two wiring tests |
+| 39 | 08:37:34 | doc_update | updated DECISIONS-GATING.md |
+| 40 | 08:37:34 | doc_update | updated DECISIONS-PRACTICE.md |
+| 41 | 08:37:34 | doc_update | updated DECISIONS-RECORDS.md |
+| 42 | 08:37:34 | doc_update | updated DECISIONS.md |
+| 43 | 08:37:34 | doc_update | updated ROADMAP.md |
+| 44 | 08:37:34 | doc_update | updated STATE.md |
+| 45 | 08:37:34 | session_end | T-0042: found and closed defect 14 - a decision number's third source, each record's own Decisions header, had no reader, so two of five records were  |
 
 ## Reproduce this record
 
