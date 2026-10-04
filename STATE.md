@@ -42,7 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Sessions | 43 recorded and closed, 1 in flight (002, T-0026, VM 0947) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
-| Continuous integration | **Green on all six steps, observed on a pushed run** (`observed`, run `37165413909`, commit `9e865a4`, 2026-10-04T00:35Z, `GitHub Actions 1000000437`): Tests, Documentation lint, Release manifest, Skill layout, Vendored integrity, and **Session record integrity**, which had been red on every push while any VM held a session. Two runs ten minutes earlier (`37163434868`, `37163438950`) failed on Documentation lint, and the cause was *not* the clock: this VM pushed the new task file without regenerating `tasks/INDEX.md`, so the orphan rule fired. Ceiling: one commit, one runner image, one day |
+| Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Not exercised by any run:** a rebase conflict between VMs, and the git 2.56.0 path — CI runs 3.12 on one runner image only |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -92,6 +92,13 @@ exists so that history does not push this reload point past the line cap.
   against their own defect before being trusted. 269 tests green.
   [`STATE-history.md`](STATE-history.md) is at the 300-line cap, so this session's
   detail lives in D028 and its own record rather than there.
+- **Session 003, VM 0947 (T-0027).** T-0026's verification passed while its
+  defect was still live: a lint on the author's own tree cannot see what a claim
+  commit published, and the claim staged only the task file and the ledger. Four
+  more red runs followed; `task claim` now stages the rebuilt indexes and the new
+  test lints a *fetched* tree on a second clone. **Lesson worth more than the
+  fix:** a gate that reads the tree the author is standing in cannot see the
+  commit the author is about to publish.
 - **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
   indexes, because two CI runs failed on 2026-10-03 for exactly that: a task
   file was pushed before `tasks/INDEX.md` was rebuilt and the orphan rule
