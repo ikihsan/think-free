@@ -28,6 +28,7 @@ interfere with the working repository.
 | `test_doc_gaps.py` | Documentation-gap implications: `any` and `all` record groups |
 | `test_tasks.py` | Task creation, claim conflicts, verification, index, and the flags a writer repeats: three `--acceptance` values must reach the file as three lines, which the unmodified parser reduced to one (defect 11) |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
+| `test_link_escape.py` | That a link's verdict is a function of the repository and not of the checkout's neighbours: one probe document at two checkout locations, where the old rule reported `broken link` in one and nothing in the other (defect 19). The previous rule is written out as a witness, the escape is published as a check-run annotation with its file and line, and `NoRegressionTest` counts the 577 tracked links it read so "none leaves the repository" cannot pass by reading almost nothing |
 | `test_conflicts.py` | Unresolved merge-conflict markers: every shape git writes, the shapes that must stay silent, the declared waiver |
 | `test_release.py` | `RELEASE-MANIFEST.md` enforcement: one seeded defect per clause, and a fixture that passes |
 | `test_skillsync.py` | Skill naming, cross-agent mirrors, vendored integrity |

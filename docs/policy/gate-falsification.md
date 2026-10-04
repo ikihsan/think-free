@@ -45,3 +45,36 @@ cannot tell "we looked and it is not there" from "we could not look" reports
 `record unreadable` rather than a verdict (`tools/originlib/versions.py`). A
 parser that quietly stops matching is indistinguishable from a clean tree, which
 is the same blind spot as a check that has never fired.
+
+**A gate's verdict must be a function of the repository alone** (D041, defect 19,
+T-0051). The fourth instance of the form the entries above keep meeting, and the
+first whose environment is the filesystem *outside* the checkout, which no record
+of the tree can pin. `doc lint` rule 3 resolved each candidate with `exists()`,
+so a link written `../../docs/x.md` from `tasks/` was judged by whether the
+checkout's parent directory held `docs/x.md`: measured on one probe document at
+two checkout locations, no finding in one and `broken link` in the other. T-0047
+had already recorded the symptom — a green lint in the worktree it built in, a
+red one after landing, identical bytes — and could not reproduce which run
+decided it. The answer is that the run was never the variable.
+
+Three things make the repair checkable rather than merely different:
+
+- **The defect is reproduced by the test, not described by it.**
+  `tests/test_link_escape.py` builds both checkouts, so the disagreement is
+  observed. The previous rule is written out in that test as a witness, because
+  after the repair the production code can no longer demonstrate its own defect.
+- **One mutation falsifies both directions,** since removing the containment
+  filter *is* the previous rule: the escape goes unreported and the
+  parent-dependence returns. `tools/mutate_link_rule.py` counts its own pattern
+  before writing, after T-0047's first mutation matched nothing and a green run
+  read as a control.
+- **The control that cannot fire is stated.** No tracked link in this repository
+  leaves it, so the rule adds a verdict and no violation;
+  `NoRegressionTest` counts the links it read (577 on 2026-10-04, and it fails
+  below 100 so that assertion cannot pass by reading almost nothing) and also
+  asserts the rule still reports the links it always reported.
+
+**Ceiling.** Inline links only. A reference link, a bare autolink, and a link that
+resolves inside the repository to the wrong document are unexamined, and rule 3
+still takes its file list from git, so an untracked document is invisible to it
+as to every other rule.

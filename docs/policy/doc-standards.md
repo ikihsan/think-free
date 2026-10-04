@@ -66,12 +66,20 @@ rot. An index is any document whose frontmatter declares `index: true`, or the
 generated maps `docs/INDEX.md`, `sessions/INDEX.md`, `tasks/INDEX.md`. Indices
 list their children explicitly so lint can check both directions.
 
-### 5. Relative links must resolve
+### 5. Relative links must resolve, inside this repository
 
 A link to `docs/policy/foo.md` that does not exist is a broken link and fails
 lint. Use forward slashes and repo-root-relative paths for cross-directory
 links so a document can be moved without rewriting every reference silently.
 Links to external URLs are not checked; record the retrieval date instead.
+
+**A link must also stay inside the repository.** One that resolves above the
+checkout — `../../docs/x.md` from `tasks/`, or an absolute path — is reported as
+`link leaves the repository` rather than tested for existence, because existence
+is a question about the checkout's *surroundings*: the same bytes passed in a
+worktree under `.worktrees/` and failed in the main checkout, which is defect 19
+and D041. A link needs one `..` per directory it climbs out of; from `tasks/` that
+is one, never two.
 
 ### 6. Generated files are marked and never hand-edited
 

@@ -4,7 +4,9 @@ Rules, in the order they are reported:
 
 1. line cap for every tracked file, with two declared exemption classes
 2. `origin-meta` block on every Markdown file
-3. relative links must resolve
+3. relative links must resolve, and inside this repository (rule extended in
+   T-0051 after a link that escaped the root was judged by what sat above the
+   checkout; D041, defect 19 in `STATE-defects.md`)
 4. no orphan documents
 5. generated files must match what the generators produce now
 6. no unresolved merge-conflict marker (rule added in T-0021 after three
@@ -32,6 +34,7 @@ exception is never invisible.
 
 from __future__ import annotations
 
+import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -180,7 +183,32 @@ def _links(text: str) -> list[tuple[str, int]]:
     return found
 
 
+def _inside_repository(candidate: Path, base: Path) -> bool:
+    """Whether `candidate` names a path inside the repository, decided lexically.
+
+    `os.path.relpath` is the right tool because it never touches the filesystem:
+    containment is a question about the link and the root, and a question answered
+    by `Path.resolve()` would follow symlinks and read the disk again, which is
+    the property D041 exists to remove. A `ValueError` means the two paths share
+    no root at all (a different drive on Windows), which is the same answer.
+    """
+    try:
+        relative = os.path.relpath(str(candidate), str(base))
+    except ValueError:
+        return False
+    return relative != os.pardir and not relative.startswith(os.pardir + os.sep)
+
+
 def check_links(result: Result, files: list[Path]) -> None:
+    """Rule 3: a relative link resolves, and resolves to a document of this repository.
+
+    The existence check is the only filesystem read, and it is asked of a path
+    that has already been shown to be inside the repository. Before T-0051 the
+    candidates were tested for existence wherever they landed, so a link written
+    as `../../docs/x.md` from `tasks/` was decided by whether the *checkout's
+    parent directory* held `docs/x.md` — a green lint in `.worktrees/<name>/` and
+    a red one in the main checkout, from identical bytes (D041, defect 19).
+    """
     base = paths.repo_root()
     for path in files:
         if path.suffix != ".md":
@@ -194,7 +222,12 @@ def check_links(result: Result, files: list[Path]) -> None:
             if not clean:
                 continue
             candidates = [(path.parent / clean), (base / clean)]
-            if not any(candidate.exists() for candidate in candidates):
+            inside = [one for one in candidates if _inside_repository(one, base)]
+            if not inside:
+                result.violations.append(
+                    Finding.at(rel, f"link leaves the repository -> {target}", line)
+                )
+            elif not any(one.exists() for one in inside):
                 result.violations.append(
                     Finding.at(rel, f"broken link -> {target}", line)
                 )
