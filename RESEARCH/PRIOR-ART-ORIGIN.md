@@ -95,12 +95,24 @@ Read from `src/reconcile.rs`'s module documentation (`observed`):
 > never landed in any statement, and residue — files the statement says changed
 > that the log never claimed** (human edits, or command side effects).
 
-**This is a strict superset of `origin`'s check.** `origin` reports one
-direction — residue. gitreceipts reports residue *and* the inverse (declared
-work that never reached a commit). It also has `Sibling Writes`, a per-repo
-count of changes a session made into *sibling repositories* without exposing
-their paths, which is the same problem as this repository's landed-work
-attribution defect (D028, T-0024) solved independently.
+**On the one direction `origin` implements, gitreceipts reports the same finding
+plus its inverse.** `origin` reports residue — a file the commit says changed
+that the log never claimed. gitreceipts reports residue *and* the reverse (a
+declared edit that reached no commit). It also has `Sibling Writes`, a
+per-repo count of changes a session made into *sibling repositories* without
+exposing their paths, which is the same problem as this repository's
+landed-work attribution defect (D028, T-0024) solved independently.
+
+**An earlier draft of this report called that a "strict superset of `origin`'s
+check", and that was too broad, so it is corrected here rather than left to
+stand.** It is not a superset of all of `origin`'s reconciliation:
+`origin` additionally attributes a *base advance* to the session that performed
+it (D039, T-0053) and applies a declared-exemption classification so vendored
+and machine-generated files are not reported as undeclared (F022), and neither
+is in gitreceipts' pipeline. The accurate claim is narrower: **the residue
+finding itself is prior art, and gitreceipts reports more of that axis than
+`origin` does.** Generalising a true statement past the axis it was measured on
+is F020, which this repository has already been bitten by once.
 
 **Conclusion, `observed`:** the mechanism is prior art, six weeks old at the
 time of writing, MIT-licensed. F026.

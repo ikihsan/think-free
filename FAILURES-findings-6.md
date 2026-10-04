@@ -46,10 +46,12 @@ session record against version-control ground truth), and the academic term.
    Its description: *"reconcile a coding-agent session log against the git
    history it claims to explain."* Its `reconcile` module reports **both**
    directions — claims that never landed, and residue (files the commit says
-   changed that the log never claimed) — which is a **strict superset** of
-   `origin`'s `unlogged_change`. It also carries `Sibling Writes`, a
-   cross-repository attribution count, which is this repository's landed-work
-   attribution defect (D028, T-0024) solved independently. The recording half
+   changed that the log never claimed) — so on that axis it covers more ground
+   than `origin`, which reports residue only. (Not a superset of *all* of
+   `origin`'s reconciliation: base-advance attribution, D039/T-0053, and
+   declared exemptions, F022, are absent from it.) It also carries `Sibling
+   Writes`, a cross-repository attribution count, which is this repository's
+   landed-work attribution defect (D028, T-0024) solved independently. The recording half
    is older still: `rxNxkolai/opentrail` ("AgentTrace", created 2026-06-04)
    captures every tool call, command and file change per session and writes a
    graded receipt.
