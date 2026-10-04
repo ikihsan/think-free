@@ -54,7 +54,7 @@ _(none recorded)_
 
 ## Commands
 
-47 captured, 20 non-zero exit.
+49 captured, 20 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -153,9 +153,6 @@ _(none recorded)_
 | 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
 | 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
 | 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
-| 64 | 13:14:12 | command | $ tools/origin doc lint |
-| 65 | 13:15:41 | command | $ tools/origin doc lint |
-| 66 | 13:16:52 | command | $ tools/origin doc lint |
 | 67 | 13:17:03 | command | $ python3 -m unittest discover -s tests -p test_defectlist.py -p test_identifiers.py |
 | 68 | 13:17:04 | command | $ python3 -m unittest tests.test_defectlist tests.test_identifier_enforcement tests.test_identifiers tests.test_decision_header tests.test_dec |
 | 69 | 13:17:28 | command | $ python3 -m unittest discover -s tests -p test_identifier_enforcement.py -v |
@@ -163,8 +160,11 @@ _(none recorded)_
 | 71 | 13:21:35 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import report print(report.render_session_report('2026-10-04-034-separate- |
 | 72 | 13:21:56 | command | $ tools/origin doc lint |
 | 73 | 13:22:04 | command | $ tools/origin sync push |
+| 74 | 13:22:55 | command | $ tools/origin sync push |
+| 75 | 13:23:02 | milestone | landed on b12054f after resolving three conflicts with the other VM's T-0051/T-0052; doc lint green on the merged tip |
+| 76 | 13:28:27 | command | $ tools/origin task verify T-0050 |
 
-_23 middle events omitted; see `events.jsonl`._
+_26 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
