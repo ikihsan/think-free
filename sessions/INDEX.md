@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-51 recorded session(s). One `events.jsonl` per session, so concurrent
+52 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 26 older session(s) are in the directory listing.
+Showing the 25 most recent. 27 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
 | [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
 | [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 26 older session(s) are in the directory listing.
 | [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | worked | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T22:35 |
 | [2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that](2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/README.md) | opencode | worked | Diagnose and fix the CI Tests step that has failed on all 60 recorded  | 2026-10-03T22:09 |
 | [2026-10-03-028-run-the-knitting-candidate-s-remaining-k](2026-10-03-028-run-the-knitting-candidate-s-remaining-k/README.md) | opencode | worked | Run the knitting candidate's remaining kill-gate prior-art check (thre | 2026-10-03T21:27 |
-| [2026-10-03-027-t-0014-run-c2-s-ventilation-measurement](2026-10-03-027-t-0014-run-c2-s-ventilation-measurement/README.md) | opencode | worked | T-0014: run C2's ventilation measurement-design kill gate (adaptive vs | 2026-10-03T21:03 |
 
 
 ## Reading a session
