@@ -42,7 +42,7 @@ last-verified: 2026-10-04
 | [`T-0027-make-the-published-claim-commit-carry-the-regene.md`](T-0027-make-the-published-claim-commit-carry-the-regene.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0028-record-the-ci-run-history-around-the-orphan-fix.md`](T-0028-record-the-ci-run-history-around-the-orphan-fix.md) | done |  | grep -q '37166490623' STATE.md && tools/origin d | 2026-10-04 |
 | [`T-0029-make-origin-doctor-report-the-push-credential-me.md`](T-0029-make-origin-doctor-report-the-push-credential-me.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-03 |
-| [`T-0030-refuse-a-commit-that-gives-one-finding-decision.md`](T-0030-refuse-a-commit-that-gives-one-finding-decision.md) | open |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
+| [`T-0030-refuse-a-commit-that-gives-one-finding-decision.md`](T-0030-refuse-a-commit-that-gives-one-finding-decision.md) | claimed | opencode | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 
 ## How tasks run on another machine
 
