@@ -15,7 +15,7 @@ Showing the 25 most recent. 47 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | **unfinished** | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:07 |
+| [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | worked | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:47 |
 | [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
 | [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 | [2026-10-04-026-record-the-run-on-t-0043-s-landed-commit](2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/README.md) | opencode | worked | Record the run on T-0043's landed commit and the session-commit mistak | 2026-10-04T09:16 |
