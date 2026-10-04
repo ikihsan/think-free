@@ -219,44 +219,45 @@ Separate from the invention stages, because the mission cannot be run without it
       added to `identifiers.py` from a different hour, each stayed under the cap
       alone, and the merge concatenated them to 307 of 300: run `37189825232` red on
       all seven rows, and `observed` from the public annotations
+- [x] An experiment number a mission record restates is held to the artifact it names
+      (`tools/originlib/resultnumbers.py`, T-0056, D045, defect 22, F024).
+      `docs/process/experiment-protocol.md` claimed `113/113` checked cases for an artifact
+      whose `cases_with_oracle` is 115 — wrong in the commit that published the artifact, with
+      every gate green. **The obvious rule is blind to it**: "does this number occur anywhere in
+      the artifact?" answers *yes*, since `113` also sits at `patch_cost_sensitivity/*/cases`. So
+      the rule decides the property from the number's *shape*, and
+      `tests/test_result_numbers_falsified.py` asserts that blindness.
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised
 
 ## Sequencing note
 
-The infrastructure track finished ahead of stage B because stage B is blocked on
-judgement rather than tooling. Kill gates now exist for the three held
-candidates, eight experiments have run, and none has validated a claim. Stage B
-is blocked on what no experiment here can answer: whether a knitter follows a
-generated repair plan, and whether E3's builder-level finding generalises beyond
-the one builder this machine has. E2's time-gated drift comparison is scheduled
-(side A banked, T-0019).
+The infrastructure track finished ahead of stage B because stage B is blocked on judgement
+rather than tooling. Kill gates exist for the three held candidates, eight experiments have
+run, and none has validated a claim. Stage B is blocked on what no experiment here can
+answer: whether a knitter follows a generated repair plan, and whether E3's builder-level
+finding generalises beyond the one builder this machine has. E2's time-gated drift
+comparison is scheduled (side A banked, T-0019).
 
-The tooling itself is not finished, and what remains is *fleet* work rather than
-invention work: the exercised-version records exist and `doctor` reads them
-(T-0033), and every CPython minor from 3.8 to 3.14 has now run the suite — on
-portable builds on one VM, and one matrix row per minor in CI (T-0034, D035).
-The floor claim is still two things it is not: it says nothing about 3.15
-onwards, and a green row is evidence about that row and not about the version
-below it. Git is weaker in kind, because a git version is a property of a machine
-rather than of a workflow step: T-0034 added the runner's own 2.55.0 to the record
-by running the suite on it, and `git-versions.json` names what it does **not** run
-against (2.26-2.54 and 2.57+). A suite that only passes where its author works is
-not a suite, and that is a recorded pattern rather than a coincidence: the
-interpreter assertion failed on every version the record lacked (F018), the git
-assertion on every runner whose git nobody recorded (F019), and the credential
-fixture on every runner that exports `GITHUB_TOKEN` (T-0035). Each was green on
-the machine that wrote it.
-Identifiers are allocated from the shared base and the record is printed (T-0031),
-so a stale tree no longer collides — but two VMs allocating between their own
-fetches still do, and T-0030's detector catches that; see
-[`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-A red CI run is diagnosable without admin rights, because the check-run
-annotations name the failing test and were public all along (F020, T-0038); what
-is left there is that the endpoint answers "nothing" in three different ways, one
-of them a 403 from the unauthenticated rate limit. T-0020 is the pattern for the
-rest: run the documented sequence, and fix what it actually does.
+The tooling itself is not finished, and what remains is *fleet* work rather than invention
+work: the exercised-version records exist and `doctor` reads them (T-0033), and every
+CPython minor from 3.8 to 3.14 has now run the suite — on portable builds on one VM, and one
+matrix row per minor in CI (T-0034, D035). The floor claim is still two things it is not: it
+says nothing about 3.15 onwards, and a green row is evidence about that row and not the version
+below it. Git is weaker in kind, a git version being a property of a machine rather than of a workflow
+step: T-0034 added the runner's own 2.55.0 to the record by running the suite on it, and
+`git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite that only passes where its author works is not a suite, and that is a
+recorded pattern rather than a coincidence: the interpreter assertion failed on every version the
+record lacked (F018), the git assertion on every runner whose git nobody recorded (F019), and the
+credential fixture on every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the
+machine that wrote it.
+Identifiers are allocated from the shared base and the record is printed (T-0031), so a
+stale tree no longer collides — but two VMs allocating between their own fetches still do, and
+T-0030's detector catches that. A red CI run is diagnosable without admin rights, the check-run
+annotations naming the failing test and public all along (F020, T-0038); what is left is that
+the endpoint answers "nothing" in three different ways, one a 403 from the unauthenticated rate
+limit. T-0020 is the pattern for the rest: run the documented sequence, and fix what it does.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
       defect 17). The five file-reading steps ran a gate, printed a report and exited, so
       the check run's only annotation was "Process completed with exit code 2" and the log
@@ -281,7 +282,7 @@ rest: run the documented sequence, and fix what it actually does.
       `.jsonl` and `.log`, so the undeclared-change report skipped every data-file edit — including
       the version records that decide whether a VM can run the work. The two questions are named
       separately now and reconciliation asks its own; the claim ledger and `vendor/hashes.json` are
-      declared by the bytes their writers wrote. Priced **before** the repair by
+      declared by their writers' bytes. Priced **before** the repair by
       `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths, 50 the ledger. The
       general form: an exemption is a claim about what another check covers, and the cheap way to
       write one is to borrow a predicate.
@@ -292,9 +293,8 @@ rest: run the documented sequence, and fix what it actually does.
       could see it**: the exclusivity the command exists to provide was not in force, and each
       retry added another `claim` line to the ledger (three identical ones for T-0053). Falsified
       both ways, and on a clone of this repository's own history
-- [x] Standard-library test suite (537 tests on git 2.25.1), with
+- [x] Standard-library test suite (575 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
-      each git version has actually run. A test's correctness depends on every clock the
-      code under it reads: three tests behind the in-flight gate read one the fixture never
-      handed over, so one assertion expired on a schedule and could never pass again
-      (T-0044, defect 15)
+      each git version has actually run. A test's correctness depends on every clock the code
+      under it reads: three tests behind the in-flight gate read one the fixture never handed
+      over, so one assertion expired on a schedule and could never pass again (T-0044, defect 15)

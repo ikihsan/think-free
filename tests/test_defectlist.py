@@ -20,7 +20,7 @@ import subprocess
 import unittest
 from pathlib import Path
 
-from harness import RepoTest
+from harness import SOURCE_ROOT, RepoTest
 
 from originlib import defectlist, paths
 
@@ -134,12 +134,90 @@ class ControlTest(RepoTest):
     def test_a_file_with_no_readable_entry_is_reported(self) -> None:
         # The negative case that keeps the rule honest: a restructure into
         # headings leaves a parser matching nothing, which reports nothing, and
-        # looks exactly like a clean tree (D025).
+        # looks exactly like a clean tree (D025). Only the file that exists is
+        # named — a tree with one list file has no second one to complain about.
         self.write(defectlist.DEFECT_FILE, "# Known defects\n\n## Defect 7\n\nProse.\n")
         found = defectlist.report(self.repo)
         self.assertEqual(len(found), 1, found)
         self.assertIn("no defect entry could be read", found[0])
         self.assertIn("STATE-defects.md", found[0])
+
+    def test_a_split_file_with_no_readable_entry_is_also_reported(self) -> None:
+        # The same obligation for the second file, in the shape that can happen:
+        # after the split, both halves go quiet — the parent loses its bold
+        # subjects too — and a list nothing can read from must say so rather
+        # than reading as clean. Written this way because a *half* that went
+        # quiet while the other still parses is reported by the next rule, not
+        # this one; asserting the weaker case would have hidden the stronger.
+        self.write(defectlist.DEFECT_FILE, "# Known defects\n\n## Defect 6\n\nProse.\n")
+        self.write(defectlist.DEFECT_FILES[1], "# Known defects\n\n## Defect 7\n\nProse.\n")
+        found = defectlist.report(self.repo)
+        self.assertEqual(len(found), 2, found)
+        for name in defectlist.DEFECT_FILES:
+            self.assertTrue(
+                any(name in str(item) for item in found), f"{name} was not reported"
+            )
+
+
+class SplitFileTest(RepoTest):
+    """The list is two files since T-0056, and the rule must read both.
+
+    The split was recorded as impossible without exactly this change — "it cannot
+    be done inside its own numbered list without `defectlist.py` reading more
+    than one file". So the load-bearing assertion here is the one that would fail
+    if the reader had been left reading a single file: a duplicate number
+    *spanning* the two halves, which is invisible to a reader of either.
+    """
+
+    OTHER = defectlist.DEFECT_FILES[1]
+
+    def test_a_collision_spanning_the_two_files_is_reported(self) -> None:
+        self.write(defectlist.DEFECT_FILE, "## Open\n\n7. **In the parent file**\n")
+        self.write(self.OTHER, "7. **In the split file**\n")
+        found = defectlist.report(self.repo)
+        self.assertEqual(len(found), 1, found)
+        self.assertIn(defectlist.DEFECT_FILE, found[0])
+        self.assertIn(self.OTHER, found[0])
+        self.assertIn("defect 7", found[0])
+
+    def test_one_entry_per_number_across_both_files_is_clean(self) -> None:
+        self.write(defectlist.DEFECT_FILE, "## Open\n\n6. **Six**\n")
+        self.write(self.OTHER, "7. **Seven**\n")
+        self.assertEqual(defectlist.report(self.repo), [])
+
+    def test_reading_only_the_parent_would_have_missed_the_collision(self) -> None:
+        """The control that proves the second file is load-bearing, not decorative."""
+        self.write(defectlist.DEFECT_FILE, "## Open\n\n7. **In the parent file**\n")
+        self.write(self.OTHER, "7. **In the split file**\n")
+        parent_only = defectlist.entries(
+            (self.repo / defectlist.DEFECT_FILE).read_text(encoding="utf-8"),
+            defectlist.DEFECT_FILE,
+        )
+        self.assertEqual(
+            defectlist.duplicate_issues(parent_only),
+            [],
+            "if one file were enough, this collision would not need the second read",
+        )
+        self.assertEqual(len(defectlist.read_all(self.repo)), 2)
+
+    def test_only_the_parent_present_is_not_reported_as_unreadable(self) -> None:
+        # A tree that has not been split yet is a tree with one list file, and
+        # the "no entry could be read" rule must not fire on the file's absence.
+        self.write(defectlist.DEFECT_FILE, "## Open\n\n6. **Six**\n")
+        self.assertFalse((self.repo / self.OTHER).exists())
+        self.assertEqual(defectlist.report(self.repo), [])
+
+    def test_the_real_tree_holds_every_number_once_across_both_files(self) -> None:
+        # `RepoTest.setUp` points ORIGIN_ROOT at the fixture, so the real tree is
+        # read through `SOURCE_ROOT` rather than through `paths.repo_root()` —
+        # which is also the lesson of F014: a fixture must not read the machine
+        # it is standing in for.
+        found = defectlist.read_all(SOURCE_ROOT)
+        numbers = [entry.number for entry in found]
+        self.assertGreaterEqual(len(numbers), 20, "the list lost entries in the split")
+        self.assertEqual(len(numbers), len(set(numbers)), "a number appears in both files")
+        sources = {entry.source for entry in found}
+        self.assertEqual(sources, set(defectlist.DEFECT_FILES), "one file contributed nothing")
 
 
 class RealHistoryTest(unittest.TestCase):

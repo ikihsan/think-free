@@ -18,16 +18,17 @@ of those it cannot touch.
 ## Ordered by information gained per unit of effort
 
 1. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Six
-   gates now work that way: the conflict-marker rule, `release check`, the
-   landed-work attribution and generated-stamp rules (both falsified in T-0024,
-   one after a first attempt that falsified nothing), the identifier allocation
-   of T-0031, whose first falsification run also exposed two defects in the
-   implementation it was testing, the CI-matrix gate of T-0034, and the
-   decision-header rule of T-0042. The pattern is in
-   `tools/originlib/conflicts.py` and the method is in
-   `docs/policy/gate-falsification.md`.
-   **Ceiling:** each rule detects only the shape it was written against.
+   against the defect's own bytes before it is trusted** (D025, from F013). Nine
+   gates now work that way, the newest being the rule that holds a restated
+   experiment number to its artifact (T-0056, D045, defect 22). Its case is the
+   sharpest yet, because the **obvious rule is green on the defect**: "does this
+   number occur anywhere in the artifact?" answers *yes* for `113`, which also
+   sits at `patch_cost_sensitivity/*/cases`. What settles it is reading the
+   number's *shape* rather than the file's contents, and the blindness of the
+   rejected rule is now asserted so the restriction cannot be dropped quietly.
+   Method: `docs/policy/gate-falsification.md`.
+   **Ceiling:** each rule detects only the shape it was written against, and
+   `resultnumbers.py`'s is one table row per experiment.
 2. **The gaps in that pattern, both found by hitting them — closed, and the
    second found by reading the record rather than by a red run.** (a) **Closed in
    T-0036.** Doc lint rule 7 read findings definitions, findings index rows and

@@ -231,19 +231,18 @@ measured.
 
 ## One number, one thing
 
-Findings `F001…`, decisions `D001…` and tasks `T-0001…` are allocated by reading
-the **local** tree, so two VMs working in the same hour take the same number.
-Seven times on 2026-10-03 and 2026-10-04; each was resolved by hand, and one
-reached the base: commit `e6eb992` holds two different findings both headed
-`## F010`.
+Findings `F001…`, decisions `D001…` and tasks `T-0001…` are allocated from the shared
+base now. One collision still reached the base: `e6eb992` holds two findings both
+headed `## F010`.
 
 Doc lint rule 7 reports an identifier defined twice, an index row with no
 definition behind it, a defined finding with no row, and a decision its own index
 row does not list. `sync land` refuses to push a tree the rule would refuse. Both
 gates call one entry point, `tools/originlib/idcheck.py`, over both sources of
 definitions: `tools/originlib/identifiers.py` (findings, decisions, tasks) and
-`tools/originlib/defectlist.py` (the numbered list in `STATE-defects.md`, which two
-VMs filled in with the same **defect 7** in one hour while rule 7 did not read it).
+`tools/originlib/defectlist.py` (the numbered list in `STATE-defects.md` and
+`STATE-defects-2.md`, which two VMs filled in with the same **defect 7** in one
+hour while rule 7 did not read it).
 
 Why `land` and nothing else: **a collision is created by the merge.** Each branch
 is internally consistent, and each VM's own lint sees nothing wrong with its own
@@ -256,11 +255,16 @@ renumber its way out.
 | The same identifier defined twice, in one file or across two | Which entry a *reference* points at — the number must exist, not necessarily say what the sentence needs |
 | A findings index row that no body backs, and a body with no row | Hypothesis identifiers (`E001…`), which have not collided |
 | A decision the index does not list, and a listed id nothing defines | Two VMs allocating at once — this is a detector, not an allocator (D032) |
-| A defect number that defines two entries, and a defect list the rule cannot read | A **gap** in the defect numbering — a dropped entry and a withdrawn defect are the same bytes |
+| A defect number that defines two entries, in one file or across both | A **gap** in the defect numbering — a dropped entry and a withdrawn defect are the same bytes |
+| An experiment number a record restates that its own `results.json` does not state (rule 9) | Prose rather than a table row, and a row naming two experiments — neither is attributable |
 
-Rule 7 matches on identity, never on wording: two rows in `FAILURES.md` are
-shortened paraphrases of their headings, and a string comparison flagged 83 of
-174 commits including this one.
+Rule 7 matches on identity, never on wording: two rows in `FAILURES.md` are shortened
+paraphrases of their headings, and a string comparison flagged 83 of 174 commits.
+
+The obvious version of rule 9 — *does this number occur anywhere in the artifact?* —
+answers **yes** for `113`, which also sits at `patch_cost_sensitivity/*/cases`;
+`tests/test_result_numbers_falsified.py` asserts that blindness. Method:
+[`gate-falsification.md`](../policy/gate-falsification.md).
 
 ## What CI does not check
 
@@ -272,9 +276,8 @@ shortened paraphrases of their headings, and a string comparison flagged 83 of
   enforces; they do not establish that the rules are the right ones.
 - Whether documentation is *good*. Lint checks structure: caps, links, metadata,
   freshness, conflict markers.
-- Whether the **floor** claim is still right. `test_ci_matrix.py` holds the
-  matrix to the record, but nothing holds `floor.claim` to anything: widening the
-  matrix is a decision somebody has to read, not a change a gate notices.
+- Whether the **floor** claim is still right. `test_ci_matrix.py` holds the matrix to
+  the record, but nothing holds `floor.claim` to anything.
 
 ## Before opening a pull request
 

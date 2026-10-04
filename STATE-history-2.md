@@ -7,12 +7,9 @@ last-verified: 2026-10-04
 # Session history, continued
 
 What each older session changed, newest first. Continues
-[`STATE-history.md`](STATE-history.md), which holds sessions 005 through 037 and
-reached the 300-line cap three times on 2026-10-04 — at session 005, when
-session 012 was added to it, and when session 012's second half was. Identifiers here are the same ones
-`STATE.md` uses. Session 042's entry was moved here from `STATE.md` on
-2026-10-04 (T-0045), when four entries for one session pushed the reload point
-back over its own cap.
+[`STATE-history.md`](STATE-history.md), which holds sessions 005 through 037. Both
+files have been split off `STATE.md` at its 300-line cap — this one at T-0045 and
+again at T-0056. Identifiers here are the same ones `STATE.md` uses.
 
 ## Sessions moved here when the reload point overflowed (2026-10-04, T-0053)
 
@@ -261,39 +258,42 @@ work. `task verify T-0010` exit 0.
 
 ## What changed in sessions 038–040, VM 0944
 
-Moved here from `STATE.md` on 2026-10-04 (T-0033) when the reload point
-passed 300 lines again. Newest first within the group.
+Moved here from `STATE.md` (T-0033, T-0056) each time the reload point passed 300
+lines again. Newest first within the group.
 
 - **Session 040, VM 0944 (T-0029, D030, F016, F017).** `doctor` reported a property it
   never read — `credentials none present` for a working App credential, for the recorded
   `instance-20260717-0947` failure, and for no credential at all. It now reports the
-  configured `credential.helper`, whether it is executable, App key files by mode,
-  dependencies outside `~/.config`, and whether `git credential fill` obtains a
-  credential, with `configured` explicitly not meaning it can push. It found a live
-  defect here: the helper invoked `/tmp/github-app-jwt.sh`, repaired and proven by
-  deleting it. **F016:** this session's own harness overwrote the real
-  `~/.gitconfig`. **F017:** clock-stamped generated dates, found independently of
-  D029; the landed implementation was kept rather than shipping two.
+  configured helper, whether it is executable, App key files by mode, dependencies outside
+  `~/.config`, and whether `git credential fill` obtains a credential, with `configured`
+  explicitly not meaning it can push. It found a live defect here: the helper invoked
+  `/tmp/github-app-jwt.sh`, repaired and proven by deleting it. **F016:** this session's own
+  harness overwrote the real `~/.gitconfig`. **F017:** clock-stamped generated dates, found
+  independently of D029.
 - **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
   VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
   (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
   exists while 123 of 133 commits carry a `[bot]` App identity. Both repaired.
   **The App's real permissions remain unverified** — no agent can read them.
 - **Session 038, VM 0944 (T-0022).** `origin release check` enforces
-  `RELEASE-MANIFEST.md`, which three times said nothing did. Nine top-level
-  entries had been classified by neither table; three declared public paths did
-  not exist; the front door had no declared state. All closed in the same commit
-  as the check.
-- **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
-  work was reported as having changed that work: session 029 closed with nine
-  false `unlogged_change` events and inherited four false `doc_update` events and
-  a `documentation_gaps` report. `sync pull`/`sync land` now record what arrived
-  from the base, and reconciliation attributes a path by the newest thing that
-  touched it. Git authorship was falsified as the baseline first: both VMs commit
-  as `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed
-  are known; a hand-run rebase stays reported — and session 040 then hit exactly
-  that ceiling through seven hand-run rebases. 265 tests green. A second defect
-  surfaced in the same session: every generated file stamped `last-verified` with
-  the render date, so `doc lint` failed on 42 committed reports the day after
-  they were written (D029). Both fixes were falsified against their own defect
-  before being trusted. 269 tests green.
+  `RELEASE-MANIFEST.md`, which three times said nothing did: nine top-level entries
+  classified by neither table, three declared public paths absent, no declared state on
+  the front door. All closed in the same commit as the check.
+- **Session 042, VM 0947 (T-0024, D028, D029).** A session that landed another VM's work
+  was reported as having changed it: session 029 closed with nine false `unlogged_change`
+  events and inherited four false `doc_update` events. `sync pull`/`sync land` now record
+  what arrived from the base, and reconciliation attributes a path by the newest thing that
+  touched it. Git authorship was falsified as the baseline first: both VMs commit as
+  `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed are known, and
+  session 040 then hit that ceiling through seven hand-run rebases. A second defect surfaced
+  in the same session: every generated file stamped `last-verified` with the render date, so
+  `doc lint` failed on 42 committed reports the day after they were written. Both fixes
+  were falsified against their own defect before being trusted.
+- **Session 035, VM 0944 (T-0051, D041, defect 19).** `doc lint` judged a link leaving the
+  repository by asking the *checkout's parent directory* whether the target existed, so
+  T-0047's `../../docs/…` from `tasks/` passed in a worktree and failed in the main checkout on
+  identical bytes. Measured: one probe document at two checkout locations, `broken link` in one
+  and nothing in the other. **Containment is now decided lexically**, so the existence check is
+  the only read and an escaping link is its own violation that `annotate` files. One mutation
+  falsifies both directions, since removing the filter *is* the previous rule. Method:
+  [`gate-falsification.md`](docs/policy/gate-falsification.md).

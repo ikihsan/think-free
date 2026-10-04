@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041, D043, D045**. Each entry records a choice that
+Decisions **D029, D032, D035, D041, D043, D045, D046**. Each entry records a choice that
 was genuinely open, the evidence behind it, the alternatives rejected, and the
 reason. Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -26,33 +26,28 @@ Split from `DECISIONS-GATING.md` on 2026-10-04 (T-0042) when that file reached
 decision had nowhere to go. Entries moved verbatim; numbering is continuous and
 unchanged, so any existing reference to a decision id still resolves.
 
-**Why this split and not the one T-0030 reversed.** The reversed attempt moved
-session-state decisions out of this file while another VM appended to its
-destination in the same hour, and both moves overflowed: a file at 289 lines
-with a real invariant is a smaller problem than two files whose prose
-contradicts each other. The line that separates these two files is the one D032
-and D035 both already used in their own text — *the check must read the
-property*, which says nothing about **which** property, against *a named record
-of this repository*. D024, D025, D026 and D030 are about the reader; D029, D032
-and D035 are each about one artefact this repository keeps. The earlier attempt
-drew its line between two claims about session state, which is why the two VMs
+**Why this split and not the one T-0030 reversed.** The reversed attempt moved session-state
+decisions out of this file while another VM appended to its destination in the same hour, and
+both moves overflowed: a file at 289 lines with a real invariant is a smaller problem than
+two files whose prose contradicts each other. The line between these two files is the one D032
+and D035 already used in their own text — *the check must read the property*, which says
+nothing about **which** property, against *a named record of this repository*. The earlier
+attempt drew its line between two claims about session state, which is why the two VMs
 claimed incompatible invariants.
 
 ## D029 — A generated file is a function of the tree, never of the clock (2026-10-04)
 
-Observed: `doc lint` failed on 42 committed session reports and all three
-indexes on 2026-10-04, the day after they were generated. Nothing in them had
-changed except the calendar: each stamped `last-verified` with `now`, and rule 5
-compares a committed generated file with what the generator produces *now*. CI
-would have failed on the same comparison for any push after local midnight, on
-any VM, for content nobody had touched. Found while running T-0024's own
-verification, which could not pass.
+Observed: `doc lint` failed on 42 committed session reports and all three indexes on
+2026-10-04, the day after they were generated. Nothing in them had changed except the
+calendar: each stamped `last-verified` with `now`, and rule 5 compares a committed generated
+file with what the generator produces *now*. CI would have failed on the same comparison for
+any push after local midnight, on any VM, for content nobody had touched — found while
+running T-0024's own verification, which could not pass.
 
-Decision: every generator stamps `last-verified` from the content it renders — a
-session report from its newest event, the sessions index from the newest
-session's, the tasks index from the newest claim in the ledger, the docs index
-from the newest `last-verified` among the documents it lists. An index with
-nothing to index says `unknown`, because a stamp nobody can support claims a
+Decision: every generator stamps `last-verified` from the content it renders — a session
+report from its newest event, the sessions index from the newest session's, the tasks index
+from the newest claim in the ledger, the docs index from the newest `last-verified` it lists.
+An index with nothing to index says `unknown`, because a stamp nobody can support claims a
 verification that never happened.
 
 Rejected: making rule 5 ignore the stamp, which would hide a real staleness in
@@ -65,11 +60,11 @@ when the file was last regenerated — only when its newest input was verified,
 which is the claim the field can actually support.
 
 **Falsified against its own defect.** `tests/test_generated_stamps.py` moves
-`events.now_iso` to 2031 in place. Against the pre-change code: 2 failures and 1
-error, with `doc lint` reporting the four stale files. A first attempt at this
-falsification failed to falsify anything — it mutated the fallback inside
-`_meta`, which the two callers never reach — and was redone by reverting the
-three generators. Both runs are in this session's `commands.log`.
+`events.now_iso` to 2031 in place: against the pre-change code, 2 failures and 1 error,
+with `doc lint` reporting the four stale files. A first attempt failed to falsify anything
+— it mutated a fallback the two callers never reach — and was redone by reverting the three
+generators. Both runs are in session 015's `commands.log`; the method is in
+[`gate-falsification.md`](docs/policy/gate-falsification.md).
 ## D032 — An identifier collision is refused before publication, and only the merge can see it (2026-10-04)
 
 Observed: identifiers are allocated by reading the local tree, so two VMs in one
@@ -100,21 +95,19 @@ number from the remote claim ledger, which is the fix at the source (VM
 `instance-20260717-0944` named it on 2026-10-04) but catches neither a hand
 renumbering nor a bad rebase, so it does not replace this.
 
-**Ceiling, and it is the same ceiling defect 5 records.** This is a detector, not
-an allocator: it can refuse a commit that reuses an identifier, and it cannot stop
-two VMs allocating at once. It reads the tree, so a collision created and resolved
-entirely between two pushes is never seen. Hypothesis identifiers are out of
-scope, and an index row is matched on identity alone, so a body quoting another
-entry's subject is not detected. This is bookkeeping hygiene with a measured cost;
-it says nothing about any candidate.
+**Ceiling, and it is the same ceiling defect 5 records.** This is a detector, not an
+allocator: it can refuse a commit that reuses an identifier and cannot stop two VMs allocating
+at once. It reads the tree, so a collision created and resolved between two pushes is never
+seen. Hypothesis identifiers are out of scope, and an index row is matched on identity alone.
+Bookkeeping hygiene with a measured cost; it says nothing about any candidate.
 
-**Falsified against its own defect, in two directions.** Run over all 174 commits
-on the shared base the rule reports **one** — `e6eb992` — and the hand repair one
-minute later (`8a4ab8cef`) is clean. The second direction mattered more: the
-first version of the decision-index check matched nothing in any commit, because
-the regex did not allow a Markdown link, so a check that had never fired looked
-identical to a check that had nothing to report. The control test is the two
-paraphrased rows in this repository, and it was the control that found it.
+**Falsified against its own defect, in two directions.** Over all 174 commits on the shared
+base the rule reports **one** — `e6eb992` — and the hand repair a minute later is clean. The
+second direction mattered more: the first version of the decision-index check matched nothing
+in any commit, its regex not allowing a Markdown link, so a check that had never fired looked
+identical to one that had nothing to report. The control — this repository's two paraphrased
+rows — is what found it.
+
 ## D035 — CI runs every minor version the floor claim covers, and the matrix and the record are held to each other (2026-10-04)
 
 Observed: `tests/python-versions.json` named 3.9 to 3.11 as versions nobody had
@@ -182,36 +175,28 @@ prints "this machine is not in the record"; the suite must not assert it.
 
 ## D041 — A link's verdict is a function of the repository, never of the checkout's neighbours (2026-10-04)
 
-Observed: T-0047 shipped `../../docs/reference/identifier-allocation.md` from a task
-file and recorded that `doc lint` passed on it in the worktree the branch was built
-in and failed on the same bytes in the main checkout after landing — and that it
-could not reproduce which run decided it. `check_links` built two candidates and
-asked `exists()` of each, so a link leaving the root was decided by whatever the
-checkout's *parent directory* held. Measured here: one probe document, identical
-bytes, two checkout locations — no finding where the parent held
-`docs/reference/identifier-allocation.md`, `broken link` where it did not. The
-general form is D035's, one question further out: F018 and F019 read a record of
-the environment inside the repository, and this read the filesystem *outside* it,
-which no record of the tree can pin.
+Observed: T-0047 shipped `../../docs/reference/identifier-allocation.md` from a task file
+and recorded that `doc lint` passed on it in the worktree the branch was built in and failed
+on the same bytes in the main checkout after landing — and could not reproduce which run
+decided it. `check_links` asked `exists()` of each candidate, so a link leaving the root was
+decided by whatever the checkout's *parent directory* held. Measured: one probe document,
+identical bytes, two checkout locations — no finding where the parent held the target,
+`broken link` where it did not. D035's form, one question further out: F018 and F019 read a
+record of the environment inside the repository, and this read the filesystem *outside* it.
 
-Decision: **a link must resolve inside the repository, and containment is decided
-lexically** from the link and the root — `os.path.relpath`, never `Path.resolve()`,
-so the rule asks the filesystem nothing beyond the existence check it already made.
-An escaping link is its own violation rather than a broken one, so the reason
-printed is the reason found and `origin annotate` files it on the run that needs it.
-A link with at least one candidate inside the repository is judged exactly as
-before, which is why this file's own links are unaffected: none of them leaves it.
+Decision: **containment is decided lexically** from the link and the root —
+`os.path.relpath`, never `Path.resolve()`, so the rule asks the filesystem nothing beyond the
+existence check it already made. An escaping link is its own violation rather than a broken
+one, so the reason printed is the reason found and `origin annotate` files it.
 
-Rejected: `Path.resolve()` plus a prefix test, which follows symlinks and so reads
-the disk again — the same defect one indirection away. Rejected: warning rather
-than reporting, which leaves a tree publishable that CI cannot diagnose.
-Rejected: reporting an escaping link as `broken`, which names the wrong reason and
-would still differ between two machines, since the whole point is that it does not.
+Rejected: `Path.resolve()` plus a prefix test, which follows symlinks and reads the disk again
+— the same defect one indirection away. Rejected: warning rather than reporting, which leaves
+a tree publishable that CI cannot diagnose. Rejected: reporting an escape as `broken`, which
+names the wrong reason and would still differ between two machines.
 
-**Ceiling.** Inline links only: a reference link (`[x][1]`), a bare autolink, and a
-link that resolves inside the repository to the wrong document are all unexamined,
-and `check_links` still trusts git for the file list, so an untracked document is
-invisible to it as to every other rule.
+**Ceiling.** Inline links only, and `check_links` still trusts git for the file list, so an
+untracked document is invisible to it as to every other rule. Method and the falsification
+script: [`gate-falsification.md`](docs/policy/gate-falsification.md).
 
 ## D043 — A record says one thing once; a merge that makes it say it twice is reported (2026-10-04)
 
@@ -259,30 +244,55 @@ count the artifact declares; a decimal is distinctive enough to match against an
 value the artifact states. A bare integer, and a number in a line naming two
 experiments, are not read.
 
-Rejected: **"does this number occur anywhere in the artifact?"** — the obvious
-one, and it is *green on the defect*. `113` also sits at
-`patch_cost_sensitivity/*/cases`. A rule that reads every value in a file
-concludes about a different property than the one a sentence claimed, which is
-D025 with a new environment: not a field that means something else but a **value**
-that occurs where something else is meant. Written and shipped on that reasoning,
-it would have added a gate that cannot fail — the worse outcome, because it looks
-like coverage. Rejected: **guessing which nested field is the "headline"** by
-depth or by key. That is the borrowed-predicate mistake D042 records, one level
-up: it needs a case per artifact, and on this tree it admits either `113` (depth
-3 in `patch_cost_sensitivity`) or the true values of `006` (depth 3 under its own
-`kill_gate`), never both. Rejected: **requiring every restated number to cite the
-field it came from.** This is the only design that generalises, and it is a change
-to the shape of a hand-maintained index rather than a gate; it is the right next
-step if the coverage this leaves is ever found wanting.
-
-Rejected: exempting a **tool version** written in a results row, behind a keyword
-list. `2.30` and `0.30` are the same shape, and a keyword list is a rule that
-guesses. Reported instead, with the remedy in the message: environment facts
-belong outside the results table.
+Rejected: **"does this number occur anywhere in the artifact?"** — the obvious one, and it
+is *green on the defect*, since `113` also sits at `patch_cost_sensitivity/*/cases`. A rule
+that reads every value in a file concludes about a different property than the one a sentence
+claimed: D025 with a new environment, not a field that means something else but a **value**
+occurring where something else is meant. Rejected: **guessing which nested field is the
+"headline"** by depth or by key — the borrowed-predicate mistake D042 records, one level up.
+It needs a case per artifact, and on this tree admits either `113` or the true values of `006`,
+never both. Rejected: **requiring every restated number to cite the field it came from.** Only
+that design generalises; it changes the shape of a hand-maintained index rather than adding a
+gate, and it is the right next step if this coverage is ever found wanting. Rejected: exempting
+a **tool version** behind a keyword list — `2.30` and `0.30` are the same shape. Reported
+instead, with the remedy in the message: environment facts belong outside the results table.
 
 **Ceiling.** One row per experiment in one index. Prose is not read, and neither is
 `STATE.md`'s dashboard row, which names all nine experiments at once — so the most
 prominent restatement of these numbers in the repository is *not* covered, which is
 stated here rather than left to be discovered. The loose rule's blindness is
-asserted in `tests/test_result_numbers.py`, so the restriction cannot be dropped
-quietly.
+asserted in `tests/test_result_numbers_falsified.py`, so the restriction cannot be
+dropped quietly.
+
+## D046 — A list split across files is read by a reader that reads all of them
+
+Evidence: T-0056, session `2026-10-04-042`. Defect 22 in
+[`STATE-defects.md`](STATE-defects.md).
+
+**The choice.** `STATE-defects.md` was split at its 300-line cap, and
+`defectlist.py` reads **every file of the list** rather than the first. The parent
+file's own record had said the split could not be made without exactly this change
+— "it cannot be done inside its own numbered list without `defectlist.py` reading
+more than one file" — and it was done here rather than by trimming an entry to make
+room, the cut falling at the `## Open` heading the document already states as a
+boundary.
+
+The alternative was to leave the reader pointed at the parent and note in prose that
+the other half is unchecked. That is the defect the rule exists to catch: **the
+reason `defectlist.py` reads this list at all is defect 10**, where two VMs took
+defect 7 in the same hour, each tree internally consistent, and only a human reading
+the file reported it. A duplicate spanning the two halves is invisible to a reader of
+either half, so it is exactly the case the rule must catch and exactly the one a
+single-file reader cannot.
+
+Rejected: **trim entries instead of splitting** — what the cap has been met with five
+times already, each time repaired by moving material to the file whose invariant owns
+it. Rejected: **making the split generate both files**, which would make a numbered
+list a derived artefact and lose the property that an entry is written once, by the
+session that found it.
+
+**Ceiling.** A **gap** in the numbering is still unreported, and after a split a gap
+can straddle the two files as easily as sit inside one — so this fixes the reader, not
+the coverage. Both halves are checked in `tests/test_defectlist.py`, including a
+control asserting that reading only the parent would have missed the collision the
+split makes possible.

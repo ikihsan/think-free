@@ -48,6 +48,19 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**A restated experiment number was false, and the obvious gate is blind to
+it** (defect 22, T-0056, D045, F024). `docs/process/experiment-protocol.md` claimed
+`005-knitting-bounded-search` was exact on **113/113** checked cases; that artifact's
+`results.json` says `cases_with_oracle = 115` and `cases_tested = 118`. The wrong
+number was in `318374a` — the commit that published the artifact — so it was wrong on
+arrival, and every gate passed because nothing read a number in a mission record
+against the result it restates. **The load-bearing half is the rule that cannot see
+it:** "does this number occur anywhere in the artifact?" answers *yes*, since `113`
+also sits at `patch_cost_sensitivity/*/cases`, so the obvious gate would have been
+green on the defect. `resultnumbers.py` decides the property from the number's
+*shape* instead, and `tests/test_result_numbers_falsified.py` asserts the rejected
+rule's blindness so the restriction cannot be dropped quietly.
+
 **A claim that could not be published was the fleet's only concurrency control,
 and the refusal that caused it asked for the one action an agent must not take by
 hand** (defect 21, T-0055, D044, F023). `task claim` committed the claim and then
@@ -157,16 +170,6 @@ push this reload point past the line cap.
   the truth. **A hand-authored document may not say a thing twice**, with the exemption
   read from the `generated-by` marker rather than from a path. Falsified both ways — the
   rule removed reports nothing, the exemption removed reports 47 on a clean tree.
-- **Session 035, VM 0944 (T-0051, D041, defect 19).** `doc lint` judged a link that left
-  the repository by asking the *checkout's parent directory* whether the target existed, so
-  T-0047's `../../docs/…` from `tasks/` passed in a worktree and failed in the main checkout
-  on identical bytes — the run its own note could not identify. Measured: one probe
-  document at two checkout locations, `broken link` in one and nothing in the other.
-  **Containment is now decided lexically**, so the existence check is the only read, and an
-  escaping link is its own violation that `annotate` files. One mutation falsifies both
-  directions, because removing the filter *is* the previous rule. A gate's verdict must be
-  a function of the repository alone; method in
-  [`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md).
 
 ## Infrastructure build (sessions 015–016, earlier)
 

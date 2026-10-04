@@ -37,14 +37,16 @@ appenders and the merge). Read that file for the mechanism; the entries in
 `STATE-defects.md` carry the dates and the commits.
 
 **A gate whose input it cannot read has to say so.** This is the obligation
-defect 10's control failure produced, and it now has three instances: a
+defect 10's control failure produced, and it now has four instances: a
 `STATE-defects.md` with no readable entry is a violation
 (`tools/originlib/defectlist.py`), a decision record with no readable header is a
-violation (`tools/originlib/decisionheader.py`), and a version comparison that
-cannot tell "we looked and it is not there" from "we could not look" reports
-`record unreadable` rather than a verdict (`tools/originlib/versions.py`). A
-parser that quietly stops matching is indistinguishable from a clean tree, which
-is the same blind spot as a check that has never fired.
+violation (`tools/originlib/decisionheader.py`), an experiment `results.json`
+that cannot be parsed is a violation (`tools/originlib/resultnumbers.py`), and a
+version comparison that cannot tell "we looked and it is not there" from "we
+could not look" reports `record unreadable` rather than a verdict
+(`tools/originlib/versions.py`). A parser that quietly stops matching is
+indistinguishable from a clean tree, which is the same blind spot as a check that
+has never fired.
 
 **A gate's verdict must be a function of the repository alone** (D041, defect 19,
 T-0051). The fourth instance of the form the entries above keep meeting, and the
@@ -99,3 +101,56 @@ reports 47 findings on a clean tree. Too few and too many are the same mistake o
 clause apart. `CommittedDefectTest` reads the duplicate out of git rather than from a
 fixture written after the repair, and asserts both lines are byte-identical — the
 shape is a merge artefact, not a document that repeats itself.
+
+**A value occurring where something else is meant is the same shape, with a new
+environment** (D045, defect 22, T-0056). `docs/process/experiment-protocol.md`
+claimed `005-knitting-bounded-search` was exact on `113/113` checked cases while
+its `results.json` says `cases_with_oracle: 115`. The tempting rule — *does this
+number occur anywhere in the artifact?* — answers **yes**, because `113` also sits
+at `patch_cost_sensitivity/*/cases`. So the obvious gate is green on the defect,
+and shipping it would have added coverage in appearance only.
+
+What makes this an instance of the pattern above rather than a new one: the
+question a reader answers ("is 113 in this file?") is not the property being
+claimed ("how many cases did this experiment check?"), and both answers are
+correct. Deciding the property instead of the field is what changed the outcome:
+
+| What the number is | What it is held to | Why that is decidable |
+|---|---|---|
+| fraction `N/M` | a count the artifact **declares** — an integer field naming cases/fixtures/instances, or the length of `cases` | a fraction *means* "N out of M things", so M names a population |
+| decimal | any value the artifact states, however deep | two significant figures coinciding is not a realistic way to become false unnoticed |
+| bare integer | nothing | a threshold, a version and a count are the same shape |
+
+Two shape rules were written and dropped before this one. Reading *every* value in
+the file is the false negative above. Reading only "headline" values — top-level
+scalars — needs a case per artifact and on this tree admits either `113` (three
+levels down in `patch_cost_sensitivity`) or `006`'s true `0.833` (three levels
+down under its own `kill_gate`), never both: the borrowed-predicate mistake D042
+records, one level up. The rule that survives reads the number, not the file.
+
+`tests/test_result_numbers_falsified.py` asserts the *blindness* of the rejected
+rule on the defect's own bytes, so the restriction cannot be dropped quietly — the
+second direction, and the one that is easy to leave out.
+
+**A rule that reads a value must read the *property*, not the file.** T-0056's
+gate answers "how many cases does this record say were checked?", and the obvious
+version of it answers "does the number `113` occur in `results.json`?" — which is
+*yes*, because `113` also sits at `patch_cost_sensitivity/*/cases`. The obvious gate
+was therefore green on the defect it was written for. Two shape rules were tried and
+dropped before the one that works: reading every value in the file is the false
+negative above, and reading only top-level "headline" scalars needs a case per
+artefact (it admits either `113` at depth 3 or `006`'s true `0.833` at depth 3 under
+its own `kill_gate`, never both). Reading the number's **shape** — a fraction's
+denominator names a population, a decimal is distinctive, a bare integer is ambiguous
+— is what settles it, and `tests/test_result_numbers_falsified.py` asserts the
+blindness so the restriction cannot be dropped quietly.
+
+**A rule can read nothing and look like a clean tree.** Two of T-0056's own bugs were
+exactly that, and both were found by a test rather than by reading the code: a decimal
+guard that rejected any following dot, so every number ending a sentence was silently
+discarded; and a measurement script that excluded nested repositories by testing for
+`.worktrees` in a path's parts — false for the worktree it was running in, so it
+reported **zero documents**. The second is defect 19's shape again, a verdict decided
+by where the checkout sits rather than by what the repository holds. Both were caught
+because the count was zero or absent, which is the kind of number a reader should
+never have to accept.
