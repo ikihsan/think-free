@@ -15,7 +15,7 @@ Showing the 25 most recent. 45 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | **unfinished** | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:19 |
+| [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 | [2026-10-04-026-record-the-run-on-t-0043-s-landed-commit](2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/README.md) | opencode | worked | Record the run on T-0043's landed commit and the session-commit mistak | 2026-10-04T09:16 |
 | [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | worked | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T09:01 |
 | [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | worked | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:37 |

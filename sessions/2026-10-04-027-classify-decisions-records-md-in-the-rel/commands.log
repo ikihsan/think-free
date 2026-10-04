@@ -1,0 +1,541 @@
+==============================================================================
+[seq 2] 2026-10-04T09:20:25+00:00
+$ python3 -c 
+import sys, os, tempfile, shutil, subprocess
+sys.path.insert(0,'tools')
+os.environ['ORIGIN_ROOT'] = tempfile.mkdtemp()
+from pathlib import Path
+from originlib import release, doclint
+root = Path(os.environ['ORIGIN_ROOT'])
+# A minimal tree: one unclassified top-level file, no manifest tables covering it.
+(root/'STATE.md').write_text('# State\n', encoding='utf-8')
+(root/'RELEASE-MANIFEST.md').write_text('# Manifest\n\n## Public\n\n| Path | Why |\n|---|---|\n| `docs/` | policy |\n', encoding='utf-8')
+res = release.check(root)
+print('release.check on an unclassified root document:', 'ok' if res.ok else res.problems if hasattr(res,'problems') else res)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: ORIGIN_ROOT=/tmp/tmpkt3ou9ss is not a git repository
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 130  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T09:21:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 63 file(s) checked
+  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 10 violation(s)
+skills: 0 skill(s) in .agents/skills
+  FAIL  .agents/skills does not exist
+skills: 1 problem(s)
+session verify: 0 session(s) checked
+  FAIL  sessions/INDEX.md: generated index missing
+  FAIL  tasks/INDEX.md: generated index missing
+session verify: 2 problem(s)
+preflight: FAILED
+doc lint: 63 file(s) checked
+  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  DECISIONS-RECORDS.md: orphan document; no other document links to it
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 11 violation(s)
+skills: 0 skill(s) in .agents/skills
+  FAIL  .agents/skills does not exist
+skills: 1 problem(s)
+session verify: 0 session(s) checked
+  FAIL  sessions/INDEX.md: generated index missing
+  FAIL  tasks/INDEX.md: generated index missing
+session verify: 2 problem(s)
+preflight: FAILED
+doc lint: 63 file(s) checked
+  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  DECISIONS-RECORDS.md: orphan document; no other document links to it
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 11 violation(s)
+skills: 0 skill(s) in .agents/skills
+  FAIL  .agents/skills does not exist
+skills: 1 problem(s)
+session verify: 0 session(s) checked
+  FAIL  sessions/INDEX.md: generated index missing
+  FAIL  tasks/INDEX.md: generated index missing
+session verify: 2 problem(s)
+preflight: FAILED
+
+
+[stderr]
+test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+
+======================================================================
+FAIL: test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 67, in test_a_classified_root_document_passes_preflight
+    self.assertEqual(code, 0, out)
+AssertionError: 2 != 0 : 
+
+======================================================================
+FAIL: test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 55, in test_an_unclassified_root_document_fails_preflight
+    self.assertIn("classified by neither manifest table", out)
+AssertionError: 'classified by neither manifest table' not found in ''
+
+======================================================================
+FAIL: test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 74, in test_preflight_says_which_gate_refused
+    self.assertIn("release check:", out)
+AssertionError: 'release check:' not found in ''
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.306s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1711  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T09:21:36+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+
+======================================================================
+FAIL: test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 65, in test_a_classified_root_document_passes_preflight
+    self.assertEqual(code, 0, out)
+AssertionError: 2 != 0 : doc lint: 63 file(s) checked
+  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block
+  FAIL  README.md: missing <!-- origin-meta --> block
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 10 violation(s)
+skills: 0 skill(s) in .agents/skills
+  FAIL  .agents/skills does not exist
+skills: 1 problem(s)
+session verify: 0 session(s) checked
+  FAIL  sessions/INDEX.md: generated index missing
+  FAIL  tasks/INDEX.md: generated index missing
+session verify: 2 problem(s)
+preflight: FAILED
+
+
+======================================================================
+FAIL: test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 53, in test_an_unclassified_root_document_fails_preflight
+    self.assertIn("classified by neither manifest table", out)
+AssertionError: 'classified by neither manifest table' not found in "doc lint: 63 file(s) checked\n  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block\n  FAIL  README.md: missing <!-- origin-meta --> block\n  FAIL  DECISIONS-RECORDS.md: orphan document; no other document links to it\n  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it\n  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it\n  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it\n  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it\n  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it\n  FAIL  sessions/INDEX.md: generated file missing\n  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'\n  FAIL  tasks/INDEX.md: generated file missing\ndoc lint: 11 violation(s)\nskills: 0 skill(s) in .agents/skills\n  FAIL  .agents/skills does not exist\nskills: 1 problem(s)\nsession verify: 0 session(s) checked\n  FAIL  sessions/INDEX.md: generated index missing\n  FAIL  tasks/INDEX.md: generated index missing\nsession verify: 2 problem(s)\npreflight: FAILED\n"
+
+======================================================================
+FAIL: test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 72, in test_preflight_says_which_gate_refused
+    self.assertIn("release check:", out)
+AssertionError: 'release check:' not found in "doc lint: 63 file(s) checked\n  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block\n  FAIL  README.md: missing <!-- origin-meta --> block\n  FAIL  DECISIONS-RECORDS.md: orphan document; no other document links to it\n  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it\n  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it\n  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it\n  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it\n  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it\n  FAIL  sessions/INDEX.md: generated file missing\n  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'\n  FAIL  tasks/INDEX.md: generated file missing\ndoc lint: 11 violation(s)\nskills: 0 skill(s) in .agents/skills\n  FAIL  .agents/skills does not exist\nskills: 1 problem(s)\nsession verify: 0 session(s) checked\n  FAIL  sessions/INDEX.md: generated index missing\n  FAIL  tasks/INDEX.md: generated index missing\nsession verify: 2 problem(s)\npreflight: FAILED\n"
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.576s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1815  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T09:22:01+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... FAIL
+test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest) ... ERROR
+
+======================================================================
+ERROR: test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 75, in test_preflight_says_which_gate_refused
+    out.index("release check:") < out.index("preflight:"),
+ValueError: substring not found
+
+======================================================================
+FAIL: test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 67, in test_a_classified_root_document_passes_preflight
+    self.assertIn("release check: OK", out)
+AssertionError: 'release check: OK' not found in "doc lint: 63 file(s) checked\n  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block\n  FAIL  README.md: missing <!-- origin-meta --> block\n  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it\n  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it\n  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it\n  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it\n  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it\n  FAIL  sessions/INDEX.md: generated file missing\n  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'\n  FAIL  tasks/INDEX.md: generated file missing\ndoc lint: 10 violation(s)\nskills: 0 skill(s) in .agents/skills\n  FAIL  .agents/skills does not exist\nskills: 1 problem(s)\nsession verify: 0 session(s) checked\n  FAIL  sessions/INDEX.md: generated index missing\n  FAIL  tasks/INDEX.md: generated index missing\nsession verify: 2 problem(s)\npreflight: FAILED\n"
+
+======================================================================
+FAIL: test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_preflight_gates.py", line 54, in test_an_unclassified_root_document_fails_preflight
+    self.assertIn("release check:", out)
+AssertionError: 'release check:' not found in "doc lint: 63 file(s) checked\n  FAIL  DECISIONS-RECORDS.md: missing <!-- origin-meta --> block\n  FAIL  README.md: missing <!-- origin-meta --> block\n  FAIL  DECISIONS-RECORDS.md: orphan document; no other document links to it\n  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it\n  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it\n  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it\n  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it\n  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it\n  FAIL  sessions/INDEX.md: generated file missing\n  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'\n  FAIL  tasks/INDEX.md: generated file missing\ndoc lint: 11 violation(s)\nskills: 0 skill(s) in .agents/skills\n  FAIL  .agents/skills does not exist\nskills: 1 problem(s)\nsession verify: 0 session(s) checked\n  FAIL  sessions/INDEX.md: generated index missing\n  FAIL  tasks/INDEX.md: generated index missing\nsession verify: 2 problem(s)\npreflight: FAILED\n"
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.511s
+
+FAILED (failures=2, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1887  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T09:22:22+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_classified_root_document_passes_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... ok
+test_an_unclassified_root_document_fails_preflight (tests.test_preflight_gates.PreflightCoversReleaseTest) ... ok
+test_preflight_says_which_gate_refused (tests.test_preflight_gates.PreflightCoversReleaseTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.330s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2686  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T09:24:56+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates tests.test_cli tests.test_release -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+----------------------------------------------------------------------
+Ran 58 tests in 30.493s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 30898  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T09:24:58+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2388  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T09:29:47+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 474 tests in 266.294s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 266880  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T09:31:02+00:00
+$ tools/origin task verify T-0045
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0045: `PYTHONPATH=tools:tests python3 -m unittest tests.test_cli tests.test_release -q && tools/origin doc lint && tools/origin preflight` -> exit 0 in 38.71s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39093  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T09:32:46+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 317 lines (exempt from cap)
+  FAIL  STATE.md: 308 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2427  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T09:33:54+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 358 lines (exempt from cap)
+  FAIL  STATE.md: 306 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2493  redactions: none
+==============================================================================
+[seq 26] 2026-10-04T09:34:16+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 399 lines (exempt from cap)
+  FAIL  STATE.md: 304 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2424  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T09:35:08+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 440 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2516  redactions: none
+==============================================================================
+[seq 28] 2026-10-04T09:35:16+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 506 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 480 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 70 session(s) checked
+  note  2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch: in flight (task T-0040, claimed by opencode on instance-20260717-0944 1.9h ago)
+  note  2026-10-04-027-classify-decisions-records-md-in-the-rel: in progress (command)
+session verify: OK
+release check: 42 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7293  redactions: none
+==============================================================================
+[seq 33] 2026-10-04T09:35:41+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_preflight_gates tests.test_cli -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+----------------------------------------------------------------------
+Ran 29 tests in 16.387s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16726  redactions: none
