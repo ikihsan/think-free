@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T00:37:26+00:00
-- **Duration:** ?s
+- **Duration:** 294.2s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0025: record the measured pushed CI result and close the standing CI claim
 
 ## Summary
 
-_(none recorded)_
+T-0025 done: the pushed CI run for T-0024 is recorded as observed green on all six steps (run 37165413909, commit 9e865a4), and the two earlier red runs are corrected to their verified cause - a pushed task file without a rebuilt tasks/INDEX.md, not the clock. STATE.md split at 293 lines into STATE-defects.md.
+
+## Next
+
+Two open defects are now cheap and named in STATE-defects.md: (5) task new leaves an orphan until tasks/INDEX.md is rebuilt, which reddened two real CI runs - either task new regenerates the index or the fleet flow stops pushing a task file first; (4) identifier allocation collides by construction, and the honest fix is a detector that refuses a commit reusing an F/D/T number rather than an allocator that cannot work without coordination. Also unclaimed: a machine-readable Python-versions record, named in docs/operations/vm-execution.md. Read the next pushed CI run before claiming it green: this session's own commits have not run there yet.
 
 ## Artifacts
 
@@ -54,7 +58,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -78,6 +81,9 @@ _(none recorded)_
 | 12 | 00:41:00 | artifact | wrote sessions/INDEX.md |
 | 13 | 00:41:02 | command | $ tools/origin task verify T-0025 |
 | 14 | 00:42:10 | artifact | wrote ROADMAP.md |
+| 15 | 00:42:20 | doc_update | updated ROADMAP.md |
+| 16 | 00:42:20 | doc_update | updated STATE.md |
+| 17 | 00:42:20 | session_end | T-0025 done: the pushed CI run for T-0024 is recorded as observed green on all six steps (run 37165413909, commit 9e865a4), and the two earlier red ru |
 
 ## Reproduce this record
 

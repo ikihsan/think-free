@@ -15,7 +15,7 @@ Showing the 25 most recent. 18 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | **unfinished** | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:37 |
+| [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
