@@ -160,11 +160,20 @@ session by definition. Two cases, and the distinction is worth reading off the
 run: a session that **claimed a task** is reported `in flight` and re-emitted as
 a `::warning::`, which is the D027 lease doing its job; a session with **no task
 and no claim** naming it has nothing to prove it is alive, so it is reported as a
-failure. Observed on 2026-10-04 twice in an hour — runs `37174316639` and
-`37181374433`, each red only on `Session record integrity` and each green on the
-next commit, which is the session commit that closes it. **So a red session step
-on a commit that is not the last one on the branch is expected**, and the way to
-confirm it is to look at the following run rather than the log.
+failure. Observed on 2026-10-04 five times, three of them from one VM: runs
+`37174316639`, `37181374433`, `37206132901` at `2643c9e`, and `37206627337` at
+`1061c5b`, each red only on `Session record integrity` and each green on the next
+commit, which is the session commit that closes it. **The taskless case is the one
+to watch, because it is the one this repository's own protocol produces:** an agent
+recording a measured result or repairing the record has nothing to claim, and
+`docs/process/session-protocol.md` does not tell it to invent a task. The annotation
+names the distinction in one line — `last event is 'artifact'; session may be
+unfinished; T-0050 is done, no claim names this session` — so the case is
+recognisable from the run without admin rights. **So a red session step on a commit
+that is not the last one on the branch is expected**, and the way to confirm it is to
+look at the following run rather than the log. The open question is in
+[`STATE-next-actions.md`](../../STATE-next-actions.md) item 2(c): whether a taskless
+session should be allowed to publish code commits at all.
 
 **A red gate names its file, and the annotation is filed on it.** The five gate
 steps that print a report and exit give the runner nothing to attach, so their

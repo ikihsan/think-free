@@ -69,6 +69,17 @@ of those it cannot touch.
    taskless session has nothing to point at. `docs/operations/ci.md` now says how
    to recognise this case from the run alone, which is the cheap half; the other
    half is whether a taskless session should publish code commits at all.
+   **Measured again the same day, twice by one VM, and both times the run said so
+   in one line.** Run `37206132901` at `2643c9e` carried
+   `…events.jsonl: last event is 'artifact'; session may be unfinished; T-0050 is
+   done, no claim names this session`, and run `37206627337` at `1061c5b` carried
+   the same shape with `last event is 'command'`. So the case is **five runs in one
+   day, three of them from this VM, and every one green on the next commit** — the
+   cost is a red row, not a wrong record. **The untested half is the cheap
+   question the annotation raises and nobody has answered: the gate names a
+   *taskless* session, and could it accept one whose stream says `task: ""` and whose
+   ledger holds no claim only when the session is younger than the CI run's queue
+   delay?** The information exists in the same event the message already quotes.
    **Ceiling:** none of these closes the general problem; they narrow where a
    hand-maintained identifier list and an unreadable log can hide a defect.
    (d) **Closed in T-0050 (D042, F022).** `reconcile._is_vendored` reused the

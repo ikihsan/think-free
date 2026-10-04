@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-79 recorded session(s). One `events.jsonl` per session, so concurrent
+80 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 54 older session(s) are in the directory listing.
+Showing the 25 most recent. 55 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | **unfinished** | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T13:58 |
 | [2026-10-04-036-record-the-measured-ci-state-on-the-tip](2026-10-04-036-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip and T-0050's one red run, from | 2026-10-04T13:53 |
 | [2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu](2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/README.md) | opencode | worked | make doc lint's broken-link verdict a function of the repository, not  | 2026-10-04T12:39 |
 | [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | worked | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T13:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 54 older session(s) are in the directory listing.
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |
 | [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | worked | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:40 |
 | [2026-10-04-013-t-0035-stop-the-credential-sandbox-from](2026-10-04-013-t-0035-stop-the-credential-sandbox-from/README.md) | opencode | worked | T-0035: stop the credential sandbox from inheriting a CI runner's GITH | 2026-10-04T04:57 |
-| [2026-10-04-012-measure-the-test-suite-on-every-cpython](2026-10-04-012-measure-the-test-suite-on-every-cpython/README.md) | opencode | worked | Measure the test suite on every CPython minor from 3.8 to 3.14 and mak | 2026-10-04T05:38 |
 
 
 ## Reading a session
