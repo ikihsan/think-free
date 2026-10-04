@@ -88,7 +88,7 @@ def start(
     # stream, so regenerating first produced a stub with no `origin-meta` and
     # an index that listed no session — and `doc lint` failed on both for as
     # long as the session was open, which is the whole time anyone lints.
-    _refresh_reports(session)
+    refresh_reports(session)
     return active
 
 
@@ -103,11 +103,17 @@ AGENT_MARKERS = (
 )
 
 
-def _refresh_reports(session_id: str) -> None:
-    """Keep the session report and index present from the moment of opening.
+def refresh_reports(session_id: str) -> None:
+    """Rebuild this session's report and `sessions/INDEX.md` from the stream.
 
-    Otherwise `sessions/INDEX.md` would link to a report that does not exist
-    yet, and a broken link in a generated file is a lint failure.
+    Two reasons, both observed. From the moment of opening: otherwise
+    `sessions/INDEX.md` would link to a report that does not exist yet, and a
+    broken link in a generated file is a lint failure. And after **every**
+    append: the report is a generated file, so any commit made between an
+    event and the next report write publishes a stale one, which is a red CI
+    run (run 37180487906, from a `tools/x` capture and an artifact recorded
+    after the last regeneration). Called from `session start` and `finish`
+    before T-0034; from every other appender after it.
     """
     from . import report
 

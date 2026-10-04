@@ -99,6 +99,14 @@ def record_command(
             actor=active.agent if active else None,
             host=active.host if active else None,
         )
+    # The report is generated from this stream, so appending to the stream
+    # invalidates it. A commit made before the next regeneration publishes a
+    # stale report and reddens CI — observed as run 37180487906, where a capture
+    # and an artifact were recorded after the last write and the tree was
+    # committed in between.
+    from . import session as session_module
+
+    session_module.refresh_reports(target_session)
     return {
         "recorded": True,
         "seq": seq,

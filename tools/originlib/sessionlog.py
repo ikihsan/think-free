@@ -14,12 +14,32 @@ from . import events, gitutil, paths, secrets
 from .activestate import SessionError, require_active
 
 
+def _refresh(session_id: str) -> None:
+    """Rebuild the generated report after an append.
+
+    The report is a function of the event stream, so appending to the stream
+    invalidates it, and `doc lint` fails on a generated file that differs from
+    its generator's output. A commit made before the next regeneration therefore
+    publishes a stale report and reddens CI: run 37180487906, from a `tools/x`
+    capture and an artifact recorded after the last write. It lives here, in the
+    appender, rather than in the CLI, because a caller using the module API must
+    not be able to break it.
+    """
+    from . import session as session_module
+
+    session_module.refresh_reports(session_id)
+
+
 def log(kind: str, summary: str, data: dict | None = None, **extra) -> events.Event:
     """Append an event to the active session."""
     active = require_active()
     payload = {"summary": summary}
     payload.update(data or {})
-    return events.append(active.session, kind, payload, actor=active.agent, host=active.host, **extra)
+    event = events.append(
+        active.session, kind, payload, actor=active.agent, host=active.host, **extra
+    )
+    _refresh(active.session)
+    return event
 
 
 def step(summary: str) -> events.Event:
@@ -95,7 +115,7 @@ def artifact(path: str, note_text: str = "") -> events.Event:
             "Rotate the credential if it is real, remove it from the file, then re-run."
         )
     digest = hashlib.sha256(target.read_bytes()).hexdigest()
-    return events.append(
+    event = events.append(
         active.session,
         "artifact",
         {
@@ -108,6 +128,8 @@ def artifact(path: str, note_text: str = "") -> events.Event:
         actor=active.agent,
         host=active.host,
     )
+    _refresh(active.session)
+    return event
 
 
 def _relative(target: Path) -> str:

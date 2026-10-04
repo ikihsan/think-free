@@ -210,3 +210,24 @@ commits passed while that half of the rule did nothing. The control test — the
 and it had already caught the other half of the same draft, which compared index
 rows to headings as strings and flagged 83 of 174 commits. Both are in the
 session's `commands.log`.
+
+**A stale generated file is the same defect whichever file it is.** Three
+commits in this repository's history have reddened CI by carrying one, and the
+first two repairs did not generalise: T-0026 and T-0027 made the *task* commands
+rebuild `tasks/INDEX.md` and `docs/INDEX.md`, and a third instance reached CI
+anyway (run `37180487906`: all seven `Tests` jobs green, `Documentation lint` red
+on a session report; the next run of the same tree, `37180491269`, is green).
+The cause was the same shape one level over: the session report is generated from
+the event stream, so **every append invalidates it**, and only `session start` and
+`finish` regenerated it. `session step`, `note`, `decision`, `block`,
+`experiment-result`, `artifact` and every `tools/x` capture did not, so any commit
+in between published a stale report. Fixed in session 015 by moving the
+regeneration into the appenders - `sessionlog.log`, `sessionlog.artifact`,
+`recorder.record_command` - and by making `session.refresh_reports` public,
+because the invariant belongs at the appender and not in the CLI: a caller using
+the module API must not be able to break it. Falsified by removing the two calls,
+which fails 4 of 7 tests in `GeneratedReportTest`; the control in the same class
+shows the assertion is not vacuous. **The lesson for the next generated file:**
+find the appender, not the command that happens to be running when someone
+notices.
+

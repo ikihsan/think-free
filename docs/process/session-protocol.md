@@ -62,6 +62,24 @@ inside pipelines.
 Commands run outside `tools/x` are not captured. That is acceptable for
 throwaway inspection, but anything a conclusion depends on must be captured.
 
+### 2a. Nothing you record may leave a generated file stale
+
+`doc lint` fails when a committed generated file differs from what its generator
+produces, and the session report is rendered from the event stream. So **every
+event you record invalidates the report**, and a commit made before it is
+rewritten publishes a stale one — a red CI run, observed as
+`37180487906` after a capture and an artifact recorded between two commits. Every
+appending command rewrites the report as part of recording (`session step`,
+`note`, `decision`, `block`, `experiment-result`, `artifact`, and `tools/x`), so
+this is not a step to remember. It is recorded here because it was once a step to
+remember, and because the general form matters: **when you change a generated
+file's input, the regeneration belongs in the code that changes the input**, not
+in the command that happened to be running when someone noticed.
+
+If a commit of yours is red on the Documentation step with a *stale generated
+file*, the cause is an event recorded after the last write, and `tools/origin
+doc index` is the repair.
+
 Secrets in captured output are redacted before they reach disk, and the
 redaction is itself recorded. Terminal output is not redacted, so do not print
 a credential in the first place.

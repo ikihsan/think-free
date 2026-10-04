@@ -174,9 +174,6 @@ class GeneratedReportTest(RepoTest):
         self.assertEqual(first, second)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 class ArtifactBatchTest(RepoTest):
     """Declaration ergonomics, added after session 002 under-declared 55 files."""
 

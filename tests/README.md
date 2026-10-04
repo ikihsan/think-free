@@ -24,6 +24,7 @@ interfere with the working repository.
 | `test_events.py` | Event ordering, schema validation, malformed-line handling |
 | `test_secrets.py` | Secret detection, redaction, artifact refusal |
 | `test_session.py` | Lifecycle, reconciliation, command capture, reports |
+| `test_report_freshness.py` | The generated session report equals its render after every append — capture, redaction, artifact, milestone — because a stale one is a red CI run (`STATE-defects.md`, run 37180487906) |
 | `test_doc_gaps.py` | Documentation-gap implications: `any` and `all` record groups |
 | `test_tasks.py` | Task creation, claim conflicts, verification, index |
 | `test_doclint.py` | Line cap, metadata, links, orphans, stale generated files |
@@ -151,3 +152,29 @@ carried the full suite green. This repository's VMs disagree
 (`EXPERIMENTS/000-capabilities/` recorded 2.55.0, one VM has 2.25.1), so run
 the suite against the git your fleet actually uses — and when a new version
 goes green, record it in `git-versions.json` rather than in prose alone.
+
+**A generated file is a function of its inputs, and every append is an input.**
+The session report is rendered from the event stream, so appending an event
+invalidates it — and `doc lint` fails on a generated file that differs from its
+generator's output. Only `session start` and `finish` regenerated it, so a commit
+made after a `tools/x` capture and before the next write published a stale report:
+run 37180487906, seven green `Tests` jobs and a red `Documentation lint`. The two
+earlier repairs of this family (T-0026, T-0027) made the *task* commands rebuild
+the *task* and *docs* indexes and so did not reach it, because the appender here
+is not a task command. The fix is in the appenders, and
+`test_report_freshness.py` calls the **module** API rather than the CLI precisely
+because the first attempt put the repair in the CLI, where a module caller could
+still break it. Two rules earned here: find the appender rather than the command
+that happened to be running when someone noticed, and put a generated-file
+invariant below the layer that changes the input.
+
+## Running a subset
+
+The full suite takes about four minutes on two cores, the fleet harness and the
+doc-lint suites being the slow parts. One file is much faster and is the right way
+to iterate:
+
+```bash
+PYTHONPATH=tools:tests python3 -m unittest tests.test_report_freshness -v
+```
+

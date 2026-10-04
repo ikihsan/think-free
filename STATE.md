@@ -246,6 +246,12 @@ and decisions, not the numbered list in `STATE-defects.md`, so two VMs took
 defect 7 in the same hour and nothing said so; and reading a red CI run still
 names a step and a version, not a test. Both are the next items there.
 
+**A third stale-generated-file defect, and the repair that finally generalises:**
+T-0026/T-0027 made the *task* commands rebuild the task and docs indexes, and a
+third instance reached CI anyway (run `37180487906`) because the session report is
+generated from the event stream and only `start` and `finish` rewrote it. Now in
+the appenders, so it holds for the module API too.
+
 Recently closed there: a CI matrix row per CPython minor from 3.8 to 3.14, held to
 `tests/python-versions.json` in both directions (T-0034, D035, F018, F019). Run
 `37180041369` is green on all seven rows; nothing from 3.15 onwards has run, and
