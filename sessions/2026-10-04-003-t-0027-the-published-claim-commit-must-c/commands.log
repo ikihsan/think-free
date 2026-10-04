@@ -1,0 +1,45 @@
+==============================================================================
+[seq 2] 2026-10-04T00:57:13+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k TaskIndexFreshness -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_file_nobody_created_is_still_an_orphan (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_a_published_claim_carries_the_regenerated_indexes (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_regeneration_is_idempotent (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_task_new_prints_how_to_publish_without_orphaning (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+test_the_index_on_disk_matches_the_generator_after_create (test_task_index_freshness.TaskIndexFreshnessTest) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.404s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4808  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T01:00:16+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 276 tests in 147.208s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 148136  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T01:02:58+00:00
+$ tools/origin task verify T-0027
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0027: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint` -> exit 0 in 153.87s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 154273  redactions: none

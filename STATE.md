@@ -65,9 +65,13 @@ has shown, solved or not.
 
 Three of the six defects there were closed on 2026-10-04: D028 (a session that
 landed a colleague's work reported it as undeclared), D029 (generated files
-stamped `last-verified` with the render date), and the orphan rule biting two
-real CI runs because `task new` did not rebuild the indexes. The third was found
-by reading a pushed run rather than by pushing something and watching.
+stamped `last-verified` with the render date), and the orphan rule biting six
+real CI runs because `task new` did not rebuild the indexes and `task claim` did
+not stage them. The third was found by reading pushed runs rather than by pushing
+something and watching, and it took two tasks to close: T-0026's verification
+passed while the defect was still live, because a lint on the author's own tree
+cannot see what the claim commit published. The gate that could is a second clone
+linting what it fetched.
 
 ## What changed recently
 

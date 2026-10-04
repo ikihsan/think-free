@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-44 recorded session(s). One `events.jsonl` per session, so concurrent
+45 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 19 older session(s) are in the directory listing.
+Showing the 25 most recent. 20 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-003-t-0027-the-published-claim-commit-must-c](2026-10-04-003-t-0027-the-published-claim-commit-must-c/README.md) | opencode | **unfinished** | T-0027: the published claim commit must carry the regenerated indexes, | 2026-10-04T00:56 |
 | [2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in](2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/README.md) | opencode | worked | T-0026: make task new regenerate tasks/INDEX.md so a created task is n | 2026-10-04T00:52 |
 | [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 19 older session(s) are in the directory listing.
 | [2026-10-03-022-run-the-knitting-stage-a-planner-compari](2026-10-03-022-run-the-knitting-stage-a-planner-compari/README.md) | opencode | worked | Run the knitting Stage-A planner comparison: local planner vs exhausti | 2026-10-03T17:38 |
 | [2026-10-03-021-repair-the-knitting-witness-input-set-by](2026-10-03-021-repair-the-knitting-witness-input-set-by/README.md) | opencode | worked | Repair the knitting witness input set by adding orientation, then re-r | 2026-10-03T17:22 |
 | [2026-10-03-020-apply-the-information-sufficiency-witnes](2026-10-03-020-apply-the-information-sufficiency-witnes/README.md) | opencode | worked | Apply the information-sufficiency witness to the three held candidates | 2026-10-03T17:16 |
-| [2026-10-03-020-annotate-hypotheses-md-with-e002-outcome](2026-10-03-020-annotate-hypotheses-md-with-e002-outcome/README.md) | opencode | no-change | annotate HYPOTHESES.md with E002 outcome | 2026-10-03T16:52 |
 
 
 ## Reading a session

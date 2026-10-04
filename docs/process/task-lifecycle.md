@@ -60,6 +60,16 @@ turned two CI runs red on 2026-10-03, when a VM pushed the cheapest possible
 sequence — create a task, commit it, push it — and the Documentation lint step
 failed on the file the VM had just created.
 
+Two different commits can carry that repair, and only one of them is the tool's:
+
+| Commit | Who makes it | What it must include |
+|---|---|---|
+| create the task | you | the task file, `tasks/CLAIMS.jsonl`, **and both indexes** — `task new` prints the command |
+| claim the task | `task claim` | the task file, the ledger, and both indexes; the tool stages all four |
+
+A rebuilt index left unstaged is the same defect one commit later, and it cost
+four more red runs on 2026-10-04 before the claim path was fixed (T-0027).
+
 ## Statuses
 
 ```

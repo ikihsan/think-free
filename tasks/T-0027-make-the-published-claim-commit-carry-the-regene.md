@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0027
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 
@@ -34,10 +34,10 @@ T-0026 already provides tasks.write_index() and docindex.write_index(); this tas
 
 ## Acceptance criteria
 
-- [ ] Two clones: after a published claim, the other VM's fetched tree lints with no orphan and no stale index.
-- [ ] Removing the rebuild makes that test fail (captured).
-- [ ] 'task new' prints a publish command that stages the generated indexes.
-- [ ] Full suite, doc lint, release check, skills check and session verify all exit 0.
+- [x] Two clones: after a published claim, the other VM's fetched tree lints with no orphan and no stale index.
+- [x] Removing the rebuild makes that test fail (captured).
+- [x] 'task new' prints a publish command that stages the generated indexes.
+- [x] Full suite, doc lint, release check, skills check and session verify all exit 0.
 
 ## Verification
 
@@ -47,7 +47,26 @@ PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/o
 
 ## Rollback
 
-Revert tools/originlib/taskremote.py and tools/originlib/cli_task.py; the T-0026 rebuild stays, so the indexes are written again but left unstaged, which is the pre-T-0027 behaviour.
+Revert `tools/originlib/taskremote.py` and `tools/originlib/cli_task.py`; the
+T-0026 rebuild stays, so the indexes are written again but left unstaged, which is
+the pre-T-0027 behaviour.
+
+## Notes
+
+Append observations here. Record outcomes as events with
+`tools/origin session experiment-result`.
+
+**T-0026's verification passed and the defect was still live.** That is the
+finding worth keeping: the gate this task inherited (`task verify T-0026`) ran the
+suite and the lint on a tree where the indexes had already been rebuilt by hand,
+so it could not see that the *claim* commit left them unstaged. Four red runs
+(`37165502352`, `37165507351`, `37165802926`, `37165807196`) came after it. The
+new test lints a *fetched* tree on a second clone, which is the only way to see
+what the claim commit actually published.
+
+**Falsified:** with `refresh_indexes()` removed from the claim path, vm-b's lint
+reports `tasks/INDEX.md: generated file is stale`; the other six tests do not
+move. Suite: 276 tests.
 
 ## Notes
 

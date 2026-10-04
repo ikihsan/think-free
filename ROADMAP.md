@@ -169,10 +169,10 @@ Separate from the invention stages, because the mission cannot be run without it
       failed on 42 committed reports and three indexes the day after they were
       written. The CI consequence is `inferred`: the red runs of 2026-10-03 had a
       different, verified cause (defect 5 in `STATE-defects.md`).
-- [x] `task new` leaves no orphan behind (T-0026, `observed` in runs
-      `37163434868` and `37163438950`): a pushed task file used to break the
-      Documentation lint step until `tasks/INDEX.md` was rebuilt, so `new`,
-      `claim`, `complete` and `release` now rebuild the generated indexes
+- [x] `task new` leaves no orphan behind (T-0026 and T-0027, `observed` in runs
+      `37163434868`, `37163438950` and four more on 2026-10-04): `new`, `claim`,
+      `complete` and `release` rebuild the generated indexes, and a published
+      claim stages them, so the commit every other VM reads first is lintable
 - [ ] Operations documents agree with what the fleet has actually run (T-0023
       repaired the Python floor and the GitHub App status; the App's real
       permissions still need a human with its settings page, and `doctor` reports

@@ -22,6 +22,12 @@ def dispatch(args: argparse.Namespace) -> int:
         )
         print(f"created {task.task_id}  {task.path.name}")
         print(f"  verify: {args.verify}")
+        # The create commit is the agent's, not the tool's, and a task file no
+        # index mentions is an orphan that fails `doc lint` on the shared base
+        # (CI runs 37163434868, 37163438950). `task new` rebuilds the indexes;
+        # this line is how they reach the commit.
+        print("  publish with: git add -A && git commit -m \"task: create "
+              f"{task.task_id} ...\" && git push")
         return EXIT_OK
     if args.action == "list":
         if getattr(args, "remote", False):

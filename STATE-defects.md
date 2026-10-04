@@ -38,13 +38,18 @@ defect is listed as open.
    now stamps from the content it renders. The CI consequence is `inferred` from
    that local reproduction: no pushed run has failed this way, because the two
    red runs at 23:58 on 2026-10-03 had a different and verified cause (defect 5).
-4. **A pushed task file without `doc index` reddens CI** (solved in T-0026). Runs
-   `37163434868` and `37163438950` failed on Documentation lint: this VM created a
-   task, committed it and pushed it without rebuilding the generated indexes, so
-   the orphan rule rejected the file the VM had just created. `task new`, `claim`,
-   `complete` and `release` now rebuild `tasks/INDEX.md` and `docs/INDEX.md`.
+4. **A pushed task file without `doc index` reddens CI** (solved in T-0026 and
+   T-0027). Runs `37163434868` and `37163438950` failed on Documentation lint:
+   this VM created a task, committed it and pushed it without rebuilding the
+   generated indexes, so the orphan rule rejected the file the VM had just
+   created. `task new`, `claim`, `complete` and `release` now rebuild
+   `tasks/INDEX.md` and `docs/INDEX.md`; a *published claim* also stages them,
+   because that commit is the first thing every other VM reads (four more red
+   runs, `37165502352`–`37165807196`, were the same defect one step later).
    **The rule is unchanged** — a file no command wrote is still an orphan, which
    the new tests assert — because the omission was the defect, not the strictness.
+   **Residual:** the create commit is the agent's own, so `task new` prints the
+   command that stages the indexes; nothing can enforce that step.
 
 ## Open
 

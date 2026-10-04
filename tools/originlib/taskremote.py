@@ -181,6 +181,23 @@ def _discard_claim_commit(base: str) -> None:
         )
 
 
+def _claim_paths(task) -> list[str]:
+    """The paths a published claim must carry, indexes included.
+
+    A task file is a document, and `doc lint` calls a document no index mentions
+    an orphan. The claim is the commit every other VM sees first, so if it leaves
+    the regenerated indexes behind, the pushed tree is red: that is what runs
+    `37163434868` and `37163438950` were (T-0025). Rebuild first, stage second.
+    """
+    taskops.refresh_indexes()
+    return [
+        f"tasks/{task.path.name}",
+        "tasks/CLAIMS.jsonl",
+        "tasks/INDEX.md",
+        "docs/INDEX.md",
+    ]
+
+
 def claim(
     task_id: str,
     agent: str,
@@ -236,8 +253,7 @@ def claim(
             reason=takeover or None,
             superseded=current.get("agent") if action == "takeover" else None,
         )
-        staged = [f"tasks/{task.path.name}", "tasks/CLAIMS.jsonl"]
-        if not _commit_paths(staged, f"claim {task_id} by {agent} on {vm or 'unknown-vm'}"):
+        if not _commit_paths(_claim_paths(task), f"claim {task_id} by {agent} on {vm or 'unknown-vm'}"):
             raise tasks.TaskError(f"could not commit the claim for {task_id}")
         result = sync.push(base)
         if result.get("pushed"):
@@ -270,6 +286,6 @@ def release(task_id: str, agent: str, vm: str = "", reason: str = "", push: bool
     task = tasks.find(task_id)
     taskops._set_meta(task, {"status": "open", "claim-agent": "", "claim-vm": "", "claim-session": ""})
     tasks.append_claim(task_id, "release", agent=agent, vm=vm, reason=reason or None)
-    _commit_paths([f"tasks/{task.path.name}", "tasks/CLAIMS.jsonl"], f"release {task_id} by {agent}")
+    _commit_paths(_claim_paths(task), f"release {task_id} by {agent}")
     sync.push(base)
     return tasks.load(task.path)
