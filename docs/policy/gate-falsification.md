@@ -78,3 +78,24 @@ Three things make the repair checkable rather than merely different:
 resolves inside the repository to the wrong document are unexamined, and rule 3
 still takes its file list from git, so an untracked document is invisible to it
 as to every other rule.
+**A record that says one thing once is a property a merge can break** (D043, defect
+20, T-0052). Commit `eff1126` carried `STATE.md` with a byte-identical second copy of
+its `Implemented (2)` dashboard row — one row from each VM, the branches concatenated
+by a rebase — and every gate passed. The reload point a cold session reads first
+showed two rows that are one fact, and the next session found it by reading.
+
+The measurement is the part worth keeping, because it is what made the rule decidable
+rather than merely plausible: 47 tracked documents contain a repeated table row, and
+**all 47 are generated session reports**, where a row repeats because an artifact was
+declared or rewritten twice and the report is telling the truth. Hand-authored
+documents had zero. That is why the exemption reads the `generated-by: origin` marker
+in the document rather than a path or an extension — the distinguishing property is
+whether the repetition is the point, and the document already says which it is.
+
+Falsified in both directions, and the second is the one that would have shipped a rule
+nobody could run: `tools/mutate_table_rule.py` removes the rule, and `eff1126` is
+reported by nothing; it removes only the generated-document exemption, and the rule
+reports 47 findings on a clean tree. Too few and too many are the same mistake one
+clause apart. `CommittedDefectTest` reads the duplicate out of git rather than from a
+fixture written after the repair, and asserts both lines are byte-identical — the
+shape is a merge artefact, not a document that repeats itself.

@@ -81,6 +81,15 @@ worktree under `.worktrees/` and failed in the main checkout, which is defect 19
 and D041. A link needs one `..` per directory it climbs out of; from `tasks/` that
 is one, never two.
 
+### 5a. A hand-authored document says each thing once
+
+A row repeated inside one table is what a merge produces when two VMs each append
+it and git concatenates the branches, and it is reported as `table row repeated
+from line N`. Commit `eff1126` carried a `STATE.md` dashboard row twice, one copy
+per VM, with every gate green (defect 20, D043). Generated documents are exempt:
+a session report lists an artifact once per event, so a row repeating there is the
+truth rather than a defect.
+
 ### 6. Generated files are marked and never hand-edited
 
 Anything `origin` writes carries:

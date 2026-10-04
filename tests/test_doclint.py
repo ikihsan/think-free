@@ -1,4 +1,4 @@
-"""Documentation lint: line cap, metadata, links, orphans, stale generated files."""
+"""Documentation lint: line cap, metadata, links, table rows, orphans, stale generated files."""
 
 from __future__ import annotations
 

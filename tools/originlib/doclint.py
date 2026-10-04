@@ -7,15 +7,19 @@ Rules, in the order they are reported:
 3. relative links must resolve, and inside this repository (rule extended in
    T-0051 after a link that escaped the root was judged by what sat above the
    checkout; D041, defect 19 in `STATE-defects.md`)
-4. no orphan documents
-5. generated files must match what the generators produce now
-6. no unresolved merge-conflict marker (rule added in T-0021 after three
+4. a hand-authored document contains no table row twice (rule added in T-0052
+   after commit `eff1126` reached the shared base carrying a byte-identical
+   second copy of a `STATE.md` dashboard row, one per VM, with every gate green;
+   defect 20 in `STATE-defects.md`)
+5. no orphan documents
+6. generated files must match what the generators produce now
+7. no unresolved merge-conflict marker (rule added in T-0021 after three
    mission records reached the shared base with one; `FAILURES.md` F013)
-7. no identifier defined twice, and no index row or decision entry that the
+8. no identifier defined twice, and no index row or decision entry that the
    body does not back (rule added in T-0030 after commit `e6eb992` reached the
    shared base with two findings numbered F010; defect 5 in `STATE-defects.md`)
 
-Rules 1–3 decide from one file and live here; rules 4–7 decide from the
+Rules 1–4 decide from one file and live here; rules 5–8 decide from the
 repository as a whole and live in `doclint_tree`, split out on 2026-10-04
 (T-0040) when this module reached 299 of the 300 permitted lines. Which side a
 rule is on tells you what it may read, and therefore whether it can be run on
@@ -253,6 +257,18 @@ def check_links(result: Result, files: list[Path]) -> None:
                 )
 
 
+def check_table_rows(result: Result, files: list[Path]) -> None:
+    """Rule 4: a hand-authored document does not contain the same table row twice.
+
+    The rule itself, and why it is exempting generated documents by a marker
+    rather than by a path, is in [`doclint_table.py`](doclint_table.py), which it
+    was split into when this module reached the cap.
+    """
+    from . import doclint_table
+
+    doclint_table.check_table_rows(result, files)
+
+
 def lint(root: Path | None = None) -> Result:
     from . import doclint_tree
 
@@ -262,6 +278,7 @@ def lint(root: Path | None = None) -> Result:
     check_line_cap(result, files, globs)
     check_meta(result, files, globs)
     check_links(result, files)
+    check_table_rows(result, files)
     doclint_tree.check_orphans(result, files, globs)
     doclint_tree.check_generated(result)
     doclint_tree.check_conflicts(result, files)
