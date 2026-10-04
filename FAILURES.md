@@ -29,6 +29,15 @@ first**, so this side's findings are renumbered F029 onwards on the unpushed
 side, per the rule in
 [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
 
+[`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021,
+[`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022–F025,
+[`FAILURES-findings-6.md`](FAILURES-findings-6.md) for F028, and
+[`FAILURES-findings-7.md`](FAILURES-findings-7.md) from F029, split because each
+file reached the 300-line cap. **F026 and F027 belong to the other VM's pushed
+findings** (the byproduct thesis, and adoption in this niche), so this side's
+need-corpus findings were renumbered F028/F029 on the unpushed side per the
+rule in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
+
 | Id | Subject |
 |---|---|
 | F001 | Photo-migration auditor: the motivating example is not evidence |
@@ -63,6 +72,10 @@ side, per the rule in
 | F030 | A prior-art verdict from one search query is unreliable in both directions |
 
 | F031 | Measured from outside, the mission was spending its effort on its own record |
+
+| F025 | Measured from outside, the mission was spending its effort on its own record |
+| F028 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
+| F029 | A prior-art verdict from one search query is unreliable in both directions |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

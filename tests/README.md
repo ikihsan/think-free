@@ -13,6 +13,14 @@ fresh VM with nothing installed.
 PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
 ```
 
+**Both parts of that line are load-bearing, and `AGENTS.md` had only
+`python3 -m unittest discover -s tests` until 2026-10-04.** The shorter form
+collects the tests and then fails all 42 modules with
+`ModuleNotFoundError: No module named 'harness'` or `'originlib'`, because the
+test tree imports the tooling by bare module name. An agent following the
+shorter command concludes the suite is broken. `observed` on this VM, Python
+3.8.10; the repair corrected the instruction set, and no code changed.
+
 Each test builds a throwaway git repository in a temporary directory, copies the
 tooling into it, and points `ORIGIN_ROOT` at it. Tests therefore exercise the
 same code path as the CLI, including real `git` reconciliation, and cannot
@@ -267,11 +275,11 @@ invariant below the layer that changes the input.
 **A mutation that cannot be applied cannot falsify anything, and it looks
 exactly like a control that held.** Removing the clause that honours a
 `task_rewrite` event should fail `test_task_rewrite.py` — the defect's own shape.
-The first attempt at that mutation left all 14 tests green, because the patch
-script's `str.replace` pattern did not match the file's real indentation: nothing
-was mutated, and the green run was read as "the clause is not load-bearing". The
-same pattern removed only the digest bound *did* fail 3, so the two mutations were
-distinguishable only because one of them was applied twice by hand. **Assert that
+The first attempt left all 14 tests green, because the patch script's
+`str.replace` pattern did not match the file's real indentation: nothing was
+mutated, and the green run was read as "the clause is not load-bearing". The
+same pattern removing only the digest bound *did* fail 3, so the two mutations
+were distinguishable only because one was applied twice by hand. **Assert that
 the patch landed before trusting the run**, and treat a mutation that needed no
 repair as the suspicious result rather than the reassuring one. **It happened again
 in the same file's subject on 2026-10-04 (T-0050):** the first mutation of
@@ -289,10 +297,5 @@ told this repair its residual had to be written down rather than discovered.
 
 ## Running a subset
 
-The full suite takes about four minutes on two cores, the fleet harness and the
-doc-lint suites being the slow parts. One file is much faster and is the right way
-to iterate:
-
-```bash
-PYTHONPATH=tools:tests python3 -m unittest tests.test_report_freshness -v
-```
+About four minutes on two cores, so iterate on one file instead:
+`PYTHONPATH=tools:tests python3 -m unittest tests.test_report_freshness -v`

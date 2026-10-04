@@ -1,0 +1,252 @@
+[
+ {
+  "claim": "Garage, MinIO, SeaweedFS and others",
+  "index": 36,
+  "name": "s3-alternative",
+  "query": "s3 object storage server in:name,description",
+  "top": [
+   {
+    "desc": "A simple to deploy but feature rich S3 object storage server for your filesystem",
+    "pushed": "2026-10-03",
+    "repo": "versity/versitygw",
+    "stars": 2982
+   },
+   {
+    "desc": "Lightweight, S3-compatible object storage server with built-in web dashboard. Si",
+    "pushed": "2026-09-30",
+    "repo": "Kodiqa-Solutions/VaultS3",
+    "stars": 1622
+   },
+   {
+    "desc": "An open source object storage server with Amazon S3 compatible API",
+    "pushed": "2023-03-07",
+    "repo": "journeymidnight/yig",
+    "stars": 369
+   }
+  ],
+  "total_count": 172,
+  "verdict": "kill"
+ },
+ {
+  "claim": "Anki plus an LLM is widely available",
+  "index": 8,
+  "name": "flashcards",
+  "query": "flashcard spaced repetition in:name,description",
+  "top": [
+   {
+    "desc": "Anki is a smart spaced repetition flashcard program",
+    "pushed": "2026-10-04",
+    "repo": "ankitects/anki",
+    "stars": 31750
+   },
+   {
+    "desc": "Fight the forgetting curve by reviewing flashcards & entire notes on Obsidian",
+    "pushed": "2026-10-01",
+    "repo": "st3v3nmw/obsidian-spaced-repetition",
+    "stars": 2573
+   },
+   {
+    "desc": "A Model Context Protocol (MCP) server that enables AI assistants to interact wit",
+    "pushed": "2026-10-04",
+    "repo": "ankimcp/anki-mcp-server",
+    "stars": 504
+   }
+  ],
+  "total_count": 2030,
+  "verdict": "kill"
+ },
+ {
+  "claim": "libwebp and libvips are fast",
+  "index": 3,
+  "name": "webp-encode",
+  "query": "image encoder webp in:name,description",
+  "top": [
+   {
+    "desc": "Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and m",
+    "pushed": "2024-06-27",
+    "repo": "ibireme/YYImage",
+    "stars": 1780
+   },
+   {
+    "desc": "Google's WebP image format decoder and encoder for iOS",
+    "pushed": "2023-05-31",
+    "repo": "seanooi/iOS-WebP",
+    "stars": 853
+   },
+   {
+    "desc": "    {   \"releases\": {     \"2.0.4\": [       \"[Fixed] Refresh for Enterprise repos",
+    "pushed": "2022-08-29",
+    "repo": "klonnet23/helloy-word",
+    "stars": 92
+   }
+  ],
+  "total_count": 115,
+  "verdict": "kill"
+ },
+ {
+  "claim": "git add -p and jj's split already do this",
+  "index": 42,
+  "name": "selective-stage",
+  "query": "version control partial stage in:name,description",
+  "top": [
+   {
+    "desc": "    {   \"releases\": {     \"2.0.4\": [       \"[Fixed] Refresh for Enterprise repos",
+    "pushed": "2022-08-29",
+    "repo": "klonnet23/helloy-word",
+    "stars": 92
+   }
+  ],
+  "total_count": 1,
+  "verdict": "revise"
+ },
+ {
+  "claim": "eBPF plus OpenTelemetry sample at runtime",
+  "index": 7,
+  "name": "runtime-instrumentation",
+  "query": "ebpf tracing runtime in:name,description",
+  "top": [
+   {
+    "desc": "Build a custom Linux kernel with a full eBPF feature set (BTF, struct_ops/sched_",
+    "pushed": "2026-09-30",
+    "repo": "yuskesh/apple-container-ebpf-kernel",
+    "stars": 25
+   },
+   {
+    "desc": "A kernel-level GPU event tracing system uses eBPF to capture CUDA runtime behavi",
+    "pushed": "2025-02-28",
+    "repo": "floritange/ebpf_cuda_monitoring",
+    "stars": 9
+   },
+   {
+    "desc": "Linux kernel and systems fast path for LLM inference: eBPF tracing, runtime hint",
+    "pushed": "2026-07-08",
+    "repo": "manishklach/linux-kernel-inference-fastpath",
+    "stars": 3
+   }
+  ],
+  "total_count": 7,
+  "verdict": "revise"
+ },
+ {
+  "claim": "calibre, OPDS and Kavita serve this",
+  "index": 30,
+  "name": "bulk-seed-books",
+  "query": "ebook library server calibre in:name,description",
+  "top": [
+   {
+    "desc": "A modern, mobile-first web application to manage your ebook library, integrating",
+    "pushed": "2026-09-21",
+    "repo": "ptbsare/anx-calibre-manager",
+    "stars": 200
+   },
+   {
+    "desc": "MCP server for searching and reading books from your Calibre ebook library",
+    "pushed": "2025-06-18",
+    "repo": "trieloff/calibre-mcp",
+    "stars": 50
+   },
+   {
+    "desc": "This plugin for Calibre allows you to manage your ANX Reader ebook library direc",
+    "pushed": "2025-08-16",
+    "repo": "ptbsare/anx-reader-calibre-plugin",
+    "stars": 28
+   }
+  ],
+  "total_count": 13,
+  "verdict": "kill"
+ },
+ {
+  "claim": "OpenRouter changelogs and newsletters",
+  "index": 45,
+  "name": "model-changelog",
+  "query": "llm model changelog tracker in:name,description",
+  "top": [
+   {
+    "desc": "A lightweight Python tool for generating changelogs using large language models.",
+    "pushed": "2025-07-21",
+    "repo": "sameervarma13/Changelog-Generator",
+    "stars": 1
+   }
+  ],
+  "total_count": 1,
+  "verdict": "revise"
+ },
+ {
+  "claim": "ggdu exists; TreeSize is commercial",
+  "index": 49,
+  "name": "gdrive-disk-usage",
+  "query": "gdrive disk usage in:name,description",
+  "top": [
+   {
+    "desc": "google drive disk usage viewer",
+    "pushed": "2026-08-08",
+    "repo": "richyen/gdrive_du",
+    "stars": 0
+   },
+   {
+    "desc": "Visualize disk usage in Google Drive",
+    "pushed": "2025-01-18",
+    "repo": "sebbov/gdrive-space",
+    "stars": 0
+   }
+  ],
+  "total_count": 2,
+  "verdict": "revise"
+ },
+ {
+  "claim": "Silverblue, Bazzite, Talos and similar exist",
+  "index": 1,
+  "name": "atomic-distro",
+  "query": "immutable atomic linux system in:name,description",
+  "top": [
+   {
+    "desc": "ABRoot is a utility that provides full immutability and atomicity to a Linux sys",
+    "pushed": "2026-09-16",
+    "repo": "Vanilla-OS/ABRoot",
+    "stars": 392
+   },
+   {
+    "desc": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u0623\u0631\u0649 \u0623\u0646 \u0647\u0630\u0627 \u0623\u0635\u0628\u062d \u0623\u0642\u0631\u0628 \u0625\u0644\u0649 Blueprint \u0633\u064a\u0627\u062f\u064a \u0648\u0644",
+    "pushed": "2026-09-02",
+    "repo": "VAIXLNS/VAIXLNS",
+    "stars": 5
+   },
+   {
+    "desc": "Fedora Atomic, Ublue Based Immutable Linux System, similar to nix-mina",
+    "pushed": "2026-09-18",
+    "repo": "mina-atef-00/mina-fedora-atomic",
+    "stars": 0
+   }
+  ],
+  "total_count": 6,
+  "verdict": "kill"
+ },
+ {
+  "claim": "uptime-kuma is 92k stars",
+  "index": 38,
+  "name": "cheap-monitoring",
+  "query": "uptime monitor in:name,description",
+  "top": [
+   {
+    "desc": "A fancy self-hosted monitoring tool",
+    "pushed": "2026-10-04",
+    "repo": "louislam/uptime-kuma",
+    "stars": 92112
+   },
+   {
+    "desc": "\u2b06\ufe0f GitHub Actions uptime monitor & status page by @AnandChowdhary",
+    "pushed": "2026-10-04",
+    "repo": "upptime/upptime",
+    "stars": 17175
+   },
+   {
+    "desc": "Checkmate is an open-source, self-hosted tool designed to track and monitor serv",
+    "pushed": "2026-10-01",
+    "repo": "bluewave-labs/Checkmate",
+    "stars": 10909
+   }
+  ],
+  "total_count": 10768,
+  "verdict": "kill"
+ }
+]

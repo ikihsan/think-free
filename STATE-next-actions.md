@@ -53,6 +53,25 @@ of those it cannot touch.
    Screen 1 (`falsification-design`) outranks more infrastructure.
    **Ceiling:** this item names where invention work goes, it does not make
    invention happen.
+
+   identifier allocation, generated-file freshness or line caps — F025's
+   complaint. This entry holds the seat for candidate work. **What it now holds
+   is a measurement, not a candidate:** `EXPERIMENTS/011-candidate-harvest`
+   harvested 1401 practitioner need statements from Hacker News comments since
+   2024-01-01, drew 50 by a stated rule, and **screened 0 of them through**
+   — 38% already served, 30% stating no mechanism, 24% not software needs, 8%
+   needing hardware, against the prior generator's own 3-of-16 (F028). A need
+   statement is not a candidate. The generator is refuted; the corpus is kept.
+   **The named gap is the missing input, not a new source:** a need corpus
+   cannot distinguish one person's wish from a shared need — term recurrence
+   over 1273 clauses returns only function words — while the same cluster
+   counted by repository gives 5805 open issues across 28 repositories
+   (`"not asked for"`) and 14510 across 29 (`"unrelated changes"`), with
+   `claude-code` and `copilot-cli` in the sets. D049 splits the two inputs.
+   **Ceiling:** the counts are full-text self-selection and need a
+   repository-signal filter before they mean anything. F027 is why: one query
+   produced 502 irrelevant hits through `in:readme`, and another produced 0 for
+   an idea with 29–83 repositories behind it.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated

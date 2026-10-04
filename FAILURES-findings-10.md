@@ -4,17 +4,30 @@ status: active
 last-verified: 2026-10-04
 -->
 
+<<<<<<< HEAD
 # Failures — recorded findings, part 10 (F030)
+=======
+# Failures — recorded findings, part 10 (F029)
+>>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 
 
 Source: session `2026-10-04-044`. A prior-art verdict drawn from a single search
 query is wrong in both directions, demonstrated three times on one day.
+<<<<<<< HEAD
 Runnable evidence: `EXPERIMENTS/012-candidate-harvest/prior_art_probe.py`.
 
 ## F030 — A prior-art verdict from one query is unreliable in both directions
 
 Source: session `2026-10-04-044`, 2026-10-04. All counts re-runnable from
 `EXPERIMENTS/012-candidate-harvest/prior_art_probe.py` and
+=======
+Runnable evidence: `EXPERIMENTS/011-candidate-harvest/prior_art_probe.py`.
+
+## F029 — A prior-art verdict from one query is unreliable in both directions
+
+Source: session `2026-10-04-044`, 2026-10-04. All counts re-runnable from
+`EXPERIMENTS/011-candidate-harvest/prior_art_probe.py` and
+>>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 `prior_art_probe2.py`. Not a claim about any candidate.
 
 ## What happened
@@ -69,7 +82,11 @@ A prior-art verdict now needs **more than one phrasing, on more than one
 corpus, with the phrasing written down** — the same requirement
 `docs/policy/gate-falsification.md` places on a gate: read the property, do not
 read a proxy for it. `verify_prior_art.py` in
+<<<<<<< HEAD
 `EXPERIMENTS/012-candidate-harvest/` is written to that rule, and its four
+=======
+`EXPERIMENTS/011-candidate-harvest/` is written to that rule, and its four
+>>>>>>> E011: a live corpus of unmet needs is not a candidate generator
 `revise` rows are the honest output of following it, not a shortfall.
 
 ## What it does not show

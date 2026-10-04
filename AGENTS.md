@@ -97,7 +97,7 @@ Rules that matter:
 | `tools/origin release check` | Enforce `RELEASE-MANIFEST.md`: what is public, and the front door's agreement about it |
 | `tools/origin skills check` | Verify skill mirroring and naming rules |
 | `tools/x -- <cmd>` | Run a command with capture, logging, and exit-code passthrough |
-| `python3 -m unittest discover -s tests` | Full test suite (stdlib only) |
+| `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests` | Full test suite (stdlib only) |
 
 Exit codes: `0` success, `1` usage error, `2` lint violation, `3` verification
 failed, `4` integrity violation.
