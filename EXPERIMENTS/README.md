@@ -26,3 +26,4 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `011-niche-adoption-census` | Is the flat adoption tail vocabulary age or niche? | vocabulary age, on stars (F028) |
 | `012-candidate-harvest` | Does a live need corpus yield a surviving candidate? | 1401 harvested, **0 of 50** survived (F029) |
 | `013-prior-art-predicts-adoption` | Does a crowded niche mean a solved one? | **no**; stars do not predict installs (F032) |
+| `014-repository-signal-filter` | Does E012's strongest cluster survive the filter it was promised? | **no**; every query collapses >100x (F033) |

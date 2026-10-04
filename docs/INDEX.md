@@ -172,6 +172,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/011-niche-adoption-census/README.md`](../EXPERIMENTS/011-niche-adoption-census/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/012-candidate-harvest/README.md`](../EXPERIMENTS/012-candidate-harvest/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/013-prior-art-predicts-adoption/README.md`](../EXPERIMENTS/013-prior-art-predicts-adoption/README.md) | `docs/INDEX.md` | active | 2026-10-04 | F027 and F028 counted stars. This counts installs, because "does prior |
+| [`EXPERIMENTS/014-repository-signal-filter/README.md`](../EXPERIMENTS/014-repository-signal-filter/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
