@@ -8,10 +8,10 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-62 recorded session(s). One `events.jsonl` per session, so concurrent
+63 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 37 older session(s) are in the directory listing.
+Showing the 25 most recent. 38 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -40,7 +40,6 @@ Showing the 25 most recent. 37 older session(s) are in the directory listing.
 | [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
-| [2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f](2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/README.md) | opencode | worked | T-0020: tell an in-flight session apart from an abandoned one in sessi | 2026-10-03T22:56 |
 
 
 ## Reading a session
