@@ -31,9 +31,9 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Eight experiments have run; three invention claims are
-disproved, one declared gate was shown not to be able to fail, one mechanism was
-confirmed while its candidate died of it, and no candidate is validated.
+**Status: partial.** Ten experiments have run; four invention claims are
+disproved, one declared gate could not fail, one mechanism was confirmed while
+its candidate died of it, and no candidate is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -51,30 +51,32 @@ confirmed while its candidate died of it, and no candidate is validated.
 - [x] Run the ventilation candidate's measurement-design kill gate
       (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
       stopped (`FAILURES.md` F008)
-- [x] Run E3's build-timestamp census over 200 PyPI wheels
-      (`007-build-timestamps`, T-0013): declared 5% gate met at 0.965, but the
-      metric measures DOS-epoch pinning rather than reproducibility and attributes
-      no cause (`FAILURES.md` F010)
+- [x] Run E3's build-timestamp census over 200 PyPI wheels (`007-build-timestamps`,
+      T-0013): declared 5% gate met at 0.965, but the metric measures DOS-epoch
+      pinning rather than reproducibility (`FAILURES.md` F010)
 - [x] Attribute the byte difference (`008-build-timestamp-attribution`, T-0017):
       398 of 398 differing bytes are timestamp fields, and `SOURCE_DATE_EPOCH`
       makes builds bit-identical, so E3's mechanism is supported and its
       candidate abandoned — the remedy is one environment variable the builder
       already honours (`FAILURES.md` F012)
+- [x] Measure the premise behind the dominant kill reason rather than a proxy for
+      it (`015-incumbent-serving`, T-0060): "prior art exists" was checked against
+      stars twice and registry installs once, and T-0059's own dead branch meant the
+      mature arm was never read. Two new channels close it, and the premise
+      **holds in mature vocabularies (4 of 4 served) and fails in young ones
+      (1 of 4)** — `FAILURES.md` F034
 - [ ] Run at least two materially different falsification experiments before any
-      commitment decision. Only the knitting line has had two, and both runs
-      produced no product claim; with C2 stopped (F008) and the knitting
-      algorithmic claim abandoned (F009), no candidate has two.
-- [ ] Independently reproduce or review each result, checking oracle and baseline
-      fairness
+      commitment decision. Only the knitting line has had two, both producing no
+      product claim; with C2 stopped (F008) and the knitting algorithmic claim
+      abandoned (F009), no candidate has two.
+- [ ] Independently reproduce each result, checking oracle and baseline fairness
 
 ## C — Commitment
 
-**Status: not started. Nothing may be selected yet.**
-
-Select only when evidence demonstrates technical possibility, meaningful
-differentiation against the strongest existing approach, practical value, and a
-plausible adoption path. Otherwise continue or pivot. Criteria in
-`docs/process/hypothesis-lifecycle.md`.
+**Status: not started. Nothing may be selected yet.** Select only when evidence
+demonstrates technical possibility, meaningful differentiation against the
+strongest existing approach, practical value, and a plausible adoption path;
+otherwise continue or pivot. Criteria in `docs/process/hypothesis-lifecycle.md`.
 
 ## D — Engineering
 
@@ -88,9 +90,9 @@ plausible adoption path. Otherwise continue or pivot. Criteria in
 
 ## E — Public release
 
-**Status: not started. Blocked on C and D, and on the user's push authorization.**
+**Status: not started. Blocked on C, D and the user's push authorization.**
 
-- [ ] Licence, install path, demo, honest comparison, contributor guide
+- [ ] Licence, install path, demo, comparison, contributor guide
 - [x] `origin release check` implemented against `RELEASE-MANIFEST.md` (T-0022)
 - [ ] Push with explicit user authorization
 - [ ] No unreleased behaviour described as shipped — the front-door state
@@ -98,21 +100,19 @@ plausible adoption path. Otherwise continue or pivot. Criteria in
 
 ## F — Real-world validation
 
-**Status: not started.**
+**Status: not started.** No fabricated feedback, no unsolicited outreach.
 
 - [ ] Observe actual use and adoption friction
-- [ ] No fabricated feedback, no unsolicited outreach
 
 ## G — Expansion
 
-**Status: not started.** Improve reliability, capability, accessibility, and
+**Status: not started.** Improve reliability, capability, accessibility and
 interoperability in response to observed problems.
 
 ## H — Sustained reassessment
 
 **Status: ongoing.** Reassess whether continuing is justified. Reopen a rejected
-candidate only when the evidence that killed it is invalidated, not because effort
-was previously spent.
+candidate only when the evidence that killed it is invalidated.
 
 ## Infrastructure track
 
@@ -234,24 +234,23 @@ Separate from the invention stages, because the mission cannot be run without it
 ## Sequencing note
 
 The infrastructure track finished ahead of stage B because stage B is blocked on judgement
-rather than tooling. Kill gates exist for the three held candidates, eight experiments have
+rather than tooling. Kill gates exist for the three held candidates, ten experiments have
 run, and none has validated a claim. Stage B is blocked on what no experiment here can
 answer: whether a knitter follows a generated repair plan, and whether E3's builder-level
 finding generalises beyond the one builder this machine has. E2's time-gated drift
 comparison is scheduled (side A banked, T-0019).
 
-The tooling itself is not finished, and what remains is *fleet* work rather than invention
-work: the exercised-version records exist and `doctor` reads them (T-0033), and every
-CPython minor from 3.8 to 3.14 has now run the suite — on portable builds on one VM, and one
-matrix row per minor in CI (T-0034, D035). The floor claim is still two things it is not: it
-says nothing about 3.15 onwards, and a green row is evidence about that row and not the version
-below it. Git is weaker in kind, a git version being a property of a machine rather than of a workflow
-step: T-0034 added the runner's own 2.55.0 to the record by running the suite on it, and
+What remains in tooling is *fleet* work, not invention work: the exercised-version
+records exist and `doctor` reads them (T-0033), and every
+CPython minor from 3.8 to 3.14 has now run the suite (T-0034, D035). The floor claim is
+still two things it is not: it says nothing about 3.15 onwards, and a green row is
+evidence about that row and not the version below it. Git is weaker in kind, a git
+version being a property of a machine rather than of a workflow step: T-0034 added the runner's own 2.55.0 to the record by running the suite on it, and
 `git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite that only passes where its author works is not a suite, and that is a
 recorded pattern rather than a coincidence: the interpreter assertion failed on every version the
 record lacked (F018), the git assertion on every runner whose git nobody recorded (F019), and the
-credential fixture on every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the
-machine that wrote it.
+credential fixture on every runner exporting `GITHUB_TOKEN` (T-0035). Each was green where it
+was written.
 Identifiers are allocated from the shared base and the record is printed (T-0031), so a
 stale tree no longer collides — but two VMs allocating between their own fetches still do, and
 T-0030's detector catches that. A red CI run is diagnosable without admin rights, the check-run

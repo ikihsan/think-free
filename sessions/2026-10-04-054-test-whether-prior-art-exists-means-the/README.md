@@ -31,13 +31,14 @@ _none_
 
 ## Commands
 
-3 captured, 1 non-zero exit.
+4 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 5 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 1 | 374096 |
 | 6 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 0 | 388099 |
 | 7 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 0 | 477014 |
+| 8 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 0 | 387798 |
 
 ## Integrity
 
@@ -60,6 +61,9 @@ _none_
 | 5 | 22:54:10 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 6 | 23:05:45 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 7 | 23:19:53 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 8 | 23:34:20 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 9 | 23:40:54 | milestone | F034 recorded: the prior-art premise measured directly, and it holds in mature vocabularies and fails in young ones |
+| 10 | 23:41:01 | task_rewrite | rewrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md (status: done) |
 
 ## Reproduce this record
 
