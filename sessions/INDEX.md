@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-73 recorded session(s). One `events.jsonl` per session, so concurrent
+74 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 48 older session(s) are in the directory listing.
+Showing the 25 most recent. 49 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-031-record-the-measured-ci-state-on-the-tip](2026-10-04-031-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | **unfinished** | Record the measured CI state on the tip, and the first red run whose c | 2026-10-04T11:15 |
 | [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | worked | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T11:13 |
 | [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | worked | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:47 |
 | [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 48 older session(s) are in the directory listing.
 | [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
 | [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
-| [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
 
 
 ## Reading a session
