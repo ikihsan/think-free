@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0050
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-034-separate-the-line-cap-exemption-from-rec
+claim-vm: 
 verify: python3 -m unittest discover -s tests && tools/origin preflight
 -->
 
