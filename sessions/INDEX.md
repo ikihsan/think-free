@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-65 recorded session(s). One `events.jsonl` per session, so concurrent
+66 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 40 older session(s) are in the directory listing.
+Showing the 25 most recent. 41 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-023-correct-the-continuous-integration-row-w](2026-10-04-023-correct-the-continuous-integration-row-w/README.md) | unknown-agent | **unfinished** | Correct the continuous-integration row with the runs this VM published | 2026-10-04T08:12 |
 | [2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera](2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/README.md) | unknown-agent | worked | T-0041: make sync land rebuild any generated file the rebase left stal | 2026-10-04T08:10 |
 | [2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch](2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/README.md) | opencode | **unfinished** | Give the file-reading CI gate steps a check-run annotation that names  | 2026-10-04T07:35 |
 | [2026-10-04-019-t-0039-make-acceptance-and-steps-append](2026-10-04-019-t-0039-make-acceptance-and-steps-append/README.md) | unknown-agent | worked | T-0039: make --acceptance and --steps append on task new | 2026-10-04T07:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 40 older session(s) are in the directory listing.
 | [2026-10-04-001-t-0025-record-the-measured-pushed-ci-res](2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/README.md) | opencode | worked | T-0025: record the measured pushed CI result and close the standing CI | 2026-10-04T00:42 |
 | [2026-10-03-042-t-0024-stop-reconciliation-and-the-docum](2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/README.md) | opencode | worked | T-0024: stop reconciliation and the documentation-gap gate from blamin | 2026-10-04T00:35 |
 | [2026-10-03-040-make-origin-doctor-read-the-push-credent](2026-10-03-040-make-origin-doctor-read-the-push-credent/README.md) | opencode | worked | Make 'origin doctor' read the push credential it reports (T-0024) | 2026-10-04T01:17 |
-| [2026-10-03-039-repair-two-operations-documents-that-sta](2026-10-03-039-repair-two-operations-documents-that-sta/README.md) | opencode | worked | repair two operations documents that state requirements the repository | 2026-10-03T23:36 |
 
 
 ## Reading a session
