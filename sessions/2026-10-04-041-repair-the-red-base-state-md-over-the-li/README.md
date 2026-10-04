@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T15:12:43+00:00
-- **Duration:** ?s
+- **Duration:** 3061.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Repair the red base (STATE.md over the line cap) and fix the task-claim livelock
 
 ## Summary
 
-_(none recorded)_
+T-0055: a claim made inside an open session could not be published. taskremote.claim committed the claim and then called sync.push, which refuses a dirty tree - and an open session guarantees one, because session start writes sessions/INDEX.md and a session directory and every later event, including the claim's own task_rewrite event, dirties them again. The refusal named those paths and told the agent to commit or revert them, which is the one action an agent must not take by hand on its own record. The exit code was the least of the damage: the claim commit stayed local and unpushed, so no other VM could see it and the exclusivity the command exists to provide was not in force, and each retry appended another claim line to the append-only ledger. Reproduced first against the unmodified code on a clone of this repository's own history, which is where session 038's refusal message came from. The claim commit now carries the open session's own record, read from sessionflow.session_owned_paths rather than written out a second time, and foreign uncommitted work refuses the claim before anything is written so a failed claim costs a message and leaves no trace. release took the same path and got the same treatment. Defect 21, D044, F023; STATE-defects.md back under the cap by removing three restatements other records hold in full. 548 tests green, preflight 0.
+
+## Next
+
+sync land, then check whether the claim-commit and land compositions want the same treatment (recorded as the stated ceiling in D044)
 
 ## Artifacts
 
@@ -65,7 +69,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -108,6 +111,12 @@ _(none recorded)_
 | 31 | 16:03:27 | task_rewrite | rewrote tasks/T-0055-publish-a-task-claim-from-inside-an-open-session.md (status: done) |
 | 32 | 16:03:27 | task_rewrite | appended a complete record for T-0055 |
 | 33 | 16:03:28 | command | $ tools/origin task complete T-0055 --summary A claim published from inside the session that made it. taskremote.claim committed the claim the |
+| 34 | 16:03:45 | doc_update | updated DECISIONS-SESSIONS.md |
+| 35 | 16:03:45 | doc_update | updated DECISIONS.md |
+| 36 | 16:03:45 | doc_update | updated FAILURES.md |
+| 37 | 16:03:45 | doc_update | updated ROADMAP.md |
+| 38 | 16:03:45 | doc_update | updated STATE.md |
+| 39 | 16:03:45 | session_end | T-0055: a claim made inside an open session could not be published. taskremote.claim committed the claim and then called sync.push, which refuses a di |
 
 ## Reproduce this record
 
