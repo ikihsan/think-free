@@ -189,8 +189,13 @@ Separate from the invention stages, because the mission cannot be run without it
       credential. Three-valued verdict (`configured`/`broken`/`unavailable`),
       no value ever recorded, and `configured` explicitly does not mean the
       credential can push (`docs/operations/doctor.md`)
-- [ ] A machine-readable record of the Python versions the suite is verified on,
+- [x] A machine-readable record of the Python versions the suite is verified on,
       the way `tests/git-versions.json` records git versions
+      (`tests/python-versions.json`, T-0032), including the versions nobody has
+      run. What is left is the reading half: `doctor` does not compare this VM's
+      interpreter against it
+- [ ] `doctor` compares this VM's git and interpreter against the records those
+      two files now hold, so an unexercised VM is warned rather than undocumented
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised
@@ -206,8 +211,10 @@ the one builder this machine has. E2's time-gated drift comparison is scheduled
 (side A banked, T-0019).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than
-invention work: `doctor` does not compare a VM's git against
-`tests/git-versions.json`, and there is still no equivalent record for Python.
+invention work: `doctor` reports this VM's git and interpreter without comparing
+either against `tests/git-versions.json` or `tests/python-versions.json`, so a VM
+outside the exercised range is undocumented rather than warned — the claim
+exists and is checked, and nothing reads it at run time.
 Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see

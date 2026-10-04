@@ -31,6 +31,9 @@ _(none recorded)_
 |---|---|---|
 | tests/python-versions.json | ec9f3dcde6c4 | 2973 |
 | tests/test_pythonversions.py | 82eac14d7734 | 4728 |
+| tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md | 1b7720d35ffe | 4700 |
+| STATE-defects.md | ef2e05dc219a | 6477 |
+| STATE-next-actions.md | 8f96b2f16710 | 5710 |
 
 ## Commands
 
@@ -72,6 +75,9 @@ _(none recorded)_
 | 10 | 02:14:37 | decision | record the exercised Python versions in a machine-readable file whose test checks honesty clauses, not just schema |
 | 11 | 02:15:06 | command | $ sh -c tools/origin doc index; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check >/dev/null; echo "release=$?"; tools |
 | 12 | 02:18:32 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 13 | 02:21:48 | artifact | wrote tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md |
+| 14 | 02:21:48 | artifact | wrote STATE-defects.md |
+| 15 | 02:21:48 | artifact | wrote STATE-next-actions.md |
 
 ## Reproduce this record
 

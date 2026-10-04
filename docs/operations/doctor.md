@@ -30,10 +30,14 @@ running it in CI would make the build flaky for reasons unrelated to the change
 | `scheduler` | `crontab`, `systemctl`, whether `systemd --user` is running |
 | `network` | one HTTP status per probe URL |
 
-A VM's git version being *recorded* is not the same as it being *compared*;
-`tests/git-versions.json` is the machine-readable list of versions the suite has
-been exercised on, and there is still **no equivalent record for Python**
-(`STATE.md` next action 2).
+**What `doctor` does not yet do.** A VM's git or Python version being *recorded*
+is not the same as it being *compared*. Two records now exist —
+[`../../tests/git-versions.json`](../../tests/git-versions.json) and
+[`../../tests/python-versions.json`](../../tests/python-versions.json) — and
+`doctor` reads **neither**. It reports the `tool *` versions it found and stops,
+so a VM on an unexercised interpreter is undocumented rather than warned. That is
+the reading half of defect 6 in [`../../STATE-defects.md`](../../STATE-defects.md),
+and it is the honest statement of this gate's remaining gap.
 
 ## The push credential
 

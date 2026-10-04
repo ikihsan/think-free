@@ -39,7 +39,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 50 recorded, 0 in flight once this one closes (session 005, T-0030, VM 0947) |
+| Sessions | 51 recorded, 0 in flight once this one closes (sessions 006–007, T-0032, VM 0944) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict, and since T-0030 on an identifier defined twice or indexed without a body. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
 | Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Not exercised by any run:** a rebase conflict between VMs, and the git 2.56.0 path — CI runs 3.12 on one runner image only |
@@ -114,6 +114,29 @@ exists so that history does not push this reload point past the line cap.
   second half that matched no row at all passed the sweep while doing nothing. The
   rule found a real desync on its first run: D030 was missing from its index row.
   333 tests green. Detail in [`STATE-history.md`](STATE-history.md).
+- **Sessions 006–007, VM 0944 (T-0032, D033).** The Python equivalent of
+  `git-versions.json`, which `vm-execution.md` had named as unclaimed work:
+  `tests/python-versions.json` records each interpreter with the scope it ran and
+  names the versions nobody has run — 3.9–3.11, 3.13 and newer, any non-CPython or
+  non-Linux target. CI is credited with the minor version only, because the run
+  log needs admin rights. The test checks honesty clauses rather than schema, and
+  was falsified four ways first. **Defect 6 is twice-partly closed:** the claim
+  exists and is checked; nothing reads it at run time, so an unexercised VM is
+  undocumented rather than warned. **This session's own decision was renumbered
+  from D032 to D033** during the rebase that met VM 0947's D032 — the collision
+  rule applied to itself.
+- **Session 005, VM 0944 (T-0031, D031).** Identifier allocation reads
+  `origin/<base>` instead of the local tree, for F, D and T alike, and every
+  command that hands out a number prints the record it read. Twelve collisions in
+  two days were the cost of not doing this; the ceiling is that two VMs
+  allocating between their own fetches still collide, and T-0030 detects that.
+  Falsified against the defect's own bytes before the repair, which also caught
+  two defects in the implementation being tested. Two more defects surfaced from
+  running the task's own verification: `session start` wrote its report before
+  its first event, so `doc lint` could not pass while a session was open, and two
+  modules passed the 300-line cap with the new code in them. 329 tests green.
+  [`STATE-history.md`](STATE-history.md) is at its cap, so the detail lives in
+  the task file and this session's own record.
 - **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
   work was reported as having changed that work: session 029 closed with nine
   false `unlogged_change` events and inherited four false `doc_update` events and
