@@ -143,8 +143,6 @@ _(none recorded)_
 | 38 | 16:27:45 | command | $ tools/origin doc lint |
 | 39 | 16:30:18 | command | $ tools/origin doc lint |
 | 40 | 16:30:40 | command | $ tools/origin doc lint |
-| 51 | 17:07:16 | artifact | wrote DECISIONS-SESSIONS.md |
-| 52 | 17:07:17 | artifact | wrote DECISIONS-PUBLISHING.md |
 | 53 | 17:07:18 | artifact | wrote DECISIONS-PRACTICE.md |
 | 54 | 17:07:18 | artifact | wrote RELEASE-MANIFEST.md |
 | 55 | 17:07:19 | artifact | wrote tools/originlib/paths.py |
@@ -153,8 +151,10 @@ _(none recorded)_
 | 58 | 17:13:19 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests |
 | 59 | 17:13:27 | command | $ tools/origin doc index |
 | 60 | 17:13:37 | command | $ tools/origin preflight |
+| 61 | 17:13:54 | base_advance | rebase completed outside land: base moved 259be4ca315b -> 5635ceb9ea83, 3 commit(s) arrived from the shared base |
+| 62 | 17:14:28 | base_advance | sync land: base moved 2dbaaeb6151c -> 5f895dcb07e7, 2 commit(s) arrived from the shared base |
 
-_10 middle events omitted; see `events.jsonl`._
+_12 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
