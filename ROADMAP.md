@@ -119,14 +119,14 @@ was previously spent.
 Separate from the invention stages, because the mission cannot be run without it.
 
 - [x] Session logging with append-only events and git reconciliation, including
-      attribution by recorded evidence: a base move the tooling performed (D028)
-      and a task file a command rewrote, which is honoured only while it holds
-      the bytes that command wrote (T-0047, D037, defect 12)
-- [x] Command capture with exit codes and secret redaction
-- [x] Task dispatch with an append-only claim ledger
+      attribution by recorded evidence: a base move the tooling performed (D028),
+      and a task file a command rewrote, honoured only while it holds those bytes
+      (T-0047, D040, defect 12)
+- [x] Command capture with exit codes and secret redaction; task dispatch with an
+      append-only claim ledger
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
-- [x] Generated indexes for documents, sessions, and tasks
-- [x] 21 skills vendored in-repo and mirrored for every supported agent
+- [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored
+      in-repo and mirrored for every supported agent
 - [x] Standard-library test suite (488 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of
       the suite each git version has actually run. A test's correctness depends
@@ -275,23 +275,19 @@ from the unauthenticated rate limit.
 T-0020 is the pattern for the rest: run the documented sequence, and fix what it
 actually does.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
-      defect 17). The five file-reading steps ran a gate, printed a report and
-      exited, so the check run's only annotation was "Process completed with exit
-      code 2" and the run log that says which rule failed needs admin rights. A
-      violation now carries the file and line its own rule knows, and the workflow
-      publishes it; falsified against `e53ca23`'s own bytes in both directions. The
-      same session found the workflow's awk escaping `%` wrongly, and four CLI handlers
-      raising a `Usage` they had never imported — all three in `STATE-defects.md`.
-      **It has now run on a pushed commit and GitHub files the annotation on `file=`:**
-      `observed` on run `37191658964`, whose `Documentation lint` annotation carries
-      `path: DECISIONS-RECORDS.md`. That measurement was owed because the run the
-      record had quoted for it never reached the annotator (F021).
+      defect 17). The five file-reading steps ran a gate, printed a report and exited, so
+      the check run's only annotation was "Process completed with exit code 2" and the run
+      log that says which rule failed needs admin rights. A violation now carries the file
+      and line its own rule knows; falsified against `e53ca23`'s own bytes in both
+      directions, and `observed` on run `37196459285` filing all seven with GitHub putting
+      the annotation on `file=`. The same session found the workflow's awk escaping `%`
+      wrongly, and four CLI handlers raising a `Usage` they had never imported — all in
+      [`STATE-defects.md`](STATE-defects.md).
 - [x] A step whose only job is to emit a diagnostic runs whenever the job runs, and the
-      mechanism is measured by a probe on the same run (T-0046, defect 18, F021, D038).
-      An `if:` naming no status function gets an implicit `success()`, so a red `Tests`
-      step skipped all five gate steps on two runs. `always() &&` on each, plus
-      `tools/origin probe`: one annotation per rendering shape on every push, emitting
-      only levels a green run already publishes
+      mechanism is measured by a probe on the same run (T-0046, defect 18, F021, D038). An
+      `if:` naming no status function gets an implicit `success()`, so a red `Tests` step
+      skipped all five gate steps on two runs. `always() &&` on each, plus
+      `tools/origin probe`: one annotation per rendering shape on every push
 - [x] A refusal is followable by the tool that gave it (T-0048, D039,
       `tools/originlib/landrebase.py`). `sync land` stopped on a real conflict and said
       *resolve it and land again*; the second `land` refused on the dirty tree that
