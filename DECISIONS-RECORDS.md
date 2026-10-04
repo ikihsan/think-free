@@ -6,8 +6,8 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D029, D032, D035, D041**. Each entry records a choice that was genuinely
-open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D029, D032, D035, D041, D043**. Each entry records a choice that was
+genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 Decisions that constrain later work belong here; ordinary edits do not.
 
 **Invariant:** every entry here governs *a particular record or artefact this
@@ -212,3 +212,36 @@ would still differ between two machines, since the whole point is that it does n
 link that resolves inside the repository to the wrong document are all unexamined,
 and `check_links` still trusts git for the file list, so an untracked document is
 invisible to it as to every other rule.
+
+## D043 — A record says one thing once; a merge that makes it say it twice is reported (2026-10-04)
+
+Observed: commit `eff1126` was a rebase of one VM's T-0047 branch onto a base the
+other had already extended, and it carried `STATE.md` with a byte-identical second
+copy of its `Implemented (2)` dashboard row — one row from each VM. Every gate
+passed: line cap, metadata, links, orphans, generated freshness, identifier
+agreement. The reload point a cold session reads first therefore showed two rows
+that are one fact, and the next session found it by reading and removed one by
+hand. Nothing scanned for it, because nothing reads a document for repetition.
+
+Decision: **a hand-authored document may not contain the same table row twice.**
+The exemption is keyed on the `generated-by: origin` marker rather than on a path or
+an extension, because the property that distinguishes the two cases is *whether the
+repetition is the point*: measured 2026-10-04, 47 tracked documents contain a
+repeated row, every one of them a generated session report listing an artifact once
+per event, and 0 hand-authored ones. A path-based rule would have had to enumerate
+the exceptions and would have gone stale; a marker reads the document's own claim
+about itself, which is the same property `check_meta` already reads.
+
+Rejected: **deduplicate silently**, which would hide which of the two copies a VM
+meant and make the next merge of the same kind invisible for a second reason.
+Rejected: comparing only the first cell, which would call two rows that differ in a
+later cell duplicates and report a fact that is not there. Rejected: treating two
+identical rows in two *different* tables of one document as a duplicate, since they
+are two tables. Rejected: leaving it to `idcheck`, whose subject is the identifier
+record — a repeated row is not an identifier collision, and T-0036's lesson is that a
+rule read by one gate is not thereby read by the others.
+
+**Ceiling.** Rows are compared as their exact Markdown text, so a row differing in
+one cell is a different row; only pipes-delimited tables in `.md` files are read, and
+the rule reads the working tree rather than what a renderer would produce, so a stale
+generated file remains `doclint_tree`'s subject.

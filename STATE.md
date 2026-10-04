@@ -31,17 +31,18 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029, T-0040) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028, T-0042–T-0045) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five; **F022 an exemption borrowed from the line cap hid every `.json`/`.jsonl`/`.log` edit from the undeclared-change report, version records included** (T-0050). Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
-| Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, D039), and `sync land` finishes a rebase it stopped on (T-0048). **A file's extension no longer decides whether a session declared it** (T-0050, D042, F022): the line cap's exemption and reconciliation's were one predicate, so every `.json`, `.jsonl` and `.log` edit skipped the undeclared-change report — including the two version records that decide whether a VM can run the work. `doclint` splits the two questions, reconciliation asks the declared one only, and the claim ledger and `vendor/hashes.json` are declared by the bytes their writers wrote. Priced before the change by a committed sweep, `tools/sweep_unlogged_data.py`: 72 pairs over 17 paths, 50 of them the ledger |
+| Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18), and `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039) |
+| Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Users and adoption | None. No product, no release, no claims |
-| Sessions | 77 with an event stream, 76 closed — counted from the tree, not from a running total, because the two VMs had been counting different bases. Newest: VM 0944's sessions 030, 031 and 035 (T-0048, T-0049, T-0051) and VM 0947's 030 and 034 (T-0047, T-0050), all `worked`; an unfinished session on either VM is reported as in flight rather than as a failure (D027) |
+| Sessions | 74 with an event stream, 73 closed — counted from the tree, not from a running total, because the two VMs had been counting different bases. Newest: VM 0944's sessions 030 and 031 (T-0048, T-0049) and VM 0947's 030 (T-0047), all `worked`; an unfinished session on either VM is reported as in flight rather than as a failure (D027) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | `doc lint` checks 551 files and exits 0; every authored file is under the 300-line cap, and the declared exemptions are vendored skills, raw machine-generated results, and append-only command logs. Since T-0021 it also fails on an unresolved merge conflict, since T-0030 on an identifier defined twice or indexed without a body, since T-0036 on a defect list it cannot read, since T-0042 on a decision record's own header disagreeing with that record, and since T-0051 on a link that leaves the repository — which had been judged by what the checkout's parent directory held, so the same bytes passed in a worktree and failed in the main checkout (D041, defect 19). Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar. **The cap bit this VM five times in three sessions** — `identifiers.py` at 307 after a merge, `STATE-defects.md` and `STATE.md` after new findings, and in T-0050 `tasks.py` (split into `taskindex.py`) and `tests/test_task_rewrite.py` (split into `test_task_rewrite_recorded.py`) — and each time the repair was to move material to the file whose invariant it belongs in |
-| Continuous integration | **Green on all seven rows, `observed` 2026-10-04 on run `37206580954` at `3c49642`, the tip.** Run `37206132901` at `2643c9e` was the one red run since, and it is the expected case again: that commit was published while this session was still open, so the session-step gate fired on its own stream — read off the annotation, which names `events.jsonl` and `T-0050 is done` in one line. Green on the next commit, as with runs `37196594583` and `37197942512`. **Six of the seven consecutive red runs are now diagnosed from an annotation rather than reproduced.** **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish; the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row — and this VM's 2.55-first `rebase-merge` path (`landrebase.orig_head`) is therefore unrun |
+| Documentation | `doc lint` checks 551 files and exits 0; every authored file is under the 300-line cap, and the declared exemptions are vendored skills, raw machine-generated results, and append-only command logs. Since T-0021 it also fails on an unresolved merge conflict, since T-0030 on an identifier defined twice or indexed without a body, since T-0036 on a defect list it cannot read, since T-0042 on a decision record's own header disagreeing with that record, since T-0051 on a link that leaves the repository, which had been judged by what the checkout's parent directory held so the same bytes passed in a worktree and failed in the main checkout (D041, defect 19), and since T-0052 on a hand-authored document repeating a table row (D043, defect 20). Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar. **The cap bit this VM five times in three sessions** — `identifiers.py` at 307 after a merge, `STATE-defects.md` and `STATE.md` after new findings, and in T-0050 `tasks.py` (split into `taskindex.py`) and `tests/test_task_rewrite.py` (split into `test_task_rewrite_recorded.py`) — and each time the repair was to move material to the file whose invariant it belongs in |
+
+| Continuous integration | **Green on all seven rows, `observed` 2026-10-04 on run `37206580954` at `3c49642`**, the tip carrying T-0050; T-0051 and T-0052 landed after it and their runs are named in their task files. Ten runs have passed since the last time this row was written and **none was reproduced on a VM to find out why it was red** — each cause read off the run's own annotations, seven in a row (`EXPERIMENTS/010-annotation-rendering/`, arms F–J). Four were the expected case (a commit published while a session is open: runs `37196594583` and `37197942512`, each green on the next commit). **Run `37197291442` at `7790d6b` is the first red run whose cause was read off an annotation the annotator filed**, on another VM's task file at line 70 — before T-0040 that run's only failure annotation said *Process completed with exit code 2*. Every run also carries the probe's seven annotations, so a reader of any run has the rendering reference beside the failure. **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish; the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row — and this VM's 2.55-first `rebase-merge` path (`landrebase.orig_head`) is therefore unrun |
 
 Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
@@ -53,18 +54,6 @@ green on the VM that wrote it and red elsewhere for opposite reasons, and neithe
 cause was readable from outside because the run log needs admin rights. Check
 `tools/origin task list --remote` before taking anything.
 
-**The false negative defect 12 named in one clause and no gate read is closed,
-and it was found by asking what the predicate was for** (T-0050, F022).
-`reconcile` reused the *line cap's* exemption list, so every `.json`, `.jsonl` and
-`.log` edit was excluded from the undeclared-change report — including
-`tests/python-versions.json`, which decides whether this VM can run the work.
-`tools/sweep_unlogged_data.py` priced it before the repair: **72 (session, path)
-pairs over 17 paths** across 77 closed sessions, 50 of them the claim ledger.
-**The residual is forward-only and is the point of the repair:** a closed stream is
-not edited, so those 50 sessions now report a file they cannot declare, and nothing
-reads them; sixteen raw experiment captures now need an artifact event they never
-needed before. Check `tools/origin task list --remote` before taking anything.
-
 **A gate belongs in the one command the protocol tells every agent to run**
 (T-0045). T-0042 added `DECISIONS-RECORDS.md` at the top level, classified
 nothing in `RELEASE-MANIFEST.md`, and its own `verify` passed — because the
@@ -75,11 +64,12 @@ named it. `release check` now runs from `preflight`, and the rule is written int
 left as something to remember.
 
 **A test can read a clock the code does not, and it expires on a schedule rather
-than intermittently** (defect 15, T-0044). Three CLI tests behind the in-flight gate
-dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while `session verify` reads
-the real one, so the 24-hour-lease assertion began failing at **2026-10-04T09:00Z
-exactly** and can never pass again; run `37190842104` at `f566ff0` is red on it. F018
-and F019 with the environment being time, and nothing scans for the pairing of a
+than intermittently** (defect 15, T-0044). The three CLI tests behind the
+in-flight gate dated their claim from a fixed `NOW = 2026-10-03T22:00Z` while
+`session verify` reads the real one, so a 13-hour claim aged by an hour every hour
+and the 24-hour-lease assertion began failing at **2026-10-04T09:00Z exactly** and
+can never pass again. Run `37190842104` at `f566ff0` is red on it. This is F018 and
+F019 with the environment being time, and nothing scans for the pairing of a
 fixed instant in a fixture with a wall clock in the code.
 
 **A decision number is written in three places, and one of the three had no
@@ -100,21 +90,16 @@ regenerated rather than merged; a ledger conflict is resolved by keeping both
 lines.
 
 **Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
-repaired**: a session that landed a colleague's work reported it as undeclared (D028),
-generated files stamped `last-verified` with the render date (D029), and the orphan rule
-bit six real CI runs because `task new` did not rebuild the indexes and `task claim` did
-not stage them — T-0026 and T-0027, and the second took two tasks, because a lint on the
-author's own tree cannot see what the claim commit published. **Rebase a moving base with
-`origin sync land`:** a hand-run rebase records nothing, so its paths stay reported as
-undeclared. Sessions 040 and 012 hit that ceiling through seven and two hand-run rebases
-respectively, and **session 034 hit it through a message rather than a mistake** (T-0050):
-`land` stopped on a real conflict and said *resolve it and land again*, the resolution
-left the tree dirty, and completing the rebase was therefore a hand-run `git rebase
---continue`. Its nine `unlogged_change` events were all the other VM's T-0051 and T-0052
-paths, named with the commit that wrote each in the task file because the stream was
-closed. **`land` should record the base move for a rebase it stopped on even when a human
-completes it** — the arrived commits are readable from git's own `REBASE_HEAD`, and that
-one step is the only one the tooling does not own.
+repaired**: a session that landed a colleague's work reported it as undeclared
+(D028), generated files stamped `last-verified` with the render date (D029), and
+the orphan rule bit six real CI runs because `task new` did not rebuild the indexes
+and `task claim` did not stage them — T-0026 and T-0027, and the second took two
+tasks, because a lint on the author's own tree cannot see what the claim commit
+published. **Rebase a moving base with `origin sync land`:** a hand-run rebase
+records nothing, so its paths stay reported as undeclared. Sessions 040 and 012 hit
+that ceiling through seven and two hand-run rebases respectively, and the stream is
+closed and is not edited, as with session 029. It is D028's stated ceiling and the
+intended direction of failure.
 
 
 ## What changed recently
@@ -123,27 +108,36 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
 push this reload point past the line cap.
 
+- **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own false
+  negative in a clause and no gate read it: `reconcile` reused the *line cap's* exemption
+  predicate, which answers yes for every `.json`, `.jsonl` and `.log`, so
+  `tests/python-versions.json` — the record that decides whether a VM can run the work —
+  changed with nothing declared and nothing reported. **Priced before the repair, by a
+  committed script:** 72 (session, path) pairs over 17 paths across 77 closed sessions,
+  50 of them the ledger, so 50 closed sessions now report a file they cannot declare; a
+  closed stream is not edited, so the residual is written down rather than discovered.
+  Falsified both ways, and the first mutation passed all 16 because the patch did not
+  land — the second time this repository has been caught by it. In
+  [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
+- **Session 036, VM 0944 (T-0052, D043, defect 20).** Commit `eff1126` — a rebase of one
+  VM's branch onto a base the other had already extended — carried `STATE.md` with a
+  byte-identical second copy of its `Implemented (2)` dashboard row, one per VM, and
+  every gate passed: the reload point a cold session reads first showed two rows that
+  are one fact, and the next session removed one by hand. Measured: 47 documents repeat
+  a table row, **all 47 generated reports**, where an artifact listed once per event is
+  the truth. **A hand-authored document may not say a thing twice**, with the exemption
+  read from the `generated-by` marker rather than from a path. Falsified both ways — the
+  rule removed reports nothing, the exemption removed reports 47 on a clean tree.
 - **Session 035, VM 0944 (T-0051, D041, defect 19).** `doc lint` judged a link that left
   the repository by asking the *checkout's parent directory* whether the target existed, so
   T-0047's `../../docs/…` from `tasks/` passed in a worktree and failed in the main checkout
-  on identical bytes. Measured: one probe document at two locations, `broken link` in one and
-  nothing in the other. **Containment is now decided lexically**, so the existence check is
-  the only read, and an escaping link is its own violation that `annotate` files. One mutation
-  falsifies both directions, because removing the filter *is* the previous rule. A gate's
-  verdict must be a function of the repository alone; method in
+  on identical bytes — the run its own note could not identify. Measured: one probe
+  document at two checkout locations, `broken link` in one and nothing in the other.
+  **Containment is now decided lexically**, so the existence check is the only read, and an
+  escaping link is its own violation that `annotate` files. One mutation falsifies both
+  directions, because removing the filter *is* the previous rule. A gate's verdict must be
+  a function of the repository alone; method in
   [`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md).
-- **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own false
-  negative in a clause and no gate read it: `reconcile` reused the *line cap's* exemption
-  predicate, which answers yes for every `.json`, `.jsonl` and `.log`, so `tests/python-
-  versions.json` — the record that decides whether a VM can run the work — changed with
-  nothing declared and nothing reported. **Priced before the repair, by a committed
-  script:** 72 (session, path) pairs over 17 paths across 77 closed sessions, 50 of them the
-  ledger. 50 closed sessions therefore now report a file they cannot declare; a closed
-  stream is not edited, so the residual is written down rather than discovered. Two new
-  files: the ledger and `vendor/hashes.json` are declared by the bytes their writers wrote.
-  Falsified both ways — removing the clause fails 10 of 16, and the first attempt at that
-  mutation passed all 16 because the patch did not land, the second time this repository has
-  been caught by it. Account in [`FAILURES-findings-5.md`](FAILURES-findings-5.md).
 - **Session 030, VM 0944 (T-0048, D039).** `sync land` stopped on a real content conflict in `tasks/CLAIMS.jsonl` and said *resolve it and land again*; the second `land` refused on the dirty tree that resolving leaves, so the only way out was a hand-run `git rebase --continue`, which records no `base_advance`. **The defect was in the refusal message.** `land` now completes the rebase, and the pre-rebase tip comes from git's own `orig-head` rather than a `HEAD` that has already moved onto the base. Falsified both ways. Account in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Session 030, VM 0947 (T-0047, D040, defect 12).** The last open defect is closed: a
   task file rewritten by `task claim`/`complete`/`release` closed its session with exit 4

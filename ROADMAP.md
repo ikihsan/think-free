@@ -123,17 +123,11 @@ Separate from the invention stages, because the mission cannot be run without it
       command's own write, honoured only while the file holds those bytes (T-0047, D040)
 - [x] Command capture with exit codes and secret redaction; task dispatch with an
       append-only claim ledger
-- [x] Documentation lint: line cap, metadata, links, orphans, generated freshness.
-      A link must resolve *inside* the repository, decided without asking the
-      filesystem, so the verdict is a property of the tree (T-0051, D041, defect 19)
+- [x] Documentation lint: line cap, metadata, links, table rows, orphans, generated
+      freshness. A link resolves *inside* the repository without asking the filesystem,
+      and a hand-authored document says each table row once (T-0051/52, D041/D043)
 - [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored
       in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (521 tests on git 2.25.1), with
-      [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
-      each git version has actually run. A test's correctness depends on every clock the
-      code under it reads: three tests behind the in-flight gate read one the fixture never
-      handed over, so one assertion expired on a schedule and could never pass again
-      (T-0044, defect 15)
 - [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
@@ -298,3 +292,9 @@ rest: run the documented sequence, and fix what it actually does.
       `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths, 50 the ledger. The
       general form: an exemption is a claim about what another check covers, and the cheap way to
       write one is to borrow a predicate.
+- [x] Standard-library test suite (521 tests on git 2.25.1), with
+      [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
+      each git version has actually run. A test's correctness depends on every clock the
+      code under it reads: three tests behind the in-flight gate read one the fixture never
+      handed over, so one assertion expired on a schedule and could never pass again
+      (T-0044, defect 15)
