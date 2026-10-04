@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-54 recorded session(s). One `events.jsonl` per session, so concurrent
+55 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 29 older session(s) are in the directory listing.
+Showing the 25 most recent. 30 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-012-measure-the-test-suite-on-every-cpython](2026-10-04-012-measure-the-test-suite-on-every-cpython/README.md) | opencode | **unfinished** | Measure the test suite on every CPython minor from 3.8 to 3.14 and mak | 2026-10-04T03:30 |
 | [2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git](2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/README.md) | opencode | worked | T-0033: make doctor compare this VM's git and interpreter against the  | 2026-10-04T03:25 |
 | [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | worked | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:48 |
 | [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 29 older session(s) are in the directory listing.
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
 | [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
 | [2026-10-03-031-record-the-measured-ci-result-tests-doc](2026-10-03-031-record-the-measured-ci-result-tests-doc/README.md) | opencode | worked | Record the measured CI result: tests, doc lint and skills gates green; | 2026-10-03T22:13 |
-| [2026-10-03-030-run-t-0017-attribute-every-differing-byt](2026-10-03-030-run-t-0017-attribute-every-differing-byt/README.md) | opencode | worked | Run T-0017: attribute every differing byte between repeated builds of  | 2026-10-03T22:35 |
 
 
 ## Reading a session
