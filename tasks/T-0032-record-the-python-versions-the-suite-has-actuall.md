@@ -103,7 +103,7 @@ only the order was in question. 100 entries, all parsing as JSON, no duplicate
 `(task, action, ts)`.
 
 The second one is now documented in
-[`docs/process/multi-vm-coordination.md`](../../docs/process/multi-vm-coordination.md)
+[`docs/process/multi-vm-coordination.md`](../docs/process/multi-vm-coordination.md)
 under *Append-only conflicts*, because the resolution rule was previously
 written down nowhere and this session had to derive it.
 
