@@ -27,7 +27,17 @@ _(none recorded)_
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| tools/originlib/annotate.py | e0380d394ea6 | 5757 |
+| tools/originlib/finding.py | a1c8ffe6bc24 | 6779 |
+| tools/originlib/doclint_tree.py | 425fedfad9b6 | 6116 |
+| tools/originlib/usage.py | 3b56bb8c8f32 | 854 |
+| tests/test_annotate.py | f595bfe0613e | 12906 |
+| tests/test_ci_annotations.py | 0b094b72f71c | 6028 |
+| tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md | 0884f9d83a23 | 6229 |
+| .github/workflows/ci.yml | 3a8a85f8c020 | 5318 |
+| docs/operations/ci-diagnosis.md | 50b16220a2db | 6543 |
 
 ## Commands
 
@@ -72,6 +82,16 @@ _none_
 | 10 | 08:05:10 | command | $ bash -c cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint |
 | 11 | 08:23:01 | base_advance | sync land: base moved c5edfe0fe8f1 -> 24f67f43944f, 13 commit(s) arrived from the shared base |
 | 12 | 08:47:13 | command | $ tools/origin task verify T-0040 |
+| 13 | 08:47:28 | milestone | annotations verified on the defect's own bytes; docs updated; 452 tests green |
+| 14 | 08:47:29 | artifact | wrote tools/originlib/annotate.py |
+| 15 | 08:47:29 | artifact | wrote tools/originlib/finding.py |
+| 16 | 08:47:29 | artifact | wrote tools/originlib/doclint_tree.py |
+| 17 | 08:47:29 | artifact | wrote tools/originlib/usage.py |
+| 18 | 08:47:29 | artifact | wrote tests/test_annotate.py |
+| 19 | 08:47:29 | artifact | wrote tests/test_ci_annotations.py |
+| 20 | 08:47:29 | artifact | wrote tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md |
+| 21 | 08:47:30 | artifact | wrote .github/workflows/ci.yml |
+| 22 | 08:47:30 | artifact | wrote docs/operations/ci-diagnosis.md |
 
 ## Reproduce this record
 
