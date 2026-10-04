@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0041
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera
