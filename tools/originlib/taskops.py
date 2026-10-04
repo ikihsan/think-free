@@ -11,10 +11,10 @@ import subprocess
 from datetime import datetime
 
 from . import paths
+from .tasktemplate import TEMPLATE
 from .tasks import (
     META_KEY,
     STATUSES,
-    TEMPLATE,
     Task,
     TaskError,
     active_claims,

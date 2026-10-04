@@ -77,6 +77,19 @@ rebase or pull run by hand leaves the same tree and no record, so its paths stay
 reported as undeclared. That is the intended direction of failure: an extra
 report costs a minute of reading, a wrongly silenced file costs the record.
 
+## One number, one meaning
+
+F, D and T identifiers are allocated from the shared base, never from one VM's
+working tree. `task new` and `origin id next` both fetch first, read the
+numbered records at `origin/<base>`, and print which record decided the number;
+`task new` prints it on the line below `created`, because that is the only place
+the answer is written down. The rule, what counts as a definition, and the
+ceiling are in [`../reference/identifier-allocation.md`](../reference/identifier-allocation.md).
+
+The residual race is two VMs allocating between their own fetches. It is caught
+by the push rejection and by the detector (T-0030), not prevented here, so a
+collision still has to be renumbered on the side that has not been pushed.
+
 ## Generated-file conflicts
 
 Two sessions can both regenerate `sessions/INDEX.md` or `docs/INDEX.md` with

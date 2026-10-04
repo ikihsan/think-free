@@ -148,3 +148,45 @@ it is credential-adjacent configuration and the private key must stay per-VM.
 
 Consequence: a VM's ability to push no longer depends on `/tmp` surviving.
 The helper still reads the private key at the moment of use and never copies it.
+
+## D031 — An identifier is allocated from the shared base, and the record of that is printed (2026-10-04)
+
+Observed: `tasks.next_task_id` listed this VM's `tasks/` directory and added one.
+Between 2026-10-03 and 2026-10-04, two VMs took the same identifier twelve times
+— `observed` from the history, not from a report about it: `83aa9a4` and `569a7ce`
+each added a different `tasks/T-0024-*.md`, commit `e6eb992` carries two `## F010`
+definitions, and one task on this VM was renumbered through T-0026, T-0027, T-0028
+and T-0029 in four separate commits before it could be published. A working tree
+is one VM's opinion of the ledger; nothing recorded how old that opinion was.
+
+Decision: **an F, D or T number is allocated from `origin/<base>` plus this
+working tree, and every command that hands out a number prints the record it was
+read from.** `tools/originlib/idalloc.py` fetches, reads the numbered records at
+the base — task files, the claim ledger, findings definitions and index rows,
+decision definitions and spans — takes one above the highest either side defines,
+and returns that together with `local_highest`, `remote_highest`, `fetched` and
+the ref and commit it read. Three states are distinguishable and each is printed
+differently: the base was read and is current; it was read but a fetch failed, so
+the number may already be stale; or no base was readable at all.
+
+Falsified before it was trusted, per D025: with the old allocator a clone whose
+tree is behind the base allocated `T-0002` where the base already defined it, and
+after the repair `T-0003`. A withdrawn task's number is no longer recycled,
+because the ledger still names it. A withdrawn *finding* is not recycled either —
+a row with no definition is an allocated number too, which is the state a
+half-finished renumbering leaves behind.
+
+Rejected: a lock or a reservation service, because git is the only shared state
+here and a second source of truth is a new way to disagree with it. Rejecting a
+commit whose number the base already holds, because that is a detector and
+detectors cannot stop a race — they only make it visible afterwards, and that
+half is T-0030. Numbering only tasks and leaving F and D to memory, which is how
+eight of the twelve collisions happened. Treating a prose mention of a number as
+an allocation, because the allocator would then drift upward with every citation.
+
+Consequence: [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md)
+states the rule and the ceiling, and the three printed states are distinguished
+in [`cli-reference.md`](docs/reference/cli-reference.md). **The ceiling is
+unchanged in kind:** two VMs allocating between their own fetches still collide,
+and an unpushed number reserves nothing. What changed is that a stale tree — the
+condition behind all twelve — no longer decides anything.

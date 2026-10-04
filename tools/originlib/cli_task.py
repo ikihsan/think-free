@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from . import session, sync, taskops, taskremote, tasks
+from . import idalloc, session, sync, taskops, taskremote, tasks
 
 EXIT_OK = 0
 EXIT_USAGE = 1
@@ -20,7 +20,12 @@ def dispatch(args: argparse.Namespace) -> int:
             preconditions=args.preconditions,
             rollback=args.rollback,
         )
+        # The number came from the shared base, or it did not, and the next
+        # reader cannot tell from a task file which was true. Twelve collisions
+        # between two VMs came from that silence.
+        allocation = idalloc.allocate("T", fetch=False)
         print(f"created {task.task_id}  {task.path.name}")
+        print(f"  number allocated from: {allocation.source()}")
         print(f"  verify: {args.verify}")
         # The create commit is the agent's, not the tool's, and a task file no
         # index mentions is an orphan that fails `doc lint` on the shared base

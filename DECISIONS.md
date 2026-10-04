@@ -13,7 +13,7 @@ ordinary edits do not.
 | File | Decisions | Governs |
 |---|---|---|
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
-| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018 | Recording, moving, and publishing work |
+| [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D030–D031 | Recording, moving, and publishing work |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D024–D029 | How this repository's own gates are written and run |
 

@@ -37,6 +37,7 @@ interfere with the working repository.
 | `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
+| `test_idalloc.py` | Identifier allocation reads the shared base: a clone whose tree is behind it, a withdrawn number, an unreachable base, and the three states the source line distinguishes |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
 | `pushcred_fixture.py` | Throwaway HOME, git config, and App directory for the push-credential tests; never names a real path |
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
@@ -63,6 +64,15 @@ ever fails is not a check either.
 unfixed code first: 4 failures and 1 error naming session 029's mis-attributed
 paths. Reverting the exclusion failed 3 of its 6 tests while the 3 negative
 controls stayed green, which is the shape a falsifiable control should have.
+
+`test_idalloc.py` was run against the unfixed allocator before the repair: the
+stale-clone test reported `T-0002` where the base already defined `T-0002`, which
+is the collision itself rather than a proxy for it, and a deleted task file
+recycled its number. That first run also failed three tests for the wrong reason
+— two were defects in the implementation under test (a configured-but-unreadable
+base reported as current, and a test placed in the fleet class when it belonged
+in the no-remote one), which is the useful outcome of falsifying early: the test
+found its author's mistakes before the code found anyone else's.
 
 `test_pushcred.py` does the same thing for a diagnostic rather than a gate: three
 environments that must be distinguishable — a working credential, the recorded

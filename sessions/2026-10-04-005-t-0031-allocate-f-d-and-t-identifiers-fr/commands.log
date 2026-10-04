@@ -1,0 +1,616 @@
+==============================================================================
+[seq 2] 2026-10-04T01:33:12+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_idalloc.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_id_next_prints_the_number_and_its_source (test_idalloc.CommandTest) ... ERROR
+test_id_next_refuses_a_kind_it_does_not_know_without_a_traceback (test_idalloc.CommandTest) ... ERROR
+test_task_new_reports_where_its_number_came_from (test_idalloc.CommandTest) ... FAIL
+test_a_prose_mention_is_not_an_allocation (test_idalloc.FindingsAndDecisionTest) ... ok
+test_an_unknown_kind_is_refused_by_name (test_idalloc.FindingsAndDecisionTest) ... FAIL
+test_decision_spans_declare_both_endpoints (test_idalloc.FindingsAndDecisionTest) ... ok
+test_definitions_and_index_rows_both_count (test_idalloc.FindingsAndDecisionTest) ... ok
+test_id_next_reads_the_base_for_findings_too (test_idalloc.FleetCommandTest) ... ERROR
+test_task_new_names_the_shared_base_it_allocated_from (test_idalloc.FleetCommandTest) ... FAIL
+test_an_unreachable_base_is_reported_rather_than_hidden (test_idalloc.ProvenanceTest) ... FAIL
+test_no_remote_means_the_working_tree_and_says_so (test_idalloc.ProvenanceTest) ... FAIL
+test_the_source_names_the_ref_and_the_commit (test_idalloc.ProvenanceTest) ... ok
+test_a_stale_tree_does_not_take_a_number_the_base_defines (test_idalloc.StaleTreeTaskAllocationTest) ... FAIL
+test_allocation_fetches_the_base_without_touching_the_working_tree (test_idalloc.StaleTreeTaskAllocationTest) ... ok
+test_a_deleted_task_file_does_not_recycle_its_number (test_idalloc.WithdrawnNumberTest) ... FAIL
+
+======================================================================
+ERROR: test_id_next_prints_the_number_and_its_source (test_idalloc.CommandTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/argparse.py", line 1812, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 2021, in _parse_known_args
+    stop_index = consume_positionals(start_index)
+  File "/usr/lib/python3.8/argparse.py", line 1977, in consume_positionals
+    take_action(action, args)
+  File "/usr/lib/python3.8/argparse.py", line 1870, in take_action
+    argument_values = self._get_values(action, argument_strings)
+  File "/usr/lib/python3.8/argparse.py", line 2411, in _get_values
+    self._check_value(action, value[0])
+  File "/usr/lib/python3.8/argparse.py", line 2458, in _check_value
+    raise ArgumentError(action, msg % args)
+argparse.ArgumentError: argument group: invalid choice: 'id' (choose from 'session', 'task', 'sync', 'worktree', 'doc', 'skills', 'release', 'doctor', 'preflight')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 150, in test_id_next_prints_the_number_and_its_source
+    self.assertEqual(self.cli("id", "next", "T"), 0)
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/harness.py", line 180, in cli
+    return main(list(args))
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tools/originlib/cli.py", line 270, in main
+    args = parser.parse_args(argv)
+  File "/usr/lib/python3.8/argparse.py", line 1780, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 1819, in parse_known_args
+    self.error(str(err))
+  File "/usr/lib/python3.8/argparse.py", line 2533, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/lib/python3.8/argparse.py", line 2520, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+======================================================================
+ERROR: test_id_next_refuses_a_kind_it_does_not_know_without_a_traceback (test_idalloc.CommandTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/argparse.py", line 1812, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 2021, in _parse_known_args
+    stop_index = consume_positionals(start_index)
+  File "/usr/lib/python3.8/argparse.py", line 1977, in consume_positionals
+    take_action(action, args)
+  File "/usr/lib/python3.8/argparse.py", line 1870, in take_action
+    argument_values = self._get_values(action, argument_strings)
+  File "/usr/lib/python3.8/argparse.py", line 2411, in _get_values
+    self._check_value(action, value[0])
+  File "/usr/lib/python3.8/argparse.py", line 2458, in _check_value
+    raise ArgumentError(action, msg % args)
+argparse.ArgumentError: argument group: invalid choice: 'id' (choose from 'session', 'task', 'sync', 'worktree', 'doc', 'skills', 'release', 'doctor', 'preflight')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 155, in test_id_next_refuses_a_kind_it_does_not_know_without_a_traceback
+    self.assertEqual(self.cli("id", "next", "Q"), 1)
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/harness.py", line 180, in cli
+    return main(list(args))
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tools/originlib/cli.py", line 270, in main
+    args = parser.parse_args(argv)
+  File "/usr/lib/python3.8/argparse.py", line 1780, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 1819, in parse_known_args
+    self.error(str(err))
+  File "/usr/lib/python3.8/argparse.py", line 2533, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/lib/python3.8/argparse.py", line 2520, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+======================================================================
+ERROR: test_id_next_reads_the_base_for_findings_too (test_idalloc.FleetCommandTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/argparse.py", line 1812, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 2021, in _parse_known_args
+    stop_index = consume_positionals(start_index)
+  File "/usr/lib/python3.8/argparse.py", line 1977, in consume_positionals
+    take_action(action, args)
+  File "/usr/lib/python3.8/argparse.py", line 1870, in take_action
+    argument_values = self._get_values(action, argument_strings)
+  File "/usr/lib/python3.8/argparse.py", line 2411, in _get_values
+    self._check_value(action, value[0])
+  File "/usr/lib/python3.8/argparse.py", line 2458, in _check_value
+    raise ArgumentError(action, msg % args)
+argparse.ArgumentError: argument group: invalid choice: 'id' (choose from 'session', 'task', 'sync', 'worktree', 'doc', 'skills', 'release', 'doctor', 'preflight')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 174, in test_id_next_reads_the_base_for_findings_too
+    self.assertEqual(self.cli("id", "next", "F"), 0)
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/harness.py", line 180, in cli
+    return main(list(args))
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tools/originlib/cli.py", line 270, in main
+    args = parser.parse_args(argv)
+  File "/usr/lib/python3.8/argparse.py", line 1780, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/usr/lib/python3.8/argparse.py", line 1819, in parse_known_args
+    self.error(str(err))
+  File "/usr/lib/python3.8/argparse.py", line 2533, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/lib/python3.8/argparse.py", line 2520, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+======================================================================
+FAIL: test_task_new_reports_where_its_number_came_from (test_idalloc.CommandTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 161, in test_task_new_reports_where_its_number_came_from
+    self.assertIn("working tree", self.output())
+AssertionError: 'working tree' not found in 'created T-0001  T-0001-reported.md\n  verify: true\n  publish with: git add -A && git commit -m "task: create T-0001 ..." && git push\n'
+
+======================================================================
+FAIL: test_an_unknown_kind_is_refused_by_name (test_idalloc.FindingsAndDecisionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 143, in test_an_unknown_kind_is_refused_by_name
+    self.assertIn("T, F, D", str(caught.exception))
+AssertionError: 'T, F, D' not found in 'unknown identifier kind Q; this repository numbers D, F, T'
+
+======================================================================
+FAIL: test_task_new_names_the_shared_base_it_allocated_from (test_idalloc.FleetCommandTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 168, in test_task_new_names_the_shared_base_it_allocated_from
+    self.assertIn("origin/research/origin", self.output())
+AssertionError: 'origin/research/origin' not found in 'created T-0002  T-0002-on-vm-b.md\n  verify: true\n  publish with: git add -A && git commit -m "task: create T-0002 ..." && git push\n'
+
+======================================================================
+FAIL: test_an_unreachable_base_is_reported_rather_than_hidden (test_idalloc.ProvenanceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 98, in test_an_unreachable_base_is_reported_rather_than_hidden
+    self.assertFalse(allocation.remote_read)
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_no_remote_means_the_working_tree_and_says_so (test_idalloc.ProvenanceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 107, in test_no_remote_means_the_working_tree_and_says_so
+    self.assertFalse(allocation.remote_ref)
+AssertionError: 'origin/research/origin' is not false
+
+======================================================================
+FAIL: test_a_stale_tree_does_not_take_a_number_the_base_defines (test_idalloc.StaleTreeTaskAllocationTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 64, in test_a_stale_tree_does_not_take_a_number_the_base_defines
+    self.assertEqual(taskops.create("created on vm-b", "true").task_id, "T-0003")
+AssertionError: 'T-0002' != 'T-0003'
+- T-0002
+?      ^
++ T-0003
+?      ^
+
+
+======================================================================
+FAIL: test_a_deleted_task_file_does_not_recycle_its_number (test_idalloc.WithdrawnNumberTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_idalloc.py", line 118, in test_a_deleted_task_file_does_not_recycle_its_number
+    self.assertEqual(tasks.next_task_id(), "T-0002")
+AssertionError: 'T-0001' != 'T-0002'
+- T-0001
+?      ^
++ T-0002
+?      ^
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 11.672s
+
+FAILED (failures=7, errors=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 11946  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T01:34:54+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_idalloc.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_id_next_prints_the_number_and_its_source (test_idalloc.CommandTest) ... ok
+test_id_next_refuses_a_kind_it_does_not_know_without_a_traceback (test_idalloc.CommandTest) ... ok
+test_task_new_reports_where_its_number_came_from (test_idalloc.CommandTest) ... ok
+test_a_prose_mention_is_not_an_allocation (test_idalloc.FindingsAndDecisionTest) ... ok
+test_an_unknown_kind_is_refused_by_name (test_idalloc.FindingsAndDecisionTest) ... ok
+test_decision_spans_declare_both_endpoints (test_idalloc.FindingsAndDecisionTest) ... ok
+test_definitions_and_index_rows_both_count (test_idalloc.FindingsAndDecisionTest) ... ok
+test_id_next_reads_the_base_for_findings_too (test_idalloc.FleetCommandTest) ... ok
+test_task_new_names_the_shared_base_it_allocated_from (test_idalloc.FleetCommandTest) ... ok
+test_no_remote_means_the_working_tree_and_says_so (test_idalloc.NoRemoteTest) ... ok
+test_an_unreachable_base_is_reported_rather_than_hidden (test_idalloc.ProvenanceTest) ... ok
+test_the_source_names_the_ref_and_the_commit (test_idalloc.ProvenanceTest) ... ok
+test_a_stale_tree_does_not_take_a_number_the_base_defines (test_idalloc.StaleTreeTaskAllocationTest) ... ok
+test_allocation_fetches_the_base_without_touching_the_working_tree (test_idalloc.StaleTreeTaskAllocationTest) ... ok
+test_a_deleted_task_file_does_not_recycle_its_number (test_idalloc.WithdrawnNumberTest) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 13.917s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14390  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T01:40:05+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.......F.......................................................F................................................F..............................................................................................................................................................................................F.F.....................
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lint_passes_when_the_committed_file_is_from_an_earlier_day (test_generated_stamps.GeneratedStampTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_generated_stamps.py", line 73, in test_lint_passes_when_the_committed_file_is_from_an_earlier_day
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/cli.py: 314 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  tools/originlib/tasks.py: 304 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 2 violation(s)
+
+
+======================================================================
+FAIL: test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_task_index_freshness.py", line 37, in test_a_new_task_leaves_no_orphan_behind
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/cli.py: 314 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  tools/originlib/tasks.py: 304 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 2 violation(s)
+
+
+======================================================================
+FAIL: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_task_index_freshness.py", line 52, in test_claiming_and_completing_keep_the_index_current
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/cli.py: 314 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  tools/originlib/tasks.py: 304 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 2 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 327 tests in 181.248s
+
+FAILED (failures=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 181726  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T01:44:21+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.......................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 327 tests in 177.791s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 179011  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T01:44:30+00:00
+$ sh -c tools/origin id next T; tools/origin id next F; tools/origin id next D; tools/origin id next Q; echo "exit=$?"
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0032
+  from: origin/research/origin@d1ffad0 and this working tree (highest T-0031)
+F018
+  from: origin/research/origin@d1ffad0 and this working tree (highest F017)
+D031
+  from: origin/research/origin@d1ffad0 and this working tree (highest D030)
+exit=1
+
+
+[stderr]
+origin: unknown identifier kind Q; this repository numbers T, F, D
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3023  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T01:47:00+00:00
+$ sh -c tools/origin doc lint; echo "lint exit=$?"; tools/origin session verify; git log --oneline -1
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 399 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 337 lines (exempt from cap)
+  FAIL  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md: missing <!-- origin-meta --> block
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 3 violation(s)
+lint exit=2
+session verify: 48 session(s) checked
+  note  2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr: in progress (artifact)
+session verify: OK
+d1ffad0 claim T-0031 by opencode on instance-20260717-0944
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2310  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T01:48:34+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doclint.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_hand_edited_index_is_detected (test_doclint.GeneratedFileTest) ... ok
+test_missing_generated_files_fail (test_doclint.GeneratedFileTest) ... ok
+test_stale_index_fails (test_doclint.GeneratedFileTest) ... ok
+test_a_document_at_the_limit_passes (test_doclint.LineCapTest) ... ok
+test_a_gitignored_file_is_not_repository_content (test_doclint.LineCapTest) ... ok
+test_a_long_document_fails (test_doclint.LineCapTest) ... ok
+test_an_unignored_long_file_still_fails (test_doclint.LineCapTest) ... ok
+test_data_files_are_exempt_by_extension (test_doclint.LineCapTest) ... ok
+test_declared_vendor_exemption_is_reported_as_info (test_doclint.LineCapTest) ... ok
+test_broken_relative_link_fails (test_doclint.LinkTest) ... ok
+test_external_link_is_not_checked (test_doclint.LinkTest) ... ok
+test_link_inside_a_code_fence_is_ignored (test_doclint.LinkTest) ... ok
+test_repo_root_relative_link_resolves (test_doclint.LinkTest) ... ok
+test_incomplete_meta_fails (test_doclint.MetadataTest) ... ok
+test_missing_meta_fails (test_doclint.MetadataTest) ... ok
+test_missing_title_fails (test_doclint.MetadataTest) ... ok
+test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest) ... FAIL
+test_the_report_exists_and_is_metadata_bearing_from_the_first_moment (test_doclint.OpenSessionLintTest) ... FAIL
+test_linked_document_passes (test_doclint.OrphanTest) ... ok
+test_unlinked_document_fails (test_doclint.OrphanTest) ... ok
+
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 206, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 53 file(s) checked
+  FAIL  sessions/2026-10-04-001-lint-while-working/README.md: missing <!-- origin-meta --> block
+  FAIL  AGENTS.md: orphan document; no other document links to it
+  FAIL  MISSION.md: orphan document; no other document links to it
+  FAIL  README.md: orphan document; no other document links to it
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  STATE.md: orphan document; no other document links to it
+  FAIL  docs/policy/doc-standards.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  sessions/2026-10-04-001-lint-while-working/README.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 13 violation(s)
+
+
+======================================================================
+FAIL: test_the_report_exists_and_is_metadata_bearing_from_the_first_moment (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 211, in test_the_report_exists_and_is_metadata_bearing_from_the_first_moment
+    self.assertIn("origin-meta", report.read_text(encoding="utf-8"))
+AssertionError: 'origin-meta' not found in '# Session 2026-10-04-001-report-immediately\n\n_No events recorded._\n'
+
+----------------------------------------------------------------------
+Ran 20 tests in 5.924s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6296  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T01:49:11+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doclint.py -k OpenSession -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest) ... FAIL
+test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment (test_doclint.OpenSessionLintTest) ... FAIL
+
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 54 file(s) checked
+  FAIL  sessions/2026-10-04-001-lint-while-working/README.md: missing <!-- origin-meta --> block
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 3 violation(s)
+
+
+======================================================================
+FAIL: test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 220, in test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment
+    self.assertIn("origin-meta", report.read_text(encoding="utf-8"))
+AssertionError: 'origin-meta' not found in '# Session 2026-10-04-001-report-immediately\n\n_No events recorded._\n'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.794s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1113  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T01:49:49+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doclint.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_hand_edited_index_is_detected (test_doclint.GeneratedFileTest) ... ok
+test_missing_generated_files_fail (test_doclint.GeneratedFileTest) ... ok
+test_stale_index_fails (test_doclint.GeneratedFileTest) ... ok
+test_a_document_at_the_limit_passes (test_doclint.LineCapTest) ... ok
+test_a_gitignored_file_is_not_repository_content (test_doclint.LineCapTest) ... ok
+test_a_long_document_fails (test_doclint.LineCapTest) ... ok
+test_an_unignored_long_file_still_fails (test_doclint.LineCapTest) ... ok
+test_data_files_are_exempt_by_extension (test_doclint.LineCapTest) ... ok
+test_declared_vendor_exemption_is_reported_as_info (test_doclint.LineCapTest) ... ok
+test_broken_relative_link_fails (test_doclint.LinkTest) ... ok
+test_external_link_is_not_checked (test_doclint.LinkTest) ... ok
+test_link_inside_a_code_fence_is_ignored (test_doclint.LinkTest) ... ok
+test_repo_root_relative_link_resolves (test_doclint.LinkTest) ... ok
+test_incomplete_meta_fails (test_doclint.MetadataTest) ... ok
+test_missing_meta_fails (test_doclint.MetadataTest) ... ok
+test_missing_title_fails (test_doclint.MetadataTest) ... ok
+test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest) ... ok
+test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment (test_doclint.OpenSessionLintTest) ... ok
+test_linked_document_passes (test_doclint.OrphanTest) ... ok
+test_unlinked_document_fails (test_doclint.OrphanTest) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 6.024s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6411  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T01:49:54+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_doclint.py -k OpenSession
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+FF
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 54 file(s) checked
+  FAIL  sessions/2026-10-04-001-lint-while-working/README.md: missing <!-- origin-meta --> block
+  FAIL  sessions/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 3 violation(s)
+
+
+======================================================================
+FAIL: test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944/tests/test_doclint.py", line 220, in test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment
+    self.assertIn("origin-meta", report.read_text(encoding="utf-8"))
+AssertionError: 'origin-meta' not found in '# Session 2026-10-04-001-report-immediately\n\n_No events recorded._\n'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.773s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1149  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T01:54:11+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.........................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 329 tests in 179.114s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 179588  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T01:57:29+00:00
+$ sh -c tools/origin doc index; tools/origin doc lint --quiet; echo "lint exit=$?"; tools/origin release check; echo "release exit=$?"; tools/origin preflight 2>&1 | tail -4; wc -l STATE.md STATE-next-actions.md STATE-defects.md DECISIONS-PRACTICE.md docs/reference/identifier-allocation.md tools/originlib/*.py tests/test_idalloc.py | sort -rn | head -6
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+updated sessions/INDEX.md
+updated docs/INDEX.md
+lint exit=0
+release check: 37 path(s) checked
+  FAIL  STATE-next-actions.md: tracked at the top level but classified by neither manifest table
+release check: 1 violation(s)
+release exit=2
+session verify: 48 session(s) checked
+  note  2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr: in progress (command)
+session verify: OK
+preflight: OK
+  7221 total
+   297 tools/originlib/sync.py
+   291 tools/originlib/taskremote.py
+   285 tools/originlib/release.py
+   282 tools/originlib/report.py
+   281 tools/originlib/doclint.py
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8716  redactions: none
+==============================================================================
+[seq 26] 2026-10-04T01:58:06+00:00
+$ sh -c tools/origin doc index; tools/origin doc lint --quiet; echo "lint exit=$?"; tools/origin release check; echo "release exit=$?"
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+doc index: already current
+lint exit=0
+release check: 38 path(s) checked
+release check: OK
+release exit=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7426  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T01:58:48+00:00
+$ sh -c tools/origin doc index; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check >/dev/null; echo "release=$?"; tools/origin preflight 2>&1 | tail -2; wc -l tests/README.md STATE.md STATE-next-actions.md docs/reference/identifier-allocation.md tests/test_idalloc.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0031-instance-20260717-0944
+------------------------------------------------------------------------------
+doc index: already current
+lint=0
+release=0
+session verify: OK
+preflight: OK
+   93 tests/README.md
+  258 STATE.md
+   86 STATE-next-actions.md
+   83 docs/reference/identifier-allocation.md
+  176 tests/test_idalloc.py
+  696 total
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8875  redactions: none

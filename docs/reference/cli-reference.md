@@ -53,13 +53,23 @@ Dispatchable work. Protocol:
 
 | Command | Effect |
 |---|---|
-| `task new --goal TEXT --verify CMD [...]` | Creates a task file from the template, then rebuilds `tasks/INDEX.md` and `docs/INDEX.md` so the new document is linked rather than an orphan |
+| `task new --goal TEXT --verify CMD [...]` | Creates a task file from the template, allocating the next number from the shared base and printing which record it was read from, then rebuilds `tasks/INDEX.md` and `docs/INDEX.md` so the new document is linked rather than an orphan |
 | `task list [--status S]` | Tasks with status and current holder |
 | `task claim ID --agent NAME [--vm NAME] [--takeover R] [--push \| --no-push]` | Claims a task and publishes the claim; fails if another agent holds it. `--takeover` replaces a dead holder's claim with a recorded reason |
 | `task release ID --agent NAME [--vm NAME]` | Returns a held task to the pool with a recorded reason |
 | `task verify ID` | Runs the task's declared verification command; exit `3` on failure |
 | `task complete ID --summary S [--evidence ...]` | Marks done and appends to the claim ledger |
 | `task cancel ID --reason R` | Marks cancelled with a reason |
+
+## `id`
+
+Fetches the shared base and prints the next free identifier, with the record it
+was read from. Rule and ceiling:
+[`identifier-allocation.md`](identifier-allocation.md).
+
+| Command | Effect |
+|---|---|
+| `id next T\|F\|D [--json]` | The next free number of that kind, read from `origin/<base>` and this working tree. `--json` adds every number read, `local_highest`, `remote_highest` and `fetched` |
 
 ## `sync`
 

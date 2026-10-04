@@ -6,7 +6,7 @@ import unittest
 
 from harness import RepoTest, write_doc
 
-from originlib import doclint, report, tasks
+from originlib import doclint, report, session, tasks
 
 
 class LineCapTest(RepoTest):
@@ -187,6 +187,39 @@ class GeneratedFileTest(RepoTest):
         index.write_text(index.read_text(encoding="utf-8") + "\nhand-edited\n", encoding="utf-8")
         result = doclint.lint()
         self.assertTrue(any("stale" in problem for problem in result.violations))
+
+
+class OpenSessionLintTest(RepoTest):
+    """A session in progress must not make `doc lint` fail.
+
+    `check_generated` already skips the open session's report, because a report
+    written while a session runs cannot match a final render. The metadata and
+    orphan rules did not have that exemption, and `session start` rendered the
+    report *before* appending its first event: the stub carried no `origin-meta`
+    block, and `sessions/INDEX.md` was rebuilt while the session directory held
+    no `events.jsonl`, so the index did not list the report either. Every lint
+    run in a tree with a live session therefore failed on the two files the
+    session had just created. `observed` on instance-20260717-0944, while
+    running T-0031's own verification command.
+    """
+
+    def setUp(self) -> None:
+        super().setUp()
+        # The fixture ships placeholder documents and no generated indexes, so
+        # the clean baseline is established first: the rule under test is the
+        # session's own report, not the fixture.
+        self.write_generated()
+
+    def test_lint_passes_while_a_session_is_open(self) -> None:
+        session.start("lint while working", agent="agent-a")
+        self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+
+    def test_the_report_is_metadata_bearing_and_indexed_from_the_first_moment(self) -> None:
+        active = session.start("report immediately", agent="agent-a")
+        report = self.repo / "sessions" / active.session / "README.md"
+        self.assertIn("origin-meta", report.read_text(encoding="utf-8"))
+        index = (self.repo / "sessions" / "INDEX.md").read_text(encoding="utf-8")
+        self.assertIn(active.session, index)
 
 
 if __name__ == "__main__":

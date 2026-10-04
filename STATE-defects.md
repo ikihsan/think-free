@@ -53,18 +53,33 @@ defect is listed as open.
 
 ## Open
 
-5. **Identifier allocation collides by construction** (open). Identifiers are
-   allocated by reading the local tree, so two VMs in an hour take the same
-   numbers. Six times on 2026-10-03: T-0016 and F009/F010/D022; session 029's
-   F012 against session 026's F010; session 030's F012 for E3's attribution
-   against VM 0947's F012 for the worktree defect; D024 issued twice for unrelated
-   decisions; then F013, `FAILURES-findings-3.md`, D025 and D026 all taken on
-   0944 while 0947 held the same numbers. VM 0947's two findings became F014 and
-   F015 and its session-gate decision D027. **The cost is measured:** a rebase
-   resolution restored one file's index row to the renumbered form while reverting
-   its body, so a findings file and its own table disagreed about the same entries
-   until both were read together. **Ceiling of any fix:** a detector can refuse a
-   commit that reuses an identifier; it cannot stop two VMs allocating at once.
+5. **Identifier allocation collides by construction** (half solved in T-0031; the
+   detector is T-0030). Identifiers are allocated by reading the local tree, so
+   two VMs in an hour take the same numbers. Six times on 2026-10-03: T-0016 and
+   F009/F010/D022; session 029's F012 against session 026's F010; session 030's
+   F012 for E3's attribution against VM 0947's F012 for the worktree defect;
+   D024 issued twice for unrelated decisions; then F013,
+   `FAILURES-findings-3.md`, D025 and D026 all taken on 0944 while 0947 held the
+   same numbers. VM 0947's two findings became F014 and F015 and its session-gate
+   decision D027, and six more collisions followed in a single hour on
+   2026-10-04 (T-0024 through T-0028, F014, F015, D027, D028), which this VM
+   renumbered to T-0029, F016, F017 and D030. **The cost was measured:** a rebase
+   resolution restored one file's index row to the renumbered form while
+   reverting its body, so a findings file and its own table disagreed about the
+   same entries.
+   **Solved in T-0031, `observed`:** `tools/originlib/idalloc.py` allocates F, D
+   and T numbers from `origin/<base>` — task files, claim ledger, findings
+   definitions and index rows, decision definitions and spans — plus this
+   working tree, and every command that hands out a number prints the record it
+   read. Falsified first: with the old allocator, a clone whose tree is behind
+   the base allocated `T-0002` where the base already defined it; after the
+   repair it allocates `T-0003`. A withdrawn task's number is no longer recycled,
+   because the ledger still names it.
+   **Still open, and honestly so:** two VMs that allocate between their own
+   fetches still collide, and a number allocated but never pushed reserves
+   nothing. A detector can refuse such a commit; it cannot stop the race. That
+   detector is T-0030. Rule and states:
+   [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
 6. **`doctor` does not compare this VM's git against what the suite has been
    exercised on** (open, partly closed in T-0018 with `tests/git-versions.json`).
    There is still no equivalent record for Python, which

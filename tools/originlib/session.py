@@ -70,7 +70,6 @@ def start(
     )
     paths.ensure_dir(paths.session_dir(session))
     write_pointer(active)
-    _refresh_reports(session)
     events.append(
         session,
         "session_start",
@@ -85,6 +84,11 @@ def start(
         host=host,
         git={"head": git.head, "branch": git.branch},
     )
+    # After the first event, not before. The report renders from the event
+    # stream, so regenerating first produced a stub with no `origin-meta` and
+    # an index that listed no session — and `doc lint` failed on both for as
+    # long as the session was open, which is the whole time anyone lints.
+    _refresh_reports(session)
     return active
 
 

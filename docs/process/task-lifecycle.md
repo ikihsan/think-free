@@ -42,6 +42,38 @@ tools/origin task new \
   --rollback "how to undo a bad outcome"
 ```
 
+**The number comes from the shared base, and the command says so.**
+
+```
+created T-0032  T-0032-do-the-thing.md
+  number allocated from: origin/research/origin@d1ffad0 and this working tree (highest T-0031)
+```
+
+`task new` fetches first and reads the task files *and* `tasks/CLAIMS.jsonl` at
+`origin/<base>`, then takes one above the highest number either side defines. It
+used to list this VM's `tasks/` directory and add one, which is how two VMs took
+the same number twelve times in two days: a working tree is one VM's opinion of
+the task list and nothing recorded how old that opinion was. Read the line
+printed above `verify:` — it is the record of which copy of the ledger decided
+the number, and it is the only place that answer exists.
+
+Two states are worth reading carefully, because they are not the same claim:
+
+| Line | What it means | What to do |
+|---|---|---|
+| `…@<sha> and this working tree` | The base was read and is current | Nothing |
+| `…, last seen before a fetch failed (…)` | The last snapshot is being used; it may already be stale | Push and check before relying on the number |
+| `this working tree only (…)` | No base, or none readable | The number is this VM's opinion. Land your work, then re-read |
+
+The residual race is stated in [`../reference/identifier-allocation.md`](../reference/identifier-allocation.md):
+two VMs that allocate between their own fetches still collide, and the detector
+that refuses such a commit is T-0030. A finding or a decision number is
+allocated the same way, by hand or by command:
+
+```bash
+tools/origin id next F        # also D and T; --json prints every number read
+```
+
 The `--verify` command is the important field. It must:
 
 - exit non-zero when the work is not done;

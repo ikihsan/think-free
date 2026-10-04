@@ -60,6 +60,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
 | [`docs/reference/cli-reference.md`](reference/cli-reference.md) | `docs/INDEX.md` | active | 2026-10-03 | Every command the repository's tooling provides. Stdlib Python only, so no |
+| [`docs/reference/identifier-allocation.md`](reference/identifier-allocation.md) | `docs/INDEX.md` | active | 2026-10-04 | How an F, D or T number is chosen, and why the choice is recorded. Every number |
 | [`docs/reference/skill-inventory.md`](reference/skill-inventory.md) | `docs/INDEX.md` | active | 2026-10-03 | Twenty-one skills in .agents/skills/<name>/SKILL.md, mirrored into |
 
 ## sessions

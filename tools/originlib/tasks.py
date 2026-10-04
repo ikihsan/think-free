@@ -14,67 +14,13 @@ import re
 from dataclasses import dataclass
 from datetime import datetime
 
-from . import events, paths
+from . import events, idalloc, paths
 from .doclint import GENERATED_NOTE
 
 STATUSES = ("open", "claimed", "blocked", "done", "cancelled")
 META_KEY = re.compile(r"<!--\s*task-meta\s*(.*?)-->", re.DOTALL)
 TASK_FILE = re.compile(r"^(T-\d{4})-(.+)\.md$")
 MAX_INDEX_ROWS = 40
-
-TEMPLATE = """<!-- origin-meta
-owner: tasks/INDEX.md
-status: active
-last-verified: {date}
--->
-
-<!-- task-meta
-id: {task_id}
-status: open
-created: {date}
-claim-agent:
-claim-session:
-claim-vm:
-verify: {verify}
--->
-
-# {task_id} — {title}
-
-## Goal
-
-{goal}
-
-## Why this matters
-
-{rationale}
-
-## Preconditions
-
-{preconditions}
-
-## Steps
-
-{steps}
-
-## Acceptance criteria
-
-{acceptance}
-
-## Verification
-
-```bash
-{verify}
-```
-
-## Rollback
-
-{rollback}
-
-## Notes
-
-Append observations here. Record outcomes as events with
-`tools/origin session experiment-result`.
-"""
 
 
 class TaskError(RuntimeError):
@@ -99,12 +45,16 @@ def slugify(text: str, limit: int = 48) -> str:
 
 
 def next_task_id() -> str:
-    highest = 0
-    for path in task_files():
-        match = TASK_FILE.match(path.name)
-        if match:
-            highest = max(highest, int(match.group(1)[2:]))
-    return f"T-{highest + 1:04d}"
+    """The next free task number, read from the shared base when there is one.
+
+    This used to list `tasks/` and add one, which is how two VMs took the same
+    number twelve times in two days: the directory is one VM's opinion of the
+    task list, and nothing said how old that opinion was. The allocation now
+    reads the remote and prints where it read from, so a stale tree is visible
+    at the moment the number is handed out rather than at the moment the push is
+    rejected. `idalloc` owns the numbering rules for all three kinds.
+    """
+    return idalloc.next_identifier("T")
 
 
 def task_files() -> list:

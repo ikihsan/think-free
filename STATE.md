@@ -49,25 +49,31 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**T-0024 is claimed by this VM** (`instance-20260717-0947`, session 042) and
-nothing else is. `instance-20260717-0944` held T-0021, T-0022, T-0023 and T-0029 during
-its last session and finished all three; `instance-20260717-0947` held T-0014,
-T-0015, T-0016, T-0018, T-0019, T-0020 and now T-0024. Check
-`tools/origin task list --remote` before taking anything.
+**T-0031 is claimed by this VM** (`instance-20260717-0944`, session
+`2026-10-04-005`, `origin id next` and the allocation it feeds).
+**T-0030 is claimed by `instance-20260717-0947`** — the detector that refuses a
+commit giving one identifier two definitions, which is the other half of defect
+5. `instance-20260717-0944` held T-0012, T-0013, T-0017, T-0021, T-0022, T-0023
+and T-0029; `instance-20260717-0947` held T-0011, T-0014–T-0016, T-0018–T-0020,
+T-0024–T-0028 and T-0030. Check `tools/origin task list --remote` before taking
+anything.
 
-**Identifier collisions are allocated by reading the local tree, so two VMs in
-an hour collide by construction.** Six times on 2026-10-03 and **six more in a
-single hour on 2026-10-04**, all between these two machines: T-0024 through T-0028,
-F014, F015, D027 and D028 were each taken here while VM 0944 worked. That VM's
-renumbered to T-0029, F016, F017 and D030, two of those rounds *during one
-rebase* because the other VM pushed twice more while it resolved. **Rule settled
-on:** renumber on the side that has not been pushed, and record the collision
-where the next reader looks — never by editing a closed event stream. Six times on 2026-10-03, and the cost is
-measured: a rebase resolution restored one file's index row to the renumbered
-form while reverting its body, so a findings file and its own table disagreed
-about the same entries. That is defect 5 in
+**Identifier collisions were allocated by reading the local tree, so two VMs in
+an hour collided by construction.** Six times on 2026-10-03 and **six more in a
+single hour on 2026-10-04**, all between these two machines: T-0024 through
+T-0028, F014, F015, D027 and D028 were each taken on 0947 while 0944 worked. That
+VM renumbered to T-0029, F016, F017 and D030, two of those rounds *during one
+rebase* because the other VM pushed twice more while it resolved. **Rule
+unchanged:** renumber on the side that has not been pushed, and record the
+collision where the next reader looks — never by editing a closed event stream.
+**The allocation cause is closed in T-0031** (`tools/originlib/idalloc.py` reads
+`origin/<base>` for F, D and T, and prints the record it read); the measured cost
+of the old behaviour, a rebase that restored a file's index row while reverting
+its body so a findings file and its own table disagreed, is defect 5 in
 [`STATE-defects.md`](STATE-defects.md), the list of every defect this repository
-has shown, solved or not.
+has shown, solved or not. The residual race — two VMs allocating between their
+own fetches — is caught by the push rejection and by T-0030's detector, not
+prevented.
 
 Three of the six defects there were closed on 2026-10-04: D028 (a session that
 landed a colleague's work reported it as undeclared), D029 (generated files
@@ -180,69 +186,22 @@ exists so that history does not push this reload point past the line cap.
 7. Do not load unrelated personal memory. Do not restart discovery from scratch;
    the evidence is in `RESEARCH/`, `EXPERIMENTS/`, and `sessions/`.
 
-## Current next actions
+## Next actions
 
-Ordered by information gained per unit of effort. Read the ceiling on each before
-spending effort: a pass still leaves prior art, usefulness, and adoption
-untouched.
+Full list, with the ceiling on each item and the reasoning behind it, is in
+[`STATE-next-actions.md`](STATE-next-actions.md). Ordered by information gained
+per unit of effort; the top item is:
 
-1. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
-   commit `9e865a4`, all six steps green, `observed`), which closes the standing
-   "CI is not claimed green" caveat for that commit. A run says nothing about a
-   second runner image or a rebase conflict.
-2. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Three
-   gates now work that way: the conflict-marker rule, `release check`, and the
-   landed-work attribution and generated-stamp rules (both falsified in T-0024,
-   one of them after a first falsification attempt that failed to falsify
-   anything). The pattern for the next one is in `tools/originlib/conflicts.py`.
-   **Ceiling:** the marker rule detects git's marker shape only.
-3. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
-   exercised git versions live in `tests/git-versions.json` (schema
-   `origin.git-versions/1`), updated by T-0024 to say how much of the suite each
-   version has actually run: 2.25.1 has run all 274 tests, 2.56.0 only the 174
-   that existed when T-0016 recorded it. **No equivalent record exists for
-   Python**, which `docs/operations/vm-execution.md` names as unclaimed work.
-   **Ceiling:** neither says anything about a candidate.
-4. **Identifier allocation is the one fleet defect still unfixed** (defect 5 in
-   `STATE-defects.md`). A gate that reads the local tree cannot see the other
-   VM's tree, so two VMs allocate the same F/D/T numbers within the hour: six times
-   on 2026-10-03, then six more in one hour on 2026-10-04. The fix is small and
-   unmade — `task new` should take the next identifier from the remote's claim
-   ledger, not from the files this VM holds. A detector alone cannot stop a race.
-   **Ceiling:** none; it is a few lines against `taskremote`.
-5. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
-   are the only byte-level cause for the one builder available here, and
-   `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
-   open is the census's per-package heterogeneity, which this run does not
-   explain. **Ceiling:** one builder, pure-Python sources, Linux.
-5. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
-   the prior-art condition is settled (T-0015): the algorithmic advantage is
-   prior art (F009) and no tool supplies an intervention sequence for an
-   existing hand-knit structure. Stage B needs an experienced knitter and
-   authorization. **Ceiling:** nothing software-side remains; the only live
-   question is usefulness, which this repository cannot measure.
-6. **Do not run E1** (retry jitter). It is the cheapest experiment in the
-   repository and the least informative: jitter is already in every modern
-   client library, so a pass changes no build decision. D020, Screen 3.
-7. **E2 stays scheduled, side A snapshotted (T-0019, this VM).** The informative
-   comparison is two snapshots weeks apart, and two resolver runs today measure
-   nothing — so side A (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`,
-   8 artifacts: requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2)
-   is banked with no verdict. Take side B no earliest than days later and diff
-   the closures; fast drift shows as a version or hash change.
-8. **Do not build a product.** Nothing is selected, and the base rate for
-   agent-generated ideas with prior art is high. Three candidate lines have now
-   returned negative results, and one (knitting) died of prior art rather than of
-   measurement — which is the cheapest way to die and the one worth copying.
+**A gate must read the property it claims to check, and must be falsified
+against the defect's own bytes before it is trusted** (D025, from F013). Four
+gates now work that way: the conflict-marker rule, `release check`, the
+landed-work attribution and generated-stamp rules (T-0024), and identifier
+allocation (T-0031). **Ceiling:** each rule detects only the shape it was
+written against.
 
-### Standing constraints
-
-- A1 is a **negative result** in its motivating regime (F006): the
-  decision-directed advantage did not survive a fieldwork-cost budget. Any
-  future A1 claim requires a real cost model from the start.
-- F's C1–C6 are a **stage-D release gate**, not a candidate screen. Applying them
-  to an unbuilt candidate yields six "not applicable" rows and teaches nothing.
+Recently closed there: identifier allocation now reads the shared base rather
+than the working tree (T-0031, defect 5 half solved; the detector is T-0030),
+and the pushed CI run for T-0024 is read and recorded (T-0025).
 
 ## Capability evidence
 

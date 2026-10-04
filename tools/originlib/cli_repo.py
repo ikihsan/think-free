@@ -5,7 +5,18 @@ from __future__ import annotations
 import argparse
 import json
 
-from . import docindex, doclint, doctor, events, paths, release, report, skillsync, tasks
+from . import (
+    docindex,
+    doclint,
+    doctor,
+    events,
+    idalloc,
+    paths,
+    release,
+    report,
+    skillsync,
+    tasks,
+)
 from .cli_session import verify_sessions
 
 EXIT_OK = 0
@@ -55,6 +66,29 @@ def dispatch_doc(args: argparse.Namespace) -> int:
             print("doc index: already current")
         return EXIT_OK
     raise Usage(f"unknown doc action: {args.action}")
+
+
+def dispatch_id(args: argparse.Namespace) -> int:
+    """Hand out the next free identifier, and say where the number was read.
+
+    The source line is not decoration. Twelve collisions between two VMs came
+    from allocating a number with no record of which copy of the ledger it was
+    read from, so a number nobody can trace is a number nobody can trust.
+    """
+    if args.action == "next":
+        allocation = idalloc.allocate(args.kind)
+        if args.json:
+            print(json.dumps(allocation.as_dict(), indent=2, sort_keys=True))
+            return EXIT_OK
+        print(f"{allocation.next_id}")
+        print(f"  from: {allocation.source()}")
+        if not allocation.fetched or not allocation.remote_read:
+            print(
+                "  this number may already be taken on another VM; "
+                "push and check before relying on it"
+            )
+        return EXIT_OK
+    raise Usage(f"unknown id action: {args.action}")
 
 
 def _read(path) -> str:
