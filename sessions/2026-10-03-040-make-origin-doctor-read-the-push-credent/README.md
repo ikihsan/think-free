@@ -35,10 +35,12 @@ _(none recorded)_
 | tests/test_pushcred_safety.py | beaf38e26862 | 4639 |
 | tests/pushcred_fixture.py | b74d9f1b8cd0 | 3388 |
 | docs/operations/doctor.md | 229b615087e4 | 6555 |
+| tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md | eb0e3c5028d6 | 7195 |
+| docs/operations/doctor.md | 69ae993fd79f | 6555 |
 
 ## Commands
 
-28 captured, 5 non-zero exit.
+30 captured, 5 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -70,6 +72,8 @@ _(none recorded)_
 | 40 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -6'] | 0 | 1814 |
 | 41 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 156607 |
 | 42 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -5'] | 0 | 1845 |
+| 43 | ['sh', '-c', 'git push origin HEAD:research/origin 2>&1 \| tail -4'] | 0 | 2758 |
+| 44 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 154076 |
 
 ## Integrity
 
@@ -127,6 +131,13 @@ _(none recorded)_
 | 40 | 01:06:19 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -6 |
 | 41 | 01:12:13 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
 | 42 | 01:12:15 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -5 |
+| 43 | 01:14:18 | command | $ sh -c git push origin HEAD:research/origin 2>&1 \| tail -4 |
+| 44 | 01:17:01 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
+| 45 | 01:17:24 | milestone | Work landed on research/origin (bec018a) after seven identifier collisions with instance-20260717-0947 and seven rebases. 312 tests green on the merge |
+| 46 | 01:17:24 | decision | Renumber on the side that has not been pushed, and record the collision in STATE.md rather than editing a closed event stream. Observed: seven collisi |
+| 47 | 01:17:25 | decision | Keep the other VM's implementation of the generated-stamp rule and drop this VM's duplicate. Both VMs found the same clock-derived date defect indepen |
+| 48 | 01:17:25 | artifact | wrote tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md |
+| 49 | 01:17:25 | artifact | wrote docs/operations/doctor.md |
 
 ## Reproduce this record
 
