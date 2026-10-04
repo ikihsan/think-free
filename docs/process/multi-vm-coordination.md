@@ -107,6 +107,27 @@ different content. These are deterministic functions of the tree, so conflicts
 between them are resolved by deleting and regenerating — `sync land` does this
 automatically rather than leaving an unanswerable conflict.
 
+## Append-only conflicts
+
+`tasks/CLAIMS.jsonl` is append-only, and two VMs appending different lines is the
+normal case — except that git resolves it as a text conflict anyway, because
+both edits end at the same line. `sync land` only auto-resolves the three
+*generated* indexes; a ledger conflict stops the rebase for a human, which is the
+right default: a claim line is a record, and dropping one silently would lose
+the fact that two VMs believed they held a task.
+
+**Resolve it by keeping both lines.** The ledger is a sequence of events, not a
+table, so the union is correct and the only question is order. Remove the
+`<<<<<<<`, `=======` and `>>>>>>>` lines and leave both entries; the file has no
+table to disagree with.
+
+**Then check that you did.** `observed` on 2026-10-04 (session 007): a rebase
+against the shared base resolved this file by leaving a conflict-marker block in
+the commit, and `tests/test_conflicts.py` caught it — the rule added in T-0021
+after three mission records reached the base with markers in them (F013) doing
+exactly the job it was written for. Run `doc lint` after resolving any conflict,
+not only before committing.
+
 ## Failure handling
 
 - Stale session: `session verify` reports an unfinished session as in flight

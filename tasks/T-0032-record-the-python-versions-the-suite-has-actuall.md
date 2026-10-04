@@ -82,3 +82,33 @@ and stops, so a VM on 3.9 is undocumented rather than warned. That is the
 reading half and it is a separate change.
 
 335 tests green; `doc lint`, `release check` and `preflight` all exit 0.
+
+## Two collisions, resolved in the act of this session
+
+**A D-number collision.** `instance-20260717-0947` published its own D032 (the
+collision detector, T-0030) while this session was rebasing, and this session
+had already used D032 for the Python-versions record. Two different decisions,
+one number. Resolved the way the repository's own rule says — renumber on the
+side that has not been pushed — so this side moved to **D033**, and the entry
+says so in its own text. `origin id next D` against the remote base returned
+D033 before the renumber, which is the allocator doing its job one commit too
+late to prevent this particular one and correctly enough to fix it.
+
+**A conflict-marker block committed to the ledger.** The same rebase resolved
+`tasks/CLAIMS.jsonl` by leaving `<<<<<<<`/`=======`/`>>>>>>>` in the file, and
+`tests/test_conflicts.py` failed on it — the T-0021 rule catching a recurrence of
+F013 in a new place. Repaired by keeping both ledger lines and dropping the three
+marker lines: the ledger is a sequence of events, so the union is correct and
+only the order was in question. 100 entries, all parsing as JSON, no duplicate
+`(task, action, ts)`.
+
+The second one is now documented in
+[`docs/process/multi-vm-coordination.md`](../../docs/process/multi-vm-coordination.md)
+under *Append-only conflicts*, because the resolution rule was previously
+written down nowhere and this session had to derive it.
+
+**On `sync land`'s auto-resolution.** It regenerates the three generated indexes
+and stops for everything else, which is the right default — but it means a ledger
+conflict reaches a human, and this session resolved one under time pressure with
+a gate to catch the mistake afterwards. That ordering is a choice worth keeping:
+the gate caught it, so nothing was lost.
