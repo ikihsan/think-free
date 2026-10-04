@@ -181,6 +181,18 @@ duplicate number in a list this prominent should be a rule-7 report, and until i
 is, this file is the one document in the repository whose identifiers are checked
 by reading it.
 
+**Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
+reached again.** Session 012 closed with 24 `unlogged_change` events: its own
+documentation edits, which were recorded as `doc_update` but never declared as
+artifacts, and the other VM's T-0035 files, which arrived through two hand-run
+`git rebase --continue` calls. D028's rule attributes a path only from a base
+move the tooling performed, so a hand-run continuation leaves the paths reported
+— session 040 hit the same ceiling through seven hand-run rebases, and this is
+the second time. It is the intended direction of failure and it is also the
+reason this session has to record here what a *closed* stream cannot accept:
+`session finish` will not take the events, and editing the stream afterwards
+would be worse than leaving the gap visible.
+
 ## What a fix costs to believe
 
 Every entry above marked solved was falsified against its own defect first: the

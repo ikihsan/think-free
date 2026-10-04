@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-56 recorded session(s). One `events.jsonl` per session, so concurrent
+57 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 31 older session(s) are in the directory listing.
+Showing the 25 most recent. 32 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | **unfinished** | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:39 |
 | [2026-10-04-013-t-0035-stop-the-credential-sandbox-from](2026-10-04-013-t-0035-stop-the-credential-sandbox-from/README.md) | opencode | worked | T-0035: stop the credential sandbox from inheriting a CI runner's GITH | 2026-10-04T04:57 |
 | [2026-10-04-012-measure-the-test-suite-on-every-cpython](2026-10-04-012-measure-the-test-suite-on-every-cpython/README.md) | opencode | worked | Measure the test suite on every CPython minor from 3.8 to 3.14 and mak | 2026-10-04T05:38 |
 | [2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git](2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/README.md) | opencode | worked | T-0033: make doctor compare this VM's git and interpreter against the  | 2026-10-04T03:25 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 31 older session(s) are in the directory listing.
 | [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
 | [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
 | [2026-10-03-033-record-git-versions-exercised-and-split](2026-10-03-033-record-git-versions-exercised-and-split/README.md) | opencode | worked | Record git versions exercised and split DECISIONS-PRACTICE.md before t | 2026-10-03T22:24 |
-| [2026-10-03-032-correct-three-overstated-claims-about-gi](2026-10-03-032-correct-three-overstated-claims-about-gi/README.md) | opencode | worked | Correct three overstated claims about git-version recording introduced | 2026-10-03T22:14 |
 
 
 ## Reading a session

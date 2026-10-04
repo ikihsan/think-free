@@ -115,6 +115,23 @@ defect 8 in [`STATE-defects.md`](STATE-defects.md).
   can shadow the minor-level one, and `exercised` alone would describe a runner
   the reader has never seen. The matched entry's own `where` travels with the
   verdict.
+- **Session 012 closed with two reconciliation reports, and neither could be
+  logged.** `session finish` recorded 24 `unlogged_change` events and one
+  `documentation_gaps` entry. The events split in two: this session's own
+  documentation edits, which were recorded as `doc_update` but never declared as
+  artifacts, and the other VM's T-0035 files, which arrived through **two
+  hand-run `git rebase --continue`** calls. D028 attributes a path only from a
+  base move the tooling performed, and a hand-run continuation is not one — the
+  same ceiling session 040 hit through seven hand-run rebases, now the second
+  time it has been reached. The gap entry is the more interesting half: this
+  session logged an `experiment_result` for work that was not an experiment on a
+  candidate, and the tooling obliged by requiring `HYPOTHESES.md` to change. That
+  is the rule working — it will not let a result-shaped event go unrecorded — but
+  it has no way to tell a fleet measurement from a candidate experiment, so the
+  file now says so in one paragraph. **A closed event stream accepts neither
+  report**, which is the point of closing it: the honest remedy is a later
+  session that records what the reconciliation said, not an edit to history.
+  Session 014 did that.
 - 392 tests green on 3.8.10, on all five portable builds, and on git 2.55.0 —
   the runner's own git. D035 in
   [`DECISIONS-GATING.md`](DECISIONS-GATING.md).

@@ -29,6 +29,14 @@ pair), `006-ventilation-measurement-design` (C2), and
 `007-build-timestamps` (E3's prevalence census) and
 `008-build-timestamp-attribution` (its cause attribution).
 
+**One recorded result belongs to none of these.** T-0034 measured the test suite
+on the CPython versions the fleet's own record named as never run, and found two
+gates asserting that the machine running them was covered by that record
+(`FAILURES-findings-4.md` F018, F019). It changed what the evidence base covers
+and it closed no candidate, so it is recorded here only because the session
+logged an `experiment_result` and the tooling requires this file to change when
+one does. Nothing below rests on it, and no candidate's state moved.
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |
