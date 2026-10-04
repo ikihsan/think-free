@@ -115,21 +115,29 @@ kinds stay in `events.KINDS` so that dropping them cannot make an old stream
 unverifiable, and the kind that *is* emitted, `task_rewrite`, is listed beside
 them.
 
+**One undeclared change, recorded here because the stream is closed.**
+`ROADMAP.md` was edited after this session's artifact declarations — the
+infrastructure list now names attribution by recorded evidence, and its test count
+was three stale — so `session finish` reported it as the session's one undeclared
+change and exited `4`. The change is in the history and in the file; this note is
+where a closed session record can be corrected, which is defect 2's stated ceiling
+rather than a choice. `session finish` also printed `REWRITTEN by task commands (1)`
+naming this file, which is the mechanism this task built working on its own record.
+
 **Three more identifier collisions, in one session, and the residual race measured
 rather than described.** `origin id next D` was run against the base at `f3ca0e0`
 and returned D037. While this branch was open, `instance-20260717-0944` landed
 T-0046, which wrote **D037 and D038** into `DECISIONS-GATING.md`, and then T-0048,
 which wrote **D039** there. So this session collided four times: `T-0046`, then
 `D037`, then `D039` after the first renumbering — D040 is what this decision became.
-Every one was renumbered on the side that had not been pushed, per the standing
-rule, and every one was caught by one of the two documented mechanisms: a
-non-fast-forward push rejection, or a collision that exists only in the merged
-result and that only a gate reading the merge can see. **None was prevented.** The
-honest reading of four collisions in fifty minutes is that two VMs allocating from
-their own fetches spend about one number per collision, and the allocator's stated
-closure — from "however stale this VM's tree is" to "two VMs that allocate between
-their own fetches" — has not changed the outcome in any run this repository can show.
-A collision across two different decision *files* is also what defect 14's range
-problem looked like from the other end. The closed event stream still says D037 and
-is not edited; this note is the correction.
-
+Every one was renumbered on the side that had not been pushed, per the standing rule,
+and every one was caught by one of the two documented mechanisms: a non-fast-forward
+push rejection, or a collision that exists only in the merged result and that only a
+gate reading the merge can see. **None was prevented.** The honest reading of four
+collisions in fifty minutes is that two VMs allocating from their own fetches spend
+about one number per collision, and the allocator's stated closure — from "however
+stale this VM's tree is" to "two VMs that allocate between their own fetches" — has
+not changed the outcome in any run this repository can show. A collision across two
+different decision *files* is also what defect 14's range problem looked like from the
+other end. The closed event stream still says D037 and is not edited; this note is the
+correction.
