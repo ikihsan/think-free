@@ -34,7 +34,12 @@ PY_RECORD = "tests/python-versions.json"
 # `python-version: ['3.8', '3.9', …]` — a single inline list, which is the only
 # shape this file understands. Anything else has to be taught here first.
 MATRIX = re.compile(r"python-version:\s*\[(?P<body>[^\]]*)\]")
-GUARD = re.compile(r"if:\s*matrix\.python-version\s*==\s*'(?P<version>[^']+)'")
+# `.*` before the comparison, not `\s*`: a step guarded to one row may also name
+# a status function, and `if: always() && matrix.python-version == '3.12'` is such
+# a step. Anchoring on `if:` followed directly by the comparison meant a legal
+# expression read as an unguarded step — the test concluded a gate runs on seven
+# rows when it runs on one (defect 18's repair did this, and the suite said so).
+GUARD = re.compile(r"if:.*matrix\.python-version\s*==\s*'(?P<version>[^']+)'")
 STEP = re.compile(r"^ {6}- name: (?P<name>.+)$", re.MULTILINE)
 ANY_STEP = re.compile(r"^\s*- name: ", re.MULTILINE)
 # Steps that legitimately run on every row: they report the row's own

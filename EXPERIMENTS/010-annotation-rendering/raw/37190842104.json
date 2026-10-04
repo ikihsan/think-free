@@ -1,0 +1,122 @@
+[
+  {
+    "annotation_level": "warning",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 2,
+    "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 2,
+    "title": ""
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 526,
+    "message": "Ran 469 tests in 48.856s",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 526,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 525,
+    "message": "----------------------------------------------------------------------",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 525,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 524,
+    "message": "AssertionError: 4 != 0",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 524,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 523,
+    "message": "    self.assertEqual(self.cli(\"session\", \"verify\", \"--strict\", \"--lease-hours\", \"24\"), 0)",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 523,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 522,
+    "message": "  File \"/home/runner/work/think-free/think-free/tests/test_inflight_session.py\", line 220, in test_the_lease_is_a_flag_not_a_constant",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 522,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 521,
+    "message": "Traceback (most recent call last):",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 521,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 520,
+    "message": "----------------------------------------------------------------------",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 520,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "failure",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 519,
+    "message": "FAIL: test_the_lease_is_a_flag_not_a_constant (test_inflight_session.VerifyGateTest.test_the_lease_is_a_flag_not_a_constant)",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 519,
+    "title": "Test failed"
+  },
+  {
+    "annotation_level": "notice",
+    "blob_href": "https://github.com/ikihsan/think-free/blob/f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e/.github",
+    "end_column": null,
+    "end_line": 1,
+    "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+    "path": ".github",
+    "raw_details": "",
+    "start_column": null,
+    "start_line": 1,
+    "title": ""
+  }
+]

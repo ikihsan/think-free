@@ -83,33 +83,33 @@ of those it cannot touch.
    answers most of VM 0944's claimed T-0037:** runs `37178057818` and `37179073002`
    are the already-recorded F019 on all seven rows rather than unexplained runs.
    Method: [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
-   **Ceiling:** the annotations are the workflow's own emission, capped at 60
-   lines, and the endpoint gives four answers of which three look like "none" — the
-   wrong endpoint, the wrong sub-resource, and a 403 from the 60-requests-an-hour
-   unauthenticated limit. What survives of 2(b) is the half that is real: three
-   gate steps emit no annotations at all, so a red `Documentation lint` still names
-   a step and nothing more. **Measured 2026-10-04 on run `37189825232`, the first
-   red `Documentation lint` whose annotations can be read at all**, which is T-0040
-   on the other VM's work: 11 per check-run, the failing test named, and the
-   offending file and line in the message as
-   `::error file=tools/originlib/identifiers.py::…`. The annotation's own structured
-   `path` is `.github` and its line is inside the workflow, so the location travels in
-   the **text** rather than as the structured `file`/`line` the emitter escapes.
-   `observed`; which of the emitter and GitHub's renderer is responsible was not
-   determined, and a reader parsing `path` gets `.github` rather than the file to open.
-4. **The half above is closed in T-0040, and its own ceiling is partly measured.** All
+   **The `::error::` half is closed in T-0040, and item 4 carries what it cost.**
+   **Ceiling:** the annotations are the workflow's own emission, capped at 60 lines,
+   and the endpoint gives four answers of which three look like "none" — the wrong
+   endpoint, the wrong sub-resource, and a 403 from the 60-requests-an-hour
+   unauthenticated limit. What survives of 2(b) is the half that is real: a red
+   `Documentation lint` used to name a step and nothing more, and a **red `Tests` step
+   used to skip every gate step**, so which of the four answers a red run is depends on
+   which step failed first. Defect 18, `FAILURES.md` F021.
+4. **Closed in T-0040, and its ceiling is now measured rather than guessed.** All
    five file-reading steps run `tools/origin annotate`, so a violation becomes a
    check-run annotation naming the file, and the same string reproduces a run a VM
-   cannot read. Falsified against `e53ca23`'s real bytes in both directions: the present
-   command emits zero `::` lines there and the new one emits
-   `file=STATE-defects.md`, while on the tip both emit none. **What that does not
-   settle:** whether GitHub honours the `file` property at all — the run above came
-   back with `path=.github` — so the claim is that the location reaches the reader, not
-   that GitHub files the annotation on it. Also open: the cap of 60 is the old awk
-   window's rather than a measured platform limit, the `Tests` step keeps untested
-   shell, and a violation whose rule knows no single file is published with no `file=`
-   at all. Defect 17 in [`STATE-defects.md`](STATE-defects.md); method in
-   [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
+   cannot read. Falsified against `e53ca23`'s real bytes in both directions: the
+   present command emits zero `::` lines there and the new one emits
+   `file=STATE-defects.md`, while on the tip both emit none. **Both halves of the
+   open question are now settled, and the second by a run the record had not read.**
+   GitHub files an annotation on the emitted `file=`: `observed` on run
+   `37191658964`, whose `Documentation lint` annotation carries
+   `path: DECISIONS-RECORDS.md`, `start_line: 0`, message verbatim. What this file
+   called `unmeasured` was measured once already and read wrongly — `FAILURES.md`
+   F021 — because the run quoted for it (`37189825232`) had a red `Tests` step, and
+   every later step carrying an `if:` was skipped, so the annotator emitted nothing.
+   Its `::error file=…` string was a unittest assertion diff. Defect 18 is the
+   repair, `tools/origin probe` re-measures the rest on every run, and D037/D038
+   record the two decisions. **Ceiling:** the probe measures the shapes it lists —
+   `tests/test_probe.py` holds that list literally for the purpose — and nothing
+   observes a `file=` value containing `:` or `,`, because this repository has no
+   file whose name contains either.
 5. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from
@@ -203,14 +203,16 @@ of those it cannot touch.
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
   rather than only before committing — `observed`, and written up in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- `DECISIONS-GATING.md` is at **297 of 300** lines, and its own header records a
-  split that was attempted and reversed on 2026-10-04 (T-0030). So the next gating
-  decision cannot simply be appended: it needs that file split by invariant on a
-  quiet base, or its cap deliberately changed. A decision does **not** go into
-  whichever decision file happens to have room — that is the mistake the reversed
-  split was made of. **T-0042 claimed that split on 2026-10-04** and also the number
-  D036, so a gating decision recorded on another VM in the same hour collides by
-  construction: allocate with `origin id next D` after reading the base, and expect
-  D036 to be taken. `tools/originlib/doclint.py` reached the same wall and was split
-  into `doclint_tree.py` in T-0040; `STATE.md` and `STATE-defects.md` are now both at
-  300 of 300 and their next entry needs a split too.
+- **`DECISIONS-GATING.md` was at 297 of 300 on 2026-10-04 and T-0042 split it**, so
+  the gating decision T-0040 owed could be written: D037 in T-0046, with D038 beside
+  it. A decision still does **not** go into whichever decision file happens to have
+  room — that is the mistake the reversed split of 2026-10-04 was made of. Allocate
+  with `origin id next D` after reading the base; the header and the `DECISIONS.md`
+  row are both read by `tools/originlib/decisionheader.py`, so all three have to move
+  together.
+- **Three records were at 300 of 300 on 2026-10-04 and still are.** `STATE.md` and
+  `STATE-defects.md` took T-0046's entry by removing a section that restated a rule
+  its own preamble already gave; `FAILURES-findings-4.md` is at 297 after F021. The
+  next entry in any of them needs a split, and `STATE-defects.md` cannot be split
+  inside its own numbered list without `tools/originlib/defectlist.py` reading more
+  than one file — so that split is a task, not an edit.

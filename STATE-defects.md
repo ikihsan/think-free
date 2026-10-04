@@ -285,16 +285,15 @@ belongs to it when it is closed.
    its own environment is only as portable as the record of that environment**, and
    15 is the third instance with the environment being time.
 
-**Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
-reached twice** — sessions 012 and 040, both through hand-run
-`git rebase --continue`. See defect 2.
+18. **Every step whose only job is to emit a diagnostic was skipped when an earlier step
+    failed** (solved in T-0046). Each of the five file-reading gate steps carried `if:
+    matrix.python-version == '3.12'` and no status function, so an implicit `success()`
+    skipped all five on a red `Tests` step: runs `37189825232` and `37190842104`, 2026-10-04.
+    It is also what made the record wrong twice (F021). Account, evidence and ceiling in
+    [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
 
 17. **A gate's report named a step and nothing else** (solved in T-0040, with two faults in
-    the same path; see [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
+     the same path; see [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md)).
 
-## What a fix costs to believe
-
-The method every entry above is held to — falsify against the defect's own bytes,
-in both directions, and say so when the input cannot be read — is in
-[`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md), and the
-mechanism is in [`tests/README.md`](tests/README.md), next to the tests.
+The hand-run-rebase ceiling named in defect 2 was reached twice more, by sessions 012 and
+040, both through `git rebase --continue`; the stream is closed and is not edited.

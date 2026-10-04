@@ -78,23 +78,32 @@ jobs:
       # rule failed needs repository admin rights. The wrapper is the tooling
       # rather than shell in this file, so it is covered by the suite and can
       # be run by a VM to reproduce a run it cannot read.
+      #
+      # Every step below says `always() &&` and not just the matrix guard,
+      # because a step whose `if:` expression names no status function gets an
+      # implicit `success()` — so a red `Tests` step skipped all five of these,
+      # and the annotator was silent on exactly the runs a reader most needs it
+      # (runs `37189825232` and `37190842104`, both 2026-10-04; defect 18). A
+      # skipped gate is indistinguishable from a passing gate in the
+      # annotations, which is the "never configured" against "stopped working"
+      # confusion F020 records.
       - name: Documentation lint
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: tools/origin annotate -- doc lint
 
       # RELEASE-MANIFEST.md decides what is public. Kept next to the doc lint
       # step rather than appended at the end, so a VM editing the session gate
       # below and this one in the same week rebase cleanly.
       - name: Release manifest
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: tools/origin annotate -- release check
 
       - name: Skill layout and mirrors
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: tools/origin annotate -- skills check
 
       - name: Vendored content integrity
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: tools/origin annotate -- skills verify
 
       # Strict: no session runs in this checkout, so an unfinished session is a
@@ -105,7 +114,7 @@ jobs:
       # An in-flight session on another VM is a warning, not an error (D024), so
       # it is still re-emitted from the log rather than through the wrapper.
       - name: Session record integrity
-        if: matrix.python-version == '3.12'
+        if: always() && matrix.python-version == '3.12'
         run: |
           set +e
           set +o pipefail
@@ -115,3 +124,14 @@ jobs:
             | sed -e 's|^  note  |::warning title=Session in flight on another VM::|' \
             || true
           exit "$status"
+
+      # One annotation per rendering shape, on every run, green or red, so the
+      # run that reports a failure also carries the reference for reading it.
+      # `docs/operations/ci-diagnosis.md` read a red run wrong twice for want of
+      # one (F021), and the mechanism's rendering had been `unmeasured` while a
+      # run that never reached it was quoted as evidence. The probe emits only
+      # `notice` and `warning`, both of which a green run already publishes, so
+      # a measurement cannot redden the run it measures.
+      - name: Annotation rendering probe
+        if: always() && matrix.python-version == '3.12'
+        run: tools/origin probe

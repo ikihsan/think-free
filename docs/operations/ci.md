@@ -136,13 +136,15 @@ that is what the `not_exercised` list in the record is for.
 and since T-0040 each file-reading gate re-emits each of its violations the same
 way, naming the file. `observed` on run `37178057818`: 11 annotations on the
 3.12 row, one naming the failing test and its line, readable from the public
-check-runs API with no token. **That corrects a conclusion this file held for a
-session** — it said the public API returns no annotations, generalised from the
-runs whose step emits none (`FAILURES.md` F020, and see the correction in
-[`../../STATE.md`](../../STATE.md)). Three of the four earlier "no annotations"
-answers are not "nothing": the wrong endpoint, the wrong sub-resource, and a 403
-from the 60-per-hour unauthenticated limit. All of it is in
-[`ci-diagnosis.md`](ci-diagnosis.md), which is the method; this is the statement.
+check-runs API with no token; and on run `37191658964`, a gate violation's
+annotation filed on the file the gate named. **That corrects a conclusion this
+file held for a session** — it said the public API returns no annotations,
+generalised from the runs whose step emits none (`FAILURES.md` F020, and see the
+correction in [`../../STATE.md`](../../STATE.md)). Three of the four earlier "no
+annotations" answers are not "nothing": the wrong endpoint, the wrong
+sub-resource, and a 403 from the 60-per-hour unauthenticated limit. All of it is
+in [`ci-diagnosis.md`](ci-diagnosis.md), which is the method; this is the
+statement.
 
 **What annotations are not.** They name a file or a test, not a conclusion, and
 they are this repository's own emission: the runner decides how many it renders,
@@ -164,10 +166,17 @@ next commit, which is the session commit that closes it. **So a red session step
 on a commit that is not the last one on the branch is expected**, and the way to
 confirm it is to look at the following run rather than the log.
 
-**A red gate names its file.** The four gate steps that print a report and exit
-give the runner nothing to attach, so their only annotation is "Process completed
-with exit code 2" — the shape F019 spent an hour on. `tools/origin annotate` runs
-a gate in process and prints one `::error` per violation, naming the file; the
+**A red gate names its file, and the annotation is filed on it.** The five gate
+steps that print a report and exit give the runner nothing to attach, so their
+only annotation is "Process completed with exit code 2" — the shape F019 spent an
+hour on. `tools/origin annotate` runs a gate in process and prints one `::error`
+per violation, naming the file, and **GitHub files the annotation on that path**:
+`observed` on run `37191658964`, whose `Documentation lint` annotation carries
+`path: DECISIONS-RECORDS.md`. Each of those five steps also says `always()`, so a
+red `Tests` step does not skip them — an implicit `success()` did, and on two runs
+it meant four gates never ran with nothing in the annotations to say so (defect
+18). `tools/origin probe` publishes one annotation per rendering shape on every
+run, so the run reporting a failure carries the reference for reading it. The
 method, the escaping, and what an annotation may not claim are in
 [`ci-diagnosis.md`](ci-diagnosis.md).
 

@@ -110,10 +110,14 @@ class WorkflowWiringTest(unittest.TestCase):
         return out
 
     def test_every_gate_step_runs_through_the_annotator(self) -> None:
+        # "Annotates" rather than "runs a gate": the probe step added in T-0046
+        # emits annotations without running a gate, and the property this file
+        # exists for is that a step does not run, report, and say nothing a
+        # reader without admin rights can see.
         for name, block in self.steps(self.workflow()):
             if name in self.ROW_WIDE:
                 continue
-            self.assertIn("tools/origin annotate -- ", block, f"{name} emits no annotation")
+            self.assertTrue(self.emits_annotations(block), f"{name} emits no annotation")
 
     def test_the_tests_step_escapes_a_percent_as_the_toolkit_does(self) -> None:
         # One `%` is `%25` in a message, per `actions/toolkit`'s `escapeData`.
@@ -122,6 +126,29 @@ class WorkflowWiringTest(unittest.TestCase):
         block = dict(self.steps(self.workflow()))["Tests"]
         self.assertNotIn('"%%"', block)
         self.assertIn("%25", block)
+
+    def test_a_diagnostic_step_is_not_skipped_by_an_earlier_failure(self) -> None:
+        # A step whose `if:` names no status function gets an implicit
+        # `success()`, so a red `Tests` step skipped all five gate steps: the
+        # annotator was silent on runs `37189825232` and `37190842104`, and a
+        # skipped gate is indistinguishable from a passing gate in the
+        # annotations. Falsified against the workflow as it was on 2026-10-04,
+        # where every one of these steps failed this assertion.
+        for name, block in self.steps(self.workflow()):
+            if not self.emits_annotations(block):
+                continue
+            guard = re.search(r"^ {8}if: (?P<expr>.+)$", block, re.MULTILINE)
+            self.assertIsNotNone(guard, f"{name} emits annotations with no guard at all")
+            expression = guard.group("expr")
+            self.assertTrue(
+                any(f"{name}()" in expression for name in ("always", "failure", "cancelled")),
+                f"{name} emits annotations but {expression!r} carries no status function, "
+                "so it is skipped when an earlier step fails",
+            )
+
+    @staticmethod
+    def emits_annotations(block: str) -> bool:
+        return "tools/origin annotate -- " in block or "tools/origin probe" in block
 
     def test_the_workflow_still_runs_those_gates_it_names(self) -> None:
         # The other half: the wrapper must not have quietly replaced a gate

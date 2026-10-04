@@ -14,6 +14,68 @@ session 012 was added to it, and when session 012's second half was. Identifiers
 2026-10-04 (T-0045), when four entries for one session pushed the reload point
 back over its own cap.
 
+## What changed in sessions 005 through 020, both VMs
+
+Moved here verbatim from the reload point on 2026-10-04 (T-0046), when
+`STATE.md` reached its own cap again and these entries were the oldest it still
+carried. They are newer than everything below, so the file's ordering still holds.
+
+- **Session 017, VM 0947 (T-0036).** `doc lint` rule 7 now reads the numbered list
+  in `STATE-defects.md`, where two VMs had taken **defect 7** in the same hour and
+  both copies reached the base with each VM's own tree internally consistent.
+  `tools/originlib/defectlist.py` reports a number defined twice, and a list it
+  cannot read; `tools/originlib/idcheck.py` is the one entry point `doc lint` and
+  `sync land` both call, because a rule wired into one gate is not thereby read by
+  the other. Falsified against the defect's own bytes — each commit's real tree out
+  of git, where the previous wiring reports **nothing** and the new rule names both
+  lines — and against the repair commit and the tip, which must stay silent. The
+  first control failed and found a real tension rather than a bad test: a file whose
+  only numbered list is unbolded is both "not a definition" and "nothing readable",
+  and the second reading is the one that fires. 418 tests green.
+- **Session 012, VM 0947 (T-0034, D035, F018, F019).** Every CPython minor from
+  3.8 to 3.14 has run the suite — portable builds on this VM and one CI matrix
+  row each — with `tests/test_ci_matrix.py` holding the matrix to the record in
+  both directions. **Neither gap was theoretical.** On the five interpreters the
+  record had never named, the suite failed; so it did on the runner, because
+  T-0033 had added two assertions that the machine running it is covered by the
+  records. Each was green on the VM that wrote it and red elsewhere for opposite
+  reasons, and neither cause was readable from outside; the log needs admin
+  rights, and **the claim recorded here that the public check-runs API returns no
+  annotations is false for the run that mattered** — see the correction below.
+  The second was found by elimination and reproduced with the runner's own git
+  2.55.0. Both assertions are now the module's contract; the portable form is in
+  D035. 392 tests green on 3.8.10, five portable builds and git 2.55.0. Detail in
+  [`STATE-history.md`](STATE-history.md).
+- **Session 005, VM 0947 (T-0030, D032).** A colliding identifier is refused
+  before publication, because a collision is created by the merge and each VM's
+  own lint sees nothing wrong with its own tree. Over all 174 commits it reports
+  **one**, `e6eb992`. Detail in [`STATE-history.md`](STATE-history.md).
+- **Session 017, VM 0944 (T-0037).** The four red CI runs were already explained
+  by VM 0947 as F019 while this VM was creating a task to explain them, so this
+  session recorded the elimination table rather than redoing the diagnosis.
+  **The process lesson is the durable part:** when a gate is red somewhere you
+  cannot reproduce, check `task list --remote` first — the answer took a second
+  and the reproduction took forty minutes.
+- **Sessions 011 and 012, VM 0944 (T-0033, T-0035, D034).** `doctor` reads both
+  exercised-version records, so a VM outside the exercised set is warned rather
+  than undocumented — and then three CI runs went red while both VMs were green,
+  because a credential fixture had inherited a CI runner's `GITHUB_TOKEN`. Both
+  were machine-environment faults: a gate that reads its own environment is only
+  as portable as the record of that environment (F018, F019). Detail in
+  [`STATE-defects.md`](STATE-defects.md) and the two task files.
+- **Session 037, VM 0944 (T-0021, F013).** Three mission records reached the
+  shared base with `<<<<<<< HEAD` in them and every gate passed. Repaired by
+  keeping both sides of all three regions (F011 and F012 are different findings),
+  and `doc lint` rule 6 now reads every tracked text file for git's marker shape.
+  The rule was falsified against the defect's own bytes and **failed first**,
+  reporting 1 of 4 committed defects; D025 records the obligation this
+  establishes.
+- **Sessions 026–029, 033–036, VM 0947 and 0944.** T-0014 stopped the ventilation
+  candidate (F008), T-0015 spent the knitting prior-art condition (F009), T-0016 fixed
+  the git-version defect behind 60 failed CI runs (F011), T-0018 recorded exercised git
+  versions, T-0019 banked side A of the E2 closure-drift snapshot. Detail in
+  [`STATE-history-2.md`](STATE-history-2.md).
+
 ## What changed in session 027, VM 0947
 
 T-0014 completed: `EXPERIMENTS/006-ventilation-measurement-design/` ran the kill

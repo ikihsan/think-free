@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D024–D026, D030, D036**. Each entry records a choice that was
+Decisions **D024–D026, D030, D036–D038**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason. Decisions that constrain later work belong here; ordinary edits do not.
 
@@ -219,3 +219,62 @@ contents that a reader may reasonably distrust anyway. It does not read
 rather than decision identifiers. It reads one line per decision record; a
 document that defined decisions outside a `DECISIONS*.md` file would not be asked
 for a header, and nothing checks that such a document exists.
+
+## D037 — A violation carries the location its own rule knows, and the workflow publishes it (2026-10-04)
+
+Observed: a red `Documentation lint` named a step and nothing else, because the step
+ran the gate, printed its report, and exited — and the run log that says which rule
+failed needs repository admin rights. F019 cost an hour of elimination finding that
+out, and recorded the reason as a property of the API that was false (`FAILURES.md`
+F020). T-0040's prose lived in [`docs/operations/ci.md`](docs/operations/ci.md) for
+a session because this file was at 297 of 300 and could not take the entry; the split
+that freed the room was T-0042's, and this is the decision it was holding.
+
+Decision: **the location travels with the violation, and the workflow publishes it
+in a form a reader without rights can see.** So a gate's report stays a report, and
+`origin annotate` re-emits each violation as one workflow command naming the file the
+rule that found it already knows — read from the **structured** field, never parsed
+out of the message, because `doc lint` also reports `identifier collision: …`, which
+begins with a word and would be read as a path by a parser.
+
+Rejected: making the run log readable, which needs rights this repository does not
+have and which nobody should acquire to read one line of a diagnostic. Rejected:
+teaching the workflow to parse each gate's own report, which is the D025 shape — a
+reader sees the field it happened to look at and concludes about the property. And
+rejected, on the evidence, the reading that `file=` reaches the reader but is not
+filed on: F021 measured run `37191658964` and GitHub files it, so the document that
+said otherwise was wrong.
+
+**Ceiling:** this decides what a violation publishes, not whether the publication
+happens — which is D038, and which F021 shows is a separate failure with its own
+evidence.
+
+## D038 — A step whose only job is to emit a diagnostic runs whenever the job runs, and the mechanism is measured by a probe on the same run (2026-10-04)
+
+Observed: every gate step carried `if: matrix.python-version == '3.12'` and no status
+function, so GitHub's implicit `success()` skipped all five whenever `Tests` failed.
+Runs `37189825232` and `37190842104` carry no annotation the annotator emitted, and
+four gates did not run at all with nothing in the annotations to say so. That produced
+F021: a run's annotations were read as the mechanism's behaviour when the mechanism had
+not run, and a test's assertion diff was read as an emitted command.
+
+Decision: **two obligations, both falsifiable against the workflow's own bytes.** A
+step whose purpose is to emit a diagnostic says `always() &&`, and the workflow is held
+to it by a test that names the step and its expression when it is absent — because a
+skipped gate is indistinguishable from a passing gate in the annotations, which is
+D030's confusion one level down. And **a diagnostic mechanism is measured by a probe
+that runs on every push**, not inferred from whichever run happened to be red:
+`origin probe` emits one annotation per rendering shape, so the reference and the
+failure come from the same place.
+
+Rejected: reordering the job so the gates precede `Tests`, which hides the skip rather
+than removing it and makes the tests the step whose own annotations are lost. Rejected
+a probe that emits `::error`: whether an `::error` annotation can itself change a
+green job's conclusion has never been observed here, and publishing that assumption on
+every push is the record asserting something it has not measured — so the probe emits
+only levels a green run already publishes.
+
+**Ceiling:** the gate reads the workflow's text, so it cannot tell a step that ran and
+passed from one GitHub chose to skip; only a run says that, which is what the probe is
+for. And the probe measures the shapes it lists, so a shape not listed is not measured —
+`tests/test_probe.py` holds the list literally for that reason.

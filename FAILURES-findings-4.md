@@ -235,3 +235,63 @@ three annotations with no test named — the session step and a stale generated
 file, neither of which emits. Whether the 3.11 row's second failure has a cause
 beyond the two tests it names is **not** answered here; T-0037's question, if it
 survives this finding, is that row and not the seven.
+
+## F021 — The annotator's rendering was declared unmeasured on a run whose annotating steps never ran
+
+Source: T-0046, `EXPERIMENTS/010-annotation-rendering/`. Rule:
+`tools/originlib/probe.py`, and the `always()` guard on the five gate steps in
+`.github/workflows/ci.yml`.
+
+**What happened.** `docs/operations/ci-diagnosis.md` said the annotator's rendering
+was `unmeasured` — "which of the emitter and GitHub's renderer is responsible was
+not determined" — and gave its evidence: run `37189825232`, whose annotations
+carried `::error file=tools/originlib/identifiers.py::…` in the message while the
+annotation's own structured `path` was `.github`. From that it concluded the location
+reaches the reader but is not attached, and told the next reader to read `file=` as
+"the reader is told which file", not "the annotation is filed on it".
+
+**Both halves were artefacts of the same run, and it was the wrong run.** The
+`Tests` step on that row had failed, and every later step in the job carried an
+`if:` naming no status function, so GitHub gave it an implicit `success()` and
+skipped all five gate steps: the annotator emitted nothing on that run at all. The
+`::error file=…` string in its messages is the first line of a unittest assertion
+diff — `AssertionError: Lists differ: ['::error file=…'] != []` — re-emitted by the
+same awk that re-emits test failures; it is a test's *expected* text. And `.github`
+is what a command carrying no `file=` gets: the green run `37192717297` carries
+three, all from fileless commands.
+
+The claim it displaced was measurable in one call. Run `37191658964`, where `Tests`
+passed on the 3.12 row and `Documentation lint` alone failed, carries
+`path: DECISIONS-RECORDS.md`, `start_line: 0`, and the annotator's message verbatim.
+**GitHub files the annotation on the emitted path**, and the mechanism had run.
+
+**Why this is a defect and not a bad reading.** The two facts were confounded by
+construction: a renderer that honours `file=` and one that ignores it entirely both
+produce `path: .github` on a run where no command carried a `file=`. Nothing in the
+capture distinguished them, so the reading was not merely mistaken — it was
+under-determined, and written as though it were settled. That is D025's shape for
+the fourth time, and the third instance in this file after F020: a conclusion drawn
+from the field that does not carry it.
+
+**Repair.** Three parts, the second the general one. The document now says what the
+annotations say, with the run id and the field. Every step whose only job is to emit
+a diagnostic says `always() && …`, and `tests/test_ci_annotations.py` fails on a
+workflow that does not — falsified against the workflow as it was, where it named the
+step and its expression; a skipped gate is indistinguishable from a passing gate in the
+annotations, which is F020's "never configured" against "stopped working" reached from
+the other side. And `tools/origin probe` publishes one annotation per rendering shape
+on every run, so the reference and the failure come from the same place rather than from
+whichever run happened to be red when somebody went looking. It emits only `notice` and
+`warning`, both of which a green run already publishes, and never `::error`: a
+measurement that can redden the run it measures is one that gets deleted after its
+first false alarm.
+
+**Lesson kept.** A mechanism's behaviour on a platform is only measured on a run
+that reached it, and "the run was red" is not the same claim as "the mechanism ran".
+Quote the field the mechanism writes, and check which steps ran before reading any
+of it: the annotation list of a job is the union of its steps', and a step that did
+not run contributes nothing that looks like a contribution.
+
+**Ceiling.** Four runs of one workflow on one runner image; `line=` fidelity, the
+escaping, and a `file=` value containing `:` or `,` are still unobserved, and the
+probe is what will observe them.

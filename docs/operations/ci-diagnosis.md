@@ -52,9 +52,9 @@ run `37179073002`.
 
 | What you see | What it means |
 |---|---|
-| Annotations, one starting `FAIL:` or `ERROR:` | The `Tests` step emits. Read them. |
-| One annotation per violation, each with `file=` | A file-reading gate emits, through `origin annotate` (T-0040) |
-| Three annotations, the failure being `Process completed with exit code N` | The step emitted nothing naming its violation. Every gate step now runs through the annotator, so on the tip this shape means the step is one that has not been converted, or the run predates 2026-10-04 |
+| Annotations, one starting `FAIL:` or `ERROR:` | The `Tests` step emits. Read them. Every one of them carries `path: .github`, because that step emits no `file=` — see *`path` is the property you asked for* below. |
+| One annotation per violation, its `path` equal to a file in the repository | A file-reading gate emits, through `origin annotate` (T-0040). `observed` on run `37191658964` |
+| Three annotations, the failure being `Process completed with exit code N` | The step emitted nothing naming its violation. Every gate step now runs through the annotator and through `always()`, so on the tip this shape means the step is one that has not been converted, or the run predates 2026-10-04 |
 | No annotations object, or `annotation_count: None` | The jobs endpoint has none. The field a check run carries is `output.annotations_count`, and on run `37178057818` it read 11 |
 | HTTP 403 | The unauthenticated rate limit: 60 requests an hour per IP, and this VM has no token in its environment |
 
@@ -113,18 +113,65 @@ is `%2C` (`source-supported`, read from
 the workflow's `Tests` step doubled the percent, which renders one `%` as two —
 defect 13. Nothing measured it, because no recorded annotation carried a percent.
 
-**Ceiling, and one part of it is now measured.** Run `37189825232` (2026-10-04, the
-first red `Documentation lint` whose annotations can be read) came back with 11
-annotations per check-run, the failing test named, and
-`::error file=tools/originlib/identifiers.py::…` in the **message** — while the
-annotation's own structured `path` was `.github` and its line was inside the
-workflow. So the location reaches the reader, and whether GitHub files the
-annotation on that path is `unmeasured`: which of the emitter and GitHub's renderer
-is responsible was not determined. Read this file's `file=` claim as "the reader is
-told which file", not "the annotation is attached to it".
+## `path` is the property you asked for
 
-The rest is the same on both sides: annotations are the workflow's own emission and
-the runner decides how many it renders; the cap is 60, inherited from the awk window
-rather than from a measured platform limit; and passing it emits one further
-annotation saying how many were dropped, because a silent truncation is the failure
-this repository keeps paying for.
+`observed` 2026-10-04, from the four runs captured raw by
+[`../../EXPERIMENTS/010-annotation-rendering/`](../../EXPERIMENTS/010-annotation-rendering/).
+GitHub files an annotation on the workflow command's `file=`. Run `37191658964` at
+`c9e89e1`, where `Tests` passed on the 3.12 row and `Documentation lint` alone failed,
+carries `path: DECISIONS-RECORDS.md`, `start_line: 0`, message
+`DECISIONS-RECORDS.md: tracked at the top level but classified by neither manifest
+table` — the annotator's `::error file=DECISIONS-RECORDS.md::…` verbatim. `start_line`
+is 0 because that violation names no line, which is the whole-file case T-0040 planted.
+
+Two statements in this file used to say otherwise, and both were read off this endpoint:
+
+- **The rendering was called `unmeasured`, beside a run that showed `path: .github`.**
+  That string came from run `37189825232`, whose `Tests` step failed — so **the
+  annotating steps never ran.** Its 11 annotations are all `path: .github`, all titled
+  `Test failed`, all from the `Tests` step, which emits `::error title=Test failed::`
+  with no `file=`. The `::error file=tools/originlib/identifiers.py::…` among that run's
+  messages is the first line of a unittest assertion diff (`AssertionError: Lists differ:
+  ['::error file=…'] != []`), re-emitted by the same awk. A test's expected text read as
+  an emitted command.
+- **`.github` is what a *fileless* command gets.** Run `37192717297` is green and carries
+  three annotations, all `path: .github`: the runner's Node deprecation warning, the
+  `ubuntu-latest` notice, and the session step's in-flight `::warning`. So `.github` is
+  the default for a command with no `file=`, and is not a verdict on one that has it.
+
+That is D025 reached twice from one run: a conclusion about `file=` drawn from the field
+that does not carry it. `FAILURES.md` F021 records it; the two runs whose annotating steps
+were skipped are defect 18.
+
+## A skipped gate is indistinguishable from a passing gate
+
+Each of the five file-reading steps carried `if: matrix.python-version == '3.12'`, and a
+step whose `if:` expression names no status function gets an implicit `success()`. A red
+`Tests` step therefore skipped all five: on runs `37189825232` and `37190842104`,
+`Release manifest`, `Skill layout and mirrors`, `Vendored content integrity` and
+`Session record integrity` did not run at all, and nothing in the annotations says so.
+Every step whose purpose is to emit a diagnostic now says `always() && …`, and
+`tests/test_ci_annotations.py` fails on a workflow that does not — the assertion was run
+against the workflow as it was, and it named the step and its expression.
+
+## Measure the renderer on the run that needs it: `origin probe`
+
+Seven annotations, one per rendering shape, on every run — green or red — so the run that
+reports a failure also carries the reference for reading it. `tests/test_probe.py` holds
+the shape list literally, so a shape cannot be dropped from the code, the test and this
+table together.
+
+| Shape | Command property | What it settles |
+|---|---|---|
+| `filed-with-line` | `file`, `line` | that `start_line` comes back as the line emitted |
+| `filed-no-line` | `file` | the `start_line: 0` case arm A observed, re-measured |
+| `message-percent` | `file`, a `%` in the message | that `%` arrives escaped and cannot split the command |
+| `message-colon-comma` | `file`, `:` and `,` in the message | that a colon and a comma are data in a message |
+| `message-newline` | `file`, a newline in the message | that it arrives as one annotation, not two commands |
+| `warning-level` | `file`, level `warning` | that a level other than `error` is filed too |
+| `no-file` | neither | what a fileless command looks like, beside a filed one |
+
+It exits 0 whatever the tree says and emits only `notice` and `warning`, both of which a
+green run already publishes — a measurement that can redden the run it measures is a
+measurement that gets deleted after its first false alarm. `::error` with a `file=` is the
+shape the gates emit, and arm A already observed it.

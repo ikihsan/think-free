@@ -1,0 +1,87 @@
+[
+  {
+    "annotations": 4,
+    "arm": "A",
+    "check_run_id": "111404936383",
+    "conclusion": "failure",
+    "head_sha": "c9e89e1a99616a8bb94297dd96ee132e108516f7",
+    "paths": [
+      ".github",
+      "DECISIONS-RECORDS.md"
+    ],
+    "rows": {
+      "verify (3.10)": "success",
+      "verify (3.11)": "success",
+      "verify (3.12)": "failure",
+      "verify (3.13)": "success",
+      "verify (3.14)": "success",
+      "verify (3.8)": "success",
+      "verify (3.9)": "success"
+    },
+    "run": "37191658964",
+    "why": "Tests green, Documentation lint red: the annotator emitted one command"
+  },
+  {
+    "annotations": 11,
+    "arm": "B",
+    "check_run_id": "111399503414",
+    "conclusion": "failure",
+    "head_sha": "ea3bfb51803b99b3ad4fadd0b01a7aab1d7f639e",
+    "paths": [
+      ".github"
+    ],
+    "rows": {
+      "verify (3.10)": "failure",
+      "verify (3.11)": "failure",
+      "verify (3.12)": "failure",
+      "verify (3.13)": "failure",
+      "verify (3.14)": "failure",
+      "verify (3.8)": "failure",
+      "verify (3.9)": "failure"
+    },
+    "run": "37189825232",
+    "why": "Tests red, so every later step with an if: was skipped"
+  },
+  {
+    "annotations": 10,
+    "arm": "C",
+    "check_run_id": "111402488201",
+    "conclusion": "failure",
+    "head_sha": "f566ff0a6ef9dd48091fd1e7e6fc4261eb62126e",
+    "paths": [
+      ".github"
+    ],
+    "rows": {
+      "verify (3.10)": "failure",
+      "verify (3.11)": "failure",
+      "verify (3.12)": "failure",
+      "verify (3.13)": "failure",
+      "verify (3.14)": "failure",
+      "verify (3.8)": "failure",
+      "verify (3.9)": "failure"
+    },
+    "run": "37190842104",
+    "why": "Tests red on all seven rows, same shape as B"
+  },
+  {
+    "annotations": 3,
+    "arm": "D",
+    "check_run_id": "111408115791",
+    "conclusion": "success",
+    "head_sha": "cfaf4ed52e1c44745537ded03fe91050f1038871",
+    "paths": [
+      ".github"
+    ],
+    "rows": {
+      "verify (3.10)": "success",
+      "verify (3.11)": "success",
+      "verify (3.12)": "success",
+      "verify (3.13)": "success",
+      "verify (3.14)": "success",
+      "verify (3.8)": "success",
+      "verify (3.9)": "success"
+    },
+    "run": "37192717297",
+    "why": "clean tree: the control, where the annotator must stay silent"
+  }
+]

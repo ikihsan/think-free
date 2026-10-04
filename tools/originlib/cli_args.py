@@ -227,6 +227,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="the gate to run and its own flags, e.g. 'doc lint', 'session verify --strict'",
     )
 
+    # --------------------------------------------------------------- probe
+    # Not a gate and not a command that takes one: it publishes how GitHub
+    # renders a workflow command, so the run that reports a failure also carries
+    # the reference for reading it. No flags, and nothing it can refuse.
+    sub.add_parser(
+        "probe",
+        help="emit one annotation per rendering shape; always exits 0",
+    )
+
     # -------------------------------------------------------------- skills
     skills_parser = sub.add_parser("skills", help="skill layout, mirroring, and vendor drift")
     skills_sub = skills_parser.add_subparsers(dest="action", required=True)

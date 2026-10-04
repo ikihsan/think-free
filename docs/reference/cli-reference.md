@@ -135,6 +135,21 @@ tree emits no command at all. An unknown gate or an unread flag is refused with
 exit `1` rather than quietly running something else. Method and escaping:
 [`../operations/ci-diagnosis.md`](../operations/ci-diagnosis.md).
 
+## `probe`
+
+| Command | Effect |
+|---|---|
+| `probe` | Emits one workflow command per rendering shape, `title`d `annotation-probe/<shape>`, and exits `0` whatever the tree says |
+
+Not a gate and not a wrapper for one. CI runs it on every push so that the run
+reporting a failure also carries the reference for reading it: a mechanism's
+rendering measured on a green run cannot be compared with what it did on a red
+one, and F021 is what reading a red run without that reference cost. It emits
+only `notice` and `warning` — levels a green run already publishes — so it cannot
+redden the run it measures, and it takes no flags and refuses nothing. The seven
+shapes and what each settles are in
+[`../operations/ci-diagnosis.md`](../operations/ci-diagnosis.md).
+
 ## `doctor` and `preflight`
 
 | Command | Effect |
