@@ -120,6 +120,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md`](../tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0043-split-tools-originlib-identifiers-py-so-doc-lint.md`](../tasks/T-0043-split-tools-originlib-identifiers-py-so-doc-lint.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0044-date-the-lease-tests-from-the-clock-the-code-act.md`](../tasks/T-0044-date-the-lease-tests-from-the-clock-the-code-act.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0045-run-release-check-from-preflight-and-classify-de.md`](../tasks/T-0045-run-release-check-from-preflight-and-classify-de.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
