@@ -42,7 +42,7 @@ _(none recorded)_
 
 ## Commands
 
-4 captured, 1 non-zero exit.
+6 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -50,6 +50,8 @@ _(none recorded)_
 | 4 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -q'] | 1 | 230022 |
 | 5 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -q 2>&1 \| tail -6'] | 0 | 227991 |
 | 6 | ['tools/origin', 'preflight'] | 0 | 8320 |
+| 23 | ['git', '-c', 'core.editor=true', 'rebase', '--continue'] | 0 | 293 |
+| 24 | ['tools/origin', 'sync', 'land'] | 1 | 489 |
 
 ## Integrity
 
@@ -87,6 +89,8 @@ _(none recorded)_
 | 20 | 10:42:47 | milestone | suite green 485 tests and all four preflight gates; task verify exit 0 |
 | 21 | 10:43:02 | experiment_result | GitHub files a check-run annotation on the workflow command's file=, observed on run 37191658964; the run the record had quoted for that question (371 |
 | 22 | 10:43:03 | milestone | suite green 485 tests and all four preflight gates; task verify exit 0 |
+| 23 | 10:46:09 | command | $ git -c core.editor=true rebase --continue |
+| 24 | 10:46:15 | command | $ tools/origin sync land |
 
 ## Reproduce this record
 
