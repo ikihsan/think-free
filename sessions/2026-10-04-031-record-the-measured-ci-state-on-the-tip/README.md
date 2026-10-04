@@ -67,6 +67,7 @@ _(none recorded)_
 | 7 | 11:19:48 | artifact | wrote docs/operations/ci-diagnosis.md |
 | 8 | 11:19:48 | artifact | wrote STATE.md |
 | 9 | 11:19:49 | milestone | census recorded: ten runs, seven red causes read from annotations, none reproduced; the fetcher's own limit handling found by running it |
+| 10 | 11:20:09 | milestone | T-0049 committed |
 
 ## Reproduce this record
 
