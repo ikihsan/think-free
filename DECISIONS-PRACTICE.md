@@ -197,3 +197,47 @@ in [`cli-reference.md`](docs/reference/cli-reference.md). **The ceiling is
 unchanged in kind:** two VMs allocating between their own fetches still collide,
 and an unpushed number reserves nothing. What changed is that a stale tree — the
 condition behind all twelve — no longer decides anything.
+
+## D033 — An exercised-environment record states what nobody has run, and its test checks honesty (2026-10-04)
+
+Observed: `docs/operations/vm-execution.md` said plainly that no gate pinned a
+Python range while [`tests/git-versions.json`](tests/git-versions.json)
+pinned git, and T-0023 had already had to repair a mission record demanding a
+3.11+ floor invented from one machine's 3.14.6 — a claim about interpreters the
+fleet has never run. A floor asserted in prose is a claim about what someone
+believes.
+
+Decision: **the exercised interpreters live in
+[`tests/python-versions.json`](tests/python-versions.json) (schema
+`origin.python-versions/1`), and the test that validates it checks honesty
+clauses rather than schema alone.** Every entry carries the scope it has actually
+run — 3.8.10 has run all 335 tests, the standalone 3.12.15 only the 173 that
+existed when T-0016 recorded it, CI's `'3.12'` only the minor version, because
+the run log needs repository admin rights. `not_exercised` names 3.9 through 3.11,
+3.13 and newer, and any non-CPython or non-Linux target. The record's `floor`
+must be a minor version some entry ran; the test compares minor versions, so
+"3.8 or newer" is supported by 3.8.10 and a record that had never run 3.8 fails.
+
+**Renumbered from D032 on 2026-10-04:** `instance-20260717-0947` published its
+own D032 (the collision detector, T-0030) while this session was resolving a
+rebase, and the two mean different things. This side is the one not pushed, so
+it moved — D033. Recorded here because the collision was found by the rebase
+itself and because the other VM's D032 is a real decision, not a mistake.
+
+Falsified four ways before it was trusted, per D025: a floor claiming 3.10, an
+entry with no `scope`, CI credited with the unreadable patch `3.12.7`, and an
+emptied `not_exercised` list each fail the test, and the restored record passes.
+A schema check passes just as happily on a record that lies, which is why those
+four are the clauses.
+
+Rejected: recording only the versions that work, on the grounds that the others
+are noise — that is the record that produced the invented 3.11 floor. Having
+`doctor` compare this VM's interpreter, which is the *reading* half of defect 6
+and a separate change: it would make a VM warn, and this task is about making the
+claim true. Listing a supported range such as "3.8–3.12", which no run supports.
+
+Consequence: defect 6 is twice-partly closed — the claim exists and is checked,
+and what remains is that nothing reads it at run time.
+[`vm-execution.md`](docs/operations/vm-execution.md) says so instead of calling the
+work unclaimed, and [`ci.md`](docs/operations/ci.md) states that pinning 3.12 is a
+recorded decision rather than evidence about the fleet.

@@ -36,12 +36,17 @@ of those it cannot touch.
    **Ceiling:** two VMs allocating between their own fetches still collide, and
    an unpushed number reserves nothing. Rule and states:
    [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-3. **Fleet bookkeeping is recorded machine-readably** (T-0018, done). The
-   exercised git versions live in `tests/git-versions.json` (schema
-   `origin.git-versions/1`), updated by T-0024 to say how much of the suite each
-   version has actually run: 2.25.1 has run the whole suite, 2.56.0 only the 174
-   tests that existed when T-0016 recorded it. **No equivalent record exists for
-   Python**, which `docs/operations/vm-execution.md` names as unclaimed work.
+3. **Fleet bookkeeping is recorded machine-readably** (T-0018 and T-0032). Both
+   records exist: `tests/git-versions.json` (schema `origin.git-versions/1`) and
+   `tests/python-versions.json` (schema `origin.python-versions/1`), each entry
+   saying how much of the suite that version has actually run — 2.25.1 and 3.8.10
+   have run all of it, 2.56.0 and the standalone 3.12.15 only the 174 and 173
+   tests that existed when they were recorded. The Python record also names what
+   nobody has run: no interpreter between 3.8 and 3.12, and none above 3.12.
+   **What is left is the reading half:** `doctor` reports the interpreter and git
+   it found without comparing either against these records, so an unexercised VM
+   is undocumented rather than warned. That is defect 6 in
+   [`STATE-defects.md`](STATE-defects.md), and it is the last piece of this item.
    **Ceiling:** bookkeeping hygiene, not a claim about a candidate.
 4. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
    commit `9e865a4`, all six steps green, `observed`), which closes the standing

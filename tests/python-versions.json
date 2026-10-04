@@ -1,0 +1,51 @@
+{
+  "schema": "origin.python-versions/1",
+  "updated": "2026-10-04",
+  "verified": [
+    {
+      "python": "3.8.10",
+      "scope": "full suite (329 tests) green",
+      "where": "instance-20260717-0944, git 2.25.1",
+      "via": "T-0032"
+    },
+    {
+      "python": "3.12",
+      "scope": "full suite green on every push; most recent observed green run 37170028000 (2026-10-04T02:07Z, commit 394165b). The patch version is not reported by the public API, and the run log needs repository admin rights, so this entry claims the minor version only",
+      "where": "CI, ubuntu-latest with actions/setup-python pinned to '3.12'",
+      "via": "T-0032"
+    },
+    {
+      "python": "3.12.15",
+      "scope": "173 tests green, which was the whole suite at the time; the 156 tests added since have not been run on this interpreter",
+      "where": "python-build-standalone install_only_stripped tarball on instance-20260717-0947",
+      "via": "T-0016"
+    }
+  ],
+  "floor": {
+    "claim": "3.8 or newer",
+    "basis": "observed: the full suite is green on 3.8.10, and CI is green on 3.12. Nothing in tools/originlib uses syntax newer than 3.8",
+    "not_claimed": "No version between 3.8 and 3.12 has been run. A floor is supported by the oldest interpreter the suite passes on; nothing here supports a claim about any specific intermediate release, and nothing here predicts that 3.13 or 3.14 will pass"
+  },
+  "not_exercised": [
+    {
+      "range": "3.9 through 3.11",
+      "why": "no interpreter of those versions is available on either VM, and CI pins a single version",
+      "consequence": "a regression that only appears on an intermediate version would not be caught until a VM or a CI matrix row runs it"
+    },
+    {
+      "range": "3.13 and newer",
+      "why": "neither VM has such an interpreter; EXPERIMENTS/000-capabilities recorded 3.14.6 on the development machine, which is not a VM in this fleet and whose runs are not recorded here",
+      "consequence": "the floor claim is about what has been run, not about what is expected to work"
+    },
+    {
+      "range": "any non-CPython implementation, or a non-Linux platform",
+      "why": "never attempted",
+      "consequence": "the claim is CPython on Linux only"
+    }
+  ],
+  "related_defect": {
+    "defect": "STATE-defects.md defect 6",
+    "note": "`doctor` does not compare this VM's interpreter against this record. The record states what has been exercised; nothing yet warns a VM that it is running something else."
+  },
+  "note": "Machine-readable companion to git-versions.json. It exists because docs/operations/vm-execution.md said plainly that no gate pinned a Python range, and because a mission record once demanded a 3.11+ floor invented from one machine's 3.14.6 (T-0023) - a claim about an interpreter the fleet has never run. Each entry's scope says how much of the suite that version has actually run, because a version that ran an older suite is not evidence about the current one."
+}

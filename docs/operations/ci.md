@@ -87,6 +87,15 @@ error itself said only "rebase could not be completed". `setup-python` with
 `ubuntu-latest` migrates to Ubuntu 26 in October 2026 and would otherwise change
 the interpreter under this repository.
 
+**What the pin does and does not prove.** It makes CI's interpreter a recorded
+decision; it does not make it evidence about the fleet. CI runs one version on
+one runner image, so a regression that only appears on another interpreter is
+invisible here. [`../../tests/python-versions.json`](../../tests/python-versions.json)
+is the record of what has actually run, per version and per scope, and this
+workflow's `'3.12'` is one entry in it — the minor version only, because the run
+log needs repository admin rights and the public API does not report the patch.
+The same applies to git: CI is one runner's git, not the fleet's.
+
 **A failing test must be identifiable without admin rights.** The `Tests` step
 re-emits every `FAIL:`/`ERROR:` block as an `::error::` annotation. GitHub
 returns check-run annotations from its public API, so a `curl` against

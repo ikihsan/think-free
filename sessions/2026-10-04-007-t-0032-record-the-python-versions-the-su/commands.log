@@ -1,0 +1,231 @@
+==============================================================================
+[seq 2] 2026-10-04T02:10:02+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_ci_is_not_claimed_from_a_log_nobody_can_read (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_docs_point_at_the_record (test_pythonversions.PythonVersionsRecordTest) ... FAIL
+test_no_document_still_calls_the_record_unclaimed (test_pythonversions.PythonVersionsRecordTest) ... FAIL
+test_schema_and_entries (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_the_floor_is_supported_by_an_entry (test_pythonversions.PythonVersionsRecordTest) ... FAIL
+test_unexercised_ranges_are_named (test_pythonversions.PythonVersionsRecordTest) ... ok
+
+======================================================================
+FAIL: test_docs_point_at_the_record (test_pythonversions.PythonVersionsRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944/tests/test_pythonversions.py", line 90, in test_docs_point_at_the_record
+    self.assertIn(
+AssertionError: 'python-versions.json' not found in '<!-- origin-meta\nowner: docs/INDEX.md\nstatus: active\nlast-verified: 2026-10-03\n-->\n\n# VM execution\n\nHow a task gets executed on another machine. The design constraint is that the\nsystem must be useful **before** any coordination infrastructure exists, so that\nthe GitHub App is an accelerator rather than a prerequisite.\n\nTask protocol: [`../process/task-lifecycle.md`](../process/task-lifecycle.md).\nDispatch design: [`github-app.md`](github-app.md).\nScheduling: [`scheduling-and-supervision.md`](scheduling-and-supervision.md).\n\n## Model\n\nGit is the only shared state. Every VM clones the repository, claims a task,\nworks, and pushes a branch. There is no central scheduler, no shared\nfilesystem, and no queue service.\n\n```\ntask claimed ──▶ VM works ──▶ verification passes ──▶ branch pushed\n      │                                                 │\n      └── stale claim ──▶ honest takeover, logged        └── merged to main\n```\n\n## The sequence\n\n```bash\ngit clone <repo> && cd <repo>\n\n# 1. Can this machine do the work at all?\ntools/origin doctor                     # writes .origin/doctor.json\ntools/origin preflight                  # lint + skills + session integrity\n\n# 2. Identify yourself honestly in the record\nexport ORIGIN_AGENT="opencode-headless" # or codex, claude, ...\n\n# 3. Take a task, in its own worktree\ntools/origin task list\nTASK=$(tools/origin task list --status open | head -1 | cut -d\' \' -f1)\ntools/origin task claim "$TASK" --agent "$ORIGIN_AGENT" --vm "$(hostname)"\ntools/origin worktree add "$TASK"\ncd ".worktrees/$TASK"\ntools/origin session start --goal "execute $TASK" --task "$TASK"\n\n# 4. Work, logging as you go\ntools/x -- ./tools/origin doctor --offline\n\n# 5. Verify with the task\'s own command\ntools/origin task verify "$TASK"\n\n# 6. Close honestly, whatever happened\ntools/origin task complete "$TASK" --summary "…" --evidence …\ntools/origin doc index\ntools/origin session finish --outcome worked --summary "…" --next "…" --push\n\n# 7. Land the branch onto the shared base\ntools/origin sync land\n```\n\n`tools/origin task verify` exits `3` when the declared command fails. That is\nthe signal to stop, not to proceed anyway.\n\n## Why one event file per session\n\nSessions write `sessions/<id>/events.jsonl` inside their own directory. Two VMs\nworking on different tasks therefore never touch the same file, so their logs\nmerge without conflict. The generated `sessions/INDEX.md` and `tasks/INDEX.md`\ncan conflict; regenerate them after merging rather than hand-resolving them.\n\nThis is the main reason the record is per-session rather than a single global\nlog. A single global `events.jsonl` would conflict on every concurrent run.\n\n## Safety properties\n\n- **Claims prevent duplicate work.** A second agent claiming a held task fails.\n- **Verification decides completion.** No agent\'s confidence is involved.\n- **Failure is visible.** Every run ends with `session finish`, including failed\n  ones. `session verify` reports any session whose last event is not\n  `session_end`, which is exactly the signal a supervisor needs.\n- **Secrets do not land.** `doctor` reports only credential *presence*; captured\n  output is redacted; artifacts containing credentials are refused.\n- **Nothing is pushed without authorization.** Pushing to a remote requires the\n  user\'s permission per `../policy/permissions-and-safety.md`.\n\n## What is not solved\n\n| Problem | Current state |\n|---|---|\n| Stale claims from a dead VM | `task claim --takeover REASON`; the dead session finished honestly first |\n| Task-to-VM matching | Manual. An agent picks a task and claims it |\n| Budget and quota across VMs | Unimplemented. `doctor` reports resources per machine only |\n| Retry policy | Unimplemented. A failed session is a human decision to resume or cancel |\n| Secrets distribution | Unimplemented. App private keys must never enter the repository |\n| Parallel execution conflicts | Rare by design: one file per task, one directory per session |\n\n## Requirements on a VM\n\nChecked with `doctor` rather than assumed. What is actually exercised:\n\n- **CPython 3.8 or newer.** `observed`: the full suite is green on 3.8.10\n  (`instance-20260717-0944`, git 2.25.1) and CI pins 3.12. Nothing in\n  `tools/originlib` uses syntax newer than 3.8. An earlier version of this\n  document demanded 3.11 and was wrong: it would have refused a machine the\n  tooling supports, on the strength of the development machine\'s version rather\n  than a test.\n- `git`. No package installation step: the tooling is standard library only.\n- Network access to the git remote, and to public sources for research tasks.\n- Sufficient disk for the experiment. `doctor` reports free bytes.\n\nNot required, and their absence is not a blocker: a GPU, Docker, `gh` CLI,\npytest, or any system-wide install.\n\n**The honest gap:** no gate pins a Python range, the way\n[`../../tests/git-versions.json`](../../tests/git-versions.json) pins git\nversions. A version that breaks the suite would be found by running it, not\npredicted. That is the same class of gap T-0018 closed for git, and closing it\nhere is unclaimed work.' : docs/operations/vm-execution.md must point at the record, or a VM reads the floor as prose
+
+======================================================================
+FAIL: test_no_document_still_calls_the_record_unclaimed (test_pythonversions.PythonVersionsRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944/tests/test_pythonversions.py", line 100, in test_no_document_still_calls_the_record_unclaimed
+    self.assertNotIn("closing it\nhere is unclaimed work", text)
+AssertionError: 'closing it\nhere is unclaimed work' unexpectedly found in '<!-- origin-meta\nowner: docs/INDEX.md\nstatus: active\nlast-verified: 2026-10-03\n-->\n\n# VM execution\n\nHow a task gets executed on another machine. The design constraint is that the\nsystem must be useful **before** any coordination infrastructure exists, so that\nthe GitHub App is an accelerator rather than a prerequisite.\n\nTask protocol: [`../process/task-lifecycle.md`](../process/task-lifecycle.md).\nDispatch design: [`github-app.md`](github-app.md).\nScheduling: [`scheduling-and-supervision.md`](scheduling-and-supervision.md).\n\n## Model\n\nGit is the only shared state. Every VM clones the repository, claims a task,\nworks, and pushes a branch. There is no central scheduler, no shared\nfilesystem, and no queue service.\n\n```\ntask claimed ──▶ VM works ──▶ verification passes ──▶ branch pushed\n      │                                                 │\n      └── stale claim ──▶ honest takeover, logged        └── merged to main\n```\n\n## The sequence\n\n```bash\ngit clone <repo> && cd <repo>\n\n# 1. Can this machine do the work at all?\ntools/origin doctor                     # writes .origin/doctor.json\ntools/origin preflight                  # lint + skills + session integrity\n\n# 2. Identify yourself honestly in the record\nexport ORIGIN_AGENT="opencode-headless" # or codex, claude, ...\n\n# 3. Take a task, in its own worktree\ntools/origin task list\nTASK=$(tools/origin task list --status open | head -1 | cut -d\' \' -f1)\ntools/origin task claim "$TASK" --agent "$ORIGIN_AGENT" --vm "$(hostname)"\ntools/origin worktree add "$TASK"\ncd ".worktrees/$TASK"\ntools/origin session start --goal "execute $TASK" --task "$TASK"\n\n# 4. Work, logging as you go\ntools/x -- ./tools/origin doctor --offline\n\n# 5. Verify with the task\'s own command\ntools/origin task verify "$TASK"\n\n# 6. Close honestly, whatever happened\ntools/origin task complete "$TASK" --summary "…" --evidence …\ntools/origin doc index\ntools/origin session finish --outcome worked --summary "…" --next "…" --push\n\n# 7. Land the branch onto the shared base\ntools/origin sync land\n```\n\n`tools/origin task verify` exits `3` when the declared command fails. That is\nthe signal to stop, not to proceed anyway.\n\n## Why one event file per session\n\nSessions write `sessions/<id>/events.jsonl` inside their own directory. Two VMs\nworking on different tasks therefore never touch the same file, so their logs\nmerge without conflict. The generated `sessions/INDEX.md` and `tasks/INDEX.md`\ncan conflict; regenerate them after merging rather than hand-resolving them.\n\nThis is the main reason the record is per-session rather than a single global\nlog. A single global `events.jsonl` would conflict on every concurrent run.\n\n## Safety properties\n\n- **Claims prevent duplicate work.** A second agent claiming a held task fails.\n- **Verification decides completion.** No agent\'s confidence is involved.\n- **Failure is visible.** Every run ends with `session finish`, including failed\n  ones. `session verify` reports any session whose last event is not\n  `session_end`, which is exactly the signal a supervisor needs.\n- **Secrets do not land.** `doctor` reports only credential *presence*; captured\n  output is redacted; artifacts containing credentials are refused.\n- **Nothing is pushed without authorization.** Pushing to a remote requires the\n  user\'s permission per `../policy/permissions-and-safety.md`.\n\n## What is not solved\n\n| Problem | Current state |\n|---|---|\n| Stale claims from a dead VM | `task claim --takeover REASON`; the dead session finished honestly first |\n| Task-to-VM matching | Manual. An agent picks a task and claims it |\n| Budget and quota across VMs | Unimplemented. `doctor` reports resources per machine only |\n| Retry policy | Unimplemented. A failed session is a human decision to resume or cancel |\n| Secrets distribution | Unimplemented. App private keys must never enter the repository |\n| Parallel execution conflicts | Rare by design: one file per task, one directory per session |\n\n## Requirements on a VM\n\nChecked with `doctor` rather than assumed. What is actually exercised:\n\n- **CPython 3.8 or newer.** `observed`: the full suite is green on 3.8.10\n  (`instance-20260717-0944`, git 2.25.1) and CI pins 3.12. Nothing in\n  `tools/originlib` uses syntax newer than 3.8. An earlier version of this\n  document demanded 3.11 and was wrong: it would have refused a machine the\n  tooling supports, on the strength of the development machine\'s version rather\n  than a test.\n- `git`. No package installation step: the tooling is standard library only.\n- Network access to the git remote, and to public sources for research tasks.\n- Sufficient disk for the experiment. `doctor` reports free bytes.\n\nNot required, and their absence is not a blocker: a GPU, Docker, `gh` CLI,\npytest, or any system-wide install.\n\n**The honest gap:** no gate pins a Python range, the way\n[`../../tests/git-versions.json`](../../tests/git-versions.json) pins git\nversions. A version that breaks the suite would be found by running it, not\npredicted. That is the same class of gap T-0018 closed for git, and closing it\nhere is unclaimed work.'
+
+======================================================================
+FAIL: test_the_floor_is_supported_by_an_entry (test_pythonversions.PythonVersionsRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944/tests/test_pythonversions.py", line 60, in test_the_floor_is_supported_by_an_entry
+    self.assertIn(
+AssertionError: '3.8' not found in ['3.8.10', '3.12', '3.12.15'] : floor claims 3.8 but no entry recorded running it
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 377  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T02:10:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_ci_is_not_claimed_from_a_log_nobody_can_read (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_docs_point_at_the_record (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_no_document_still_calls_the_record_unclaimed (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_schema_and_entries (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_the_floor_is_supported_by_an_entry (test_pythonversions.PythonVersionsRecordTest) ... FAIL
+test_unexercised_ranges_are_named (test_pythonversions.PythonVersionsRecordTest) ... ok
+
+======================================================================
+FAIL: test_the_floor_is_supported_by_an_entry (test_pythonversions.PythonVersionsRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944/tests/test_pythonversions.py", line 65, in test_the_floor_is_supported_by_an_entry
+    self.assertIn(
+AssertionError: '3.8' not found in ['3.8.10', '3.12', '3.12.15'] : floor claims 3.8 but no entry recorded running that minor version
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 225  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T02:11:02+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+test_ci_is_not_claimed_from_a_log_nobody_can_read (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_docs_point_at_the_record (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_no_document_still_calls_the_record_unclaimed (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_schema_and_entries (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_the_floor_is_supported_by_an_entry (test_pythonversions.PythonVersionsRecordTest) ... ok
+test_unexercised_ranges_are_named (test_pythonversions.PythonVersionsRecordTest) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 283  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T02:11:10+00:00
+$ sh -c 
+echo "=== FALSIFICATION 1: floor claims a minor version nothing ran (3.10) ==="
+python3 -c "
+import json
+d=json.load(open(\"tests/python-versions.json\"))
+d[\"floor\"][\"claim\"]=\"3.10 or newer\"
+json.dump(d,open(\"tests/python-versions.json\",\"w\"),indent=2)
+"
+env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py 2>&1 | tail -3
+cp /tmp/opencode/pv-good.json tests/python-versions.json
+echo "=== FALSIFICATION 2: an entry with no scope ==="
+python3 -c "
+import json
+d=json.load(open(\"tests/python-versions.json\"))
+d[\"verified\"][0].pop(\"scope\")
+json.dump(d,open(\"tests/python-versions.json\",\"w\"),indent=2)
+"
+env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py 2>&1 | tail -3
+cp /tmp/opencode/pv-good.json tests/python-versions.json
+echo "=== FALSIFICATION 3: CI credited with an unreadable patch version ==="
+python3 -c "
+import json
+d=json.load(open(\"tests/python-versions.json\"))
+d[\"verified\"][1][\"python\"]=\"3.12.7\"
+json.dump(d,open(\"tests/python-versions.json\",\"w\"),indent=2)
+"
+env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py 2>&1 | tail -3
+cp /tmp/opencode/pv-good.json tests/python-versions.json
+echo "=== FALSIFICATION 4: unexercised list emptied ==="
+python3 -c "
+import json
+d=json.load(open(\"tests/python-versions.json\"))
+d[\"not_exercised\"]=[]
+json.dump(d,open(\"tests/python-versions.json\",\"w\"),indent=2)
+"
+env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py 2>&1 | tail -3
+cp /tmp/opencode/pv-good.json tests/python-versions.json
+echo "=== restored ==="
+env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_pythonversions.py 2>&1 | tail -3
+git status --porcelain tests/python-versions.json
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+=== FALSIFICATION 1: floor claims a minor version nothing ran (3.10) ===
+Ran 6 tests in 0.003s
+
+FAILED (failures=1)
+=== FALSIFICATION 2: an entry with no scope ===
+Ran 6 tests in 0.003s
+
+FAILED (failures=1)
+=== FALSIFICATION 3: CI credited with an unreadable patch version ===
+Ran 6 tests in 0.003s
+
+FAILED (failures=1)
+=== FALSIFICATION 4: unexercised list emptied ===
+Ran 6 tests in 0.003s
+
+FAILED (failures=1)
+=== restored ===
+Ran 6 tests in 0.003s
+
+OK
+?? tests/python-versions.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1600  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T02:14:31+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+...............................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 335 tests in 174.694s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 175234  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T02:15:06+00:00
+$ sh -c tools/origin doc index; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check >/dev/null; echo "release=$?"; tools/origin preflight 2>&1|tail -2
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+doc index: already current
+doc lint: 407 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  FAIL  DECISIONS-PRACTICE.md: broken link -> ../../tests/python-versions.json
+  FAIL  DECISIONS-PRACTICE.md: broken link -> ../operations/vm-execution.md
+  FAIL  DECISIONS-PRACTICE.md: broken link -> ../operations/ci.md
+doc lint: 3 violation(s)
+lint=2
+release=0
+session verify: OK
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8400  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T02:18:32+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0032-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+...............................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 335 tests in 175.322s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 175801  redactions: none

@@ -44,7 +44,9 @@ interfere with the working repository.
 | `pushcred_fixture.py` | Throwaway HOME, git config, and App directory for the push-credential tests; never names a real path |
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
 | `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
+| `test_pythonversions.py` | `python-versions.json`: every entry has a scope, the floor is supported by an entry that ran it, the unexercised versions are named, and CI is not credited with a patch version the public API cannot report |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
+| `python-versions.json` | The same record for interpreters, with the versions nobody has run named rather than implied (schema `origin.python-versions/1`) |
 
 Exit codes are part of the contract and are tested: `0` success, `1` usage,
 `2` lint, `3` verification failed, `4` integrity.
@@ -94,6 +96,18 @@ a check that has never fired looks exactly like a check with nothing to report,
 so the suite asserts each mechanism notices its own removal. Run against the real
 history the rule reports one commit of 174 (`e6eb992`, the collision that
 reached the base) and the hand repair one minute later is clean.
+
+**The interpreter is part of it too.**
+[`python-versions.json`](python-versions.json) says the same thing for Python,
+and its test is stricter than `test_gitversions.py` on purpose. A schema check
+passes just as happily on a record that lies, so four clauses are about honesty
+rather than shape: every entry must say how much of the suite it ran, the floor
+must be a minor version some entry actually ran (the claim `3.8` is supported by
+3.8.10, and a record that had never run 3.8 fails), the unexercised list must not
+be empty, and an entry located on CI may claim the minor version only — the run
+log needs repository admin rights, so a patch version there would be a number
+nobody could check. All four were falsified against the record before it was
+trusted.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

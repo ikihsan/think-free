@@ -50,3 +50,35 @@ Delete tests/python-versions.json and tests/test_pythonversions.py and revert th
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+## Outcome
+
+`observed`. `tests/python-versions.json` (schema `origin.python-versions/1`)
+names every interpreter the suite has actually run, each entry carrying the scope
+it ran: 3.8.10 with all 335 tests on this VM, CI's pinned 3.12 with the whole
+suite on every push, and the standalone 3.12.15 from T-0016 with the 173 tests
+that existed then. `not_exercised` names 3.9–3.11, 3.13 and newer, and any
+non-CPython or non-Linux target.
+
+**CI is recorded as the minor version only.** `actions/setup-python` pins
+`'3.12'`; the public API does not report the patch and the run log returns 403
+without admin rights, so a patch version there would be a number nobody could
+check. The test enforces that.
+
+**Falsified four ways before it was trusted**, all in the session command log: a
+floor claiming `3.10`, an entry with no `scope`, CI credited with the unreadable
+patch `3.12.7`, and an emptied `not_exercised` list each fail the test; the
+restored record passes. The floor clause compares minor versions, so `3.8 or
+newer` is supported by 3.8.10 while a record that had never run 3.8 fails — the
+distinction T-0023's invented 3.11 floor needed.
+
+**One defect in the test, caught by its first run:** the floor clause compared
+version strings exactly, so it rejected the honest form of the claim. Fixed by
+comparing minor versions, with the reasoning in the test.
+
+**Defect 6 is twice-partly closed, not closed.** The claim exists and is checked;
+nothing *reads* it at run time. `doctor` reports the interpreter and git it found
+and stops, so a VM on 3.9 is undocumented rather than warned. That is the
+reading half and it is a separate change.
+
+335 tests green; `doc lint`, `release check` and `preflight` all exit 0.

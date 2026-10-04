@@ -71,8 +71,10 @@ defect is listed as open.
    allocates F, D and T numbers from `origin/<base>` — task files, claim ledger,
    findings definitions and index rows, decision definitions and spans — plus this
    working tree, and every command that hands out a number prints the record it
-   read. Falsified first: with the old allocator a clone whose tree is behind the
-   base allocated a number the base already defined.
+   read. Falsified first: with the old allocator, a clone whose tree is behind
+   the base allocated `T-0002` where the base already defined it; after the
+   repair it allocates `T-0003`. A withdrawn task's number is no longer recycled,
+   because the ledger still names it.
    **Detection solved in T-0030, D032:** `tools/originlib/identifiers.py` reports
    an identifier defined twice, an index row with no body, and a decision its own
    index row does not list; `sync land` refuses to publish such a tree and `doc
@@ -80,13 +82,22 @@ defect is listed as open.
    flagged, and each of the three mechanisms notices its own removal. It found a
    live desync on its first run — D030 missing from `DECISIONS.md`.
    **Residual, stated:** two VMs allocating between their own fetches still
-   collide, and an unpushed number reserves nothing. The push rejection and this
-   detector catch it; nothing prevents it.
-6. **`doctor` does not compare this VM's git against what the suite has been
-   exercised on** (open, partly closed in T-0018 with `tests/git-versions.json`).
-   There is still no equivalent record for Python, which
-   `docs/operations/vm-execution.md` names as unclaimed work.
-   **Ceiling:** bookkeeping hygiene, not a claim about a candidate.
+   collide, and an unpushed number reserves nothing. The push rejection and the
+   detector catch it; nothing prevents it. **This cost one collision in the act of
+   fixing it:** VM 0947's D032 and this VM's D032 were both published, and this
+   side renumbered to D033 during the rebase.
+6. **`doctor` does not compare this VM's interpreter or git against what the
+   suite has been exercised on** (open, twice-partly closed). `tests/git-versions.json`
+   (T-0018) and `tests/python-versions.json` (T-0032) record what has run, per
+   version and per scope, so the claim exists and is checked: T-0032's test fails
+   when a version has no scope, when the floor names a minor version no entry
+   ran, when the unexercised list is empty, or when CI is credited with a patch
+   version the public API cannot report. **Still open:** nothing *reads* either
+   record at run time. `doctor` reports the interpreter and git it found and
+   stops there, so a VM on 3.9 is undocumented rather than warned.
+   **Ceiling:** bookkeeping hygiene, not a claim about a candidate — but it is
+   the difference between a record that is true and a VM that knows it is
+   unverified.
 
 ## What a fix costs to believe
 

@@ -15,6 +15,7 @@ Showing the 25 most recent. 25 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | **unfinished** | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:06 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
 | [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
 | [2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi](2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/README.md) | opencode | worked | T-0030: refuse a commit that gives one finding, decision or task ident | 2026-10-04T02:11 |
