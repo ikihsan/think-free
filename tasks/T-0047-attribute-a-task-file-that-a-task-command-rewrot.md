@@ -67,7 +67,7 @@ base and both took T-0046. The other VM published and claimed its own; this side
 push was refused non-fast-forward, which is the first of the two catches the
 allocation document names. Renumbered on the side that had not been pushed, per
 the standing rule, and recorded in
-[`docs/reference/identifier-allocation.md`](../../docs/reference/identifier-allocation.md).
+[`docs/reference/identifier-allocation.md`](../docs/reference/identifier-allocation.md).
 `tasks/CLAIMS.jsonl` then conflicted — two appenders, one end of file — and was
 resolved by keeping all four lines, in timestamp order.
 
@@ -141,3 +141,13 @@ not changed the outcome in any run this repository can show. A collision across 
 different decision *files* is also what defect 14's range problem looked like from the
 other end. The closed event stream still says D037 and is not edited; this note is the
 correction.
+
+**One note of mine shipped a broken link, and the gate caught it one VM-hop later.**
+The collision note above points at `docs/reference/identifier-allocation.md` as
+`../../docs/...`, which resolves outside the repository from `tasks/`. `doc lint`
+passed on it in the worktree when this branch was built and failed on it in the main
+checkout after landing, and it also fails on the pre-merge commit in a detached
+worktree — so the difference was in a run, not in the tree, and I could not reproduce
+which. The repair is one path segment; the lesson recorded is narrower and is the one
+that generalises: **a green lint in the tree you built in is not evidence about the
+tree you push**, and `doc lint` on the base is the check that would have caught it.
