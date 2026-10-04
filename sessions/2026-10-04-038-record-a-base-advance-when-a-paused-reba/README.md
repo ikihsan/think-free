@@ -39,10 +39,11 @@ _(none recorded)_
 | tools/originlib/landrebase.py | a126fbb75be6 | 10501 |
 | tools/originlib/reconcile.py | b21f34476f9f | 7943 |
 | tools/originlib/syncland.py | e853726b578a | 9940 |
+| ROADMAP.md | ecdb4258a7b9 | 19116 |
 
 ## Commands
 
-21 captured, 8 non-zero exit.
+25 captured, 7 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -63,10 +64,14 @@ _(none recorded)_
 | 31 | ['tools/origin', 'session', 'artifact', 'tools/originlib/syncland.py'] | 0 | 525 |
 | 32 | ['tools/origin', 'task', 'verify', 'T-0053'] | 0 | 22104 |
 | 33 | ['tools/origin', 'doc', 'lint'] | 0 | 2797 |
-| 34 | ['tools/origin', 'sync', 'land'] | 1 | 2118 |
-| 35 | ['tools/origin', 'sync', 'land'] | 1 | 605 |
-| 36 | ['tools/origin', 'sync', 'land'] | 1 | 1287 |
-| 37 | ['tools/origin', 'sync', 'land'] | 1 | 599 |
+| 34 | ['tools/origin', 'task', 'complete', 'T-0053', '--reason', 'A rebase finished with raw git now records its arrival from ORIG_HEAD and the reflog, refu | 2 | 420 |
+| 37 | ['tools/origin', 'task', 'complete', 'T-0053', '--summary', 'A rebase finished with raw git now records its arrival from ORIG_HEAD and the reflog, ref | 0 | 918 |
+| 38 | ['tools/origin', 'doc', 'index'] | 0 | 1014 |
+| 39 | ['tools/origin', 'doc', 'lint'] | 2 | 2792 |
+| 40 | ['tools/origin', 'doc', 'lint'] | 2 | 2881 |
+| 41 | ['tools/origin', 'doc', 'lint'] | 0 | 2976 |
+| 43 | ['tools/origin', 'session', 'artifact', 'ROADMAP.md'] | 0 | 591 |
+| 44 | ['tools/origin', 'preflight'] | 0 | 9081 |
 
 ## Integrity
 
@@ -115,10 +120,17 @@ _(none recorded)_
 | 31 | 14:43:12 | command | $ tools/origin session artifact tools/originlib/syncland.py |
 | 32 | 14:43:38 | command | $ tools/origin task verify T-0053 |
 | 33 | 14:43:47 | command | $ tools/origin doc lint |
-| 34 | 14:47:29 | command | $ tools/origin sync land |
-| 35 | 14:50:04 | command | $ tools/origin sync land |
-| 36 | 14:50:10 | command | $ tools/origin sync land |
-| 37 | 14:50:45 | command | $ tools/origin sync land |
+| 34 | 14:43:53 | command | $ tools/origin task complete T-0053 --reason A rebase finished with raw git now records its arrival from ORIG_HEAD and the reflog, refused for |
+| 35 | 14:43:57 | task_rewrite | rewrote tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md (status: done) |
+| 36 | 14:43:58 | task_rewrite | appended a complete record for T-0053 |
+| 37 | 14:43:58 | command | $ tools/origin task complete T-0053 --summary A rebase finished with raw git now records its arrival from ORIG_HEAD and the reflog, refused fo |
+| 38 | 14:44:30 | command | $ tools/origin doc index |
+| 39 | 14:44:56 | command | $ tools/origin doc lint |
+| 40 | 14:45:23 | command | $ tools/origin doc lint |
+| 41 | 14:45:58 | command | $ tools/origin doc lint |
+| 42 | 14:46:12 | artifact | wrote ROADMAP.md |
+| 43 | 14:46:12 | command | $ tools/origin session artifact ROADMAP.md |
+| 44 | 14:46:22 | command | $ tools/origin preflight |
 
 ## Reproduce this record
 
