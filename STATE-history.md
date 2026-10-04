@@ -26,7 +26,7 @@ five runs failed, with exactly one failure each and no errors, on
 hours earlier in T-0033 that asserts *this* interpreter appears in
 `tests/python-versions.json`. 3.14.2, an interpreter newer than anything this
 repository has ever named, failed exactly as 3.9.23 did. `FAILURES.md` F018,
-defect 7 in [`STATE-defects.md`](STATE-defects.md).
+defect 8 in [`STATE-defects.md`](STATE-defects.md).
 
 - **The half that was nearly missed.** A sibling test asserts the same
   "this interpreter is recorded" claim from a different source: `doctor` probes
@@ -46,7 +46,7 @@ defect 7 in [`STATE-defects.md`](STATE-defects.md).
   interpreter) and then by reading the runner image's own readme, which lists
   **Git 2.55.0** — a version the git record did not name. A conda-forge 2.55.0
   was unpacked outside the repository and reproduced the failure exactly.
-  `FAILURES.md` F019, defect 8.
+  `FAILURES.md` F019, defect 9.
 - **What was actually repaired.** Not the missing entry — the assertion. It is
   now the module's contract (four states reachable, an `exercised` verdict
   carrying its entry's scope and machine), with a control that emptying the

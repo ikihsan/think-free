@@ -106,7 +106,7 @@
     }
   ],
   "related_defect": {
-    "defect": "STATE-defects.md defect 6",
+    "defect": "STATE-defects.md defect 5 (doctor ignored these records) and defect 9 (the suite asserted that this machine's git is in its record)",
     "note": "Solved in T-0033: doctor compares this VM's interpreter and git against this record and reports exercised / NOT exercised / record unreadable / no record. Solved again, in a different place, in T-0034: the record and the CI matrix were not connected, so the suite failed on every interpreter the record had not heard of (F018). tests/test_ci_matrix.py now holds the two to each other in both directions."
   },
   "note": "Machine-readable companion to git-versions.json. It exists because docs/operations/vm-execution.md said plainly that no gate pinned a Python range, and because a mission record once demanded a 3.11+ floor invented from one machine's 3.14.6 (T-0023) - a claim about an interpreter the fleet has never run. Each entry's scope says how much of the suite that version has actually run, because a version that ran an older suite is not evidence about the current one, and each entry's where says which machine or runner it ran on, because one record now covers two environments per minor version. The matrix itself lives in .github/workflows/ci.yml and is not duplicated here: a second copy of the row list would be a second thing to keep in step."

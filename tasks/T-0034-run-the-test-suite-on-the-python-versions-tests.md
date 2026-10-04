@@ -71,7 +71,7 @@ AssertionError: Regex didn't match: '\\d+ tests' not found in ''
 The failing test was written hours earlier in T-0033 and asserts that the
 interpreter running it appears in `tests/python-versions.json`. So the suite was
 red on precisely the versions it had never been run on. Recorded as F018 and
-defect 7; `FAILURES.md` holds the write-up.
+defect 8; `FAILURES.md` holds the write-up.
 
 The near-miss is worth naming: a sibling test asserts the same claim from a
 different source — `doctor` probes `python3` on `PATH` — and the two agreed only
