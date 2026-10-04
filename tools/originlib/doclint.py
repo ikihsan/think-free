@@ -18,8 +18,12 @@ Rules, in the order they are reported:
 8. no identifier defined twice, and no index row or decision entry that the
    body does not back (rule added in T-0030 after commit `e6eb992` reached the
    shared base with two findings numbered F010; defect 5 in `STATE-defects.md`)
+9. no experiment number a mission record restates that its own `results.json`
+   does not state (rule added in T-0056 after `docs/process/experiment-protocol.md`
+   claimed 113/113 checked cases for an artifact whose `cases_with_oracle` is 115;
+   defect 22 in `STATE-defects.md`)
 
-Rules 1–4 decide from one file and live here; rules 5–8 decide from the
+Rules 1–4 decide from one file and live here; rules 5–9 decide from the
 repository as a whole and live in `doclint_tree`, split out on 2026-10-04
 (T-0040) when this module reached 299 of the 300 permitted lines. Which side a
 rule is on tells you what it may read, and therefore whether it can be run on
@@ -46,6 +50,7 @@ from pathlib import Path
 from . import paths
 from .docfiles import tracked_files
 from .finding import Finding
+from . import resultnumbers
 
 MAX_LINES = 300
 # Machine-generated data and raw logs are exempt from the cap by extension.
@@ -283,4 +288,5 @@ def lint(root: Path | None = None) -> Result:
     doclint_tree.check_generated(result)
     doclint_tree.check_conflicts(result, files)
     doclint_tree.check_identifiers(result)
+    result.violations.extend(resultnumbers.issues(paths.repo_root(), files))
     return result

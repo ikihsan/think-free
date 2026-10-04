@@ -79,7 +79,7 @@ EXPERIMENTS/0nn-slug/
 | `002-a1-masking` | Gate met computationally, with weak-sensitivity caveats. |
 | `003-information-sufficiency` | W1 and W3 survive; W2's stated input set was insufficient and has been repaired. |
 | `004-knitting-stage-a` | The candidate's per-error rule is valid but suboptimal on a shared-release case. Verdict narrow, not abandon. |
-| `005-knitting-bounded-search` | Whole-neighbourhood search reproduces the oracle on 113/113 checked cases; cheaper settings are not, and two "optimal" settings are exhaustive search in disguise. |
+| `005-knitting-bounded-search` | Whole-neighbourhood search reproduces the oracle on 115/115 oracle-checked cases (118 tested); cheaper settings are not, and two "optimal" settings are exhaustive search in disguise. |
 | `006-ventilation-measurement-design` | Kill gate **not met**: a prescribed door-open protocol beats adaptive action selection at equal budget (0.833 vs 0.792). C2 stopped (`FAILURES.md` F008). |
 | `007-build-timestamps` | E3's declared 5% gate met at 0.965, but the metric cannot fail and attributes no cause (`FAILURES.md` F010). |
 | `008-build-timestamp-attribution` | Gate met: timestamps are the only byte-level cause for the one builder available, and `SOURCE_DATE_EPOCH` makes builds bit-identical. Mechanism supported, candidate abandoned (`FAILURES.md` F012). |
