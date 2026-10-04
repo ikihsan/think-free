@@ -45,6 +45,7 @@ file reached the 300-line cap:
 | F017 | A generated file's date came from the clock, so the docs gate failed at midnight |
 | F018 | A gate asserted a fact about the record, so the suite failed on every interpreter nobody had run |
 | F019 | The suite asserted that this machine's git is in the record, so every CI row was red and the log could not be read |
+| F020 | The check-run annotations were readable all along; their silence has four causes and three are not "none" |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

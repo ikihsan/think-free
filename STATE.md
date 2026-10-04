@@ -101,6 +101,9 @@ full annotation list rather than the empty `output.text` that a first reading of
 the check-run object shows. The hour was spent on a conclusion generalised from one
 shape of failure to the case that needed it, and the general form is already
 recorded as D025: **read the property, not the field you happened to look at.**
+Now `FAILURES.md` **F020**, with the four answers that endpoint can give and the
+60-requests-an-hour limit that makes three of them look like "none"; the method is
+[`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
 
 - **Session 017, VM 0947 (T-0036).** `doc lint` rule 7 now reads the numbered list
   in `STATE-defects.md`, where two VMs had taken **defect 7** in the same hour and

@@ -1,0 +1,106 @@
+==============================================================================
+[seq 2] 2026-10-04T07:05:44+00:00
+$ python3 /tmp/opencode/annot_evidence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== run 37178057818  687961f  failure  red jobs: 7
+   row verify (3.8): annotations=11 failures=9 count_field=11
+     names : FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest)
+     file  : e 69, in test_this_vms_versions_are_exercised_against_the_real_records
+     other :  : Match(tool='git', version='2.55.0', state='unrecorded', r
+   verify (3.10): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.11): ERROR: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.Ta
+   verify (3.12): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.13): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.14): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.8): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.9): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+== run 37179073002  df2b19e  failure  red jobs: 7
+   row verify (3.12): annotations=11 failures=9 count_field=11
+     names : FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest.test_this_vms
+     file  : e 69, in test_this_vms_versions_are_exercised_against_the_real_records
+     other :  : Match(tool='git', version='2.55.0', state='unrecorded', r
+   verify (3.10): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.11): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.12): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.13): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.14): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.8): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+   verify (3.9): FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+== run 37174050724  b204aff  failure  red jobs: 1
+   row verify: annotations=11 failures=9 count_field=11
+     names : FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest.test_this_vms
+     names : FAIL: test_the_reported_scope_names_this_suites_size (test_doctor_versions.RealRecordTest.test_the_reported_scope_name
+     file  : rsions.py", line 76, in test_the_reported_scope_names_this_suites_size
+     other : ------------------------------------------------------------
+   verify: FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_version
+== run 37163438950  8898f0a  failure  red jobs: 1
+   row verify: annotations=3 failures=1 count_field=3
+     other : Process completed with exit code 2.
+   verify: (no test named)
+== run 37163434868  83aa9a4  failure  red jobs: 1
+   row verify: annotations=3 failures=1 count_field=3
+     other : Process completed with exit code 2.
+   verify: (no test named)
+== run 37171841544  09684f2  failure  red jobs: 1
+   row verify: annotations=3 failures=1 count_field=3
+     other : Process completed with exit code 2.
+   verify: (no test named)
+== run 37181374433  3818c9f  failure  red jobs: 1
+
+
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/annot_evidence.py", line 33, in <module>
+    annotations = get(f"/check-runs/{row['id']}/annotations")
+  File "/tmp/opencode/annot_evidence.py", line 20, in get
+    with urllib.request.urlopen(request, timeout=30) as response:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: rate limit exceeded
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 12714  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T07:06:04+00:00
+$ python3 -c 
+import json, urllib.request
+req = urllib.request.Request('https://api.github.com/rate_limit', headers={'User-Agent':'origin-ci-evidence'})
+try:
+    with urllib.request.urlopen(req, timeout=20) as r:
+        core = json.load(r)['resources']['core']
+        print('core limit', core['limit'], 'remaining', core['remaining'])
+except Exception as exc:
+    print('error', type(exc).__name__, exc)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+core limit 60 remaining 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 342  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T07:14:18+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 418 tests in 270.038s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 270721  redactions: none

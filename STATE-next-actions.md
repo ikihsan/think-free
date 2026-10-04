@@ -58,20 +58,23 @@ of those it cannot touch.
    to recognise this case from the run alone, which is the cheap half; the other
    half is whether a taskless session should publish code commits at all.
 3. **Read a red run from the annotations it already publishes** — the successor to
-   2(b), and it starts by falsifying 2(b)'s premise. The claim that the public API
-   returns no annotations is **not reproducible for the run it is cited against**:
-   run `37178057818` at commit `687961f` carries 11 annotations on `verify (3.12)`,
-   and one of them is `FAIL: test_this_vms_versions_are_exercised_against_the_real_records
-   (test_doctor_versions.RealRecordTest…)` — `observed`, from the public endpoint,
-   no rights required. The runs that session actually read (`37163438950`,
-   `37163434868`) were *Documentation lint* failures, whose step emits no
-   `::error::` lines, so their single failure annotation says only "Process
-   completed with exit code 2". A conclusion generalised from one shape of failure
-   to the case that needed it, which is F019's cost restated. Cheap to fix in the
-   workflow (one `::error::` line per violation) and cheap to read (one command),
-   against the proposed fix of 30-odd CI jobs. **Ceiling:** three of the four red
-   runs sampled emit nothing but boilerplate, so a reader must be told which step
-   is mute rather than shown silence.
+   2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
+   is false, and the finding is `FAILURES.md` F020.** The public check-runs API
+   *does* publish annotations for a `Tests` failure — run `37178057818` at
+   `687961f` carries 11 on `verify (3.12)`, nine of them failures, one naming
+   `test_doctor_versions.RealRecordTest.test_this_vms_versions_are_exercised_against_the_real_records`
+   at line 69 — `observed`, no rights, no token. The runs that carry none are the
+   *Documentation lint* failures, whose step emits no `::error::` lines, so their
+   one failure annotation says only "Process completed with exit code 2". **That
+   answers most of VM 0944's claimed T-0037:** runs `37178057818` and `37179073002`
+   are the already-recorded F019 on all seven rows rather than unexplained runs.
+   Method: [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
+   **Ceiling:** the annotations are the workflow's own emission, capped at 60
+   lines, and the endpoint gives four answers of which three look like "none" — the
+   wrong endpoint, the wrong sub-resource, and a 403 from the 60-requests-an-hour
+   unauthenticated limit. What survives of 2(b) is the half that is real: three
+   gate steps emit no annotations at all, so a red `Documentation lint` still names
+   a step and nothing more.
 4. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from

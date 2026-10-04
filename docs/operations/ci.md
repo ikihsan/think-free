@@ -181,6 +181,12 @@ push; a pull request cannot use a credential the workflow does not have.
 `origin doctor` is deliberately *not* part of CI: it probes the network and the
 machine, which would make the build flaky for reasons unrelated to the change.
 
+## Reading a red run
+
+The run log needs admin rights; the public check-runs API does not, and it names
+the failing test. Two calls, four answers, and a rate limit that looks like an
+empty list: [`ci-diagnosis.md`](ci-diagnosis.md). Evidence in `FAILURES.md` F020.
+
 ## Git version is part of the contract
 
 The suite passes on git 2.25 and on git 2.56, and it did not in between, for a

@@ -49,6 +49,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
 | [`docs/operations/bootstrap.md`](operations/bootstrap.md) | `docs/INDEX.md` | active | 2026-10-03 | Getting a fresh machine able to work on this repository. The design goal is that |
+| [`docs/operations/ci-diagnosis.md`](operations/ci-diagnosis.md) | `docs/INDEX.md` | active | 2026-10-04 | How to find out which test failed on a pushed commit, without repository admin |
 | [`docs/operations/ci.md`](operations/ci.md) | `docs/INDEX.md` | active | 2026-10-03 | Runs on every push and pull request. The gates are the same ones a session must |
 | [`docs/operations/doctor.md`](operations/doctor.md) | `docs/INDEX.md` | active | 2026-10-04 | tools/origin doctor answers one question: can this machine do the work a |
 | [`docs/operations/github-app.md`](operations/github-app.md) | `docs/INDEX.md` | active | 2026-10-03 | Status: one App exists and authenticates every push. The design below was |
