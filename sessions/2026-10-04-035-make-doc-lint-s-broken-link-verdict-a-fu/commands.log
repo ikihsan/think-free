@@ -1,0 +1,393 @@
+==============================================================================
+[seq 3] 2026-10-04T11:52:29+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_link_escape
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+..F.FFF..F
+======================================================================
+FAIL: test_a_relative_link_out_of_the_repository_is_reported_with_its_place (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 155, in test_a_relative_link_out_of_the_repository_is_reported_with_its_place
+    self.assertIn("link leaves the repository -> ../../docs", found[0])
+AssertionError: 'link leaves the repository -> ../../docs' not found in 'tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'
+
+======================================================================
+FAIL: test_an_absolute_path_out_of_the_repository_is_reported (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 160, in test_an_absolute_path_out_of_the_repository_is_reported
+    self.assertEqual(len(found), 1, f"expected one finding, got {found}")
+AssertionError: 0 != 1 : expected one finding, got []
+
+======================================================================
+FAIL: test_annotate_publishes_it_as_a_check_run_annotation (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 199, in test_annotate_publishes_it_as_a_check_run_annotation
+    self.assertEqual(len(published), 1, self.output())
+AssertionError: 0 != 1 : doc lint: 66 file(s) checked
+  FAIL  tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md
+  FAIL  AGENTS.md: orphan document; no other document links to it
+  FAIL  MISSION.md: orphan document; no other document links to it
+  FAIL  README.md: orphan document; no other document links to it
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  STATE.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  tasks/probe.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 13 violation(s)
+::error file=tasks/probe.md,line=9::tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md
+::error file=AGENTS.md::AGENTS.md: orphan document; no other document links to it
+::error file=MISSION.md::MISSION.md: orphan document; no other document links to it
+::error file=README.md::README.md: orphan document; no other document links to it
+::error file=RELEASE-MANIFEST.md::RELEASE-MANIFEST.md: orphan document; no other document links to it
+::error file=STATE.md::STATE.md: orphan document; no other document links to it
+::error file=docs/process/session-protocol.md::docs/process/session-protocol.md: orphan document; no other document links to it
+::error file=docs/process/task-lifecycle.md::docs/process/task-lifecycle.md: orphan document; no other document links to it
+::error file=docs/reference/skill-inventory.md::docs/reference/skill-inventory.md: orphan document; no other document links to it
+::error file=tasks/probe.md::tasks/probe.md: orphan document; no other document links to it
+::error::sessions/INDEX.md: generated file missing
+::error file=docs/INDEX.md::docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+::error::tasks/INDEX.md: generated file missing
+
+
+======================================================================
+FAIL: test_the_finding_carries_the_line_the_link_is_on (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 184, in test_the_finding_carries_the_line_the_link_is_on
+    self.assertEqual(len(escapes), 1, [str(i) for i in doclint.lint().violations])
+AssertionError: 0 != 1 : ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md', 'AGENTS.md: orphan document; no other document links to it', 'MISSION.md: orphan document; no other document links to it', 'README.md: orphan document; no other document links to it', 'RELEASE-MANIFEST.md: orphan document; no other document links to it', 'STATE.md: orphan document; no other document links to it', 'docs/process/session-protocol.md: orphan document; no other document links to it', 'docs/process/task-lifecycle.md: orphan document; no other document links to it', 'docs/reference/skill-inventory.md: orphan document; no other document links to it', 'tasks/probe.md: orphan document; no other document links to it', 'sessions/INDEX.md: generated file missing', "docs/INDEX.md: generated file is stale; run 'tools/origin doc index'", 'tasks/INDEX.md: generated file missing']
+
+======================================================================
+FAIL: test_the_same_document_is_judged_the_same_wherever_the_checkout_sits (tests.test_link_escape.ParentDependenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 123, in test_the_same_document_is_judged_the_same_wherever_the_checkout_sits
+    self.assertEqual(
+AssertionError: Lists differ: [] != ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'
+
+- []
++ ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'] : one document, linted at two checkout locations, disagreed
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.244s
+
+FAILED (failures=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4597  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T11:56:45+00:00
+$ python3 tools/mutate_link_rule.py apply
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+applyd: containment removed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 81  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T11:56:49+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_link_escape
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+..F.FFF..F
+======================================================================
+FAIL: test_a_relative_link_out_of_the_repository_is_reported_with_its_place (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 155, in test_a_relative_link_out_of_the_repository_is_reported_with_its_place
+    self.assertIn("link leaves the repository -> ../../docs", found[0])
+AssertionError: 'link leaves the repository -> ../../docs' not found in 'tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'
+
+======================================================================
+FAIL: test_an_absolute_path_out_of_the_repository_is_reported (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 160, in test_an_absolute_path_out_of_the_repository_is_reported
+    self.assertEqual(len(found), 1, f"expected one finding, got {found}")
+AssertionError: 0 != 1 : expected one finding, got []
+
+======================================================================
+FAIL: test_annotate_publishes_it_as_a_check_run_annotation (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 201, in test_annotate_publishes_it_as_a_check_run_annotation
+    self.assertEqual(len(published), 1, self.output())
+AssertionError: 0 != 1 : doc lint: 66 file(s) checked
+  FAIL  tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md
+  FAIL  AGENTS.md: orphan document; no other document links to it
+  FAIL  MISSION.md: orphan document; no other document links to it
+  FAIL  README.md: orphan document; no other document links to it
+  FAIL  RELEASE-MANIFEST.md: orphan document; no other document links to it
+  FAIL  STATE.md: orphan document; no other document links to it
+  FAIL  docs/process/session-protocol.md: orphan document; no other document links to it
+  FAIL  docs/process/task-lifecycle.md: orphan document; no other document links to it
+  FAIL  docs/reference/skill-inventory.md: orphan document; no other document links to it
+  FAIL  tasks/probe.md: orphan document; no other document links to it
+  FAIL  sessions/INDEX.md: generated file missing
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+  FAIL  tasks/INDEX.md: generated file missing
+doc lint: 13 violation(s)
+::error file=tasks/probe.md,line=9::tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md
+::error file=AGENTS.md::AGENTS.md: orphan document; no other document links to it
+::error file=MISSION.md::MISSION.md: orphan document; no other document links to it
+::error file=README.md::README.md: orphan document; no other document links to it
+::error file=RELEASE-MANIFEST.md::RELEASE-MANIFEST.md: orphan document; no other document links to it
+::error file=STATE.md::STATE.md: orphan document; no other document links to it
+::error file=docs/process/session-protocol.md::docs/process/session-protocol.md: orphan document; no other document links to it
+::error file=docs/process/task-lifecycle.md::docs/process/task-lifecycle.md: orphan document; no other document links to it
+::error file=docs/reference/skill-inventory.md::docs/reference/skill-inventory.md: orphan document; no other document links to it
+::error file=tasks/probe.md::tasks/probe.md: orphan document; no other document links to it
+::error::sessions/INDEX.md: generated file missing
+::error file=docs/INDEX.md::docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+::error::tasks/INDEX.md: generated file missing
+
+
+======================================================================
+FAIL: test_the_finding_carries_the_line_the_link_is_on (tests.test_link_escape.LinkRuleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 184, in test_the_finding_carries_the_line_the_link_is_on
+    self.assertEqual(len(escapes), 1, [str(i) for i in doclint.lint().violations])
+AssertionError: 0 != 1 : ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md', 'AGENTS.md: orphan document; no other document links to it', 'MISSION.md: orphan document; no other document links to it', 'README.md: orphan document; no other document links to it', 'RELEASE-MANIFEST.md: orphan document; no other document links to it', 'STATE.md: orphan document; no other document links to it', 'docs/process/session-protocol.md: orphan document; no other document links to it', 'docs/process/task-lifecycle.md: orphan document; no other document links to it', 'docs/reference/skill-inventory.md: orphan document; no other document links to it', 'tasks/probe.md: orphan document; no other document links to it', 'sessions/INDEX.md: generated file missing', "docs/INDEX.md: generated file is stale; run 'tools/origin doc index'", 'tasks/INDEX.md: generated file missing']
+
+======================================================================
+FAIL: test_the_same_document_is_judged_the_same_wherever_the_checkout_sits (tests.test_link_escape.ParentDependenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944/tests/test_link_escape.py", line 123, in test_the_same_document_is_judged_the_same_wherever_the_checkout_sits
+    self.assertEqual(
+AssertionError: Lists differ: [] != ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'
+
+- []
++ ['tasks/probe.md: broken link -> ../../docs/reference/identifier-allocation.md'] : one document, linted at two checkout locations, disagreed
+
+----------------------------------------------------------------------
+Ran 10 tests in 3.918s
+
+FAILED (failures=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4203  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T11:56:50+00:00
+$ python3 tools/mutate_link_rule.py restore
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+restored: containment restored
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 202  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T11:56:56+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_link_escape
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 4.700s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5233  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T12:03:58+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 513 tests in 253.009s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 253696  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T12:04:09+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 550 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2303  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T12:33:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 513 tests in 251.731s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 252316  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T12:33:55+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 550 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 78 session(s) checked
+  note  2026-10-04-034-separate-the-line-cap-exemption-from-rec: in flight (task T-0050, claimed by opencode on instance-20260717-0947 0.8h ago)
+  note  2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu: in progress (command)
+session verify: OK
+release check: 42 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7402  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T12:35:17+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_link_escape tests.test_doclint tests.test_annotate tests.test_ci_annotations
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+...........................................................
+----------------------------------------------------------------------
+Ran 59 tests in 14.092s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14888  redactions: none
+==============================================================================
+[seq 26] 2026-10-04T12:35:20+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 550 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 343 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2245  redactions: none
+==============================================================================
+[seq 29] 2026-10-04T12:37:48+00:00
+$ tools/origin task verify T-0051
+cwd: /home/ubuntu/think-free/.worktrees/T-0051-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0051: `PYTHONPATH=tools:tests python3 -m unittest tests.test_link_escape -q && tools/origin doc lint && tools/origin preflight` -> exit 0 in 15.67s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16013  redactions: none
