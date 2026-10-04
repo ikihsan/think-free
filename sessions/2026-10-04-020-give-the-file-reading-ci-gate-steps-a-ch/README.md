@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T07:35:57+00:00
-- **Duration:** ?s
+- **Duration:** 8330.0s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Give the file-reading CI gate steps a check-run annotation that names the violat
 
 ## Summary
 
-_(none recorded)_
+T-0040: every file-reading CI gate step now re-emits each violation as a check-run annotation naming the file. A violation carries the location its own rule knows (tools/originlib/finding.py) and 'origin annotate -- <gate>' publishes it; all five steps run it. Falsified against e53ca23's real bytes in both directions - the present command emits zero :: lines there and the new one emits file=STATE-defects.md, while on this tip both emit none - with the first run failing its own kill gate by dropping the location when it prefixed the message. doclint.py was split into doclint_tree.py by what a rule may read, at the 300-line cap. Two more defects came out of running the code rather than reading it: the workflow's awk escaped % wrongly, and four CLI handlers raised a Usage they had never imported; both are folded into defect 17 because STATE-defects.md has one line of room. 474 tests green, doc lint and preflight exit 0.
+
+## Next
+
+The gating decision for T-0040 is owed and could not be written: DECISIONS-GATING.md took its split and D036 in T-0042, so the prose lives in docs/operations/ci.md and the log entry waits for room. Whether GitHub honours the file= property is still unmeasured - run 37189825232 came back with path=.github - so the claim is that the location reaches the reader. A one-line variant of the lease-test clock fix (T-0046) was withdrawn unpublished because T-0044 solved the same defect better.
 
 ## Artifacts
 
@@ -38,6 +42,13 @@ _(none recorded)_
 | tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md | 0884f9d83a23 | 6229 |
 | .github/workflows/ci.yml | 3a8a85f8c020 | 5318 |
 | docs/operations/ci-diagnosis.md | 50b16220a2db | 6543 |
+| tools/originlib/annotate.py | e0380d394ea6 | 5757 |
+| tools/originlib/finding.py | a1c8ffe6bc24 | 6779 |
+| tools/originlib/doclint_tree.py | 425fedfad9b6 | 6116 |
+| tools/originlib/usage.py | 3b56bb8c8f32 | 854 |
+| tests/test_annotate.py | f595bfe0613e | 12906 |
+| tests/test_ci_annotations.py | 0b094b72f71c | 6028 |
+| docs/operations/ci-diagnosis.md | fea91cbc992e | 7253 |
 
 ## Commands
 
@@ -60,11 +71,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 50 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | .agents/skills/task-execution/SKILL.md |
+|   undeclared | AGENTS.md |
+|   undeclared | DECISIONS-GATING.md |
+|   undeclared | DECISIONS-PRACTICE.md |
+|   undeclared | DECISIONS-RECORDS.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | README.md |
+|   undeclared | RELEASE-MANIFEST.md |
+|   undeclared | ROADMAP.md |
+|   undeclared | STATE-defects.md |
 
 ## Timeline
 
@@ -93,6 +113,35 @@ _(none recorded)_
 | 21 | 08:47:30 | artifact | wrote .github/workflows/ci.yml |
 | 22 | 08:47:30 | artifact | wrote docs/operations/ci-diagnosis.md |
 | 23 | 09:04:41 | note | Base carries a red doc lint and 7 red tests: tools/originlib/identifiers.py is 306 lines on origin/research/origin, over the 300-line cap, so every fi |
+| 24 | 09:54:09 | artifact | wrote tools/originlib/annotate.py |
+| 25 | 09:54:09 | artifact | wrote tools/originlib/finding.py |
+| 26 | 09:54:09 | artifact | wrote tools/originlib/doclint_tree.py |
+| 27 | 09:54:09 | artifact | wrote tools/originlib/usage.py |
+| 28 | 09:54:09 | artifact | wrote tests/test_annotate.py |
+| 29 | 09:54:09 | artifact | wrote tests/test_ci_annotations.py |
+| 30 | 09:54:09 | artifact | wrote docs/operations/ci-diagnosis.md |
+| 31 | 09:54:10 | note | T-0046 was created and then cancelled unpublished: the same wall-clock time bomb was already solved on instance-20260717-0947 as defect 15 in T-0044,  |
+| 32 | 09:54:46 | unlogged_change | changed but never declared as an artifact: .agents/skills/task-execution/SKILL.md |
+| 33 | 09:54:46 | unlogged_change | changed but never declared as an artifact: AGENTS.md |
+| 34 | 09:54:46 | unlogged_change | changed but never declared as an artifact: DECISIONS-GATING.md |
+| 35 | 09:54:46 | unlogged_change | changed but never declared as an artifact: DECISIONS-PRACTICE.md |
+| 36 | 09:54:46 | unlogged_change | changed but never declared as an artifact: DECISIONS-RECORDS.md |
+| 37 | 09:54:46 | unlogged_change | changed but never declared as an artifact: DECISIONS.md |
+| 38 | 09:54:46 | unlogged_change | changed but never declared as an artifact: README.md |
+| 39 | 09:54:46 | unlogged_change | changed but never declared as an artifact: RELEASE-MANIFEST.md |
+| 40 | 09:54:46 | unlogged_change | changed but never declared as an artifact: ROADMAP.md |
+| 79 | 09:54:46 | unlogged_change | changed but never declared as an artifact: tools/originlib/reconcile.py |
+| 80 | 09:54:46 | unlogged_change | changed but never declared as an artifact: tools/originlib/release.py |
+| 81 | 09:54:46 | unlogged_change | changed but never declared as an artifact: tools/originlib/skillsync.py |
+| 82 | 09:54:46 | doc_update | updated DECISIONS-GATING.md |
+| 83 | 09:54:46 | doc_update | updated DECISIONS-PRACTICE.md |
+| 84 | 09:54:46 | doc_update | updated DECISIONS-RECORDS.md |
+| 85 | 09:54:46 | doc_update | updated DECISIONS.md |
+| 86 | 09:54:47 | doc_update | updated ROADMAP.md |
+| 87 | 09:54:47 | doc_update | updated STATE.md |
+| 88 | 09:54:47 | session_end | T-0040: every file-reading CI gate step now re-emits each violation as a check-run annotation naming the file. A violation carries the location its ow |
+
+_38 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

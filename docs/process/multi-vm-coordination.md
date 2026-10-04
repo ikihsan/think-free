@@ -86,6 +86,14 @@ session's own undeclared changes. Session 040 reached that ceiling through seven
 hand-run rebases and session 012 through two; both closed with `unlogged_change`
 events for files nobody touched. This is the intended direction of failure — an
 extra report costs a minute of reading, a wrongly silenced file costs the record.
+**Session 020 (2026-10-04) is the worked example, and it is a different flavour:**
+recovering a rebase that had gone wrong needed `git rebase --abort`, then
+`git rebase --onto`, then `git branch -f`, so nothing the tooling performed moved the
+base at all. It closed with 41 `unlogged_change` events naming the *other* VM's files —
+`DECISIONS-RECORDS.md`, `tools/originlib/decisionheader.py`, `tests/test_preflight_gates.py`
+— which this session never wrote. The report is right and useless at once: the ceiling
+was reached by a rebasing session rather than by a careless one, and nothing in the
+event stream says which.
 
 **Where the collision detector did not look.** On 2026-10-04 two VMs took **defect
 7** in `STATE-defects.md` in the same hour, both copies reached the shared base, and
