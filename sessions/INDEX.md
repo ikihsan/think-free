@@ -15,7 +15,7 @@ Showing the 25 most recent. 70 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | **unfinished** | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:02 |
+| [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | worked | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:10 |
 | [2026-10-04-051-close-the-three-documentation-gaps-sessi](2026-10-04-051-close-the-three-documentation-gaps-sessi/README.md) | unknown-agent | worked | Close the three documentation gaps session 050 reported, and record wh | 2026-10-04T21:02 |
 | [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | worked | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:44 |
 | [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | **unfinished** | Decide and execute the highest-information research action after 12 pr | 2026-10-04T20:22 |
