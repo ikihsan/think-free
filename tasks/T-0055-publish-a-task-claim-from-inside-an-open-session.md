@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0055
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-041-repair-the-red-base-state-md-over-the-li
+claim-vm: instance-20260717-0944
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_claim_in_session -q && tools/origin preflight
 -->
 
