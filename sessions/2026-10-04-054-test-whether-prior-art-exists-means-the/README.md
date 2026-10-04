@@ -1,0 +1,59 @@
+# Session 2026-10-04-054-test-whether-prior-art-exists-means-the
+
+<!-- origin-meta
+owner: sessions/INDEX.md
+status: active
+last-verified: 2026-10-04
+-->
+
+<!-- generated-by: origin; do not edit by hand -->
+
+## Outcome
+
+- **Result:** `unfinished`
+- **Agent:** `unknown-agent`
+- **Started:** 2026-10-04T21:44:25+00:00
+- **Duration:** ?s
+- **Host:** `instance-20260717-0947`
+- **Branch:** `research/origin`
+
+## Goal
+
+Test whether 'prior art exists' means 'the need is served', using incumbents named by the mission's own prior-art kills plus the strongest-recurrence cluster
+
+## Summary
+
+_(none recorded)_
+
+## Artifacts
+
+_none_
+
+## Commands
+
+0 captured, 0 non-zero exit.
+
+_none_
+
+## Integrity
+
+| check | result |
+|---|---|
+| session_end event | MISSING - session may be unfinished |
+| undeclared file changes | 0 |
+| declared artifacts now missing | 0 |
+| integrity errors | 0 |
+| redactions applied to command output | 0 |
+
+## Timeline
+
+| seq | time | kind | summary |
+|---|---|---|---|
+| 1 | 21:44:25 | session_start | Test whether 'prior art exists' means 'the need is served', using incumbents named by the mission's own prior-art kills plus the strongest-recurrence  |
+
+## Reproduce this record
+
+```bash
+tools/origin session verify
+cat sessions/2026-10-04-054-test-whether-prior-art-exists-means-the/events.jsonl
+```
