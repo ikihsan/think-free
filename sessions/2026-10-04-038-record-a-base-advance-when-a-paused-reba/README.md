@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T14:13:21+00:00
-- **Duration:** ?s
+- **Duration:** 2383.2s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Record a base_advance when a paused rebase is completed by hand (T-0053)
 
 ## Summary
 
-_(none recorded)_
+T-0053: a hand-completed rebase's arrival is recovered from ORIG_HEAD and the reflog — merge, fast-forward, and already-recorded arrivals refused, both directions falsified. One conflict resolved on STATE.md/ROADMAP keeping both sides' facts, and the other VM's T-0052 result (D043, defect 20) is in the base.
+
+## Next
+
+Land a worktree session for T-0052 handling, and watch whether session 038 is picked up as abandoned once it finishes
 
 ## Artifacts
 
@@ -43,7 +47,7 @@ _(none recorded)_
 
 ## Commands
 
-25 captured, 7 non-zero exit.
+26 captured, 7 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -72,16 +76,17 @@ _(none recorded)_
 | 41 | ['tools/origin', 'doc', 'lint'] | 0 | 2976 |
 | 43 | ['tools/origin', 'session', 'artifact', 'ROADMAP.md'] | 0 | 591 |
 | 44 | ['tools/origin', 'preflight'] | 0 | 9081 |
+| 46 | ['tools/origin', 'sync', 'land'] | 0 | 5808 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/CLAIMS.jsonl |
 
 ## Timeline
 
@@ -131,6 +136,12 @@ _(none recorded)_
 | 42 | 14:46:12 | artifact | wrote ROADMAP.md |
 | 43 | 14:46:12 | command | $ tools/origin session artifact ROADMAP.md |
 | 44 | 14:46:22 | command | $ tools/origin preflight |
+| 45 | 14:52:21 | base_advance | sync land: base moved 02c40240750c -> 23a0cc4cdde2, 3 commit(s) arrived from the shared base |
+| 46 | 14:52:21 | command | $ tools/origin sync land |
+| 47 | 14:53:04 | unlogged_change | changed but never declared as an artifact: tasks/CLAIMS.jsonl |
+| 48 | 14:53:05 | doc_update | updated ROADMAP.md |
+| 49 | 14:53:05 | doc_update | updated STATE.md |
+| 50 | 14:53:05 | session_end | T-0053: a hand-completed rebase's arrival is recovered from ORIG_HEAD and the reflog — merge, fast-forward, and already-recorded arrivals refused, bot |
 
 ## Reproduce this record
 
