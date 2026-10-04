@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-72 recorded session(s). One `events.jsonl` per session, so concurrent
+73 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 47 older session(s) are in the directory listing.
+Showing the 25 most recent. 48 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | **unfinished** | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T10:49 |
 | [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | worked | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:47 |
 | [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
 | [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 47 older session(s) are in the directory listing.
 | [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
 | [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
-| [2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi](2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/README.md) | opencode | worked | T-0030: refuse a commit that gives one finding, decision or task ident | 2026-10-04T02:11 |
 
 
 ## Reading a session
