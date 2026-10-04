@@ -45,7 +45,9 @@ interfere with the working repository.
 | `test_gitversions.py` | Schema of `git-versions.json`, that the docs point at it, and the honesty clauses added after F019: every entry has a scope with a count and a machine, and the unexercised ranges are named |
 | `test_identifiers.py` | The identifier rule: the two definitions of F010 as commit `e6eb992` wrote them, index rows with and without a body, task numbers, and the paraphrased rows that must stay silent |
 | `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree — for both sources of definitions |
-| `test_task_rewrite.py` | Whose change is a task file `task complete` just rewrote: the command's own write is declared with the **bytes** it wrote, so an agent's later edit to the same file — body or meta block — is reported again, and a file changed with no command run at all is still reported. Falsified by mutation in both directions, and against session 2026-10-04-019's own stream, which declared seven artifacts and closed `worked` with `unlogged_changes: 1` naming its own task file (defect 12) |
+| `test_task_rewrite.py` | Whose change is a task file `task complete` just rewrote: the command's own write is declared with the **bytes** it wrote, so an agent's later edit to the same file — body or meta block — is reported again, and a file changed with no command run at all is still reported. Falsified by mutation in both directions. Counts name the ledger too, since T-0050 gave `tasks/CLAIMS.jsonl` the same treatment and a task command writes both files (defect 12) |
+| `test_task_rewrite_recorded.py` | The same defect on the bytes the fleet published: session 2026-10-04-019 declared seven artifacts and closed `worked` with `unlogged_changes: 1` naming its own task file, and its stream declares no `task_rewrite` at all — for the task file or for the ledger — so the rule reads it as declaring nothing rather than as silent by default. Split from `test_task_rewrite.py` at the line cap; also that a whole-file digest cannot stand in for a task file's two-part one (defect 12) |
+| `test_unlogged_data.py` | A file's extension must not decide whether a session declared it: a `.json`, `.jsonl` and `.log` changed without declaring is reported, all three because a rule that fixed only `.json` would leave the ledger and the session streams. The controls that must still hold — a declared data file, a generated file, a declared exempt glob, and the cap's own exemption of a 400-line JSON — plus the ledger's declaration by its bytes and the four experiment captures session `2026-10-04-030` changed and never declared (defect 12's stated false negative, F022) |
 | `test_defectlist.py` | The defect list as an identifier record: the two entries both numbered 7 as `e53ca23` and `e701ad8` wrote them, a sweep over every commit that touches the file, and the four shapes that must stay silent (prose, a plain numbered list, an indented nested item, out-of-order numbering) |
 | `test_decision_header.py` | The third source of a decision identifier: a record's own `Decisions **…**` header, held to the decisions that file defines in both directions. Falsified against `d451169`'s own bytes, which carried two false headers while every gate passed, and silent on the repair (defect 14) |
 | `test_decision_files.py` | The two hand-maintained lists of decision records — `paths.MISSION_RECORDS` and `reconcile.IMPLICATIONS` — held to the files on disk, because the log was split five times and each split added a file to both by hand |
@@ -265,7 +267,19 @@ was mutated, and the green run was read as "the clause is not load-bearing". The
 same pattern removed only the digest bound *did* fail 3, so the two mutations were
 distinguishable only because one of them was applied twice by hand. **Assert that
 the patch landed before trusting the run**, and treat a mutation that needed no
-repair as the suspicious result rather than the reassuring one.
+repair as the suspicious result rather than the reassuring one. **It happened again
+in the same file's subject on 2026-10-04 (T-0050):** the first mutation of
+`reconcile`'s exemption clause left all 16 tests of `test_unlogged_data.py` green
+for exactly the same reason, and the second attempt failed 10.
+
+**A borrowed predicate carries its own question, so a repair can be green and
+still wrong.** The defect here was one line: `reconcile` asked `doclint.is_exempt`,
+the *cap's* question, and read "yes" as "exempt from the undeclared-change report".
+The fix is to ask the question actually meant, which means the two questions have
+to be named separately in the first place. Price that class of change **before**
+making it — `tools/sweep_unlogged_data.py` answers "how many reports would appear"
+from git and the committed streams, and the answer (72 pairs over 17 paths) is what
+told this repair its residual had to be written down rather than discovered.
 
 ## Running a subset
 

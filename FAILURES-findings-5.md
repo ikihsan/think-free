@@ -1,0 +1,101 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-04
+-->
+
+# Failures — recorded findings, part 5 (F022 onwards)
+
+Continues [`FAILURES-findings-4.md`](FAILURES-findings-4.md), which holds
+F018–F021 and reached the 300-line cap at F021. **Identifiers are stable across
+all five files**: a reference to `F018` means the same entry wherever it appears.
+New findings are appended here.
+
+**What the finding in this file has in common with F018–F021.** All five are a
+verdict drawn from a field that did not carry it. F018 and F019 asserted a fact
+about the machine instead of about the code; F020 generalised a true statement
+about the runs where it held to the run where it did not; F021 read "the run was
+red" as "the mechanism ran". F022 is the same move inside one function: a rule
+borrowed from a *neighbouring* question and read as if it answered the question
+asked. The evidence was available — `doclint.is_exempt` was written down, one
+line away, answering a different one.
+
+## F022 — The exemption that answered the wrong question hid every data-file edit
+
+Source: T-0050, session `2026-10-04-034`, 2026-10-04. Repair:
+`tools/originlib/reconcile.py`, `tools/originlib/declaredwrite.py`;
+`tests/test_unlogged_data.py`; the sweep is `tools/sweep_unlogged_data.py`.
+
+**What happened, `observed`.** `reconcile._is_vendored` asked
+`doclint.is_exempt`, and `is_exempt` answers yes for any path whose suffix is in
+`DATA_SUFFIXES` — `{".json", ".jsonl", ".log"}` — because those files are exempt
+from the 300-line cap. So reconciliation excluded from `unlogged` every JSON,
+JSONL and log edit in the repository. `tests/python-versions.json` and
+`tests/git-versions.json` decide whether this VM can run the work at all
+(`doctor` reads them), `tasks/CLAIMS.jsonl` is the multi-VM claim ledger, and
+`vendor/hashes.json` is the vendoring record: all four could be edited with
+nothing declared and nothing reported.
+
+**Why it survived T-0047.** Defect 12's repair made the report *precise* about
+the files a command writes, and its entry named the remaining false negative in
+one clause — "a `*.json`/`*.jsonl` edit is excluded from `unlogged` by the same
+line-cap exemption that exempts it from the cap". The clause was correct and
+actionable, and sat inside a numbered defect entry at the bottom of a file at its
+line cap, so no test was ever written against it. The count it implied was never
+taken.
+
+**The measurement, taken before the change.** `tools/sweep_unlogged_data.py` walks
+all 77 closed sessions' windows and applies the real rules — artifact declarations,
+byte-level command declarations, the session's own directory, generated marks,
+declared exempt globs, recorded base moves:
+
+| bucket | (session, path) pairs |
+|---|---|
+| excluded: the session's own directory | 114 |
+| excluded: another session's stream (a window artefact of two VMs interleaving) | 92 |
+| excluded: declared as an artifact | 27 |
+| **newly reportable** | **72 over 17 distinct paths** |
+
+With `--all`, which counts another session's stream as a report rather than a
+window artefact, the total is **164 pairs over 93 paths**. Fifty of the 72 are
+`tasks/CLAIMS.jsonl`; the rest are `tests/git-versions.json` (3),
+`tests/python-versions.json` (1), `vendor/hashes.json` (2), and 16 raw experiment
+captures under `EXPERIMENTS/`.
+
+**The residual, stated rather than hidden.** The repair is forward-only: a
+`task_rewrite` event has to be written while the session that made the change is
+open, and a closed append-only stream is not edited. So **50 closed sessions now
+report a file they cannot declare**, and no gate reads their streams. That is the
+intended direction of failure — silence was the defect — but it is a real cost,
+priced here rather than discovered later.
+
+**Repair, and the shape it took.** Two changes, because the exemption was
+answering a question it was never asked. `doclint` splits into
+`is_data_suffix` (the cap's question: is this file's length worth reading) and
+`is_declared_exempt` (is another check already looking at this file), and
+reconciliation reads only the second. And the two data files a command writes are
+declared by the bytes they wrote: `tasks.append_claim` and `skillsync.write_hashes`
+each append a `task_rewrite` event carrying a whole-file sha256 and size, told
+apart from a task file's meta/body pair by the keys rather than by the path.
+
+**Falsified both ways, and the first mutation mutated nothing.** Removing the
+`is_declared_exempt` clause *and* the ledger declaration fails 10 of the 16 tests
+in `tests/test_unlogged_data.py`, all three suffixes among them; the six that still
+pass are the controls, which must. The first attempt at that mutation **passed all
+16** because the patch pattern did not match and a green run was read as a
+control — the same trap defect 12's entry records, hit again in the same file.
+`vendor/hashes.json` was found by the sweep, not by reading: it is not generated by
+a command that declares, and `skills verify` compares the *skills* against it, so
+it cannot detect a hand edit to itself.
+
+**Lesson kept.** An exemption is a claim about what another check covers, and the
+cheap way to write one is to borrow a predicate that is already there. Read what
+question the borrowed predicate answers before reusing it — and price the change
+before making it, because the number is what tells you whether the residual is a
+note or a blocker.
+
+**Ceiling.** The sweep reads git windows, so a path whose only change was a base
+move the session recorded is attributed the way `landed.landed_paths` attributes
+it and no more finely; and the residual above is not machine-checked at all, only
+recorded. Nothing scans for a `.json`/`.jsonl`/`.log` edit in a *closed* stream,
+which is the shape a future defect would take.

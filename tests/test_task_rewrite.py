@@ -14,30 +14,30 @@ agent's next one, which is the trade-off defect 12 refused to accept: a
 declaration that covered the *file* would silence every later edit to it,
 including ticking an acceptance checkbox.
 
+The same lifecycle also appends to `tasks/CLAIMS.jsonl`, which T-0050 gave the
+same treatment with a whole-file digest: a `.jsonl` path was invisible to the
+report for a different reason — its suffix — and a second append ends the first
+declaration's validity, so each one is declared as it happens. Every count in
+this file therefore names the ledger too, because that is what a task command
+actually writes.
+
 Two directions are falsified. The first is mutation: remove the clause that
 consults the rewrite and the defect returns; remove only the digest bound and
-the hand-edit controls fail. The second is the record's own bytes: session
-2026-10-04-019 declared seven artifacts and closed with exit 4 on its own task
-file, and that stream carries no `task_rewrite`, so the rule reads it as
-declaring nothing rather than as silent by default.
+the hand-edit controls fail. The second is the record's own bytes, and it now
+lives in `test_task_rewrite_recorded.py`.
 """
 
 from __future__ import annotations
 
-import json
 import subprocess
 import unittest
-from pathlib import Path
 
 from harness import RepoTest
 
 from originlib import session, taskops, tasks
 
-# A closed session that did everything right and was still reported. Read out
-# of git by `CommittedDefectTest`, not written here, so the shape under test is
-# the one the fleet published rather than one written after the repair.
-RECORDED_SESSION = "2026-10-04-019-t-0039-make-acceptance-and-steps-append"
-RECORDED_TASK_FILE = "tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md"
+# The second file a task command writes, declared the same way since T-0050.
+LEDGER = "tasks/CLAIMS.jsonl"
 
 
 class TaskRewriteTest(RepoTest):
@@ -92,6 +92,9 @@ class TaskRewriteTest(RepoTest):
     def rewrites(self) -> list[dict]:
         return self.events("task_rewrite")
 
+    def rewrites_of(self, path: str) -> list[dict]:
+        return [entry for entry in self.rewrites() if entry["path"] == path]
+
     # ------------------------------------------------------- the defect, repaired
     def test_a_task_file_the_command_rewrote_is_not_reported(self) -> None:
         self.declare_work()
@@ -105,14 +108,26 @@ class TaskRewriteTest(RepoTest):
         self.run_task()
         result = session.finish("worked", "ran a task", "none")
         # Named rather than dropped: an excluded path an operator cannot see is
-        # an excluded path they cannot check (D028).
-        self.assertEqual(result["rewritten"], [self.task_path()])
-        recorded = self.rewrites()
+        # an excluded path they cannot check (D028). Both files are named because
+        # a task lifecycle writes both.
+        self.assertEqual(result["rewritten"], [LEDGER, self.task_path()])
+        recorded = self.rewrites_of(self.task_path())
         self.assertEqual([entry["status"] for entry in recorded], ["claimed", "done"])
         for entry in recorded:
             self.assertEqual(len(entry["meta_sha256"]), 64)
             self.assertEqual(len(entry["body_sha256"]), 64)
             self.assertEqual(entry["task"], "T-0001")
+        # The ledger carries one digest and a size rather than the meta pair: it
+        # has no task-meta block, and the shapes are told apart by their keys.
+        # Only the newest append's declaration still describes the file, which is
+        # why this reads the last one rather than all of them.
+        entries = self.rewrites_of(LEDGER)
+        self.assertEqual(len(entries), 2)
+        newest = entries[-1]
+        self.assertEqual(len(newest["sha256"]), 64)
+        self.assertEqual(newest["size"], (self.repo / LEDGER).stat().st_size)
+        self.assertEqual(newest["action"], "complete")
+        self.assertNotIn("meta_sha256", newest)
 
     def test_the_command_line_names_the_rewritten_file(self) -> None:
         self.declare_work()
@@ -121,17 +136,21 @@ class TaskRewriteTest(RepoTest):
             "session", "finish", "--outcome", "worked", "--summary", "ran a task", "--next", "none"
         )
         self.assertEqual(code, 0)
-        self.assertIn("REWRITTEN by task commands (1)", self.output())
+        self.assertIn("REWRITTEN by task commands (2)", self.output())
         self.assertIn(self.task_path(), self.output())
+        self.assertIn(LEDGER, self.output())
 
     def test_a_second_identical_write_is_not_recorded_twice(self) -> None:
         # `taskremote.claim` retries inside a loop and rewrites the same bytes on
         # each attempt. The record is a sequence of what happened, but a retry
-        # that changed nothing is not an event worth reading.
+        # that changed nothing is not an event worth reading. Counted on the task
+        # file: the ledger's second line differs because it carries a new `ts`,
+        # so it is a real second write and is declared as one.
         self.declare_work()
         taskops.claim("T-0001", "tester", "vm-x", self.active.session)
         taskops.claim("T-0001", "tester", "vm-x", self.active.session)
-        self.assertEqual(len(self.rewrites()), 1)
+        self.assertEqual(len(self.rewrites_of(self.task_path())), 1)
+        self.assertEqual(len(self.rewrites_of(LEDGER)), 2)
 
     # ------------------------------------------------------------ the controls
     def test_an_edit_to_the_body_after_the_command_is_reported_again(self) -> None:
@@ -140,7 +159,7 @@ class TaskRewriteTest(RepoTest):
         self.write(self.task_path(), self.read(self.task_path()) + "\nA later note.\n")
         result = session.finish("worked", "ran a task and wrote a note", "none")
         self.assertEqual(result["unlogged"], [self.task_path()])
-        self.assertEqual(result["rewritten"], [])
+        self.assertNotIn(self.task_path(), result["rewritten"])
 
     def test_an_edit_to_the_meta_block_after_the_command_is_reported_again(self) -> None:
         # The control a blanket exemption fails: a path-based exemption matches
@@ -169,7 +188,8 @@ class TaskRewriteTest(RepoTest):
         self.rewrite("status: open", "status: blocked", self.task_path("T-0002"))
         result = session.finish("worked", "completed one task and touched the other", "none")
         self.assertEqual(result["unlogged"], [self.task_path("T-0002")])
-        self.assertEqual(result["rewritten"], [self.task_path("T-0001")])
+        self.assertIn(self.task_path("T-0001"), result["rewritten"])
+        self.assertNotIn(self.task_path("T-0002"), result["rewritten"])
 
     def test_undeclared_work_is_still_reported_alongside_a_rewrite(self) -> None:
         self.declare_work()
@@ -202,67 +222,12 @@ class CommandOutsideASessionTest(RepoTest):
         active = session.start("a session that did not run the command", agent="tester")
         path = f"tasks/{tasks.find('T-0001').path.name}"
         result = session.finish("worked", "the command ran outside the session", "none")
-        self.assertEqual(result["unlogged"], [path])
+        # Both files the command wrote, and both reported: a declaration has to be
+        # written while the session that made the change is open, so an append
+        # made outside one is as undeclared as the meta rewrite beside it.
+        self.assertEqual(result["unlogged"], [LEDGER, path])
         self.assertEqual(result["rewritten"], [])
         self.assertEqual(active.task, "")
-
-
-class CommittedDefectTest(unittest.TestCase):
-    """The defect as the fleet published it, read out of git.
-
-    A stream with no `task_rewrite` event must still be read as declaring
-    nothing. That is the direction a rule like this fails in silently: a parser
-    that quietly stops matching looks exactly like a clean tree (defect 10).
-    """
-
-    def root(self) -> Path:
-        here = Path(__file__).resolve()
-        for parent in [here.parent, *here.parent.parents]:
-            if (parent / "tasks").is_dir() and (parent / "tools").is_dir():
-                return parent
-        raise AssertionError("could not locate the repository root")
-
-    def stream(self) -> list[dict] | None:
-        result = subprocess.run(
-            ["git", "show", f"HEAD:sessions/{RECORDED_SESSION}/events.jsonl"],
-            cwd=str(self.root()), capture_output=True, text=True,
-        )
-        if result.returncode != 0:
-            return None
-        return [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
-
-    def test_the_recorded_session_reported_its_own_task_file(self) -> None:
-        events = self.stream()
-        if events is None:
-            self.skipTest(f"session {RECORDED_SESSION} is not in this history")
-        unlogged = [e["data"].get("path") for e in events if e["kind"] == "unlogged_change"]
-        self.assertEqual(unlogged, [RECORDED_TASK_FILE])
-        # It declared seven artifacts and was reported anyway, so this is a false
-        # positive rather than a missing declaration.
-        declared = [e["data"]["path"] for e in events if e["kind"] == "artifact"]
-        self.assertEqual(len(declared), 7, declared)
-        end = next(e for e in events if e["kind"] == "session_end")
-        self.assertEqual(end["data"]["outcome"], "worked")
-        self.assertEqual(end["data"]["unlogged_changes"], 1)
-
-    def test_that_stream_declares_no_rewrite_so_the_rule_cannot_cover_it(self) -> None:
-        events = self.stream()
-        if events is None:
-            self.skipTest(f"session {RECORDED_SESSION} is not in this history")
-        self.assertEqual([e for e in events if e["kind"] == "task_rewrite"], [])
-        # And the rule reads bytes, so a stream without the digests cannot be
-        # honoured whatever its kind.
-        self.assertFalse(tasks.digests_match(self.root() / RECORDED_TASK_FILE, {}))
-
-    def test_a_digest_that_does_not_match_is_not_honoured(self) -> None:
-        target = self.root() / RECORDED_TASK_FILE
-        real = tasks.meta_digests(target)
-        self.assertTrue(tasks.digests_match(target, real))
-        for key in ("meta_sha256", "body_sha256"):
-            wrong = dict(real)
-            wrong[key] = "0" * 64
-            self.assertFalse(tasks.digests_match(target, wrong), key)
-        self.assertFalse(tasks.digests_match(self.root() / "tasks/README.md", real))
 
 
 if __name__ == "__main__":

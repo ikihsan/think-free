@@ -57,18 +57,30 @@ closed stream accepts nothing. The tool cannot tell an interesting file from a
 dull one; it can only tell a declared one from an undeclared one.
 
 **One exception, and it is not yours to declare.** `task claim`, `task complete`
-and `task release` rewrite the task file they manage, so every one of them used
-to close its session with exit 4 naming the tooling's own write — 37 such
-reports across the 21 closed sessions in this repository's history. Since
-T-0047 the command declares it: a `task_rewrite` event records the path together
-with the digests of the meta block and of everything outside it, and
-reconciliation honours it only while the file still holds those bytes. So the
+and `task release` rewrite the task file they manage *and* append to
+`tasks/CLAIMS.jsonl`, so every one of them used to close its session with exit 4
+naming the tooling's own write — 37 such reports across the 21 closed sessions in
+this repository's history. Since T-0047 the command declares the task file, and
+since T-0050 it declares the ledger: a `task_rewrite` event records the path
+together with the digests of what the command wrote — the meta block and
+everything outside it for a task file, the whole file and its size for a ledger —
+and reconciliation honours it only while the file still holds those bytes. So the
 command's write is not reported, and **your** edit to the same file afterwards —
-ticking an acceptance box, adding a note — is reported as before, because it
-changes a digest. `session finish` names the rewritten paths on a `REWRITTEN by
-task commands` line, so an excluded path is never invisible. If a task command
-is run with no session open there is nothing to record into and the next session
-reports the file; that is the intended direction of failure.
+ticking an acceptance box, adding a note, hand-editing the ledger — is reported as
+before, because it changes a digest. `session finish` names the rewritten paths on
+a `REWRITTEN by task commands` line, so an excluded path is never invisible. If a
+task command is run with no session open there is nothing to record into and the
+next session reports what it wrote; that is the intended direction of failure.
+
+**A `.json`, `.jsonl` or `.log` file is no longer exempt from this.** Until
+T-0050 the report skipped every one of them, because reconciliation had asked the
+*line cap's* exemption question — "is this file's length worth reading?" — and read
+"yes" as "nobody may change it silently". So `tests/python-versions.json`, which
+decides whether this VM can run the work, could be edited with nothing declared
+and nothing reported. **Declare experiment captures, version records and command
+logs like any other file**; the price of that was measured before the change and is
+72 (session, path) pairs over 17 paths across 77 closed sessions
+([`FAILURES-findings-5.md`](../../FAILURES-findings-5.md) F022).
 
 **Commit the work with the paths it names, not `git add -A`.** `session finish`
 rewrites the session's own report and `sessions/INDEX.md`, so a `git add -A` in

@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-04
 -->
 
-Decisions **D013, D027, D028, D040**. Each entry records a choice that was
+Decisions **D013, D027, D028, D040, D042**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -210,3 +210,37 @@ is built on. Nothing here changes what the ledger or the indexes say; this decid
 whose change a recorded path is, and nothing else. Defect 12 measured the false
 positives; it says nothing about the false negative recorded beside it, which is
 a separate question and an open one.
+
+## D042 — An exemption answers one question, and borrowing a predicate borrows the question (2026-10-04)
+
+Observed: `reconcile._is_vendored` called `doclint.is_exempt`, which returns true for
+every `.json`, `.jsonl` and `.log` path because those suffixes are exempt from the
+300-line cap. So a session's report excluded every data-file edit in the repository:
+`tests/python-versions.json` and `tests/git-versions.json` — the records that decide
+whether this VM can run the work — could change with nothing declared and nothing
+reported. Defect 12's entry named this in one clause and no gate read it, because a
+numbered defect list is prose and D025 asks for a gate.
+
+Decision: **a predicate is named for the question it answers, and a caller that means
+a different question must not reuse it.** `doclint` now offers `is_data_suffix` (is
+this file's length worth reading — the cap's question) and `is_declared_exempt` (is
+another check already looking at this file — both questions'), and reconciliation
+reads only the second. The corollary is D040's, extended: an exemption that survives
+only because of a file's *name* is not an exemption but a hole, so a command's own
+write is declared by its bytes — now for the claim ledger and `vendor/hashes.json` as
+well as a task file's `task-meta` block, the shapes told apart by the keys the event
+carries and never by the path.
+
+Rejected: declaring `vendor/hashes.json` generated. Nothing generates it with a mark,
+and `skills verify` compares the *skills* against it, so it cannot detect a hand edit
+to itself — a name-based exemption there would be the same hole moved. Rejected:
+leaving the sweep a session note. The number says whether the residual is a note or a
+blocker, and it came out at 72 (session, path) pairs over 17 paths, 50 of them a
+ledger no closed session can declare. Rejected: making the cap read data files, which
+would have hidden the borrowing rather than corrected it.
+
+**Ceiling.** `declaredwrite.matches` trusts whichever shape an event carries, so an
+event forged with a whole-file digest for a task file would be honoured — the digests
+are only as trustworthy as the appender that wrote them, the same trust D040 rests on.
+And the repair is forward-only: a closed stream is not edited, so 50 historical
+sessions now report a file they cannot declare, and nothing reads them.

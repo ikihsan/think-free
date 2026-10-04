@@ -126,16 +126,16 @@ is closed.
     collects more than one thing must say so* — is not enforced anywhere.
 
 12. **A task file is changed by the commands that manage it and declared by
-    neither** (solved in T-0047, D039). `task claim`, `task complete` and
-    `task release` rewrite the task file, and reconciliation reports any
-    changed-but-undeclared path as an `unlogged_change`, so each of them closed its
-    session with exit 4 on the tooling's own write. **The count was an undercount
-    twice over:** the entry said "three such events in two sessions" because it had
-    been read from two sessions, and a sweep of every closed session's stream finds
-    **37 reports naming a task file across 21 sessions** (`observed` 2026-10-04).
-    Session `2026-10-04-019` is the clean instance — seven declared artifacts,
-    `unlogged_changes: 1` naming `tasks/T-0039-*.md` — and that stream is now in
-    the suite rather than in a session log.
+    neither** (solved in T-0047, D040; its false negative in T-0050, D042). `task
+    claim`, `task complete` and `task release` rewrite the task file, and
+    reconciliation reports any changed-but-undeclared path as an `unlogged_change`, so
+    each of them closed its session with exit 4 on the tooling's own write. **The
+    count was an undercount twice over:** the entry said "three such events in two
+    sessions" because it had been read from two sessions, and a sweep of every closed
+    session's stream finds **37 reports naming a task file across 21 sessions**
+    (`observed` 2026-10-04). Session `2026-10-04-019` is the clean instance — seven
+    declared artifacts, `unlogged_changes: 1` naming `tasks/T-0039-*.md`; that stream
+    is now in the suite rather than in a session log.
     **Repair:** `_set_meta`, the only function that writes the meta block, appends a
     `task_rewrite` event carrying the path, the task, the status and **two digests** —
     the meta block and everything outside it — and reconciliation honours it only
@@ -143,16 +143,22 @@ is closed.
     next edit to the same file is. The appender, not the four commands that call it:
     a rule attached to the command that happened to run is a rule the next one
     misses. `session finish` names what it excluded, for D028's reason.
-    Falsified both ways — removing the clause in `reconcile` fails 4 of 14 new tests,
-    removing only the digest bound fails 3 — and the first attempt at the first
-    mutation **passed all 14**, because the patch pattern did not match and a green
-    run was read as a control. See D040 for the rejected alternatives.
-    **Ceiling:** a command run with no session open records nothing and the next
-    session reports the file; and the *false negative* this entry never measured is
-    open — a `*.json`/`*.jsonl` edit is excluded from `unlogged` by the same
-    line-cap exemption that exempts it from the cap, so
-    `tests/python-versions.json` can change undeclared and nothing says so. That is
-    [`STATE-next-actions.md`](STATE-next-actions.md) item 2(d), unclaimed.
+    **The trade-off the entry above refused is answered, not assumed away:** a
+    declaration naming the *file* would silence every later edit to it, so the
+    declaration names the *bytes*. Falsified both ways — removing the clause in
+    `reconcile` fails 4 of 14 new tests, removing only the digest bound fails 3 —
+    and the first attempt at the first mutation **passed all 14**, because the patch
+    pattern did not match.
+    **The false negative this entry never measured is closed (T-0050, D042, F022).**
+    `reconcile` asked `doclint.is_exempt` — the *cap's* question, true for every
+    `.json`, `.jsonl` and `.log` — so a data-file edit was excluded from `unlogged`
+    and `tests/python-versions.json` could change with nothing said. Reconciliation
+    asks the declared question only now, and the ledger and `vendor/hashes.json` are
+    declared by the bytes their writers wrote. Priced **before** the change by
+    `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths across 77
+    closed sessions, 50 the ledger — so 50 closed sessions now report a file they
+    cannot declare, and F022 records that rather than leaving it a surprise.
+    **Ceiling:** a command run with no session open records nothing.
 
 15. **The lease tests dated a claim from a fixed date while the gate read the
     real clock, so one expired on a schedule and can never pass again** (solved in
@@ -181,8 +187,7 @@ is closed.
     so those three tests still depend on the wall clock agreeing with itself within a
     test's runtime. Any other test that dates a record against a fixed instant and then
     lets production code read the real clock has the same defect, and nothing scans for
-    the pairing. The general form is in [`tests/README.md`](tests/README.md), beside the
-    tests.
+    the pairing. General form in [`tests/README.md`](tests/README.md).
 
 14. **A decision record's own header was false in two of five files, and the
     identifier rule read every other source** (solved in T-0042). A decision number
@@ -231,26 +236,23 @@ is closed.
     session that recorded it. `land` prints what it rebuilt and the commit says so
     in its own message, which is the only attribution available.
 
-6. **Identifier allocation collides by construction** (both halves solved:
-   allocation in T-0031, detection in T-0030). Identifiers were allocated by
-   reading the local tree, so two VMs in an hour took the same number — **twelve
-   times in two days, and a thirteenth at T-0047**. **The cost, measured:** a
-   rebase restored one file's index row to the renumbered form while reverting its
-   body, so a document and its own table disagreed; and `e6eb992` carried two
-   findings both numbered F010 to the shared base, which no gate reported.
-   `idalloc.py` now reads `origin/<base>` — task files, claim ledger, findings
-   definitions and index rows, decision definitions and spans — plus this working
-   tree, and every command that hands out a number prints the record it read;
-   falsified first, since with the old allocator a clone behind the base allocated
-   `T-0002` where the base already defined it. `idcheck.report` then refuses a
-   colliding tree in `sync land` and reports it in `doc lint` rule 7; over all 174
-   commits it flags exactly one (`e6eb992`), and it found a live desync on its
-   first run — D030 missing from `DECISIONS.md`.
-   **Residual, stated:** two VMs allocating between their own fetches still collide and
-   an unpushed number reserves nothing; the push rejection and the detector catch it,
-   nothing prevents it, and **this cost one collision in the act of fixing it** — VM
-   0947's D032 and this VM's D032 were both published, and this side renumbered to D033
-   during the rebase. Allocation, renumbering and every collision are listed in
+6. **Identifier allocation collides by construction** (both halves solved: allocation in
+   T-0031, detection in T-0030). Identifiers were allocated by reading the local tree,
+   so two VMs in an hour took the same number — **twelve times in two days, and a
+   thirteenth at T-0047**. **The cost, measured:** a rebase restored one file's index
+   row to the renumbered form while reverting its body, so a document and its own table
+   disagreed; and `e6eb992` carried two findings both numbered F010. `idalloc.py` now
+   reads `origin/<base>` — task files, claim ledger, findings definitions and index
+   rows, decision definitions and spans — plus this working tree, and every command that
+   hands out a number prints the record it read; falsified first, since with the old
+   allocator a clone behind the base allocated `T-0002` where the base already defined
+   it. `idcheck.report` then refuses a colliding tree in `sync land` and reports it in
+   `doc lint` rule 7; over all 174 commits it flags exactly one (`e6eb992`), and it
+   found a live desync on its first run — D030 missing from `DECISIONS.md`. **Residual,
+   stated:** two VMs allocating between their own fetches still collide and an unpushed
+   number reserves nothing; the push rejection and the detector catch it, nothing
+   prevents it, and **this cost one collision in the act of fixing it** — both VMs
+   published a D032 and this side renumbered to D033; every collision is in
    [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
 
 8. **The suite was red on every interpreter it had never run on** (solved in
@@ -262,8 +264,7 @@ is closed.
    disjunction it can support, and `tests/test_ci_matrix.py` holds the workflow's
    matrix to the record in both directions. **Ceiling:** the record is
    hand-maintained, and CI covers only what `actions/setup-python` publishes, so a
-   matrix row is evidence about that row and nothing beyond it.
-
+   matrix row is evidence about that row and nothing beyond it. 
 9. **The suite asserted that this machine's git is in the record** (solved in
    T-0034, F019). The same class as 8, one function away: every CI row was red from
    T-0033 onward while the runner image ships **git 2.55.0** and the record named
@@ -291,9 +292,9 @@ is closed.
 19. **A link's verdict was a function of the checkout's neighbours rather than of the
     repository** (solved in T-0051, D041). Rule 3 tested its candidates for existence
     *wherever they landed*, so `../../docs/x.md` from `tasks/` was decided by what the
-    checkout's parent held — T-0047's `doc lint` passing in a worktree and failing in the
-    main checkout on identical bytes, which its note could not explain. Containment is now
-    decided lexically, so the existence check is the only read, and removing that filter
-    brings the parent-dependence back. Instance of the form named in 9, the environment
-    being the filesystem *outside* the repository. Measurement and ceiling in
+    checkout's parent held — T-0047's `doc lint` passing in a worktree and failing in
+    the main checkout on identical bytes. Containment is now decided lexically, so the
+    existence check is the only read, and removing that filter brings the parent-
+    dependence back. Instance of the form named in 9, the environment being the
+    filesystem *outside* the repository; method in
     [`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md).

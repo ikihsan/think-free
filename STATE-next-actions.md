@@ -71,18 +71,18 @@ of those it cannot touch.
    half is whether a taskless session should publish code commits at all.
    **Ceiling:** none of these closes the general problem; they narrow where a
    hand-maintained identifier list and an unreadable log can hide a defect.
-   (d) **Open, unclaimed, measured 2026-10-04 while closing defect 12.** A
-   `*.json`, `*.jsonl` or `*.log` file is excluded from `unlogged` because
-   `reconcile._is_vendored` reuses the **line-cap** exemption list, which exempts
-   those suffixes, as though content the cap ignores were content no session can
-   change silently. So `tests/python-versions.json`, `tests/git-versions.json` and
-   `tasks/CLAIMS.jsonl` can be edited with nothing declared and nothing reported — a
-   **false negative**, the opposite of the defect T-0047 closed, and why that entry
-   says it measured only the false positives. The fix is to separate the two
-   questions and then declare the ledger the way the task file is declared; the cost
-   is that `EXPERIMENTS/**/results.json` and `sessions/**/commands.log` would start
-   being reported, so the exclusions must be stated as such rather than inherited
-   from a different rule.
+   (d) **Closed in T-0050 (D042, F022).** `reconcile._is_vendored` reused the
+   **line-cap** exemption list, which exempts `*.json`, `*.jsonl` and `*.log`, as
+   though content the cap ignores were content no session can change silently — so
+   `tests/python-versions.json`, `tests/git-versions.json` and `tasks/CLAIMS.jsonl`
+   could be edited with nothing declared and nothing reported. `doclint` now splits
+   `is_data_suffix` from `is_declared_exempt` and reconciliation reads the second
+   only; the ledger and `vendor/hashes.json` are declared by the bytes their writers
+   wrote. Priced first, by `tools/sweep_unlogged_data.py`: **72 (session, path) pairs
+   over 17 paths** across 77 closed sessions, 50 of them the ledger. **Ceiling:** the
+   repair is forward-only, so those 50 closed sessions now report a file they cannot
+   declare and nothing reads them; and `EXPERIMENTS/**/results.json` started being
+   reported, which is the point — 16 raw captures now need an artifact event.
 3. **Read a red run from the annotations it already publishes** — the successor to
    2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
    is false, and the finding is `FAILURES.md` F020.** The public check-runs API

@@ -20,8 +20,9 @@ Distinguishing the kind of failure matters, because it determines the next step:
 
 Recorded findings live in [`FAILURES-findings.md`](FAILURES-findings.md) for
 F001–F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009–F012,
-[`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013–F017, and
-[`FAILURES-findings-4.md`](FAILURES-findings-4.md) from F018, split because each
+[`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013–F017,
+[`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021, and
+[`FAILURES-findings-5.md`](FAILURES-findings-5.md) from F022, split because each
 file reached the 300-line cap:
 
 | Id | Subject |
@@ -47,14 +48,16 @@ file reached the 300-line cap:
 | F019 | The suite asserted that this machine's git is in the record, so every CI row was red and the log could not be read |
 | F020 | The check-run annotations were readable all along; their silence has four causes and three are not "none" |
 | F021 | The annotator's rendering was declared unmeasured on a run whose annotating steps never ran |
+| F022 | The exemption that answered the wrong question hid every data-file edit from the report |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
 are separated from the live list rather than interleaved with it. The files
 split by line cap, not by subject: `FAILURES-findings.md` holds F001–F008,
 `FAILURES-findings-2.md` takes F009–F012, `FAILURES-findings-3.md` takes F013 to
-F017, and every finding after it goes in `FAILURES-findings-4.md`. Identifiers
-are stable: a reference to `F013` means the same entry whichever file it is in.
+F017, `FAILURES-findings-4.md` F018–F021, and every finding after it goes in
+`FAILURES-findings-5.md`. Identifiers are stable: a reference to `F013` means the
+same entry whichever file it is in.
 
 **Identifiers are allocated from each VM's own tree, so two VMs in an hour
 collide by construction.** Six times on 2026-10-03, and the cost is now measured

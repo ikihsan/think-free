@@ -4,6 +4,9 @@ Git is the only shared state between machines: each task is a Markdown file and
 every claim is a line appended to `tasks/CLAIMS.jsonl`. Two VMs working on
 different tasks therefore never touch the same file, and a task file's history
 survives in git even if a claim is forgotten.
+
+The generated table over these files is `taskindex`, and the write path is
+`taskops`; both are reachable as attributes of this module.
 """
 
 from __future__ import annotations
@@ -16,12 +19,10 @@ from dataclasses import dataclass
 from datetime import datetime
 
 from . import events, idalloc, paths
-from .doclint import GENERATED_NOTE
 
 STATUSES = ("open", "claimed", "blocked", "done", "cancelled")
 META_KEY = re.compile(r"<!--\s*task-meta\s*(.*?)-->", re.DOTALL)
 TASK_FILE = re.compile(r"^(T-\d{4})-(.+)\.md$")
-MAX_INDEX_ROWS = 40
 
 
 class TaskError(RuntimeError):
@@ -155,7 +156,40 @@ def append_claim(task_id: str, action: str, **fields) -> dict:
         handle.write(json.dumps(entry, sort_keys=True) + "\n")
         handle.flush()
         os.fsync(handle.fileno())
+    _declare_claim_append(task_id, action, path)
     return entry
+
+
+def _declare_claim_append(task_id: str, action: str, path) -> None:
+    """Declare the ledger append this function just made, by its bytes.
+
+    Every task command ends here, and reconciliation reports a file a session
+    changed without declaring — so before this the ledger was a data file that no
+    session could declare and no report could name, and the 50 sessions in this
+    repository's history that appended to it are exactly the number of reports
+    that would appear if it were fixed without being declared (T-0050's sweep).
+
+    Declaring the bytes, not the name, is what keeps this safe: a hand edit to
+    the ledger after the append changes the digest and is reported, while the
+    command's own line stays silent. One function owns the append, so one
+    function owns the declaration — a rule attached to the command that happened
+    to be running is a rule the next command misses.
+    """
+    from . import declaredwrite
+    from .activestate import load_active
+
+    try:
+        digests = declaredwrite.whole_file(path)
+    except OSError:
+        return
+    rel = paths.paths_repo_relative(path)
+    declaredwrite.record(
+        load_active(),
+        rel,
+        {**digests, "action": action},
+        f"appended a {action} record for {task_id}",
+        task_id=task_id,
+    )
 
 
 def claims() -> list[dict]:
@@ -194,84 +228,6 @@ def active_claims() -> dict[str, dict]:
     return state
 
 
-def index_stamp() -> str:
-    """The date the newest claim was recorded, or the newest task's creation.
-
-    The tasks index is a function of the ledger and the task files, never of the
-    clock: a stamp taken from `now` would make the committed index "stale" on
-    every day after the one it was generated on.
-    """
-    stamps = [str(entry.get("ts", ""))[:10] for entry in claims() if entry.get("ts")]
-    if not stamps:
-        stamps = [task.meta.get("created", "") for task in all_tasks()]
-    return max([stamp for stamp in stamps if stamp], default="unknown")
-
-
-def write_index() -> bool:
-    """Write `tasks/INDEX.md` if the render differs. True when it wrote.
-
-    Called by `origin doc index` and by the task commands themselves: every
-    path that changes a row in this table rewrites it, so a task cannot be
-    created, claimed or completed without the index following it.
-    """
-    from .report import write_if_changed
-
-    return write_if_changed(paths.tasks_index(), render_tasks_index())
-
-
-def render_tasks_index() -> str:
-    tasks = all_tasks()
-    active = active_claims()
-    rows = []
-    for task in tasks:
-        rows.append(
-            [
-                f"[`{task.path.name}`]({task.path.name})",
-                task.status,
-                (active.get(task.task_id) or {}).get("agent", ""),
-                task.meta.get("verify", "")[:48],
-                (task.meta.get("created", "")),
-            ]
-        )
-    head = [
-        "# Tasks index",
-        "",
-        "<!-- origin-meta",
-        "owner: docs/INDEX.md",
-        "status: active",
-        f"last-verified: {index_stamp()}",
-        "-->",
-        "",
-        GENERATED_NOTE,
-        "",
-        f"{len(tasks)} task(s). Every task file declares a runnable verification command;",
-        "`tools/origin task verify <id>` executes it and records the exit code.",
-        "",
-    ]
-    table = ["| Task | Status | Claimed by | Verify | Created |", "|---|---|---|---|---|"]
-    table += ["| " + " | ".join(str(c) for c in row) + " |" for row in rows[:MAX_INDEX_ROWS]]
-    if len(rows) > MAX_INDEX_ROWS:
-        table.append(f"| _… {len(rows) - MAX_INDEX_ROWS} more in `tasks/`_ | | | | |")
-    table.append("")
-    tail = [
-        "## How tasks run on another machine",
-        "",
-        "```bash",
-        "tools/origin doctor                       # verify the VM can do the work",
-        "tools/origin session start --goal \"$TASK\" --task T-0001",
-        "tools/origin task claim T-0001 --agent \"$AGENT\" --vm \"$HOSTNAME\"",
-        "tools/origin task verify T-0001",
-        "tools/origin task complete T-0001 --summary \"…\"",
-        "tools/origin session finish --outcome worked --summary \"…\" --next \"…\"",
-        "```",
-        "",
-        "Protocol: [`../docs/process/task-lifecycle.md`](../docs/process/task-lifecycle.md).",
-        "",
-    ]
-    text = "\n".join(head + table + tail)
-    return text if text.endswith("\n") else text + "\n"
-
-
 def print_list(status_filter: str = "") -> None:
     tasks = all_tasks()
     if status_filter:
@@ -287,9 +243,18 @@ def print_list(status_filter: str = "") -> None:
 
 
 def __getattr__(name: str):
-    """Expose taskops mutations without a circular import at module load."""
+    """Expose the write path and the index renderer without a circular import.
+
+    Both are lazily reachable rather than imported: `taskops` imports this
+    module, and `taskindex` reads the model here, so either one at module load
+    would be a cycle. Callers keep writing `tasks.render_tasks_index`.
+    """
     if name in {"create", "claim", "transition", "run_verification", "_set_meta"}:
         from . import taskops
 
         return getattr(taskops, name)
+    if name in {"index_stamp", "write_index", "render_tasks_index", "MAX_INDEX_ROWS"}:
+        from . import taskindex
+
+        return getattr(taskindex, name)
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

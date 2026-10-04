@@ -10,7 +10,7 @@ promise: the failure mode is reported, not prevented.
 
 from __future__ import annotations
 
-from . import events, landed, paths
+from . import declaredwrite, events, landed, paths
 
 # A mission record is *implicated* by these event kinds. If such an event lands
 # but the corresponding record did not change in git, that is an integrity gap
@@ -103,17 +103,19 @@ def reconcile(active) -> dict:
 
 
 def command_rewrites(active) -> dict:
-    """Task files this session's own commands rewrote, still byte-identical.
+    """Files this session's own commands rewrote, still byte-identical.
 
     The counterpart of D028 for the tooling's own writes. A `task_rewrite` event
-    names the file a command changed together with the two digests of what it
-    wrote, so the answer depends on the bytes rather than on the session having
-    declared something. A task file edited after the command changed one of the
-    digests and is reported, which is the half that keeps this from being the
-    blanket exemption defect 12 warned about.
-    """
-    from . import tasks
+    names the file a command changed together with the digests of what it wrote,
+    so the answer depends on the bytes rather than on the session having declared
+    something. A file edited after the command changed one of the digests and is
+    reported, which is the half that keeps this from being the blanket exemption
+    defect 12 warned about.
 
+    `declaredwrite.matches` answers both shapes — a task file's `task-meta` block
+    and a whole append-only file — and tells them apart by which keys the event
+    carries rather than by the path.
+    """
     found: dict[str, dict] = {}
     for event in events.events_for(active.session):
         if event.kind != "task_rewrite":
@@ -121,7 +123,7 @@ def command_rewrites(active) -> dict:
         rel = event.data.get("path")
         if not rel:
             continue
-        if tasks.digests_match(paths.repo_root() / rel, event.data):
+        if declaredwrite.matches(paths.repo_root() / rel, event.data):
             found[rel] = event.data
     return found
 
@@ -150,10 +152,17 @@ def _is_vendored(rel: str) -> bool:
     `origin skills verify` compares every vendored file against the recorded
     digest, which is a stronger check than an artifact event. Declaring 89 files
     per vendor update would add noise without adding assurance.
-    """
-    from .doclint import declared_exemptions, is_exempt
 
-    return is_exempt(rel, declared_exemptions())
+    This asks the *declared* question, not the cap's. It used to ask
+    `doclint.is_exempt`, which also answers yes for every `.json`, `.jsonl` and
+    `.log` path, and so read a file the 300-line cap declines to look at as a file
+    nobody may change silently: `tests/python-versions.json` and
+    `tests/git-versions.json` decide whether this VM can run the work at all, and
+    both were editable with nothing declared and nothing reported (defect 12).
+    """
+    from .doclint import declared_exemptions, is_declared_exempt
+
+    return is_declared_exempt(rel, declared_exemptions())
 
 
 def _is_generated(rel: str) -> bool:

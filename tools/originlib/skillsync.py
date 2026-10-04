@@ -199,6 +199,12 @@ def write_hashes() -> Path:
 
     Authored skills are excluded on purpose: they are meant to change, and
     recording them would report every legitimate edit as tampering.
+
+    The write is then declared by its bytes, the way `tasks.append_claim`
+    declares its append: this file is `.json`, so before T-0050 the suffix
+    exemption hid it from reconciliation entirely, and no weaker declaration than
+    the bytes would do — `skills verify` compares the *skills* against this file,
+    so it cannot detect a hand edit to this file itself.
     """
     declared = sorted(declared_vendored() & {p.name for p in skill_dirs()})
     payload = {
@@ -209,7 +215,20 @@ def write_hashes() -> Path:
     target = hashes_path()
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    _declare_hashes_write(target)
     return target
+
+
+def _declare_hashes_write(target: Path) -> None:
+    from . import declaredwrite
+    from .activestate import load_active
+
+    declaredwrite.record(
+        load_active(),
+        "vendor/hashes.json",
+        {**declaredwrite.whole_file(target), "action": "vendor-hashes"},
+        "recorded vendored skill hashes",
+    )
 
 
 def events_now() -> str:

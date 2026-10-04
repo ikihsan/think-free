@@ -93,13 +93,33 @@ def declared_exemptions() -> list[str]:
     return globs
 
 
+def is_data_suffix(rel: str) -> bool:
+    """Machine-generated data and raw logs, by extension.
+
+    One question, and it is the cap's: whether a file's length is worth reading.
+    The JSON records here are small and the command logs are unbounded, but
+    neither is prose a human maintains, so the cap has nothing to say about
+    either. **This says nothing about whether a session may change a file** —
+    that question is `is_declared_exempt`, and reconciliation used to ask this
+    one by mistake, which hid every `.json`, `.jsonl` and `.log` edit from the
+    undeclared-change report (`STATE-defects.md` defect 12).
+    """
+    return Path(rel).suffix in DATA_SUFFIXES
+
+
+def is_declared_exempt(rel: str, globs: list[str]) -> bool:
+    """Paths someone declared as covered by a stronger check than the cap's.
+
+    The `exempt:` lines in `vendor/MANIFEST.md`, and nothing else: this is the
+    question "is another check already looking at this file", and the answer has
+    to be written down rather than inferred from the extension.
+    """
+    return any(_glob_match(rel, glob) for glob in globs)
+
+
 def is_exempt(rel: str, globs: list[str]) -> bool:
-    if Path(rel).suffix in DATA_SUFFIXES:
-        return True
-    for glob in globs:
-        if _glob_match(rel, glob):
-            return True
-    return False
+    """The cap's exemption: a data suffix, or a declared exemption."""
+    return is_data_suffix(rel) or is_declared_exempt(rel, globs)
 
 
 def _glob_match(rel: str, pattern: str) -> bool:

@@ -27,13 +27,77 @@ _(none recorded)_
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| tools/originlib/declaredwrite.py | f25cef3b3010 | 4150 |
+| tools/originlib/taskindex.py | 54ecf4954607 | 3503 |
+| tools/originlib/doclint.py | a5a0f435b73f | 9318 |
+| tools/originlib/reconcile.py | 9e774810881d | 7754 |
+| tools/originlib/tasks.py | bad06a480f7e | 9035 |
+| tools/originlib/taskops.py | 33cb8112dd83 | 6677 |
+| tools/originlib/skillsync.py | 456065613fed | 10988 |
+| tools/sweep_unlogged_data.py | c23c8c292f61 | 8295 |
+| tests/test_unlogged_data.py | b0007f007aa2 | 11988 |
+| tests/test_task_rewrite.py | 2f11610cb59a | 11410 |
+| tests/test_task_rewrite_recorded.py | 28a4933b00ed | 5057 |
+| tests/README.md | 0b66c811d41e | 26479 |
+| docs/process/session-protocol.md | 310d51ceee4c | 12663 |
+| STATE.md | c7fb303cba32 | 27177 |
+| STATE-defects.md | b49ffec12dd8 | 21667 |
+| STATE-next-actions.md | 7bffab0766c7 | 17089 |
+| FAILURES.md | 5fc3b10dd6a8 | 5815 |
+| FAILURES-findings-5.md | e183a1048bc2 | 5816 |
+| DECISIONS.md | 8aa70120ad37 | 5593 |
+| DECISIONS-SESSIONS.md | 9ae17380693e | 15660 |
+| tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md | f0a5c2b79b85 | 3386 |
+| RELEASE-MANIFEST.md | 2dbca6aea2b4 | 4565 |
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+44 captured, 19 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 4 | ['python3', '/tmp/opencode/sweep_unlogged.py'] | 0 | 524 |
+| 5 | ['python3', '/tmp/opencode/sweep_unlogged.py'] | 0 | 1510 |
+| 6 | ['python3', '/tmp/opencode/sweep_unlogged.py'] | 0 | 4997 |
+| 7 | ['python3', '/tmp/opencode/sweep_unlogged.py'] | 0 | 6037 |
+| 8 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py', '-v'] | 1 | 7700 |
+| 9 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py', '-v'] | 1 | 8800 |
+| 10 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py', '-v'] | 1 | 8097 |
+| 11 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py', '-v'] | 1 | 7310 |
+| 12 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py'] | 1 | 8033 |
+| 13 | ['python3', '-'] | 0 | 808 |
+| 14 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py'] | 0 | 9532 |
+| 15 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 1 | 311698 |
+| 16 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 1 | 318335 |
+| 17 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_task_rewrite.py'] | 1 | 8680 |
+| 18 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_task_rewrite.py'] | 1 | 8389 |
+| 19 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_task_rewrite.py'] | 0 | 8911 |
+| 20 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py'] | 1 | 8234 |
+| 21 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_unlogged_data.py'] | 0 | 10218 |
+| 22 | ['python3', 'tools/sweep_unlogged_data.py'] | 0 | 5616 |
+| 23 | ['python3', 'tools/sweep_unlogged_data.py', '--all'] | 0 | 6515 |
+| 24 | ['tools/origin', 'doc', 'lint'] | 2 | 2696 |
+| 25 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_task_rewrite*.py'] | 0 | 8911 |
+| 26 | ['tools/origin', 'doc', 'lint'] | 0 | 2607 |
+| 27 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 305432 |
+| 28 | ['tools/origin', 'preflight'] | 0 | 8030 |
+| 30 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_decision*.py'] | 0 | 4087 |
+| 31 | ['tools/origin', 'doc', 'lint'] | 0 | 2592 |
+| 32 | ['tools/origin', 'doc', 'index'] | 0 | 923 |
+| 33 | ['tools/origin', 'doc', 'lint'] | 0 | 2527 |
+| 55 | ['python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 302604 |
+| 56 | ['tools/origin', 'preflight'] | 2 | 8085 |
+| 58 | ['tools/origin', 'preflight'] | 0 | 8019 |
+| 59 | ['python3', 'tools/sweep_unlogged_data.py'] | 0 | 5817 |
+| 60 | ['tools/origin', 'sync', 'land'] | 1 | 2582 |
+| 61 | ['tools/origin', 'doc', 'lint'] | 2 | 4305 |
+| 62 | ['tools/origin', 'doc', 'lint'] | 2 | 3211 |
+| 63 | ['tools/origin', 'doc', 'lint'] | 2 | 2715 |
+| 64 | ['tools/origin', 'doc', 'lint'] | 2 | 3314 |
+| 65 | ['tools/origin', 'doc', 'lint'] | 2 | 2693 |
+| 66 | ['tools/origin', 'doc', 'lint'] | 0 | 2998 |
 
 ## Integrity
 
@@ -52,6 +116,55 @@ _none_
 | 1 | 11:45:49 | session_start | Separate the line-cap exemption from reconciliation so a data-file edit cannot pass undeclared (T-0050) |
 | 2 | 11:46:04 | task_rewrite | rewrote tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md (status: claimed) |
 | 3 | 11:46:31 | task_rewrite | rewrote tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md (status: claimed) |
+| 4 | 11:47:13 | command | $ python3 /tmp/opencode/sweep_unlogged.py |
+| 5 | 11:47:25 | command | $ python3 /tmp/opencode/sweep_unlogged.py |
+| 6 | 11:47:49 | command | $ python3 /tmp/opencode/sweep_unlogged.py |
+| 7 | 11:48:24 | command | $ python3 /tmp/opencode/sweep_unlogged.py |
+| 8 | 11:51:48 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py -v |
+| 9 | 11:52:01 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py -v |
+| 10 | 12:05:45 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py -v |
+| 11 | 12:05:58 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py -v |
+| 12 | 12:10:36 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py |
+| 13 | 12:11:26 | command | $ python3 - |
+| 14 | 12:12:31 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py |
+| 15 | 12:17:55 | command | $ python3 -m unittest discover -s tests |
+| 16 | 12:23:23 | command | $ python3 -m unittest discover -s tests |
+| 17 | 12:24:13 | command | $ python3 -m unittest discover -s tests -p test_task_rewrite.py |
+| 18 | 12:26:40 | command | $ python3 -m unittest discover -s tests -p test_task_rewrite.py |
+| 19 | 12:27:11 | command | $ python3 -m unittest discover -s tests -p test_task_rewrite.py |
+| 20 | 12:27:29 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py |
+| 21 | 12:28:06 | command | $ python3 -m unittest discover -s tests -p test_unlogged_data.py |
+| 22 | 12:30:28 | command | $ python3 tools/sweep_unlogged_data.py |
+| 23 | 12:30:57 | command | $ python3 tools/sweep_unlogged_data.py --all |
+| 24 | 12:31:12 | command | $ tools/origin doc lint |
+| 25 | 12:33:35 | command | $ python3 -m unittest discover -s tests -p test_task_rewrite*.py |
+| 26 | 12:33:57 | command | $ tools/origin doc lint |
+| 27 | 12:39:09 | command | $ python3 -m unittest discover -s tests |
+| 28 | 12:40:00 | command | $ tools/origin preflight |
+| 29 | 12:40:59 | milestone | T-0050 repair in: suffix exemption split from reconciliation, ledger and vendor hashes declared by bytes, sweep committed; 521 tests green, preflight  |
+| 30 | 12:47:53 | command | $ python3 -m unittest discover -s tests -p test_decision*.py |
+| 31 | 12:50:37 | command | $ tools/origin doc lint |
+| 32 | 12:53:59 | command | $ tools/origin doc index |
+| 33 | 12:54:02 | command | $ tools/origin doc lint |
+| 34 | 12:54:18 | artifact | wrote tools/originlib/declaredwrite.py |
+| 35 | 12:54:19 | artifact | wrote tools/originlib/taskindex.py |
+| 36 | 12:54:20 | artifact | wrote tools/originlib/doclint.py |
+| 37 | 12:54:20 | artifact | wrote tools/originlib/reconcile.py |
+| 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
+| 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
+| 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
+| 61 | 13:07:25 | command | $ tools/origin doc lint |
+| 62 | 13:09:56 | command | $ tools/origin doc lint |
+| 63 | 13:13:59 | command | $ tools/origin doc lint |
+| 64 | 13:14:12 | command | $ tools/origin doc lint |
+| 65 | 13:15:41 | command | $ tools/origin doc lint |
+| 66 | 13:16:52 | command | $ tools/origin doc lint |
+| 67 | 13:17:03 | command | $ python3 -m unittest discover -s tests -p test_defectlist.py -p test_identifiers.py |
+| 68 | 13:17:04 | command | $ python3 -m unittest tests.test_defectlist tests.test_identifier_enforcement tests.test_identifiers tests.test_decision_header tests.test_dec |
+| 69 | 13:17:28 | command | $ python3 -m unittest discover -s tests -p test_identifier_enforcement.py -v |
+| 70 | 13:17:29 | command | $ python3 -m unittest discover -s tests -p test_decision_files.py -v |
+
+_20 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

@@ -11,9 +11,9 @@ import subprocess
 from datetime import datetime
 
 from . import paths
+from .taskindex import write_index
 from .tasktemplate import TEMPLATE
 from .tasks import (
-    DIGEST_KEYS,
     META_KEY,
     STATUSES,
     Task,
@@ -25,7 +25,6 @@ from .tasks import (
     meta_digests,
     next_task_id,
     slugify,
-    write_index,
 )
 
 
@@ -80,37 +79,33 @@ def record_rewrite(task: Task, status: str = "") -> None:
     only the write it made, so ticking an acceptance checkbox afterwards is
     reported again. The trade-off defect 12 refused is answered here rather than
     assumed away.
-    """
-    from . import activestate, events, session
 
-    active = activestate.load_active()
+    `declaredwrite.record` owns the event and the dedupe so that the ledger's
+    appends and a task file's meta rewrites are declared by one rule; this
+    function's remaining job is to name the status and refresh the report.
+    """
+    from . import declaredwrite, session
+    from .activestate import load_active
+
+    active = load_active()
     if active is None:
         # Outside a session there is no record to write into, and inventing one
         # would be a worse lie than the missing entry.
         return
-    digests = meta_digests(task.path)
-    if any(
-        event.kind == "task_rewrite"
-        and event.data.get("path") == paths.paths_repo_relative(task.path)
-        and all(event.data.get(key) == digests[key] for key in DIGEST_KEYS)
-        for event in events.events_for(active.session)
-    ):
-        return
     rel = paths.paths_repo_relative(task.path)
-    events.append(
-        active.session,
-        "task_rewrite",
-        {
-            "summary": f"rewrote {rel} (status: {status or 'unchanged'})",
-            "path": rel,
-            "task": task.task_id,
-            "status": status,
-            **digests,
-        },
-        actor=active.agent,
-        host=active.host,
-    )
-    session.refresh_reports(active.session)
+    data = {
+        **meta_digests(task.path),
+        "status": status or "unchanged",
+        "action": "task-meta",
+    }
+    if declaredwrite.record(
+        active,
+        rel,
+        data,
+        f"rewrote {rel} (status: {data['status']})",
+        task_id=task.task_id,
+    ):
+        session.refresh_reports(active.session)
 
 
 def create(goal: str, verify: str, **fields) -> Task:

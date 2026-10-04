@@ -1,0 +1,2392 @@
+==============================================================================
+[seq 4] 2026-10-04T11:47:13+00:00
+$ python3 /tmp/opencode/sweep_unlogged.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions with no finish commit: 71 ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga', '2026-10-03-004-stop-declaring-gitignored-build-output-a', '2026-10-03-005-correct-the-tracked-file-census-and-expl', '2026-10-03-006-verify-github-app-push-access-with-a-sma', '2026-10-03-007-switch-git-identity-to-bot-account-and-c', '2026-10-03-008-t-0001-write-falsification-kill-gates-fo', '2026-10-03-009-rework-the-multi-vm-agent-flow-isolated', '2026-10-03-010-complete-and-verify-exclusive-multi-vm-o', '2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit', '2026-10-03-012-t-0002-run-investigation-e-experimental', '2026-10-03-013-t-0003-run-investigation-f-adoption-rese', '2026-10-03-014-fix-missing-pathlib-import-in-session-py', '2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a', '2026-10-03-016-sweep-budget-k-block-size-in-002-to-test', '2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p', '2026-10-03-018-log-state-md-update-from-t-0004-completi', '2026-10-03-019-t-0007-distance-budget-variant-of-002-a1', '2026-10-03-020-annotate-hypotheses-md-with-e002-outcome', '2026-10-03-020-apply-the-information-sufficiency-witnes', '2026-10-03-021-repair-the-knitting-witness-input-set-by', '2026-10-03-022-run-the-knitting-stage-a-planner-compari', '2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl', '2026-10-03-025-screen-all-six-sealed-investigations-wit', '2026-10-03-026-run-e3-s-build-timestamp-census-over-200', '2026-10-03-027-t-0014-run-c2-s-ventilation-measurement', '2026-10-03-028-run-the-knitting-candidate-s-remaining-k', '2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that', '2026-10-03-030-run-t-0017-attribute-every-differing-byt', '2026-10-03-031-record-the-measured-ci-result-tests-doc', '2026-10-03-032-correct-three-overstated-claims-about-gi', '2026-10-03-033-record-git-versions-exercised-and-split', '2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu', '2026-10-03-035-repair-t-0019-status-flipped-by-a-redund', '2026-10-03-036-refresh-stale-generated-task-index-after', '2026-10-03-037-repair-the-three-mission-records-corrupt', '2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-implement-origin-release-check-so-releas', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a', '2026-10-03-039-repair-two-operations-documents-that-sta', '2026-10-03-040-make-origin-doctor-read-the-push-credent', '2026-10-03-042-t-0024-stop-reconciliation-and-the-docum', '2026-10-04-001-t-0025-record-the-measured-pushed-ci-res', '2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in', '2026-10-04-003-t-0027-the-published-claim-commit-must-c', '2026-10-04-004-t-0028-record-the-ci-run-history-around', '2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi', '2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr', '2026-10-04-006-t-0032-record-the-python-versions-the-su', '2026-10-04-007-t-0032-record-the-python-versions-the-su', '2026-10-04-009-repair-the-two-collisions-the-t-0032-reb', '2026-10-04-010-record-the-ci-run-history-around-the-t-0', '2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git', '2026-10-04-012-measure-the-test-suite-on-every-cpython', '2026-10-04-013-t-0035-stop-the-credential-sandbox-from', '2026-10-04-014-close-session-012-s-two-reconciliation-r', '2026-10-04-015-stop-every-session-event-from-leaving-th', '2026-10-04-016-record-the-two-operational-lessons-three', '2026-10-04-017-t-0036-report-a-duplicate-defect-number', '2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc', '2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch', '2026-10-04-026-record-the-run-on-t-0043-s-landed-commit', '2026-10-04-027-classify-decisions-records-md-in-the-rel', '2026-10-04-028-record-the-measured-green-run-on-the-bas', '2026-10-04-029-measure-how-github-files-an-annotation-o', '2026-10-04-030-attribute-a-task-file-that-a-task-comman', '2026-10-04-030-make-sync-land-s-own-conflict-instructio', '2026-10-04-031-record-the-measured-ci-state-on-the-tip', '2026-10-04-033-repair-the-broken-link-t-0047-published', '2026-10-04-034-separate-the-line-cap-exemption-from-rec']
+
+=== newly reportable under the rule as it is now (data suffix, not declared, not generated, not the session's own) ===
+  5  tasks/CLAIMS.jsonl   e.g. ['2026-10-04-018-t-0038-record-that-the-public-check-run', '2026-10-04-019-t-0039-make-acceptance-and-steps-append', '2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera', '2026-10-04-024-hold-each-decision-file-s-own-header-to']
+
+total pairs: 5   distinct paths: 1
+declared or session-own: 11
+generated: 0
+other sessions' dirs (sweep cannot attribute; sync land does): 4 across 4 paths
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 524  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T11:47:25+00:00
+$ python3 /tmp/opencode/sweep_unlogged.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions with no finish commit: 37 ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga', '2026-10-03-004-stop-declaring-gitignored-build-output-a', '2026-10-03-005-correct-the-tracked-file-census-and-expl', '2026-10-03-006-verify-github-app-push-access-with-a-sma', '2026-10-03-007-switch-git-identity-to-bot-account-and-c', '2026-10-03-008-t-0001-write-falsification-kill-gates-fo', '2026-10-03-010-complete-and-verify-exclusive-multi-vm-o', '2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit', '2026-10-03-012-t-0002-run-investigation-e-experimental', '2026-10-03-013-t-0003-run-investigation-f-adoption-rese', '2026-10-03-014-fix-missing-pathlib-import-in-session-py', '2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a', '2026-10-03-016-sweep-budget-k-block-size-in-002-to-test', '2026-10-03-020-annotate-hypotheses-md-with-e002-outcome', '2026-10-03-020-apply-the-information-sufficiency-witnes', '2026-10-03-021-repair-the-knitting-witness-input-set-by', '2026-10-03-022-run-the-knitting-stage-a-planner-compari', '2026-10-03-025-screen-all-six-sealed-investigations-wit', '2026-10-03-026-run-e3-s-build-timestamp-census-over-200', '2026-10-03-028-run-the-knitting-candidate-s-remaining-k', '2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that', '2026-10-03-031-record-the-measured-ci-result-tests-doc', '2026-10-03-032-correct-three-overstated-claims-about-gi', '2026-10-03-037-repair-the-three-mission-records-corrupt', '2026-10-03-038-implement-origin-release-check-so-releas', '2026-10-03-039-repair-two-operations-documents-that-sta', '2026-10-03-040-make-origin-doctor-read-the-push-credent', '2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi', '2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch', '2026-10-04-026-record-the-run-on-t-0043-s-landed-commit', '2026-10-04-027-classify-decisions-records-md-in-the-rel', '2026-10-04-028-record-the-measured-green-run-on-the-bas', '2026-10-04-029-measure-how-github-files-an-annotation-o', '2026-10-04-030-make-sync-land-s-own-conflict-instructio', '2026-10-04-031-record-the-measured-ci-state-on-the-tip']
+
+=== newly reportable under the rule as it is now (data suffix, not declared, not generated, not the session's own) ===
+ 27  tasks/CLAIMS.jsonl   e.g. ['2026-10-03-009-rework-the-multi-vm-agent-flow-isolated', '2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p', '2026-10-03-019-t-0007-distance-budget-variant-of-002-a1', '2026-10-03-033-record-git-versions-exercised-and-split']
+  2  tests/git-versions.json   e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt', '2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/results.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/sources.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json   e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  tests/python-versions.json   e.g. ['2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/summary.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+
+total pairs: 44   distinct paths: 14
+declared or session-own: 88
+generated: 0
+other sessions' dirs (sweep cannot attribute; sync land does): 51 across 43 paths
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1510  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T11:47:49+00:00
+$ python3 /tmp/opencode/sweep_unlogged.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions with no finish commit: 0 []
+
+=== newly reportable under the rule as it is now (data suffix, not declared, not generated, not the session's own) ===
+ 50  tasks/CLAIMS.jsonl   e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-008-t-0001-write-falsification-kill-gates-fo', '2026-10-03-009-rework-the-multi-vm-agent-flow-isolated']
+  3  tests/git-versions.json   e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt', '2026-10-03-040-make-origin-doctor-read-the-push-credent', '2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  2  vendor/hashes.json   e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven']
+  2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/results.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/sources.json   e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  1  EXPERIMENTS/003-information-sufficiency/results.json   e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  EXPERIMENTS/004-knitting-stage-a/results.json   e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json   e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  tests/python-versions.json   e.g. ['2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/summary.json   e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+
+total pairs: 72   distinct paths: 17
+declared or session-own: 141
+generated: 0
+other sessions' dirs (sweep cannot attribute; sync land does): 92 across 76 paths
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4997  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T11:48:24+00:00
+$ python3 /tmp/opencode/sweep_unlogged.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions swept: 77   with no window: 0 []
+
+=== newly reportable once the suffix stops being an exemption ===
+ 50  tasks/CLAIMS.jsonl
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-008-t-0001-write-falsification-kill-gates-fo']
+  3  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/events.jsonl
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-004-stop-declaring-gitignored-build-output-a']
+  3  tests/git-versions.json
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt', '2026-10-03-040-make-origin-doctor-read-the-push-credent', '2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  2  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga']
+  2  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/events.jsonl
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga']
+  2  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven']
+  2  vendor/hashes.json
+      e.g. ['2026-10-03-001-build-durable-session-infrastructure-ven', '2026-10-03-002-build-durable-session-infrastructure-ven']
+  2  sessions/2026-10-03-001-build-durable-session-infrastructure-ven/commands.log
+      e.g. ['2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga']
+  2  sessions/2026-10-03-001-build-durable-session-infrastructure-ven/events.jsonl
+      e.g. ['2026-10-03-002-build-durable-session-infrastructure-ven', '2026-10-03-003-record-the-session-002-reconciliation-ga']
+  2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/results.json
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  EXPERIMENTS/008-build-timestamp-attribution/sources.json
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/commands.log
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/events.jsonl
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-038-implement-origin-release-check-so-releas/commands.log
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-038-implement-origin-release-check-so-releas/events.jsonl
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-038-land-t-0020-renumber-two-findings-off-a/events.jsonl
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  2  sessions/2026-10-03-039-repair-two-operations-documents-that-sta/commands.log
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  2  sessions/2026-10-03-039-repair-two-operations-documents-that-sta/events.jsonl
+      e.g. ['2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f', '2026-10-03-038-land-t-0020-renumber-two-findings-off-a']
+  1  sessions/2026-10-03-010-complete-and-verify-exclusive-multi-vm-o/events.jsonl
+      e.g. ['2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit']
+  1  EXPERIMENTS/003-information-sufficiency/results.json
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  EXPERIMENTS/004-knitting-stage-a/results.json
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/commands.log
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/events.jsonl
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-021-repair-the-knitting-witness-input-set-by/commands.log
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-021-repair-the-knitting-witness-input-set-by/events.jsonl
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-022-run-the-knitting-stage-a-planner-compari/commands.log
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-022-run-the-knitting-stage-a-planner-compari/events.jsonl
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/events.jsonl
+      e.g. ['2026-10-03-020-annotate-hypotheses-md-with-e002-outcome']
+  1  sessions/2026-10-03-020-annotate-hypotheses-md-with-e002-outcome/events.jsonl
+      e.g. ['2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl']
+  1  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log
+      e.g. ['2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl']
+  1  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/events.jsonl
+      e.g. ['2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl']
+  1  sessions/2026-10-03-026-run-e3-s-build-timestamp-census-over-200/events.jsonl
+      e.g. ['2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl']
+  1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-031-record-the-measured-ci-result-tests-doc/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-032-correct-three-overstated-claims-about-gi/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-033-record-git-versions-exercised-and-split/commands.log
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-033-record-git-versions-exercised-and-split/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/commands.log
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-036-refresh-stale-generated-task-index-after/events.jsonl
+      e.g. ['2026-10-03-030-run-t-0017-attribute-every-differing-byt']
+  1  sessions/2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-003-t-0027-the-published-claim-commit-must-c/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-003-t-0027-the-published-claim-commit-must-c/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-004-t-0028-record-the-ci-run-history-around/commands.log
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-04-004-t-0028-record-the-ci-run-history-around/events.jsonl
+      e.g. ['2026-10-03-040-make-origin-doctor-read-the-push-credent']
+  1  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log
+      e.g. ['2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi']
+  1  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/events.jsonl
+      e.g. ['2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi']
+  1  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log
+      e.g. ['2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi']
+  1  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/events.jsonl
+      e.g. ['2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi']
+  1  sessions/2026-10-04-006-t-0032-record-the-python-versions-the-su/events.jsonl
+      e.g. ['2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi']
+  1  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log
+      e.g. ['2026-10-04-007-t-0032-record-the-python-versions-the-su']
+  1  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/events.jsonl
+      e.g. ['2026-10-04-007-t-0032-record-the-python-versions-the-su']
+  1  sessions/2026-10-04-013-t-0035-stop-the-credential-sandbox-from/commands.log
+      e.g. ['2026-10-04-012-measure-the-test-suite-on-every-cpython']
+  1  sessions/2026-10-04-013-t-0035-stop-the-credential-sandbox-from/events.jsonl
+      e.g. ['2026-10-04-012-measure-the-test-suite-on-every-cpython']
+  1  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log
+      e.g. ['2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  1  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/events.jsonl
+      e.g. ['2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  1  tests/python-versions.json
+      e.g. ['2026-10-04-013-t-0035-stop-the-credential-sandbox-from']
+  1  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log
+      e.g. ['2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc']
+  1  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/events.jsonl
+      e.g. ['2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc']
+  1  sessions/2026-10-04-018-t-0038-record-that-the-public-check-run/commands.log
+      e.g. ['2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc']
+  1  sessions/2026-10-04-018-t-0038-record-that-the-public-check-run/events.jsonl
+      e.g. ['2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc']
+  1  sessions/2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/commands.log
+      e.g. ['2026-10-04-019-t-0039-make-acceptance-and-steps-append']
+  1  sessions/2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/events.jsonl
+      e.g. ['2026-10-04-019-t-0039-make-acceptance-and-steps-append']
+  1  sessions/2026-10-04-019-t-0039-make-acceptance-and-steps-append/commands.log
+      e.g. ['2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch']
+  1  sessions/2026-10-04-019-t-0039-make-acceptance-and-steps-append/events.jsonl
+      e.g. ['2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch']
+  1  sessions/2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/commands.log
+      e.g. ['2026-10-04-024-hold-each-decision-file-s-own-header-to']
+  1  sessions/2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/events.jsonl
+      e.g. ['2026-10-04-024-hold-each-decision-file-s-own-header-to']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  EXPERIMENTS/010-annotation-rendering/raw/summary.json
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-029-measure-how-github-files-an-annotation-o/commands.log
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-029-measure-how-github-files-an-annotation-o/events.jsonl
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-030-make-sync-land-s-own-conflict-instructio/commands.log
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-030-make-sync-land-s-own-conflict-instructio/events.jsonl
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-031-record-the-measured-ci-state-on-the-tip/commands.log
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+  1  sessions/2026-10-04-031-record-the-measured-ci-state-on-the-tip/events.jsonl
+      e.g. ['2026-10-04-030-attribute-a-task-file-that-a-task-comman']
+
+total pairs: 164   distinct paths: 93
+declared, or the session's own directory: 141
+carrying the generated mark: 0
+attributed to a recorded base move: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6037  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T11:51:48+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_declared_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_the_line_cap_still_exempts_a_data_file (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_a_later_append_does_not_lose_the_declaration (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest) ... FAIL
+test_that_session_reported_one_path_and_declared_none_of_these (test_unlogged_data.RecordedSilenceTest) ... ok
+test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest) ... ERROR
+
+======================================================================
+ERROR: test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 223, in test_the_two_questions_give_different_answers_on_those_paths
+    self.assertFalse(doclint.is_declared_exempt(path, globs), path)
+AttributeError: module 'originlib.doclint' has no attribute 'is_declared_exempt'
+
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 93, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [self.change("work/quiet.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 81, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [self.change("work/state.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+======================================================================
+FAIL: test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 85, in test_a_jsonl_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/ledger.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/ledger.jsonl'
+
+- []
++ ['work/ledger.jsonl']
+
+======================================================================
+FAIL: test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 89, in test_a_log_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/commands.log']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/commands.log'
+
+- []
++ ['work/commands.log']
+
+======================================================================
+FAIL: test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 112, in test_a_vendored_path_is_still_exempt
+    self.assertFalse(reconcile._is_own_session_file(self.active, "vendor/other.json"))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 173, in test_a_hand_edit_to_the_ledger_after_the_append_is_reported
+    self.assertEqual(result["unlogged"], ["tasks/CLAIMS.jsonl"])
+AssertionError: Lists differ: [] != ['tasks/CLAIMS.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- []
++ ['tasks/CLAIMS.jsonl']
+
+======================================================================
+FAIL: test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 161, in test_the_declaration_carries_the_bytes_the_append_wrote
+    self.assertEqual(len(recorded), 1, recorded)
+AssertionError: 0 != 1 : []
+
+======================================================================
+FAIL: test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 156, in test_the_ledger_appends_are_not_reported
+    self.assertIn("tasks/CLAIMS.jsonl", result["rewritten"])
+AssertionError: 'tasks/CLAIMS.jsonl' not found in ['tasks/T-0001-append-to-the-ledger.md']
+
+======================================================================
+FAIL: test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 229, in test_reconciliation_reads_the_declared_question_for_them
+    self.assertFalse(reconcile._is_vendored(path), path)
+AssertionError: True is not false : EXPERIMENTS/010-annotation-rendering/raw/summary.json
+
+----------------------------------------------------------------------
+Ran 15 tests in 7.284s
+
+FAILED (failures=9, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7700  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T11:52:01+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_declared_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_the_line_cap_still_exempts_a_data_file (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_a_later_append_does_not_lose_the_declaration (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest) ... FAIL
+test_that_session_reported_one_path_and_declared_none_of_these (test_unlogged_data.RecordedSilenceTest) ... ok
+test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest) ... ERROR
+
+======================================================================
+ERROR: test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 223, in test_the_two_questions_give_different_answers_on_those_paths
+    self.assertFalse(doclint.is_declared_exempt(path, globs), path)
+AttributeError: module 'originlib.doclint' has no attribute 'is_declared_exempt'
+
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 93, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [self.change("work/quiet.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 81, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [self.change("work/state.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+======================================================================
+FAIL: test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 85, in test_a_jsonl_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/ledger.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/ledger.jsonl'
+
+- []
++ ['work/ledger.jsonl']
+
+======================================================================
+FAIL: test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 89, in test_a_log_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/commands.log']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/commands.log'
+
+- []
++ ['work/commands.log']
+
+======================================================================
+FAIL: test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 112, in test_a_vendored_path_is_still_exempt
+    self.assertFalse(reconcile._is_own_session_file(self.active, "vendor/other.json"))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 173, in test_a_hand_edit_to_the_ledger_after_the_append_is_reported
+    self.assertEqual(result["unlogged"], ["tasks/CLAIMS.jsonl"])
+AssertionError: Lists differ: [] != ['tasks/CLAIMS.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- []
++ ['tasks/CLAIMS.jsonl']
+
+======================================================================
+FAIL: test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 161, in test_the_declaration_carries_the_bytes_the_append_wrote
+    self.assertEqual(len(recorded), 1, recorded)
+AssertionError: 0 != 1 : []
+
+======================================================================
+FAIL: test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 156, in test_the_ledger_appends_are_not_reported
+    self.assertIn("tasks/CLAIMS.jsonl", result["rewritten"])
+AssertionError: 'tasks/CLAIMS.jsonl' not found in ['tasks/T-0001-append-to-the-ledger.md']
+
+======================================================================
+FAIL: test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 229, in test_reconciliation_reads_the_declared_question_for_them
+    self.assertFalse(reconcile._is_vendored(path), path)
+AssertionError: True is not false : EXPERIMENTS/010-annotation-rendering/raw/summary.json
+
+----------------------------------------------------------------------
+Ran 15 tests in 8.507s
+
+FAILED (failures=9, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8800  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T12:05:45+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_declared_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_the_line_cap_still_exempts_a_data_file (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_a_later_append_does_not_lose_the_declaration (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest) ... ok
+test_that_session_reported_one_path_and_declared_none_of_these (test_unlogged_data.RecordedSilenceTest) ... ok
+test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest) ... ok
+
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 93, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [self.change("work/quiet.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 105, in test_a_generated_data_file_is_not_reported
+    self.assertEqual(self.unlogged(), [])
+AssertionError: Lists differ: ['work/index.json'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'work/index.json'
+
+- ['work/index.json']
++ []
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 81, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [self.change("work/state.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+======================================================================
+FAIL: test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 174, in test_a_hand_edit_to_the_ledger_after_the_append_is_reported
+    self.assertEqual(result["rewritten"], [])
+AssertionError: Lists differ: ['tasks/T-0001-append-to-the-ledger.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-append-to-the-ledger.md'
+
+- ['tasks/T-0001-append-to-the-ledger.md']
++ []
+
+----------------------------------------------------------------------
+Ran 15 tests in 7.791s
+
+FAILED (failures=4)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8097  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T12:05:58+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_declared_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... FAIL
+test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_the_line_cap_still_exempts_a_data_file (test_unlogged_data.DataSuffixIsNotADeclaration) ... ok
+test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... FAIL
+test_a_later_append_does_not_lose_the_declaration (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender) ... ok
+test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest) ... ok
+test_that_session_reported_one_path_and_declared_none_of_these (test_unlogged_data.RecordedSilenceTest) ... ok
+test_the_two_questions_give_different_answers_on_those_paths (test_unlogged_data.RecordedSilenceTest) ... ok
+
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 93, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [self.change("work/quiet.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_generated_data_file_is_not_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 105, in test_a_generated_data_file_is_not_reported
+    self.assertEqual(self.unlogged(), [])
+AssertionError: Lists differ: ['work/index.json'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'work/index.json'
+
+- ['work/index.json']
++ []
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 81, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [self.change("work/state.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+======================================================================
+FAIL: test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 174, in test_a_hand_edit_to_the_ledger_after_the_append_is_reported
+    self.assertEqual(result["rewritten"], [])
+AssertionError: Lists differ: ['tasks/T-0001-append-to-the-ledger.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-append-to-the-ledger.md'
+
+- ['tasks/T-0001-append-to-the-ledger.md']
++ []
+
+----------------------------------------------------------------------
+Ran 15 tests in 6.973s
+
+FAILED (failures=4)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7310  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T12:10:36+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+F...F...........
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 93, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [self.change("work/quiet.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 81, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [self.change("work/state.json", "{}\n")])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+----------------------------------------------------------------------
+Ran 16 tests in 7.775s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8033  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T12:11:26+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+changed: ['sessions/2026-10-04-001-g/README.md', 'sessions/2026-10-04-001-g/events.jsonl', 'sessions/INDEX.md', 'work/state.json']
+landed: set()
+is_vendored: False
+globs: []
+is_generated: False
+own: False
+manifest exists: False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 808  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T12:12:31+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+................
+----------------------------------------------------------------------
+Ran 16 tests in 8.806s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9532  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T12:17:55+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F...FF..F.FF.......................................
+======================================================================
+FAIL: test_the_next_session_reports_a_command_run_before_it_opened (test_task_rewrite.CommandOutsideASessionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 205, in test_the_next_session_reports_a_command_run_before_it_opened
+    self.assertEqual(result["unlogged"], [path])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_rewrite_of_one_task_does_not_cover_another (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 172, in test_a_rewrite_of_one_task_does_not_cover_another
+    self.assertEqual(result["rewritten"], [self.task_path("T-0001")])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_second_identical_write_is_not_recorded_twice (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 134, in test_a_second_identical_write_is_not_recorded_twice
+    self.assertEqual(len(self.rewrites()), 1)
+AssertionError: 3 != 1
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 143, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["rewritten"], [])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- ['tasks/CLAIMS.jsonl']
++ []
+
+======================================================================
+FAIL: test_the_command_line_names_the_rewritten_file (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 124, in test_the_command_line_names_the_rewritten_file
+    self.assertIn("REWRITTEN by task commands (1)", self.output())
+AssertionError: 'REWRITTEN by task commands (1)' not found in "session 2026-10-04-001-run-a-task-to-completion finished: worked in 0.4s\n  declared artifacts: 1\n  this session's changes: 7\n  REWRITTEN by task commands (2), unchanged since:\n    - tasks/CLAIMS.jsonl\n    - tasks/T-0001-attribute-a-rewritten-task-file.md\n  report: sessions/2026-10-04-001-run-a-task-to-completion/README.md\n"
+
+======================================================================
+FAIL: test_the_rewrite_is_recorded_with_the_bytes_it_wrote (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 109, in test_the_rewrite_is_recorded_with_the_bytes_it_wrote
+    self.assertEqual(result["rewritten"], [self.task_path()])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 519 tests in 311.067s
+
+FAILED (failures=6)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 311698  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T12:23:23+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F...FF..F.FF.......................................
+======================================================================
+FAIL: test_the_next_session_reports_a_command_run_before_it_opened (test_task_rewrite.CommandOutsideASessionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 205, in test_the_next_session_reports_a_command_run_before_it_opened
+    self.assertEqual(result["unlogged"], [path])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_rewrite_of_one_task_does_not_cover_another (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 172, in test_a_rewrite_of_one_task_does_not_cover_another
+    self.assertEqual(result["rewritten"], [self.task_path("T-0001")])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_second_identical_write_is_not_recorded_twice (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 134, in test_a_second_identical_write_is_not_recorded_twice
+    self.assertEqual(len(self.rewrites()), 1)
+AssertionError: 3 != 1
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 143, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["rewritten"], [])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- ['tasks/CLAIMS.jsonl']
++ []
+
+======================================================================
+FAIL: test_the_command_line_names_the_rewritten_file (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 124, in test_the_command_line_names_the_rewritten_file
+    self.assertIn("REWRITTEN by task commands (1)", self.output())
+AssertionError: 'REWRITTEN by task commands (1)' not found in "session 2026-10-04-001-run-a-task-to-completion finished: worked in 0.4s\n  declared artifacts: 1\n  this session's changes: 7\n  REWRITTEN by task commands (2), unchanged since:\n    - tasks/CLAIMS.jsonl\n    - tasks/T-0001-attribute-a-rewritten-task-file.md\n  report: sessions/2026-10-04-001-run-a-task-to-completion/README.md\n"
+
+======================================================================
+FAIL: test_the_rewrite_is_recorded_with_the_bytes_it_wrote (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 109, in test_the_rewrite_is_recorded_with_the_bytes_it_wrote
+    self.assertEqual(result["rewritten"], [self.task_path()])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 519 tests in 317.786s
+
+FAILED (failures=6)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 318335  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T12:24:13+00:00
+$ python3 -m unittest discover -s tests -p test_task_rewrite.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F...FF..F.FF.
+======================================================================
+FAIL: test_the_next_session_reports_a_command_run_before_it_opened (test_task_rewrite.CommandOutsideASessionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 205, in test_the_next_session_reports_a_command_run_before_it_opened
+    self.assertEqual(result["unlogged"], [path])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_rewrite_of_one_task_does_not_cover_another (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 172, in test_a_rewrite_of_one_task_does_not_cover_another
+    self.assertEqual(result["rewritten"], [self.task_path("T-0001")])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_a_second_identical_write_is_not_recorded_twice (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 134, in test_a_second_identical_write_is_not_recorded_twice
+    self.assertEqual(len(self.rewrites()), 1)
+AssertionError: 3 != 1
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 143, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["rewritten"], [])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- ['tasks/CLAIMS.jsonl']
++ []
+
+======================================================================
+FAIL: test_the_command_line_names_the_rewritten_file (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 124, in test_the_command_line_names_the_rewritten_file
+    self.assertIn("REWRITTEN by task commands (1)", self.output())
+AssertionError: 'REWRITTEN by task commands (1)' not found in "session 2026-10-04-001-run-a-task-to-completion finished: worked in 0.5s\n  declared artifacts: 1\n  this session's changes: 7\n  REWRITTEN by task commands (2), unchanged since:\n    - tasks/CLAIMS.jsonl\n    - tasks/T-0001-attribute-a-rewritten-task-file.md\n  report: sessions/2026-10-04-001-run-a-task-to-completion/README.md\n"
+
+======================================================================
+FAIL: test_the_rewrite_is_recorded_with_the_bytes_it_wrote (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 109, in test_the_rewrite_is_recorded_with_the_bytes_it_wrote
+    self.assertEqual(result["rewritten"], [self.task_path()])
+AssertionError: Lists differ: ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md'] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+First differing element 0:
+'tasks/CLAIMS.jsonl'
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/CLAIMS.jsonl', 'tasks/T-0001-attribute-a-rewritten-task-file.md']
+?  ----------------------
+
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 14 tests in 8.275s
+
+FAILED (failures=6)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8680  redactions: none
+==============================================================================
+[seq 18] 2026-10-04T12:26:40+00:00
+$ python3 -m unittest discover -s tests -p test_task_rewrite.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+............F.
+======================================================================
+FAIL: test_the_rewrite_is_recorded_with_the_bytes_it_wrote (test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_rewrite.py", line 133, in test_the_rewrite_is_recorded_with_the_bytes_it_wrote
+    self.assertEqual(entry["size"], (self.repo / LEDGER).stat().st_size)
+AssertionError: 300 != 427
+
+----------------------------------------------------------------------
+Ran 14 tests in 8.038s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8389  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T12:27:11+00:00
+$ python3 -m unittest discover -s tests -p test_task_rewrite.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 8.578s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8911  redactions: none
+==============================================================================
+[seq 20] 2026-10-04T12:27:29+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+F..FFFFF.F.FFF..
+======================================================================
+FAIL: test_a_changed_data_file_is_reported_alongside_a_declared_one (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 95, in test_a_changed_data_file_is_reported_alongside_a_declared_one
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/quiet.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/quiet.json'
+
+- []
++ ['work/quiet.json']
+
+======================================================================
+FAIL: test_a_json_carrying_no_generator_mark_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 116, in test_a_json_carrying_no_generator_mark_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/pretend.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/pretend.json'
+
+- []
++ ['work/pretend.json']
+
+======================================================================
+FAIL: test_a_json_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 82, in test_a_json_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/state.json']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/state.json'
+
+- []
++ ['work/state.json']
+
+======================================================================
+FAIL: test_a_jsonl_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 86, in test_a_jsonl_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/ledger.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/ledger.jsonl'
+
+- []
++ ['work/ledger.jsonl']
+
+======================================================================
+FAIL: test_a_log_changed_without_declaring_is_reported (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 90, in test_a_log_changed_without_declaring_is_reported
+    self.assertEqual(self.unlogged(), [path])
+AssertionError: Lists differ: [] != ['work/commands.log']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'work/commands.log'
+
+- []
++ ['work/commands.log']
+
+======================================================================
+FAIL: test_a_vendored_path_is_still_exempt (test_unlogged_data.DataSuffixIsNotADeclaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 123, in test_a_vendored_path_is_still_exempt
+    self.assertFalse(reconcile._is_own_session_file(self.active, "vendor/other.json"))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_a_hand_edit_to_the_ledger_after_the_append_is_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 184, in test_a_hand_edit_to_the_ledger_after_the_append_is_reported
+    self.assertEqual(result["unlogged"], ["tasks/CLAIMS.jsonl"])
+AssertionError: Lists differ: [] != ['tasks/CLAIMS.jsonl']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/CLAIMS.jsonl'
+
+- []
++ ['tasks/CLAIMS.jsonl']
+
+======================================================================
+FAIL: test_the_declaration_carries_the_bytes_the_append_wrote (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 172, in test_the_declaration_carries_the_bytes_the_append_wrote
+    self.assertEqual(len(recorded), 1, recorded)
+AssertionError: 0 != 1 : []
+
+======================================================================
+FAIL: test_the_ledger_appends_are_not_reported (test_unlogged_data.LedgerIsDeclaredByItsAppender)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 167, in test_the_ledger_appends_are_not_reported
+    self.assertIn("tasks/CLAIMS.jsonl", result["rewritten"])
+AssertionError: 'tasks/CLAIMS.jsonl' not found in ['tasks/T-0001-append-to-the-ledger.md']
+
+======================================================================
+FAIL: test_reconciliation_reads_the_declared_question_for_them (test_unlogged_data.RecordedSilenceTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_unlogged_data.py", line 243, in test_reconciliation_reads_the_declared_question_for_them
+    self.assertFalse(reconcile._is_vendored(path), path)
+AssertionError: True is not false : EXPERIMENTS/010-annotation-rendering/raw/summary.json
+
+----------------------------------------------------------------------
+Ran 16 tests in 7.907s
+
+FAILED (failures=10)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8234  redactions: none
+==============================================================================
+[seq 21] 2026-10-04T12:28:06+00:00
+$ python3 -m unittest discover -s tests -p test_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+................
+----------------------------------------------------------------------
+Ran 16 tests in 9.886s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10218  redactions: none
+==============================================================================
+[seq 22] 2026-10-04T12:30:28+00:00
+$ python3 tools/sweep_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions swept: 77
+  excluded, the session's own directory: 114
+  excluded, another session's stream: 92
+  excluded, declared as an artifact: 27
+
+=== newly reportable once the suffix stops being an exemption ===
+72 (session, path) pairs over 17 distinct paths
+  50  tasks/CLAIMS.jsonl
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   3  tests/git-versions.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt, 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   2  vendor/hashes.json
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/results.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/sources.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   1  EXPERIMENTS/003-information-sufficiency/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  EXPERIMENTS/004-knitting-stage-a/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  tests/python-versions.json
+      e.g. 2026-10-04-013-t-0035-stop-the-credential-sandbox-from
+   1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/summary.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5616  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T12:30:57+00:00
+$ python3 tools/sweep_unlogged_data.py --all
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions swept: 77
+  excluded, the session's own directory: 114
+  excluded, declared as an artifact: 27
+
+=== newly reportable once the suffix stops being an exemption ===
+164 (session, path) pairs over 93 distinct paths
+  50  tasks/CLAIMS.jsonl
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   3  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/events.jsonl
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   3  tests/git-versions.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt, 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   2  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-003-record-the-session-002-reconciliation-ga
+   2  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/events.jsonl
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-003-record-the-session-002-reconciliation-ga
+   2  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   2  vendor/hashes.json
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   2  sessions/2026-10-03-001-build-durable-session-infrastructure-ven/commands.log
+      e.g. 2026-10-03-002-build-durable-session-infrastructure-ven, 2026-10-03-003-record-the-session-002-reconciliation-ga
+   2  sessions/2026-10-03-001-build-durable-session-infrastructure-ven/events.jsonl
+      e.g. 2026-10-03-002-build-durable-session-infrastructure-ven, 2026-10-03-003-record-the-session-002-reconciliation-ga
+   2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/results.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/sources.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/commands.log
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/commands.log
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-037-repair-the-three-mission-records-corrupt/events.jsonl
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-038-implement-origin-release-check-so-releas/commands.log
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-038-implement-origin-release-check-so-releas/events.jsonl
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-038-land-t-0020-renumber-two-findings-off-a/events.jsonl
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   2  sessions/2026-10-03-039-repair-two-operations-documents-that-sta/commands.log
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  sessions/2026-10-03-039-repair-two-operations-documents-that-sta/events.jsonl
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   1  sessions/2026-10-03-010-complete-and-verify-exclusive-multi-vm-o/events.jsonl
+      e.g. 2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit
+   1  EXPERIMENTS/003-information-sufficiency/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  EXPERIMENTS/004-knitting-stage-a/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/commands.log
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/events.jsonl
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-021-repair-the-knitting-witness-input-set-by/commands.log
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-021-repair-the-knitting-witness-input-set-by/events.jsonl
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-022-run-the-knitting-stage-a-planner-compari/commands.log
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-022-run-the-knitting-stage-a-planner-compari/events.jsonl
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/events.jsonl
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  sessions/2026-10-03-020-annotate-hypotheses-md-with-e002-outcome/events.jsonl
+      e.g. 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl
+   1  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log
+      e.g. 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl
+   1  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/events.jsonl
+      e.g. 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl
+   1  sessions/2026-10-03-026-run-e3-s-build-timestamp-census-over-200/events.jsonl
+      e.g. 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl
+   1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-031-record-the-measured-ci-result-tests-doc/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-032-correct-three-overstated-claims-about-gi/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-033-record-git-versions-exercised-and-split/commands.log
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-033-record-git-versions-exercised-and-split/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/commands.log
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-036-refresh-stale-generated-task-index-after/events.jsonl
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  sessions/2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-001-t-0025-record-the-measured-pushed-ci-res/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-002-t-0026-make-task-new-regenerate-tasks-in/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-003-t-0027-the-published-claim-commit-must-c/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-003-t-0027-the-published-claim-commit-must-c/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-004-t-0028-record-the-ci-run-history-around/commands.log
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-04-004-t-0028-record-the-ci-run-history-around/events.jsonl
+      e.g. 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   1  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log
+      e.g. 2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi
+   1  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/events.jsonl
+      e.g. 2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi
+   1  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log
+      e.g. 2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi
+   1  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/events.jsonl
+      e.g. 2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi
+   1  sessions/2026-10-04-006-t-0032-record-the-python-versions-the-su/events.jsonl
+      e.g. 2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi
+   1  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log
+      e.g. 2026-10-04-007-t-0032-record-the-python-versions-the-su
+   1  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/events.jsonl
+      e.g. 2026-10-04-007-t-0032-record-the-python-versions-the-su
+   1  sessions/2026-10-04-013-t-0035-stop-the-credential-sandbox-from/commands.log
+      e.g. 2026-10-04-012-measure-the-test-suite-on-every-cpython
+   1  sessions/2026-10-04-013-t-0035-stop-the-credential-sandbox-from/events.jsonl
+      e.g. 2026-10-04-012-measure-the-test-suite-on-every-cpython
+   1  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log
+      e.g. 2026-10-04-013-t-0035-stop-the-credential-sandbox-from
+   1  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/events.jsonl
+      e.g. 2026-10-04-013-t-0035-stop-the-credential-sandbox-from
+   1  tests/python-versions.json
+      e.g. 2026-10-04-013-t-0035-stop-the-credential-sandbox-from
+   1  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log
+      e.g. 2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc
+   1  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/events.jsonl
+      e.g. 2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc
+   1  sessions/2026-10-04-018-t-0038-record-that-the-public-check-run/commands.log
+      e.g. 2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc
+   1  sessions/2026-10-04-018-t-0038-record-that-the-public-check-run/events.jsonl
+      e.g. 2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc
+   1  sessions/2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/commands.log
+      e.g. 2026-10-04-019-t-0039-make-acceptance-and-steps-append
+   1  sessions/2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/events.jsonl
+      e.g. 2026-10-04-019-t-0039-make-acceptance-and-steps-append
+   1  sessions/2026-10-04-019-t-0039-make-acceptance-and-steps-append/commands.log
+      e.g. 2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch
+   1  sessions/2026-10-04-019-t-0039-make-acceptance-and-steps-append/events.jsonl
+      e.g. 2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch
+   1  sessions/2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/commands.log
+      e.g. 2026-10-04-024-hold-each-decision-file-s-own-header-to
+   1  sessions/2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/events.jsonl
+      e.g. 2026-10-04-024-hold-each-decision-file-s-own-header-to
+   1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/summary.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-029-measure-how-github-files-an-annotation-o/commands.log
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-029-measure-how-github-files-an-annotation-o/events.jsonl
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-030-make-sync-land-s-own-conflict-instructio/commands.log
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-030-make-sync-land-s-own-conflict-instructio/events.jsonl
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-031-record-the-measured-ci-state-on-the-tip/commands.log
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  sessions/2026-10-04-031-record-the-measured-ci-state-on-the-tip/events.jsonl
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6515  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T12:31:12+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 549 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1568 lines (exempt from cap)
+  FAIL  tests/test_task_rewrite.py: 301 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2696  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T12:33:35+00:00
+$ python3 -m unittest discover -s tests -p test_task_rewrite*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+................
+----------------------------------------------------------------------
+Ran 16 tests in 8.507s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8911  redactions: none
+==============================================================================
+[seq 26] 2026-10-04T12:33:57+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 550 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1624 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2607  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T12:39:09+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 521 tests in 304.879s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 305432  redactions: none
+==============================================================================
+[seq 28] 2026-10-04T12:40:00+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 550 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1683 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 77 session(s) checked
+  note  2026-10-04-034-separate-the-line-cap-exemption-from-rec: in progress (command)
+session verify: OK
+release check: 42 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8030  redactions: none
+==============================================================================
+[seq 30] 2026-10-04T12:47:53+00:00
+$ python3 -m unittest discover -s tests -p test_decision*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 3.712s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4087  redactions: none
+==============================================================================
+[seq 31] 2026-10-04T12:50:37+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 551 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1746 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2592  redactions: none
+==============================================================================
+[seq 32] 2026-10-04T12:53:59+00:00
+$ tools/origin doc index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc index: already current
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 923  redactions: none
+==============================================================================
+[seq 33] 2026-10-04T12:54:02+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 551 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1796 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2527  redactions: none
+==============================================================================
+[seq 55] 2026-10-04T12:59:51+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 521 tests in 302.112s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 302604  redactions: none
+==============================================================================
+[seq 56] 2026-10-04T13:00:21+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 551 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1855 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 77 session(s) checked
+  note  2026-10-04-034-separate-the-line-cap-exemption-from-rec: in progress (command)
+session verify: OK
+release check: 42 path(s) checked
+  FAIL  FAILURES-findings-5.md: tracked at the top level but classified by neither manifest table
+release check: 1 violation(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 8085  redactions: none
+==============================================================================
+[seq 58] 2026-10-04T13:00:57+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 551 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 1906 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 77 session(s) checked
+  note  2026-10-04-034-separate-the-line-cap-exemption-from-rec: in progress (artifact)
+session verify: OK
+release check: 43 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8019  redactions: none
+==============================================================================
+[seq 59] 2026-10-04T13:01:10+00:00
+$ python3 tools/sweep_unlogged_data.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sessions swept: 77
+  excluded, the session's own directory: 114
+  excluded, another session's stream: 92
+  excluded, declared as an artifact: 27
+
+=== newly reportable once the suffix stops being an exemption ===
+72 (session, path) pairs over 17 distinct paths
+  50  tasks/CLAIMS.jsonl
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   3  tests/git-versions.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt, 2026-10-03-040-make-origin-doctor-read-the-push-credent
+   2  vendor/hashes.json
+      e.g. 2026-10-03-001-build-durable-session-infrastructure-ven, 2026-10-03-002-build-durable-session-infrastructure-ven
+   2  EXPERIMENTS/008-build-timestamp-attribution/first-failure.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/results.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   2  EXPERIMENTS/008-build-timestamp-attribution/sources.json
+      e.g. 2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f, 2026-10-03-038-land-t-0020-renumber-two-findings-off-a
+   1  EXPERIMENTS/003-information-sufficiency/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  EXPERIMENTS/004-knitting-stage-a/results.json
+      e.g. 2026-10-03-020-annotate-hypotheses-md-with-e002-outcome
+   1  EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json
+      e.g. 2026-10-03-030-run-t-0017-attribute-every-differing-byt
+   1  tests/python-versions.json
+      e.g. 2026-10-04-013-t-0035-stop-the-credential-sandbox-from
+   1  EXPERIMENTS/010-annotation-rendering/raw/37189825232.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37190842104.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37191658964.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37192717297.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/37196459285.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/rate_limit.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+   1  EXPERIMENTS/010-annotation-rendering/raw/summary.json
+      e.g. 2026-10-04-030-attribute-a-task-file-that-a-task-comman
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5817  redactions: none
+==============================================================================
+[seq 60] 2026-10-04T13:02:21+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase stopped on a real content conflict in STATE-defects.md, STATE.md; resolve it (or 'git rebase --abort') and land again
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2582  redactions: none
+==============================================================================
+[seq 61] 2026-10-04T13:07:25+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2013 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  FAIL  STATE-defects.md: 305 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 4305  redactions: none
+==============================================================================
+[seq 62] 2026-10-04T13:09:56+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2057 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  FAIL  STATE-defects.md: 305 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 3211  redactions: none
+==============================================================================
+[seq 63] 2026-10-04T13:13:59+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2101 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  FAIL  STATE-defects.md: 301 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2715  redactions: none
+==============================================================================
+[seq 64] 2026-10-04T13:14:12+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2145 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  FAIL  STATE-defects.md: 301 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 3314  redactions: none
+==============================================================================
+[seq 65] 2026-10-04T13:15:41+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2189 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  FAIL  STATE-defects.md: 301 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2693  redactions: none
+==============================================================================
+[seq 66] 2026-10-04T13:16:52+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 558 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2233 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2998  redactions: none
+==============================================================================
+[seq 67] 2026-10-04T13:17:03+00:00
+$ python3 -m unittest discover -s tests -p test_defectlist.py -p test_identifiers.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 4.531s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4815  redactions: none
+==============================================================================
+[seq 68] 2026-10-04T13:17:04+00:00
+$ python3 -m unittest tests.test_defectlist tests.test_identifier_enforcement tests.test_identifiers tests.test_decision_header tests.test_decision_files
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EEEE....
+======================================================================
+ERROR: test_defectlist (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_defectlist
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_defectlist.py", line 23, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_identifier_enforcement (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_identifier_enforcement
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_identifier_enforcement.py", line 25, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_identifiers (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_identifiers
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_identifiers.py", line 24, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+======================================================================
+ERROR: test_decision_header (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_decision_header
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/home/ubuntu/think-free/tests/test_decision_header.py", line 31, in <module>
+    from harness import RepoTest
+ModuleNotFoundError: No module named 'harness'
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.066s
+
+FAILED (errors=4)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 308  redactions: none
+==============================================================================
+[seq 69] 2026-10-04T13:17:28+00:00
+$ python3 -m unittest discover -s tests -p test_identifier_enforcement.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_doc_lint_fails_on_a_repeated_defect_number (test_identifier_enforcement.DocLintWiringTest) ... ok
+test_doc_lint_fails_on_the_colliding_tree (test_identifier_enforcement.DocLintWiringTest) ... ok
+test_doc_lint_fails_when_the_defect_list_cannot_be_read (test_identifier_enforcement.DocLintWiringTest) ... ok
+test_land_publishes_a_clean_tree (test_identifier_enforcement.LandRefusalTest) ... ok
+test_land_refuses_to_publish_a_colliding_tree (test_identifier_enforcement.LandRefusalTest) ... ok
+test_land_refuses_to_publish_a_repeated_defect_number (test_identifier_enforcement.LandRefusalTest) ... ok
+test_the_refusal_names_the_way_out (test_identifier_enforcement.LandRefusalTest) ... ok
+test_every_decision_this_repository_holds_is_listed_in_the_index (test_identifier_enforcement.ThisRepositoryTest) ... ok
+test_the_colliding_commit_is_the_one_the_fixture_quotes (test_identifier_enforcement.ThisRepositoryTest) ... ok
+test_the_entry_point_reads_both_sources (test_identifier_enforcement.ThisRepositoryTest) ... ok
+test_this_repository_has_no_collision_in_the_defect_list (test_identifier_enforcement.ThisRepositoryTest) ... ok
+test_this_repository_has_no_identifier_collision (test_identifier_enforcement.ThisRepositoryTest) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 5.204s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5509  redactions: none
+==============================================================================
+[seq 70] 2026-10-04T13:17:29+00:00
+$ python3 -m unittest discover -s tests -p test_decision_files.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_decision_event_is_satisfied_by_any_decision_file (test_decision_files.DecisionFileListTest) ... ok
+test_both_lists_name_the_same_files (test_decision_files.DecisionFileListTest) ... ok
+test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest) ... ok
+test_the_mission_record_list_names_nothing_absent (test_decision_files.DecisionFileListTest) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 275  redactions: none
