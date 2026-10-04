@@ -59,3 +59,15 @@ The new module and its test; reverting the commit restores the previous gate set
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**Reconciliation gap, recorded here because a closed stream accepts nothing.**
+`session finish` reported five `unlogged_change` events —
+`FAILURES-findings-5.md`, `FAILURES.md`, `docs/process/experiment-protocol.md`,
+`tests/test_result_numbers_falsified.py` and `tools/originlib/doclint.py` — every one
+part of this task's work, none declared as an artifact because each was finished after the
+last `session artifact` call rather than before it. The events are in
+`sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/events.jsonl`, so the gap
+is visible rather than silent, which is what the protocol actually guarantees. It is written
+here because the stream is closed and cannot accept a declaration afterwards — the same
+constraint sessions 012 and 015 hit, and the reason this task declared 19 artifacts for 24
+changed paths.
