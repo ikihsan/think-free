@@ -43,6 +43,8 @@ _(none recorded)_
 
 | # | command | exit | ms |
 |---|---|---|---|
+| 6 | ['tools/origin', 'doc', 'lint'] | 0 | 3814 |
+| 7 | ['git', 'add', '-A'] | 0 | 17 |
 
 ## Integrity
 
@@ -58,9 +60,25 @@ _(none recorded)_
 
 | seq | time | kind | summary |
 |---|---|---|---|
-=======
->>>>>>> session: T-0059 census and F029 evidence
-
+| 1 | 20:22:19 | session_start | Decide and execute the highest-information research action after 12 prior-art deaths: test whether the mission's selection rule, not the candidates, i |
+| 2 | 20:25:04 | task_rewrite | appended a create record for T-0059 |
+| 3 | 20:26:16 | task_rewrite | rewrote tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md (status: claimed) |
+| 4 | 20:26:16 | task_rewrite | appended a claim record for T-0059 |
+| 5 | 20:50:50 | artifact | wrote EXPERIMENTS/012-prior-art-predicts-adoption/results.json |
+| 6 | 21:02:21 | command | $ tools/origin doc lint |
+| 7 | 21:02:32 | command | $ git add -A |
+| 8 | 21:02:34 | milestone | T-0059 census run: stars do not predict installs in 5/5 niches; H survives; F029 written |
+| 9 | 21:02:39 | artifact | wrote STATE.md |
+| 10 | 21:02:39 | artifact | wrote FAILURES.md |
+| 11 | 21:02:40 | artifact | wrote FAILURES-findings-6.md |
+| 12 | 21:02:41 | artifact | wrote AGENTS.md |
+| 13 | 21:02:41 | artifact | wrote docs/INDEX.md |
+| 14 | 21:02:42 | artifact | wrote EXPERIMENTS/012-prior-art-predicts-adoption/README.md |
+| 15 | 21:02:53 | note | updated STATE.md |
+| 16 | 21:02:54 | note | updated FAILURES.md |
+| 17 | 21:02:54 | note | updated FAILURES-findings-6.md |
+| 18 | 21:02:55 | note | updated AGENTS.md |
+| 19 | 21:02:55 | note | updated docs/INDEX.md |
 
 ## Reproduce this record
 

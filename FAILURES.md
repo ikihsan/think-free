@@ -62,15 +62,10 @@ side per the rule in
 | F026 | The byproduct thesis is disconfirmed: this mission's own tooling is prior art, and so is its discipline |
 | F027 | Every project in this niche has zero users, so "plausible adoption path" cannot discriminate here |
 | F028 | The flat adoption tail is vocabulary age, not niche, so "adoption path" is uninformative for young candidates |
-<<<<<<< HEAD
 | F029 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
 | F030 | A prior-art verdict from one search query is unreliable in both directions |
 | F031 | Measured from outside, the mission was spending its effort on its own record |
 | F032 | Stars do not predict installs in any of five niches, so F028's flat tail was never a statement about adoption; and "prior art exists" cannot mean "served" |
-
-=======
-| F032 | Stars do not predict installs in any of five niches, so F028's flat tail was never a statement about adoption; and "prior art exists" cannot mean "served" |
->>>>>>> T-0059: renumber F029 to F032 and 012 to 013, the other VM having landed both
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
