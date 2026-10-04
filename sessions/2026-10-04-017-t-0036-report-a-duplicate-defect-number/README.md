@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T06:19:11+00:00
-- **Duration:** ?s
+- **Duration:** 2370.9s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0036: report a duplicate defect number in STATE-defects.md as a doc lint viola
 
 ## Summary
 
-_(none recorded)_
+T-0036: doc lint rule 7 now reads the numbered defect list, through idcheck.report, the one entry point doc lint and sync land both call. Falsified against e53ca23's and e701ad8's own bytes, where the previous wiring reports nothing, with the repair commit and the tip silent as the control. 418 tests green, doc lint green. Found and recorded defect 11 on the way: task new kept one of five --acceptance lines.
+
+## Next
+
+Close defect 11 (make --acceptance and --steps append), then read a red CI run from the public annotations it already publishes instead of adding per-test-file jobs - the recorded reason for not doing so does not hold for the run it was cited against.
 
 ## Artifacts
 
@@ -68,11 +72,12 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 2 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/T-0036-report-a-duplicate-defect-number-in-state-defect.md |
+|   undeclared | tools/originlib/syncland.py |
 
 ## Timeline
 
@@ -109,6 +114,12 @@ _(none recorded)_
 | 29 | 06:51:19 | artifact | wrote DECISIONS.md |
 | 30 | 06:53:02 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import cli_args p = cli_args.build() if hasattr(cli_args,'build') else Non |
 | 31 | 06:53:13 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import cli_args a = cli_args.build_parser().parse_args(['task','new','--go |
+| 32 | 06:58:42 | unlogged_change | changed but never declared as an artifact: tasks/T-0036-report-a-duplicate-defect-number-in-state-defect.md |
+| 33 | 06:58:42 | unlogged_change | changed but never declared as an artifact: tools/originlib/syncland.py |
+| 34 | 06:58:42 | doc_update | updated DECISIONS.md |
+| 35 | 06:58:42 | doc_update | updated ROADMAP.md |
+| 36 | 06:58:42 | doc_update | updated STATE.md |
+| 37 | 06:58:42 | session_end | T-0036: doc lint rule 7 now reads the numbered defect list, through idcheck.report, the one entry point doc lint and sync land both call. Falsified ag |
 
 ## Reproduce this record
 
