@@ -72,7 +72,29 @@ defect is listed as open.
    **Ceiling:** `exercised` means a run happened, not that the version is
    supported, and no interpreter between 3.8 and 3.12 has ever run this suite.
 
+7. **A test fixture inherited the runner's environment** (solved in T-0035).
+   `tests/pushcred_fixture.py` built a sandbox with a fresh `HOME`,
+   `XDG_CONFIG_HOME`, git config and `GIT_CONFIG_SYSTEM=/dev/null`, and left
+   `GH_TOKEN`/`GITHUB_TOKEN` alone. `pushprobe` counts an environment token as a
+   credential mechanism — correctly, it is one — so
+   `test_no_mechanism_is_unavailable_not_broken` built a machine with a mechanism
+   and asserted `unavailable`. Three CI runs failed (`37174050724`,
+   `37174316639`, `37174309822`) while both VMs were green on the same commits,
+   and the cause predates T-0033: it arrived with the fixture in T-0025.
+   **This is the shape worth naming — a defect that only reproduces where the
+   author does not work.** Falsified three ways, and the third was found *by*
+   falsifying: a fixture that clears the tokens but never restores them leaves
+   every test green, because unittest shares one process and nothing asserted
+   the restore. A control now asserts the opposite verdict, so the original
+   test says *which* absence it is about rather than that some absence is
+   reported. **Ceiling:** the fixture builds the machine its own tests need and
+   says nothing about the runners those tests never model.
+
 ## Open
+
+Numbering is continuous and never reused, so a solved defect keeps its
+number and this section is not in numeric order: entries land under whichever
+heading they belong in when they are closed.
 
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by

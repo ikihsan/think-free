@@ -90,6 +90,10 @@ of those it cannot touch.
   event stream. Twelve renumberings have been needed; the allocation half of the
   cause is closed (T-0031) and the detector half is T-0030, and the twelfth
   happened while fixing it.
+- A test fixture must build the machine it claims to build, **including the
+  environment**. Three CI runs were red while both VMs were green because a
+  fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form of the
+  same lesson was a fixture naming a `/tmp` path that existed on one VM only.
 - A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines. The
   ledger is a sequence of events, so the union is correct; only the order is in
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards

@@ -176,6 +176,58 @@ class VerdictTest(RepoTest):
         self.assertEqual(report["verdict"], "unavailable")
         self.assertEqual(report["helpers"], [])
 
+    def test_an_environment_token_alone_is_a_broken_mechanism(self) -> None:
+        """The negative control for the test above, and D030's subject.
+
+        An environment token *is* a credential mechanism, so a machine carrying
+        one and no helper is `broken` — git cannot obtain a credential from it
+        unaided — rather than `unavailable`. Without this pair the first test
+        only shows that some absence is reported; with it, it shows which
+        absence, and the runner that exports `GITHUB_TOKEN` stops changing the
+        answer.
+        """
+        box = Sandbox(self)
+        box.activate(self, None, token=True)
+        os.environ["GITHUB_TOKEN"] = "not-a-real-token"
+        report = self.collect()
+        self.assertEqual(report["verdict"], "broken", report["warnings"])
+        self.assertEqual(report["helpers"], [])
+
+    def test_the_sandbox_clears_a_token_the_runner_injected(self) -> None:
+        """Why the fixture pops these at all, asserted so it cannot regress.
+
+        This is the shape of the CI failure in runs `37174050724`, `37174316639`
+        and `37174309822`: a fixture that inherits the environment is testing the
+        runner as much as the code.
+        """
+        os.environ["GITHUB_TOKEN"] = "injected-by-the-runner"
+        box = Sandbox(self)
+        box.activate(self, None)
+        self.assertNotIn("GITHUB_TOKEN", os.environ)
+        self.assertNotIn("GH_TOKEN", os.environ)
+
+    def test_the_sandbox_restores_the_tokens_it_found(self) -> None:
+        """Clearing without restoring leaks into every later test in the run.
+
+        Found by falsification, not by reading: dropping `GH_TOKEN`/`GITHUB_TOKEN`
+        from the fixture's saved-names tuple left every test green, because
+        nothing asserted the restore. Unittest runs test classes in one process,
+        so a token left cleared by one test changes what the next one sees — and
+        `pushprobe` counts that token as a mechanism, so the direction of the
+        leak decides a verdict. The sandbox borrows the environment; it does not
+        own it.
+        """
+        os.environ["GITHUB_TOKEN"] = "belongs-to-the-runner"
+        os.environ["GH_TOKEN"] = "also-the-runners"
+        box = Sandbox(self)
+        box.activate(self, None)
+        self.assertNotIn("GITHUB_TOKEN", os.environ)
+        # `doCleanups` drains `_cleanups`, so the framework's later call is a
+        # no-op rather than a double restore.
+        self.doCleanups()
+        self.assertEqual(os.environ.get("GITHUB_TOKEN"), "belongs-to-the-runner")
+        self.assertEqual(os.environ.get("GH_TOKEN"), "also-the-runners")
+
     def test_a_key_in_the_wrong_mode_is_a_warning_not_a_verdict(self) -> None:
         box = Sandbox(self)
         box.app_key(mode=0o644)

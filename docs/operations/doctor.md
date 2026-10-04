@@ -27,6 +27,7 @@ running it in CI would make the build flaky for reasons unrelated to the change
 | `versions *` | the same versions compared against the exercised-version records — see below |
 | `git` | head, branch, clean, porcelain paths |
 | `credentials_present` | **environment-variable presence only**, four names |
+| an environment token | `GH_TOKEN` or `GITHUB_TOKEN` alone makes the verdict `broken`, not `unavailable`: it *is* a credential mechanism, and git cannot obtain one from it unaided. That is why the test fixture clears both rather than inheriting whatever the runner exported |
 | `push_credential` | the mechanism git would actually use — see below |
 | `scheduler` | `crontab`, `systemctl`, whether `systemd --user` is running |
 | `network` | one HTTP status per probe URL |

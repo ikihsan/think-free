@@ -1,0 +1,171 @@
+==============================================================================
+[seq 2] 2026-10-04T04:38:24+00:00
+$ sh -c 
+echo "=== FALSIFICATION: pre-fix fixture (inherits the environment) ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tests/pushcred_fixture.py"); t=p.read_text()
+t=t.replace('        if not token:\n            os.environ.pop(\"GH_TOKEN\", None)\n            os.environ.pop(\"GITHUB_TOKEN\", None)\n'""", "")
+t=t.replace('            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS", "GH_TOKEN", "GITHUB_TOKEN",'""", '            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS",'")
+p.write_text(t)
+PY
+GITHUB_TOKEN=dummy PYTHONPATH=tools:tests python3 -m unittest test_pushcred.VerdictTest 2>&1|grep -E "^FAIL: |^(OK|FAILED)"
+cp /tmp/opencode/t35-good.py tests/pushcred_fixture.py
+echo "=== FALSIFICATION: fixture injects a token instead of clearing it ==="
+python3 - <<PY
+from pathlib import Path
+p=Path("tests/pushcred_fixture.py"); t=p.read_text()
+t=t.replace('        if not token:\n            os.environ.pop("GH_TOKEN", None)\n            os.environ.pop("GITHUB_TOKEN", None)'""", '        if token:\n            os.environ["GITHUB_TOKEN"] = "sandbox-token"'""")
+p.write_text(t)
+PY
+GITHUB_TOKEN=dummy PYTHONPATH=tools:tests python3 -m unittest test_pushcred.VerdictTest 2>&1|grep -E "^FAIL: |^(OK|FAILED)"
+cp /tmp/opencode/t35-good.py tests/pushcred_fixture.py
+echo "=== restored ==="
+GITHUB_TOKEN=dummy PYTHONPATH=tools:tests python3 -m unittest test_pushcred.VerdictTest 2>&1|grep -E "^(OK|FAILED)"
+git diff --stat tests/ | cat
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+=== FALSIFICATION: pre-fix fixture (inherits the environment) ===
+OK
+=== FALSIFICATION: fixture injects a token instead of clearing it ===
+OK
+=== restored ===
+OK
+ tests/pushcred_fixture.py | 27 ++++++++++++++++++++++++---
+ tests/test_pushcred.py    | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 54 insertions(+), 3 deletions(-)
+
+
+[stderr]
+  File "<stdin>", line 4
+    t=t.replace('            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS", "GH_TOKEN", "GITHUB_TOKEN",'""", '            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS",'")
+                                                                                                                                                        ^
+SyntaxError: EOL while scanning string literal
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+TypeError: replace expected at least 2 arguments, got 1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12814  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T04:38:46+00:00
+$ python3 /tmp/opencode/falsify35.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+--- F1 pre-fix fixture (no token clearing)
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAILED (failures=2)
+--- F2 fixture injects a token
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAILED (failures=2)
+--- F3 tokens cleared but never restored
+    OK
+--- restored
+--- restored
+    OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11773  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T04:39:08+00:00
+$ python3 /tmp/opencode/falsify35.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+--- F1 pre-fix fixture (no token clearing)
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F2 fixture injects a token
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F3 tokens cleared but never restored
+    ERROR: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (errors=1)
+--- restored
+--- restored
+    ERROR: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11999  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T04:39:38+00:00
+$ python3 /tmp/opencode/falsify35.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+--- F1 pre-fix fixture (no token clearing)
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F2 fixture injects a token
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F3 tokens cleared but never restored
+    ERROR: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (errors=1)
+--- restored
+--- restored
+    ERROR: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12311  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T04:40:13+00:00
+$ python3 /tmp/opencode/falsify35.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+--- F1 pre-fix fixture (no token clearing)
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F2 fixture injects a token
+    FAIL: test_no_mechanism_is_unavailable_not_broken (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_clears_a_token_the_runner_injected (test_pushcred.VerdictTest)
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=3)
+--- F3 tokens cleared but never restored
+    FAIL: test_the_sandbox_restores_the_tokens_it_found (test_pushcred.VerdictTest)
+    FAILED (failures=1)
+--- restored
+--- restored
+    OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12510  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T04:47:42+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; echo "--- with runner tokens ---"; GITHUB_TOKEN=x GH_TOKEN=y PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+--- with runner tokens ---
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 398593  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T04:56:55+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -3; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"; tools/origin preflight 2>&1|tail -2
+cwd: /home/ubuntu/think-free/.worktrees/T-0035-instance-20260717-0944
+------------------------------------------------------------------------------
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 202816  redactions: none

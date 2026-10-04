@@ -227,6 +227,11 @@ onwards, which nothing has ever run, and a green row is evidence about that row
 and not about the version below it. Git is unchanged and weaker, because a git
 version is a property of a machine rather than of a workflow step: the suite has
 run on 2.25.1 and 2.56.0 and on nothing between, and no gate widens that.
+
+A suite that only passes where its author works is not a suite. The credential
+fixture was green on both VMs for a day and red on every runner that exports
+`GITHUB_TOKEN` (T-0035, defect 7): the interpreter range was being widened while
+the one thing every runner shares went untested.
 Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see

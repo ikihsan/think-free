@@ -61,13 +61,31 @@ class Sandbox:
         key.chmod(mode)
         return key
 
-    def activate(self, test: unittest.TestCase, helper: Path | None = None) -> None:
-        """Point HOME, XDG_CONFIG_HOME, and git at the sandbox, for this test."""
+    def activate(
+        self, test: unittest.TestCase, helper: Path | None = None, token: bool = False
+    ) -> None:
+        """Point HOME, XDG_CONFIG_HOME, and git at the sandbox, for this test.
+
+        `token=False` clears `GH_TOKEN` and `GITHUB_TOKEN` as well, and that is
+        the default for a reason found the hard way: `pushprobe` counts an
+        environment token as a credential mechanism — correctly, because it is
+        one — so on any runner that exports `GITHUB_TOKEN`,
+        `test_no_mechanism_is_unavailable_not_broken` read `broken` where it
+        asserted `unavailable`. It was green on both VMs and red only in CI,
+        which is the shape of a fixture that does not build the machine it claims
+        to build. Three CI runs caught it: `37174050724`, `37174316639`,
+        `37174309822`.
+
+        A test that wants a token asks for `token=True`. Nothing else in the
+        suite does, and that is the point: an environment token is a real
+        mechanism on a real VM, so its absence has to be built deliberately
+        rather than inherited from wherever the suite happens to run.
+        """
         body = f"[credential]\n\thelper = {helper}\n" if helper else ""
         self.gitconfig.write_text(body, encoding="utf-8")
         names = (
             "HOME", "XDG_CONFIG_HOME", "GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM",
-            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS",
+            "GIT_TERMINAL_PROMPT", "GIT_ASKPASS", "GH_TOKEN", "GITHUB_TOKEN",
         )
         saved = {name: os.environ.get(name) for name in names}
         os.environ.update(
@@ -77,6 +95,9 @@ class Sandbox:
             GIT_CONFIG_SYSTEM="/dev/null",
             GIT_TERMINAL_PROMPT="0",
         )
+        if not token:
+            os.environ.pop("GH_TOKEN", None)
+            os.environ.pop("GITHUB_TOKEN", None)
 
         def restore() -> None:
             for name, value in saved.items():

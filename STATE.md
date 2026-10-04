@@ -98,6 +98,11 @@ resolution rule for a ledger conflict is now written down in
 `docs/process/multi-vm-coordination.md`, and **the fix cost one red CI run**
 (`37171841544`, a broken link this VM had just written, fixed in `00cd829`).
 
+**Rebasing onto VM 0947's matrix cost two more collisions, both resolved by
+keeping both sides.** The third rebase conflict in a day, and the rule is routine
+enough to be worth stating once: keep both facts, and let the generated indexes
+be regenerated rather than merged.
+
 **Session 040 closed with 61 `unlogged_change` events that are not its own.** Nearly
 all are the other VM's files — `landed.py`, `inflight.py`, `sync.py`, its task files,
 its tests — which arrived through **seven hand-run `git rebase`s**. D028 attributes a
@@ -112,41 +117,34 @@ with `origin sync land`, which records what arrived.
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
-- **Session 012, VM 0947 (T-0034, D035, F018).** Every CPython minor from 3.8 to
-  3.14 has now run the suite, on portable builds on this VM and on one CI matrix
-  row each; the record says so per version, and
-  `tests/test_ci_matrix.py` holds the matrix to the record in both directions. The
-  gap was **not** theoretical: run on the five interpreters the record had never
-  named, the suite failed on all five, on a T-0033 test that asserted *this*
-  interpreter is in the record. Two such tests read two different sources
-  (`platform.python_version` and the `python3` on `PATH`) and agreed only because
-  this VM's `PATH` interpreter is one of the two recorded ones. The other VM hit
-  the same assertion an hour later from the other end — its CI run was red
-  because a CI entry names a run id, not a count — so both clauses are kept.
-  Repair states the disjunction the situation supports; the coupling is now
-  checked on the two artefacts. Falsified in four directions, with the restored
-  file green as the control, and one non-detection recorded rather than hidden.
-  `doctor` now names the machine or runner a matched entry ran on, because one
-  record covers two environments per minor. Detail in
-  [`STATE-history.md`](STATE-history.md).
+- **Session 012, VM 0947 (T-0034, D035, F018).** Every CPython minor from 3.8
+  to 3.14 has now run the suite, on portable builds and on one CI matrix row
+  each, held to the record in both directions by `tests/test_ci_matrix.py`. **The
+  gap was not theoretical:** the suite failed on all five newly named
+  interpreters, on a T-0033 test that asserted *this* interpreter is in the
+  record — which the other VM's CI hit an hour later from the other end. Both
+  clauses are kept. Detail in [`STATE-history.md`](STATE-history.md).
 - **Session 005, VM 0947 (T-0030, D032).** A colliding identifier is refused
-  before publication: a collision is created by the *merge*, so `sync land` reads
-  it there and doc lint rule 7 is the backstop for any other route. Over all 174
-  commits on the base the rule reports **one** — `e6eb992`, the collision that
-  reached the shared base — and each of the three mechanisms notices its own
-  removal while the controls stay green. The control earned its place: a draft that
-  compared index rows to headings as strings flagged 83 of 174 commits, and a
-  second half that matched no row at all passed the sweep while doing nothing. The
-  rule found a real desync on its first run: D030 was missing from its index row.
-  333 tests green. Detail in [`STATE-history.md`](STATE-history.md).
-- **Session 011, VM 0944 (T-0033, D034).** `doctor` reads both exercised-version
-  records now, so a VM outside the exercised set is warned rather than
-  undocumented. Four states, not two: `exercised` with the entry's own scope,
-  `NOT exercised`, `record unreadable`, `no record`. The third is the point —
-  "we looked and it is not there" and "we could not look" are different claims,
-  which is the confusion T-0025 found in this same report. Falsified four ways,
-  one of which removed the single rendering line and left every module test green.
-  **Defect 6 is closed.**
+  before publication, because a collision is created by the merge and each VM's
+  own lint sees nothing wrong with its own tree. Over all 174 commits it reports
+  **one**, `e6eb992`. Detail in [`STATE-history.md`](STATE-history.md).
+- **Session 012, VM 0944 (T-0035).** Three CI runs failed the Tests step
+  (`37174050724`, `37174316639`, `37174309822`) and the suite was green on both
+  VMs and locally on the same commits. The credential sandbox cleared `HOME`,
+  `XDG_CONFIG_HOME` and git config but inherited `GH_TOKEN`/`GITHUB_TOKEN`, and
+  `pushprobe` counts an environment token as a mechanism — correctly, it is one
+  — so a test asserting `unavailable` read `broken` wherever a runner exports
+  one. Found by reproducing with the variable set rather than by reading the run,
+  and confirmed against `4401bd2c`, so it predates T-0033 and came in with the
+  fixture in T-0025. Falsified three ways; the third was found *by* falsifying,
+  because a fixture that clears but never restores leaves every test green.
+  **A fixture must build the machine it claims to build, environment
+  included.**
+- **Session 011, VM 0944 (T-0033, D034).** `doctor` now reads both
+  exercised-version records, so a VM outside the exercised set is warned rather
+  than undocumented: `exercised` with the entry's own scope, `NOT exercised`,
+  `record unreadable`, `no record`. Falsified four ways, one of which removed the
+  single rendering line and left every module test green. **Defect 6 is closed.**
 - **Sessions 006–007, VM 0944 (T-0032, D033).** The Python equivalent of
   `git-versions.json`, which `vm-execution.md` had named as unclaimed work:
   `tests/python-versions.json` records each interpreter with the scope it ran and
