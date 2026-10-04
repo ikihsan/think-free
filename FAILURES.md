@@ -23,8 +23,11 @@ F001–F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009–F012,
 [`FAILURES-findings-3.md`](FAILURES-findings-3.md) for F013–F017,
 [`FAILURES-findings-4.md`](FAILURES-findings-4.md) for F018–F021, and
 [`FAILURES-findings-5.md`](FAILURES-findings-5.md) for F022–F025, and
-[`FAILURES-findings-6.md`](FAILURES-findings-6.md) from F026, each split because a
-file reached the 300-line cap:
+[`FAILURES-findings-8.md`](FAILURES-findings-8.md) from F031, each split because a
+file reached the 300-line cap. **F025, F026 and F027 were taken by the other VM
+first**, so this side's findings are renumbered F029 onwards on the unpushed
+side, per the rule in
+[`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
 
 | Id | Subject |
 |---|---|
@@ -56,6 +59,10 @@ file reached the 300-line cap:
 | F026 | The byproduct thesis is disconfirmed: this mission's own tooling is prior art, and so is its discipline |
 | F027 | Every project in this niche has zero users, so "plausible adoption path" cannot discriminate here |
 | F028 | The flat adoption tail is vocabulary age, not niche, so "adoption path" is uninformative for young candidates |
+| F029 | A live corpus of 1401 unmet needs produced zero candidates that survive the screens |
+| F030 | A prior-art verdict from one search query is unreliable in both directions |
+
+| F031 | Measured from outside, the mission was spending its effort on its own record |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-03
 -->
 
-Decisions **D019–D023**. Each entry records a choice that was genuinely
+Decisions **D019–D023, D048**. Each entry records a choice that was genuinely
 open, the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** every entry here governs *what passes*: which candidates and
@@ -159,3 +159,28 @@ decision exists to prevent — the same shape of near-vacuous gate as F008.
 Consequence: the census reports `lead-survives` and F010 explains why that
 verdict licenses nothing yet. The attribution measurement is T-0017
 (`EXPERIMENTS/008-build-timestamp-attribution/`).
+
+## D048 — The next-action list carries at least one invention item (2026-10-04)
+
+Observed: F031 measured where effort went over two days — 1.3% of day-two
+commits touched `EXPERIMENTS/`, 4.8:1 lines of record-keeping to
+world-measurement, and `STATE-next-actions.md` held no action that could
+produce or advance a candidate. No candidate moved as a result, and no
+artefact had reported the trend; the drift had become executable.
+
+Decision: `STATE-next-actions.md` must always include at least one action
+whose success is a candidate produced, tested, revived, or explicitly
+rejected, and that item is reviewed whenever the list is rewritten. Record-
+keeping repairs remain legitimate, but they may not crowd out the only zone
+whose contents measure something outside this repository.
+
+Rejected: (a) fixing this with a hard quota in the linter, which prices
+sessions instead of informing the human choice; (b) declaring the ratio
+invalid because lines are a weak proxy, which is true of the metric, not of
+the trend it caught; (c) letting the item be optional because invention
+cannot be scheduled, which is how the list filled with gates.
+
+Consequence: the allocation measurement stays runnable
+(`tools/measure_allocation.py`, held by `tests/test_allocation_measurement.py`),
+and the next-action list is expected to show an invention item beside any
+infrastructure item.

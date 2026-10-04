@@ -1,0 +1,374 @@
+==============================================================================
+[seq 2] 2026-10-04T18:33:08+00:00
+$ bash -c 
+git log --format="COMMIT|%H|%s" --name-only origin/research/origin | python3 -c "
+import sys,collections
+buckets=collections.Counter(); commits=0; cur=None; files=set()
+def flush():
+    global commits,files,cur
+    if cur is None: return
+    commits+=1
+    t=any(f.startswith(\"EXPERIMENTS/\") for f in files)
+    m=any(f.startswith((\"tools/\",\"tests/\",\".github/\")) for f in files)
+    d=any(f.startswith(\"docs/\") for f in files)
+    if t: buckets[\"touches EXPERIMENTS (measurement of the world)\"]+=1
+    if m: buckets[\"touches tools/tests/ci (the machinery)\"]+=1
+    if d: buckets[\"touches docs/\"]+=1
+    files=set()
+for line in sys.stdin:
+    line=line.rstrip()
+    if line.startswith(\"COMMIT|\"):
+        flush(); cur=line; commits_counter=None
+    elif line.strip():
+        files.add(line.strip())
+flush()
+print(\"total commits:\",commits)
+for k,v in buckets.most_common(): print(\"%-46s %4d  %5.1f%%\"%(k,v,100.0*v/commits))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+total commits: 375
+touches docs/                                   105   28.0%
+touches tools/tests/ci (the machinery)           51   13.6%
+touches EXPERIMENTS (measurement of the world)   19    5.1%
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 931  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T18:33:15+00:00
+$ bash -c 
+git log --format="COMMIT|%ad|%s" --date=short --name-only origin/research/origin | python3 -c "
+import sys,collections
+per_day=collections.Counter(); exp_day=collections.Counter(); cur=None; files=set()
+def flush():
+    if cur is None: return
+    d=cur[0]; per_day[d]+=1
+    if any(f.startswith(\"EXPERIMENTS/\") for f in files): exp_day[d]+=1
+for line in sys.stdin:
+    line=line.rstrip()
+    if line.startswith(\"COMMIT|\"):
+        flush(); parts=line.split(\"|\"); cur=(parts[1],parts[2]); files=set()
+    elif line.strip(): files.add(line.strip())
+flush()
+print(\"%-12s %7s %8s %8s\"%(\"day\",\"commits\",\"EXPERIM\",\"pct\"))
+for d in sorted(per_day):
+    e=exp_day.get(d,0)
+    print(\"%-12s %7d %8d %7.1f%%\"%(d,per_day[d],e,100.0*e/per_day[d]))
+print()
+print(\"EXPERIMENTS-touching commits total:\",sum(exp_day.values()))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+day          commits  EXPERIM      pct
+2026-10-03       144       16    11.1%
+2026-10-04       231        3     1.3%
+
+EXPERIMENTS-touching commits total: 19
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 406  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T18:33:27+00:00
+$ bash -c 
+git log --format="COMMIT|%ad" --date=short --name-only origin/research/origin | python3 -c "
+import sys,collections
+per_day=collections.Counter(); mach_day=collections.Counter(); cur=None; files=set()
+def flush():
+    if cur is None: return
+    d=cur; per_day[d]+=1
+    if any(f.startswith((\"tools/\",\"tests/\",\".github/\")) for f in files): mach_day[d]+=1
+for line in sys.stdin:
+    line=line.rstrip()
+    if line.startswith(\"COMMIT|\"): flush(); cur=line.split(\"|\")[1]; files=set()
+    elif line.strip(): files.add(line.strip())
+flush()
+print(\"%-12s %8s %10s %8s\"%(\"day\",\"commits\",\"machinery\",\"pct\"))
+for d in sorted(per_day):
+    m=mach_day.get(d,0); print(\"%-12s %8d %10d %7.1f%%\"%(d,per_day[d],m,100.0*m/per_day[d]))
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+day           commits  machinery      pct
+2026-10-03        144         15    10.4%
+2026-10-04        231         36    15.6%
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1095  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T18:33:28+00:00
+$ bash -c 
+python3 - <<PY
+import re,glob
+def ids(pat, files):
+    out=set()
+    for f in files:
+        try: t=open(f,encoding="utf-8",errors="replace").read()
+        except Exception: continue
+        for m in re.finditer(pat,t): out.add(m.group(0))
+    return out
+F=ids(r"\bF0[0-9]{2}\b", sorted(glob.glob("FAILURES*.md")))
+D=ids(r"\bD0[0-9]{2}\b", sorted(glob.glob("DECISIONS*.md")))
+T=ids(r"\bT-0[0-9]{3}\b", sorted(glob.glob("tasks/T-*.md")))
+X=ids(r"\b0[0-9]{2}-[a-z0-9.-]+\b", sorted(glob.glob("EXPERIMENTS/*/README.md")))
+print("findings defined:",len(F),sorted(F)[:3],"...",sorted(F)[-3:])
+print("decisions defined:",len(D),sorted(D)[:3],"...",sorted(D)[-3:])
+print("tasks:",len(T),sorted(T)[:2],"...",sorted(T)[-2:])
+print("experiment dirs:",len(X),sorted(X))
+PY
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+findings defined: 24 ['F001', 'F002', 'F003'] ... ['F022', 'F023', 'F024']
+decisions defined: 47 ['D001', 'D002', 'D003'] ... ['D045', 'D046', 'D047']
+tasks: 56 ['T-0001', 'T-0002'] ... ['T-0055', 'T-0056']
+experiment dirs: 9 ['000-combination', '002-a1-masking', '003-information-sufficiency', '004-knitting-stage-a', '005-knitting-bounded-search', '006-ventilation-measurement-design', '007-build-timestamps', '008-build-timestamp-attribution', '010-annotation-rendering']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 134  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T18:35:20+00:00
+$ bash -c 
+loc() { find "$@" -type f \( -name "*.py" -o -name "origin" -o -name "x" \) 2>/dev/null | grep -v __pycache__ | xargs wc -l 2>/dev/null | tail -1 | awk "{print \$1}"; }
+M=$(loc tools/)
+T=$(find tests -name "*.py" | grep -v __pycache__ | xargs wc -l | tail -1 | awk "{print \$1}")
+E=$(loc EXPERIMENTS/)
+R=$(loc RESEARCH/)
+S=$(loc sessions/)
+D=$(loc docs/)
+A=$(loc .agents/skills vendor)
+echo "zone                       files   lines"
+printf "%-26s %5s %7s\n" "tools/ (machinery)"        "$(find tools -type f -name "*.py" -o -type f -name origin -o -type f -name x | grep -v __pycache__ | wc -l)" "$M"
+printf "%-26s %5s %7s\n" "tests/"                     "$(find tests -name "*.py"|wc -l)" "$T"
+printf "%-26s %5s %7s\n" "EXPERIMENTS/ (world)"      "$(find EXPERIMENTS -name "*.py"|grep -v __pycache__|wc -l)" "$E"
+printf "%-26s %5s %7s\n" "RESEARCH/ (prose, prose-only count below)" "-" "$R"
+printf "%-26s %5s %7s\n" "docs/"                     "$(find docs -name "*.md"|wc -l)" "$D"
+printf "%-26s %5s %7s\n" ".agents/skills+vendor"     "$(find .agents vendor -type f 2>/dev/null|wc -l)" "$A"
+echo
+python3 -c "
+m=$M+$T; e=$E
+print(\"machinery (tools+tests) lines: %d\"%m)
+print(\"experiment code lines:        %d\"%e)
+print(\"ratio machinery:experiment    = %.1f : 1\"%(m/max(e,1)))"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+zone                       files   lines
+tools/ (machinery)            64    9907
+tests/                        47    8623
+EXPERIMENTS/ (world)          20    3898
+RESEARCH/ (prose, prose-only count below)     -       0
+docs/                         23       0
+.agents/skills+vendor         61       0
+
+machinery (tools+tests) lines: 18530
+experiment code lines:        3898
+ratio machinery:experiment    = 4.8 : 1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 417  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T18:36:16+00:00
+$ tools/measure_allocation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "tools/measure_allocation.py", line 192, in <module>
+    sys.exit(main())
+  File "tools/measure_allocation.py", line 129, in main
+    zones, per_day = commits_by_zone(args.ref, args.since)
+  File "tools/measure_allocation.py", line 66, in commits_by_zone
+    flush()
+  File "tools/measure_allocation.py", line 60, in flush
+    if any(f.startswith(p) for f in files):
+  File "tools/measure_allocation.py", line 60, in <genexpr>
+    if any(f.startswith(p) for f in files):
+NameError: name 'p' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1021  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T18:36:25+00:00
+$ tools/measure_allocation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "tools/measure_allocation.py", line 192, in <module>
+    sys.exit(main())
+  File "tools/measure_allocation.py", line 129, in main
+    zones, per_day = commits_by_zone(args.ref, args.since)
+  File "tools/measure_allocation.py", line 66, in commits_by_zone
+    flush()
+  File "tools/measure_allocation.py", line 60, in flush
+    if any(f.startswith(prefix) for f in files):
+  File "tools/measure_allocation.py", line 60, in <genexpr>
+    if any(f.startswith(prefix) for f in files):
+NameError: name 'prefix' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 985  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T18:36:35+00:00
+$ tools/measure_allocation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Allocation of work, measured from git and the tree.
+ref=origin/research/origin  total commits=375
+
+zone (commit touches)      commits    share
+EXPERIMENTS/                   19     5.1%
+tools|tests|.github            51    13.6%
+docs                          105    28.0%
+
+day           commits    world   machin    share
+2026-10-03        144       19       51    13.2%
+2026-10-04        231        3       36     1.3%
+
+zone (lines of Python)      files    lines
+tools/ + tests/               110    18698
+EXPERIMENTS/                   20     3910
+ratio machinery:experiment           4.8:1
+
+findings about the world: 6 of 24
+
+Limits: commits and lines are effort proxies, not measures of value.
+A zone can be large because it is load-bearing (session and task
+logging, without which no measurement is attributable) and a
+commit can be cheap. This script cannot observe intent or time.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 490  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T18:36:49+00:00
+$ tools/measure_allocation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Allocation of work, measured from git and the tree.
+ref=origin/research/origin  total commits=375
+
+zone (commit touches)      commits    share
+EXPERIMENTS/                   19     5.1%
+tools|tests|.github            51    13.6%
+docs                          105    28.0%
+
+day           commits    world   machin    share
+2026-10-03        144       16       15    11.1%
+2026-10-04        231        3       36     1.3%
+
+zone (lines of Python)      files    lines
+tools/ + tests/               110    18699
+EXPERIMENTS/                   20     3910
+ratio machinery:experiment           4.8:1
+
+findings about the world: 6 of 24
+
+Limits: commits and lines are effort proxies, not measures of value.
+A zone can be large because it is load-bearing (session and task
+logging, without which no measurement is attributable) and a
+commit can be cheap. This script cannot observe intent or time.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 894  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T18:36:51+00:00
+$ tools/measure_allocation.py --json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "commits_by_zone": {
+  "machinery": 51,
+  "prose": 105,
+  "world": 19
+ },
+ "findings": {
+  "about_the_world": 6,
+  "total": 24
+ },
+ "lines": {
+  "experiment_code": {
+   "files": 20,
+   "lines": 3910
+  },
+  "machinery": {
+   "files": 110,
+   "lines": 18699
+  },
+  "ratio_machinery_to_experiment": 4.78
+ },
+ "per_day": {
+  "2026-10-03": {
+   "commits": 144,
+   "machinery": 15,
+   "prose": 34,
+   "world": 16
+  },
+  "2026-10-04": {
+   "commits": 231,
+   "machinery": 36,
+   "prose": 71,
+   "world": 3
+  }
+ },
+ "ref": "origin/research/origin",
+ "total_commits": 375
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 887  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T18:37:25+00:00
+$ python3 -m unittest tests.test_allocation_measurement -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_quoted_split_reproduces (tests.test_allocation_measurement.RealRepositoryTest) ... ok
+ERROR
+
+======================================================================
+ERROR: setUpClass (tests.test_allocation_measurement.SyntheticHistoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_allocation_measurement.py", line 58, in setUpClass
+    git(cls.tmp, "init", "-q", "-b", "main")
+  File "/home/ubuntu/think-free/tests/test_allocation_measurement.py", line 47, in git
+    subprocess.run(["git"] + list(args), cwd=cwd, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'init', '-q', '-b', 'main']' returned non-zero exit status 129.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.498s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 806  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T18:37:37+00:00
+$ python3 -m unittest tests.test_allocation_measurement -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_quoted_split_reproduces (tests.test_allocation_measurement.RealRepositoryTest) ... ok
+test_counts_are_per_day_and_sum_to_the_total (tests.test_allocation_measurement.SyntheticHistoryTest) ... FAIL
+test_unrecognised_zones_still_count_toward_the_total (tests.test_allocation_measurement.SyntheticHistoryTest) ... ok
+
+======================================================================
+FAIL: test_counts_are_per_day_and_sum_to_the_total (tests.test_allocation_measurement.SyntheticHistoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_allocation_measurement.py", line 112, in test_counts_are_per_day_and_sum_to_the_total
+    self.assertEqual(zones["world"], 2)
+AssertionError: 3 != 2
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.800s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1037  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T18:37:52+00:00
+$ python3 -m unittest tests.test_allocation_measurement -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_quoted_split_reproduces (tests.test_allocation_measurement.RealRepositoryTest) ... ok
+test_counts_are_per_day_and_sum_to_the_total (tests.test_allocation_measurement.SyntheticHistoryTest) ... ok
+test_unrecognised_zones_still_count_toward_the_total (tests.test_allocation_measurement.SyntheticHistoryTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.779s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1026  redactions: none

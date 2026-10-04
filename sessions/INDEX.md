@@ -8,10 +8,10 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-90 recorded session(s). One `events.jsonl` per session, so concurrent
+92 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 65 older session(s) are in the directory listing.
+Showing the 25 most recent. 67 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -19,6 +19,8 @@ Showing the 25 most recent. 65 older session(s) are in the directory listing.
 | [2026-10-04-046-test-whether-zero-adoption-is-general-or](2026-10-04-046-test-whether-zero-adoption-is-general-or/README.md) | unknown-agent | worked | Test whether zero-adoption is general or specific to the agent-auditin | 2026-10-04T20:20 |
 | [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
 | [2026-10-04-044-record-the-measured-ci-state-after-t-005](2026-10-04-044-record-the-measured-ci-state-after-t-005/README.md) | unknown-agent | worked | record the measured CI state after T-0057 and the fixture-cost questio | 2026-10-04T19:24 |
+| [2026-10-04-044-choose-and-advance-the-highest-informati](2026-10-04-044-choose-and-advance-the-highest-informati/README.md) | unknown-agent | **unfinished** | Choose and advance the highest-information invention-bearing action fr | 2026-10-04T18:56 |
+| [2026-10-04-043-test-whether-the-record-s-falsifiability](2026-10-04-043-test-whether-the-record-s-falsifiability/README.md) | unknown-agent | partial | Test whether the record's falsifiability-first screen is what starves  | 2026-10-04T18:56 |
 | [2026-10-04-043-t-0057-claim-the-task-and-verify-it](2026-10-04-043-t-0057-claim-the-task-and-verify-it/README.md) | unknown-agent | worked | T-0057: claim the task and verify it | 2026-10-04T19:16 |
 | [2026-10-04-042-hold-a-mission-record-s-restated-experim](2026-10-04-042-hold-a-mission-record-s-restated-experim/README.md) | opencode | worked | Hold a mission record's restated experiment number to the artifact it  | 2026-10-04T18:00 |
 | [2026-10-04-041-repair-the-red-base-state-md-over-the-li](2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md) | opencode | worked | Repair the red base (STATE.md over the line cap) and fix the task-clai | 2026-10-04T16:03 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 65 older session(s) are in the directory listing.
 | [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 | [2026-10-04-026-record-the-run-on-t-0043-s-landed-commit](2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/README.md) | opencode | worked | Record the run on T-0043's landed commit and the session-commit mistak | 2026-10-04T09:16 |
 | [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | worked | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T09:01 |
-| [2026-10-04-024-hold-each-decision-file-s-own-header-to](2026-10-04-024-hold-each-decision-file-s-own-header-to/README.md) | opencode | worked | Hold each decision file's own header to the identifiers it defines, re | 2026-10-04T08:37 |
-| [2026-10-04-023-correct-the-continuous-integration-row-w](2026-10-04-023-correct-the-continuous-integration-row-w/README.md) | unknown-agent | worked | Correct the continuous-integration row with the runs this VM published | 2026-10-04T08:12 |
 
 
 ## Reading a session
