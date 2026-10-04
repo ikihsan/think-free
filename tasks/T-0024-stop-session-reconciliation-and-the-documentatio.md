@@ -6,7 +6,7 @@ last-verified: 2026-10-03
 
 <!-- task-meta
 id: T-0024
-status: claimed
+status: done
 created: 2026-10-03
 claim-agent: opencode
 claim-session: 
@@ -34,13 +34,13 @@ Both VMs commit under one git identity (Ihsan Ai Server Bot), so authorship cann
 
 ## Acceptance criteria
 
-- [ ] A two-VM fleet test replays session 029's sequence: VM A lands VM B's commits with 'sync land' while its session is open, declares its own artifact, and finishes with exit 0 and zero unlogged_change events.
-- [ ] The same session's own undeclared change is still reported and still makes 'session finish' exit 4.
-- [ ] A path this session edited after landing is still reported: attribution follows the newest commit that touched the path, not the existence of a landed commit.
-- [ ] A raw 'git pull' during a session reports undeclared paths exactly as before - the fix never turns an unreported path into a reported-later-forgotten one.
-- [ ] The new tests fail when the landed-path exclusion is removed (demonstrated and captured, not asserted).
-- [ ] The full suite, 'tools/origin doc lint', 'session verify --strict', 'release check' and 'skills check' all exit 0.
-- [ ] Ceiling recorded in STATE.md: attribution knows only about base moves the tooling performed.
+- [x] A two-VM fleet test replays session 029's sequence: VM A lands VM B's commits with 'sync land' while its session is open, declares its own artifact, and finishes with exit 0 and zero unlogged_change events.
+- [x] The same session's own undeclared change is still reported and still makes 'session finish' exit 4.
+- [x] A path this session edited after landing is still reported: attribution follows the newest thing to touch the path, not the existence of a landed commit.
+- [x] A hand-run rebase during a session reports undeclared paths exactly as before - the fix never turns an unreported path into a reported-later-forgotten one.
+- [x] The new tests fail when the landed-path exclusion is removed (demonstrated and captured, not asserted).
+- [x] The full suite, 'tools/origin doc lint', 'session verify --strict', 'release check' and 'skills check' all exit 0.
+- [x] Ceiling recorded in STATE.md: attribution knows only about base moves the tooling performed.
 
 ## Verification
 
@@ -50,9 +50,35 @@ PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/o
 
 ## Rollback
 
-Revert tools/originlib/{events,gitutil,reconcile,session,sync}.py and the new tests. Nothing already recorded is rewritten: base_advance is a new kind, no past event carries it, and session reports render from events, so removing the emitter changes no committed report.
+Revert tools/originlib/{events,gitutil,landed,reconcile,report,session,sync,cli_session}.py,
+tools/originlib/{docindex,tasks}.py and the new tests. Nothing already recorded is
+rewritten: base_advance is a new kind and no past event carries it, so removing
+the emitter changes no committed report. The generated-stamp change alters the
+`last-verified` line of a regenerated index only, and every committed index still
+renders to the same bytes.
 
 ## Notes
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**What the run actually found.** The six tests in `tests/test_landed_work.py`
+were written first and run against the unfixed code: 4 failures and 1 error, the
+failures naming exactly the paths session 029 mis-attributed. Two implementation
+mistakes were caught by those tests rather than by reading: recording the
+`base_advance` event *before* `push` made `land` refuse its own dirty tree, and
+computing the arrival as `base..HEAD` after a rebase returned this branch's own
+rewritten commits, which is the opposite set.
+
+**Second defect, found while verifying this task (D029).** `tools/origin doc lint`
+could not pass on 2026-10-04: every generated file stamped `last-verified` with the
+render date, so rule 5 called 42 committed session reports and all three indexes
+stale the day after they were written. CI would have failed the same way on any
+push after local midnight. Fixed in the same session, since this task's own
+verification command depends on it, and falsified first:
+`tests/test_generated_stamps.py` moves the clock to 2031 and fails with 2 failures
+and 1 error against the pre-change generators. A first falsification attempt
+mutated a fallback the callers never reach, and passed anyway - the failure of the
+falsification, not of the gate - so it was redone by reverting the generators.
+
+**Suite:** 269 tests green (259 before this task; 6 and 4 new).

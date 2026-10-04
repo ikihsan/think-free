@@ -10,7 +10,7 @@ promise: the failure mode is reported, not prevented.
 
 from __future__ import annotations
 
-from . import events, gitutil, paths
+from . import events, landed, paths
 
 # A mission record is *implicated* by these event kinds. If such an event lands
 # but the corresponding record did not change in git, that is an integrity gap
@@ -42,13 +42,19 @@ IMPLICATIONS = {
 
 
 def reconcile(active) -> dict:
-    """Compare the working tree against the session's declared artifacts."""
+    """Compare the working tree against the session's declared artifacts.
+
+    `own` is what this session changed and `landed` is what it merely brought in
+    from the shared base. Both are reported: an excluded path is the one an
+    operator would want explained, so it is printed rather than dropped.
+    """
     declared = {
         event.data["path"]
         for event in events.events_for(active.session)
         if event.kind == "artifact" and event.data.get("path")
     }
-    changed = gitutil.changed_paths(active.start_head)
+    landed_paths = landed.landed_paths(active.session)
+    changed = landed.session_changes(active)
     unlogged = [
         rel
         for rel in changed
@@ -80,7 +86,8 @@ def reconcile(active) -> dict:
         )
     return {
         "declared": sorted(declared),
-        "changed": changed,
+        "own": changed,
+        "landed": sorted(landed_paths),
         "unlogged": unlogged,
         "missing": missing,
     }
@@ -132,8 +139,11 @@ def doc_implications(active) -> dict[str, list[str]]:
 
     Each event kind carries its own mode: "any" reports one gap naming the group
     when nothing in it moved, "all" reports one gap per record that did not.
+
+    A record another VM landed does not discharge this session's obligation, so
+    the same attribution rule applies here: only this session's own changes count.
     """
-    changed = set(gitutil.changed_paths(active.start_head))
+    changed = set(landed.session_changes(active))
     triggered: dict[str, set[str]] = {}
     for event in events.events_for(active.session):
         implication = IMPLICATIONS.get(event.kind)

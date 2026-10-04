@@ -124,7 +124,9 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (203 tests), green on git 2.25.1 and 2.56.0
+- [x] Standard-library test suite (269 tests on git 2.25.1), with
+      [`tests/git-versions.json`](tests/git-versions.json) recording how much of
+      the suite each git version has actually run
 - [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
@@ -155,6 +157,16 @@ Separate from the invention stages, because the mission cannot be run without it
       the other audience, no credential-shaped text in a classified path, and
       the front door's declared release state equal to the manifest's. It
       enforces agreement, not truth.
+- [x] Reconciliation attributes a landed base move to the VM that wrote it
+      (T-0024, D028). A session that merged a colleague's work closed with nine
+      false `unlogged_change` events, four false `doc_update` events and an
+      inherited `documentation_gaps` report; `sync` now records what arrived.
+      A hand-run rebase is still reported, which is the intended direction of
+      failure.
+- [x] Generated files are functions of the tree, not of the clock (T-0024, D029).
+      Every generator stamped `last-verified` with the render date, so `doc lint`
+      failed on 42 committed reports and three indexes the day after they were
+      written — and would have failed CI on any push after local midnight.
 - [ ] Operations documents agree with what the fleet has actually run (T-0023
       repaired the Python floor and the GitHub App status; the App's real
       permissions still need a human with its settings page, and `doctor` reports

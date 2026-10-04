@@ -32,6 +32,7 @@ narrative after the fact has to leave a trace.
 | `command` | `tools/x` runs something | argv, cwd, exit, duration, log lines |
 | `note` | An observation worth keeping | summary |
 | `block` | Progress stops | reason |
+| `base_advance` | `sync pull`/`sync land` moved the base under an open session | reason, from, to, commits that arrived |
 | `unlogged_change` | Reconciliation finds one | path |
 | `doc_update` | A mission record changed | path |
 | `task_claim` / `task_status` | Task state moves | task, action |

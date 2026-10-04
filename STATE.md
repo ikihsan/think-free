@@ -35,13 +35,13 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017 In-flight versus abandoned session classification (T-0020) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024, 265 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 37 recorded and closed, 1 in flight (038) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
+| Sessions | 41 recorded and closed, 1 in flight (042, T-0024, VM 0947) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
-| Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict |
+| Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
 | Continuous integration | **Green on Tests, doc lint, skills and vendored integrity** (`observed`, run `37157528596`). `Session record integrity` was red on every push while any VM had a session in flight; T-0020 separates in flight from abandoned, so that step is green **locally** (`observed`, sessions 037–038) while a session was in flight. A pushed run has not been observed since, so CI is not claimed green |
 
 Per-session detail behind the dashboard is in
@@ -49,10 +49,11 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**Nothing is claimed that this VM must respect.** `instance-20260717-0944` held
-T-0021, T-0022 and T-0023 during this session and finished all three;
-`instance-20260717-0947` held T-0014, T-0015, T-0016, T-0018, T-0019 and T-0020,
-all complete. Check `tools/origin task list --remote` before taking anything.
+**T-0024 is claimed by this VM** (`instance-20260717-0947`, session 042) and
+nothing else is. `instance-20260717-0944` held T-0021, T-0022 and T-0023 during
+its last session and finished all three; `instance-20260717-0947` held T-0014,
+T-0015, T-0016, T-0018, T-0019, T-0020 and now T-0024. Check
+`tools/origin task list --remote` before taking anything.
 
 **Identifier collisions are allocated by reading the local tree, so two VMs in
 an hour collide by construction.** Six times on 2026-10-03: T-0016 and
@@ -79,18 +80,43 @@ entries until both were read together.
 3. **`doctor` does not compare this VM's git against what the suite has been
    exercised on.** Partly closed in T-0018 (`tests/git-versions.json`).
    **Ceiling:** bookkeeping hygiene, not a claim.
-4. **Reconciliation compares trees, not authorship**, so a VM that lands another
-   VM's work inherits its `unlogged_change` and `documentation_gaps` reports
-   (session 029, nine events). The reports stand in a closed event stream that
-   must not be edited, so they are explained here instead.
-5. **Identifier allocation and reconciliation, above, are the two fleet defects
-   still unfixed.** Both are cheap and both corrupt a later session's reading.
+4. **Solved in T-0024 (D028): reconciliation compared trees, not authorship**, so
+   a VM that landed another VM's work inherited its `unlogged_change` and
+   `documentation_gaps` reports (session 029, nine events). `sync pull`/`sync
+   land` now record a `base_advance` naming the commits that arrived, and
+   reconciliation attributes a path by the newest thing that touched it. The
+   original reports stand in a closed event stream that must not be edited, so
+   they are still explained here. **Ceiling:** attribution knows only about base
+   moves the tooling performed; a rebase run by hand stays reported, by design.
+5. **Identifier allocation is the one fleet defect still unfixed.** It is cheap
+   and it corrupts a later session's reading — a rebase restored one findings
+   file's index row to the renumbered form while reverting its body, so the file
+   and its own table disagreed about the same entries.
+6. **Solved in T-0024 (D029): every generated file stamped `last-verified` with
+   the render date**, so `doc lint` failed on 42 committed session reports and
+   all three indexes on 2026-10-04 — and would have failed in CI for any push
+   after local midnight. Generators now stamp from the content they render.
+   Found while running T-0024's own verification, which could not pass.
 
 ## What changed recently
 
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
+- **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
+  work was reported as having changed that work: session 029 closed with nine
+  false `unlogged_change` events and inherited four false `doc_update` events and
+  a `documentation_gaps` report. `sync pull`/`sync land` now record what arrived
+  from the base, and reconciliation attributes a path by the newest thing that
+  touched it. Git authorship was falsified as the baseline first: both VMs commit
+  as `Ihsan Ai Server Bot`. **Ceiling:** only base moves the tooling performed
+  are known; a hand-run rebase stays reported. 265 tests green.
+  A second defect surfaced in the same session: every generated file stamped
+  `last-verified` with the render date, so `doc lint` failed on 42 committed
+  reports the day after they were written (D029). Both fixes were falsified
+  against their own defect before being trusted. 269 tests green.
+  [`STATE-history.md`](STATE-history.md) is at the 300-line cap, so this session's
+  detail lives in D028 and its own record rather than there.
 - **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
   VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
   (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App

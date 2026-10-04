@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-03
 -->
 
-Decisions **D013, D024–D027**. Each entry records a choice that was genuinely open,
+Decisions **D013, D024–D029**. Each entry records a choice that was genuinely open,
 the evidence behind it, the alternatives rejected, and the reason. Decisions that
 constrain later work belong here; ordinary edits do not.
 
@@ -180,3 +180,82 @@ Split on 2026-10-03 (T-0020): D019–D023 moved verbatim to
 the gating file past the 300-line cap. D025 and D026 were written on
 `instance-20260717-0944` while this branch was unpublished, so the session-gate
 decision drafted as D025 is D027. Numbering is unchanged.
+
+## D028 — Reconciliation attributes by the recorded base move, not by authorship (2026-10-04)
+
+Observed: session 029 (T-0016) closed with exit `4` and nine `unlogged_change`
+events, every one naming a file that session never touched —
+`EXPERIMENTS/007-build-timestamps/*`, `tasks/T-0013-*`, `tasks/T-0017-*`,
+`HYPOTHESES*.md`, `RESEARCH.md`, `DECISIONS-PRACTICE.md`. The reflog shows the
+cause: `sync land` rebased the branch onto the other VM's commits at 22:04:28 and
+22:06:08, reconciliation ran at 22:10:23, and a diff against the session's
+*starting* commit cannot tell a landed commit from one the session made. Four
+false `doc_update` events and a `documentation_gaps` report came from the same
+comparison. `observed`, `instance-20260717-0947`, now replayed by
+`tests/test_landed_work.py`.
+
+Decision: the evidence is recorded while the branch moves. `sync pull` and
+`sync land` append a `base_advance` event naming the commits that arrived. A path
+is *not* this session's change when the newest thing to touch it is one of those
+commits, and *is* this session's change again when the newest thing is one of its
+own commits or an uncommitted edit. One change set feeds `unlogged_change`,
+`doc_update` and `documentation_gaps`, and `session finish` prints what it
+excluded, so an excluded path is never silently dropped.
+
+Rejected: **git authorship** (`--author`, `%an`), which needs no new record and is
+therefore the strongest baseline available. Falsified by evidence, not argument:
+every commit in session 029's range is authored `Ihsan Ai Server Bot` on both
+VMs, so it separates nothing. Rejected: **exclude whatever another session
+declared**, which cannot say which of two edits to `STATE.md` was the undeclared
+one, and would hide real work. Rejected: **infer from commit timestamps**, which
+require the two machines' clocks to agree.
+
+The asymmetry is the safety property: a base move the tooling did not perform
+records nothing, so its paths stay reported. The tooling never silences a file it
+cannot prove belongs to someone else.
+
+**Ceiling.** Attribution knows only about base moves `tools/origin` performed. It
+reads git's history to decide which commit touched a path last, so a session that
+rewrites history after landing leaves the rule matching shas that no longer
+exist, and those paths are reported again — conservative, not wrong, but a real
+limit. Neither the defect nor its repair says anything about a candidate; this is
+bookkeeping hygiene with a measured cost.
+
+**Falsified against its own defect.** The new tests ran against the pre-change
+code first: 4 failures and 1 error, naming the very paths session 029
+mis-attributed. With the exclusion removed again, 3 of the 6 fail; the 3 that
+still pass are the negative controls, which must not change. Both runs are in this
+session's `commands.log`.
+
+## D029 — A generated file is a function of the tree, never of the clock (2026-10-04)
+
+Observed: `doc lint` failed on 42 committed session reports and all three
+indexes on 2026-10-04, the day after they were generated. Nothing in them had
+changed except the calendar: each stamped `last-verified` with `now`, and rule 5
+compares a committed generated file with what the generator produces *now*. CI
+would have failed on the same comparison for any push after local midnight, on
+any VM, for content nobody had touched. Found while running T-0024's own
+verification, which could not pass.
+
+Decision: every generator stamps `last-verified` from the content it renders — a
+session report from its newest event, the sessions index from the newest
+session's, the tasks index from the newest claim in the ledger, the docs index
+from the newest `last-verified` among the documents it lists. An index with
+nothing to index says `unknown`, because a stamp nobody can support claims a
+verification that never happened.
+
+Rejected: making rule 5 ignore the stamp, which would hide a real staleness in
+every other field; and pinning CI's date, which a hosted runner does not let a
+repository control.
+
+**Ceiling.** A generated file is now stable until its *content* changes, which
+is the property rule 5 was written to check. The date no longer tells a reader
+when the file was last regenerated — only when its newest input was verified,
+which is the claim the field can actually support.
+
+**Falsified against its own defect.** `tests/test_generated_stamps.py` moves
+`events.now_iso` to 2031 in place. Against the pre-change code: 2 failures and 1
+error, with `doc lint` reporting the four stale files. A first attempt at this
+falsification failed to falsify anything — it mutated the fallback inside
+`_meta`, which the two callers never reach — and was redone by reverting the
+three generators. Both runs are in this session's `commands.log`.

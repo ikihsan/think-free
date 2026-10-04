@@ -132,7 +132,15 @@ def paths_module_root() -> str:
 def _print_finish(result: dict) -> None:
     print(f"session {result['session']} finished: {result['outcome']} in {result['elapsed_s']}s")
     print(f"  declared artifacts: {len(result['declared'])}")
-    print(f"  working-tree changes: {len(result['changed'])}")
+    print(f"  this session's changes: {len(result['own'])}")
+    if result["landed"]:
+        # Named rather than dropped: an operator reading this wants to know
+        # whose work was merged in, and why it is not in the count above.
+        print(f"  LANDED from the shared base ({len(result['landed'])}), not this session's:")
+        for rel in result["landed"][:8]:
+            print(f"    - {rel}")
+        if len(result["landed"]) > 8:
+            print(f"    - … {len(result['landed']) - 8} more")
     if result["unlogged"]:
         print(f"  UNLOGGED ({len(result['unlogged'])}): declare them or revert them")
         for rel in result["unlogged"]:

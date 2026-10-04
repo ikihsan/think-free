@@ -35,6 +35,7 @@ interfere with the working repository.
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
 | `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |
+| `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 
@@ -54,6 +55,10 @@ malformed blocks and missing three of four committed defects.
 `test_release.py` seeds one defect per clause of `release check` into a
 throwaway repository, plus a fixture that passes — because a check that only
 ever fails is not a check either.
+`test_landed_work.py` was written before the fix it covers and run against the
+unfixed code first: 4 failures and 1 error naming session 029's mis-attributed
+paths. Reverting the exclusion failed 3 of its 6 tests while the 3 negative
+controls stayed green, which is the shape a falsifiable control should have.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

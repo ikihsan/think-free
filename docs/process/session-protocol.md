@@ -87,8 +87,8 @@ gap on every correct session. The same applies to
 
 `session finish` does five things in order:
 
-1. **Reconciles.** Compares the working tree against declared artifacts. Anything
-   changed but undeclared becomes an `unlogged_change` event.
+1. **Reconciles.** Compares this session's changes against declared artifacts.
+   Anything changed but undeclared becomes an `unlogged_change` event.
 2. **Checks declarations still exist.** A declared artifact that has since been
    deleted becomes an `integrity_error`.
 3. **Checks documentation obligations.** Mission records implied by this
@@ -99,6 +99,20 @@ gap on every correct session. The same applies to
 
 It exits `4` when reconciliation found something unlogged or missing. Read the
 output. Either declare the files or revert them. Do not paper over the report.
+
+### Whose change is it
+
+"Changed since the session started" is not the same question as "changed by this
+session", and on a shared branch the difference is another VM's work. When
+`sync pull` or `sync land` moves the base while a session is open, it appends a
+`base_advance` event naming the commits that arrived. Reconciliation then treats
+a path as the base's contribution when the newest thing to touch it is one of
+those commits, and as this session's own when the newest thing is one of its own
+commits or an uncommitted edit. Excluded paths are printed under `LANDED` at
+`finish`, so nothing is dropped silently.
+
+The rule is deliberately one-sided: a base move performed with raw git records
+nothing, so its paths stay reported. Silence is only ever justified by a record.
 
 ## What "logged perfectly" means here, honestly
 

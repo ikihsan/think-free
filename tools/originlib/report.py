@@ -22,7 +22,14 @@ INDEX_RECENT = 25
 
 
 def _meta(owner: str, verified: str | None = None) -> str:
-    stamp = verified or events.now_iso()[:10]
+    """A generated file's `last-verified`, taken from the content it renders.
+
+    Not from the clock. A generated file that stamps today's date changes
+    whenever it is regenerated, so every session report in the tree becomes
+    "stale" the day after it was written and `doc lint` fails on all of them —
+    on this VM on 2026-10-04, and in CI on any push after local midnight.
+    """
+    stamp = verified or "unknown"
     return (
         "<!-- origin-meta\n"
         f"owner: {owner}\n"
@@ -30,6 +37,12 @@ def _meta(owner: str, verified: str | None = None) -> str:
         f"last-verified: {stamp}\n"
         "-->"
     )
+
+
+def _latest_event_date(items: list[events.Event]) -> str:
+    """The date the newest event in `items` was recorded, or "unknown"."""
+    stamps = [item.ts[:10] for item in items if item.ts]
+    return max(stamps) if stamps else "unknown"
 
 
 def _table(headers: list[str], rows: list[list[str]]) -> list[str]:
@@ -63,7 +76,7 @@ def render_session_report(session: str) -> str:
     lines: list[str] = [
         f"# Session {session}",
         "",
-        _meta("sessions/INDEX.md"),
+        _meta("sessions/INDEX.md", _latest_event_date(items)),
         "",
         GENERATED_NOTE,
         "",
@@ -187,11 +200,14 @@ def _timeline(items: list[events.Event]) -> list[str]:
 def render_sessions_index() -> str:
     sessions = events.all_sessions()
     rows: list[list[str]] = []
+    newest = "unknown"
     for session in reversed(sessions):
         items = events.events_for(session)
         end = next((e for e in items if e.kind == "session_end"), None)
         start = next((e for e in items if e.kind == "session_start"), None)
         goal = (start.data.get("goal", "") if start else "")[:70]
+        stamp = _latest_event_date(items)
+        newest = stamp if newest == "unknown" else max(newest, stamp)
         rows.append(
             [
                 f"[{session}]({session}/README.md)",
@@ -204,7 +220,7 @@ def render_sessions_index() -> str:
     head = [
         "# Sessions index",
         "",
-        _meta("docs/INDEX.md"),
+        _meta("docs/INDEX.md", newest),
         "",
         GENERATED_NOTE,
         "",

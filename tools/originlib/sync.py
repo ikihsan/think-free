@@ -140,6 +140,7 @@ def pull(root=None) -> dict:
             f"{report['ahead']} commit(s); publish it with 'tools/origin sync land' "
             "instead of discarding it"
         )
+    before = gitutil.text(["rev-parse", "HEAD"], root)
     result = gitutil.run(
         ["merge", "--ff-only", f"{remote}/{report['base_branch']}"], root
     )
@@ -147,7 +148,25 @@ def pull(root=None) -> dict:
         raise SyncError(f"fast-forward failed: {result.stderr.strip() or result.stdout.strip()}")
     outcome["fast_forwarded"] = True
     outcome["head"] = gitutil.text(["rev-parse", "HEAD"], root)
+    _record_arrival("sync pull", before, outcome["head"], root)
     return outcome
+
+
+def _record_arrival(
+    reason: str, before: str, after: str, root=None, arrived: list[str] | None = None
+) -> None:
+    """Note which commits the base move brought in, for the session open here.
+
+    Reconciliation diffs a session against its starting commit, so without this
+    the work another VM pushed looks like the session's own change and is
+    reported as undeclared: session 029 closed with nine such reports, none of
+    them its own. Recorded only when a session is open in this working tree,
+    because there is nowhere else for the record to live.
+    """
+    from . import landed
+
+    commits = arrived if arrived is not None else gitutil.rev_list(f"{before}..{after}", root)
+    landed.record(reason, before, after, commits)
 
 
 def push(branch: str = "", set_upstream: bool = False, root=None) -> dict:
@@ -225,6 +244,7 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
         base_ref = f"{remote}/{target}"
         if not gitutil.text(["rev-parse", "--verify", "--quiet", base_ref], root):
             raise SyncError(f"{base_ref} does not exist; check the branch name")
+        before = gitutil.text(["rev-parse", "HEAD"], root)
         result = gitutil.run(["rebase", base_ref], root)
         if result.returncode != 0:
             resolved = _resolve_generated_conflicts()
@@ -255,12 +275,22 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
                     + "; run 'git rebase --abort'"
                 )
         outcome["rebased"] = True
+        # What arrived is what the new base holds and the pre-rebase tip did
+        # not: `base..HEAD` after a rebase is this branch's own rewritten work,
+        # which is the opposite of the arrival. Read before the push, because the
+        # push moves the tracking ref onto this branch.
+        after = gitutil.text(["rev-parse", "HEAD"], root)
+        arrived = gitutil.rev_list(f"{before}..{base_ref}", root)
         try:
             pushed = push(target, root=root)
         except SyncError as exc:
             if "non-fast-forward" not in str(exc) or attempt >= retries:
                 raise
             continue
+        # After the push, never before: writing the event dirties the tree, and
+        # `push` refuses a dirty tree on purpose. The session's own commit takes
+        # the record to the base with the work.
+        _record_arrival("sync land", before, after, root, arrived=arrived)
         outcome.update(pushed)
         outcome["resolved"] = outcome["resolved"] or resolved
         return outcome

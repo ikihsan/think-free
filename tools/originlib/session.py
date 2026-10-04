@@ -195,7 +195,7 @@ def finish(outcome: str, summary: str, next_steps: str, push: bool = False) -> d
             actor=active.agent,
             host=active.host,
         )
-    for record in sorted(set(gitutil.changed_paths(active.start_head)) & set(paths.MISSION_RECORDS)):
+    for record in sorted(set(report["own"]) & set(paths.MISSION_RECORDS)):
         events.append(
             active.session,
             "doc_update",
@@ -213,6 +213,7 @@ def finish(outcome: str, summary: str, next_steps: str, push: bool = False) -> d
             "duration_s": round(elapsed(active), 1),
             "unlogged_changes": len(report["unlogged"]),
             "missing_artifacts": len(report["missing"]),
+            "landed_paths": len(report["landed"]),
             "documentation_gaps": gaps,
             "push_requested": bool(push),
         },

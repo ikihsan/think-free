@@ -1,16 +1,16 @@
 {
   "schema": "origin.git-versions/1",
-  "updated": "2026-10-03",
+  "updated": "2026-10-04",
   "verified": [
     {
       "git": "2.25.1",
-      "scope": "full suite (174 tests) green",
+      "scope": "full suite (269 tests) green",
       "where": "instance-20260717-0947",
-      "via": "T-0016"
+      "via": "T-0024"
     },
     {
       "git": "2.56.0",
-      "scope": "full suite (174 tests) green",
+      "scope": "full suite (174 tests) green; the 95 tests added after T-0016 have not been run on this version",
       "where": "micromamba-provided git on instance-20260717-0947",
       "via": "T-0016"
     }
@@ -22,5 +22,5 @@
       "via": "FAILURES.md F011"
     }
   ],
-  "note": "Machine-readable authority for which git versions the sync flow has been exercised against. STATE.md named this gap on 2026-10-03: the suite was verified on two versions while the fleet's VMs disagree, and no gate stated the exercised range."
+  "note": "Machine-readable authority for which git versions the sync flow has been exercised against. STATE.md named this gap on 2026-10-03: the suite was verified on two versions while the fleet's VMs disagree, and no gate stated the exercised range. Each entry's scope says how much of the suite that version has actually run, because a version that ran an older suite is not evidence about the current one."
 }

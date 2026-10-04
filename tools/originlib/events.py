@@ -30,6 +30,7 @@ KINDS = frozenset(
         "artifact",
         "command",
         "block",
+        "base_advance",
         "unlogged_change",
         "doc_update",
         "task_claim",

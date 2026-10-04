@@ -199,6 +199,19 @@ def active_claims() -> dict[str, dict]:
     return state
 
 
+def index_stamp() -> str:
+    """The date the newest claim was recorded, or the newest task's creation.
+
+    The tasks index is a function of the ledger and the task files, never of the
+    clock: a stamp taken from `now` would make the committed index "stale" on
+    every day after the one it was generated on.
+    """
+    stamps = [str(entry.get("ts", ""))[:10] for entry in claims() if entry.get("ts")]
+    if not stamps:
+        stamps = [task.meta.get("created", "") for task in all_tasks()]
+    return max([stamp for stamp in stamps if stamp], default="unknown")
+
+
 def render_tasks_index() -> str:
     tasks = all_tasks()
     active = active_claims()
@@ -219,7 +232,7 @@ def render_tasks_index() -> str:
         "<!-- origin-meta",
         "owner: docs/INDEX.md",
         "status: active",
-        f"last-verified: {events.now_iso()[:10]}",
+        f"last-verified: {index_stamp()}",
         "-->",
         "",
         GENERATED_NOTE,

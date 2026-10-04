@@ -40,11 +40,14 @@ def run(
     root: Path | None = None,
     timeout: int = DEFAULT_TIMEOUT,
     env: dict | None = None,
+    stdin: str | None = None,
 ) -> subprocess.CompletedProcess:
     """Run one git command.
 
     `env` is merged over the inherited environment, which is how a child git is
     forced non-interactive even when the parent VM exports `GIT_EDITOR`.
+    `stdin` feeds revs to `--stdin` callers, so a long commit list cannot
+    overflow the command line.
     """
     merged = None
     if env:
@@ -57,6 +60,7 @@ def run(
         timeout=timeout,
         check=False,
         env=merged,
+        input=stdin,
     )
 
 
@@ -144,6 +148,38 @@ def changed_paths(since: str) -> list[str]:
 
 def is_tracked(path: str) -> bool:
     return run(["ls-files", "--error-unmatch", "--", path]).returncode == 0
+
+
+def rev_list(spec: str, root: Path | None = None) -> list[str]:
+    """Commit shas for a rev-list spec, in git's order. Empty when git refuses."""
+    result = run(["rev-list", spec], root)
+    if result.returncode != 0:
+        return []
+    return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+
+def touched_paths(commits: list[str], root: Path | None = None) -> set[str]:
+    """Every path the given commits changed.
+
+    The revs go in on stdin rather than argv: a base that moved by hundreds of
+    commits would otherwise exceed the command line, and the failure would look
+    like an empty result — which is exactly the answer that hides work.
+    """
+    if not commits:
+        return set()
+    result = run(
+        ["log", "--no-walk", "--name-only", "--format=", "--stdin"],
+        root,
+        stdin="\n".join(commits) + "\n",
+    )
+    if result.returncode != 0:
+        return set()
+    return {line.strip() for line in result.stdout.splitlines() if line.strip()}
+
+
+def last_commit_touching(path: str, root: Path | None = None) -> str:
+    """The newest commit that changed `path`, or "" when git has no history for it."""
+    return text(["log", "-1", "--format=%H", "--", path], root)
 
 
 def is_ignored(path: str) -> bool:

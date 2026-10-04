@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from . import events, paths
+from . import paths
 from .doclint import GENERATED_MARK, GENERATED_NOTE, META_BLOCK
 
 # Top-level zones summarised rather than expanded.
@@ -123,12 +123,22 @@ def _link(root: Path, path: Path, index_file: Path) -> str:
     return f"[`{rel}`]({target})"
 
 
+def index_stamp(docs: list[Path]) -> str:
+    """The newest `last-verified` among the documents this index lists.
+
+    Taken from the tree rather than from the clock, so regenerating the index on
+    a later day produces the same bytes and `doc lint` does not call every
+    committed index stale the morning after it was written.
+    """
+    stamps = [_meta_of(path).get("last-verified", "") for path in docs]
+    return max([stamp for stamp in stamps if stamp], default="unknown")
+
+
 def render() -> str:
     index_file = paths.docs_index()
     root = paths.repo_root()
-    today = events.now_iso()[:10]
     docs = _documents()
-    lines = [HEAD.format(date=today, GENERATED=GENERATED_NOTE), SECTIONS]
+    lines = [HEAD.format(date=index_stamp(docs), GENERATED=GENERATED_NOTE), SECTIONS]
     for title, predicate in ZONE_ORDER:
         group = [p for p in docs if predicate(p.relative_to(root))]
         if not group:

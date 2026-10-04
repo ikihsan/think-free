@@ -59,6 +59,24 @@ the branch. Your own changes belong in their own commit with a message that
 says what they are; the tooling will not publish them for you, and `--push`
 refuses while they sit uncommitted so the record and the work travel together.
 
+## Landing a colleague's work without claiming it
+
+`land` rebases this branch onto the shared base, which drags the other VMs'
+commits into this session's diff. Reconciliation would otherwise report those
+files as undeclared changes by this session — nine false reports and four false
+`doc_update` events in session 029.
+
+So `pull` and `land` record the arrival: a `base_advance` event naming the
+commits that came from the base, written after the push so the tree is still
+clean when `push` checks it. Reconciliation attributes a path to the base only
+when the newest thing to touch it is one of those commits; a path this session
+edits afterwards is its own again.
+
+**Use `tools/origin sync land` or `tools/origin sync pull` to move the base.** A
+rebase or pull run by hand leaves the same tree and no record, so its paths stay
+reported as undeclared. That is the intended direction of failure: an extra
+report costs a minute of reading, a wrongly silenced file costs the record.
+
 ## Generated-file conflicts
 
 Two sessions can both regenerate `sessions/INDEX.md` or `docs/INDEX.md` with

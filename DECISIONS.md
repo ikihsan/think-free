@@ -15,7 +15,7 @@ ordinary edits do not.
 | [`DECISIONS-FOUNDATION.md`](DECISIONS-FOUNDATION.md) | D001–D010 | The mission, the workspace, and what counts as evidence |
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018 | Recording, moving, and publishing work |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics |
-| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D024–D027 | How this repository's own gates are written and run |
+| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D013, D024–D029 | How this repository's own gates are written and run |
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who
