@@ -122,6 +122,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0044-date-the-lease-tests-from-the-clock-the-code-act.md`](../tasks/T-0044-date-the-lease-tests-from-the-clock-the-code-act.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0045-run-release-check-from-preflight-and-classify-de.md`](../tasks/T-0045-run-release-check-from-preflight-and-classify-de.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0046-measure-how-github-files-an-annotation-on-the-fi.md`](../tasks/T-0046-measure-how-github-files-an-annotation-on-the-fi.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md`](../tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
