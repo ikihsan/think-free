@@ -8,15 +8,16 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-81 recorded session(s). One `events.jsonl` per session, so concurrent
+82 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 56 older session(s) are in the directory listing.
+Showing the 25 most recent. 57 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-04-038-record-a-base-advance-when-a-paused-reba](2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md) | unknown-agent | **unfinished** | Record a base_advance when a paused rebase is completed by hand (T-005 | 2026-10-04T14:13 |
 | [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
+| [2026-10-04-036-report-a-row-a-document-s-own-table-alre](2026-10-04-036-report-a-row-a-document-s-own-table-alre/README.md) | opencode | worked | report a row a document's own table already contains, so a merge that  | 2026-10-04T13:42 |
 | [2026-10-04-036-record-the-measured-ci-state-on-the-tip](2026-10-04-036-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip and T-0050's one red run, from | 2026-10-04T13:53 |
 | [2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu](2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/README.md) | opencode | worked | make doc lint's broken-link verdict a function of the repository, not  | 2026-10-04T12:39 |
 | [2026-10-04-034-separate-the-line-cap-exemption-from-rec](2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md) | opencode | worked | Separate the line-cap exemption from reconciliation so a data-file edi | 2026-10-04T13:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 56 older session(s) are in the directory listing.
 | [2026-10-04-017-t-0036-report-a-duplicate-defect-number](2026-10-04-017-t-0036-report-a-duplicate-defect-number/README.md) | unknown-agent | worked | T-0036: report a duplicate defect number in STATE-defects.md as a doc  | 2026-10-04T06:58 |
 | [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | worked | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:05 |
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |
-| [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | worked | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:40 |
 
 
 ## Reading a session

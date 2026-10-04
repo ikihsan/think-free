@@ -1,0 +1,299 @@
+==============================================================================
+[seq 2] 2026-10-04T13:00:23+00:00
+$ python3 tools/mutate_table_rule.py apply no-rule
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+Falsify T-0052's rule by mutating it, on real bytes.
+
+D025 asks a gate to be falsified against the defect it was written for, and two
+sessions in this repository have recorded the failure mode of skipping it: a
+mutation whose `str.replace` pattern did not match the file's real indentation
+changed nothing and fourteen green tests read as "the clause is not
+load-bearing". So the pattern is counted before anything is written and a count
+other than one is refused rather than run.
+
+Two mutations, one per direction, and the second is the one that is easy to get
+wrong. Removing the rule reports nothing on `eff1126`. Removing only the
+generated-document exemption makes the rule *right about the wrong thing*: it
+then reports 47 findings on a clean tree, every one of them a session report
+listing an artifact twice, which is what those reports are for.
+
+    python3 tools/mutate_table_rule.py apply no-rule           # must fail
+    python3 tools/mutate_table_rule.py restore
+    python3 tools/mutate_table_rule.py apply no-generated-exempt # must fail
+    python3 tools/mutate_table_rule.py restore
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 113  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T13:00:30+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 6.214s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6508  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T13:00:31+00:00
+$ python3 tools/mutate_table_rule.py restore
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+nothing to restore
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 94  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T13:00:58+00:00
+$ python3 tools/mutate_table_rule.py apply no-rule
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+applied: no-rule
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 95  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T13:01:05+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+..FF.......
+======================================================================
+FAIL: test_the_same_commit_reports_nothing_else (tests.test_table_rows.CommittedDefectTest)
+One finding on the whole tree at that commit, so the rule is not merely loud.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944/tests/test_table_rows.py", line 146, in test_the_same_commit_reports_nothing_else
+    self.assertEqual(len(found), 1, found[:6])
+AssertionError: 48 != 1 : ['STATE.md: table row repeated from line 37, which makes this one fact shown twice; delete one (Implemented (2))', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 45, which makes this one fact shown twice; delete one (tools/originlib/cli.py)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 46, which makes this one fact shown twice; delete one (tools/originlib/cli_session.py)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 41, which makes this one fact shown twice; delete one (FAILURES.md)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 44, which makes this one fact shown twice; delete one (.agents/skills/session-lifecycle/SKILL.md)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 43, which makes this one fact shown twice; delete one (docs/reference/cli-reference.md)']
+
+======================================================================
+FAIL: test_no_hand_authored_document_repeats_a_row (tests.test_table_rows.NoRegressionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944/tests/test_table_rows.py", line 262, in test_no_hand_authored_document_repeats_a_row
+    self.assertEqual(found, [], f"{len(found)} repeated rows in {rows_read} read")
+AssertionError: Lists differ: ['sessions/2026-10-03-003-record-the-sessi[9645 chars]py)'] != []
+
+First list contains 47 additional elements.
+First extra element 0:
+'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 45, which makes this one fact shown twice; delete one (tools/originlib/cli.py)'
+
+Diff is 10438 characters long. Set self.maxDiff to None to see it. : 47 repeated rows in 1237 read
+
+----------------------------------------------------------------------
+Ran 11 tests in 6.378s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6628  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T13:01:05+00:00
+$ python3 tools/mutate_table_rule.py restore
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+restored: doclint_table.py
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 100  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T13:01:26+00:00
+$ python3 tools/mutate_table_rule.py apply no-generated-exempt
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+applied: no-generated-exempt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T13:01:33+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+..FF.......
+======================================================================
+FAIL: test_the_same_commit_reports_nothing_else (tests.test_table_rows.CommittedDefectTest)
+One finding on the whole tree at that commit, so the rule is not merely loud.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944/tests/test_table_rows.py", line 146, in test_the_same_commit_reports_nothing_else
+    self.assertEqual(len(found), 1, found[:6])
+AssertionError: 48 != 1 : ['STATE.md: table row repeated from line 37, which makes this one fact shown twice; delete one (Implemented (2))', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 45, which makes this one fact shown twice; delete one (tools/originlib/cli.py)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 46, which makes this one fact shown twice; delete one (tools/originlib/cli_session.py)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 41, which makes this one fact shown twice; delete one (FAILURES.md)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 44, which makes this one fact shown twice; delete one (.agents/skills/session-lifecycle/SKILL.md)', 'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 43, which makes this one fact shown twice; delete one (docs/reference/cli-reference.md)']
+
+======================================================================
+FAIL: test_no_hand_authored_document_repeats_a_row (tests.test_table_rows.NoRegressionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944/tests/test_table_rows.py", line 262, in test_no_hand_authored_document_repeats_a_row
+    self.assertEqual(found, [], f"{len(found)} repeated rows in {rows_read} read")
+AssertionError: Lists differ: ['sessions/2026-10-03-003-record-the-sessi[9645 chars]py)'] != []
+
+First list contains 47 additional elements.
+First extra element 0:
+'sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/README.md: table row repeated from line 45, which makes this one fact shown twice; delete one (tools/originlib/cli.py)'
+
+Diff is 10438 characters long. Set self.maxDiff to None to see it. : 47 repeated rows in 1237 read
+
+----------------------------------------------------------------------
+Ran 11 tests in 6.570s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6826  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T13:01:33+00:00
+$ python3 tools/mutate_table_rule.py restore
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+restored: doclint_table.py
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 97  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T13:01:40+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+[stderr]
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 6.489s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6747  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T13:06:22+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 524 tests in 265.086s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 265780  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T13:06:35+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 557 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2615  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T13:39:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 524 tests in 265.674s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 266273  redactions: none
+==============================================================================
+[seq 28] 2026-10-04T13:39:54+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+doc lint: 557 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 79 session(s) checked
+  note  2026-10-04-034-separate-the-line-cap-exemption-from-rec: in flight (task T-0050, claimed by opencode on instance-20260717-0947 1.9h ago)
+  note  2026-10-04-036-report-a-row-a-document-s-own-table-alre: in progress (command)
+session verify: OK
+release check: 42 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8091  redactions: none
+==============================================================================
+[seq 29] 2026-10-04T13:40:35+00:00
+$ tools/origin task verify T-0052
+cwd: /home/ubuntu/think-free/.worktrees/T-0052-instance-20260717-0944
+------------------------------------------------------------------------------
+T-0052: `PYTHONPATH=tools:tests python3 -m unittest tests.test_table_rows -q && tools/origin doc lint && tools/origin preflight` -> exit 0 in 16.82s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17282  redactions: none
