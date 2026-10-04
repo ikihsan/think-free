@@ -16,6 +16,17 @@ back over its own cap.
 
 ## Sessions moved here when the reload point overflowed (2026-10-04, T-0053)
 
+- **Session 030, VM 0944 (T-0048, D039).** `sync land` stopped on a real content conflict in `tasks/CLAIMS.jsonl` and said *resolve it and land again*; the second `land` refused on the dirty tree that resolving leaves, so the only way out was a hand-run `git rebase --continue`, which records no `base_advance`. **The defect was in the refusal message.** `land` now completes the rebase, and the pre-rebase tip comes from git's own `orig-head` rather than a `HEAD` that has already moved onto the base. Falsified both ways. Account in [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+- **Session 030, VM 0947 (T-0047, D040, defect 12).** The last open defect is closed: a
+  task file rewritten by `task claim`/`complete`/`release` closed its session with exit 4
+  on the tooling's own write — **37 reports across 21 sessions**, not the three its entry
+  claimed. `_set_meta` declares the write with the **digests of the bytes it wrote**, so
+  the command is silent and the agent's next edit to the same file is reported again.
+  Falsified both ways, and the first mutation mutated nothing while all 14 tests passed:
+  *a patch that does not check it landed cannot falsify anything.* **Three identifier
+  collisions in one session** — T-0046, then D037, then D039 — each renumbered on the
+  unpushed side, is the residual race measured rather than described. Account in
+  [`STATE-defects.md`](STATE-defects.md) and D040.
 - **Session 029, VM 0944 (T-0046, defect 18, F021, D037/D038).** Four red runs of
   2026-10-04 read raw: GitHub files an annotation on the workflow command's `file=`,
   and the five gate steps had been skipped entirely whenever `Tests` was red — which
@@ -28,7 +39,6 @@ back over its own cap.
   measured on a worktree of this repository's own history in both directions. **Unrun at
   the time**, and since measured — see session 029. Account in
   [`STATE-defects.md`](STATE-defects.md).
-
 ## What changed in sessions 005 through 020, both VMs
 
 Moved here verbatim from the reload point on 2026-10-04 (T-0046), when
