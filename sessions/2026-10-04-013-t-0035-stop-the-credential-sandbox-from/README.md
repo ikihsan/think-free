@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T04:37:16+00:00
-- **Duration:** ?s
+- **Duration:** 1194.4s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `task/T-0035-instance-20260717-0944`
 
@@ -23,7 +23,11 @@ T-0035: stop the credential sandbox from inheriting a CI runner's GITHUB_TOKEN
 
 ## Summary
 
-_(none recorded)_
+T-0035: the credential sandbox inherited a CI runner's GITHUB_TOKEN, which pushprobe counts as a credential mechanism, so a test asserting 'unavailable' read 'broken'. Three CI runs were red while both VMs were green. Found by reproducing with the variable set rather than by reading the run, and confirmed against 4401bd2c, so it arrived with the fixture in T-0025. Falsified three ways, the third found by falsifying: a fixture that clears but never restores leaves every test green. Recorded as defect 7 - a defect that only reproduces where the author does not work. 380 tests green with and without tokens exported.
+
+## Next
+
+Land the branch. T-0034 (VM 0947) is in flight on the Python-version matrix and is the right next piece of work; do not start it here. After it lands, the remaining unchecked ROADMAP items are seeding tasks from STATE-next-actions and headless supervision, which needs authorization.
 
 ## Artifacts
 
@@ -57,7 +61,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -86,6 +89,9 @@ _(none recorded)_
 | 17 | 04:53:32 | artifact | wrote ROADMAP.md |
 | 18 | 04:53:32 | artifact | wrote tasks/T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md |
 | 19 | 04:56:55 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -3; tools/origin doc lint --quiet; echo "lint=$?"; too |
+| 20 | 04:57:10 | doc_update | updated ROADMAP.md |
+| 21 | 04:57:10 | doc_update | updated STATE.md |
+| 22 | 04:57:10 | session_end | T-0035: the credential sandbox inherited a CI runner's GITHUB_TOKEN, which pushprobe counts as a credential mechanism, so a test asserting 'unavailabl |
 
 ## Reproduce this record
 
