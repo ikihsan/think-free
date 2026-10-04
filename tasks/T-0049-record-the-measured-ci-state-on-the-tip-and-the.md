@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0049
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-031-record-the-measured-ci-state-on-the-tip
+claim-vm: instance-20260717-0944
 verify: tools/origin preflight
 -->
 
