@@ -31,9 +31,13 @@ _none_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+3 captured, 1 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 3 | ['git', 'add', '-A', 'docs/INDEX.md', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'sessions/2026-10-04-041-repair-the-red-base-state- | 0 | 10 |
+| 4 | ['git', 'commit', '-q', '-m', 'task: create T-0055 to publish a claim from inside an open session'] | 0 | 82 |
+| 5 | ['tools/origin', 'sync', 'land'] | 1 | 988 |
 
 ## Integrity
 
@@ -50,6 +54,10 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 15:12:43 | session_start | Repair the red base (STATE.md over the line cap) and fix the task-claim livelock inside an open session |
+| 2 | 15:13:27 | task_rewrite | appended a create record for T-0055 |
+| 3 | 15:14:02 | command | $ git add -A docs/INDEX.md sessions/INDEX.md tasks/CLAIMS.jsonl tasks/INDEX.md sessions/2026-10-04-041-repair-the-red-base-state-md-over-the-l |
+| 4 | 15:14:03 | command | $ git commit -q -m task: create T-0055 to publish a claim from inside an open session |
+| 5 | 15:14:10 | command | $ tools/origin sync land |
 
 ## Reproduce this record
 
