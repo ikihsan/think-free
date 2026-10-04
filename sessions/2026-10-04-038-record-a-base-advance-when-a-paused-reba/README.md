@@ -31,12 +31,13 @@ _none_
 
 ## Commands
 
-2 captured, 2 non-zero exit.
+3 captured, 3 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 4 | ['tools/origin', 'task', 'claim', 'T-0053'] | 1 | 3012 |
 | 6 | ['tools/origin', 'task', 'claim', 'T-0053'] | 1 | 2974 |
+| 8 | ['tools/origin', 'task', 'claim', 'T-0053'] | 1 | 3142 |
 
 ## Integrity
 
@@ -58,6 +59,8 @@ _none_
 | 4 | 14:13:52 | command | $ tools/origin task claim T-0053 |
 | 5 | 14:14:02 | task_rewrite | appended a claim record for T-0053 |
 | 6 | 14:14:03 | command | $ tools/origin task claim T-0053 |
+| 7 | 14:14:19 | task_rewrite | appended a claim record for T-0053 |
+| 8 | 14:14:20 | command | $ tools/origin task claim T-0053 |
 
 ## Reproduce this record
 
