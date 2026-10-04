@@ -67,6 +67,18 @@ one domain out: a diagnostic must distinguish "never configured" from "stopped
 working". Here it is four states, and a tool that collapses the last three into
 "no annotations" is confidently wrong.
 
+**What it looks like when it works.** `observed` 2026-10-04, run `37197291442` at
+`7790d6b`: the `Documentation lint` step failed with exit 2, and its check run carries
+one annotation with `path: tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md`,
+`start_line: 70`, and the message `tasks/T-0047-…md: broken link ->
+../../docs/reference/identifier-allocation.md`. So the file to open and the line to open
+it at both came off the run, with no reproduction and without the log that needs admin
+rights. Before T-0040 the same run would have carried only *Process completed with exit
+code 2*, and before T-0046 the annotating steps would not have run at all. Ten runs are
+accounted for in
+[`../../EXPERIMENTS/010-annotation-rendering/`](../../EXPERIMENTS/010-annotation-rendering/),
+arms A–J; none was reproduced to find out why it was red.
+
 ## Ceiling
 
 The messages are the workflow's own emission, capped by the `awk` window in the

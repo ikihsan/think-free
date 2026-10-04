@@ -1,0 +1,28 @@
+==============================================================================
+[seq 2] 2026-10-04T11:16:23+00:00
+$ python3 EXPERIMENTS/010-annotation-rendering/fetch_annotations.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rate_limit: {"http": 200, "limit": 60, "remaining": 9, "used": 51}
+run 37191658964 arm A: 4 annotations, paths ['.github', 'DECISIONS-RECORDS.md']
+run 37189825232 arm B: 11 annotations, paths ['.github']
+run 37190842104 arm C: 10 annotations, paths ['.github']
+run 37192717297: jobs? HTTP 403
+run 37196459285: jobs? HTTP 403
+run 37196594583: jobs? HTTP 403
+run 37196559251: jobs? HTTP 403
+run 37197291442: jobs? HTTP 403
+run 37197942512: jobs? HTTP 403
+run 37198002763: jobs? HTTP 403
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6379  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T11:17:01+00:00
+$ python3 EXPERIMENTS/010-annotation-rendering/fetch_annotations.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rate_limit: {"http": 200, "limit": 60, "remaining": 0, "used": 60}
+5 arm(s) already captured; skipping them
+refusing to start: 5 arm(s) need 11 requests and 0 remain. A partly fetched batch is worse than none: a summary holding 403s reads like evidence about those runs, and is evidence about the limit. Run again after the reset, or with --refresh once there is budget for everything.
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 246  redactions: none

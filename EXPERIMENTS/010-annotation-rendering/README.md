@@ -147,3 +147,42 @@ without a verified limit, because a 403 from the 60-per-hour unauthenticated cap
 and an empty annotation list look identical to a shell pipeline — and treating the
 first as the second is how this repository recorded a false premise for two
 sessions. Overwrites `raw/`; the five run ids above are the arms.
+
+## Arms F to J: the run census, and what each red run cost to diagnose
+
+Added in T-0049. Ten runs have passed since the list above was written and **not one
+was reproduced on a VM to find out why it was red** — each cause was read off the
+run's own annotations. That is the property F020 established for the `Tests` step and
+T-0040 built for the file-reading gates, used seven times in a row.
+
+| Arm | Run | Head | Conclusion | Cause, from its annotations |
+|---|---|---|---|---|
+| F | `37196594583` | `d382943` | red, 3.12 only | session step, exit 4: session 030 `last event is 'session_start'`, started and not yet claimed |
+| G | `37196559251` | `fd89dac` | **green** | — the first run whose seven probe annotations are everything it carried |
+| H | `37197291442` | `7790d6b` | red, 3.12 only | `Documentation lint`, exit 2: **`tasks/T-0047-…md:70: broken link -> ../../docs/reference/identifier-allocation.md`** |
+| I | `37197942512` | `50271e5` | red, 3.12 only | session step, exit 4: session 030 `last event is 'milestone'`, a work commit published while its session was open |
+| J | `37198002763` | `09e18b0` | **green** | — and the tip, with every session closed |
+
+**Arm H is the one this repository has been building towards.** It is the first red
+run whose cause was read off an annotation the annotator filed, on the offending
+file at the offending line, with no reproduction and without the run log that needs
+admin rights. Before T-0040 that run's only failure annotation said `Process
+completed with exit code 2`; before T-0046 the annotator's own steps would not have
+run at all, because arm H's sibling failures show what a skipped gate looks like —
+nothing.
+
+Arms F and I are the expected case `docs/operations/ci.md` documents: a commit
+published while a session is open has an unfinished session by definition, and each
+is green on the next commit, which is the session commit that closes it. Neither is
+a defect and neither is worth a change.
+
+**`observed` where a capture exists, `observed`-from-the-run where it does not.**
+Arms A–E are in `raw/`, byte for byte. **Arms F–J are pending the hourly reset**: this
+VM is inside the 60-requests-an-hour unauthenticated limit and a run costs two of
+them, so `fetch_annotations.py` now refuses to start a batch the remaining budget
+cannot cover rather than writing half of one. That check exists because the first
+version did the opposite and overwrote a good `summary.json` with `http: 403` for two
+arms whose captures were already on disk — which reads as an observation about those
+runs and is an observation about the limit. `summary.json` is now a rendering of
+`raw/` with a `captured` flag per arm, so it cannot say that again.
+
