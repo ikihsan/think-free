@@ -118,13 +118,16 @@ was previously spent.
 
 Separate from the invention stages, because the mission cannot be run without it.
 
-- [x] Session logging with append-only events and git reconciliation
+- [x] Session logging with append-only events and git reconciliation, including
+      attribution by recorded evidence: a base move the tooling performed (D028)
+      and a task file a command rewrote, which is honoured only while it holds
+      the bytes that command wrote (T-0047, D037, defect 12)
 - [x] Command capture with exit codes and secret redaction
 - [x] Task dispatch with an append-only claim ledger
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (471 tests on git 2.25.1), with
+- [x] Standard-library test suite (488 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of
       the suite each git version has actually run. A test's correctness depends
       on every clock the code under it reads, and three tests behind the
