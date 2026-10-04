@@ -18,14 +18,28 @@ of those it cannot touch.
 ## Ordered by information gained per unit of effort
 
 1. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Four
+   against the defect's own bytes before it is trusted** (D025, from F013). Five
    gates now work that way: the conflict-marker rule, `release check`, the
    landed-work attribution and generated-stamp rules (both falsified in T-0024,
-   one after a first attempt that falsified nothing), and the identifier
-   allocation of T-0031, whose first falsification run also exposed two defects
-   in the implementation it was testing. The pattern is in
-   `tools/originlib/conflicts.py`.
+   one after a first attempt that falsified nothing), the identifier allocation
+   of T-0031, whose first falsification run also exposed two defects in the
+   implementation it was testing, and the CI-matrix gate of T-0034. The pattern
+   is in `tools/originlib/conflicts.py`.
    **Ceiling:** each rule detects only the shape it was written against.
+2. **The two gaps in that pattern, both found by hitting them.** (a) Doc lint
+   rule 7 reads findings definitions, findings index rows and decision spans. It
+   does not read the numbered list in [`STATE-defects.md`](STATE-defects.md), so
+   T-0034 and T-0035 — written on two VMs in the same hour — both took **defect
+   7** and nothing reported it. The unpushed side renumbered to 8 and 9; the
+   numbers are unique and the list is not in ascending order, and until the rule
+   is extended that file is the one document here whose identifiers are checked
+   by reading it. (b) A red CI run names a **step and a version**, not a test:
+   the run log needs admin rights and the public check-runs API returns no
+   annotations, which is why F019 took an hour to find. The fix is one check per
+   test file — the suite is 40-odd files and the slowest is the fleet harness, so
+   it is affordable — and it is the only diagnostic that needs no rights.
+   **Ceiling:** neither closes the general problem; they narrow where a
+   hand-maintained identifier list and an unreadable log can hide a defect.
 2. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from

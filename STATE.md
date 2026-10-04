@@ -42,7 +42,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Sessions | 55 recorded, 0 in flight once this one closes (session 012, T-0034, VM 0947) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 431 files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict, and since T-0030 on an identifier defined twice or indexed without a body. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
-| Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Now exercised, once:** a rebase conflict between VMs — run `37171841544` (commit `09684f2`) failed Documentation lint, and the cause is a broken relative link in a task file this VM had just written; reproduced locally at `09684f2` and fixed in `00cd829`, which is green (run `37172039525`). A conflict-marker block committed to `tasks/CLAIMS.jsonl` in the same rebase was caught by `tests/test_conflicts.py` before the push, so it never reached a run. **Not exercised by any run:** the git 2.56.0 path — CI runs 3.12 on one runner image only |
+| Continuous integration | **Green on all seven jobs**, `observed` in run `37180041369` (commit `157e463`, 2026-10-04T05:29Z): one `Tests` job per CPython minor 3.8–3.14, and the five file-reading gates on the 3.12 row alone — `verify (3.14)` and `verify (3.8)` are `success` with those five `skipped`, which is the guard working rather than a row passing quietly. The two runs before it failed: `37178057818` (all seven rows red at `Tests`, F019) and `37179073002`. **What no run has exercised:** a matrix row cannot be added for a version `actions/setup-python` does not publish, and the git version is still one runner's — 2.55.0, named in `git-versions.json` and measured locally, not by any row |
 
 Per-session detail behind the dashboard is in
 [`STATE-history.md`](STATE-history.md).
@@ -121,13 +121,19 @@ with `origin sync land`, which records what arrived.
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
-- **Session 012, VM 0947 (T-0034, D035, F018).** Every CPython minor from 3.8
-  to 3.14 has now run the suite, on portable builds and on one CI matrix row
-  each, held to the record in both directions by `tests/test_ci_matrix.py`. **The
-  gap was not theoretical:** the suite failed on all five newly named
-  interpreters, on a T-0033 test that asserted *this* interpreter is in the
-  record — which the other VM's CI hit an hour later from the other end. Both
-  clauses are kept. Detail in [`STATE-history.md`](STATE-history.md).
+- **Session 012, VM 0947 (T-0034, D035, F018, F019).** Every CPython minor from
+  3.8 to 3.14 has run the suite — portable builds on this VM and one CI matrix
+  row each — with `tests/test_ci_matrix.py` holding the matrix to the record in
+  both directions. **Neither gap was theoretical.** On the five interpreters the
+  record had never named, the suite failed; so it did on the runner, because
+  T-0033 had added two assertions that the machine running it is covered by the
+  records. Each was green on the VM that wrote it and red elsewhere for opposite
+  reasons, and neither cause was readable from outside — the log needs admin
+  rights, and the public check-runs API returns no annotations. The second was
+  found by elimination and reproduced with the runner's own git 2.55.0. Both
+  assertions are now the module's contract; the portable form is in D035. 392
+  tests green on 3.8.10, five portable builds and git 2.55.0. Detail in
+  [`STATE-history.md`](STATE-history.md).
 - **Session 005, VM 0947 (T-0030, D032).** A colliding identifier is refused
   before publication, because a collision is created by the merge and each VM's
   own lint sees nothing wrong with its own tree. Over all 174 commits it reports
@@ -231,17 +237,19 @@ per unit of effort; the top item is:
 
 **A gate must read the property it claims to check, and must be falsified
 against the defect's own bytes before it is trusted** (D025, from F013). Five
-gates now work that way: the conflict-marker rule, `release check`, the
-landed-work attribution and generated-stamp rules (T-0024), identifier
-allocation (T-0031), and the CI matrix held to the exercised-version record
-(T-0034). **Ceiling:** each rule detects only the shape it was written against.
-The last of those adds a second kind of falsification — run the thing on an input
-the record does not name, rather than mutating the code.
+gates now work that way, and the newest adds a second kind of falsification —
+run the thing on an input the record does not name, rather than mutating the
+code. **Ceiling:** each rule detects only the shape it was written against.
+
+**The gap in that pattern, found by colliding with it:** rule 7 reads findings
+and decisions, not the numbered list in `STATE-defects.md`, so two VMs took
+defect 7 in the same hour and nothing said so; and reading a red CI run still
+names a step and a version, not a test. Both are the next items there.
 
 Recently closed there: a CI matrix row per CPython minor from 3.8 to 3.14, held to
-`tests/python-versions.json` in both directions, after running the suite on the
-five interpreters the record had never heard of found the suite red on all five
-(T-0034, F018, D035). Nothing from 3.15 onwards has run, and no gate widens that.
+`tests/python-versions.json` in both directions (T-0034, D035, F018, F019). Run
+`37180041369` is green on all seven rows; nothing from 3.15 onwards has run, and
+no gate widens that.
 
 ## Capability evidence
 
@@ -274,24 +282,9 @@ pushes via the GitHub App as `Ihsan Ai Server Bot`.
 - The tooling's own coverage is demonstrated by its tests, not by independent
   reproduction. `tests/README.md` lists what is and is not covered.
 - Unattended execution is not implemented. What exists is the record that makes an
-  interrupted run recoverable, plus detection that reveals when it did not happen.- **Session 003, VM 0947 (T-0027).** T-0026's verification passed while its
-  defect was still live: a lint on the author's own tree cannot see what a claim
-  commit published, and the claim staged only the task file and the ledger. Four
-  more red runs followed; `task claim` now stages the rebuilt indexes and the new
-  test lints a *fetched* tree on a second clone. **Lesson worth more than the
-  fix:** a gate that reads the tree the author is standing in cannot see the
-  commit the author is about to publish.
-- **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
-  indexes, because two CI runs failed on 2026-10-03 for exactly that: a task
-  file was pushed before `tasks/INDEX.md` was rebuilt and the orphan rule
-  rejected the file the VM had just created. The rule is unchanged — a file no
-  command wrote is still an orphan, which the new tests assert. **The task file
-  for this work guessed the wrong index:** the stale one was `docs/INDEX.md`,
-  which lists task files by path. 274 tests green.
-- **Session 001, VM 0947 (T-0025).** The pushed CI run for T-0024 is read and
-  recorded: all six steps green on `9e865a4`, including the session-integrity
-  step that had been red on every push while a VM was working. The two failures
-  from ten minutes earlier were **not** the date defect this session's predecessor
-  assumed: their failing step was Documentation lint, and the cause was a task
-  file pushed without regenerating `tasks/INDEX.md`. **Reading the run rather than
-  the expectation is what caught it.**
+  interrupted run recoverable, plus detection that reveals when it did not happen.
+
+Three earlier sessions are recorded in [`STATE-history.md`](STATE-history.md)
+rather than here: T-0025 read the pushed CI run, T-0026 made `task new` rebuild
+the generated indexes, and T-0027 made a published claim stage them. They had
+drifted into this section, and two of them had run together on one line.

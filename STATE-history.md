@@ -11,6 +11,34 @@ point and carries only what a cold session must act on; this file is the
 detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers here are the same ones `STATE.md` uses.
 
+## What changed in sessions 001-003, VM 0947 (T-0025, T-0026, T-0027)
+
+Moved out of `STATE.md` on 2026-10-04, where three per-session bullets had
+drifted into the *Honest limitations* section and two of them had run together on
+one line. They are session detail, which is what this file is for.
+
+- **Session 003 (T-0027).** T-0026's verification passed while its defect was
+  still live: a lint on the author's own tree cannot see what a claim commit
+  published, and the claim staged only the task file and the ledger. Four more
+  red runs followed; `task claim` now stages the rebuilt indexes, and the new
+  test lints a *fetched* tree on a second clone. **Lesson worth more than the
+  fix:** a gate that reads the tree the author is standing in cannot see the
+  commit the author is about to publish.
+- **Session 002 (T-0026).** `task new` now rebuilds the generated indexes,
+  because two CI runs failed on 2026-10-03 for exactly that: a task file was
+  pushed before `tasks/INDEX.md` was rebuilt and the orphan rule rejected the
+  file the VM had just created. The rule is unchanged - a file no command wrote
+  is still an orphan, which the new tests assert. **The task file for this work
+  guessed the wrong index:** the stale one was `docs/INDEX.md`, which lists task
+  files by path. 274 tests green.
+- **Session 001 (T-0025).** The pushed CI run for T-0024 is read and recorded:
+  all six steps green on `9e865a4`, including the session-integrity step that
+  had been red on every push while a VM was working. The two failures from ten
+  minutes earlier were **not** the date defect this session's predecessor
+  assumed: their failing step was Documentation lint, and the cause was a task
+  file pushed without regenerating `tasks/INDEX.md`. **Reading the run rather
+  than the expectation is what caught it.**
+
 ## What changed in session 012, VM 0947 (T-0034)
 
 The exercised-Python record named 3.9 to 3.11 as versions nobody had run, and its
