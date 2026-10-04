@@ -91,3 +91,4 @@
 {"action": "complete", "evidence": ["STATE.md"], "reason": "CI run history recorded: five green runs ending at fc9d9ed, and seven red runs with one verified cause (an orphan task file in a commit that lacked the rebuilt indexes), closed by T-0026 and T-0027. What CI still does not exercise is stated: one runner image, one Python, no rebase conflict, and never the git 2.56.0 path.", "schema": "origin.task.claim/1", "task": "T-0028", "ts": "2026-10-04T01:06:51+00:00"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0030", "ts": "2026-10-04T01:15:40+00:00"}
 {"action": "claim", "agent": "opencode", "schema": "origin.task.claim/1", "task": "T-0030", "ts": "2026-10-04T01:15:49+00:00", "vm": "instance-20260717-0947"}
+{"action": "create", "schema": "origin.task.claim/1", "task": "T-0031", "ts": "2026-10-04T01:30:28+00:00"}

@@ -103,6 +103,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md`](../tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md`](../tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md) | `tasks/INDEX.md` | active | 2026-10-03 | ## Goal |
 | [`tasks/T-0030-refuse-a-commit-that-gives-one-finding-decision.md`](../tasks/T-0030-refuse-a-commit-that-gives-one-finding-decision.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md`](../tasks/T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
