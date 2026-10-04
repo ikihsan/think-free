@@ -8,14 +8,15 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-61 recorded session(s). One `events.jsonl` per session, so concurrent
+62 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 36 older session(s) are in the directory listing.
+Showing the 25 most recent. 37 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
+| [2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc](2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/README.md) | opencode | **unfinished** | T-0037: explain the four red CI runs since the version matrix landed | 2026-10-04T06:53 |
 | [2026-10-04-017-t-0036-report-a-duplicate-defect-number](2026-10-04-017-t-0036-report-a-duplicate-defect-number/README.md) | unknown-agent | worked | T-0036: report a duplicate defect number in STATE-defects.md as a doc  | 2026-10-04T06:58 |
 | [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | worked | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:05 |
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 36 older session(s) are in the directory listing.
 | [2026-10-03-038-land-t-0020-renumber-two-findings-off-a](2026-10-03-038-land-t-0020-renumber-two-findings-off-a/README.md) | opencode | worked | Land T-0020: renumber two findings off a third identifier collision wi | 2026-10-03T23:23 |
 | [2026-10-03-038-implement-origin-release-check-so-releas](2026-10-03-038-implement-origin-release-check-so-releas/README.md) | opencode | worked | implement 'origin release check' so RELEASE-MANIFEST.md is machine-enf | 2026-10-03T23:26 |
 | [2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f](2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/README.md) | opencode | worked | T-0020: tell an in-flight session apart from an abandoned one in sessi | 2026-10-03T22:56 |
-| [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
 
 
 ## Reading a session

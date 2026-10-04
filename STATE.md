@@ -135,46 +135,19 @@ Now `FAILURES.md` **F020**, with the four answers that endpoint can give and the
   before publication, because a collision is created by the merge and each VM's
   own lint sees nothing wrong with its own tree. Over all 174 commits it reports
   **one**, `e6eb992`. Detail in [`STATE-history.md`](STATE-history.md).
-- **Session 012, VM 0944 (T-0035).** Three CI runs failed the Tests step
-  (`37174050724`, `37174316639`, `37174309822`) and the suite was green on both
-  VMs and locally on the same commits. The credential sandbox cleared `HOME`,
-  `XDG_CONFIG_HOME` and git config but inherited `GH_TOKEN`/`GITHUB_TOKEN`, and
-  `pushprobe` counts an environment token as a mechanism — correctly, it is one
-  — so a test asserting `unavailable` read `broken` wherever a runner exports
-  one. Found by reproducing with the variable set rather than by reading the run,
-  and confirmed against `4401bd2c`, so it predates T-0033 and came in with the
-  fixture in T-0025. Falsified three ways; the third was found *by* falsifying,
-  because a fixture that clears but never restores leaves every test green.
-  **A fixture must build the machine it claims to build, environment
-  included.**
-- **Session 011, VM 0944 (T-0033, D034).** `doctor` now reads both
+- **Session 017, VM 0944 (T-0037).** The four red CI runs were already explained
+  by VM 0947 as F019 while this VM was creating a task to explain them, so this
+  session recorded the elimination table rather than redoing the diagnosis.
+  **The process lesson is the durable part:** when a gate is red somewhere you
+  cannot reproduce, check `task list --remote` first — the answer took a second
+  and the reproduction took forty minutes.
+- **Sessions 011 and 012, VM 0944 (T-0033, T-0035, D034).** `doctor` reads both
   exercised-version records, so a VM outside the exercised set is warned rather
-  than undocumented: `exercised` with the entry's own scope, `NOT exercised`,
-  `record unreadable`, `no record`. Falsified four ways, one of which removed the
-  single rendering line and left every module test green. **Defect 6 is closed.**
-- **Sessions 006–007, VM 0944 (T-0032, D033).** The Python equivalent of
-  `git-versions.json`, which `vm-execution.md` had named as unclaimed work:
-  `tests/python-versions.json` records each interpreter with the scope it ran and
-  names the versions nobody has run — 3.9–3.11, 3.13 and newer, any non-CPython or
-  non-Linux target. CI is credited with the minor version only, because the run
-  log needs admin rights. The test checks honesty clauses rather than schema, and
-  was falsified four ways first. **Defect 6 is twice-partly closed:** the claim
-  exists and is checked; nothing reads it at run time, so an unexercised VM is
-  undocumented rather than warned. **This session's own decision was renumbered
-  from D032 to D033** during the rebase that met VM 0947's D032 — the collision
-  rule applied to itself.
-- **Session 005, VM 0944 (T-0031, D031).** Identifier allocation reads
-  `origin/<base>` instead of the local tree, for F, D and T alike, and every
-  command that hands out a number prints the record it read. Twelve collisions in
-  two days were the cost of not doing this; the ceiling is that two VMs
-  allocating between their own fetches still collide, and T-0030 detects that.
-  Falsified against the defect's own bytes before the repair, which also caught
-  two defects in the implementation being tested. Two more defects surfaced from
-  running the task's own verification: `session start` wrote its report before
-  its first event, so `doc lint` could not pass while a session was open, and two
-  modules passed the 300-line cap with the new code in them. 329 tests green.
-  [`STATE-history.md`](STATE-history.md) is at its cap, so the detail lives in
-  the task file and this session's own record.
+  than undocumented — and then three CI runs went red while both VMs were green,
+  because a credential fixture had inherited a CI runner's `GITHUB_TOKEN`. Both
+  were machine-environment faults: a gate that reads its own environment is only
+  as portable as the record of that environment (F018, F019). Detail in
+  [`STATE-defects.md`](STATE-defects.md) and the two task files.
 - **Session 042, VM 0947 (T-0024, D028).** A session that landed another VM's
   work was reported as having changed that work: session 029 closed with nine
   false `unlogged_change` events and inherited four false `doc_update` events and

@@ -1,0 +1,30 @@
+==============================================================================
+[seq 4] 2026-10-04T07:05:54+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"; tools/origin preflight 2>&1|tail -2
+cwd: /home/ubuntu/think-free/.worktrees/T-0037-instance-20260717-0944
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 207190  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T07:14:54+00:00
+$ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; tools/origin release check>/dev/null; echo "release=$?"; tools/origin preflight 2>&1|tail -2
+cwd: /home/ubuntu/think-free/.worktrees/T-0037-instance-20260717-0944
+------------------------------------------------------------------------------
+
+OK
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+lint=0
+release=0
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 211402  redactions: none

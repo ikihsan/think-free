@@ -143,6 +143,16 @@ of those it cannot touch.
   environment**. Three CI runs were red while both VMs were green because a
   fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form of the
   same lesson was a fixture naming a `/tmp` path that existed on one VM only.
+- **A gate that reads its own environment is only as portable as the record of
+  that environment** (F018, F019). Two assertions in one file said "this machine's
+  tools are in the records"; each was green on the machine that wrote it and red
+  elsewhere for opposite reasons — the interpreter one on every version the record
+  lacked, the git one on a CI runner shipping git 2.55.0. Assert the artefacts and
+  the contract, and state the environment gap as data (`not_exercised`).
+- **When a gate is red somewhere you cannot reproduce, check the task ledger
+  before reproducing anything.** VM 0947 was already diagnosing the same four runs
+  (F019) while this VM created T-0037 to do it, and about forty minutes of
+  elimination was duplicated work. `task list --remote` answers it in a second.
 - A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines. The
   ledger is a sequence of events, so the union is correct; only the order is in
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
