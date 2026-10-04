@@ -79,14 +79,46 @@ accounted for in
 [`../../EXPERIMENTS/010-annotation-rendering/`](../../EXPERIMENTS/010-annotation-rendering/),
 arms A–J; none was reproduced to find out why it was red.
 
+## The exception is the last line, and the window used to end before it
+
+`observed` 2026-10-04, and it is why two red runs read as a failure with no cause.
+The `Tests` step takes **one annotation per failure** and, until T-0057, took the
+**first** twelve lines from the `FAIL:`/`ERROR:` header and printed one `::error` per
+line. **The exception is the last line of a traceback**, so on any traceback longer
+than twelve frames the annotation named the file and the line to open and stopped one
+frame short of the answer. Runs `37219755262` and `37220040091` — **red on identical
+bytes, three different tests failing between them** — carry annotations that all end
+at a `File ".../cli_repo.py", line 43` frame, and none carries its exception.
+
+That is F020's shape reached from the other side: the mechanism worked, and the
+window it used made it publish a cause-free record. **A diagnostic window tuned for
+size drops whatever sits at the end**, and in a traceback the end is the answer. A
+larger window is not the repair either — it moves the threshold, not the shape.
+
+The window is now anchored on the **end** of the block — the header, then the last
+thirteen lines — and a failure's frames are joined into one message with `%0A`, the
+escape `actions/toolkit` applies to a newline inside a message, so a failure is one
+command instead of twelve. `tests/test_ci_failure_annotation.py` reads the awk out of
+the workflow and runs it, so the gate holds the bytes CI runs rather than a copy.
+Falsified against the defect's own bytes, and the falsification found two bugs in the
+first repair (a literal `\n` printed instead of a newline, and escaping `%` after the
+join so `%0A` became `%250A`). F025, defect 23.
+
 ## Ceiling
 
 The messages are the workflow's own emission, capped by the `awk` window in the
-`Tests` step at 60 lines, so a run with more failures than that annotates a
-prefix of them. Nothing here verifies a conclusion — it names a test, so the
+`Tests` step at 60 lines and at fourteen frames per failure, so a run with more
+failures than that annotates a prefix of them. Nothing here verifies a conclusion — it names a test, so the
 conclusion can be checked on a VM, which is where F019's cause was actually
 settled. And one run's rows need not agree: run `37178057818` annotates a second,
-different test on its 3.11 row, which no single-cause explanation covers.
+different test on its 3.11 row, which no single-cause explanation covers. **A traceback
+longer than thirteen frames is annotated from the bottom**, so the first frames are
+dropped and the exception is kept — a deliberate trade, since a frame you can open is
+worth less than the line that says what went wrong.
+
+**What the repair does not do:** explain run `37219755262`. Three tests failed on
+identical bytes, nothing reproduced on a VM, and the cause is `untested`. The fixture
+is the suspect — `make_fleet` builds a bare remote and two clones per test class.
 
 ## A red gate names its file: `origin annotate`
 

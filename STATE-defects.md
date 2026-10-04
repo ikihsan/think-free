@@ -222,6 +222,21 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     `tasks/`, and `sync land` still refuses a dirty tree because a rebase needs one.
     [`FAILURES-findings-5.md`](FAILURES-findings-5.md) F023, D044.
 
+23. **The failure annotation's window ended one line before the answer** (solved
+    in T-0057, F025). The `Tests` step printed one `::error` per *line*, twelve from
+    the `FAIL:` header, and **the exception is the last line of a traceback** — so
+    every traceback past twelve frames produced a diagnostic with no cause. Runs
+    `37219755262` and `37220040091`, `observed` on identical bytes with three
+    different tests failing, all end at a `cli_repo.py`, line 43` frame. **That is
+    F020's shape from the other side:** the mechanism worked and the window chosen to
+    make it readable is what removed the answer. **Repair:** one command per failure —
+    the header plus the *last* thirteen lines, joined with `%0A`;
+    `tests/test_ci_failure_annotation.py` reads the awk out of the workflow and runs
+    it. Falsified against the defect's own bytes, and the falsification found two bugs
+    in the first repair — a literal `\n` for a newline, and escaping `%` after the
+    join so `%0A` became `%250A`. **Ceiling:** a longer traceback is annotated from the
+    bottom, and the cause of `37219755262` is still `untested`.
+
 22. **A mission record restated an experiment number, and it was wrong** (solved
     in T-0056, D047, F024). `docs/process/experiment-protocol.md` said
     `005-knitting-bounded-search` "reproduces the oracle on **113/113** checked

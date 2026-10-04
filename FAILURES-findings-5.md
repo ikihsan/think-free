@@ -227,3 +227,58 @@ results table, and that is the intended direction rather than an exemption nobod
 can police. And a number quoted from a run whose artifact was not committed —
 `116/116` from 005's `--slow` run — would be reported, since nothing here can
 check it.
+
+## F025 — The window that made a red run explicable ended one line before the answer
+
+Evidence: runs `37219755262` and `37220040091`, 2026-10-04, on identical bytes.
+Defect 23, T-0057, session `2026-10-04-043`.
+
+**Observed.** Two CI runs, both red, on **the same tree**, with three different
+tests failing between them. That alone is the finding: one tree, three failures, is
+the shape of an environmental fault rather than a defect in the code. Reading the
+annotations gave nothing to read.
+
+**Why nothing was readable.** The `Tests` step re-emits each failing test as a
+check-run annotation so a red run is diagnosable without admin rights (F020). It did
+that by printing **one `::error` per line**, twelve lines from the `FAIL:` header.
+**The exception is the last line of a traceback.** Every traceback that runs through
+`docindex` or a CLI handler is longer than twelve frames, so the annotation named
+the file and the line to open and stopped one frame short of the answer. All three
+failures in `37220040091` ended at `File ".../cli_repo.py", line 43`.
+
+**This is F020's shape from the other side, and the correction matters.** F020
+recorded that the annotations were public all along and had been read as absent. They
+*were* present and the mechanism worked; what was absent was the one line that says
+what went wrong, and the window chosen to make the annotations readable is what
+removed it. **A diagnostic window tuned for size drops whatever sits at the end**, and
+in a traceback the end is the answer. A larger window is not the repair either: it
+moves the threshold, not the shape.
+
+**Repair.** One command per failure — the header plus the **last** thirteen lines —
+joined with `%0A`, the escape `actions/toolkit` applies to a newline inside a message,
+so a failure stays one command instead of twelve. Falsified against the defect's own
+bytes: the old program emits twelve commands and no exception on a 24-frame traceback,
+the new one emits one that carries it, and for a short traceback both agree.
+`tests/test_ci_failure_annotation.py` reads the awk out of the workflow and runs it, so
+the gate holds the bytes CI runs rather than a copy that can drift.
+
+**Two bugs the falsification found in the repair itself**, both caught before landing
+and both of the same kind: `printf "...%s\\n"` prints a literal backslash-n rather
+than a newline, so two failures came out as one command; and escaping `%` *after*
+inserting `%0A` turned the newline escape into `%250A`. Both would have passed a test
+that only checked the exception appeared — which is why the escaping order has its own
+assertion.
+
+**Lesson kept.** The mechanism was measured and correct, and the *window* around it was
+not, and no gate read the window. This is defect 17 (`tools/origin annotate`) and
+defect 18 (a step that never runs) reaching the same file from a third direction:
+**the wrapper's own configuration is part of what the wrapper promises.** A test that
+reads the configuration out of the artifact and runs it is the only kind that notices.
+
+**Ceiling, and it is the honest half.** The repair makes the next such run
+explicable. It does **not** explain `37219755262`: three tests failed on identical
+bytes, nothing reproduced on this VM across repeated runs of the whole suite, and the
+exception those annotations would now carry was the part being dropped. The cause is
+`untested`, and the most likely suspect is the fixture itself — `make_fleet` copies
+the whole tooling tree into a fresh bare remote plus two clones *per test class*, which
+on a 2-CPU runner is the only thing here that scales with the number of tests.

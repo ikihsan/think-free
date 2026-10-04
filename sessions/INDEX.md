@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-85 recorded session(s). One `events.jsonl` per session, so concurrent
+86 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 60 older session(s) are in the directory listing.
+Showing the 25 most recent. 61 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-043-t-0057-claim-the-task-and-verify-it](2026-10-04-043-t-0057-claim-the-task-and-verify-it/README.md) | unknown-agent | **unfinished** |  |  |
 | [2026-10-04-042-hold-a-mission-record-s-restated-experim](2026-10-04-042-hold-a-mission-record-s-restated-experim/README.md) | opencode | worked | Hold a mission record's restated experiment number to the artifact it  | 2026-10-04T18:00 |
 | [2026-10-04-041-repair-the-red-base-state-md-over-the-li](2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md) | opencode | worked | Repair the red base (STATE.md over the line cap) and fix the task-clai | 2026-10-04T16:03 |
 | [2026-10-04-040-measure-the-taskless-session-red-ci-run](2026-10-04-040-measure-the-taskless-session-red-ci-run/README.md) | unknown-agent | worked | measure the taskless-session red CI run across the whole base and answ | 2026-10-04T17:18 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 60 older session(s) are in the directory listing.
 | [2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch](2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/README.md) | opencode | worked | Give the file-reading CI gate steps a check-run annotation that names  | 2026-10-04T09:54 |
 | [2026-10-04-019-t-0039-make-acceptance-and-steps-append](2026-10-04-019-t-0039-make-acceptance-and-steps-append/README.md) | unknown-agent | worked | T-0039: make --acceptance and --steps append on task new | 2026-10-04T07:35 |
 | [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
-| [2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc](2026-10-04-017-t-0037-explain-the-four-red-ci-runs-sinc/README.md) | opencode | worked | T-0037: explain the four red CI runs since the version matrix landed | 2026-10-04T07:15 |
 
 
 ## Reading a session

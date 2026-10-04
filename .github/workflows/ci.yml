@@ -54,9 +54,36 @@ jobs:
           PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -v 2>&1 | tee /tmp/unittest.log
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
-            awk '
-              /^(FAIL|ERROR): / { grab = 12 }
-              grab > 0 { gsub(/%/, "%25"); gsub(/\r/, ""); printf "::error title=Test failed::%s\n", $0; grab-- }
+            # One annotation per failure, carrying the *last* frames of the
+            # block rather than the first. A fixed 12-line window from the
+            # `ERROR:` header dropped the exception line on every traceback
+            # longer than 12 frames, because that line is always last -- which is
+            # what made two red runs on identical bytes diagnosable as a failure
+            # and not as a cause (`observed` 2026-10-04, runs 37219755262 and
+            # 37220040091, defect 23). The frames are joined into one message with
+            # `%0A`, the escape `actions/toolkit` applies to a newline inside a
+            # message, so a failure stays one command: a raw newline would end the
+            # command early and everything after it would be read as output.
+            awk -v WINDOW=14 '
+              function flush(   out, i) {
+                if (hdr != "") {
+                  out = hdr
+                  for (i = lo; i <= hi; i++) {
+                    gsub(/%/, "%25", ring[i]); gsub(/\r/, "", ring[i])
+                    out = out "%0A" ring[i]
+                  }
+                  gsub(/%/, "%25", hdr)
+                  printf "::error title=Test failed::%s\n", out
+                }
+                hdr = ""; lo = 1; hi = 0
+              }
+              /^(FAIL|ERROR): / { flush(); hdr = $0; grabbing = 1; next }
+              grabbing {
+                if ($0 ~ /^(Ran [0-9]+ tests|OK$|FAILED)/) { grabbing = 0; flush(); next }
+                ring[++hi] = $0
+                if (hi - lo + 1 > WINDOW - 1) { delete ring[lo]; lo++ }
+              }
+              END { flush() }
             ' /tmp/unittest.log | head -60
             grep -E '^(Ran|FAILED)' /tmp/unittest.log | tr -d '\r' | while read -r line; do
               echo "::error title=Test summary::${line//%/%25}"

@@ -51,6 +51,7 @@ file reached the 300-line cap:
 | F022 | The exemption that answered the wrong question hid every data-file edit from the report |
 | F023 | A refusal whose remedy was the one thing an agent must not do by hand |
 | F024 | A restated experiment number was false, and the obvious gate cannot see it |
+| F025 | The window that made a red run explicable ended one line before the answer |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
