@@ -201,3 +201,76 @@ looks updated. The corollary is worth stating for any future generator: a test
 must be able to render the same inputs on two different days and get the same
 bytes. `GeneratedStampTest` does exactly that, with a session dated three days
 before the run.
+
+## F018 — A gate in the suite asserted a fact about the record, so the suite failed on every interpreter nobody had run
+
+Source: T-0034, session `2026-10-04-012`, 2026-10-04. Repair:
+`tests/test_doctor_versions.py`; the coupling it was missing is now enforced by
+`tests/test_ci_matrix.py`.
+
+**What happened, `observed`.** The suite was run on five CPython builds that no
+VM here has installed — 3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2, portable
+builds unpacked outside the repository. On **all five** it failed, with exactly
+one failure and no errors: `RealRecordTest.test_the_reported_scope_names_this_suites_size`
+in `test_doctor_versions.py`, a file written hours earlier in T-0033. On 3.8.10
+(this VM) and on CI's 3.12 the same suite is green.
+
+**Why that is a defect and not a version incompatibility.** The assertion was
+
+```python
+match = versions.compare("python3", versions.extract_version(platform.python_version()))
+self.assertRegex(match.scope, r"\d+ tests")
+```
+
+which requires *this* interpreter to appear in `tests/python-versions.json`. The
+record's own `not_exercised` clause named 3.9 to 3.11 as versions nobody had run.
+So the suite was red on precisely the versions it had never been run on, and
+green only where the record already pointed. No line of `tools/originlib` is
+involved: the failure is entirely about the record, and `3.14.2` — newer than
+anything this repository has ever named — failed exactly as `3.9.23` did.
+
+**The half that was nearly missed.** The sibling test
+`test_this_vms_versions_are_exercised_against_the_real_records` asserts the same
+"this interpreter is recorded" claim from a *different* source: `doctor.collect`
+probes `python3` from `PATH`. Two tests, one question, two sources, agreeing only
+because this VM's `PATH` `python3` is 3.8.10 — the one recorded version available
+locally. Running the suite under a downloaded interpreter, where `PATH` and
+`sys.executable` disagree, is what separated them.
+
+**Why it was not found sooner, and what it would have caused.** CI pinned one
+version, so the question never arose; and that same pin is the entire stated
+reason 3.9 to 3.11 were never exercised (`not_exercised[0].why`, verbatim:
+*"CI pins a single version"*). Adding a matrix without this repair would have
+made five of seven rows red for a reason about the record, and the two available
+responses — weaken the assertion, or drop the rows — both reduce measurement. A
+gap that rewards the agent for not measuring it is worse than an honest red row.
+
+**The other VM found the same assertion from the other end, an hour later.** Its
+CI run `37174050724` was red on this test too, for the mirror-image reason: on a
+CI row the interpreter is 3.12, the matched entry is CI's own, and that entry's
+scope names a *run id* rather than a test count — so an assertion that had been
+green on every VM was red on the only interpreter this repository had evidence
+about. Its fix asserted that the reported scope is the matched entry's own text
+unchanged, which is a different property from the one it replaced. Both findings
+are kept, in `tests/test_doctor_versions.py`, because neither clause catches the
+other's failure: the merged test requires every entry to say how much it ran
+*and* hands back that text unaltered *and* tolerates an interpreter the record
+does not name. Neither VM could have seen the other's failure, which is the
+clearest statement yet of the D025 rule this finding is about — a gate that reads
+one machine's wording is a gate about one machine.
+
+**Repair.** The test now states the disjunction it can actually support: every
+`verified` entry's `scope` names a test count, the comparison returns that
+entry's text unchanged, and *this* interpreter either matches an entry or is
+reported `unrecorded` with its version named. The record's `3.12` CI entry was
+given a count as well as its run id, since the missing count was a real gap in
+it. The other coupling — every matrix row is recorded, and nothing a row runs is
+still listed as never exercised — is enforced on the two artefacts in
+`tests/test_ci_matrix.py`, which is where that property lives.
+
+**Lesson, and it generalises past this repository.** A test that asserts a fact
+about a *record* rather than about the *code* is green only on the versions that
+record happens to cover. The falsification for such a test is not a mutation of
+the code: it is running it on an input the record does not name. That needs no
+new tooling — it needs an interpreter, and `python-build-standalone` publishes
+one for every minor version at a stable URL.

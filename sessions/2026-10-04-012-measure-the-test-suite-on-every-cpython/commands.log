@@ -1,0 +1,167 @@
+==============================================================================
+[seq 3] 2026-10-04T03:32:28+00:00
+$ /tmp/opencode/fetch-pythons.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fetching cpython-3.9.23+20250818-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+fetching cpython-3.10.18+20250818-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+fetching cpython-3.11.13+20250818-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+fetching cpython-3.13.7+20250818-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+fetching cpython-3.14.2+20251209-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz
+--- versions ---
+Python 3.9.23
+Python 3.10.18
+Python 3.11.13
+Python 3.13.7
+Python 3.14.2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 48401  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T03:55:41+00:00
+$ env PYTHONPATH=tools:tests /tmp/opencode/pythons/cpython-3.14.2/bin/python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+........................................................................................F............................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_reported_scope_names_this_suites_size (test_doctor_versions.RealRecordTest.test_the_reported_scope_names_this_suites_size)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doctor_versions.py", line 76, in test_the_reported_scope_names_this_suites_size
+    self.assertRegex(match.scope, r"\d+ tests")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '\\d+ tests' not found in ''
+
+----------------------------------------------------------------------
+Ran 373 tests in 176.507s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 177087  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T04:00:32+00:00
+$ env PYTHONPATH=tools:tests /tmp/opencode/pythons/cpython-3.9.23/bin/python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+........................................................................................F............................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_reported_scope_names_this_suites_size (test_doctor_versions.RealRecordTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doctor_versions.py", line 76, in test_the_reported_scope_names_this_suites_size
+    self.assertRegex(match.scope, r"\d+ tests")
+AssertionError: Regex didn't match: '\\d+ tests' not found in ''
+
+----------------------------------------------------------------------
+Ran 373 tests in 260.287s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 261317  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T04:16:03+00:00
+$ /tmp/opencode/falsify-ci-matrix.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+=== guard names a version that is not a row ===
+Ran 13 tests in 0.005s
+OK
+
+=== fail-fast back to the default ===
+FAIL: test_a_failing_row_does_not_cancel_the_others (tests.test_ci_matrix.WorkflowMatrixTest)
+Ran 13 tests in 0.006s
+FAILED (failures=1)
+
+=== a matrix row with no recorded scope ===
+FAIL: test_every_matrix_row_has_a_recorded_scope (tests.test_ci_matrix.RecordAgreesWithTheMatrixTest)
+FAIL: test_nothing_a_row_runs_is_still_called_unexercised (tests.test_ci_matrix.RecordAgreesWithTheMatrixTest)
+Ran 13 tests in 0.006s
+FAILED (failures=2)
+
+=== control, file restored ===
+Ran 13 tests in 0.005s
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1144  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T04:16:17+00:00
+$ /tmp/opencode/falsify-ci-matrix.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+=== guard names a version that is not a row ===
+FAIL: test_every_other_gate_runs_on_exactly_one_row (tests.test_ci_matrix.WorkflowMatrixTest)
+Ran 13 tests in 0.006s
+FAILED (failures=1)
+
+=== guards moved to another real row (not caught, by design) ===
+Ran 13 tests in 0.006s
+OK
+
+=== fail-fast back to the default ===
+FAIL: test_a_failing_row_does_not_cancel_the_others (tests.test_ci_matrix.WorkflowMatrixTest)
+Ran 13 tests in 0.006s
+FAILED (failures=1)
+
+=== a matrix row with no recorded scope ===
+FAIL: test_every_matrix_row_has_a_recorded_scope (tests.test_ci_matrix.RecordAgreesWithTheMatrixTest)
+FAIL: test_nothing_a_row_runs_is_still_called_unexercised (tests.test_ci_matrix.RecordAgreesWithTheMatrixTest)
+Ran 13 tests in 0.007s
+FAILED (failures=2)
+
+=== control, file restored ===
+Ran 13 tests in 0.005s
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1471  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T04:34:33+00:00
+$ /tmp/opencode/measure-all.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+local interpreter: Python 3.8.10
+
+=== portable CPython 3.9.23 ===
+Ran 388 tests in 263.370s
+OK
+exit: 0
+
+=== portable CPython 3.10.18 ===
+Ran 388 tests in 195.304s
+OK
+exit: 0
+
+=== portable CPython 3.11.13 ===
+Ran 388 tests in 215.476s
+OK
+exit: 0
+
+=== portable CPython 3.13.7 ===
+Ran 388 tests in 187.015s
+OK
+exit: 0
+
+=== portable CPython 3.14.2 ===
+Ran 388 tests in 209.777s
+OK
+exit: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1075716  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T04:45:05+00:00
+$ tools/origin task verify T-0034
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0034: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint && tools/origin release check` -> exit 0 in 234.07s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 234486  redactions: none

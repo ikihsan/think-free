@@ -25,6 +25,7 @@ def repo_root() -> Path:
 
 
 MINOR = re.compile(r"^3\.(\d+)(?:\.\d+)?$")
+MATRIX = re.compile(r"python-version:\s*\[([^\]]*)\]")
 
 
 def minor_of(version: str) -> str:
@@ -86,14 +87,30 @@ class PythonVersionsRecordTest(unittest.TestCase):
             self.assertTrue(gap.get("consequence"))
 
     def test_ci_is_not_claimed_from_a_log_nobody_can_read(self) -> None:
-        # The run log needs repository admin rights, so the CI entry may only
-        # claim the minor version the workflow pins. If a future entry claims a
+        # The run log needs repository admin rights, so a CI entry may only claim
+        # the minor version the workflow runs. If a future matrix row claims a
         # patch version, it has to say where that number came from.
+        #
+        # The allowed set is read from the workflow rather than written out here,
+        # so adding a row cannot quietly exempt its entry from this clause (F018).
+        # Both halves matter: a hardcoded set would let a new row past it, and a
+        # workflow with no readable matrix would make the set empty and the
+        # clause vacuous.
+        workflow = (repo_root() / ".github" / "workflows" / "ci.yml").read_text()
+        rows = MATRIX.search(workflow)
+        self.assertIsNotNone(rows, "the workflow must declare an inline python-version matrix")
+        allowed = {item.strip().strip("'\"") for item in rows.group(1).split(",") if item.strip()}
+        self.assertTrue(allowed)
+        seen = set()
         for entry in load()["verified"]:
             if "CI" not in entry.get("where", ""):
                 continue
             self.assertIn("minor version only", entry["scope"], entry)
-            self.assertIn(entry["python"], {"3.12"}, entry)
+            self.assertIn(entry["python"], allowed, entry)
+            seen.add(entry["python"])
+        self.assertEqual(
+            seen, allowed, "every matrix row needs a CI entry that states its own limit"
+        )
 
     def test_docs_point_at_the_record(self) -> None:
         root = repo_root()

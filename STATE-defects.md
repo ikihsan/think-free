@@ -108,6 +108,24 @@ defect is listed as open.
    fixing it:** VM 0947's D032 and this VM's D032 were both published, and this
    side renumbered to D033 during the rebase.
 
+7. **The suite was red on every interpreter it had never run on** (solved in
+   T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions
+   nobody had run, and `test_doctor_versions.py` — written hours earlier in
+   T-0033 — asserted that the interpreter running it was in that record. On
+   3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2 the suite failed on exactly that
+   assertion and nothing else; on 3.8.10 and CI's 3.12 it is green. The gate was
+   reading the record, not the code. A sibling test asserted the same claim from
+   a different source (`doctor` probes `python3` on `PATH`), and the two agreed
+   only because this VM's `PATH` interpreter is one of the two recorded ones.
+   **Repair:** the test states the disjunction it can support, and
+   `tests/test_ci_matrix.py` now holds the workflow's matrix and the record to
+   each other in both directions. Falsified first: the new gate fails on the
+   unmodified workflow, names the five unrecorded rows, and fails again on the
+   unmodified record; two of its parsers were corrected because the controls
+   they failed were the parsers, not the code. **Ceiling:** the record is
+   hand-maintained, and CI can only cover what `actions/setup-python` publishes,
+   so a matrix row is evidence about that row and nothing beyond it.
+
 ## What a fix costs to believe
 
 Every entry above marked solved was falsified against its own defect first: the

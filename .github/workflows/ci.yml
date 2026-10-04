@@ -13,6 +13,19 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    strategy:
+      # Every row must finish. With the default `fail-fast: true` one red row
+      # cancels the rest, and a cancelled row is not a version the suite has run
+      # on — which is exactly what tests/python-versions.json is a record of.
+      fail-fast: false
+      matrix:
+        # One row per CPython minor the floor claim covers. Until this matrix
+        # existed the record's own not_exercised clause said why 3.9 to 3.11 had
+        # never run: "CI pins a single version". tests/test_ci_matrix.py holds
+        # this list and the record to each other, because a row with no recorded
+        # scope makes two existing tests red for a reason that is about the
+        # record rather than the code (F018).
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,10 +33,11 @@ jobs:
 
       # The runner image's own Python is not a contract: ubuntu-latest changes
       # (it migrates to Ubuntu 26 in October 2026) and every 60 recorded runs
-      # failed at the Tests step without anyone being able to say which. Pin it.
+      # failed at the Tests step without anyone being able to say which. Pin it —
+      # to every minor version the floor claim covers, not to one of them.
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python-version }}
 
       - name: Show toolchain
         run: |
@@ -50,19 +64,30 @@ jobs:
           fi
           exit "$status"
 
+      # The five gates below read files and do not care which interpreter runs
+      # them, so they run on one row rather than seven. The row is 3.12 because
+      # that is the entry the record has always carried as CI's; changing it
+      # would silently move the version every claim about "CI is green" refers
+      # to. tests/test_ci_matrix.py holds the guard to a row that exists, so a
+      # typo here stops the gates running at all instead of looking green.
+
       - name: Documentation lint
+        if: matrix.python-version == '3.12'
         run: tools/origin doc lint
 
       # RELEASE-MANIFEST.md decides what is public. Kept next to the doc lint
       # step rather than appended at the end, so a VM editing the session gate
       # below and this one in the same week rebase cleanly.
       - name: Release manifest
+        if: matrix.python-version == '3.12'
         run: tools/origin release check
 
       - name: Skill layout and mirrors
+        if: matrix.python-version == '3.12'
         run: tools/origin skills check
 
       - name: Vendored content integrity
+        if: matrix.python-version == '3.12'
         run: tools/origin skills verify
 
       # Strict: no session runs in this checkout, so an unfinished session is a
@@ -71,6 +96,7 @@ jobs:
       # as annotations for the same reason failing tests are: nobody without
       # admin rights can read the run log.
       - name: Session record integrity
+        if: matrix.python-version == '3.12'
         run: |
           set +e
           set +o pipefail

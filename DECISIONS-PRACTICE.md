@@ -211,10 +211,11 @@ Decision: **the exercised interpreters live in
 [`tests/python-versions.json`](tests/python-versions.json) (schema
 `origin.python-versions/1`), and the test that validates it checks honesty
 clauses rather than schema alone.** Every entry carries the scope it has actually
-run — 3.8.10 has run all 335 tests, the standalone 3.12.15 only the 173 that
-existed when T-0016 recorded it, CI's `'3.12'` only the minor version, because
-the run log needs repository admin rights. `not_exercised` names 3.9 through 3.11,
-3.13 and newer, and any non-CPython or non-Linux target. The record's `floor`
+run — 3.8.10 has run all 388 tests, the standalone 3.12.15 only the 173 that
+existed when T-0016 recorded it, a CI entry only the minor version, because
+the run log needs repository admin rights. `not_exercised` named 3.9 through
+3.11, 3.13 and newer, and any non-CPython or non-Linux target when this was
+written; T-0034 closed the first two by measuring them. The record's `floor`
 must be a minor version some entry ran; the test compares minor versions, so
 "3.8 or newer" is supported by 3.8.10 and a record that had never run 3.8 fails.
 
@@ -281,5 +282,7 @@ Consequence: [`doctor.md`](docs/operations/doctor.md) states the four states and
 their ceilings, and the two records' scopes were updated to name the tests they
 have now run — a stale scope is the same defect in the opposite direction. The
 ceiling is written down rather than implied: `exercised` means a run happened,
-not that the version is supported, and no interpreter between 3.8 and 3.12 has
-ever run this suite.
+not that the version is supported. T-0034 measured every minor from 3.9 to 3.14
+and found that doing so turned the suite red on five of them (F018), which is the
+argument for the CI matrix in D035; nothing from 3.15 onwards has ever run this
+suite.

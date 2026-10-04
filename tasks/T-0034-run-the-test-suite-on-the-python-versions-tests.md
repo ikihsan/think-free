@@ -54,3 +54,75 @@ Revert the workflow matrix and the record entries. The tarballs live outside the
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+### What the measurement found, before anything was repaired
+
+The premise was falsified by measurement rather than by a synthetic instrument,
+and it was worse than the record suggested. Running the full suite on 3.9.23,
+3.10.18, 3.11.13, 3.13.7 and 3.14.2 — portable CPython builds from
+python-build-standalone, unpacked under `/tmp`, no installation step — failed on
+**all five**, with exactly one failure and no errors each time:
+
+```
+FAIL: test_the_reported_scope_names_this_suites_size (test_doctor_versions.RealRecordTest)
+AssertionError: Regex didn't match: '\\d+ tests' not found in ''
+```
+
+The failing test was written hours earlier in T-0033 and asserts that the
+interpreter running it appears in `tests/python-versions.json`. So the suite was
+red on precisely the versions it had never been run on. Recorded as F018 and
+defect 7; `FAILURES.md` holds the write-up.
+
+The near-miss is worth naming: a sibling test asserts the same claim from a
+different source — `doctor` probes `python3` on `PATH` — and the two agreed only
+because this VM's `PATH` interpreter is 3.8.10, the one recorded version
+available locally. Running the suite under a downloaded interpreter is what
+separated `sys.executable` from `PATH`.
+
+### Falsification of the new gate, in four directions
+
+`tests/test_ci_matrix.py` was written before the workflow was changed, and run
+against the unmodified workflow: 8 of its 11 tests failed, naming the missing
+matrix and the five unrecorded rows. After the repair, four mutations were tried
+with the restored file as the control (`sessions/…-012/commands.log`):
+
+| Mutation | Result |
+|---|---|
+| Guard naming `3.7`, which is not a row | fails — the five file-reading gates would never run |
+| `fail-fast: true`, the default | fails — a cancelled row is not a version anything ran on |
+| A row `3.15` the record has never heard of | fails on both the missing-scope and the still-unexercised clause |
+| Unmutated file | green |
+
+**One mutation was my error and is recorded because the log would show it:** the
+first draft of the guard mutation rewrote `'3.12'` to `'3.13'`, which *is* a
+row, so it passed. The mutation was wrong, not the gate.
+
+**One non-detection is recorded rather than hidden:** moving every guard to a
+different real row passes. Which row carries the file-reading gates is a decision
+in `docs/operations/ci.md`, not a property a gate can read without duplicating
+that decision.
+
+Two of the gate's own parsers were corrected because the controls they failed
+were the parsers, not the code: a step at the wrong indent was silently skipped,
+and a `not_exercised` range naming no version was reported as unreadable when it
+constrains nothing and is a real answer.
+
+### Measured result
+
+388 tests, green on 3.8.10 (this VM) and on all five portable builds, captured in
+`commands.log`. `tests/python-versions.json` now carries an entry per environment
+— a patch-level one for each portable build and the VM, a minor-level one per CI
+row — because `versions.compare` picks the longest match and a patch-level entry
+can otherwise shadow the CI entry for its own minor. `doctor` now prints the
+matched entry's `where`, so `exercised` cannot be read as a claim about the
+reader's own machine.
+
+### Ceilings
+
+- A matrix row is evidence about that row. Nothing checks the `floor` claim
+  itself; widening the range is a decision somebody has to read.
+- Nothing from 3.15 upwards has run, and no gate widens that.
+- The local measurements are CPython on Linux x86_64 only.
+- The definitive confirmation of the matrix is the pushed CI run, read from the
+  public API; the run log needs repository admin rights, so each CI entry claims
+  the minor version only.

@@ -45,7 +45,8 @@ interfere with the working repository.
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
 | `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
 | `test_doctor_versions.py` | `doctor`'s comparison of this VM's git and interpreter against the exercised-version records: the four states, dotted-prefix matching with the longest entry first, and a real-record class that reads this repository rather than the fixture |
-| `test_pythonversions.py` | `python-versions.json`: every entry has a scope, the floor is supported by an entry that ran it, the unexercised versions are named, and CI is not credited with a patch version the public API cannot report |
+| `test_pythonversions.py` | `python-versions.json`: every entry has a scope, the floor is supported by an entry that ran it, the unexercised versions are named, and CI is not credited with a patch version the public API cannot report — with the allowed set read from the workflow, so a new matrix row cannot slip past that clause |
+| `test_ci_matrix.py` | The CI `python-version` matrix and the exercised-version record held to each other: every row recorded, nothing a row runs still called unexercised, `fail-fast` off, the file-reading gates guarded to one row that exists, and every shape the parsers do not understand a failure rather than a pass |
 | `git-versions.json` | Machine-readable record of the git versions the suite and the sync flow are verified against (schema `origin.git-versions/1`) |
 | `python-versions.json` | The same record for interpreters, with the versions nobody has run named rather than implied (schema `origin.python-versions/1`) |
 
@@ -109,6 +110,18 @@ be empty, and an entry located on CI may claim the minor version only — the ru
 log needs repository admin rights, so a patch version there would be a number
 nobody could check. All four were falsified against the record before it was
 trusted.
+
+**A test that asserts something about a record is green only where the record
+points.** Running the suite on the five interpreters the record had never heard
+of (T-0034) failed on all five, on an assertion that had nothing to do with the
+code (`FAILURES.md` F018). Two tests in `test_doctor_versions.py` claimed *this
+interpreter* is recorded, from two different sources — `platform.python_version`
+and the `python3` on `PATH` — that agreed only because this VM's `PATH`
+interpreter is one of the two recorded ones. The repair states the disjunction
+the situation supports, and `test_ci_matrix.py` holds the CI matrix to the record
+so the coupling is checked on the two artefacts instead of being discovered by
+running a download. The general form: a gate that reads a *record* needs an input
+the record does not contain before it can be trusted.
 
 **A test can exercise a module and miss the report a reader sees.** Falsifying
 `doctor`'s version comparison, removing the single line that renders it left

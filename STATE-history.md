@@ -11,6 +11,61 @@ point and carries only what a cold session must act on; this file is the
 detail behind it, kept so that history does not push the reload point past
 the line cap. Identifiers here are the same ones `STATE.md` uses.
 
+## What changed in session 012, VM 0947 (T-0034)
+
+The exercised-Python record named 3.9 to 3.11 as versions nobody had run, and its
+own `why` clause gave the reason: *"CI pins a single version"*. The 3.8-or-newer
+floor was two points with a gap between them. So the gap was measured instead of
+described — portable CPython builds (python-build-standalone, unpacked outside the
+repository, no installation step) for 3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2,
+each running the full suite.
+
+**The gap was not hypothetical, and it was not a version incompatibility.** All
+five runs failed, with exactly one failure each and no errors, on
+`RealRecordTest.test_the_reported_scope_names_this_suites_size` — a test written
+hours earlier in T-0033 that asserts *this* interpreter appears in
+`tests/python-versions.json`. 3.14.2, an interpreter newer than anything this
+repository has ever named, failed exactly as 3.9.23 did. `FAILURES.md` F018,
+defect 7 in [`STATE-defects.md`](STATE-defects.md).
+
+- **The half that was nearly missed.** A sibling test asserts the same
+  "this interpreter is recorded" claim from a different source: `doctor` probes
+  `python3` on `PATH`. One question, two sources, agreeing only because this VM's
+  `PATH` interpreter is 3.8.10 — the one recorded version available locally.
+- **Why adding the matrix without the repair would have been worse than not
+  adding it.** Five of seven rows red for a reason about the record invites two
+  responses, weaken the assertion or drop the rows, and both reduce measurement.
+- **The other VM found the same assertion from the other end, an hour later.**
+  Its CI run was red on the same test for the mirror-image reason: on a CI row the
+  matched entry is `3.12`, whose scope names a run id rather than a test count.
+  Its fix asserted the reported scope is the matched entry's own text unchanged —
+  a different property from the one it replaced. The rebase resolved the conflict
+  by keeping both clauses, because neither catches the other's failure, and the
+  record's `3.12` CI entry was given a count as well as its run id.
+- **Repair.** The test states the disjunction it can support: every entry's
+  `scope` names a test count, the comparison returns that entry's text
+  unaltered, and this interpreter either matches an entry or is reported
+  `unrecorded` with its version named. The coupling is enforced on the two
+  artefacts instead: `tests/test_ci_matrix.py` holds the workflow's row list and
+  the record to each other in both directions, and
+  `test_pythonversions.py`'s "minor version only" clause now reads its allowed
+  set from the workflow so a new row cannot slip past it.
+- **Falsified in four directions** — a row with no recorded scope, a guard naming
+  a version that is not a row, `fail-fast` returned to its default, and the
+  unmodified workflow — with the restored file green as the control. One
+  non-detection is recorded rather than hidden: moving every guard to a
+  *different real row* passes, because which row carries the file-reading gates is
+  a decision in `docs/operations/ci.md`, not a property a gate can read without
+  duplicating it. Two of the parsers were corrected first because the controls
+  they failed were the parsers, not the code.
+- **`doctor` now names the machine.** One record covers two environments per
+  minor version — a portable build on a VM and a CI row — so a patch-level entry
+  can shadow the minor-level one, and `exercised` alone would describe a runner
+  the reader has never seen. The matched entry's own `where` travels with the
+  verdict.
+- 388 tests green on 3.8.10 and on all five portable builds. D035 in
+  [`DECISIONS-GATING.md`](DECISIONS-GATING.md).
+
 ## What changed in session 005, VM 0947 (T-0030)
 
 A collision between two VMs is created by the *merge*: each branch is internally
@@ -238,35 +293,6 @@ T-0011 completed, on a session another VM had started and abandoned mid-edit.
   overwriting it. Both decision-log splits existed; 0944's by-invariant split was
   kept and this session's decision became D021.
 
-## What changed in session 027, VM 0947
-
-T-0014 completed: `EXPERIMENTS/006-ventilation-measurement-design/` ran the kill
-gate `RESEARCH/C.md` predeclared for its ventilation candidate, and **the gate was
-not met**.
-
-- **Design.** Two-room mass-balance world with an occupied neighbour, one sensor
-  in the measured room, six paired hypothesis families whose passive trace in that
-  room is identical by construction, three conditions (specified, changing
-  weather, poor mixing), one shared grid fitter, and an identical budget for all
-  three protocols: 12 sample slots and one decision. The adaptive rule was handed
-  the surviving pair for free and chose from `door_open`, `co_locate_b`,
-  `window_a_open`, `noop`.
-- **Result.** Pairwise discrimination on specified cases: passive 0.333 (chance),
-  prescribed door-open **0.833**, adaptive **0.792**. The gate required adaptive
-  to beat fixed and it did not. Under poor mixing adaptive was better (0.708 vs
-  0.542) and the false-precise gate was met but near-vacuously (0.000 vs 0.021).
-  The unidentifiable control — hypotheses differing only in a sensor offset —
-  failed for all three protocols, as it must.
-- **Verdict.** The measurement-design advantage is not demonstrated and the
-  formulation is **stopped**: `FAILURES.md` F008. The narrower observation that
-  survives is that reading a second sensor is more robust under poor mixing than
-  acting on the measured room.
-- One design correction was made before any result was recorded: the first build
-  paired hypotheses whose room-A traces differed by 32 ppm RMS against 6 ppm
-  noise, which made the comparison vacuous. It was rejected and rebuilt so the
-  passive trace is identical by construction.
-- `FAILURES.md` reached the 300-line cap and was split by invariant into
-  `FAILURES-findings.md` (F001–F008) and a stub carrying the live list.
-
 Older sessions, moved to [`STATE-history-2.md`](STATE-history-2.md) on
-2026-10-04 when this file reached the 300-line cap.
+2026-10-04, twice: when this file reached the 300-line cap, and again when
+session 012 did.

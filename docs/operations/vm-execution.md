@@ -102,15 +102,15 @@ log. A single global `events.jsonl` would conflict on every concurrent run.
 Checked with `doctor` rather than assumed. What is actually exercised:
 
 - **CPython 3.8 or newer.** `observed`: the full suite is green on 3.8.10
-  (`instance-20260717-0944`, git 2.25.1) and CI is green on 3.12. Nothing in
-  `tools/originlib` uses syntax newer than 3.8. An earlier version of this
-  document demanded 3.11 and was wrong: it would have refused a machine the
+  (`instance-20260717-0947`, git 2.25.1) and on every minor from 3.9 to 3.14
+  (T-0034: portable CPython builds on the same VM, and a CI matrix row each).
+  Nothing in `tools/originlib` uses syntax newer than 3.8. An earlier version of
+  this document demanded 3.11 and was wrong: it would have refused a machine the
   tooling supports, on the strength of the development machine's version rather
   than a test. The machine-readable authority is
   [`../../tests/python-versions.json`](../../tests/python-versions.json), and
-  reading it is how you learn what is **not** covered: no interpreter between
-  3.8 and 3.12 has ever run this suite, and nothing predicts that 3.13 or 3.14
-  will.
+  reading it is how you learn what is **not** covered: nothing from 3.15
+  onwards has run this suite, and nothing predicts that it will.
 - `git`. No package installation step: the tooling is standard library only.
 - Network access to the git remote, and to public sources for research tasks.
 - Sufficient disk for the experiment. `doctor` reports free bytes.
@@ -118,17 +118,28 @@ Checked with `doctor` rather than assumed. What is actually exercised:
 Not required, and their absence is not a blocker: a GPU, Docker, `gh` CLI,
 pytest, or any system-wide install.
 
+**Getting an interpreter nobody has installed.** Every minor version from 3.9 to
+3.14 was measured on a portable CPython build unpacked outside the repository —
+`python-build-standalone` publishes one per version at a stable URL, needs no
+installation step, and is the reason the floor above is a measurement rather
+than an inference. It is also the cheapest available falsification for a gate
+that asserts something about a record: run it on a version the record does not
+name (`FAILURES.md` F018).
+
 **`doctor` reads both records, as of T-0033.** `python-versions.json` states
 what the suite has actually run on, per version, and
 `tests/test_pythonversions.py` fails when a version has no scope, when the floor
 claims a minor version no entry recorded, or when the unexercised list is empty.
-`tools/origin doctor` then compares this VM's interpreter and git against it and
-prints one of four states — `exercised`, `NOT exercised`, `record unreadable`, or
-`no record` — with the entry's own scope attached. A VM on 3.9 is now warned
-rather than merely undocumented, and an unreadable record is distinguishable from
-a version nobody has run. The contract and its ceilings are in
-[`doctor.md`](doctor.md).
+`tests/test_ci_matrix.py` fails when a CI matrix row has no entry, or when a row
+still runs something the record calls unexercised. `tools/origin doctor` then
+compares this VM's interpreter and git against it and prints one of four states —
+`exercised`, `NOT exercised`, `record unreadable`, or `no record` — with the
+matched entry's own scope attached and the machine it ran on named, so a version
+that ran on somebody else's runner is not read as a claim about yours. A VM on
+3.15 is now warned rather than merely undocumented, and an unreadable record is
+distinguishable from a version nobody has run. The contract and its ceilings are
+in [`doctor.md`](doctor.md).
 
 **What still is not claimed.** `exercised` means a run happened, not that the
-version is supported, and the suite has never run on an interpreter between 3.8
-and 3.12. A pass on this VM is evidence about 3.8.10 and nothing else.
+version is supported, and no interpreter from 3.15 onwards has run this suite. A
+pass on this VM is evidence about 3.8.10 and nothing else.

@@ -56,6 +56,13 @@ class RealRecordTest(RepoTest):
         # The strongest claim available and the one that must not be faked: the
         # records are this repository's, and this VM's versions must be found in
         # them because T-0018, T-0032 and this session all ran here.
+        #
+        # `doctor` probes `python3` from PATH, which is the interpreter that would
+        # run `tools/origin` — so on a CI matrix row this asserts against that
+        # row's version, and it holds only because
+        # `tests/test_ci_matrix.py` refuses a matrix row the record does not
+        # name. Without that gate this test goes red on any row the record has
+        # never heard of (F018).
         collected = doctor.collect(network=False)
         matches = {m.tool: m for m in versions.compare_all(collected["versions"])}
         self.assertEqual(matches["python3"].state, versions.EXERCISED, matches["python3"])
@@ -69,30 +76,44 @@ class RealRecordTest(RepoTest):
         self.assertIn("versions git", rendered)
         self.assertIn("tests/git-versions.json", rendered)
 
-    def test_the_reported_scope_is_the_matched_entrys_own(self) -> None:
+    def test_a_recorded_scope_is_the_matched_entrys_own(self) -> None:
         # The point of carrying `scope` through: a reader must be able to tell a
         # version that ran everything from one that ran an older suite.
         #
-        # Asserted against the record's own text rather than a pattern. The first
-        # version of this test required `\d+ tests` in the scope, which passed on
-        # this VM (3.8.10, whose entry names 373 tests) and **failed in CI**,
-        # where the interpreter is 3.12 and the matched entry is CI's own — whose
-        # scope names a run id rather than a count. That is the defect this
-        # repository keeps meeting: a test asserting one machine's wording rather
-        # than the property. Run 37174050724 is the evidence.
-        record = json.loads((real_repo() / "tests" / "python-versions.json").read_text())
-        mine = versions.extract_version(platform.python_version())
-        match = versions.compare("python3", mine)
-        entry = next(
-            item for item in record["verified"] if str(item["python"]) == match.matched
-        )
-        self.assertEqual(match.scope, entry["scope"])
-        self.assertTrue(match.scope.strip(), "an exercised verdict must carry its entry's scope")
+        # Two failures produced this test, from opposite directions, and neither
+        # VM could see the other's. The first version required `\d+ tests` in
+        # *this* interpreter's matched scope: green on a VM whose entry names a
+        # count, red on every interpreter the record had never heard of (F018).
+        # Requiring instead that the scope equal the matched entry's own text
+        # was red in CI, where the match is the `3.12` entry and its scope names
+        # a run id rather than a count (run 37174050724).
+        #
+        # So both clauses are here, and neither is a phrasing rule: every entry
+        # says how much of the suite it ran, the report hands back that entry's
+        # text unchanged, and this interpreter is allowed not to be recorded.
+        record = json.loads((real_repo() / PY_RECORD).read_text(encoding="utf-8"))
+        for entry in record["verified"]:
+            self.assertRegex(str(entry["scope"]), r"\d+ tests", entry)
+        version = versions.extract_version(platform.python_version())
+        match = versions.compare("python3", version)
+        if match.state == versions.EXERCISED:
+            entry = next(
+                item for item in record["verified"] if str(item["python"]) == match.matched
+            )
+            self.assertEqual(match.scope, entry["scope"])
+            self.assertTrue(match.scope.strip(), "an exercised verdict must carry its scope")
+        else:
+            self.assertEqual(match.state, versions.UNRECORDED, match)
+            self.assertIn(version, match.detail)
 
-    def test_a_patch_version_outside_the_record_is_not_exercised(self) -> None:
-        # The negative control for prefix matching: `3.9.7` shares a leading digit
-        # with the 3.8.10 entry and must not match it.
-        self.assertEqual(versions.compare("python3", "3.9.7").state, versions.UNRECORDED)
+    def test_a_minor_row_covers_its_patches_and_nothing_else(self) -> None:
+        # Both directions of dotted-prefix matching, against the real record,
+        # because the matrix depends on the first one: a CI row running some
+        # unknown 3.9.x must find the `3.9` entry, or
+        # `test_this_vms_versions_are_exercised_against_the_real_records` is red
+        # on that row for a reason about the record (F018).
+        self.assertEqual(versions.compare("python3", "3.9.7").matched, "3.9")
+        self.assertEqual(versions.compare("python3", "3.7.9").state, versions.UNRECORDED)
 
     def test_the_written_record_is_what_doctor_reads(self) -> None:
         # Guards the other direction: the record on disk is not merely similar to
@@ -185,6 +206,29 @@ class ExtractionTest(RepoTest):
 
 
 class SummaryTest(RepoTest):
+    def test_the_matched_entry_says_where_it_ran(self) -> None:
+        # Since T-0034 one record carries two environments per minor version: a
+        # portable build on a VM, and a CI matrix row. `exercised` alone would
+        # describe whichever entry matched, which may be somebody else's
+        # machine, so the report names the entry's own `where`.
+        seed_record(self, PY_RECORD, "python", [
+            {"python": "3.9.23", "scope": "full suite green", "where": "a portable build", "via": "test"},
+        ])
+        self.assertEqual(versions.compare("python3", "3.9.23").where, "a portable build")
+        self.assertIn(
+            "run on a portable build",
+            versions.summarize([versions.compare("python3", "3.9.23")])[0],
+        )
+
+    def test_an_entry_with_no_where_is_not_invented(self) -> None:
+        # The negative control for the line above: an entry that says nothing
+        # about where it ran must not acquire a machine from the report.
+        seed_record(self, PY_RECORD, "python", [
+            {"python": "3.9.23", "scope": "full suite green", "via": "test"},
+        ])
+        rendered = versions.summarize([versions.compare("python3", "3.9.23")])[0]
+        self.assertNotIn("run on", rendered)
+
     def test_the_three_states_are_readable_and_distinguishable(self) -> None:
         seed_record(self, PY_RECORD, "python", [
             {"python": "3.8.10", "scope": "full suite green", "via": "test"},

@@ -37,20 +37,20 @@ Added in T-0033. `doctor` used to print the `tool *` versions it found and stop,
 while two records state what the suite has actually run on —
 [`../../tests/git-versions.json`](../../tests/git-versions.json) and
 [`../../tests/python-versions.json`](../../tests/python-versions.json). A VM on
-Python 3.9 was therefore indistinguishable in the report from one on 3.8.10, and
+Python 3.15 was therefore indistinguishable in the report from one on 3.8.10, and
 finding out otherwise meant opening a JSON file by hand.
 
 The `versions *` lines now answer it, and they name the record they consulted:
 
 ```
-versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (373 tests at T-0033)
-versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (373 tests at T-0033)
+versions python3   3.8.10     exercised (tests/python-versions.json: 3.8.10); full suite green (388 tests at T-0034); run on instance-20260717-0947, git 2.25.1
+versions git       2.25.1     exercised (tests/git-versions.json: 2.25.1); full suite green (388 tests at T-0034); run on instance-20260717-0944 and instance-20260717-0947
 versions rustc     (none)     no record - no record covers this tool
 ```
 
 | State | What it means |
 |---|---|
-| `exercised (<record>: <entry>)` | An entry names this version. The entry's own `scope` follows, because a version that ran an older suite is not evidence about the current one |
+| `exercised (<record>: <entry>)` | An entry names this version. The entry's own `scope` follows, because a version that ran an older suite is not evidence about the current one, and then the machine or runner it ran on |
 | `NOT exercised - <detail>` | The record was read and does not name this version. This is the state worth acting on |
 | `record unreadable - <detail>` | The record is missing or does not parse. **Not** the same claim as the line above: this is "we could not look" |
 | `no record - <detail>` | No record covers this tool at all. `node`, `rustc` and `gcc` are probed and are not covered by any suite record, and saying so is more honest than leaving them out |
@@ -58,12 +58,20 @@ versions rustc     (none)     no record - no record covers this tool
 **Ceilings, stated rather than implied.** `exercised` means a run happened, not
 that the version is supported: the entry's `scope` is the honest wording and it
 travels with the verdict. Matching is by dotted prefix, longest entry first,
-because the records mix patch-level entries (`3.8.10`) with a minor-level one
-(`3.12`, CI's pin — its run log needs admin rights) and a VM on `3.12.7` must
-find it. The three-way distinction is the load-bearing part: a comparison that
-cannot tell "we looked and it is not there" from "we could not look" reports a
-confident answer in both cases, which is the failure T-0025 found in this very
-report (`DECISIONS-GATING.md` D025, D030).
+because the records mix patch-level entries (`3.8.10`) with minor-level ones
+(`3.12` and every other CI row — their run logs need admin rights) and a VM on
+`3.12.7` must find them. The three-way distinction is the load-bearing part: a
+comparison that cannot tell "we looked and it is not there" from "we could not
+look" reports a confident answer in both cases, which is the failure T-0025 found
+in this very report (`DECISIONS-GATING.md` D025, D030).
+
+**Which machine `exercised` refers to, as of T-0034.** One record now covers two
+environments per minor version — a portable CPython build on a VM, and a CI
+matrix row — so a patch-level entry can shadow the minor-level one when they
+happen to name the same version. `doctor` therefore reports the matched entry's
+own `where` after its scope. Without it, a VM reading `exercised` would be
+reading a claim about a runner it has never seen; the line still means "an entry
+names your version", and now says which entry.
 
 ## The push credential
 

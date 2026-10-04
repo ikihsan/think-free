@@ -198,6 +198,12 @@ Separate from the invention stages, because the mission cannot be run without it
       `no record` with the matched entry's own scope attached, so an unexercised
       VM is warned rather than undocumented and an unreadable record cannot read
       as a failing machine
+- [x] CI runs one row per CPython minor from 3.8 to 3.14, and the matrix is held
+      to the exercised-version record (`tests/test_ci_matrix.py`, T-0034, D035,
+      `FAILURES.md` F018). The gap was real rather than theoretical: running the
+      suite on the five unrecorded interpreters failed on all five, on a test
+      that asserted a fact about the record instead of about the code. The five
+      gates that read files stay on one row, guarded explicitly
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised
@@ -214,9 +220,13 @@ the one builder this machine has. E2's time-gated drift comparison is scheduled
 
 The tooling itself is not finished, and what remains is *fleet* work rather than
 invention work: the exercised-version records exist and `doctor` reads them
-(T-0033), but the range is still two points on a line — nothing between 3.8 and
-3.12 has ever run this suite, and a CI matrix row is the only thing that would
-change that.
+(T-0033), and every CPython minor from 3.8 to 3.14 has now run the suite — on
+portable builds on one VM, and one matrix row per minor in CI (T-0034, D035).
+The floor claim is still two things it is not: it says nothing about 3.15
+onwards, which nothing has ever run, and a green row is evidence about that row
+and not about the version below it. Git is unchanged and weaker, because a git
+version is a property of a machine rather than of a workflow step: the suite has
+run on 2.25.1 and 2.56.0 and on nothing between, and no gate widens that.
 Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see

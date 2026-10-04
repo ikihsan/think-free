@@ -26,6 +26,10 @@ Workflow: [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml).
 record collides, so the Documentation step above is a backstop rather than the
 only place rule 7 is read. See *One number, one thing* below.
 
+The `Tests` step runs on every matrix row; the other five run on one. So "the
+six gates are green" means seven jobs: one per interpreter for the tests, and the
+five file-reading gates once, on 3.12.
+
 `tools/origin preflight` runs three of these — documentation, skills, and
 session integrity — and is deliberately not the whole list: the test suite and
 the release check stay separate commands so a VM can run them on their own.
@@ -82,25 +86,48 @@ machine needs nothing, and CI should not quietly contradict it.
 on `ubuntu-latest` with whatever interpreter that image shipped, and every one of
 the first 60 recorded runs failed at the `Tests` step without anyone being able
 to say which test: downloading a run log needs repository admin rights, and the
-error itself said only "rebase could not be completed". `setup-python` with
-`python-version: '3.12'` makes the version a decision rather than an accident —
-`ubuntu-latest` migrates to Ubuntu 26 in October 2026 and would otherwise change
-the interpreter under this repository.
+error itself said only "rebase could not be completed". `setup-python` makes the
+version a decision rather than an accident — `ubuntu-latest` migrates to Ubuntu
+26 in October 2026 and would otherwise change the interpreter under this
+repository.
 
 **What the pin does and does not prove.** It makes CI's interpreter a recorded
-decision; it does not make it evidence about the fleet. CI runs one version on
-one runner image, so a regression that only appears on another interpreter is
-invisible here. [`../../tests/python-versions.json`](../../tests/python-versions.json)
-is the record of what has actually run, per version and per scope, and this
-workflow's `'3.12'` is one entry in it — the minor version only, because the run
-log needs repository admin rights and the public API does not report the patch.
-The same applies to git: CI is one runner's git, not the fleet's.
+decision; it does not make it evidence about the fleet. It is also not enough on
+its own: pinned to one version, it left the floor claim resting on two points
+with a gap between them, and the record said so in five words — *"CI pins a
+single version"*. Since T-0034 the pin is a **matrix**, one row per CPython minor
+from 3.8 to 3.14, so the gap is measured on every push instead of described.
+`fail-fast: false` is part of that: with the default, one red row cancels the
+others, and a cancelled row is not a version anything has run on.
+
+**The matrix and the record are held to each other.**
+[`../../tests/python-versions.json`](../../tests/python-versions.json) is the
+record of what has actually run, per version and per scope. Every row needs an
+entry, nothing a row runs may still be listed as never exercised, and
+[`../../tests/test_ci_matrix.py`](../../tests/test_ci_matrix.py) is the gate that
+says so — it exists because two tests in
+[`test_doctor_versions.py`](../../tests/test_doctor_versions.py) assert that the
+interpreter running them is in that record, which turned the suite red on every
+version the record had never heard of (`FAILURES.md` F018). Each CI entry claims
+the minor version only, because the run log needs repository admin rights and the
+public API does not report the patch. The same applies to git: CI is one runner's
+git, not the fleet's.
+
+**The other five gates run on one row, 3.12.** They read files rather than run
+the interpreter, so their result cannot depend on which row they are on. The
+guard is written out (`if: matrix.python-version == '3.12'`) rather than left to
+a job split, so the checks every "CI is green" claim refers to keep their names,
+and so a typo stops the gates running visibly rather than quietly. The gate in
+`test_ci_matrix.py` refuses a guard naming a version that is not a row — a gate
+that cannot run cannot fail.
 
 `tools/origin doctor` reads both records and reports whether this VM's versions
 are among them (T-0033), so a VM outside the exercised set says so at the point
-where an agent decides whether it can do the work. It cannot tell you about an
-interpreter CI has never run, because nothing here can: that is what the
-`not_exercised` list in the record is for.
+where an agent decides whether it can do the work, and says **which** entry it
+matched and where that entry ran — one record now covers two environments per
+minor version, so `exercised` alone would describe somebody else's machine. It
+cannot tell you about an interpreter nobody has run, because nothing here can:
+that is what the `not_exercised` list in the record is for.
 
 **A failing test must be identifiable without admin rights.** The `Tests` step
 re-emits every `FAIL:`/`ERROR:` block as an `::error::` annotation. GitHub
@@ -172,6 +199,9 @@ shortened paraphrases of their headings, and a string comparison flagged 83 of
   enforces; they do not establish that the rules are the right ones.
 - Whether documentation is *good*. Lint checks structure: caps, links, metadata,
   freshness, conflict markers.
+- Whether the **floor** claim is still right. `test_ci_matrix.py` holds the
+  matrix to the record, but nothing holds `floor.claim` to anything: widening the
+  matrix is a decision somebody has to read, not a change a gate notices.
 
 ## Before opening a pull request
 

@@ -23,7 +23,10 @@ Matching is by version string, not by minor version. The records mix patch-level
 entries (`3.8.10`, `2.25.1`) with a minor-level one (`3.12`, CI's pin), so a
 prefix match is what makes `3.12.7` find CI's `3.12` entry. That is deliberate
 and it is a weaker claim than equality, which is why the entry's own `scope` is
-carried into the result rather than summarised away.
+carried into the result rather than summarised away — and, since T-0034 gave one
+record two environments per minor version, so is the entry's own `where`. A
+report that says `exercised` without saying *where that ran* is a claim about
+this machine that the record cannot support.
 """
 
 from __future__ import annotations
@@ -61,6 +64,7 @@ class Match:
     scope: str = ""
     matched: str = ""
     detail: str = ""
+    where: str = ""
     entries: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict:
@@ -71,6 +75,7 @@ class Match:
             "record": self.record,
             "scope": self.scope,
             "matched": self.matched,
+            "where": self.where,
             "detail": self.detail,
             "entries": sorted(self.entries),
         }
@@ -125,6 +130,12 @@ def compare(tool: str, version: str, root=None) -> Match:
             match.state = EXERCISED
             match.matched = recorded
             match.scope = str(entry.get("scope", ""))
+            # Which environment that entry describes. A VM reading `exercised`
+            # needs to know which run that was: with one record covering seven
+            # minors from two environments (a portable build on a VM, and a CI
+            # row), a matched patch-level entry can shadow the minor-level CI
+            # entry, and "exercised" would then describe somebody else's machine.
+            match.where = str(entry.get("where", ""))
             return match
     match.state = UNRECORDED
     match.detail = f"no entry in {relative} names {version or '(no version reported)'}"
@@ -153,6 +164,8 @@ def summarize(matches: list[Match]) -> list[str]:
             note = f"exercised ({match.record}: {match.matched})"
             if match.scope:
                 note += f"; {match.scope}"
+            if match.where:
+                note += f"; run on {match.where}"
         elif match.state == UNREADABLE:
             note = f"record unreadable - {match.detail}"
         elif match.record:

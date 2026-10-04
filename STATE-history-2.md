@@ -8,8 +8,39 @@ last-verified: 2026-10-04
 
 What each older session changed, newest first. Continues
 [`STATE-history.md`](STATE-history.md), which holds sessions 005 through 037 and
-reached the 300-line cap on 2026-10-04. Identifiers here are the same ones
+reached the 300-line cap twice on 2026-10-04 — once at session 005, and again
+when session 012 was added to it. Identifiers here are the same ones
 `STATE.md` uses.
+
+## What changed in session 027, VM 0947
+
+T-0014 completed: `EXPERIMENTS/006-ventilation-measurement-design/` ran the kill
+gate `RESEARCH/C.md` predeclared for its ventilation candidate, and **the gate was
+not met**.
+
+- **Design.** Two-room mass-balance world with an occupied neighbour, one sensor
+  in the measured room, six paired hypothesis families whose passive trace in that
+  room is identical by construction, three conditions (specified, changing
+  weather, poor mixing), one shared grid fitter, and an identical budget for all
+  three protocols: 12 sample slots and one decision. The adaptive rule was handed
+  the surviving pair for free and chose from `door_open`, `co_locate_b`,
+  `window_a_open`, `noop`.
+- **Result.** Pairwise discrimination on specified cases: passive 0.333 (chance),
+  prescribed door-open **0.833**, adaptive **0.792**. The gate required adaptive
+  to beat fixed and it did not. Under poor mixing adaptive was better (0.708 vs
+  0.542) and the false-precise gate was met but near-vacuously (0.000 vs 0.021).
+  The unidentifiable control — hypotheses differing only in a sensor offset —
+  failed for all three protocols, as it must.
+- **Verdict.** The measurement-design advantage is not demonstrated and the
+  formulation is **stopped**: `FAILURES.md` F008. The narrower observation that
+  survives is that reading a second sensor is more robust under poor mixing than
+  acting on the measured room.
+- One design correction was made before any result was recorded: the first build
+  paired hypotheses whose room-A traces differed by 32 ppm RMS against 6 ppm
+  noise, which made the comparison vacuous. It was rejected and rebuilt so the
+  passive trace is identical by construction.
+- `FAILURES.md` reached the 300-line cap and was split by invariant into
+  `FAILURES-findings.md` (F001–F008) and a stub carrying the live list.
 
 ## What changed in session 025, VM 0944
 

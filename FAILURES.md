@@ -42,6 +42,7 @@ file reached the 300-line cap:
 | F015 | The local and remote views of a task's holder disagreed after every takeover |
 | F016 | A falsification harness overwrote this VM's real `~/.gitconfig` |
 | F017 | A generated file's date came from the clock, so the docs gate failed at midnight |
+| F018 | A gate asserted a fact about the record, so the suite failed on every interpreter nobody had run |
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings

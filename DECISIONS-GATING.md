@@ -230,3 +230,47 @@ first version of the decision-index check matched nothing in any commit, because
 the regex did not allow a Markdown link, so a check that had never fired looked
 identical to a check that had nothing to report. The control test is the two
 paraphrased rows in this repository, and it was the control that found it.
+
+## D035 — CI runs every minor version the floor claim covers, and the matrix and the record are held to each other (2026-10-04)
+
+Observed: `tests/python-versions.json` named 3.9 to 3.11 as versions nobody had
+run, and its own `why` clause gave the reason in five words — *"CI pins a single
+version"*. The 3.8-or-newer floor was therefore a claim resting on two points
+with a gap between them, and the gap was named rather than measured. Running the
+suite on the missing interpreters (T-0034) then failed on **all five** of them,
+on an assertion with nothing to do with the code (F018).
+
+Decision: **CI runs one matrix row per CPython minor from 3.8 to 3.14**, and the
+two artefacts that must agree — the workflow's row list and the record — are held
+to each other by a gate that reads both (`tests/test_ci_matrix.py`). The five
+gates that read files rather than run the interpreter stay on one row, 3.12,
+guarded explicitly. `fail-fast: false`, because a cancelled row is not a version
+anything has run on.
+
+Rejected: a second job for the file-reading gates. Same work, two job names
+instead of five `if:` lines, and it renames the checks every "CI is green" claim
+refers to. Rejected: leaving those gates unguarded so they run on every row,
+which multiplies the slowest steps by seven for a check whose result cannot depend
+on the interpreter. Rejected: a matrix of two or three sampled minors — cheaper,
+and it would leave the record describing versions it never ran, which is the
+exact defect T-0032 was written to stop. Rejected: recording the local
+measurements *instead of* the CI rows, because `doctor` would then warn a VM
+whose interpreter demonstrably ran here.
+
+The gate's parsers are deliberately dumb and deliberately loud: an unrecognised
+matrix, a step at the wrong indent, and a `not_exercised` range that names a
+version it cannot resolve are **failures**, not passes. That is the shape of
+T-0030's control failure, where the regex matched no row in any of 174 commits
+and the sweep was green while half the rule did nothing.
+
+**Ceiling, stated rather than discovered later.** The matrix is a property of the
+workflow, so nothing here notices a change to the *floor claim* — that needs
+reading, not a gate. And a `not_exercised` range phrased in a form this parser
+does not read has to be taught to it first, a small tax paid to keep an
+unreadable gap a failure rather than a silent pass. Falsified in four directions:
+a row with no recorded scope, a guard naming a version that is not a row,
+`fail-fast` returned to its default, and the unmodified workflow — with the
+restored file green as the control. One non-detection is recorded rather than
+hidden: moving every guard to a *different real row* passes, because which row
+carries the file-reading gates is a decision in `docs/operations/ci.md` and not a
+property this gate can read without duplicating that decision.
