@@ -124,9 +124,13 @@ Separate from the invention stages, because the mission cannot be run without it
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness
 - [x] Generated indexes for documents, sessions, and tasks
 - [x] 21 skills vendored in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (269 tests on git 2.25.1), with
+- [x] Standard-library test suite (471 tests on git 2.25.1), with
       [`tests/git-versions.json`](tests/git-versions.json) recording how much of
-      the suite each git version has actually run
+      the suite each git version has actually run. A test's correctness depends
+      on every clock the code under it reads, and three tests behind the
+      in-flight gate read one the fixture never handed over: they dated their
+      claim from a fixed date, so one assertion expired on a schedule and could
+      never pass again (T-0044, defect 15)
 - [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property

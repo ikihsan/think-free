@@ -13,7 +13,7 @@ from datetime import datetime, timedelta, timezone
 
 from harness import RepoTest
 
-from originlib import events, inflight, report, session, tasks, taskops
+from originlib import events, inflight, paths, report, session, tasks, taskops
 
 INFLIGHT = "2026-10-03-900-in-flight"
 NOW = datetime(2026, 10, 3, 22, 0, tzinfo=timezone.utc)
@@ -46,16 +46,39 @@ class InflightFixture(RepoTest):
     def set_meta(self, **updates: str) -> None:
         taskops._set_meta(tasks.find(self.task.task_id), updates)
 
-    def backdate_claim(self, hours: float) -> None:
-        """Age the last ledger entry, so the lease can be tested on a real file."""
+    def _write_claim_ts(self, stamp: str) -> None:
         from originlib import paths
 
         path = paths.claims_file()
         lines = path.read_text(encoding="utf-8").splitlines()
         entry = json.loads(lines[-1])
-        entry["ts"] = ago(hours)
+        entry["ts"] = stamp
         lines[-1] = json.dumps(entry, sort_keys=True)
         path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    def backdate_claim(self, hours: float) -> None:
+        """Age the last ledger entry against the fixed `NOW`, so the lease can be
+        tested on a real file.
+
+        Correct only where `now=NOW` is also passed, which is what
+        `ClassificationTest` does. The CLI tests cannot pass a clock — `origin
+        session verify` reads the real one — so they use
+        `backdate_claim_now` instead. Dating their claim from `NOW` made the
+        claim grow older every hour, and the 24-hour assertion began failing at
+        exactly 24 hours after `NOW` and could never pass again: defect 15.
+        """
+        self._write_claim_ts(ago(hours))
+
+    def backdate_claim_now(self, hours: float) -> None:
+        """Age the last ledger entry from the real clock, for the CLI tests.
+
+        A claim aged this way means "N hours old", which is what a lease
+        assertion is about. It is deliberately a second method rather than a flag
+        on the first: the two clocks differ by however long ago the suite was
+        written, and a flag lets a test pick the wrong one silently.
+        """
+        stamp = datetime.now(timezone.utc) - timedelta(hours=hours)
+        self._write_claim_ts(stamp.isoformat(timespec="seconds"))
 
     def classify(self, **kwargs) -> inflight.Verdict:
         kwargs.setdefault("now", NOW)
@@ -204,21 +227,49 @@ class ClassificationTest(InflightFixture):
 
 
 class VerifyGateTest(InflightFixture):
+    """The gate as the CLI runs it, which reads the real clock and not `NOW`."""
+
     def test_strict_verify_passes_while_another_vm_is_in_flight(self) -> None:
-        self.backdate_claim(0.5)
+        self.backdate_claim_now(0.5)
         self.assertEqual(self.cli("session", "verify", "--strict"), 0)
         self.assertIn(f"{INFLIGHT}: in flight", self.output())
         self.assertIn("T-0001", self.output())
 
     def test_strict_verify_fails_once_the_claim_is_expired(self) -> None:
-        self.backdate_claim(13.0)
+        self.backdate_claim_now(13.0)
         self.assertEqual(self.cli("session", "verify", "--strict"), 4)
         self.assertIn("past the 12h lease", self.output())
 
     def test_the_lease_is_a_flag_not_a_constant(self) -> None:
-        self.backdate_claim(13.0)
+        # This assertion is what expired: it dated the claim 13 hours before a
+        # fixed 2026-10-03 and compared it with the real clock, so it passed
+        # until 24 hours after that instant and never again. `backdate_claim_now`
+        # makes it a claim that is 13 hours old, now and in a year.
+        self.backdate_claim_now(13.0)
         self.assertEqual(self.cli("session", "verify", "--strict", "--lease-hours", "24"), 0)
         self.assertIn("in flight", self.output())
+
+    def test_a_claim_older_than_the_widest_lease_is_still_abandoned(self) -> None:
+        # The negative control the expired assertion needed: a longer lease moves
+        # the threshold, it does not remove it. Dated from the real clock, so it
+        # cannot pass because the calendar moved.
+        self.backdate_claim_now(25.0)
+        self.assertEqual(self.cli("session", "verify", "--strict", "--lease-hours", "24"), 4)
+        self.assertIn("past the 24h lease", self.output())
+
+    def test_the_fixed_clock_still_dates_a_claim_for_the_unit_tests(self) -> None:
+        # The two clocks must not be interchangeable. A claim dated from `NOW` is
+        # 13 hours old *to the classification tests* and grows older every hour
+        # against the CLI, which is the defect; this asserts the fixed one is
+        # still what `backdate_claim` produces, so the control above cannot be
+        # satisfied by changing both.
+        self.backdate_claim(13.0)
+        verdict = self.classify()
+        self.assertAlmostEqual(verdict.age_h or 0.0, 13.0, places=3)
+        stamp = json.loads(
+            paths.claims_file().read_text(encoding="utf-8").splitlines()[-1]
+        )["ts"]
+        self.assertEqual(stamp, ago(13.0))
 
     def test_strict_verify_still_fails_for_this_working_trees_own_session(self) -> None:
         # D013 is unchanged: a session running *here* is still a CI failure.

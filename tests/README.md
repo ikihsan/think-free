@@ -36,7 +36,7 @@ interfere with the working repository.
 | `test_land.py` | `sync land`, split out at the line cap by operation: publishes the branch, regenerates a *conflicted* generated file, rebuilds one that merged **cleanly** and was therefore stale (defect 13), never lets `rebase --continue` open an editor, and stops for a human on a real conflict with the work intact |
 | `test_session_flow.py` | Session start and finish across two clones: stale trees, uncommitted work |
 | `test_cli.py` | Exit codes, index generation, doctor, preflight, in-flight tolerance |
-| `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate |
+| `test_inflight_session.py` | In-flight versus abandoned: one falsifiable clause per rule of `inflight.classify`, plus the `--strict` and `--lease-hours` gate, and **the two clocks the fixture can date a claim from** — a fixed `NOW` for the tests that pass `now=` and the real one for the three that drive the CLI, because dating the CLI's claim from `NOW` made one assertion expire 24 hours later and never pass again (defect 15) |
 | `test_landed_work.py` | Attribution when another VM's commits land mid-session: replayed against session 029's nine false reports, with the negative controls that must keep reporting |
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
 | `test_idalloc.py` | Identifier allocation reads the shared base: a clone whose tree is behind it, a withdrawn number, an unreachable base, and the three states the source line distinguishes |
@@ -103,6 +103,22 @@ a check that has never fired looks exactly like a check with nothing to report,
 so the suite asserts each mechanism notices its own removal. Run against the real
 history the rule reports one commit of 174 (`e6eb992`, the collision that
 reached the base) and the hand repair one minute later is clean.
+
+**A test that reads a clock is a gate on the calendar, and it fails on a
+schedule rather than intermittently.** Three tests in `test_inflight_session.py`
+drive `origin session verify`, which reaches `inflight.classify`'s `now=None`
+default and reads `datetime.now(timezone.utc)`. They aged the ledger entry to
+`NOW − 13h` against the fixture's fixed `NOW = 2026-10-03T22:00Z`, so the
+assertion that a 13-hour claim is in flight under a 24-hour lease held for exactly
+24 hours from that instant and then failed forever, growing. Run `37190842104`
+showed it, `observed` 2026-10-04 at 09:00Z. It is F018 and F019 with the
+environment being **time** rather than a tool version: the general rule is that a
+test's correctness depends on every clock the code under it reads, and the fixture
+has to hand over the one the code uses. Two methods rather than a flag on one,
+because the clocks differ by however long ago the suite was written, and the fix
+added the negative control the expired assertion lacked — a claim older than the
+*widest* lease is still abandoned, so a longer lease moves the threshold rather
+than removing it.
 
 **The interpreter is part of it too.**
 [`python-versions.json`](python-versions.json) says the same thing for Python,

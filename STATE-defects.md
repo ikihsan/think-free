@@ -29,8 +29,11 @@ defect is listed as open.
    them its own. `sync pull`/`sync land` now record a `base_advance` naming the
    commits that arrived, and reconciliation attributes a path by the newest thing
    that touched it. **Ceiling:** attribution knows only about base moves the
-   tooling performed, so a rebase run by hand still reports; that is the intended
-   direction of failure.
+   tooling performed, so a rebase run by hand still reports — reached by sessions
+   012 and 040, both through hand-run `git rebase --continue`. That is the
+   intended direction of failure, and it is also why a session has to record such
+   a gap where a *closed* stream cannot accept it: `session finish` will not take
+   the events, and editing the stream afterwards would be worse.
 
 3. **Every generated file stamped `last-verified` with the render date** (solved
    in T-0024, D029), so `doc lint` failed on 42 committed session reports and all
@@ -54,41 +57,28 @@ defect is listed as open.
 
 5. **`doctor` did not compare this VM's interpreter or git against what the suite
    has been exercised on** (solved in T-0033). Both records existed and were
-   schema-checked — `tests/git-versions.json` (T-0018) and
-   `tests/python-versions.json` (T-0032) — and nothing read either at run time,
-   so a VM on Python 3.9 was indistinguishable in the report from one on 3.8.10.
-   `tools/originlib/versions.py` now compares each probed tool against the record
-   covering it and reports four states: `exercised` with the entry's own `scope`
-   attached, `NOT exercised`, `record unreadable`, and `no record` for the three
-   tools no record covers. **The third state is the load-bearing one** — a
-   comparison that cannot tell "we looked and it is not there" from "we could not
-   look" reports a confident answer in both, which is the failure T-0025 found in
-   this same report. Falsified four ways before it was trusted: a comparison that
-   always said `exercised` (3 failures), a missing record read as `unexercised`
-   (5), a summary dropping the record name (2), and `doctor` not reporting the
-   comparison at all (1). Its first implementation also matched entries in file
-   order, so a VM on 3.12.15 got CI's `3.12` entry's scope instead of its own;
-   the longest entry now wins, and a test says so.
+   schema-checked — `tests/git-versions.json` and `tests/python-versions.json` —
+   and nothing read either at run time, so a VM on Python 3.9 was
+   indistinguishable in the report from one on 3.8.10. `tools/originlib/versions.py`
+   now reports `exercised` with the entry's own `scope`, `NOT exercised`,
+   `record unreadable`, and `no record`, and **the third is the load-bearing
+   one**: a comparison that cannot tell "we looked and it is not there" from "we
+   could not look" reports a confident answer in both. Falsified four ways, and
+   its first implementation matched record entries in file order, so a VM on
+   3.12.15 got CI's `3.12` scope; the longest entry wins and a test says so.
    **Ceiling:** `exercised` means a run happened, not that the version is
-   supported, and no interpreter between 3.8 and 3.12 has ever run this suite.
+   supported. Contract: [`docs/operations/doctor.md`](docs/operations/doctor.md).
 
 7. **A test fixture inherited the runner's environment** (solved in T-0035).
-   `tests/pushcred_fixture.py` built a sandbox with a fresh `HOME`,
-   `XDG_CONFIG_HOME`, git config and `GIT_CONFIG_SYSTEM=/dev/null`, and left
-   `GH_TOKEN`/`GITHUB_TOKEN` alone. `pushprobe` counts an environment token as a
-   credential mechanism — correctly, it is one — so
-   `test_no_mechanism_is_unavailable_not_broken` built a machine with a mechanism
-   and asserted `unavailable`. Three CI runs failed (`37174050724`,
-   `37174316639`, `37174309822`) while both VMs were green on the same commits,
-   and the cause predates T-0033: it arrived with the fixture in T-0025.
-   **This is the shape worth naming — a defect that only reproduces where the
-   author does not work.** Falsified three ways, and the third was found *by*
-   falsifying: a fixture that clears the tokens but never restores them leaves
-   every test green, because unittest shares one process and nothing asserted
-   the restore. A control now asserts the opposite verdict, so the original
-   test says *which* absence it is about rather than that some absence is
-   reported. **Ceiling:** the fixture builds the machine its own tests need and
-   says nothing about the runners those tests never model.
+   `tests/pushcred_fixture.py` built a sandbox with a fresh `HOME`, git config
+   and `GIT_CONFIG_SYSTEM=/dev/null`, and left `GH_TOKEN`/`GITHUB_TOKEN` alone;
+   `pushprobe` counts an environment token as a credential mechanism — correctly,
+   it is one — so a test asserted `unavailable` on a machine that had one. Three
+   CI runs failed while both VMs were green on the same commits. **A defect that
+   only reproduces where the author does not work.** Its third falsification was
+   found *by* falsifying: a fixture that clears the tokens but never restores
+   them leaves every test green, because unittest shares one process.
+   **Ceiling:** the fixture builds the machine its own tests need.
 
 10. **The identifier rule did not read the defect list, so two VMs took defect 7
     in the same hour** (solved in T-0036). Rule 7 read findings definitions,
@@ -156,6 +146,40 @@ heading they belong in when they are closed.
     **Ceiling:** the tooling cannot tell an intentional declaration from an
     automatic one, so an automatic declaration weakens the signal it repairs.
 
+15. **The lease tests dated a claim from a fixed date while the gate read the
+    real clock, so one expired on a schedule and can never pass again** (solved in
+    T-0044). `tests/test_inflight_session.py` fixes `NOW = 2026-10-03T22:00Z` and
+    `inflight.classify` takes `now=` so the classification tests can be dated
+    against it — correct, because they pass the clock in. Three tests in
+    `VerifyGateTest` drive the CLI instead, which cannot pass a clock:
+    `session verify` reaches `classify`'s `now=None` default and reads
+    `datetime.now(timezone.utc)`. Those three aged the ledger entry to `NOW − 13h`,
+    so the claim's age under the real clock grew by an hour every hour, and
+    `test_the_lease_is_a_flag_not_a_constant` — which asserts a 13-hour claim is
+    still in flight under a 24-hour lease — began failing at **2026-10-04T09:00Z
+    exactly**, 24 hours after the fixed instant, with `AssertionError: 4 != 0`.
+    Run `37190842104` at `f566ff0` is red on it, and the annotations name the test
+    and the line. Nothing about it is intermittent: the failure is permanent and
+    grows. **This is F018 and F019 with the environment being time rather than a
+    tool version** — a test that reads a clock is a gate whose correctness depends
+    on a record that is not in it.
+    **Repair:** the fixture gained `backdate_claim_now`, which dates the entry
+    from `datetime.now`, and the three CLI tests use it; a claim is then N hours
+    old, which is what a lease assertion is about. `backdate_claim` keeps the
+    fixed clock for the unit tests, which do pass it. Two methods rather than a
+    flag, because the clocks differ by however long ago the suite was written and
+    a flag lets a test pick the wrong one silently. The negative control the
+    expired assertion lacked is added too: a claim older than the *widest* lease
+    is still abandoned, so a longer lease moves the threshold rather than
+    removing it — falsified by moving its age under the threshold, which fails it
+    with `0 != 4`.
+    **Ceiling:** the fix dates the fixture rather than injecting a clock into the
+    CLI, so these three tests still depend on the wall clock agreeing with itself
+    within a test's runtime. A clock injected at the `session verify` boundary
+    would remove even that, and nothing here does it. Any other test that dates a
+    record against a fixed instant and then lets production code read the real
+    clock has the same defect, and nothing scans for that pairing.
+
 14. **A decision record's own header was false in two of five files, and the
     identifier rule read every other source** (solved in T-0042). A decision
     number is written in three places that must agree: the `## Dnnn — …` heading
@@ -212,32 +236,26 @@ heading they belong in when they are closed.
 
 6. **Identifier allocation collides by construction** (both halves solved:
    allocation in T-0031, detection in T-0030). Identifiers were allocated by
-   reading the local tree, so two VMs in an hour took the same numbers. Six times
-   on 2026-10-03: T-0016 and F009/F010/D022; session 029's F012 against session
-   026's F010; session 030's F012 for E3's attribution against VM 0947's F012 for
-   the worktree defect; D024 issued twice for unrelated decisions; then F013,
-   `FAILURES-findings-3.md`, D025 and D026 all taken on 0944 while 0947 held the
-   same numbers. VM 0947's two findings became F014 and F015 and its session-gate
-   decision D027, and six more collisions followed in a single hour on 2026-10-04
-   (T-0024 through T-0028, F014, F015, D027, D028). **The cost was measured:** a
-   rebase resolution restored one file's index row to the renumbered form while
-   reverting its body, so a findings file and its own table disagreed about the
-   same entries; and commit `e6eb992` carries two findings both numbered F010 to
-   the shared base, which no gate reported.
+   reading the local tree, so two VMs in an hour took the same numbers — **twelve
+   times in two days**, listed in
+   [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
+   **The cost was measured:** a rebase restored one file's index row to the
+   renumbered form while reverting its body, so a document and its own table
+   disagreed; and commit `e6eb992` carries two findings both numbered F010 to the
+   shared base, which no gate reported.
    **Allocation solved in T-0031, `observed`:** `tools/originlib/idalloc.py`
    allocates F, D and T numbers from `origin/<base>` — task files, claim ledger,
    findings definitions and index rows, decision definitions and spans — plus this
    working tree, and every command that hands out a number prints the record it
-   read. Falsified first: with the old allocator, a clone whose tree is behind
-   the base allocated `T-0002` where the base already defined it; after the
-   repair it allocates `T-0003`. A withdrawn task's number is no longer recycled,
-   because the ledger still names it.
-   **Detection solved in T-0030, D032:** `tools/originlib/identifiers.py` reports
-   an identifier defined twice, an index row with no body, and a decision its own
-   index row does not list; `sync land` refuses to publish such a tree and `doc
-   lint` rule 7 reports it. Falsified in both directions: one commit of 174 is
-   flagged, and each of the three mechanisms notices its own removal. It found a
-   live desync on its first run — D030 missing from `DECISIONS.md`.
+   read. Falsified first: with the old allocator, a clone behind the base
+   allocated `T-0002` where the base already defined it. A withdrawn task's number
+   is no longer recycled, because the ledger still names it.
+   **Detection solved in T-0030, D032:** an identifier defined twice, an index row
+   with no body, and a decision its own index row does not list; `sync land`
+   refuses to publish such a tree and `doc lint` rule 7 reports it. Falsified in
+   both directions: one commit of 174 is flagged, and each of the three mechanisms
+   notices its own removal. It found a live desync on its first run — D030 missing
+   from `DECISIONS.md`.
    **Residual, stated:** two VMs allocating between their own fetches still
    collide, and an unpushed number reserves nothing. The push rejection and the
    detector catch it; nothing prevents it. **This cost one collision in the act of
@@ -245,55 +263,36 @@ heading they belong in when they are closed.
    side renumbered to D033 during the rebase.
 
 8. **The suite was red on every interpreter it had never run on** (solved in
-   T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions
-   nobody had run, and `test_doctor_versions.py` — written hours earlier in
-   T-0033 — asserted that the interpreter running it was in that record. On
-   3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2 the suite failed on exactly that
-   assertion and nothing else; on 3.8.10 and CI's 3.12 it is green. The gate was
-   reading the record, not the code. A sibling test asserted the same claim from
-   a different source (`doctor` probes `python3` on `PATH`), and the two agreed
-   only because this VM's `PATH` interpreter is one of the two recorded ones.
-   **Repair:** the test states the disjunction it can support, and
-   `tests/test_ci_matrix.py` now holds the workflow's matrix and the record to
-   each other in both directions. Falsified first: the new gate fails on the
-   unmodified workflow, names the five unrecorded rows, and fails again on the
-   unmodified record; two of its parsers were corrected because the controls
-   they failed were the parsers, not the code. **Ceiling:** the record is
-   hand-maintained, and CI can only cover what `actions/setup-python` publishes,
-   so a matrix row is evidence about that row and nothing beyond it.
+   T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions nobody
+   had run, and `test_doctor_versions.py` — written hours earlier — asserted that
+   the interpreter running it was in that record: a fact about the record, not the
+   code. On 3.9.23, 3.10.18, 3.11.13, 3.13.7 and 3.14.2 the suite failed on
+   exactly that assertion and nothing else. **Repair:** the test states the
+   disjunction it can support, and `tests/test_ci_matrix.py` holds the workflow's
+   matrix to the record in both directions. **Ceiling:** the record is
+   hand-maintained, and CI covers only what `actions/setup-python` publishes, so a
+   matrix row is evidence about that row and nothing beyond it.
 
 9. **The suite asserted that this machine's git is in the record** (solved in
-   T-0034, F019). Every CI row was red at the `Tests` step from T-0033 onward,
-   including rows whose interpreter had just been measured green on a VM, and the
-   run log needs admin rights while the public check-runs API returned no
-   annotations — so the cause was invisible from outside. Reproduced: the runner
-   image ships **git 2.55.0** (`actions/runner-images` readme, `source-supported`)
-   and `tests/git-versions.json` named 2.25.1 and 2.56.0. A conda-forge 2.55.0
-   unpacked outside the repository reproduced the failure exactly. Same class as
-   defect 8 and one function away from it: **a gate that reads its own environment
-   is only as portable as the record of that environment.**
-   **Repair:** the assertion is now the module's contract — four states reachable,
-   an `exercised` verdict carrying its entry's scope and machine — with a negative
-   control that emptying the record's list moves every version off `exercised`.
-   Adding the 2.55.0 entry alone would have made CI green and left the assumption
-   in place. **Also:** the git record gained a `not_exercised` list and a
-   `where` on every entry, with test clauses, so the gap is nameable rather than
-   inferred from two points.
+   T-0034, F019). Every CI row was red from T-0033 onward while the runner image
+   ships **git 2.55.0** and the record named 2.25.1 and 2.56.0; the run log needs
+   admin rights, so the cause was invisible from outside, and the stated reason at
+   the time — that the public check-runs API returns no annotations — was false
+   for this very run (F020). **Repair:** the assertion is now the comparator's
+   contract — four reachable states, an `exercised` verdict carrying its entry's
+   scope and machine — with a control that emptying the record moves every version
+   off `exercised`. Adding the 2.55.0 entry alone would have made CI green and left
+   the assumption in place. **The general form of 8, 9 and 15: a gate that reads
+   its own environment is only as portable as the record of that environment**, and
+   15 is the third instance with the environment being time.
 
 **Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
-reached twice.** Session 012 closed with 24 `unlogged_change` events and session
-040 with its own, both times including the other VM's files, which arrived
-through hand-run `git rebase --continue` calls. D028 attributes a path only from
-a base move the tooling performed, so those paths stay reported — the intended
-direction of failure, and the reason a session has to record here what a
-*closed* stream cannot accept: `session finish` will not take the events, and
-editing the stream afterwards would be worse than leaving the gap visible.
+reached twice** — sessions 012 and 040, both through hand-run
+`git rebase --continue`. See defect 2.
 
 ## What a fix costs to believe
 
 The method every entry above is held to — falsify against the defect's own bytes,
 in both directions, and say so when the input cannot be read — is in
-[`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md), split
-out of this file on 2026-10-04 (T-0042) when a new entry took it past the
-300-line cap. The mechanism and the lessons from five falsifications that failed
-are in [`tests/README.md`](tests/README.md), next to the tests they describe.
+[`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md), and the
+mechanism is in [`tests/README.md`](tests/README.md), next to the tests.

@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0044
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 2026-10-04-026-record-the-run-on-t-0043-s-landed-commit
@@ -37,10 +37,10 @@ inflight.classify already takes now= for the unit tests, so only the three CLI t
 
 ## Acceptance criteria
 
-- [ ] The three CLI lease tests pass and cannot expire with wall-clock time; the two backdating methods cannot be confused silently.
-- [ ] The classification unit tests still assert against the fixed NOW, unchanged.
-- [ ] The defect is recorded with the exact hour it began failing and the run that showed it.
-- [ ] The full suite is green and doc lint exits 0.
+- [x] The three CLI lease tests pass and cannot expire with wall-clock time; the two backdating methods cannot be confused silently. `test_the_fixed_clock_still_dates_a_claim_for_the_unit_tests` asserts both that `classify(now=NOW)` still reads 13.0 and that the ledger entry `backdate_claim` writes is exactly `ago(13.0)`, so the control below cannot be satisfied by changing both methods.
+- [x] The classification unit tests still assert against the fixed NOW, unchanged. 24 tests green in `tests.test_inflight_session`.
+- [x] The defect is recorded with the exact hour it began failing and the run that showed it. Defect 15 in `STATE-defects.md`, run `37190842104` at `f566ff0`, threshold computed rather than asserted: the fixed claim is 24.1 hours old under the real clock at the moment of measurement.
+- [x] The full suite is green and doc lint exits 0. 471 tests in 263s, `observed` 2026-10-04.
 
 ## Verification
 
@@ -56,3 +56,24 @@ Revert the commit; the fixture change is confined to tests/test_inflight_session
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+**The failure was a schedule, not a flake, and the schedule is computable.** The
+fixture's `NOW` is 2026-10-03T22:00Z and the claim is aged to `NOW − 13h`, so
+the assertion expires when the real clock passes `NOW + 11h`, which is
+2026-10-04T09:00Z. The full suite run at 08:52Z was green and CI at 09:05Z was
+red, on the same tree, minutes apart. The measurement is in this session's
+`commands.log`: 24.1 hours of age against a 24-hour lease.
+
+**A test that reads a clock is a gate on the calendar.** This is F018 and F019
+with the environment being time rather than a tool version, and it has a
+property neither of those had: those failed on machines the record did not
+cover, and this fails on *every* machine after a fixed hour. Nothing scans for
+the pairing — a fixture that dates a record from a fixed instant while the code
+under test reads the wall clock — and that scan is the ceiling written into
+defect 15.
+
+**The fix dates the fixture rather than injecting a clock into the CLI**, so the
+three tests still assume the wall clock agrees with itself across one test's
+runtime. Injecting at the `session verify` boundary would remove even that and
+is not done here; the honest statement is that the assumption got much smaller,
+not that it went away.
