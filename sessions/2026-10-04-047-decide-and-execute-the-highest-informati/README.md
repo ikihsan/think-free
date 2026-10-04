@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T20:22:19+00:00
-- **Duration:** ?s
+- **Duration:** 4273.1s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Decide and execute the highest-information research action after 12 prior-art de
 
 ## Summary
 
-_(none recorded)_
+T-0059 / F032: counted registry installs instead of stars in five niches and found stars do not predict installs anywhere (|rho| <= 0.35, mature included), so F028's star tail was never a statement about adoption. Three young vocabularies have 88-100% of leading implementations with no measurable monthly install, so a crowded niche is the normal state of every crowded vocabulary and 'prior art exists' cannot mean 'served'. Three instrument defects were caught by pre-flight, each of which would have flattered the hypothesis, including an HTTP 200 meaning 'rate limited' read as zero downloads and a package name matching a repository it does not belong to (25% of the time), which under-counted the mature arm's leader by three orders of magnitude. Renumbered F029 to F032 and 012 to 013 on landing.
+
+## Next
+
+Decide the install-path axis with the owner and falsify it: find a crowded niche whose incumbents ARE heavily installed, which is the one observation that would show the axis fails. Alternative if the owner declines: re-run 013 on niches outside software registries, since registry installs cannot see binary-distributed tools and that is what made the gate's dead branch inexecutable.
 
 ## Artifacts
 
@@ -52,11 +56,19 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 7 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 2 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/README.md |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/census.py |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/results.json |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/run.log |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/stats.py |
+|   undeclared | EXPERIMENTS/013-prior-art-predicts-adoption/usage.py |
+|   undeclared | tests/test_census_stats.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/012-prior-art-predicts-adoption/README.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/012-prior-art-predicts-adoption/results.json |
 
 ## Timeline
 
@@ -88,6 +100,18 @@ _(none recorded)_
 | 24 | 21:32:01 | note | updated EXPERIMENTS/README.md with the inventory including 013 |
 | 25 | 21:32:01 | artifact | wrote EXPERIMENTS/README.md |
 | 26 | 21:33:04 | artifact | wrote EXPERIMENTS/README.md |
+| 27 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/README.md |
+| 28 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/census.py |
+| 29 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/results.json |
+| 30 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/run.log |
+| 31 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/stats.py |
+| 32 | 21:33:31 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/013-prior-art-predicts-adoption/usage.py |
+| 33 | 21:33:31 | unlogged_change | changed but never declared as an artifact: tests/test_census_stats.py |
+| 34 | 21:33:31 | integrity_error | declared artifact no longer exists: EXPERIMENTS/012-prior-art-predicts-adoption/README.md |
+| 35 | 21:33:31 | integrity_error | declared artifact no longer exists: EXPERIMENTS/012-prior-art-predicts-adoption/results.json |
+| 36 | 21:33:32 | doc_update | updated FAILURES.md |
+| 37 | 21:33:32 | doc_update | updated STATE.md |
+| 38 | 21:33:32 | session_end | T-0059 / F032: counted registry installs instead of stars in five niches and found stars do not predict installs anywhere (\|rho\| <= 0.35, mature inc |
 
 ## Reproduce this record
 
