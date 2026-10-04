@@ -36,6 +36,8 @@ _(none recorded)_
 | AGENTS.md | a8092dda5c62 | 8434 |
 | docs/INDEX.md | a37320a7f112 | 22145 |
 | EXPERIMENTS/012-prior-art-predicts-adoption/README.md | 4648addabd79 | 4732 |
+| EXPERIMENTS/README.md | 786d2f1ec4b7 | 2070 |
+| EXPERIMENTS/README.md | a210a8c95905 | 2098 |
 
 ## Commands
 
@@ -79,6 +81,13 @@ _(none recorded)_
 | 17 | 21:02:54 | note | updated FAILURES-findings-6.md |
 | 18 | 21:02:55 | note | updated AGENTS.md |
 | 19 | 21:02:55 | note | updated docs/INDEX.md |
+| 20 | 21:30:55 | base_advance | rebase completed outside land: base moved 5bb2e2409339 -> 682f43ee7913, 11 commit(s) arrived from the shared base |
+| 21 | 21:31:09 | base_advance | sync land: base moved 738094b536a7 -> 76e471dd0875, 1 commit(s) arrived from the shared base |
+| 22 | 21:31:18 | task_rewrite | rewrote tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md (status: done) |
+| 23 | 21:31:18 | task_rewrite | appended a complete record for T-0059 |
+| 24 | 21:32:01 | note | updated EXPERIMENTS/README.md with the inventory including 013 |
+| 25 | 21:32:01 | artifact | wrote EXPERIMENTS/README.md |
+| 26 | 21:33:04 | artifact | wrote EXPERIMENTS/README.md |
 
 ## Reproduce this record
 
