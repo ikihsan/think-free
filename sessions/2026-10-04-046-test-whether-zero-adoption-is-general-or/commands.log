@@ -1,0 +1,56 @@
+==============================================================================
+[seq 2] 2026-10-04T20:07:14+00:00
+$ python3 -c 
+import json, urllib.request, urllib.parse
+terms = ['reproducible builds', 'build provenance', 'supply chain audit', 'lockfile drift', 'dependency quarantine', 'artifact provenance']
+for t in terms:
+    url = 'https://api.github.com/search/repositories?q=' + urllib.parse.quote(t) + '&sort=stars&order=desc&per_page=5'
+    req = urllib.request.Request(url, headers={'User-Agent':'origin-research','Accept':'application/vnd.github+json'})
+    try:
+        d = json.load(urllib.request.urlopen(req, timeout=20))
+        print('TERM', t, 'total', d.get('total_count'))
+        for r in d.get('items', []):
+            print('  ', r['full_name'], r['stargazers_count'], 'created', r['created_at'][:10], '|', (r['description'] or '')[:70])
+    except Exception as e:
+        print('TERM', t, 'ERR', e)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+TERM reproducible builds total 2673
+   cpm-cmake/CPM.cmake 4135 created 2019-04-09 | 📦 CMake's missing package manager. A small CMake script for setup-free
+   thought-machine/please 2616 created 2016-02-02 | High-performance extensible build system for reproducible multi-langua
+   Hamza417/Inure 1940 created 2021-03-07 | An elegant and beautiful premium Android app manager with Root and Shi
+   openSUSE/open-build-service 1081 created 2011-07-14 | Build and distribute Linux packages from sources in an automatic, cons
+   retentioneering/retentioneering-tools 920 created 2019-07-02 | Python toolkit, MCP server, and agent skills for reproducible, auditab
+TERM build provenance total 413
+   actions/attest-build-provenance 1050 created 2024-02-20 | Action for generating build provenance attestations for workflow artif
+   mchmarny/s3cme 104 created 2023-01-12 | Template Go app repo with local test/lint/build/vulnerability check wo
+   lucmoreau/ProvToolbox 83 created 2011-08-30 | Java toolkit to create and convert W3C PROV data model representations
+   kubernetes-sigs/tejolote 74 created 2022-07-09 | A highly configurable build executor and observer designed to generate
+   github-early-access/generate-build-provenance 62 created 2023-10-09 | Publish a signed build provenance from your GitHub Actions workflow
+TERM supply chain audit total 721
+   aquasecurity/chain-bench 772 created 2022-05-12 | An open-source tool for auditing your software supply chain stack for 
+   getagentseal/agentseal 376 created 2026-03-03 | Security toolkit for AI agents. Scan your machine for dangerous skills
+   graygnatconsole/mcp-audit-tool 91 created 2026-09-26 | 🛡️ Security audit CLI for Model Context Protocol (MCP) servers — scan 
+   bokuweb/sakimori 77 created 2026-04-18 | Cross-platform supply-chain guard for CI: supervised-run audit/block (
+   UseAI-pro/openclaw-skills-security 72 created 2026-02-05 | Curated, security-first OpenClaw skills (Markdown-based). Security aud
+TERM lockfile drift total 57
+   mcptrust/mcptrust 6 created 2025-12-16 | Runtime security proxy for MCP: lockfile enforcement, drift detection,
+   skills-lock/skil-lock 6 created 2026-05-13 | Pin AI Skill behavior. Block unapproved drift in CI. See exactly what 
+   nivinvysakh/syncmydep 4 created 2026-08-21 | A composite GitHub Action to automatically detect package drifts, run 
+   nbialk/quiver-cli 3 created 2026-06-03 | Compose skills, slash commands & MCP servers from a central catalog in
+   yudelevi/mpat 2 created 2026-09-09 | Lockfile-based upstream drift tracking for Python monkeypatches
+TERM dependency quarantine total 29
+   alphaparkinc/genpark-supply-chain-package-dependency-quarantine-scanner-skill 8 created 2026-09-02 | Supply-chain malicious package quarantine & SBOM auditor (Snyk / Socke
+   alphaparkinc/genpark-dependency-firewall-cve-quarantine-package-proxy-skill 8 created 2026-08-30 | Dependency firewall package proxy & CVE quarantine gatekeeper (GitLab 
+   VAIXLNS/VAIXLNS 5 created 2026-07-01 | ╔════════════════════════════════════أرى أن هذا أصبح أقرب إلى Blueprin
+   Splinters-io/sup 3 created 2026-03-31 | Supply chain quarantine tool — time-based trust gate for dependencies
+   gyanpattnaik/E-commerce-Data-Quality-System 1 created 2026-04-20 | Contract-driven event validation on a quarantine-first philosophy. Fiv
+TERM artifact provenance total 557
+   actions/attest-build-provenance 1050 created 2024-02-20 | Action for generating build provenance attestations for workflow artif
+   in-toto/witness 547 created 2021-12-03 | Witness is a pluggable framework for software supply chain risk manage
+   Sidiora-Labs/machine-genome 151 created 2026-07-20 | Machine Genome is an open identity and provenance protocol for models,
+   devallibus/shiplog 55 created 2026-03-14 | SUPERCHARGE AI-assisted development by using Git. Cross-model review g
+   maoyadongsh/siq-agent-security 51 created 2026-08-13 | Research artifacts for provenance-bound agent authorization, signed ef
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3601  redactions: none

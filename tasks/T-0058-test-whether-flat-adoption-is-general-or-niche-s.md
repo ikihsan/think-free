@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0058
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-04-046-test-whether-zero-adoption-is-general-or
+claim-vm: 
 verify: python3 -m unittest discover -s tests && tools/origin doc lint
 -->
 
