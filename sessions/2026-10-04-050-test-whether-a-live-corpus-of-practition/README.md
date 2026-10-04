@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T20:41:03+00:00
-- **Duration:** ?s
+- **Duration:** 182.0s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether a live corpus of practitioner needs generates candidates, and scree
 
 ## Summary
 
-_(none recorded)_
+Tested D048's invention seat rather than filling it. A live corpus of 1401 practitioner need statements (Hacker News, since 2024-01-01) was harvested, 50 drawn by a stated rule so none was picked for looking promising, and 0 survived the screens: 38% prior art, 30% no mechanism, 24% not software needs, 8% needing hardware -- against the prior generator's own 3 of 16, none validated. F029, D049. The generator is refuted; the corpus is kept demoted to problem statements, because it cannot supply the one signal that matters: recurrence, where term frequency over 1273 clauses returns only function words. The constructive half: counted by repository the same cluster gives 5805 open issues across 28 repositories, so the missing input is obtainable. F030: one search query decides a prior-art verdict wrongly in both directions -- 502 hits that were awesome-go through in:readme, and 0 hits for an idea with 29-83 repositories behind it. The screening was falsified against itself: 10 of 19 prior-art verdicts re-checked, 6 supported, 4 unverified, and reversing all four still yields no survivor. Also repaired AGENTS.md, which told every agent to run a suite command that fails all 42 modules with ModuleNotFoundError. 588 tests pass, doc lint exits 0. Cost: a concurrent instance of session 044 closed that stream mid-session, so this work's commits predate this record; and the other VM took F025-F028 and EXPERIMENTS/011 first, so this side renumbered to F029/F030/F031 and experiment 012 on the unpushed side.
+
+## Next
+
+Build the repository-signal recurrence filter and re-harvest through it: count distinct repositories above a star threshold rather than raw issue counts, which are full-text self-selection and overstated the cluster badly. Then test the cluster with the strongest measured recurrence -- changes a coding agent makes that nobody asked for -- against its own stated falsification. Its cheap local corpus is this repository's own 375 commits with their task and session requirements, which also answers whether the repo's 22 recorded defects are instances of it. Alternative if that is blocked: STATE.md records the selection procedure itself as the suspect (twelve candidates, twelve prior-art deaths), and which axis replaces novelty is an owner decision, not a tooling one.
 
 ## Artifacts
 
@@ -65,11 +69,14 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 3 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/011-candidate-harvest/README.md |
+|   error | DECISIONS.md was not updated although the session recorded decision |
+|   error | FAILURES.md was not updated although the session recorded experiment_result |
+|   error | HYPOTHESES.md was not updated although the session recorded experiment_result |
 
 ## Timeline
 
@@ -107,6 +114,11 @@ _none_
 | 30 | 20:43:32 | artifact | wrote EXPERIMENTS/012-candidate-harvest/raw/recurrence_probe.json |
 | 31 | 20:43:33 | artifact | wrote EXPERIMENTS/012-candidate-harvest/raw/verify_prior_art.json |
 | 32 | 20:43:34 | milestone | consolidated E012 into one directory after the renumbering left two indexed copies |
+| 33 | 20:44:05 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/011-candidate-harvest/README.md |
+| 34 | 20:44:05 | integrity_error | DECISIONS.md was not updated although the session recorded decision |
+| 35 | 20:44:05 | integrity_error | FAILURES.md was not updated although the session recorded experiment_result |
+| 36 | 20:44:05 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 37 | 20:44:05 | session_end | Tested D048's invention seat rather than filling it. A live corpus of 1401 practitioner need statements (Hacker News, since 2024-01-01) was harvested, |
 
 ## Reproduce this record
 

@@ -132,25 +132,40 @@ rebases respectively, and the stream is closed and is not edited, as with sessio
 
 Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
-push this reload point past the line cap.
+push this reload point past the line cap. That cap has now been hit by this file
+five times, and each repair moved material to the file whose invariant owns it.
 
+- **Sessions 050-051, VM 0944 (F029, F030, D049, E012).** D048's invention seat
+  was **tested rather than filled**: 1401 need statements harvested from Hacker
+  News since 2024-01-01, 50 drawn by a stated rule, **0 survived the screens**
+  (38% prior art, 30% no mechanism, 24% not software, 8% needing hardware)
+  against the prior generator's own 3-of-16. A need statement is not a candidate,
+  and a need corpus cannot supply recurrence — term recurrence over 1273 clauses
+  returns only function words — while an issue corpus counted **by repository**
+  does (5805 issues across 28 repositories for the one cluster that recurred by
+  eye). F030 is the methodological by-product: one search query decides a
+  prior-art verdict wrongly in both directions. **What it changed is the
+  pipeline's inputs, not a candidate's state** — and the owner decision already
+  recorded above, on which axis candidates are now selected, is the binding one.
+  **Two costs recorded:** a concurrent instance of session 044 closed that
+  stream mid-session, so these commits predate session 050's record; and the
+  renumbering from `EXPERIMENTS/011` to `012` was applied to the README while
+  the rebase that renamed the directory was discarded, leaving two indexed copies
+  of one experiment that no gate could see, consolidated in `c38f1b4`.
 - **Session 047, VM 0947 (T-0058, F028).** The flat adoption tail is vocabulary
   age, not niche: `build provenance` / `supply chain audit` carry long-lived or
   vendor-official outliers, so a stars-based "plausible adoption path" criterion
   is uninformative for a vocabulary younger than a few years — which is where
   every candidate lives. Census in
   [`EXPERIMENTS/011-niche-adoption-census`](EXPERIMENTS/011-niche-adoption-census/README.md).
-  **Which axis replaces the criterion is an owner decision**, and is recorded as
-  such.
+  **Which axis replaces the criterion is an owner decision**, and is recorded as such.
 - **Session 045, VM 0947 (F026, F027).** This repository's own tooling was tested
-  as a candidate for the first time, and it is prior art: `gitreceipts`
-  reconciles a coding-agent session log against git history in both directions,
-  which covers more than `unlogged_change`. Worse for the mission's self-image,
-  that project's `KNOWN-LIMITATIONS.md` argues the same three positions this
-  repository reached over 87 sessions. Twelve candidates, twelve prior-art
-  deaths, so prior-art survival cannot be the selection filter. The head-to-head
-  was **not run** — `cargo` is absent here. Full account:
-  [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md).
+  as a candidate for the first time and is prior art: `gitreceipts` reconciles a
+  coding-agent session log against git history in both directions, covering more
+  than `unlogged_change`, and its `KNOWN-LIMITATIONS.md` argues the same three
+  positions this repository reached over 87 sessions. Twelve candidates, twelve
+  prior-art deaths. The head-to-head was **not run** — `cargo` is absent here.
+  Full account: [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md).
 - **Sessions 043-044, VM 0944 (F031, D048, D049, E012).** Session 043 measured
   where effort went — 1.3% of day-two commits touched `EXPERIMENTS/`, 4.8:1
   record to measurement (F031) — and D048 gave the list an invention item.
@@ -160,16 +175,15 @@ push this reload point past the line cap.
   screens** (F029), a prior-art verdict from one query is wrong in both
   directions (F030), and the missing input named — recurrence counted by
   repository, not by request (D049). **Renumbered F028/F029 → F029/F030 and
-  `EXPERIMENTS/011` → `012` on the unpushed side**, because the other VM had
-  taken those first.
-- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21 nine
-  minutes apart; the unpushed side yielded whole. Rule in
+  `EXPERIMENTS/011` → `012` on the unpushed side**, because the other VM had taken those first.
+- **Session 040 (T-0054, cancelled).** Two VMs found defect 21 nine minutes apart;
+  the unpushed side yielded whole. Rule in
   [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Sessions 034-038 (T-0050, T-0052, T-0053).** `reconcile` reused the line
   cap's exemption predicate, so version records changed undeclared and unpriced
-  (F022, `FAILURES-findings-5.md`); a rebase carried a duplicated dashboard row
-  past every gate (D043); a hand-run rebase recorded nothing, so its paths were
-  attributed to whoever held the tree (T-0053).
+  (F022); a rebase carried a duplicated dashboard row past every gate (D043); a
+  hand-run rebase recorded nothing, so its paths were attributed to whoever held
+  the tree (T-0053).
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -267,21 +281,20 @@ pushes via the GitHub App as `Ihsan Ai Server Bot`.
 - All six investigation roles are sealed (`RESEARCH/A.md`–`F.md`), and
   `RESEARCH/SYNTHESIS.md` compares them. The synthesis is `inferred` from prose:
   it reorders and screens existing claims and measures nothing itself.
-- No invention claim has been validated. Three claims have been **disproved**: A1
-  in its motivating regime (F006), C2's measurement-design advantage (F008), and
-  the knitting planner's algorithmic advantage (F009, by prior art rather than by
-  measurement). E's mechanisms remain unvalidated: E1 and E2 are `untested`, and
-  E3's declared gate could not fail (F010).
-- Every candidate has substantial prior art; none has passed prior-art review.
-  One prior-art review is now recorded and negative in its decisive half
-  (`RESEARCH/PRIOR-ART-KNITTING.md`).
-- The screen's own weakness: it is decidable from prose, which makes it cheap and
-  also vulnerable to a persuasive report. What it guarantees is that the *next*
-  experiment is worth running, not that a rejected candidate is worthless.
+- No invention claim has been validated. Three claims are **disproved**: A1 in its
+  motivating regime (F006), C2's measurement design (F008), and the knitting
+  planner's algorithmic advantage (F009, by prior art). Two further *lines* died
+  without a candidate: this repository's own tooling read as prior art (F026) and
+  live need harvesting as a generator, 0 of 50 (F029). E's mechanisms remain
+  unvalidated: E1 and E2 are `untested`, E3's declared gate could not fail (F010).
+- Every candidate has substantial prior art, and none has passed prior-art review:
+  twelve candidates, twelve prior-art deaths. Two prior-art reviews are recorded
+  and negative in their decisive halves (`RESEARCH/PRIOR-ART-KNITTING.md`,
+  `RESEARCH/PRIOR-ART-ORIGIN.md`), and a verdict needs more than one phrasing (F030).
+- The screen's own weakness: decidable from prose, so cheap and also vulnerable to
+  a persuasive report. It guarantees the *next* experiment is worth running.
 - The tooling's own coverage is demonstrated by its tests, not by independent
   reproduction. `tests/README.md` lists what is and is not covered.
 - Unattended execution is not implemented. What exists is the record that makes an
-  interrupted run recoverable, plus detection that reveals when it did not happen.
-
-Three earlier sessions are recorded in [`STATE-history.md`](STATE-history.md)
-rather than here, as are all three red runs this VM published on 2026-10-04.
+  interrupted run recoverable, plus detection that reveals when it did not happen,
+  and the session-by-session account lives in the two history files named above.

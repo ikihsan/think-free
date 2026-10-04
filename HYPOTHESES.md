@@ -29,6 +29,17 @@ pair), `006-ventilation-measurement-design` (C2), and
 `007-build-timestamps` (E3's prevalence census) and
 `008-build-timestamp-attribution` (its cause attribution).
 
+**E012 tested the generator, not a candidate** (`EXPERIMENTS/012-candidate-harvest/`).
+Its declared kill gate: if one harvested need statement yielded a candidate passing
+Screen 1 and Screen 3, live harvesting becomes the mission's candidate generator.
+50 statements drawn by a stated rule from 1401 harvested; **0 survived** — 38%
+prior art, 30% stating no mechanism, 24% not software needs, 8% needing hardware.
+No candidate entered or left this table because none was produced. What it
+changed is the pipeline's *inputs*: a need corpus supplies a problem statement and
+cannot supply recurrence, while an issue corpus counted by repository does
+(F029, D049). The corpus is kept as a dated, countable problem-statement source
+and the harvesting route is closed as a generator.
+
 **One recorded result belongs to none of these.** T-0034 measured the test suite
 on the CPython versions the fleet's own record named as never run, and found two
 gates asserting that the machine running them was covered by that record
@@ -150,9 +161,13 @@ cost, or the willing users are already served by QICO2/NVAPF-class tools.
 
 1. Agreement among the sealed investigations is weak evidence: they share a model,
   so they are procedurally independent and not epistemically independent.
-2. Every candidate so far has substantial prior art. That is the base rate for
-   the ideas an agent can generate, and it is the reason the prior-art skill
-   exists.
+2. Every candidate so far has substantial prior art — twelve candidates, twelve
+   prior-art deaths, the twelfth being this repository's own tooling (F026). That
+   is the base rate for the ideas an agent can generate, it is why the prior-art
+   skill exists, and it is why prior-art survival cannot be the selection filter.
+   A verdict also needs more than one phrasing on more than one corpus: one
+   search query returned 502 irrelevant hits, another returned 0 for an idea with
+   29–83 repositories behind it (F030).
 3. No candidate has passed the information-sufficiency test yet. Two of the
    rejected proposals in `RESEARCH/D.md` were killed by it in ten lines of code.
 4. Nothing here has a user. Every usefulness statement is `inferred` or
