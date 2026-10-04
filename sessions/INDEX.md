@@ -15,7 +15,7 @@ Showing the 25 most recent. 28 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | **unfinished** | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:47 |
+| [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | worked | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:48 |
 | [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
 | [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 | [2026-10-04-006-t-0032-record-the-python-versions-the-su](2026-10-04-006-t-0032-record-the-python-versions-the-su/README.md) | opencode | partial | T-0032: record the Python versions the suite has actually run on, the  | 2026-10-04T02:06 |
