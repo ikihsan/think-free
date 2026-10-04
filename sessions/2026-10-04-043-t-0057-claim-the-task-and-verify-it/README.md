@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** unknown
-- **Duration:** ?s
+- **Duration:** 966.7s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `unknown`
 
@@ -23,7 +23,11 @@ _(none recorded)_
 
 ## Summary
 
-_(none recorded)_
+The tip was red and the annotations could not say why: three tests had failed on identical bytes and every public annotation ended one frame short of the exception, because the Tests step's twelve-line window took the first lines of a traceback and the exception is always the last one. Anchored the window on the end of the block, one command per failure joined with %0A, falsified against the defect's own bytes with the previous program kept in the test; the falsification found two bugs in the first repair. Renumbered to defect 23 and F025 after idcheck refused the land over the other VM's T-0056. 585 tests, doc lint and preflight green; six of seven CI rows green with the seventh red on this open session, the case STATE-next-actions 2(c) names.
+
+## Next
+
+The flake itself is still untested: three tests failed on identical bytes and the whole suite did not reproduce it on this VM in six runs. make_fleet builds a bare remote plus two clones per test class and is the only thing here that scales with the number of tests - measure that rather than guess.
 
 ## Artifacts
 
@@ -49,11 +53,11 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 1 |
 | redactions applied to command output | 0 |
+|   error | HYPOTHESES.md was not updated although the session recorded experiment_result |
 
 ## Timeline
 
@@ -73,6 +77,11 @@ _none_
 | 12 | 19:12:47 | experiment_result | three tests failed CI on identical bytes and the annotations carried no cause; the window dropped the exception, which is always the last line |
 | 13 | 19:13:14 | note | Correction: the previous event's identifier E001 is wrong and carries no meaning here - E001 is the photo-baseline experiment of 2026-10-03. The event |
 | 14 | 19:13:36 | task_rewrite | rewrote tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md (status: done) |
+| 15 | 19:13:36 | task_rewrite | appended a complete record for T-0057 |
+| 16 | 19:16:28 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 17 | 19:16:28 | doc_update | updated FAILURES.md |
+| 18 | 19:16:28 | doc_update | updated STATE.md |
+| 19 | 19:16:28 | session_end | The tip was red and the annotations could not say why: three tests had failed on identical bytes and every public annotation ended one frame short of  |
 
 ## Reproduce this record
 
