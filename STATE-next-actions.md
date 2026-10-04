@@ -40,6 +40,13 @@ of those it cannot touch.
    it is affordable — and it is the only diagnostic that needs no rights.
    **Ceiling:** neither closes the general problem; they narrow where a
    hand-maintained identifier list and an unreadable log can hide a defect.
+   A third, cheaper observation belongs here: a commit published while a session
+   with **no task and no claim** is open is red on the session step, twice in an
+   hour on 2026-10-04 (runs `37174316639`, `37181374433`), each green on the next
+   commit. D027's predicate can only prove a session alive from a claim, so a
+   taskless session has nothing to point at. `docs/operations/ci.md` now says how
+   to recognise this case from the run alone, which is the cheap half; the other
+   half is whether a taskless session should publish code commits at all.
 2. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from

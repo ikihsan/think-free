@@ -155,6 +155,18 @@ API. Until then, local reproduction is the diagnostic: every version the matrix
 runs can be reproduced on a VM with a portable interpreter, and any git version
 with a package unpacked outside the repository.
 
+**One red step is not a defect: a session in flight.** The session step passes
+`--strict`, and a commit published while a session is open has an unfinished
+session by definition. Two cases, and the distinction is worth reading off the
+run: a session that **claimed a task** is reported `in flight` and re-emitted as
+a `::warning::`, which is the D027 lease doing its job; a session with **no task
+and no claim** naming it has nothing to prove it is alive, so it is reported as a
+failure. Observed on 2026-10-04 twice in an hour — runs `37174316639` and
+`37181374433`, each red only on `Session record integrity` and each green on the
+next commit, which is the session commit that closes it. **So a red session step
+on a commit that is not the last one on the branch is expected**, and the way to
+confirm it is to look at the following run rather than the log.
+
 **A pass that hides why is a pass nobody can trust.** The session step writes the
 verifier's own output to a log and re-emits each in-flight line as a
 `::warning::` annotation, for the same reason the test step re-emits failures:

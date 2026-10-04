@@ -48,6 +48,14 @@ Artifacts are refused when they contain something matching a credential
 pattern, because the file itself is the exposure. Redacting an artifact would
 corrupt it, so the correct response is to fix the file.
 
+**In practice, declare every file you change, not only the interesting ones.**
+`session finish` reports any changed-but-undeclared path as an
+`unlogged_change`, so the real choice is between a declared file and a reported
+gap. Three consecutive sessions chose the gap — session 012 closed with 24
+events, session 015 with 4 — and neither could be logged afterwards, because a
+closed stream accepts nothing. The tool cannot tell an interesting file from a
+dull one; it can only tell a declared one from an undeclared one.
+
 ## 3. Route evidence-producing commands through `tools/x`
 
 ```bash

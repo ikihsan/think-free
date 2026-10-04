@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-58 recorded session(s). One `events.jsonl` per session, so concurrent
+59 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 33 older session(s) are in the directory listing.
+Showing the 25 most recent. 34 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | **unfinished** | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:00 |
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |
 | [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | worked | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:40 |
 | [2026-10-04-013-t-0035-stop-the-credential-sandbox-from](2026-10-04-013-t-0035-stop-the-credential-sandbox-from/README.md) | opencode | worked | T-0035: stop the credential sandbox from inheriting a CI runner's GITH | 2026-10-04T04:57 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 33 older session(s) are in the directory listing.
 | [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
 | [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
 | [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
-| [2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu](2026-10-03-034-snapshot-side-a-of-the-e2-lockfile-closu/README.md) | opencode | worked | Snapshot side A of the E2 lockfile closure drift comparison | 2026-10-03T22:26 |
 
 
 ## Reading a session
