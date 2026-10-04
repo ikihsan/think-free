@@ -131,6 +131,11 @@ Separate from the invention stages, because the mission cannot be run without it
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
 - [x] Machine-readable exercised-git-versions record (`tests/git-versions.json`, T-0018)
+- [x] Identifier allocation from the shared base for F, D and T, with the record
+      it was read from printed by every command that hands out a number
+      (`tools/originlib/idalloc.py`, `origin id next`, T-0031). Twelve
+      collisions between two VMs in two days were the cost of allocating from a
+      working tree instead
 - [x] Decision log split by invariant a second time (`DECISIONS-GATING.md`, T-0018)
 - [x] Environment doctor with presence-only credential checks
 - [x] Continuous integration running lint, tests, release manifest, and session
@@ -202,8 +207,10 @@ the one builder this machine has. E2's time-gated drift comparison is scheduled
 
 The tooling itself is not finished, and what remains is *fleet* work rather than
 invention work: `doctor` does not compare a VM's git against
-`tests/git-versions.json`; reconciliation compares trees rather than authorship,
-so a VM that lands another's work inherits its reports; and identifiers are
-allocated from each VM's own tree, so two VMs in an hour collide and renumber
-afterwards — six times on 2026-10-03. T-0020 is the pattern for the rest: run
-the documented sequence, and fix what it actually does.
+`tests/git-versions.json`, and there is still no equivalent record for Python.
+Identifiers are allocated from the shared base and the record is printed
+(T-0031), so a stale tree no longer collides — but two VMs allocating between
+their own fetches still do, and T-0030's detector is what catches that; see
+[`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
+T-0020 is the pattern for the rest: run the documented sequence, and fix what it
+actually does.

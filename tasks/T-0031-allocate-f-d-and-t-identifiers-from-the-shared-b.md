@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0031
-status: claimed
+status: done
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 
@@ -50,3 +50,41 @@ Delete tools/originlib/idalloc.py, the two-line hook in tasks.next_task_id, the 
 
 Append observations here. Record outcomes as events with
 `tools/origin session experiment-result`.
+
+## Outcome
+
+`observed`. `tools/originlib/idalloc.py` allocates F, D and T from
+`origin/<base>` plus this working tree, and `origin id next T|F|D` reports the
+same answer for a finding or a decision number.
+
+**Falsified first, per D025.** Against the unfixed allocator the stale-clone
+test returned `T-0002` where the base already defined `T-0002` — the collision
+itself, not a proxy — and a deleted task file recycled its number. That first run
+also failed three tests for the wrong reason: `test_an_unreachable_base` reported
+a configured-but-unreadable base as current (a real defect in the code under
+test, found because the test ran first), and `test_no_remote_...` sat in the
+fleet class when it belonged in the no-remote one. Both were repaired before the
+implementation was trusted.
+
+**Two further defects found by running this task's own verification:**
+
+- `session start` called `_refresh_reports` *before* appending `session_start`,
+  so the report it wrote was a `_No events recorded._` stub with no
+  `origin-meta` block and `sessions/INDEX.md` listed no session. `doc lint`
+  therefore failed on the two files the session had just created, for as long as
+  the session was open — which is the only time anyone lints. Falsified by
+  stashing the fix and re-running the two new tests.
+- `cli.py` (314) and `tasks.py` (304) passed the 300-line cap once the new
+  command and reader were in them. The parser moved to `cli_args.py` and the
+  task template to `tasktemplate.py`; both are pure moves.
+
+**Ceiling, unchanged in kind.** Two VMs allocating between their own fetches
+still collide and an unpushed number reserves nothing. That is caught by the
+push rejection and by T-0030's detector, not prevented here. What changed is
+that a stale tree — the condition behind all twelve collisions — decides nothing.
+
+**Split.** `STATE.md` was at 299 of 300 lines, so its next-actions section moved
+to `STATE-next-actions.md` rather than being squeezed; `RELEASE-MANIFEST.md`
+classifies the new file (found by `release check`, which is what it is for).
+
+329 tests green; `doc lint`, `release check` and `preflight` all exit 0.
