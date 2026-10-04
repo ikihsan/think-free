@@ -54,13 +54,19 @@ of those it cannot touch.
    statement is not a candidate; the generator is refuted and the corpus kept.
    E2's lockfile claim advanced one step meanwhile — `EXPERIMENTS/009` side B,
    **zero drift at ~21h**, a fast-drift null only, verdict still gated on the
-   days-to-weeks mark. **The named gap is the missing input, not a new source:**
-   a need corpus cannot tell one person's wish from a shared need — term
-   recurrence over 1273 clauses returns only function words — while the same
-   cluster counted *by repository* gives 5805 open issues across 28
-   repositories (`"not asked for"`) and 14510 across 29 (`"unrelated
-   changes"`), with `claude-code` and `copilot-cli` in the sets. D049 splits
-   the two inputs. **Ceiling:** the counts are full-text self-selection and
+   days-to-weeks mark. **Measured on 2026-10-04, session `-055`, `EXPERIMENTS/014`:** the recurrence
+input was built and the strongest cluster tested first — and failed its own
+gate. Restricted to repositories whose own metadata belongs to the
+coding-agent area, every one of the four queries collapses by more than 100×
+(`"not asked for"` 5813→15, `"unrelated changes"` 14513→28, `"scope creep"
+agent` 2235→76, `"unrelated file" copilot` 412→33). D049's two-input split
+still stands as a recording rule; as a pipeline it produced one negative.
+F033 is the record. **What remains open from this thread:** the filter can
+only exclude, not confirm membership, and the unverified majorities in its
+failing half are where a genuinely cross-project problem could hide — a
+query over a different, larger corpus (issues with repository metadata
+rather than search), or a cluster with a different phrasing, is the honest
+next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-selection and
    need a repository-signal filter before they mean anything; F030 is why — one
    query produced 502 irrelevant hits through `in:readme`, and another 0 for an
    idea with 29-83 repositories behind it. **Ceiling:** this item names where
