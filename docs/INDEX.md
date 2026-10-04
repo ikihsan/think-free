@@ -111,6 +111,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md`](../tasks/T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0036-report-a-duplicate-defect-number-in-state-defect.md`](../tasks/T-0036-report-a-duplicate-defect-number-in-state-defect.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0037-explain-the-four-red-ci-runs-since-the-version-m.md`](../tasks/T-0037-explain-the-four-red-ci-runs-since-the-version-m.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0038-record-that-the-public-check-run-annotations-wer.md`](../tasks/T-0038-record-that-the-public-check-run-annotations-wer.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
