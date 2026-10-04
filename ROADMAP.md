@@ -244,5 +244,11 @@ Identifiers are allocated from the shared base and the record is printed
 (T-0031), so a stale tree no longer collides — but two VMs allocating between
 their own fetches still do, and T-0030's detector is what catches that; see
 [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
+The same class of gap is now closed in the reader: a red CI run is diagnosable
+without admin rights, because the check-run annotations name the failing test
+and were public all along (`FAILURES.md` F020, T-0038). What is left there is
+that three of the five gate steps emit no annotation naming their violation, and
+that the endpoint answers "nothing" in three different ways, one of them a 403
+from the unauthenticated rate limit.
 T-0020 is the pattern for the rest: run the documented sequence, and fix what it
 actually does.

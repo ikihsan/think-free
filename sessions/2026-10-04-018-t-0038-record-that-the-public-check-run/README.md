@@ -35,6 +35,7 @@ _(none recorded)_
 | docs/operations/ci.md | 829d7330a043 | 16073 |
 | STATE.md | 07087241e5bc | 24151 |
 | STATE-next-actions.md | 736296a0281e | 10679 |
+| ROADMAP.md | 7896d3ef2917 | 14998 |
 
 ## Commands
 
@@ -71,6 +72,7 @@ _(none recorded)_
 | 9 | 07:09:46 | artifact | wrote STATE.md |
 | 10 | 07:09:47 | artifact | wrote STATE-next-actions.md |
 | 11 | 07:14:18 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 12 | 07:16:59 | artifact | wrote ROADMAP.md |
 
 ## Reproduce this record
 
