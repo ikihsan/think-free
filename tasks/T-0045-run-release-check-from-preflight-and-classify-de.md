@@ -6,11 +6,11 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0045
-status: open
+status: claimed
 created: 2026-10-04
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-04-027-classify-decisions-records-md-in-the-rel
+claim-vm: instance-20260717-0947
 verify: PYTHONPATH=tools:tests python3 -m unittest tests.test_cli tests.test_release -q && tools/origin doc lint && tools/origin preflight
 -->
 
