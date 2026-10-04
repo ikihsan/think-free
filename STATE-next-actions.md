@@ -18,45 +18,59 @@ of those it cannot touch.
 ## Ordered by information gained per unit of effort
 
 0. **Decide what the mission selects candidates on, now that novelty cannot be
-   the filter.** Twelve candidates, twelve prior-art deaths, the twelfth being
-   `tools/origin` itself — mechanism prior art six weeks old, discipline
-   independently reinvented, and every project in the niche at zero adoption
-   (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). Prior-art survival cannot be
-   the selection procedure, because nothing this mission produces passes it.
-   This is an **owner decision**: which axis replaces it (usefulness measured
-   without users, distribution, domain knowledge, or something not yet named),
-   and whether publishing the tooling as-is is ever on the table. **Ceiling:**
-   F027's sample is small and self-selected, and 0 stars is a weak proxy with
-   known false negatives (`ripgrep`, `jq`). T-0058 extended the sample (F028):
-   the flat tail reproduces in two other young vocabularies and appears only
-   in established ones, so the criterion is uninformative specifically for
-   vocabularies younger than a few years. Nothing here is blocked on tooling.
- 0b. **Measure the CI flake — deferred, and the deferral is a decision rather
-    than an oversight.** Three tests failed on identical bytes (runs
-    `37219755262`, `37220040091`) and six full suite runs on
-    `instance-20260717-0947` did not reproduce it; T-0057 made the annotation
-    carry the exception so the *next* occurrence names itself, which is the
-    cheap half. The expensive half is the measurement nobody has taken:
-    `make_fleet` copies the whole tooling tree into a fresh bare remote plus two
-    clones **per test class**, so fixture cost scales with the number of tests
-    and a 2-CPU runner is the only place it shows. **It is 0b because CI is
-    green and nothing is blocked on it.** Worth taking when a VM is otherwise
-    idle; not worth displacing a research question for.
+   the filter — and the premise behind the old filter is now measured.** Twelve
+   candidates, twelve prior-art deaths, the twelfth being `tools/origin` itself
+   (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). F034 measures the prior-art
+   verdict's own premise on the population that screen consulted: **4 of 4
+   on-topic incumbents in mature vocabularies are served, 1 of 4 in a young
+   one.** The screen is therefore sound where it is least load-bearing and unsound
+   precisely where this mission's candidates live — which is neither a reason to
+   keep it nor a reason to drop it, but a reason to state the axis in terms of
+   the vocabulary a candidate sits in. Still an **owner decision**: which axis
+   replaces it (usefulness without users, distribution, domain knowledge, or
+   something not yet named), and whether publishing the tooling as-is is ever on
+   the table. **Ceiling:** F034's own gate is `inconclusive` — 43% of incumbents
+   were undecided against a declared 20% ceiling — and its young arm rests on
+   four decided rows. F027's sample is small and self-selected, and 0 stars is a
+   weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
+   blocked on tooling.
+0c. **The cheapest question the new measurement opens, and it is not a
+   candidate.** F034 could read serving evidence for 57% of the incumbents its
+   own population contained, and 22% in the young vocabulary. **A screen whose
+   premise is unmeasurable in four cases out of five is not a screen**, and that
+   is a statement about the world's distribution rather than about this
+   repository's tooling: tools that are used and ship nothing any registry
+   carries are common enough to make "prior art exists" undecidable. Measuring
+   *what fraction of a population is undecidable* — and whether the fraction
+   predicts anything about the need — needs no candidate and no users, and its
+   falsifier is a population where the unmeasurable fraction is near zero.
+   **Ceiling:** 015's `placebo.py` shows the instrument *can* read unpopular
+   projects when it looks for readable ones, so "unmeasurable" here is partly an
+   artefact of which channels were consulted. The follow-up must state the
+   channel set, or it measures the instrument rather than the world.
+  0b. **Measure the CI flake — deferred, and the deferral is a decision rather
+     than an oversight.** Three tests failed on identical bytes and six full
+     suite runs did not reproduce it; T-0057 made the annotation carry the
+     exception so the *next* occurrence names itself, which is the cheap half.
+     The expensive half is the measurement nobody has taken: `make_fleet` copies
+     the whole tooling tree into a fresh bare remote plus two clones **per test
+     class**, so fixture cost scales with the number of tests and a 2-CPU runner
+     is the only place it shows. **It is 0b because CI is green and nothing is
+     blocked on it.** Worth taking when a VM is idle; not worth displacing a
+     research question for.
 
-0. **Invention item (D048).** Every item below had been gates, CI diagnosis,
-   identifier allocation, generated-file freshness or line caps — F031's
-   complaint — so this entry holds the seat for candidate work. **What it holds
-   is a measurement, not a candidate.** `EXPERIMENTS/012-candidate-harvest`
-   harvested 1401 practitioner need statements from Hacker News comments since
-   2024-01-01, drew 50 by a stated rule, and **screened 0 of them through**:
-   38% already served, 30% stating no mechanism, 24% not software needs, 8%
-   needing hardware, against the prior generator's own 3-of-16 (F029). A need
-   statement is not a candidate; the generator is refuted and the corpus kept.
-   E2's lockfile claim advanced one step meanwhile — `EXPERIMENTS/009` side B,
-   **zero drift at ~21h**, a fast-drift null only, verdict still gated on the
-   days-to-weeks mark. **Measured on 2026-10-04, session `-055`, `EXPERIMENTS/014`:** the recurrence
-input was built and the strongest cluster tested first — and failed its own
-gate. Restricted to repositories whose own metadata belongs to the
+0d. **Invention item (D048).** **What this seat holds is a measurement, not a
+   candidate, and both candidate generators under it have now closed.** The live
+   corpus produced 0 of 50 (F029); the repository-signal recurrence hypothesis
+   collapsed every one of F029's four clusters by >100× (F033). **What remains
+   is the question F034 opens, and it is a candidate question:** in a vocabulary
+   where the prior-art premise is unmeasurable, what evidence distinguishes a need
+   someone has from a need nobody has? E2's lockfile claim is the only mechanism
+   still live — `EXPERIMENTS/009` side B, **zero drift at ~21h**, a fast-drift
+   null only, verdict still gated on the
+   days-to-weeks mark. **The recurrence input was built and the strongest
+   cluster tested first, and failed its own gate.** Restricted to repositories
+   whose own metadata belongs to the
 coding-agent area, every one of the four queries collapses by more than 100×
 (`"not asked for"` 5813→15, `"unrelated changes"` 14513→28, `"scope creep"
 agent` 2235→76, `"unrelated file" copilot` 412→33). D049's two-input split
@@ -66,11 +80,10 @@ only exclude, not confirm membership, and the unverified majorities in its
 failing half are where a genuinely cross-project problem could hide — a
 query over a different, larger corpus (issues with repository metadata
 rather than search), or a cluster with a different phrasing, is the honest
-next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-selection and
-   need a repository-signal filter before they mean anything; F030 is why — one
-   query produced 502 irrelevant hits through `in:readme`, and another 0 for an
-   idea with 29-83 repositories behind it. **Ceiling:** this item names where
-   invention work goes, it does not make invention happen.
+next probe, and it is not scheduled. **Ceiling:** the counts are full-text
+   self-selection; F030 is why — one query produced 502 irrelevant hits through
+   `in:readme`, and another 0 for an idea with 29-83 repositories behind it.
+   **This item names where invention work goes; it does not make it happen.**
 
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
@@ -226,14 +239,14 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-
   happened while fixing it.
 - A test fixture must build the machine it claims to build, **including the
   environment**. Three CI runs were red while both VMs were green because a
-  fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form of the
-  same lesson was a fixture naming a `/tmp` path that existed on one VM only.
+  fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form was a
+  fixture naming a `/tmp` path that existed on one VM only.
 - **A gate that reads its own environment is only as portable as the record of
   that environment** (F018, F019). Two assertions in one file said "this machine's
   tools are in the records"; each was green on the machine that wrote it and red
   elsewhere for opposite reasons — the interpreter one on every version the record
   lacked, the git one on a CI runner shipping git 2.55.0. Assert the artefacts and
-  the contract, and state the environment gap as data (`not_exercised`).
+  the contract; state the gap as data (`not_exercised`).
 - **A gate belongs in the one command the protocol tells every agent to run**
   (T-0045). T-0042's `verify` passed over an unclassified root document because
   `preflight` did not run `release check`; `preflight` runs four gates now, and
@@ -243,16 +256,12 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-
   asserts on that line and not on the exit code.
 - **A second instance closing a session while this one is open leaves two reports
   that are not defects, and both need saying.** Observed 2026-10-04: an instance
-  of session `044` ran to its `finish` at seq 20 while this VM's later work was in
-  progress, so (a) that work's commits predate any record of it, because
-  `session start` refuses a dirty tree and the work had to be committed first, and
-  (b) the stream's own `finish` appended to its `events.jsonl` **after** the next
+  of session `044` ran to its `finish` while this VM's later work was in progress,
+  so that work's commits predate any record of it (`session start` refuses a dirty
+  tree), and the stream's `finish` appended to `events.jsonl` after the next
   session opened, which that session correctly reported as an unlogged change to a
-  closed stream. Neither is a hole in the record — `session verify` passes and the
-  closed stream carries its own `integrity_error` events — but a reader who meets
-  only the report will read both as gaps. There is no attribution rule for a
-  session stream another instance closes mid-session; D028 covers a *base move* and
-  `landrebase.recover` covers a hand-run rebase, and neither reaches here.
+  closed stream. Neither is a hole — `session verify` passes — but a reader meeting
+  only the report will read both as gaps. No attribution rule reaches this case.
 - **When a gate is red somewhere you cannot reproduce, check the task ledger
   before reproducing anything.** VM 0947 was already diagnosing the same four runs
   (F019) while this VM created T-0037 to do it, and about forty minutes of
@@ -261,11 +270,10 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-
   consecutive red runs on the base were each diagnosed by reading them, with no
   reproduction at all (`observed` 2026-10-04).
 - **A refusal must be followable by the tool that gave it** (D039, T-0048). `sync land`
-  stopped on a real conflict and said *resolve it and land again*; the second `land`
-  refused on the dirty tree that resolving leaves, so the instruction could not be
-  followed and the only way out was a hand-run `git rebase --continue` — which records
-  no `base_advance` and so attributes the base's own paths to whoever resolved the
-  conflict. That is defect 2's ceiling reached through a message rather than a mistake.
+  stopped on a conflict and said *resolve it and land again*; the second `land`
+  refused on the dirty tree that resolving leaves, so the only way out was a hand-run
+  `git rebase --continue` — which records no `base_advance` and attributes the base's
+  own paths to whoever resolved. Defect 2's ceiling reached through a message.
   `land` now completes the rebase itself; **still refused:** an unresolved conflict, a
   path dirty and *not* staged (the continuation commits the whole index), and a
   continuation that fails.
@@ -274,16 +282,19 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text self-
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
   rather than only before committing — `observed`, and written up in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- **`DECISIONS-GATING.md` was at 297 of 300 on 2026-10-04 and T-0042 split it**, so
-  the gating decision T-0040 owed could be written: D037 in T-0046, with D038 beside
-  it. A decision still does **not** go into whichever decision file happens to have
-  room — that is the mistake the reversed split of 2026-10-04 was made of. Allocate
-  with `origin id next D` after reading the base; the header and the `DECISIONS.md`
-  row are both read by `tools/originlib/decisionheader.py`, so all three have to move
-  together.
-- **Three records were at 300 of 300 on 2026-10-04 and still are.** `STATE.md` and
-  `STATE-defects.md` took T-0046's entry by removing a section that restated a rule
-  its own preamble already gave; `FAILURES-findings-4.md` is at 297 after F021. The
-  next entry in any of them needs a split, and `STATE-defects.md` cannot be split
-  inside its own numbered list without `tools/originlib/defectlist.py` reading more
-  than one file — so that split is a task, not an edit.
+- **A decision does not go into whichever decision file has room.** Allocate with
+  `origin id next D` after reading the base; the header and the `DECISIONS.md` row
+  are both read by `tools/originlib/decisionheader.py`, so all three move together.
+- **Five records have arrived at the 300-line cap**, every time repaired by moving
+  material to the file whose invariant owns it. `STATE-defects.md` cannot be split
+  inside its own numbered list without `defectlist.py` reading more than one file,
+  so that split is a task. T-0060's two arrivals: `attribution.py` owns *how a
+  figure is read and whether it belongs to the project measured*, `selfcheck.py`
+  owns *the falsification of the instrument rather than another channel*, and
+  `verdict.py` owns the floors, so the gate's constants live with the gate.
+- **A module imported by the suite must be uniquely named across the repository**
+  (defect 24). Two experiments had a `stats.py`; each test file passed alone and
+  25 cases failed together, because `sys.modules` keeps the first import and
+  nothing reported that the second file was reading the other one. Found by adding
+  two experiments in the same hour, not by a gate; `doc lint` reads documents and
+  cannot see it.

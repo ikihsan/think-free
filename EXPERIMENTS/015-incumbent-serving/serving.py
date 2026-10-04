@@ -34,62 +34,10 @@ pushes towards low.
     python3 serving.py --selfcheck
 """
 
-import json
-import re
 import sys
 import time
-import urllib.error
-import urllib.parse
-import urllib.request
 
-UA = "origin-incumbent-serving/1 (think-free T-0060)"
-REFUSED = "refused:upstream"
-
-# The floors are declared in the experiment's kill gate before any count is read.
-FLOOR_RATE = 1000        # installs or downloads in 30 days
-FLOOR_RELEASE = 10000    # release-asset downloads, cumulative
-FLOOR_DOCKER = 100000    # docker pulls, cumulative
-
-
-def get(url, timeout=30):
-    """Body text, None for a genuine 404/400, REFUSED for anything else."""
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return r.read().decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        return None if e.code in (404, 400, 422) else REFUSED
-    except Exception:
-        return REFUSED
-
-
-def jget(url, timeout=30):
-    body = get(url, timeout)
-    if body is REFUSED:
-        return REFUSED
-    if not body:
-        return None
-    try:
-        return json.loads(body)
-    except ValueError:
-        return REFUSED
-
-
-REPO_IN_URL = re.compile(r"github\.com[:/]+([^/\s]+)/([^/\s#?]+?)(?:\.git)?/?$")
-
-
-def declared_repo(url):
-    """(owner, repo) a metadata URL claims, or None."""
-    m = REPO_IN_URL.search((url or "").strip())
-    return (m.group(1).lower(), m.group(2).lower()) if m else None
-
-
-def owned_by(pair, full_name):
-    """Is the claimed repository the project being measured? A name is not an identity."""
-    if not pair:
-        return False
-    owner, repo = full_name.split("/")[-2:]
-    return (owner.lower(), repo.lower()) == (str(pair[0]).lower(), str(pair[1]).lower())
+from attribution import REFUSED, jget, metadata_repo, owned_by
 
 
 # ---------------------------------------------------------------- rate channels
@@ -170,21 +118,6 @@ def brew_30d(name):
         return None
     total = sum(v for k, v in row.items() if k == name)
     return total or None
-
-
-def brew_declared_repo(name):
-    """(owner, repo) the formula's own source or homepage claims."""
-    data = jget("https://formulae.brew.sh/api/formula/%s.json" % name, timeout=25)
-    if not isinstance(data, dict):
-        return None
-    urls = data.get("urls") or {}
-    stable = urls.get("stable") or {}
-    for candidate in (stable.get("url"), urls.get("head", {}).get("url"),
-                      data.get("homepage")):
-        pair = declared_repo(candidate)
-        if pair:
-            return pair
-    return None
 
 
 # ---------------------------------------------------------- cumulative channels
@@ -286,7 +219,7 @@ def measure(full_name, npm_cache=None, releases=True):
         refused.append("brew:%s" % names[0])
     elif isinstance(brew_val, int):
         tag = "brew:%s" % names[0]
-        if owned_by(brew_declared_repo(names[0]), full_name):
+        if owned_by(metadata_repo("brew", names[0]), full_name):
             rate.append({"channel": tag, "value": brew_val})
         else:
             unverified.append(tag)
@@ -315,67 +248,15 @@ def measure(full_name, npm_cache=None, releases=True):
 
 
 def declared_repo_for(registry, name):
-    if registry == "npm":
-        data = jget("https://registry.npmjs.org/%s/latest" % name)
-        url = (data or {}).get("repository") if isinstance(data, dict) else None
-        url = url.get("url") if isinstance(url, dict) else url
-        return declared_repo(url)
-    if registry == "pypi":
-        data = jget("https://pypi.org/pypi/%s/json" % name)
-        info = (data or {}).get("info") if isinstance(data, dict) else None
-        urls = (info or {}).get("project_urls") or {}
-        url = (info or {}).get("home_page") or next(
-            (v for v in urls.values() if "github.com" in (v or "")), None)
-        return declared_repo(url)
-    data = jget("https://crates.io/api/v1/crates/%s" % name)
-    url = (data or {}).get("crate", {}).get("repository") \
-        if isinstance(data, dict) else None
-    return declared_repo(url)
-
-
-# ------------------------------------------------------------------- self-check
-
-# Cases whose answer is known before any result is used. Every one of these is a
-# tool that is certainly used, and every defect found here would push the whole
-# measurement towards zero -- the direction that flatters the hypothesis.
-SELFCHECK = [
-    # (label, callable, must be a number at least this large)
-    ("npm vite", lambda: npm_month("vite"), FLOOR_RATE),
-    ("pypi requests", lambda: pypi_month("requests"), FLOOR_RATE),
-    ("crates serde", lambda: crates_month("serde"), FLOOR_RATE),
-    ("brew ripgrep 30d", lambda: brew_30d("ripgrep"), FLOOR_RATE),
-    ("cli/cli release assets", lambda: (release_downloads("cli/cli") or {}).get("downloads"),
-     FLOOR_RELEASE),
-]
-
-
-def selfcheck(verbose=True):
-    """Run the known-answer cases. Returns the number that failed."""
-    failed = 0
-    for label, fn, floor in SELFCHECK:
-        try:
-            got = fn()
-        except Exception as exc:                       # noqa: BLE001
-            got = "raised %r" % (exc,)
-        ok = isinstance(got, int) and got >= floor
-        failed += 0 if ok else 1
-        if verbose:
-            print("  %-24s %-14s %s" % (label, got, "ok" if ok else "FAIL"))
-    # The negative direction, which is the direction that matters: an attribution
-    # that names a different repository must be refused, not counted.
-    bad = owned_by(declared_repo_for("npm", "please"), "thought-machine/please")
-    if bad:
-        failed += 1
-    if verbose:
-        print("  %-24s %-14s %s" % ("npm:please not please",
-                                    "refused" if not bad else "ACCEPTED",
-                                    "ok" if not bad else "FAIL"))
-    print("self-check: %d of %d failed" % (failed, len(SELFCHECK) + 1))
-    return failed
+    """Kept as the local name because it reads better at the call site."""
+    return metadata_repo(registry, name)
 
 
 if __name__ == "__main__":
-    if "--selfcheck" in sys.argv:
-        sys.exit(1 if selfcheck() else 0)
-    print(__doc__)
-    sys.exit(2)
+    # The instrument's own known-answer cases live in `selfcheck.py`, because they
+    # are a falsification of the channels above rather than another channel. The
+    # floors they check against live in `verdict.py`, the file whose invariant is
+    # deciding whether a figure counts.
+    import selfcheck
+
+    sys.exit(1 if selfcheck.run() else 0)

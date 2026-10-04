@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.abspath(__file__)), os.pardir,
     "EXPERIMENTS", "015-incumbent-serving"))
 
+import attribution  # noqa: E402
 import serving  # noqa: E402
 import verdict as stats  # noqa: E402
 
@@ -51,7 +52,7 @@ class AttributionTest(unittest.TestCase):
             (None, None),
         ]
         for url, expected in cases:
-            got = serving.declared_repo((url or "").strip())
+            got = attribution.declared_repo((url or "").strip())
             self.assertEqual(got, expected, url)
 
     def test_a_package_belonging_to_another_owner_is_not_this_project(self):
@@ -237,83 +238,6 @@ class GateTest(unittest.TestCase):
                    "verdict": "a floor fired on 0 of 6 readable controls"}
         self.assertEqual(stats.gate(self.many(9), [], placebo)[0], "dead")
         self.assertEqual(stats.gate(self.many(2), [], placebo)[0], "survives")
-
-
-class GuessTest(unittest.TestCase):
-    """Names are guessed mechanically, so a wrong guess can only lower a figure."""
-
-    def test_a_common_suffix_yields_a_second_guess(self):
-        self.assertEqual(serving.guesses("acme/ripgrep-cli"), ["ripgrep-cli", "ripgrep"])
-
-    def test_a_short_name_is_not_stripped_to_nothing(self):
-        self.assertEqual(serving.guesses("acme/js"), ["js"])
-
-    def test_guesses_are_unique_and_never_empty(self):
-        out = serving.guesses("acme/tool")
-        self.assertEqual(out, sorted(set(out), key=out.index))
-        self.assertTrue(out)
-
-
-class OnTopicTest(unittest.TestCase):
-    """The relevance filter is mechanical, so it can be asserted rather than trusted.
-
-    It exists because the population itself carries F030's defect: the query
-    `flashcards anki` returns `donnemartin/system-design-primer`. A filter tuned
-    by hand could be tuned in whichever direction flatters the answer.
-    """
-
-    def test_stopwords_and_short_tokens_are_not_content_terms(self):
-        terms = stats.content_terms("a tool for the web")
-        self.assertNotIn("the", terms)
-        self.assertNotIn("for", terms)
-        self.assertNotIn("tool", terms)
-        self.assertEqual(terms, {"web"})
-
-    def test_a_real_content_term_survives(self):
-        self.assertIn("flashcard", stats.content_terms("flashcard spaced repetition"))
-        self.assertIn("uptime", stats.content_terms("uptime monitor"))
-
-    def test_an_off_topic_repository_is_excluded(self):
-        """The case that motivated the arm: 373k stars, nothing to do with anki."""
-        row = {"repo": "donnemartin/system-design-primer", "stars": 373170,
-               "desc": "Everything you need to know about system design",
-               "phrasings": ["flashcards anki"]}
-        self.assertFalse(stats.is_ontopic(row))
-
-    def test_a_matching_description_keeps_the_repository(self):
-        row = {"repo": "ankitects/anki", "stars": 31752, "desc": "flashcards",
-               "phrasings": ["flashcard spaced repetition"]}
-        self.assertTrue(stats.is_ontopic(row))
-
-    def test_the_filter_selects_a_subset_never_a_superset(self):
-        rows = [{"repo": "a/anki", "desc": "flashcards", "phrasings": ["flashcards anki"]},
-                {"repo": "b/unrelated", "desc": "systems", "phrasings": ["flashcards anki"]}]
-        self.assertEqual([r["repo"] for r in stats.ontopic(rows)], ["a/anki"])
-
-
-class SelfcheckShapeTest(unittest.TestCase):
-    """The self-check must contain cases in both directions, or it proves nothing."""
-
-    def test_the_self_check_asserts_known_used_tools(self):
-        self.assertGreaterEqual(len(serving.SELFCHECK), 5)
-        for label, fn, floor in serving.SELFCHECK:
-            self.assertGreater(floor, 0, label)
-            self.assertTrue(callable(fn), label)
-
-    def test_the_release_channel_is_covered_by_a_selfcheck_case(self):
-        """The channel added to close F032's dead branch must itself be falsified."""
-        labels = " ".join(l for l, _, _ in serving.SELFCHECK)
-        self.assertIn("release", labels)
-
-    def test_the_bottleneck_incumbent_is_not_the_only_release_case(self):
-        """`thought-machine/please` was invisible to every registry channel.
-
-        If the release channel only ever saw it, the branch would be closed by one
-        anecdote. `cli/cli` is in the self-check instead, and `please` is read in
-        `results.json` as data.
-        """
-        labels = " ".join(l for l, _, _ in serving.SELFCHECK)
-        self.assertNotIn("please", labels)
 
 
 if __name__ == "__main__":

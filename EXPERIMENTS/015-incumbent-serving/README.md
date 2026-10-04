@@ -84,8 +84,16 @@ against H surviving. It is a bound, not a substitute.
 | step | script | what it fixes |
 |---|---|---|
 | population | `incumbents.py` | two phrasings per killed need, `in:name,description` only, top 3 by stars, deduplicated; placebo arm |
-| instrument | `serving.py` | rate and cumulative channels, each attribution verified to name the measured repository; a self-check of six known answers |
-| verdict | `verdict.py` | the tally and the gate, in both directions |
+| instrument | `serving.py` | rate and cumulative channels |
+| attribution | `attribution.py` | how a figure is read and whether it belongs to the project measured — split from the instrument by invariant, since every channel shares it |
+| self-check | `selfcheck.py` | six known-answer cases, run before any result is read |
+| verdict | `verdict.py` | the tally, the floors and the gate, in both directions |
+| control | `placebo.py` | the rebuilt placebo arm: unpopular repositories the instrument *can* read |
+
+The verdict module is named `verdict.py`, not `stats.py`, because a sibling
+experiment already owns `stats.py` and two modules of that name in one
+interpreter means the second import is silently shadowed — defect 24, which made
+25 tests fail in the full suite while each file passed alone.
 
 **Two channels are new and they close T-0059's dead branch.** Homebrew's own
 analytics answer `brew install` counts for CLI tools, which is the dominant
@@ -96,7 +104,8 @@ the zero every registry instrument reports for it.
 
 **A name is not an identity.** Every registry and Homebrew figure counts only if
 the package's own metadata names the repository being measured. The case F032
-names is refused by construction and asserted in `tests/test_serving_stats.py`.
+names is refused by construction and asserted in `tests/test_serving_stats.py`
+and `tests/test_serving_selection.py`.
 
 ## Limits, stated before the numbers are read
 
