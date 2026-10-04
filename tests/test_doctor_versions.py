@@ -69,11 +69,30 @@ class RealRecordTest(RepoTest):
         self.assertIn("versions git", rendered)
         self.assertIn("tests/git-versions.json", rendered)
 
-    def test_the_reported_scope_names_this_suites_size(self) -> None:
+    def test_the_reported_scope_is_the_matched_entrys_own(self) -> None:
         # The point of carrying `scope` through: a reader must be able to tell a
         # version that ran everything from one that ran an older suite.
-        match = versions.compare("python3", versions.extract_version(platform.python_version()))
-        self.assertRegex(match.scope, r"\d+ tests")
+        #
+        # Asserted against the record's own text rather than a pattern. The first
+        # version of this test required `\d+ tests` in the scope, which passed on
+        # this VM (3.8.10, whose entry names 373 tests) and **failed in CI**,
+        # where the interpreter is 3.12 and the matched entry is CI's own — whose
+        # scope names a run id rather than a count. That is the defect this
+        # repository keeps meeting: a test asserting one machine's wording rather
+        # than the property. Run 37174050724 is the evidence.
+        record = json.loads((real_repo() / "tests" / "python-versions.json").read_text())
+        mine = versions.extract_version(platform.python_version())
+        match = versions.compare("python3", mine)
+        entry = next(
+            item for item in record["verified"] if str(item["python"]) == match.matched
+        )
+        self.assertEqual(match.scope, entry["scope"])
+        self.assertTrue(match.scope.strip(), "an exercised verdict must carry its entry's scope")
+
+    def test_a_patch_version_outside_the_record_is_not_exercised(self) -> None:
+        # The negative control for prefix matching: `3.9.7` shares a leading digit
+        # with the 3.8.10 entry and must not match it.
+        self.assertEqual(versions.compare("python3", "3.9.7").state, versions.UNRECORDED)
 
     def test_the_written_record_is_what_doctor_reads(self) -> None:
         # Guards the other direction: the record on disk is not merely similar to
