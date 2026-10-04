@@ -15,7 +15,7 @@ Showing the 25 most recent. 32 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | **unfinished** | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:39 |
+| [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | worked | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:40 |
 | [2026-10-04-013-t-0035-stop-the-credential-sandbox-from](2026-10-04-013-t-0035-stop-the-credential-sandbox-from/README.md) | opencode | worked | T-0035: stop the credential sandbox from inheriting a CI runner's GITH | 2026-10-04T04:57 |
 | [2026-10-04-012-measure-the-test-suite-on-every-cpython](2026-10-04-012-measure-the-test-suite-on-every-cpython/README.md) | opencode | worked | Measure the test suite on every CPython minor from 3.8 to 3.14 and mak | 2026-10-04T05:38 |
 | [2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git](2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/README.md) | opencode | worked | T-0033: make doctor compare this VM's git and interpreter against the  | 2026-10-04T03:25 |
