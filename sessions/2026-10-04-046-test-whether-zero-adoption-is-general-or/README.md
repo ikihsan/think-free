@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T20:07:00+00:00
-- **Duration:** ?s
+- **Duration:** 811.3s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether zero-adoption is general or specific to the agent-auditing niche, s
 
 ## Summary
 
-_(none recorded)_
+Ran the first probe of the flat-adoption conclusion (F027) beyond its one niche: seven GitHub search vocabularies, raw census in EXPERIMENTS/011-niche-adoption-census/results.json. Young vocabularies (lockfile drift, dependency quarantine) reproduce the flat tail; established ones (reproducible builds, provenance, supply chain audit) have heavy tails whose outliers are long-lived or vendor-official. F028 narrows the reading: a stars-based adoption criterion is uninformative for vocabularies younger than a few years, which is where all twelve prior candidates were screened. 585 tests OK, doc lint OK; T-0058 completed.
+
+## Next
+
+E2 is now the oldest time-gated item: take the side-B lockfile-closure snapshot whenever the gap allows (target: at least several days past 2026-10-03T22:26Z) and diff against snapshot-a.json; the selection-axis question that F028 sharpens is still an owner decision.
 
 ## Artifacts
 
@@ -51,7 +55,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -77,6 +80,10 @@ _(none recorded)_
 | 14 | 20:20:04 | artifact | wrote STATE-next-actions.md |
 | 15 | 20:20:05 | artifact | wrote docs/INDEX.md |
 | 16 | 20:20:20 | task_rewrite | rewrote tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md (status: done) |
+| 17 | 20:20:20 | task_rewrite | appended a complete record for T-0058 |
+| 18 | 20:20:32 | doc_update | updated FAILURES.md |
+| 19 | 20:20:32 | doc_update | updated STATE.md |
+| 20 | 20:20:32 | session_end | Ran the first probe of the flat-adoption conclusion (F027) beyond its one niche: seven GitHub search vocabularies, raw census in EXPERIMENTS/011-niche |
 
 ## Reproduce this record
 
