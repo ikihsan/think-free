@@ -95,10 +95,12 @@ repaired**: a session that landed a colleague's work reported it as undeclared
 the orphan rule bit six real CI runs because `task new` did not rebuild the indexes
 and `task claim` did not stage them — T-0026 and T-0027, and the second took two
 tasks, because a lint on the author's own tree cannot see what the claim commit
-published. **Rebase a moving base with `origin sync land`:** a hand-run rebase
-records nothing, so its paths stay reported as undeclared. Sessions 040 and 012 hit
-that ceiling through seven and two hand-run rebases respectively, and the stream is
-closed and is not edited, as with session 029. It is D028's stated ceiling and the
+published. **Rebase a moving base with `origin sync land`:** a rebase run by
+hand records nothing — T-0053 recovers that arrival from `ORIG_HEAD` and the
+reflog, while a pull, cherry-pick or reset run by hand still leaves its paths
+reported. Sessions 040 and 012 hit the old ceiling through seven and two hand-run
+rebases respectively, and the stream is closed and is not edited, as with
+session 029. It is D028's stated ceiling and the
 intended direction of failure.
 
 
@@ -108,6 +110,14 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 [`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
 push this reload point past the line cap.
 
+- **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
+  nothing, so its paths were attributed to the session that happened to hold the
+  tree: session 034's nine `unlogged_change` events were exactly that. Now
+  `landrebase.recover` records a hand-completed rebase's arrival from
+  `ORIG_HEAD` plus the `rebase …: checkout` reflog entry, and a merge, a
+  fast-forward, or an arrival the tooling already recorded is refused. Both
+  directions are falsified: with the `recover` call removed, the arrival is
+  reported undeclared again, and a merge or fast-forward never matches.
 - **Session 034, VM 0947 (T-0050, D042, F022).** Defect 12's entry named its own false
   negative in a clause and no gate read it: `reconcile` reused the *line cap's* exemption
   predicate, which answers yes for every `.json`, `.jsonl` and `.log`, so

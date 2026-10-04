@@ -25,12 +25,12 @@ defect is open. Method: [`gate-falsification.md`](docs/policy/gate-falsification
    `documentation_gaps` reports — session 029 emitted nine of the first, none of
    them its own. `sync pull`/`sync land` now record a `base_advance` naming the
    commits that arrived, and reconciliation attributes a path by the newest thing
-   that touched it. **Ceiling:** attribution knows only about base moves the
-   tooling performed, so a rebase run by hand still reports — reached by sessions
-   012 and 040, both through hand-run `git rebase --continue`. That is the intended
-   direction of failure, and why a session has to record such a gap where a *closed*
-   stream cannot accept it: `session finish` will not take the events, and editing
-   the stream afterwards would be worse.
+   that touched it. **Ceiling:** attribution knows only about base moves it can prove —
+   reached by sessions
+   012 and 040 through hand-run `git rebase --continue`.
+   T-0053 recovers that one from `ORIG_HEAD` and the reflog; a hand-run
+   pull, cherry-pick, or reset remains unrecorded. That is the intended
+   direction of failure, and `session finish` refuses events for a *closed* stream.
 
 3. **Every generated file stamped `last-verified` with the render date** (solved
    in T-0024, D029), so `doc lint` failed on 42 committed session reports and all

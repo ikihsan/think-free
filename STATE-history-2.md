@@ -14,6 +14,21 @@ session 012 was added to it, and when session 012's second half was. Identifiers
 2026-10-04 (T-0045), when four entries for one session pushed the reload point
 back over its own cap.
 
+## Sessions moved here when the reload point overflowed (2026-10-04, T-0053)
+
+- **Session 029, VM 0944 (T-0046, defect 18, F021, D037/D038).** Four red runs of
+  2026-10-04 read raw: GitHub files an annotation on the workflow command's `file=`,
+  and the five gate steps had been skipped entirely whenever `Tests` was red — which
+  is what made the record call the rendering `unmeasured`. `always() &&` on each such
+  step, `tools/origin probe` measuring the shapes on every run, and the owed gating
+  decision written at last. Account in [`FAILURES-findings-4.md`](FAILURES-findings-4.md)
+  and [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
+- **Session 020, VM 0944 (T-0040, defect 17).** Every file-reading CI gate re-emits
+  each violation as a check-run annotation naming the file (`tools/origin annotate`),
+  measured on a worktree of this repository's own history in both directions. **Unrun at
+  the time**, and since measured — see session 029. Account in
+  [`STATE-defects.md`](STATE-defects.md).
+
 ## What changed in sessions 005 through 020, both VMs
 
 Moved here verbatim from the reload point on 2026-10-04 (T-0046), when

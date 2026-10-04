@@ -140,6 +140,11 @@ def land(branch: str = "", retries: int = RETRY_LIMIT, root=None) -> dict:
     # own instruction rather than by a mistake). It runs *before* the dirty-tree
     # refusal, because resolving the conflict is what makes the tree dirty and that
     # is the tree state this exists to resolve.
+    # A rebase this flow never saw, completed by hand, still has its arrival to
+    # record. It must be read before resume() runs: recover() refuses while a
+    # rebase is in progress, and resume() itself then performs the continuation
+    # that this path records, which must not be recovered a second time.
+    landrebase.recover(root)
     resumed = landrebase.resume(root)
     dirty = gitutil.dirty_paths(root)
     if dirty:

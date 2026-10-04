@@ -25,3 +25,202 @@ cwd: /home/ubuntu/think-free
 origin: refusing to push a dirty tree; commit or revert: sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/events.jsonl
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 3142  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T14:15:17+00:00
+$ tools/origin session step T-0053 claimed; framing the recovery design around git's ORIG_HEAD and patch-id replay markers
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 9
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 580  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T14:32:40+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.....................................................................................................................................................................................................................................................................................................F.................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_an_unrecorded_base_move_keeps_reporting_what_it_cannot_prove (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_landed_work.py", line 123, in test_an_unrecorded_base_move_keeps_reporting_what_it_cannot_prove
+    self.assertEqual(sorted(result["unlogged"]), ["STATE.md", "vm-b/notes.md"])
+AssertionError: Lists differ: [] != ['STATE.md', 'vm-b/notes.md']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'STATE.md'
+
+- []
++ ['STATE.md', 'vm-b/notes.md']
+
+----------------------------------------------------------------------
+Ran 535 tests in 332.678s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 333185  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T14:43:03+00:00
+$ tools/origin session artifact STATE-defects.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 12  STATE-defects.md  29863cfaf876
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 731  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T14:43:04+00:00
+$ tools/origin session artifact STATE-history-2.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 14  STATE-history-2.md  cffb17a7df35
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 590  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T14:43:05+00:00
+$ tools/origin session artifact STATE.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 16  STATE.md  f4c75b00f242
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 511  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T14:43:06+00:00
+$ tools/origin session artifact docs/process/multi-vm-coordination.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 18  docs/process/multi-vm-coordination.md  cafd2c438f64
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 532  redactions: none
+==============================================================================
+[seq 21] 2026-10-04T14:43:07+00:00
+$ tools/origin session artifact tests/README.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 20  tests/README.md  4f566c21ce51
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 891  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T14:43:09+00:00
+$ tools/origin session artifact tests/test_landed_work.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 22  tests/test_landed_work.py  bb0b50fa4cc2
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 787  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T14:43:09+00:00
+$ tools/origin session artifact tests/test_land_hand_completed_rebase.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 24  tests/test_land_hand_completed_rebase.py  6ca16f6ea488
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 578  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T14:43:10+00:00
+$ tools/origin session artifact tools/originlib/landrebase.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 26  tools/originlib/landrebase.py  a126fbb75be6
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 507  redactions: none
+==============================================================================
+[seq 29] 2026-10-04T14:43:11+00:00
+$ tools/origin session artifact tools/originlib/reconcile.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 28  tools/originlib/reconcile.py  b21f34476f9f
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 526  redactions: none
+==============================================================================
+[seq 31] 2026-10-04T14:43:12+00:00
+$ tools/origin session artifact tools/originlib/syncland.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 30  tools/originlib/syncland.py  e853726b578a
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 525  redactions: none
+==============================================================================
+[seq 32] 2026-10-04T14:43:38+00:00
+$ tools/origin task verify T-0053
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0053: `PYTHONPATH=tools:tests python3 -m unittest tests.test_land_hand_completed_rebase -q && tools/origin preflight` -> exit 0 in 21.71s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22104  redactions: none
+==============================================================================
+[seq 33] 2026-10-04T14:43:47+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 569 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2797  redactions: none
+==============================================================================
+[seq 34] 2026-10-04T14:47:29+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase stopped on a real content conflict in STATE.md; resolve it (or 'git rebase --abort') and land again
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2118  redactions: none
+==============================================================================
+[seq 35] 2026-10-04T14:50:04+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase is resolved but not committed, and sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log, sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/events.jsonl is dirty and not staged; commit or revert it first, so the continuation does not sweep it into the rebase's commit
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 605  redactions: none

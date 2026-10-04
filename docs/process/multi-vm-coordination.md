@@ -73,16 +73,21 @@ when the newest thing to touch it is one of those commits; a path this session
 edits afterwards is its own again.
 
 **Use `tools/origin sync land` or `tools/origin sync pull` to move the base.** A
-rebase or pull run by hand leaves the same tree and no record, so its paths stay
-reported as undeclared. That is the intended direction of failure: an extra
-report costs a minute of reading, a wrongly silenced file costs the record.
+base move run by raw git leaves the same tree; a *rebase* it downloads is now
+recovered from `ORIG_HEAD` and the reflog, but a pull, cherry-pick or reset run
+by hand leaves its paths reported as undeclared. That is the intended direction
+of failure: an extra report costs a minute of reading, a wrongly silenced file
+costs the record.
 
 ## Ceilings worth reading before you trust a rebase
 
-**A hand-run rebase leaves its paths reported, on purpose.** D028 attributes a path
-to the base only from a base move the tooling performed, so `git rebase` or
-`git rebase --continue` run by hand leaves the arriving files reported as this
-session's own undeclared changes. Session 040 reached that ceiling through seven
+**A hand-run *merge*, *pull*, *cherry-pick* or *reset* still leaves its paths
+reported, on purpose.** D028 attributes a path
+to the base only from a base move the tooling can prove, so a merge or
+cherry-pick run by hand leaves the arriving files reported as this session's own
+undeclared changes. **A hand-run *rebase* is now recovered** (T-0053): git's own
+`ORIG_HEAD` plus the `rebase ...: checkout` reflog entry name the exact arrival,
+and `recover` records it. Session 040 reached the old ceiling through seven
 hand-run rebases and session 012 through two; both closed with `unlogged_change`
 events for files nobody touched. This is the intended direction of failure — an
 extra report costs a minute of reading, a wrongly silenced file costs the record.
@@ -168,7 +173,10 @@ gave it: the only way out was `git rebase --continue` by hand, which records no
 resolved the conflict. That is defect 2's ceiling, reached through a refusal
 message rather than by a mistake. `land` now completes a rebase it stopped on
 once no path is still conflicted, using the same non-interactive environment its
-generated-file continuation uses, and reports `resumed: true`.
+generated-file continuation uses, and reports `resumed: true`. A reader who
+nonetheless completes one with `git rebase --continue` by hand has that arrival
+recorded by `landrebase.recover`, which reads `ORIG_HEAD` and the reflog; only
+the pull/merge/cherry-pick/reset shapes remain unrecorded.
 
 Three things it still refuses, all deliberately:
 

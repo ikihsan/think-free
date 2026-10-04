@@ -11,7 +11,9 @@ conflict is what makes the tree dirty. So the only way out was
 `git rebase --continue` by hand, which records no `base_advance`, and every path the
 base brought was attributed to the session that resolved the conflict. That is
 defect 2's stated ceiling — reconciliation cannot see a hand-run rebase — and it was
-reached through a refusal message rather than by anybody's mistake.
+reached through a refusal message rather than by anybody's mistake. T-0048 made `land`
+complete such a rebase itself; T-0053's `recover()` additionally records the arrival
+of a rebase still finished with raw git, from `ORIG_HEAD` and the reflog.
 
 Three questions have to be answered before continuing, and each has a wrong answer
 that looks like a working one:
@@ -100,6 +102,92 @@ def orig_head(root=None) -> str:
         marker = _repo_path(relative.strip(), root) / "orig-head"
         if marker.is_file():
             return marker.read_text(encoding="utf-8").strip()
+    return ""
+
+
+def recover(root=None) -> dict | None:
+    """Record the base move of a rebase a human completed with raw git.
+
+    `land` used to refuse a dirty tree and ask the reader to resolve and land
+    again — which made `git rebase --continue` by hand the only way out, and
+    that records no `base_advance`. `land` now resumes the rebase itself, but
+    a hand-run continuation is still possible, and the arrival is then
+    attributed to the session that resolved the conflict. Git leaves the
+    evidence behind: `ORIG_HEAD` names the pre-rebase tip, and HEAD's reflog
+    names the upstream the rebase checked out, so the arrival is recoverable
+    after the fact.
+
+    A merge also writes `ORIG_HEAD`, but its history carries a merge commit
+    and its arrival is the merging operation's to record; a fast-forward has
+    no replays. Both are refused, so only a replayed history is recovered, and
+    an arrival higher-level reporting already recorded is not duplicated.
+
+    Returns the recorded event data, or `None` when there is nothing to record.
+    """
+    from . import landed
+    from .activestate import load_active
+
+    if gitutil.rebase_in_progress(root):
+        return None
+    orig = gitutil.text(["rev-parse", "--verify", "--quiet", "ORIG_HEAD"], root)
+    if not orig:
+        return None
+    head = gitutil.text(["rev-parse", "HEAD"], root)
+    if not head or orig == head:
+        return None
+    base = gitutil.text(["merge-base", orig, head], root)
+    if not base or base == head:
+        return None
+    # A merge and a fast-forward also write `ORIG_HEAD`, but there the old tip
+    # stays an ancestor of the new head; a rebase replaces it. Both shapes are
+    # the merging operation's to record, not this one.
+    if gitutil.run(["merge-base", "--is-ancestor", orig, head], root).returncode == 0:
+        return None
+    if gitutil.run(["rev-list", "--merges", f"{base}..{head}"], root).stdout.strip():
+        return None
+    upstream = _rebase_upstream(root)
+    if not upstream or upstream == base:
+        return None
+    if gitutil.run(["merge-base", "--is-ancestor", upstream, head], root).returncode != 0:
+        return None
+    arrived = gitutil.rev_list(f"{base}..{upstream}", root)
+    if not arrived:
+        return None
+    active = load_active()
+    if active is None:
+        return None
+    if set(arrived) <= set(landed.landed_commits(active.session)):
+        return None
+    # A rebase whose arrival already sits under this session's starting commit
+    # is a previous session's history, not this one's arrival: without this the
+    # same ORIG_HEAD entry would be re-recorded into every later session.
+    if active.start_head and gitutil.run(
+        ["merge-base", "--is-ancestor", upstream, active.start_head], root
+    ).returncode == 0:
+        return None
+    return landed.record("rebase completed outside land", base, upstream, arrived)
+
+
+def _rebase_upstream(root=None) -> str:
+    """The upstream tip the last rebase checked out, from HEAD's reflog.
+
+    Every rebase rewinds the branch onto its upstream, and records that as a
+    `rebase ...: checkout <upstream>` entry on HEAD. The entry's new value is
+    the upstream sha at the moment the rebase began, which afterwards names
+    exactly the tip the replayed work was stacked on — even though the branch
+    ref has since moved. Returns "" when no such entry is readable (an expired
+    reflog, a hand-edited history, a client without reflogs).
+    """
+    out = gitutil.run(["reflog", "--format=%H\t%gs", "HEAD"], root).stdout
+    for line in out.splitlines():
+        parts = line.split("\t", 1)
+        if len(parts) != 2:
+            continue
+        sha, subject = parts
+        if "checkout" not in subject:
+            continue
+        if subject.startswith(("rebase:", "rebase (")) or "rebase:" in subject:
+            return sha.strip()
     return ""
 
 

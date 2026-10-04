@@ -111,15 +111,18 @@ class LandedWorkTest(RepoTest):
         self.assertEqual(result["unlogged"], ["STATE.md"])
 
     def test_an_unrecorded_base_move_keeps_reporting_what_it_cannot_prove(self) -> None:
-        # Only a base move the tooling performed is recorded. A rebase run by hand
-        # leaves the same tree and no record, so its paths stay reported: the
-        # tooling never silences a file it cannot prove belongs to someone else.
+        # Only a base move the tooling can prove from git's own record is
+        # reported as landed. A cherry-pick run by hand leaves the same paths
+        # and no recoverable mark, so its paths stay reported: the tooling
+        # never silences a file it cannot prove belongs to someone else. (A
+        # hand-run *rebase* is now recovered from ORIG_HEAD and the reflog —
+        # see `tests/test_land_hand_completed_rebase.py`.)
         active = self.open_session()
         self.declare_own_work()
-        self.other_vm_lands_work()
+        arrived = self.other_vm_lands_work()
         git(self.vm_a, "fetch", "-q", "origin")
-        git(self.vm_a, "rebase", "-q", "origin/research/origin")
-        result = session.finish("worked", "rebased by hand", "none")
+        git(self.vm_a, "-c", "core.editor=true", "cherry-pick", arrived)
+        result = session.finish("worked", "cherry-picked by hand", "none")
         self.assertEqual(sorted(result["unlogged"]), ["STATE.md", "vm-b/notes.md"])
         self.assertEqual(self.unlogged(active.session),
                          sorted(["STATE.md", "vm-b/notes.md"]))

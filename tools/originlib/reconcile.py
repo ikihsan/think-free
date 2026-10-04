@@ -58,6 +58,11 @@ def reconcile(active) -> dict:
         for event in events.events_for(active.session)
         if event.kind == "artifact" and event.data.get("path")
     }
+    # A base move performed with raw git left `landed_paths` unable to help;
+    # recover it before attribution reads the same tree.
+    from . import landrebase
+
+    landrebase.recover()
     rewritten = command_rewrites(active)
     landed_paths = landed.landed_paths(active.session)
     changed = landed.session_changes(active)
