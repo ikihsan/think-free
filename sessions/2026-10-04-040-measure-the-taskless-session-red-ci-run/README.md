@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T15:07:09+00:00
-- **Duration:** ?s
+- **Duration:** 7887.1s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ measure the taskless-session red CI run across the whole base and answer the que
 
 ## Summary
 
-_(none recorded)_
+Started T-0054 to measure the taskless-session red run; claiming it produced the refusal the task was about to fix, and the other VM created T-0055 for the same refusal nine minutes later and landed it. T-0054 cancelled, its unpushed repair dropped whole rather than merged (D045), the coverage gap its tests left closed by one fleet test, the occurrence count corrected to six refusals across three tasks and two VMs, and the collision recorded in multi-vm-coordination.md and STATE.md. DECISIONS-SESSIONS.md split by invariant into DECISIONS-PUBLISHING.md at the line cap. 549 tests, doc lint, preflight and CI green on 81c0e62d.
+
+## Next
+
+Ask the cheaper question STATE-next-actions.md 2(c) now points at: whether the count of taskless sessions falls on its own now that claiming publishes. The sweep of per-commit session-gate verdicts is still owed and is the more expensive version of the same question.
 
 ## Artifacts
 
@@ -49,7 +53,7 @@ _(none recorded)_
 
 ## Commands
 
-35 captured, 18 non-zero exit.
+36 captured, 18 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -88,12 +92,12 @@ _(none recorded)_
 | 58 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests'] | 0 | 358704 |
 | 59 | ['tools/origin', 'doc', 'index'] | 0 | 1905 |
 | 60 | ['tools/origin', 'preflight'] | 0 | 9406 |
+| 63 | ['tools/origin', 'doc', 'lint'] | 0 | 4084 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -143,18 +147,18 @@ _(none recorded)_
 | 38 | 16:27:45 | command | $ tools/origin doc lint |
 | 39 | 16:30:18 | command | $ tools/origin doc lint |
 | 40 | 16:30:40 | command | $ tools/origin doc lint |
-| 53 | 17:07:18 | artifact | wrote DECISIONS-PRACTICE.md |
-| 54 | 17:07:18 | artifact | wrote RELEASE-MANIFEST.md |
-| 55 | 17:07:19 | artifact | wrote tools/originlib/paths.py |
-| 56 | 17:07:19 | artifact | wrote tools/originlib/reconcile.py |
-| 57 | 17:07:20 | artifact | wrote tests/test_decision_files.py |
-| 58 | 17:13:19 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests |
-| 59 | 17:13:27 | command | $ tools/origin doc index |
 | 60 | 17:13:37 | command | $ tools/origin preflight |
 | 61 | 17:13:54 | base_advance | rebase completed outside land: base moved 259be4ca315b -> 5635ceb9ea83, 3 commit(s) arrived from the shared base |
 | 62 | 17:14:28 | base_advance | sync land: base moved 2dbaaeb6151c -> 5f895dcb07e7, 2 commit(s) arrived from the shared base |
+| 63 | 17:16:41 | command | $ tools/origin doc lint |
+| 64 | 17:18:36 | doc_update | updated DECISIONS-PRACTICE.md |
+| 65 | 17:18:36 | doc_update | updated DECISIONS-PUBLISHING.md |
+| 66 | 17:18:36 | doc_update | updated DECISIONS-SESSIONS.md |
+| 67 | 17:18:36 | doc_update | updated DECISIONS.md |
+| 68 | 17:18:36 | doc_update | updated STATE.md |
+| 69 | 17:18:36 | session_end | Started T-0054 to measure the taskless-session red run; claiming it produced the refusal the task was about to fix, and the other VM created T-0055 fo |
 
-_12 middle events omitted; see `events.jsonl`._
+_19 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

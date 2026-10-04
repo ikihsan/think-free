@@ -16,7 +16,7 @@ Showing the 25 most recent. 59 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-04-041-repair-the-red-base-state-md-over-the-li](2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md) | opencode | worked | Repair the red base (STATE.md over the line cap) and fix the task-clai | 2026-10-04T16:03 |
-| [2026-10-04-040-measure-the-taskless-session-red-ci-run](2026-10-04-040-measure-the-taskless-session-red-ci-run/README.md) | unknown-agent | **unfinished** | measure the taskless-session red CI run across the whole base and answ | 2026-10-04T15:07 |
+| [2026-10-04-040-measure-the-taskless-session-red-ci-run](2026-10-04-040-measure-the-taskless-session-red-ci-run/README.md) | unknown-agent | worked | measure the taskless-session red CI run across the whole base and answ | 2026-10-04T17:18 |
 | [2026-10-04-038-record-a-base-advance-when-a-paused-reba](2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md) | unknown-agent | worked | Record a base_advance when a paused rebase is completed by hand (T-005 | 2026-10-04T14:53 |
 | [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
 | [2026-10-04-036-report-a-row-a-document-s-own-table-alre](2026-10-04-036-report-a-row-a-document-s-own-table-alre/README.md) | opencode | worked | report a row a document's own table already contains, so a merge that  | 2026-10-04T13:42 |
