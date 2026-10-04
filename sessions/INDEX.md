@@ -15,7 +15,7 @@ Showing the 25 most recent. 36 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | **unfinished** | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:05 |
+| [2026-10-04-018-t-0038-record-that-the-public-check-run](2026-10-04-018-t-0038-record-that-the-public-check-run/README.md) | unknown-agent | worked | T-0038: record that the public check-run annotations were readable all | 2026-10-04T07:17 |
 | [2026-10-04-017-t-0036-report-a-duplicate-defect-number](2026-10-04-017-t-0036-report-a-duplicate-defect-number/README.md) | unknown-agent | worked | T-0036: report a duplicate defect number in STATE-defects.md as a doc  | 2026-10-04T06:58 |
 | [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | worked | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:05 |
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |

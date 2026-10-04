@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T07:05:15+00:00
-- **Duration:** ?s
+- **Duration:** 714.3s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0038: record that the public check-run annotations were readable all along, an
 
 ## Summary
 
-_(none recorded)_
+T-0038: F020 records that the check-run annotations are public and name the failing test, that runs 37178057818 and 37179073002 are the already-recorded F019 rather than unexplained runs, and that the endpoint gives four answers of which three look like an empty list. Method moved to docs/operations/ci-diagnosis.md with a stub in ci.md. 418 tests green, doc lint green.
+
+## Next
+
+Close defect 11: --acceptance and --steps overwrite instead of append, so task new kept one of five criteria and said nothing. Then the half of next-actions 2(b) that survives F020: make the doc lint, release and session steps emit an ::error:: line naming their violation.
 
 ## Artifacts
 
@@ -51,11 +55,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | tasks/T-0038-record-that-the-public-check-run-annotations-wer.md |
 
 ## Timeline
 
@@ -73,6 +77,11 @@ _(none recorded)_
 | 10 | 07:09:47 | artifact | wrote STATE-next-actions.md |
 | 11 | 07:14:18 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 12 | 07:16:59 | artifact | wrote ROADMAP.md |
+| 13 | 07:17:09 | unlogged_change | changed but never declared as an artifact: tasks/T-0038-record-that-the-public-check-run-annotations-wer.md |
+| 14 | 07:17:09 | doc_update | updated FAILURES.md |
+| 15 | 07:17:09 | doc_update | updated ROADMAP.md |
+| 16 | 07:17:09 | doc_update | updated STATE.md |
+| 17 | 07:17:09 | session_end | T-0038: F020 records that the check-run annotations are public and name the failing test, that runs 37178057818 and 37179073002 are the already-record |
 
 ## Reproduce this record
 
