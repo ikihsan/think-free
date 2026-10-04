@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T06:53:22+00:00
-- **Duration:** ?s
+- **Duration:** 1332.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `task/T-0037-instance-20260717-0944`
 
@@ -23,7 +23,11 @@ T-0037: explain the four red CI runs since the version matrix landed
 
 ## Summary
 
-_(none recorded)_
+T-0037: superseded by VM 0947's F019, which diagnosed the same four runs (T-0033 asserted this machine's git is in the record; the CI runner ships 2.55.0). Recorded the elimination table this VM established independently - interpreter, credential environment, git 2.56.0, checkout shape and the workflow's own annotation shell all ruled out by running them, plus the annotation_count: None that made the run log unreadable from the public API - and the process lesson: check the task ledger before reproducing a failure someone else is already on, which cost forty minutes here. 392 tests green; doc lint, release check and preflight exit 0.
+
+## Next
+
+Land the branch. Nothing is claimed on either VM now. The remaining unchecked ROADMAP items are headless task-runner scripts and scheduling, both of which need authorization; the git version range is still one runner's and the matrix cannot widen it.
 
 ## Artifacts
 
@@ -46,7 +50,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -62,6 +65,8 @@ _(none recorded)_
 | 4 | 07:05:54 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; too |
 | 5 | 07:14:54 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; too |
 | 6 | 07:15:22 | artifact | wrote STATE.md |
+| 7 | 07:15:35 | doc_update | updated STATE.md |
+| 8 | 07:15:35 | session_end | T-0037: superseded by VM 0947's F019, which diagnosed the same four runs (T-0033 asserted this machine's git is in the record; the CI runner ships 2.5 |
 
 ## Reproduce this record
 
