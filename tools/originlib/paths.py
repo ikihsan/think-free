@@ -26,8 +26,10 @@ ZONES = (
 )
 
 # Root-level mission records that a session may need to update.
-# The decision log is split by invariant (see DECISIONS.md); all five files are
-# listed so a change to any of them is logged as a doc update.
+# The decision log is split by invariant (see DECISIONS.md); every file is listed
+# so a change to any of them is logged as a doc update. `DECISIONS-SESSIONS.md`
+# joined that list on 2026-10-04 (T-0030), so a decision about a session's own
+# state counts as a decision record for the gate that checks this.
 MISSION_RECORDS = (
     "STATE.md",
     "DECISIONS.md",
@@ -35,6 +37,7 @@ MISSION_RECORDS = (
     "DECISIONS-PRACTICE.md",
     "DECISIONS-SCREENING.md",
     "DECISIONS-GATING.md",
+    "DECISIONS-SESSIONS.md",
     "HYPOTHESES.md",
     "FAILURES.md",
     "ROADMAP.md",

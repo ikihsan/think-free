@@ -16,11 +16,15 @@ Workflow: [`../../.github/workflows/ci.yml`](../../.github/workflows/ci.yml).
 | Gate | Command | Fails on |
 |---|---|---|
 | Tests | `python3 -m unittest discover -s tests -t tests` | Any test failure |
-| Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file, unresolved merge conflict |
+| Documentation | `tools/origin doc lint` | Line cap, metadata, broken link, orphan, stale generated file, unresolved merge conflict, identifier defined twice or indexed without a body |
 | Release manifest | `tools/origin release check` | A path unclassified or classified twice, a declared path absent without `pending`, a wildcard, a credential shape in a classified path, or the front door disagreeing with the manifest about what exists |
 | Skills | `tools/origin skills check` | Naming, frontmatter, missing or wrong cross-agent mirror |
 | Session integrity | `tools/origin session verify --strict` | Malformed event stream, **abandoned** session, missing report, dangling command log reference |
 | Vendored integrity | `tools/origin skills verify` | Local modification of a vendored skill |
+
+`sync land` is not a CI step, but it refuses to publish a tree whose identifier
+record collides, so the Documentation step above is a backstop rather than the
+only place rule 7 is read. See *One number, one thing* below.
 
 `tools/origin preflight` runs three of these — documentation, skills, and
 session integrity — and is deliberately not the whole list: the test suite and
@@ -113,6 +117,35 @@ which broke `origin sync land` on any VM with a modern git
 machine-readable list of exercised versions is
 [`tests/git-versions.json`](../../tests/git-versions.json); prose that names
 versions must agree with it.
+
+## One number, one thing
+
+Findings `F001…`, decisions `D001…` and tasks `T-0001…` are allocated by reading
+the **local** tree, so two VMs working in the same hour take the same number.
+Seven times on 2026-10-03 and 2026-10-04; each was resolved by hand, and one
+reached the base: commit `e6eb992` holds two different findings both headed
+`## F010`.
+
+Doc lint rule 7 (`tools/originlib/identifiers.py`) reports an identifier defined
+twice, an index row with no definition behind it, a defined finding with no row,
+and a decision its own index row does not list. `sync land` refuses to push a
+tree the rule would refuse.
+
+Why `land` and nothing else: **a collision is created by the merge.** Each branch
+is internally consistent, and each VM's own lint sees nothing wrong with its own
+tree. `push` and `task claim` are deliberately not gated, because refusing them
+would block a VM from publishing the session record it needs in order to
+renumber its way out.
+
+| Checked | Not checked |
+|---|---|
+| The same identifier defined twice, in one file or across two | Which entry a *reference* points at — the number must exist, not necessarily say what the sentence needs |
+| A findings index row that no body backs, and a body with no row | Hypothesis identifiers (`E001…`), which have not collided |
+| A decision the index does not list, and a listed id nothing defines | Two VMs allocating at once — this is a detector, not an allocator (D032) |
+
+Rule 7 matches on identity, never on wording: two rows in `FAILURES.md` are
+shortened paraphrases of their headings, and a string comparison flagged 83 of
+174 commits including this one.
 
 ## What CI does not check
 

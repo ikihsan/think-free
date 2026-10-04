@@ -34,6 +34,7 @@ IMPLICATIONS = {
             "DECISIONS-FOUNDATION.md",
             "DECISIONS-SCREENING.md",
             "DECISIONS-GATING.md",
+            "DECISIONS-SESSIONS.md",
         ),
     ),
     "experiment_result": ("all", ("HYPOTHESES.md", "FAILURES.md")),

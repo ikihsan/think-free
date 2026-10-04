@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 
-from . import sync, worktree
+from . import sync, syncland, worktree
 
 EXIT_OK = 0
 EXIT_USAGE = 1
@@ -32,7 +32,7 @@ def dispatch_sync(args: argparse.Namespace) -> int:
         print(f"pushed {outcome['branch']} -> {outcome['remote']} at {outcome['head'][:12]}")
         return EXIT_OK
     if args.action == "land":
-        outcome = sync.land(args.branch or "")
+        outcome = syncland.land(args.branch or "")
         resolved = outcome.get("resolved") or []
         print(f"landed on {outcome['branch']} at {outcome.get('head', '')[:12]}")
         for name in resolved:

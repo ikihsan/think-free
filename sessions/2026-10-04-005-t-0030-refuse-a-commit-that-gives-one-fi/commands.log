@@ -1,0 +1,1382 @@
+==============================================================================
+[seq 2] 2026-10-04T01:17:30+00:00
+$ python3 /tmp/opencode/falsify_ids.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+collision e6eb992: 2 issue(s)
+    F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:83 "E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:141 '`sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason'
+    FAILURES.md:36: F010 is indexed on 2 lines
+repair   8a4ab8ce: 0 issue(s)
+tip      HEAD: 0 issue(s)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 586  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T01:18:26+00:00
+$ python3 /tmp/opencode/sweep_ids.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+...0/174 scanned
+c8acb3966 1 issue(s)  T-0028: renumber off a sixth identifier collision
+    T-0028: defined more than once; an identifier must mean one thing: tasks/T-0028-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md:1 ''
+15799a4c2 1 issue(s)  Repair STATE.md after the rebase grafted a conflicted copy
+    T-0027: defined more than once; an identifier must mean one thing: tasks/T-0027-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md:1 ''
+44ee47530 1 issue(s)  T-0027: renumber off a fifth identifier collision
+    T-0027: defined more than once; an identifier must mean one thing: tasks/T-0027-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md:1 ''
+f54fbc8db 1 issue(s)  T-0026: restore the session record the rebase had duplicated
+    T-0026: defined more than once; an identifier must mean one thing: tasks/T-0026-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md:1 ''
+4032f1cf5 1 issue(s)  Resolve the rebase onto instance-20260717-0947's landed work
+    T-0026: defined more than once; an identifier must mean one thing: tasks/T-0026-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md:1 ''
+6190030e0 1 issue(s)  T-0024: make doctor read the push credential it reports
+    T-0026: defined more than once; an identifier must mean one thing: tasks/T-0026-make-origin-doctor-report-the-push-credential-me.md:1 '' / tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md:1 ''
+...40/174 scanned
+...80/174 scanned
+e6eb992ba 2 issue(s)  T-0016: fix sync land on git >= 2.26 and make CI failures legible
+    F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:83 "E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:141 '`sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason'
+    FAILURES.md:36: F010 is indexed on 2 lines
+ff5dfea63 7 issue(s)  claim T-0014 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+c5a0c1868 7 issue(s)  task: create T-0014 C2 ventilation measurement-design kill gate
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+fccf637aa 7 issue(s)  T-0011: rebase onto VM 0944's concurrent work and reconcile the record
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+f9d0b2c29 7 issue(s)  session: 2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl (work
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+318374ab9 7 issue(s)  T-0011: bounded-neighbourhood knitting planner vs the 004 oracle (sess
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+44b56d093 7 issue(s)  claim T-0013 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+eb942bcc9 7 issue(s)  session: log T-0013 start
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+d6c295f19 7 issue(s)  task: create T-0013 for E3's build-timestamp census
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+80a5ac7f1 7 issue(s)  session: 2026-10-03-025 screen all six sealed investigations with E's 
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+711732911 7 issue(s)  tasks: complete T-0012 and regenerate tasks/INDEX.md
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+7ffa55f06 7 issue(s)  STATE.md: record session 025, replace the carried next actions with th
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+6f0d84ea3 7 issue(s)  T-0012: cross-report screen (SYNTHESIS.md), decision log split by inva
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+399cc95ef 7 issue(s)  session: log sync land capture
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+96de5f550 7 issue(s)  claim T-0012 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+65c39e6b2 7 issue(s)  session: log T-0012 start
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+e8bad6aef 7 issue(s)  claim T-0012 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+a3774ce89 7 issue(s)  task: create T-0012 six-investigation screen with E's and F's criteria
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+4ba6a7b3b 7 issue(s)  session: 2026-10-03-020 annotate HYPOTHESES.md with E002 outcome (no-c
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+ddc8387f9 7 issue(s)  claim T-0011 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+a826a483c 7 issue(s)  session: log T-0011 start
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+9f7b13005 7 issue(s)  claim T-0011 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+...120/174 scanned
+6ff97c5fe 7 issue(s)  task: create T-0011 bounded-neighbourhood knitting planner
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+869df138d 7 issue(s)  T-0010: knitting Stage-A local planner vs exhaustive oracle (session 0
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+b80498a94 7 issue(s)  claim T-0010 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+69266bc0f 7 issue(s)  session: log T-0010 creation
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+5990b8266 7 issue(s)  task: create T-0010 knitting Stage-A planner comparison
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+c3a71a3c9 7 issue(s)  docs: regenerate tasks/INDEX.md after completing T-0009
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+06a798e0e 7 issue(s)  session: 2026-10-03-021 knitting witness repair (worked)
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+2258c84c2 7 issue(s)  research: repair the knitting witness input set with orientation (T-00
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+44209141f 7 issue(s)  claim T-0009 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+cc13e6692 7 issue(s)  session: log T-0009 creation
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+85722c2a9 7 issue(s)  task: create T-0009 repaired knitting witness input
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+4d9614575 7 issue(s)  session: 2026-10-03-020 information-sufficiency witnesses (worked)
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+4befb7f47 7 issue(s)  research: information-sufficiency witnesses for the three held candida
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+3c17f382b 6 issue(s)  claim T-0008 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+f09bd638f 6 issue(s)  session: log T-0008 creation and push repair
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+dfd3f413e 6 issue(s)  claim T-0008 by opencode on instance-20260717-0947
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+84ee3f62c 6 issue(s)  task: create T-0008 information-sufficiency witness run
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+f1dcb66c4 6 issue(s)  record: close stale codex session 010 (interrupted T-0004 attempt, tak
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+173cefb1a 6 issue(s)  session: 2026-10-03-019-t-0007-distance-budget-variant-of-002-a1 (work
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+fc7306a4a 6 issue(s)  T-0007: distance-budget A1 variant — DD advantage does not transfer (F
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+f39020d1e 5 issue(s)  claim T-0007 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+69c2e2f44 5 issue(s)  task: create T-0007 for the distance-budget A1 variant
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+4ac954f5d 5 issue(s)  session: 2026-10-03-018-log-state-md-update-from-t-0004-completi (no-c
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+b4b6a5592 5 issue(s)  session: 2026-10-03-017-t-0004-make-fleet-and-sync-test-suites-p (work
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+0e9a45cbc 5 issue(s)  T-0004: green fleet/sync suite, takeover recorded, multi-VM flow docum
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+68723281d 5 issue(s)  claim T-0004 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+0dd9d2976 5 issue(s)  T-0006: 002-a1-masking sensitivity sweep, boundary at K~budget corner
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+91ca13be1 5 issue(s)  claim T-0006 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+bf38aa6db 5 issue(s)  task: create T-0006 sensitivity sweep
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+88a80a916 5 issue(s)  T-0005: A1 masking experiment 002 complete, gate met with recorded cav
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+003ce1839 5 issue(s)  claim T-0005 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+4fea0d285 5 issue(s)  task: create T-0005 for the A1 masking experiment
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+71b354b50 5 issue(s)  fix: import pathlib.Path in session.py (session start crashed without 
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+7bad31af5 5 issue(s)  T-0003: seal RESEARCH/F.md and update indexes/STATE
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+03770d95b 5 issue(s)  claim T-0003 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+2d1c9deaf 5 issue(s)  T-0002: seal RESEARCH/E.md; finish stale opencode session 010; refresh
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+b4cff6890 5 issue(s)  claim T-0002 by opencode on instance-20260717-0944
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+aa2b13e96 5 issue(s)  session: close stale local session 010 as failed (superseded)
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+46a661705 5 issue(s)  session: publish T-0004 ownership and continuation before work
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+6102f54f8 5 issue(s)  claim T-0004 by codex-multivm-20261003 on codex-local
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+...160/174 scanned
+911ef9699 5 issue(s)  session: 2026-10-03-009-rework-the-multi-vm-agent-flow-isolated (parti
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+793f11ad0 5 issue(s)  infra: multi-VM safety work in progress, tests not yet green (T-0004)
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+93d6df271 4 issue(s)  research: write kill gates for the three held candidates (T-0001)
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+64952687b 4 issue(s)  session: record bot identity switch
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+3b3f842f0 4 issue(s)  checkpoint: commit as Ihsan Ai Server Bot identity
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+9115e52e5 4 issue(s)  session: record GitHub app push verification
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+70cf4a1d7 4 issue(s)  checkpoint: continuation VM online, GitHub app remote configured
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+fb5237229 4 issue(s)  docs: correct the file census and explain the abandoned session
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+b5e205717 4 issue(s)  fix: never declare gitignored build output as an artifact
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+e00d83171 3 issue(s)  fix: close the reconciliation gap session 002 exposed
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+    F003: defined at FAILURES.md:77 but absent from the FAILURES.md index
+b5ff2d961 2 issue(s)  infra: origin tooling, documentation gates, vendored skills, and tests
+    F001: defined at FAILURES.md:21 but absent from the FAILURES.md index
+    F002: defined at FAILURES.md:58 but absent from the FAILURES.md index
+
+
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/sweep_ids.py", line 70, in <module>
+    sys.exit(main())
+  File "/tmp/opencode/sweep_ids.py", line 51, in main
+    archive = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'archive', '--format=tar', '30e812faab55224178c6823d204eb7165c336635', '--', 'FAILURES.md', 'DECISIONS.md', 'tasks']' returned non-zero exit status 128.
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 41813  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T01:18:58+00:00
+$ python3 /tmp/opencode/falsify_ids.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+collision e6eb992: 2 issue(s)
+    F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:83 "E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:141 '`sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason'
+    FAILURES.md:36: F010 is indexed on 2 lines
+repair   8a4ab8ce: 0 issue(s)
+tip      HEAD: 0 issue(s)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 618  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T01:19:14+00:00
+$ python3 /tmp/opencode/sweep_ids.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+...0/174 scanned
+...40/174 scanned
+...80/174 scanned
+e6eb992ba 2 issue(s)  T-0016: fix sync land on git >= 2.26 and make CI failures legible
+    F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:83 "E3's predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:141 '`sync land` broke on git ≥ 2.26, and 60 CI runs failed for that reason'
+    FAILURES.md:36: F010 is indexed on 2 lines
+...120/174 scanned
+...160/174 scanned
+1 of 174 commits flagged
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 15677  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T01:20:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+test_a_collision_across_two_files_is_one_collision (test_identifiers.CollisionTest) ... ok
+test_doc_lint_fails_on_the_colliding_tree (test_identifiers.CollisionTest) ... ok
+test_the_duplicate_index_row_is_reported_too (test_identifiers.CollisionTest) ... ok
+test_the_hand_repair_one_commit_later_is_clean (test_identifiers.CollisionTest) ... ok
+test_two_findings_with_one_number_are_reported (test_identifiers.CollisionTest) ... FAIL
+test_a_deliberate_paraphrase_of_an_index_row_is_not_a_collision (test_identifiers.ControlTest) ... ok
+test_a_prose_mention_is_not_a_definition (test_identifiers.ControlTest) ... ok
+test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest) ... FAIL
+test_a_finding_with_no_index_row_is_reported (test_identifiers.IndexAgreementTest) ... ok
+test_a_single_decision_outside_the_declared_range_is_reported (test_identifiers.IndexAgreementTest) ... FAIL
+test_an_index_range_covers_the_entries_it_names (test_identifiers.IndexAgreementTest) ... ok
+test_an_index_row_with_no_finding_is_reported (test_identifiers.IndexAgreementTest) ... ok
+test_no_index_at_all_is_not_a_collision (test_identifiers.IndexAgreementTest) ... ok
+test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest) ... ERROR
+test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest) ... FAIL
+test_one_task_file_per_number_is_clean (test_identifiers.TaskTest) ... ok
+test_two_task_files_with_one_number_are_reported (test_identifiers.TaskTest) ... ok
+test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest) ... FAIL
+test_this_repository_has_no_identifier_collision (test_identifiers.ThisRepositoryTest) ... ok
+
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 282, in test_land_publishes_a_clean_tree
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/sync.py", line 263, in land
+    raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
+originlib.sync.SyncError: commit or revert before landing: 
+
+======================================================================
+FAIL: test_two_findings_with_one_number_are_reported (test_identifiers.CollisionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 82, in test_two_findings_with_one_number_are_reported
+    self.assertIn("FAILURES-findings-2.md:9", found[0])
+AssertionError: 'FAILURES-findings-2.md:9' not found in 'F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:7 "E3\'s predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:11 \'`sync land` broke on git >= 2.26, and 60 CI runs failed for that reason\''
+
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 141, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(any("D030" in line and "DECISIONS.md" in line for line in found), found)
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_a_single_decision_outside_the_declared_range_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 161, in test_a_single_decision_outside_the_declared_range_is_reported
+    self.assertTrue(any("D032" in line for line in found), found)
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 264, in test_land_refuses_to_publish_a_colliding_tree
+    self.assertIn("F020", str(caught.exception))
+AssertionError: 'F020' not found in 'commit or revert before landing: FAILURES-findings-3.md, FAILURES-findings.md, FAILURES.md'
+
+======================================================================
+FAIL: test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 240, in test_the_colliding_commit_is_the_one_in_history
+    self.assertEqual(duplicates, ["F010"], f"fixture drift: {headings}")
+AssertionError: Lists differ: [] != ['F010']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'F010'
+
+- []
++ ['F010'] : fixture drift: []
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.711s
+
+FAILED (failures=5, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4391  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T01:20:55+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+test_a_collision_across_two_files_is_one_collision (test_identifiers.CollisionTest) ... ok
+test_doc_lint_fails_on_the_colliding_tree (test_identifiers.CollisionTest) ... ok
+test_the_duplicate_index_row_is_reported_too (test_identifiers.CollisionTest) ... ok
+test_the_hand_repair_one_commit_later_is_clean (test_identifiers.CollisionTest) ... ok
+test_two_findings_with_one_number_are_reported (test_identifiers.CollisionTest) ... FAIL
+test_a_deliberate_paraphrase_of_an_index_row_is_not_a_collision (test_identifiers.ControlTest) ... ok
+test_a_prose_mention_is_not_a_definition (test_identifiers.ControlTest) ... ok
+test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest) ... FAIL
+test_a_finding_with_no_index_row_is_reported (test_identifiers.IndexAgreementTest) ... ok
+test_a_single_decision_outside_the_declared_range_is_reported (test_identifiers.IndexAgreementTest) ... FAIL
+test_an_index_range_covers_the_entries_it_names (test_identifiers.IndexAgreementTest) ... ok
+test_an_index_row_with_no_finding_is_reported (test_identifiers.IndexAgreementTest) ... ok
+test_no_index_at_all_is_not_a_collision (test_identifiers.IndexAgreementTest) ... ok
+test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest) ... ERROR
+test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest) ... FAIL
+test_one_task_file_per_number_is_clean (test_identifiers.TaskTest) ... ok
+test_two_task_files_with_one_number_are_reported (test_identifiers.TaskTest) ... ok
+test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest) ... FAIL
+test_this_repository_has_no_identifier_collision (test_identifiers.ThisRepositoryTest) ... ok
+
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 282, in test_land_publishes_a_clean_tree
+    outcome = sync.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/sync.py", line 263, in land
+    raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
+originlib.sync.SyncError: commit or revert before landing: 
+
+======================================================================
+FAIL: test_two_findings_with_one_number_are_reported (test_identifiers.CollisionTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 82, in test_two_findings_with_one_number_are_reported
+    self.assertIn("FAILURES-findings-2.md:9", found[0])
+AssertionError: 'FAILURES-findings-2.md:9' not found in 'F010: defined more than once; an identifier must mean one thing: FAILURES-findings-2.md:7 "E3\'s predeclared timestamp gate is near-vacuous: prevalence measured, attribution not" / FAILURES-findings-2.md:11 \'`sync land` broke on git >= 2.26, and 60 CI runs failed for that reason\''
+
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 141, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(any("D030" in line and "DECISIONS.md" in line for line in found), found)
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_a_single_decision_outside_the_declared_range_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 161, in test_a_single_decision_outside_the_declared_range_is_reported
+    self.assertTrue(any("D032" in line for line in found), found)
+AssertionError: False is not true : []
+
+======================================================================
+FAIL: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 264, in test_land_refuses_to_publish_a_colliding_tree
+    self.assertIn("F020", str(caught.exception))
+AssertionError: 'F020' not found in 'commit or revert before landing: FAILURES-findings-3.md, FAILURES-findings.md, FAILURES.md'
+
+======================================================================
+FAIL: test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 240, in test_the_colliding_commit_is_the_one_in_history
+    self.assertEqual(duplicates, ["F010"], f"fixture drift: {headings}")
+AssertionError: Lists differ: [] != ['F010']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'F010'
+
+- []
++ ['F010'] : fixture drift: []
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.616s
+
+FAILED (failures=5, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4031  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T01:23:31+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.......F.....EFF..FF
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 311, in test_land_publishes_a_clean_tree
+    outcome = self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 275, in land
+    return sync.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/sync.py", line 263, in land
+    raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
+originlib.sync.SyncError: commit or revert before landing: 
+
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 145, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(any("D030" in line and "DECISIONS.md" in line for line in found), found)
+AssertionError: False is not true : ['DECISIONS-GATING.md: DECISIONS.md does not list this file at all', 'DECISIONS.md: lists D001 but no decision record defines it', 'DECISIONS.md: lists D002 but no decision record defines it', 'DECISIONS.md: lists D003 but no decision record defines it', 'DECISIONS.md: lists D004 but no decision record defines it', 'DECISIONS.md: lists D005 but no decision record defines it', 'DECISIONS.md: lists D006 but no decision record defines it', 'DECISIONS.md: lists D007 but no decision record defines it', 'DECISIONS.md: lists D008 but no decision record defines it', 'DECISIONS.md: lists D009 but no decision record defines it', 'DECISIONS.md: lists D010 but no decision record defines it']
+
+======================================================================
+FAIL: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 288, in test_land_refuses_to_publish_a_colliding_tree
+    self.assertIn("identifier record collides", message)
+AssertionError: 'identifier record collides' not found in 'commit or revert before landing: '
+
+======================================================================
+FAIL: test_the_refusal_names_the_fix_rather_than_only_the_finding (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 302, in test_the_refusal_names_the_fix_rather_than_only_the_finding
+    self.assertIn("land again", str(caught.exception))
+AssertionError: 'land again' not found in 'commit or revert before landing: '
+
+======================================================================
+FAIL: test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 244, in test_the_colliding_commit_is_the_one_in_history
+    self.assertEqual(duplicates, ["F010"], f"fixture drift: {headings}")
+AssertionError: Lists differ: [] != ['F010']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'F010'
+
+- []
++ ['F010'] : fixture drift: []
+
+======================================================================
+FAIL: test_this_repository_has_no_identifier_collision (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 221, in test_this_repository_has_no_identifier_collision
+    self.assertEqual(identifiers.report(root), [])
+AssertionError: Lists differ: ['DECISIONS-GATING.md: D030 is defined her[43 chars].md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-GATING.md: D030 is defined here but not listed for this file in DECISIONS.md'
+
++ []
+- ['DECISIONS-GATING.md: D030 is defined here but not listed for this file in '
+-  'DECISIONS.md']
+
+----------------------------------------------------------------------
+Ran 20 tests in 5.685s
+
+FAILED (failures=5, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6118  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T01:23:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.......F.....EFF..FF
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 311, in test_land_publishes_a_clean_tree
+    outcome = self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 275, in land
+    return sync.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/sync.py", line 263, in land
+    raise SyncError("commit or revert before landing: " + ", ".join(dirty[:8]))
+originlib.sync.SyncError: commit or revert before landing: 
+
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 145, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(any("D030" in line and "DECISIONS.md" in line for line in found), found)
+AssertionError: False is not true : ['DECISIONS-GATING.md: DECISIONS.md does not list this file at all', 'DECISIONS.md: lists D001 but no decision record defines it', 'DECISIONS.md: lists D002 but no decision record defines it', 'DECISIONS.md: lists D003 but no decision record defines it', 'DECISIONS.md: lists D004 but no decision record defines it', 'DECISIONS.md: lists D005 but no decision record defines it', 'DECISIONS.md: lists D006 but no decision record defines it', 'DECISIONS.md: lists D007 but no decision record defines it', 'DECISIONS.md: lists D008 but no decision record defines it', 'DECISIONS.md: lists D009 but no decision record defines it', 'DECISIONS.md: lists D010 but no decision record defines it']
+
+======================================================================
+FAIL: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 288, in test_land_refuses_to_publish_a_colliding_tree
+    self.assertIn("identifier record collides", message)
+AssertionError: 'identifier record collides' not found in 'commit or revert before landing: '
+
+======================================================================
+FAIL: test_the_refusal_names_the_fix_rather_than_only_the_finding (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 302, in test_the_refusal_names_the_fix_rather_than_only_the_finding
+    self.assertIn("land again", str(caught.exception))
+AssertionError: 'land again' not found in 'commit or revert before landing: '
+
+======================================================================
+FAIL: test_the_colliding_commit_is_the_one_in_history (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 244, in test_the_colliding_commit_is_the_one_in_history
+    self.assertEqual(duplicates, ["F010"], f"fixture drift: {headings}")
+AssertionError: Lists differ: [] != ['F010']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'F010'
+
+- []
++ ['F010'] : fixture drift: []
+
+======================================================================
+FAIL: test_this_repository_has_no_identifier_collision (test_identifiers.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 221, in test_this_repository_has_no_identifier_collision
+    self.assertEqual(identifiers.report(root), [])
+AssertionError: Lists differ: ['DECISIONS-GATING.md: D030 is defined her[43 chars].md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-GATING.md: D030 is defined here but not listed for this file in DECISIONS.md'
+
++ []
+- ['DECISIONS-GATING.md: D030 is defined here but not listed for this file in '
+-  'DECISIONS.md']
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.725s
+
+FAILED (failures=5, errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4203  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T01:25:40+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.......F............
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 148, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(any("D001" in line and "nothing defines" in line for line in found), found)
+AssertionError: False is not true : ['DECISIONS-GATING.md: DECISIONS.md does not list this file at all', 'DECISIONS.md: lists D001 but no decision record defines it', 'DECISIONS.md: lists D002 but no decision record defines it', 'DECISIONS.md: lists D003 but no decision record defines it', 'DECISIONS.md: lists D004 but no decision record defines it', 'DECISIONS.md: lists D005 but no decision record defines it', 'DECISIONS.md: lists D006 but no decision record defines it', 'DECISIONS.md: lists D007 but no decision record defines it', 'DECISIONS.md: lists D008 but no decision record defines it', 'DECISIONS.md: lists D009 but no decision record defines it', 'DECISIONS.md: lists D010 but no decision record defines it']
+
+----------------------------------------------------------------------
+Ran 20 tests in 4.531s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5921  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T01:25:54+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.......F............
+======================================================================
+FAIL: test_a_decision_missing_from_the_index_is_reported (test_identifiers.IndexAgreementTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 148, in test_a_decision_missing_from_the_index_is_reported
+    self.assertTrue(
+AssertionError: False is not true : ['DECISIONS-GATING.md: DECISIONS.md does not list this file at all', 'DECISIONS.md: lists D001 but no decision record defines it', 'DECISIONS.md: lists D002 but no decision record defines it', 'DECISIONS.md: lists D003 but no decision record defines it', 'DECISIONS.md: lists D004 but no decision record defines it', 'DECISIONS.md: lists D005 but no decision record defines it', 'DECISIONS.md: lists D006 but no decision record defines it', 'DECISIONS.md: lists D007 but no decision record defines it', 'DECISIONS.md: lists D008 but no decision record defines it', 'DECISIONS.md: lists D009 but no decision record defines it', 'DECISIONS.md: lists D010 but no decision record defines it']
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.701s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4124  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T01:26:06+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 3.721s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4212  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T01:26:41+00:00
+$ python3 /tmp/opencode/falsify_mutation.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/tmp/opencode/falsify_mutation.py", line 37, in <module>
+    def run(selector: str) -> tuple[bool, str]:
+TypeError: 'type' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1108  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T01:26:50+00:00
+$ python3 /tmp/opencode/falsify_mutation.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint rule 7 unregistered: FAIL (test noticed)
+   control: stayed green
+`land`'s refusal removed: FAIL (test noticed)
+   control: stayed green
+duplicate detection disabled: FAIL (test noticed)
+   control: stayed green
+falsification: every mutation was noticed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5914  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T01:29:38+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.......F.......................................................F................................................F...................................................................................................................................................................................................F.F.....................
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lint_passes_when_the_committed_file_is_from_an_earlier_day (test_generated_stamps.GeneratedStampTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_generated_stamps.py", line 73, in test_lint_passes_when_the_committed_file_is_from_an_earlier_day
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/sync.py: 323 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_task_index_freshness.py", line 37, in test_a_new_task_leaves_no_orphan_behind
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/sync.py: 323 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_task_index_freshness.py", line 52, in test_claiming_and_completing_keep_the_index_current
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 52 file(s) checked
+  FAIL  tools/originlib/sync.py: 323 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 332 tests in 161.601s
+
+FAILED (failures=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 162031  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T01:31:30+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier or sync or landed or task_index
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1314  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T01:34:17+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.................................................................................................................................EEE..........................E.EEEE....................................................................................................................................EE.E................................
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 322, in test_land_publishes_a_clean_tree
+    outcome = self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 297, in test_land_refuses_to_publish_a_colliding_tree
+    self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_the_refusal_names_the_fix_rather_than_only_the_finding (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 312, in test_the_refusal_names_the_fix_rather_than_only_the_finding
+    self.land(mock.Mock())
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_a_landed_file_edited_after_landing_is_still_reported (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 108, in test_a_landed_file_edited_after_landing_is_still_reported
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_landed_work_is_not_reported_as_this_session_s_own (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 86, in test_landed_work_is_not_reported_as_this_session_s_own
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_landing_outside_a_session_records_nothing (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 150, in test_landing_outside_a_session_records_nothing
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_own_undeclared_change_is_still_reported_alongside_landed_work (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 96, in test_own_undeclared_change_is_still_reported_alongside_landed_work
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_the_landing_is_recorded_with_the_commits_that_arrived (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 131, in test_the_landing_is_recorded_with_the_commits_that_arrived
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_land_never_opens_an_editor_to_continue_a_rebase (test_sync.SyncTest)
+`git rebase --continue` is interactive from git 2.5x; land must not be.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_sync.py", line 202, in test_land_never_opens_an_editor_to_continue_a_rebase
+    outcome = syncland.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/syncland.py", line 138, in land
+    _record_arrival("sync land", before, after, root, arrived=arrived)
+NameError: name '_record_arrival' is not defined
+
+======================================================================
+ERROR: test_land_rebases_onto_the_base_and_pushes (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_sync.py", line 116, in test_land_rebases_onto_the_base_and_pushes
+    outcome = syncland.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/syncland.py", line 138, in land
+    _record_arrival("sync land", before, after, root, arrived=arrived)
+NameError: name '_record_arrival' is not defined
+
+======================================================================
+ERROR: test_land_resolves_generated_index_conflicts_by_regenerating (test_sync.SyncTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_sync.py", line 146, in test_land_resolves_generated_index_conflicts_by_regenerating
+    outcome = syncland.land()
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tools/originlib/syncland.py", line 138, in land
+    _record_arrival("sync land", before, after, root, arrived=arrived)
+NameError: name '_record_arrival' is not defined
+
+----------------------------------------------------------------------
+Ran 332 tests in 162.196s
+
+FAILED (errors=11)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 162610  redactions: none
+==============================================================================
+[seq 18] 2026-10-04T01:39:40+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.................................................................................................................................EEE..........................E.EEEE........................................................................................................................................................................
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 322, in test_land_publishes_a_clean_tree
+    outcome = self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 297, in test_land_refuses_to_publish_a_colliding_tree
+    self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_the_refusal_names_the_fix_rather_than_only_the_finding (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 312, in test_the_refusal_names_the_fix_rather_than_only_the_finding
+    self.land(mock.Mock())
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_a_landed_file_edited_after_landing_is_still_reported (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 108, in test_a_landed_file_edited_after_landing_is_still_reported
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_landed_work_is_not_reported_as_this_session_s_own (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 86, in test_landed_work_is_not_reported_as_this_session_s_own
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_landing_outside_a_session_records_nothing (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 150, in test_landing_outside_a_session_records_nothing
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_own_undeclared_change_is_still_reported_alongside_landed_work (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 96, in test_own_undeclared_change_is_still_reported_alongside_landed_work
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+======================================================================
+ERROR: test_the_landing_is_recorded_with_the_commits_that_arrived (test_landed_work.LandedWorkTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_landed_work.py", line 131, in test_the_landing_is_recorded_with_the_commits_that_arrived
+    syncland.land()
+NameError: name 'syncland' is not defined
+
+----------------------------------------------------------------------
+Ran 332 tests in 162.986s
+
+FAILED (errors=8)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 163582  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T01:42:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.................................................................................................................................EEE........................................................................................................................................................................................................
+======================================================================
+ERROR: test_land_publishes_a_clean_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 322, in test_land_publishes_a_clean_tree
+    outcome = self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_land_refuses_to_publish_a_colliding_tree (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 297, in test_land_refuses_to_publish_a_colliding_tree
+    self.land(pushed)
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+======================================================================
+ERROR: test_the_refusal_names_the_fix_rather_than_only_the_finding (test_identifiers.LandRefusalTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 312, in test_the_refusal_names_the_fix_rather_than_only_the_finding
+    self.land(mock.Mock())
+  File "/home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947/tests/test_identifiers.py", line 286, in land
+    return sync.land()
+AttributeError: module 'originlib.sync' has no attribute 'land'
+
+----------------------------------------------------------------------
+Ran 332 tests in 171.905s
+
+FAILED (errors=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 172334  redactions: none
+==============================================================================
+[seq 20] 2026-10-04T01:45:51+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 332 tests in 166.327s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 166803  redactions: none
+==============================================================================
+[seq 21] 2026-10-04T01:46:09+00:00
+$ python3 /tmp/opencode/falsify_mutation.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint rule 7 unregistered: FAIL (test noticed)
+   control: stayed green
+`land`'s refusal removed: FAIL (test noticed)
+   control: stayed green
+duplicate detection disabled: FAIL (test noticed)
+   control: stayed green
+falsification: every mutation was noticed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6075  redactions: none
+==============================================================================
+[seq 22] 2026-10-04T01:53:13+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k identifier
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 4.205s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4778  redactions: none
+==============================================================================
+[seq 23] 2026-10-04T01:53:36+00:00
+$ python3 /tmp/opencode/falsify_mutation.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint rule 7 unregistered: PASS (test did not notice)
+   the gate was mutated and the suite stayed green
+   control: stayed green
+`land`'s refusal removed: FAIL (test noticed)
+   control: stayed green
+duplicate detection disabled: FAIL (test noticed)
+   control: stayed green
+falsification: AT LEAST ONE WAS NOT
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 4994  redactions: none
+==============================================================================
+[seq 24] 2026-10-04T01:53:46+00:00
+$ python3 /tmp/opencode/falsify_mutation.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint rule 7 unregistered: FAIL (test noticed)
+   control: stayed green
+`land`'s refusal removed: FAIL (test noticed)
+   control: stayed green
+duplicate detection disabled: FAIL (test noticed)
+   control: stayed green
+falsification: every mutation was noticed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5504  redactions: none
+==============================================================================
+[seq 25] 2026-10-04T01:56:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.............................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 333 tests in 169.231s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 169705  redactions: none
+==============================================================================
+[seq 26] 2026-10-04T01:56:53+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint: 396 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 416 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1205 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1612  redactions: none
+==============================================================================
+[seq 27] 2026-10-04T01:56:57+00:00
+$ tools/origin release check
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+release check: 37 path(s) checked
+release check: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4031  redactions: none
+==============================================================================
+[seq 28] 2026-10-04T02:01:31+00:00
+$ tools/origin release check
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+release check: 37 path(s) checked
+  FAIL  STATE-history-2.md: tracked at the top level but classified by neither manifest table
+release check: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 5082  redactions: none
+==============================================================================
+[seq 29] 2026-10-04T02:01:50+00:00
+$ tools/origin release check
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+release check: 38 path(s) checked
+release check: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4188  redactions: none
+==============================================================================
+[seq 30] 2026-10-04T02:01:52+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint: 397 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 416 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1266 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 48 session(s) checked
+  note  2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi: in progress (command)
+  FAIL  2026-10-03-040-make-origin-doctor-read-the-push-credent: last event is 'command'; session may be unfinished; T-0024 is done, not claimed
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2014  redactions: none
+==============================================================================
+[seq 31] 2026-10-04T02:02:33+00:00
+$ tools/origin session verify
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+session verify: 48 session(s) checked
+  note  2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi: in progress (command)
+  FAIL  2026-10-03-040-make-origin-doctor-read-the-push-credent: last event is 'command'; session may be unfinished; T-0024 is done, not claimed
+session verify: 1 problem(s)
+------------------------------------------------------------------------------
+exit: 4  duration_ms: 1699  redactions: none
+==============================================================================
+[seq 38] 2026-10-04T02:08:13+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.............................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 333 tests in 167.427s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 167902  redactions: none
+==============================================================================
+[seq 39] 2026-10-04T02:08:16+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+doc lint: 397 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 416 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1334 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 48 session(s) checked
+  note  2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi: in progress (command)
+  FAIL  2026-10-03-040-make-origin-doctor-read-the-push-credent: last event is 'command'; session may be unfinished; T-0024 is done, not claimed
+session verify: 1 problem(s)
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2911  redactions: none
+==============================================================================
+[seq 40] 2026-10-04T02:11:16+00:00
+$ tools/origin task verify T-0030
+cwd: /home/ubuntu/think-free/.worktrees/T-0030-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0030: `PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && tools/origin doc lint` -> exit 0 in 171.65s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 172021  redactions: none

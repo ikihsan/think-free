@@ -17,7 +17,7 @@ from pathlib import Path
 
 from harness import RepoTest, git, make_fleet
 
-from originlib import session, sync, taskops
+from originlib import session, sync, syncland, taskops
 
 
 class LandedWorkTest(RepoTest):
@@ -83,7 +83,7 @@ class LandedWorkTest(RepoTest):
         active = self.open_session()
         self.declare_own_work()
         self.other_vm_lands_work()
-        sync.land()
+        syncland.land()
         result = session.finish("worked", "landed the base", "none")
         self.assertEqual(result["unlogged"], [])
         self.assertEqual(self.unlogged(active.session), [])
@@ -93,7 +93,7 @@ class LandedWorkTest(RepoTest):
         active = self.open_session()
         self.declare_own_work()
         self.other_vm_lands_work()
-        sync.land()
+        syncland.land()
         self.write_on(self.vm_a, "vm-a/scratch.md", "never declared\n")
         result = session.finish("worked", "landed the base", "none")
         self.assertEqual(result["unlogged"], ["vm-a/scratch.md"])
@@ -105,7 +105,7 @@ class LandedWorkTest(RepoTest):
         active = self.open_session()
         self.declare_own_work()
         self.other_vm_lands_work()
-        sync.land()
+        syncland.land()
         self.write_on(self.vm_a, "STATE.md", "and this session's own line\n")
         result = session.finish("worked", "landed the base", "none")
         self.assertEqual(result["unlogged"], ["STATE.md"])
@@ -128,7 +128,7 @@ class LandedWorkTest(RepoTest):
         active = self.open_session()
         self.declare_own_work()
         arrived = self.other_vm_lands_work()
-        sync.land()
+        syncland.land()
         session.finish("worked", "landed the base", "none")
         recorded = self.events_of(active.session, "base_advance")
         self.assertEqual(len(recorded), 1)
@@ -147,7 +147,7 @@ class LandedWorkTest(RepoTest):
         self.write_on(self.vm_a, "vm-a/late.md", "no session open\n")
         self.commit_on(self.vm_a, "vm-a: late commit")
         self.other_vm_lands_work()
-        sync.land()
+        syncland.land()
         self.assertFalse((self.vm_a / "sessions" / "active.json").exists())
         # No session, so there is no record to write into; the landing must not
         # invent one. The base still moved, which is what this checks.

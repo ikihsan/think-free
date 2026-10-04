@@ -20,7 +20,7 @@ unpublished record.
 | Isolation | `worktree add T-0004` | Each task gets its own directory and branch; gitignored via `.worktrees/`. Refuses a claim held by *another* VM, not this one's |
 | Fetch on start | `session start` | Fetches and fast-forwards onto the base; refuses a stale or dirty tree instead of merging |
 | Publish on finish | `session finish --push` | Commits the session record, then pushes the branch; refuses if your own uncommitted work would travel silently |
-| Sync | `sync status` / `pull` / `push` / `land` | Never forces; `land` rebases the task branch onto the base and pushes it |
+| Sync | `sync status` / `pull` / `push` / `land` | Never forces; `land` rebases the task branch onto the base, refuses a colliding identifier record, then pushes it |
 
 ## One task, one holder
 
@@ -80,15 +80,25 @@ report costs a minute of reading, a wrongly silenced file costs the record.
 ## One number, one meaning
 
 F, D and T identifiers are allocated from the shared base, never from one VM's
-working tree. `task new` and `origin id next` both fetch first, read the
-numbered records at `origin/<base>`, and print which record decided the number;
-`task new` prints it on the line below `created`, because that is the only place
-the answer is written down. The rule, what counts as a definition, and the
-ceiling are in [`../reference/identifier-allocation.md`](../reference/identifier-allocation.md).
+working tree. `task new` and `origin id next` both fetch first, read the numbered
+records at `origin/<base>`, and print which record decided the number. **A
+collision is still caught before publication, not only prevented**: `land` refuses
+to push a tree whose identifier record collides, naming both definitions and
+their lines, because a collision is created by the *merge* — each branch is
+internally consistent and each VM's own lint sees nothing. `doc lint` rule 7 is
+the backstop for a branch pushed by any other route.
 
-The residual race is two VMs allocating between their own fetches. It is caught
-by the push rejection and by the detector (T-0030), not prevented here, so a
-collision still has to be renumbered on the side that has not been pushed.
+`push` and `task claim` are deliberately **not** gated. Refusing them would stop a
+VM publishing the session record it needs in order to renumber its way out, which
+would hold the defect in place instead of reporting it.
+
+The residual race is two VMs allocating between their own fetches. It is caught by
+the push rejection and by the detector, not prevented here, so a collision still
+has to be renumbered on the side that has not been pushed. The allocation rule is
+in [`../reference/identifier-allocation.md`](../reference/identifier-allocation.md);
+the two decisions are D031 and D032 in
+[`DECISIONS-PRACTICE.md`](../../DECISIONS-PRACTICE.md) and
+[`DECISIONS-GATING.md`](../../DECISIONS-GATING.md).
 
 ## Generated-file conflicts
 

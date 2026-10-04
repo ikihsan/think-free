@@ -39,6 +39,8 @@ interfere with the working repository.
 | `test_task_index_freshness.py` | A created task is linked by the generated indexes: `task new` then `doc lint` must pass with no manual regeneration, and a file nobody created must still be an orphan |
 | `test_idalloc.py` | Identifier allocation reads the shared base: a clone whose tree is behind it, a withdrawn number, an unreachable base, and the three states the source line distinguishes |
 | `test_gitversions.py` | Schema of `git-versions.json` and that the docs point at it |
+| `test_identifiers.py` | The identifier rule: the two definitions of F010 as commit `e6eb992` wrote them, index rows with and without a body, task numbers, and the paraphrased rows that must stay silent |
+| `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree |
 | `pushcred_fixture.py` | Throwaway HOME, git config, and App directory for the push-credential tests; never names a real path |
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
 | `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
@@ -82,6 +84,16 @@ one identical line for all three, which is recorded in the session command log
 rather than here. **A fixture must build its paths inside its own sandbox**:
 the first version named `/tmp/github-app-jwt.sh`, which exists on one VM and not
 another, so it passed for the wrong reason where it happened to exist.
+
+**A control that cannot fail is not a control.** `test_identifiers.py` carries the
+two rows `FAILURES.md` shortens on purpose, and an earlier version of the rule
+compared index rows to their headings as strings — which flagged 83 of 174
+commits, including the tip, for being paraphrased. The control is what found it.
+It is also what caught a decision-index regex that matched no row in any commit:
+a check that has never fired looks exactly like a check with nothing to report,
+so the suite asserts each mechanism notices its own removal. Run against the real
+history the rule reports one commit of 174 (`e6eb992`, the collision that
+reached the base) and the hand repair one minute later is clean.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

@@ -53,33 +53,35 @@ defect is listed as open.
 
 ## Open
 
-5. **Identifier allocation collides by construction** (half solved in T-0031; the
-   detector is T-0030). Identifiers are allocated by reading the local tree, so
-   two VMs in an hour take the same numbers. Six times on 2026-10-03: T-0016 and
-   F009/F010/D022; session 029's F012 against session 026's F010; session 030's
-   F012 for E3's attribution against VM 0947's F012 for the worktree defect;
-   D024 issued twice for unrelated decisions; then F013,
+5. **Identifier allocation collides by construction** (both halves solved:
+   allocation in T-0031, detection in T-0030). Identifiers were allocated by
+   reading the local tree, so two VMs in an hour took the same numbers. Six times
+   on 2026-10-03: T-0016 and F009/F010/D022; session 029's F012 against session
+   026's F010; session 030's F012 for E3's attribution against VM 0947's F012 for
+   the worktree defect; D024 issued twice for unrelated decisions; then F013,
    `FAILURES-findings-3.md`, D025 and D026 all taken on 0944 while 0947 held the
    same numbers. VM 0947's two findings became F014 and F015 and its session-gate
-   decision D027, and six more collisions followed in a single hour on
-   2026-10-04 (T-0024 through T-0028, F014, F015, D027, D028), which this VM
-   renumbered to T-0029, F016, F017 and D030. **The cost was measured:** a rebase
-   resolution restored one file's index row to the renumbered form while
+   decision D027, and six more collisions followed in a single hour on 2026-10-04
+   (T-0024 through T-0028, F014, F015, D027, D028). **The cost was measured:** a
+   rebase resolution restored one file's index row to the renumbered form while
    reverting its body, so a findings file and its own table disagreed about the
-   same entries.
-   **Solved in T-0031, `observed`:** `tools/originlib/idalloc.py` allocates F, D
-   and T numbers from `origin/<base>` — task files, claim ledger, findings
-   definitions and index rows, decision definitions and spans — plus this
+   same entries; and commit `e6eb992` carries two findings both numbered F010 to
+   the shared base, which no gate reported.
+   **Allocation solved in T-0031, `observed`:** `tools/originlib/idalloc.py`
+   allocates F, D and T numbers from `origin/<base>` — task files, claim ledger,
+   findings definitions and index rows, decision definitions and spans — plus this
    working tree, and every command that hands out a number prints the record it
-   read. Falsified first: with the old allocator, a clone whose tree is behind
-   the base allocated `T-0002` where the base already defined it; after the
-   repair it allocates `T-0003`. A withdrawn task's number is no longer recycled,
-   because the ledger still names it.
-   **Still open, and honestly so:** two VMs that allocate between their own
-   fetches still collide, and a number allocated but never pushed reserves
-   nothing. A detector can refuse such a commit; it cannot stop the race. That
-   detector is T-0030. Rule and states:
-   [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
+   read. Falsified first: with the old allocator a clone whose tree is behind the
+   base allocated a number the base already defined.
+   **Detection solved in T-0030, D032:** `tools/originlib/identifiers.py` reports
+   an identifier defined twice, an index row with no body, and a decision its own
+   index row does not list; `sync land` refuses to publish such a tree and `doc
+   lint` rule 7 reports it. Falsified in both directions: one commit of 174 is
+   flagged, and each of the three mechanisms notices its own removal. It found a
+   live desync on its first run — D030 missing from `DECISIONS.md`.
+   **Residual, stated:** two VMs allocating between their own fetches still
+   collide, and an unpushed number reserves nothing. The push rejection and this
+   detector catch it; nothing prevents it.
 6. **`doctor` does not compare this VM's git against what the suite has been
    exercised on** (open, partly closed in T-0018 with `tests/git-versions.json`).
    There is still no equivalent record for Python, which
@@ -94,3 +96,12 @@ falsifications (T-0024's second attempt) mutated a code path the callers never
 reach and passed anyway — the failure of the falsification, not of the gate — so
 it was redone by reverting the generators instead. See D025 in
 [`DECISIONS-GATING.md`](DECISIONS-GATING.md).
+
+**A gate that has never fired looks exactly like a gate with nothing to report.**
+T-0030's first decision-index check matched no row in any commit, because the
+regex did not allow a Markdown link around the filename, so the sweep of all 174
+commits passed while that half of the rule did nothing. The control test — the two
+`FAILURES.md` rows this repository deliberately paraphrases — was what caught it,
+and it had already caught the other half of the same draft, which compared index
+rows to headings as strings and flagged 83 of 174 commits. Both are in the
+session's `commands.log`.

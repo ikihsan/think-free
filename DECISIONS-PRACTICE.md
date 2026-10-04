@@ -6,9 +6,9 @@ status: active
 last-verified: 2026-10-03
 -->
 
-Decisions **D011–D012, D014–D018**. Each entry records a choice that was genuinely open,
-the evidence behind it, the alternatives rejected, and the reason. Decisions that
-constrain later work belong here; ordinary edits do not.
+Decisions **D011–D018, D027–D028**. Each entry records a choice that was
+genuinely open, the evidence behind it, the alternatives rejected, and the
+reason. Decisions that constrain later work belong here; ordinary edits do not.
 
 **Invariant:** every entry in this file governs *how work is recorded, moved, or
 published* — the tooling and the mechanics a session must satisfy. If a decision
@@ -23,6 +23,13 @@ Split on 2026-10-03 (T-0018) when this file reached 297 of the 300 permitted
 lines: D013 and D019–D023 moved verbatim to `DECISIONS-GATING.md`; D019–D021 then
 moved again to `DECISIONS-SCREENING.md` (T-0020). Numbering is
 continuous and unchanged.
+
+D013 came back on 2026-10-04 (T-0030) with D027 and D028, because the three
+together decide whether a session is finished, in flight, or abandoned, and whose
+change a recorded path is — the mechanics of a session's own record, which is
+this file's invariant. They left `DECISIONS-GATING.md` because D030 had reached
+289 of its 300 permitted lines. Entries moved verbatim; numbering is continuous
+and unchanged, so a reference to D013, D027 or D028 still resolves.
 
 ## D011 — Artifact declaration takes several paths and a directory (2026-10-03)
 

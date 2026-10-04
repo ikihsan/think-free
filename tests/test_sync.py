@@ -11,7 +11,7 @@ import os
 
 from harness import RepoTest, git, make_fleet
 
-from originlib import sync
+from originlib import sync, syncland
 from originlib.sync import SyncError
 
 
@@ -113,7 +113,7 @@ class SyncTest(RepoTest):
         git(self.vm_a, "add", "-A")
         git(self.vm_a, "commit", "-qm", "mine")
         self.commit_on(self.vm_b, "from-b.md", "b\n")
-        outcome = sync.land()
+        outcome = syncland.land()
         self.assertTrue(outcome["pushed"])
         self.assertEqual(
             git(self.vm_a, "rev-parse", "origin/research/origin"),
@@ -143,7 +143,7 @@ class SyncTest(RepoTest):
         git(self.vm_b, "add", "-A")
         git(self.vm_b, "commit", "-qm", "regenerate index on b")
         git(self.vm_b, "push", "-q", "origin", "research/origin")
-        outcome = sync.land()
+        outcome = syncland.land()
         self.assertTrue(outcome["resolved"])
         self.assertIn("sessions/INDEX.md", " ".join(outcome["resolved"]))
         from originlib import report
@@ -199,7 +199,7 @@ class SyncTest(RepoTest):
         git(self.vm_b, "add", "-A")
         git(self.vm_b, "commit", "-qm", "regenerate index on b")
         git(self.vm_b, "push", "-q", "origin", "research/origin")
-        outcome = sync.land()
+        outcome = syncland.land()
         self.assertIn("sessions/INDEX.md", " ".join(outcome["resolved"]))
         self.assertFalse(
             marker.exists(),
@@ -218,7 +218,7 @@ class SyncTest(RepoTest):
         git(self.vm_b, "commit", "-qm", "theirs")
         git(self.vm_b, "push", "-q", "origin", "research/origin")
         with self.assertRaises(SyncError) as caught:
-            sync.land()
+            syncland.land()
         self.assertIn("shared.md", str(caught.exception))
         self.assertIn("mine", (self.vm_a / "shared.md").read_text(encoding="utf-8"))
         # The rebase is left for a human to inspect rather than thrown away.

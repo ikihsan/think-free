@@ -9,6 +9,9 @@ Rules, in the order they are reported:
 5. generated files must match what the generators produce now
 6. no unresolved merge-conflict marker (rule added in T-0021 after three
    mission records reached the shared base with one; `FAILURES.md` F013)
+7. no identifier defined twice, and no index row or decision entry that the
+   body does not back (rule added in T-0030 after commit `e6eb992` reached the
+   shared base with two findings numbered F010; defect 5 in `STATE-defects.md`)
 
 Exit code 2 signals a violation. Exempt files are reported as `info` so an
 exception is never invisible.
@@ -250,6 +253,20 @@ def check_conflicts(result: Result, files: list[Path]) -> None:
     result.infos.extend(infos)
 
 
+def check_identifiers(result: Result) -> None:
+    """No identifier may mean two things, and no index row may lack a body.
+
+    Scoped to the root mission records rather than to the tracked file list,
+    because the property is about the identifier record as a whole: two files
+    each defining `F010` is one collision, not two findings, and a linter that
+    read them separately would report it twice or not at all.
+    """
+    from . import identifiers
+
+    for line in identifiers.report(paths.repo_root()):
+        result.violations.append(f"identifier collision: {line}")
+
+
 def events_all() -> list[str]:
     from . import events
 
@@ -279,4 +296,5 @@ def lint(root: Path | None = None) -> Result:
     check_orphans(result, files, globs)
     check_generated(result)
     check_conflicts(result, files)
+    check_identifiers(result)
     return result
