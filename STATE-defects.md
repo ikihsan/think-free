@@ -265,3 +265,24 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     so is `STATE.md`'s dashboard row, which names all nine experiments at once. A
     tool version written in a results row is *reported*, because `2.30` and `0.30`
     are the same shape.
+
+24. **Two experiments each had a module named `stats.py`, and the full suite read
+    one of them silently** (found and repaired in T-0060). Two test modules each
+    did `sys.path.insert(0, <their own experiment>)` and `import stats`. Run
+    alone, each file's 34 cases passed. Run together, the second import was
+    shadowed by the first — `sys.modules` keeps the name — and **25 tests failed
+    with `module 'stats' has no attribute 'classify'`** while the first file's
+    tests stayed green, so neither file reported anything about the other.
+    **The cost is a suite whose per-file result is not its in-suite result**, which
+    is the condition F018 and F019 name for the interpreter and the runner: a
+    fixture that looks right alone and is wrong in the environment it actually
+    runs in. A test that only ever runs alone cannot detect it.
+    **Repair:** the experiment's module is named `verdict.py`, because a sibling
+    experiment already owns `stats.py`. Falsified in the only direction that
+    matters: the full suite, which failed 25 before and passes after.
+    **Ceiling:** the collision was found because two experiments happened to be
+    added in the same hour. Nothing detects it. Two experiments with a
+    `usage.py` or a `census.py` would collide the same way, and `doc lint` reads
+    documents rather than module names, so the check that exists does not see it.
+    The general rule — *a module imported by the suite must be uniquely named
+    across the repository* — is written down here and enforced nowhere.

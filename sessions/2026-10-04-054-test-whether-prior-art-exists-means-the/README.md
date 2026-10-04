@@ -31,11 +31,12 @@ _none_
 
 ## Commands
 
-1 captured, 1 non-zero exit.
+2 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 5 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 1 | 374096 |
+| 6 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests'] | 0 | 388099 |
 
 ## Integrity
 
@@ -56,6 +57,7 @@ _none_
 | 3 | 21:46:46 | task_rewrite | rewrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md (status: claimed) |
 | 4 | 21:46:46 | task_rewrite | appended a claim record for T-0060 |
 | 5 | 22:54:10 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 6 | 23:05:45 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 
 ## Reproduce this record
 
