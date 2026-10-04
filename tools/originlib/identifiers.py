@@ -53,6 +53,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from .finding import Finding
+
 # `## F013 — subject`. Both dash spellings are accepted because the record uses
 # an em dash throughout and a hand-typed hyphen is not a different convention.
 DEFINITION = re.compile(r"^##\s+([FD]\d{3})\s+[—-]\s+(\S.*?)\s*$")
@@ -91,9 +93,20 @@ class Definition:
 
 @dataclass(frozen=True)
 class Issue:
-    """One thing wrong with the identifier record."""
+    """One thing wrong with the identifier record.
+
+    `path` and `line` are where a reader should look, and they are empty when
+    the property spans more than one place: a number taken twice in two
+    different files has no single file to open, and naming one of them would be
+    a guess about which is the wrong one. `origin annotate` publishes them as
+    the check-run annotation's `file` and `line`, so an honest absence here is
+    an annotation on the run rather than an annotation pointing at the wrong
+    document.
+    """
 
     detail: str
+    path: str = ""
+    line: int = 0
 
     def render(self) -> str:
         return self.detail
@@ -189,8 +202,13 @@ def _duplicates(all_defs: list[Definition]) -> list[Issue]:
         places = grouped[ident]
         if len(places) > 1:
             subjects = " / ".join(f"{p.where()} {p.title!r}" for p in places)
+            # A file is named only when every definition is in it. Two files
+            # taking one number have no single place to send a reader.
+            paths = {p.path for p in places}
+            where = next(iter(paths)) if len(paths) == 1 else ""
             issues.append(
-                Issue(f"{ident}: defined more than once; an identifier must mean one thing: {subjects}")
+                Issue(f"{ident}: defined more than once; an identifier must mean "
+                      f"one thing: {subjects}", where)
             )
     return issues
 
@@ -206,20 +224,21 @@ def _finding_index_issues(
     issues = []
     for ident in sorted(defined):
         if ident not in rows:
+            item = defined[ident]
             issues.append(
-                Issue(f"{ident}: defined at {defined[ident].where()} but absent from the {FINDING_INDEX} index")
+                Issue(f"{ident}: defined at {item.where()} but absent from the "
+                      f"{FINDING_INDEX} index", item.path, item.line)
             )
     for ident in sorted(rows):
         if ident not in defined:
             issues.append(
-                Issue(f"{FINDING_INDEX}:{rows[ident][0]}: {ident} is indexed but nothing defines it")
+                Issue(f"{FINDING_INDEX}:{rows[ident][0]}: {ident} is indexed but "
+                      f"nothing defines it", FINDING_INDEX, rows[ident][0])
             )
         elif len(rows[ident]) > 1:
             issues.append(
-                Issue(
-                    f"{FINDING_INDEX}:{rows[ident][0]}: {ident} is indexed on "
-                    f"{len(rows[ident])} lines"
-                )
+                Issue(f"{FINDING_INDEX}:{rows[ident][0]}: {ident} is indexed on "
+                      f"{len(rows[ident])} lines", FINDING_INDEX, rows[ident][0])
             )
     return issues
 
@@ -236,16 +255,19 @@ def _decision_index_issues(defs: list[Definition], index: dict[str, set[str]]) -
     for path in sorted(by_file):
         declared = index.get(Path(path).name)
         if declared is None:
-            issues.append(Issue(f"{path}: {DECISION_INDEX} does not list this file at all"))
+            issues.append(Issue(f"{path}: {DECISION_INDEX} does not list this file "
+                                "at all", path))
             continue
         for ident in sorted(by_file[path] - declared):
             issues.append(
-                Issue(f"{path}: {ident} is defined here but not listed for this file in {DECISION_INDEX}")
+                Issue(f"{path}: {ident} is defined here but not listed for this "
+                      f"file in {DECISION_INDEX}", path)
             )
     listed = {ident for ids in index.values() for ident in ids}
     for ident in sorted(listed - set(defined)):
         issues.append(
-            Issue(f"{DECISION_INDEX}: lists {ident} but no decision record defines it")
+            Issue(f"{DECISION_INDEX}: lists {ident} but no decision record "
+                  f"defines it", DECISION_INDEX)
         )
     return issues
 
@@ -262,5 +284,10 @@ def issues(root: Path) -> list[Issue]:
 
 
 def report(root: Path) -> list[str]:
-    """Issues as lint lines, one per line, in a stable order."""
-    return [issue.render() for issue in issues(root)]
+    """Every identifier collision in the mission record, one per line.
+
+    The lines are `Finding`s: the sentence has not changed, and each one now
+    also carries the place a reader should open when they have no other way to
+    see it (T-0040).
+    """
+    return [Finding(item.render(), item.path, item.line) for item in issues(root)]

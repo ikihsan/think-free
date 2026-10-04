@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from . import idalloc, session, sync, taskops, taskremote, tasks
+from .usage import Usage
 
 EXIT_OK = 0
 EXIT_USAGE = 1

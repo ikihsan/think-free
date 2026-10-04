@@ -8,7 +8,11 @@ from __future__ import annotations
 import json
 
 from . import events, inflight, paths, report, session
-from .doclint import active_session_id
+from .doclint_tree import active_session_id
+import argparse
+
+from .finding import Finding
+from .usage import Usage
 
 EXIT_OK = 0
 EXIT_INTEGRITY = 4
@@ -184,7 +188,21 @@ def _resume(session_id: str) -> int:
 
 
 def verify_sessions(strict: bool = False, lease_hours: float | None = None) -> int:
-    """Check every session record. Exit 4 on a problem.
+    """Check every session record, print the report, and exit 4 on a problem."""
+    report, problems = session_report(strict=strict, lease_hours=lease_hours)
+    print(report)
+    return EXIT_INTEGRITY if problems else EXIT_OK
+
+
+def session_report(strict: bool = False, lease_hours: float | None = None):
+    """The rendered report and the violations behind it, without printing.
+
+    Split out of `verify_sessions` on 2026-10-04 (T-0040) because the two
+    callers need different halves of one answer. `verify_sessions` prints what
+    a VM reads; `origin annotate` needs the *violations* to publish as
+    check-run annotations, and capturing stdout to get them is the shape of
+    mistake D025 describes - reading back a field another layer formatted for
+    a person.
 
     The session currently in flight is reported as in-progress rather than
     failed: by definition it has no `session_end` yet, and flagging that would
@@ -199,30 +217,33 @@ def verify_sessions(strict: bool = False, lease_hours: float | None = None) -> i
     cannot drift apart.
     """
     lease = inflight.DEFAULT_LEASE_HOURS if lease_hours is None else lease_hours
-    problems: list[str] = []
+    problems: list[Finding] = []
     notes: list[str] = []
     in_flight = active_session_id()
     sessions = events.all_sessions()
     for name in sessions:
         path = paths.events_file(name)
+        rel = paths.paths_repo_relative(path)
         raw = events.read(path)
         seqs = []
         kinds: list[str] = []
         for item in raw:
             for issue in events.validate(item):
-                problems.append(f"{name}: {issue}")
+                problems.append(Finding.at(rel, issue))
             if isinstance(item.get("seq"), int):
                 seqs.append(item["seq"])
             if "kind" in item:
                 kinds.append(item["kind"])
         if seqs != list(range(1, len(seqs) + 1)):
-            problems.append(f"{name}: sequence is not 1..n contiguous: {seqs[:8]}...")
+            problems.append(
+                Finding.at(rel, f"sequence is not 1..n contiguous: {seqs[:8]}...")
+            )
         if kinds.count("session_start") != 1:
-            problems.append(f"{name}: expected exactly one session_start")
+            problems.append(Finding.at(rel, "expected exactly one session_start"))
         if kinds.count("session_end") > 1:
-            problems.append(f"{name}: more than one session_end")
+            problems.append(Finding.at(rel, "more than one session_end"))
         if kinds and kinds[-1] != "session_end":
-            message = f"{name}: last event is {kinds[-1]!r}; session may be unfinished"
+            unfinished = f"last event is {kinds[-1]!r}; session may be unfinished"
             if name == in_flight and not strict:
                 notes.append(f"{name}: in progress ({kinds[-1]})")
             else:
@@ -231,35 +252,44 @@ def verify_sessions(strict: bool = False, lease_hours: float | None = None) -> i
                 if verdict.in_flight:
                     notes.append(verdict.note(name))
                 else:
-                    problems.append(f"{message}; {verdict.reason}")
+                    problems.append(Finding.at(rel, f"{unfinished}; {verdict.reason}"))
         if not events.SESSION_ID.match(name):
-            problems.append(f"{name}: directory name is not a valid session id")
+            problems.append(Finding.at(rel, "directory name is not a valid session id"))
         if not paths.session_report(name).exists():
-            problems.append(f"{name}: report README.md missing")
+            problems.append(
+                Finding.at(
+                    paths.paths_repo_relative(paths.session_report(name)),
+                    "report README.md missing",
+                )
+            )
         for item in raw:
             if item.get("kind") != "command":
                 continue
             data = item.get("data", {})
             log = data.get("log")
             if not log:
-                problems.append(f"{name} seq {item.get('seq')}: command event has no log reference")
+                problems.append(
+                    Finding.at(rel, f"seq {item.get('seq')}: command event has no log reference")
+                )
                 continue
             log_path = paths.repo_root() / log
             if not log_path.exists():
-                problems.append(f"{name} seq {item.get('seq')}: log {log} missing")
+                problems.append(Finding.at(log, f"seq {item.get('seq')}: log missing"))
                 continue
             total = len(log_path.read_text(encoding="utf-8", errors="replace").splitlines())
             end_line = data.get("log_line_end")
             if isinstance(end_line, int) and end_line > total:
-                problems.append(f"{name} seq {item.get('seq')}: log line {end_line} beyond {total}")
+                problems.append(
+                    Finding.at(log, f"seq {item.get('seq')}: log line {end_line} beyond {total}")
+                )
     for name in ("docs/INDEX.md", "sessions/INDEX.md", "tasks/INDEX.md"):
         if not (paths.repo_root() / name).exists():
-            problems.append(f"{name}: generated index missing")
-    print(f"session verify: {len(sessions)} session(s) checked")
-    for note in notes:
-        print(f"  note  {note}")
-    for problem in problems:
-        print(f"  FAIL  {problem}")
-    print("session verify: OK" if not problems else f"session verify: {len(problems)} problem(s)")
-    return EXIT_INTEGRITY if problems else EXIT_OK
+            problems.append(Finding.at(name, "generated index missing"))
+    lines = [f"session verify: {len(sessions)} session(s) checked"]
+    lines.extend(f"  note  {note}" for note in notes)
+    lines.extend(f"  FAIL  {problem}" for problem in problems)
+    lines.append(
+        "session verify: OK" if not problems else f"session verify: {len(problems)} problem(s)"
+    )
+    return "\n".join(lines), problems
 

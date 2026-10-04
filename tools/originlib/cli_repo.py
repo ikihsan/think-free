@@ -18,6 +18,7 @@ from . import (
     tasks,
 )
 from .cli_session import verify_sessions
+from .usage import Usage
 
 EXIT_OK = 0
 EXIT_USAGE = 1

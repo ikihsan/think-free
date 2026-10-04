@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import paths
+from .finding import Finding
 
 NAME = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 MAX_NAME = 64
@@ -75,7 +76,7 @@ def check() -> Report:
     report = Report()
     root = paths.skills_dir()
     if not root.exists():
-        report.problems.append(".agents/skills does not exist")
+        report.problems.append(Finding(".agents/skills does not exist"))
         return report
     names: set[str] = set()
     for directory in skill_dirs():
@@ -83,27 +84,30 @@ def check() -> Report:
         name = directory.name
         rel = f".agents/skills/{name}"
         if name in RESERVED or name.startswith("anthropic-skills"):
-            report.problems.append(f"{rel}: reserved skill name")
+            report.problems.append(Finding.at(rel, "reserved skill name"))
         if not NAME.match(name):
-            report.problems.append(f"{rel}: name must match {NAME.pattern}")
+            report.problems.append(Finding.at(rel, f"name must match {NAME.pattern}"))
         if len(name) > MAX_NAME:
-            report.problems.append(f"{rel}: name longer than {MAX_NAME} characters")
+            report.problems.append(Finding.at(rel, f"name longer than {MAX_NAME} characters"))
         if name in names:
-            report.problems.append(f"{rel}: duplicate skill name")
+            report.problems.append(Finding.at(rel, "duplicate skill name"))
         names.add(name)
         fields = frontmatter(directory / "SKILL.md")
         if not fields:
-            report.problems.append(f"{rel}/SKILL.md: missing YAML frontmatter")
+            report.problems.append(Finding.at(f"{rel}/SKILL.md", "missing YAML frontmatter"))
             continue
         if fields.get("name") != name:
             report.problems.append(
-                f"{rel}/SKILL.md: frontmatter name {fields.get('name')!r} != directory {name!r}"
+                Finding.at(
+                    f"{rel}/SKILL.md",
+                    f"frontmatter name {fields.get('name')!r} != directory {name!r}",
+                )
             )
         description = fields.get("description", "")
         if not description:
-            report.problems.append(f"{rel}/SKILL.md: description is required")
+            report.problems.append(Finding.at(f"{rel}/SKILL.md", "description is required"))
         elif len(description) > MAX_DESCRIPTION:
-            report.problems.append(f"{rel}/SKILL.md: description exceeds {MAX_DESCRIPTION} characters")
+            report.problems.append(Finding.at(f"{rel}/SKILL.md", f"description exceeds {MAX_DESCRIPTION} characters"))
         unknown = sorted(set(fields) - SPEC_FIELDS)
         if unknown:
             report.warnings.append(f"{rel}/SKILL.md: non-spec frontmatter key(s): {', '.join(unknown)}")
@@ -112,27 +116,30 @@ def check() -> Report:
 
 
 def _check_mirrors(names: set[str]) -> list[str]:
-    problems: list[str] = []
+    problems: list[Finding] = []
     claude_dir = paths.claude_skills_dir()
     if not claude_dir.exists():
-        return [".claude/skills does not exist; Claude Code will not find any skill"]
+        return [Finding(".claude/skills does not exist; Claude Code will not find any skill")]
     entries = {p.name: p for p in claude_dir.iterdir() if p.is_dir() or p.is_symlink()}
     for name in sorted(names):
         path = entries.get(name)
         if path is None:
-            problems.append(f".claude/skills/{name}: missing mirror for .agents/skills/{name}")
+            problems.append(Finding(f".claude/skills/{name}: missing mirror for .agents/skills/{name}"))
             continue
         if path.is_symlink():
             target = Path(path).resolve()
             expected = (paths.skills_dir() / name).resolve()
             if target != expected:
                 problems.append(
-                    f".claude/skills/{name}: symlink points at {target} instead of {expected}"
+                    Finding(
+                        f".claude/skills/{name}: symlink points at {target} "
+                        f"instead of {expected}"
+                    )
                 )
         elif not (path / "SKILL.md").exists():
-            problems.append(f".claude/skills/{name}: real directory without SKILL.md")
+            problems.append(Finding(f".claude/skills/{name}: real directory without SKILL.md"))
     for name in sorted(set(entries) - names):
-        problems.append(f".claude/skills/{name}: mirror with no canonical skill in .agents/skills")
+        problems.append(Finding(f".claude/skills/{name}: mirror with no canonical skill in .agents/skills"))
     return problems
 
 
@@ -221,7 +228,9 @@ def verify_vendor() -> Report:
     report = Report()
     target = hashes_path()
     if not target.exists():
-        report.problems.append("vendor/hashes.json missing; run 'tools/origin skills hash'")
+        report.problems.append(
+            Finding("vendor/hashes.json missing; run 'tools/origin skills hash'")
+        )
         return report
     recorded = json.loads(target.read_text(encoding="utf-8")).get("skills", {})
     declared = declared_vendored()
@@ -232,12 +241,12 @@ def verify_vendor() -> Report:
         current = digest_tree(paths.skills_dir() / name)
         expected = recorded[name]
         for missing in sorted(set(expected) - set(current)):
-            report.problems.append(f"{name}: vendored file removed: {missing}")
+            report.problems.append(Finding.at(name, f"vendored file removed: {missing}"))
         for added in sorted(set(current) - set(expected)):
             report.warnings.append(f"{name}: local file added since hashing: {added}")
         for changed in sorted(set(current) & set(expected)):
             if current[changed] != expected[changed]:
-                report.problems.append(f"{name}: vendored file modified: {changed}")
+                report.problems.append(Finding.at(name, f"vendored file modified: {changed}"))
         report.skills += 1
     return report
 

@@ -56,10 +56,10 @@ jobs:
           if [ "$status" -ne 0 ]; then
             awk '
               /^(FAIL|ERROR): / { grab = 12 }
-              grab > 0 { gsub(/%/, "%%"); gsub(/\r/, ""); printf "::error title=Test failed::%s\n", $0; grab-- }
+              grab > 0 { gsub(/%/, "%25"); gsub(/\r/, ""); printf "::error title=Test failed::%s\n", $0; grab-- }
             ' /tmp/unittest.log | head -60
             grep -E '^(Ran|FAILED)' /tmp/unittest.log | tr -d '\r' | while read -r line; do
-              echo "::error title=Test summary::${line//%/%%}"
+              echo "::error title=Test summary::${line//%/%25}"
             done
           fi
           exit "$status"
@@ -71,36 +71,45 @@ jobs:
       # to. tests/test_ci_matrix.py holds the guard to a row that exists, so a
       # typo here stops the gates running at all instead of looking green.
 
+      # `annotate` runs the gate and re-emits each violation as a `::error`
+      # line, so a red run names the file it rejected. Before T-0040 these four
+      # steps printed a report and exited: the check run's only annotation was
+      # "Process completed with exit code 2", and the run log that says which
+      # rule failed needs repository admin rights. The wrapper is the tooling
+      # rather than shell in this file, so it is covered by the suite and can
+      # be run by a VM to reproduce a run it cannot read.
       - name: Documentation lint
         if: matrix.python-version == '3.12'
-        run: tools/origin doc lint
+        run: tools/origin annotate -- doc lint
 
       # RELEASE-MANIFEST.md decides what is public. Kept next to the doc lint
       # step rather than appended at the end, so a VM editing the session gate
       # below and this one in the same week rebase cleanly.
       - name: Release manifest
         if: matrix.python-version == '3.12'
-        run: tools/origin release check
+        run: tools/origin annotate -- release check
 
       - name: Skill layout and mirrors
         if: matrix.python-version == '3.12'
-        run: tools/origin skills check
+        run: tools/origin annotate -- skills check
 
       - name: Vendored content integrity
         if: matrix.python-version == '3.12'
-        run: tools/origin skills verify
+        run: tools/origin annotate -- skills verify
 
       # Strict: no session runs in this checkout, so an unfinished session is a
       # real failure unless its task claim proves it is still being worked on
       # elsewhere. In-flight sessions are warnings, not errors (D024), re-emitted
       # as annotations for the same reason failing tests are: nobody without
       # admin rights can read the run log.
+      # An in-flight session on another VM is a warning, not an error (D024), so
+      # it is still re-emitted from the log rather than through the wrapper.
       - name: Session record integrity
         if: matrix.python-version == '3.12'
         run: |
           set +e
           set +o pipefail
-          tools/origin session verify --strict 2>&1 | tee /tmp/session-verify.log
+          tools/origin annotate -- session verify --strict 2>&1 | tee /tmp/session-verify.log
           status=${PIPESTATUS[0]}
           grep -E '^  note  .*in flight' /tmp/session-verify.log \
             | sed -e 's|^  note  |::warning title=Session in flight on another VM::|' \

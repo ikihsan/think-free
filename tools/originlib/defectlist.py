@@ -45,6 +45,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from .finding import Finding
+
 DEFECT_FILE = "STATE-defects.md"
 
 # `7. **A test fixture inherited the runner's environment** (solved in …)`. The
@@ -77,8 +79,15 @@ def entries(text: str) -> list[Entry]:
     return found
 
 
-def duplicate_issues(found: list[Entry]) -> list[str]:
-    """One report per number that defines more than one entry."""
+def duplicate_issues(found: list[Entry]) -> list[Finding]:
+    """One report per number that defines more than one entry.
+
+    Every entry here was read from `STATE-defects.md`, so the file is named and
+    no line is: both definitions are in it, and picking one of the two lines
+    would be a guess about which entry is the one to renumber. That is the
+    honest shape of a property spanning two places, and `origin annotate`
+    publishes it as a file-level annotation (T-0040).
+    """
     grouped: dict[int, list[Entry]] = {}
     for entry in found:
         grouped.setdefault(entry.number, []).append(entry)
@@ -88,24 +97,30 @@ def duplicate_issues(found: list[Entry]) -> list[str]:
         if len(places) > 1:
             where = " / ".join(f"{p.where()} {p.subject!r}" for p in places)
             issues.append(
-                f"defect {number} defines {len(places)} defects; one number must mean "
-                f"one defect: {where}. Renumber the newer entry, on the side that has "
-                f"not been pushed"
+                Finding(
+                    f"defect {number} defines {len(places)} defects; one number must mean "
+                    f"one defect: {where}. Renumber the newer entry, on the side that has "
+                    f"not been pushed",
+                    DEFECT_FILE,
+                )
             )
     return issues
 
 
-def unreadable_issues() -> list[str]:
+def unreadable_issues() -> list[Finding]:
     """The file is there and no entry could be read from it."""
     return [
-        f"{DEFECT_FILE}: no defect entry could be read, so a repeated number in it "
-        "would go unreported. Each entry is a numbered list item whose subject is "
-        "bold, as in `7. **A defect** (solved in T-0000)`; teach this rule the new "
-        "shape rather than deleting the entries (D025)"
+        Finding(
+            f"{DEFECT_FILE}: no defect entry could be read, so a repeated number in it "
+            "would go unreported. Each entry is a numbered list item whose subject is "
+            "bold, as in `7. **A defect** (solved in T-0000)`; teach this rule the new "
+            "shape rather than deleting the entries (D025)",
+            DEFECT_FILE,
+        )
     ]
 
 
-def issues(root: Path) -> list[str]:
+def issues(root: Path) -> list[Finding]:
     """Everything wrong with the defect list in this tree, as lint lines."""
     try:
         text = (root / DEFECT_FILE).read_text(encoding="utf-8")
@@ -119,6 +134,6 @@ def issues(root: Path) -> list[str]:
     return duplicate_issues(found)
 
 
-def report(root: Path) -> list[str]:
+def report(root: Path) -> list[Finding]:
     """The issues, in a stable order: by number, then by the lines that hold it."""
     return issues(root)

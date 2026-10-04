@@ -45,6 +45,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import docfiles, paths, secrets
+from .finding import Finding
 
 MANIFEST_NAME = "RELEASE-MANIFEST.md"
 FRONT_DOOR = "README.md"
@@ -169,10 +170,10 @@ def check_no_wildcards(result: Result, public: list[Entry], internal: list[Entry
             bad = [char for char in WILDCARDS if char in entry.path]
             if bad:
                 result.violations.append(
-                    f"{MANIFEST_NAME}: {kind} entry `{entry.path}` uses a wildcard; "
-                    "rule 1 says a path not listed is not published, so a glob "
-                    "publishes more than its author read"
-                )
+                    Finding.at(MANIFEST_NAME, f"{kind} entry `{entry.path}` uses a "
+                               "wildcard; rule 1 says a path not listed is not "
+                               "published, so a glob publishes more than its "
+                               "author read"))
 
 
 def check_coverage(result: Result, public: list[Entry], internal: list[Entry], entries: list[str]) -> None:
@@ -182,12 +183,12 @@ def check_coverage(result: Result, public: list[Entry], internal: list[Entry], e
         is_internal = any(_covers(item.path, entry) for item in internal)
         if is_public and is_internal:
             result.violations.append(
-                f"{entry}: classified as both public and internal; a path has one audience"
-            )
+                Finding.at(entry, "classified as both public and internal; a path "
+                                  "has one audience"))
         elif not is_public and not is_internal:
             result.violations.append(
-                f"{entry}: tracked at the top level but classified by neither manifest table"
-            )
+                Finding.at(entry, "tracked at the top level but classified by "
+                                  "neither manifest table"))
 
 
 def check_existence(result: Result, public: list[Entry], internal: list[Entry], base: Path) -> None:
@@ -196,14 +197,16 @@ def check_existence(result: Result, public: list[Entry], internal: list[Entry], 
             exists = (base / entry.path).exists()
             if entry.pending and exists:
                 result.violations.append(
-                    f"{entry.path}: declared {kind} and marked {PENDING}, but it exists; "
-                    "drop the marker in the commit that creates it"
-                )
+                    Finding.at(entry.path,
+                               f"declared {kind} and marked {PENDING}, but it "
+                               "exists; drop the marker in the commit that "
+                               "creates it"))
             elif not entry.pending and not exists:
                 result.violations.append(
-                    f"{entry.path}: declared {kind} but absent; create it or mark it "
-                    f"{PENDING} so the absence is a decision rather than an oversight"
-                )
+                    Finding.at(entry.path,
+                               f"declared {kind} but absent; create it or mark it "
+                               f"{PENDING} so the absence is a decision rather "
+                               "than an oversight"))
 
 
 def check_containment(result: Result, public: list[Entry], internal: list[Entry]) -> None:
@@ -212,15 +215,15 @@ def check_containment(result: Result, public: list[Entry], internal: list[Entry]
         for other in internal:
             if _within(other.path, entry.path):
                 result.violations.append(
-                    f"{entry.path}: declared public but sits inside internal `{other.path}`"
-                )
+                    Finding.at(entry.path, "declared public but sits inside "
+                                           f"internal `{other.path}`"))
     for entry in internal:
         for other in public:
             if _within(other.path, entry.path):
                 result.violations.append(
-                    f"{entry.path}: declared internal but sits inside public `{other.path}`, "
-                    "which publishes it by rule 1"
-                )
+                    Finding.at(entry.path, "declared internal but sits inside "
+                                           f"public `{other.path}`, which "
+                                           "publishes it by rule 1"))
 
 
 def check_secrets(
@@ -235,40 +238,42 @@ def check_secrets(
         found = secrets.scan_file(path)
         if found:
             result.violations.append(
-                f"{path.relative_to(base).as_posix()}: credential-shaped text "
-                f"({', '.join(found)}); manifest rule 3 forbids it in a published "
-                "or internal record"
-            )
+                Finding.at(path.relative_to(base).as_posix(),
+                           f"credential-shaped text ({', '.join(found)}); manifest "
+                           "rule 3 forbids it in a published or internal record"))
 
 
 def check_front_door(result: Result, state: str, base: Path) -> None:
     """The manifest's declared state and the front door must agree."""
     if not state:
         result.violations.append(
-            f"{MANIFEST_NAME}: no <!-- origin-release-state: ... --> directive, so there is "
-            f"no declared state to check; expected one of {', '.join(KNOWN_STATES)}"
-        )
+            Finding.at(MANIFEST_NAME, "no <!-- origin-release-state: ... --> "
+                           "directive, so there is no declared state to check; "
+                           f"expected one of {', '.join(KNOWN_STATES)}"))
         return
     if state not in KNOWN_STATES:
         result.violations.append(
-            f"{MANIFEST_NAME}: release state `{state}` is not one of {', '.join(KNOWN_STATES)}"
-        )
+            Finding.at(MANIFEST_NAME, f"release state `{state}` is not one of "
+                                      f"{', '.join(KNOWN_STATES)}"))
         return
     front = base / FRONT_DOOR
     if not front.exists():
-        result.violations.append(f"{FRONT_DOOR}: missing, so the front door cannot declare a state")
+        result.violations.append(
+            Finding.at(FRONT_DOOR, "missing, so the front door cannot declare "
+                                   "a state"))
         return
     declared = STATE_DIRECTIVE.search(front.read_text(encoding="utf-8"))
     if declared is None:
         result.violations.append(
-            f"{FRONT_DOOR}: no <!-- origin-release-state: ... --> directive; it must match "
-            f"the manifest's `{state}`"
-        )
+            Finding.at(FRONT_DOOR, "no <!-- origin-release-state: ... --> "
+                                   "directive; it must match the manifest's "
+                                   f"`{state}`"))
     elif declared.group("state") != state:
         result.violations.append(
-            f"{FRONT_DOOR}: declares release state `{declared.group('state')}` but "
-            f"{MANIFEST_NAME} declares `{state}`; rule 4 requires both to change together"
-        )
+            Finding.at(FRONT_DOOR, f"declares release state "
+                                   f"`{declared.group('state')}` but {MANIFEST_NAME} "
+                                   f"declares `{state}`; rule 4 requires both to "
+                                   "change together"))
 
 
 def check(root: Path | None = None) -> Result:

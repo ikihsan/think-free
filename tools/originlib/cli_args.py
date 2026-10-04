@@ -212,6 +212,21 @@ def build_parser() -> argparse.ArgumentParser:
     index = doc_sub.add_parser("index", help="regenerate docs, sessions, and tasks indexes")
     index.add_argument("--check", action="store_true", help="fail if anything would change")
 
+    # ------------------------------------------------------------- annotate
+    # Every gate is named after the command that runs it, and its own flags
+    # follow, so the CI step and the command a VM would type to reproduce it
+    # are the same string. `argparse.REMAINDER` is what makes that possible:
+    # `--quiet` and `--strict` belong to the gate, not to this wrapper.
+    annotate_parser = sub.add_parser(
+        "annotate",
+        help="run a gate and re-emit its violations as check-run annotations",
+    )
+    annotate_parser.add_argument(
+        "gate",
+        nargs=argparse.REMAINDER,
+        help="the gate to run and its own flags, e.g. 'doc lint', 'session verify --strict'",
+    )
+
     # -------------------------------------------------------------- skills
     skills_parser = sub.add_parser("skills", help="skill layout, mirroring, and vendor drift")
     skills_sub = skills_parser.add_subparsers(dest="action", required=True)

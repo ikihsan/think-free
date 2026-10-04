@@ -14,6 +14,7 @@ from __future__ import annotations
 import sys
 
 from . import (
+    annotate,
     cli_repo,
     cli_session,
     cli_sync,
@@ -25,6 +26,7 @@ from . import (
     worktree,
 )
 from .cli_args import build_parser
+from .usage import Usage
 
 EXIT_OK = 0
 EXIT_USAGE = 1
@@ -33,13 +35,10 @@ EXIT_VERIFY = 3
 EXIT_INTEGRITY = 4
 
 
-class Usage(Exception):
-    """Raised for a malformed invocation."""
-
-
 DISPATCH = {
     "session": cli_session.dispatch,
     "task": cli_task.dispatch,
+    "annotate": lambda args: annotate.dispatch(args.gate),
     "doc": cli_repo.dispatch_doc,
     "id": cli_repo.dispatch_id,
     "skills": cli_repo.dispatch_skills,

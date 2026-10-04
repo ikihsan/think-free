@@ -1,0 +1,118 @@
+==============================================================================
+[seq 2] 2026-10-04T07:41:06+00:00
+$ bash -c cd /tmp/opencode/e53ca23 && ./tools/origin doc lint; echo "EXIT=$?"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EXIT=1
+
+
+[stderr]
+origin: ORIGIN_ROOT=/tmp/opencode/e53ca23 is not a git repository
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 494  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T07:41:23+00:00
+$ bash -c cd /tmp/opencode/wt-e53ca23 && ./tools/origin doc lint > /tmp/opencode/baseline-e53ca23.txt 2>&1; echo "EXIT=$?"; grep -c "::error" /tmp/opencode/baseline-e53ca23.txt; tail -6 /tmp/opencode/baseline-e53ca23.txt
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EXIT=0
+0
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1877  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T07:41:39+00:00
+$ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib doc lint > /tmp/opencode/base-current-on-e53ca23.txt 2>&1; echo "EXIT=$?"; echo "--- violations ---"; grep "FAIL" /tmp/opencode/base-current-on-e53ca23.txt; echo "--- ::error:: count ---"; grep -c "::error" /tmp/opencode/base-current-on-e53ca23.txt
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EXIT=2
+--- violations ---
+  FAIL  identifier collision: defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.md:133 'The suite was red on every interpreter it had never run on'. Renumber the newer entry, on the side that has not been pushed
+--- ::error:: count ---
+0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1814  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T08:01:20+00:00
+$ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate doc lint > /tmp/opencode/after-e53ca23.txt 2>&1; echo "EXIT=$?"; echo "--- FAIL lines ---"; grep "FAIL" /tmp/opencode/after-e53ca23.txt; echo "--- :: lines ---"; grep "^::" /tmp/opencode/after-e53ca23.txt
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EXIT=2
+--- FAIL lines ---
+  FAIL  identifier collision: defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.md:133 'The suite was red on every interpreter it had never run on'. Renumber the newer entry, on the side that has not been pushed
+--- :: lines ---
+::error::identifier collision: defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.md:133 'The suite was red on every interpreter it had never run on'. Renumber the newer entry, on the side that has not been pushed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2415  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T08:01:44+00:00
+$ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate doc lint > /tmp/opencode/after2-e53ca23.txt 2>&1; echo "EXIT=$?"; grep "^::" /tmp/opencode/after2-e53ca23.txt
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+EXIT=2
+::error file=STATE-defects.md::identifier collision: defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.md:133 'The suite was red on every interpreter it had never run on'. Renumber the newer entry, on the side that has not been pushed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1786  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T08:02:01+00:00
+$ bash -c cd /tmp/opencode/wt-e53ca23 && export ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools; for g in "release check" "skills check" "skills verify"; do echo "### annotate $g"; python3 -m originlib annotate $g 2>&1 | tail -2; echo "exit=${PIPESTATUS[0]}"; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### annotate release check
+release check: 41 path(s) checked
+release check: OK
+exit=0
+### annotate skills check
+skills: 21 skill(s) in .agents/skills
+skills: OK
+exit=0
+### annotate skills verify
+skills: 14 skill(s) in .agents/skills
+skills: OK
+exit=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5300  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T08:02:22+00:00
+$ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate doc lint 2>&1 | grep "^::"; echo "exit=${PIPESTATUS[0]}"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+exit=1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2304  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T08:03:06+00:00
+$ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate doc lint 2>&1 | grep "^::"; echo "exit=${PIPESTATUS[0]}"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+exit=1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2606  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T08:05:10+00:00
+$ bash -c cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint on a tree with three planted violations"; python3 -m originlib annotate doc lint 2>&1 | grep "^::"; echo "exit=${PIPESTATUS[0]}"; echo; echo "### skills check with a mirror directory instead of a symlink"; python3 -m originlib annotate skills check 2>&1 | grep "^::"; echo "exit=${PIPESTATUS[0]}"; echo; echo "### release check and skills verify on the same tree"; python3 -m originlib annotate release check 2>&1 | grep -c "^::"; python3 -m originlib annotate skills verify 2>&1 | grep -c "^::"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+### doc lint on a tree with three planted violations
+::error file=docs/policy/big.md::docs/policy/big.md: 328 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+::error file=STATE.md,line=5::STATE.md: broken link -> nowhere.md
+::error file=docs/policy/big.md::docs/policy/big.md: orphan document; no other document links to it
+::error file=docs/policy/conflicted.md::docs/policy/conflicted.md: orphan document; no other document links to it
+::error file=docs/INDEX.md::docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+::error file=docs/policy/conflicted.md,line=9::docs/policy/conflicted.md:9: unresolved conflict block; terminator on line 13
+exit=2
+
+### skills check with a mirror directory instead of a symlink
+::error::.claude/skills/brainstorming: real directory without SKILL.md
+exit=2
+
+### release check and skills verify on the same tree
+0
+0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6720  redactions: none

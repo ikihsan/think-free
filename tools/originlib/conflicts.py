@@ -42,6 +42,10 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+# This module already has a `Finding` of its own — one conflict block.
+# The lint one is a violation with a location, so it takes the other name.
+from .finding import Finding as Violation
+
 # git writes seven characters, then a space, then the ref or label.
 OPENING = re.compile(r"^<{7}(?:\s.*)?$")
 BASE = re.compile(r"^\|{7}(?:\s.*)?$")
@@ -154,9 +158,12 @@ def report(files: list[Path], base: Path) -> tuple[list[str], list[str]]:
     """Findings as lint lines: `(violations, infos)`.
 
     Lives here rather than in `doclint` so the linter keeps its line budget,
-    and so this rule can be run over a tree on its own.
+    and so this rule can be run over a tree on its own. A violation carries the
+    marker's own line, which is the one place in `doc lint` where a line is
+    known exactly rather than approximated: `origin annotate` publishes it as
+    the check-run annotation's `line`.
     """
-    violations: list[str] = []
+    violations: list[Finding] = []
     infos: list[str] = []
     for path in files:
         found, allowed = scan_file(path)
@@ -167,5 +174,7 @@ def report(files: list[Path], base: Path) -> tuple[list[str], list[str]]:
             )
             continue
         for item in found:
-            violations.append(f"{rel}:{item.line}: {item.detail}")
+            violations.append(
+                Violation(f"{rel}:{item.line}: {item.detail}", rel, item.line)
+            )
     return violations, infos
