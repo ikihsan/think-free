@@ -16,14 +16,13 @@ identity, 2026-10-03). This VM runs **Python 3.8.10 and git 2.25.1**, not the
 3.14.6/2.55.0 recorded from the development machine, so the capability numbers
 below are per machine and must be re-probed here with `tools/origin doctor`.
 
-Push-credential note, corrected 2026-10-04. The note here used to say a durable JWT
-generator had been added under `~/.config/github-app/` and "the helper now points at
-it". That is true of `instance-20260717-0947` and was **not** true of
-`instance-20260717-0944`: its helper still invoked `/tmp/github-app-jwt.sh`, which is
-how `0947` lost a day of pushes in the first place. Repaired there in T-0027 — the
-generator is `~/.config/github-app/jwt.sh`, the helper points at it, and the `/tmp`
-copy was deleted to prove it. `doctor` now reports such a dependency before it fails
-([`docs/operations/doctor.md`](docs/operations/doctor.md)).
+Push-credential note, corrected 2026-10-04. The note here used to say a durable JWT generator
+had been added under `~/.config/github-app/` and "the helper now points at it". That is
+true of `instance-20260717-0947` and was **not** true of `instance-20260717-0944`: its helper
+still invoked `/tmp/github-app-jwt.sh`, which is how `0947` lost a day of pushes in the first
+place. Repaired there in T-0029 — the generator is `~/.config/github-app/jwt.sh`, the helper
+points at it, and the `/tmp` copy was deleted to prove it. `doctor` now reports such a
+dependency before it fails ([`docs/operations/doctor.md`](docs/operations/doctor.md)).
 
 This is the reload point. A cold session reads this file, then whatever it links.
 
@@ -31,16 +30,16 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Area | Verified status |
 |---|---|
-| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0027) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0026) |
+| Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029, found independently. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0027). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024, 265 tests) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024, 265 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
-| Sessions | 44 recorded, 1 in flight (040, T-0027, VM 0944) — `tools/origin session list`. Session 010 is a failed run superseded by another; session 009 is partial; one codex session failed mid-run and was taken over at T-0004 |
+| Sessions | 44 recorded, 1 in flight (040, T-0029, VM 0944) |
 | Supervision | Interactive execution only. Unattended persistence **not verified** |
 | Documentation | `doc lint` checks 300+ files and exits 0; every authored file is under the 300-line cap, and the 16 that exceed it are declared exemptions (vendored skills, raw machine-generated results, append-only command logs). Since T-0021 it also fails on an unresolved merge conflict. Since T-0024 (D029) generated files are stamped from their content, so the lint cannot fail on the calendar |
 | Continuous integration | **Green on all six steps on the current base** (`observed`, run `37166854486`, commit `fc9d9ed`, 2026-10-04T01:03Z; the four runs before it — `37165413909`, `37165765013`, `37166293583`, `37166485867` — also green). **Six red runs, one verified cause:** `37163434868`, `37163438950`, `37165502352`, `37165507351`, `37165802926`, `37165807196` and `37166490623` all failed the Documentation lint step with exit 2 on an orphan task file, because the commit carrying the task file did not carry the rebuilt indexes (defects 4 in `STATE-defects.md`, closed in T-0026 and T-0027). **Not exercised by any run:** a rebase conflict between VMs, and the git 2.56.0 path — CI runs 3.12 on one runner image only |
@@ -50,23 +49,23 @@ Per-session detail behind the dashboard is in
 
 ## In flight
 
-**T-0026 is claimed by this VM** (`instance-20260717-0947`, session 002). Nothing
-else is. `instance-20260717-0944` held T-0021, T-0022, T-0023 and T-0027 during
-its last session and finished all four; `instance-20260717-0947` held T-0014,
-T-0015, T-0016, T-0018, T-0019, T-0020, T-0024, T-0025 and now T-0026. Check
+**T-0024 is claimed by this VM** (`instance-20260717-0947`, session 042) and
+nothing else is. `instance-20260717-0944` held T-0021, T-0022, T-0023 and T-0029 during
+its last session and finished all three; `instance-20260717-0947` held T-0014,
+T-0015, T-0016, T-0018, T-0019, T-0020 and now T-0024. Check
 `tools/origin task list --remote` before taking anything.
 
 **Identifier collisions are allocated by reading the local tree, so two VMs in
-an hour collide by construction.** Six times on 2026-10-03 and **four more in a
-single hour on 2026-10-04**, all between these two machines: T-0024, T-0025,
-T-0026, F014, F015, D027 and D028 were each taken here while VM 0944 worked. This
-VM's renumbered to T-0027, F016, F017 and D030, and two of those rounds happened
-*during one rebase* because the other VM pushed twice more while it resolved. **Rule
-this session settled on:** renumber on the side that has not been pushed, and record
-the collision where the next reader looks — never by editing a closed event stream.
-The cost is measured too: a rebase resolution restored one file's index row to the
-renumbered form while reverting its body, so a findings file and its own table
-disagreed about the same entries. That is defect 5 in
+an hour collide by construction.** Six times on 2026-10-03 and **six more in a
+single hour on 2026-10-04**, all between these two machines: T-0024 through T-0028,
+F014, F015, D027 and D028 were each taken here while VM 0944 worked. That VM's
+renumbered to T-0029, F016, F017 and D030, two of those rounds *during one
+rebase* because the other VM pushed twice more while it resolved. **Rule settled
+on:** renumber on the side that has not been pushed, and record the collision
+where the next reader looks — never by editing a closed event stream. Six times on 2026-10-03, and the cost is
+measured: a rebase resolution restored one file's index row to the renumbered
+form while reverting its body, so a findings file and its own table disagreed
+about the same entries. That is defect 5 in
 [`STATE-defects.md`](STATE-defects.md), the list of every defect this repository
 has shown, solved or not.
 
@@ -99,40 +98,16 @@ exists so that history does not push this reload point past the line cap.
   against their own defect before being trusted. 269 tests green.
   [`STATE-history.md`](STATE-history.md) is at the 300-line cap, so this session's
   detail lives in D028 and its own record rather than there.
-<<<<<<< HEAD
-- **Session 003, VM 0947 (T-0027).** T-0026's verification passed while its
-  defect was still live: a lint on the author's own tree cannot see what a claim
-  commit published, and the claim staged only the task file and the ledger. Four
-  more red runs followed; `task claim` now stages the rebuilt indexes and the new
-  test lints a *fetched* tree on a second clone. **Lesson worth more than the
-  fix:** a gate that reads the tree the author is standing in cannot see the
-  commit the author is about to publish.
-- **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
-  indexes, because two CI runs failed on 2026-10-03 for exactly that: a task
-  file was pushed before `tasks/INDEX.md` was rebuilt and the orphan rule
-  rejected the file the VM had just created. The rule is unchanged — a file no
-  command wrote is still an orphan, which the new tests assert. **The task file
-  for this work guessed the wrong index:** the stale one was `docs/INDEX.md`,
-  which lists task files by path. 274 tests green.
-- **Session 001, VM 0947 (T-0025).** The pushed CI run for T-0024 is read and
-  recorded: all six steps green on `9e865a4`, including the session-integrity
-  step that had been red on every push while a VM was working. The two failures
-  from ten minutes earlier were **not** the date defect this session's predecessor
-  assumed: their failing step was Documentation lint, and the cause was a task
-  file pushed without regenerating `tasks/INDEX.md`. **Reading the run rather than
-  the expectation is what caught it.**
-=======
-- **Session 040, VM 0944 (T-0027, D030, F016, F017).** `doctor` reported a property
-  it never read — `credentials none present` for a working App credential, for the
-  recorded `instance-20260717-0947` failure, and for no credential at all. It now
-  reports the configured `credential.helper`, whether it is executable, App key files
-  by mode, dependencies outside `~/.config`, and whether `git credential fill` obtains
-  a credential, with `configured` explicitly not meaning it can push. It found a live
+- **Session 040, VM 0944 (T-0029, D030, F016, F017).** `doctor` reported a property it
+  never read — `credentials none present` for a working App credential, for the recorded
+  `instance-20260717-0947` failure, and for no credential at all. It now reports the
+  configured `credential.helper`, whether it is executable, App key files by mode,
+  dependencies outside `~/.config`, and whether `git credential fill` obtains a
+  credential, with `configured` explicitly not meaning it can push. It found a live
   defect here: the helper invoked `/tmp/github-app-jwt.sh`, repaired and proven by
   deleting it. **F016:** this session's own harness overwrote the real
   `~/.gitconfig`. **F017:** clock-stamped generated dates, found independently of
   D029; the landed implementation was kept rather than shipping two.
->>>>>>> T-0024: make doctor read the push credential it reports
 - **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
   VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
   (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
@@ -223,14 +198,12 @@ untouched.
    Python**, which `docs/operations/vm-execution.md` names as unclaimed work.
    **Ceiling:** neither says anything about a candidate.
 4. **Identifier allocation is the one fleet defect still unfixed** (defect 5 in
-   `STATE-defects.md`), and it is now the most expensive thing in this
-   repository. Six times on 2026-10-03, then **four more in one hour on
-   2026-10-04** between these two machines, two of them mid-rebase. The fix is
-   small and has not been made: `task new` should take the next identifier from
-   the remote's claim ledger rather than from the files this VM holds, and
-   `taskops`' renumbering rules should apply at creation. A detector alone
-   cannot stop two VMs racing. **Ceiling:** none — this is a few lines against
-   `taskremote`, and it would have prevented all ten renumberings to date.
+   `STATE-defects.md`). A gate that reads the local tree cannot see the other
+   VM's tree, so two VMs allocate the same F/D/T numbers within the hour: six times
+   on 2026-10-03, then six more in one hour on 2026-10-04. The fix is small and
+   unmade — `task new` should take the next identifier from the remote's claim
+   ledger, not from the files this VM holds. A detector alone cannot stop a race.
+   **Ceiling:** none; it is a few lines against `taskremote`.
 5. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
@@ -254,11 +227,7 @@ untouched.
 8. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have now
    returned negative results, and one (knitting) died of prior art rather than of
-   measurement — which is the cheapest way to die and the one worth copying. Three now work that way: the conflict-marker rule, `release check`, and
-   `doctor`'s push-credential report (T-0027, which is also where the reusable
-   four-step procedure for a diagnostic is written down). **Ceiling:** the marker
-   rule detects git's marker shape only, and `doctor`'s `configured` is not "can
-   push".
+   measurement — which is the cheapest way to die and the one worth copying.
 
 ### Standing constraints
 
@@ -300,7 +269,14 @@ Fresh probe: `tools/origin doctor`, writing `.origin/doctor.json`.
 - The tooling's own coverage is demonstrated by its tests, not by independent
   reproduction. `tests/README.md` lists what is and is not covered.
 - Unattended execution is not implemented. What exists is the record that makes an
-  interrupted run recoverable, plus detection that reveals when it did not happen.- **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
+  interrupted run recoverable, plus detection that reveals when it did not happen.- **Session 003, VM 0947 (T-0027).** T-0026's verification passed while its
+  defect was still live: a lint on the author's own tree cannot see what a claim
+  commit published, and the claim staged only the task file and the ledger. Four
+  more red runs followed; `task claim` now stages the rebuilt indexes and the new
+  test lints a *fetched* tree on a second clone. **Lesson worth more than the
+  fix:** a gate that reads the tree the author is standing in cannot see the
+  commit the author is about to publish.
+- **Session 002, VM 0947 (T-0026).** `task new` now rebuilds the generated
   indexes, because two CI runs failed on 2026-10-03 for exactly that: a task
   file was pushed before `tasks/INDEX.md` was rebuilt and the orphan rule
   rejected the file the VM had just created. The rule is unchanged — a file no
