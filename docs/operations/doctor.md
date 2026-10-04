@@ -37,7 +37,7 @@ been exercised on, and there is still **no equivalent record for Python**
 
 ## The push credential
 
-Added in T-0024. Before it, `doctor` read four environment variables and
+Added in T-0025. Before it, `doctor` read four environment variables and
 nothing else, so it printed `credentials     none present` on three different
 machines: one whose pushes worked, one whose helper pointed at a file `/tmp` had
 taken, and one with no credential at all. That is a report of a property never
@@ -129,4 +129,4 @@ trusted (D025). The procedure, reusable:
 
 The harness must also be unable to touch the machine: an early version of this
 one passed `Path.home()` as a sandbox HOME and overwrote this VM's real
-`~/.gitconfig` (`FAILURES.md` F014).
+`~/.gitconfig` (`FAILURES.md` F016).

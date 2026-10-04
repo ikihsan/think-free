@@ -38,7 +38,7 @@ _(none recorded)_
 
 ## Commands
 
-19 captured, 5 non-zero exit.
+20 captured, 5 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -61,6 +61,7 @@ _(none recorded)_
 | 31 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 117485 |
 | 32 | ['tools/origin', 'task', 'complete', 'T-0024', '--summary', "doctor now reports the push-credential mechanism (configured/broken/unavailable), falsifi | 0 | 392 |
 | 33 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED"'] | 0 | 151626 |
+| 33 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| tail -30'] | 0 | 135091 |
 
 ## Integrity
 
@@ -109,6 +110,7 @@ _(none recorded)_
 | 31 | 00:25:43 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
 | 32 | 00:26:07 | command | $ tools/origin task complete T-0024 --summary doctor now reports the push-credential mechanism (configured/broken/unavailable), falsified agai |
 | 33 | 00:49:45 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^Ran \|^OK\|^FAILED" |
+| 33 | 00:39:58 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| tail -30 |
 
 ## Reproduce this record
 

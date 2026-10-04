@@ -126,7 +126,7 @@ them.
 one of them must call the other.
 ## F016 — A falsification harness overwrote this VM's real `~/.gitconfig`
 
-Source: T-0024, session `2026-10-03-040`, 2026-10-04. Guard:
+Source: T-0025, session `2026-10-03-040`, 2026-10-04. Guard:
 `tests/pushcred_fixture.py` and `tests/test_pushcred_safety.py`.
 
 **What happened.** The falsification harness for the push-credential probe ran
@@ -147,7 +147,7 @@ key file and helper live under `~/.config/github-app/` and were untouched.
 the repository, in a file no gate watches, from a tool whose whole purpose was
 to be safe. It is the same shape as F004, where a directory sweep declared build
 output as artifacts: an operation that writes somewhere it was not pointed. The
-difference is severity — F004 polluted a record, F014 broke the machine — and the
+difference is severity — F004 polluted a record, F016 broke the machine — and the
 correction is the same. **A sweep must be unable to address anything outside its
 own sandbox, and that has to be enforced rather than remembered.**
 
@@ -168,7 +168,7 @@ result the machine decides.**
 
 ## F017 — A generated file's date came from the clock, so the docs gate failed at midnight
 
-Source: T-0024, session `2026-10-03-040`, 2026-10-04. Repair:
+Source: T-0025, session `2026-10-03-040`, 2026-10-04. Repair:
 `tools/originlib/report.py`, `tools/originlib/docindex.py`,
 `tools/originlib/tasks.py`; tests in `tests/test_cli.py` (`GeneratedStampTest`).
 

@@ -135,7 +135,7 @@ App's own settings stays open, because an agent cannot observe them.
 - [ ] Compare the App's real permissions against the table above. **The largest
       open item on this page.**
 - [x] Add a credential-presence check to `doctor` for the App (presence only).
-      T-0024: `doctor` now reports the configured `credential.helper`, whether each
+      T-0025: `doctor` now reports the configured `credential.helper`, whether each
       named helper exists and is executable, App key files by path and mode, and
       whether `git credential fill` obtains a credential — under the key name
       `push_credential`. See [`doctor.md`](doctor.md) for the contract and its
