@@ -51,10 +51,11 @@ _(none recorded)_
 | DECISIONS-SESSIONS.md | 9ae17380693e | 15660 |
 | tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md | f0a5c2b79b85 | 3386 |
 | RELEASE-MANIFEST.md | 2dbca6aea2b4 | 4565 |
+| ROADMAP.md | a67c716fcc3e | 19116 |
 
 ## Commands
 
-49 captured, 20 non-zero exit.
+57 captured, 25 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -153,18 +154,18 @@ _(none recorded)_
 | 38 | 12:54:21 | artifact | wrote tools/originlib/tasks.py |
 | 39 | 12:54:21 | artifact | wrote tools/originlib/taskops.py |
 | 40 | 12:54:22 | artifact | wrote tools/originlib/skillsync.py |
-| 67 | 13:17:03 | command | $ python3 -m unittest discover -s tests -p test_defectlist.py -p test_identifiers.py |
-| 68 | 13:17:04 | command | $ python3 -m unittest tests.test_defectlist tests.test_identifier_enforcement tests.test_identifiers tests.test_decision_header tests.test_dec |
-| 69 | 13:17:28 | command | $ python3 -m unittest discover -s tests -p test_identifier_enforcement.py -v |
-| 70 | 13:17:29 | command | $ python3 -m unittest discover -s tests -p test_decision_files.py -v |
-| 71 | 13:21:35 | command | $ python3 -c  import sys; sys.path.insert(0,'tools') from originlib import report print(report.render_session_report('2026-10-04-034-separate- |
-| 72 | 13:21:56 | command | $ tools/origin doc lint |
-| 73 | 13:22:04 | command | $ tools/origin sync push |
-| 74 | 13:22:55 | command | $ tools/origin sync push |
-| 75 | 13:23:02 | milestone | landed on b12054f after resolving three conflicts with the other VM's T-0051/T-0052; doc lint green on the merged tip |
-| 76 | 13:28:27 | command | $ tools/origin task verify T-0050 |
+| 79 | 13:31:08 | command | $ tools/origin doc lint |
+| 80 | 13:31:40 | command | $ tools/origin doc lint |
+| 81 | 13:32:06 | command | $ tools/origin doc lint |
+| 82 | 13:33:08 | command | $ tools/origin doc lint |
+| 83 | 13:33:23 | command | $ tools/origin doc lint |
+| 84 | 13:33:52 | command | $ tools/origin doc lint |
+| 85 | 13:34:05 | artifact | wrote ROADMAP.md |
+| 86 | 13:34:08 | command | $ python3 -m unittest discover -s tests -p test_task_index_freshness.py -p test_generated_stamps.py |
+| 87 | 13:34:11 | command | $ python3 -m unittest discover -s tests -p test_report_freshness.py -v |
+| 88 | 13:34:38 | milestone | T-0050 completed; ROADMAP.md gained the entry and lost two lines elsewhere to stay under the cap |
 
-_26 middle events omitted; see `events.jsonl`._
+_38 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

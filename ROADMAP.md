@@ -119,9 +119,8 @@ was previously spent.
 Separate from the invention stages, because the mission cannot be run without it.
 
 - [x] Session logging with append-only events and git reconciliation, including
-      attribution by recorded evidence: a base move the tooling performed (D028),
-      and a task file a command rewrote, honoured only while it holds those bytes
-      (T-0047, D040, defect 12)
+      attribution by recorded evidence: a base move the tooling performed (D028), and a
+      command's own write, honoured only while the file holds those bytes (T-0047, D040)
 - [x] Command capture with exit codes and secret redaction; task dispatch with an
       append-only claim ledger
 - [x] Documentation lint: line cap, metadata, links, orphans, generated freshness.
@@ -129,13 +128,12 @@ Separate from the invention stages, because the mission cannot be run without it
       filesystem, so the verdict is a property of the tree (T-0051, D041, defect 19)
 - [x] Generated indexes for documents, sessions, and tasks; 21 skills vendored
       in-repo and mirrored for every supported agent
-- [x] Standard-library test suite (513 tests on git 2.25.1), with
-      [`tests/git-versions.json`](tests/git-versions.json) recording how much of
-      the suite each git version has actually run. A test's correctness depends
-      on every clock the code under it reads, and three tests behind the
-      in-flight gate read one the fixture never handed over: they dated their
-      claim from a fixed date, so one assertion expired on a schedule and could
-      never pass again (T-0044, defect 15)
+- [x] Standard-library test suite (521 tests on git 2.25.1), with
+      [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
+      each git version has actually run. A test's correctness depends on every clock the
+      code under it reads: three tests behind the in-flight gate read one the fixture never
+      handed over, so one assertion expired on a schedule and could never pass again
+      (T-0044, defect 15)
 - [x] Unresolved merge conflicts fail `doc lint` (T-0021, `FAILURES.md` F013),
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
@@ -253,48 +251,50 @@ invention work: the exercised-version records exist and `doctor` reads them
 (T-0033), and every CPython minor from 3.8 to 3.14 has now run the suite — on
 portable builds on one VM, and one matrix row per minor in CI (T-0034, D035).
 The floor claim is still two things it is not: it says nothing about 3.15
-onwards, which nothing has ever run, and a green row is evidence about that row
-and not about the version below it. Git is weaker in kind, because a git
-version is a property of a machine rather than of a workflow step: T-0034 added
-the runner's own 2.55.0 to the record by running the suite on it, and
-`git-versions.json` now names what it does **not** run against (2.26-2.54 and
-2.57+). A suite that only passes where its author works is not a suite, and that
-is now a recorded pattern rather than a coincidence: the interpreter assertion
-failed on every version the record lacked (F018), the git assertion on every
-runner whose git nobody recorded (F019), and the credential fixture on every
-runner that exports `GITHUB_TOKEN` (T-0035). Each was green on the machine that
-wrote it.
-Identifiers are allocated from the shared base and the record is printed
-(T-0031), so a stale tree no longer collides — but two VMs allocating between
-their own fetches still do, and T-0030's detector is what catches that; see
+onwards, and a green row is evidence about that row and not about the version
+below it. Git is weaker in kind, because a git version is a property of a machine
+rather than of a workflow step: T-0034 added the runner's own 2.55.0 to the record
+by running the suite on it, and `git-versions.json` names what it does **not** run
+against (2.26-2.54 and 2.57+). A suite that only passes where its author works is
+not a suite, and that is a recorded pattern rather than a coincidence: the
+interpreter assertion failed on every version the record lacked (F018), the git
+assertion on every runner whose git nobody recorded (F019), and the credential
+fixture on every runner that exports `GITHUB_TOKEN` (T-0035). Each was green on
+the machine that wrote it.
+Identifiers are allocated from the shared base and the record is printed (T-0031),
+so a stale tree no longer collides — but two VMs allocating between their own
+fetches still do, and T-0030's detector catches that; see
 [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-The same class of gap is now closed in the reader: a red CI run is diagnosable
-without admin rights, because the check-run annotations name the failing test
-and were public all along (`FAILURES.md` F020, T-0038). What is left there is
-that three of the five gate steps emit no annotation naming their violation, and
-that the endpoint answers "nothing" in three different ways, one of them a 403
-from the unauthenticated rate limit.
-T-0020 is the pattern for the rest: run the documented sequence, and fix what it
-actually does.
+A red CI run is diagnosable without admin rights, because the check-run
+annotations name the failing test and were public all along (F020, T-0038); what
+is left there is that the endpoint answers "nothing" in three different ways, one
+of them a 403 from the unauthenticated rate limit. T-0020 is the pattern for the
+rest: run the documented sequence, and fix what it actually does.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
       defect 17). The five file-reading steps ran a gate, printed a report and exited, so
-      the check run's only annotation was "Process completed with exit code 2" and the run
-      log that says which rule failed needs admin rights. A violation now carries the file
-      and line its own rule knows; falsified against `e53ca23`'s own bytes in both
-      directions, and `observed` on run `37196459285` filing all seven with GitHub putting
-      the annotation on `file=`. The same session found the workflow's awk escaping `%`
-      wrongly, and four CLI handlers raising a `Usage` they had never imported — all in
-      [`STATE-defects.md`](STATE-defects.md).
-- [x] A step whose only job is to emit a diagnostic runs whenever the job runs, and the
-      mechanism is measured by a probe on the same run (T-0046, defect 18, F021, D038). An
-      `if:` naming no status function gets an implicit `success()`, so a red `Tests` step
-      skipped all five gate steps on two runs. `always() &&` on each, plus
-      `tools/origin probe`: one annotation per rendering shape on every push
+      the check run's only annotation was "Process completed with exit code 2" and the log
+      that says which rule failed needs admin rights. A violation now carries the file and
+      line its own rule knows; falsified against `e53ca23`'s own bytes in both directions,
+      and `observed` on run `37196459285` filing all seven. The same session found the
+      workflow's awk escaping `%` wrongly, and four CLI handlers raising a `Usage` they had
+      never imported — all in [`STATE-defects.md`](STATE-defects.md).
+- [x] A diagnostic step runs whenever the job runs, and a probe measures it on the same run
+      (T-0046, defect 18, F021, D038). An `if:` naming no status function gets an implicit
+      `success()`, so a red `Tests` step skipped all five gate steps on two runs. `always() &&`
+      on each, plus `tools/origin probe`: one annotation per rendering shape on every push
 - [x] A refusal is followable by the tool that gave it (T-0048, D039,
-      `tools/originlib/landrebase.py`). `sync land` stopped on a real conflict and said
-      *resolve it and land again*; the second `land` refused on the dirty tree that
-      resolving leaves, so the only way out was a hand-run `git rebase --continue`, which
-      records no `base_advance` — defect 2's ceiling reached through a message rather than a
-      mistake. `land` now completes the rebase, and reads the pre-rebase tip from git's own
-      `orig-head` rather than a `HEAD` already moved onto the base. Falsified both ways
-
+      `tools/originlib/landrebase.py`). `sync land` stopped on a real conflict and said *resolve
+      it and land again*; the second `land` refused on the dirty tree that resolving leaves, so
+      the only way out was a hand-run `git rebase --continue`, which records no `base_advance` —
+      defect 2's ceiling reached through a message rather than a mistake. `land` now completes
+      the rebase and reads the pre-rebase tip from git's own `orig-head` rather than a `HEAD`
+      already moved onto the base. Falsified both ways
+- [x] A command's own write is declared by the bytes it wrote, whatever its suffix (T-0050, D042,
+      F022). `reconcile` asked the *line cap's* exemption predicate, true for every `.json`,
+      `.jsonl` and `.log`, so the undeclared-change report skipped every data-file edit — including
+      the version records that decide whether a VM can run the work. The two questions are named
+      separately now and reconciliation asks its own; the claim ledger and `vendor/hashes.json` are
+      declared by the bytes their writers wrote. Priced **before** the repair by
+      `tools/sweep_unlogged_data.py`: 72 (session, path) pairs over 17 paths, 50 the ledger. The
+      general form: an exemption is a claim about what another check covers, and the cheap way to
+      write one is to borrow a predicate.
