@@ -92,6 +92,7 @@ _(none recorded)_
 | 20 | 08:47:29 | artifact | wrote tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md |
 | 21 | 08:47:30 | artifact | wrote .github/workflows/ci.yml |
 | 22 | 08:47:30 | artifact | wrote docs/operations/ci-diagnosis.md |
+| 23 | 09:04:41 | note | Base carries a red doc lint and 7 red tests: tools/originlib/identifiers.py is 306 lines on origin/research/origin, over the 300-line cap, so every fi |
 
 ## Reproduce this record
 
