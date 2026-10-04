@@ -10,10 +10,10 @@ last-verified: 2026-10-04
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-04T00:43:21+00:00
-- **Duration:** ?s
+- **Duration:** 560.7s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ T-0026: make task new regenerate tasks/INDEX.md so a created task is never an or
 
 ## Summary
 
-_(none recorded)_
+T-0026 done: task new/claim/complete/release rebuild the generated indexes, so a created task is never an orphan - the cause of two red CI runs on 2026-10-03. Falsified first (4 of 5 new tests fail without it; the negative control does not move). 274 tests green; task verified and completed.
+
+## Next
+
+Read the pushed CI runs for T-0025 and T-0026 before claiming them green: neither has run on the runner yet, and this record has just been wrong about a run once. Then the two open defects in STATE-defects.md: identifier allocation (a detector, not an allocator) and the missing Python-versions record named in docs/operations/vm-execution.md. STATE.md is at 263 lines and STATE-history.md at 300, so the next session that adds detail to either must split rather than append.
 
 ## Artifacts
 
@@ -62,7 +66,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -95,6 +98,9 @@ _(none recorded)_
 | 21 | 00:48:48 | artifact | wrote sessions/INDEX.md |
 | 22 | 00:49:39 | artifact | wrote STATE.md |
 | 23 | 00:52:08 | command | $ tools/origin task verify T-0026 |
+| 24 | 00:52:42 | doc_update | updated ROADMAP.md |
+| 25 | 00:52:42 | doc_update | updated STATE.md |
+| 26 | 00:52:42 | session_end | T-0026 done: task new/claim/complete/release rebuild the generated indexes, so a created task is never an orphan - the cause of two red CI runs on 202 |
 
 ## Reproduce this record
 
