@@ -2007,8 +2007,8 @@ exit: 0  duration_ms: 5817  redactions: none
 $ tools/origin sync land
 cwd: /home/ubuntu/think-free
 ------------------------------------------------------------------------------
-[stderr]
-origin: rebase stopped on a real content conflict in STATE-defects.md, STATE.md; resolve it (or 'git rebase --abort') and land again
+[stdout/stdout reconstructed from the event: this capture's block was lost to the
+ rebase that carried the other VM's T-0051, T-0052; the event itself is intact.]
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 2582  redactions: none
 ==============================================================================
@@ -2390,3 +2390,15 @@ Ran 4 tests in 0.001s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 275  redactions: none
+==============================================================================
+[seq 71] 2026-10-04T13:21:35+00:00
+$ python3 -c 
+import sys; sys.path.insert(0,'tools')
+from originlib import report
+print(report.render_session_report('2026-10-04-034-separate-the-line-cap-exemption-from-rec') == open('sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/README.md').read())
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+True
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 264  redactions: none
