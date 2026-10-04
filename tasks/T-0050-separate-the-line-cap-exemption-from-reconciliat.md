@@ -10,7 +10,7 @@ status: claimed
 created: 2026-10-04
 claim-agent: opencode
 claim-session: 2026-10-04-034-separate-the-line-cap-exemption-from-rec
-claim-vm: 
+claim-vm: instance-20260717-0947
 verify: python3 -m unittest discover -s tests && tools/origin preflight
 -->
 
