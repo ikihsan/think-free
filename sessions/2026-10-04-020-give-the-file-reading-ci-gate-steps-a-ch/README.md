@@ -31,9 +31,19 @@ _none_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+9 captured, 2 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 2 | ['bash', '-c', 'cd /tmp/opencode/e53ca23 && ./tools/origin doc lint; echo "EXIT=$?"'] | 0 | 494 |
+| 3 | ['bash', '-c', 'cd /tmp/opencode/wt-e53ca23 && ./tools/origin doc lint > /tmp/opencode/baseline-e53ca23.txt 2>&1; echo "EXIT=$?"; grep -c "::error" /t | 0 | 1877 |
+| 4 | ['bash', '-c', 'cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib doc  | 1 | 1814 |
+| 5 | ['bash', '-c', 'cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib anno | 0 | 2415 |
+| 6 | ['bash', '-c', 'cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib anno | 0 | 1786 |
+| 7 | ['bash', '-c', 'cd /tmp/opencode/wt-e53ca23 && export ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools; for g in "release | 0 | 5300 |
+| 8 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate | 0 | 2304 |
+| 9 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annotate | 0 | 2606 |
+| 10 | ['bash', '-c', 'cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint on | 1 | 6720 |
 
 ## Integrity
 
@@ -50,6 +60,15 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 07:35:57 | session_start | Give the file-reading CI gate steps a check-run annotation that names the violating file, and split DECISIONS-GATING.md so the decision has a home |
+| 2 | 07:41:06 | command | $ bash -c cd /tmp/opencode/e53ca23 && ./tools/origin doc lint; echo "EXIT=$?" |
+| 3 | 07:41:23 | command | $ bash -c cd /tmp/opencode/wt-e53ca23 && ./tools/origin doc lint > /tmp/opencode/baseline-e53ca23.txt 2>&1; echo "EXIT=$?"; grep -c "::error" |
+| 4 | 07:41:39 | command | $ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib do |
+| 5 | 08:01:20 | command | $ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib an |
+| 6 | 08:01:44 | command | $ bash -c cd /tmp/opencode/wt-e53ca23 && ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib an |
+| 7 | 08:02:01 | command | $ bash -c cd /tmp/opencode/wt-e53ca23 && export ORIGIN_ROOT=/tmp/opencode/wt-e53ca23 PYTHONPATH=/home/ubuntu/think-free/tools; for g in "relea |
+| 8 | 08:02:22 | command | $ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annota |
+| 9 | 08:03:06 | command | $ bash -c cd /tmp/opencode/wt-plant && ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools python3 -m originlib annota |
+| 10 | 08:05:10 | command | $ bash -c cd /tmp/opencode/wt-plant && export ORIGIN_ROOT=/tmp/opencode/wt-plant PYTHONPATH=/home/ubuntu/think-free/tools; echo "### doc lint |
 
 ## Reproduce this record
 
