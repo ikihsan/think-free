@@ -23,3 +23,236 @@ cwd: /home/ubuntu/think-free
 origin: commit or revert before landing: sessions/2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md, sessions/2026-10-04-041-repair-the-red-base-state-md-over-the-li/events.jsonl, sessions/2026-10-04-041-repair-the-red-base-state-md-over-the-li/commands.log
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 988  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T15:17:21+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_claim_in_session -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_claim_is_still_refused_on_foreign_uncommitted_work (tests.test_claim_in_session.ClaimInSessionTest)
+The control. The session's own record is not a blank cheque for the tree. ... FAIL
+test_a_claim_publishes_while_a_session_is_open (tests.test_claim_in_session.ClaimInSessionTest)
+The defect's own shape: the session record is dirty, and the claim lands. ... FAIL
+
+======================================================================
+FAIL: test_a_claim_is_still_refused_on_foreign_uncommitted_work (tests.test_claim_in_session.ClaimInSessionTest)
+The control. The session's own record is not a blank cheque for the tree.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_claim_in_session.py", line 100, in test_a_claim_is_still_refused_on_foreign_uncommitted_work
+    self.assertNotIn("sessions/", refusal)
+AssertionError: 'sessions/' unexpectedly found in 'origin: refusing to push a dirty tree; commit or revert: sessions/2026-10-04-001-claim-a-task/README.md, sessions/2026-10-04-001-claim-a-task/events.jsonl, sessions/INDEX.md, work.md\n'
+
+======================================================================
+FAIL: test_a_claim_publishes_while_a_session_is_open (tests.test_claim_in_session.ClaimInSessionTest)
+The defect's own shape: the session record is dirty, and the claim lands.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_claim_in_session.py", line 69, in test_a_claim_publishes_while_a_session_is_open
+    self.assertEqual(
+AssertionError: 1 != 0 : origin: refusing to push a dirty tree; commit or revert: sessions/2026-10-04-001-claim-a-task/README.md, sessions/2026-10-04-001-claim-a-task/events.jsonl, sessions/INDEX.md
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.199s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5624  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T15:18:17+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_claim_in_session -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_claim_is_still_refused_on_foreign_uncommitted_work (tests.test_claim_in_session.ClaimInSessionTest)
+The control. The session's own record is not a blank cheque for the tree. ... ok
+test_a_claim_publishes_while_a_session_is_open (tests.test_claim_in_session.ClaimInSessionTest)
+The defect's own shape: the session record is dirty, and the claim lands. ... FAIL
+
+======================================================================
+FAIL: test_a_claim_publishes_while_a_session_is_open (tests.test_claim_in_session.ClaimInSessionTest)
+The defect's own shape: the session record is dirty, and the claim lands.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_claim_in_session.py", line 69, in test_a_claim_publishes_while_a_session_is_open
+    self.assertEqual(
+AssertionError: 1 != 0 : origin: refusing to push a dirty tree; commit or revert: sessions/INDEX.md
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.804s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5111  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T15:18:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_claim_in_session -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_a_claim_is_still_refused_on_foreign_uncommitted_work (tests.test_claim_in_session.ClaimInSessionTest)
+The control. The session's own record is not a blank cheque for the tree. ... ok
+test_a_claim_publishes_while_a_session_is_open (tests.test_claim_in_session.ClaimInSessionTest)
+The defect's own shape: the session record is dirty, and the claim lands. ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 7.136s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7711  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T15:26:15+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+F..................................................F.....................................................................................F............F..........................................................F......................................................................................................................................................................................................................................................................................F.F.........................................................
+======================================================================
+FAIL: test_a_clean_gate_emits_nothing_at_all (test_annotate.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_annotate.py", line 174, in test_a_clean_gate_emits_nothing_at_all
+    self.assertEqual(self.annotations("--", "doc lint"), [])
+AssertionError: Lists differ: ['::error file=tools/originlib/taskremote.[111 chars]md)'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'::error file=tools/originlib/taskremote.py::tools/originlib/taskremote.py: 345 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)'
+
++ []
+- ['::error file=tools/originlib/taskremote.py::tools/originlib/taskremote.py: '
+-  '345 lines exceeds the 300-line cap; split it (see '
+-  'docs/policy/doc-standards.md)']
+
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 72 file(s) checked
+  FAIL  tools/originlib/taskremote.py: 345 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_lint_passes_when_the_committed_file_is_from_an_earlier_day (test_generated_stamps.GeneratedStampTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_generated_stamps.py", line 73, in test_lint_passes_when_the_committed_file_is_from_an_earlier_day
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 72 file(s) checked
+  FAIL  tools/originlib/taskremote.py: 345 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_index_freshness.py", line 37, in test_a_new_task_leaves_no_orphan_behind
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 72 file(s) checked
+  FAIL  tools/originlib/taskremote.py: 345 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_task_index_freshness.py", line 52, in test_claiming_and_completing_keep_the_index_current
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 72 file(s) checked
+  FAIL  tools/originlib/taskremote.py: 345 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 548 tests in 301.476s
+
+FAILED (failures=7)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 302076  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T15:29:06+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_claim_in_session tests.test_task_index_freshness tests.test_tasks tests.test_fleet tests.test_land -q
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+----------------------------------------------------------------------
+Ran 59 tests in 80.426s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80745  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T15:34:29+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 548 tests in 302.826s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 303401  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T16:01:27+00:00
+$ python3 -m unittest discover -s tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 548 tests in 305.916s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 306607  redactions: none
+==============================================================================
+[seq 33] 2026-10-04T16:03:28+00:00
+$ tools/origin task complete T-0055 --summary A claim published from inside the session that made it. taskremote.claim committed the claim then called push, which refuses a dirty tree; an open session guarantees one, so the refusal named the session's own record and said commit or revert it. The claim stayed local and unpushed, so no other VM could see it - the exclusivity the command exists to provide was not in force - and each retry appended another claim line to the append-only ledger (three identical ones for T-0053), while the retry's own advice named sync land, which refuses the same dirty tree. The claim commit now carries the open session's record via sessionflow.session_owned_paths, and foreign uncommitted work refuses the claim before anything is written; release took the same treatment. Falsified both ways and on a clone of this repository's own history. Defect 21, D044, F023; 548 tests green, preflight 0. --evidence tools/originlib/claimpublish.py --evidence tools/originlib/taskremote.py --evidence tests/test_claim_in_session.py --evidence FAILURES-findings-5.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0055 completed
+  remember to update STATE.md and ROADMAP.md in this session's commit
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 893  redactions: none
