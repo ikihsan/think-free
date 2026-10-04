@@ -1,0 +1,329 @@
+==============================================================================
+[seq 2] 2026-10-04T06:19:16+00:00
+$ bash -c for c in e53ca23 e701ad8 157e463 e576e26; do echo "== $c $(git log -1 --format=%s $c)"; git show $c:STATE-defects.md | grep -nE "^[0-9]+\. \*\*" | sed -E "s/^(.{60}).*/\1…/"; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== e53ca23 T-0034: the second machine-fact gate, and the runner's own git 2.55.0
+17:1. **An in-flight session reddened every other VM's CI** …
+26:2. **Reconciliation compared trees, not authorship** (sol…
+35:3. **Every generated file stamped `last-verified` with th…
+42:4. **A pushed task file without `doc index` reddens CI** …
+55:5. **`doctor` did not compare this VM's interpreter or gi…
+75:7. **A test fixture inherited the runner's environment** …
+99:6. **Identifier allocation collides by construction** (bo…
+133:7. **The suite was red on every interpreter it had never…
+151:8. **The suite asserted that this machine's git is in th…
+== e701ad8 T-0035: stop the credential sandbox inheriting a CI runner's GITHUB_TOKEN
+17:1. **An in-flight session reddened every other VM's CI** …
+26:2. **Reconciliation compared trees, not authorship** (sol…
+35:3. **Every generated file stamped `last-verified` with th…
+42:4. **A pushed task file without `doc index` reddens CI** …
+55:5. **`doctor` did not compare this VM's interpreter or gi…
+75:7. **A test fixture inherited the runner's environment** …
+99:6. **Identifier allocation collides by construction** (bo…
+133:7. **The suite was red on every interpreter it had never…
+== 157e463 Renumber this side's defects 7 and 8 to 8 and 9: T-0035 took 7 on the other VM, and rule 7 does not read STATE-defects.md
+17:1. **An in-flight session reddened every other VM's CI** …
+26:2. **Reconciliation compared trees, not authorship** (sol…
+35:3. **Every generated file stamped `last-verified` with th…
+42:4. **A pushed task file without `doc index` reddens CI** …
+55:5. **`doctor` did not compare this VM's interpreter or gi…
+75:7. **A test fixture inherited the runner's environment** …
+99:6. **Identifier allocation collides by construction** (bo…
+133:8. **The suite was red on every interpreter it had never…
+151:9. **The suite asserted that this machine's git is in th…
+== e576e26 session: 2026-10-04-016-record-the-two-operational-lessons-three (worked)
+17:1. **An in-flight session reddened every other VM's CI** …
+26:2. **Reconciliation compared trees, not authorship** (sol…
+35:3. **Every generated file stamped `last-verified` with th…
+42:4. **A pushed task file without `doc index` reddens CI** …
+55:5. **`doctor` did not compare this VM's interpreter or gi…
+75:7. **A test fixture inherited the runner's environment** …
+99:6. **Identifier allocation collides by construction** (bo…
+133:8. **The suite was red on every interpreter it had never…
+151:9. **The suite asserted that this machine's git is in th…
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 201  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T06:20:32+00:00
+$ bash -c git show e53ca23:STATE-defects.md | sed -n "75,77p;133,135p"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+7. **A test fixture inherited the runner's environment** (solved in T-0035).
+   `tests/pushcred_fixture.py` built a sandbox with a fresh `HOME`,
+   `XDG_CONFIG_HOME`, git config and `GIT_CONFIG_SYSTEM=/dev/null`, and left
+7. **The suite was red on every interpreter it had never run on** (solved in
+   T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions
+   nobody had run, and `test_doctor_versions.py` — written hours earlier in
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 87  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T06:22:21+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_defectlist.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_one_entry_per_number_is_clean (test_defectlist.CollisionTest) ... ok
+test_the_hand_repair_one_commit_later_is_clean (test_defectlist.CollisionTest) ... ok
+test_the_report_carries_both_subjects (test_defectlist.CollisionTest) ... ok
+test_two_defects_with_one_number_are_reported (test_defectlist.CollisionTest) ... ok
+test_a_file_with_no_readable_entry_is_reported (test_defectlist.ControlTest) ... ok
+test_a_missing_file_is_not_a_collision (test_defectlist.ControlTest) ... ok
+test_a_prose_mention_is_not_a_definition (test_defectlist.ControlTest) ... ok
+test_an_indented_numbered_item_is_not_a_definition (test_defectlist.ControlTest) ... ok
+test_an_ordinary_numbered_list_is_not_a_definition (test_defectlist.ControlTest) ... FAIL
+test_out_of_order_numbering_is_not_a_collision (test_defectlist.ControlTest) ... ok
+test_exactly_the_two_colliding_commits_are_flagged (test_defectlist.RealHistoryTest) ... ok
+test_the_fixture_quotes_the_commits_it_names (test_defectlist.RealHistoryTest) ... FAIL
+test_this_repository_holds_no_repeated_defect_number (test_defectlist.RealHistoryTest) ... ok
+
+======================================================================
+FAIL: test_an_ordinary_numbered_list_is_not_a_definition (test_defectlist.ControlTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_defectlist.py", line 101, in test_an_ordinary_numbered_list_is_not_a_definition
+    self.assertEqual(defectlist.report(self.repo), [])
+AssertionError: Lists differ: ['STATE-defects.md: no defect entry could [225 chars]25)'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'STATE-defects.md: no defect entry could be read, so a repeated number in it would go unreported. Each entry is a numbered list item whose subject is bold, as in `7. **A defect** (solved in T-0000)`; teach this rule the new shape rather than deleting the entries (D025)'
+
++ []
+- ['STATE-defects.md: no defect entry could be read, so a repeated number in it '
+-  'would go unreported. Each entry is a numbered list item whose subject is '
+-  'bold, as in `7. **A defect** (solved in T-0000)`; teach this rule the new '
+-  'shape rather than deleting the entries (D025)']
+
+======================================================================
+FAIL: test_the_fixture_quotes_the_commits_it_names (test_defectlist.RealHistoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_defectlist.py", line 193, in test_the_fixture_quotes_the_commits_it_names
+    self.assertEqual(
+AssertionError: 1 != 2 : fixture drift at e53ca23: [1, 2, 3, 4, 5, 7, 6, 7, 8]
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.192s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3487  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T06:22:43+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_defectlist.py -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_one_entry_per_number_is_clean (test_defectlist.CollisionTest) ... ok
+test_the_hand_repair_one_commit_later_is_clean (test_defectlist.CollisionTest) ... ok
+test_the_report_carries_both_subjects (test_defectlist.CollisionTest) ... ok
+test_two_defects_with_one_number_are_reported (test_defectlist.CollisionTest) ... ok
+test_a_file_with_no_readable_entry_is_reported (test_defectlist.ControlTest) ... ok
+test_a_missing_file_is_not_a_collision (test_defectlist.ControlTest) ... ok
+test_a_prose_mention_is_not_a_definition (test_defectlist.ControlTest) ... ok
+test_an_indented_numbered_item_is_not_a_definition (test_defectlist.ControlTest) ... ok
+test_an_ordinary_numbered_list_is_not_a_definition (test_defectlist.ControlTest) ... ok
+test_out_of_order_numbering_is_not_a_collision (test_defectlist.ControlTest) ... ok
+test_exactly_the_two_colliding_commits_are_flagged (test_defectlist.RealHistoryTest) ... ok
+test_the_fixture_quotes_the_commits_it_names (test_defectlist.RealHistoryTest) ... ok
+test_this_repository_holds_no_repeated_defect_number (test_defectlist.RealHistoryTest) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 4.604s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4904  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T06:22:58+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== e53ca23  T-0034: the second machine-fact gate, and the runner's own git
+   wiring before this task : ['FAILURES.md:46: F018 is indexed but nothing defines it', 'FAILURES.md:47: F019 is indexed but nothing defines it']
+   wiring now              : FAILURES.md:46: F018 is indexed but nothing defines it
+   wiring now              : FAILURES.md:47: F019 is indexed but nothing defines it
+   wiring now              : defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.m
+== e701ad8  T-0035: stop the credential sandbox inheriting a CI runner's G
+   wiring before this task : nothing to report
+   wiring now              : defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE-defects.m
+== 157e463  Renumber this side's defects 7 and 8 to 8 and 9: T-0035 took 7
+   wiring before this task : ['FAILURES.md:46: F018 is indexed but nothing defines it', 'FAILURES.md:47: F019 is indexed but nothing defines it']
+   wiring now              : FAILURES.md:46: F018 is indexed but nothing defines it
+   wiring now              : FAILURES.md:47: F019 is indexed but nothing defines it
+== e576e26  session: 2026-10-04-016-record-the-two-operational-lessons-thr
+   wiring before this task : ['FAILURES.md:46: F018 is indexed but nothing defines it', 'FAILURES.md:47: F019 is indexed but nothing defines it']
+   wiring now              : FAILURES.md:46: F018 is indexed but nothing defines it
+   wiring now              : FAILURES.md:47: F019 is indexed but nothing defines it
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 791  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T06:23:45+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== e53ca23  T-0034: the second machine-fact gate, and the runner's own git 2
+   rule as wired before this task : NOTHING TO REPORT
+   rule as wired now              : defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE
+== e701ad8  T-0035: stop the credential sandbox inheriting a CI runner's GIT
+   rule as wired before this task : NOTHING TO REPORT
+   rule as wired now              : defect 7 defines 2 defects; one number must mean one defect: STATE-defects.md:75 "A test fixture inherited the runner's environment" / STATE
+== 157e463  Renumber this side's defects 7 and 8 to 8 and 9: T-0035 took 7 o
+   rule as wired before this task : NOTHING TO REPORT
+== e576e26  session: 2026-10-04-016-record-the-two-operational-lessons-three
+   rule as wired before this task : NOTHING TO REPORT
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2916  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T06:24:06+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_identifier*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 6.793s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7089  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T06:24:12+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 452 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  FAIL  tools/originlib/doclint.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 2183  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T06:29:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 418 tests in 266.637s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 267526  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T06:42:00+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 452 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 60 session(s) checked
+  note  2026-10-04-017-t-0036-report-a-duplicate-defect-number: in progress (command)
+session verify: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3095  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T06:46:35+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 418 tests in 260.639s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 261725  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T06:49:09+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_defectlist.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 3.172s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3417  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T06:49:16+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -p test_identifier*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 7.200s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7582  redactions: none

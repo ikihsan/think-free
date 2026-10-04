@@ -1,7 +1,7 @@
 """Where the identifier rule is enforced, and what the real record holds.
 
-Split from `test_identifiers.py` at the line cap. That file tests the rule; this
-one tests the three places it has to be read: this repository's own record, `doc
+Split from `test_identifiers.py` at the line cap. That file tests the rules; this
+one tests the three places they have to be read: this repository's own record, `doc
 lint`, and `sync land`.
 
 `land` is the only publishing operation gated, and the reason is a property of the
@@ -9,6 +9,12 @@ fleet rather than a choice: two VMs allocate a number from their own tree, so th
 collision appears in the merged result and nowhere else. `push` and `task claim`
 stay ungated on purpose — refusing them would block a VM from publishing the
 session record it needs in order to renumber out of the collision (D031).
+
+T-0036 added the second source of definitions — the numbered list in
+`STATE-defects.md`, where two VMs took defect 7 in the same hour — and it is the
+case that proves why one entry point matters: a module wired into `doc lint` is
+not thereby read by `land`, and neither is read by a test that exercises only the
+module. All three are below.
 """
 
 from __future__ import annotations
@@ -18,11 +24,23 @@ from pathlib import Path
 
 from harness import RepoTest
 
-from originlib import doclint, identifiers, paths, sync, syncland
+from originlib import defectlist, doclint, idcheck, identifiers, paths, sync, syncland
 
 COLLIDING_BODY = "## F020 — one\n"
 COLLIDING_OTHER = "## F020 — two\n"
 COLLIDING_INDEX = "| Id | Subject |\n|---|---|\n| F020 | one |\n"
+
+# Two entries numbered 7, quoted from e53ca23:STATE-defects.md — the commit that
+# carried the collision to the shared base. `test_defectlist.py` tests the rule
+# against these bytes; the two tests below are about the wiring, which is where
+# the second source can be forgotten.
+COLLIDING_DEFECTS = (
+    "7. **A test fixture inherited the runner's environment** (solved in T-0035).\n"
+    "   `tests/pushcred_fixture.py` built a sandbox with a fresh `HOME`,\n"
+    "\n"
+    "7. **The suite was red on every interpreter it had never run on** (solved in\n"
+    "   T-0034, F018). `tests/python-versions.json` named 3.9 to 3.11 as versions\n"
+)
 
 
 class ThisRepositoryTest(unittest.TestCase):
@@ -36,6 +54,22 @@ class ThisRepositoryTest(unittest.TestCase):
 
     def test_this_repository_has_no_identifier_collision(self) -> None:
         self.assertEqual(identifiers.report(self.real_root()), [])
+
+    def test_this_repository_has_no_collision_in_the_defect_list(self) -> None:
+        # The second source, read by its own rule. Before T-0036 this file was
+        # the one document in the repository whose identifiers were checked by
+        # reading it — and reading it found defect 7 twice on two commits.
+        self.assertEqual(defectlist.report(self.real_root()), [])
+
+    def test_the_entry_point_reads_both_sources(self) -> None:
+        # A module wired into one gate is not read by the other, so the two
+        # gates call one function and this asserts what it contains. A third
+        # source of definitions is a change to `idcheck.report` and to this test.
+        root = self.real_root()
+        self.assertEqual(
+            sorted(idcheck.report(root)),
+            sorted(identifiers.report(root) + defectlist.report(root)),
+        )
 
     def test_every_decision_this_repository_holds_is_listed_in_the_index(self) -> None:
         # The rule reported D030 missing from its index row on its first run,
@@ -92,6 +126,29 @@ class DocLintWiringTest(RepoTest):
             result.violations,
         )
 
+    def test_doc_lint_fails_on_a_repeated_defect_number(self) -> None:
+        # The second source, through the same gate. This is the wiring test the
+        # whole task turns on: a module that only its own tests know about would
+        # leave `doc lint` green on the tree two VMs actually produced.
+        self.write(defectlist.DEFECT_FILE, COLLIDING_DEFECTS)
+        result = doclint.lint()
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("identifier collision" in problem and "defect 7" in problem
+                for problem in result.violations),
+            result.violations,
+        )
+
+    def test_doc_lint_fails_when_the_defect_list_cannot_be_read(self) -> None:
+        # A list restructured into headings leaves the rule matching nothing,
+        # which reports nothing. It has to say so, or the gate goes quietly dead.
+        self.write(defectlist.DEFECT_FILE, "# Known defects\n\n## Defect 7\n\nProse.\n")
+        result = doclint.lint()
+        self.assertTrue(
+            any("no defect entry could be read" in problem for problem in result.violations),
+            result.violations,
+        )
+
 
 class LandRefusalTest(RepoTest):
     """`land` refuses the collision, and the refusal names the way out."""
@@ -135,6 +192,21 @@ class LandRefusalTest(RepoTest):
         message = str(caught.exception)
         self.assertIn("identifier record collides", message)
         self.assertIn("F020", message)
+        pushed.assert_not_called()
+
+    def test_land_refuses_to_publish_a_repeated_defect_number(self) -> None:
+        # The half of the record `land` would otherwise not read. This is the
+        # operation that creates the collision, so a rule that stops at the
+        # findings leaves the defect list's collisions to be found after
+        # publication — which is what happened to defects 7 and 8.
+        import unittest.mock as mock
+
+        self.write(defectlist.DEFECT_FILE, COLLIDING_DEFECTS)
+        self.record()
+        with mock.patch.object(syncland, "push") as pushed:
+            with self.assertRaises(sync.SyncError) as caught:
+                self.land(pushed)
+        self.assertIn("defect 7", str(caught.exception))
         pushed.assert_not_called()
 
     def test_the_refusal_names_the_way_out(self) -> None:

@@ -35,7 +35,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). No candidate validated. Findings F001–F008 in `FAILURES-findings.md`, F009–F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md` |
-| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 392 tests) |
+| Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, and the defect list — through one entry point both publishing gates call (T-0036). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 418 tests) |
 | Users and adoption | None. No product, no release, no claims |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
@@ -50,77 +50,70 @@ Per-session detail behind the dashboard is in
 ## In flight
 
 **Both machine-fact gates are closed, and the second was invisible from
-outside.** T-0033 added two assertions that this machine's tools are in the
-records (F018, F019). Each was green on the VM that wrote it and red elsewhere for
-opposite reasons — the interpreter one on every version the record lacked, the git
-one on the CI runner, whose **git 2.55.0** the record did not name. Seven rows
-were red, the run log needs admin rights, and the public check-runs API returned
-no annotations, so the cause came from elimination and then a reproduction with a
-conda-forge 2.55.0 unpacked outside the repository. Both are now the module's
-contract; the portable form is in D035. `instance-20260717-0947` closed T-0035 in
-session 013 while this session was open. Check
+outside** (defects 8 and 9 in [`STATE-defects.md`](STATE-defects.md)). T-0033's two
+assertions were each green on the VM that wrote it and red elsewhere for opposite
+reasons — the interpreter one on every version the record lacked, the git one on
+the CI runner, whose **git 2.55.0** the record did not name. Seven rows were red,
+the run log needs admin rights, and the cause came from elimination plus a
+reproduction with that git unpacked outside the repository. Check
 `tools/origin task list --remote` before taking anything.
 
-**Identifier collisions were allocated by reading the local tree, so two VMs in
-an hour collided by construction.** Six times on 2026-10-03 and **six more in a
-single hour on 2026-10-04**, all between these two machines: T-0024 through
-T-0028, F014, F015, D027 and D028 were each taken on 0947 while 0944 worked. That
-VM renumbered to T-0029, F016, F017 and D030, two of those rounds *during one
-rebase* because the other VM pushed twice more while it resolved. **Rule
+**Collisions were allocated by reading the local tree, so two VMs in an hour
+collided by construction.** Twelve times in two days; the allocation cause is
+closed in T-0031 (`origin id next` reads `origin/<base>` and prints the record it
+read) and the detector in T-0030 — and the twelfth happened while fixing it. **Rule
 unchanged:** renumber on the side that has not been pushed, and record the
 collision where the next reader looks — never by editing a closed event stream.
-That rule was followed again when these two VMs' commits met in T-0032's
-rebase. **The allocation cause is closed in T-0031**
-(`tools/originlib/idalloc.py` reads `origin/<base>` for F, D and T and prints the
-record it read); **the detector is T-0030**, because a residual race — two VMs
-allocating between their own fetches — still collides and has to be caught. The
-measured cost of the old behaviour, a rebase that restored a file's index row
-while reverting its body so a findings file and its own table disagreed, is defect
-5 in [`STATE-defects.md`](STATE-defects.md).
+When two VMs' commits meet, keep both facts and let the generated indexes be
+regenerated rather than merged; a ledger conflict is resolved by keeping both
+lines. Two rebase conflicts in this one hour cost one red CI run (`37171841544`, a
+broken link this VM had just written, fixed in `00cd829`).
 
-**All six defects there were closed on 2026-10-04.** D028 (a session that landed
-a colleague's work reported it as undeclared), D029 (generated files stamped
-`last-verified` with the render date), the orphan rule biting six real CI runs
-because `task new` did not rebuild the indexes and `task claim` did not stage
-them, **defect 5 on the detector side** (T-0030: a collision is created by the
-merge, so `sync land` refuses to publish a tree where one identifier has two
-definitions and `doc lint` rule 7 reports it on any route to the base — one
-commit of 174 flagged, `e6eb992`), **defect 5 on the allocation side** (T-0031)
-and `doctor`'s version comparison (defect 6, T-0033). The orphan defect was
-found by reading pushed runs rather than by pushing something and watching, and
-it took two tasks to close: T-0026's verification passed while the defect was
-still live, because a lint on the author's own tree cannot see what the claim
-commit published.
+**Defects 1–4 and 7 are closed, and each mechanism is recorded rather than quietly
+repaired**: a session that landed a colleague's work reported it as undeclared
+(D028), generated files stamped `last-verified` with the render date (D029), and
+the orphan rule bit six real CI runs because `task new` did not rebuild the indexes
+and `task claim` did not stage them — T-0026 and T-0027, and the second took two
+tasks, because a lint on the author's own tree cannot see what the claim commit
+published. **Rebase a moving base with `origin sync land`:** a hand-run rebase
+records nothing, so its paths stay reported as undeclared. Sessions 040 and 012 hit
+that ceiling through seven and two hand-run rebases respectively, and the stream is
+closed and is not edited, as with session 029. It is D028's stated ceiling and the
+intended direction of failure.
 
-**The rebase that met T-0030 produced two collisions, and both are now
-recorded.** This VM's `D032` and VM 0947's `D032` were different decisions, so
-this side renumbered to D033 during the rebase; and the rebase resolved the
-append-only `tasks/CLAIMS.jsonl` by leaving a conflict-marker block in a commit,
-which `tests/test_conflicts.py` caught — the T-0021 rule doing the job it was
-written for, on a recurrence of F013 in a new file. Both are repaired, the
-resolution rule for a ledger conflict is now written down in
-`docs/process/multi-vm-coordination.md`, and **the fix cost one red CI run**
-(`37171841544`, a broken link this VM had just written, fixed in `00cd829`).
-
-**Rebasing onto VM 0947's matrix cost two more collisions, both resolved by
-keeping both sides.** The third rebase conflict in a day, and the rule is routine
-enough to be worth stating once: keep both facts, and let the generated indexes
-be regenerated rather than merged.
-
-**Session 040 closed with 61 `unlogged_change` events that are not its own.** Nearly
-all are the other VM's files — `landed.py`, `inflight.py`, `sync.py`, its task files,
-its tests — which arrived through **seven hand-run `git rebase`s**. D028 attributes a
-path only from a base move *the tooling performed* (`sync pull`/`sync land`), so
-attribution had nothing to work from: a raw rebase is not one. That is the ceiling
-D028 states on purpose, and this is the first case to hit it. The stream is closed
-and is not edited, as with session 029. **Fix is procedural:** rebase a moving base
-with `origin sync land`, which records what arrived.
 
 ## What changed recently
 
 Full detail per session is in [`STATE-history.md`](STATE-history.md), which
 exists so that history does not push this reload point past the line cap.
 
+**Corrected 2026-10-04, and it is the one correction in this record made by
+reading a source rather than a tree.** The claim that "the public check-runs API
+returns no annotations" is true of the red runs this VM had read — Documentation
+lint failures, whose step emits no `::error::` lines, so their one failure
+annotation says only "Process completed with exit code 2" — and **false of the run
+F019 was about**: run `37178057818` at commit `687961f` carries 11 annotations on
+`verify (3.12)`, and one of them is
+`FAIL: test_this_vms_versions_are_exercised_against_the_real_records (test_doctor_versions.RealRecordTest…)`,
+with `tests/test_doctor_versions.py`, line 69 in the next one up. Read from the
+public endpoint on 2026-10-04; no rights required, and the same call returns the
+full annotation list rather than the empty `output.text` that a first reading of
+the check-run object shows. The hour was spent on a conclusion generalised from one
+shape of failure to the case that needed it, and the general form is already
+recorded as D025: **read the property, not the field you happened to look at.**
+
+- **Session 017, VM 0947 (T-0036).** `doc lint` rule 7 now reads the numbered list
+  in `STATE-defects.md`, where two VMs had taken **defect 7** in the same hour and
+  both copies reached the base with each VM's own tree internally consistent.
+  `tools/originlib/defectlist.py` reports a number defined twice, and a list it
+  cannot read; `tools/originlib/idcheck.py` is the one entry point `doc lint` and
+  `sync land` both call, because a rule wired into one gate is not thereby read by
+  the other. Falsified against the defect's own bytes — each commit's real tree out
+  of git, where the previous wiring reports **nothing** and the new rule names both
+  lines — and against the repair commit and the tip, which must stay silent. The
+  first control failed and found a real tension rather than a bad test: a file whose
+  only numbered list is unbolded is both "not a definition" and "nothing readable",
+  and the second reading is the one that fires. 418 tests green.
 - **Session 012, VM 0947 (T-0034, D035, F018, F019).** Every CPython minor from
   3.8 to 3.14 has run the suite — portable builds on this VM and one CI matrix
   row each — with `tests/test_ci_matrix.py` holding the matrix to the record in
@@ -128,11 +121,12 @@ exists so that history does not push this reload point past the line cap.
   record had never named, the suite failed; so it did on the runner, because
   T-0033 had added two assertions that the machine running it is covered by the
   records. Each was green on the VM that wrote it and red elsewhere for opposite
-  reasons, and neither cause was readable from outside — the log needs admin
-  rights, and the public check-runs API returns no annotations. The second was
-  found by elimination and reproduced with the runner's own git 2.55.0. Both
-  assertions are now the module's contract; the portable form is in D035. 392
-  tests green on 3.8.10, five portable builds and git 2.55.0. Detail in
+  reasons, and neither cause was readable from outside; the log needs admin
+  rights, and **the claim recorded here that the public check-runs API returns no
+  annotations is false for the run that mattered** — see the correction below.
+  The second was found by elimination and reproduced with the runner's own git
+  2.55.0. Both assertions are now the module's contract; the portable form is in
+  D035. 392 tests green on 3.8.10, five portable builds and git 2.55.0. Detail in
   [`STATE-history.md`](STATE-history.md).
 - **Session 005, VM 0947 (T-0030, D032).** A colliding identifier is refused
   before publication, because a collision is created by the merge and each VM's
@@ -241,10 +235,15 @@ gates now work that way, and the newest adds a second kind of falsification —
 run the thing on an input the record does not name, rather than mutating the
 code. **Ceiling:** each rule detects only the shape it was written against.
 
-**The gap in that pattern, found by colliding with it:** rule 7 reads findings
-and decisions, not the numbered list in `STATE-defects.md`, so two VMs took
-defect 7 in the same hour and nothing said so; and reading a red CI run still
-names a step and a version, not a test. Both are the next items there.
+**The gap in that pattern, found by colliding with it — half closed, half
+falsified.** Rule 7 did not read the numbered list in `STATE-defects.md`, so two
+VMs took defect 7 in the same hour and nothing said so; T-0036 closes that, and
+adds the second half of the pattern: a gate that cannot read its input has to say
+so. Reading a red CI run named a step and a version rather than a test, and the
+stated reason — that the public API has no annotations — is **false for the run it
+was cited against** (see the correction above). What is left is the half that is
+real: three of the four red runs sampled emit nothing but boilerplate, because
+their steps emit no `::error::` lines.
 
 **A third stale-generated-file defect, and the repair that finally generalises:**
 T-0026/T-0027 made the *task* commands rebuild the task and docs indexes, and a

@@ -209,10 +209,13 @@ Seven times on 2026-10-03 and 2026-10-04; each was resolved by hand, and one
 reached the base: commit `e6eb992` holds two different findings both headed
 `## F010`.
 
-Doc lint rule 7 (`tools/originlib/identifiers.py`) reports an identifier defined
-twice, an index row with no definition behind it, a defined finding with no row,
-and a decision its own index row does not list. `sync land` refuses to push a
-tree the rule would refuse.
+Doc lint rule 7 reports an identifier defined twice, an index row with no
+definition behind it, a defined finding with no row, and a decision its own index
+row does not list. `sync land` refuses to push a tree the rule would refuse. Both
+gates call one entry point, `tools/originlib/idcheck.py`, over both sources of
+definitions: `tools/originlib/identifiers.py` (findings, decisions, tasks) and
+`tools/originlib/defectlist.py` (the numbered list in `STATE-defects.md`, which two
+VMs filled in with the same **defect 7** in one hour while rule 7 did not read it).
 
 Why `land` and nothing else: **a collision is created by the merge.** Each branch
 is internally consistent, and each VM's own lint sees nothing wrong with its own
@@ -225,6 +228,7 @@ renumber its way out.
 | The same identifier defined twice, in one file or across two | Which entry a *reference* points at — the number must exist, not necessarily say what the sentence needs |
 | A findings index row that no body backs, and a body with no row | Hypothesis identifiers (`E001…`), which have not collided |
 | A decision the index does not list, and a listed id nothing defines | Two VMs allocating at once — this is a detector, not an allocator (D032) |
+| A defect number that defines two entries, and a defect list the rule cannot read | A **gap** in the defect numbering — a dropped entry and a withdrawn defect are the same bytes |
 
 Rule 7 matches on identity, never on wording: two rows in `FAILURES.md` are
 shortened paraphrases of their headings, and a string comparison flagged 83 of

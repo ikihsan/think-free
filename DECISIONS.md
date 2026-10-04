@@ -55,3 +55,18 @@ row is enforced, not descriptive:** the gate added in T-0030 reports a decision
 that its own file's row does not list, and a listed id nothing defines. It
 reported the gap in the row above on its first run, ten minutes after D030 was
 written.
+
+**The next gating decision cannot be recorded, and the reason is here rather than
+in the file it wants.** `DECISIONS-GATING.md` is at 297 of 300 lines after D035,
+and its own header records a split that was attempted and reversed on 2026-10-04
+because two VMs were claiming incompatible invariants in the same hour. T-0036 made
+a gating decision — one entry point, `tools/originlib/idcheck.py`, for the
+identifier record that `doc lint` and `sync land` both read, over findings,
+decisions, tasks **and** the numbered defect list, plus the obligation that a gate
+which cannot read its input must report that — and it is written in
+`tools/originlib/idcheck.py`, `tools/originlib/defectlist.py` and
+[`docs/operations/ci.md`](docs/operations/ci.md) rather than here, because putting
+it in whichever decision file had room is the mistake the reversed split was made
+of. Recording the constraint in the log, and not only in the state file, is the
+point: the next agent should find it where the decisions are. **The split is owed,
+deliberately, on a quiet base.**

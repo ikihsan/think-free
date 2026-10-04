@@ -26,18 +26,28 @@ of those it cannot touch.
    implementation it was testing, and the CI-matrix gate of T-0034. The pattern
    is in `tools/originlib/conflicts.py`.
    **Ceiling:** each rule detects only the shape it was written against.
-2. **The two gaps in that pattern, both found by hitting them.** (a) Doc lint
-   rule 7 reads findings definitions, findings index rows and decision spans. It
-   does not read the numbered list in [`STATE-defects.md`](STATE-defects.md), so
-   T-0034 and T-0035 — written on two VMs in the same hour — both took **defect
-   7** and nothing reported it. The unpushed side renumbered to 8 and 9; the
-   numbers are unique and the list is not in ascending order, and until the rule
-   is extended that file is the one document here whose identifiers are checked
-   by reading it. (b) A red CI run names a **step and a version**, not a test:
-   the run log needs admin rights and the public check-runs API returns no
-   annotations, which is why F019 took an hour to find. The fix is one check per
-   test file — the suite is 40-odd files and the slowest is the fleet harness, so
-   it is affordable — and it is the only diagnostic that needs no rights.
+2. **The two gaps in that pattern, both found by hitting them.** (a) **Closed in
+   T-0036.** Doc lint rule 7 read findings definitions, findings index rows and
+   decision spans, and not the numbered list in
+   [`STATE-defects.md`](STATE-defects.md), so T-0034 and T-0035 — written on two
+   VMs in the same hour — both took **defect 7** and nothing reported it. Both
+   copies reached the shared base (`e53ca23`, `e701ad8`), each VM's own tree
+   internally consistent, and the unpushed side renumbered by hand in `157e463`.
+   `tools/originlib/defectlist.py` reads the list; `tools/originlib/idcheck.py` is
+   the one entry point `doc lint` and `sync land` both call, because a module wired
+   into one gate is not thereby read by the other. It also reports a list it cannot
+   read, since a parser that stops matching is indistinguishable from a clean tree.
+   Falsified against both commits' own bytes: the previous wiring reports nothing on
+   either, the new rule names defect 7 with both lines, and neither the repair
+   commit nor the tip reports anything.
+   **Ceiling:** a repeated number and nothing else. A gap in the numbering is not
+   reported — a dropped entry and a withdrawn defect are the same bytes — and there
+   is no allocator here, so this is the detection half of a race it cannot prevent.
+   (b) A red CI run names a **step and a version**, not a test: the run log needs
+   admin rights, which is why F019 took an hour to find. The fix proposed here is
+   one check per test file — the suite is 40-odd files and the slowest is the fleet
+   harness, so it is affordable. **The premise under this half is now itself in
+   question; see item 3.**
    **Ceiling:** neither closes the general problem; they narrow where a
    hand-maintained identifier list and an unreadable log can hide a defect.
    A third, cheaper observation belongs here: a commit published while a session
@@ -47,7 +57,22 @@ of those it cannot touch.
    taskless session has nothing to point at. `docs/operations/ci.md` now says how
    to recognise this case from the run alone, which is the cheap half; the other
    half is whether a taskless session should publish code commits at all.
-2. **Identifier allocation: the allocation half is done (T-0031), the detector
+3. **Read a red run from the annotations it already publishes** — the successor to
+   2(b), and it starts by falsifying 2(b)'s premise. The claim that the public API
+   returns no annotations is **not reproducible for the run it is cited against**:
+   run `37178057818` at commit `687961f` carries 11 annotations on `verify (3.12)`,
+   and one of them is `FAIL: test_this_vms_versions_are_exercised_against_the_real_records
+   (test_doctor_versions.RealRecordTest…)` — `observed`, from the public endpoint,
+   no rights required. The runs that session actually read (`37163438950`,
+   `37163434868`) were *Documentation lint* failures, whose step emits no
+   `::error::` lines, so their single failure annotation says only "Process
+   completed with exit code 2". A conclusion generalised from one shape of failure
+   to the case that needed it, which is F019's cost restated. Cheap to fix in the
+   workflow (one `::error::` line per violation) and cheap to read (one command),
+   against the proposed fix of 30-odd CI jobs. **Ceiling:** three of the four red
+   runs sampled emit nothing but boilerplate, so a reader must be told which step
+   is mute rather than shown silence.
+4. **Identifier allocation: the allocation half is done (T-0031), the detector
    half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
    `tools/originlib/idalloc.py` allocates F, D and T numbers from
    `origin/<base>` plus this working tree, and every command that hands out a
@@ -57,7 +82,7 @@ of those it cannot touch.
    **Ceiling:** two VMs allocating between their own fetches still collide, and
    an unpushed number reserves nothing. Rule and states:
    [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-3. **Fleet bookkeeping is now end to end** (T-0018, T-0032, T-0033). The records
+5. **Fleet bookkeeping is now end to end** (T-0018, T-0032, T-0033). The records
    exist — `tests/git-versions.json` (`origin.git-versions/1`) and
    `tests/python-versions.json` (`origin.python-versions/1`) — each entry saying
    how much of the suite that version actually ran, each record naming the
@@ -68,32 +93,32 @@ of those it cannot touch.
    **Ceiling:** bookkeeping hygiene, not a claim about a candidate. `exercised`
    means a run happened, and nothing between 3.8 and 3.12 has ever run this
    suite.
-4. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
+6. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
    commit `9e865a4`, all six steps green, `observed`), which closes the standing
    "CI is not claimed green" caveat for that commit. A run says nothing about a
    second runner image or a rebase conflict.
-5. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
+7. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
    `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
    open is the census's per-package heterogeneity, which this run does not
    explain. **Ceiling:** one builder, pure-Python sources, Linux.
-6. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
+8. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
    the prior-art condition is settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an
    existing hand-knit structure. Stage B needs an experienced knitter and
    authorization. **Ceiling:** nothing software-side remains; the only live
    question is usefulness, which this repository cannot measure.
-7. **Do not run E1** (retry jitter). It is the cheapest experiment in the
+9. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
-8. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947).** The informative
+10. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947).** The informative
    comparison is two snapshots weeks apart, and two resolver runs on one day
    measure nothing — so side A
    (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`, 8 artifacts:
    requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2) is banked with
    no verdict. Take side B no earlier than days later and diff the closures; fast
    drift shows as a version or hash change.
-9. **Do not build a product.** Nothing is selected, and the base rate for
+11. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have
    returned negative results, and one (knitting) died of prior art rather than of
    measurement — which is the cheapest way to die and the one worth copying.
@@ -120,3 +145,10 @@ of those it cannot touch.
   question. `sync land` deliberately stops for it. Run `doc lint` afterwards
   rather than only before committing — `observed`, and written up in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+- `DECISIONS-GATING.md` is at **297 of 300** lines, and its own header records a
+  split that was attempted and reversed on 2026-10-04 (T-0030). So the next gating
+  decision cannot simply be appended: it needs that file split by invariant on a
+  quiet base, or its cap deliberately changed. A decision does **not** go into
+  whichever decision file happens to have room — that is the mistake the reversed
+  split was made of. `tools/originlib/doclint.py` is at 299 of 300 for the same
+  reason, and the next check added to it has to split it.

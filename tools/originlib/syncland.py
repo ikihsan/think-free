@@ -64,9 +64,9 @@ def _refuse_identifier_collision() -> None:
     refusing them would block a VM from publishing the session record it needs
     in order to renumber its way out of the collision.
     """
-    from . import identifiers
+    from . import idcheck
 
-    found = identifiers.report(paths.repo_root())
+    found = idcheck.report(paths.repo_root())
     if found:
         raise SyncError(
             "refusing to land: the identifier record collides, so one number means "

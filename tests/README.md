@@ -41,7 +41,8 @@ interfere with the working repository.
 | `test_idalloc.py` | Identifier allocation reads the shared base: a clone whose tree is behind it, a withdrawn number, an unreachable base, and the three states the source line distinguishes |
 | `test_gitversions.py` | Schema of `git-versions.json`, that the docs point at it, and the honesty clauses added after F019: every entry has a scope with a count and a machine, and the unexercised ranges are named |
 | `test_identifiers.py` | The identifier rule: the two definitions of F010 as commit `e6eb992` wrote them, index rows with and without a body, task numbers, and the paraphrased rows that must stay silent |
-| `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree |
+| `test_identifier_enforcement.py` | Where that rule is read: this repository's own record, its decision index in both directions, `doc lint`, and `land`'s refusal to push a colliding tree — for both sources of definitions |
+| `test_defectlist.py` | The defect list as an identifier record: the two entries both numbered 7 as `e53ca23` and `e701ad8` wrote them, a sweep over every commit that touches the file, and the four shapes that must stay silent (prose, a plain numbered list, an indented nested item, out-of-order numbering) |
 | `pushcred_fixture.py` | Throwaway HOME, git config, App directory, and **cleared credential-token environment** for the push-credential tests. It clears `GH_TOKEN`/`GITHUB_TOKEN` because `pushprobe` counts an environment token as a mechanism, so inheriting the runner's token made a test asserting `unavailable` read `broken` — green on both VMs, red on any runner that exports one (CI runs `37174050724`, `37174316639`, `37174309822`). A fixture must build the machine it claims to build |
 | `test_pushcred.py` | Push-credential report: helper classification, volatile dependencies, and the `configured`/`broken`/`unavailable` verdicts against real helper scripts and a real `git credential fill` |
 | `test_pushcred_safety.py` | No credential value reaches the report, the summary, `doctor.json`, or stdout; a test sandbox cannot write to the real `~/.gitconfig` (`FAILURES.md` F014) |
@@ -143,6 +144,18 @@ the comparator. The same class of gap: the "real record" tests were originally
 written against the `RepoTest` fixture, which ships neither record, so every
 assertion about `exercised` was vacuous and the whole file failed for that
 reason instead of the one it was written for.
+
+**A gate wired into one reader is not read by the other.** The defect list was a
+second source of definitions, and `test_defectlist.py` could have been entirely
+green while `doc lint` and `sync land` went on reading only the first — which is
+what happened, for real, to two VMs that each took defect 7 in an hour. Both gates
+now call `idcheck.report`, and the wiring is tested where it is read: `doc lint`
+fails and `land` refuses on a tree that repeats a defect number. **Two of the new
+controls failed on first run**, and the failure was worth more than the fix: a
+`STATE-defects.md` whose only numbered list is unbolded is both "no item here is a
+definition" and "nothing could be read at all", and the second reading has to win,
+because a parser that quietly stops matching is indistinguishable from a clean
+tree.
 
 **The git version is part of the suite's environment.** The land tests failed on
 git 2.56 and passed on git 2.25 until `FAILURES.md` F011 was fixed, because

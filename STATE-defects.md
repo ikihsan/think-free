@@ -90,6 +90,34 @@ defect is listed as open.
    reported. **Ceiling:** the fixture builds the machine its own tests need and
    says nothing about the runners those tests never model.
 
+10. **The identifier rule did not read the defect list, so two VMs took defect 7
+    in the same hour** (solved in T-0036). Rule 7 read findings definitions,
+    findings index rows, decision spans and task file names. `STATE-defects.md` is
+    an ordered list of bold headings with no `F`, `D` or `T` identifier in it, so
+    it was the one document here whose identifiers were checked by reading them —
+    and reading them found T-0034's and T-0035's **defect 7** side by side. Both
+    copies reached the shared base (`e53ca23`, `e701ad8`), each VM's own tree
+    internally consistent; the unpushed side renumbered 7 and 8 to 8 and 9 in
+    `157e463`, which is the standing rule and the cheapest available repair.
+    **Repair:** `tools/originlib/defectlist.py` reads a numbered list item whose
+    subject is bold as a definition of that number, and reports a number defined
+    twice. It is reached through `tools/originlib/idcheck.py`, the single entry
+    point both publishing gates call — the wiring lesson being that a module added
+    to `doc lint` is not thereby read by `sync land`, which is the operation that
+    creates the collision. Falsified against the defect's own bytes: each commit's
+    real tree extracted from git, the previous wiring reports **nothing** on
+    `e53ca23` and `e701ad8` where the new rule names defect 7 with both lines, and
+    reports nothing on `157e463` or the tip either — so the rule reports nothing on
+    a correct tree, which is the half of a falsification that is easy to leave out.
+    **Second obligation, and it came from the first control failing:** a rule that
+    cannot read its input must say so. A `STATE-defects.md` from which no entry can
+    be read is itself reported, because a parser that quietly stops matching looks
+    exactly like a clean tree — D025's shape, reached from a new direction.
+    **Ceiling:** a gap in the numbering is not reported, since a dropped entry and
+    a withdrawn defect produce the same bytes and the record does not distinguish
+    them; nothing is checked about what a reference points at; and there is no
+    allocator here, so this is the detection half of a race it cannot prevent.
+
 ## Open
 
 Numbering is continuous and never reused, so a solved defect keeps its
@@ -166,20 +194,17 @@ heading they belong in when they are closed.
    `where` on every entry, with test clauses, so the gap is nameable rather than
    inferred from two points.
 
-**Defect numbering collides, and the gate that catches collisions does not read
-this file.** T-0034 and T-0035 were written on two VMs at the same time and both
-took **defect 7** — this VM's on the interpreter assertion, the other's on the
-credential fixture. Both are in the same list, and `doc lint` rule 7
-(`tools/originlib/identifiers.py`) reported nothing: it reads findings
-definitions, findings index rows and decision spans, and this file is an ordered
-list of bold headings with no `F`/`D` identifier in it. The unpushed side
-renumbered (7, 8 became 8, 9), which is the standing rule. The numbers are
-unique; the list is not in ascending order, because T-0035's block was inserted
-above this one by a rebase and moving it is not worth a conflict with a VM that
-is still working. **The gap is real and is the next piece of work here:** a
-duplicate number in a list this prominent should be a rule-7 report, and until it
-is, this file is the one document in the repository whose identifiers are checked
-by reading it.
+**Defect numbering collided, and the gate that catches identifier collisions did
+not read this file — that gap is now closed (defect 10, T-0036).** T-0034 and
+T-0035 were written on two VMs at the same time and both took **defect 7**: this
+VM's on the interpreter assertion, the other's on the credential fixture. Both are
+in the same list, and `doc lint` rule 7 reported nothing, because it read findings,
+findings index rows and decision spans, and this file is an ordered list of bold
+headings. The unpushed side renumbered (7, 8 became 8, 9) in `157e463`, and the
+rule that would have said so arrived two commits later. The numbers are unique and
+the list is still not in ascending order: T-0035's block sits above `## Open`
+because a rebase put it there, and moving it is not worth a conflict with a VM that
+may still be working.
 
 **Reconciliation cannot see a hand-run rebase continuation, and that ceiling was
 reached again.** Session 012 closed with 24 `unlogged_change` events: its own

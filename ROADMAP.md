@@ -204,6 +204,12 @@ Separate from the invention stages, because the mission cannot be run without it
       suite on the five unrecorded interpreters failed on all five, on a test
       that asserted a fact about the record instead of about the code. The five
       gates that read files stay on one row, guarded explicitly
+- [x] The identifier rule reads every source of definitions, through one entry
+      point both publishing gates call (`tools/originlib/idcheck.py`, T-0036,
+      defect 10). Rule 7 did not read the numbered list in `STATE-defects.md`, so
+      two VMs took defect 7 in an hour and both copies reached the base with each
+      VM's own tree internally consistent. It also reports a list it cannot read,
+      because a parser that stops matching looks like a clean tree
 - [ ] Seed tasks from `STATE.md` next actions
 - [ ] Headless task-runner script for VMs, once a VM exists
 - [ ] Scheduling or supervision, once unattended execution is authorised

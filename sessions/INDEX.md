@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-59 recorded session(s). One `events.jsonl` per session, so concurrent
+60 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 34 older session(s) are in the directory listing.
+Showing the 25 most recent. 35 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-017-t-0036-report-a-duplicate-defect-number](2026-10-04-017-t-0036-report-a-duplicate-defect-number/README.md) | unknown-agent | **unfinished** | T-0036: report a duplicate defect number in STATE-defects.md as a doc  | 2026-10-04T06:19 |
 | [2026-10-04-016-record-the-two-operational-lessons-three](2026-10-04-016-record-the-two-operational-lessons-three/README.md) | unknown-agent | worked | Record the two operational lessons three sessions in a row have cost:  | 2026-10-04T06:05 |
 | [2026-10-04-015-stop-every-session-event-from-leaving-th](2026-10-04-015-stop-every-session-event-from-leaving-th/README.md) | unknown-agent | worked | Stop every session event from leaving the generated report stale, whic | 2026-10-04T05:57 |
 | [2026-10-04-014-close-session-012-s-two-reconciliation-r](2026-10-04-014-close-session-012-s-two-reconciliation-r/README.md) | unknown-agent | worked | Close session 012's two reconciliation reports: the HYPOTHESES.md obli | 2026-10-04T05:40 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 34 older session(s) are in the directory listing.
 | [2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f](2026-10-03-037-t-0020-tell-an-in-flight-session-apart-f/README.md) | opencode | worked | T-0020: tell an in-flight session apart from an abandoned one in sessi | 2026-10-03T22:56 |
 | [2026-10-03-037-repair-the-three-mission-records-corrupt](2026-10-03-037-repair-the-three-mission-records-corrupt/README.md) | opencode | worked | repair the three mission records corrupted by a committed merge confli | 2026-10-03T23:08 |
 | [2026-10-03-036-refresh-stale-generated-task-index-after](2026-10-03-036-refresh-stale-generated-task-index-after/README.md) | opencode | worked | Refresh stale generated task index after T-0019 re-close | 2026-10-03T22:27 |
-| [2026-10-03-035-repair-t-0019-status-flipped-by-a-redund](2026-10-03-035-repair-t-0019-status-flipped-by-a-redund/README.md) | opencode | worked | Repair T-0019 status flipped by a redundant probe re-claim | 2026-10-03T22:27 |
 
 
 ## Reading a session

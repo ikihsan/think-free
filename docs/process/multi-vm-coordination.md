@@ -86,7 +86,11 @@ collision is still caught before publication, not only prevented**: `land` refus
 to push a tree whose identifier record collides, naming both definitions and
 their lines, because a collision is created by the *merge* — each branch is
 internally consistent and each VM's own lint sees nothing. `doc lint` rule 7 is
-the backstop for a branch pushed by any other route.
+the backstop for a branch pushed by any other route, and both gates read every
+source of identifiers through one entry point, `tools/originlib/idcheck.py`:
+findings, decisions, task files, **and the numbered list in `STATE-defects.md`** —
+the last of which was missed until T-0036, so two VMs each took defect 7 in the
+same hour and the only thing that reported it was a human reading the list.
 
 `push` and `task claim` are deliberately **not** gated. Refusing them would stop a
 VM publishing the session record it needs in order to renumber its way out, which

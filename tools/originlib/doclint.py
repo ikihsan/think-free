@@ -256,14 +256,14 @@ def check_conflicts(result: Result, files: list[Path]) -> None:
 def check_identifiers(result: Result) -> None:
     """No identifier may mean two things, and no index row may lack a body.
 
-    Scoped to the root mission records rather than to the tracked file list,
-    because the property is about the identifier record as a whole: two files
-    each defining `F010` is one collision, not two findings, and a linter that
-    read them separately would report it twice or not at all.
+    Scoped to the mission record rather than to the tracked file list, because
+    the property is about that record as a whole: two files each defining
+    `F010` is one collision, not two findings. `idcheck` is the one entry point
+    both gates read, so `sync land` sees exactly what is seen here (T-0036).
     """
-    from . import identifiers
+    from . import idcheck
 
-    for line in identifiers.report(paths.repo_root()):
+    for line in idcheck.report(paths.repo_root()):
         result.violations.append(f"identifier collision: {line}")
 
 
