@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-75 recorded session(s). One `events.jsonl` per session, so concurrent
+76 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 50 older session(s) are in the directory listing.
+Showing the 25 most recent. 51 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-033-repair-the-broken-link-t-0047-published](2026-10-04-033-repair-the-broken-link-t-0047-published/README.md) | opencode | worked | repair the broken link T-0047 published in the base's task file, and t | 2026-10-04T11:36 |
 | [2026-10-04-031-record-the-measured-ci-state-on-the-tip](2026-10-04-031-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip, and the first red run whose c | 2026-10-04T11:20 |
 | [2026-10-04-030-make-sync-land-s-own-conflict-instructio](2026-10-04-030-make-sync-land-s-own-conflict-instructio/README.md) | unknown-agent | worked | Make sync land's own conflict instruction executable: complete a pause | 2026-10-04T11:13 |
 | [2026-10-04-030-attribute-a-task-file-that-a-task-comman](2026-10-04-030-attribute-a-task-file-that-a-task-comman/README.md) | opencode | worked | attribute a task file that a task command rewrote to that command, ver | 2026-10-04T11:01 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 50 older session(s) are in the directory listing.
 | [2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git](2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/README.md) | opencode | worked | T-0033: make doctor compare this VM's git and interpreter against the  | 2026-10-04T03:25 |
 | [2026-10-04-010-record-the-ci-run-history-around-the-t-0](2026-10-04-010-record-the-ci-run-history-around-the-t-0/README.md) | opencode | worked | record the CI run history around the T-0032 rebase repair | 2026-10-04T02:48 |
 | [2026-10-04-009-repair-the-two-collisions-the-t-0032-reb](2026-10-04-009-repair-the-two-collisions-the-t-0032-reb/README.md) | opencode | no-change | repair the two collisions the T-0032 rebase produced | 2026-10-04T02:41 |
-| [2026-10-04-007-t-0032-record-the-python-versions-the-su](2026-10-04-007-t-0032-record-the-python-versions-the-su/README.md) | opencode | worked | T-0032: record the Python versions the suite has actually run on | 2026-10-04T02:26 |
 
 
 ## Reading a session
