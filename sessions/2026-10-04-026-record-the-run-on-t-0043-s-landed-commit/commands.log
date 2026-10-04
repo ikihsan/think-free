@@ -1,0 +1,47 @@
+==============================================================================
+[seq 2] 2026-10-04T09:03:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_inflight_session.VerifyGateTest -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_strict_verify_fails_once_the_claim_is_expired (tests.test_inflight_session.VerifyGateTest) ... ok
+test_strict_verify_passes_while_another_vm_is_in_flight (tests.test_inflight_session.VerifyGateTest) ... ok
+test_strict_verify_still_fails_for_this_working_trees_own_session (tests.test_inflight_session.VerifyGateTest) ... ok
+test_the_lease_is_a_flag_not_a_constant (tests.test_inflight_session.VerifyGateTest) ... FAIL
+
+======================================================================
+FAIL: test_the_lease_is_a_flag_not_a_constant (tests.test_inflight_session.VerifyGateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_inflight_session.py", line 220, in test_the_lease_is_a_flag_not_a_constant
+    self.assertEqual(self.cli("session", "verify", "--strict", "--lease-hours", "24"), 0)
+AssertionError: 4 != 0
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.371s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2684  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T09:04:04+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_inflight_session.VerifyGateTest.test_the_lease_is_a_flag_not_a_constant -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_the_lease_is_a_flag_not_a_constant (tests.test_inflight_session.VerifyGateTest) ... FAIL
+
+======================================================================
+FAIL: test_the_lease_is_a_flag_not_a_constant (tests.test_inflight_session.VerifyGateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_inflight_session.py", line 220, in test_the_lease_is_a_flag_not_a_constant
+    self.assertEqual(self.cli("session", "verify", "--strict", "--lease-hours", "24"), 0)
+AssertionError: 4 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 0.561s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 831  redactions: none

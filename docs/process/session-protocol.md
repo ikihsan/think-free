@@ -56,6 +56,14 @@ events, session 015 with 4 — and neither could be logged afterwards, because a
 closed stream accepts nothing. The tool cannot tell an interesting file from a
 dull one; it can only tell a declared one from an undeclared one.
 
+**Commit the work with the paths it names, not `git add -A`.** `session finish`
+rewrites the session's own report and `sessions/INDEX.md`, so a `git add -A` in
+the work commit sweeps the session-finish commit's contents into the commit
+before it: that commit then has nothing to carry and lands empty, while `git
+log` still says `session: … finished (worked)`. Observed on session 025
+(T-0043) on 2026-10-04, and it is the same shape as the recorded repairs to the
+generated indexes — the artifact belongs to the commit that is about it.
+
 ## 3. Route evidence-producing commands through `tools/x`
 
 ```bash

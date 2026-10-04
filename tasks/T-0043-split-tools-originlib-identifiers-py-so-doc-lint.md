@@ -88,3 +88,10 @@ equivalence.** The honest claim about a move is that the output did not change,
 which is checkable and was checked: 28 lines before, 28 lines after, `diff`
 empty. Running the comparison on this repository's tip instead would have been
 vacuous, because a correct tree reports nothing at all.
+
+**One record defect, this session's own.** The work commit used `git add -A`,
+which swept the session report `session finish` had just rewritten into itself,
+so the `session: … finished (worked)` commit landed empty while its message
+claims it carries the session. Recorded where the next session reads it, in
+`docs/process/session-protocol.md`, rather than only here — the same reason
+DECISIONS.md records a constraint in the log and not just in the state file.
