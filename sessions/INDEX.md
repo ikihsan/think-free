@@ -8,14 +8,15 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-94 recorded session(s). One `events.jsonl` per session, so concurrent
+95 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 69 older session(s) are in the directory listing.
+Showing the 25 most recent. 70 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-051-close-the-three-documentation-gaps-sessi](2026-10-04-051-close-the-three-documentation-gaps-sessi/README.md) | unknown-agent | **unfinished** | Close the three documentation gaps session 050 reported, and record wh | 2026-10-04T20:44 |
+| [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | **unfinished** | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:02 |
+| [2026-10-04-051-close-the-three-documentation-gaps-sessi](2026-10-04-051-close-the-three-documentation-gaps-sessi/README.md) | unknown-agent | worked | Close the three documentation gaps session 050 reported, and record wh | 2026-10-04T21:02 |
 | [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | worked | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:44 |
 | [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | **unfinished** | Decide and execute the highest-information research action after 12 pr | 2026-10-04T20:22 |
 | [2026-10-04-046-test-whether-zero-adoption-is-general-or](2026-10-04-046-test-whether-zero-adoption-is-general-or/README.md) | unknown-agent | worked | Test whether zero-adoption is general or specific to the agent-auditin | 2026-10-04T20:20 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 69 older session(s) are in the directory listing.
 | [2026-10-04-030-attribute-a-task-file-that-a-task-comman](2026-10-04-030-attribute-a-task-file-that-a-task-comman/README.md) | opencode | worked | attribute a task file that a task command rewrote to that command, ver | 2026-10-04T11:01 |
 | [2026-10-04-029-measure-how-github-files-an-annotation-o](2026-10-04-029-measure-how-github-files-an-annotation-o/README.md) | unknown-agent | worked | Measure how GitHub files an annotation on the file= property, and repa | 2026-10-04T10:47 |
 | [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
-| [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 
 
 ## Reading a session

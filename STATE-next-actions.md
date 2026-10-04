@@ -79,71 +79,42 @@ of those it cannot touch.
    **Ceiling:** each rule detects only the shape it was written against, and
    `resultnumbers.py`'s is one table row per experiment.
 2. **The gaps in that pattern, both found by hitting them — closed, and the
-   second found by reading the record rather than by a red run.** (a) **Closed in
-   T-0036.** Doc lint rule 7 read findings definitions, findings index rows and
-   decision spans, and not the numbered list in
-   [`STATE-defects.md`](STATE-defects.md), so T-0034 and T-0035 — written on two
-   VMs in the same hour — both took **defect 7** and nothing reported it. Both
-   copies reached the shared base (`e53ca23`, `e701ad8`), each VM's own tree
-   internally consistent, and the unpushed side renumbered by hand in `157e463`.
-   `tools/originlib/defectlist.py` reads the list; `tools/originlib/idcheck.py` is
-   the one entry point `doc lint` and `sync land` both call, because a module wired
-   into one gate is not thereby read by the other. It also reports a list it cannot
-   read, since a parser that stops matching is indistinguishable from a clean tree.
-   Falsified against both commits' own bytes: the previous wiring reports nothing on
-   either, the new rule names defect 7 with both lines, and neither the repair
-   commit nor the tip reports anything.
-   **Ceiling:** a repeated number and nothing else. A gap in the numbering is not
-   reported — a dropped entry and a withdrawn defect are the same bytes — and there
-   is no allocator here, so this is the detection half of a race it cannot prevent.
-   (b) **A red CI run names a step and a version, not a test**, and this half is
-   settled by item 3, which falsified its premise.
-   (c) **Closed in T-0042.** A decision number is written in three places that must
-   agree — the `## Dnnn` heading, the index row in [`DECISIONS.md`](DECISIONS.md),
-   and the `Decisions **…**` header under each record's title — and only the first
-   two had a reader. Two of the five records were false while every gate passed:
-   `DECISIONS-GATING.md` named D013, which lives in another file, and omitted
-   D030, D032 and D035 of its own; `DECISIONS-PRACTICE.md` named a `D011–D018`
-   range covering exactly the three entries that had moved out when T-0030's split
-   was reversed. Both index rows were correct throughout, which is what a reader
-   checking one source concludes. `tools/originlib/decisionheader.py` reads the
-   third, through the same entry point, and reports a header it cannot read.
-   Falsified against `d451169`'s own bytes: twelve findings where the previous
-   wiring reported **none**, and the repaired tip silent.
-   **Ceiling:** identifier sets rather than wording, one line per record, and
-   nothing outside `DECISIONS*.md`.
-   A third, cheaper observation belongs here: a commit published while a session
-   with **no task and no claim** is open is red on the session step, twice in an
-   hour on 2026-10-04 (runs `37174316639`, `37181374433`), each green on the next
-   commit. D027's predicate can only prove a session alive from a claim, so a
-   taskless session has nothing to point at. `docs/operations/ci.md` now says how
-   to recognise this case from the run alone, which is the cheap half; the other
-   half is whether a taskless session should publish code commits at all.
-   **Measured again the same day, twice by one VM, and both times the run said so
-   in one line.** Run `37206132901` at `2643c9e` carried
-   `…events.jsonl: last event is 'artifact'; session may be unfinished; T-0050 is
-   done, no claim names this session`, and run `37206627337` at `1061c5b` carried
-   the same shape with `last event is 'command'`. So the case is **five runs in one
-   day, three of them from this VM, and every one green on the next commit** — the
-   cost is a red row, not a wrong record. **The untested half is the cheap
-   question the annotation raises and nobody has answered: the gate names a
-   *taskless* session, and could it accept one whose stream says `task: ""` and whose
-   ledger holds no claim only when the session is younger than the CI run's queue
-   delay?** The information exists in the same event the message already quotes.
-   **Ceiling:** none of these closes the general problem; they narrow where a
-   hand-maintained identifier list and an unreadable log can hide a defect.
+   second found by reading the record rather than by a red run.** (a) **T-0036.**
+   Doc-lint rule 7 read findings definitions, index rows and decision spans, and
+   not the numbered list in [`STATE-defects.md`](STATE-defects.md), so two VMs
+   took **defect 7** in the same hour and nothing reported it; both copies reached
+   the shared base, each tree internally consistent, and the unpushed side
+   renumbered by hand. `idcheck.py` is now the one entry point both publishing
+   gates call, because a module wired into one gate is not thereby read by the
+   other, and it reports a list it cannot read.
+   **Ceiling:** a repeated number and nothing else — a dropped entry and a
+   withdrawn defect are the same bytes — and there is no allocator here, so this
+   is the detection half of a race it cannot prevent.
+   (b) Settled by item 3, which falsified its premise.
+   (c) **T-0042.** A decision number is written in three places that must agree —
+   the `## Dnnn` heading, the row in [`DECISIONS.md`](DECISIONS.md), and the
+   `Decisions **…**` header under each record's title — and only the first two had
+   a reader. Two of five records were false while every gate passed, with both
+   index rows correct throughout. `decisionheader.py` reads the third through the
+   same entry point.
+   **Ceiling:** identifier sets rather than wording, one line per record.
+   A cheaper observation belongs here: a commit published while a **taskless**
+   session is open is red on the session step — five runs in one day, every one
+   green on the next commit. D027's predicate can only prove a session alive from
+   a claim. `docs/operations/ci.md` now says how to recognise the case from the
+   run alone; whether a taskless session should publish code commits at all is
+   open.
    (d) **Closed in T-0050 (D042, F022).** `reconcile._is_vendored` reused the
-   **line-cap** exemption list, which exempts `*.json`, `*.jsonl` and `*.log`, as
-   though content the cap ignores were content no session can change silently — so
-   `tests/python-versions.json`, `tests/git-versions.json` and `tasks/CLAIMS.jsonl`
-   could be edited with nothing declared and nothing reported. `doclint` now splits
-   `is_data_suffix` from `is_declared_exempt` and reconciliation reads the second
-   only; the ledger and `vendor/hashes.json` are declared by the bytes their writers
-   wrote. Priced first, by `tools/sweep_unlogged_data.py`: **72 (session, path) pairs
-   over 17 paths** across 77 closed sessions, 50 of them the ledger. **Ceiling:** the
-   repair is forward-only, so those 50 closed sessions now report a file they cannot
-   declare and nothing reads them; and `EXPERIMENTS/**/results.json` started being
-   reported, which is the point — 16 raw captures now need an artifact event.
+   **line cap's** exemption predicate, which answers yes for every `.json`,
+   `.jsonl` and `.log`, so `tests/python-versions.json` — the record that decides
+   whether a VM can run the work — changed with nothing declared and nothing
+   reported. Priced first by a committed script: **72 (session, path) pairs over 17
+   paths**, 50 of them the ledger, so 50 closed sessions now report a file they
+   cannot declare; a closed stream is not edited, so the residual is written down
+   rather than discovered.
+   **Ceiling:** forward-only, and `EXPERIMENTS/**/results.json` now needs an
+   artifact event — 16 raw captures do.
+
 3. **Read a red run from the annotations it already publishes** — the successor to
    2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
    is false, and the finding is `FAILURES.md` F020.** The public check-runs API
@@ -264,6 +235,18 @@ of those it cannot touch.
   something to remember. Its falsification is an *absence* — with the gate out,
   preflight's output has no `release check:` line at all — which is why the test
   asserts on that line and not on the exit code.
+- **A second instance closing a session while this one is open leaves two reports
+  that are not defects, and both need saying.** Observed 2026-10-04: an instance
+  of session `044` ran to its `finish` at seq 20 while this VM's later work was in
+  progress, so (a) that work's commits predate any record of it, because
+  `session start` refuses a dirty tree and the work had to be committed first, and
+  (b) the stream's own `finish` appended to its `events.jsonl` **after** the next
+  session opened, which that session correctly reported as an unlogged change to a
+  closed stream. Neither is a hole in the record — `session verify` passes and the
+  closed stream carries its own `integrity_error` events — but a reader who meets
+  only the report will read both as gaps. There is no attribution rule for a
+  session stream another instance closes mid-session; D028 covers a *base move* and
+  `landrebase.recover` covers a hand-run rebase, and neither reaches here.
 - **When a gate is red somewhere you cannot reproduce, check the task ledger
   before reproducing anything.** VM 0947 was already diagnosing the same four runs
   (F019) while this VM created T-0037 to do it, and about forty minutes of
