@@ -8,13 +8,14 @@ last-verified: 2026-10-04
 
 <!-- generated-by: origin; do not edit by hand -->
 
-70 recorded session(s). One `events.jsonl` per session, so concurrent
+71 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 45 older session(s) are in the directory listing.
+Showing the 25 most recent. 46 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-04-028-record-the-measured-green-run-on-the-bas](2026-10-04-028-record-the-measured-green-run-on-the-bas/README.md) | opencode | worked | Record the measured green run on the base, so the CI row is not a pred | 2026-10-04T09:41 |
 | [2026-10-04-027-classify-decisions-records-md-in-the-rel](2026-10-04-027-classify-decisions-records-md-in-the-rel/README.md) | opencode | worked | Classify DECISIONS-RECORDS.md in the release manifest, and put release | 2026-10-04T09:35 |
 | [2026-10-04-026-record-the-run-on-t-0043-s-landed-commit](2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/README.md) | opencode | worked | Record the run on T-0043's landed commit and the session-commit mistak | 2026-10-04T09:16 |
 | [2026-10-04-025-split-tools-originlib-identifiers-py-at](2026-10-04-025-split-tools-originlib-identifiers-py-at/README.md) | opencode | worked | Split tools/originlib/identifiers.py at the line cap, which the merge  | 2026-10-04T09:01 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 45 older session(s) are in the directory listing.
 | [2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr](2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/README.md) | opencode | worked | T-0031: allocate F, D and T identifiers from the shared base, not from | 2026-10-04T02:04 |
 | [2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi](2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/README.md) | opencode | worked | T-0030: refuse a commit that gives one finding, decision or task ident | 2026-10-04T02:11 |
 | [2026-10-04-004-t-0028-record-the-ci-run-history-around](2026-10-04-004-t-0028-record-the-ci-run-history-around/README.md) | opencode | worked | T-0028: record the CI run history around the orphan fix with verified  | 2026-10-04T01:07 |
-| [2026-10-04-003-t-0027-the-published-claim-commit-must-c](2026-10-04-003-t-0027-the-published-claim-commit-must-c/README.md) | opencode | worked | T-0027: the published claim commit must carry the regenerated indexes, | 2026-10-04T01:03 |
 
 
 ## Reading a session
