@@ -106,6 +106,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0030-refuse-a-commit-that-gives-one-finding-decision.md`](../tasks/T-0030-refuse-a-commit-that-gives-one-finding-decision.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md`](../tasks/T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md`](../tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md`](../tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
