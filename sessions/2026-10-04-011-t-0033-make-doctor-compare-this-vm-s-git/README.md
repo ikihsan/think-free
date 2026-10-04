@@ -34,10 +34,18 @@ _(none recorded)_
 | docs/operations/doctor.md | be82c81649ff | 8594 |
 | tests/python-versions.json | 6e0f7916eac2 | 3009 |
 | tests/git-versions.json | 6b4455e3892b | 1171 |
+| STATE.md | c08b6af3ffe2 | 23060 |
+| STATE-defects.md | 29bebf51f117 | 8213 |
+| STATE-next-actions.md | bf942538d793 | 5966 |
+| STATE-history-2.md | 42748518da91 | 5322 |
+| ROADMAP.md | f48c66d5a21f | 12789 |
+| tests/README.md | eb98d1cfa947 | 9730 |
+| DECISIONS-PRACTICE.md | 0bdcf9558ee9 | 17151 |
+| tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md | 3a6e5ab4b731 | 5355 |
 
 ## Commands
 
-16 captured, 3 non-zero exit.
+17 captured, 3 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -57,6 +65,7 @@ _(none recorded)_
 | 15 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -4; tools/origin doctor --offline\|grep "^versions (pyt | 0 | 199109 |
 | 16 | ['sh', '-c', 'tools/origin doctor --offline'] | 0 | 611 |
 | 23 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 194015 |
+| 24 | ['sh', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; tool | 0 | 195016 |
 
 ## Integrity
 
@@ -95,6 +104,15 @@ _(none recorded)_
 | 21 | 03:10:43 | artifact | wrote tests/python-versions.json |
 | 22 | 03:10:43 | artifact | wrote tests/git-versions.json |
 | 23 | 03:14:22 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 24 | 03:24:50 | command | $ sh -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1\|tail -4; tools/origin doc lint --quiet; echo "lint=$?"; too |
+| 25 | 03:25:00 | artifact | wrote STATE.md |
+| 26 | 03:25:00 | artifact | wrote STATE-defects.md |
+| 27 | 03:25:00 | artifact | wrote STATE-next-actions.md |
+| 28 | 03:25:00 | artifact | wrote STATE-history-2.md |
+| 29 | 03:25:00 | artifact | wrote ROADMAP.md |
+| 30 | 03:25:00 | artifact | wrote tests/README.md |
+| 31 | 03:25:00 | artifact | wrote DECISIONS-PRACTICE.md |
+| 32 | 03:25:00 | artifact | wrote tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md |
 
 ## Reproduce this record
 
