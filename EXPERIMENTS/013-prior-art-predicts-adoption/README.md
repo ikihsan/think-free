@@ -4,13 +4,13 @@ status: active
 last-verified: 2026-10-04
 -->
 
-# 012 — does a crowded niche mean a solved one? (E, T-0059)
+# 013 — does a crowded niche mean a solved one? (E, T-0059)
 
 F027 and F028 counted **stars**. This counts **installs**, because "does prior
 art exist" only means "is this problem solved" if existing mechanisms are
 actually used, and that link had never been measured. Verdict: **H survives** —
 in three young vocabularies 88–100% of the leading implementations have no
-measurable monthly install. Full entry F029 in
+measurable monthly install. Full entry F032 in
 [`FAILURES-findings-6.md`](../../FAILURES-findings-6.md).
 
 ## Hypothesis, declared before the run

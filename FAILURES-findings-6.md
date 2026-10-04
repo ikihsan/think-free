@@ -170,11 +170,22 @@ unrefuted, and no measurement of usefulness is made. What survives is the
 narrow, decision-changing half: do not read a stars search as evidence
 for or against a candidate in a vocabulary less than a few years old.
 
-## F029 — Stars do not measure adoption in any of five niches, so F028's flat tail was never a statement about adoption
+## F032 — Stars do not measure adoption in any of five niches, so F028's flat tail was never a statement about adoption
 
 Source: session `2026-10-04-047`, T-0059. Raw results:
-[`EXPERIMENTS/012-prior-art-predicts-adoption/results.json`](EXPERIMENTS/012-prior-art-predicts-adoption/results.json).
+[`EXPERIMENTS/013-prior-art-predicts-adoption/results.json`](EXPERIMENTS/013-prior-art-predicts-adoption/results.json).
 Instrument `observed` 2026-10-04.
+
+**Renumbered on landing, and the collision is itself the thirteenth.** Written as
+F029 and `EXPERIMENTS/012` on an unpushed branch; the other VM landed F029, F030,
+F031 and `EXPERIMENTS/012-candidate-harvest` first, so this side renumbered per
+[`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
+`F032` and `013` are therefore stable. **What is new here is not the number but
+the convergence:** that VM independently found that a prior-art verdict from one
+search query is unreliable in both directions (F030) and that a live corpus of
+1401 unmet needs produced no candidate surviving the screens (F029). Two VMs, two
+instruments, one conclusion — the prior-art screen is not selecting. Neither VM
+had seen the other's result.
 
 **The belief under test.** `STATE-next-actions.md` item 0 holds that
 prior-art survival cannot be the selection filter, on the inference that a

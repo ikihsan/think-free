@@ -192,7 +192,7 @@ def gate(niches):
 
 
 def main():
-    out = {"experiment": "012-prior-art-predicts-adoption", "task": "T-0059",
+    out = {"experiment": "013-prior-art-predicts-adoption", "task": "T-0059",
            "measured": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
            "usage_window": "last 30 days: npm last-month, PyPI per-month via "
                            "shields.io, crates.io summed per-day rows",

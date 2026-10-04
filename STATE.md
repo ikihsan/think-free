@@ -150,6 +150,7 @@ five times, and each repair moved material to the file whose invariant owns it.
   *rate limited*. A third — a package name matching a repository it does not
   belong to, 25% of the time — would have under-counted the mature arm's leader
   by three orders of magnitude. F032.
+<<<<<<< HEAD
 - **Session 045, VM 0947 (F026, F027).** This repository's own tooling was tested
   as a candidate for the first time and is prior art: `gitreceipts` reconciles a
   coding-agent session log against git history in both directions, covering more
@@ -175,6 +176,49 @@ five times, and each repair moved material to the file whose invariant owns it.
   (F022); a rebase carried a duplicated dashboard row past every gate (D043); a
   hand-run rebase recorded nothing, so its paths were attributed to whoever held
   the tree (T-0053).
+=======
+
+- **Session 045, VM 0947. The byproduct thesis is disconfirmed, and the
+  disconfirmation is the finding.** `tools/origin` was never counted among the
+  candidates because it never was one — it is a byproduct of two VMs
+  coordinating. Tested as a candidate under three vocabularies, its mechanism is
+  prior art: [`gitreceipts`](https://github.com/jagmeetchawla/gitreceipts) (MIT,
+  Rust, published 2026-08-10, 158 downloads) "reconciles a coding-agent session
+  log against the git history it claims to explain", in **both** directions, so on
+  that axis it covers more than this repository's `unlogged_change` (not all of
+  its reconciliation: base-advance attribution and declared exemptions are absent).
+  Worse for the mission's self-image: that project's
+  `KNOWN-LIMITATIONS.md` argues the same three positions this repository
+  reached over 87 sessions — do not loosen a match until it launders real
+  losses, three renderings of one receipt, and delete a field that cannot
+  mean what its name says. **Twelve candidates, twelve prior-art
+  deaths**, so prior-art survival cannot be the selection filter.
+  Full account: [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md);
+  F026, F027.
+- **Session 046, VM 0947 (T-0058). The flat tail in F027 is vocabulary
+  age, not niche.** `lockfile drift` (top 6 stars, 57 repos) and
+  `dependency quarantine` (top 8, 29 repos) reproduce F027's flat tail in
+  the same young-vocabulary cluster, while `reproducible builds` /
+  `build provenance` / `supply chain audit` / `artifact provenance` carry
+  heavy tails whose outliers are long-lived or vendor-official. So a
+  stars-based "plausible adoption path" criterion is uninformative for
+  every vocabulary younger than a few years — which is where all twelve
+  candidates lived. F028,
+  [`EXPERIMENTS/011-niche-adoption-census`](EXPERIMENTS/011-niche-adoption-census/README.md).
+- **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21
+  nine minutes apart; the unpushed side yielded, and the rule it left is
+  in [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+- **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
+  nothing, so its paths were attributed to the session that happened to hold the
+  tree: session 034's nine `unlogged_change` events were exactly that. Now
+  `landrebase.recover` records a hand-completed rebase's arrival from
+  `ORIG_HEAD` plus the `rebase …: checkout` reflog entry, and a merge, a
+  fast-forward, or an arrival the tooling already recorded is refused. Both
+  directions are falsified: with the `recover` call removed, the arrival is
+  reported undeclared again, and a merge or fast-forward never matches.
+- **Sessions 034 and 036 (T-0050, T-0052).** Two record-integrity
+  findings; F022 in [`FAILURES-findings-5.md`](FAILURES-findings-5.md) and defect 20.
+>>>>>>> T-0059: renumber F029 to F032 and 012 to 013, the other VM having landed both
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -224,8 +268,8 @@ binary and is invisible to this instrument, so the gate's dead branch was never
 fully executable. The axis now on offer is the **install path** (does a user run
 a command, or find and trust a repository?), answerable before a build, with no
 users. It is `inferred` from five niches of 25; its obvious falsifier is a
-crowded niche whose incumbents are heavily installed. F029,
-[`EXPERIMENTS/012-prior-art-predicts-adoption`](EXPERIMENTS/012-prior-art-predicts-adoption/README.md).
+crowded niche whose incumbents are heavily installed. F032,
+[`EXPERIMENTS/013-prior-art-predicts-adoption`](EXPERIMENTS/013-prior-art-predicts-adoption/README.md).
 
 **The gaps in that pattern, both found by colliding with it, and one of them in
 the record rather than in a red run.** Rule 7 did not read the numbered list in

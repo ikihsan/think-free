@@ -1,5 +1,5 @@
 {
-  "experiment": "012-prior-art-predicts-adoption",
+  "experiment": "013-prior-art-predicts-adoption",
   "task": "T-0059",
   "measured": "2026-10-04T20:49:13Z",
   "usage_window": "last 30 days: npm last-month, PyPI per-month via shields.io, crates.io summed per-day rows",
@@ -1827,5 +1827,6 @@
         "rho": 0.06992763455475547
       }
     ]
-  }
+  },
+  "renumbered": "written as 012 and F029 on an unpushed branch; the other VM landed EXPERIMENTS/012-candidate-harvest and F029-F031 first, so this side renumbered per docs/reference/identifier-allocation.md"
 }
