@@ -43,7 +43,16 @@ of those it cannot touch.
     green and nothing is blocked on it.** Worth taking when a VM is otherwise
     idle; not worth displacing a research question for.
 
-
+0. **Invention item (D048).** All items below had been gates, CI diagnosis,
+   identifier allocation, generated-file freshness or line caps — F030's
+   complaint. This entry holds the seat for candidate work. Current: E2's
+   lockfile-drift claim advanced one step — `EXPERIMENTS/009` side B taken
+   2026-10-04, **zero drift at ~21h**, a fast-drift null only. The next
+   informative read is the same comparison at the days-to-weeks mark; before
+   that, any freshly generated candidate from live sources that survives
+   Screen 1 (`falsification-design`) outranks more infrastructure.
+   **Ceiling:** this item names where invention work goes, it does not make
+   invention happen.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated

@@ -151,6 +151,32 @@ push this reload point past the line cap.
 - **Session 040, VM 0947 (T-0054, cancelled).** Two VMs found defect 21
   nine minutes apart; the unpushed side yielded, and the rule it left is
   in [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+
+  Worse for the mission's self-image: that project's `KNOWN-LIMITATIONS.md` argues the same three positions this repository reached over 87 sessions — do
+  not loosen a match until it launders real losses, three renderings of one
+  receipt, and delete a field that cannot mean what its name says. **Twelve
+  candidates, twelve prior-art deaths**, so prior-art survival cannot be the
+  selection filter. **The baseline was not run** — `cargo` is absent here, so
+  the head-to-head is `unperformed`. Full account:
+  [`RESEARCH/PRIOR-ART-ORIGIN.md`](RESEARCH/PRIOR-ART-ORIGIN.md); F026, F027.
+
+- **Sessions 043–044, VM 0944.** Session 043 was found open with its work
+  uncommitted; its measured half is landed as **F030** (effort allocation:
+  1.3% of day-two commits touched `EXPERIMENTS/`, 4.8:1 record to measurement)
+  and **D048** (the next-action list must carry an invention item). Session 044
+  took the E2 side-B snapshot the protocol had scheduled: `EXPERIMENTS/009`
+  shows **zero lockfile drift at ~21h**, a fast-drift null only, verdict still
+  gated on the days-to-weeks comparison.
+- **Session 040, VM 0947 (T-0054, cancelled).** **Two VMs found defect 21 nine
+  minutes apart.** This VM hit `task claim`'s refusal at 15:08Z and created T-0054 to
+  fix it; the other hit the same refusal at 15:17Z, created T-0055 and landed the fix
+  (`0522052`). Different numbers, so neither allocator nor detector had anything to
+  say — and that was right: no identifier collided, the *finding* did. **T-0054 was
+  cancelled and its unpushed commits dropped whole**, two modules publishing a claim's
+  paths being worse than one. What survived is the gap the landed fix left: a claim
+  under an open session is proved to publish and a published claim to exclude, but not
+  composed, which is the order the fleet runs. Full account and the rule:
+  [`multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
 - **Session 038, VM 0947 (T-0053).** A base move performed with raw git recorded
   nothing, so its paths were attributed to the session that happened to hold the
   tree: session 034's nine `unlogged_change` events were exactly that. Now

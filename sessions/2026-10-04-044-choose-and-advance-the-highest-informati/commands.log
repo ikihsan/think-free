@@ -1,0 +1,32 @@
+==============================================================================
+[seq 2] 2026-10-04T18:58:43+00:00
+$ python3 -m pip download -d /tmp/opencode/e2b requests six packaging pyparsing
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Collecting requests
+  Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+  Saved /tmp/opencode/e2b/requests-2.32.4-py3-none-any.whl
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+  Saved /tmp/opencode/e2b/six-1.17.0-py2.py3-none-any.whl
+Collecting packaging
+  Downloading packaging-26.2-py3-none-any.whl (100 kB)
+  Saved /tmp/opencode/e2b/packaging-26.2-py3-none-any.whl
+Collecting pyparsing
+  Downloading pyparsing-3.1.4-py3-none-any.whl (104 kB)
+  Saved /tmp/opencode/e2b/pyparsing-3.1.4-py3-none-any.whl
+Collecting certifi>=2017.4.17
+  Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+  Saved /tmp/opencode/e2b/certifi-2026.7.22-py3-none-any.whl
+Collecting charset_normalizer<4,>=2
+  Downloading charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (253 kB)
+  Saved /tmp/opencode/e2b/charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
+Collecting idna<4,>=2.5
+  Downloading idna-3.15-py3-none-any.whl (72 kB)
+  Saved /tmp/opencode/e2b/idna-3.15-py3-none-any.whl
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.2.3-py3-none-any.whl (126 kB)
+  Saved /tmp/opencode/e2b/urllib3-2.2.3-py3-none-any.whl
+Successfully downloaded requests six packaging pyparsing certifi charset-normalizer idna urllib3
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 13776  redactions: none

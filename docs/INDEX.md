@@ -166,7 +166,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/006-ventilation-measurement-design/README.md`](../EXPERIMENTS/006-ventilation-measurement-design/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | RESEARCH/C.md hypothesis 2, run as its own predeclared kill gate (T-0014). |
 | [`EXPERIMENTS/007-build-timestamps/README.md`](../EXPERIMENTS/007-build-timestamps/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | E3's build-timestamp census: RESEARCH/E.md's smallest falsifying experiment |
 | [`EXPERIMENTS/008-build-timestamp-attribution/README.md`](../EXPERIMENTS/008-build-timestamp-attribution/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Task T-0017. The second half of E3's own falsifying experiment: build the same |
-| [`EXPERIMENTS/009-lockfile-drift-snapshot/README.md`](../EXPERIMENTS/009-lockfile-drift-snapshot/README.md) | `docs/INDEX.md` | active | 2026-10-03 | owner: docs/INDEX.md |
+| [`EXPERIMENTS/009-lockfile-drift-snapshot/README.md`](../EXPERIMENTS/009-lockfile-drift-snapshot/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/010-annotation-rendering/README.md`](../EXPERIMENTS/010-annotation-rendering/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-04 | Task T-0046. Does GitHub file a check-run annotation on the workflow command's |
 | [`EXPERIMENTS/011-niche-adoption-census/README.md`](../EXPERIMENTS/011-niche-adoption-census/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/012-candidate-harvest/README.md`](../EXPERIMENTS/012-candidate-harvest/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |

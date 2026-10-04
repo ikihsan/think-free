@@ -1,0 +1,75 @@
+{
+  "schema": "origin.lockfile-snapshot/1",
+  "side": "B",
+  "taken_utc": "2026-10-04T19:26:00Z",
+  "tool": {
+    "pip": "20.0.2",
+    "python": "3.8.10"
+  },
+  "index_url": "https://pypi.org/simple",
+  "requested": [
+    "requests",
+    "six",
+    "packaging",
+    "pyparsing"
+  ],
+  "note": "Side B, taken ~21h after side A. Slow-drift regime still needs the days-to-weeks window.",
+  "artifacts": [
+    {
+      "file": "certifi-2026.7.22-py3-none-any.whl",
+      "name": "certifi",
+      "version": "2026.7.22",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "bytes": 136983
+    },
+    {
+      "file": "charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "name": "charset_normalizer",
+      "version": "3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "sha256": "1c50fe28bbc2ced33386f298650d91218076c05420e6cbd790b913adc41659e7",
+      "bytes": 253276
+    },
+    {
+      "file": "idna-3.15-py3-none-any.whl",
+      "name": "idna",
+      "version": "3.15",
+      "sha256": "048adeaf8c2d788c40fee287673ccaa74c24ffd8dcf09ffa555a2fbb59f10ac8",
+      "bytes": 72340
+    },
+    {
+      "file": "packaging-26.2-py3-none-any.whl",
+      "name": "packaging",
+      "version": "26.2",
+      "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
+      "bytes": 100195
+    },
+    {
+      "file": "pyparsing-3.1.4-py3-none-any.whl",
+      "name": "pyparsing",
+      "version": "3.1.4",
+      "sha256": "a6a7ee4235a3f944aa1fa2249307708f893fe5717dc603503c6c7969c070fb7c",
+      "bytes": 104100
+    },
+    {
+      "file": "requests-2.32.4-py3-none-any.whl",
+      "name": "requests",
+      "version": "2.32.4",
+      "sha256": "27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c",
+      "bytes": 64847
+    },
+    {
+      "file": "six-1.17.0-py2.py3-none-any.whl",
+      "name": "six",
+      "version": "1.17.0",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "bytes": 11050
+    },
+    {
+      "file": "urllib3-2.2.3-py3-none-any.whl",
+      "name": "urllib3",
+      "version": "2.2.3",
+      "sha256": "ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac",
+      "bytes": 126338
+    }
+  ]
+}

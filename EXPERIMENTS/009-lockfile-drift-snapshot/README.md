@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-04
 -->
 
 Side A of the comparison `RESEARCH/E.md` mechanism E2 calls for: the sorted
@@ -24,3 +24,13 @@ against a side B taken days-to-weeks later. Fast drift would show as a
 version or hash change in the closure; slow drift (yanks over weeks) is the
 interesting regime and needs patience, not a bigger snapshot. Do not conclude
 anything from side A alone.
+
+## Side B — taken 2026-10-04, ~21 hours after side A (T-0057)
+
+Record: [`snapshot-b.json`](snapshot-b.json), same method and tool.
+Observed: **zero drift** — the same 8 files, same sha256 and byte sizes,
+same resolver closure. This is ~21 hours, not the days-to-weeks window the
+interesting regime needs, so it is a fast-drift null only: no version or
+hash changed inside a day. It neither validates E2 nor kills it; it narrows
+the claim to "drift, if any, was slower than a day for this package set."
+Next comparison belongs at the days-to-weeks mark.
