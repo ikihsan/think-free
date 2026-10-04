@@ -1,0 +1,695 @@
+==============================================================================
+[seq 2] 2026-10-04T10:13:10+00:00
+$ bash -c git log --all --format=%H -- "sessions/*/events.jsonl" >/dev/null; for f in $(git ls-tree -r --name-only HEAD sessions | grep events.jsonl); do n=$(git show "HEAD:$f" | grep -c "\"kind\": \"unlogged_change\"" || true); if [ "$n" != "0" ]; then hit=$(git show "HEAD:$f" | grep "\"kind\": \"unlogged_change\"" | grep -c "\"path\": \"tasks/" || true); if [ "$hit" != "0" ]; then echo "$f  unlogged=$n  of which task files=$hit"; fi; fi; done
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+sessions/2026-10-03-008-t-0001-write-falsification-kill-gates-fo/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-010-t-0004-make-the-fleet-and-sync-test-suit/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-012-t-0002-run-investigation-e-experimental/events.jsonl  unlogged=2  of which task files=1
+sessions/2026-10-03-015-a1-experiment-step-1-pin-a-ppna-commit-a/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-016-sweep-budget-k-block-size-in-002-to-test/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-019-t-0007-distance-budget-variant-of-002-a1/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-020-apply-the-information-sufficiency-witnes/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-021-repair-the-knitting-witness-input-set-by/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-03-022-run-the-knitting-stage-a-planner-compari/events.jsonl  unlogged=3  of which task files=1
+sessions/2026-10-03-026-run-e3-s-build-timestamp-census-over-200/events.jsonl  unlogged=21  of which task files=4
+sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/events.jsonl  unlogged=9  of which task files=2
+sessions/2026-10-03-030-run-t-0017-attribute-every-differing-byt/events.jsonl  unlogged=14  of which task files=3
+sessions/2026-10-03-038-land-t-0020-renumber-two-findings-off-a/events.jsonl  unlogged=12  of which task files=2
+sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/events.jsonl  unlogged=61  of which task files=6
+sessions/2026-10-04-006-t-0032-record-the-python-versions-the-su/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/events.jsonl  unlogged=23  of which task files=2
+sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/events.jsonl  unlogged=2  of which task files=1
+sessions/2026-10-04-018-t-0038-record-that-the-public-check-run/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-04-019-t-0039-make-acceptance-and-steps-append/events.jsonl  unlogged=1  of which task files=1
+sessions/2026-10-04-020-give-the-file-reading-ci-gate-steps-a-ch/events.jsonl  unlogged=50  of which task files=5
+sessions/2026-10-04-022-t-0041-make-sync-land-rebuild-any-genera/events.jsonl  unlogged=1  of which task files=1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1811  redactions: none
+==============================================================================
+[seq 3] 2026-10-04T10:13:24+00:00
+$ bash -c for s in 2026-10-04-019-t-0039-make-acceptance-and-steps-append 2026-10-04-006-t-0032-record-the-python-versions-the-su; do echo "== $s"; git show "HEAD:sessions/$s/events.jsonl" | grep -o "\"kind\": \"unlogged_change\".*" ; git show "HEAD:sessions/$s/events.jsonl" | grep -c "\"action\": \"complete\"" ; done
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+== 2026-10-04-019-t-0039-make-acceptance-and-steps-append
+"kind": "unlogged_change", "schema": "origin.session.event/1", "seq": 15, "session": "2026-10-04-019-t-0039-make-acceptance-and-steps-append", "ts": "2026-10-04T07:35:28+00:00"}
+0
+== 2026-10-04-006-t-0032-record-the-python-versions-the-su
+"kind": "unlogged_change", "schema": "origin.session.event/1", "seq": 2, "session": "2026-10-04-006-t-0032-record-the-python-versions-the-su", "ts": "2026-10-04T02:06:01+00:00"}
+0
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 91  redactions: none
+==============================================================================
+[seq 4] 2026-10-04T10:13:35+00:00
+$ bash -c for s in 2026-10-04-019-t-0039-make-acceptance-and-steps-append 2026-10-04-006-t-0032-record-the-python-versions-the-su; do echo "== $s"; git show "HEAD:sessions/$s/events.jsonl" | python3 -c "
+import json,sys
+for line in sys.stdin:
+    e=json.loads(line)
+    if e[\"kind\"] in (\"unlogged_change\",\"artifact\"): print(\" \", e[\"kind\"], e[\"data\"].get(\"path\"))
+    if e[\"kind\"]==\"session_end\": print(\"  session_end unlogged=\", e[\"data\"].get(\"unlogged_changes\"))
+"; done
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+== 2026-10-04-019-t-0039-make-acceptance-and-steps-append
+  artifact tools/originlib/cli_args.py
+  artifact tools/originlib/cli_task.py
+  artifact tests/test_tasks.py
+  artifact docs/process/task-lifecycle.md
+  artifact docs/reference/cli-reference.md
+  artifact STATE-defects.md
+  artifact tests/README.md
+  unlogged_change tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md
+  session_end unlogged= 1
+== 2026-10-04-006-t-0032-record-the-python-versions-the-su
+  unlogged_change tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md
+  session_end unlogged= 1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 206  redactions: none
+==============================================================================
+[seq 6] 2026-10-04T10:14:40+00:00
+$ env PYTHONPATH=tools:tests python3 /tmp/opencode/repro_defect12.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+
+session: 2026-10-04-001-run-a-task-to-completion
+declared artifacts : ['work/notes.md']
+this session's own : ['sessions/2026-10-04-001-run-a-task-to-completion/README.md', 'sessions/2026-10-04-001-run-a-task-to-completion/events.jsonl', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'tasks/T-0001-reproduce-defect-12.md', 'work/notes.md']
+UNLOGGED           : ['tasks/T-0001-reproduce-defect-12.md']
+
+
+
+[stderr]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.708s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1003  redactions: none
+==============================================================================
+[seq 7] 2026-10-04T10:17:41+00:00
+$ env PYTHONPATH=tools:tests python3 /tmp/opencode/repro_defect12.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+
+session: 2026-10-04-001-run-a-task-to-completion
+declared artifacts : ['work/notes.md']
+this session's own : ['sessions/2026-10-04-001-run-a-task-to-completion/README.md', 'sessions/2026-10-04-001-run-a-task-to-completion/events.jsonl', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'tasks/T-0001-reproduce-defect-12.md', 'work/notes.md']
+UNLOGGED           : []
+
+
+
+[stderr]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.798s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1028  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T10:19:51+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite -v
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+test_a_command_run_with_no_session_open_records_nothing (tests.test_task_rewrite.CommandOutsideASessionTest) ... ok
+test_the_next_session_reports_a_command_run_before_it_opened (tests.test_task_rewrite.CommandOutsideASessionTest) ... ok
+test_a_digest_that_does_not_match_is_not_honoured (tests.test_task_rewrite.CommittedDefectTest) ... ok
+test_that_stream_declares_no_rewrite_so_the_rule_cannot_cover_it (tests.test_task_rewrite.CommittedDefectTest) ... ok
+test_the_recorded_session_reported_its_own_task_file (tests.test_task_rewrite.CommittedDefectTest) ... ok
+test_a_rewrite_of_one_task_does_not_cover_another (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_a_second_identical_write_is_not_recorded_twice (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_a_task_file_changed_with_no_command_at_all_is_reported (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_a_task_file_the_command_rewrote_is_not_reported (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_an_edit_to_the_body_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_an_edit_to_the_meta_block_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_the_command_line_names_the_rewritten_file (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_the_rewrite_is_recorded_with_the_bytes_it_wrote (tests.test_task_rewrite.TaskRewriteTest) ... ok
+test_undeclared_work_is_still_reported_alongside_a_rewrite (tests.test_task_rewrite.TaskRewriteTest) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.906s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7722  redactions: none
+==============================================================================
+[seq 9] 2026-10-04T10:20:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+..F......FF...
+======================================================================
+FAIL: test_a_digest_that_does_not_match_is_not_honoured (tests.test_task_rewrite.CommittedDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 264, in test_a_digest_that_does_not_match_is_not_honoured
+    self.assertFalse(tasks.digests_match(target, wrong), key)
+AssertionError: True is not false : meta_sha256
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 142, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_an_edit_to_the_meta_block_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 152, in test_an_edit_to_the_meta_block_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 14 tests in 7.112s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7689  redactions: none
+==============================================================================
+[seq 10] 2026-10-04T10:20:41+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+..F......FF...
+======================================================================
+FAIL: test_a_digest_that_does_not_match_is_not_honoured (tests.test_task_rewrite.CommittedDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 264, in test_a_digest_that_does_not_match_is_not_honoured
+    self.assertFalse(tasks.digests_match(target, wrong), key)
+AssertionError: True is not false : meta_sha256
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 142, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_an_edit_to_the_meta_block_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 152, in test_an_edit_to_the_meta_block_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.711s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7213  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T10:21:02+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 6.783s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7113  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T10:21:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+..F......FF...
+======================================================================
+FAIL: test_a_digest_that_does_not_match_is_not_honoured (tests.test_task_rewrite.CommittedDefectTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 264, in test_a_digest_that_does_not_match_is_not_honoured
+    self.assertFalse(tasks.digests_match(target, wrong), key)
+AssertionError: True is not false : meta_sha256
+
+======================================================================
+FAIL: test_an_edit_to_the_body_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 142, in test_an_edit_to_the_body_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_an_edit_to_the_meta_block_after_the_command_is_reported_again (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 152, in test_an_edit_to_the_meta_block_after_the_command_is_reported_again
+    self.assertEqual(result["unlogged"], [self.task_path()])
+AssertionError: Lists differ: [] != ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- []
++ ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.978s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7308  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T10:21:39+00:00
+$ env PYTHONPATH=tools:tests python3 /tmp/opencode/repro_defect12.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+
+session: 2026-10-04-001-run-a-task-to-completion
+declared artifacts : ['work/notes.md']
+this session's own : ['sessions/2026-10-04-001-run-a-task-to-completion/README.md', 'sessions/2026-10-04-001-run-a-task-to-completion/events.jsonl', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'tasks/T-0001-reproduce-defect-12.md', 'work/notes.md']
+UNLOGGED           : []
+
+
+
+[stderr]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.710s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1007  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T10:21:40+00:00
+$ env PYTHONPATH=tools:tests python3 /tmp/opencode/repro_defect12.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+
+session: 2026-10-04-001-run-a-task-to-completion
+declared artifacts : ['work/notes.md']
+this session's own : ['sessions/2026-10-04-001-run-a-task-to-completion/README.md', 'sessions/2026-10-04-001-run-a-task-to-completion/events.jsonl', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'tasks/T-0001-reproduce-defect-12.md', 'work/notes.md']
+UNLOGGED           : []
+
+
+
+[stderr]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.764s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1001  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T10:21:53+00:00
+$ env PYTHONPATH=tools:tests python3 /tmp/opencode/repro_defect12.py
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+
+session: 2026-10-04-001-run-a-task-to-completion
+declared artifacts : ['work/notes.md']
+this session's own : ['sessions/2026-10-04-001-run-a-task-to-completion/README.md', 'sessions/2026-10-04-001-run-a-task-to-completion/events.jsonl', 'sessions/INDEX.md', 'tasks/CLAIMS.jsonl', 'tasks/INDEX.md', 'tasks/T-0001-reproduce-defect-12.md', 'work/notes.md']
+UNLOGGED           : []
+
+
+
+[stderr]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.717s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 939  redactions: none
+==============================================================================
+[seq 16] 2026-10-04T10:22:08+00:00
+$ env PYTHONPATH=tools:tests python3 -c 
+import sys, os, subprocess
+sys.path.insert(0,'tests')
+import unittest
+from harness import make_repo
+class T(unittest.TestCase):
+    def runTest(self): pass
+t=T()
+repo=make_repo(t)
+os.environ['ORIGIN_ROOT']=str(repo)
+from originlib import taskops, reconcile
+taskops.create('probe','true')
+p=[f'tasks/{x.name}' for x in __import__('pathlib').Path(repo,'tasks').iterdir() if x.name.startswith('T-')][0]
+print('path:',p)
+print('is_generated:', reconcile._is_generated(p))
+print('is_vendored :', reconcile._is_vendored(p))
+head=open(repo/p).read(2048)
+print('contains marker:', 'generated-by: origin' in head)
+
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+path: tasks/T-0001-probe.md
+is_generated: False
+is_vendored : False
+contains marker: False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 583  redactions: none
+==============================================================================
+[seq 17] 2026-10-04T10:22:42+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_task_rewrite
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+[stderr]
+.....F..F..F.F
+======================================================================
+FAIL: test_a_rewrite_of_one_task_does_not_cover_another (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 171, in test_a_rewrite_of_one_task_does_not_cover_another
+    self.assertEqual(result["unlogged"], [self.task_path("T-0002")])
+AssertionError: Lists differ: ['tasks/T-0001-attribute-a-rewritten-task-file.md', 't[25 chars].md'] != ['tasks/T-0002-a-second-task.md']
+
+First differing element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+'tasks/T-0002-a-second-task.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'tasks/T-0002-a-second-task.md'
+
+- ['tasks/T-0001-attribute-a-rewritten-task-file.md',
+-  'tasks/T-0002-a-second-task.md']
+? ^
+
++ ['tasks/T-0002-a-second-task.md']
+? ^
+
+
+======================================================================
+FAIL: test_a_task_file_the_command_rewrote_is_not_reported (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 100, in test_a_task_file_the_command_rewrote_is_not_reported
+    self.assertEqual(result["unlogged"], [], result["unlogged"])
+AssertionError: Lists differ: ['tasks/T-0001-attribute-a-rewritten-task-file.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+
+- ['tasks/T-0001-attribute-a-rewritten-task-file.md']
++ [] : ['tasks/T-0001-attribute-a-rewritten-task-file.md']
+
+======================================================================
+FAIL: test_the_command_line_names_the_rewritten_file (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 123, in test_the_command_line_names_the_rewritten_file
+    self.assertEqual(code, 0)
+AssertionError: 4 != 0
+
+======================================================================
+FAIL: test_undeclared_work_is_still_reported_alongside_a_rewrite (tests.test_task_rewrite.TaskRewriteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_rewrite.py", line 179, in test_undeclared_work_is_still_reported_alongside_a_rewrite
+    self.assertEqual(result["unlogged"], ["work/scratch.md"])
+AssertionError: Lists differ: ['tasks/T-0001-attribute-a-rewritten-task-file.md', 'work/scratch.md'] != ['work/scratch.md']
+
+First differing element 0:
+'tasks/T-0001-attribute-a-rewritten-task-file.md'
+'work/scratch.md'
+
+First list contains 1 additional elements.
+First extra element 1:
+'work/scratch.md'
+
+- ['tasks/T-0001-attribute-a-rewritten-task-file.md', 'work/scratch.md']
++ ['work/scratch.md']
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.975s
+
+FAILED (failures=4)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7311  redactions: none
+==============================================================================
+[seq 19] 2026-10-04T10:26:57+00:00
+$ env PYTHONPATH=tools:tests timeout 1200 python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+F...............................................F.....................................................................................F............F..........................................................F...............................................................................................................................................................................................................................................F.F.......................................
+======================================================================
+FAIL: test_a_clean_gate_emits_nothing_at_all (test_annotate.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_annotate.py", line 174, in test_a_clean_gate_emits_nothing_at_all
+    self.assertEqual(self.annotations("--", "doc lint"), [])
+AssertionError: Lists differ: ['::error file=tools/originlib/cli_session[113 chars]md)'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'::error file=tools/originlib/cli_session.py::tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)'
+
++ []
+- ['::error file=tools/originlib/cli_session.py::tools/originlib/cli_session.py: '
+-  '302 lines exceeds the 300-line cap; split it (see '
+-  'docs/policy/doc-standards.md)']
+
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_lint_passes_when_the_committed_file_is_from_an_earlier_day (test_generated_stamps.GeneratedStampTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_generated_stamps.py", line 73, in test_lint_passes_when_the_committed_file_is_from_an_earlier_day
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_index_freshness.py", line 37, in test_a_new_task_leaves_no_orphan_behind
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_index_freshness.py", line 52, in test_claiming_and_completing_keep_the_index_current
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 488 tests in 237.423s
+
+FAILED (failures=7)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 238103  redactions: none
+==============================================================================
+[seq 20] 2026-10-04T10:31:04+00:00
+$ env PYTHONPATH=tools:tests timeout 1200 python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+F...............................................F.....................................................................................F............F..........................................................F...............................................................................................................................................................................................................................................F.F.......................................
+======================================================================
+FAIL: test_a_clean_gate_emits_nothing_at_all (test_annotate.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_annotate.py", line 174, in test_a_clean_gate_emits_nothing_at_all
+    self.assertEqual(self.annotations("--", "doc lint"), [])
+AssertionError: Lists differ: ['::error file=tools/originlib/cli_session[113 chars]md)'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'::error file=tools/originlib/cli_session.py::tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)'
+
++ []
+- ['::error file=tools/originlib/cli_session.py::tools/originlib/cli_session.py: '
+-  '302 lines exceeds the 300-line cap; split it (see '
+-  'docs/policy/doc-standards.md)']
+
+======================================================================
+FAIL: test_lint_quiet_prints_nothing_when_clean (test_cli.ExitCodeTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_cli.py", line 40, in test_lint_quiet_prints_nothing_when_clean
+    self.assertEqual(code, 0)
+AssertionError: 2 != 0
+
+======================================================================
+FAIL: test_a_document_at_the_limit_passes (test_doclint.LineCapTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_doclint.py", line 36, in test_a_document_at_the_limit_passes
+    self.assertFalse(any("300-line cap" in problem for problem in result.violations))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_lint_passes_when_the_committed_file_is_from_an_earlier_day (test_generated_stamps.GeneratedStampTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_generated_stamps.py", line 73, in test_lint_passes_when_the_committed_file_is_from_an_earlier_day
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_a_new_task_leaves_no_orphan_behind (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_index_freshness.py", line 37, in test_a_new_task_leaves_no_orphan_behind
+    self.assertEqual(result, 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+======================================================================
+FAIL: test_claiming_and_completing_keep_the_index_current (test_task_index_freshness.TaskIndexFreshnessTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947/tests/test_task_index_freshness.py", line 52, in test_claiming_and_completing_keep_the_index_current
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 66 file(s) checked
+  FAIL  tools/originlib/cli_session.py: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 1 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 488 tests in 234.181s
+
+FAILED (failures=7)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 234677  redactions: none
+==============================================================================
+[seq 21] 2026-10-04T10:37:42+00:00
+$ env PYTHONPATH=tools:tests timeout 1200 python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 488 tests in 228.617s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 229291  redactions: none
+==============================================================================
+[seq 43] 2026-10-04T10:55:33+00:00
+$ env PYTHONPATH=tools:tests timeout 1200 python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free/.worktrees/T-0047-instance-20260717-0947
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 488 tests in 232.452s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 232936  redactions: none
