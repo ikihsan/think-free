@@ -125,6 +125,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md`](../tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0048-teach-sync-land-to-finish-a-paused-rebase-whose.md`](../tasks/T-0048-teach-sync-land-to-finish-a-paused-rebase-whose.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0049-record-the-measured-ci-state-on-the-tip-and-the.md`](../tasks/T-0049-record-the-measured-ci-state-on-the-tip-and-the.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
+| [`tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md`](../tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 
 ## RESEARCH
 
