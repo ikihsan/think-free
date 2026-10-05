@@ -51,6 +51,7 @@ _(none recorded)_
 | docs/INDEX.md | 7f4139fc35fd | 26533 |
 | sessions/INDEX.md | 706496093c98 | 6784 |
 | STATE.md | 2d55aafa29df | 31219 |
+| tasks/CLAIMS.jsonl | 1049ff3ccf6d | 68357 |
 
 ## Commands
 
@@ -117,6 +118,9 @@ _(none recorded)_
 | 34 | 12:07:34 | artifact | wrote sessions/INDEX.md |
 | 35 | 12:07:35 | artifact | wrote STATE.md |
 | 36 | 12:08:08 | task_rewrite | rewrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md (status: claimed) |
+| 37 | 12:08:08 | task_rewrite | appended a claim record for T-0067 |
+| 38 | 12:08:30 | milestone | task verify green (exit 0); 790 tests pass; doc lint exit 0 |
+| 39 | 12:08:31 | artifact | wrote tasks/CLAIMS.jsonl |
 
 ## Reproduce this record
 
