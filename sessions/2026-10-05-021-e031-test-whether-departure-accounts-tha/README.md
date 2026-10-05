@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 22:49:03 | session_start | E031: test whether departure accounts that name no successor state a requirement the departing artifact failed, and whether any such requirement recur |
+| 2 | 22:49:16 | task_rewrite | appended a create record for T-0075 |
+| 3 | 22:49:31 | task_rewrite | rewrote tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md (status: claimed) |
 
 ## Reproduce this record
 

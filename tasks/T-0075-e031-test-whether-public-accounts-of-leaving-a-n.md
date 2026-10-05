@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0075
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-05-021-e031-test-whether-departure-accounts-tha
+claim-vm: instance-20260717-0944
 verify: tools/x -- python3 EXPERIMENTS/031-unfilled-requirement/recount.py && tools/x -- python3 EXPERIMENTS/031-unfilled-requirement/a2_reader.py && tools/x -- python3 EXPERIMENTS/031-unfilled-requirement/recurrence.py && tools/x -- python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py && tools/origin doc lint
 -->
 
