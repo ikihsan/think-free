@@ -145,6 +145,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md`](../tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0068-classify-what-killed-each-candidate-from-its-p.md`](../tasks/T-0068-classify-what-killed-each-candidate-from-its-p.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md`](../tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0070-classify-the-589-never-answered-need-statements.md`](../tasks/T-0070-classify-the-589-never-answered-need-statements.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0071-classify-the-589-never-answered-need-statements.md`](../tasks/T-0071-classify-the-589-never-answered-need-statements.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 
