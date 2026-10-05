@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0074
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: unknown-agent
 claim-session: 2026-10-05-020-e030-test-whether-departure-accounts-peo

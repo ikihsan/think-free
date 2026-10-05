@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T22:03:03+00:00
-- **Duration:** ?s
+- **Duration:** 2303.4s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E030: test whether departure accounts (people publicly leaving a tool) supply a 
 
 ## Summary
 
-_(none recorded)_
+E030 closed: H1 not_evaluated third and final time (F050) — B1's statistic measured length and rare-token coincidence (permutation null at chance, length-matched sign flip); A8 held-out separation fires (0.64 vs 0.036); C1 never ran
+
+## Next
+
+Nothing blocked; E030's seat-empty reasoning stands, next live question is item 0d or a fresh outward probe
 
 ## Artifacts
 
@@ -69,11 +73,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 51 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/030-departure-recurrence/common.py |
 
 ## Timeline
 
@@ -111,6 +124,26 @@ _(none recorded)_
 | 30 | 22:39:48 | command | $ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control |
 | 31 | 22:40:50 | command | $ git push origin research/origin |
 | 32 | 22:40:57 | task_rewrite | rewrote tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md (status: claimed) |
+| 33 | 22:40:57 | task_rewrite | appended a claim record for T-0074 |
+| 34 | 22:41:20 | task_rewrite | rewrote tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md (status: done) |
+| 35 | 22:41:20 | task_rewrite | appended a complete record for T-0074 |
+| 36 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md |
+| 37 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md |
+| 38 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md |
+| 39 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md |
+| 40 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md |
+| 80 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/raw/view_digests.json |
+| 81 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/raw/view_digests_a8.json |
+| 82 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/recurrence.py |
+| 83 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/register_check.py |
+| 84 | 22:41:27 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/030-departure-recurrence/verify_labels.py |
+| 85 | 22:41:27 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 86 | 22:41:27 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 87 | 22:41:27 | doc_update | updated FAILURES.md |
+| 88 | 22:41:27 | doc_update | updated STATE.md |
+| 89 | 22:41:27 | session_end | E030 closed: H1 not_evaluated third and final time (F050) — B1's statistic measured length and rare-token coincidence (permutation null at chance, len |
+
+_39 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
