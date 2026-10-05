@@ -1100,3 +1100,43 @@ Ran 790 tests in 487.090s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 488220  redactions: none
+==============================================================================
+[seq 64] 2026-10-05T11:06:33+00:00
+$ tools/origin session artifact EXPERIMENTS/022-need-outcomes/need_depth_walk.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 63  EXPERIMENTS/022-need-outcomes/need_depth_walk.py  a5befcf8af5b
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 620  redactions: none
+==============================================================================
+[seq 65] 2026-10-05T11:06:34+00:00
+$ git commit -q -m E022: what became of 1401 stated needs, and the walk that resolved none of 434
+
+Follows every one of E012's need statements forward -- the outcome variable no
+failure in this record had read. 1401/1401 readable (gate A1 met), 812 answered
+(0.580), 15/39 hand-judged served (0.385), 0/24 built by the requester. Gate A2
+fires as declared before the first fetch: the depth-stratified lift is 0.703
+against a floor of 1.0, so a trigger phrase does not mark a comment a thread
+answers. Its interval spans 1.0, so 'answered less' is not established.
+
+F042: need_depth_walk.py re-appended each chain's current node instead of the
+node's parent, so no chain longer than one hop could close. It fetched 432
+ancestors, resolved 0 of 434, printed 'no new ancestors' 29 times and exited 0.
+1401/1401 depths now resolve. The reported odds ratio did not move (0.701 ->
+0.703) because the two strata the arm uses were never affected -- knowable only
+after the repair. tests/test_need_depth_gate.py holds the defective loop shape as
+a failing assertion and reads the committed capture, not the walk's exit code.
+
+D054: a harvested corpus is a population of statements until its outcomes are
+read, and a candidate may not borrow a demand claim from the 'stated' cell.
+
+Also removes three unresolved merge markers from tracked records (F013's shape,
+which doc lint does not check for .md at the root), and the dead author join in
+run.py that read Algolia's never-populated 'type' field and reported that nobody
+built anything.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none

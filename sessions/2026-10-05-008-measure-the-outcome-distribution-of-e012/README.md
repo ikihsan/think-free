@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-05T07:58:43+00:00
-- **Duration:** ?s
+- **Duration:** 11354.4s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `HEAD`
 
@@ -23,7 +23,11 @@ Measure the outcome distribution of E012's 1401 publicly stated unmet needs: ans
 
 ## Summary
 
-_(none recorded)_
+Resumed E022 after an interruption and finished it. Repaired need_depth_walk.py (F042): it re-appended each chain's current node instead of the node's parent, so no chain longer than one hop could close -- it fetched 432 ancestors, resolved 0 of 434, printed 'no new ancestors' 29 times and exited 0. After the repair 1401/1401 depths resolve. Added tests/test_need_depth_gate.py (14 tests) holding the defective loop shape as a failing assertion and reading the committed capture rather than the walk's exit code; two of its assertions failed first because the test, not the code, was wrong, which is recorded. All six arms verify; results.json now carries gates A1/A2/A3, the three controls and the four limits instead of a pointer to the lift script. Removed three unresolved merge markers from tracked records and the dead author join in run.py that read Algolia's never-populated type field. doc lint, release check and 790 tests are green.
+
+## Next
+
+Item 0's asset is now measured and narrows rather than opens: E022 read the outcomes of all 1401 statements. The inverse filter it names -- the 589 statements that drew no reply at all -- is the last measurement on this population that could return something other than a distribution of outcomes, and it deliberately needs its own falsifiable claim first. E2's lockfile side B is the only live mechanism.
 
 ## Artifacts
 
@@ -35,10 +39,11 @@ _(none recorded)_
 | EXPERIMENTS/022-need-outcomes/README.md | f7dcce9e5c0f | 7557 |
 | tests/test_need_depth_gate.py | 17a32aac04da | 9046 |
 | FAILURES-findings-17.md | 13dd0be74b33 | 4387 |
+| EXPERIMENTS/022-need-outcomes/need_depth_walk.py | a5befcf8af5b | 9634 |
 
 ## Commands
 
-48 captured, 6 non-zero exit.
+50 captured, 6 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -87,11 +92,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 33 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING-3.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/022-need-outcomes/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/022-need-outcomes/author_build.py |
+|   undeclared | EXPERIMENTS/022-need-outcomes/combine.py |
+|   undeclared | EXPERIMENTS/022-need-outcomes/control.py |
+|   undeclared | EXPERIMENTS/022-need-outcomes/control_depth.py |
+|   undeclared | EXPERIMENTS/022-need-outcomes/length_adjusted.json |
+|   undeclared | EXPERIMENTS/022-need-outcomes/lift.py |
+|   undeclared | EXPERIMENTS/022-need-outcomes/lift_length.py |
 
 ## Timeline
 
@@ -137,18 +151,18 @@ _(none recorded)_
 | 38 | 09:53:58 | milestone | Resumed after interruption. E022 measured: 1401/1401 readable (gate A1 met), 812 answered (0.580), depth-stratified MH OR 0.692, build arm 0/24 hand-j |
 | 39 | 09:53:58 | command | $ tools/origin session step Resumed after interruption. E022 measured: 1401/1401 readable (gate A1 met), 812 answered (0.580), depth-stratifie |
 | 40 | 09:56:32 | command | $ python3 EXPERIMENTS/022-need-outcomes/need_depth_walk.py |
-| 53 | 10:30:49 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_need_depth_gate |
-| 54 | 10:40:28 | artifact | wrote EXPERIMENTS/022-need-outcomes/results.json |
-| 55 | 10:40:29 | artifact | wrote EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl |
-| 56 | 10:40:29 | artifact | wrote EXPERIMENTS/022-need-outcomes/raw/lift_stratified.json |
-| 57 | 10:40:30 | artifact | wrote EXPERIMENTS/022-need-outcomes/README.md |
-| 58 | 10:40:31 | artifact | wrote tests/test_need_depth_gate.py |
-| 59 | 10:40:31 | artifact | wrote FAILURES-findings-17.md |
-| 60 | 10:40:48 | task_rewrite | rewrote tasks/T-0066-measure-what-happens-to-a-publicly-stated-unmet.md (status: done) |
-| 61 | 10:40:49 | task_rewrite | appended a complete record for T-0066 |
-| 62 | 11:04:04 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 95 | 11:07:57 | unlogged_change | changed but never declared as an artifact: ROADMAP.md |
+| 96 | 11:07:57 | unlogged_change | changed but never declared as an artifact: STATE-in-flight.md |
+| 97 | 11:07:57 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 98 | 11:07:57 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 99 | 11:07:57 | doc_update | updated DECISIONS-SCREENING-3.md |
+| 100 | 11:07:57 | doc_update | updated DECISIONS.md |
+| 101 | 11:07:57 | doc_update | updated FAILURES.md |
+| 102 | 11:07:57 | doc_update | updated ROADMAP.md |
+| 103 | 11:07:57 | doc_update | updated STATE.md |
+| 104 | 11:07:57 | session_end | Resumed E022 after an interruption and finished it. Repaired need_depth_walk.py (F042): it re-appended each chain's current node instead of the node's |
 
-_12 middle events omitted; see `events.jsonl`._
+_54 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

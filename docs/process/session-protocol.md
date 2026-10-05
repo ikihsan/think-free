@@ -56,6 +56,15 @@ events, session 015 with 4 — and neither could be logged afterwards, because a
 closed stream accepts nothing. The tool cannot tell an interesting file from a
 dull one; it can only tell a declared one from an undeclared one.
 
+**Use `--dir` for anything an experiment owns.** An experiment directory is
+thirty files and a report is one, so declaring "the interesting ones" means
+declaring the wrong one. `session artifact --dir EXPERIMENTS/0NN-name` records
+every file beneath it in one command. Session 008 (2026-10-05) closed with **33
+undeclared changes** for exactly this reason — it had declared `results.json` and
+the README, which are the two files a reader would most want, and none of the
+eleven raw captures the verdict rests on. **The gap is unfixable once `finish`
+has run**, so the declaration has to happen before it.
+
 **One exception, and it is not yours to declare.** `task claim`, `task complete`
 and `task release` rewrite the task file they manage *and* append to
 `tasks/CLAIMS.jsonl`, so every one of them used to close its session with exit 4

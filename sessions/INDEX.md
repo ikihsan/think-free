@@ -15,7 +15,7 @@ Showing the 25 most recent. 83 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | **unfinished** | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T07:58 |
+| [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
 | [2026-10-05-006-record-the-post-rename-artifact-paths-an](2026-10-05-006-record-the-post-rename-artifact-paths-an/README.md) | unknown-agent | worked | Record the post-rename artifact paths and the HYPOTHESES entry that th | 2026-10-05T07:34 |
 | [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | worked | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T07:30 |
