@@ -4,20 +4,20 @@
   "correct": 12,
   "false_negatives": [],
   "false_positives": [],
-  "note_on_baseline": "A rule that read F029's cause column and nothing else would label all 12 prior_art and score 9 of 12 -- three false positives, the exact error F035 documented. The control's discriminating cases are those three.",
-  "population": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+  "note_on_baseline": "A rule that read F029's cause column and judged nothing would label all 12 prior_art and score 9 of 12 -- the false positives F035 documented. The control's discriminating cases are those rows.",
+  "population": "E016's per-item prior-art verdicts on F029's 13 adjudicable judgement kills, each with deciding text recorded; a different instrument at a different time, with known errors in the reference labels.",
   "reference_no_prior_art": 3,
   "reference_prior_art": 9,
   "rows": 12,
   "rule_prior_art": 9,
   "verdict": "passes",
-  "verdict_rule": "Passes at no false negatives and at most one false positive: the reference labels contain three known errors, so a rule that reproduced all three would be failing, not succeeding.",
+  "verdict_rule": "Passes at no false negatives and at most one false positive: the reference labels contain three known errors, so a rule reproducing all three would be failing, not succeeding.",
   "what_this_does_not_establish": "Agreement with E016 is not correctness -- its arm-2 gate landed exactly on its threshold with one row deciding it. And the decisive limit is the one E023 already measured on this mission's labels: one reader, no second coder. This bounds whether the rule tracks an external label set, not whether this reader's judgements on the treatment rows are right."
  },
  "experiment": "024-kill-reason-causes",
  "limits": [
   "One reader assigned every category and there is no second coder. The deciding sentence is recorded per row so a disagreeing reader can re-derive each category and name the single sentence they disagree about.",
-  "The four categories are the record's own vocabulary, not the world's, and the precedence order is a declared convention that can move a row across the 50% line.",
+  "The four categories are the record's own vocabulary, not the world's, and the precedence order is a declared convention that moves rows across the 50% line.",
   "This is a count over the record as written. It is not a measurement of what exists in the world and nothing here is a novelty claim.",
   "H1's denominator excludes never_a_candidate rows. Including them would report a smaller prior-art share by adding rows to which no kill reason applies."
  ],
@@ -28,10 +28,10 @@
   "contested_rows": [
    "A1",
    "C2",
+   "C3",
    "D1",
    "D2",
-   "D5",
-   "C3"
+   "D5"
   ],
   "eligible": 18,
   "every_prior_art_row_flips_it_alone": true,

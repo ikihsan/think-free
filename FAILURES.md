@@ -33,7 +33,8 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-14.md`](FAILURES-findings-14.md) (F037, F038) and
 [`FAILURES-findings-15.md`](FAILURES-findings-15.md) (F039, F040) and
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
-[`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043), split because
+[`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
+[`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -85,6 +86,7 @@ side per the rule in
 | F041 | The young vocabulary's copy channel is 0.12x its install channel, so the prior-art screen's young-vocabulary failure is the world and not a channel it failed to read |
 | F042 | A repair walk that printed "no new ancestors" 29 times resolved 0 of 434 unreadable comments and exited 0; it never advanced the node, so no chain longer than one hop could close |
 | F043 | E022's 38.5% served figure is the ordinary base rate of a Hacker News conversation (0.368 in the same threads), so the trigger vocabulary is invisible to what happens to a need after it is stated |
+| F044 | "Twelve candidates, twelve prior-art deaths" is a plurality with a one-row margin (10 of 18 = 0.556) over a population of 20, and 7 of the 18 died of something else — a falsified mechanism, a claim no observation could establish, or a supported mechanism that died of being supported |
 
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader
@@ -93,6 +95,17 @@ that a reply naming an artifact is evidence the need was served, and leaves
 E022's other two numbers standing — 58.0% answered, and 0 of 24 unserved
 requesters who built it themselves. Label agreement between the two readers on
 the identical 39 rows is κ = 0.9226, so the null is a property of the population.
+
+**F044's evidence lives at `EXPERIMENTS/024-kill-reason-causes/`:** `PROTOCOL.md`
+declares the population, the four categories and both gates before any row is
+read; `CONTROL.md` records the declared control failing as constructed, the
+discarded 19/19 repair, and the replacement control's disclosure;
+`results.json` carries the counts and the sensitivity analysis. It **falsifies no
+prior-art verdict and reopens no candidate** — it measures what candidates were
+killed *by*. Its binding limit is **one reader, no second coder**, the same defect
+E023 fixed with κ = 0.923, and at a one-row margin the second reader is the
+measurement that would settle whether the record's sentence is a fact or a
+coin-flip.
 
 **F042's evidence lives at `EXPERIMENTS/022-need-outcomes/`,** and the defect
 itself is in `need_depth_walk.py`. The reported result did not move across the

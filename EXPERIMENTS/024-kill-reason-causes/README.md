@@ -1,9 +1,15 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-05
+-->
+
 # 024 — what actually killed the candidates
 
-**Date:** 2026-10-05. **T-0068.** Declaration in [`PROTOCOL.md`](PROTOCOL.md),
-written before any row was classified. Control in
-[`CONTROL.md`](CONTROL.md). Numbers from `results.json`, computed by
-[`classify.py`](classify.py).
+**Date:** 2026-10-05. **T-0068.** The declaration was written before any row was
+classified, and the control was run before the first one. Both are in this
+directory: `PROTOCOL.md` and `CONTROL.md`. Numbers from `results.json`, computed
+by `classify.py`, and the record itself is checked by `rowcheck.py`.
 
 **Verdict: H1 survives by exactly one row. H2 is false.** Prior art *was* the
 majority kill reason, so item 0's premise stands — but it stands on a 10-to-18

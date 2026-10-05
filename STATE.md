@@ -279,8 +279,12 @@ pushes via the GitHub App as `Ihsan Ai Server Bot`.
   has *not* been shown is that any need is served by the incumbents a screen names
   — "no prior art found" remains the absence of a hit (F035), and E020's own H2 is
   `not evaluable` because the instrument could not answer it.
-- Every candidate has substantial prior art, and none has passed prior-art review:
-  twelve candidates, twelve prior-art deaths. Two prior-art reviews are recorded
+- Every candidate has substantial prior art, and none has passed prior-art review.
+  **F044 measured that claim for the first time: prior art is the plurality of
+  kill reasons, not the majority — 10 of 18 = 0.556, a one-row margin, over a
+  population of 20 rather than the twelve this file previously carried, and every
+  prior-art row moved to another category kills the majority reading.** Seven of
+  the 18 died of something else. Two prior-art reviews are recorded
   and negative in their decisive halves (`RESEARCH/PRIOR-ART-KNITTING.md`,
   `RESEARCH/PRIOR-ART-ORIGIN.md`), and a verdict needs more than one phrasing (F030).
 - The screen's own weakness: decidable from prose, so cheap and also vulnerable to

@@ -16,6 +16,11 @@ force a rewrite of the other, which is the same reason
 Read a finding number and go to the file it is defined in. Identifiers are stable
 across findings files.
 
+**Closed readings that an open item still leans on are in
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md)**, split out at the 300-line cap
+on 2026-10-05: what actually killed the candidates (F044), and the
+undecidability question F034 opened (F034, F037, F041).
+
 ## What became of the 1401 stated needs?
 
 **Status: closed, and it narrows item 0 rather than opening it. F042, with its
@@ -226,33 +231,6 @@ gate fires on an unanswerable question — `inconclusive`, not evidence of low d
 Neither experiment is about this repository's own instruments, which is itself worth
 noting: five consecutive experiments measured the quality of the mission's own
 judgement before one asked a question about the world.
-
-## Is a screen whose premise is unmeasurable four times in five a screen?
-
-**Status: closed as an open reading, with one question left (F034, F037, F041).**
-Was item 0c of `STATE-next-actions.md`, moved here when F041 made the ranked list's
-entry redundant.
-
-F034 could read serving evidence for **57% of the incumbents its own population
-contained and 22% of the young arm** — which is a statement about the world's
-distribution rather than about this repository's tooling. F037 measured the
-fraction and it is **high exactly where the candidates live: 14 of 18 young rows
-undecided, 13 of them tools, and 43% of the mature arm.** It also showed
-undecidability does **not** track artifact class — 10 of the 14 unreadable young
-rows are executable — so "this is just a document" never explains an unreadable row.
-F041 then found the missing channel is a *smaller* one, and that its own blind spot
-is the placebo arm.
-
-**What remains open is whether the unmeasurable fraction predicts anything about the
-need**, and its falsifier is a population where that fraction is near zero.
-
-**Ceiling, and it is the reason this is a reading rather than a verdict:** 015's
-`placebo.py` shows the instrument *can* read unpopular projects when it looks for
-readable ones, so "unmeasurable" is partly an artefact of which channels were
-consulted. **A follow-up must state its channel set or it measures the
-instrument.** That is now also the fifth condition of
-[`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md)'s
-prior-art rule.
 
 ## The candidate generator is refuted as a generator
 

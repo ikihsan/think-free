@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D019–D023, D055**. Each entry records a choice that was
+Decisions **D019–D023, D055, D056**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -213,3 +213,49 @@ Consequence: `STATE.md` item 0 rests on E022's `answered` rate and its build arm
 both of which survive; the sentence about `served` is withdrawn. Nothing reopens
 a prior-art death, the 589 unanswered statements, or item 12. F043.
 
+
+## D056 — A kill-reason count is a finding about the procedure, and a majority gate with a one-row margin is reported as a plurality (2026-10-05)
+
+Observed: "twelve candidates, twelve prior-art deaths" was carried in four
+summaries and was the stated premise of E015/F034, E016/F035, E017/F037,
+E021/F041 and of item 0. T-0068 counted it from the primary records
+(`EXPERIMENTS/024-kill-reason-causes/`) against a population rule, four
+categories and a declared precedence written down first: **prior art is 10 of 18
+eligible rows = 0.556, and the population is 20 rather than twelve.**
+
+The gate survived. **The margin is the finding.** Every one of the 10 prior-art
+rows, moved to any other declared category, puts the share at 9/18 = 0.500 and
+kills it; six rows are contested by the declared precedence and moving all six
+also kills it.
+
+Decision: **a majority gate declared against a bare threshold is reported with
+its sensitivity, and a result that one reclassification reverses is reported as
+the plurality it is.** This experiment's own declaration omitted the sensitivity
+band and had to have it added after the run — the defect was in the protocol, not
+in the data, and the amendment is recorded rather than applied silently.
+
+Two design rules this commits to:
+
+1. **A cause claim about the mission's own record is counted from primary
+   sources, with the deciding sentence quoted per row.** The four files that
+   carried "twelve" reconcile with neither the inventory's sixteen nor any sealed
+   report, which is only visible by re-deriving it. `rowcheck.py` enforces that
+   each quote is present in the file it cites — a check that caught two restated
+   sentences in this session's own hand work.
+2. **A control that cannot fail is discarded, not reported as a pass.** The
+   declared control failed as constructed on a category-vocabulary mismatch; its
+   first repair scored 19/19 and was thrown away. The replacement uses an
+   independently produced label set with known errors in it, so the rule is free
+   to score worse than the baseline and a worse score is a real result.
+
+Rejected: (a) reporting 0.556 as "prior art is the dominant kill reason", which
+is what the declared floor licenses and what the margin does not support;
+(b) re-running with a second reader to get κ, which is the right next experiment
+and is not this one's scope — the honest reading is a plurality plus an open
+reliability question; (c) opening the six contested rows to get a cleaner
+majority, which would be choosing a threshold after seeing which side it favours.
+
+Consequence: item 0 stays an owner decision, now over a plurality, and gains a
+second option with a count behind it — promote fewer claims and price each one's
+gate before promoting it, which is what F006's A1 shows was available at report
+time. Nothing reopens a prior-art verdict or a candidate. F044.

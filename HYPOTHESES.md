@@ -66,6 +66,24 @@ candidate entered or left the table.** What changed is D055: a rate read from a
 trigger-harvested corpus without a control arm is a description of Hacker News,
 and any such corpus bounds its own outcome readings.
 
+**E024 counted the mission's own kill reasons, not a candidate**
+(`EXPERIMENTS/024-kill-reason-causes/`, T-0068). "Twelve candidates, twelve
+prior-art deaths" was carried in four summaries and was the premise of E015,
+E016, E017, E021 and of item 0; neither its count nor its cause had a gate.
+Counted from the primary records against a population rule and a declared
+precedence written first: **prior art is 10 of 18 eligible rows = 0.556 over a
+population of 20**, so the plurality reading survives and the count of twelve is
+false — but by a **one-row margin, since every prior-art row moved to another
+category puts the share at 0.500** (F044). **Seven of the 18 died of something
+else**: a mechanism its own test refuted or confirmed into uselessness (F001,
+F006, F008, F012), a claim no available observation could establish, and one
+promoted then parked with no reason recorded. **No candidate entered or left the
+table and no prior-art verdict is falsified** — this measures what candidates
+were killed *by*, which F035 measured separately. What changed is D056: a cause
+claim about this record is counted from primary sources with the deciding
+sentence quoted, a majority gate is reported with its sensitivity, and a control
+that cannot fail is discarded rather than reported as a pass.
+
 **One recorded result belongs to none of these.** T-0034 measured the test suite
 on the CPython versions the fleet's own record named as never run, and found two
 gates asserting that the machine running them was covered by that record
@@ -187,8 +205,13 @@ cost, or the willing users are already served by QICO2/NVAPF-class tools.
 
 1. Agreement among the sealed investigations is weak evidence: they share a model,
   so they are procedurally independent and not epistemically independent.
-2. Every candidate so far has substantial prior art — twelve candidates, twelve
-   prior-art deaths, the twelfth being this repository's own tooling (F026). That
+2. Every candidate so far has substantial prior art, and **prior art is the
+   plurality of kill reasons rather than the majority: 10 of 18 = 0.556, a
+   one-row margin, over a population of 20 rows rather than the twelve this file
+   previously carried (F044).** Of the 18, **7 died of something else** — a
+   mechanism its own test refuted, or confirmed into uselessness (F001, F006,
+   F008, F012); a claim no available observation could establish; or one promoted
+   and then parked with no reason recorded. That
    is the base rate for the ideas an agent can generate, it is why the prior-art
    skill exists, and it is why prior-art survival cannot be the selection filter.
    A verdict also needs more than one phrasing on more than one corpus: one

@@ -17,10 +17,20 @@ prior art, usefulness and adoption untouched, and every item says which.
 ## Ordered by information gained per unit of effort
 
 0. **Decide what the mission selects candidates on, now that novelty cannot be
-   the filter — and the premise behind the old filter is now measured.** Twelve
-   candidates, twelve prior-art deaths, the twelfth being `tools/origin` itself
-   (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). F034 measures the prior-art
-   verdict's own premise on the population that screen consulted: **4 of 4
+   the filter — and the premise behind the old filter has now been counted.**
+   **F044 measured it: prior art is the plurality of kill reasons, not the
+   majority — 10 of 18 = 0.556, a one-row margin, and every prior-art row moved
+   to another category kills the majority reading. The population is 20 rows, not
+   the twelve this item previously carried, and 7 of the 18 died of something
+   else** (a falsified mechanism, a claim no observation could establish, one
+   promoted then parked). So the diagnosis this item was built on is *narrower and
+   less certain than stated*: novelty is the largest single kill reason, not the
+   whole story, and a second option now has a count behind it — **promote fewer
+   claims, and price each one's gate before promoting it**, which is what F006's
+   A1 shows is available at report time. `tools/origin` remains the prior-art
+   death the record treats as the twelfth (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026,
+   F027). F034 measures the prior-art verdict's own premise on the population that
+   screen consulted: **4 of 4
    on-topic incumbents in mature vocabularies are served, 1 of 4 in a young
    one.** The screen is therefore sound where it is least load-bearing and unsound
    precisely where this mission's candidates live — which is neither a reason to
@@ -31,32 +41,27 @@ prior art, usefulness and adoption untouched, and every item says which.
    the table. **Ceiling:** F034's own gate is `inconclusive` — 43% of incumbents
    were undecided against a declared 20% ceiling — and its young arm rests on
    four decided rows; F027's sample is small and self-selected, and 0 stars is a
-   weak proxy with known false negatives (`ripgrep`, `jq`). **Nothing here is
+   weak proxy with known false negatives (`ripgrep`, `jq`); **F044's has one
+   reader and no second coder at a one-row margin, which is the same defect E023
+   fixed with κ = 0.923.** **Nothing here is
    blocked on tooling,** which is the standing reason this item stays the top
    one.
-   **F035, F037, F039 and F041 have since taken the four measurements that bear on
-   this, and each closed a reading rather than opening one.** F035 measured
-   **coverage** (3 of 12 adjudicable kills have no prior art on any of three
-   corpora; 4 were reachable only on the open web); F037 measured **composition**
-   (the young-vocabulary population is **14 of 18 executable code**, so it is not
-   documents and a better filter is not the repair); F039 measured the **need
-   corpus the survivors came from** and found it is **1250 distinct individuals**,
-   median one comment each, with **no need-level recurrence detectable inside it**,
-   so a yield measured on it was never interpretable (D051) and E016's two surviving
-   leads are closed *as sources*. The instrument questions are answered too —
-   **four of six positive controls with demonstrated adoption returned 0 or 1
-   distinct author**, so the recurrence kill gate is recorded *not evaluable*, and
-   **the copy-count instrument read 17 of 18 young-arm repositories and 0 of 13
-   placebo ones.** A lexical count cannot carry a claim about demand, and a code
-   index cannot carry one about unpopular work; both bound every figure this
-   mission has taken against a written or indexed population.
-   **The sessions also falsified their own headlines where the measures were weak**
-   (F039's 79.25% is single-word overlap, not request uniqueness), and every record
-   says so in the weaker form. **What survives for the owner is narrower than this
-   item first said: not what to search, and not what the screen found, but what a
-   fact about supply is supposed to tell us about demand** — the young arm's median
-   row is a 60-star tool, 14 of 18 rows have no readable use channel, and the
-   most-starred tool there is installed 363 times a month.
+   **The four measurements that bear on this each closed a reading rather than
+   opening one (F035, F037, F039, F041).** F035 measured **coverage** (3 of 12
+   adjudicable kills have no prior art on any of three corpora; 4 were reachable
+   only on the open web); F037 measured **composition** (the young-vocabulary
+   population is **14 of 18 executable code**, so it is not documents); F039
+   measured the **need corpus the survivors came from** and found **1250 distinct
+   individuals**, median one comment each, with no need-level recurrence inside
+   it (D051). The instrument questions are answered too: **four of six positive
+   controls with demonstrated adoption returned 0 or 1 distinct author**, so the
+   recurrence gate is *not evaluable*, and **the copy-count instrument read 17 of
+   18 young-arm repositories and 0 of 13 placebo ones.** A lexical count cannot
+   carry a claim about demand and a code index cannot carry one about unpopular
+   work. **F044 then counted the kill reasons this item assumed:** a plurality
+   with a one-row margin, over 20 rows rather than twelve, with 7 of the 18 dying
+   of something else. Full reading in
+   [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
    **The third reading has now been taken, and it is answered in the negative**
    (F041, D053). Full account in
@@ -82,7 +87,6 @@ prior art, usefulness and adoption untouched, and every item says which.
    person who already told us exactly what they want, and did they use the
    thing?"** That is measurable, and it has been measured.
 
-
    **E022 has now measured that asset, and the answer narrows it** (F042,
    `EXPERIMENTS/022-need-outcomes/`; the numbers and the reading are in
    [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of its three numbers
@@ -105,13 +109,10 @@ prior art, usefulness and adoption untouched, and every item says which.
    corpus is 1250 people each asking once; **E022 shows the phrase that found
    them does not mark the comments that get answered.**
 
-   **Those two cells now say one thing, and it bounds every outcome read from a
-   trigger-harvested corpus — E022's included** (F043): a trigger vocabulary finds
-   people who state needs and is **invisible to what happens to those needs
-   afterwards** — lift 0.703 on being answered, **+0.026 on being served**. Two
-   readers labelling the same 39 rows agree at **κ = 0.923**, so this is the
-   population and not the rubric. A rate read from this corpus without a control
-   arm is a description of Hacker News (D055).
+   **Those two cells bound every outcome read from a trigger-harvested corpus,
+   E022's included** (F043, D055): a trigger vocabulary finds people who state
+   needs and is **invisible to what happens to those needs afterwards**. Two
+   readers on the same 39 rows agree at **κ = 0.923**.
 
    **What E022 names and deliberately does not run:** the **589 statements that
    drew no reply at all** are the only sub-population the outcome data marks

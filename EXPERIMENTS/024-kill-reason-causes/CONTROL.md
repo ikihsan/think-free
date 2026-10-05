@@ -1,7 +1,14 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-05
+-->
+
 # 024 — the control, run first, and what it found
 
 `observed` 2026-10-05, T-0068. Run **before** any row of the treatment
-population was classified.
+population was classified. The clause under test is in `PROTOCOL.md`; the
+replacement control and the disclosure that bounds it are below.
 
 ## The clause as declared
 

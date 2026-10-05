@@ -93,11 +93,22 @@ audit these streams even with Rust present. GitHub search was restricted to
 `name` and `description`; code search needs authentication.
 
 **The consequence for the method, which is the real content of this entry.**
-Twelve candidates, twelve prior-art deaths — F001, F006, F008, F009, F012, six
-rejected inside `RESEARCH/D.md` and `RESEARCH/B.md`, and now the mission's own
-tooling. **Prior-art survival cannot be the selection filter, because nothing
+Eleven deaths before this one — F001, F006, F008, F009, F012, six rejected inside
+`RESEARCH/D.md` and `RESEARCH/B.md` — and now the mission's own tooling.
+**Prior-art survival cannot be the selection filter, because nothing
 this mission produces passes it.** That is a fact about the procedure, not about
 any one candidate, and it is the first time the mission has recorded one.
+
+**Corrected by F044, 2026-10-05.** This entry's headline counted the deaths as
+twelve and attributed all of them to prior art. **F044 counted them from the
+primary records: the population is 20 rows, prior art is the plurality at 10 of
+18 = 0.556 rather than a majority, and 7 of the 18 died of something else** — a
+falsified mechanism, a claim no available observation could establish, or a
+supported mechanism that died of being supported. **The conclusion above still
+holds** — prior-art survival cannot be the filter, because nothing this mission
+produces passes it — but it rests on a plurality with a one-row margin, not on a
+majority, and the reasoning has a second branch it did not have: several
+candidates were promoted before their gates were priced.
 
 ## F027 — Every project in this niche has zero users, so "plausible adoption path" cannot discriminate here
 
