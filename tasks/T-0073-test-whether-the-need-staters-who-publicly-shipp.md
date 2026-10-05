@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0073
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 
+claim-vm: 
 verify: cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest discover -s EXPERIMENTS/029-need-build-match -t EXPERIMENTS/029-need-build-match
 -->
 
