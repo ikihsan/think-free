@@ -30,5 +30,5 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `015-incumbent-serving` | Does "prior art exists" mean the need is served? | **inconclusive**; the premise holds in mature vocabularies and fails in young ones (F034) |
 | `016-prior-art-adjudication` | Do E012's 19 prior-art kills survive re-adjudication? | 3 of 12 adjudicable kills have no prior art on any corpus (F035) |
 | `017-incumbent-artifact-type` | Is the screen's young-vocabulary population mostly documents? | **no**; 14 of 18 are executable code, by hand 13 of 18 (F037) |
-| `016-prior-art-adjudication` | Is "a tool already serves this" a screen that can be shown to work? | **yes, and it is the weakest verdict the mission owns**: 6/6 controls recovered, 3 of 12 kills have no prior art, and the open web carries a third of what code indices miss (F035, F036, D050) |
 | `018-runtime-signal-selection` | Can one annotation select metric/log/trace at runtime per path? | mechanism real, stock-OTel friction real, **feature gap, not a candidate** (F038) |
+| `019-corpus-person-diversity` | How many people are in the need corpus, and can a shared need appear in it? | 1250 individuals; 79% of clauses share no content word; the recurrence instrument failed its own controls (F039, D051) |

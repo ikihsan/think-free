@@ -16,9 +16,19 @@ ordinary edits do not.
 | [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md) | D011–D012, D014–D018, D031, D033–D034 | Recording and moving work |
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
 | [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D044–D045 | What a command's own write is, and what must travel with it when published |
-| [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023, D048–D050 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, the two inputs a candidate may not borrow from each other, and what a prior-art verdict must read before it may kill |
+| [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, and the two inputs a candidate may not borrow from each other |
+| [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) | D048–D051 | What passes, continued: the two inputs a candidate may not borrow from each other, what a prior-art verdict must read before it may kill, and that a harvested corpus's population is measured before its yield |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
 | [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D046, D047 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
+
+**Split a sixth time at 2026-10-05 (T-0063), when D051 took
+`DECISIONS-SCREENING.md` to 324 of its 300 permitted lines.** D048–D050 moved
+verbatim to `DECISIONS-SCREENING-2.md`. This is the first split in this log that
+continues an invariant rather than narrowing one, and both headers say so: the
+two files govern *what passes*, which is what
+[`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) could not claim after its own
+second split and had to revert. Numbering is continuous and unchanged, so an
+existing reference to a decision id still resolves wherever the entry now lives.
 
 **The invariant that makes the split sensible.** A reader who needs to know *why
 this mission is shaped this way* reads only the foundation file. A reader who

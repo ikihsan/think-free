@@ -1,0 +1,389 @@
+{
+ "arm_a": {
+  "capture": "raw/corpus_authors.jsonl",
+  "comments": 1401,
+  "comments_per_author": {
+   "max": 8,
+   "mean": 1.121,
+   "median": 1.0,
+   "min": 1,
+   "p90": 1,
+   "p99": 3
+  },
+  "computed_by": "stats.py from raw/corpus_authors.jsonl",
+  "deleted_or_dead_rows": 0,
+  "distinct_authors": 1250,
+  "distinct_days": 466,
+  "distinct_parent_stories": 1276,
+  "distinct_triggers": 24,
+  "gate_a1_met": true,
+  "per_trigger": [
+   {
+    "comments": 749,
+    "comments_per_author_max": 5,
+    "distinct_authors": 666,
+    "trigger": "i wish there was"
+   },
+   {
+    "comments": 154,
+    "comments_per_author_max": 2,
+    "distinct_authors": 151,
+    "trigger": "is there a way to"
+   },
+   {
+    "comments": 97,
+    "comments_per_author_max": 2,
+    "distinct_authors": 95,
+    "trigger": "any tool that"
+   },
+   {
+    "comments": 70,
+    "comments_per_author_max": 2,
+    "distinct_authors": 69,
+    "trigger": "looking for a way to"
+   },
+   {
+    "comments": 54,
+    "comments_per_author_max": 2,
+    "distinct_authors": 52,
+    "trigger": "is there anything that"
+   },
+   {
+    "comments": 53,
+    "comments_per_author_max": 1,
+    "distinct_authors": 53,
+    "trigger": "does anyone know any"
+   },
+   {
+    "comments": 48,
+    "comments_per_author_max": 3,
+    "distinct_authors": 44,
+    "trigger": "nobody has built"
+   },
+   {
+    "comments": 38,
+    "comments_per_author_max": 1,
+    "distinct_authors": 38,
+    "trigger": "looking for a tool"
+   },
+   {
+    "comments": 28,
+    "comments_per_author_max": 1,
+    "distinct_authors": 28,
+    "trigger": "is there an open source"
+   },
+   {
+    "comments": 23,
+    "comments_per_author_max": 1,
+    "distinct_authors": 23,
+    "trigger": "is there anything like"
+   },
+   {
+    "comments": 19,
+    "comments_per_author_max": 1,
+    "distinct_authors": 19,
+    "trigger": "what do you use for"
+   },
+   {
+    "comments": 9,
+    "comments_per_author_max": 1,
+    "distinct_authors": 9,
+    "trigger": "what do you use to"
+   },
+   {
+    "comments": 8,
+    "comments_per_author_max": 1,
+    "distinct_authors": 8,
+    "trigger": "we need a tool"
+   },
+   {
+    "comments": 7,
+    "comments_per_author_max": 1,
+    "distinct_authors": 7,
+    "trigger": "looking for a library"
+   },
+   {
+    "comments": 6,
+    "comments_per_author_max": 1,
+    "distinct_authors": 6,
+    "trigger": "is there a self-hosted"
+   },
+   {
+    "comments": 6,
+    "comments_per_author_max": 1,
+    "distinct_authors": 6,
+    "trigger": "what tool do you use"
+   },
+   {
+    "comments": 6,
+    "comments_per_author_max": 1,
+    "distinct_authors": 6,
+    "trigger": "is there a tool that"
+   },
+   {
+    "comments": 6,
+    "comments_per_author_max": 1,
+    "distinct_authors": 6,
+    "trigger": "is there a cli"
+   },
+   {
+    "comments": 5,
+    "comments_per_author_max": 1,
+    "distinct_authors": 5,
+    "trigger": "is there a python library"
+   },
+   {
+    "comments": 5,
+    "comments_per_author_max": 1,
+    "distinct_authors": 5,
+    "trigger": "does anyone know a good"
+   },
+   {
+    "comments": 4,
+    "comments_per_author_max": 1,
+    "distinct_authors": 4,
+    "trigger": "does anyone know a tool"
+   },
+   {
+    "comments": 3,
+    "comments_per_author_max": 1,
+    "distinct_authors": 3,
+    "trigger": "is there an app that"
+   },
+   {
+    "comments": 2,
+    "comments_per_author_max": 1,
+    "distinct_authors": 2,
+    "trigger": "is there a service that"
+   },
+   {
+    "comments": 1,
+    "comments_per_author_max": 1,
+    "distinct_authors": 1,
+    "trigger": "is there a library that"
+   }
+  ],
+  "rows_in_single_comment_authors": 1147,
+  "rows_with_author": 1401,
+  "top_10_authors_comment_share": 0.035,
+  "top_1pct_authors_comment_share": 0.04
+ },
+ "arm_a2": {
+  "bottleneck_histogram": {
+   "1": 913,
+   "12": 2,
+   "13": 1,
+   "2": 156,
+   "21": 1,
+   "24": 1,
+   "3": 52,
+   "4": 9,
+   "5": 6,
+   "6": 6,
+   "7": 2,
+   "8": 3
+  },
+  "clauses_with_bottleneck_1": 913,
+  "computed_by": "arm_a2_local.py, local files only",
+  "eligible_clauses": 1152,
+  "gate": {
+   "band": "50-90% -> no verdict, distribution reported",
+   "declared": "share_bottleneck_1 >= 0.90 closes the aggregation generator; < 0.50 means sharing exists; between, no verdict",
+   "met": false
+  },
+  "rules": {
+   "bottleneck": "min over the clause's content words of the number of clauses containing that word; 1 means no other clause shares any content word",
+   "content_word": "lowercase token matching [a-z][a-z0-9+#.]{2,} and not in the declared stopword list, taken from the clause text only",
+   "eligibility": "at least 3 content words, matching E012's >=6 token filter closely enough to cover its sample"
+  },
+  "share_bottleneck_1": 0.7925,
+  "terms_shared_by_any_clause": 536,
+  "the_50_row_screen_sample": {
+   "bottleneck_1": 43,
+   "clauses": 49,
+   "share_bottleneck_1": 0.8776
+  },
+  "top_document_frequency_terms": [
+   {
+    "clauses": 119,
+    "term": "x2f"
+   },
+   {
+    "clauses": 41,
+    "term": "better"
+   },
+   {
+    "clauses": 41,
+    "term": "people"
+   },
+   {
+    "clauses": 31,
+    "term": "know"
+   },
+   {
+    "clauses": 30,
+    "term": "easy"
+   },
+   {
+    "clauses": 30,
+    "term": "work"
+   },
+   {
+    "clauses": 29,
+    "term": "tool"
+   },
+   {
+    "clauses": 28,
+    "term": "similar"
+   },
+   {
+    "clauses": 27,
+    "term": "code"
+   },
+   {
+    "clauses": 26,
+    "term": "version"
+   },
+   {
+    "clauses": 25,
+    "term": "data"
+   },
+   {
+    "clauses": 25,
+    "term": "kind"
+   },
+   {
+    "clauses": 24,
+    "term": "find"
+   },
+   {
+    "clauses": 24,
+    "term": "software"
+   },
+   {
+    "clauses": 22,
+    "term": "actually"
+   },
+   {
+    "clauses": 22,
+    "term": "alternative"
+   },
+   {
+    "clauses": 21,
+    "term": "etc"
+   },
+   {
+    "clauses": 21,
+    "term": "open"
+   },
+   {
+    "clauses": 21,
+    "term": "single"
+   },
+   {
+    "clauses": 21,
+    "term": "source"
+   },
+   {
+    "clauses": 20,
+    "term": "app"
+   },
+   {
+    "clauses": 20,
+    "term": "based"
+   },
+   {
+    "clauses": 20,
+    "term": "set"
+   },
+   {
+    "clauses": 20,
+    "term": "system"
+   },
+   {
+    "clauses": 19,
+    "term": "option"
+   }
+  ],
+  "verdict": "no_verdict_distribution_reported"
+ },
+ "arm_b": {
+  "arm_b1": "inconclusive",
+  "arm_b2": {
+   "authors_in_capture": 1250,
+   "authors_naming_both_families": 25,
+   "note": "the rows are visibly not F033's cluster on inspection, so 2% is consistent with background co-occurrence of a common term family and separates nothing",
+   "share": 0.02,
+   "verdict": "inconclusive"
+  },
+  "capture": "raw/arm_b.json",
+  "clauses": [
+   {
+    "best_distinct_authors": 1,
+    "row": 10
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 15
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 20
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 25
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 30
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 35
+   },
+   {
+    "best_distinct_authors": 1,
+    "row": 45
+   },
+   {
+    "best_distinct_authors": 0,
+    "row": 5
+   },
+   {
+    "best_distinct_authors": 0,
+    "row": 40
+   },
+   {
+    "best_distinct_authors": 0,
+    "row": 50
+   }
+  ],
+  "computed_by": "stats.py from raw/arm_b.json",
+  "gate_b1_declared": ">= 5 of 6 positive controls at >= 3x the median negative control",
+  "gate_b1_degenerate": true,
+  "gate_b1_met_numerically": true,
+  "gate_b1_verdict": "degenerate: the negative median is 0, so 3x it is 0 and the threshold cannot separate anything; and 4 of 6 positive controls with demonstrated adoption returned 0 or 1 distinct authors, so the instrument cannot rank and no recurrence verdict is drawn",
+  "kill_gate_declared": "every clause below the weakest positive control",
+  "kill_gate_evaluable": false,
+  "kill_gate_met": false,
+  "kill_gate_note": "numerically met but not evaluable: the same 0-or-1 readings that disqualify the controls disqualify the clauses",
+  "negative_median_distinct_authors": 0.0,
+  "positive_controls_at_or_below_floor": 4,
+  "positive_controls_passed": 6,
+  "positive_gate_met": true,
+  "positive_threshold": 0.0
+ },
+ "experiment": "E019 corpus person diversity",
+ "verdict": {
+  "arm_a": "decisive",
+  "arm_a2": "declared band 50-90%, no verdict, distribution reported",
+  "arm_b1": "instrument failed its own controls",
+  "arm_b2": "inconclusive",
+  "h1_corpus_is_wide": true,
+  "h2_corpus_is_narrow": false,
+  "h3_person_recurrence_salvages_clauses": "not_testable_with_this_instrument",
+  "what_is_established": "1401 comments carry 1250 distinct authors, and 79.25% of eligible clauses share no content word with any other clause. The corpus is a wide audience of individual requesters, not a sample of shared needs.",
+  "what_is_not_established": "that the requests lack shared demand; only that this corpus cannot show it, and that no lexical recurrence instrument tried here can show it either."
+ }
+}

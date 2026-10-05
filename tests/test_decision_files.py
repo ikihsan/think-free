@@ -13,6 +13,10 @@ found unread.
 T-0054 added `DECISIONS-PUBLISHING.md` to the two tuples and this module failed
 until the third was updated, naming the file rather than a count. A gate that
 compares counts tells you a number changed; this one tells you which file.
+`DECISIONS-SCREENING-2.md` is the seventh split and it earned its keep twice: it
+is the first split whose name carries a digit, and `decisionindex.py`'s row
+pattern could not read it until T-0063 widened it — see
+`test_decision_row_pattern.py`.
 
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
@@ -32,6 +36,7 @@ DECISION_FILES = (
     "DECISIONS-FOUNDATION.md",
     "DECISIONS-PRACTICE.md",
     "DECISIONS-SCREENING.md",
+    "DECISIONS-SCREENING-2.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

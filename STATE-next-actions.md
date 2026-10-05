@@ -33,31 +33,64 @@ prior art, usefulness and adoption untouched, and every item says which.
    four decided rows. F027's sample is small and self-selected, and 0 stars is a
    weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
    blocked on tooling.
-   **F035 and F037 have since taken the two measurements that bear on this, and
-   both came out against the repair this item implies.** F035 measured
+**F035, F037 and F039 have since taken the three measurements that bear on
+   this, and F039 removed the last remaining source.** F035 measured
    **coverage** (3 of 12 adjudicable kills have no prior art on any of three
    corpora; 4 were reachable only on the open web); F037 measured
    **composition** (the young-vocabulary population is **14 of 18 executable
-   code**, 13 of 18 with every root listing read by hand, so it is not documents
-   and a better filter is not the repair either). What survives for the owner to
-   decide is narrower than this item first said: **not what to search, and not
-   what the screen found, but what a fact about supply is supposed to tell us
-   about demand** — the young arm's median row is a 60-star tool, its documents
-   carry a median 6,072 stars against 566, 14 of 18 rows have no readable use
-   channel, and the most-starred tool there is installed 363 times a month.
+   code**, so it is not documents and a better filter is not the repair); F039
+   measured the **need corpus the survivors came from** and found it is **1250
+   distinct individuals**, median one comment each over 466 days, with **no
+   need-level recurrence detectable inside it**. It is a wide audience of
+   one-off requesters, so a yield measured on it was never interpretable (D051)
+   and E016's two surviving leads (12 and 16) are closed *as sources* — the
+   premise that anyone shares the request was never measured. The instrument
+   question is answered too: **four of six positive controls with demonstrated
+   adoption returned 0 or 1 distinct author**, so no recurrence verdict could be
+   drawn and the kill gate is recorded *not evaluable* rather than met. A
+   lexical count cannot carry a claim about demand, which bounds every recurrence
+   figure this mission has taken against a written population. **The session also
+   falsified its own headline:** a shared content *word* is a weak test, and two
+   stricter measures added afterwards disagree with the 79.25% they were meant to
+   test — the bigram sharing is grammatical coincidence and the rare-word sharing
+   is ordinary English — so the claim is stated in its weaker form everywhere.
+   **What survives for the owner is narrower than this item first said: not what
+   to search, and not what the screen found, but what a fact about supply is
+   supposed to tell us about demand** — the young arm's median row is a 60-star
+   tool, its documents carry a median 6,072 stars against 566, 14 of 18 rows have
+   no readable use channel, and the most-starred tool there is installed 363 times
+   a month.
+
    **The third reading is now the cheapest one and nobody has taken it.** H2 is
    dead at 0 of 4 because none of those documents is a manual workaround: the
    reader copies a `.claude/` **directory** into their own repository once and the
    hooks run themselves. **The artifact in use is not a package**, and every
-   serving channel this repository owns counts installations — so *1 of 18
-   clears a floor* is consistent with a field that is used and invisible. The
-   testable form: **is the serving signal for a young vocabulary forks and
-   dependents rather than installs?** Falsifier: a known-copied configuration
-   whose repository has neither. Cheapest honest proxy for "was this copied" is
-   the count of repositories containing a `.claude/` directory with hooks, which
-   no public API serves — so the first move is to decide whether forks,
-   dependents or templates are an adequate stand-in, and a control is a tool
-   people install against a configuration people copy.
+   serving channel this repository owns counts installations — so *1 of 18 clears
+   a floor* is consistent with a field that is used and invisible. The testable
+   form: **is the serving signal for a young vocabulary forks and dependents
+   rather than installs?** Falsifier: a known-copied configuration whose
+   repository has neither. Cheapest honest proxy for "was this copied" is the
+   count of repositories containing a `.claude/` directory with hooks, which no
+   public API serves — so the first move is to decide whether forks, dependents
+   or templates are an adequate stand-in, and a control is a tool people install
+   against a configuration people copy.
+
+   **What is left for the owner is one question, with a candidate answer the
+   owner has not seen.** Everything measured about supply says supply is
+   uninformative about demand (F028, F032, F037), and the demand-side corpus is
+   now measured and cannot answer it either. **But that corpus is 1250 named,
+   publicly identified people who each wrote down, in public and unprompted, what
+   was missing from their work.** It is the only demand-side asset here that is
+   not a supply count, and the mission has used it purely as a bag of problem
+   statements. The axis it suggests is not "does anyone want this" —
+   unmeasurable without publishing — but "**is there a specific person who
+   already told us exactly what they want, and did they use the thing?**", which
+   is measurable once the first step is a prototype addressed to one of them.
+   **Ceiling on that suggestion:** it needs authorization to contact anyone, its
+   denominator is 1250 people who happened to post on one site, and one
+   satisfied requester proves nothing about a market. Choosing it is item 0's and
+   the owner's; what E019 supplies is the population, and the measurement that
+   makes it a population rather than 1401 rows.
 
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the
@@ -82,12 +115,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    so "unmeasurable" is partly an artefact of which channels were consulted; a
    follow-up must state the channel set or it measures the instrument.
 
-0d. **Invention item (D048), now holding E016's three unserved needs.** This entry
+0d. **Invention item (D048), and its seat is now empty by measurement.** This entry
    holds the seat for candidate work; every other item here had been gates, CI
    diagnosis, identifier allocation or line caps (F031's complaint). E016's arm 2
    put **three needs no artifact on three corpora serves** (F035, D050) — the
-   first leads this mission has that do not come from its own sealed reports.
-   **Each goes to a mechanism question first, and each needs its own kill gate:**
+   first leads this mission has that do not come from its own sealed reports — and
+   **F039 has since closed two of the three as sources and answered the third**
+   (E018, F038). **Each went to a mechanism question first, and each needed its
+   own kill gate:**
 
    | item | the clause, as drawn | the mechanism question, and what the corpus already answers |
    |---|---|---|
@@ -101,23 +136,33 @@ prior art, usefulness and adoption untouched, and every item says which.
    collector's tail sampler keeps whole traces by static policy. The friction
    is real, the mechanism is real, and the missing piece is a thin built-in
    conditional processor — a feature gap, not a candidate. Lead 7 moves out of
-   the candidate queue; leads 12 and 16 still carry their mechanism questions.
+   the candidate queue.
 
-   **None of the three is a gap, a candidate, or useful yet.** An absence of a hit
-   on three corpora is the absence of a hit, and a need statement still has no
-   mechanism, differentiation or adoption path. D050 narrows F029 rather than
-   reversing it: the harvest stays refuted as a *candidate* generator, 3 of 50.
+   **Leads 12 and 16 are closed by F039, not by their mechanism answers.** Their
+   mechanism questions are no longer worth asking, because the premise underneath
+   them — that some other person wants the same thing — was never measured and
+   cannot be measured from the corpus they were drawn from. **None of the three
+   was ever a gap, a candidate, or useful:** an absence of a hit on three corpora
+   is the absence of a hit, and a need statement still has no mechanism,
+   differentiation or adoption path. D051 supersedes D050's narrowing here: the
+   harvest is refuted as a generator on a population measurement, not on a
+   screen.
 
-   **Both generators under this seat are closed** — the live corpus 0 of 50
-   (F029) and the recurrence hypothesis, which collapsed every cluster it was
-   promised by >100× (F033). E2's lockfile claim is the only live mechanism:
+   **Both generators under this seat are closed, and now for a measured reason
+   rather than a prior-art one** — the live corpus 0 of 50 (F029), which F039
+   shows was 1250 individuals each asking once rather than a sample of shared
+   needs, and the recurrence hypothesis, which collapsed every cluster it was
+   promised by >100× (F033) and whose person-level instrument failed its own
+   controls (F039). **Do not promote anything from this corpus.** E2's lockfile
+   claim is the only live mechanism here:
    `EXPERIMENTS/009` side B, **zero drift at ~21h**, a fast-drift null only.
-   **F037 adds a third negative here rather than a lead**: this seat's question
-   was what distinguishes a need someone has from a need nobody has in a
-   vocabulary where the prior-art premise is unmeasurable, and what was measured
-   is that the premise's failure there is not a population artefact — the
-   population is real code, barely used. **Ceiling:** this item names where
-   invention work goes; it does not make invention happen.
+   **F037 adds a third negative here rather than a lead**, and F039 adds a
+   fourth: this seat's question was what distinguishes a need someone has from a
+   need nobody has, and what has now been measured is that the mission holds no
+   instrument that answers it — the prior-art premise is unmeasurable in young
+   vocabularies, and the demand corpus is one-off requests. **Ceiling:** this item
+   names where invention work goes; it does not make invention happen, and with
+   both generators closed it names an empty seat rather than a queue.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated

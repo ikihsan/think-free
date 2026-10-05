@@ -36,6 +36,7 @@ IMPLICATIONS = {
             "DECISIONS-PRACTICE.md",
             "DECISIONS-FOUNDATION.md",
             "DECISIONS-SCREENING.md",
+            "DECISIONS-SCREENING-2.md",
             "DECISIONS-GATING.md",
             "DECISIONS-SESSIONS.md",
             "DECISIONS-PUBLISHING.md",

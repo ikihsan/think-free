@@ -42,8 +42,16 @@ from .identifiers import Definition, Issue, _read
 
 # `| [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D029 | … |`. The link
 # target appears twice, so a regex that did not allow it matched no row at all.
+#
+# **The character class admits a digit because this repository names its splits
+# with one** — `FAILURES-findings-2.md`, `STATE-history-2.md`, and now
+# `DECISIONS-SCREENING-2.md`. Without the digit the row for a numbered split
+# matched nothing, and the check reported the file as unlisted while the row sat
+# in the table: the message was false and the check was silent. That is the same
+# failure the link allowance above records, and
+# `tests/test_decision_row_pattern.py` asserts this one in both directions.
 DECISION_ROW = re.compile(
-    r"^\|\s*\[?`?(DECISIONS[A-Z-]*\.md)`?\]?(?:\([^)]*\))?\s*\|\s*(.+?)\s*\|"
+    r"^\|\s*\[?`?(DECISIONS[A-Z0-9-]*\.md)`?\]?(?:\([^)]*\))?\s*\|\s*(.+?)\s*\|"
 )
 RANGE = re.compile(r"D(\d{3})\s*[–-]\s*D?(\d{3})?")
 SINGLE = re.compile(r"D(\d{3})")

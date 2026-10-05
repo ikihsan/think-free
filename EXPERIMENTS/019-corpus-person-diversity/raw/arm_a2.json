@@ -1,0 +1,134 @@
+{
+ "bottleneck_histogram": {
+  "1": 913,
+  "2": 156,
+  "3": 52,
+  "4": 9,
+  "5": 6,
+  "6": 6,
+  "7": 2,
+  "8": 3,
+  "12": 2,
+  "13": 1,
+  "21": 1,
+  "24": 1
+ },
+ "clauses_with_bottleneck_1": 913,
+ "computed_by": "arm_a2_local.py, local files only",
+ "eligible_clauses": 1152,
+ "rules": {
+  "bottleneck": "min over the clause's content words of the number of clauses containing that word; 1 means no other clause shares any content word",
+  "content_word": "lowercase token matching [a-z][a-z0-9+#.]{2,} and not in the declared stopword list, taken from the clause text only",
+  "eligibility": "at least 3 content words, matching E012's >=6 token filter closely enough to cover its sample"
+ },
+ "share_bottleneck_1": 0.7925,
+ "terms_shared_by_any_clause": 536,
+ "the_50_row_screen_sample": {
+  "bottleneck_1": 43,
+  "clauses": 49,
+  "share_bottleneck_1": 0.8776
+ },
+ "top_document_frequency_terms": [
+  {
+   "clauses": 119,
+   "term": "x2f"
+  },
+  {
+   "clauses": 41,
+   "term": "better"
+  },
+  {
+   "clauses": 41,
+   "term": "people"
+  },
+  {
+   "clauses": 31,
+   "term": "know"
+  },
+  {
+   "clauses": 30,
+   "term": "easy"
+  },
+  {
+   "clauses": 30,
+   "term": "work"
+  },
+  {
+   "clauses": 29,
+   "term": "tool"
+  },
+  {
+   "clauses": 28,
+   "term": "similar"
+  },
+  {
+   "clauses": 27,
+   "term": "code"
+  },
+  {
+   "clauses": 26,
+   "term": "version"
+  },
+  {
+   "clauses": 25,
+   "term": "data"
+  },
+  {
+   "clauses": 25,
+   "term": "kind"
+  },
+  {
+   "clauses": 24,
+   "term": "find"
+  },
+  {
+   "clauses": 24,
+   "term": "software"
+  },
+  {
+   "clauses": 22,
+   "term": "actually"
+  },
+  {
+   "clauses": 22,
+   "term": "alternative"
+  },
+  {
+   "clauses": 21,
+   "term": "etc"
+  },
+  {
+   "clauses": 21,
+   "term": "open"
+  },
+  {
+   "clauses": 21,
+   "term": "single"
+  },
+  {
+   "clauses": 21,
+   "term": "source"
+  },
+  {
+   "clauses": 20,
+   "term": "app"
+  },
+  {
+   "clauses": 20,
+   "term": "based"
+  },
+  {
+   "clauses": 20,
+   "term": "set"
+  },
+  {
+   "clauses": 20,
+   "term": "system"
+  },
+  {
+   "clauses": 19,
+   "term": "option"
+  }
+ ],
+ "verdict": "no_verdict_distribution_reported"
+}

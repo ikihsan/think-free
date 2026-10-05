@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D019–D023, D048–D050**. Each entry records a choice that was
+Decisions **D019–D023**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -15,12 +15,18 @@ experiments are screened in or out, what a kill-gate condition may mean, and
 which metric a verdict is taken on. How this repository's own gates are written
 and run belongs in [`DECISIONS-GATING.md`](DECISIONS-GATING.md); recording and
 publishing in [`DECISIONS-PRACTICE.md`](DECISIONS-PRACTICE.md). The index is
-[`DECISIONS.md`](DECISIONS.md).
+[`DECISIONS.md`](DECISIONS.md). **D048 onward is in
+[`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md)**, which carries this
+same invariant continued rather than a new one.
 
 Split out of `DECISIONS-GATING.md` on 2026-10-03 (T-0020), first when D027 pushed
 that file past the 250-line split trigger and again when D024–D027 took it past
 the 300-line cap. Entries moved verbatim; numbering is continuous and unchanged,
 so any existing reference to a decision id still resolves.
+
+Split again on 2026-10-05 (T-0063) when D051 pushed this file to 324 of the 300
+permitted lines: D048–D050 moved verbatim to
+[`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md).
 
 ## D019 — A candidate may not be implemented until its witness is run (2026-10-03)
 
@@ -161,124 +167,3 @@ Consequence: the census reports `lead-survives` and F010 explains why that
 verdict licenses nothing yet. The attribution measurement is T-0017
 (`EXPERIMENTS/008-build-timestamp-attribution/`).
 
-## D048 — The next-action list carries at least one invention item (2026-10-04)
-
-Observed: F031 measured where effort went over two days — 1.3% of day-two
-commits touched `EXPERIMENTS/`, 4.8:1 lines of record-keeping to
-world-measurement, and `STATE-next-actions.md` held no action that could
-produce or advance a candidate. No candidate moved as a result, and no
-artefact had reported the trend; the drift had become executable.
-
-Decision: `STATE-next-actions.md` must always include at least one action
-whose success is a candidate produced, tested, revived, or explicitly
-rejected, and that item is reviewed whenever the list is rewritten. Record-
-keeping repairs remain legitimate, but they may not crowd out the only zone
-whose contents measure something outside this repository.
-
-Rejected: (a) fixing this with a hard quota in the linter, which prices
-sessions instead of informing the human choice; (b) declaring the ratio
-invalid because lines are a weak proxy, which is true of the metric, not of
-the trend it caught; (c) letting the item be optional because invention
-cannot be scheduled, which is how the list filled with gates.
-
-Consequence: the allocation measurement stays runnable
-(`tools/measure_allocation.py`, held by `tests/test_allocation_measurement.py`),
-and the next-action list is expected to show an invention item beside any
-infrastructure item.
-
-## D049 — A need corpus supplies problem statements; recurrence comes from a repository-denominated issue corpus (2026-10-04)
-
-Observed: F029. A harvest of 1401 unmet-need statements from Hacker News
-comments created after 2024-01-01, screened by a stated rule that drew 50 of
-them, yielded **zero survivors** — 38% already served by a tool, 30% stating
-no mechanism, 24% not software needs, 8% needing hardware. The prior generator's
-own record is 3 live candidates from 16 (18.75%), none validated. The corpus has
-no internal recurrence signal either: term recurrence over 1273 clauses returns
-only function words. But the same cluster, measured in a different unit, gives
-5805 open issues across 28 repositories for `"not asked for"` and 14510 across
-29 for `"unrelated changes"`, with `claude-code` and `copilot-cli` in the sets.
-F030: one search query decides a prior-art verdict wrongly in both directions —
-502 hits from `in:readme` that were `awesome-go`, and 0 hits that became 29-83
-on a second phrasing.
-
-Decision: the candidate pipeline has two distinct inputs and they may not be
-substituted for each other. A **problem statement** comes from a dated,
-countable need corpus; a **recurrence signal** comes from issues counted by
-repository, because a thousand issues in one project is one project's problem
-and a hundred issues in a hundred projects is a cross-project one. A need
-statement alone may not be promoted to a candidate on the strength of its own
-existence. And a prior-art verdict requires more than one phrasing, on more than
-one corpus, with the phrasings written down.
-
-Rejected: (a) keeping the harvest as the candidate generator, refuted by the
-0-against-50 measurement; (b) taking GitHub's issue count as a measure of
-prevalence, which is full-text self-selection and needs a repository-signal
-filter before it means anything; (c) treating F030's four revised verdicts as
-candidate gaps, which is the error the decision exists to prevent; (d) declaring
-candidate generation solved and moving on, since 0 of 50 says this generator is
-spent, not that the pipeline is.
-
-Consequence: `EXPERIMENTS/012-candidate-harvest/` is retained with its raw
-capture and four runnable probes. The next candidate action is to build the
-repository-signal filter and re-harvest through it, testing first the cluster
-with the strongest measured recurrence — changes a coding agent makes that
-nobody asked for — against a stated falsification of its own.
-
-## D050 — A prior-art verdict must read the open web and judge the clause's attribute, and an unserved need goes to a mechanism step (2026-10-05)
-
-Observed: F035, from E016's two declared arms. Six of six positive controls
-were re-adjudicated *served*, so the procedure works; and of the twelve
-adjudicable judgement kills in F029, **three are no prior art found** on two
-GitHub phrasings, three registry keywords and two open-web phrasings each —
-item 7 (annotate once, choose metric/log/trace per code path at runtime), item
-12 (tag HN posts and authors inside an HN client), item 16 (a daily word game
-that shows the solution order so a player can give up). One further kill was
-never adjudicable: its clause and E012's reason asked different questions.
-The count is 3 against a threshold of 3 and one row decides it, because item
-16's open-web results include ten answer-aggregator sites that reveal solutions
-outside the game.
-
-Also observed: **corpus carriage.** GitHub's repository index carried every
-verdict the code corpora carried; the registries carried none on their own; and
-the open web carried four served verdicts that two code corpora returned
-nothing for, including twelve named hosted services for url-popularity that two
-code corpora could not see at all. F036: the first web instrument tried answered
-HTTP 200 with 380 well-formed results unrelated to every one of the 38 queries.
-
-Decision: two changes, and they are separable.
-
-1. **A prior-art verdict is only admissible when it reads the open web and
-   judges the clause's distinguishing attribute.** Code indices decide whether a
-   *category* exists; only the open web shows whether something *serves the
-   clause*, because hosted, commercial and vendor features are invisible to
-   every code index. Attribute, not category: item 42 was killed correctly
-   because `git add -p` serves it, and `dingdugan/model.tracker` and all five of
-   item 49's artifacts serve their clauses with 0 to 2 stars between them. A
-   category is served, an attribute is not, and only the second answers the
-   question a need statement asks. An open-web probe carries a known-answer
-   control, a nonsense-token control and per-query titles, or its output is not
-   evidence.
-2. **An unserved need goes to a mechanism step, and F029's generator verdict is
-   narrowed rather than reversed.** Screen 1 and Screen 3 still apply to a need
-   with no solution found, so the harvest stays refuted as a *candidate*
-   generator; but three needs that no artifact on three corpora serves are the
-   first leads this mission has that do not come from its own sealed reports,
-   and they are worth a mechanism question each.
-
-Rejected: (a) treating the three as candidates or as gaps, which is the error
-F030's rule exists to prevent and which MISSION.md forbids — an absence of a hit
-on three corpora is the absence of a hit; (b) reporting the arm as a comfortable
-pass because 3 ≥ 3, when the margin is one attribution row and the looser rule
-gives 2 and reverses the direction, which is recorded in `results.json` instead;
-(c) re-opening all 19 kills for a better search now that the procedure is known
-to work, since 9 of 12 are served and the recoveries are strong; (d) promoting
-the need-harvest corpus back to a generator on the strength of three survivors
-out of fifty, which is 6% and is not a generator; (e) treating the four
-open-web-carried verdicts as an argument for *more* corpora before the mission
-has read the one it knows it needs.
-
-Consequence: E016 closes with both arms answered and its raw captures kept. The
-three items are listed in `STATE-next-actions.md` as the invention item's
-contents, each with the clause it came from and the two phrasings per corpus
-that found nothing. The next screen of anything in this mission reads
-`docs/process/experiment-protocol.md`'s prior-art rule as amended here.
