@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T22:18:13+00:00
-- **Duration:** ?s
+- **Duration:** 8555.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Re-adjudicate E012's 19 prior-art kills on three corpora with positive controls,
 
 ## Summary
 
-_(none recorded)_
+E016 (T-0062) closed with both declared arms met: 6 of 6 positive controls recovered, and 3 of the 12 adjudicable prior-art kills have no prior art on GitHub, three registries and the open web, exactly at the declared threshold, with one attribution row deciding it and both numbers recorded. A thirteenth kill was never adjudicable because its clause and E012's reason asked different questions. The transferable result is corpus carriage: the open web carried 4 served verdicts two code corpora returned nothing for. Recorded as F035, F036 and D050; the protocol now states the four conditions a prior-art verdict needs. Also renumbered onto the moving base twice (F034/015 and T-0061 were taken by the other VM), merged both VMs' records by hand, and repaired the F025 allocation assertion that re-derived a two-day finding against a growing history.
+
+## Next
+
+Take the invention item's first mechanism question: item 7 (annotate once, then choose metric/log/trace per code path at runtime), with its own kill gate declared before any prototype. Item 12 and 16 wait behind it. The owner decision on the selection axis is now informed by F034 and F035 and can be taken at any time.
 
 ## Artifacts
 
@@ -67,11 +71,26 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 47 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 6 |
 | redactions applied to command output | 0 |
+|   undeclared | .gitignore |
+|   undeclared | DECISIONS-SCREENING.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/README.md |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/adjudicate.py |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/phrasings.json |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/raw/brave/0_q0.log |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/raw/brave/0_q1.log |
+|   undeclared | EXPERIMENTS/016-prior-art-adjudication/raw/brave/12_q0.log |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/README.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/phrasings.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/raw/attributions.jsonl |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/raw/web_log.jsonl |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/results.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/web_bing.py |
 
 ## Timeline
 
@@ -116,6 +135,19 @@ _(none recorded)_
 | 37 | 00:40:31 | artifact | wrote ROADMAP.md |
 | 38 | 00:40:32 | artifact | wrote tests/test_allocation_measurement.py |
 | 39 | 00:40:32 | milestone | T-0062 verified and completed; repaired the F025 allocation assertion, which re-derived a two-day finding against a growing history (F018's shape a fo |
+| 40 | 00:40:48 | unlogged_change | changed but never declared as an artifact: .gitignore |
+| 89 | 00:40:48 | integrity_error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/raw/attributions.jsonl |
+| 90 | 00:40:48 | integrity_error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/raw/web_log.jsonl |
+| 91 | 00:40:48 | integrity_error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/results.json |
+| 92 | 00:40:48 | integrity_error | declared artifact no longer exists: EXPERIMENTS/015-prior-art-adjudication/web_bing.py |
+| 93 | 00:40:49 | doc_update | updated DECISIONS-SCREENING.md |
+| 94 | 00:40:49 | doc_update | updated DECISIONS.md |
+| 95 | 00:40:49 | doc_update | updated FAILURES.md |
+| 96 | 00:40:49 | doc_update | updated ROADMAP.md |
+| 97 | 00:40:49 | doc_update | updated STATE.md |
+| 98 | 00:40:49 | session_end | E016 (T-0062) closed with both declared arms met: 6 of 6 positive controls recovered, and 3 of the 12 adjudicable prior-art kills have no prior art on |
+
+_48 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

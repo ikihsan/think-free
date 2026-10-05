@@ -15,7 +15,7 @@ Showing the 25 most recent. 75 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills](2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/README.md) | unknown-agent | **unfinished** | Re-adjudicate E012's 19 prior-art kills on three corpora with positive | 2026-10-04T22:18 |
+| [2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills](2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/README.md) | unknown-agent | worked | Re-adjudicate E012's 19 prior-art kills on three corpora with positive | 2026-10-05T00:40 |
 | [2026-10-04-056-classify-the-prior-art-population-by-art](2026-10-04-056-classify-the-prior-art-population-by-art/README.md) | unknown-agent | **unfinished** | Classify the prior-art population by artifact type and read what the h | 2026-10-04T23:50 |
 | [2026-10-04-055-build-the-repository-signal-recurrence-f](2026-10-04-055-build-the-repository-signal-recurrence-f/README.md) | unknown-agent | worked | Build the repository-signal recurrence filter and test the strongest r | 2026-10-04T22:01 |
 | [2026-10-04-054-test-whether-prior-art-exists-means-the](2026-10-04-054-test-whether-prior-art-exists-means-the/README.md) | unknown-agent | **unfinished** | Test whether 'prior art exists' means 'the need is served', using incu | 2026-10-04T21:44 |
