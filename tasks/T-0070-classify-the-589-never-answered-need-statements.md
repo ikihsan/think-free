@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0070
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-05-014-measure-the-structure-of-the-589-never-a
+claim-vm: 
 verify: test -f EXPERIMENTS/026-unserved-need-structure/results.json && python3 -c "import json;d=json.load(open('EXPERIMENTS/026-unserved-need-structure/results.json'));assert 'answered' in str(d.keys()) or 'arms' in d" && tools/origin doc lint
 -->
 

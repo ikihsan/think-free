@@ -52,6 +52,7 @@ _none_
 | 1 | 16:02:10 | session_start | Measure the structure of the 589 never-answered need statements (the corpus's last open reading) |
 | 2 | 16:02:17 | task_rewrite | appended a create record for T-0070 |
 | 3 | 16:02:32 | task_rewrite | appended a create record for T-0071 |
+| 4 | 16:03:13 | task_rewrite | rewrote tasks/T-0070-classify-the-589-never-answered-need-statements.md (status: claimed) |
 
 ## Reproduce this record
 
