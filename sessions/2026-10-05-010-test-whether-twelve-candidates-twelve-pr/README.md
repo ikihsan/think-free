@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T12:55:55+00:00
-- **Duration:** ?s
+- **Duration:** 3738.2s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `HEAD`
 
@@ -23,7 +23,11 @@ Test whether 'twelve candidates, twelve prior-art deaths' is a fact about the ca
 
 ## Summary
 
-_(none recorded)_
+T-0068/E024 complete: counted what actually killed the candidates, a claim four summaries carried without a gate. Prior art is 10 of 18 eligible = 0.556 over a population of 20, so the plurality reading survives and 'twelve' is false -- by a one-row margin, since every prior-art row moved to another category puts the share at 0.500. Seven of the 18 died of something else, which gives item 0 a second option with a count behind it: promote fewer claims and price each gate before promoting. Nothing reopens. F044, D056.
+
+## Next
+
+A second reader labelling E024's same 18 rows, given the deciding sentences and no category vocabulary: at a one-row margin, kappa there decides whether the record's sentence is a fact or a coin-flip. Item 0 remains the owner's decision, now over a plurality rather than a majority.
 
 ## Artifacts
 
@@ -41,7 +45,7 @@ _(none recorded)_
 
 ## Commands
 
-5 captured, 0 non-zero exit.
+7 captured, 0 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -50,16 +54,27 @@ _(none recorded)_
 | 10 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 511241 |
 | 16 | ['git', 'commit', '-q', '-m', "F044 and D056: correct the four summaries that carried the count, and record what the counting changed\n\nThe populatio | 0 | 175 |
 | 18 | ['git', 'push', '-q', 'origin', 'research/origin'] | 0 | 3575 |
+| 21 | ['git', 'commit', '-q', '-m', "STATE.md: the two uncounted claims as one entry, and the session and lint counts from the tree\n\nSTATE.md was at the c | 0 | 115 |
+| 22 | ['git', 'push', '-q', 'origin', 'research/origin'] | 0 | 3731 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 10 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/024-kill-reason-causes/control_rows.json |
+|   undeclared | EXPERIMENTS/024-kill-reason-causes/rows.json |
+|   undeclared | FAILURES-findings-6.md |
+|   undeclared | FAILURES.md |
+|   undeclared | HYPOTHESES.md |
+|   undeclared | STATE-in-flight.md |
+|   undeclared | STATE-next-actions.md |
+|   undeclared | STATE.md |
 
 ## Timeline
 
@@ -85,6 +100,24 @@ _(none recorded)_
 | 18 | 13:52:07 | command | $ git push -q origin research/origin |
 | 19 | 13:52:44 | task_rewrite | rewrote tasks/T-0068-classify-what-killed-each-candidate-from-its-p.md (status: done) |
 | 20 | 13:52:45 | task_rewrite | appended a complete record for T-0068 |
+| 21 | 13:57:58 | command | $ git commit -q -m STATE.md: the two uncounted claims as one entry, and the session and lint counts from the tree  STATE.md was at the cap, so |
+| 22 | 13:58:12 | command | $ git push -q origin research/origin |
+| 23 | 13:58:13 | unlogged_change | changed but never declared as an artifact: DECISIONS-SCREENING.md |
+| 24 | 13:58:13 | unlogged_change | changed but never declared as an artifact: DECISIONS.md |
+| 25 | 13:58:13 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/024-kill-reason-causes/control_rows.json |
+| 26 | 13:58:13 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/024-kill-reason-causes/rows.json |
+| 27 | 13:58:13 | unlogged_change | changed but never declared as an artifact: FAILURES-findings-6.md |
+| 28 | 13:58:13 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 29 | 13:58:13 | unlogged_change | changed but never declared as an artifact: HYPOTHESES.md |
+| 30 | 13:58:13 | unlogged_change | changed but never declared as an artifact: STATE-in-flight.md |
+| 31 | 13:58:13 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 32 | 13:58:13 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 33 | 13:58:13 | doc_update | updated DECISIONS-SCREENING.md |
+| 34 | 13:58:13 | doc_update | updated DECISIONS.md |
+| 35 | 13:58:13 | doc_update | updated FAILURES.md |
+| 36 | 13:58:13 | doc_update | updated HYPOTHESES.md |
+| 37 | 13:58:13 | doc_update | updated STATE.md |
+| 38 | 13:58:13 | session_end | T-0068/E024 complete: counted what actually killed the candidates, a claim four summaries carried without a gate. Prior art is 10 of 18 eligible = 0.5 |
 
 ## Reproduce this record
 

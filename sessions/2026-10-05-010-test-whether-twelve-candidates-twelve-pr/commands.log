@@ -120,3 +120,26 @@ cwd: /home/ubuntu/think-free
 
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 3575  redactions: none
+==============================================================================
+[seq 21] 2026-10-05T13:57:58+00:00
+$ git commit -q -m STATE.md: the two uncounted claims as one entry, and the session and lint counts from the tree
+
+STATE.md was at the cap, so the per-session bullets for sessions 008 and 010 are
+one entry each, with the readings where they already live. The Sessions row now
+counts from the tree -- 110 streams, 108 closed -- instead of carrying a stale
+running total, and records VM 0947's session 054 as in flight with its T-0060
+claim past the lease, which is why preflight reports a problem that is not
+this session's to clear.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 115  redactions: none
+==============================================================================
+[seq 22] 2026-10-05T13:58:12+00:00
+$ git push -q origin research/origin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3731  redactions: none
