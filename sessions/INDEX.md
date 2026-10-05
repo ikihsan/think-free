@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-109 recorded session(s). One `events.jsonl` per session, so concurrent
+110 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 84 older session(s) are in the directory listing.
+Showing the 25 most recent. 85 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-010-test-whether-twelve-candidates-twelve-pr](2026-10-05-010-test-whether-twelve-candidates-twelve-pr/README.md) | unknown-agent | **unfinished** | Test whether 'twelve candidates, twelve prior-art deaths' is a fact ab | 2026-10-05T12:55 |
 | [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 84 older session(s) are in the directory listing.
 | [2026-10-04-044-choose-and-advance-the-highest-informati](2026-10-04-044-choose-and-advance-the-highest-informati/README.md) | unknown-agent | worked | Choose and advance the highest-information invention-bearing action fr | 2026-10-04T19:11 |
 | [2026-10-04-043-test-whether-the-record-s-falsifiability](2026-10-04-043-test-whether-the-record-s-falsifiability/README.md) | unknown-agent | partial | Test whether the record's falsifiability-first screen is what starves  | 2026-10-04T18:56 |
 | [2026-10-04-043-t-0057-claim-the-task-and-verify-it](2026-10-04-043-t-0057-claim-the-task-and-verify-it/README.md) | unknown-agent | worked | T-0057: claim the task and verify it | 2026-10-04T19:16 |
-| [2026-10-04-042-hold-a-mission-record-s-restated-experim](2026-10-04-042-hold-a-mission-record-s-restated-experim/README.md) | opencode | worked | Hold a mission record's restated experiment number to the artifact it  | 2026-10-04T18:00 |
 
 
 ## Reading a session
