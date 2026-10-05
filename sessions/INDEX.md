@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-107 recorded session(s). One `events.jsonl` per session, so concurrent
+108 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 82 older session(s) are in the directory listing.
+Showing the 25 most recent. 83 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | **unfinished** | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T07:58 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
 | [2026-10-05-006-record-the-post-rename-artifact-paths-an](2026-10-05-006-record-the-post-rename-artifact-paths-an/README.md) | unknown-agent | worked | Record the post-rename artifact paths and the HYPOTHESES entry that th | 2026-10-05T07:34 |
 | [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | worked | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T07:30 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 82 older session(s) are in the directory listing.
 | [2026-10-04-043-t-0057-claim-the-task-and-verify-it](2026-10-04-043-t-0057-claim-the-task-and-verify-it/README.md) | unknown-agent | worked | T-0057: claim the task and verify it | 2026-10-04T19:16 |
 | [2026-10-04-042-hold-a-mission-record-s-restated-experim](2026-10-04-042-hold-a-mission-record-s-restated-experim/README.md) | opencode | worked | Hold a mission record's restated experiment number to the artifact it  | 2026-10-04T18:00 |
 | [2026-10-04-041-repair-the-red-base-state-md-over-the-li](2026-10-04-041-repair-the-red-base-state-md-over-the-li/README.md) | opencode | worked | Repair the red base (STATE.md over the line cap) and fix the task-clai | 2026-10-04T16:03 |
-| [2026-10-04-040-measure-the-taskless-session-red-ci-run](2026-10-04-040-measure-the-taskless-session-red-ci-run/README.md) | unknown-agent | worked | measure the taskless-session red CI run across the whole base and answ | 2026-10-04T17:18 |
 
 
 ## Reading a session

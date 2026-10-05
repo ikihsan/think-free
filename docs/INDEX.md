@@ -141,6 +141,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md`](../tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md`](../tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md`](../tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0066-measure-what-happens-to-a-publicly-stated-unmet.md`](../tasks/T-0066-measure-what-happens-to-a-publicly-stated-unmet.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 
