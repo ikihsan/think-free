@@ -6,7 +6,7 @@ last-verified: 2026-10-04
 
 <!-- task-meta
 id: T-0060
-status: done
+status: claimed
 created: 2026-10-04
 claim-agent: unknown-agent
 claim-session: 2026-10-04-054-test-whether-prior-art-exists-means-the

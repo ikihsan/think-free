@@ -58,6 +58,36 @@ Adversarial checklist: [`review-protocol.md`](review-protocol.md).
   cases: public real cases, independent reproduction, or actual users. Human
   usefulness and adoption remain untested until observed.
 
+## Prior-art adjudication
+
+A prior-art verdict is admissible only when it satisfies all four of these. They
+come from F029, F030, F035 and F036, and D050 in
+[`DECISIONS-SCREENING.md`](../../DECISIONS-SCREENING.md) is the decision that
+added the last three.
+
+1. **Read the open web, not only code indices.** A repository index and a package
+   registry decide whether a *category* exists; only the open web shows whether
+   something *serves the clause*, because hosted, commercial and vendor features
+   are invisible to every code index. In E016, 4 of 12 adjudicable kills were
+   served only on the open web — including twelve named hosted services for a
+   clause two code corpora returned nothing for.
+2. **Judge the attribute, not the category.** A category is served, an attribute
+   is not, and only the second answers what a need statement asks. A registry is
+   full of packages named for a problem that does nothing about it.
+3. **At least two phrasings per corpus, written down before the first fetch**, and
+   a stopping rule fixed in advance: an item is served on the first attributed
+   artifact, and "no prior art found" is only available after two phrasings on
+   every corpus have returned nothing attributable. A refused or rate-limited
+   answer is `refused`, never an absence.
+4. **An open-web probe carries a known-answer control, a nonsense-token control
+   and per-query result titles.** F036: one engine answered HTTP 200 with ten
+   well-formed results for each of 38 queries, every one unrelated to its query.
+   Nothing inside such a capture distinguishes it from a real one.
+
+An item that survives all four has **no prior art found**. That is the absence of
+a hit, which is not novelty, not a gap, and not a candidate: a mechanism, a
+differentiation and an adoption path are still owed, and each is a separate step.
+
 ## Directory layout
 
 ```

@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-04
+last-verified: 2026-10-05
 -->
 
 # Next actions and standing constraints
@@ -11,9 +11,8 @@ permitted lines and had to grow. The reload point keeps a pointer and the top
 item; the reasoning behind each item lives here so that a rewrite of one does
 not force a rewrite of the other.
 
-Read the ceiling on an item before spending effort on it. A pass still leaves
-prior art, usefulness and adoption untouched, and every item below says which
-of those it cannot touch.
+Read the ceiling on an item before spending effort on it: a pass still leaves
+prior art, usefulness and adoption untouched, and every item says which.
 
 ## Ordered by information gained per unit of effort
 
@@ -34,6 +33,18 @@ of those it cannot touch.
    four decided rows. F027's sample is small and self-selected, and 0 stars is a
    weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
    blocked on tooling.
+
+  0b. **Measure the CI flake — deferred, and the deferral is a decision rather
+     than an oversight.** Three tests failed on identical bytes and six full
+     suite runs did not reproduce it; T-0057 made the annotation carry the
+     exception so the *next* occurrence names itself, which is the cheap half.
+     The expensive half is the measurement nobody has taken: `make_fleet` copies
+     the whole tooling tree into a fresh bare remote plus two clones **per test
+     class**, so fixture cost scales with the number of tests and a 2-CPU runner
+     is the only place it shows. **It is 0b because CI is green and nothing is
+     blocked on it.** Worth taking when a VM is idle; not worth displacing a
+     research question for.
+
 0c. **The cheapest question the new measurement opens, and it is not a
    candidate.** F034 could read serving evidence for 57% of the incumbents its
    own population contained, and 22% in the young vocabulary. **A screen whose
@@ -47,44 +58,32 @@ of those it cannot touch.
    **Ceiling:** 015's `placebo.py` shows the instrument *can* read unpopular
    projects when it looks for readable ones, so "unmeasurable" here is partly an
    artefact of which channels were consulted. The follow-up must state the
-   channel set, or it measures the instrument rather than the world.
-  0b. **Measure the CI flake — deferred, and the deferral is a decision rather
-     than an oversight.** Three tests failed on identical bytes and six full
-     suite runs did not reproduce it; T-0057 made the annotation carry the
-     exception so the *next* occurrence names itself, which is the cheap half.
-     The expensive half is the measurement nobody has taken: `make_fleet` copies
-     the whole tooling tree into a fresh bare remote plus two clones **per test
-     class**, so fixture cost scales with the number of tests and a 2-CPU runner
-     is the only place it shows. **It is 0b because CI is green and nothing is
-     blocked on it.** Worth taking when a VM is idle; not worth displacing a
-     research question for.
 
-0d. **Invention item (D048).** **What this seat holds is a measurement, not a
-   candidate, and both candidate generators under it have now closed.** The live
-   corpus produced 0 of 50 (F029); the repository-signal recurrence hypothesis
-   collapsed every one of F029's four clusters by >100× (F033). **What remains
-   is the question F034 opens, and it is a candidate question:** in a vocabulary
-   where the prior-art premise is unmeasurable, what evidence distinguishes a need
-   someone has from a need nobody has? E2's lockfile claim is the only mechanism
-   still live — `EXPERIMENTS/009` side B, **zero drift at ~21h**, a fast-drift
-   null only, verdict still gated on the
-   days-to-weeks mark. **The recurrence input was built and the strongest
-   cluster tested first, and failed its own gate.** Restricted to repositories
-   whose own metadata belongs to the
-coding-agent area, every one of the four queries collapses by more than 100×
-(`"not asked for"` 5813→15, `"unrelated changes"` 14513→28, `"scope creep"
-agent` 2235→76, `"unrelated file" copilot` 412→33). D049's two-input split
-still stands as a recording rule; as a pipeline it produced one negative.
-F033 is the record. **What remains open from this thread:** the filter can
-only exclude, not confirm membership, and the unverified majorities in its
-failing half are where a genuinely cross-project problem could hide — a
-query over a different, larger corpus (issues with repository metadata
-rather than search), or a cluster with a different phrasing, is the honest
-next probe, and it is not scheduled. **Ceiling:** the counts are full-text
-   self-selection; F030 is why — one query produced 502 irrelevant hits through
-   `in:readme`, and another 0 for an idea with 29-83 repositories behind it.
-   **This item names where invention work goes; it does not make it happen.**
+0d. **Invention item (D048), now holding E016's three unserved needs.** This entry
+   holds the seat for candidate work; every other item here had been gates, CI
+   diagnosis, identifier allocation or line caps (F031's complaint). E016's arm 2
+   put **three needs no artifact on three corpora serves** (F035, D050) — the
+   first leads this mission has that do not come from its own sealed reports.
+   **Each goes to a mechanism question first, and each needs its own kill gate:**
 
+   | item | the clause, as drawn | the mechanism question, and what the corpus already answers |
+   |---|---|---|
+   | 7 `runtime-instrumentation` | annotate a codebase once, then choose at runtime whether something is emitted as metric, log or trace | is there an interposition point that sees the code path and can select a signal per path, or is the choice always made at instrumentation time? OpenTelemetry's zero-code instrumentation and its design-time signal guides are the adjacent prior art, and neither is that |
+   | 12 `hn-tagging` | tag HN posts, and tag/follow their authors, inside an HN client | what is the tag graph *for* — filtering, a reading queue, related threads? 892 clients already compete on reading comfort, so a schema with no use behind it is not a candidate |
+   | 16 `word-game` | a daily word game that shows the solution order so a player can give up | the need is a mode, not a value: what does a give-up reveal that a hint ladder does not? 7658 clones and an answer-farm population already serve the adjacent want |
+
+   **None of the three is a gap, a candidate, or useful yet.** An absence of a hit
+   on three corpora is the absence of a hit, and a need statement still has no
+   mechanism, differentiation or adoption path. D050 narrows F029 rather than
+   reversing it: the harvest stays refuted as a *candidate* generator, 3 of 50.
+
+   **Both generators under this seat are closed** — the live corpus 0 of 50
+   (F029) and the recurrence hypothesis, which collapsed every cluster it was
+   promised by >100× (F033) — and what stays open there is that the
+   repository-signal filter can only exclude, not confirm membership. E2's
+   lockfile claim is the only live mechanism: `EXPERIMENTS/009` side B, **zero
+   drift at ~21h**, a fast-drift null only. **Ceiling:** this item names where
+   invention work goes; it does not make invention happen.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated
@@ -212,13 +211,13 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text
 10. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.
-11. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947).** The informative
-   comparison is two snapshots weeks apart, and two resolver runs on one day
-   measure nothing — so side A
-   (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`, 8 artifacts:
-   requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2) is banked with
-   no verdict. Take side B no earlier than days later and diff the closures; fast
-   drift shows as a version or hash change.
+11. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947), one fast-drift
+   null measured.** The informative comparison is two snapshots weeks apart, so
+   side A (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`, 8
+   artifacts: requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2) is
+   banked with no verdict, and a same-week rerun found **zero drift at ~21h**.
+   Take side B no earlier than days later and diff the closures; fast drift
+   shows as a version or hash change.
 12. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have
    returned negative results, and one (knitting) died of prior art rather than of
@@ -239,14 +238,14 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text
   happened while fixing it.
 - A test fixture must build the machine it claims to build, **including the
   environment**. Three CI runs were red while both VMs were green because a
-  fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form was a
-  fixture naming a `/tmp` path that existed on one VM only.
+  fixture inherited a runner's `GITHUB_TOKEN` (T-0035); the earlier form of the
+  same lesson was a fixture naming a `/tmp` path that existed on one VM only.
 - **A gate that reads its own environment is only as portable as the record of
   that environment** (F018, F019). Two assertions in one file said "this machine's
   tools are in the records"; each was green on the machine that wrote it and red
   elsewhere for opposite reasons — the interpreter one on every version the record
   lacked, the git one on a CI runner shipping git 2.55.0. Assert the artefacts and
-  the contract; state the gap as data (`not_exercised`).
+  the contract, and state the environment gap as data (`not_exercised`).
 - **A gate belongs in the one command the protocol tells every agent to run**
   (T-0045). T-0042's `verify` passed over an unclassified root document because
   `preflight` did not run `release check`; `preflight` runs four gates now, and
@@ -256,12 +255,16 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text
   asserts on that line and not on the exit code.
 - **A second instance closing a session while this one is open leaves two reports
   that are not defects, and both need saying.** Observed 2026-10-04: an instance
-  of session `044` ran to its `finish` while this VM's later work was in progress,
-  so that work's commits predate any record of it (`session start` refuses a dirty
-  tree), and the stream's `finish` appended to `events.jsonl` after the next
+  of session `044` ran to its `finish` at seq 20 while this VM's later work was in
+  progress, so (a) that work's commits predate any record of it, because
+  `session start` refuses a dirty tree and the work had to be committed first, and
+  (b) the stream's own `finish` appended to its `events.jsonl` **after** the next
   session opened, which that session correctly reported as an unlogged change to a
-  closed stream. Neither is a hole — `session verify` passes — but a reader meeting
-  only the report will read both as gaps. No attribution rule reaches this case.
+  closed stream. Neither is a hole in the record — `session verify` passes and the
+  closed stream carries its own `integrity_error` events — but a reader who meets
+  only the report will read both as gaps. There is no attribution rule for a
+  session stream another instance closes mid-session; D028 covers a *base move* and
+  `landrebase.recover` covers a hand-run rebase, and neither reaches here.
 - **When a gate is red somewhere you cannot reproduce, check the task ledger
   before reproducing anything.** VM 0947 was already diagnosing the same four runs
   (F019) while this VM created T-0037 to do it, and about forty minutes of
@@ -270,31 +273,27 @@ next probe, and it is not scheduled. **Ceiling:** the counts are full-text
   consecutive red runs on the base were each diagnosed by reading them, with no
   reproduction at all (`observed` 2026-10-04).
 - **A refusal must be followable by the tool that gave it** (D039, T-0048). `sync land`
-  stopped on a conflict and said *resolve it and land again*; the second `land`
-  refused on the dirty tree that resolving leaves, so the only way out was a hand-run
-  `git rebase --continue` — which records no `base_advance` and attributes the base's
-  own paths to whoever resolved. Defect 2's ceiling reached through a message.
+  stopped on a real conflict and said *resolve it and land again*; the second `land`
+  refused on the dirty tree that resolving leaves, so the instruction could not be
+  followed and the only way out was a hand-run `git rebase --continue` — which records
+  no `base_advance` and so attributes the base's own paths to whoever resolved the
+  conflict. That is defect 2's ceiling reached through a message rather than a mistake.
   `land` now completes the rebase itself; **still refused:** an unresolved conflict, a
   path dirty and *not* staged (the continuation commits the whole index), and a
   continuation that fails.
-- A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines. The
-  ledger is a sequence of events, so the union is correct; only the order is in
-  question. `sync land` deliberately stops for it. Run `doc lint` afterwards
-  rather than only before committing — `observed`, and written up in
+- A conflict in `tasks/CLAIMS.jsonl` is resolved by keeping both lines: the ledger
+  is a sequence of events, so the union is correct and only the order is in
+  question, which is why `sync land` deliberately stops for it. Run `doc lint`
+  afterwards rather than only before committing — `observed`, in
   [`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
-- **A decision does not go into whichever decision file has room.** Allocate with
-  `origin id next D` after reading the base; the header and the `DECISIONS.md` row
-  are both read by `tools/originlib/decisionheader.py`, so all three move together.
-- **Five records have arrived at the 300-line cap**, every time repaired by moving
-  material to the file whose invariant owns it. `STATE-defects.md` cannot be split
-  inside its own numbered list without `defectlist.py` reading more than one file,
-  so that split is a task. T-0060's two arrivals: `attribution.py` owns *how a
-  figure is read and whether it belongs to the project measured*, `selfcheck.py`
-  owns *the falsification of the instrument rather than another channel*, and
-  `verdict.py` owns the floors, so the gate's constants live with the gate.
-- **A module imported by the suite must be uniquely named across the repository**
-  (defect 24). Two experiments had a `stats.py`; each test file passed alone and
-  25 cases failed together, because `sys.modules` keeps the first import and
-  nothing reported that the second file was reading the other one. Found by adding
-  two experiments in the same hour, not by a gate; `doc lint` reads documents and
-  cannot see it.
+- **`DECISIONS-GATING.md` was at 297 of 300 on 2026-10-04 and T-0042 split it**, so
+  the gating decision T-0040 owed could be written: D037 in T-0046, with D038 beside
+  it. A decision still does **not** go into whichever decision file happens to have
+  room — that is the mistake the reversed split of 2026-10-04 was made of. Allocate
+  with `origin id next D` after reading the base; the heading, the `DECISIONS.md` row
+  and the file's own `Decisions **…**` header are all read by
+  `tools/originlib/decisionheader.py`, so all three move together.
+- **Records at the 300-line cap, 2026-10-05:** `STATE.md` 298 and this file at
+  the cap, both paid for by removing text another file already owns;
+  `STATE-defects.md` cannot be split inside its own numbered list without
+  `tools/originlib/defectlist.py` reading more than one file — a task, not an edit.

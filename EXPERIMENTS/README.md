@@ -28,3 +28,4 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `013-prior-art-predicts-adoption` | Does a crowded niche mean a solved one? | **no**; stars do not predict installs (F032) |
 | `014-repository-signal-filter` | Does E012's strongest cluster survive the filter it was promised? | **no**; every query collapses >100x (F033) |
 | `015-incumbent-serving` | Does "prior art exists" mean the need is served? | **inconclusive**; the premise holds in mature vocabularies and fails in young ones (F034) |
+| `016-prior-art-adjudication` | Is "a tool already serves this" a screen that can be shown to work? | **yes, and it is the weakest verdict the mission owns**: 6/6 controls recovered, 3 of 12 kills have no prior art, and the open web carries a third of what code indices miss (F035, F036, D050) |

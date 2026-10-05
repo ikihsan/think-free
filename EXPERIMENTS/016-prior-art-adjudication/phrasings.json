@@ -1,0 +1,185 @@
+{
+  "declared": "2026-10-04",
+  "note": "Written before the first fetch of E016, from the clause text in EXPERIMENTS/012-candidate-harvest/raw/screened.jsonl. Not derived from the original screen's `reason`, which is read only after adjudication. controls=true marks the six kills verify_prior_art.py already supported with a populated count; they are run first and gate the answer.",
+  "controls": {
+    "1": "Vanilla-OS/ABRoot, 392 stars, immutable linux distro in:name,description",
+    "3": "115 repositories, image encoder webp in:name,description",
+    "8": "31750 stars across 2030 repositories, flashcard spaced repetition in:name,description",
+    "30": "13 repositories, ebook library server calibre in:name,description",
+    "36": "172 repositories, s3 object storage server in:name,description",
+    "38": "92112 stars across 10768 repositories, uptime monitor in:name,description"
+  },
+  "items": [
+    {
+      "index": 1,
+      "name": "atomic-distro",
+      "control": true,
+      "need": "an immutable/atomic Linux distribution with broad hardware and vendor support",
+      "github": ["immutable linux distro", "atomic linux distribution"],
+      "registry": ["immutable os", "flatcar", "bazzite"],
+      "web": ["immutable Linux distribution broad hardware support", "best immutable Linux distro Fedora Silverblue alternative"]
+    },
+    {
+      "index": 3,
+      "name": "webp-encode",
+      "control": true,
+      "need": "fast on-the-fly WebP encoding of large images",
+      "github": ["image encoder webp", "webp encoder library"],
+      "registry": ["webp", "sharp", "pillow"],
+      "web": ["fast WebP encoding library large images", "webp encoder performance benchmark"]
+    },
+    {
+      "index": 8,
+      "name": "flashcards",
+      "control": true,
+      "need": "generate spaced-repetition flashcards with an LLM and use them in SRS software",
+      "github": ["flashcard spaced repetition", "anki llm generate"],
+      "registry": ["anki", "spaced repetition", "flashcards"],
+      "web": ["generate Anki flashcards with AI from notes", "AI flashcard generator import Anki deck"]
+    },
+    {
+      "index": 30,
+      "name": "bulk-seed-books",
+      "control": true,
+      "need": "bulk import already-downloaded ebook files into an ebook library server",
+      "github": ["ebook library server calibre", "opds ebook server"],
+      "registry": ["calibre", "komga", "kavita"],
+      "web": ["bulk import existing ebooks into calibre library", "OPDS ebook server self hosted"]
+    },
+    {
+      "index": 36,
+      "name": "s3-alternative",
+      "control": true,
+      "need": "open-source S3-compatible object storage, easily extensible with custom storage backends",
+      "github": ["s3 object storage server", "s3 compatible storage alternative"],
+      "registry": ["minio", "garage", "seaweedfs"],
+      "web": ["open source S3 alternative extensible storage backends", "S3 compatible object storage comparison self hosted"]
+    },
+    {
+      "index": 38,
+      "name": "cheap-monitoring",
+      "control": true,
+      "need": "uptime monitoring for about $0.25 per monitor per month",
+      "github": ["uptime monitor", "uptime monitoring self hosted"],
+      "registry": ["uptime-kuma", "uptime", "status page"],
+      "web": ["cheap uptime monitoring 25 cents per month", "uptime monitoring pricing per monitor cheap"]
+    },
+    {
+      "index": 0,
+      "name": "hn-client",
+      "control": false,
+      "need": "the clause as drawn asks for a game version in which bots are simply allowed; the original reason answered about Hacker News clients instead",
+      "github": ["hacker news client", "hackernews reader cli"],
+      "registry": ["hacker-news", "hn"],
+      "web": ["Hacker News client read posts", "lightweight Hacker News reader"]
+    },
+    {
+      "index": 5,
+      "name": "agent-memory",
+      "control": false,
+      "need": "load an AI agent's existing memory/session into a different agent rather than starting fresh",
+      "github": ["ai agent memory", "agent memory server"],
+      "registry": ["mem0", "letta", "agno"],
+      "web": ["portable AI agent memory move between agents", "export import agent memory between frameworks"]
+    },
+    {
+      "index": 7,
+      "name": "runtime-instrumentation",
+      "control": false,
+      "need": "annotate a codebase once and choose at runtime whether something is emitted as a metric, log or trace",
+      "github": ["runtime instrumentation toggle", "ebpf tracing runtime"],
+      "registry": ["opentelemetry", "ebpf", "telemetry"],
+      "web": ["toggle telemetry at runtime per code path", "decide at runtime whether to emit metric log or trace"]
+    },
+    {
+      "index": 12,
+      "name": "hn-tagging",
+      "control": false,
+      "need": "tag Hacker News posts, and tag/follow the authors, in an HN client",
+      "github": ["hacker news client", "hn reader tags"],
+      "registry": ["hacker-news", "hn"],
+      "web": ["Hacker News client tag posts and follow authors", "HN client bookmark tagging"]
+    },
+    {
+      "index": 14,
+      "name": "atproto-pds",
+      "control": false,
+      "need": "find the canonical PDS of an account, by indexing logs and looking for new entries signed by the same key",
+      "github": ["atproto pds discovery", "atproto handle resolver"],
+      "registry": ["atproto", "atproto", "lexicon"],
+      "web": ["find the PDS hosting an AT Protocol account", "ATProto identity resolution PDS discovery"]
+    },
+    {
+      "index": 16,
+      "name": "word-game",
+      "control": false,
+      "need": "a daily word game that will show the solution order so a player can give up",
+      "github": ["wordle clone", "word game daily puzzle"],
+      "registry": ["wordle", "word game"],
+      "web": ["wordle clones list open source", "daily word game show answer order"]
+    },
+    {
+      "index": 26,
+      "name": "scraper-trap",
+      "control": false,
+      "need": "block or proxy requests by user agent, e.g. a Traefik plugin, so a scraper can be trapped",
+      "github": ["user agent block proxy", "traefik useragent plugin"],
+      "registry": ["traefik", "user-agent", "proxy"],
+      "web": ["block or trap scrapers by user agent proxy", "Traefik plugin block requests by user agent"]
+    },
+    {
+      "index": 34,
+      "name": "url-popularity",
+      "control": false,
+      "need": "a popularity score for arbitrary web URLs, like GitHub stars for the whole web",
+      "github": ["url popularity score", "website popularity rank"],
+      "registry": ["url", "backlink", "crawler"],
+      "web": ["URL popularity score like GitHub stars for any website", "measure popularity of a web page URL"]
+    },
+    {
+      "index": 35,
+      "name": "cpp-subset-linter",
+      "control": false,
+      "need": "a linter that forces code to stay inside a chosen subset of C++, so outdated constructs cannot be used",
+      "github": ["c++ linter", "clang tidy modernize"],
+      "registry": ["clang-tidy", "cppcheck", "include-what-you-use"],
+      "web": ["linter restrict C++ to a subset of the standard", "forbid outdated C++ constructs project style"]
+    },
+    {
+      "index": 40,
+      "name": "interest-field",
+      "control": false,
+      "need": "an optional declared-interest field on a profile so others with overlapping interests can follow a person across blog and social media",
+      "github": ["interest field profile", "social follow interests"],
+      "registry": ["atproto", "mastodon", "activitypub"],
+      "web": ["declare interests on profile so others with same interests follow you", "interest tag follow people across social media"]
+    },
+    {
+      "index": 42,
+      "name": "selective-stage",
+      "control": false,
+      "need": "selectively stage part of a change, with the same interface used to selectively split it",
+      "github": ["version control partial stage", "interactive staging hunks"],
+      "registry": ["git", "jujutsu", "git-split"],
+      "web": ["git add -p alternative better interface", "selectively stage and split changes tool"]
+    },
+    {
+      "index": 45,
+      "name": "model-changelog",
+      "control": false,
+      "need": "one easy resource that tracks the latest models and what changed about them",
+      "github": ["llm model changelog tracker", "model release tracker llm"],
+      "registry": ["litellm", "openrouter", "llm"],
+      "web": ["track new LLM model releases and changes", "LLM model changelog tracker"]
+    },
+    {
+      "index": 49,
+      "name": "gdrive-disk-usage",
+      "control": false,
+      "need": "a WinDirStat-like disk usage treemap for Google Drive",
+      "github": ["gdrive disk usage", "google drive storage analyzer"],
+      "registry": ["gdrive", "rclone", "du"],
+      "web": ["WinDirStat for Google Drive", "Google Drive disk usage treemap analyzer"]
+    }
+  ]
+}

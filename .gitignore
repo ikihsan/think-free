@@ -15,5 +15,9 @@ sessions/active.json
 
 # Third-party inputs an experiment downloads and pins by hash. The record is
 # sources.json, not the bytes: re-running `fetch_sources.py` reproduces them, and
-# a tracked tarball would be vendored input that nothing verifies.
+# a tracked tarball would be vendored input that nothing verifies. The same
+# clause covers E015's 905,521-name PyPI index, whose record is
+# `raw/pypi-simple-meta.json`: url, status, bytes, sha256 and name count, and
+# one request rebuilds the file.
 EXPERIMENTS/*/sdists/
+EXPERIMENTS/*/raw/pypi-simple-index.txt

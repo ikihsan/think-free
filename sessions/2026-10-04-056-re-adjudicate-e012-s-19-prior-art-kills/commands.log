@@ -1,0 +1,493 @@
+==============================================================================
+[seq 4] 2026-10-04T22:25:32+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/adjudicate.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+pypi names: 905521
+gh   1 atomic-distro      immutable linux distro                         total=27
+gh   1 atomic-distro      atomic linux distribution                      total=18
+pypi  1 atomic-distro      immutable os                                   names=0
+npm  1 atomic-distro      immutable os                                   total=46733
+crs  1 atomic-distro      immutable os                                   total=499
+pypi  1 atomic-distro      flatcar                                        names=0
+npm  1 atomic-distro      flatcar                                        total=0
+crs  1 atomic-distro      flatcar                                        total=0
+pypi  1 atomic-distro      bazzite                                        names=0
+npm  1 atomic-distro      bazzite                                        total=6
+crs  1 atomic-distro      bazzite                                        total=11
+gh   3 webp-encode        image encoder webp                             total=115
+gh   3 webp-encode        webp encoder library                           total=26
+pypi  3 webp-encode        webp                                           names=330
+npm  3 webp-encode        webp                                           total=6421
+crs  3 webp-encode        webp                                           total=1025
+pypi  3 webp-encode        sharp                                          names=140
+npm  3 webp-encode        sharp                                          total=7150
+crs  3 webp-encode        sharp                                          total=913
+pypi  3 webp-encode        pillow                                         names=69
+npm  3 webp-encode        pillow                                         total=194
+crs  3 webp-encode        pillow                                         total=78
+gh   8 flashcards         flashcard spaced repetition                    total=2032
+gh   8 flashcards         anki llm generate                              total=85
+pypi  8 flashcards         anki                                           names=501
+npm  8 flashcards         anki                                           total=277
+crs  8 flashcards         anki                                           total=106
+pypi  8 flashcards         spaced repetition                              names=1
+npm  8 flashcards         spaced repetition                              total=1705
+crs  8 flashcards         spaced repetition                              total=327
+pypi  8 flashcards         flashcards                                     names=16
+npm  8 flashcards         flashcards                                     total=300
+crs  8 flashcards         flashcards                                     total=65
+gh  30 bulk-seed-books    ebook library server calibre                   total=13
+gh  30 bulk-seed-books    opds ebook server                              total=28
+pypi 30 bulk-seed-books    calibre                                        names=15
+npm 30 bulk-seed-books    calibre                                        total=179
+crs 30 bulk-seed-books    calibre                                        total=1656
+pypi 30 bulk-seed-books    komga                                          names=1
+npm 30 bulk-seed-books    komga                                          total=8
+crs 30 bulk-seed-books    komga                                          total=3
+pypi 30 bulk-seed-books    kavita                                         names=1
+npm 30 bulk-seed-books    kavita                                         total=27
+crs 30 bulk-seed-books    kavita                                         total=2
+gh  36 s3-alternative     s3 object storage server                       total=172
+gh  36 s3-alternative     s3 compatible storage alternative              total=19
+pypi 36 s3-alternative     minio                                          names=227
+npm 36 s3-alternative     minio                                          total=1272
+crs 36 s3-alternative     minio                                          total=492
+pypi 36 s3-alternative     garage                                         names=26
+npm 36 s3-alternative     garage                                         total=667
+crs 36 s3-alternative     garage                                         total=74
+pypi 36 s3-alternative     seaweedfs                                      names=3
+npm 36 s3-alternative     seaweedfs                                      total=32
+crs 36 s3-alternative     seaweedfs                                      total=21
+gh  38 cheap-monitoring   uptime monitor                                 total=10770
+gh  38 cheap-monitoring   uptime monitoring self hosted                  total=454
+pypi 38 cheap-monitoring   uptime-kuma                                    names=11
+npm 38 cheap-monitoring   uptime-kuma                                    total=1910
+crs 38 cheap-monitoring   uptime-kuma                                    total=8
+pypi 38 cheap-monitoring   uptime                                         names=46
+npm 38 cheap-monitoring   uptime                                         total=2127
+crs 38 cheap-monitoring   uptime                                         total=880
+pypi 38 cheap-monitoring   status page                                    names=4
+npm 38 cheap-monitoring   status page                                    total=579984
+crs 38 cheap-monitoring   status page                                    total=9214
+gh   0 hn-client          hacker news client                             total=892
+gh   0 hn-client          hackernews reader cli                          total=7
+pypi  0 hn-client          hacker-news                                    names=10
+npm  0 hn-client          hacker-news                                    total=10246
+crs  0 hn-client          hacker-news                                    total=18
+pypi  0 hn-client          hn                                             names=1186
+npm  0 hn-client          hn                                             total=588
+crs  0 hn-client          hn                                             total=212
+gh   5 agent-memory       ai agent memory                                total=21043
+gh   5 agent-memory       agent memory server                            total=1925
+pypi  5 agent-memory       mem0                                           names=64
+npm  5 agent-memory       mem0                                           total=364
+crs  5 agent-memory       mem0                                           total=140
+pypi  5 agent-memory       letta                                          names=22
+npm  5 agent-memory       letta                                          total=186
+crs  5 agent-memory       letta                                          total=88
+pypi  5 agent-memory       agno                                           names=241
+npm  5 agent-memory       agno                                           total=55
+crs  5 agent-memory       agno                                           total=304
+gh   7 runtime-instrumentation runtime instrumentation toggle                 total=1
+gh   7 runtime-instrumentation ebpf tracing runtime                           total=7
+pypi  7 runtime-instrumentation opentelemetry                                  names=422
+npm  7 runtime-instrumentation opentelemetry                                  total=4527
+crs  7 runtime-instrumentation opentelemetry                                  total=1967
+pypi  7 runtime-instrumentation ebpf                                           names=6
+npm  7 runtime-instrumentation ebpf                                           total=59
+crs  7 runtime-instrumentation ebpf                                           total=417
+pypi  7 runtime-instrumentation telemetry                                      names=677
+npm  7 runtime-instrumentation telemetry                                      total=10243
+crs  7 runtime-instrumentation telemetry                                      total=4467
+gh  12 hn-tagging         hacker news client                             total=892
+gh  12 hn-tagging         hn reader tags                                 total=0
+pypi 12 hn-tagging         hacker-news                                    names=10
+npm 12 hn-tagging         hacker-news                                    total=10246
+crs 12 hn-tagging         hacker-news                                    total=18
+pypi 12 hn-tagging         hn                                             names=1186
+npm 12 hn-tagging         hn                                             total=588
+crs 12 hn-tagging         hn                                             total=212
+gh  14 atproto-pds        atproto pds discovery                          total=0
+gh  14 atproto-pds        atproto handle resolver                        total=5
+pypi 14 atproto-pds        atproto                                        names=14
+npm 14 atproto-pds        atproto                                        total=651
+crs 14 atproto-pds        atproto                                        total=150
+pypi 14 atproto-pds        atproto                                        names=14
+npm 14 atproto-pds        atproto                                        total=651
+crs 14 atproto-pds        atproto                                        total=150
+pypi 14 atproto-pds        lexicon                                        names=35
+npm 14 atproto-pds        lexicon                                        total=575
+crs 14 atproto-pds        lexicon                                        total=258
+gh  16 word-game          wordle clone                                   total=7658
+gh  16 word-game          word game daily puzzle                         total=169
+pypi 16 word-game          wordle                                         names=107
+npm 16 word-game          wordle                                         total=190
+crs 16 word-game          wordle                                         total=70
+pypi 16 word-game          word game                                      names=3
+npm 16 word-game          word game                                      total=56989
+crs 16 word-game          word game                                      total=391
+gh  26 scraper-trap       user agent block proxy                         total=15
+gh  26 scraper-trap       traefik useragent plugin                       total=1
+pypi 26 scraper-trap       traefik                                        names=20
+npm 26 scraper-trap       traefik                                        total=213
+crs 26 scraper-trap       traefik                                        total=74
+pypi 26 scraper-trap       user-agent                                     names=45
+npm 26 scraper-trap       user-agent                                     total=2952090
+crs 26 scraper-trap       user-agent                                     total=871
+pypi 26 scraper-trap       proxy                                          names=1729
+npm 26 scraper-trap       proxy                                          total=38758
+crs 26 scraper-trap       proxy                                          total=8388
+gh  34 url-popularity     url popularity score                           total=1
+gh  34 url-popularity     website popularity rank                        total=9
+pypi 34 url-popularity     url                                            names=1528
+npm 34 url-popularity     url                                            total=214917
+crs 34 url-popularity     url                                            total=28247
+pypi 34 url-popularity     backlink                                       names=9
+npm 34 url-popularity     backlink                                       total=307
+crs 34 url-popularity     backlink                                       total=212
+pypi 34 url-popularity     crawler                                        names=682
+npm 34 url-popularity     crawler                                        total=3946
+crs 34 url-popularity     crawler                                        total=507
+gh  35 cpp-subset-linter  c++ linter                                     total=322
+gh  35 cpp-subset-linter  clang tidy modernize                           total=3
+pypi 35 cpp-subset-linter  clang-tidy                                     names=4
+npm 35 cpp-subset-linter  clang-tidy                                     total=1826
+crs 35 cpp-subset-linter  clang-tidy                                     total=26
+pypi 35 cpp-subset-linter  cppcheck                                       names=16
+npm 35 cpp-subset-linter  cppcheck                                       total=21
+crs 35 cpp-subset-linter  cppcheck                                       total=13
+pypi 35 cpp-subset-linter  include-what-you-use                           names=0
+npm 35 cpp-subset-linter  include-what-you-use                           total=1484376
+crs 35 cpp-subset-linter  include-what-you-use                           total=2
+gh  40 interest-field     interest field profile                         total=22
+gh  40 interest-field     social follow interests                        total=31
+pypi 40 interest-field     atproto                                        names=14
+npm 40 interest-field     atproto                                        total=651
+crs 40 interest-field     atproto                                        total=150
+pypi 40 interest-field     mastodon                                       names=37
+npm 40 interest-field     mastodon                                       total=937
+crs 40 interest-field     mastodon                                       total=201
+pypi 40 interest-field     activitypub                                    names=13
+npm 40 interest-field     activitypub                                    total=240
+crs 40 interest-field     activitypub                                    total=100
+gh  42 selective-stage    version control partial stage                  total=1
+gh  42 selective-stage    interactive staging hunks                      total=14
+pypi 42 selective-stage    git                                            names=5250
+npm 42 selective-stage    git                                            total=166430
+crs 42 selective-stage    git                                            total=35261
+pypi 42 selective-stage    jujutsu                                        names=1
+npm 42 selective-stage    jujutsu                                        total=380
+crs 42 selective-stage    jujutsu                                        total=144
+pypi 42 selective-stage    git-split                                      names=3
+npm 42 selective-stage    git-split                                      total=178459
+crs 42 selective-stage    git-split                                      total=0
+gh  45 model-changelog    llm model changelog tracker                    total=1
+gh  45 model-changelog    model release tracker llm                      total=14
+pypi 45 model-changelog    litellm                                        names=135
+npm 45 model-changelog    litellm                                        total=633
+crs 45 model-changelog    litellm                                        total=151
+pypi 45 model-changelog    openrouter                                     names=58
+npm 45 model-changelog    openrouter                                     total=4804
+crs 45 model-changelog    openrouter                                     total=1110
+pypi 45 model-changelog    llm                                            names=4673
+npm 45 model-changelog    llm                                            total=55548
+crs 45 model-changelog    llm                                            total=11059
+gh  49 gdrive-disk-usage  gdrive disk usage                              total=2
+gh  49 gdrive-disk-usage  google drive storage analyzer                  total=4
+pypi 49 gdrive-disk-usage  gdrive                                         names=78
+npm 49 gdrive-disk-usage  gdrive                                         total=301
+crs 49 gdrive-disk-usage  gdrive                                         total=51
+pypi 49 gdrive-disk-usage  rclone                                         names=40
+npm 49 gdrive-disk-usage  rclone                                         total=107
+crs 49 gdrive-disk-usage  rclone                                         total=106
+pypi 49 gdrive-disk-usage  du                                             names=12034
+npm 49 gdrive-disk-usage  du                                             total=4896
+crs 49 gdrive-disk-usage  du                                             total=1519
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 276840  redactions: none
+==============================================================================
+[seq 5] 2026-10-04T22:28:46+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/web_probe.py first
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+web  1 atomic-distro      immutable Linux distribution broad hardware support  n=0 202
+web  3 webp-encode        fast WebP encoding library large images              n=0 202
+web  8 flashcards         generate Anki flashcards with AI from notes          n=0 202
+web 30 bulk-seed-books    bulk import existing ebooks into calibre library     n=0 202
+web 36 s3-alternative     open source S3 alternative extensible storage backen n=0 202
+web 38 cheap-monitoring   cheap uptime monitoring 25 cents per month           n=0 202
+web  0 hn-client          Hacker News client read posts                        n=0 202
+web  5 agent-memory       portable AI agent memory move between agents         n=0 202
+web  7 runtime-instrumentation toggle telemetry at runtime per code path            n=0 202
+web 12 hn-tagging         Hacker News client tag posts and follow authors      n=0 202
+web 14 atproto-pds        find the PDS hosting an AT Protocol account          n=0 202
+web 16 word-game          wordle clones list open source                       n=0 202
+web 26 scraper-trap       block or trap scrapers by user agent proxy           n=0 202
+web 34 url-popularity     URL popularity score like GitHub stars for any websi n=0 202
+web 35 cpp-subset-linter  linter restrict C++ to a subset of the standard      n=0 202
+web 40 interest-field     declare interests on profile so others with same int n=0 202
+web 42 selective-stage    git add -p alternative better interface              n=0 202
+web 45 model-changelog    track new LLM model releases and changes             n=0 202
+web 49 gdrive-disk-usage  WinDirStat for Google Drive                          n=0 202
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 77871  redactions: none
+==============================================================================
+[seq 8] 2026-10-04T22:36:01+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/web_bing.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+web  1 atomic-distro      immutable Linux distribution broad hardware support  n=10 200
+web  1 atomic-distro      best immutable Linux distro Fedora Silverblue altern n=10 200
+web  3 webp-encode        fast WebP encoding library large images              n=10 200
+web  3 webp-encode        webp encoder performance benchmark                   n=10 200
+web  8 flashcards         generate Anki flashcards with AI from notes          n=10 200
+web  8 flashcards         AI flashcard generator import Anki deck              n=10 200
+web 30 bulk-seed-books    bulk import existing ebooks into calibre library     n=10 200
+web 30 bulk-seed-books    OPDS ebook server self hosted                        n=10 200
+web 36 s3-alternative     open source S3 alternative extensible storage backen n=10 200
+web 36 s3-alternative     S3 compatible object storage comparison self hosted  n=10 200
+web 38 cheap-monitoring   cheap uptime monitoring 25 cents per month           n=10 200
+web 38 cheap-monitoring   uptime monitoring pricing per monitor cheap          n=10 200
+web  0 hn-client          Hacker News client read posts                        n=10 200
+web  0 hn-client          lightweight Hacker News reader                       n=10 200
+web  5 agent-memory       portable AI agent memory move between agents         n=10 200
+web  5 agent-memory       export import agent memory between frameworks        n=10 200
+web  7 runtime-instrumentation toggle telemetry at runtime per code path            n=10 200
+web  7 runtime-instrumentation decide at runtime whether to emit metric log or trac n=10 200
+web 12 hn-tagging         Hacker News client tag posts and follow authors      n=10 200
+web 12 hn-tagging         HN client bookmark tagging                           n=10 200
+web 14 atproto-pds        find the PDS hosting an AT Protocol account          n=10 200
+web 14 atproto-pds        ATProto identity resolution PDS discovery            n=9 200
+web 16 word-game          wordle clones list open source                       n=7 200
+web 16 word-game          daily word game show answer order                    n=10 200
+web 26 scraper-trap       block or trap scrapers by user agent proxy           n=9 200
+web 26 scraper-trap       Traefik plugin block requests by user agent          n=10 200
+web 34 url-popularity     URL popularity score like GitHub stars for any websi n=7 200
+web 34 url-popularity     measure popularity of a web page URL                 n=10 200
+web 35 cpp-subset-linter  linter restrict C++ to a subset of the standard      n=9 200
+web 35 cpp-subset-linter  forbid outdated C++ constructs project style         n=10 200
+web 40 interest-field     declare interests on profile so others with same int n=10 200
+web 40 interest-field     interest tag follow people across social media       n=10 200
+web 42 selective-stage    git add -p alternative better interface              n=7 200
+web 42 selective-stage    selectively stage and split changes tool             n=10 200
+web 45 model-changelog    track new LLM model releases and changes             n=10 200
+web 45 model-changelog    LLM model changelog tracker                          n=10 200
+web 49 gdrive-disk-usage  WinDirStat for Google Drive                          n=10 200
+web 49 gdrive-disk-usage  Google Drive disk usage treemap analyzer             n=10 200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 164794  redactions: none
+==============================================================================
+[seq 11] 2026-10-04T23:24:58+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=None
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=None
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=None
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=None
+   49 gdrive-disk-usage      served                                 carried_by=None
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 11
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 193  redactions: none
+==============================================================================
+[seq 12] 2026-10-04T23:25:30+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=None
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=None
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=None
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=None
+   49 gdrive-disk-usage      served                                 carried_by=None
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 14
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 193  redactions: none
+==============================================================================
+[seq 13] 2026-10-04T23:26:07+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=github
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=github
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=github
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=github
+   49 gdrive-disk-usage      served                                 carried_by=github
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 6
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 125  redactions: none
+==============================================================================
+[seq 14] 2026-10-04T23:26:32+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=github
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=github
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=github
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=github
+   49 gdrive-disk-usage      served                                 carried_by=github
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118  redactions: none
+==============================================================================
+[seq 15] 2026-10-04T23:33:16+00:00
+$ python3 EXPERIMENTS/015-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=github
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=github
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=github
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=github
+   49 gdrive-disk-usage      served                                 carried_by=github
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 178  redactions: none
+==============================================================================
+[seq 21] 2026-10-04T23:46:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 606 tests in 326.706s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 327413  redactions: none
+==============================================================================
+[seq 22] 2026-10-04T23:49:38+00:00
+$ python3 EXPERIMENTS/016-prior-art-adjudication/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm 1: 6 of 6 controls recovered, threshold >=5, met=True
+    1 atomic-distro      served                                 ['github', 'registries']
+    3 webp-encode        served                                 ['github', 'registries']
+    8 flashcards         served                                 ['github']
+   30 bulk-seed-books    served                                 ['github', 'registries']
+   36 s3-alternative     served                                 ['github', 'registries']
+   38 cheap-monitoring   served                                 ['github', 'registries']
+arm 2: 3 of 12 judgement kills are no prior art found, threshold >=3, met=True
+    5 agent-memory           served                                 carried_by=github
+    7 runtime-instrumentation no_prior_art_found                     carried_by=None
+   12 hn-tagging             no_prior_art_found                     carried_by=None
+   14 atproto-pds            served                                 carried_by=github
+   16 word-game              no_prior_art_found                     carried_by=None
+   26 scraper-trap           served                                 carried_by=github
+   34 url-popularity         served                                 carried_by=openweb
+   35 cpp-subset-linter      served                                 carried_by=openweb
+   40 interest-field         contested_counted_as_served            carried_by=openweb
+   42 selective-stage        served                                 carried_by=openweb
+   45 model-changelog        served                                 carried_by=github
+   49 gdrive-disk-usage      served                                 carried_by=github
+    0 hn-client              unadjudicable_for_clause_served_for_reason
+sensitivity: 2 under a looser rule on word-game
+stopping-rule violations: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 97  redactions: none
+==============================================================================
+[seq 23] 2026-10-05T00:05:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 645 tests in 331.153s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 334419  redactions: none

@@ -1,0 +1,540 @@
+{
+ "arm_1": {
+  "ceiling": "The six controls were selected for having a populated count, so recovery demonstrates that the instrument finds a populated category. It cannot show that the instrument can find an attribute inside a category, which is the failure mode that matters for the other thirteen.",
+  "detail": [
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 1,
+    "name": "atomic-distro",
+    "recovered": true,
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 3,
+    "name": "webp-encode",
+    "recovered": true,
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github"
+    ],
+    "index": 8,
+    "name": "flashcards",
+    "recovered": true,
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 30,
+    "name": "bulk-seed-books",
+    "recovered": true,
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 36,
+    "name": "s3-alternative",
+    "recovered": true,
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 38,
+    "name": "cheap-monitoring",
+    "recovered": true,
+    "verdict": "served"
+   }
+  ],
+  "met": true,
+  "question": "instrument validity: at least 5 of the 6 positive controls re-adjudicated served",
+  "recovered": 6,
+  "threshold": ">= 5 of 6"
+ },
+ "arm_2": {
+  "contested": [
+   {
+    "carrying_corpus": "openweb",
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 40,
+    "name": "interest-field",
+    "verdict": "contested_counted_as_served"
+   }
+  ],
+  "denominator": 12,
+  "detail": [
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github"
+    ],
+    "index": 5,
+    "name": "agent-memory",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 7,
+    "name": "runtime-instrumentation",
+    "verdict": "no_prior_art_found"
+   },
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 12,
+    "name": "hn-tagging",
+    "verdict": "no_prior_art_found"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 14,
+    "name": "atproto-pds",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 16,
+    "name": "word-game",
+    "verdict": "no_prior_art_found"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github"
+    ],
+    "index": 26,
+    "name": "scraper-trap",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "openweb",
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 34,
+    "name": "url-popularity",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "openweb",
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 35,
+    "name": "cpp-subset-linter",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "openweb",
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 40,
+    "name": "interest-field",
+    "verdict": "contested_counted_as_served"
+   },
+   {
+    "carrying_corpus": "openweb",
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 42,
+    "name": "selective-stage",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 45,
+    "name": "model-changelog",
+    "verdict": "served"
+   },
+   {
+    "carrying_corpus": "github",
+    "corpora_read": [
+     "github"
+    ],
+    "index": 49,
+    "name": "gdrive-disk-usage",
+    "verdict": "served"
+   }
+  ],
+  "met": true,
+  "no_prior_art_found": 3,
+  "not_found_items": [
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 7,
+    "name": "runtime-instrumentation",
+    "verdict": "no_prior_art_found"
+   },
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 12,
+    "name": "hn-tagging",
+    "verdict": "no_prior_art_found"
+   },
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries",
+     "openweb"
+    ],
+    "index": 16,
+    "name": "word-game",
+    "verdict": "no_prior_art_found"
+   }
+  ],
+  "question": "of the 13 kills with no populated count behind them, how many are no prior art found on all three corpora",
+  "sensitivity": {
+   "count_if_looser_rule": 2,
+   "rows": [
+    "word-game"
+   ],
+   "why": "Counting the answer-aggregator sites as serving the word-game clause moves the count across the declared threshold, so this row decides the direction and the rule used is stated."
+  },
+  "threshold": ">= 3 means prior_art is materially overstated as a cause of death and F029's cause table is restated; <= 2 confirms the category and closes need-harvesting as a generator",
+  "unadjudicable": [
+   {
+    "carrying_corpus": null,
+    "corpora_read": [
+     "github",
+     "registries"
+    ],
+    "index": 0,
+    "name": "hn-client",
+    "verdict": "unadjudicable_for_clause_served_for_reason"
+   }
+  ]
+ },
+ "cases_adjudicated": 19,
+ "cases_controls": 6,
+ "cases_controls_recovered": 6,
+ "cases_judgement_kills_adjudicable": 12,
+ "cases_judgement_kills_declared": 13,
+ "cases_judgement_kills_unadjudicable": 1,
+ "cases_no_prior_art_found": 3,
+ "computed_by": "stats.py from raw/attributions.jsonl and phrasings.json",
+ "controls": 6,
+ "corpus_carriage": {
+  "openweb": [
+   "url-popularity",
+   "cpp-subset-linter",
+   "interest-field",
+   "selective-stage"
+  ],
+  "registries_carried_none": true,
+  "served_without_openweb": [
+   "atomic-distro",
+   "webp-encode",
+   "flashcards",
+   "bulk-seed-books",
+   "s3-alternative",
+   "cheap-monitoring",
+   "agent-memory",
+   "atproto-pds",
+   "scraper-trap",
+   "model-changelog",
+   "gdrive-disk-usage"
+  ]
+ },
+ "experiment": "E016 prior-art adjudication",
+ "instrument": {
+  "github": {
+   "queries": 38,
+   "refusals": 0,
+   "status": "read",
+   "url": "https://api.github.com/search/repositories?q=...+in:name,description&per_page=5"
+  },
+  "openweb": {
+   "engine": "duckduckgo-lite through the harness webfetch",
+   "instrument_check": "known-answer control answered with the named artifact; nonsense-token control returned a challenge rather than results",
+   "queries": 14,
+   "refused_first": [
+    "duckduckgo-html via script: HTTP 202 on 19 of 19 queries",
+    "bing-html via script: HTTP 200 with results unrelated to the query",
+    "brave via webfetch: HTTP 429",
+    "harness websearch tool: cancelled"
+   ],
+   "status": "read_after_two_failures"
+  },
+  "registries": {
+   "note": "PyPI's /search/ answers a bot challenge, so the leg is the complete project-name index (905,521 names, sha256 in raw/pypi-simple-meta.json): names only, no descriptions.",
+   "pypi_index": "raw/pypi-simple-index.txt",
+   "queries": 171,
+   "refusals": 0,
+   "status": "read"
+  }
+ },
+ "items": 19,
+ "limits": [
+  "Absence of a hit on three corpora is the absence of a hit. It is not novelty.",
+  "The adjudicator is the same model that drew the sample and wrote the original reasons; the positive controls bound the instrument's error from one side only.",
+  "Attribution is judgement and is recorded per item with the deciding text, so a reader can move any single row and recompute.",
+  "The open-web corpus was read for the seven items the code corpora left unresolved; the other items stopped at the declared stopping rule and were not re-read there."
+ ],
+ "phrasings_asked": {
+  "0/github": [
+   "hacker news client",
+   "hackernews reader cli"
+  ],
+  "0/registries": [
+   "hacker-news",
+   "hn"
+  ],
+  "1/github": [
+   "atomic linux distribution",
+   "immutable linux distro"
+  ],
+  "1/registries": [
+   "bazzite",
+   "flatcar",
+   "immutable os"
+  ],
+  "12/github": [
+   "hacker news client",
+   "hn reader tags"
+  ],
+  "12/openweb": [
+   "HN client bookmark tagging",
+   "Hacker News client tag posts and follow authors"
+  ],
+  "12/registries": [
+   "hacker-news",
+   "hn"
+  ],
+  "14/github": [
+   "atproto handle resolver",
+   "atproto pds discovery"
+  ],
+  "14/registries": [
+   "atproto",
+   "lexicon"
+  ],
+  "16/github": [
+   "word game daily puzzle",
+   "wordle clone"
+  ],
+  "16/openweb": [
+   "daily word game show answer order",
+   "wordle clones list open source"
+  ],
+  "16/registries": [
+   "word game",
+   "wordle"
+  ],
+  "26/github": [
+   "traefik useragent plugin",
+   "user agent block proxy"
+  ],
+  "26/registries": [
+   "proxy",
+   "traefik",
+   "user-agent"
+  ],
+  "3/github": [
+   "image encoder webp",
+   "webp encoder library"
+  ],
+  "3/registries": [
+   "pillow",
+   "sharp",
+   "webp"
+  ],
+  "30/github": [
+   "ebook library server calibre",
+   "opds ebook server"
+  ],
+  "30/registries": [
+   "calibre",
+   "kavita",
+   "komga"
+  ],
+  "34/github": [
+   "url popularity score",
+   "website popularity rank"
+  ],
+  "34/openweb": [
+   "URL popularity score like GitHub stars for any website",
+   "measure popularity of a web page URL"
+  ],
+  "34/registries": [
+   "backlink",
+   "crawler",
+   "url"
+  ],
+  "35/github": [
+   "c++ linter",
+   "clang tidy modernize"
+  ],
+  "35/openweb": [
+   "forbid outdated C++ constructs project style",
+   "linter restrict C++ to a subset of the standard"
+  ],
+  "35/registries": [
+   "clang-tidy",
+   "cppcheck",
+   "include-what-you-use"
+  ],
+  "36/github": [
+   "s3 compatible storage alternative",
+   "s3 object storage server"
+  ],
+  "36/registries": [
+   "garage",
+   "minio",
+   "seaweedfs"
+  ],
+  "38/github": [
+   "uptime monitor",
+   "uptime monitoring self hosted"
+  ],
+  "38/registries": [
+   "status page",
+   "uptime",
+   "uptime-kuma"
+  ],
+  "40/github": [
+   "interest field profile",
+   "social follow interests"
+  ],
+  "40/openweb": [
+   "declare interests on profile so others with same interests follow you",
+   "interest tag follow people across social media"
+  ],
+  "40/registries": [
+   "activitypub",
+   "atproto",
+   "mastodon"
+  ],
+  "42/github": [
+   "interactive staging hunks",
+   "version control partial stage"
+  ],
+  "42/openweb": [
+   "git add -p alternative better interface",
+   "selectively stage and split changes tool"
+  ],
+  "42/registries": [
+   "git",
+   "git-split",
+   "jujutsu"
+  ],
+  "45/github": [
+   "llm model changelog tracker",
+   "model release tracker llm"
+  ],
+  "45/registries": [
+   "litellm",
+   "llm",
+   "openrouter"
+  ],
+  "49/github": [
+   "gdrive disk usage",
+   "google drive storage analyzer"
+  ],
+  "49/registries": [
+   "du",
+   "gdrive",
+   "rclone"
+  ],
+  "5/github": [
+   "agent memory server",
+   "ai agent memory"
+  ],
+  "5/registries": [
+   "agno",
+   "letta",
+   "mem0"
+  ],
+  "7/github": [
+   "ebpf tracing runtime",
+   "runtime instrumentation toggle"
+  ],
+  "7/openweb": [
+   "decide at runtime whether to emit metric log or trace",
+   "toggle telemetry at runtime per code path"
+  ],
+  "7/registries": [
+   "ebpf",
+   "opentelemetry",
+   "telemetry"
+  ],
+  "8/github": [
+   "anki llm generate",
+   "flashcard spaced repetition"
+  ],
+  "8/registries": [
+   "anki",
+   "flashcards",
+   "spaced repetition"
+  ]
+ },
+ "stopping_rule_violations": []
+}

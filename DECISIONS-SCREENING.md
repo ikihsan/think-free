@@ -3,10 +3,10 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-03
+last-verified: 2026-10-05
 -->
 
-Decisions **D019–D023, D048, D049**. Each entry records a choice that was
+Decisions **D019–D023, D048–D050**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -223,3 +223,62 @@ capture and four runnable probes. The next candidate action is to build the
 repository-signal filter and re-harvest through it, testing first the cluster
 with the strongest measured recurrence — changes a coding agent makes that
 nobody asked for — against a stated falsification of its own.
+
+## D050 — A prior-art verdict must read the open web and judge the clause's attribute, and an unserved need goes to a mechanism step (2026-10-05)
+
+Observed: F035, from E016's two declared arms. Six of six positive controls
+were re-adjudicated *served*, so the procedure works; and of the twelve
+adjudicable judgement kills in F029, **three are no prior art found** on two
+GitHub phrasings, three registry keywords and two open-web phrasings each —
+item 7 (annotate once, choose metric/log/trace per code path at runtime), item
+12 (tag HN posts and authors inside an HN client), item 16 (a daily word game
+that shows the solution order so a player can give up). One further kill was
+never adjudicable: its clause and E012's reason asked different questions.
+The count is 3 against a threshold of 3 and one row decides it, because item
+16's open-web results include ten answer-aggregator sites that reveal solutions
+outside the game.
+
+Also observed: **corpus carriage.** GitHub's repository index carried every
+verdict the code corpora carried; the registries carried none on their own; and
+the open web carried four served verdicts that two code corpora returned
+nothing for, including twelve named hosted services for url-popularity that two
+code corpora could not see at all. F036: the first web instrument tried answered
+HTTP 200 with 380 well-formed results unrelated to every one of the 38 queries.
+
+Decision: two changes, and they are separable.
+
+1. **A prior-art verdict is only admissible when it reads the open web and
+   judges the clause's distinguishing attribute.** Code indices decide whether a
+   *category* exists; only the open web shows whether something *serves the
+   clause*, because hosted, commercial and vendor features are invisible to
+   every code index. Attribute, not category: item 42 was killed correctly
+   because `git add -p` serves it, and `dingdugan/model.tracker` and all five of
+   item 49's artifacts serve their clauses with 0 to 2 stars between them. A
+   category is served, an attribute is not, and only the second answers the
+   question a need statement asks. An open-web probe carries a known-answer
+   control, a nonsense-token control and per-query titles, or its output is not
+   evidence.
+2. **An unserved need goes to a mechanism step, and F029's generator verdict is
+   narrowed rather than reversed.** Screen 1 and Screen 3 still apply to a need
+   with no solution found, so the harvest stays refuted as a *candidate*
+   generator; but three needs that no artifact on three corpora serves are the
+   first leads this mission has that do not come from its own sealed reports,
+   and they are worth a mechanism question each.
+
+Rejected: (a) treating the three as candidates or as gaps, which is the error
+F030's rule exists to prevent and which MISSION.md forbids — an absence of a hit
+on three corpora is the absence of a hit; (b) reporting the arm as a comfortable
+pass because 3 ≥ 3, when the margin is one attribution row and the looser rule
+gives 2 and reverses the direction, which is recorded in `results.json` instead;
+(c) re-opening all 19 kills for a better search now that the procedure is known
+to work, since 9 of 12 are served and the recoveries are strong; (d) promoting
+the need-harvest corpus back to a generator on the strength of three survivors
+out of fifty, which is 6% and is not a generator; (e) treating the four
+open-web-carried verdicts as an argument for *more* corpora before the mission
+has read the one it knows it needs.
+
+Consequence: E016 closes with both arms answered and its raw captures kept. The
+three items are listed in `STATE-next-actions.md` as the invention item's
+contents, each with the clause it came from and the two phrasings per corpus
+that found nothing. The next screen of anything in this mission reads
+`docs/process/experiment-protocol.md`'s prior-art rule as amended here.
