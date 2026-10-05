@@ -1,0 +1,832 @@
+{
+ "schema": "origin.e028-step-b-view/1",
+ "reader": "r1",
+ "fit_rows": [
+  "H00",
+  "H01",
+  "H03",
+  "H05",
+  "H08",
+  "H14",
+  "H26",
+  "H30",
+  "H34",
+  "H35",
+  "H36",
+  "H38",
+  "H40",
+  "H42",
+  "H45",
+  "H49"
+ ],
+ "mismatched_control_rule": "row i is paired with row (i+1) mod n",
+ "max_artifacts_per_bundle": 4,
+ "chars_per_artifact": 1800,
+ "declared_positive_control_row": "H03",
+ "view": [
+  {
+   "row": "H34",
+   "pairing": "own",
+   "story_title": "Show HN: Similarity = cosine(your_GitHub_stars, Karpathy) Client-side",
+   "requirement_text": "https x2F x2F puzer.github.io x2F github recommender x2F p eyJ0IjoicHJvZm... I have got around 1800k projects starred. Usually its just that I had lost my bookmarks once and I lost a lot of github projects so I decided to use stars as my bookmarks or even as whatever I was feeling that time so I have starred some 100 projects or so just because I think they were interesting just enough and nobody starred them so to show my support Supporting is also another aspect, I really like to share my support and I feel like even these tiny actions at scale really help these projects whether gaining legitimacy or otherwise I have been such a star fanatic that I have even opened up a github issue about who are the people who have starred the most projects just to give a clear referrence I have even downloaded all the readme.mds of my github projects that I have starred and made a simple html vibe co",
+   "step_a": {
+    "category": "a project recommender driven by a user's own repository-star list",
+    "attribute": "Recommendations are derived from the user's star history standing in for bookmarks that were lost, and are expected to reach projects almost nobody else has starred.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"I had lost my bookmarks once and I lost a lot of github projects so I decided to use stars as my bookmarks\" and \"nobody starred them so to show my support\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "sitestackup.com",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__sitestackup.com.txt",
+     "documentation_shown": " \n \n \n \n \n SiteStackUp \u2014 Free Website Intelligence & Popularity Checker \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n Site StackUp \n Compare How it works \n \n \n\n \n \n Intelligence on any website \n Popularity rank, real-user performance and competitive signals \u2014 blended from open data sources. \n \n \n Analyze \n \n Try:\n wikipedia.org \n github.com \n bbc.com \n \n \n\n \n\n \n Popular sites \n \n google.com \n cloudflare.com \n github.com \n wikipedia.org \n facebook.com \n wordpress.org \n instagram.com \n amazon.com \n spotify.com \n openai.com \n example.com \n archive.org \n theguardian.com \n cnn.com \n ebay.com \n bbc.com \n \n \n \n \n How it works \n SiteStackUp blends a range of independent, open data signals into a single popularity\n index with an honest confidence label. It does not sell panel-based\n visit estimates \u2014 instead it surfaces what can reliably be known about a website from\n public information, clearly and transparently. \n \n \n\n \n SiteStackUp \u00b7 built on open data \n \n\n \n \n \n",
+     "documentation_chars_shown": 989,
+     "documentation_chars_stored": 989,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "webanalyzer.dev",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__webanalyzer.dev.txt",
+     "documentation_shown": " Free Web Analyzer \u2014 Score Any Website 0\u2013100 | WebAnalyzer Skip to content Web Analyzer Leaderboard Compare Contact Analyze English Espa\u00f1ol \u4e2d\u6587 \u0939\u093f\u0928\u094d\u0926\u0940 \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Fran\u00e7ais \u09ac\u09be\u0982\u09b2\u09be Portugu\u00eas \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u0627\u0631\u062f\u0648 290+ checks \u00b7 8 dimensions \u00b7 free Web analyzer: how good is your site, really? WebAnalyzer is a free online web analyzer that scores any site or web page from 0 to 100 across 8 dimensions \u2014 SEO, AI search readiness (GEO), performance, accessibility and security. Paste a URL for a brutally honest audit and see exactly what&#x27;s holding your site back. Website URL Analyze \u2192 No signup to see your score \u00b7 results in seconds \u2713 Instant rating out of 100 \u2713 100% free guarantee \u2014 no signup, no credit card \u2713 SSL secured \u2014 your URL is analyzed over an encrypted connection What our free web analyzer checks 08 / DIMENSIONS 01 SEO Titles, meta, headings, schema and indexability. 02 Performance Response time, render-blocking resources, images and caching. 03 Accessibility WCAG: alt text, labels, contrast, landmarks and keyboard. 04 GEO Whether ChatGPT, Perplexity and AI engines can read and cite your site. 05 UI / UX Mobile fit, clear calls to action, navigation and forms. 06 Security HTTPS, HSTS, CSP and the HTTP security headers. 07 Code Quality Valid, modern, well-structured markup and assets. 08 Data & Tracking Analytics setup, cookies and consent compliance. Make the leaderboard Score well and put your site on the public board to show it off. Every report email includes a one-click link to join. View the board \u2192 A complete web analyzer \u2014 not just an SEO checker WebAnalyzer is a free web analyzer tool you run online \u2014 nothing to install: paste any URL to analyze a web page and get an instant score out of 100 plus the exact issues holding your site back. (Spelled the British way, it&#x27",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 6877,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "domainanalyzer.com/domain-traffic-checker/",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt",
+     "documentation_shown": " \n \n \n \n \n \n Domain Traffic Checker \u2014 Check Any Website\u2019s Traffic Free \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n Skip to content \n \n \n \n \n \n \n Menu \n WHOIS \n DNS Lookup \n SSL \n Traffic \n Reputation \n Domain Availability \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Domain Traffic Checker \n\n \n \n \n Estimate Any Domain&#8217;s Traffic and Popularity \n\n\n\n Enter a domain name to get an instant traffic and popularity estimate. No signup, no rate limits, results in seconds. \n\n\n \n \n \n \n Analyze \n \n Press Enter to analyze &middot; Free, no signup required \n \n\n \n \n &#x1F4CB; WHOIS & Age\n \n \n &#x1F310; DNS Records\n \n \n &#x1F512; SSL Check\n \n \n &#x1F50D; Availability\n \n \n &#x1F6E1; Reputation\n \n \n &#x1F4CA; Traffic\n \n \n\n \n \n Enter a domain to start \n \n \n \n &#x1F50E; \n Type a domain name above and click Analyze to get started. \n \n \n \n \n\n\n\n\n Our Domain Traffic Checker analyzes five independent data sources: \n\n\n\n \n Google Chrome real-user data, \n\n\n\n Cloudflare&#8217;s global DNS rankings, \n\n\n\n link authority scores, \n\n\n\n web archive history, \n\n\n\n DNS infrastructure signals \n \n\n\n\n This produces a composite popularity score from 0 to 100. \n\n\n\n Unlike tools that rely on a single data source or opaque estimation models, our approach combines publicly verifiable signals into a transparent score. \n\n\n\n Each signal is weighted by reliability: real user data from Google Chrome carries the most weight, followed by DNS-based rankings from Cloudflare&#8217;s 1.1.1.1 resolver , the largest public DNS service on the internet. \n\n\n\n What We Measure \n\n\n\n Chrome UX Report (CrUX) is the most important signal in the score. Google collects anonymous performance data from real Chrome users visiting websites, and only domains wi",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 12000,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "ahrefs.com/traffic-checker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__ahrefs.com_traffic-checker.txt",
+     "documentation_shown": " Website Traffic Checker: Estimate Any Site\u2019s Traffic Marketing reports, apps, and automations, handled. Meet Letaido. Get Started Marketing reports, apps, and automations, handled. Meet Letaido. Get Started The only AI marketing platform built on Ahrefs\u2019 proprietary web index. Get Started The only AI marketing platform built on Ahrefs\u2019 proprietary web index. Get Started \u201c The AI marketing platform we needed didn\u2019t exist. So we built it. \u201d Tim Soulo, CMO at Ahrefs Get Started \u201c The AI marketing platform we needed didn\u2019t exist. So we built it. \u201d Tim Soulo, CMO at Ahrefs Get Started The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros The conference for search & marketing pros Ahrefs Product Search marketing Site Explorer Study your competitors\u2019 websites. Keywords Explorer Learn what your customers are searching for. Rank Tracker Monitor your rankings in search engines. GSC Insights Monitor your rankings in Google Search Console. Brand Radar Track your brand\u2019s visibility in LLMs. Custom Prompts Track the AI prompts that matter most. Website performance Site Audit Audit & optimize your website. Web Analytics Get insights about your website\u2019s traffic. Bot Analytics New See good and bad bots crawling your website. Content marketing Content Explorer Track your web mentions & find link prospects. AI Content Helper Improve your content with AI. Social Media Manager Schedule, edit, and manage social media from one place. Reporting Dashboard Track perf",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 6917,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 8
+  },
+  {
+   "row": "H34",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H35",
+   "story_title": null,
+   "requirement_text": "https x2F x2F puzer.github.io x2F github recommender x2F p eyJ0IjoicHJvZm... I have got around 1800k projects starred. Usually its just that I had lost my bookmarks once and I lost a lot of github projects so I decided to use stars as my bookmarks or even as whatever I was feeling that time so I have starred some 100 projects or so just because I think they were interesting just enough and nobody starred them so to show my support Supporting is also another aspect, I really like to share my support and I feel like even these tiny actions at scale really help these projects whether gaining legitimacy or otherwise I have been such a star fanatic that I have even opened up a github issue about who are the people who have starred the most projects just to give a clear referrence I have even downloaded all the readme.mds of my github projects that I have starred and made a simple html vibe co",
+   "step_a": {
+    "category": "a project recommender driven by a user's own repository-star list",
+    "attribute": "Recommendations are derived from the user's star history standing in for bookmarks that were lost, and are expected to reach projects almost nobody else has starred.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"I had lost my bookmarks once and I lost a lot of github projects so I decided to use stars as my bookmarks\" and \"nobody starred them so to show my support\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "openweb",
+     "artifact": "cmake.org <LANG>_STANDARD",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt",
+     "documentation_shown": "\n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n CMake - Upgrade Your Software Build System \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n Skip to content \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n kitware.com \n contact us \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n about \n \n Features \n History \n News &#038; Updates \n \n \n solutions \n \n Support \n Training \n \n \n getting started \n documentation \n customize \n \n \n Search \n \n \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n\n \n \n\n \n \n CMake: A Powerful Software Build System \n CMake is the de-facto standard for building C++ code, with over 2 million downloads a month. It\u2019s a powerful, comprehensive solution for managing the software build process. Get everything you need to successfully leverage CMake by visiting our resources section. \n Getting Started Documentation \n \n\n \n \n \n \n \n When used well, CMake allows us to get new projects up and running fast. \n \n \n \n \n Alexander Drew \n Staff Software Engineer \n Johnson &#038; Johnson \n \n \n \n\n \n \n \n It&#8217;s the only tool that lets me build C++ projects without a substantial headache. I love CMake. \n \n \n \n Cameron Rutherford \n Software Engineer \n Pacific Northwest National Laboratory \n \n \n \n \n \n\n \n \n \n Switching to CMake from bjam has been a massive boost to our organization\u2019s development efficiency. \n \n \n \n James Armes \n Principal Software Engineer \n Medtronic \n \n \n \n\n \n \n \n It&#8217;s platform independent and easy to set up complex projects. You can connect multiple small project libraries. \n \n \n \n Ashish Patil \n Lead Engineer \n John Deere \n \n \n \n \n\n \n \n \n I am very excited about CPS. I package hundreds of packages, and config modules are always broken and hard to teach. \n \n \n \n Tyler Weaver \n Staff Software Engineer \n PickNik \n \n \n \n\n \n \n \n I love CMake, CTest, and CPack. They"
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "github.com/cpp-linter",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt",
+     "documentation_shown": "\n\n \n \n\n\n\n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n cpp-linter \u00b7 GitHub \n\n\n\n \n \n \n \n\n \n \n\n\n \n\n\n \n\n\n \n \n\n \n \n\n \n\n \n\n\n\n\n\n \n\n \n\n\n\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n\n\n\n \n\n\n\n \n\n\n \n \n \n \n\n \n\n\n\n \n\n\n \n \n\n\n \n\n\n \n\n \n \n\n \n \n \n\n \n \n\n\n \n\n \n\n \n \n \n \n\n \n Skip to content \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n\n\n\n\n \n\n \n \n \n \n\n \n \n \n \n \n\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Navigation Menu Sign in Appearance settings cpp-linter Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners View all resources Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community GitHub Stars Archive Program REPOSITORI"
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "isocpp.github.io C++ Core Guidelines",
+     "documentation_path": null,
+     "documentation_shown": ""
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "learn.microsoft.com C26475 'Do not use function style C-casts'",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt",
+     "documentation_shown": " \n \n \n \n Microsoft Learn: Build with answers in reach \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n Skip to main content\n \n \n\n \n \n \n \n This browser is no longer supported. \n \n Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.\n \n \n \n Download Microsoft Edge\n \n \n More info about Internet Explorer and Microsoft Edge\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Build with answers in reach\n \n Dive into official documentation, practical answers, and expert guidance for working and troubleshooting with Microsoft. \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Search \n \n \n \n \n \n \n \n \n \n Popular technical resources and training \n \n \n \n \n \n \n Discover AI, Azure, and Copilot essentials\n \n \n \n Develop knowledge and skills faster with the latest resources and expert insights.\n \n \n \n \n \n \n \n \n \n \n \n Artificial Intelligence \n \n \n \n \n \n \n \n \n \n \n \n \n \n Azure \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Copilot \n \n \n \n \n \n \n \n \n \n \n Browse all product documentation\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Take in-demand training\n \n \n \n Advance your technical career with training and verified credentials.\n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals \n \n \n \n \n \n \n \n \n \n \n \n \n \n Fundamentals of Generative AI \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals: Describe cloud concepts \n \n \n \n \n \n \n \n \n \n \n Browse all training\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Additional resources\n \n \n \n Ask our developer community tech questions or gain applied skills and verified certifications.\n \n \n \n \n \n \n \n Ask a question \n \n \n Join our Q&A tech community to ask questions, share knowledge, and learn together.\n \n \n \n \n \n \n \n \n \n \n Earn credentials \n \n \n Explore credentials including real-world, "
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H35",
+   "pairing": "own",
+   "story_title": "Why C++ programmers keep growing fast despite competition, safety, and AI",
+   "requirement_text": "Is there anything like a linter to force you to stay within some subset of c++ I like the language, but it is hard to avoid language constructs that are outdated or enforce a single or a few ways of doing things. A c++ subset could be nice.",
+   "step_a": {
+    "category": "a C++ static analysis or linting tool",
+    "attribute": "It enforces a chosen subset of the language, blocking outdated constructs and narrowing to one or a few accepted ways of doing things, rather than only reporting defects in ordinary C++.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"Is there anything like a linter to force you to stay within some subset of c++\" and \"hard to avoid language constructs that are outdated\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": false,
+     "corpus": "openweb",
+     "artifact": "vector.com PC-lint Plus (MISRA C and C++, AUTOSAR, CERT-C, CWE enforcement)",
+     "documentation_path": null,
+     "documentation_shown": "",
+     "documentation_chars_shown": 0,
+     "documentation_chars_stored": 0,
+     "fetch_http": null
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "github.com/cpp-linter",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt",
+     "documentation_shown": "\n\n \n \n\n\n\n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n cpp-linter \u00b7 GitHub \n\n\n\n \n \n \n \n\n \n \n\n\n \n\n\n \n\n\n \n \n\n \n \n\n \n\n \n\n\n\n\n\n \n\n \n\n\n\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n\n\n\n \n\n\n\n \n\n\n \n \n \n \n\n \n\n\n\n \n\n\n \n \n\n\n \n\n\n \n\n \n \n\n \n \n \n\n \n \n\n\n \n\n \n\n \n \n \n \n\n \n Skip to content \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n\n\n\n\n \n\n \n \n \n \n\n \n \n \n \n \n\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Navigation Menu Sign in Appearance settings cpp-linter Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners View all resources Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community GitHub Stars Archive Program REPOSITORI",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 10972,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "learn.microsoft.com C26475 'Do not use function style C-casts'",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt",
+     "documentation_shown": " \n \n \n \n Microsoft Learn: Build with answers in reach \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n Skip to main content\n \n \n\n \n \n \n \n This browser is no longer supported. \n \n Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.\n \n \n \n Download Microsoft Edge\n \n \n More info about Internet Explorer and Microsoft Edge\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Build with answers in reach\n \n Dive into official documentation, practical answers, and expert guidance for working and troubleshooting with Microsoft. \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Search \n \n \n \n \n \n \n \n \n \n Popular technical resources and training \n \n \n \n \n \n \n Discover AI, Azure, and Copilot essentials\n \n \n \n Develop knowledge and skills faster with the latest resources and expert insights.\n \n \n \n \n \n \n \n \n \n \n \n Artificial Intelligence \n \n \n \n \n \n \n \n \n \n \n \n \n \n Azure \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Copilot \n \n \n \n \n \n \n \n \n \n \n Browse all product documentation\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Take in-demand training\n \n \n \n Advance your technical career with training and verified credentials.\n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals \n \n \n \n \n \n \n \n \n \n \n \n \n \n Fundamentals of Generative AI \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals: Describe cloud concepts \n \n \n \n \n \n \n \n \n \n \n Browse all training\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Additional resources\n \n \n \n Ask our developer community tech questions or gain applied skills and verified certifications.\n \n \n \n \n \n \n \n Ask a question \n \n \n Join our Q&A tech community to ask questions, share knowledge, and learn together.\n \n \n \n \n \n \n \n \n \n \n Earn credentials \n \n \n Explore credentials including real-world, ",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 2737,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "cmake.org <LANG>_STANDARD",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt",
+     "documentation_shown": "\n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n CMake - Upgrade Your Software Build System \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n Skip to content \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n kitware.com \n contact us \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n about \n \n Features \n History \n News &#038; Updates \n \n \n solutions \n \n Support \n Training \n \n \n getting started \n documentation \n customize \n \n \n Search \n \n \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n\n \n \n\n \n \n CMake: A Powerful Software Build System \n CMake is the de-facto standard for building C++ code, with over 2 million downloads a month. It\u2019s a powerful, comprehensive solution for managing the software build process. Get everything you need to successfully leverage CMake by visiting our resources section. \n Getting Started Documentation \n \n\n \n \n \n \n \n When used well, CMake allows us to get new projects up and running fast. \n \n \n \n \n Alexander Drew \n Staff Software Engineer \n Johnson &#038; Johnson \n \n \n \n\n \n \n \n It&#8217;s the only tool that lets me build C++ projects without a substantial headache. I love CMake. \n \n \n \n Cameron Rutherford \n Software Engineer \n Pacific Northwest National Laboratory \n \n \n \n \n \n\n \n \n \n Switching to CMake from bjam has been a massive boost to our organization\u2019s development efficiency. \n \n \n \n James Armes \n Principal Software Engineer \n Medtronic \n \n \n \n\n \n \n \n It&#8217;s platform independent and easy to set up complex projects. You can connect multiple small project libraries. \n \n \n \n Ashish Patil \n Lead Engineer \n John Deere \n \n \n \n \n\n \n \n \n I am very excited about CPS. I package hundreds of packages, and config modules are always broken and hard to teach. \n \n \n \n Tyler Weaver \n Staff Software Engineer \n PickNik \n \n \n \n\n \n \n \n I love CMake, CTest, and CPack. They",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 3669,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 1
+  },
+  {
+   "row": "H35",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H36",
+   "story_title": null,
+   "requirement_text": "Is there anything like a linter to force you to stay within some subset of c++ I like the language, but it is hard to avoid language constructs that are outdated or enforce a single or a few ways of doing things. A c++ subset could be nice.",
+   "step_a": {
+    "category": "a C++ static analysis or linting tool",
+    "attribute": "It enforces a chosen subset of the language, blocking outdated constructs and narrowing to one or a few accepted ways of doing things, rather than only reporting defects in ordinary C++.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"Is there anything like a linter to force you to stay within some subset of c++\" and \"hard to avoid language constructs that are outdated\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "github",
+     "artifact": "achtungsoftware/alarik",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__achtungsoftware_alarik.txt",
+     "documentation_shown": "<p align=\"center\">\n  <img src=\"assets/logo_blue.png\" width=\"300\" />\n</p>\n\n<p align=\"center\">\n  <a href=\"LICENSE.md\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/license-Apache%202.0-blue\" />\n  </a>\n\n  <img src=\"https://img.shields.io/badge/status-beta-orange\" />\n  \n  <img src=\"https://img.shields.io/badge/language-Swift-F05138\" />\n\n  <img src=\"https://img.shields.io/badge/platform-Linux-lightgrey\" />\n\n  <a href=\"https://github.com/sponsors/achtungsoftware\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/sponsor-%E2%9D%A4-ff69b4\" />\n  </a>\n</p>\n\n# Alarik - a High-Performance S3-Compatible Object Storage\n\nAlarik is a high-performance, S3-compatible object storage system written in **Swift**, licensed under the **Apache 2.0** license. It aims to deliver exceptional speed, developer-friendly ergonomics, and a modern cloud-native core. See [Documentation](https://alarik.io/docs)\n\n<img src=\"assets/console_browser_dark.png\" />\n<img src=\"assets/cluster_dark.png\" />\n\n## Why Alarik?\n\nRecent shifts in the ecosystem-especially surrounding MinIO-have revealed how fragile it is to depend on a single \u201creference\u201d implementation for S3-compatible storage. These changes highlighted structural, licensing, and philosophical issues that many teams had long overlooked.\n\n**Alarik exists to provide a modern, transparent, community-driven alternative.**\nDevelopers and organizations need an S3-compatible store that is fast, simple to operate, easy to extend, and genuinely open-source. No licensing traps, no moving goalposts.\n\nThe goal: a self-hosted, high-speed S3 system built for today\u2019s workloads, without the enterprise upsell.\n\n## Features\n\n### S3-Compatible API\n\n| Feature | Notes |\n| --- | --- |\n| Core object operations | Put, Get, Head, Delete, Copy, multi-object "
+    },
+    {
+     "corpus": "github",
+     "artifact": "goshops-com/clipshare",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__goshops-com_clipshare.txt",
+     "documentation_shown": "# ClipShare\n\n**ClipShare** is a serverless screen recording application built as an open-source alternative to Loom. It empowers users to effortlessly record their screens, optionally capture camera footage, and seamlessly upload the recordings to an S3-compatible storage service. Powered by Electron, ClipShare offers a cross-platform solution that's both powerful and easy to deploy.\n\n![ClipShare Logo](https://github.com/goshops-com/clipshare/blob/main/icon.png?raw=true)\n\n## \ud83c\udfa5 Video Demo\n\nCheck out [ClipShare in action](https://clipshare.gopersonal.com/01J64TT8C7BJD6G37SB7AP203B.webm).\n\n## \ud83d\ude80 Features\n\n- **\ud83d\udcf9 Screen Recording**: Capture your entire screen or specific windows with crystal-clear audio.\n- **\ud83c\udfa5 Camera Integration**: Add a personal touch by including your camera feed in recordings.\n- **\ud83d\ude80 Auto-Launch**: Start ClipShare automatically when your system boots up.\n- **\ud83d\udda5\ufe0f Tray Icon**: Quick access to ClipShare from your system tray for seamless workflow integration.\n- **\u2601\ufe0f Serverless Architecture**: Upload recordings directly to an S3 bucket without the need for a backend server.\n- **\ud83d\udee0\ufe0f Customizable**: Easily configure recording settings, storage options, and more.\n\n## \ud83c\udfc1 Getting Started\n\n### Prerequisites\n\nBefore you begin, ensure you have the following installed:\n\n- [Node.js](https://nodejs.org/) (v14 or higher)\n- [npm](https://www.npmjs.com/) (v6 or higher)\n- An S3-compatible storage service (e.g., AWS S3, MinIO, DigitalOcean Spaces)\n\n### Installation\n\n1. Clone the repository:\n\n2. Install the dependencies:\n\n   ```bash\n   npm install\n   ```\n\n3. Create a `.env` file in the root directory:\n\n   ```plaintext\n   ACCESS_KEY=your_access_key\n   ACCESS_SECRET=your_secret_key\n   ENDPOINT=https://s3.yourservice.com\n   REGION=us-east-1\n   BUCKET_NAME=your-bucket-name\n   URL_PREF"
+    },
+    {
+     "corpus": "github",
+     "artifact": "mojatter/s2",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt",
+     "documentation_shown": "<p align=\"center\">\n  <img src=\"./docs/s2-gopher-gemini.png\" alt=\"S2 \u2014 Simple Storage\" width=\"100%\">\n</p>\n\n# S2 \u2014 Simple Storage\n\n[![PkgGoDev](https://pkg.go.dev/badge/github.com/mojatter/s2)](https://pkg.go.dev/github.com/mojatter/s2)\n[![Go Report Card](https://goreportcard.com/badge/github.com/mojatter/s2)](https://goreportcard.com/report/github.com/mojatter/s2)\n\nS2 is a lightweight object storage library and S3-compatible server written in Go.\n\n## Why S2?\n\nMinIO was the go-to S3-compatible server for local development, but it entered maintenance mode in December 2025 and was archived in February 2026. S2 fills this gap with a different philosophy:\n\n- **Drop-in MinIO replacement** \u2014 Same role in `docker-compose` for local development.\n- **Unified Storage interface** \u2014 Stop reinventing the S3-vs-local-filesystem swap in every project.\n\n## Features\n\n- **S3-Compatible Server** \u2014 Enough for local development, with `osfs` and `memfs` out of the box\n- **Web Console** \u2014 Built-in browser interface for managing buckets and objects\n- **Lightweight** \u2014 Minimal dependencies, single binary, `go install` ready\n- **Unified Storage Interface** \u2014 One API for local filesystem, in-memory, AWS S3, Google Cloud Storage, and Azure Blob Storage\n- **Pluggable Backends** \u2014 Register storage implementations with a blank import\n\n<p align=\"center\">\n  <img src=\"./docs/web-console.png\" alt=\"S2 Web Console\" width=\"720\">\n</p>\n\n<p align=\"center\">\n  <img src=\"./docs/web-console-gallery.png\" alt=\"S2 Web Console \u2014 Gallery View\" width=\"720\">\n</p>\n\n## Migrating from MinIO\n\nFor most local-development use cases, replacing MinIO with S2 is a one-line change in `docker-compose.yml`. S2 serves the S3 API at the root path on `:9000` \u2014 the same endpoint layout MinIO uses \u2014 so existing S3 clients need no changes. T"
+    },
+    {
+     "corpus": "github",
+     "artifact": "versity/versitygw",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__versity_versitygw.txt",
+     "documentation_shown": "# The Versity S3 Gateway:<br/>A High-Performance S3 Translation Service\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/versity/versitygw/blob/assets/assets/logo-white.svg\">\n  <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/versity/versitygw/blob/assets/assets/logo.svg\">\n  <a href=\"https://www.versity.com\"><img alt=\"Versity Software logo image.\" src=\"https://github.com/versity/versitygw/blob/assets/assets/logo.svg\"></a>\n</picture>\n\n [![Apache V2 License](https://img.shields.io/badge/license-Apache%20V2-blue.svg)](https://github.com/versity/versitygw/blob/main/LICENSE) [![Go Reference](https://pkg.go.dev/badge/github.com/versity/versitygw.svg)](https://pkg.go.dev/github.com/versity/versitygw)\n\n### Binary release builds\nDownload [latest release](https://github.com/versity/versitygw/releases)\n | Linux amd64/arm64 | MacOS amd64/arm64 | BSD amd64/arm64 | Windows amd64/arm64 |\n |:-----------:|:-----------:|:-----------:|:-----------:|\n |    \u2714\ufe0f    |  \u2714\ufe0f  |   \u2714\ufe0f   |  \u2714\ufe0f   |\n### Use Cases\n* Turn your local filesystem into an S3 server with a single command!\n* Proxy S3 requests to S3 storage\n* Simple to deploy S3 server with a single command\n* Protocol compatibility in `posix` allows common access to files via posix or S3\n* Simplified interface for adding new storage system support\n\n### WebGUI\nGet more details about the new (optional) WebGUI management/explorer here: [https://github.com/versity/versitygw/wiki/WebGUI](https://github.com/versity/versitygw/wiki/WebGUI)\n\n![admin-explorer](https://github.com/user-attachments/assets/e99db171-2c72-4d0f-8c8d-480a56e1c8a1)\n\n### S3 RDMA\nVersityGW supports S3 over RDMA (Remote Direct Memory Access), enabling high-throughput, low-latency object transfers that bypass the kernel net"
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H36",
+   "pairing": "own",
+   "story_title": "Garage \u2013 An S3 object store so reliable you can run it outside datacenters",
+   "requirement_text": "Half-OT Does anyone know a good open source S3 alternarive that s easily extendable with custom storage backends For example, AWS offers IA and Glacier in addition to the defaults.",
+   "step_a": {
+    "category": "an S3-compatible object storage server",
+    "attribute": "It is open source and lets the operator add custom storage backends or tiers, standing in for the extra storage classes the major cloud provider ships, instead of offering only a fixed set of storage classes.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"a good open source S3 alternarive that s easily extendable with custom storage backends\" and \"AWS offers IA and Glacier in addition to the defaults\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "versity/versitygw",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__versity_versitygw.txt",
+     "documentation_shown": "# The Versity S3 Gateway:<br/>A High-Performance S3 Translation Service\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/versity/versitygw/blob/assets/assets/logo-white.svg\">\n  <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/versity/versitygw/blob/assets/assets/logo.svg\">\n  <a href=\"https://www.versity.com\"><img alt=\"Versity Software logo image.\" src=\"https://github.com/versity/versitygw/blob/assets/assets/logo.svg\"></a>\n</picture>\n\n [![Apache V2 License](https://img.shields.io/badge/license-Apache%20V2-blue.svg)](https://github.com/versity/versitygw/blob/main/LICENSE) [![Go Reference](https://pkg.go.dev/badge/github.com/versity/versitygw.svg)](https://pkg.go.dev/github.com/versity/versitygw)\n\n### Binary release builds\nDownload [latest release](https://github.com/versity/versitygw/releases)\n | Linux amd64/arm64 | MacOS amd64/arm64 | BSD amd64/arm64 | Windows amd64/arm64 |\n |:-----------:|:-----------:|:-----------:|:-----------:|\n |    \u2714\ufe0f    |  \u2714\ufe0f  |   \u2714\ufe0f   |  \u2714\ufe0f   |\n### Use Cases\n* Turn your local filesystem into an S3 server with a single command!\n* Proxy S3 requests to S3 storage\n* Simple to deploy S3 server with a single command\n* Protocol compatibility in `posix` allows common access to files via posix or S3\n* Simplified interface for adding new storage system support\n\n### WebGUI\nGet more details about the new (optional) WebGUI management/explorer here: [https://github.com/versity/versitygw/wiki/WebGUI](https://github.com/versity/versitygw/wiki/WebGUI)\n\n![admin-explorer](https://github.com/user-attachments/assets/e99db171-2c72-4d0f-8c8d-480a56e1c8a1)\n\n### S3 RDMA\nVersityGW supports S3 over RDMA (Remote Direct Memory Access), enabling high-throughput, low-latency object transfers that bypass the kernel net",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 9291,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "achtungsoftware/alarik",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__achtungsoftware_alarik.txt",
+     "documentation_shown": "<p align=\"center\">\n  <img src=\"assets/logo_blue.png\" width=\"300\" />\n</p>\n\n<p align=\"center\">\n  <a href=\"LICENSE.md\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/license-Apache%202.0-blue\" />\n  </a>\n\n  <img src=\"https://img.shields.io/badge/status-beta-orange\" />\n  \n  <img src=\"https://img.shields.io/badge/language-Swift-F05138\" />\n\n  <img src=\"https://img.shields.io/badge/platform-Linux-lightgrey\" />\n\n  <a href=\"https://github.com/sponsors/achtungsoftware\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/sponsor-%E2%9D%A4-ff69b4\" />\n  </a>\n</p>\n\n# Alarik - a High-Performance S3-Compatible Object Storage\n\nAlarik is a high-performance, S3-compatible object storage system written in **Swift**, licensed under the **Apache 2.0** license. It aims to deliver exceptional speed, developer-friendly ergonomics, and a modern cloud-native core. See [Documentation](https://alarik.io/docs)\n\n<img src=\"assets/console_browser_dark.png\" />\n<img src=\"assets/cluster_dark.png\" />\n\n## Why Alarik?\n\nRecent shifts in the ecosystem-especially surrounding MinIO-have revealed how fragile it is to depend on a single \u201creference\u201d implementation for S3-compatible storage. These changes highlighted structural, licensing, and philosophical issues that many teams had long overlooked.\n\n**Alarik exists to provide a modern, transparent, community-driven alternative.**\nDevelopers and organizations need an S3-compatible store that is fast, simple to operate, easy to extend, and genuinely open-source. No licensing traps, no moving goalposts.\n\nThe goal: a self-hosted, high-speed S3 system built for today\u2019s workloads, without the enterprise upsell.\n\n## Features\n\n### S3-Compatible API\n\n| Feature | Notes |\n| --- | --- |\n| Core object operations | Put, Get, Head, Delete, Copy, multi-object ",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 9148,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "mojatter/s2",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt",
+     "documentation_shown": "<p align=\"center\">\n  <img src=\"./docs/s2-gopher-gemini.png\" alt=\"S2 \u2014 Simple Storage\" width=\"100%\">\n</p>\n\n# S2 \u2014 Simple Storage\n\n[![PkgGoDev](https://pkg.go.dev/badge/github.com/mojatter/s2)](https://pkg.go.dev/github.com/mojatter/s2)\n[![Go Report Card](https://goreportcard.com/badge/github.com/mojatter/s2)](https://goreportcard.com/report/github.com/mojatter/s2)\n\nS2 is a lightweight object storage library and S3-compatible server written in Go.\n\n## Why S2?\n\nMinIO was the go-to S3-compatible server for local development, but it entered maintenance mode in December 2025 and was archived in February 2026. S2 fills this gap with a different philosophy:\n\n- **Drop-in MinIO replacement** \u2014 Same role in `docker-compose` for local development.\n- **Unified Storage interface** \u2014 Stop reinventing the S3-vs-local-filesystem swap in every project.\n\n## Features\n\n- **S3-Compatible Server** \u2014 Enough for local development, with `osfs` and `memfs` out of the box\n- **Web Console** \u2014 Built-in browser interface for managing buckets and objects\n- **Lightweight** \u2014 Minimal dependencies, single binary, `go install` ready\n- **Unified Storage Interface** \u2014 One API for local filesystem, in-memory, AWS S3, Google Cloud Storage, and Azure Blob Storage\n- **Pluggable Backends** \u2014 Register storage implementations with a blank import\n\n<p align=\"center\">\n  <img src=\"./docs/web-console.png\" alt=\"S2 Web Console\" width=\"720\">\n</p>\n\n<p align=\"center\">\n  <img src=\"./docs/web-console-gallery.png\" alt=\"S2 Web Console \u2014 Gallery View\" width=\"720\">\n</p>\n\n## Migrating from MinIO\n\nFor most local-development use cases, replacing MinIO with S2 is a one-line change in `docker-compose.yml`. S2 serves the S3 API at the root path on `:9000` \u2014 the same endpoint layout MinIO uses \u2014 so existing S3 clients need no changes. T",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 12000,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "goshops-com/clipshare",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__goshops-com_clipshare.txt",
+     "documentation_shown": "# ClipShare\n\n**ClipShare** is a serverless screen recording application built as an open-source alternative to Loom. It empowers users to effortlessly record their screens, optionally capture camera footage, and seamlessly upload the recordings to an S3-compatible storage service. Powered by Electron, ClipShare offers a cross-platform solution that's both powerful and easy to deploy.\n\n![ClipShare Logo](https://github.com/goshops-com/clipshare/blob/main/icon.png?raw=true)\n\n## \ud83c\udfa5 Video Demo\n\nCheck out [ClipShare in action](https://clipshare.gopersonal.com/01J64TT8C7BJD6G37SB7AP203B.webm).\n\n## \ud83d\ude80 Features\n\n- **\ud83d\udcf9 Screen Recording**: Capture your entire screen or specific windows with crystal-clear audio.\n- **\ud83c\udfa5 Camera Integration**: Add a personal touch by including your camera feed in recordings.\n- **\ud83d\ude80 Auto-Launch**: Start ClipShare automatically when your system boots up.\n- **\ud83d\udda5\ufe0f Tray Icon**: Quick access to ClipShare from your system tray for seamless workflow integration.\n- **\u2601\ufe0f Serverless Architecture**: Upload recordings directly to an S3 bucket without the need for a backend server.\n- **\ud83d\udee0\ufe0f Customizable**: Easily configure recording settings, storage options, and more.\n\n## \ud83c\udfc1 Getting Started\n\n### Prerequisites\n\nBefore you begin, ensure you have the following installed:\n\n- [Node.js](https://nodejs.org/) (v14 or higher)\n- [npm](https://www.npmjs.com/) (v6 or higher)\n- An S3-compatible storage service (e.g., AWS S3, MinIO, DigitalOcean Spaces)\n\n### Installation\n\n1. Clone the repository:\n\n2. Install the dependencies:\n\n   ```bash\n   npm install\n   ```\n\n3. Create a `.env` file in the root directory:\n\n   ```plaintext\n   ACCESS_KEY=your_access_key\n   ACCESS_SECRET=your_secret_key\n   ENDPOINT=https://s3.yourservice.com\n   REGION=us-east-1\n   BUCKET_NAME=your-bucket-name\n   URL_PREF",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 6614,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 2
+  },
+  {
+   "row": "H36",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H38",
+   "story_title": null,
+   "requirement_text": "Half-OT Does anyone know a good open source S3 alternarive that s easily extendable with custom storage backends For example, AWS offers IA and Glacier in addition to the defaults.",
+   "step_a": {
+    "category": "an S3-compatible object storage server",
+    "attribute": "It is open source and lets the operator add custom storage backends or tiers, standing in for the extra storage classes the major cloud provider ships, instead of offering only a fixed set of storage classes.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"a good open source S3 alternarive that s easily extendable with custom storage backends\" and \"AWS offers IA and Glacier in addition to the defaults\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "github",
+     "artifact": "louislam/uptime-kuma",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__louislam_uptime-kuma.txt",
+     "documentation_shown": "<div align=\"center\" width=\"100%\">\n    <img src=\"./public/icon.svg\" width=\"128\" alt=\"Uptime Kuma Logo\" />\n</div>\n\n# Uptime Kuma\n\nUptime Kuma is an easy-to-use self-hosted monitoring tool.\n\n<a target=\"_blank\" href=\"https://github.com/louislam/uptime-kuma\"><img src=\"https://img.shields.io/github/stars/louislam/uptime-kuma?style=flat\" /></a> <a target=\"_blank\" href=\"https://hub.docker.com/r/louislam/uptime-kuma\"><img src=\"https://img.shields.io/docker/pulls/louislam/uptime-kuma\" /></a> <a target=\"_blank\" href=\"https://hub.docker.com/r/louislam/uptime-kuma\"><img src=\"https://img.shields.io/docker/v/louislam/uptime-kuma/2?label=docker%20image%20ver.\" /></a> <a target=\"_blank\" href=\"https://github.com/louislam/uptime-kuma\"><img src=\"https://img.shields.io/github/last-commit/louislam/uptime-kuma\" /></a> <a target=\"_blank\" href=\"https://opencollective.com/uptime-kuma\"><img src=\"https://opencollective.com/uptime-kuma/total/badge.svg?label=Open%20Collective%20Backers&color=brightgreen\" /></a>\n[![GitHub Sponsors](https://img.shields.io/github/sponsors/louislam?label=GitHub%20Sponsors)](https://github.com/sponsors/louislam) <a href=\"https://weblate.kuma.pet/projects/uptime-kuma/uptime-kuma/\">\n<img src=\"https://weblate.kuma.pet/widgets/uptime-kuma/-/svg-badge.svg\" alt=\"Translation status\" />\n</a>\n\n<img src=\"https://user-images.githubusercontent.com/1336778/212262296-e6205815-ad62-488c-83ec-a5b0d0689f7c.jpg\" width=\"700\" alt=\"Uptime Kuma Dashboard Screenshot\" />\n\n## \ud83e\udd54 Live Demo\n\nTry it!\n\nDemo Server (Location: Frankfurt - Germany): <https://demo.kuma.pet/start-demo>\n\nIt is a temporary live demo, all data will be deleted after 10 minutes. Sponsored by [Uptime Kuma Sponsors](https://github.com/louislam/uptime-kuma#%EF%B8%8F-sponsors).\n\n## \u2b50 Features\n\n- Monitoring uptime for HTTP(s) / TCP"
+    },
+    {
+     "corpus": "github",
+     "artifact": "lyc8503/UptimeFlare",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__lyc8503_UptimeFlare.txt",
+     "documentation_shown": "<div align=\"right\">\n  <a title=\"English\" href=\"README.md\"><img src=\"https://img.shields.io/badge/-English-A31F34?style=for-the-badge\" alt=\"English\" /></a>\n  <a title=\"\u7b80\u4f53\u4e2d\u6587\" href=\"README_zh-CN.md\"><img src=\"https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-545759?style=for-the-badge\" alt=\"\u7b80\u4f53\u4e2d\u6587\"></a>\n</div>\n\n# \u2714[UptimeFlare](https://github.com/lyc8503/UptimeFlare)\n\nA more advanced, serverless, and free uptime monitoring & status page solution, powered by Cloudflare Workers, complete with a user-friendly interface.\n\n\ud83d\udce2 **[[SECURITY ADVISORY](https://github.com/lyc8503/UptimeFlare/security/advisories/GHSA-36q9-v7p3-vj6v) 2026/03/04]** A vulnerability (CVE-2026-29779) that could expose monitor configuration and credentials in `uptime.config.ts` to clients was fixed. Versions between 2025-09-21 (from commit `41257c6`) and 2026-03-04 are affected. **Affected users are strongly advised to upgrade to the latest version.**\n\n\ud83c\udf89 **[UPDATE 2026/01/03]** I have just migrated UptimeFlare from KV to D1 Database. I also updated the Terraform Cloudflare provider to v5 and improved the deployment process. The data structure has been optimized to resolve long-standing performance issues.\n\nNew users can deploy directly, while existing users can have a simple auto migration process (upgrade docs below)! Feel free to open an issue if you run into any trouble deploying.\n\n## \u2b50Features\n\n- Open-source, easy to deploy (in under 10 minutes, no local tools required), and free\n- Monitoring capabilities\n  - Up to 50 checks at 1-minute intervals\n  - Geo-specific checks from over [310 cities](https://www.cloudflare.com/network/) worldwide\n  - Support for HTTP/HTTPS/TCP port monitoring\n  - Up to 90-day uptime history and uptime percentage tracking\n  - Customizable request methods, headers,"
+    },
+    {
+     "corpus": "github",
+     "artifact": "openstatusHQ/openstatus",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__openstatusHQ_openstatus.txt",
+     "documentation_shown": "<p align=\"center\" style=\"margin-top: 120px\">\n\n  <h3 align=\"center\">openstatus</h3>\n\n  <p align=\"center\">The open-source status page and uptime monitoring platform.\n    <br />\n    <a href=\"https://www.openstatus.dev\"><strong>Learn more \u00bb</strong></a>\n    <br />\n    <br />\n    <a href=\"https://www.openstatus.dev/docs\">Documentation</a>\n    \u00b7\n    <a href=\"https://www.openstatus.dev\">Website</a>\n    \u00b7\n    <a href=\"https://www.openstatus.dev/discord\">Discord</a>\n  </p>\n\n  <p align=\"center\">\n  <a href=\"https://status.openstatus.dev\"><img src=\"https://status.openstatus.dev/badge/v2?variant=outline\" alt=\"openstatus status\"></a>\n\n  </p>\n  <p align=\"center\">\n      <a href=\"https://github.com/openstatushq/openstatus/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-AGPL--3.0-blue.svg\" alt=\"License\"></a>\n      <a href=\"https://github.com/openstatushq/openstatus/stargazers\"><img src=\"https://img.shields.io/github/stars/openstatushq/openstatus?style=social\" alt=\"GitHub stars\"></a>\n      <a href=\"https://www.openstatus.dev/discord\"><img src=\"https://img.shields.io/discord/1129008226264940625?color=7289da&logo=discord&logoColor=white\" alt=\"Discord\"></a>\n</p>\n\n## About openstatus\n\nopenstatus is the open-source **uptime monitoring** and **status page** platform built for **infra as code**. Declare monitors and status pages in code. Let your agents update them.\n\nMonitors, status pages, and notification channels are declared in YAML or Terraform, applied from the CLI or CI, and operable from Claude, ChatGPT, or Cursor over MCP. Available as a managed service or self-hosted.\n\n<p align=\"center\">\n  <img src=\"https://www.openstatus.dev/assets/landing/statuspage-meow.png\" alt=\"openstatus status page\" width=\"720\" />\n</p>\n\n## Why openstatus?\n\n- **Infra as code** \u2014 monitors, status"
+    },
+    {
+     "corpus": "github",
+     "artifact": "upptime/upptime",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__upptime_upptime.txt",
+     "documentation_shown": "# [![Upptime](https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/logo.svg)](https://upptime.js.org)\n\n<!--start: description-->\n\n**Upptime** (https://upptime.js.org) is the open-source uptime monitor and status page, powered entirely by GitHub Actions, Issues, and Pages, made with \ud83d\udc9a by [Anand Chowdhary](https://anandchowdhary.com).\n\n> I find Upptime an incredible clever usage of \\[GitHub Actions]. You essentially get a free configurable uptime monitor for whatever you want. \u2013 [CSS Tricks](https://css-tricks.com/upptime/)\n\n<details data-embed=\"anandchowdhary.com\" data-title=\"Upptime\" data-summary=\"Uptime monitor and status page powered by GitHub Actions\">\n  <summary>Upptime is used by <strong>3,000+</strong> people and teams to ensure they know when their endpoints go down.</summary>\n\nI built Upptime because, like many developers, I needed an uptime monitor and status page for my startup Pabio that was affordable, flexible, and completely under my control. At the time, existing services felt expensive, rigid, or closed-source. GitHub Actions had just launched, and I thought: hmm... what if I turned Actions into a self-hosted uptime monitor?\n\nUpptime runs scheduled checks using GitHub Actions (as often as every 5 minutes) to ping your endpoints and verify they're online. Response time data is recorded and committed to git, enabling long-term trend charts and historical insights. When downtime is detected, GitHub Issues are automatically opened and closed. A status page built with Svelte is hosted via GitHub Pages and shows uptime, response times, and incident history - so you get the full-stack uptime monitor and status page.\n\nI built it to be completely free if you're already using GitHub since there's no external server or subscription needed. All"
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H38",
+   "pairing": "own",
+   "story_title": "Show HN: Network Monitor \u2013 a GUI to spot anomalous connections on your Linux",
+   "requirement_text": "I am in the process of building myself a cross platform GUI for network monitoring. Simply because I need one for non-critical stuff and things like uptime robot are enterprise geared and too expensive for me to entertain. I wish there was an uptime robot for like 25 cents a monitor a month.",
+   "step_a": {
+    "category": "a hosted uptime and availability monitoring service",
+    "attribute": "It costs roughly 25 cents per monitor per month, a self-serve consumer price, rather than an enterprise-oriented plan.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"I wish there was an uptime robot for like 25 cents a monitor a month\" and \"enterprise geared and too expensive for me to entertain\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "louislam/uptime-kuma",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__louislam_uptime-kuma.txt",
+     "documentation_shown": "<div align=\"center\" width=\"100%\">\n    <img src=\"./public/icon.svg\" width=\"128\" alt=\"Uptime Kuma Logo\" />\n</div>\n\n# Uptime Kuma\n\nUptime Kuma is an easy-to-use self-hosted monitoring tool.\n\n<a target=\"_blank\" href=\"https://github.com/louislam/uptime-kuma\"><img src=\"https://img.shields.io/github/stars/louislam/uptime-kuma?style=flat\" /></a> <a target=\"_blank\" href=\"https://hub.docker.com/r/louislam/uptime-kuma\"><img src=\"https://img.shields.io/docker/pulls/louislam/uptime-kuma\" /></a> <a target=\"_blank\" href=\"https://hub.docker.com/r/louislam/uptime-kuma\"><img src=\"https://img.shields.io/docker/v/louislam/uptime-kuma/2?label=docker%20image%20ver.\" /></a> <a target=\"_blank\" href=\"https://github.com/louislam/uptime-kuma\"><img src=\"https://img.shields.io/github/last-commit/louislam/uptime-kuma\" /></a> <a target=\"_blank\" href=\"https://opencollective.com/uptime-kuma\"><img src=\"https://opencollective.com/uptime-kuma/total/badge.svg?label=Open%20Collective%20Backers&color=brightgreen\" /></a>\n[![GitHub Sponsors](https://img.shields.io/github/sponsors/louislam?label=GitHub%20Sponsors)](https://github.com/sponsors/louislam) <a href=\"https://weblate.kuma.pet/projects/uptime-kuma/uptime-kuma/\">\n<img src=\"https://weblate.kuma.pet/widgets/uptime-kuma/-/svg-badge.svg\" alt=\"Translation status\" />\n</a>\n\n<img src=\"https://user-images.githubusercontent.com/1336778/212262296-e6205815-ad62-488c-83ec-a5b0d0689f7c.jpg\" width=\"700\" alt=\"Uptime Kuma Dashboard Screenshot\" />\n\n## \ud83e\udd54 Live Demo\n\nTry it!\n\nDemo Server (Location: Frankfurt - Germany): <https://demo.kuma.pet/start-demo>\n\nIt is a temporary live demo, all data will be deleted after 10 minutes. Sponsored by [Uptime Kuma Sponsors](https://github.com/louislam/uptime-kuma#%EF%B8%8F-sponsors).\n\n## \u2b50 Features\n\n- Monitoring uptime for HTTP(s) / TCP",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 7920,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "upptime/upptime",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__upptime_upptime.txt",
+     "documentation_shown": "# [![Upptime](https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/logo.svg)](https://upptime.js.org)\n\n<!--start: description-->\n\n**Upptime** (https://upptime.js.org) is the open-source uptime monitor and status page, powered entirely by GitHub Actions, Issues, and Pages, made with \ud83d\udc9a by [Anand Chowdhary](https://anandchowdhary.com).\n\n> I find Upptime an incredible clever usage of \\[GitHub Actions]. You essentially get a free configurable uptime monitor for whatever you want. \u2013 [CSS Tricks](https://css-tricks.com/upptime/)\n\n<details data-embed=\"anandchowdhary.com\" data-title=\"Upptime\" data-summary=\"Uptime monitor and status page powered by GitHub Actions\">\n  <summary>Upptime is used by <strong>3,000+</strong> people and teams to ensure they know when their endpoints go down.</summary>\n\nI built Upptime because, like many developers, I needed an uptime monitor and status page for my startup Pabio that was affordable, flexible, and completely under my control. At the time, existing services felt expensive, rigid, or closed-source. GitHub Actions had just launched, and I thought: hmm... what if I turned Actions into a self-hosted uptime monitor?\n\nUpptime runs scheduled checks using GitHub Actions (as often as every 5 minutes) to ping your endpoints and verify they're online. Response time data is recorded and committed to git, enabling long-term trend charts and historical insights. When downtime is detected, GitHub Issues are automatically opened and closed. A status page built with Svelte is hosted via GitHub Pages and shows uptime, response times, and incident history - so you get the full-stack uptime monitor and status page.\n\nI built it to be completely free if you're already using GitHub since there's no external server or subscription needed. All",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 12000,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "openstatusHQ/openstatus",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__openstatusHQ_openstatus.txt",
+     "documentation_shown": "<p align=\"center\" style=\"margin-top: 120px\">\n\n  <h3 align=\"center\">openstatus</h3>\n\n  <p align=\"center\">The open-source status page and uptime monitoring platform.\n    <br />\n    <a href=\"https://www.openstatus.dev\"><strong>Learn more \u00bb</strong></a>\n    <br />\n    <br />\n    <a href=\"https://www.openstatus.dev/docs\">Documentation</a>\n    \u00b7\n    <a href=\"https://www.openstatus.dev\">Website</a>\n    \u00b7\n    <a href=\"https://www.openstatus.dev/discord\">Discord</a>\n  </p>\n\n  <p align=\"center\">\n  <a href=\"https://status.openstatus.dev\"><img src=\"https://status.openstatus.dev/badge/v2?variant=outline\" alt=\"openstatus status\"></a>\n\n  </p>\n  <p align=\"center\">\n      <a href=\"https://github.com/openstatushq/openstatus/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/license-AGPL--3.0-blue.svg\" alt=\"License\"></a>\n      <a href=\"https://github.com/openstatushq/openstatus/stargazers\"><img src=\"https://img.shields.io/github/stars/openstatushq/openstatus?style=social\" alt=\"GitHub stars\"></a>\n      <a href=\"https://www.openstatus.dev/discord\"><img src=\"https://img.shields.io/discord/1129008226264940625?color=7289da&logo=discord&logoColor=white\" alt=\"Discord\"></a>\n</p>\n\n## About openstatus\n\nopenstatus is the open-source **uptime monitoring** and **status page** platform built for **infra as code**. Declare monitors and status pages in code. Let your agents update them.\n\nMonitors, status pages, and notification channels are declared in YAML or Terraform, applied from the CLI or CI, and operable from Claude, ChatGPT, or Cursor over MCP. Available as a managed service or self-hosted.\n\n<p align=\"center\">\n  <img src=\"https://www.openstatus.dev/assets/landing/statuspage-meow.png\" alt=\"openstatus status page\" width=\"720\" />\n</p>\n\n## Why openstatus?\n\n- **Infra as code** \u2014 monitors, status",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 8501,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "lyc8503/UptimeFlare",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__lyc8503_UptimeFlare.txt",
+     "documentation_shown": "<div align=\"right\">\n  <a title=\"English\" href=\"README.md\"><img src=\"https://img.shields.io/badge/-English-A31F34?style=for-the-badge\" alt=\"English\" /></a>\n  <a title=\"\u7b80\u4f53\u4e2d\u6587\" href=\"README_zh-CN.md\"><img src=\"https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-545759?style=for-the-badge\" alt=\"\u7b80\u4f53\u4e2d\u6587\"></a>\n</div>\n\n# \u2714[UptimeFlare](https://github.com/lyc8503/UptimeFlare)\n\nA more advanced, serverless, and free uptime monitoring & status page solution, powered by Cloudflare Workers, complete with a user-friendly interface.\n\n\ud83d\udce2 **[[SECURITY ADVISORY](https://github.com/lyc8503/UptimeFlare/security/advisories/GHSA-36q9-v7p3-vj6v) 2026/03/04]** A vulnerability (CVE-2026-29779) that could expose monitor configuration and credentials in `uptime.config.ts` to clients was fixed. Versions between 2025-09-21 (from commit `41257c6`) and 2026-03-04 are affected. **Affected users are strongly advised to upgrade to the latest version.**\n\n\ud83c\udf89 **[UPDATE 2026/01/03]** I have just migrated UptimeFlare from KV to D1 Database. I also updated the Terraform Cloudflare provider to v5 and improved the deployment process. The data structure has been optimized to resolve long-standing performance issues.\n\nNew users can deploy directly, while existing users can have a simple auto migration process (upgrade docs below)! Feel free to open an issue if you run into any trouble deploying.\n\n## \u2b50Features\n\n- Open-source, easy to deploy (in under 10 minutes, no local tools required), and free\n- Monitoring capabilities\n  - Up to 50 checks at 1-minute intervals\n  - Geo-specific checks from over [310 cities](https://www.cloudflare.com/network/) worldwide\n  - Support for HTTP/HTTPS/TCP port monitoring\n  - Up to 90-day uptime history and uptime percentage tracking\n  - Customizable request methods, headers,",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 4119,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 2
+  },
+  {
+   "row": "H38",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H40",
+   "story_title": null,
+   "requirement_text": "I am in the process of building myself a cross platform GUI for network monitoring. Simply because I need one for non-critical stuff and things like uptime robot are enterprise geared and too expensive for me to entertain. I wish there was an uptime robot for like 25 cents a monitor a month.",
+   "step_a": {
+    "category": "a hosted uptime and availability monitoring service",
+    "attribute": "It costs roughly 25 cents per monitor per month, a self-serve consumer price, rather than an enterprise-oriented plan.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"I wish there was an uptime robot for like 25 cents a monitor a month\" and \"enterprise geared and too expensive for me to entertain\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "openweb",
+     "artifact": "Befriend's 3,000+ interest tags (befriend.cc)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt",
+     "documentation_shown": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n BeFriend: Free App to Make Friends Online by Interests \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n We use cookies to analyze traffic. By using this site, you consent to cookies.\n \n \n Accept \n Decline \n \n \n\n \n \n \n Skip to content \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Home \n Our Blog \n About Us \n \n Menu Toggle \n \n \n \n \n \n The BeFriend Magic \n \n \n Our Safety Tools \n \n \n Terms of Service \n \n \n Privacy Policy \n \n \n Community Guidelines \n \n \n English \n \n Menu Toggle \n \n \n \n \n \n Fran\u00e7ais \n \n \n Deutsch \n \n \n Portugu\u00eas (BR) \n \n \n Espa\u00f1ol \n \n \n Portugu\u00eas (PT) \n \n \n Polski \n \n \n T\u00fcrk\u00e7e \n \n \n \u0939\u093f\u0928\u094d\u0926\u0940 \n \n \n Indonesia \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Main Menu \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Chat Now \n \n Make friends, chill and vibe. BeFriend is your best app to find your friends. 100% free, perfectly designed for Gen Z friendship! \n \n \n \n Download Now \n \n \n \n \n \n \n \n \n \n \n \n \n Meet New Friends On BeFriend \n \n Find your like-minded people on BeFriend, engage in awesome conversations with those eager to connect, mutuals become besties, and small talk turns into something meaningful. Making friends online shouldn&#8217;t be awkward\u2014so we made it fun! \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Inside Befriend \n \n \n \n \n \n \n \n What Does DM Mean? A Simple Guide \n Read More \n \n \n \n \n \n \n \n What to Talk About With a New Friend \n Read More \n \n \n \n \n \n \n \n How to Verify an Online Friend Is Real \n Read More \n \n \n \n \n \n \n \n How to Turn an Acquaintance Into a Friend \n Read More \n \n \n \n \n \n \n \n Load More \n \n \n \n \n \n \n View More \n \n \n \n \n \n \n \n \n \n Our \nMission "
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "Instagram suggestion behaviour derived from hashtags and geolocation (guidingtech.com, itgeared.com)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt",
+     "documentation_shown": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n \n \n \n \n\n \n \n \n Guiding Tech - How To Articles, Gadget Buying Guides, Tech Lists \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n\n \n \n \n \n \n \n \n Guiding Tech \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Android \n Windows \n Internet and Social \n iOS \n Gadgets \n Mac \n Buying Guides \n \n \n \n \n \n \n Helping millions of people navigate the world of technology. \n \n\n\n \n \n \n \n \n \n 60M+ \n \n\n\n \n \n Annual Readers \n \n\n \n\n\n \n \n \n \n 6,000+ \n \n\n\n \n \n Guides and Reviews \n \n\n \n\n\n \n \n \n \n 5,400+ \n \n\n\n \n \n Tech Videos \n \n\n \n\n \n\n \n \n\n \n\n Latest News \n\n \n \n \n What Is Power Throttling in Windows 11? \n By Lloyd Ingram in Windows \n Learn how to disable power throttling in Windows 11 to improve performance and prevent Windows from cutting power to essential tasks. \n \n \n \n \n \n \n \n Top Firefox Privacy Features You Should Enable Immediately \n Enable Firefox privacy features like tracking protection, HTTPS-only mode, and automatic history clearing in the Privacy and Security menu. \n \n \n \n \n \n \n \n \n Why More People Ask AI Before They Ever Open Google \n A survey of active AI users published in late 2025 found that 37 percent now start a search by asking... \n \n \n \n \n \n \n \n \n Troubleshooting AMD Noise Suppression Not Working \n AMD Noise Suppression system error? Try these fixes to get noise suppression working again and reduce background noise. \n \n \n \n \n\n \n\n \n\n \n Recommended \n\n\n \n \n \n \n 3 Fixes for \"How to Get Help in Windows\" Keeps Popping Up \n If the 'how to get help in Windows' page keeps popping up on your PC, here are some troubleshooting tips to help you stop it. \n \n \n \n Samsung Galaxy Watch Ultra Review: It's Ultra, but Not for Everyone"
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "LinkedIn Interests section (linkedin.com/help/linkedin/answer/a569139)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__LinkedIn_Interests_section_linkedin.com_help_linkedin_answer_a569139_.txt",
+     "documentation_shown": " Checking your browser - reCAPTCHA Checking your browser before accessing linkedin.com ... Click here if you are not automatically redirected after 5 seconds. "
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "Tinder Interests (help.tinder.com/hc/en-us/articles/360046122691)",
+     "documentation_path": null,
+     "documentation_shown": ""
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H40",
+   "pairing": "own",
+   "story_title": "Laptops with Stickers",
+   "requirement_text": "And a Gunship sticker. After looking at some of these I wish there was an optional field people could add so others with overlapping interests could follow a blog x2F socialmedia x2F etc.",
+   "step_a": {
+    "category": "an optional profile field linking a personal blog or social account",
+    "attribute": "The field is opt-in and filled in by each person, and following works through it on the basis of declared overlapping interests, so discovery comes from interests rather than an existing follower graph.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"an optional field people could add so others with overlapping interests could follow a blog x2F socialmedia x2F etc.\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": false,
+     "corpus": "openweb",
+     "artifact": "Tinder Interests (help.tinder.com/hc/en-us/articles/360046122691)",
+     "documentation_path": null,
+     "documentation_shown": "",
+     "documentation_chars_shown": 0,
+     "documentation_chars_stored": 0,
+     "fetch_http": null
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "Instagram suggestion behaviour derived from hashtags and geolocation (guidingtech.com, itgeared.com)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt",
+     "documentation_shown": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n \n \n \n \n\n \n \n \n Guiding Tech - How To Articles, Gadget Buying Guides, Tech Lists \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n\n \n \n \n \n \n \n \n Guiding Tech \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Android \n Windows \n Internet and Social \n iOS \n Gadgets \n Mac \n Buying Guides \n \n \n \n \n \n \n Helping millions of people navigate the world of technology. \n \n\n\n \n \n \n \n \n \n 60M+ \n \n\n\n \n \n Annual Readers \n \n\n \n\n\n \n \n \n \n 6,000+ \n \n\n\n \n \n Guides and Reviews \n \n\n \n\n\n \n \n \n \n 5,400+ \n \n\n\n \n \n Tech Videos \n \n\n \n\n \n\n \n \n\n \n\n Latest News \n\n \n \n \n What Is Power Throttling in Windows 11? \n By Lloyd Ingram in Windows \n Learn how to disable power throttling in Windows 11 to improve performance and prevent Windows from cutting power to essential tasks. \n \n \n \n \n \n \n \n Top Firefox Privacy Features You Should Enable Immediately \n Enable Firefox privacy features like tracking protection, HTTPS-only mode, and automatic history clearing in the Privacy and Security menu. \n \n \n \n \n \n \n \n \n Why More People Ask AI Before They Ever Open Google \n A survey of active AI users published in late 2025 found that 37 percent now start a search by asking... \n \n \n \n \n \n \n \n \n Troubleshooting AMD Noise Suppression Not Working \n AMD Noise Suppression system error? Try these fixes to get noise suppression working again and reduce background noise. \n \n \n \n \n\n \n\n \n\n \n Recommended \n\n\n \n \n \n \n 3 Fixes for \"How to Get Help in Windows\" Keeps Popping Up \n If the 'how to get help in Windows' page keeps popping up on your PC, here are some troubleshooting tips to help you stop it. \n \n \n \n Samsung Galaxy Watch Ultra Review: It's Ultra, but Not for Everyone",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 7960,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "LinkedIn Interests section (linkedin.com/help/linkedin/answer/a569139)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__LinkedIn_Interests_section_linkedin.com_help_linkedin_answer_a569139_.txt",
+     "documentation_shown": " Checking your browser - reCAPTCHA Checking your browser before accessing linkedin.com ... Click here if you are not automatically redirected after 5 seconds. ",
+     "documentation_chars_shown": 159,
+     "documentation_chars_stored": 159,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "Befriend's 3,000+ interest tags (befriend.cc)",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt",
+     "documentation_shown": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n BeFriend: Free App to Make Friends Online by Interests \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n We use cookies to analyze traffic. By using this site, you consent to cookies.\n \n \n Accept \n Decline \n \n \n\n \n \n \n Skip to content \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Home \n Our Blog \n About Us \n \n Menu Toggle \n \n \n \n \n \n The BeFriend Magic \n \n \n Our Safety Tools \n \n \n Terms of Service \n \n \n Privacy Policy \n \n \n Community Guidelines \n \n \n English \n \n Menu Toggle \n \n \n \n \n \n Fran\u00e7ais \n \n \n Deutsch \n \n \n Portugu\u00eas (BR) \n \n \n Espa\u00f1ol \n \n \n Portugu\u00eas (PT) \n \n \n Polski \n \n \n T\u00fcrk\u00e7e \n \n \n \u0939\u093f\u0928\u094d\u0926\u0940 \n \n \n Indonesia \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Main Menu \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Chat Now \n \n Make friends, chill and vibe. BeFriend is your best app to find your friends. 100% free, perfectly designed for Gen Z friendship! \n \n \n \n Download Now \n \n \n \n \n \n \n \n \n \n \n \n \n Meet New Friends On BeFriend \n \n Find your like-minded people on BeFriend, engage in awesome conversations with those eager to connect, mutuals become besties, and small talk turns into something meaningful. Making friends online shouldn&#8217;t be awkward\u2014so we made it fun! \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Inside Befriend \n \n \n \n \n \n \n \n What Does DM Mean? A Simple Guide \n Read More \n \n \n \n \n \n \n \n What to Talk About With a New Friend \n Read More \n \n \n \n \n \n \n \n How to Verify an Online Friend Is Real \n Read More \n \n \n \n \n \n \n \n How to Turn an Acquaintance Into a Friend \n Read More \n \n \n \n \n \n \n \n Load More \n \n \n \n \n \n \n View More \n \n \n \n \n \n \n \n \n \n Our \nMission ",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 3326,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 0
+  },
+  {
+   "row": "H40",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H42",
+   "story_title": null,
+   "requirement_text": "And a Gunship sticker. After looking at some of these I wish there was an optional field people could add so others with overlapping interests could follow a blog x2F socialmedia x2F etc.",
+   "step_a": {
+    "category": "an optional profile field linking a personal blog or social account",
+    "attribute": "The field is opt-in and filled in by each person, and following works through it on the basis of declared overlapping interests, so discovery comes from interests rather than an existing follower graph.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"an optional field people could add so others with overlapping interests could follow a blog x2F socialmedia x2F etc.\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "openweb",
+     "artifact": "code.visualstudio.com/docs/sourcecontrol/staging-commits",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt",
+     "documentation_shown": " \n \n\n \n \n \n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n\n\n \n \n\n Staging and committing changes \n\n \n\n \n \n \n \n \n \n\n \n \n AI agents: See llms.txt for documentation discovery and navigation. Documentation articles are also available as Markdown by appending .md to the article URL.\n \n \n \n\n \n \n \n \n \n \n Visual Studio Code \n \n \n \n \n \n Features \n \n \n Agents \n Agent Customization \n Models & Agent Harnesses \n Enterprise \n Extensibility \n \n \n \n \n Docs \n \n \n Documentation \n API \n FAQ \n \n \n Release Notes \n \n Blog \n Learn \n Events \n \n \n Resources \n \n \n Extensions \n MCP \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Search \n \n \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \ud83c\udfac Watch The Story of VS Code! \n VS Code is now on Instagram, follow @vscode.ig for updates, tips, and more. \n Rewatch GitHub Copilot Day. \n \n Dismiss this update \n \n \n \n \n \n \n \n \n \n \n \n Documentation \n \n \n \n Overview \n \n \n \n \n Get Started \n \n \n \n Overview \n \n \n \n Agents Quickstart \n \n \n \n Editor Tutorial \n \n \n \n Intro Videos \n \n \n \n \n \n \n Agents \n \n \n \n AI Overview \n \n \n \n Get started \n \n \n \n Agents Quickstart \n \n \n \n Find a Guide \n \n \n \n Set Up GitHub Copilot \n \n \n \n Agents Tutorial \n \n \n \n Best Practices \n \n \n \n \n \n \n Concepts \n \n \n \n Agents \n \n \n \n How Models Work \n \n \n \n Context \n \n \n \n Tools \n \n \n \n Sessions and Chats \n \n \n \n Trust & Safety \n \n \n \n Agent Customization \n \n \n \n Agent Harnesses \n \n \n \n Workspace Context \n \n \n \n Agent Host Architecture \n \n \n \n \n \n \n Use Agents \n \n \n \n Chat View and Layout \n \n \n \n Agents Window \n \n \n \n Choose an Agent Harness \n \n \n \n Configure the Agents Window \n \n \n \n Chat Interaction Controls \n \n \n \n Plan and Run Tasks \n \n \n \n Plan Work \n \n \n \n Use Tools \n \n \n \n Browser Tools \n \n \n \n Subagents \n \n \n \n Automations \n \n \n \n \n \n \n Sessions and Results \n \n \n \n Manage Sessions \n "
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "git-scm.com/book/en/v2/Git-Tools-Interactive-Staging",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt",
+     "documentation_shown": " \n\n\n\n\n\n \n\n\n\n\n\n\n \n \n\n \n \n \n\n Git - Interactive Staging \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n About \n \n \n Trademark \n \n \n \n\n \n Learn \n \n \n Book \n \n \n Cheat Sheet \n \n \n Videos \n \n \n External Links \n \n \n \n\n \n Tools \n \n \n Command Line \n \n \n GUIs \n \n \n Hosting \n \n \n \n \n Reference \n \n \n Install \n \n \n Community \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n"
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "gitbutler.com",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__gitbutler.com.txt",
+     "documentation_shown": " \n \n \n GitButler \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n"
+    },
+    {
+     "corpus": "openweb",
+     "artifact": "jesseduffield/lazygit (issues 46 and 749)",
+     "documentation_path": null,
+     "documentation_shown": ""
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H42",
+   "pairing": "own",
+   "story_title": "I see a future in jj",
+   "requirement_text": "I don t mean that, I mean any tool that allows you to selectively stage can use the exact same interface to selectively split.",
+   "step_a": {
+    "category": "a version-control staging interface",
+    "attribute": "The same interface that selectively stages changes also selectively splits them into separate commits, instead of staging serving only one commit.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"any tool that allows you to selectively stage can use the exact same interface to selectively split\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "git-scm.com/book/en/v2/Git-Tools-Interactive-Staging",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt",
+     "documentation_shown": " \n\n\n\n\n\n \n\n\n\n\n\n\n \n \n\n \n \n \n\n Git - Interactive Staging \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n About \n \n \n Trademark \n \n \n \n\n \n Learn \n \n \n Book \n \n \n Cheat Sheet \n \n \n Videos \n \n \n External Links \n \n \n \n\n \n Tools \n \n \n Command Line \n \n \n GUIs \n \n \n Hosting \n \n \n \n \n Reference \n \n \n Install \n \n \n Community \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 12000,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": false,
+     "corpus": "openweb",
+     "artifact": "stackoverflow.com/questions/19392278",
+     "documentation_path": null,
+     "documentation_shown": "",
+     "documentation_chars_shown": 0,
+     "documentation_chars_stored": 0,
+     "fetch_http": null
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "code.visualstudio.com/docs/sourcecontrol/staging-commits",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt",
+     "documentation_shown": " \n \n\n \n \n \n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n\n\n \n \n\n Staging and committing changes \n\n \n\n \n \n \n \n \n \n\n \n \n AI agents: See llms.txt for documentation discovery and navigation. Documentation articles are also available as Markdown by appending .md to the article URL.\n \n \n \n\n \n \n \n \n \n \n Visual Studio Code \n \n \n \n \n \n Features \n \n \n Agents \n Agent Customization \n Models & Agent Harnesses \n Enterprise \n Extensibility \n \n \n \n \n Docs \n \n \n Documentation \n API \n FAQ \n \n \n Release Notes \n \n Blog \n Learn \n Events \n \n \n Resources \n \n \n Extensions \n MCP \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Search \n \n \n \n \n \n \n \n \n Download \n \n \n \n \n \n \n \n \n \n \n \n \n \ud83c\udfac Watch The Story of VS Code! \n VS Code is now on Instagram, follow @vscode.ig for updates, tips, and more. \n Rewatch GitHub Copilot Day. \n \n Dismiss this update \n \n \n \n \n \n \n \n \n \n \n \n Documentation \n \n \n \n Overview \n \n \n \n \n Get Started \n \n \n \n Overview \n \n \n \n Agents Quickstart \n \n \n \n Editor Tutorial \n \n \n \n Intro Videos \n \n \n \n \n \n \n Agents \n \n \n \n AI Overview \n \n \n \n Get started \n \n \n \n Agents Quickstart \n \n \n \n Find a Guide \n \n \n \n Set Up GitHub Copilot \n \n \n \n Agents Tutorial \n \n \n \n Best Practices \n \n \n \n \n \n \n Concepts \n \n \n \n Agents \n \n \n \n How Models Work \n \n \n \n Context \n \n \n \n Tools \n \n \n \n Sessions and Chats \n \n \n \n Trust & Safety \n \n \n \n Agent Customization \n \n \n \n Agent Harnesses \n \n \n \n Workspace Context \n \n \n \n Agent Host Architecture \n \n \n \n \n \n \n Use Agents \n \n \n \n Chat View and Layout \n \n \n \n Agents Window \n \n \n \n Choose an Agent Harness \n \n \n \n Configure the Agents Window \n \n \n \n Chat Interaction Controls \n \n \n \n Plan and Run Tasks \n \n \n \n Plan Work \n \n \n \n Use Tools \n \n \n \n Browser Tools \n \n \n \n Subagents \n \n \n \n Automations \n \n \n \n \n \n \n Sessions and Results \n \n \n \n Manage Sessions \n ",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 12000,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "openweb",
+     "artifact": "learn.microsoft.com visualstudio git-line-staging",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt",
+     "documentation_shown": " \n \n \n \n Microsoft Learn: Build with answers in reach \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n Skip to main content\n \n \n\n \n \n \n \n This browser is no longer supported. \n \n Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.\n \n \n \n Download Microsoft Edge\n \n \n More info about Internet Explorer and Microsoft Edge\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Build with answers in reach\n \n Dive into official documentation, practical answers, and expert guidance for working and troubleshooting with Microsoft. \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Search \n \n \n \n \n \n \n \n \n \n Popular technical resources and training \n \n \n \n \n \n \n Discover AI, Azure, and Copilot essentials\n \n \n \n Develop knowledge and skills faster with the latest resources and expert insights.\n \n \n \n \n \n \n \n \n \n \n \n Artificial Intelligence \n \n \n \n \n \n \n \n \n \n \n \n \n \n Azure \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Copilot \n \n \n \n \n \n \n \n \n \n \n Browse all product documentation\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Take in-demand training\n \n \n \n Advance your technical career with training and verified credentials.\n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals \n \n \n \n \n \n \n \n \n \n \n \n \n \n Fundamentals of Generative AI \n \n \n \n \n \n \n \n \n \n \n \n \n \n Microsoft Azure Fundamentals: Describe cloud concepts \n \n \n \n \n \n \n \n \n \n \n Browse all training\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Additional resources\n \n \n \n Ask our developer community tech questions or gain applied skills and verified certifications.\n \n \n \n \n \n \n \n Ask a question \n \n \n Join our Q&A tech community to ask questions, share knowledge, and learn together.\n \n \n \n \n \n \n \n \n \n \n Earn credentials \n \n \n Explore credentials including real-world, ",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 2737,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 2
+  },
+  {
+   "row": "H42",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H45",
+   "story_title": null,
+   "requirement_text": "I don t mean that, I mean any tool that allows you to selectively stage can use the exact same interface to selectively split.",
+   "step_a": {
+    "category": "a version-control staging interface",
+    "attribute": "The same interface that selectively stages changes also selectively splits them into separate commits, instead of staging serving only one commit.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"any tool that allows you to selectively stage can use the exact same interface to selectively split\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "github",
+     "artifact": "dfbustosus/ai-model-tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dfbustosus_ai-model-tracker.txt",
+     "documentation_shown": "<div align=\"center\">\n\n# AI Model Tracker\n\n### The Complete 2025-2026 AI Model Landscape\n\nTrack, compare, and visualize **70+ AI models** across benchmarks, pricing, and capabilities.\n\n### [**Visit Live Site**](https://dfbustosus.github.io/ai-model-tracker/)\n\n[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-4f46e5?style=for-the-badge&logo=github)](https://dfbustosus.github.io/ai-model-tracker/)\n[![GitHub Stars](https://img.shields.io/github/stars/dfbustosus/ai-model-tracker?style=for-the-badge&logo=github&color=yellow)](https://github.com/dfbustosus/ai-model-tracker/stargazers)\n[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)\n[![CI](https://img.shields.io/github/actions/workflow/status/dfbustosus/ai-model-tracker/ci.yml?style=for-the-badge&label=CI&logo=githubactions&logoColor=white)](https://github.com/dfbustosus/ai-model-tracker/actions/workflows/ci.yml)\n\n![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)\n![TypeScript](https://img.shields.io/badge/TypeScript_5.9-3178C6?logo=typescript&logoColor=white)\n![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?logo=tailwindcss&logoColor=white)\n![Vite](https://img.shields.io/badge/Vite_7-646CFF?logo=vite&logoColor=white)\n\n---\n\n**GPT-5.4 vs Claude Opus 4.6 vs Grok 4.20 vs Gemini 3.1 Pro** \u2014 which model wins on which benchmark, and at what cost? Stop Googling. Start tracking.\n\n</div>\n\n## Why This Exists\n\nThe AI model landscape changes weekly. New releases, new benchmarks, new pricing \u2014 scattered across dozens of blog posts, tweets, and papers. This project puts **everything in one place** with interactive visualizations so you can actually make informed decisions.\n\n> **Last updated:** March 2026 &mdash; Data from 15+ providers, 7"
+    },
+    {
+     "corpus": "github",
+     "artifact": "dingdugan/model.tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt",
+     "documentation_shown": "# model.tracker\n\n**English** | [\u7b80\u4f53\u4e2d\u6587](README.zh-CN.md)\n\nAutomatically tracks model releases, pricing, and performance across the world's major AI vendors. Updated daily.\n\n## Coverage\n\n**14 vendors:**\n\n- International: OpenAI \u00b7 Anthropic \u00b7 Google \u00b7 Meta \u00b7 Mistral \u00b7 xAI \u00b7 Cohere\n- China: DeepSeek \u00b7 Qwen (Alibaba) \u00b7 Zhipu GLM \u00b7 Doubao (ByteDance) \u00b7 Kimi (Moonshot) \u00b7 Baichuan \u00b7 Hunyuan (Tencent)\n\n**3 kinds of performance data sources:**\n\n- LMSYS Chatbot Arena (human blind-test Elo)\n- Artificial Analysis (independent third-party speed + quality benchmarks)\n- Academic benchmarks (MMLU / GPQA / HumanEval / SWE-bench / MATH)\n\n## Architecture\n\n```\n                   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                   \u2502  GitHub Actions     \u2502  daily 02:00 UTC cron\n                   \u2502  scrapers/run.py    \u2502\n                   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                              \u2502\n   \u2460 discovery + auto-promote \u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 discovery: vendor Models APIs (trusted)   \u2502\u2192 unseen models auto-registered\n   \u2502           + benchmark boards (noise\u2192log)  \u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u2502  register_extra \u2192 unified registry (catalog \u222a auto-discovered)\n   \u2461 scrape         \u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 vendor scrapers  benchmarks  LLM fallback \u2502\n   \u2502 (price/specs)    (Elo/scores) (Claude Haiku)\u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u2502  normalized exact matching (model_registry) \u2014 never mismatch\n   \u2462 validation gate\u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 validation: price >3\u00d7 / ELO >100 jumps    \u2502  quarantined, no dirty writes\n   \u2502             benchmark coverage drop alert \u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u25bc\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+    },
+    {
+     "corpus": "github",
+     "artifact": "pimtheking/llm-release-tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__pimtheking_llm-release-tracker.txt",
+     "documentation_shown": "# \ud83e\udd16 LLM Release Tracker\n\nEen intelligent systeem dat geruchten en aankondigingen analyseert om het volgende AI-model van grote techbedrijven te voorspellen.\n\n[![GitHub Actions](https://github.com/[username]/llm-release-tracker/workflows/Update%20LLM%20Data/badge.svg)](https://github.com/[username]/llm-release-tracker/actions)\n[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blue?style=flat&logo=github)](https://[username].github.io/llm-release-tracker/)\n[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)\n[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)\n\n## \ud83c\udf10 Live Website\n\n**Bekijk de live website:** [https://[username].github.io/llm-release-tracker/](https://[username].github.io/llm-release-tracker/)\n\n## \ud83c\udfaf Wat doet dit project?\n\nDit systeem voorspelt wanneer en welke nieuwe AI-modellen er aankomen door:\n- \ud83d\udd0d Web scraping van zoekresultaten\n- \ud83d\udcca Analyse van geruchten en aankondigingen\n- \ud83d\ude0a Sentiment analyse van berichten\n- \ud83c\udfaf Patroonherkenning in modelnamen\n- \ud83d\udcc5 Intelligente datum-extractie\n- \ud83d\udcbe Automatische data opslag en updates\n\n## \ud83c\udfe2 Ondersteunde Bedrijven\n\n- **OpenAI** (GPT-serie)\n- **Google** (Gemini, PaLM)\n- **Meta** (Llama-serie)\n- **Anthropic** (Claude-serie)\n- **Microsoft** (Copilot)\n- **Amazon** (Titan)\n\n## \ud83d\ude80 Snelle Start\n\n### Lokale Ontwikkeling\n\n1. **Clone de repository**\n   ```bash\n   git clone https://github.com/[username]/llm-release-tracker.git\n   cd llm-release-tracker\n   ```\n\n2. **Installeer dependencies**\n   ```bash\n   pip install -r requirements.txt\n   ```\n\n3. **Run het script**\n   ```bash\n   python simple_predictor.py\n   ```\n\n4. **Start de website lokaal**\n   ```bash\n   python -m http.server 8000\n   # Ga naar http://localhost:8000\n   ```\n\n### GitHub Pages Deployment\n\nDe"
+    },
+    {
+     "corpus": "github",
+     "artifact": "zeztzchen/daily-llm-board",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__zeztzchen_daily-llm-board.txt",
+     "documentation_shown": "# Daily LLM Board\n\nA lightweight daily dashboard for tracking LLM news, papers, research updates, model releases, and weekly notes.\n\nLive site: [https://zeztzchen.github.io/daily-llm-board/](https://zeztzchen.github.io/daily-llm-board/)\n\n## \u529f\u80fd\u4ecb\u7ecd\n\nDaily LLM Board \u662f\u4e00\u4e2a\u7eaf\u9759\u6001\u7684\u6bcf\u65e5 LLM \u4fe1\u606f\u5de1\u68c0\u9762\u677f\uff0c\u9002\u5408\u6bcf\u5929\u5feb\u901f\u8fc7\u4e00\u904d\u65b0\u95fb\u3001\u8bba\u6587\u3001\u7814\u7a76\u535a\u5ba2\u548c\u6a21\u578b\u52a8\u6001\u3002\n\n- \u6bcf\u4e2a\u4fe1\u606f\u6e90\u90fd\u53ef\u4ee5\u52fe\u9009\u5b8c\u6210\uff0c\u5e76\u81ea\u52a8\u66f4\u65b0\u603b\u8fdb\u5ea6\u548c\u5206\u7ec4\u8fdb\u5ea6\u3002\n- \u6bcf\u4e2a\u6761\u76ee\u53f3\u4fa7\u63d0\u4f9b\u6253\u5f00\u6309\u94ae\uff0c\u65b9\u4fbf\u5feb\u901f\u8df3\u8f6c\u539f\u7ad9\u3002\n- \u5de6\u4fa7\u5c55\u793a\u65e5\u671f\u3001\u4eca\u65e5\u8bd7\u53e5\u3001\u5de1\u68c0\u8fdb\u5ea6\u548c\u5173\u6ce8\u65b9\u5411\u3002\n- \u672c\u5468\u8bb0\u5f55\u652f\u6301\u6309\u65e5\u671f\u4fdd\u5b58\u7b14\u8bb0\uff0c\u5185\u5bb9\u5b58\u50a8\u5728\u5f53\u524d\u6d4f\u89c8\u5668\u7684 `localStorage`\u3002\n- \u65b0\u7684\u4e00\u5468\u4f1a\u81ea\u52a8\u5f00\u542f\u65b0\u5468\u5e76\u91cd\u7f6e\u5de1\u68c0\u72b6\u6001\u3002\n- \u652f\u6301\u4e00\u952e\u5bfc\u51fa\u5f53\u524d\u5468 Markdown \u7b14\u8bb0\u3002\n\n## \u7528\u5230\u7684\u94fe\u63a5\n\n### \u8bba\u6587\n\n- [Hugging Face Trending Papers](https://huggingface.co/papers/trending)\n- [alphaXiv Trending](https://www.alphaxiv.org/?sort=Trending)\n- [Papers with Code](https://paperswithcode.co/)\n\n### \u535a\u5ba2\n\n- [Anthropic Research](https://www.anthropic.com/research)\n- [OpenAI Research](https://openai.com/research/index/)\n\n### \u65b0\u95fb\n\n- [X List 1](https://x.com/i/lists/2018885117041942711)\n- [X List 2](https://x.com/i/lists/1597115448146898944)\n- [AIHOT](https://aihot.virxact.com/)\n\n### \u6a21\u578b\n\n- [OpenRouter Models](https://openrouter.ai/models)\n- [LLM Stats](https://llm-stats.com/llm-updates)\n- [Arena WebDev Leaderboard](https://arena.ai/leaderboard/code/webdev)\n- [Artificial Analysis](https://artificialanalysis.ai/)\n\n### \u5176\u4ed6\u8d44\u6e90\u63a8\u8350\n\n- https://web.stanford.edu/class/cs25/\n- https://github.com/karpathy/nn-zero-to-hero\n- https://github.com/rohitg00/ai-engineering-from-scratch\n- https://neetcode.io/practice/machine-learning\n\n### API\n\n- [\u4eca\u65e5\u8bd7\u8bcd API](https://v1.jinrishici.com/all.json)\n\n## \u53c2\u8003\n\n\u4fe1\u606f\u6e90\u6574\u7406\u548c\u9875\u9762\u601d\u8def\u53c2\u8003\uff1a[\u95ea\u5ba2-\u6bcf\u5929\u626b\u4e00\u904d\u8fd9\u4e9b\u5185\u5bb9\uff0c\u4e0d\u6015 AI \u65f6\u4ee3\u6389\u961f\u4e86](https://mp.weixin.qq.com/s/P-mwic1wiSvzwZiPKc077Q?scene=1&click_id=1337508649)\u3002\n> \u76ee\u524d\u7684\u7248\u672c\u8fd8\u6ca1\u6dfb\u52a0\u592a\u591a\u66f4\u591a\u7684\u81ea\u5df1\u67e5\u770b\u8fc7\u7684\u5185\u5bb9\uff0c\u4e0e\u5176\u8bf4\u662f\u53c2\u8003\u4e0d\u5982\u8bf4\u662f\u628aup\u505a\u7684\u4e8b\u60c5vibe\u4e86\u4e00\u4e2a\u7f51\u9875\n"
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H45",
+   "pairing": "own",
+   "story_title": "DeepSeek-v3.1-Terminus",
+   "requirement_text": "I wish there was some easy resource to keep up with the latest models. The best I have come up with so far is asking one model to research the others. Realistically I want to know latest versions, best use case, performance in terms of speed relative to some baseline, and hardware requirements to run it.",
+   "step_a": {
+    "category": "a maintained catalogue comparing currently available models",
+    "attribute": "It tracks the newest releases continuously and reports per model the latest version, best use case, speed relative to a common baseline, and hardware needed to run it.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"some easy resource to keep up with the latest models\" and \"latest versions, best use case, performance in terms of speed relative to some baseline, and hardware requirements to run it\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "dingdugan/model.tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt",
+     "documentation_shown": "# model.tracker\n\n**English** | [\u7b80\u4f53\u4e2d\u6587](README.zh-CN.md)\n\nAutomatically tracks model releases, pricing, and performance across the world's major AI vendors. Updated daily.\n\n## Coverage\n\n**14 vendors:**\n\n- International: OpenAI \u00b7 Anthropic \u00b7 Google \u00b7 Meta \u00b7 Mistral \u00b7 xAI \u00b7 Cohere\n- China: DeepSeek \u00b7 Qwen (Alibaba) \u00b7 Zhipu GLM \u00b7 Doubao (ByteDance) \u00b7 Kimi (Moonshot) \u00b7 Baichuan \u00b7 Hunyuan (Tencent)\n\n**3 kinds of performance data sources:**\n\n- LMSYS Chatbot Arena (human blind-test Elo)\n- Artificial Analysis (independent third-party speed + quality benchmarks)\n- Academic benchmarks (MMLU / GPQA / HumanEval / SWE-bench / MATH)\n\n## Architecture\n\n```\n                   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                   \u2502  GitHub Actions     \u2502  daily 02:00 UTC cron\n                   \u2502  scrapers/run.py    \u2502\n                   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                              \u2502\n   \u2460 discovery + auto-promote \u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 discovery: vendor Models APIs (trusted)   \u2502\u2192 unseen models auto-registered\n   \u2502           + benchmark boards (noise\u2192log)  \u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u2502  register_extra \u2192 unified registry (catalog \u222a auto-discovered)\n   \u2461 scrape         \u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 vendor scrapers  benchmarks  LLM fallback \u2502\n   \u2502 (price/specs)    (Elo/scores) (Claude Haiku)\u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u2502  normalized exact matching (model_registry) \u2014 never mismatch\n   \u2462 validation gate\u25bc\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   \u2502 validation: price >3\u00d7 / ELO >100 jumps    \u2502  quarantined, no dirty writes\n   \u2502             benchmark coverage drop alert \u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                   \u25bc\n          \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 7915,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "dfbustosus/ai-model-tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dfbustosus_ai-model-tracker.txt",
+     "documentation_shown": "<div align=\"center\">\n\n# AI Model Tracker\n\n### The Complete 2025-2026 AI Model Landscape\n\nTrack, compare, and visualize **70+ AI models** across benchmarks, pricing, and capabilities.\n\n### [**Visit Live Site**](https://dfbustosus.github.io/ai-model-tracker/)\n\n[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-4f46e5?style=for-the-badge&logo=github)](https://dfbustosus.github.io/ai-model-tracker/)\n[![GitHub Stars](https://img.shields.io/github/stars/dfbustosus/ai-model-tracker?style=for-the-badge&logo=github&color=yellow)](https://github.com/dfbustosus/ai-model-tracker/stargazers)\n[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)\n[![CI](https://img.shields.io/github/actions/workflow/status/dfbustosus/ai-model-tracker/ci.yml?style=for-the-badge&label=CI&logo=githubactions&logoColor=white)](https://github.com/dfbustosus/ai-model-tracker/actions/workflows/ci.yml)\n\n![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)\n![TypeScript](https://img.shields.io/badge/TypeScript_5.9-3178C6?logo=typescript&logoColor=white)\n![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?logo=tailwindcss&logoColor=white)\n![Vite](https://img.shields.io/badge/Vite_7-646CFF?logo=vite&logoColor=white)\n\n---\n\n**GPT-5.4 vs Claude Opus 4.6 vs Grok 4.20 vs Gemini 3.1 Pro** \u2014 which model wins on which benchmark, and at what cost? Stop Googling. Start tracking.\n\n</div>\n\n## Why This Exists\n\nThe AI model landscape changes weekly. New releases, new benchmarks, new pricing \u2014 scattered across dozens of blog posts, tweets, and papers. This project puts **everything in one place** with interactive visualizations so you can actually make informed decisions.\n\n> **Last updated:** March 2026 &mdash; Data from 15+ providers, 7",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 8908,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "zeztzchen/daily-llm-board",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__zeztzchen_daily-llm-board.txt",
+     "documentation_shown": "# Daily LLM Board\n\nA lightweight daily dashboard for tracking LLM news, papers, research updates, model releases, and weekly notes.\n\nLive site: [https://zeztzchen.github.io/daily-llm-board/](https://zeztzchen.github.io/daily-llm-board/)\n\n## \u529f\u80fd\u4ecb\u7ecd\n\nDaily LLM Board \u662f\u4e00\u4e2a\u7eaf\u9759\u6001\u7684\u6bcf\u65e5 LLM \u4fe1\u606f\u5de1\u68c0\u9762\u677f\uff0c\u9002\u5408\u6bcf\u5929\u5feb\u901f\u8fc7\u4e00\u904d\u65b0\u95fb\u3001\u8bba\u6587\u3001\u7814\u7a76\u535a\u5ba2\u548c\u6a21\u578b\u52a8\u6001\u3002\n\n- \u6bcf\u4e2a\u4fe1\u606f\u6e90\u90fd\u53ef\u4ee5\u52fe\u9009\u5b8c\u6210\uff0c\u5e76\u81ea\u52a8\u66f4\u65b0\u603b\u8fdb\u5ea6\u548c\u5206\u7ec4\u8fdb\u5ea6\u3002\n- \u6bcf\u4e2a\u6761\u76ee\u53f3\u4fa7\u63d0\u4f9b\u6253\u5f00\u6309\u94ae\uff0c\u65b9\u4fbf\u5feb\u901f\u8df3\u8f6c\u539f\u7ad9\u3002\n- \u5de6\u4fa7\u5c55\u793a\u65e5\u671f\u3001\u4eca\u65e5\u8bd7\u53e5\u3001\u5de1\u68c0\u8fdb\u5ea6\u548c\u5173\u6ce8\u65b9\u5411\u3002\n- \u672c\u5468\u8bb0\u5f55\u652f\u6301\u6309\u65e5\u671f\u4fdd\u5b58\u7b14\u8bb0\uff0c\u5185\u5bb9\u5b58\u50a8\u5728\u5f53\u524d\u6d4f\u89c8\u5668\u7684 `localStorage`\u3002\n- \u65b0\u7684\u4e00\u5468\u4f1a\u81ea\u52a8\u5f00\u542f\u65b0\u5468\u5e76\u91cd\u7f6e\u5de1\u68c0\u72b6\u6001\u3002\n- \u652f\u6301\u4e00\u952e\u5bfc\u51fa\u5f53\u524d\u5468 Markdown \u7b14\u8bb0\u3002\n\n## \u7528\u5230\u7684\u94fe\u63a5\n\n### \u8bba\u6587\n\n- [Hugging Face Trending Papers](https://huggingface.co/papers/trending)\n- [alphaXiv Trending](https://www.alphaxiv.org/?sort=Trending)\n- [Papers with Code](https://paperswithcode.co/)\n\n### \u535a\u5ba2\n\n- [Anthropic Research](https://www.anthropic.com/research)\n- [OpenAI Research](https://openai.com/research/index/)\n\n### \u65b0\u95fb\n\n- [X List 1](https://x.com/i/lists/2018885117041942711)\n- [X List 2](https://x.com/i/lists/1597115448146898944)\n- [AIHOT](https://aihot.virxact.com/)\n\n### \u6a21\u578b\n\n- [OpenRouter Models](https://openrouter.ai/models)\n- [LLM Stats](https://llm-stats.com/llm-updates)\n- [Arena WebDev Leaderboard](https://arena.ai/leaderboard/code/webdev)\n- [Artificial Analysis](https://artificialanalysis.ai/)\n\n### \u5176\u4ed6\u8d44\u6e90\u63a8\u8350\n\n- https://web.stanford.edu/class/cs25/\n- https://github.com/karpathy/nn-zero-to-hero\n- https://github.com/rohitg00/ai-engineering-from-scratch\n- https://neetcode.io/practice/machine-learning\n\n### API\n\n- [\u4eca\u65e5\u8bd7\u8bcd API](https://v1.jinrishici.com/all.json)\n\n## \u53c2\u8003\n\n\u4fe1\u606f\u6e90\u6574\u7406\u548c\u9875\u9762\u601d\u8def\u53c2\u8003\uff1a[\u95ea\u5ba2-\u6bcf\u5929\u626b\u4e00\u904d\u8fd9\u4e9b\u5185\u5bb9\uff0c\u4e0d\u6015 AI \u65f6\u4ee3\u6389\u961f\u4e86](https://mp.weixin.qq.com/s/P-mwic1wiSvzwZiPKc077Q?scene=1&click_id=1337508649)\u3002\n> \u76ee\u524d\u7684\u7248\u672c\u8fd8\u6ca1\u6dfb\u52a0\u592a\u591a\u66f4\u591a\u7684\u81ea\u5df1\u67e5\u770b\u8fc7\u7684\u5185\u5bb9\uff0c\u4e0e\u5176\u8bf4\u662f\u53c2\u8003\u4e0d\u5982\u8bf4\u662f\u628aup\u505a\u7684\u4e8b\u60c5vibe\u4e86\u4e00\u4e2a\u7f51\u9875\n",
+     "documentation_chars_shown": 1649,
+     "documentation_chars_stored": 1649,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "pimtheking/llm-release-tracker",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__pimtheking_llm-release-tracker.txt",
+     "documentation_shown": "# \ud83e\udd16 LLM Release Tracker\n\nEen intelligent systeem dat geruchten en aankondigingen analyseert om het volgende AI-model van grote techbedrijven te voorspellen.\n\n[![GitHub Actions](https://github.com/[username]/llm-release-tracker/workflows/Update%20LLM%20Data/badge.svg)](https://github.com/[username]/llm-release-tracker/actions)\n[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blue?style=flat&logo=github)](https://[username].github.io/llm-release-tracker/)\n[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)\n[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)\n\n## \ud83c\udf10 Live Website\n\n**Bekijk de live website:** [https://[username].github.io/llm-release-tracker/](https://[username].github.io/llm-release-tracker/)\n\n## \ud83c\udfaf Wat doet dit project?\n\nDit systeem voorspelt wanneer en welke nieuwe AI-modellen er aankomen door:\n- \ud83d\udd0d Web scraping van zoekresultaten\n- \ud83d\udcca Analyse van geruchten en aankondigingen\n- \ud83d\ude0a Sentiment analyse van berichten\n- \ud83c\udfaf Patroonherkenning in modelnamen\n- \ud83d\udcc5 Intelligente datum-extractie\n- \ud83d\udcbe Automatische data opslag en updates\n\n## \ud83c\udfe2 Ondersteunde Bedrijven\n\n- **OpenAI** (GPT-serie)\n- **Google** (Gemini, PaLM)\n- **Meta** (Llama-serie)\n- **Anthropic** (Claude-serie)\n- **Microsoft** (Copilot)\n- **Amazon** (Titan)\n\n## \ud83d\ude80 Snelle Start\n\n### Lokale Ontwikkeling\n\n1. **Clone de repository**\n   ```bash\n   git clone https://github.com/[username]/llm-release-tracker.git\n   cd llm-release-tracker\n   ```\n\n2. **Installeer dependencies**\n   ```bash\n   pip install -r requirements.txt\n   ```\n\n3. **Run het script**\n   ```bash\n   python simple_predictor.py\n   ```\n\n4. **Start de website lokaal**\n   ```bash\n   python -m http.server 8000\n   # Ga naar http://localhost:8000\n   ```\n\n### GitHub Pages Deployment\n\nDe",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 7710,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 2
+  },
+  {
+   "row": "H45",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H49",
+   "story_title": null,
+   "requirement_text": "I wish there was some easy resource to keep up with the latest models. The best I have come up with so far is asking one model to research the others. Realistically I want to know latest versions, best use case, performance in terms of speed relative to some baseline, and hardware requirements to run it.",
+   "step_a": {
+    "category": "a maintained catalogue comparing currently available models",
+    "attribute": "It tracks the newest releases continuously and reports per model the latest version, best use case, speed relative to a common baseline, and hardware needed to run it.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"some easy resource to keep up with the latest models\" and \"latest versions, best use case, performance in terms of speed relative to some baseline, and hardware requirements to run it\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "github",
+     "artifact": "CodingCru/google-storage-analyzer",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__CodingCru_google-storage-analyzer.txt",
+     "documentation_shown": "# google-storage-analyzer\n\nFind what's eating your Google Drive, Gmail, and Photos storage \u2014 from the terminal.\n\n## Why\n\nGoogle's built-in storage UI barely shows you anything useful. This tool gives you:\n\n- **Drive**: folder tree with sizes, largest files, items in trash\n- **Gmail**: top senders by bytes consumed, largest individual messages\n- **Photos**: exact file sizes via slow-fetch (resumable, runs overnight if needed)\n\n## Setup\n\n### 1. Google Cloud credentials\n\n1. Go to [Google Cloud Console](https://console.cloud.google.com/)\n2. Create a project \u2192 Enable **Drive API**, **Gmail API**, **Photos Library API**\n3. Create OAuth 2.0 credentials (Desktop app type)\n4. Download the JSON and save it to `~/.config/gsa/credentials.json`\n\n### 2. Install\n\n```bash\npip install google-storage-analyzer\n```\n\nOr from source:\n\n```bash\ngit clone https://github.com/CodingCru/google-storage-analyzer\ncd google-storage-analyzer\npip install -e .\n```\n\n### 3. Authenticate\n\n```bash\ngsa auth\n```\n\nThis opens a browser window for Google OAuth. Token is saved locally.\n\n## Usage\n\n```bash\n# Scan Drive and Gmail (fast \u2014 seconds to minutes)\ngsa scan --drive --gmail\n\n# Scan Photos (slow \u2014 may take 30+ minutes for large libraries, resumable)\ngsa scan --photos\n\n# Scan everything\ngsa scan --all\n\n# Show results\ngsa report\n\n# Show top 50 instead of 20\ngsa report --top 50\n\n# Clear cached data and rescan from scratch\ngsa clear-cache && gsa scan --all\n```\n\n## How Photos scanning works\n\nThe Google Photos API doesn't expose file sizes directly. `gsa` fetches a download URL for each photo/video and sends a `HEAD` request to get the `Content-Length` header. It runs at ~5 requests/second to stay polite. Progress is saved automatically \u2014 interrupt with `Ctrl+C` and resume later with `gsa scan --photos`.\n\n## Privacy"
+    },
+    {
+     "corpus": "github",
+     "artifact": "awanmh/gdrive-treesize",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__awanmh_gdrive-treesize.txt",
+     "documentation_shown": "<div align=\"center\">\n\n# \ud83d\udcca Google Drive TreeSize Analyzer\n\n**Alat analisis penyimpanan Google Drive interaktif berbasis Python yang memindai seluruh file, menghitung ukuran folder secara rekursif (fitur khas TreeSize), mengidentifikasi file sampah, dan menghasilkan dashboard HTML visual modern.**\n\n[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n[![Google Drive API](https://img.shields.io/badge/Google_Drive_API-v3-4285F4?logo=googledrive&logoColor=white)](https://developers.google.com/drive)\n\n</div>\n\n---\n\n## \u2728 Fitur Utama\n\n- \ud83d\udd0d **TreeSize Recursive Folder Rollup**: Menghitung total ukuran folder induk berdasarkan akumulasi semua subfolder dan file di dalamnya.\n- \u26a1 **Daftar File Terbesar (Top Largest Files)**: Mengurutkan file dari yang terbesar ke terkecil dengan link langsung ke Google Drive untuk peninjauan atau penghapusan cepat.\n- \ud83d\uddd1\ufe0f **Deteksi File Sampah (Trash / Bin)**: Menemukan file tersembunyi di tempat sampah yang masih menghabiskan kuota penyimpanan Anda.\n- \ud83d\udcca **Breakdown Kategori**: Pengelompokan visual otomatis untuk file Video, Arsip (ZIP/ISO/TAR), Gambar/Foto, PDF, Spreadsheet, Dokumen, dan Audio.\n- \ud83c\udf10 **Dashboard Visual Interaktif (HTML)**: Laporan berbasis web modern yang responsif (Dark Mode / Glassmorphism) dilengkapi fitur pencarian instan (*instant search*), filter kategori, dan sorting tanpa perlu koneksi database.\n- \ud83d\udcc1 **Ekspor CSV**: Kemudahan ekspor seluruh metadata file ke format `.csv` untuk dianalisis di Excel atau Google Sheets.\n- \ud83d\udd12 **Aman & Read-Only**: Menggunakan cakupan izin resmi Google OAuth 2.0 `drive.readonly` (hanya membaca metadata, tidak dapat mengubah atau menghapus file"
+    },
+    {
+     "corpus": "github",
+     "artifact": "pablodeluxe/Google-Drive-Storage-Analyzer",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__pablodeluxe_Google-Drive-Storage-Analyzer.txt",
+     "documentation_shown": "# \ud83d\ude80 Google Drive Storage Analyzer\n\n> **Analizador de almacenamiento inteligente y visualizador de mapa de calor jer\u00e1rquico (Treemap Heatmap) para Google Drive.**\n\n[![React](https://img.shields.io/badge/React-19-blue.svg?style=flat-square&logo=react)](https://react.dev)\n[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org)\n[![Vite](https://img.shields.io/badge/Vite-6-purple.svg?style=flat-square&logo=vite)](https://vitejs.dev)\n[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8.svg?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)\n[![D3 Hierarchy](https://img.shields.io/badge/D3-Hierarchy_3.1-orange.svg?style=flat-square&logo=d3.js)](https://d3js.org)\n[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)\n\n---\n\n## \ud83c\udf1f Caracter\u00edsticas Principales\n\n- \ud83d\uddfa\ufe0f **Mapa de Calor Treemap Interactivo:** Visualiza el peso relativo de tus archivos y carpetas en un lienzo din\u00e1mico al estilo *WinDirStat / DaisyDisk*, cubriendo el 100% de la pantalla sin espacios vac\u00edos.\n- \ud83d\udcc2 **Doble Modo de Exploraci\u00f3n:**\n  - **Por Carpetas:** Navega interactivamente (*drill-down*) carpeta por carpeta mediante migas de pan (*breadcrumbs*).\n  - **Top Global:** Inspecciona directamente los archivos individuales m\u00e1s pesados de toda tu unidad de Google Drive.\n- \ud83c\udf9a\ufe0f **Selector de Densidad:** Elige cu\u00e1ntos mosaicos renderizar a la vez (`30`, `50`, `100`, `250` o `500` mosaicos), agrupando autom\u00e1ticamente los elementos menores restantes en un bloque interactivo \u00abOtros\u00bb.\n- \ud83c\udfa8 **Paletas de Color:** Alterna entre vista sem\u00e1ntica por tipo de archivo (V\u00eddeos, Fotos, Documentos, Archivos comprimidos/ISO) o paletas de calor de temperatura (*Thermal* y *Fire*).\n- \ud83e\uddf9 **Asesor "
+    },
+    {
+     "corpus": "github",
+     "artifact": "richyen/gdrive_du",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__richyen_gdrive_du.txt",
+     "documentation_shown": "# gdrive-du\n\nCrawl a **Google Shared Drive** you select and report:\n\n- **`du`-style folder sizes** \u2014 total bytes per folder, deepest-first, like `du`.\n- **`tree`-style listing** \u2014 an indented tree with sizes per node.\n- A **web UI** with an interactive, collapsible tree, size bars, and a sortable size table.\n\nBoth a **CLI** and a **web UI** are included.\n\n## How it works\n\nThe app fetches every item in the shared drive via the Drive API (one paginated\nlisting), builds an in-memory tree from each file's `parents`, and sums file\nsizes up the tree. Read-only access only (`drive.readonly`).\n\n> **Note on Google-native files:** Google Docs / Sheets / Slides report *no*\n> `size` because they don't consume Drive storage quota. They are counted as\n> **0 bytes** (but still counted as files). Uploaded/binary files report true sizes.\n\n## 1. Setup \u2014 Google OAuth client\n\n1. Go to the [Google Cloud Console](https://console.cloud.google.com/), create (or pick) a project.\n2. Enable the **Google Drive API** (APIs & Services \u2192 Library \u2192 Google Drive API \u2192 Enable).\n3. Configure the **OAuth consent screen** (User type: Internal if you're on Workspace, else External + add yourself as a test user).\n4. APIs & Services \u2192 **Credentials \u2192 Create Credentials \u2192 OAuth client ID \u2192 Application type: Desktop app**.\n5. **Download the JSON** and save it in this folder as **`credentials.json`**.\n\nOn first run a browser window opens for consent; a `token.json` is then cached\nso you won't be prompted again.\n\n## 2. Install\n\n```powershell\npip install -r requirements.txt\n```\n\n## 3. CLI usage\n\n```powershell\n# List the shared drives you can access\npython -m gdrive_du.cli drives\n\n# du-style folder sizes (interactive drive picker if -d omitted)\npython -m gdrive_du.cli du\npython -m gdrive_du.cli du -d \"Marketing Tea"
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  },
+  {
+   "row": "H49",
+   "pairing": "own",
+   "story_title": "WinDirStat \u2013 Windows Directory Statistics",
+   "requirement_text": "Hijacking this comment... Does anyone know anything close to WinDirStat for google drive I really need something like this.",
+   "step_a": {
+    "category": "a disk-usage analyser for a storage account",
+    "attribute": "It reports where the space is going inside a cloud drive account rather than on a local filesystem.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"for google drive I really need something like this\""
+   },
+   "artifacts_shown": [
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "awanmh/gdrive-treesize",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__awanmh_gdrive-treesize.txt",
+     "documentation_shown": "<div align=\"center\">\n\n# \ud83d\udcca Google Drive TreeSize Analyzer\n\n**Alat analisis penyimpanan Google Drive interaktif berbasis Python yang memindai seluruh file, menghitung ukuran folder secara rekursif (fitur khas TreeSize), mengidentifikasi file sampah, dan menghasilkan dashboard HTML visual modern.**\n\n[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n[![Google Drive API](https://img.shields.io/badge/Google_Drive_API-v3-4285F4?logo=googledrive&logoColor=white)](https://developers.google.com/drive)\n\n</div>\n\n---\n\n## \u2728 Fitur Utama\n\n- \ud83d\udd0d **TreeSize Recursive Folder Rollup**: Menghitung total ukuran folder induk berdasarkan akumulasi semua subfolder dan file di dalamnya.\n- \u26a1 **Daftar File Terbesar (Top Largest Files)**: Mengurutkan file dari yang terbesar ke terkecil dengan link langsung ke Google Drive untuk peninjauan atau penghapusan cepat.\n- \ud83d\uddd1\ufe0f **Deteksi File Sampah (Trash / Bin)**: Menemukan file tersembunyi di tempat sampah yang masih menghabiskan kuota penyimpanan Anda.\n- \ud83d\udcca **Breakdown Kategori**: Pengelompokan visual otomatis untuk file Video, Arsip (ZIP/ISO/TAR), Gambar/Foto, PDF, Spreadsheet, Dokumen, dan Audio.\n- \ud83c\udf10 **Dashboard Visual Interaktif (HTML)**: Laporan berbasis web modern yang responsif (Dark Mode / Glassmorphism) dilengkapi fitur pencarian instan (*instant search*), filter kategori, dan sorting tanpa perlu koneksi database.\n- \ud83d\udcc1 **Ekspor CSV**: Kemudahan ekspor seluruh metadata file ke format `.csv` untuk dianalisis di Excel atau Google Sheets.\n- \ud83d\udd12 **Aman & Read-Only**: Menggunakan cakupan izin resmi Google OAuth 2.0 `drive.readonly` (hanya membaca metadata, tidak dapat mengubah atau menghapus file",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 6440,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "CodingCru/google-storage-analyzer",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__CodingCru_google-storage-analyzer.txt",
+     "documentation_shown": "# google-storage-analyzer\n\nFind what's eating your Google Drive, Gmail, and Photos storage \u2014 from the terminal.\n\n## Why\n\nGoogle's built-in storage UI barely shows you anything useful. This tool gives you:\n\n- **Drive**: folder tree with sizes, largest files, items in trash\n- **Gmail**: top senders by bytes consumed, largest individual messages\n- **Photos**: exact file sizes via slow-fetch (resumable, runs overnight if needed)\n\n## Setup\n\n### 1. Google Cloud credentials\n\n1. Go to [Google Cloud Console](https://console.cloud.google.com/)\n2. Create a project \u2192 Enable **Drive API**, **Gmail API**, **Photos Library API**\n3. Create OAuth 2.0 credentials (Desktop app type)\n4. Download the JSON and save it to `~/.config/gsa/credentials.json`\n\n### 2. Install\n\n```bash\npip install google-storage-analyzer\n```\n\nOr from source:\n\n```bash\ngit clone https://github.com/CodingCru/google-storage-analyzer\ncd google-storage-analyzer\npip install -e .\n```\n\n### 3. Authenticate\n\n```bash\ngsa auth\n```\n\nThis opens a browser window for Google OAuth. Token is saved locally.\n\n## Usage\n\n```bash\n# Scan Drive and Gmail (fast \u2014 seconds to minutes)\ngsa scan --drive --gmail\n\n# Scan Photos (slow \u2014 may take 30+ minutes for large libraries, resumable)\ngsa scan --photos\n\n# Scan everything\ngsa scan --all\n\n# Show results\ngsa report\n\n# Show top 50 instead of 20\ngsa report --top 50\n\n# Clear cached data and rescan from scratch\ngsa clear-cache && gsa scan --all\n```\n\n## How Photos scanning works\n\nThe Google Photos API doesn't expose file sizes directly. `gsa` fetches a download URL for each photo/video and sends a `HEAD` request to get the `Content-Length` header. It runs at ~5 requests/second to stay polite. Progress is saved automatically \u2014 interrupt with `Ctrl+C` and resume later with `gsa scan --photos`.\n\n## Privacy",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 1915,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "richyen/gdrive_du",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__richyen_gdrive_du.txt",
+     "documentation_shown": "# gdrive-du\n\nCrawl a **Google Shared Drive** you select and report:\n\n- **`du`-style folder sizes** \u2014 total bytes per folder, deepest-first, like `du`.\n- **`tree`-style listing** \u2014 an indented tree with sizes per node.\n- A **web UI** with an interactive, collapsible tree, size bars, and a sortable size table.\n\nBoth a **CLI** and a **web UI** are included.\n\n## How it works\n\nThe app fetches every item in the shared drive via the Drive API (one paginated\nlisting), builds an in-memory tree from each file's `parents`, and sums file\nsizes up the tree. Read-only access only (`drive.readonly`).\n\n> **Note on Google-native files:** Google Docs / Sheets / Slides report *no*\n> `size` because they don't consume Drive storage quota. They are counted as\n> **0 bytes** (but still counted as files). Uploaded/binary files report true sizes.\n\n## 1. Setup \u2014 Google OAuth client\n\n1. Go to the [Google Cloud Console](https://console.cloud.google.com/), create (or pick) a project.\n2. Enable the **Google Drive API** (APIs & Services \u2192 Library \u2192 Google Drive API \u2192 Enable).\n3. Configure the **OAuth consent screen** (User type: Internal if you're on Workspace, else External + add yourself as a test user).\n4. APIs & Services \u2192 **Credentials \u2192 Create Credentials \u2192 OAuth client ID \u2192 Application type: Desktop app**.\n5. **Download the JSON** and save it in this folder as **`credentials.json`**.\n\nOn first run a browser window opens for consent; a `token.json` is then cached\nso you won't be prompted again.\n\n## 2. Install\n\n```powershell\npip install -r requirements.txt\n```\n\n## 3. CLI usage\n\n```powershell\n# List the shared drives you can access\npython -m gdrive_du.cli drives\n\n# du-style folder sizes (interactive drive picker if -d omitted)\npython -m gdrive_du.cli du\npython -m gdrive_du.cli du -d \"Marketing Tea",
+     "documentation_chars_shown": 1800,
+     "documentation_chars_stored": 4995,
+     "fetch_http": 200
+    },
+    {
+     "shown": true,
+     "has_documentation": true,
+     "corpus": "github",
+     "artifact": "sebbov/gdrive-space",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__sebbov_gdrive-space.txt",
+     "documentation_shown": "https://gdrive.space\n",
+     "documentation_chars_shown": 21,
+     "documentation_chars_stored": 21,
+     "fetch_http": 200
+    }
+   ],
+   "artifacts_named_but_not_shown": 1
+  },
+  {
+   "row": "H49",
+   "pairing": "mismatched_with",
+   "mismatched_with": "H00",
+   "story_title": null,
+   "requirement_text": "Hijacking this comment... Does anyone know anything close to WinDirStat for google drive I really need something like this.",
+   "step_a": {
+    "category": "a disk-usage analyser for a storage account",
+    "attribute": "It reports where the space is going inside a cloud drive account rather than on a local filesystem.",
+    "attribute_stated": "yes",
+    "attribute_note": "\"for google drive I really need something like this\""
+   },
+   "artifacts_shown": [
+    {
+     "corpus": "github",
+     "artifact": "Livinglist/Hacki",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__Livinglist_Hacki.txt",
+     "documentation_shown": "<div align=\"center\">\n  <img align=\"center\" width=\"96\" height=\"96\" src=\"https://user-images.githubusercontent.com/7277662/167775086-0b234f28-dee4-44f6-aae4-14a28ed4bbb6.png\" />\n</div>\n\n<h1 align=\"center\">Hacki for Hacker News</h1>\n\nA [Hacker News](https://news.ycombinator.com/) client built with Flutter.\n\n[![App Store](https://img.shields.io/itunes/v/1602043763?label=App%20Store&logo=appstore)](https://apps.apple.com/us/app/hacki/id1602043763?platform=iphone)\n[![Google Play](https://img.shields.io/endpoint?color=green&logo=googleplay&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.jiaqifeng.hacki%26gl%3DUS%26hl%3Den%26l%3DGoogle%2520Play%26m%3D%24version)](https://play.google.com/store/apps/details?id=com.jiaqifeng.hacki&hl=en_US&gl=US&pli=1)\n[![Fdroid version](https://img.shields.io/f-droid/v/com.jiaqifeng.hacki?logo=fdroid)](https://f-droid.org/en/packages/com.jiaqifeng.hacki/)\n[![GH version](https://img.shields.io/github/release/livinglist/hacki.svg?logo=github)](https://github.com/Livinglist/Hacki/releases/latest)\n[![GitHub](https://img.shields.io/github/stars/livinglist/hacki)](https://github.com/Livinglist/Hacki)\n\n[![Publish (iOS)](https://github.com/Livinglist/Hacki/actions/workflows/publish_ios.yml/badge.svg?branch=master)](https://github.com/Livinglist/Hacki/actions/workflows/publish_ios.yml)\n[![Build Android APK](https://github.com/Livinglist/Hacki/actions/workflows/build_android_apk.yml/badge.svg?branch=master)](https://github.com/Livinglist/Hacki/actions/workflows/build_android_apk.yml)\n[![Parser Check](https://github.com/Livinglist/Hacki/actions/workflows/parser_check.yml/badge.svg?branch=master)](https://github.com/Livinglist/Hacki/actions/workflows/parser_check.yml)\n\n[<img src=\"assets/images/app_store_badge.png\" height=\"50\">](https"
+    },
+    {
+     "corpus": "github",
+     "artifact": "grp/newsyc",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__grp_newsyc.txt",
+     "documentation_shown": "## Welcome to news:yc on GitHub! ##\n\nI should add more info here, but for right now feel free to just browse around. Check out the issues section for things you could try implementing if you want to contribute.\n\n\n"
+    },
+    {
+     "corpus": "github",
+     "artifact": "housseindjirdeh/angular2-hn",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__housseindjirdeh_angular2-hn.txt",
+     "documentation_shown": "<p align=\"center\">\n  <a href=\"https://angular2-hn.firebaseapp.com\">\n    <img alt=\"Angular 2 HN\" title=\"Angular 2 HN\" src=\"http://i.imgur.com/J303pQ4.png\" width=\"150\">\n  </a>\n</p>\n\n<p align=\"center\">\n  A progressive Hacker News client built with Angular\n</p>\n\n<p align=\"center\">\n  <a href=\"https://angular2-hn.firebaseapp.com\">View App</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"/CONTRIBUTING.md\"><img alt=\"PRs Welcome\" src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg\"></a>\n  <a href=\"https://travis-ci.org/housseindjirdeh/angular2-hn\"><img alt=\"Build Status\" src=\"https://travis-ci.org/housseindjirdeh/angular2-hn.svg?branch=master\"></a>\n</p>\n\n---\n\n:zap: **Fast:** Service Worker App Shell + Dynamic Content model to achieve faster load times with and without a network.\n\n:iphone: **Responsive:** Completely responsive UI that can be installed to your mobile home screen to provide a native feel.\n\n:rocket: **Progressive:** [Lighthouse](https://github.com/GoogleChrome/lighthouse) score of 87/100.\n\n<p align=\"center\">\n  <img src = \"http://i.imgur.com/fzJzLFO.png\" width=500>\n</p>\n\n## Mobile Preview\n\n<p align=\"center\">\n  <img src = \"http://i.imgur.com/ZloA1hn.gif\">\n</p>\n\n## Laptop Preview\n\n<p align=\"center\">\n  <img src = \"http://i.imgur.com/MrKHaln.gif\">\n</p>\n\n## Offline Support\n\nThis app uses [Workbox](https://workboxjs.org/) to generate a service worker as part of the build step to load quickly and work offline.\n\n## Manifest\n\nWith Chromium based browsers for Android (Chrome, Opera, etc...), Angular 2 HN includes a Web App Manifest that allows you to install to your homescreen.\n\n<p align=\"center\">\n  <img src = \"http://i.imgur.com/1RaaNkr.png\">\n</p>\n\n## Themes\n\nBuilt in theme engine!\n\nCurrent themes:\n* Default\n* Night\n* Black (AMOLED)\n\nMore to come!\n\n## Areas of improvement\n\n "
+    },
+    {
+     "corpus": "github",
+     "artifact": "insin/react-hn",
+     "documentation_path": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__insin_react-hn.txt",
+     "documentation_shown": "# [react-hn](https://insin.github.io/react-hn)\n\nA [React](http://facebook.github.io/react) &\n[react-router](https://github.com/rackt/react-router)-powered implementation of\n[Hacker News](https://news.ycombinator.com) using its\n[Firebase API](https://github.com/HackerNews/API).\n\n[![react-hn screenshot](https://github.com/insin/react-hn/raw/master/screenshot.png \"New comment highlighting in react-hn\")](https://insin.github.io/react-hn)\n\nLive version: https://insin.github.io/react-hn\n\n## Features\n\n* Supports display of all item types:\n  [stories](https://insin.github.io/react-hn/#/story/8863),\n  [jobs](https://insin.github.io/react-hn/#/job/8426937),\n  [polls](https://insin.github.io/react-hn/#/poll/126809) and\n  [comments](https://insin.github.io/react-hn/#/comment/8054455)\n* Basic [user profiles](https://insin.github.io/react-hn/#/user/patio11)\n* Collapsible comment threads, with child counts\n* \"Realtime\" updates (free via Firebase!)\n* Last visit details for stories are cached in `localStorage`\n* New comments are highlighted:\n  * Comments since your last visit to an item\n  * New comments which load while you're reading an item\n  * New comments in collapsed threads\n* Automatic or manual collapsing of comment threads which don't contain any new\n  comments\n* Manual highlighting of the X most recent comments to catch up on threads you were reading elsewhere\n* Stories with new comments are marked on list pages\n* Stories can be marked as read to remove highighting from new comments\n* \"comments\" sections driven by the Changed Items API\n* Story listing pages are cached in `sessionStorage` for quick back button usage\n  and pagination in the same session\n* Configurable settings:\n  * auto collapse - automatically collapse comment threads without new comments\n    on page load\n  * sh"
+    }
+   ],
+   "artifacts_named_but_not_shown": null
+  }
+ ],
+ "batch": 2,
+ "batches": 2,
+ "rows_in_batch": [
+  "H34",
+  "H35",
+  "H36",
+  "H38",
+  "H40",
+  "H42",
+  "H45",
+  "H49"
+ ]
+}

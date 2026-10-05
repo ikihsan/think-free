@@ -1,0 +1,543 @@
+{
+  "controls": {
+    "c1_mismatched": {
+      "r1": {
+        "called_serving": 0,
+        "detail": {
+          "H00": "does_not_serve",
+          "H01": "does_not_serve",
+          "H03": "does_not_serve",
+          "H05": "no_distinguishing_attribute",
+          "H08": "does_not_serve",
+          "H14": "does_not_serve",
+          "H26": "does_not_serve",
+          "H30": "no_distinguishing_attribute",
+          "H34": "does_not_serve",
+          "H35": "does_not_serve",
+          "H36": "does_not_serve",
+          "H38": "does_not_serve",
+          "H40": "does_not_serve",
+          "H42": "does_not_serve",
+          "H45": "does_not_serve",
+          "H49": "does_not_serve"
+        },
+        "n": 16,
+        "not_serving": 14,
+        "rate_called_serving": 0.0,
+        "refused_as_no_attribute": 2,
+        "unreadable": 0
+      },
+      "r2": {
+        "called_serving": 0,
+        "detail": {
+          "H00": "does_not_serve",
+          "H01": "does_not_serve",
+          "H03": "does_not_serve",
+          "H05": "does_not_serve",
+          "H08": "does_not_serve",
+          "H14": "does_not_serve",
+          "H26": "does_not_serve",
+          "H30": "does_not_serve",
+          "H34": "does_not_serve",
+          "H35": "does_not_serve",
+          "H36": "does_not_serve",
+          "H38": "does_not_serve",
+          "H40": "does_not_serve",
+          "H42": "does_not_serve",
+          "H45": "does_not_serve",
+          "H49": "does_not_serve"
+        },
+        "n": 16,
+        "not_serving": 16,
+        "rate_called_serving": 0.0,
+        "refused_as_no_attribute": 0,
+        "unreadable": 0
+      }
+    },
+    "c2_positive_H03": {
+      "r1": "partial",
+      "r2": "partial"
+    }
+  },
+  "counts": {
+    "either": {
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ],
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ]
+    },
+    "strict": {
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ],
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ]
+    }
+  },
+  "fit_table": [
+    {
+      "agree": true,
+      "attribute": "The mode is one where bots are deliberately permitted rather than banned as cheating, optionally limited to designated servers or account types.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__insin_react-hn.txt :: A [React](http://facebook.github.io/react) &\n[react-router](https://github.com/rackt/react-router)-powered implementation of\n[Hacker News](https://news.ycombinator.com) using ",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__housseindjirdeh_angular2-hn.txt :: A progressive Hacker News client built with Angular\n",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__grp_newsyc.txt :: I should add more info here, but for right now feel free to just browse around. Check out the issues section for things you could try implem"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__grp_newsyc.txt :: I should add more info here, but for right now feel free to just browse around.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H00__github__insin_react-hn.txt :: # [react-hn](https://insin.github.io/react-hn)"
+      ],
+      "label_r1": "does_not_serve",
+      "label_r2": "does_not_serve",
+      "note_r1": "All four documents describe Hacker News reader clients, and one of them is effectively empty (\"I should add more info here, but for right now feel free to just browse around.\"); none of them mentions game servers, botting, or any mode in which automation is deliberately permitted, so the documentation is silent on the attribute rather than saying bots are banned.",
+      "note_r2": "Every document in the bundle describes a Hacker News reader and none mentions a game, automated play, bot accounts, or any per-server or per-account-type permission, so the documentation is silent on the attribute rather than saying bots are refused.",
+      "row": "H00",
+      "screen_verdict": "unadjudicable_for_clause_served_for_reason"
+    },
+    {
+      "agree": true,
+      "attribute": "It combines the atomic property of updates staged invisibly in the background and adopted on next boot with the broad hardware, firmware and package support the asker values, on the other distribution family's base.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__iluxz_MochiOS.txt :: **atomic updates** | a/b root partitions via abroot. update writes to the other side, reboot, flipped. rollback = pick the old one",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__iluxz_MochiOS.txt :: its arch under the hood because arch is good",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__CommonArch_distro-template.txt :: This repository serves as a template for new atomic, immutable Arch Linux-based distributions using CommonArch. Included (in this README)"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__iluxz_MochiOS.txt :: | **atomic updates** | a/b root partitions via abroot. update writes to the other side, reboot, flipped. rollback = pick the old one. it's like a checkpoint system |",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__bhavik2018_znx.txt :: - Upgrade the systems in an safe (atomic) way.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H01__github__dm0-_installer.txt :: The primary goal here is interchangeable immutable disk images that are verified by verity, which is itself verified by the kernel's Secure Boot signature on UEFI platforms."
+      ],
+      "label_r1": "partial",
+      "label_r2": "partial",
+      "note_r1": "MochiOS's own document does show the staging half of the attribute (\"a/b root partitions via abroot. update writes to the other side, reboot, flipped\"), and it names its base as Arch (\"its arch under the hood because arch is good\"), so the 'other distribution family' half is contradicted rather than merely unstated; no document in the bundle says anything about broad hardware, firmware or package support.",
+      "note_r2": "MochiOS documents the stage-then-adopt-on-next-reboot mechanism (update written to the other side, reboot flips into it), but its documentation never says the staging happens in the background or invisibly and never addresses broad package support; those two parts of the attribute are silent, not refused.",
+      "row": "H01",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "Encoding must be fast enough to run inline on large images \u2014 multi-second latency disqualifies it \u2014 so it is on-the-fly transcoding rather than a batch or command-line step.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt :: libwebp parallelizes each frame's compression (`thread_level`) for a multi-core speedup on animated WebP and GIF\u2192WebP (**~42% faster animated encode** on a 10-core M5, see [Performance](#performance)); output stays bit-identical. Enabled by default, toggle with `GifToWebPConfig.setMultiT",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__seanooi_iOS-WebP.txt :: Encoding and decoding of images are done in the background thread and results returned in the completion block on the main thread so as not to lock the main thread, allowing the UI to b"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt :: **Multi-threaded encoding** \u2014 libwebp parallelizes each frame's compression (`thread_level`) for a multi-core speedup on animated WebP and GIF\u2192WebP (**~42% faster animated encode** on a 10-core M5, see [Performance](#performance)); output stays bit-identical.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt :: Provides efficient image compression and decompression using libwebp.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__seanooi_iOS-WebP.txt :: Encoding and decoding of images are done in the background thread and results returned in the completion block on the main thread so as not to lock the main thread, allowing the UI to be updated as needed."
+      ],
+      "label_r1": "partial",
+      "label_r2": "partial",
+      "note_r1": "The only speed statement in the bundle is WebP4j's \"~42% faster animated encode on a 10-core M5\" for animated WebP and GIF conversion, and iOS-WebP's \"Encoding and decoding of images are done in the background thread so as not to lock the main thread\", which is about keeping the UI responsive rather than encoder throughput; no document states any latency figure or makes a claim about encoding one large image inline, so the performance half of the attribute is documented for a narrower case than the attribute asks.",
+      "note_r2": "webp4j's documentation gives a relative speedup figure (~42% faster animated encode on a 10-core M5) and iOS-WebP's says encoding runs off the main thread, but no document states an absolute encode time for large images or claims the multiple-second case is gone; the threshold the attribute sets is silent in all four documents and none says the opposite.",
+      "row": "H03",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "no_distinguishing_attribute",
+      "attribute_stated": "none",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H05__github__akitaonrails_ai-memory.txt :: **It follows you across agents.** Twenty-plus harnesses \u2014 Claude Code,\n  Codex, Cursor, Gemini CLI, OpenCode, Grok, Devin, Kimi, Kiro, and more \u2014\n  feed one shared memory. Quit Claude Code mid-task, open Codex in the same\n  dire"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H05__github__akitaonrails_ai-memory.txt :: feed one shared memory. Quit Claude Code mid-task, open Codex in the same\n  directory, and the next agent picks up a real handoff: where you left\n  off, what failed, what's still open.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H05__github__akitaonrails_ai-memory.txt :: > Long-term memory for AI coding agents. Quit Claude Code mid-task,\n> start OpenAI Codex in the same directory, continue without\n> re-explaining the architecture, the failed approaches, or the open\n> questions."
+      ],
+      "label_r1": "no_distinguishing_attribute",
+      "label_r2": "serves",
+      "note_r1": "Step A recorded attribute = no_distinguishing_attribute, so there is no property here for a product to serve or fail to serve and the row cannot be fit-tested; the documents shown do describe loading prior memory into a new session (\"Quit Claude Code mid-task, open Codex in the same directory, and the next agent picks up a real handoff\"), but I am recording that as context, not as a measurement.",
+      "note_r2": "ai-memory's documentation states the mechanism itself (an agent holding the context hands it to the next one on the same project) rather than only naming a category, and no document in the bundle contradicts that.",
+      "row": "H05",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "The cards are produced in bulk by the assistant from the material just read, instead of the learner typing them by hand into an app.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__raine_anki-llm.txt :: Bulk-process, generate, and improve Anki flashcards with LLMs and\n  text-to-speech.<",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__raine_anki-llm.txt :: **Generate cards interactively.** Create several cards for a term, compare\n  them in a terminal UI, edit or regenerate candidates,",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__ccmdi_obsidianki.txt :: Automated flashcard generation to Anki from your Obsidian vault.\n\n",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__PromtEngineer_Anki_FlashCard_Generator.txt :: This repo will generate Flash cards that you can use in Anki for learning. \n"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__raine_anki-llm.txt :: <strong>Bulk-process, generate, and improve Anki flashcards with LLMs and\n  text-to-speech.</strong>",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__raine_anki-llm.txt :: - **Process files or decks.** Export notes to reviewable CSV or YAML, process\n  them with automatic resume, and import the result, or update a deck directly\n  with previews, snapshots, and rollback support.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__ccmdi_obsidianki.txt :: Automated flashcard generation to Anki from your Obsidian vault.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H08__github__brickfrog_ankigen.txt :: AnkiGen generates Anki flashcards using OpenAI's GPT models."
+      ],
+      "label_r1": "serves",
+      "label_r2": "serves",
+      "note_r1": "Three documents state automated production of cards in bulk rather than hand typing: anki-llm \"Bulk-process, generate, and improve Anki flashcards with LLMs\", \"Create several cards for a term\", ObsidianKi \"Automated flashcard generation to Anki from your Obsidian vault\", and the PDF generator \"This repo will generate Flash cards that you can use in Anki for learning\"; the one clause no document covers is ingestion of the material from inside a chat assistant, so a reader who counts that clause as part of the attribute would call this partial instead.",
+      "note_r2": "Three documents state that the cards are produced by an LLM from source material the user already holds (notes files, an Obsidian vault, a subject) and imported into Anki, which is the generate-don't-type property the attribute asks for; none says the user must type the cards themselves.",
+      "row": "H08",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "It must find a server's new canonical address when the old one is dead and the only surviving handle is the cryptographic identity, by locating entries signed with the same key.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H14__github__Zetaphor_atproto-resolver.txt :: A simple Deno-based HTTP service that resolves AT Protocol handles (Bluesky usernames) to their DID and PDS (Personal Data Server) endpoints.\n\nA live version of this serv",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H14__github__Zetaphor_atproto-resolver.txt :: - Resolves handles to DIDs and PDS endpoints\n-",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H14__registries___atproto_common-web_npm_999_113_dl_mo_.txt :: Shared web-platform-friendly code for at"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H14__github__Zetaphor_atproto-resolver.txt :: - Resolves handles to DIDs and PDS endpoints",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H14__github__Zetaphor_atproto-resolver.txt :: A simple Deno-based HTTP service that resolves AT Protocol handles (Bluesky usernames) to their DID and PDS (Personal Data Server) endpoints."
+      ],
+      "label_r1": "does_not_serve",
+      "label_r2": "does_not_serve",
+      "note_r1": "The resolver document describes turning a handle into a DID and a PDS URL, i.e. it presumes the handle resolves; it never mentions a dead address, a relocated server, or finding new entries signed with the same key, and two of the four artifacts came with no documentation at all, so the bundle is silent on the attribute rather than saying such discovery is impossible.",
+      "note_r2": "The resolver's documentation only goes from a handle the caller supplies to a PDS endpoint; it says nothing about a dead address, about rediscovery from activity the user already holds, or about matching entries by signing key, and the two artifacts with no documentation cannot fill that; silent, not contrary.",
+      "row": "H14",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "Per request it chooses between blocking and proxying based on user agent, so scraper traffic can be deliberately forwarded onward to a chosen target while other traffic is served normally.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H26__github__mkopnsrc_traefik-plugin-useragent-policy.txt :: A Traefik middleware plugin that gates HTTP requests by `User-Agent` \u2014 deny by default, with allow rules (regex), optional per-rule deny exceptions, optional OS filtering, log-only staging f",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H26__github__mkopnsrc_traefik-plugin-useragent-policy.txt :: - Per-rule `action: allow | deny` lets a narrow deny carve specific UAs out of a broader allow.\n- Optional OS type filte"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H26__github__mkopnsrc_traefik-plugin-useragent-policy.txt :: A Traefik middleware plugin that gates HTTP requests by `User-Agent` \u2014 deny by default",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H26__github__mkopnsrc_traefik-plugin-useragent-policy.txt :: - Blocks all `User-Agent`s by default.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H26__github__mkopnsrc_traefik-plugin-useragent-policy.txt :: - Per-rule `action: allow | deny` lets a narrow deny carve specific UAs out of a broader allow."
+      ],
+      "label_r1": "partial",
+      "label_r2": "serves",
+      "note_r1": "The document does describe a per-request decision on user agent between blocking and passing the request through (\"Per-rule `action: allow | deny` lets a narrow deny carve specific UAs out of a broader allow\", plus \"`mode: log-only` for staged rollout; `bypassPaths` for health checks\"), which is part of the attribute; it never mentions forwarding scraper traffic onward to a chosen different target, so the deliberate redirect/proxy-forward half is unstated rather than refused.",
+      "note_r2": "The document names the mechanism the attribute asks for: a middleware plugin added to a Traefik deployment, deciding each request from the client's User-Agent with allow or deny outcomes; it words the pass-through case as allow rather than proxy and never denies the per-request user-agent gating.",
+      "row": "H26",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "no_distinguishing_attribute",
+      "attribute_stated": "none",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__gotson_komga.txt :: Komga is a media server for your comics, mangas, BDs, magazines and eBooks.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt :: **dir2opds is a self-hosted OPDS ebook server that turns any folder into a digital library.** No dat"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__gotson_komga.txt :: - Manage multiple users, with per-library access control, age restrictions, and labels restrictions",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__gotson_komga.txt :: - Download book files, whole series, or read lists",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__seblucas_cops.txt :: You just have to sync your Calibre directory to your COPS server the way you prefer (Dropbox, Bt Sync, Syncthing, use a directory shared with Nextcloud, ...)."
+      ],
+      "label_r1": "no_distinguishing_attribute",
+      "label_r2": "does_not_serve",
+      "note_r1": "Step A recorded attribute = no_distinguishing_attribute, so there is nothing for a product to serve or fail here; the documents shown do point library servers at existing collections (\"dir2opds is a self-hosted OPDS ebook server that turns any folder into a digital library\"), which is recorded as context rather than as a fit judgement.",
+      "note_r2": "No document in the bundle mentions seeding, sharing, or pushing already-downloaded items to other holders of the same collection; the nearest documented capabilities are Komga's access-controlled downloads for its own users and COPS syncing a directory to the operator's own server, and the bundle is silent on the bulk push to other holders rather than saying it cannot be done.",
+      "row": "H30",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "Recommendations are derived from the user's star history standing in for bookmarks that were lost, and are expected to reach projects almost nobody else has starred.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__sitestackup.com.txt :: Popularity rank, real-user performance and competitive signals"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__sitestackup.com.txt :: Intelligence on any website \n Popularity rank, real-user performance and competitive signals \u2014 blended from open data sources.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__ahrefs.com_traffic-checker.txt :: Site Explorer Study your competitors\u2019 websites.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt :: Enter a domain to start"
+      ],
+      "label_r1": "does_not_serve",
+      "label_r2": "does_not_serve",
+      "note_r1": "Every bundle document scores website traffic or popularity (SiteStackUp, WebAnalyzer, Domain Traffic Checker, Ahrefs) and none mentions a user's GitHub star list, lost bookmarks, or surfacing projects almost nobody has starred; the documentation is silent on the attribute, not contrary to it.",
+      "note_r2": "Each page documents popularity and traffic scoring for a URL or domain typed by the visitor; none mentions a person's own starred-repository list as an input or recommendations drawn from such a list, so the documentation is silent on the attribute rather than refusing it.",
+      "row": "H34",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "It enforces a chosen subset of the language, blocking outdated constructs and narrowing to one or a few accepted ways of doing things, rather than only reporting defects in ordinary C++.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt :: cpp-linter \u00b7 GitHub"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt :: Code Quality Enforce quality at merge",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt :: CMake is the de-facto standard for building C++ code, with over 2 million downloads a month."
+      ],
+      "label_r1": "does_not_serve",
+      "label_r2": "does_not_serve",
+      "note_r1": "cpp-linter's shown text is GitHub site navigation for the repository landing page and never mentions a language subset, an enforced rule set, or blocking outdated constructs, the PC-lint entry was supplied with no documentation at all, and the Microsoft Learn and CMake excerpts are generic home pages: the documentation is silent on the attribute, not a denial of it.",
+      "note_r2": "The cpp-linter page as shown is GitHub site navigation and never mentions a C++ subset, declared rules, or refusing outdated constructs; the Microsoft Learn page as shown carries only site chrome and the one artifact whose title suggests subset enforcement (PC-lint Plus, MISRA/AUTOSAR) was given no documentation text at all, so the documentation is silent on the attribute.",
+      "row": "H35",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "It is open source and lets the operator add custom storage backends or tiers, standing in for the extra storage classes the major cloud provider ships, instead of offering only a fixed set of storage classes.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt :: - **Pluggable Backends** \u2014 Register storage implementations with a blank import",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__versity_versitygw.txt :: * Simplified interface for adding new storage system support"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__versity_versitygw.txt :: Simplified interface for adding new storage system support",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt :: **Pluggable Backends** \u2014 Register storage implementations with a blank import",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__achtungsoftware_alarik.txt :: Developers and organizations need an S3-compatible store that is fast, simple to operate, easy to extend, and genuinely open-source."
+      ],
+      "label_r1": "serves",
+      "label_r2": "partial",
+      "note_r1": "S2's README documents custom storage implementations registered as pluggable backends and VersityGW's documents a simplified interface for adding new storage system support, both open source, which is the extensibility the requirement asks for; the documentation is silent about storage-class tiers such as IA or Glacier, which the requirement offered only as an illustration.",
+      "note_r2": "The documentation states extension points for storage backends and open self-hostable stores, which is part of the attribute, but no page mentions storage classes, tiers, or anything equivalent to IA and Glacier, so it is silent on that half of the attribute.",
+      "row": "H36",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "It costs roughly 25 cents per monitor per month, a self-serve consumer price, rather than an enterprise-oriented plan.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__lyc8503_UptimeFlare.txt :: A more advanced, serverless, and free uptime monitoring & status page solution, powered by Cloudflare Workers, complete with a user-friendly interface.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__openstatusHQ_openstatus.txt :: openstatus is the open-source **uptime monitoring** and **status page** platform built for **infra as code**."
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__louislam_uptime-kuma.txt :: Uptime Kuma is an easy-to-use self-hosted monitoring tool.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__upptime_upptime.txt :: I built it to be completely free if you're already using GitHub since there's no external server or subscription needed.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H38__github__openstatusHQ_openstatus.txt :: Available as a managed service or self-hosted."
+      ],
+      "label_r1": "partial",
+      "label_r2": "does_not_serve",
+      "note_r1": "UptimeFlare calls itself a free uptime monitoring product and openstatus advertises monitoring with no per-seat charges, so the enterprise-price objection is documented away, but no bundle document states a per-monitor monthly figure such as 25 cents and the products are self-hosted software rather than a priced hosted service: the documented part is less than the attribute, and the absent figure is silence rather than contradiction.",
+      "note_r2": "No page in the bundle states any price, per monitor or otherwise; the documentation is silent on the 25-cent hosted price and instead documents self-hosted or free operation, plus one managed offering without pricing.",
+      "row": "H38",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": false,
+      "attribute": "The field is opt-in and filled in by each person, and following works through it on the basis of declared overlapping interests, so discovery comes from interests rather than an existing follower graph.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt :: Find your like-minded people on BeFriend, engage in awesome conversations with those eager to connect, mutuals become besties, and small talk turns into something meaningful."
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__LinkedIn_Interests_section_linkedin.com_help_linkedin_answer_a569139_.txt :: Checking your browser - reCAPTCHA Checking your browser before accessing linkedin.com",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt :: Meet New Friends On BeFriend \n \n Find your like-minded people on BeFriend, engage in awesome conversations with those eager to connect, mutuals become besties, and small talk turns into something meaningful."
+      ],
+      "label_r1": "partial",
+      "label_r2": "does_not_serve",
+      "note_r1": "BeFriend's documentation shows discovery from declared interests (like-minded people, mutuals) but never mentions an optional profile field in which a person adds a blog or social-media account, nor following through such a field, so one half of the attribute is documented and the other half is absent as silence rather than contradiction.",
+      "note_r2": "The LinkedIn Interests help page returned only a browser-check interstitial and the Instagram-article artifact shows only the publisher's site navigation; BeFriend describes interests as matchmaking tags rather than a field a blogger or social author declares so others can follow that account, so the documentation is silent on the attribute.",
+      "row": "H40",
+      "screen_verdict": "contested_counted_as_served"
+    },
+    {
+      "agree": true,
+      "attribute": "The same interface that selectively stages changes also selectively splits them into separate commits, instead of staging serving only one commit.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt :: Staging and committing changes",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt :: Git - Interactive Staging"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt :: Staging and committing changes",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt :: Git - Interactive Staging"
+      ],
+      "label_r1": "does_not_serve",
+      "label_r2": "does_not_serve",
+      "note_r1": "The shown excerpts are the article titles and site navigation for selective-staging pages (VS Code 'Staging and committing changes', git-scm 'Interactive Staging') and no bundle document describes using the same interface to split one set of changes into several separate commits, so the documentation is silent on the attribute rather than saying splitting is unavailable.",
+      "note_r2": "In the excerpts shown, the VS Code, git-scm and learn.microsoft pages consist of titles and navigation/sidebar text with no body describing splitting, and the Stack Overflow artifact was given no documentation at all; nothing states that one interface is used for both staging and splitting, so the documentation is silent on the attribute.",
+      "row": "H42",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "It tracks the newest releases continuously and reports per model the latest version, best use case, speed relative to a common baseline, and hardware needed to run it.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt :: Automatically tracks model releases, pricing, and performance across the world's major AI vendors. Updated daily.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt :: - Artificial Analysis (independent third-party speed + quality benchmarks)"
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt :: Automatically tracks model releases, pricing, and performance across the world's major AI vendors. Updated daily.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dingdugan_model.tracker.txt :: Artificial Analysis (independent third-party speed + quality benchmarks)",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H45__github__dfbustosus_ai-model-tracker.txt :: Track, compare, and visualize **70+ AI models** across benchmarks, pricing, and capabilities."
+      ],
+      "label_r1": "partial",
+      "label_r2": "partial",
+      "note_r1": "model.tracker documents daily-updated tracking of model releases and pricing plus independent speed and quality benchmarks, covering the continuous tracking and speed-against-baseline part of the attribute, but neither it nor the other three trackers documents per-model best use case or hardware requirements to run a model; that gap is silence, not contradiction.",
+      "note_r2": "The documentation shows automatic daily updating and cross-vendor speed/quality benchmark comparison, which covers the freshness and comparison parts; no page mentions hardware requirements for running a model, or speed expressed relative to a named baseline, so it is silent on those fields.",
+      "row": "H45",
+      "screen_verdict": "served"
+    },
+    {
+      "agree": true,
+      "attribute": "It reports where the space is going inside a cloud drive account rather than on a local filesystem.",
+      "attribute_stated": "yes",
+      "evidence_r1": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__richyen_gdrive_du.txt :: Crawl a **Google Shared Drive** you select and report:",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__richyen_gdrive_du.txt :: - **`du`-style folder sizes** \u2014 total bytes per folder, deepest-first, like `du`."
+      ],
+      "evidence_r2": [
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__richyen_gdrive_du.txt :: The app fetches every item in the shared drive via the Drive API (one paginated\nlisting), builds an in-memory tree from each file's `parents`, and sums file\nsizes up the tree.",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__CodingCru_google-storage-analyzer.txt :: **Drive**: folder tree with sizes, largest files, items in trash",
+        "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/docs/H49__github__awanmh_gdrive-treesize.txt :: **TreeSize Recursive Folder Rollup**: Menghitung total ukuran folder induk berdasarkan akumulasi semua subfolder dan file di dalamnya."
+      ],
+      "label_r1": "serves",
+      "label_r2": "serves",
+      "note_r1": "gdrive-du documents crawling a Google Shared Drive through the Drive API and reporting per-folder byte totals like du, and google-storage-analyzer documents finding what eats Google Drive, Gmail and Photos storage, which is exactly where the space goes inside a cloud drive account; nothing in these documents contradicts the attribute.",
+      "note_r2": "Three artifacts state in their own words that they read the hosted provider's Drive account over the Drive API and report per-folder and per-file sizes, which is what the attribute asks; the fourth artifact's documentation is a bare URL, and nothing in the bundle says the data comes from the local filesystem.",
+      "row": "H49",
+      "screen_verdict": "served"
+    }
+  ],
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "c2_positive_control_H03": false,
+      "passes": false
+    },
+    "a2_agreement": {
+      "agrees_on": 10,
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "fires": false,
+      "wilson_lower_bound": 0.16344731750476138
+    },
+    "a4_not_evaluated": {
+      "c1_c2_pass": false,
+      "fires": true,
+      "fit_population": 14,
+      "kappa_identical_every_row": false,
+      "under_ten": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ]
+    }
+  },
+  "lexical_index": {
+    "difference": 0.0654,
+    "informative": false,
+    "mismatched_mean_coverage": 0.1438,
+    "n_mismatched": 32,
+    "n_own": 32,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate.",
+    "own_mean_coverage": 0.2092
+  },
+  "limitations": [
+    "One reader family. MISSION.md records that agents share model biases and are not independent human validation; kappa measures consistency between two passes of the same family.",
+    "A row's serves label means at least one of the four artifacts the screen listed FIRST does the attribute. An artifact it listed fifth could serve and the row would still read does_not_serve. 90 artifacts were named, 81 have stored documentation, and at most 4 per row were shown.",
+    "Documentation was stored at 12,000 characters per artifact and shown at 1,800. A capability claim outside the head of a README is invisible here in both directions.",
+    "The fit is tested against what the artifact's own documentation claims. It is not a test of whether the artifact works, and a documented silence is not a demonstrated absence of fit.",
+    "19 of the 29 declared rows were measured. The ten sealed-report rows were not, and they are the rows that closed the mission's own candidates.",
+    "Row H03 is both a population row and the declared positive control, so its recovery is not independent evidence about itself."
+  ],
+  "observed_utc": "2026-10-05",
+  "population": {
+    "arm1_harvest_rows": 19,
+    "arm2_executed": false,
+    "arm2_reason": "declaration names the report prose each requirement must be copied from; that extraction is itself a labelling act and was not done in this run rather than done after the harvest arm reported a result",
+    "arm2_sealed_rows": 10,
+    "declared": "every row whose declared kill category is prior_art in E024 rows.json, plus every cause==prior_art row in E012 screened.jsonl",
+    "declared_total": 29,
+    "excluded_no_distinguishing_attribute": [
+      "H05",
+      "H30"
+    ],
+    "excluded_unreadable": [],
+    "fit_population": 14,
+    "fit_rows_naming_at_least_one_artifact": 16,
+    "rows_naming_no_artifact": 3
+  },
+  "schema": "origin.e028-incumbent-fit/1",
+  "step_a_agreement": {
+    "agree": 17,
+    "attribute_stated_counts_r1": {
+      "inferred": 0,
+      "none": 2,
+      "yes": 17
+    },
+    "attribute_stated_counts_r2": {
+      "inferred": 0,
+      "none": 0,
+      "yes": 19
+    },
+    "conflicts": [
+      {
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing",
+        "row": "H05"
+      },
+      {
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time",
+        "row": "H30"
+      }
+    ],
+    "kappa": 0.0,
+    "n": 19,
+    "scheme": "attribute_stated in {yes, inferred, none}"
+  },
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4 fires: a declared control failed (C2, the positive control, returned 'partial' and 'partial')"
+}

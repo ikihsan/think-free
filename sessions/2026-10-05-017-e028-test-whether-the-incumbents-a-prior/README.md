@@ -36,10 +36,16 @@ _(none recorded)_
 | EXPERIMENTS/028-incumbent-fit/RUBRIC.md | 4bcf8e904015 | 4683 |
 | EXPERIMENTS/028-incumbent-fit/build_population.py | 48e991d19757 | 3794 |
 | EXPERIMENTS/028-incumbent-fit/fetch_docs.py | 603e35fb4200 | 9165 |
+| EXPERIMENTS/028-incumbent-fit/README.md | ba5b7083a5ab | 8984 |
+| EXPERIMENTS/028-incumbent-fit/results.json | 55a2eb7582e2 | 42585 |
+| EXPERIMENTS/028-incumbent-fit/test_gates_falsified.py | 0c23c8ab9fe2 | 15583 |
+| EXPERIMENTS/028-incumbent-fit/stats.py | da159a45bea0 | 16455 |
+| EXPERIMENTS/028-incumbent-fit/make_step_b_view.py | d79194e4d74e | 5176 |
+| EXPERIMENTS/028-incumbent-fit/split_batches.py | 9439595e58be | 1679 |
 
 ## Commands
 
-15 captured, 3 non-zero exit.
+32 captured, 7 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -58,6 +64,23 @@ _(none recorded)_
 | 20 | ['python3', 'EXPERIMENTS/028-incumbent-fit/fetch_docs.py'] | 0 | 24159 |
 | 21 | ['python3', 'EXPERIMENTS/028-incumbent-fit/fetch_docs.py'] | 0 | 46850 |
 | 27 | ['tools/origin', 'session', 'artifact', 'EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md', 'EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.m | 0 | 1686 |
+| 28 | ['python3', 'EXPERIMENTS/028-incumbent-fit/make_step_b_view.py', '--reader', 'r1'] | 0 | 132 |
+| 29 | ['python3', 'EXPERIMENTS/028-incumbent-fit/make_step_b_view.py', '--reader', 'r2'] | 0 | 121 |
+| 30 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 1 | 685 |
+| 31 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 1 | 608 |
+| 32 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 194 |
+| 33 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 199 |
+| 34 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 214 |
+| 41 | ['tools/origin', 'session', 'artifact', 'EXPERIMENTS/028-incumbent-fit/README.md', 'EXPERIMENTS/028-incumbent-fit/results.json', 'EXPERIMENTS/028-incu | 0 | 1905 |
+| 42 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 198 |
+| 43 | ['tools/origin', 'doc', 'lint'] | 2 | 11920 |
+| 44 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 277 |
+| 45 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 121 |
+| 46 | ['python3', 'EXPERIMENTS/028-incumbent-fit/stats.py'] | 0 | 200 |
+| 47 | ['tools/origin', 'doc', 'lint'] | 0 | 14588 |
+| 48 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 476693 |
+| 49 | ['tools/origin', 'preflight'] | 0 | 94498 |
+| 50 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 477435 |
 
 ## Integrity
 
@@ -100,6 +123,29 @@ _(none recorded)_
 | 25 | 18:42:54 | artifact | wrote EXPERIMENTS/028-incumbent-fit/build_population.py |
 | 26 | 18:42:54 | artifact | wrote EXPERIMENTS/028-incumbent-fit/fetch_docs.py |
 | 27 | 18:42:54 | command | $ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md EX |
+| 28 | 18:45:45 | command | $ python3 EXPERIMENTS/028-incumbent-fit/make_step_b_view.py --reader r1 |
+| 29 | 18:45:45 | command | $ python3 EXPERIMENTS/028-incumbent-fit/make_step_b_view.py --reader r2 |
+| 30 | 19:04:46 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 31 | 19:04:56 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 32 | 19:05:06 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 33 | 19:08:14 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 34 | 19:09:24 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 35 | 19:10:42 | artifact | wrote EXPERIMENTS/028-incumbent-fit/README.md |
+| 36 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/results.json |
+| 37 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/test_gates_falsified.py |
+| 38 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/stats.py |
+| 39 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/make_step_b_view.py |
+| 40 | 19:10:44 | artifact | wrote EXPERIMENTS/028-incumbent-fit/split_batches.py |
+| 41 | 19:10:44 | command | $ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/README.md EXPERIMENTS/028-incumbent-fit/results.json EXPERIMENTS/028-incumbent-f |
+| 42 | 19:14:01 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 43 | 19:14:17 | command | $ tools/origin doc lint |
+| 44 | 19:16:42 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 45 | 19:16:50 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 46 | 19:20:46 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
+| 47 | 19:21:05 | command | $ tools/origin doc lint |
+| 48 | 19:31:17 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 49 | 19:38:41 | command | $ tools/origin preflight |
+| 50 | 19:46:44 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 
 ## Reproduce this record
 

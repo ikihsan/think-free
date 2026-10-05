@@ -51,8 +51,18 @@ def strip_html(text):
 
 
 def store(slug, text):
-    """Write the capture once. Never overwrite a non-empty capture."""
+    """Write the capture once. Never overwrite a non-empty capture.
+
+    An empty capture is never written, and an empty file left by an earlier
+    version is removed rather than left to be read as "this product's
+    documentation says nothing". HTTP 200 with a body that strips to nothing is
+    a refusal, not a capture, and a later reader must see the difference.
+    """
     path = os.path.join(DOCS, slug + ".txt")
+    if not text.strip():
+        if os.path.exists(path) and os.path.getsize(path) == 0:
+            os.remove(path)
+        return path, 0, "not_stored_empty"
     if os.path.exists(path) and os.path.getsize(path) > 0:
         return path, os.path.getsize(path), "already_stored"
     body = text[:CAP_CHARS]
@@ -192,7 +202,7 @@ def main():
             rec = {"row": row, "corpus": corpus, "artifact": artifact,
                    "url": url, "http": code, "how": how, "path": path,
                    "chars": chars, "store": state,
-                   "has_text": bool(text.strip())}
+                   "has_text": state in ("stored", "already_stored")}
             with open(CAPTURE, "a") as fh:
                 fh.write(json.dumps(rec, sort_keys=True) + "\n")
             seen.add(key)

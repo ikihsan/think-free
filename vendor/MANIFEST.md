@@ -90,6 +90,14 @@ Five vendored files exceed 300 lines:
 exempt: EXPERIMENTS/**/raw/*.sse
 exempt: EXPERIMENTS/**/raw/*.sse.stderr
 
+# Raw *documentation* captures, added by E028. The same class again: bytes an
+# external endpoint returned, written before parsing, never hand-edited, and the
+# reason a reader's `does_not_serve` verdict can be traced to the text it was
+# read from. `.txt` because a README and a web page are both plain text after
+# tag-stripping, and stripping is part of the capture, so the stored bytes are
+# what the reader was shown.
+exempt: EXPERIMENTS/**/raw/docs/*.txt
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**

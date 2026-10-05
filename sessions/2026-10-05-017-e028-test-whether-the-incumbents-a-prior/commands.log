@@ -208,3 +208,1603 @@ seq 26  EXPERIMENTS/028-incumbent-fit/fetch_docs.py  603e35fb4200
 5 artifact(s) recorded
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 1686  redactions: none
+==============================================================================
+[seq 28] 2026-10-05T18:45:45+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/make_step_b_view.py --reader r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "view": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json",
+  "fit_rows": 16,
+  "view_entries": 32,
+  "documentation_chars_in_view": 179127,
+  "rows_whose_first_four_named_artifacts_all_lack_text": [
+    "H00",
+    "H14",
+    "H34",
+    "H35",
+    "H40",
+    "H42"
+  ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 132  redactions: none
+==============================================================================
+[seq 29] 2026-10-05T18:45:45+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/make_step_b_view.py --reader r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "view": "/home/ubuntu/think-free/EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json",
+  "fit_rows": 16,
+  "view_entries": 32,
+  "documentation_chars_in_view": 179127,
+  "rows_whose_first_four_named_artifacts_all_lack_text": [
+    "H00",
+    "H14",
+    "H34",
+    "H35",
+    "H40",
+    "H42"
+  ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none
+==============================================================================
+[seq 30] 2026-10-05T19:04:46+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 363, in <module>
+    main()
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 80, in main
+    facts = {r["row"]: r for r in json.load(fh)}
+  File "/usr/lib/python3.8/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "/usr/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.8/json/decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 2 column 1 (char 734)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 685  redactions: none
+==============================================================================
+[seq 31] 2026-10-05T19:04:56+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 363, in <module>
+    main()
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 179, in main
+    serves = [row for row in fit_pop if pick(row)]
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 179, in <listcomp>
+    serves = [row for row in fit_pop if pick(row)]
+  File "EXPERIMENTS/028-incumbent-fit/stats.py", line 174, in <lambda>
+    for name, pick in (("strict", lambda r: readers[r][(r, "own")]["label"]
+KeyError: 'H00'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 608  redactions: none
+==============================================================================
+[seq 32] 2026-10-05T19:05:06+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4: a control failed; ",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 33] 2026-10-05T19:08:14+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4: a control failed; ",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 199  redactions: none
+==============================================================================
+[seq 34] 2026-10-05T19:09:24+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4: a control failed; ",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 214  redactions: none
+==============================================================================
+[seq 41] 2026-10-05T19:10:44+00:00
+$ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/README.md EXPERIMENTS/028-incumbent-fit/results.json EXPERIMENTS/028-incumbent-fit/test_gates_falsified.py EXPERIMENTS/028-incumbent-fit/stats.py EXPERIMENTS/028-incumbent-fit/make_step_b_view.py EXPERIMENTS/028-incumbent-fit/split_batches.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 35  EXPERIMENTS/028-incumbent-fit/README.md  ba5b7083a5ab
+seq 36  EXPERIMENTS/028-incumbent-fit/results.json  55a2eb7582e2
+seq 37  EXPERIMENTS/028-incumbent-fit/test_gates_falsified.py  0c23c8ab9fe2
+seq 38  EXPERIMENTS/028-incumbent-fit/stats.py  da159a45bea0
+seq 39  EXPERIMENTS/028-incumbent-fit/make_step_b_view.py  d79194e4d74e
+seq 40  EXPERIMENTS/028-incumbent-fit/split_batches.py  9439595e58be
+6 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1905  redactions: none
+==============================================================================
+[seq 42] 2026-10-05T19:14:01+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4: a control failed; ",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 198  redactions: none
+==============================================================================
+[seq 43] 2026-10-05T19:14:17+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1252 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1420 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 752 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 800 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1420 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 752 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 800 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 888 lines (exempt from cap)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/stats.py: 364 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/028-incumbent-fit/test_gates_falsified.py: 344 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+doc lint: 17 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 11920  redactions: none
+==============================================================================
+[seq 44] 2026-10-05T19:16:42+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4: a control failed; ",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 277  redactions: none
+==============================================================================
+[seq 45] 2026-10-05T19:16:50+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4 fires: a declared control failed (C2, the positive control, returned 'partial' and 'partial')",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none
+==============================================================================
+[seq 46] 2026-10-05T19:20:46+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "verdict": "not_evaluated",
+  "verdict_reason": "A4 fires: a declared control failed (C2, the positive control, returned 'partial' and 'partial')",
+  "gates": {
+    "a1_instrument": {
+      "c1_mismatched_control": true,
+      "c2_positive_control_H03": false,
+      "c2_labels": {
+        "r1": "partial",
+        "r2": "partial"
+      },
+      "passes": false
+    },
+    "a2_agreement": {
+      "declared_floor": 0.6,
+      "kappa": 0.5625000000000001,
+      "agrees_on": 10,
+      "n": 14,
+      "passes": false,
+      "warning": null
+    },
+    "a3_kill_does_not_serve_lower_bound_0_20": {
+      "declared": 0.2,
+      "does_not_serve_by_both": 5,
+      "wilson_lower_bound": 0.16344731750476138,
+      "fires": false
+    },
+    "b1_serves_lower_bound_0_60": {
+      "declared_floor": 0.6,
+      "strict_serves": 2,
+      "strict_serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "either_serves": 4,
+      "either_serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "fires": false
+    },
+    "a4_not_evaluated": {
+      "fit_population": 14,
+      "under_ten": false,
+      "c1_c2_pass": false,
+      "kappa_identical_every_row": false,
+      "fires": true
+    }
+  },
+  "counts": {
+    "either": {
+      "fit_population": 14,
+      "serves": 4,
+      "serves_ci95": [
+        0.1172137864214107,
+        0.5464908433572745
+      ],
+      "serves_rows": [
+        "H08",
+        "H26",
+        "H36",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    },
+    "strict": {
+      "fit_population": 14,
+      "serves": 2,
+      "serves_ci95": [
+        0.04009392126064107,
+        0.39941379503716734
+      ],
+      "serves_rows": [
+        "H08",
+        "H49"
+      ],
+      "does_not_serve_by_both": 5,
+      "does_not_serve_by_both_ci95": [
+        0.16344731750476138,
+        0.612355769014362
+      ],
+      "does_not_serve_rows": [
+        "H00",
+        "H14",
+        "H34",
+        "H35",
+        "H42"
+      ]
+    }
+  },
+  "step_a_agreement": {
+    "scheme": "attribute_stated in {yes, inferred, none}",
+    "n": 19,
+    "agree": 17,
+    "kappa": 0.0,
+    "conflicts": [
+      {
+        "row": "H05",
+        "r1": "no_distinguishing_attribute",
+        "r2": "it would load the memory accumulated by an existing agent instance so the user does not have to begin again from nothing"
+      },
+      {
+        "row": "H30",
+        "r1": "no_distinguishing_attribute",
+        "r2": "the seeding would be bulk: many already-downloaded items would be fed to other holders of the same collection at once, rather than one at a time"
+      }
+    ],
+    "attribute_stated_counts_r1": {
+      "yes": 17,
+      "inferred": 0,
+      "none": 2
+    },
+    "attribute_stated_counts_r2": {
+      "yes": 19,
+      "inferred": 0,
+      "none": 0
+    }
+  },
+  "lexical_index": {
+    "own_mean_coverage": 0.2092,
+    "mismatched_mean_coverage": 0.1438,
+    "difference": 0.0654,
+    "n_own": 32,
+    "n_mismatched": 32,
+    "informative": false,
+    "note": "Reported with the mismatched base rate beside it, every time. It feeds no gate."
+  }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 200  redactions: none
+==============================================================================
+[seq 47] 2026-10-05T19:21:05+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1254 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1450 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14588  redactions: none
+==============================================================================
+[seq 48] 2026-10-05T19:31:17+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F.............................................................................................................................................................................................................................................../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 64, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-SCREENING-4.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-4.md'
+
+- ['DECISIONS-SCREENING-4.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 793 tests in 475.474s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 476693  redactions: none
+==============================================================================
+[seq 49] 2026-10-05T19:38:41+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1254 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1633 lines (exempt from cap)
+doc lint: OK
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 117 session(s) checked
+  note  2026-10-05-014-measure-the-structure-of-the-589-never-a: session_end appears 2 times
+  note  2026-10-05-017-e028-test-whether-the-incumbents-a-prior: in progress (command)
+session verify: OK
+release check: 65 path(s) checked
+release check: OK
+preflight: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 94498  redactions: none
+==============================================================================
+[seq 50] 2026-10-05T19:46:44+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 793 tests in 476.653s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 477435  redactions: none

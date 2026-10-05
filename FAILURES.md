@@ -35,6 +35,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
 [`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
 [`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044) and
+[`FAILURES-findings-20.md`](FAILURES-findings-20.md) (F048) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
@@ -91,6 +92,28 @@ side per the rule in
 | F045 | 22.2% of the 1250 people who publicly stated a need have publicly shipped something, against 27.8% for ordinary commenters in the same stories — so "need-staters are not builders" is false as an absolute, true only comparatively, and E022's disclosure floor is a measurement rather than an excuse |
 | F046 | The 589 unanswered needs in the E022 corpus are diffuse in length (55 vs 58 words) and trigger (χ² p ≈ 0.06); B2 fired on two phrases pooling 9 rows, so its hint does not carry a decision — the corpus's last open reading is closed with no hidden structure |
 | F047 | 31 of F029's 50 verdicts were assigned from a regex-extracted clause rather than a comment, and 6 of its 15 `vague` kills state a mechanism or an artifact in the text the screen never read; F029's 0-of-50 stands anyway because none of the 8 re-opened rows is a candidate |
+| F048 | a prior-art verdict justified by install counts is not evidence of fit: the row with the strongest evidence of use in the record (`sharp`, 437M downloads/month) has documentation that establishes nothing about its clause's attribute, and the instrument built to test fit is refused by its own declared positive control — `not_evaluated`, with the ten sealed-report rows unrun |
+
+**F048's evidence lives at `EXPERIMENTS/028-incumbent-fit/`:**
+`PROTOCOL.md` declares the population, the category/attribute distinction, four
+gates including a `not_evaluated` state, and two controls **before any label and
+before any fetch**; two amendments, each written before the pass it bounds, fix
+what the base protocol left undefined (row-level bundle semantics, the fetch
+table, the 4-artifact and 1,800-character bounds, and the reader barrier that
+makes "derived from the requirement alone" checkable from the repository).
+`raw/requirements.jsonl` is the blind file — a test asserts it carries no
+`cause`, `reason`, `verdict`, `artifacts` or `note`, and another asserts Step A
+names no incumbent the screen named for that row. `RUBRIC.md` defines every
+label and a test asserts it names no row. **C1 passed at 0.0 on all 32 foreign
+bundles; C2, the declared positive control, failed with both readers returning
+`partial` on `H03`; κ = 0.5625 against a declared floor of 0.6.** The verdict is
+`not_evaluated` and neither A3 nor B1 is read as an answer.
+`test_gates_falsified.py` holds 29 properties against the committed bytes,
+including the Wilson interval for 0/24 equalling the `[0.0, 0.138]` the record
+quotes for F042, and it caught **three defects in this run's own instrument** —
+zero-byte captures from 200 responses that strip to nothing, a contamination test
+banning a word the requirement itself used, and bundles that could show a product
+with no documentation.
 
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader

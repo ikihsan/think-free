@@ -19,6 +19,10 @@ pattern could not read it until T-0063 widened it — see
 `test_decision_row_pattern.py`. `DECISIONS-SCREENING-3.md` is the eighth, added
 2026-10-05 for D052, and it earned the gate its keep immediately: creating the
 file left all three lists short of it and this module failed naming the file.
+`DECISIONS-SCREENING-4.md` is the ninth, added 2026-10-05 for D059–D060, and it
+did the same thing the third time: the file existed, the three lists did not
+name it, and this module failed with the file's name in the message rather than
+a count.
 
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
@@ -40,6 +44,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING.md",
     "DECISIONS-SCREENING-2.md",
     "DECISIONS-SCREENING-3.md",
+    "DECISIONS-SCREENING-4.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

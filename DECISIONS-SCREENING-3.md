@@ -12,7 +12,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D053–D054, D057, D058, D059**. Split from
+Decisions **D053–D054, D057, D058**. Split from
 [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) by invariant, not by date:
 what a screen must have measured before its silence can mean anything.
 
@@ -225,60 +225,3 @@ corpus.
 **Ceiling.** N = 1401 supports answering "is there large structure" and
 "is length a vagueness signal" — it does not support naming a specific
 unserved need class.
-
-## D059 — Agreement is measured on the grouping a decision uses, and a verdict may not need the table it was declared over (2026-10-05)
-
-Observed: F047, from E027's A1/B1/C1.
-
-**Context.** E027 re-read the 31 clause-based cause-of-death verdicts of F029
-from the full comment with two blind readers. It declared two gates. **B1** was
-Cohen's κ ≥ 0.6 over the six categories. **C1** was a per-row gate: fires when
-≥ 5 rows are survivor-relevant to *both* readers. B1 **failed** at κ = 0.4627.
-C1 **fired** at 8 of 31. The two gates disagree, and the disagreement is
-informative rather than embarrassing: the post-hoc binary κ on the split C1
-actually asks about is **0.5412**, and the gap is entirely two readers
-disagreeing about *which* non-survivor label a row takes —
-`still_vague` versus `not_a_software_need` — which cannot change any decision.
-
-This is `docs/policy/gate-falsification.md`'s subject at the level of the
-agreement measure rather than the gate: **a measure of inter-rater agreement is
-itself a reading of a property, and the property is the one the decision
-depends on.** Six labels are the natural vocabulary for *labelling*; they are
-not the question *C1 asks*. Reading the agreement off the labels measures the
-labelling, not the decision. E023 and E024 are the precedents: κ = 0.923 on a
-binary label turned a caveat into a magnitude, and a one-row margin at one
-reader decided a plurality.
-
-Decision, in three parts.
-
-1. **A declared agreement floor is measured on the grouping the gate consumes.**
-   If a gate asks a binary or grouped question, its reader-agreement floor is
-   declared on that grouping, and the per-label agreement is reported beside it
-   as structure. Both numbers go in the record; the floor binds on the one the
-   decision reads.
-2. **A verdict may not be withheld because a gate the verdict does not use
-   failed — and may not be drawn because one that it does use fired.** E027's
-   protocol said a failed B1 makes the restated table inconclusive. It did: no
-   cause share is reported as a fact. C1 was declared separately, was
-   falsified in both directions before its result was read, and its verdict is
-   reported. **The honest artifact is a failed table and a fired gate, kept
-   together.**
-3. **A reader set is reported as a set, not as a number, when the sets nest.**
-   E027's 13 disagreements are all one-directional — the conservative reader's
-   survivor-relevant set is a strict subset of the other reader's, so no flip is
-   contested. A mean agreement score would have thrown that away, and the
-   containment is what licenses the per-row verdict.
-
-**Consequence.** `vague` is withdrawn as a cause of death at F029's recorded
-size, because 6 of its 15 rows state a mechanism or an artifact in the comment
-the screen never read. **F029's 0-of-50 stands anyway**: none of the 8 re-opened
-rows is a candidate, so the generator is closed for a repaired reason rather
-than an unrepaired one. D049 and D051 stand. No prior-art verdict moves — the
-19 `prior_art` rows were held out because E016 already re-adjudicated that
-category on three corpora with six positive controls.
-
-**Ceiling.** This governs how agreement is measured, not what may be concluded
-from it. Two readers from one model family agreeing is still one model family,
-and E027's C1 is a claim about 8 rows of one 50-row sample, not a restated
-cause table. The `prior_art` half of F029 was not re-read here and was not
-re-read anywhere by a procedure stronger than E016's.

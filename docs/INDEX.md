@@ -207,6 +207,11 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/026-unserved-need-structure/README.md`](../EXPERIMENTS/026-unserved-need-structure/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/027-cause-of-death-reread/PROTOCOL.md`](../EXPERIMENTS/027-cause-of-death-reread/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/027-cause-of-death-reread/README.md`](../EXPERIMENTS/027-cause-of-death-reread/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05 after reading the two captures' structure and after one |
+| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before either reader ran and before any label exists. |
+| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, task T-0072, before any label was produced and before any |
+| [`EXPERIMENTS/028-incumbent-fit/README.md`](../EXPERIMENTS/028-incumbent-fit/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0072. Protocol declared before any label and |
+| [`EXPERIMENTS/028-incumbent-fit/RUBRIC.md`](../EXPERIMENTS/028-incumbent-fit/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Given to both readers, unchanged, before either ran. The labels are the whole |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
