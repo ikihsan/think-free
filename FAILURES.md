@@ -31,11 +31,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-12.md`](FAILURES-findings-12.md) (F034) and
 [`FAILURES-findings-13.md`](FAILURES-findings-13.md) (F035, F036) and
 [`FAILURES-findings-14.md`](FAILURES-findings-14.md) (F037, F038) and
-[`FAILURES-findings-15.md`](FAILURES-findings-15.md) (F039) and
-<<<<<<< HEAD
-[`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F040), split because
->>>>>>> 6835146... records: F040 and D052 -- the copy channel is 0.12x the install channel, so item 0's third reading is answered and the screen's young-vocabulary premise is no longer in question
-=======
+[`FAILURES-findings-15.md`](FAILURES-findings-15.md) (F039, F040) and
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
@@ -84,6 +80,7 @@ side per the rule in
 | F037 | The screen's young-vocabulary population is real code, so the prior-art premise's failure is not a population artefact |
 | F038 | Lead 7's mechanism is implementable and the stock-SDK friction is real, but the missing piece is a feature gap, not a candidate |
 | F039 | The need corpus is 1250 individuals with no need-level recurrence detectable inside it, so its 0-of-50 was never interpretable (D051) |
+| F040 | F037's "the reader copies the directory" is an instruction rather than an observation: 687 documented copy sites, 4.7% duplicated content, no cross-author overlap |
 | F041 | The young vocabulary's copy channel is 0.12x its install channel, so the prior-art screen's young-vocabulary failure is the world and not a channel it failed to read |
 
 
@@ -133,4 +130,3 @@ These remain live questions, not settled negatives:
 A failed idea returns when the specific evidence that killed it is invalidated —
 not because effort was previously spent on it. Record that evidence here so the
 next session finds it in one search.
->>>>>>> 8fea794... renumber to F041/D053/021 on this side: the other VM took F040 and D052 for a different experiment on the same reading

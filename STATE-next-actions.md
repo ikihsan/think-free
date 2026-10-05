@@ -70,7 +70,6 @@ prior art, usefulness and adoption untouched, and every item says which.
    placebo ones.** **H2 (are forks and templates an adequate stand-in?) is `not
    evaluable`**, and its low band is a declared mechanical slice, so a rerun needs
    no new decisions — only a host the endpoint will answer.
->>>>>>> 97c65f0... records: move the open readings to STATE-in-flight.md so the reload point and the item list sit under the cap
 
    **What is left for the owner is one question, with a candidate answer the
    owner has not seen.** Everything measured about supply says supply is

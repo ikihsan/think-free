@@ -17,10 +17,7 @@ ordinary edits do not.
 | [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) | D013, D027–D028 | Whether a session is finished, and whose change a recorded path is |
 | [`DECISIONS-PUBLISHING.md`](DECISIONS-PUBLISHING.md) | D040, D042, D044–D045 | What a command's own write is, and what must travel with it when published |
 | [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) | D019–D023 | What passes: candidate screens, kill-gate conditions, verdict metrics, the rule that the next-action list must carry an invention item, and the two inputs a candidate may not borrow from each other |
-| [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) | D048–D051 | What passes, continued: the two inputs a candidate may not borrow from each other, what a prior-art verdict must read before it may kill, and that a harvested corpus's population is measured before its yield |
-<<<<<<< HEAD
-| [`DECISIONS-SCREENING-3.md`](DECISIONS-SCREENING-3.md) | D052 | What passes, continued: a channel's absence from an instrument is not evidence the world uses it, and a count instrument reports the share of its population it cannot see |
->>>>>>> 6835146... records: F040 and D052 -- the copy channel is 0.12x the install channel, so item 0's third reading is answered and the screen's young-vocabulary premise is no longer in question
+| [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) | D048–D052 | What passes, continued: the two inputs a candidate may not borrow from each other, what a prior-art verdict must read before it may kill, and that a harvested corpus's population is measured before its yield |
 =======
 | [`DECISIONS-SCREENING-3.md`](DECISIONS-SCREENING-3.md) | D053 | What passes, continued: a channel's absence from an instrument is not evidence the world uses it. Split from `-2`, which the other VM's D052 put at 293 of 300 lines |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
@@ -115,4 +112,3 @@ table stayed correct: `DECISIONS-GATING.md` named D013 — which lives in
 moved out. The line under the title is the first thing a reader sees, and it is
 now held by `tools/originlib/decisionheader.py` in both directions, so the three
 sources of a decision number — heading, index row, header — must all agree.
->>>>>>> 8fea794... renumber to F041/D053/021 on this side: the other VM took F040 and D052 for a different experiment on the same reading

@@ -43,10 +43,14 @@ _(none recorded)_
 | docs/process/experiment-protocol.md | aeced4ec42c4 | 8340 |
 | DECISIONS-SCREENING-3.md | 302e0fdb0331 | 4756 |
 | FAILURES-findings-16.md | 524194667ba1 | 7239 |
+| STATE.md | 2bf014364321 | 30088 |
+| STATE-in-flight.md | 4bb43ca92156 | 11824 |
+| FAILURES.md | 823dc8ccde07 | 9019 |
+| DECISIONS.md | 1be2f857b329 | 7760 |
 
 ## Commands
 
-32 captured, 6 non-zero exit.
+33 captured, 6 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -82,6 +86,7 @@ _(none recorded)_
 | 35 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 494721 |
 | 43 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 529918 |
 | 46 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 528239 |
+| 55 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 521996 |
 
 ## Integrity
 
@@ -137,18 +142,18 @@ _(none recorded)_
 | 38 | 05:41:28 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/coverage.json |
 | 39 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/copycount.json |
 | 40 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
-| 45 | 06:17:15 | task_rewrite | appended a complete record for T-0064 |
-| 46 | 06:40:00 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 47 | 06:40:21 | artifact | wrote STATE-in-flight.md |
-| 48 | 06:40:21 | artifact | wrote STATE.md |
-| 49 | 06:40:22 | artifact | wrote ROADMAP.md |
-| 50 | 06:40:23 | artifact | wrote RELEASE-MANIFEST.md |
 | 51 | 06:40:23 | artifact | wrote docs/INDEX.md |
 | 52 | 06:40:24 | artifact | wrote docs/process/experiment-protocol.md |
 | 53 | 06:40:25 | artifact | wrote DECISIONS-SCREENING-3.md |
 | 54 | 06:40:26 | artifact | wrote FAILURES-findings-16.md |
+| 55 | 07:23:50 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 56 | 07:24:09 | artifact | wrote STATE.md |
+| 57 | 07:24:11 | artifact | wrote STATE-in-flight.md |
+| 58 | 07:24:11 | artifact | wrote FAILURES.md |
+| 59 | 07:24:12 | artifact | wrote DECISIONS.md |
+| 60 | 07:24:13 | milestone | recovered this session's five commits after an interrupted sync land left HEAD on the base; resolved 6 files of cherry-pick conflicts, keeping both VM |
 
-_4 middle events omitted; see `events.jsonl`._
+_10 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
@@ -156,4 +161,3 @@ _4 middle events omitted; see `events.jsonl`._
 tools/origin session verify
 cat sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/events.jsonl
 ```
->>>>>>> 6835146... records: F040 and D052 -- the copy channel is 0.12x the install channel, so item 0's third reading is answered and the screen's young-vocabulary premise is no longer in question

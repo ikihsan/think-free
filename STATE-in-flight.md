@@ -19,6 +19,8 @@ across findings files.
 ## The third axis: is the young vocabulary served by copies rather than installs?
 
 **Status: closed, negative (F041, D053). `EXPERIMENTS/021-copied-artifact-serving/`.**
+Renumbered from F040/D052/`020-` on the unpushed side; see the collision note in
+the finding.
 
 F037 ended with exactly one reading standing for the prior-art screen's
 young-vocabulary failure. The screen reads installation channels; the artifact a
@@ -113,6 +115,39 @@ the experiment and the refusal was recorded as a refusal.
 
 Full text and the per-configuration table: `EXPERIMENTS/021-copied-artifact-serving/README.md`
 and [`FAILURES-findings-16.md`](FAILURES-findings-16.md).
+
+## Does a copied configuration go stale?
+
+**Status: inconclusive, and it withdraws F037's *reconciliation* as well (F040, T-0065, other VM).**
+`EXPERIMENTS/020-copied-config-drift/`. Recorded here because it is the mirror
+image of the entry below, and the pair is the point.
+
+F037 inferred from four documents that the reader **copies a `.claude/`
+directory** into their own repository. That inference had a consequence nobody had
+drawn: an artifact copied rather than installed has **no update channel**, so
+near-zero install readings would be consistent with a field that is heavily used
+and entirely invisible. **It does not hold, and it fails on its own terms rather
+than on a limit.**
+
+- **Copying is widely *instructed*** — `cp -r .claude` appears in **687** Sourcegraph
+  content matches against a nonsense control of **0**.
+- **and barely *duplicated*** — of **1,950** distinct configuration file contents
+  across 31 repositories, **92 (4.7%)** are byte-identical across repositories, and
+  **no two repositories from different authors overlap by half**.
+
+So what readers do is **adapt** the configuration. **What is withdrawn is the
+inference** that the copies accumulate as identical copies and therefore that the
+near-zero install readings are an invisible distribution channel. **What is not
+withdrawn is the documented practice**, which was measured.
+
+**The drift rate itself is `drift_rate: null`, not 0**: 0 attributable
+copy/upstream pairs exist in the measurable population, so the declared no-drift
+gate fires on an unanswerable question — `inconclusive`, not evidence of low drift.
+
+**Together with the entry below, F037's escape hatch is closed from both ends.**
+Neither experiment is about this repository's own instruments, which is itself worth
+noting: five consecutive experiments measured the quality of the mission's own
+judgement before one asked a question about the world.
 
 ## Is a screen whose premise is unmeasurable four times in five a screen?
 

@@ -184,11 +184,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/017-incumbent-artifact-type/README.md`](../EXPERIMENTS/017-incumbent-artifact-type/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/018-runtime-signal-selection/README.md`](../EXPERIMENTS/018-runtime-signal-selection/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/019-corpus-person-diversity/README.md`](../EXPERIMENTS/019-corpus-person-diversity/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-<<<<<<< HEAD
-| [`EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md`](../EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md) | `EXPERIMENTS/020-copied-artifact-serving/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/020-copied-artifact-serving/README.md |
-| [`EXPERIMENTS/020-copied-artifact-serving/README.md`](../EXPERIMENTS/020-copied-artifact-serving/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
->>>>>>> 6835146... records: F040 and D052 -- the copy channel is 0.12x the install channel, so item 0's third reading is answered and the screen's young-vocabulary premise is no longer in question
-=======
+| [`EXPERIMENTS/020-copied-config-drift/README.md`](../EXPERIMENTS/020-copied-config-drift/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. Verdict: inconclusive, and two figures retracted. |
 | [`EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md`](../EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md) | `EXPERIMENTS/021-copied-artifact-serving/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/021-copied-artifact-serving/README.md |
 | [`EXPERIMENTS/021-copied-artifact-serving/README.md`](../EXPERIMENTS/021-copied-artifact-serving/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
@@ -207,4 +203,3 @@ Skill bodies under `.agents/skills/` are indexed by
 1. Give it an `origin-meta` block with its owning index.
 2. Link it from exactly one index; orphans fail `doc lint`.
 3. Keep it under 300 lines. Split at 250.
->>>>>>> 8fea794... renumber to F041/D053/021 on this side: the other VM took F040 and D052 for a different experiment on the same reading
