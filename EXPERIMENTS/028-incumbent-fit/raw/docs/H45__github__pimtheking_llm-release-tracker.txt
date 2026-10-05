@@ -1,0 +1,279 @@
+# 🤖 LLM Release Tracker
+
+Een intelligent systeem dat geruchten en aankondigingen analyseert om het volgende AI-model van grote techbedrijven te voorspellen.
+
+[![GitHub Actions](https://github.com/[username]/llm-release-tracker/workflows/Update%20LLM%20Data/badge.svg)](https://github.com/[username]/llm-release-tracker/actions)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blue?style=flat&logo=github)](https://[username].github.io/llm-release-tracker/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+## 🌐 Live Website
+
+**Bekijk de live website:** [https://[username].github.io/llm-release-tracker/](https://[username].github.io/llm-release-tracker/)
+
+## 🎯 Wat doet dit project?
+
+Dit systeem voorspelt wanneer en welke nieuwe AI-modellen er aankomen door:
+- 🔍 Web scraping van zoekresultaten
+- 📊 Analyse van geruchten en aankondigingen
+- 😊 Sentiment analyse van berichten
+- 🎯 Patroonherkenning in modelnamen
+- 📅 Intelligente datum-extractie
+- 💾 Automatische data opslag en updates
+
+## 🏢 Ondersteunde Bedrijven
+
+- **OpenAI** (GPT-serie)
+- **Google** (Gemini, PaLM)
+- **Meta** (Llama-serie)
+- **Anthropic** (Claude-serie)
+- **Microsoft** (Copilot)
+- **Amazon** (Titan)
+
+## 🚀 Snelle Start
+
+### Lokale Ontwikkeling
+
+1. **Clone de repository**
+   ```bash
+   git clone https://github.com/[username]/llm-release-tracker.git
+   cd llm-release-tracker
+   ```
+
+2. **Installeer dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run het script**
+   ```bash
+   python simple_predictor.py
+   ```
+
+4. **Start de website lokaal**
+   ```bash
+   python -m http.server 8000
+   # Ga naar http://localhost:8000
+   ```
+
+### GitHub Pages Deployment
+
+De website wordt automatisch gedeployed via GitHub Pages:
+- **URL**: https://[username].github.io/llm-release-tracker/
+- **Automatische updates**: Dagelijks om 06:00 Nederlandse tijd
+- **Handmatige updates**: Via GitHub Actions tab
+
+## 📁 Project Structuur
+
+```
+llm-release-tracker/
+├── 📄 index.html              # Website hoofdpagina
+├── 🎨 style.css               # Moderne CSS styling
+├── ⚡ script.js               # Interactieve JavaScript
+├── 🐍 simple_predictor.py     # Hoofdscript (geen API keys nodig)
+├── 🐍 model_predictor.py      # Geavanceerde versie (met API's)
+├── 🧪 test_predictor.py       # Unit tests
+├── 🚀 quick_start.py          # Interactieve interface
+├── 📊 data.json               # Automatisch gegenereerde data
+├── 📋 requirements.txt        # Python dependencies
+├── 🔧 .github/workflows/      # GitHub Actions automatisering
+└── 📚 README.md               # Deze documentatie
+```
+
+## 🔧 Technische Details
+
+### Backend (Python)
+- **Web Scraping**: BeautifulSoup + Requests
+- **Datum Parsing**: dateparser library
+- **Sentiment Analyse**: TextBlob
+- **Data Management**: JSON persistence
+- **Testing**: Unit tests met voorbeelddata
+
+### Frontend (Web)
+- **HTML5**: Semantische markup
+- **CSS3**: Flexbox, Grid, Responsive design
+- **Vanilla JavaScript**: Geen frameworks
+- **Font Awesome**: Iconen
+- **Google Fonts**: Inter font family
+
+### Automatisering
+- **GitHub Actions**: Dagelijkse updates
+- **GitHub Pages**: Automatische deployment
+- **Cron Jobs**: Scheduled execution
+- **Data Persistence**: Git-based versioning
+
+## 📊 Data Structuur
+
+Het systeem genereert automatisch `data.json`:
+
+```json
+[
+    {
+        "bedrijf": "OpenAI",
+        "model": "gpt-5",
+        "datum": "2025-06-15",
+        "confidence": 0.75,
+        "evidence_count": 4,
+        "toegevoegd_op": "2024-10-01 12:30:45",
+        "laatste_update": "2024-10-01 12:30:45"
+    }
+]
+```
+
+## 🔍 Hoe het werkt
+
+### 1. Zoekstrategie
+Het systeem gebruikt slimme zoekopdrachten zoals:
+- "OpenAI next model after GPT-4o"
+- "Google new LLM rumors"
+- "Meta Llama 4 release"
+
+### 2. Patroonherkenning
+Zoekt naar patronen in modelnamen:
+- `GPT-5`, `Llama-4`, `Claude-4`
+- `Gemini-Ultra`, `Palm-2`
+- Nieuwe naamgeving conventies
+
+### 3. Releasedatum Zoeken
+Voor elk gevonden model zoekt het systeem naar de verwachte releasedatum:
+- "GPT-5 expected release date"
+- Gebruikt `dateparser` voor intelligente datum-extractie
+- Ondersteunt formaten zoals "Q4 2025", "november 2025", "eind 2025"
+- Filtert alleen toekomstige datums
+
+### 4. Analyse & Opslag
+- **Sentiment analyse**: Positieve/negatieve berichten
+- **Confidence scoring**: Betrouwbaarheid van voorspellingen
+- **Automatische opslag**: Alle voorspellingen in `data.json`
+- **Duplicaat detectie**: Bestaande voorspellingen worden bijgewerkt
+
+## 📈 Resultaten Interpretatie
+
+### Confidence Score
+- **0.0-0.3**: Lage betrouwbaarheid
+- **0.3-0.6**: Gemiddelde betrouwbaarheid  
+- **0.6-1.0**: Hoge betrouwbaarheid
+
+### Evidence Count
+Aantal keer dat een model genoemd wordt in zoekresultaten.
+
+### Releasedatum
+Verwachte releasedatum (gebaseerd op web geruchten).
+
+## 🤖 Automatisering
+
+### GitHub Actions Workflow
+Het systeem draait automatisch elke dag om 06:00 Nederlandse tijd:
+
+1. **Data Collection**: Zoekt naar nieuwe geruchten
+2. **Analysis**: Analyseert en voorspelt nieuwe modellen
+3. **Update**: Werkt `data.json` bij
+4. **Deploy**: Publiceert naar GitHub Pages
+
+### Handmatige Updates
+Je kunt ook handmatig updates triggeren:
+1. Ga naar **Actions** tab in GitHub
+2. Selecteer **"Update LLM Data"** workflow
+3. Klik **"Run workflow"**
+
+## 🛠️ Aanpassingen
+
+### Nieuwe bedrijven toevoegen
+Voeg toe aan `search_queries` in `simple_predictor.py`:
+
+```python
+'nieuw_bedrijf': [
+    'Nieuw Bedrijf AI model rumors',
+    'Nieuw Bedrijf next release'
+]
+```
+
+### Website aanpassen
+- **Styling**: Bewerk `style.css`
+- **Functionaliteit**: Bewerk `script.js`
+- **Structuur**: Bewerk `index.html`
+
+## 🔒 Privacy & Ethiek
+
+- ✅ Respecteert robots.txt
+- ✅ Gebruikt alleen publieke informatie
+- ✅ Geen persoonlijke data verzameld
+- ✅ Rate limiting voor API calls
+- ✅ Transparante data bronnen
+
+## 🐛 Troubleshooting
+
+### Lokale Setup
+```bash
+# Dependencies installeren
+pip install -r requirements.txt
+
+# Test uitvoeren
+python test_predictor.py
+
+# Website lokaal starten
+python -m http.server 8000
+```
+
+### GitHub Actions Issues
+- Controleer **Actions** tab voor error logs
+- Verifieer Python versie (3.10+)
+- Controleer dependencies in `requirements.txt`
+
+### Website Issues
+- Controleer browser console voor JavaScript errors
+- Verifieer of `data.json` bestaat
+- Test in verschillende browsers
+
+## 📈 Roadmap
+
+- [ ] **Dark mode** toggle
+- [ ] **Export functionaliteit** (PDF, CSV)
+- [ ] **Notificaties** voor nieuwe releases
+- [ ] **Grafieken** en charts
+- [ ] **Search functionaliteit**
+- [ ] **API endpoints** voor externe integratie
+- [ ] **Meer bedrijven** toevoegen
+- [ ] **Machine learning** voor betere voorspellingen
+
+## 🤝 Bijdragen
+
+Welkom! We waarderen alle bijdragen:
+
+1. **Fork** het project
+2. **Clone** je fork
+3. **Maak** een feature branch
+4. **Commit** je wijzigingen
+5. **Push** naar je branch
+6. **Open** een Pull Request
+
+### Development Setup
+```bash
+git clone https://github.com/[username]/llm-release-tracker.git
+cd llm-release-tracker
+pip install -r requirements.txt
+python test_predictor.py  # Run tests
+```
+
+## 📝 Licentie
+
+MIT License - Vrij te gebruiken voor educatieve en commerciële doeleinden.
+
+## 🙏 Dankbetuiging
+
+- **OpenAI** voor inspiratie
+- **GitHub** voor hosting en automatisering
+- **Font Awesome** voor iconen
+- **Google Fonts** voor typografie
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/[username]/llm-release-tracker/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/[username]/llm-release-tracker/discussions)
+- **Email**: [jouw-email@example.com]
+
+---
+
+**Gebouwd met ❤️ en AI** 🤖
+
+*Laatste update: $(date)* 

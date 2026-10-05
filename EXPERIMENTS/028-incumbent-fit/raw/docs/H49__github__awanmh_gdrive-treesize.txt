@@ -1,0 +1,148 @@
+<div align="center">
+
+# 📊 Google Drive TreeSize Analyzer
+
+**Alat analisis penyimpanan Google Drive interaktif berbasis Python yang memindai seluruh file, menghitung ukuran folder secara rekursif (fitur khas TreeSize), mengidentifikasi file sampah, dan menghasilkan dashboard HTML visual modern.**
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Google Drive API](https://img.shields.io/badge/Google_Drive_API-v3-4285F4?logo=googledrive&logoColor=white)](https://developers.google.com/drive)
+
+</div>
+
+---
+
+## ✨ Fitur Utama
+
+- 🔍 **TreeSize Recursive Folder Rollup**: Menghitung total ukuran folder induk berdasarkan akumulasi semua subfolder dan file di dalamnya.
+- ⚡ **Daftar File Terbesar (Top Largest Files)**: Mengurutkan file dari yang terbesar ke terkecil dengan link langsung ke Google Drive untuk peninjauan atau penghapusan cepat.
+- 🗑️ **Deteksi File Sampah (Trash / Bin)**: Menemukan file tersembunyi di tempat sampah yang masih menghabiskan kuota penyimpanan Anda.
+- 📊 **Breakdown Kategori**: Pengelompokan visual otomatis untuk file Video, Arsip (ZIP/ISO/TAR), Gambar/Foto, PDF, Spreadsheet, Dokumen, dan Audio.
+- 🌐 **Dashboard Visual Interaktif (HTML)**: Laporan berbasis web modern yang responsif (Dark Mode / Glassmorphism) dilengkapi fitur pencarian instan (*instant search*), filter kategori, dan sorting tanpa perlu koneksi database.
+- 📁 **Ekspor CSV**: Kemudahan ekspor seluruh metadata file ke format `.csv` untuk dianalisis di Excel atau Google Sheets.
+- 🔒 **Aman & Read-Only**: Menggunakan cakupan izin resmi Google OAuth 2.0 `drive.readonly` (hanya membaca metadata, tidak dapat mengubah atau menghapus file Anda tanpa sengaja).
+
+---
+
+## 🚀 Panduan Memulai Cepat
+
+### 1. Clone Repositori
+```bash
+git clone https://github.com/awanmh/gdrive-treesize.git
+cd gdrive-treesize
+```
+
+### 2. Pasang Dependensi
+Pastikan Python 3.8+ sudah terpasang, lalu jalankan:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🔑 Konfigurasi Google Cloud API (Hanya 1x Setup)
+
+Untuk menghubungkan script ke Google Drive Anda secara aman melalui OAuth 2.0:
+
+1. Buka **[Google Cloud Console](https://console.cloud.google.com/)**.
+2. Buat Project baru (contoh nama: `GDrive TreeSize`).
+3. Masuk ke **APIs & Services** ➔ **Enabled APIs & Services** ➔ Klik **+ ENABLE APIS AND SERVICES**.
+4. Cari **Google Drive API** lalu klik **Enable** (Aktifkan).
+5. Masuk ke menu **OAuth Consent Screen** (atau **Google Auth Platform**):
+   - **App Information**: Isi nama aplikasi (misal `GDrive Cleaner`) dan masukkan email Anda.
+   - **Logo**: Kosongkan saja (tidak wajib).
+   - **Audience / Test Users**: Pada bagian *Test users*, klik **+ ADD USERS** lalu masukkan alamat email Google Anda. *(Penting agar tidak terkena error 403 access_denied saat status aplikasi Testing).*
+6. Masuk ke menu **Credentials**:
+   - Klik **+ CREATE CREDENTIALS** ➔ Pilih **OAuth client ID**.
+   - Application type: Pilih **Desktop App**.
+   - Beri nama bebas (misal `GDrive Desktop Client`) ➔ Klik **Create**.
+7. Klik tombol **DOWNLOAD JSON**, ganti nama file menjadi **`credentials.json`**, lalu letakkan di root direktori project ini.
+
+---
+
+## ▶️ Penggunaan
+
+### 1. Jalankan Pemindaian Standar
+```bash
+python3 gdrive_treesize.py
+```
+> **Catatan**: Saat pertama kali dijalankan, browser Anda akan terbuka untuk meminta izin login Google. Token autentikasi akan disimpan secara lokal di `token.json` sehingga pemindaian berikutnya berjalan otomatis tanpa perlu login ulang.
+
+### 2. Buka Dashboard Visual TreeSize
+Setelah pemindaian selesai, buka file laporan HTML di browser:
+```bash
+# Linux
+xdg-open gdrive_treesize_report.html
+
+# macOS
+open gdrive_treesize_report.html
+
+# Windows
+start gdrive_treesize_report.html
+```
+
+---
+
+## ⚙️ Opsi Perintah Tambahan (CLI Flags)
+
+| Flag | Deskripsi | Default |
+| :--- | :--- | :--- |
+| `--top N` | Menentukan jumlah file terbesar yang ditampilkan di terminal | `30` |
+| `--asc` | Mengurutkan file dari ukuran terkecil ke terbesar | `False` |
+| `--csv` | Mengekspor seluruh daftar metadata file ke file CSV | `False` |
+| `--html-file <nama>` | Menentukan nama file output HTML | `gdrive_treesize_report.html` |
+| `--csv-file <nama>` | Menentukan nama file output CSV | `gdrive_files.csv` |
+| `--no-browser` | Menjalankan autentikasi mode konsol (untuk server headless) | `False` |
+| `--creds <path>` | Menentukan path kustom ke file `credentials.json` | `credentials.json` |
+
+### Contoh Perintah:
+```bash
+# Tampilkan 50 file terbesar di terminal dan ekspor juga ke CSV
+python3 gdrive_treesize.py --top 50 --csv
+
+# Urutkan dari file terkecil
+python3 gdrive_treesize.py --asc
+```
+
+---
+
+## ❓ Troubleshooting
+
+<details>
+<summary><b>1. Error 403: access_denied (Akses diblokir / Belum menyelesaikan proses verifikasi Google)</b></summary>
+<br>
+Hal ini terjadi karena aplikasi Google Cloud Anda masih berstatus <b>Testing</b>. Solusinya:
+<ol>
+  <li>Buka <a href="https://console.cloud.google.com/apis/credentials/consent">Google Cloud Console - Audience / OAuth Consent Screen</a>.</li>
+  <li>Cari bagian <b>Test users</b>.</li>
+  <li>Klik <b>+ ADD USERS</b> lalu masukkan email Google Anda.</li>
+  <li>Klik <b>Save</b>, lalu jalankan kembali script <code>python3 gdrive_treesize.py</code>.</li>
+</ol>
+</details>
+
+<details>
+<summary><b>2. Peringatan "Google hasn't verified this app" di browser</b></summary>
+<br>
+Karena ini adalah aplikasi milik Anda sendiri (bukan aplikasi publik di Play Store), Google akan menampilkan peringatan keamanan standar. Cukup klik:
+<b>Advanced (Lanjutan)</b> ➔ <b>Go to GDrive Cleaner (unsafe) / Lanjutkan ke GDrive Cleaner</b> ➔ Klik <b>Continue / Izinkan</b>.
+</details>
+
+<details>
+<summary><b>3. Kuota Google Drive tetap penuh meskipun sudah menghapus file</b></summary>
+<br>
+Pastikan Anda sudah mengosongkan <b>Tempat Sampah (Trash / Bin)</b> di Google Drive. File di dalam sampah tetap dihitung memakan kuota hingga dikosongkan secara permanen.
+</details>
+
+---
+
+## 🔒 Keamanan & Privasi
+
+- Script ini **100% berjalan lokal** di komputer Anda.
+- Menggunakan scope `https://www.googleapis.com/auth/drive.readonly` yang hanya dapat membaca informasi ukuran dan nama file.
+- Tidak ada data, token, atau file Anda yang dikirim ke server pihak ketiga mana pun.
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [Lisensi MIT](LICENSE).

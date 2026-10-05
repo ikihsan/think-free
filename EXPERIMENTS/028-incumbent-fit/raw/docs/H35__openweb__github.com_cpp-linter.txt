@@ -1,0 +1,1994 @@
+
+
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ cpp-linter · GitHub 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+
+ 
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+
+ 
+
+
+
+ 
+
+
+ 
+ 
+
+
+ 
+
+
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ Skip to content 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Navigation Menu Sign in Appearance settings cpp-linter Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Copilot app Direct agents from issue to merge MCP Registry Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes Code Quality Enforce quality at merge APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners View all resources Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community GitHub Stars Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search / Sign in Sign up Appearance settings 
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+
+ 
+ 
+ 
+ Dismiss alert 
+
+
+ 
+ 
+ 
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ {{ message }} 
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter
+ 
+
+ Lint your C/C++ code in workflow 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 59 
+ followers
+ 
+ 
+ 
+ 
+ 
+ https://cpp-linter.github.io 
+ 
+
+ 
+ 
+ 
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Overview
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Repositories
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Discussions
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Projects
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ Packages
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ People
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ More 
+ 
+ 
+ 
+ 
+ 
+ Overview 
+ 
+ 
+ Repositories 
+ 
+ 
+ Discussions 
+ 
+ 
+ Projects 
+ 
+ 
+ Packages 
+ 
+ 
+ People 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+
+
+ 
+
+
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ README.md 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter runs clang-format and clang-tidy on C and C++ code: on every pull request,
+before every commit and on your laptop, at the same LLVM version. 
+ Website ·
+ Get started ·
+ Showcase ·
+ Discussions ·
+ Sponsor 
+ Pick where the checks run 
+ 
+ 
+ 
+ Where 
+ Project 
+ Start with 
+ 
+ 
+ 
+ 
+ On every pull request 
+ cpp-linter-action 
+ uses: cpp-linter/cpp-linter-action@v2 
+ 
+ 
+ Before every commit 
+ cpp-linter-hooks 
+ args: [--style=file, --version=21] 
+ 
+ 
+ Locally or in other CI 
+ cpp-linter 
+ pip install cpp-linter 
+ 
+ 
+ Just the clang tools 
+ clang-tools 
+ pip install clang-tools 
+ 
+ 
+ 
+ The clang tools also come as static binaries 
+for Linux, macOS and Windows, a Homebrew tap for macOS,
+an asdf plugin and
+ Docker images . 
+ Maintained by two volunteers, @shenxianpeng and
+ @2bndy5 . Sponsorship goes to the project through
+ Open Collective , where all income and expenses are public. 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+ Pinned
+
+ 
+ 
+ 
+ 
+ Loading 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter-action cpp-linter-action Public 
+ 
+ 
+
+
+ 
+ A Github Action for linting C/C++ code integrating clang-tidy and clang-format to collect feedback provided in the form of file-annotations, thread-comments, workflow step-summary, and Pull Request…
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 147
+ 
+ 
+ 
+ 
+ 
+ 24
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter-hooks cpp-linter-hooks Public 
+ 
+ 
+
+
+ 
+ C/C++ linter pre-commit hooks powered by clang-format and clang-tidy
+ 
+
+ 
+ 
+ 
+ Python 
+ 
+
+ 
+ 
+ 
+ 
+ 50
+ 
+ 
+ 
+ 
+ 
+ 10
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter cpp-linter Public 
+ 
+ 
+
+
+ 
+ cpp-linter core Python executable package
+ 
+
+ 
+ 
+ 
+ Python 
+ 
+
+ 
+ 
+ 
+ 
+ 35
+ 
+ 
+ 
+ 
+ 
+ 13
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-pip clang-tools-pip Public 
+ 
+ 
+
+
+ 
+ Install clang-format, clang-tidy, clang-query, clang-apply-replacements and clang-include-cleaner binaries with clang-tools CLI.
+ 
+
+ 
+ 
+ 
+ Python 
+ 
+
+ 
+ 
+ 
+ 
+ 11
+ 
+ 
+ 
+ 
+ 
+ 1
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-static-binaries clang-tools-static-binaries Public 
+ 
+ 
+
+
+ 
+ Static binaries of clang-format, clang-tidy and other LLVM tools, so you can use them without building LLVM.
+ 
+
+ 
+ 
+ 
+ Python 
+ 
+
+ 
+ 
+ 
+ 
+ 22
+ 
+ 
+ 
+ 
+ 
+ 5
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-docker clang-tools-docker Public 
+ 
+ 
+
+
+ 
+ 🐳 Clang Tools Docker image includes the clang-format and clang-tidy.
+ 
+
+ 
+ 
+ 
+ HCL 
+ 
+
+ 
+ 
+ 
+ 
+ 15
+ 
+ 
+ 
+ 
+ 
+ 1
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ Repositories
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Loading 
+ 
+ 
+ 
+ 
+ Type 
+ 
+ 
+ 
+ 
+ Select type 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ All 
+ 
+ 
+ 
+ 
+ 
+ 
+ Public 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sources 
+ 
+ 
+ 
+ 
+ 
+ 
+ Forks 
+ 
+ 
+ 
+ 
+ 
+ 
+ Archived 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mirrors 
+ 
+ 
+ 
+ 
+ 
+ 
+ Templates 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Language 
+ 
+ 
+ 
+ 
+ Select language 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ All 
+ 
+ 
+ 
+ 
+ 
+ 
+ C++ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dart 
+ 
+ 
+ 
+ 
+ 
+ 
+ HCL 
+ 
+ 
+ 
+ 
+ 
+ 
+ Makefile 
+ 
+ 
+ 
+ 
+ 
+ 
+ Python 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ruby 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rust 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shell 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Sort 
+ 
+ 
+ 
+ 
+ Select order 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Last updated 
+ 
+ 
+ 
+ 
+ 
+ 
+ Name 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stars 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Showing 10 of 16 repositories 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-static-binaries 
+ 
+ Public
+ 
+
+ 
+ Static binaries of clang-format, clang-tidy and other LLVM tools, so you can use them without building LLVM.
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/clang-tools-static-binaries&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 22 
+ 
+ 
+ 
+ Unlicense
+ 
+ 
+ 
+ 
+ 5 
+ 
+ 
+ 
+ 0 
+
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 5, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter.github.io 
+ 
+ Public
+ 
+
+ 
+ cpp-linter organization website
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/cpp-linter.github.io&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 2 
+
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 5, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter-rs 
+ 
+ Public
+ 
+
+ 
+ A CLI tool that scans a batch of files with clang-tidy and/or clang-format, then provides feedback in the form of comments, annotations, summaries, and reviews.
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/cpp-linter-rs&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Rust 
+ 
+
+
+ 
+ 
+ 
+ 4 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 2 
+
+ 
+ 
+ 
+ 6 
+ 
+ Updated Oct 5, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter 
+ 
+ Public
+ 
+
+ 
+ cpp-linter core Python executable package
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/cpp-linter&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 35 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 13 
+ 
+ 
+ 
+ 7 
+
+ 
+ 
+ 
+ 3 
+ 
+ Updated Oct 5, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter-hooks 
+ 
+ Public
+ 
+
+ 
+ C/C++ linter pre-commit hooks powered by clang-format and clang-tidy
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/cpp-linter-hooks&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 50 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 10 
+ 
+ 
+ 
+ 1 
+ (1 issue needs help) 
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 5, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ cpp-linter-action 
+ 
+ Public
+ 
+
+ 
+ A Github Action for linting C/C++ code integrating clang-tidy and clang-format to collect feedback provided in the form of file-annotations, thread-comments, workflow step-summary, and Pull Request reviews.
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/cpp-linter-action&#39;s past year of commit activity 
+ 
+ 
+
+
+ 
+ 
+ 
+ 147 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 24 
+ 
+ 
+ 
+ 3 
+ (1 issue needs help) 
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 2, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ .github 
+ 
+ Public
+ 
+
+ 
+ Global configurations for cpp-linter organization on GitHub
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/.github&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 0 
+
+ 
+ 
+ 
+ 0 
+ 
+ Updated Oct 2, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-docker 
+ 
+ Public
+ 
+
+ 
+ 🐳 Clang Tools Docker image includes the clang-format and clang-tidy.
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/clang-tools-docker&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ HCL 
+ 
+
+
+ 
+ 
+ 
+ 15 
+
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 0 
+
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 2, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-tools-pip 
+ 
+ Public
+ 
+
+ 
+ Install clang-format, clang-tidy, clang-query, clang-apply-replacements and clang-include-cleaner binaries with clang-tools CLI.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ cpp-linter/clang-tools-pip&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 11 
+ 
+ 
+ 
+ MIT
+ 
+ 
+ 
+ 
+ 1 
+ 
+ 
+ 
+ 0 
+
+ 
+ 
+ 
+ 1 
+ 
+ Updated Oct 2, 2026 
+ 
+ 
+ 
+ 
+ 
+ 
+ clang-include-cleaner 
+ 
+ Public
+ 
+
+ 
+ clang-include-cleaner Python wheels
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ Uh oh!
+ 
+ There was an error while loading. Please reload this page . 
+ 
+
+ 
+ 
+ cpp-linter/clang-include-cleaner&#39;s past year of commit activity 
+ 
+ 
+
+ 
+ 
+ Python 
+ 
+
+
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ Apache-2.0
+ 
+ 
+ 
+ 
+ 0 
+ 
+ 
+ 
+ 0 
+
+ 
+ 
+ 
+ 0 
+ 
+ Updated Oct 1, 2026 
+ 
+ 
+ View all repositories 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+ 
+ 
+ People 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+
+ 
+ 
+ Top languages 
+ 
+ 
+ 
+ Python 
+ 
+
+ 
+ 
+ 
+ 
+ Shell 
+ 
+
+ 
+ 
+ 
+ 
+ Ruby 
+ 
+
+ 
+ 
+ 
+ 
+ Rust 
+ 
+
+ 
+ 
+ 
+ 
+ Makefile 
+ 
+
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ Most used topics 
+ 
+ 
+ 
+ clang-format
+ 
+ 
+ clang-tidy
+ 
+ 
+ clang-tools-extra
+ 
+ 
+ clang-include-cleaner
+ 
+ 
+ clang-apply-replacements
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ Footer 
+
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &copy; 2026 GitHub, Inc.
+ 
+ 
+
+ 
+ Footer navigation 
+
+ 
+
+
+ 
+ Terms 
+ 
+
+ 
+ Privacy 
+ 
+
+
+ 
+ Security 
+ 
+
+ 
+ Status 
+ 
+
+ 
+ Community 
+ 
+
+ 
+ Docs 
+ 
+
+ 
+ Contact 
+ 
+
+ 
+ 
+ 
+ 
+ Manage cookies
+ 
+ 
+ 
+
+ 
+ 
+ 
+ Do not share my personal information
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ You can’t perform that action at this time.
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+ 
+ 

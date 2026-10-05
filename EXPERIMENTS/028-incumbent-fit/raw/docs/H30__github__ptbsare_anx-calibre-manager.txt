@@ -1,0 +1,209 @@
+# Anx Calibre Manager
+
+[![Docker Image CI](https://github.com/ptbsare/anx-calibre-manager/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/ptbsare/anx-calibre-manager/actions/workflows/docker-ci.yml)
+[![GitHub Container Registry](https://img.shields.io/badge/ghcr.io-ptbsare%2Fanx--calibre--manager-blue?logo=github)](https://github.com/ptbsare/anx-calibre-manager/pkgs/container/anx-calibre-manager)
+
+A modern, mobile-first web application to manage your ebook library, integrating with Calibre and providing a personal WebDAV server for your Anx-reader compatible devices.
+
+<p align="center">
+  <strong><a href="README.md">English</a></strong> |
+  <strong><a href="README_zh-Hans.md">简体中文</a></strong> |
+  <strong><a href="README_zh-Hant.md">繁體中文</a></strong> |
+  <strong><a href="README_es.md">Español</a></strong> |
+  <strong><a href="README_fr.md">Français</a></strong> |
+  <strong><a href="README_de.md">Deutsch</a></strong>
+</p>
+
+## ✨ Features
+
+- **Multi-language Support**: Full internationalization support. The interface is available in English, Simplified Chinese (简体中文), Traditional Chinese (繁體中文), Spanish, French, and German.
+- **Mobile-First Interface**: A clean, responsive UI designed for easy use on your phone.
+- **PWA Support**: Installable as a Progressive Web App for a native-like experience.
+- **In-Browser Book Previewer**: Preview E-Book directly in your browser. Features Text-to-Speech (TTS).
+- **Audiobook Generation**: Convert EPUB books into M4B audiobooks with chapter markers, using configurable Text-to-Speech (TTS) providers (e.g., Microsoft Edge TTS). The generated M4B files are fully compatible with audiobook servers like [Audiobookshelf](https://www.audiobookshelf.org/).
+- **Online Audiobook Player**: Listen to your generated M4B audiobooks directly in the browser. Your listening progress is automatically saved and synced.
+- **Ask AI**: Engage in conversations with your books. This feature allows you to chat with any book in your library, ask questions about its content, get summaries, or explore themes through an AI-powered interface.
+- **Calibre Integration**: Connects to your existing Calibre server to browse and search your library.
+- **KOReader Sync**: Sync your reading progress and reading time with KOReader devices.
+- **Smart Send to Kindle**: Automatically handles formats when sending to your Kindle. If an EPUB exists, it's sent directly. If not, the app **converts the best available format to EPUB** based on your preferences before sending, ensuring optimal compatibility.
+- **Push to Anx**: Send books from your Calibre library directly to your personal Anx-reader device folder.
+- **Integrated WebDAV Server**: Each user gets their own secure WebDAV folder, compatible with Anx-reader and other WebDAV clients.
+- **MCP Server**: A built-in, compliant Model Context Protocol (MCP) server, allowing AI agents and external tools to interact with your library securely.
+- **User Management**: Simple, built-in user management system with distinct roles:
+    - **Admin**: Full control over users, global settings, and all books.
+    - **Maintainer**: Can edit all book metadata.
+    - **User**: Can upload books, manage their own WebDAV library, MCP tokens, send books to Kindle, and **edit books they have uploaded**.
+- **Invite-Only Registration**: Admins can generate invite codes to control user registration. This feature is enabled by default to prevent unauthorized sign-ups.
+- **User-Editable Uploaded Books**: Regular users can now edit metadata for books they have uploaded. This functionality relies on a Calibre custom column named `#library` (type: `Text`). When a user uploads a book, their username is automatically saved to this field. Users can then edit any book where they are listed as the owner in the `#library` field.
+    - **Recommendation for Docker Users**: To enable this feature, please ensure you have a custom column in your Calibre library named `#library` (case-sensitive) with the type `Text`.
+- **Easy Deployment**: Deployable as a single Docker container with built-in multi-language locale support.
+- **Reading Stats**: Automatically generates a personal reading statistics page, featuring a yearly reading heatmap, a list of books currently being read, and a list of finished books. The page can be shared publicly or kept private.
+## 📸 Screenshots
+
+<p align="center">
+  <em>Main Interface</em><br>
+  <img src="screenshots/Screen Shot - MainPage.png">
+</p>
+<p align="center">
+  <em>Settings Page</em><br>
+  <img src="screenshots/Screen Shot - SettingPage.png">
+</p>
+
+<p align="center">
+  <em>MCP Settings</em><br>
+  <img src="screenshots/Screen Shot - MCPSetting.png">
+</p>
+
+| MCP Chat | MCP Chat | MCP Chat | MCP Chat |
+| :---: | :---: | :---: | :---: |
+| <img src="screenshots/Screen Shot - MCPChat.jpg" width="250"/> | <img src="screenshots/Screen Shot - MCPChat2-1.png" width="250"/> | <img src="screenshots/Screen Shot - MCPChat2-2.png" width="250"/> | <img src="screenshots/Screen Shot - MCPChat2-3.png" width="250"/> |
+
+| Koreader Book Status | Koreader Sync |
+| :---: | :---: |
+| <img src="screenshots/Screen Shot - KoreaderBookStatus.jpg" width="400"/> | <img src="screenshots/Screen Shot - KoreaderSync.jpg" width="400"/> |
+
+| Koreader Settings | Koreader WebDAV |
+| :---: | :---: |
+| <img src="screenshots/Screen Shot - KoreaderSetting.png" width="750"/> | <img src="screenshots/Screen Shot - KoreaderWebdav.jpg" width="250"/> |
+
+<p align="center">
+  <em>Stats Page</em><br>
+  <img src="screenshots/Screen Shot - StatsPage.png">
+</p>
+
+| Audiobook List | Audiobook Player |
+| :---: | :---: |
+| <img src="screenshots/Screen Shot - AudiobookList.png" width="400"/> | <img src="screenshots/Screen Shot - AudiobookPlayer.png" width="400"/> |
+
+| Chat With Book | Chat With Book |
+| :---: | :---: |
+| <img src="screenshots/Screen Shot - ChatWithBook1.png" width="400"/> | <img src="screenshots/Screen Shot - ChatWithBook2.png" width="400"/> |
+
+## 🚀 Deployment
+
+This application is designed to be deployed using Docker.
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) installed on your server.
+- **Calibre Server** (choose one):
+  - **Option 1: Use AIO (All-In-One) image** - Includes a built-in `calibre-server`. Perfect for beginners who want a simple, single-container deployment.
+  - **Option 2: Use an existing Calibre server** - Run a separate Calibre server Docker image. We recommend [linuxserver/calibre](https://hub.docker.com/r/linuxserver/calibre) or the lightweight [lucapisciotta/calibre](https://hub.docker.com/r/lucapisciotta/calibre) (default port: `8085`).
+
+### Quick Start (Docker Run)
+
+#### AIO Version (All-In-One - Recommended)
+Perfect if you don't want to manage a separate Calibre server!
+
+1.  Create three directories for persistent data:
+    ```bash
+    mkdir -p ./config
+    mkdir -p ./webdav
+    mkdir -p ./library
+    ```
+
+2.  Run the AIO Docker container:
+    ```bash
+    docker run -d \
+      --name anx-calibre-manager-aio \
+      -p 5000:5000 \
+      -p 8080:8080 \
+      -v $(pwd)/config:/config \
+      -v $(pwd)/webdav:/webdav \
+      -v "$(pwd)/library:/Calibre Library" \
+      -e CALIBRE_URL=http://localhost:8080 \
+      -e CALIBRE_USERNAME=admin \
+      -e CALIBRE_PASSWORD=password \
+      --restart unless-stopped \
+      ghcr.io/ptbsare/anx-calibre-manager:aio-latest
+    ```
+
+3.  Access the application at `http://localhost:5000`. The built-in Calibre server will be available at `http://localhost:8080`.
+    - **Note**: The `/Calibre Library` directory is your Calibre library folder. It will contain `metadata.db` (the Calibre database), book files, and cover images. This is where all your ebooks are stored and managed by the built-in Calibre server.
+    - **Note**: Change the default username (`admin`) and password (`password`) for security.
+
+#### Standard Version
+This is for users who already have a separate Calibre server.
+
+1.  Create two directories for persistent data:
+    ```bash
+    mkdir -p ./config
+    mkdir -p ./webdav
+    ```
+
+2.  Run the Docker container with this single command:
+    ```bash
+    docker run -d \
+      --name anx-calibre-manager \
+      -p 5000:5000 \
+      -v $(pwd)/config:/config \
+      -v $(pwd)/webdav:/webdav \
+      --restart unless-stopped \
+      ghcr.io/ptbsare/anx-calibre-manager:latest
+    ```
+
+3.  Access the application at `http://localhost:5000`. The first user to register will become the administrator. You can configure the Calibre server connection and other settings from the web interface later.
+
+### Advanced Configuration
+
+Here is a more detailed `docker-compose.yml` example for users who want to connect to a Calibre server and customize more options.
+
+1.  **Find your User and Group ID (PUID/PGID):**
+    Run `id $USER` on your host machine. This is recommended to avoid permission issues.
+
+2.  **Create a `docker-compose.yml` file:**
+    ```yaml
+    services:
+      anx-calibre-manager:
+        image: ghcr.io/ptbsare/anx-calibre-manager:latest
+        container_name: anx-calibre-manager
+        ports:
+          - "5000:5000"
+        volumes:
+          - /path/to/your/config:/config
+          - /path/to/your/webdav:/webdav
+          - /path/to/your/audiobooks:/audiobooks # Optional
+          - /path/to/your/fonts:/opt/share/fonts # Optional
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=America/New_York
+          - GUNICORN_WORKERS=2 # Optional
+          - SECRET_KEY=your_super_secret_key # Change this!
+          - CALIBRE_URL=http://your-calibre-server-ip:8080
+          - CALIBRE_USERNAME=your_calibre_username
+          - CALIBRE_PASSWORD=your_calibre_password
+          - CALIBRE_DEFAULT_LIBRARY_ID=Calibre_Library
+          - CALIBRE_ADD_DUPLICATES=false
+        restart: unless-stopped
+    ```
+    *Note: Replace `/path/to/your/...` with the actual paths on your host machine.*
+
+3.  Run the container:
+    ```bash
+    docker-compose up -d
+    ```
+
+### Custom Fonts
+
+The book conversion tool, `ebook-converter`, scans the `/opt/share/fonts` directory for fonts. If you encounter font-related issues when converting books with special characters (e.g., Chinese), you can provide custom fonts by mounting a local directory containing your font files (e.g., `.ttf`, `.otf`) to the container's `/opt/share/fonts` path.
+
+### Configuration
+
+The application is configured via environment variables.
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `PUID` | The User ID to run the application as. | `1001` |
+| `PGID` | The Group ID to run the application as. | `1001` |
+| `TZ` | Your timezone, e.g., `America/New_York`. | `UTC` |
+| `PORT` | The port the application listens on inside the container. | `5000` |
+| `GUNICORN_WORKERS` | Optional: The number of Gunicorn worker processes. | `2` |
+| `CONFIG_DIR` | The directory for the database and `settings.json`. | `/config` |
+| `WEBDAV_DIR` | The base directory for WebDAV user files. | `/webdav` |
+| `SECRET_KEY` | **Required.** A long, random string for session security. | `""` |
+| `LOGIN_MAX_ATTEMPTS` | Maximum number of login attempts before account lockout. Set to `0` to disable. | `5` |
+| `SESSION_LIFETIME_DAYS` | Number of days a user session remains valid after login. | `7` |
+| `ENABLE_ACTIVITY_LOG` | Enable logging of user activities (login, download, upload, etc.) to the database for audit purposes. | `false` |
+| `CALIBRE_URL` | The URL of your Calibre content server. **Dual purpose in AIO version**: (1) Serves as the global default Calibre server connection for anx-calibre-manager. (2) The port number is extracted to determine which port the built-in calibre-server should listen on. For example, `http://localhost:8080` will make calibre-server listen on port 8080. See [Troubleshooting](#1-why-are-there-no-books-in-my-calibre-list) if you have connection issues. | `""` |
+| `CALIBRE_USERNAME` | Username for your Calibre server. See [Troubleshooting](#1-why-are-there-no-books-in-my-calibre-list) if you have connection issues

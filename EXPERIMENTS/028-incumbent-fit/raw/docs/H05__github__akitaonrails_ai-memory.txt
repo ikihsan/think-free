@@ -1,0 +1,241 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.png">
+    <img alt="ai-memory" src="docs/logo-light.png" width="480">
+  </picture>
+</p>
+
+> Long-term memory for AI coding agents. Quit Claude Code mid-task,
+> start OpenAI Codex in the same directory, continue without
+> re-explaining the architecture, the failed approaches, or the open
+> questions.
+
+[![Release](https://img.shields.io/github/v/release/akitaonrails/ai-memory)](https://github.com/akitaonrails/ai-memory/releases/latest)
+[![Rust](https://img.shields.io/badge/rust-1.95+-blue)](rust-toolchain.toml)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+## Why ai-memory
+
+Your coding agent already has a memory feature. Claude Code takes its own
+notes, Cursor remembers some things, and every platform is adding more. All
+of them share the same walls: the notes live on one machine, belong to one
+agent, and vanish from view the moment you switch tools — or teammates.
+
+ai-memory is what's on the other side of those walls.
+
+- **It follows you across agents.** Twenty-plus harnesses — Claude Code,
+  Codex, Cursor, Gemini CLI, OpenCode, Grok, Devin, Kimi, Kiro, and more —
+  feed one shared memory. Quit Claude Code mid-task, open Codex in the same
+  directory, and the next agent picks up a real handoff: where you left
+  off, what failed, what's still open. Handoffs are a protocol here, not a
+  convention — typed, owned, claimed exactly once.
+
+- **It follows you across machines.** Memory lives in a server you run —
+  on the same laptop, a homelab box, or wherever — so the project you left
+  on the desktop is the project you resume on the laptop. Same knowledge,
+  same open questions.
+
+- **It works for a team.** Point everyone at one server and what one
+  person's sessions learn, everyone's agents can retrieve. Knowledge is
+  shared per project; personal handoffs stay personal. Multi-user auth,
+  per-person attribution, and an audit log are built in — not a paid tier.
+
+- **Your memory is plain markdown.** The source of truth is a git-backed
+  wiki of ordinary `.md` files: `grep` it, open it in Obsidian, edit it by
+  hand, `rsync` it. The database is a derived index that can always be
+  rebuilt from the files. No vector store to babysit, nothing held hostage
+  in a binary blob.
+
+- **It captures the work itself, silently.** Lifecycle hooks record what
+  actually happened — prompts, tool calls, session boundaries — sanitized
+  at a typed privacy boundary before anything is stored, then consolidated
+  into readable pages. No "remember this" ceremony. And the default path
+  uses **zero LLM calls**: capture, search, and handoffs all work with no
+  API key at all.
+
+- **It ages gracefully, without an LLM.** Memory decays on a schedule you
+  can tune per tier, and the memory you actually use decays *slower* — open a
+  page, search it, or reach it through a link and it earns its keep. When
+  episodic notes go cold they can be compacted down to their durable facts
+  (file paths, error codes, decisions) instead of dropped, near-duplicates
+  collapse into one, and likely contradictions get flagged — all with **zero
+  API calls**. Nothing is hard-deleted: the original stays in git and the
+  version chain (`restore-page` brings it back). Access-weighted retention is
+  always on because it can only ever keep memory *longer*; the parts that
+  rewrite or drop content (compaction, dedup, per-tier curves) stay off by
+  default until you turn them on.
+
+- **And it can dream, if you let it.** Point it at an LLM and an opt-in
+  background pass will, while you're idle, rewrite whole clusters of cold
+  notes into single coherent pages — cancelling the moment you come back to
+  work. It never deletes a source (the pre-merge versions stay reachable),
+  it's off by default, and it's gated on a recall eval before it could ever
+  become default behavior. The zero-LLM path above is what runs unless you
+  ask for more.
+
+- **It tells you the truth about itself.** One self-contained binary.
+  Purge commands that say exactly what "deleted" means. A measured write
+  ceiling (~700/s) instead of a guessed one. An audit log of every
+  mutation. Boring, in the way infrastructure should be.
+
+## How it works
+
+```
+capture ──▶ consolidate ──▶ recall ──▶ handoff
+ hooks        session-end      search     next agent,
+ observe      summaries as     + brief    any harness
+ silently     wiki pages       injection
+```
+
+Agents emit sanitized observations through lifecycle hooks as you work.
+At session end, observations become coherent markdown pages in the
+project's wiki (optionally LLM-written; useful even without). The next
+session — any agent, any machine — gets a bounded brief and can search
+everything: full-text, entities, links, and (optionally) vectors, fused
+into one ranking. Cross-agent handoffs carry the baton explicitly.
+
+The full design, including the invariants that keep multi-user and
+multi-session use safe, is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Support matrix
+
+Every row below is a first-party integration — MCP registration, lifecycle
+hooks, or both — kept honest by CI. The full matrix with per-agent notes and
+caveats is in [`docs/support-matrix.md`](docs/support-matrix.md).
+
+| Area | Status |
+| --- | --- |
+| Linux | Supported |
+| macOS | Supported |
+| Windows via WSL2 | Supported |
+| Native Windows | Experimental |
+| Claude Code | Supported |
+| Codex | Supported |
+| Command Code | Supported |
+| Devin CLI | Supported |
+| OpenCode | Supported |
+| OpenCode 2 (`opencode2` beta) | Supported |
+| Cursor | Supported |
+| Gemini CLI | Supported |
+| Oh My Pi / OMP | Supported |
+| Pi | Supported |
+| Crush | Managed-only |
+| Managed workstreams | Opt-in |
+| Claude Desktop | MCP-only |
+| OpenClaw | Supported |
+| Antigravity CLI | Supported |
+| Grok Build CLI | Supported |
+| Swival CLI | MCP-only |
+| Zero | Supported |
+| ZCode | Supported |
+| Kimi Code | Supported |
+| Kiro CLI | Supported |
+| Pool | Hooks-only |
+| VS Code Copilot | MCP-only |
+| Zed | MCP-only |
+| Muse Code | MCP-only |
+| Hermes Agent | Supported |
+| LLM/auth providers | Supported |
+| Embedding providers | Supported |
+
+## Coming from another tool?
+
+Most agent-memory tools optimize one thing — extracting atomic facts per turn,
+a temporal knowledge graph, an agent-editable memory OS, or a hosted context
+API. ai-memory optimizes something different: a **git-backed markdown wiki as
+the source of truth**, with a derived index for retrieval, captured
+automatically from lifecycle hooks, shared across agents, machines, and people,
+and working with **zero LLM calls by default**. Here's what carries over from
+each, and what you gain:
+
+| Coming from… | What's similar | What you gain |
+|---|---|---|
+| **Mem0 / fact extractors** (LangMem) | Automatic per-turn capture | Memory compiles into readable **pages** you own and edit, not opaque fact rows; retrieval fuses FTS + entity + graph (+ optional vectors), not vector-only |
+| **Zep / Graphiti** (temporal KG) | Temporal reasoning, typed relations | Bi-temporal-lite (`as_of`, version-filtered search) and typed edges without standing up a graph database — on one binary |
+| **mcp-memory-service** (closest sibling) | SQLite + local embeddings, hook capture, typed edges, honest numbers — and, on 2.4, per-tier decay curves, extractive compression, DBSCAN cold-cluster dedup, access reinforcement, and contradiction flagging | Human-editable markdown **pages** instead of fact-rows, cross-agent claim-once handoffs, and the same aging machinery done **zero-LLM by default, reversibly** (supersede-not-delete + `restore-page`), and **off by default** |
+| **basic-memory** (file-first sibling) | Markdown-on-disk as the source of truth | Automatic lifecycle capture and a derived FTS/entity/graph index on top, cross-agent handoffs, and multi-user sharing built in |
+| **Claude Code built-in memory** | "Remember my project" convenience, zero setup | Synced across machines and agents, searchable, team-capable, and captures tool lifecycle — not a per-laptop `MEMORY.md` |
+| **Hindsight / OpenViking** (hosted, LLM-required) | Living pages / document memory with a background consolidation loop — and, on 2.4, belief-strength confidence plus an opt-in LLM "dream" rewrite of cold clusters | A self-contained binary that runs zero-LLM by default and keeps memory in files you own; per-project team sharing instead of strict per-bank isolation; the dream/belief features are **opt-in, off by default, and never delete a source** (vs a mandatory LLM loop) |
+| **Supermemory / LiquidLM** (hosted memory API) | A managed second brain with automatic ingestion | Git-versioned markdown you own, no required API spend, offline operation, and per-project team sharing — ai-memory remembers *this repo*, not a general vault |
+
+The consistent theme: **files you own** (git-backed markdown), a **zero-LLM
+default**, **one self-contained binary**, **cross-agent + cross-machine + team**
+sharing, **automatic lifecycle capture**, and **typed, claim-once handoffs**.
+Opt-in features (LLM consolidation, vector search, the "dream" consolidation
+pass, belief-strength in ranking) stay opt-in — and the zero-LLM aging path
+(per-tier decay, extractive compaction, dedup, contradiction flagging,
+access-weighted retention) works with no API key at all.
+
+**Built on the shoulders of:** the
+[Karpathy LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+(compile-not-retrieve),
+[agentmemory](https://github.com/rohitg00/agentmemory) (this project is its Rust
+successor), [basic-memory](https://github.com/basicmachines-co/basic-memory)
+(markdown-on-disk truth),
+[cognee](https://github.com/topoteretes/cognee) (pipeline composition and
+triplet embeddings),
+[Hermes Agent](https://github.com/NousResearch/hermes-agent) (the
+self-improvement loop), and [A-MEM](https://arxiv.org/abs/2502.12110)
+(Zettelkasten-style atomic notes).
+
+The full, fair rundown — where each approach wins, where ai-memory differs, the
+published benchmark — is in [How ai-memory compares](docs/comparison.md).
+
+## Quick start
+
+### Arch Linux (AUR)
+
+For native Arch installs, use the AUR packages. They install
+`/usr/bin/ai-memory`, packaged hook sources, and both system-level and
+user-level systemd units.
+
+```bash
+yay -S ai-memory-bin    # prebuilt Linux x86_64/aarch64 binary
+yay -S ai-memory        # builds from source
+```
+
+### Fedora (RPM)
+
+Download the `x86_64` or `aarch64` RPM from the
+[latest release](https://github.com/akitaonrails/ai-memory/releases/latest),
+then install it:
+
+```bash
+sudo dnf install ./ai-memory-*.rpm
+```
+
+Then follow the native Linux service instructions in [`docs/install.md`](docs/install.md).
+
+Single-user workstation:
+
+```bash
+mkdir -p ~/.config/ai-memory ~/.local/share/ai-memory
+ai-memory --data-dir ~/.local/share/ai-memory \
+  --config ~/.config/ai-memory/config.toml init
+systemctl --user enable --now ai-memory.service
+ai-memory install-mcp --client claude-code --apply
+ai-memory install-hooks --agent claude-code --apply
+```
+
+System service installs use `/var/lib/ai-memory` and `/etc/ai-memory/` via the
+packaged unit. Full user-service, system-service, auth, and provider setup is in
+[`docs/install.md#arch-linux-native-packages-aur`](docs/install.md#arch-linux-native-packages-aur).
+
+### macOS (menu bar app)
+
+A self-contained `.app` that bundles the native `ai-memory` binary and
+`hooks/` tree, starts the existing LaunchAgent, and opens `/web`,
+`ai-memory status`, and `config.toml` from the menu bar. Wiki, SQLite,
+config, and models stay in `~/Library/Application Support/ai-memory`, so
+replacing the app is an update — it does not rewrite that tree.
+
+Needs a Rust toolchain and Xcode / Swift 6 (same as a source build):
+
+```bash
+git clone https://github.com/akitaonrails/ai-memory
+cd ai-memory
+./companions/ai-memory-macos/build.sh
+open "companions/ai-memory-macos/dist/AI Memory.app"
+```
+
+Drag **AI Memory.app** to `/Applications`, then **Install & Start Server

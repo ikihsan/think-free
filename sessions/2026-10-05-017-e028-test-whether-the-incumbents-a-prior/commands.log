@@ -72,3 +72,139 @@ cwd: /home/ubuntu/think-free
 
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 32  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T18:35:13+00:00
+$ tools/origin task claim T-0072 --agent opencode
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+T-0072 claimed by opencode on unknown-vm and published it
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6671  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T18:35:14+00:00
+$ tools/origin session artifact tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 12  tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md  294d63d64bfb
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 599  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T18:36:47+00:00
+$ tools/origin session step E028 protocol declared before any label or documentation fetch: population 29 prior-art deaths read-only from two existing captures, four gates including a not_evaluated state, mismatched-pairing and lexical-base-rate controls
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 14
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 605  redactions: none
+==============================================================================
+[seq 17] 2026-10-05T18:36:48+00:00
+$ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/PROTOCOL.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 16  EXPERIMENTS/028-incumbent-fit/PROTOCOL.md  adc80fd2bf95
+1 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 604  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T18:38:32+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/build_population.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "harvest_requirements": 19,
+  "harvest_bundles": 19,
+  "record_facts": 19,
+  "rows_with_at_least_one_named_artifact": 16,
+  "rows_naming_no_artifact": 3,
+  "sealed_prior_art_rows_pending_arm_2": [
+    "A2",
+    "A3",
+    "B3",
+    "B4",
+    "C1",
+    "C3",
+    "C4",
+    "D3",
+    "D4",
+    "ORIGIN"
+  ],
+  "total_population": 29
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102  redactions: none
+==============================================================================
+[seq 19] 2026-10-05T18:39:51+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/fetch_docs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/028-incumbent-fit/fetch_docs.py", line 182, in <module>
+    main()
+  File "EXPERIMENTS/028-incumbent-fit/fetch_docs.py", line 158, in main
+    url, code, text, how = fetch_openweb(artifact)
+  File "EXPERIMENTS/028-incumbent-fit/fetch_docs.py", line 122, in fetch_openweb
+    code, text = get(url)
+  File "EXPERIMENTS/028-incumbent-fit/fetch_docs.py", line 30, in get
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+  File "/usr/lib/python3.8/urllib/request.py", line 328, in __init__
+    self.full_url = url
+  File "/usr/lib/python3.8/urllib/request.py", line 354, in full_url
+    self._parse()
+  File "/usr/lib/python3.8/urllib/request.py", line 383, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+ValueError: unknown url type: 'sitestackup.com'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 47942  redactions: none
+==============================================================================
+[seq 20] 2026-10-05T18:40:27+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/fetch_docs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "artifacts_attempted": 90,
+  "artifacts_with_stored_text": 63,
+  "artifacts_without_text": 27,
+  "by_corpus": {
+    "github": 45,
+    "openweb": 3,
+    "registries": 15
+  },
+  "freshly_fetched_this_run": 50
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 24159  redactions: none
+==============================================================================
+[seq 21] 2026-10-05T18:41:50+00:00
+$ python3 EXPERIMENTS/028-incumbent-fit/fetch_docs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "artifacts_attempted": 90,
+  "artifacts_with_stored_text": 81,
+  "artifacts_without_text": 9,
+  "rows_with_at_least_one_stored_doc": 16,
+  "rows_with_no_stored_doc": [],
+  "by_corpus_with_text": {
+    "github": 45,
+    "openweb": 21,
+    "registries": 15
+  },
+  "freshly_fetched_this_run": 27
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 46850  redactions: none
+==============================================================================
+[seq 27] 2026-10-05T18:42:54+00:00
+$ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md EXPERIMENTS/028-incumbent-fit/RUBRIC.md EXPERIMENTS/028-incumbent-fit/build_population.py EXPERIMENTS/028-incumbent-fit/fetch_docs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 22  EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md  7fe9b6dcb4f2
+seq 23  EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md  3890bc97e52c
+seq 24  EXPERIMENTS/028-incumbent-fit/RUBRIC.md  4bcf8e904015
+seq 25  EXPERIMENTS/028-incumbent-fit/build_population.py  48e991d19757
+seq 26  EXPERIMENTS/028-incumbent-fit/fetch_docs.py  603e35fb4200
+5 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1686  redactions: none

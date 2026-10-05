@@ -1,0 +1,161 @@
+# model.tracker
+
+**English** | [简体中文](README.zh-CN.md)
+
+Automatically tracks model releases, pricing, and performance across the world's major AI vendors. Updated daily.
+
+## Coverage
+
+**14 vendors:**
+
+- International: OpenAI · Anthropic · Google · Meta · Mistral · xAI · Cohere
+- China: DeepSeek · Qwen (Alibaba) · Zhipu GLM · Doubao (ByteDance) · Kimi (Moonshot) · Baichuan · Hunyuan (Tencent)
+
+**3 kinds of performance data sources:**
+
+- LMSYS Chatbot Arena (human blind-test Elo)
+- Artificial Analysis (independent third-party speed + quality benchmarks)
+- Academic benchmarks (MMLU / GPQA / HumanEval / SWE-bench / MATH)
+
+## Architecture
+
+```
+                   ┌─────────────────────┐
+                   │  GitHub Actions     │  daily 02:00 UTC cron
+                   │  scrapers/run.py    │
+                   └──────────┬──────────┘
+                              │
+   ① discovery + auto-promote ▼
+   ┌──────────────────────────────────────────┐
+   │ discovery: vendor Models APIs (trusted)   │→ unseen models auto-registered
+   │           + benchmark boards (noise→log)  │
+   └───────────────┬──────────────────────────┘
+                   │  register_extra → unified registry (catalog ∪ auto-discovered)
+   ② scrape         ▼
+   ┌──────────────────────────────────────────┐
+   │ vendor scrapers  benchmarks  LLM fallback │
+   │ (price/specs)    (Elo/scores) (Claude Haiku)│
+   └───────────────┬──────────────────────────┘
+                   │  normalized exact matching (model_registry) — never mismatch
+   ③ validation gate▼
+   ┌──────────────────────────────────────────┐
+   │ validation: price >3× / ELO >100 jumps    │  quarantined, no dirty writes
+   │             benchmark coverage drop alert │
+   └───────────────┬──────────────────────────┘
+                   ▼
+          ┌────────────────┐
+          │   Supabase     │  Postgres + RLS
+          │  models/prices │  benchmark_scores · daily_snapshots
+          │  discovery_*   │  pending_changes · scrape_errors
+          └────────┬───────┘
+                   ▼
+          ┌────────────────┐
+          │  Next.js ISR   │  apps/web (incl. /health data-health page)
+          │  on Vercel CDN │  push→git auto-deploy; data refreshes via ISR
+          └────────────────┘
+```
+
+**Robustness design** (see the "robustness overhaul" section in `IMPLEMENTATION_CHECKLIST.md`):
+
+- **Never miss a new model**: vendor official Models APIs are the trusted signal — any unseen model is **auto-registered** (sparse metadata; price/Elo get filled in later by the scrape layer, never fabricated). Arena/AA leaderboard names are noise: **never auto-registered**, never nagging, only optionally viewable on `/health`.
+- **Never mismatch**: a single identity registry (`core/model_registry.py`) derived from catalog ∪ auto-discovered models, with **normalized exact matching** (controlled stripping of `-thinking`/date-style suffixes only — size/version is never stripped). CI enforces zero alias collisions. Each model is defined in exactly one place.
+- **No dirty values**: an anomaly gate quarantines wild jumps (the root cause of prices once flip-flopping); a value is only confirmed after appearing 2 consecutive times.
+- **No silent failures**: an unmatched name is logged as a discovery candidate + drift alert — everything surfaces on `/health`.
+
+## Directory layout
+
+```
+apps/web/                 Next.js frontend (incl. /health data-health page)
+scrapers/                 Python scrapers
+  vendors/                one module per vendor (catalog-driven)
+  benchmarks/             LMSYS / Artificial Analysis / academic
+  discovery/              discovery layer: trusted vendor Models APIs etc.
+  core/
+    model_registry.py     single identity registry (catalog ∪ auto-discovered, exact matching)
+    discovery.py          discovery filtering + vendor inference (pure logic)
+    promotion.py          auto-promotion: trusted source → model record (pure logic)
+    validation.py         price/ELO anomaly gate (pure logic)
+    extractor / db / differ / registry
+  tests/                  registry / discovery / validation / promotion unit tests (CI)
+  alert_candidates.py     data-health alerts (quarantined values) → GitHub issue
+supabase/migrations/      Postgres schema (0001–0007)
+.github/workflows/        scrape-daily (cron) + test (pytest on PR)
+```
+
+## Local development
+
+### Frontend
+
+```bash
+cd apps/web
+npm install
+cp ../../.env.example .env.local   # fill in SUPABASE_URL + SUPABASE_ANON_KEY
+npm run dev
+```
+
+### Scrapers
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r scrapers/requirements.txt
+playwright install chromium
+
+cp .env.example .env                  # fill in all KEYs
+python -m scrapers.run --dry-run      # full run without writing to the DB
+python -m scrapers.run                # real run
+python -m scrapers.run --vendor openai     # single vendor only
+python -m scrapers.run --skip-discovery    # skip discovery/auto-promotion
+pytest scrapers/tests/                # unit tests (registry/discovery/validation/promotion)
+```
+
+### Supabase
+
+```bash
+# Create a project at https://supabase.com/dashboard, grab the URL + Service Key.
+# Run all migrations in order in the SQL Editor, then load the seed:
+#   supabase/migrations/0001_initial.sql            initial 6 tables + views + RLS
+#   supabase/migrations/0002_dedupe_benchmarks.sql
+#   supabase/migrations/0003_add_model_license.sql
+#   supabase/migrations/0004_discovery_candidates.sql  discovery candidates table
+#   supabase/migrations/0005_pending_changes.sql       anomaly quarantine table
+#   supabase/migrations/0006_data_health_views.sql     sanitized error views
+#   supabase/migrations/0007_auto_discovered.sql       models.auto_discovered
+#   supabase/seed.sql
+```
+
+## Data schema
+
+| Table / view | Description |
+|---|---|
+| `vendors` | Vendor master data (OpenAI / Anthropic / ...) |
+| `models` | Model master data, one row per model; `auto_discovered` marks API auto-promotion |
+| `prices` | Price snapshots, append-only, full history retained |
+| `benchmark_scores` | Benchmark snapshots, append-only |
+| `daily_snapshots` | Daily summary + that day's changes as JSON (incl. discovery candidates) |
+| `discovery_candidates` | Model names surfaced by discovery but not yet registered (proposals only, tiered by vendor) |
+| `pending_changes` | Suspicious values quarantined by the anomaly gate (auto-confirmed after 2 consecutive identical readings) |
+| `scrape_errors` | Scraper error log (incl. drift alerts) |
+| `models_overview` *(view)* | Models + current price + Arena Elo aggregate, read by the frontend |
+| `recent_scrape_issues` *(view)* | Sanitized projection of `scrape_errors` (no traceback/url), for /health |
+
+## Data sources & attribution
+
+This project aggregates publicly available information from:
+
+- **Vendor pricing pages** — listed in `supabase/seed.sql` per vendor (`pricing_url`)
+- **[LMSYS Chatbot Arena](https://lmarena.ai)** — Elo leaderboard
+- **[Artificial Analysis](https://artificialanalysis.ai)** — independent third-party benchmarks
+- **Official vendor announcements** — for academic benchmark numbers (MMLU / GPQA / HumanEval / SWE-bench / MATH)
+
+Every `prices` and `benchmark_scores` row carries a `source_url` pointing back to the upstream.
+
+## Disclaimer
+
+- **Prices are best-effort.** Always confirm against the vendor's official pricing page before making a procurement decision. Scrapers can miss page changes and the `fallback_prices` baked into vendor files may be stale.
+- **Benchmark numbers are reported figures**, not independently re-run. Where vendors and third parties disagree, both are shown when available; trust your own evaluation.
+- **No affiliation.** This project is not affiliated with or endorsed by any vendor listed.
+
+## License
+
+[MIT](LICENSE) — see `LICENSE` file. Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Security issues — see [SECURITY.md](SECURITY.md).
