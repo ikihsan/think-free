@@ -15,7 +15,7 @@ Showing the 25 most recent. 91 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-016-repair-session-record-defects-blocking-s](2026-10-05-016-repair-session-record-defects-blocking-s/README.md) | unknown-agent | **unfinished** | repair session-record defects blocking strict verify | 2026-10-05T17:46 |
+| [2026-10-05-016-repair-session-record-defects-blocking-s](2026-10-05-016-repair-session-record-defects-blocking-s/README.md) | unknown-agent | worked | repair session-record defects blocking strict verify | 2026-10-05T18:22 |
 | [2026-10-05-015-re-read-the-31-clause-killed-harvested-n](2026-10-05-015-re-read-the-31-clause-killed-harvested-n/README.md) | opencode | worked | Re-read the 31 clause-killed harvested needs from their full text and  | 2026-10-05T17:40 |
 | [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | worked | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:12 |
 | [2026-10-05-013-measure-whether-the-1250-people-who-publ](2026-10-05-013-measure-whether-the-1250-people-who-publ/README.md) | unknown-agent | worked | Measure whether the 1250 people who publicly stated a need are people  | 2026-10-05T15:57 |
