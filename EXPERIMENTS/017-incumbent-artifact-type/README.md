@@ -25,6 +25,30 @@ an artifact this repository already holds, and it is the only thing I looked at:
 no artifact type, file listing, release count or serving figure for this
 population was read before the gates were fixed.
 
+### Two gaps in this session's own record, written here because the stream is closed
+
+The report for session `2026-10-04-056` carries **2 integrity errors and 14
+undeclared changes**, and both are this session's fault rather than a defect in
+the tooling. A closed event stream is not edited, so the reconciliation is
+repaired here, where the next reader of this experiment will arrive.
+
+1. **Two declared artifacts no longer exist at the path they were declared
+   under.** They are this file and `classification.py`, declared at seq 6–7 under
+   `EXPERIMENTS/016-incumbent-artifact-type/`. The other VM took `T-0061` first
+   and renumbered its own to `T-0062`, so this experiment became `017` on the
+   unpushed side per
+   [`docs/process/multi-vm-coordination.md`](../../docs/process/multi-vm-coordination.md).
+   The bytes are current and their digests are in the report; only the recorded
+   path is stale. **Everything else in the run was declared.** The remaining 14
+   undeclared paths are the five scripts written after the declaration and the
+   record files edited at the end.
+2. **`0 captured commands`.** The fetches, the classifier runs and the two full
+   suite runs were not routed through `tools/x`, which the session protocol
+   requires for anything that produces evidence. So the *results* are reproduced
+   by `python3 tally.py --write` against `raw/`, but the *run log* for those
+   fetches is not in the repository, only the cache they wrote. This is the one
+   part of this experiment that cannot be replayed step for step.
+
 ## The question
 
 F034 measured the prior-art screen's own premise — *a tool exists, therefore the

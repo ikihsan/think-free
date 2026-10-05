@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T23:50:43+00:00
-- **Duration:** ?s
+- **Duration:** 8178.8s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Classify the prior-art population by artifact type and read what the high-star d
 
 ## Summary
 
-_(none recorded)_
+T-0061 closed with both declared gates negative. H1 (the screen's young-vocabulary population is mostly documents) was declared dead at <=50% before the run and is dead: 14 of 18 rows are executable code, 13 of 18 with every young root listing read by hand, so the verdict does not rest on the classifier's margins and F034's premise failure in a young vocabulary is not a population artefact. H2 (a high-star document teaches a repeated procedure nothing runs) was read at 0 of 4, with its declared control unexercised rather than passing. The reason H2 is dead is the transferable part and it was not the reason the hypothesis expected: none of the four documents is a manual workaround. The reader copies a .claude/ directory into their own repository once and the hooks run themselves, so the artifact in use is not a package - and every serving channel this repository owns counts installations, so 1 of 18 clearing a floor with 14 of 18 unreadable is consistent with a field that is used and invisible. Four instrument defects were found by this experiment running on itself and each is now held by a test: a budget refusal cached as a reading, two vocabularies for 'refused' that sent a refused listing to a shape fallback, a gate that answered dead about a population nobody read, and a .git-suffixed self-link read as a link to somebody else's software. Renumbered 016->017 and T-0061 collided with the other VM's T-0061, which they had already renumbered to T-0062; adopted the base's numbering. Four line-cap splits (PROTOCOL.md, STATE-constraints.md, two test files) and one release-manifest classification.
+
+## Next
+
+The cheapest untaken reading of F037: is the serving signal for a young vocabulary forks and dependents rather than installs? The falsifier is a known-copied configuration whose repository has neither, and the control is an installed tool against a copied configuration. The obstacle to state first: the count of repositories containing a .claude/ directory with hooks is not served by any public API, so the first decision is whether forks, dependents or templates are an adequate stand-in. Item 0 of STATE-next-actions.md holds it. The owner decision on the selection axis is still open and is now narrower: not what to search and not what the screen found, but what a fact about supply is supposed to tell us about demand.
 
 ## Artifacts
 
@@ -49,11 +53,22 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 14 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 2 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/classification.py |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/raw/readmes.json |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/readfields.py |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/rootlisting.py |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/servingjoin.py |
+|   undeclared | EXPERIMENTS/017-incumbent-artifact-type/tally.py |
+|   undeclared | ROADMAP.md |
+|   undeclared | STATE-next-actions.md |
+|   undeclared | STATE.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/016-incumbent-artifact-type/README.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/016-incumbent-artifact-type/classification.py |
 
 ## Timeline
 
@@ -80,6 +95,25 @@ _none_
 | 19 | 01:55:53 | base_advance | sync land: base moved 3a924934209a -> adb0b7018898, 5 commit(s) arrived from the shared base |
 | 20 | 01:56:41 | task_rewrite | rewrote tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md (status: done) |
 | 21 | 01:56:42 | task_rewrite | appended a complete record for T-0061 |
+| 22 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/classification.py |
+| 23 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/raw/readmes.json |
+| 24 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json |
+| 25 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/readfields.py |
+| 26 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/rootlisting.py |
+| 27 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/servingjoin.py |
+| 28 | 02:07:01 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/017-incumbent-artifact-type/tally.py |
+| 29 | 02:07:01 | unlogged_change | changed but never declared as an artifact: ROADMAP.md |
+| 30 | 02:07:01 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 31 | 02:07:01 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 32 | 02:07:01 | unlogged_change | changed but never declared as an artifact: tests/test_artifact_classification.py |
+| 33 | 02:07:01 | unlogged_change | changed but never declared as an artifact: tests/test_artifact_population.py |
+| 34 | 02:07:01 | unlogged_change | changed but never declared as an artifact: tests/test_artifact_readfields.py |
+| 35 | 02:07:01 | unlogged_change | changed but never declared as an artifact: tests/test_artifact_tally.py |
+| 36 | 02:07:01 | integrity_error | declared artifact no longer exists: EXPERIMENTS/016-incumbent-artifact-type/README.md |
+| 37 | 02:07:01 | integrity_error | declared artifact no longer exists: EXPERIMENTS/016-incumbent-artifact-type/classification.py |
+| 38 | 02:07:02 | doc_update | updated ROADMAP.md |
+| 39 | 02:07:02 | doc_update | updated STATE.md |
+| 40 | 02:07:02 | session_end | T-0061 closed with both declared gates negative. H1 (the screen's young-vocabulary population is mostly documents) was declared dead at <=50% before t |
 
 ## Reproduce this record
 
