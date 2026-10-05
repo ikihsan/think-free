@@ -48,17 +48,39 @@ INSTALL_SHAPES = [
 
 # A link to software that is not the repository itself. Matched on an absolute
 # URL, because a relative link inside the repository is the document talking about
-# itself.
-LINK_SHAPES = [
-    r"https?://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+",
-    r"https?://(?:www\.)?(?:npmjs\.com|pypi\.org|crates\.io|crates\.io|hub\.docker\.com|ruby\.gems\.org|packagist\.org)/[A-Za-z0-9_@./-]+",
-    r"https?://(?:codeberg\.org|gitlab\.com)/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+",
+# itself. Each entry is (host, path-prefix) and the host is part of the pattern,
+# so the repository comparison below sees two path segments and not the host.
+LINK_HOSTS = [
+    ("github.com", 2),
+    ("gitlab.com", 2),
+    ("codeberg.org", 2),
 ]
+# Registries: the path is a package name, not a repository, so any hit is foreign.
+# Plain hostnames, compared as strings -- these are not patterns.
+REGISTRY_HOSTS = [
+    "npmjs.com", "pypi.org", "crates.io", "hub.docker.com",
+    "rubygems.org", "packagist.org", "maven.org", "nuget.org",
+]
+URL = re.compile(r"https?://([A-Za-z0-9.-]+)(/[^\s)\"'<>]*)")
 
-# A fenced code block that is not a language tag. Used only as a count of manual
-# commands the document asks for, and reported as a count, never as the judgement.
+# A fenced code block with no language tag, or a shell one. Counted as *blocks*,
+# not as fence lines: a pair of fences is one block, and a count of fence lines
+# would double every figure. Reported as a count and never as the judgement.
 SHELL_BLOCK = re.compile(r"^```(?:bash|sh|shell|console|zsh|shell-session)?\s*$",
                          re.MULTILINE)
+FENCE = re.compile(r"^\s*```")
+
+
+def shell_blocks(body):
+    """How many untagged or shell-tagged fenced blocks the document contains."""
+    inside, blocks = False, 0
+    for line in body.splitlines():
+        if not FENCE.match(line):
+            continue
+        if not inside and SHELL_BLOCK.match(line):
+            blocks += 1
+        inside = not inside
+    return blocks
 
 
 def readme(full_name):
@@ -103,11 +125,19 @@ def mechanical(full_name, text):
     install = [p for p in INSTALL_SHAPES if re.search(p, body, re.IGNORECASE)]
     own = tuple(x.lower() for x in full_name.split("/")[-2:])
     links = set()
-    for shape in LINK_SHAPES:
-        for m in re.findall(shape, body, re.IGNORECASE):
-            frag = re.sub(r"^https?://", "", m.lower()).split("#")[0].rstrip("/")
-            if not frag.startswith(own):
-                links.add(frag)
+    for host, path in URL.findall(body):
+        host = host.lower()
+        path = path.lower().split("#")[0].rstrip("/")
+        if any(host == h or host.endswith("." + h) for h in REGISTRY_HOSTS):
+            links.add(host + path)      # a package name: never the same repository
+            continue
+        for pattern, depth in LINK_HOSTS:
+            if not (host == pattern or host.endswith("." + pattern)):
+                continue
+            segments = [s for s in path.split("/") if s][:depth]
+            if len(segments) < depth or tuple(segments) != own:
+                links.add(host + "/" + "/".join(segments))
+            break
     return {
         "repo": full_name,
         "bytes": len(body),
@@ -115,7 +145,7 @@ def mechanical(full_name, text):
         "install_line": bool(install),
         "foreign_links": sorted(links),
         "foreign_link": bool(links),
-        "shell_blocks": len(SHELL_BLOCK.findall(body)),
+        "shell_blocks": shell_blocks(body),
         "headings": len(re.findall(r"^#{1,3} ", body, re.MULTILINE)),
         "class": ("tutorial" if (install or links) else "teaches_only"),
     }

@@ -1,0 +1,935 @@
+{
+ "arms": {
+  "mature": {
+   "document": {
+    "decided": 0,
+    "n": 4,
+    "repos": [
+     "Dujltqzv/Some-Many-Books",
+     "donnemartin/system-design-primer",
+     "landy22granatt/Kumpulan-Script-Termux",
+     "seanooi/iOS-WebP"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": null,
+    "stars_median": 24304
+   },
+   "executable": {
+    "decided": 17,
+    "n": 25,
+    "repos": [
+     "Evil0ctal/Douyin_TikTok_Download_API",
+     "FriendsOfPHP/Goutte",
+     "Gentleman-Programming/engram",
+     "Gentleman-Programming/gentle-ai",
+     "Kodiqa-Solutions/VaultS3",
+     "ankitects/anki",
+     "bluewave-labs/Checkmate",
+     "cirosantilli/china-dictatorship",
+     "clips/pattern",
+     "donnemartin/interactive-coding-challenges",
+     "eugeniughelbur/obsidian-second-brain",
+     "ghostwright/phantom",
+     "gotson/komga",
+     "ibireme/YYImage",
+     "lorien/awesome-web-scraping",
+     "louislam/uptime-kuma",
+     "seblucas/cops",
+     "st3v3nmw/obsidian-spaced-repetition",
+     "tigerless-labs/agent-memory",
+     "twintproject/twint",
+     "unclecode/crawl4ai",
+     "upptime/upptime",
+     "versity/versitygw",
+     "webpack/compression-webpack-plugin",
+     "xzf-thu/VoiceMem"
+    ],
+    "served": 12,
+    "served_repos": [
+     "Evil0ctal/Douyin_TikTok_Download_API",
+     "Gentleman-Programming/engram",
+     "Gentleman-Programming/gentle-ai",
+     "ankitects/anki",
+     "gotson/komga",
+     "louislam/uptime-kuma",
+     "seblucas/cops",
+     "st3v3nmw/obsidian-spaced-repetition",
+     "twintproject/twint",
+     "unclecode/crawl4ai",
+     "versity/versitygw",
+     "webpack/compression-webpack-plugin"
+    ],
+    "served_share": 0.7058823529411765,
+    "stars_median": 7032
+   },
+   "unreadable": {
+    "decided": 0,
+    "n": 1,
+    "repos": [
+     "dariusk/express-activitypub"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": null,
+    "stars_median": 603
+   }
+  },
+  "placebo": {
+   "document": {
+    "decided": 1,
+    "n": 4,
+    "repos": [
+     "CalibreWeb-Ebook-Server/.github",
+     "JermellB/Python-WebImageScraper",
+     "JoaquimFreitas/azurestack-uptime-monitor",
+     "mfoc/monitor-internet-connection"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": 0.0,
+    "stars_median": 0
+   },
+   "executable": {
+    "decided": 6,
+    "n": 8,
+    "repos": [
+     "Aethereal-Tech/storage",
+     "BFGriffith/spaced-repetition",
+     "Vladyslav-Soldatenko/ProcrastiLearn",
+     "espebra/stupid-simple-s3",
+     "jadeocr/jadeocr",
+     "masaruhoshi/uptimerobot-prometheus-exporter",
+     "rustfs/mcp",
+     "uptimepage/uptimepage"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": 0.0,
+    "stars_median": 30
+   },
+   "unreadable": {
+    "decided": 1,
+    "n": 1,
+    "repos": [
+     "Notifuse/selfhost_s3"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": 0.0,
+    "stars_median": 19
+   }
+  },
+  "young": {
+   "document": {
+    "decided": 0,
+    "n": 4,
+    "repos": [
+     "Aryia-Behroziuan/References",
+     "ChrisWiles/claude-code-showcase",
+     "Cloudgeni-ai/infrastructure-agents-guide",
+     "diet103/claude-code-infrastructure-showcase"
+    ],
+    "served": 0,
+    "served_repos": [],
+    "served_share": null,
+    "stars_median": 6072
+   },
+   "executable": {
+    "decided": 4,
+    "n": 14,
+    "repos": [
+     "FlorianBruniaux/claude-code-ultimate-guide",
+     "Gentleman-Programming/gentle-shell",
+     "LeeYudok/agents-scaffold",
+     "Piebald-AI/claude-code-system-prompts",
+     "YoanWai/agent-manager",
+     "alibaba/open-code-review",
+     "anderseknert/pre-commit-opa",
+     "bruin-data/dac",
+     "chenzhen7/akari",
+     "clay-good/OpenLore",
+     "indada/repopilot",
+     "kaplanelad/shellfirm",
+     "random1st/secguard",
+     "techjarves/Mobile-Harness"
+    ],
+    "served": 1,
+    "served_repos": [
+     "clay-good/OpenLore"
+    ],
+    "served_share": 0.25,
+    "stars_median": 566
+   },
+   "unreadable": {
+    "decided": 0,
+    "n": 0,
+    "repos": [],
+    "served": 0,
+    "served_repos": [],
+    "served_share": null,
+    "stars_median": null
+   }
+  }
+ },
+ "audit": {
+  "mature": {
+   "agree": 7,
+   "boundary": 6,
+   "disagree": 2,
+   "rows": [
+    {
+     "boundary": true,
+     "hits": [],
+     "mechanical": "document",
+     "reason": "A curated list of interview questions with prose solutions. `generate-epub.sh` and `epub-metadata.yaml` build a book from the markdown; no manifest and no release. The clearest `document` in the population and the highest-starred row in it.",
+     "repo": "donnemartin/system-design-primer",
+     "reviewed": "document",
+     "stars": 373170
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "louislam/uptime-kuma",
+     "reviewed": null,
+     "stars": 92115
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "docker-compose.yml",
+      "pyproject.toml",
+      "requirements.txt",
+      "setup.cfg",
+      "setup.py"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "unclecode/crawl4ai",
+     "reviewed": null,
+     "stars": 84756
+    },
+    {
+     "boundary": true,
+     "hits": [
+      "requirements.txt"
+     ],
+     "mechanical": "executable",
+     "reason": "Exercise solutions in `__init__.py` with `requirements.txt` and `templates/`. Runnable code, but its value is as a study document. Kept `executable` because the solutions execute.",
+     "repo": "donnemartin/interactive-coding-challenges",
+     "reviewed": "executable",
+     "stars": 31892
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Cargo.toml",
+      "package.json",
+      "pyproject.toml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "ankitects/anki",
+     "reviewed": null,
+     "stars": 31752
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "Dujltqzv/Some-Many-Books",
+     "reviewed": null,
+     "stars": 24304
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Makefile",
+      "pyproject.toml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Evil0ctal/Douyin_TikTok_Download_API",
+     "reviewed": null,
+     "stars": 20465
+    },
+    {
+     "boundary": true,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": "No manifest in the root - `.templaterc.json` and `.upptimerc.yml` are Netlify config - but 39 releases. Classified `executable` on the release channel alone, which is the declared second route.",
+     "repo": "upptime/upptime",
+     "reviewed": "executable",
+     "stars": 17175
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "requirements.txt",
+      "setup.py"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "twintproject/twint",
+     "reviewed": null,
+     "stars": 16403
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "bluewave-labs/Checkmate",
+     "reviewed": null,
+     "stars": 10911
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "composer.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "FriendsOfPHP/Goutte",
+     "reviewed": null,
+     "stars": 9183
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "setup.py"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "clips/pattern",
+     "reviewed": null,
+     "stars": 8859
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Makefile",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": "An awesome list. `package.json`, `Makefile`, `lychee.toml` and `tools/` belong to its link checker, not to anything the reader installs to do web scraping. DISAGREES with the mechanical class: a build file for checking links is not a build of the need. The error grows `document`.",
+     "repo": "lorien/awesome-web-scraping",
+     "reviewed": "document",
+     "stars": 8169
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "go.mod",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Gentleman-Programming/gentle-ai",
+     "reviewed": null,
+     "stars": 7541
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Makefile",
+      "go.mod"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Gentleman-Programming/engram",
+     "reviewed": null,
+     "stars": 7032
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "gotson/komga",
+     "reviewed": null,
+     "stars": 6708
+    },
+    {
+     "boundary": true,
+     "hits": [
+      "install.sh",
+      "pyproject.toml"
+     ],
+     "mechanical": "executable",
+     "reason": "An Obsidian vault with `pyproject.toml`, `install.sh`, `hooks/` and 13 releases. It ships something installable, which is what the class asks, though most of its bytes are prose.",
+     "repo": "eugeniughelbur/obsidian-second-brain",
+     "reviewed": "executable",
+     "stars": 4672
+    },
+    {
+     "boundary": true,
+     "hits": [
+      "Gemfile",
+      "Makefile",
+      "index.js",
+      "package.json",
+      "setup.py"
+     ],
+     "mechanical": "executable",
+     "reason": "Content-only in substance - markdown text and images - but it has a Jekyll `Gemfile`, `package.json`, `index.js`, `setup.py`, a `Makefile` and one release, and it really does publish. The hardest case for the classification and kept as `executable` because the rule as declared reads releases and manifests, not intent.",
+     "repo": "cirosantilli/china-dictatorship",
+     "reviewed": "executable",
+     "stars": 3248
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "Makefile",
+      "go.mod"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "versity/versitygw",
+     "reviewed": null,
+     "stars": 2983
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json",
+      "requirements.txt"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "st3v3nmw/obsidian-spaced-repetition",
+     "reviewed": null,
+     "stars": 2573
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "pyproject.toml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "tigerless-labs/agent-memory",
+     "reviewed": null,
+     "stars": 2386
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "pyproject.toml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "xzf-thu/VoiceMem",
+     "reviewed": null,
+     "stars": 2336
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "ibireme/YYImage",
+     "reviewed": null,
+     "stars": 1780
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "Makefile",
+      "go.mod"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Kodiqa-Solutions/VaultS3",
+     "reviewed": null,
+     "stars": 1622
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "composer.json",
+      "index.php"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "seblucas/cops",
+     "reviewed": null,
+     "stars": 1488
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "ghostwright/phantom",
+     "reviewed": null,
+     "stars": 1478
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "webpack/compression-webpack-plugin",
+     "reviewed": null,
+     "stars": 1425
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": "`iOS-WebP.podspec` is a package manifest, so this is a CocoaPods library rather than prose. DISAGREES with the mechanical class: `*.podspec` is not in MARKERS. The error shrinks `document`.",
+     "repo": "seanooi/iOS-WebP",
+     "reviewed": "executable",
+     "stars": 853
+    },
+    {
+     "boundary": true,
+     "hits": [],
+     "mechanical": "document",
+     "reason": "`README.md` plus `dkfb.bin`. A Termux script collection; the `.bin` name gives nothing to classify and no manifest is present. The release half of the row was also a budget refusal and was re-asked.",
+     "repo": "landy22granatt/Kumpulan-Script-Termux",
+     "reviewed": "document",
+     "stars": 755
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "unreadable",
+     "reason": "Both halves came back REFUSED on the first run, and that was this instrument's core budget running out rather than anything about the repository - the row next to it in the same run read fine. The fetcher's first version would have cached that answer permanently; `rootlisting._complete` now refuses to. Re-asked in a later budget window.",
+     "repo": "dariusk/express-activitypub",
+     "reviewed": "unreadable",
+     "stars": 603
+    }
+   ],
+   "unreviewed": 21
+  },
+  "placebo": {
+   "agree": 1,
+   "boundary": 0,
+   "disagree": 0,
+   "rows": [
+    {
+     "boundary": false,
+     "hits": [
+      "pom.xml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Aethereal-Tech/storage",
+     "reviewed": null,
+     "stars": 0
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json",
+      "server.js"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "BFGriffith/spaced-repetition",
+     "reviewed": null,
+     "stars": 0
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "CalibreWeb-Ebook-Server/.github",
+     "reviewed": null,
+     "stars": 0
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "JermellB/Python-WebImageScraper",
+     "reviewed": null,
+     "stars": 0
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "JoaquimFreitas/azurestack-uptime-monitor",
+     "reviewed": null,
+     "stars": 0
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "jadeocr/jadeocr",
+     "reviewed": null,
+     "stars": 30
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Gemfile"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Vladyslav-Soldatenko/ProcrastiLearn",
+     "reviewed": null,
+     "stars": 23
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Cargo.toml",
+      "Dockerfile",
+      "docker-compose.yml"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "uptimepage/uptimepage",
+     "reviewed": null,
+     "stars": 39
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "mfoc/monitor-internet-connection",
+     "reviewed": null,
+     "stars": 35
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "Makefile",
+      "main.go"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "masaruhoshi/uptimerobot-prometheus-exporter",
+     "reviewed": null,
+     "stars": 33
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Dockerfile",
+      "Makefile",
+      "go.mod"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "espebra/stupid-simple-s3",
+     "reviewed": null,
+     "stars": 32
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Cargo.toml",
+      "Dockerfile"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "rustfs/mcp",
+     "reviewed": null,
+     "stars": 25
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "unreadable",
+     "reason": "A budget refusal in the first window, like `dariusk/express-activitypub`. Re-asked.",
+     "repo": "Notifuse/selfhost_s3",
+     "reviewed": "unreadable",
+     "stars": 19
+    }
+   ],
+   "unreviewed": 12
+  },
+  "young": {
+   "agree": 5,
+   "boundary": 2,
+   "disagree": 1,
+   "rows": [
+    {
+     "boundary": false,
+     "hits": [
+      "Makefile",
+      "bin",
+      "go.mod",
+      "install.sh",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "alibaba/open-code-review",
+     "reviewed": null,
+     "stars": 43700
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": "`.gitignore, CHANGELOG.md, CLAUDE.md, LICENSE, README.md, system-prompts, tools`. The highest-starred row in the young arm after `alibaba/open-code-review`, 100 GitHub releases, and not one manifest, entry point or `bin/`. DISAGREES with the mechanical class: a release count is a tag count, and tagging a prompt collection 100 times is not building anything. This is the single row where the release channel misfires, and it is the second-highest-starred row in the arm - which is why the arm's document share is reported both mechanically and by hand.",
+     "repo": "Piebald-AI/claude-code-system-prompts",
+     "reviewed": "document",
+     "stars": 12829
+    },
+    {
+     "boundary": true,
+     "hits": [],
+     "mechanical": "document",
+     "reason": "`.agents, .claude, .codex, .env.example, CLAUDE_INTEGRATION_GUIDE.md, dev, editor-config, setup.ts`. A `setup.ts` is arguably an entry point and `setup` is not one of the declared stems, so the rule called it a document. Kept: what it installs is a configuration layout, which is the thing a person copies, and the repository's own title says showcase.",
+     "repo": "diet103/claude-code-infrastructure-showcase",
+     "reviewed": "document",
+     "stars": 10035
+    },
+    {
+     "boundary": true,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": "Named a guide, but the root carries `mcp-server/`, `scripts/`, `tools/`, `quiz/`, `exports/`, `machine-readable/`, `llms.txt` and 4 releases, so part of it installs and runs. The hardest `executable` in the arm; recorded as such rather than reclassified towards the hypothesis.",
+     "repo": "FlorianBruniaux/claude-code-ultimate-guide",
+     "reviewed": "executable",
+     "stars": 6101
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "ChrisWiles/claude-code-showcase",
+     "reviewed": null,
+     "stars": 6072
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "bin",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "Gentleman-Programming/gentle-shell",
+     "reviewed": null,
+     "stars": 1195
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Cargo.toml",
+      "Makefile"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "kaplanelad/shellfirm",
+     "reviewed": null,
+     "stars": 934
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Makefile",
+      "go.mod",
+      "install.sh",
+      "main.go"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "bruin-data/dac",
+     "reviewed": null,
+     "stars": 781
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "go.mod",
+      "install.sh",
+      "main.go"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "YoanWai/agent-manager",
+     "reviewed": null,
+     "stars": 566
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": "`build.gradle.kts`, `gradlew`, `fastlane`, `fdroid`. An Android application.",
+     "repo": "techjarves/Mobile-Harness",
+     "reviewed": "executable",
+     "stars": 507
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "clay-good/OpenLore",
+     "reviewed": null,
+     "stars": 318
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "chenzhen7/akari",
+     "reviewed": null,
+     "stars": 257
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "Cloudgeni-ai/infrastructure-agents-guide",
+     "reviewed": null,
+     "stars": 206
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "indada/repopilot",
+     "reviewed": null,
+     "stars": 149
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "document",
+     "reason": null,
+     "repo": "Aryia-Behroziuan/References",
+     "reviewed": null,
+     "stars": 70
+    },
+    {
+     "boundary": false,
+     "hits": [],
+     "mechanical": "executable",
+     "reason": "`.pre-commit-config.yaml`, `.pre-commit-hooks.yaml` and 4 releases. A pre-commit hook is installed and run, whatever the root listing's markers say.",
+     "repo": "anderseknert/pre-commit-opa",
+     "reviewed": "executable",
+     "stars": 69
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "Cargo.toml",
+      "Dockerfile",
+      "install.sh"
+     ],
+     "mechanical": "executable",
+     "reason": null,
+     "repo": "random1st/secguard",
+     "reviewed": null,
+     "stars": 60
+    },
+    {
+     "boundary": false,
+     "hits": [
+      "bin"
+     ],
+     "mechanical": "executable",
+     "reason": "`bin/`, `scripts/`, `presets/`, `tests/` and 2 releases. A scaffold you install.",
+     "repo": "LeeYudok/agents-scaffold",
+     "reviewed": "executable",
+     "stars": 26
+    }
+   ],
+   "unreviewed": 12
+  }
+ },
+ "classification": "ENTRY_STEMS are matched only against source suffixes. As first declared the match was on any suffix, which made `index.html` an executable artifact. The correction was written before any row was classified, from the shape of the rule rather than from a row, and both classifications are reported.",
+ "h1": {
+  "conditions": [
+   {
+    "dead": true,
+    "detail": "4 of 18 readable young rows",
+    "name": "document_share",
+    "value": 0.2222
+   },
+   {
+    "dead": false,
+    "detail": "one class has no decided row, so the two cannot be compared; the gate is decided on the share alone and says so",
+    "name": "rate_parity",
+    "value": null
+   }
+  ],
+  "document_repos": [
+   "Aryia-Behroziuan/References",
+   "ChrisWiles/claude-code-showcase",
+   "Cloudgeni-ai/infrastructure-agents-guide",
+   "diet103/claude-code-infrastructure-showcase"
+  ],
+  "documents": 4,
+  "hypothesis": "H1",
+  "readable": 18,
+  "unreadable_repos": [],
+  "verdict": "dead"
+ },
+ "h2": {
+  "control": {
+   "generative_reading": "live",
+   "hit_repos": [],
+   "hits": 0,
+   "n": 0,
+   "rows": []
+  },
+  "declared_population": null,
+  "hit_repos": [],
+  "hits": 0,
+  "hypothesis": "H2",
+  "key": "repeated_teaches_only",
+  "n": 0,
+  "population_declared_n": 10,
+  "population_mismatch": null,
+  "population_short": true,
+  "rows": [],
+  "verdict": "not_evaluated"
+ },
+ "population": {
+  "by_arm": {
+   "mature": 30,
+   "placebo": 13,
+   "young": 18
+  },
+  "complete": true,
+  "reused_from": "EXPERIMENTS/015-incumbent-serving/results.json",
+  "rows": 61,
+  "unfetched_rows": []
+ }
+}

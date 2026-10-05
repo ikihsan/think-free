@@ -123,7 +123,14 @@ def h2(reads, mech):
     hits = [s for s in primary if s["key"]]
     control_hits = [s for s in control if s["key"]]
 
-    if len(hits) >= H2_SURVIVES_AT:
+    if not primary:
+        # A gate asked about a population nobody read must not answer `dead`. The
+        # declared thresholds are counts out of the declared population, and with
+        # no rows there is nothing to count; reporting `dead` here would put a
+        # verdict in the record that no evidence supports, which is the defect
+        # class this repository keeps finding in its own instruments.
+        verdict = "not_evaluated"
+    elif len(hits) >= H2_SURVIVES_AT:
         verdict = "survives"
     elif len(hits) <= H2_DEAD_AT:
         verdict = "dead"
@@ -134,6 +141,8 @@ def h2(reads, mech):
         else "live"
     return {"hypothesis": "H2", "verdict": verdict,
             "n": len(primary), "hits": len(hits), "key": H2_KEY,
+            "population_short": len(primary) < H2_N,
+            "population_declared_n": H2_N,
             "hit_repos": sorted(s["repo"] for s in hits),
             "rows": sorted(primary, key=lambda s: -(s["stars"] or 0)),
             "control": {"n": len(control), "hits": len(control_hits),
@@ -150,20 +159,30 @@ def audit(rows, reviewed):
     Neither number replaces the other and the gate is computed on the mechanical
     one, because the gate was declared on the mechanical one. The review exists so
     that the mechanical rule's error rate is visible and its direction is known.
+    A row with no review is counted as `unreviewed`, never as agreement.
     """
+    reviewed = (reviewed or {}).get("rows", reviewed) or {}
     by_arm = {}
     for row in rows:
         arm = row["arm"]
-        cell = by_arm.setdefault(arm, {"agree": 0, "disagree": 0, "rows": []})
-        hand = (reviewed.get(row["repo"]) or {}).get("reviewed_class")
+        cell = by_arm.setdefault(arm, {"agree": 0, "disagree": 0, "unreviewed": 0,
+                                       "boundary": 0, "rows": []})
+        entry = reviewed.get(row["repo"]) or {}
+        hand = entry.get("reviewed_class")
         cell["rows"].append({"repo": row["repo"], "stars": row["stars"],
                              "mechanical": row["class"],
                              "reviewed": hand,
                              "hits": row.get("hits", []),
-                             "reason": (reviewed.get(row["repo"]) or {}).get("reason")})
+                             "boundary": bool(entry.get("boundary")),
+                             "reason": entry.get("reason")})
         if hand is None:
-            continue
-        cell["agree" if hand == row["class"] else "disagree"] += 1
+            cell["unreviewed"] += 1
+        elif hand == row["class"]:
+            cell["agree"] += 1
+        else:
+            cell["disagree"] += 1
+        if entry.get("boundary"):
+            cell["boundary"] += 1
     return by_arm
 
 

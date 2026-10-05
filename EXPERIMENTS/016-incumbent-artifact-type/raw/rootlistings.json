@@ -1,4 +1,279 @@
 {
+ "Aethereal-Tech/storage": {
+  "contents": [
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".mvn",
+    "path": ".mvn",
+    "type": "dir"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "mvnw",
+    "path": "mvnw",
+    "type": "file"
+   },
+   {
+    "name": "mvnw.cmd",
+    "path": "mvnw.cmd",
+    "type": "file"
+   },
+   {
+    "name": "openspec",
+    "path": "openspec",
+    "type": "dir"
+   },
+   {
+    "name": "pom.xml",
+    "path": "pom.xml",
+    "type": "file"
+   },
+   {
+    "name": "storage-core",
+    "path": "storage-core",
+    "type": "dir"
+   },
+   {
+    "name": "storage-s3",
+    "path": "storage-s3",
+    "type": "dir"
+   }
+  ],
+  "releases": 3
+ },
+ "Aryia-Behroziuan/References": {
+  "contents": [
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   }
+  ],
+  "releases": 0
+ },
+ "BFGriffith/spaced-repetition": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Procfile",
+    "path": "Procfile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "configuration",
+    "path": "configuration",
+    "type": "dir"
+   },
+   {
+    "name": "controllers",
+    "path": "controllers",
+    "type": "dir"
+   },
+   {
+    "name": "database",
+    "path": "database",
+    "type": "dir"
+   },
+   {
+    "name": "models",
+    "path": "models",
+    "type": "dir"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "public",
+    "path": "public",
+    "type": "dir"
+   },
+   {
+    "name": "routes",
+    "path": "routes",
+    "type": "dir"
+   },
+   {
+    "name": "server.js",
+    "path": "server.js",
+    "type": "file"
+   },
+   {
+    "name": "views",
+    "path": "views",
+    "type": "dir"
+   }
+  ],
+  "releases": 0
+ },
+ "CalibreWeb-Ebook-Server/.github": {
+  "contents": [
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "profile",
+    "path": "profile",
+    "type": "dir"
+   }
+  ],
+  "releases": 0
+ },
+ "ChrisWiles/claude-code-showcase": {
+  "contents": [
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".mcp.json",
+    "path": ".mcp.json",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   }
+  ],
+  "releases": 0
+ },
+ "Cloudgeni-ai/infrastructure-agents-guide": {
+  "contents": [
+   {
+    "name": "01-architecture.md",
+    "path": "01-architecture.md",
+    "type": "file"
+   },
+   {
+    "name": "02-agent-runtime.md",
+    "path": "02-agent-runtime.md",
+    "type": "file"
+   },
+   {
+    "name": "03-tools-skills.md",
+    "path": "03-tools-skills.md",
+    "type": "file"
+   },
+   {
+    "name": "04-sandboxed-execution.md",
+    "path": "04-sandboxed-execution.md",
+    "type": "file"
+   },
+   {
+    "name": "05-credential-management.md",
+    "path": "05-credential-management.md",
+    "type": "file"
+   },
+   {
+    "name": "06-data-plane.md",
+    "path": "06-data-plane.md",
+    "type": "file"
+   },
+   {
+    "name": "07-change-control.md",
+    "path": "07-change-control.md",
+    "type": "file"
+   },
+   {
+    "name": "08-policy-guardrails.md",
+    "path": "08-policy-guardrails.md",
+    "type": "file"
+   },
+   {
+    "name": "09-observability.md",
+    "path": "09-observability.md",
+    "type": "file"
+   },
+   {
+    "name": "10-autonomy-notifications.md",
+    "path": "10-autonomy-notifications.md",
+    "type": "file"
+   },
+   {
+    "name": "11-testing-hardening.md",
+    "path": "11-testing-hardening.md",
+    "type": "file"
+   },
+   {
+    "name": "12-ux-usability.md",
+    "path": "12-ux-usability.md",
+    "type": "file"
+   },
+   {
+    "name": "13-risk-framework.md",
+    "path": "13-risk-framework.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   }
+  ],
+  "releases": 0
+ },
  "Dujltqzv/Some-Many-Books": {
   "contents": [
    {
@@ -148,6 +423,201 @@
    }
   ],
   "releases": 60
+ },
+ "FlorianBruniaux/claude-code-ultimate-guide": {
+  "contents": [
+   {
+    "name": ".agents",
+    "path": ".agents",
+    "type": "dir"
+   },
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".codex",
+    "path": ".codex",
+    "type": "dir"
+   },
+   {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".lycheeignore",
+    "path": ".lycheeignore",
+    "type": "file"
+   },
+   {
+    "name": ".mcp.json.pre-leanctx",
+    "path": ".mcp.json.pre-leanctx",
+    "type": "file"
+   },
+   {
+    "name": ".mlc-config.json",
+    "path": ".mlc-config.json",
+    "type": "file"
+   },
+   {
+    "name": ".pre-commit-config.yaml",
+    "path": ".pre-commit-config.yaml",
+    "type": "file"
+   },
+   {
+    "name": ".superpowers",
+    "path": ".superpowers",
+    "type": "dir"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "CITATION.cff",
+    "path": "CITATION.cff",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "IDEAS.md",
+    "path": "IDEAS.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "type": "file"
+   },
+   {
+    "name": "VERSION",
+    "path": "VERSION",
+    "type": "file"
+   },
+   {
+    "name": "assets",
+    "path": "assets",
+    "type": "dir"
+   },
+   {
+    "name": "cheatsheet.pdf",
+    "path": "cheatsheet.pdf",
+    "type": "file"
+   },
+   {
+    "name": "claudedocs",
+    "path": "claudedocs",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "examples",
+    "path": "examples",
+    "type": "dir"
+   },
+   {
+    "name": "exports",
+    "path": "exports",
+    "type": "dir"
+   },
+   {
+    "name": "guide",
+    "path": "guide",
+    "type": "dir"
+   },
+   {
+    "name": "llms-full.txt",
+    "path": "llms-full.txt",
+    "type": "file"
+   },
+   {
+    "name": "llms.txt",
+    "path": "llms.txt",
+    "type": "file"
+   },
+   {
+    "name": "machine-readable",
+    "path": "machine-readable",
+    "type": "dir"
+   },
+   {
+    "name": "mcp-server",
+    "path": "mcp-server",
+    "type": "dir"
+   },
+   {
+    "name": "quiz",
+    "path": "quiz",
+    "type": "dir"
+   },
+   {
+    "name": "recap-hashes.json",
+    "path": "recap-hashes.json",
+    "type": "file"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "tools",
+    "path": "tools",
+    "type": "dir"
+   },
+   {
+    "name": "whitepapers",
+    "path": "whitepapers",
+    "type": "dir"
+   }
+  ],
+  "releases": 4
  },
  "FriendsOfPHP/Goutte": {
   "contents": [
@@ -564,6 +1034,191 @@
   ],
   "releases": 100
  },
+ "Gentleman-Programming/gentle-shell": {
+  "contents": [
+   {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "TRADEMARKS.md",
+    "path": "TRADEMARKS.md",
+    "type": "file"
+   },
+   {
+    "name": "assets",
+    "path": "assets",
+    "type": "dir"
+   },
+   {
+    "name": "bin",
+    "path": "bin",
+    "type": "dir"
+   },
+   {
+    "name": "contracts",
+    "path": "contracts",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "extensions",
+    "path": "extensions",
+    "type": "dir"
+   },
+   {
+    "name": "fixtures",
+    "path": "fixtures",
+    "type": "dir"
+   },
+   {
+    "name": "lib",
+    "path": "lib",
+    "type": "dir"
+   },
+   {
+    "name": "odd",
+    "path": "odd",
+    "type": "dir"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "pnpm-lock.yaml",
+    "path": "pnpm-lock.yaml",
+    "type": "file"
+   },
+   {
+    "name": "pnpm-workspace.yaml",
+    "path": "pnpm-workspace.yaml",
+    "type": "file"
+   },
+   {
+    "name": "prompts",
+    "path": "prompts",
+    "type": "dir"
+   },
+   {
+    "name": "runtime",
+    "path": "runtime",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "skills",
+    "path": "skills",
+    "type": "dir"
+   },
+   {
+    "name": "tests",
+    "path": "tests",
+    "type": "dir"
+   },
+   {
+    "name": "themes",
+    "path": "themes",
+    "type": "dir"
+   },
+   {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "type": "file"
+   }
+  ],
+  "releases": 77
+ },
+ "JermellB/Python-WebImageScraper": {
+  "contents": [
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "image_scraper.py",
+    "path": "image_scraper.py",
+    "type": "file"
+   }
+  ],
+  "releases": 0
+ },
+ "JoaquimFreitas/azurestack-uptime-monitor": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "images",
+    "path": "images",
+    "type": "dir"
+   },
+   {
+    "name": "mainTemplate.json",
+    "path": "mainTemplate.json",
+    "type": "file"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   }
+  ],
+  "releases": 0
+ },
  "Kodiqa-Solutions/VaultS3": {
   "contents": [
    {
@@ -688,6 +1343,615 @@
    }
   ],
   "releases": 100
+ },
+ "LeeYudok/agents-scaffold": {
+  "contents": [
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".reviewbot.yml",
+    "path": ".reviewbot.yml",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "CREDITS.md",
+    "path": "CREDITS.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.ja.md",
+    "path": "README.ja.md",
+    "type": "file"
+   },
+   {
+    "name": "README.ko.md",
+    "path": "README.ko.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "README.zh.md",
+    "path": "README.zh.md",
+    "type": "file"
+   },
+   {
+    "name": "bin",
+    "path": "bin",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "presets",
+    "path": "presets",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "tests",
+    "path": "tests",
+    "type": "dir"
+   }
+  ],
+  "releases": 2
+ },
+ "Notifuse/selfhost_s3": {
+  "contents": "refused",
+  "releases": "refused"
+ },
+ "Piebald-AI/claude-code-system-prompts": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "system-prompts",
+    "path": "system-prompts",
+    "type": "dir"
+   },
+   {
+    "name": "tools",
+    "path": "tools",
+    "type": "dir"
+   }
+  ],
+  "releases": 100
+ },
+ "Vladyslav-Soldatenko/ProcrastiLearn": {
+  "contents": [
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".editorconfig",
+    "path": ".editorconfig",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".ruby-version",
+    "path": ".ruby-version",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "Gemfile",
+    "path": "Gemfile",
+    "type": "file"
+   },
+   {
+    "name": "Gemfile.lock",
+    "path": "Gemfile.lock",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "app",
+    "path": "app",
+    "type": "dir"
+   },
+   {
+    "name": "build.gradle.kts",
+    "path": "build.gradle.kts",
+    "type": "file"
+   },
+   {
+    "name": "buildSrc",
+    "path": "buildSrc",
+    "type": "dir"
+   },
+   {
+    "name": "detekt.yml",
+    "path": "detekt.yml",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "fastlane.env.example",
+    "path": "fastlane.env.example",
+    "type": "file"
+   },
+   {
+    "name": "fastlane",
+    "path": "fastlane",
+    "type": "dir"
+   },
+   {
+    "name": "gradle.properties",
+    "path": "gradle.properties",
+    "type": "file"
+   },
+   {
+    "name": "gradle",
+    "path": "gradle",
+    "type": "dir"
+   },
+   {
+    "name": "gradlew",
+    "path": "gradlew",
+    "type": "file"
+   },
+   {
+    "name": "gradlew.bat",
+    "path": "gradlew.bat",
+    "type": "file"
+   },
+   {
+    "name": "privacy-policy.md",
+    "path": "privacy-policy.md",
+    "type": "file"
+   },
+   {
+    "name": "settings.gradle.kts",
+    "path": "settings.gradle.kts",
+    "type": "file"
+   }
+  ],
+  "releases": 9
+ },
+ "YoanWai/agent-manager": {
+  "contents": [
+   {
+    "name": ".coderabbit.yaml",
+    "path": ".coderabbit.yaml",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".goreleaser.yaml",
+    "path": ".goreleaser.yaml",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "DESIGN.md",
+    "path": "DESIGN.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "NOTICE",
+    "path": "NOTICE",
+    "type": "file"
+   },
+   {
+    "name": "PRODUCT.md",
+    "path": "PRODUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "REVIEW.md",
+    "path": "REVIEW.md",
+    "type": "file"
+   },
+   {
+    "name": "codecov.yml",
+    "path": "codecov.yml",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "go.mod",
+    "path": "go.mod",
+    "type": "file"
+   },
+   {
+    "name": "go.sum",
+    "path": "go.sum",
+    "type": "file"
+   },
+   {
+    "name": "install.sh",
+    "path": "install.sh",
+    "type": "file"
+   },
+   {
+    "name": "internal",
+    "path": "internal",
+    "type": "dir"
+   },
+   {
+    "name": "main.go",
+    "path": "main.go",
+    "type": "file"
+   },
+   {
+    "name": "main_test.go",
+    "path": "main_test.go",
+    "type": "file"
+   },
+   {
+    "name": "skills",
+    "path": "skills",
+    "type": "dir"
+   },
+   {
+    "name": "tools",
+    "path": "tools",
+    "type": "dir"
+   }
+  ],
+  "releases": 64
+ },
+ "alibaba/open-code-review": {
+  "contents": [
+   {
+    "name": ".agents",
+    "path": ".agents",
+    "type": "dir"
+   },
+   {
+    "name": ".claude-plugin",
+    "path": ".claude-plugin",
+    "type": "dir"
+   },
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".kimi-plugin",
+    "path": ".kimi-plugin",
+    "type": "dir"
+   },
+   {
+    "name": ".npmignore",
+    "path": ".npmignore",
+    "type": "file"
+   },
+   {
+    "name": ".opencodereview",
+    "path": ".opencodereview",
+    "type": "dir"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "ASSURANCE_CASE.md",
+    "path": "ASSURANCE_CASE.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "GOVERNANCE.md",
+    "path": "GOVERNANCE.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "ROADMAP.md",
+    "path": "ROADMAP.md",
+    "type": "file"
+   },
+   {
+    "name": "action.yml",
+    "path": "action.yml",
+    "type": "file"
+   },
+   {
+    "name": "bin",
+    "path": "bin",
+    "type": "dir"
+   },
+   {
+    "name": "cmd",
+    "path": "cmd",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "examples",
+    "path": "examples",
+    "type": "dir"
+   },
+   {
+    "name": "extensions",
+    "path": "extensions",
+    "type": "dir"
+   },
+   {
+    "name": "go.mod",
+    "path": "go.mod",
+    "type": "file"
+   },
+   {
+    "name": "go.sum",
+    "path": "go.sum",
+    "type": "file"
+   },
+   {
+    "name": "imgs",
+    "path": "imgs",
+    "type": "dir"
+   },
+   {
+    "name": "install.ps1",
+    "path": "install.ps1",
+    "type": "file"
+   },
+   {
+    "name": "install.sh",
+    "path": "install.sh",
+    "type": "file"
+   },
+   {
+    "name": "internal",
+    "path": "internal",
+    "type": "dir"
+   },
+   {
+    "name": "npm",
+    "path": "npm",
+    "type": "dir"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "pages",
+    "path": "pages",
+    "type": "dir"
+   },
+   {
+    "name": "plugins",
+    "path": "plugins",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "skills",
+    "path": "skills",
+    "type": "dir"
+   }
+  ],
+  "releases": 100
+ },
+ "anderseknert/pre-commit-opa": {
+  "contents": [
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".pre-commit-config.yaml",
+    "path": ".pre-commit-config.yaml",
+    "type": "file"
+   },
+   {
+    "name": ".pre-commit-hooks.yaml",
+    "path": ".pre-commit-hooks.yaml",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "assets",
+    "path": "assets",
+    "type": "dir"
+   }
+  ],
+  "releases": 4
  },
  "ankitects/anki": {
   "contents": [
@@ -1109,6 +2373,261 @@
   ],
   "releases": 34
  },
+ "bruin-data/dac": {
+  "contents": [
+   {
+    "name": ".agents",
+    "path": ".agents",
+    "type": "dir"
+   },
+   {
+    "name": ".air.toml",
+    "path": ".air.toml",
+    "type": "file"
+   },
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".goreleaser.yaml",
+    "path": ".goreleaser.yaml",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "type": "file"
+   },
+   {
+    "name": "cmd",
+    "path": "cmd",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "embed.go",
+    "path": "embed.go",
+    "type": "file"
+   },
+   {
+    "name": "examples",
+    "path": "examples",
+    "type": "dir"
+   },
+   {
+    "name": "frontend",
+    "path": "frontend",
+    "type": "dir"
+   },
+   {
+    "name": "go.mod",
+    "path": "go.mod",
+    "type": "file"
+   },
+   {
+    "name": "go.sum",
+    "path": "go.sum",
+    "type": "file"
+   },
+   {
+    "name": "install.sh",
+    "path": "install.sh",
+    "type": "file"
+   },
+   {
+    "name": "main.go",
+    "path": "main.go",
+    "type": "file"
+   },
+   {
+    "name": "main_test.go",
+    "path": "main_test.go",
+    "type": "file"
+   },
+   {
+    "name": "pkg",
+    "path": "pkg",
+    "type": "dir"
+   },
+   {
+    "name": "resources",
+    "path": "resources",
+    "type": "dir"
+   },
+   {
+    "name": "schemas",
+    "path": "schemas",
+    "type": "dir"
+   },
+   {
+    "name": "testdata",
+    "path": "testdata",
+    "type": "dir"
+   }
+  ],
+  "releases": 100
+ },
+ "chenzhen7/akari": {
+  "contents": [
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "type": "file"
+   },
+   {
+    "name": ".prettierignore",
+    "path": ".prettierignore",
+    "type": "file"
+   },
+   {
+    "name": ".prettierrc",
+    "path": ".prettierrc",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "apps",
+    "path": "apps",
+    "type": "dir"
+   },
+   {
+    "name": "debug-terminal.html",
+    "path": "debug-terminal.html",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "packages",
+    "path": "packages",
+    "type": "dir"
+   },
+   {
+    "name": "patches",
+    "path": "patches",
+    "type": "dir"
+   },
+   {
+    "name": "pnpm-lock.yaml",
+    "path": "pnpm-lock.yaml",
+    "type": "file"
+   },
+   {
+    "name": "pnpm-workspace.yaml",
+    "path": "pnpm-workspace.yaml",
+    "type": "file"
+   },
+   {
+    "name": "screenshots",
+    "path": "screenshots",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "vitest.config.ts",
+    "path": "vitest.config.ts",
+    "type": "file"
+   }
+  ],
+  "releases": 33
+ },
  "cirosantilli/china-dictatorship": {
   "contents": [
    {
@@ -1404,6 +2923,186 @@
   ],
   "releases": 1
  },
+ "clay-good/OpenLore": {
+  "contents": [
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".npmrc",
+    "path": ".npmrc",
+    "type": "file"
+   },
+   {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "type": "file"
+   },
+   {
+    "name": ".planning",
+    "path": ".planning",
+    "type": "dir"
+   },
+   {
+    "name": ".prettierrc",
+    "path": ".prettierrc",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "type": "file"
+   },
+   {
+    "name": "bench",
+    "path": "bench",
+    "type": "dir"
+   },
+   {
+    "name": "benchmarks",
+    "path": "benchmarks",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "eslint.config.js",
+    "path": "eslint.config.js",
+    "type": "file"
+   },
+   {
+    "name": "examples",
+    "path": "examples",
+    "type": "dir"
+   },
+   {
+    "name": "flake.lock",
+    "path": "flake.lock",
+    "type": "file"
+   },
+   {
+    "name": "flake.nix",
+    "path": "flake.nix",
+    "type": "file"
+   },
+   {
+    "name": "openspec",
+    "path": "openspec",
+    "type": "dir"
+   },
+   {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "type": "file"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "packaging",
+    "path": "packaging",
+    "type": "dir"
+   },
+   {
+    "name": "schemas",
+    "path": "schemas",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "skills",
+    "path": "skills",
+    "type": "dir"
+   },
+   {
+    "name": "src",
+    "path": "src",
+    "type": "dir"
+   },
+   {
+    "name": "stubs",
+    "path": "stubs",
+    "type": "dir"
+   },
+   {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "type": "file"
+   },
+   {
+    "name": "vitest.config.ts",
+    "path": "vitest.config.ts",
+    "type": "file"
+   },
+   {
+    "name": "vitest.integration.config.ts",
+    "path": "vitest.integration.config.ts",
+    "type": "file"
+   },
+   {
+    "name": "vitest.setup.ts",
+    "path": "vitest.setup.ts",
+    "type": "file"
+   }
+  ],
+  "releases": 53
+ },
  "clips/pattern": {
   "contents": [
    {
@@ -1467,6 +3166,66 @@
  "dariusk/express-activitypub": {
   "contents": "refused",
   "releases": "refused"
+ },
+ "diet103/claude-code-infrastructure-showcase": {
+  "contents": [
+   {
+    "name": ".agents",
+    "path": ".agents",
+    "type": "dir"
+   },
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".codex",
+    "path": ".codex",
+    "type": "dir"
+   },
+   {
+    "name": ".env.example",
+    "path": ".env.example",
+    "type": "file"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE_INTEGRATION_GUIDE.md",
+    "path": "CLAUDE_INTEGRATION_GUIDE.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "dev",
+    "path": "dev",
+    "type": "dir"
+   },
+   {
+    "name": "editor-config",
+    "path": "editor-config",
+    "type": "dir"
+   },
+   {
+    "name": "setup.ts",
+    "path": "setup.ts",
+    "type": "file"
+   }
+  ],
+  "releases": 0
  },
  "donnemartin/interactive-coding-challenges": {
   "contents": [
@@ -1652,6 +3411,91 @@
    }
   ],
   "releases": 0
+ },
+ "espebra/stupid-simple-s3": {
+  "contents": [
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "cmd",
+    "path": "cmd",
+    "type": "dir"
+   },
+   {
+    "name": "go.mod",
+    "path": "go.mod",
+    "type": "file"
+   },
+   {
+    "name": "go.sum",
+    "path": "go.sum",
+    "type": "file"
+   },
+   {
+    "name": "grafana-dashboard.json",
+    "path": "grafana-dashboard.json",
+    "type": "file"
+   },
+   {
+    "name": "internal",
+    "path": "internal",
+    "type": "dir"
+   },
+   {
+    "name": "nfpm.yaml",
+    "path": "nfpm.yaml",
+    "type": "file"
+   },
+   {
+    "name": "packaging",
+    "path": "packaging",
+    "type": "dir"
+   },
+   {
+    "name": "tests",
+    "path": "tests",
+    "type": "dir"
+   },
+   {
+    "name": "vendor",
+    "path": "vendor",
+    "type": "dir"
+   }
+  ],
+  "releases": 27
  },
  "eugeniughelbur/obsidian-second-brain": {
   "contents": [
@@ -2228,6 +4072,246 @@
   ],
   "releases": 4
  },
+ "indada/repopilot": {
+  "contents": [
+   {
+    "name": ".dockerignore",
+    "path": ".dockerignore",
+    "type": "file"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile.agent",
+    "path": "Dockerfile.agent",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "README.zh-CN.md",
+    "path": "README.zh-CN.md",
+    "type": "file"
+   },
+   {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "examples",
+    "path": "examples",
+    "type": "dir"
+   },
+   {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "type": "file"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "repopilot.example.json",
+    "path": "repopilot.example.json",
+    "type": "file"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "src",
+    "path": "src",
+    "type": "dir"
+   },
+   {
+    "name": "tests",
+    "path": "tests",
+    "type": "dir"
+   },
+   {
+    "name": "tsconfig.check.json",
+    "path": "tsconfig.check.json",
+    "type": "file"
+   },
+   {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "type": "file"
+   }
+  ],
+  "releases": 4
+ },
+ "jadeocr/jadeocr": {
+  "contents": [
+   {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "type": "file"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "convnet",
+    "path": "convnet",
+    "type": "dir"
+   },
+   {
+    "name": "demos",
+    "path": "demos",
+    "type": "dir"
+   },
+   {
+    "name": "jadeocr-webapp",
+    "path": "jadeocr-webapp",
+    "type": "dir"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "terms.md",
+    "path": "terms.md",
+    "type": "file"
+   },
+   {
+    "name": "yarn.lock",
+    "path": "yarn.lock",
+    "type": "file"
+   }
+  ],
+  "releases": 7
+ },
+ "kaplanelad/shellfirm": {
+  "contents": [
+   {
+    "name": ".cargo",
+    "path": ".cargo",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.lock",
+    "path": "Cargo.lock",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.toml",
+    "path": "Cargo.toml",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "build.rs",
+    "path": "build.rs",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "npm",
+    "path": "npm",
+    "type": "dir"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "shellfirm",
+    "path": "shellfirm",
+    "type": "dir"
+   }
+  ],
+  "releases": 29
+ },
  "landy22granatt/Kumpulan-Script-Termux": {
   "contents": [
    {
@@ -2517,6 +4601,261 @@
    }
   ],
   "releases": 100
+ },
+ "masaruhoshi/uptimerobot-prometheus-exporter": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".goreleaser.yml",
+    "path": ".goreleaser.yml",
+    "type": "file"
+   },
+   {
+    "name": ".promu.yml",
+    "path": ".promu.yml",
+    "type": "file"
+   },
+   {
+    "name": ".travis.yml",
+    "path": ".travis.yml",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "Gopkg.toml",
+    "path": "Gopkg.toml",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "MAINTAINERS.md",
+    "path": "MAINTAINERS.md",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "cmd",
+    "path": "cmd",
+    "type": "dir"
+   },
+   {
+    "name": "collector",
+    "path": "collector",
+    "type": "dir"
+   },
+   {
+    "name": "gen_version.sh",
+    "path": "gen_version.sh",
+    "type": "file"
+   },
+   {
+    "name": "grafana",
+    "path": "grafana",
+    "type": "dir"
+   },
+   {
+    "name": "log",
+    "path": "log",
+    "type": "dir"
+   },
+   {
+    "name": "main.go",
+    "path": "main.go",
+    "type": "file"
+   },
+   {
+    "name": "version",
+    "path": "version",
+    "type": "dir"
+   }
+  ],
+  "releases": 2
+ },
+ "mfoc/monitor-internet-connection": {
+  "contents": [
+   {
+    "name": "LICENSE.md",
+    "path": "LICENSE.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "monitor_internet_connection.py",
+    "path": "monitor_internet_connection.py",
+    "type": "file"
+   }
+  ],
+  "releases": 0
+ },
+ "random1st/secguard": {
+  "contents": [
+   {
+    "name": ".claude-plugin",
+    "path": ".claude-plugin",
+    "type": "dir"
+   },
+   {
+    "name": ".claude",
+    "path": ".claude",
+    "type": "dir"
+   },
+   {
+    "name": ".codex-plugin",
+    "path": ".codex-plugin",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".s5d",
+    "path": ".s5d",
+    "type": "dir"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.lock",
+    "path": "Cargo.lock",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.toml",
+    "path": "Cargo.toml",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "crates",
+    "path": "crates",
+    "type": "dir"
+   },
+   {
+    "name": "deploy",
+    "path": "deploy",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "install.sh",
+    "path": "install.sh",
+    "type": "file"
+   },
+   {
+    "name": "training",
+    "path": "training",
+    "type": "dir"
+   }
+  ],
+  "releases": 16
+ },
+ "rustfs/mcp": {
+  "contents": [
+   {
+    "name": ".cargo",
+    "path": ".cargo",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.lock",
+    "path": "Cargo.lock",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.toml",
+    "path": "Cargo.toml",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "src",
+    "path": "src",
+    "type": "dir"
+   }
+  ],
+  "releases": 0
  },
  "seanooi/iOS-WebP": {
   "contents": [
@@ -2887,6 +5226,116 @@
    }
   ],
   "releases": 81
+ },
+ "techjarves/Mobile-Harness": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": ".gitmodules",
+    "path": ".gitmodules",
+    "type": "file"
+   },
+   {
+    "name": ".vscode",
+    "path": ".vscode",
+    "type": "dir"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "PRIVACY.md",
+    "path": "PRIVACY.md",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "app",
+    "path": "app",
+    "type": "dir"
+   },
+   {
+    "name": "assets",
+    "path": "assets",
+    "type": "dir"
+   },
+   {
+    "name": "build.gradle.kts",
+    "path": "build.gradle.kts",
+    "type": "file"
+   },
+   {
+    "name": "dist",
+    "path": "dist",
+    "type": "dir"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "fastlane",
+    "path": "fastlane",
+    "type": "dir"
+   },
+   {
+    "name": "fdroid",
+    "path": "fdroid",
+    "type": "dir"
+   },
+   {
+    "name": "gradle.properties",
+    "path": "gradle.properties",
+    "type": "file"
+   },
+   {
+    "name": "gradle",
+    "path": "gradle",
+    "type": "dir"
+   },
+   {
+    "name": "gradlew",
+    "path": "gradlew",
+    "type": "file"
+   },
+   {
+    "name": "gradlew.bat",
+    "path": "gradlew.bat",
+    "type": "file"
+   },
+   {
+    "name": "mobile-harness-update.json",
+    "path": "mobile-harness-update.json",
+    "type": "file"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "settings.gradle.kts",
+    "path": "settings.gradle.kts",
+    "type": "file"
+   },
+   {
+    "name": "third_party",
+    "path": "third_party",
+    "type": "dir"
+   }
+  ],
+  "releases": 4
  },
  "tigerless-labs/agent-memory": {
   "contents": [
@@ -3282,6 +5731,231 @@
    }
   ],
   "releases": 39
+ },
+ "uptimepage/uptimepage": {
+  "contents": [
+   {
+    "name": ".cargo",
+    "path": ".cargo",
+    "type": "dir"
+   },
+   {
+    "name": ".config",
+    "path": ".config",
+    "type": "dir"
+   },
+   {
+    "name": ".dockerignore",
+    "path": ".dockerignore",
+    "type": "file"
+   },
+   {
+    "name": ".githooks",
+    "path": ".githooks",
+    "type": "dir"
+   },
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "type": "file"
+   },
+   {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.lock",
+    "path": "Cargo.lock",
+    "type": "file"
+   },
+   {
+    "name": "Cargo.toml",
+    "path": "Cargo.toml",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile.dev",
+    "path": "Dockerfile.dev",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "LICENSING.md",
+    "path": "LICENSING.md",
+    "type": "file"
+   },
+   {
+    "name": "NOTICE",
+    "path": "NOTICE",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "type": "file"
+   },
+   {
+    "name": "THIRD-PARTY-LICENSES.md",
+    "path": "THIRD-PARTY-LICENSES.md",
+    "type": "file"
+   },
+   {
+    "name": "assets",
+    "path": "assets",
+    "type": "dir"
+   },
+   {
+    "name": "benches",
+    "path": "benches",
+    "type": "dir"
+   },
+   {
+    "name": "build.rs",
+    "path": "build.rs",
+    "type": "file"
+   },
+   {
+    "name": "charts",
+    "path": "charts",
+    "type": "dir"
+   },
+   {
+    "name": "compose.build.yml",
+    "path": "compose.build.yml",
+    "type": "file"
+   },
+   {
+    "name": "compose.dev.agents.yml",
+    "path": "compose.dev.agents.yml",
+    "type": "file"
+   },
+   {
+    "name": "compose.dev.yml",
+    "path": "compose.dev.yml",
+    "type": "file"
+   },
+   {
+    "name": "config",
+    "path": "config",
+    "type": "dir"
+   },
+   {
+    "name": "dashboards",
+    "path": "dashboards",
+    "type": "dir"
+   },
+   {
+    "name": "deny.toml",
+    "path": "deny.toml",
+    "type": "file"
+   },
+   {
+    "name": "deployment",
+    "path": "deployment",
+    "type": "dir"
+   },
+   {
+    "name": "docker-compose.yml",
+    "path": "docker-compose.yml",
+    "type": "file"
+   },
+   {
+    "name": "docs",
+    "path": "docs",
+    "type": "dir"
+   },
+   {
+    "name": "glama.json",
+    "path": "glama.json",
+    "type": "file"
+   },
+   {
+    "name": "justfile",
+    "path": "justfile",
+    "type": "file"
+   },
+   {
+    "name": "locales",
+    "path": "locales",
+    "type": "dir"
+   },
+   {
+    "name": "migrations",
+    "path": "migrations",
+    "type": "dir"
+   },
+   {
+    "name": "rust-toolchain.toml",
+    "path": "rust-toolchain.toml",
+    "type": "file"
+   },
+   {
+    "name": "scripts",
+    "path": "scripts",
+    "type": "dir"
+   },
+   {
+    "name": "server.json",
+    "path": "server.json",
+    "type": "file"
+   },
+   {
+    "name": "sgconfig.yml",
+    "path": "sgconfig.yml",
+    "type": "file"
+   },
+   {
+    "name": "src",
+    "path": "src",
+    "type": "dir"
+   },
+   {
+    "name": "static",
+    "path": "static",
+    "type": "dir"
+   },
+   {
+    "name": "templates",
+    "path": "templates",
+    "type": "dir"
+   },
+   {
+    "name": "terraform",
+    "path": "terraform",
+    "type": "dir"
+   },
+   {
+    "name": "tests",
+    "path": "tests",
+    "type": "dir"
+   }
+  ],
+  "releases": 2
  },
  "versity/versitygw": {
   "contents": [

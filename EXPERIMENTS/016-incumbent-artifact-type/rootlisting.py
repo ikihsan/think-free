@@ -79,6 +79,15 @@ def releases(full_name):
     return len(data)
 
 
+def _complete(entry):
+    """Both halves answered, and neither half is a refusal about this attempt."""
+    if not isinstance(entry, dict):
+        return False
+    if "contents" not in entry or "releases" not in entry:
+        return False
+    return entry["contents"] != REFUSED and entry["releases"] != REFUSED
+
+
 def load_cache():
     if os.path.exists(CACHE):
         try:
@@ -124,27 +133,42 @@ def fetch(rows, only=None):
     todo = [r for r in rows
             if only is None or r["arm"] in only or r["group"] in only]
     fetched = 0
+    refused = 0
     for row in todo:
         name = row["repo"]
         entry = cache.get(name)
-        if isinstance(entry, dict) and "contents" in entry and "releases" in entry:
+        if _complete(entry):
             continue
-        root = contents(name)
-        time.sleep(0.3)
-        rel = releases(name)
-        time.sleep(0.3)
-        cache[name] = {"contents": root, "releases": rel}
+        entry = dict(entry) if isinstance(entry, dict) else {}
+        if "contents" not in entry:
+            entry["contents"] = contents(name)
+            time.sleep(0.3)
+        if "releases" not in entry:
+            entry["releases"] = releases(name)
+            time.sleep(0.3)
+        # A refusal is an upstream answer about *this attempt*, not a fact about
+        # the repository: the core budget runs out mid-run and every later row
+        # answers 403. Caching it as a reading would convert "I could not ask
+        # today" into "this repository could not be read", permanently and
+        # invisibly, and the next run would skip the row as already answered. So
+        # a partial answer is cached for the half that worked, and the missing
+        # half is re-asked next run.
+        if entry.get("contents") == REFUSED or entry.get("releases") == REFUSED:
+            refused += 1
+            cache[name] = entry
+            with open(CACHE, "w") as fh:
+                json.dump(cache, fh, indent=1, sort_keys=True)
+            continue
+        cache[name] = entry
         fetched += 1
         with open(CACHE, "w") as fh:
             json.dump(cache, fh, indent=1, sort_keys=True)
-    return fetched, len(todo)
+    return fetched, len(todo), refused
 
 
 def status(rows):
     cache = load_cache()
-    have = sum(1 for r in rows
-               if isinstance(cache.get(r["repo"]), dict)
-               and "contents" in cache[r["repo"]])
+    have = sum(1 for r in rows if _complete(cache.get(r["repo"])))
     return have, len(rows)
 
 
@@ -156,9 +180,10 @@ if __name__ == "__main__":
     args = ap.parse_args()
     rows = population()
     if args.fetch:
-        got, considered = fetch(rows, args.only)
-        print("fetched %d of %d considered rows; cache now %d entries"
-              % (got, considered, len(load_cache())))
+        got, considered, refused = fetch(rows, args.only)
+        print("fetched %d of %d considered rows; %d answered REFUSED and were "
+              "not cached; cache now %d entries"
+              % (got, considered, refused, len(load_cache())))
     if args.status:
         have, total = status(rows)
         print("cached %d of %d rows" % (have, total))

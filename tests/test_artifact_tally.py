@@ -178,6 +178,23 @@ class H2Test(unittest.TestCase):
         out = tally.h2(reads, {})
         self.assertEqual(out["hits"], 0)
 
+    def test_a_readme_that_no_one_fetched_is_not_a_verdict(self):
+        """The first run of this gate returned `dead` for H2 with zero rows read,
+        because 0 hits is `<= 2`. A gate must not answer about a population nobody
+        looked at, and the fix is the gate's, not the report's."""
+        out = tally.h2({"rows": {}}, {})
+        self.assertEqual(out["verdict"], "not_evaluated")
+        self.assertEqual(out["n"], 0)
+
+    def test_a_population_quarter_of_the_declared_size_is_flagged(self):
+        out = self.build(4)
+        self.assertEqual(out["n"], 4)
+        self.assertTrue(out["population_short"])
+        self.assertEqual(out["population_declared_n"], 10)
+
+    def test_a_full_population_is_not_flagged_short(self):
+        self.assertFalse(self.build(4, 6)["population_short"])
+
     def test_control_reading_is_reported_separately_and_can_kill_the_generative_reading(self):
         reads = {"rows": {}}
         mech_by_repo = {}
@@ -233,6 +250,27 @@ class GateUsesTheMechanicalClassTest(unittest.TestCase):
         self.assertIn("hits", result["h2"])
         self.assertIn("control", result["h2"])
 
+    def test_an_unreviewed_row_is_never_counted_as_agreement(self):
+        rows = [row("a", "document"), row("b", "executable", arm="young")]
+        out = tally.audit(rows, {"rows": {"a": {"reviewed_class": "document"}}})
+        self.assertEqual(out["young"]["agree"], 1)
+        self.assertEqual(out["young"]["unreviewed"], 1)
+        self.assertEqual(out["young"]["disagree"], 0)
+
+    def test_a_disagreement_is_counted_as_a_disagreement(self):
+        rows = [row("a", "document")]
+        out = tally.audit(rows, {"rows": {"a": {"reviewed_class": "executable",
+                                               "reason": "why"}}})
+        self.assertEqual(out["young"]["disagree"], 1)
+        self.assertEqual(out["young"]["rows"][0]["reason"], "why")
+
+    def test_boundary_rows_are_counted_separately(self):
+        rows = [row("a", "document")]
+        out = tally.audit(rows, {"rows": {"a": {"reviewed_class": "document",
+                                               "boundary": True}}})
+        self.assertEqual(out["young"]["boundary"], 1)
+        self.assertEqual(out["young"]["agree"], 1)
+
     def test_population_completeness_is_reported(self):
         result = tally.build()
         self.assertIn("complete", result["population"])
@@ -270,6 +308,45 @@ class ReadShapeTest(unittest.TestCase):
         for label, cached, expected in classification.KNOWN_ANSWER:
             self.assertEqual(classification.classify(cached)["class"], expected,
                              msg=label)
+
+
+class FetchCacheTest(unittest.TestCase):
+    """The cache is the one place a budget limit can become a permanent claim.
+
+    The core budget is 60 an hour and this experiment needs two requests per row
+    over 61 rows, so a run runs out mid-population and every later row answers 403.
+    If that answer is cached as a reading, "I could not ask today" becomes "this
+    repository could not be read" and no later run re-asks -- which is exactly the
+    dead-branch defect F032 records, where zero measured installs was not zero
+    users. These cases hold the difference.
+    """
+    def setUp(self):
+        import rootlisting
+        self.rl = rootlisting
+
+    def test_a_refused_half_is_not_complete(self):
+        self.assertFalse(self.rl._complete({"contents": self.rl.REFUSED,
+                                            "releases": 0}))
+        self.assertFalse(self.rl._complete({"contents": [],
+                                            "releases": self.rl.REFUSED}))
+
+    def test_a_missing_half_is_not_complete(self):
+        self.assertFalse(self.rl._complete({"contents": []}))
+        self.assertFalse(self.rl._complete({}))
+
+    def test_both_halves_answered_is_complete(self):
+        self.assertTrue(self.rl._complete({"contents": [], "releases": 0}))
+
+    def test_an_empty_repository_is_a_complete_answer(self):
+        """404 on the contents API means no commits, which is a reading about the
+        repository rather than a failure to read it. It must not be re-asked
+        forever, and it must not become `executable`."""
+        self.assertTrue(self.rl._complete({"contents": self.rl.EMPTY,
+                                           "releases": 0}))
+
+    def test_status_ignores_a_half_cached_row(self):
+        rows = [{"repo": "a"}, {"repo": "b"}]
+        self.assertEqual(self.rl.status(rows), (0, 2))
 
 
 if __name__ == "__main__":
