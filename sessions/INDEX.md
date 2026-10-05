@@ -16,7 +16,7 @@ Showing the 25 most recent. 80 older session(s) are in the directory listing.
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | **unfinished** | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T02:44 |
-| [2026-10-05-003-test-whether-agent-configuration-copied](2026-10-05-003-test-whether-agent-configuration-copied/README.md) | unknown-agent | **unfinished** | Test whether agent-configuration copied into repositories goes stale,  | 2026-10-05T02:21 |
+| [2026-10-05-003-test-whether-agent-configuration-copied](2026-10-05-003-test-whether-agent-configuration-copied/README.md) | unknown-agent | worked | Test whether agent-configuration copied into repositories goes stale,  | 2026-10-05T03:25 |
 | [2026-10-05-003-declare-e019-s-raw-captures-and-land-the](2026-10-05-003-declare-e019-s-raw-captures-and-land-the/README.md) | unknown-agent | worked | Declare E019's raw captures and land the corrected F039 index row | 2026-10-05T02:31 |
 | [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | worked | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T02:30 |
 | [2026-10-05-001-answer-e016-lead-7-s-mechanism-question](2026-10-05-001-answer-e016-lead-7-s-mechanism-question/README.md) | unknown-agent | worked | Answer E016 lead 7's mechanism question with a prototype and OTel grou | 2026-10-05T01:19 |

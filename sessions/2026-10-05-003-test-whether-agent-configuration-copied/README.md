@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T02:21:07+00:00
-- **Duration:** ?s
+- **Duration:** 3847.2s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether agent-configuration copied into repositories goes stale, which is t
 
 ## Summary
 
-_(none recorded)_
+Asked whether the 'reader copies the directory' F037 inferred leaves a repository stale -- the first question in five experiments about the world rather than about this repository's own instruments. The consequence test says the copying does not happen as claimed: copying is documented in 687 'cp -r .claude' sites against a nonsense control of 0, and duplicated in only 92 of 1950 distinct configuration file contents (4.7%), with no two repositories from different authors overlapping by half. F037's reconciliation for the near-zero install readings is therefore withdrawn. Drift itself is inconclusive, not zero: 0 attributable copy/upstream pairs exist in the measurable population, and the declared gate fires, so results.json carries drift_rate null. Two of this session's own instruments were falsified against their own bytes -- a marker-file probe that disagreed with the contents API on 8 of 8 repositories and would have reported that 30 of 31 repositories commit nothing but a settings file, and a version-record regex whose 17 of 31 matches all pin a CLI version rather than a copied configuration. Both retractions are held by tests that assert the rejected rules are green on the data they must not read.
+
+## Next
+
+VM 0944's open T-0064 owns the drift rate with Sourcegraph as the instrument E020 lacked (authenticated code search answers 401 here); E020's contribution to it is the falsified probes and the 687 count. If that claim is finished, the next outward question is whether the 1250 named requesters F039 established can be reached by any channel other than a public forum post -- item 0's remaining asset, and the owner's axis decision.
 
 ## Artifacts
 
@@ -258,11 +262,30 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 16 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 121 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/a5_structural.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/analyse.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/bodies.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/control.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/population.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/bodies.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/captured_bodies.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/control.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/population.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/probe_validation.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/README.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/a5_structural.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/analyse.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/bodies.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/control.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/population.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/raw/bodies.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/raw/body--ChrisWiles__claude-code-showcase--.cla |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/raw/body--ChrisWiles__claude-code-showcase--READ |
+|   error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/raw/body--Donchitos__Claude-Code-Game-Studios--. |
 
 ## Timeline
 
@@ -308,18 +331,18 @@ _(none recorded)_
 | 38 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--.claude__settings.json |
 | 39 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--.claude__settings.local.json |
 | 40 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--README.md |
-| 221 | 03:24:32 | artifact | wrote tasks/T-0056-hold-a-mission-record-s-restated-experiment-numb.md |
-| 222 | 03:24:32 | artifact | wrote tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md |
-| 223 | 03:24:33 | artifact | wrote tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md |
-| 224 | 03:24:33 | artifact | wrote tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md |
-| 225 | 03:24:33 | artifact | wrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md |
-| 226 | 03:24:33 | artifact | wrote tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md |
-| 227 | 03:24:33 | artifact | wrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md |
-| 228 | 03:24:34 | artifact | wrote tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md |
-| 229 | 03:24:34 | artifact | wrote tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md |
-| 230 | 03:24:34 | artifact | wrote tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md |
+| 364 | 03:25:13 | integrity_error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/results_a5.json |
+| 365 | 03:25:13 | integrity_error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/surface.py |
+| 366 | 03:25:13 | integrity_error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/trees.py |
+| 367 | 03:25:13 | integrity_error | declared artifact no longer exists: EXPERIMENTS/019-copied-config-drift/validate_probe.py |
+| 368 | 03:25:14 | doc_update | updated DECISIONS-SCREENING-2.md |
+| 369 | 03:25:14 | doc_update | updated DECISIONS.md |
+| 370 | 03:25:14 | doc_update | updated FAILURES.md |
+| 371 | 03:25:14 | doc_update | updated ROADMAP.md |
+| 372 | 03:25:14 | doc_update | updated STATE.md |
+| 373 | 03:25:14 | session_end | Asked whether the 'reader copies the directory' F037 inferred leaves a repository stale -- the first question in five experiments about the world rath |
 
-_180 middle events omitted; see `events.jsonl`._
+_323 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
