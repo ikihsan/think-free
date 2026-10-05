@@ -1,0 +1,142 @@
+==============================================================================
+[seq 5] 2026-10-05T20:16:22+00:00
+$ python3 EXPERIMENTS/029-need-build-match/build_population.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+wrote 241 rows to /home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/population.jsonl
+
+
+[stderr]
+capture lines: need_arm=1250(0 malformed) outcomes=1401(0) texts=1401(0)
+authors with >=1 readable need statement: 1250 (rows unreadable: 0)
+declared population (nb_show_hn >= 1): 278  (arm refusals: 0)
+eligible after exclusions: 241  (multi-need 30, short 7, unjoined 0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 488  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T20:26:06+00:00
+$ python3 EXPERIMENTS/029-need-build-match/fetch_builds.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+control olalonde                   -> n=11 (ok)
+control keepamovin                 -> n=100 (ok)
+control byran                      -> n=3 (ok)
+control jart                       -> n=10 (ok)
+control mikemcquaid                -> n=1 (ok)
+control erohead                    -> n=6 (ok)
+control zzqqxxnonsensecontrol      -> n=0 (ok)
+gate A2 controls complete
+  50/241
+  100/241
+  150/241
+  200/241
+fetch complete
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 548256  redactions: none
+==============================================================================
+[seq 7] 2026-10-05T20:27:57+00:00
+$ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+eligible with a later build: 74 ; without: 167
+FAIL: derangement has a fixed point
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 106  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T20:28:18+00:00
+$ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+eligible with a later build: 74 ; without: 167
+FAIL: derangement has 1 fixed point(s), e.g. ['echelon']
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 114  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T20:29:16+00:00
+$ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+eligible with a later build: 74 ; without: 167
+wrote raw/view_r1.txt with 222 rows
+wrote raw/view_r2.txt with 222 rows
+wrote raw/view_key.json (222 rows)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 25] 2026-10-05T20:38:41+00:00
+$ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+eligible with a later build: 74 ; without: 167
+wrote raw/view_r1.txt with 222 rows
+wrote raw/view_r2.txt with 222 rows
+wrote raw/view_key.json (222 rows)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 35] 2026-10-05T20:45:12+00:00
+$ python3 EXPERIMENTS/029-need-build-match/repair_reader_ids.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+r1: 221 of 222 positions already agree (0.9955, floor 0.95)
+  repaired position 95: X72 -> M72 (label 'addresses')
+repaired 1 row id(s) in /home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 115  redactions: none
+==============================================================================
+[seq 36] 2026-10-05T20:45:13+00:00
+$ python3 EXPERIMENTS/029-need-build-match/assemble_labels.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+reader r1: 148 from the full view, 74 from the re-read, 74 superseded X labels discarded -> /home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1_final.tsv
+reader r2: 148 from the full view, 74 from the re-read, 74 superseded X labels discarded -> /home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r2_final.tsv
+assembled 2 final label files of 222 rows
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 99  redactions: none
+==============================================================================
+[seq 37] 2026-10-05T20:45:20+00:00
+$ python3 EXPERIMENTS/029-need-build-match/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+verdict: not_evaluated
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/029-need-build-match/stats.py", line 285, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/029-need-build-match/stats.py", line 275, in main
+    r["both_ci95"], r["either_readers_addresses"], r["either_rate"]))
+KeyError: 'either_readers_addresses'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 848  redactions: none
+==============================================================================
+[seq 38] 2026-10-05T20:45:38+00:00
+$ python3 EXPERIMENTS/029-need-build-match/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+verdict: not_evaluated
+  matched      n= 74 both=  2 (0.0270, CI95 [0.007443, 0.093295]) either=  4 (0.0541)
+  mismatched   n= 74 both=  2 (0.0270, CI95 [0.007443, 0.093295]) either=  3 (0.0405)
+  story_title  n= 74 both=  1 (0.0135, CI95 [0.002389, 0.072655]) either=  3 (0.0405)
+  kappa all rows: 0.66   per arm: {'matched': 0.7771, 'mismatched': 0.5349, 'story_title': 0.6891}
+  C1 separation (both-rule): 0.0
+  lexical arm (feeds no gate): {'matched': {'n': 74, 'mean_content_word_overlap': 0.044952}, 'mismatched': {'n': 74, 'mean_content_word_overlap': 0.044952}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 181  redactions: none
+==============================================================================
+[seq 39] 2026-10-05T20:48:14+00:00
+$ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+eligible with a later build: 74 ; without: 167
+wrote raw/view_r1.txt with 222 rows
+wrote raw/view_r2.txt with 222 rows
+wrote raw/view_key.json (222 rows)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 115  redactions: none
