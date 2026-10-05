@@ -36,16 +36,32 @@ def load_module():
     return mod
 
 
-def git(cwd, *args):
+# The identity and the dates a synthetic history is built with, in one place.
+# They were two: `git()` below carried the identity and the commit loop carried
+# the dates, so the loop's `git commit` inherited whatever identity the machine
+# happened to have. On this VM that is a configured user; on a CI runner it is
+# none, and `git commit` exits 128 with "Author identity unknown" — so the whole
+# class errored there while passing here, on identical bytes. That is F019's
+# shape exactly (a fixture that builds the machine it claims to build rather
+# than the one the author has), and it is why the identity and the dates are one
+# dictionary now.
+IDENTITY = {
+    "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
+    "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid",
+}
+
+
+def synthetic_env(**dates):
     env = dict(os.environ)
-    env.update({
-        "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
-        "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid",
-        "GIT_AUTHOR_DATE": "2026-01-01T00:00:00+0000",
-        "GIT_COMMITTER_DATE": "2026-01-01T00:00:00+0000",
-    })
+    env.update(IDENTITY)
+    env.update(dates)
+    return env
+
+
+def git(cwd, *args, **env_dates):
     subprocess.run(["git"] + list(args), cwd=cwd, check=True,
-                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=env)
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                   env=synthetic_env(**env_dates))
 
 
 class SyntheticHistoryTest(unittest.TestCase):
@@ -78,12 +94,11 @@ class SyntheticHistoryTest(unittest.TestCase):
                     fh.write(content)
             git(cls.tmp, "add", "-A")
             env_date = "%sT00:00:00+0000" % date
-            e = dict(os.environ)
-            e.update({"GIT_AUTHOR_DATE": env_date,
-                      "GIT_COMMITTER_DATE": env_date})
             subprocess.run(["git", "commit", "-q", "-m", "c%d" % i], cwd=cls.tmp,
                            check=True, stdout=subprocess.DEVNULL,
-                           stderr=subprocess.DEVNULL, env=e)
+                           stderr=subprocess.DEVNULL,
+                           env=synthetic_env(GIT_AUTHOR_DATE=env_date,
+                                              GIT_COMMITTER_DATE=env_date))
         cls.mod = load_module()
 
     @classmethod
