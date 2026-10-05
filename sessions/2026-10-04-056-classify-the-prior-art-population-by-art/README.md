@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: sessions/INDEX.md
 status: active
-last-verified: 2026-10-04
+last-verified: 2026-10-05
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -31,6 +31,10 @@ _(none recorded)_
 |---|---|---|
 | EXPERIMENTS/016-incumbent-artifact-type/README.md | c2c27ab7d119 | 9394 |
 | EXPERIMENTS/016-incumbent-artifact-type/classification.py | 890bfa83bab6 | 8474 |
+| EXPERIMENTS/017-incumbent-artifact-type/results.json | 6014c4d642c1 | 23364 |
+| EXPERIMENTS/017-incumbent-artifact-type/reviewed.json | 3eb1ef6e7c19 | 6673 |
+| FAILURES-findings-14.md | 4098e39fd5e9 | 8058 |
+| EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md | f7f50ca86084 | 10065 |
 
 ## Commands
 
@@ -59,6 +63,11 @@ _none_
 | 5 | 23:58:22 | milestone | T-0061 claimed; experiment 016 designed with both gates and the control's interpretation rule declared before any artifact type was read; classifier w |
 | 6 | 23:58:23 | artifact | wrote EXPERIMENTS/016-incumbent-artifact-type/README.md |
 | 7 | 23:58:23 | artifact | wrote EXPERIMENTS/016-incumbent-artifact-type/classification.py |
+| 8 | 01:05:46 | milestone | 017's result landed on the merged base as F037: H1 dead, the population is 14/18 executable code; findings-14 written, STATE and next-actions updated, |
+| 9 | 01:05:46 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/results.json |
+| 10 | 01:05:47 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/reviewed.json |
+| 11 | 01:05:48 | artifact | wrote FAILURES-findings-14.md |
+| 12 | 01:05:48 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md |
 
 ## Reproduce this record
 

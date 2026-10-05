@@ -29,7 +29,8 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-10.md`](FAILURES-findings-10.md) (F030) and
 [`FAILURES-findings-11.md`](FAILURES-findings-11.md) (F033) and
 [`FAILURES-findings-12.md`](FAILURES-findings-12.md) (F034) and
-[`FAILURES-findings-13.md`](FAILURES-findings-13.md) (F035, F036), split because
+[`FAILURES-findings-13.md`](FAILURES-findings-13.md) (F035, F036) and
+[`FAILURES-findings-14.md`](FAILURES-findings-14.md) (F037), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -74,6 +75,7 @@ side per the rule in
 | F034 | The prior-art screen's premise holds in mature vocabularies and largely fails in young ones |
 | F035 | "A tool already serves this" is the mission's least reliable verdict, and a third of what it can find lives in a corpus it never read |
 | F036 | A web capture can answer HTTP 200 with results unrelated to every query |
+| F037 | The screen's young-vocabulary population is real code, so the prior-art premise's failure is not a population artefact |
 
 
 **The invariant that makes the split sensible.** A finding is only useful if a

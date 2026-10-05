@@ -31,8 +31,8 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029, T-0040) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028, T-0042–T-0045) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
 | Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021); `012-candidate-harvest` complete (0 of 50 needs survive the screens, F029, D049); ``014-repository-signal-filter` complete (E012's strongest cluster collapses ~200× under the filter it was promised, F033); `015-incumbent-serving` complete (**gate inconclusive**; the premise behind "prior art exists" is now measured directly and **holds in mature vocabularies, fails in young ones** — 4/4 versus 1/4, F034); `016-prior-art-adjudication` complete (both arms met — 6 of 6 positive controls recovered, and 3 of 12 adjudicable judgement kills have no prior art on three corpora, F035; two web instruments refused or answered wrongly first, F036) |
-| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F025 a red-run cause was made readable but never explained; F026 this mission's own tooling is prior art as a candidate; F027 every project in that niche has zero users; F028 the flat adoption tail is vocabulary age, not niche; F029 a live corpus of 1401 need statements yielded 0 of 50 candidates that survive the screens; F030 a prior-art verdict from one search query is wrong in both directions; F033 a repository count without a relevance filter overstates prevalence by ~200; F035 "a tool already serves this" is materially overstated as a cause of death and a third of what it can find lives in a corpus it never read; F036 a web capture can answer HTTP 200 with results unrelated to every query×. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
-| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** **Two more candidate lines were opened and closed in one day**: this repository's own tooling as a byproduct candidate (F026) and a live need corpus as a generator (F029). **The premise behind the dominant kill reason has now been measured twice over — its coverage (F035: 4 of 12 served verdicts were reachable only on the open web) and its soundness (F034: sound in mature vocabularies, unsound in young ones)**. No candidate validated. Findings F001-F008 in `FAILURES-findings.md`, F009-F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md`, F022-F025 in `FAILURES-findings-5.md`, F026+ in `FAILURES-findings-6.md`, F029/F030/F031 in `FAILURES-findings-9.md`, `-10.md`, `-8.md`, F033 in `-11.md`, F034 in `-12.md`, F035/F036 in `-13.md` |
+| Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F025 a red-run cause was made readable but never explained; F026 this mission's own tooling is prior art as a candidate; F027 every project in that niche has zero users; F028 the flat adoption tail is vocabulary age, not niche; F029 a live corpus of 1401 need statements yielded 0 of 50 candidates that survive the screens; F030 a prior-art verdict from one search query is wrong in both directions; F033 a repository count without a relevance filter overstates prevalence by ~200; F035 "a tool already serves this" is materially overstated as a cause of death and a third of what it can find lives in a corpus it never read; F036 a web capture can answer HTTP 200 with results unrelated to every query; F037 the screen's young-vocabulary population is real code, so the prior-art premise's failure is not a population artefact. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md` |
+| Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** **Two more candidate lines were opened and closed in one day**: this repository's own tooling as a byproduct candidate (F026) and a live need corpus as a generator (F029). **The premise behind the dominant kill reason has now been measured three ways over — its coverage (F035: 4 of 12 served verdicts were reachable only on the open web), its soundness (F034: sound in mature vocabularies, unsound in young ones), and its population (F037: that young population is real code, so the failure is not an artefact)**. No candidate validated. Findings F001-F008 in `FAILURES-findings.md`, F009-F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md`, F022-F025 in `FAILURES-findings-5.md`, F026+ in `FAILURES-findings-6.md`, F029/F030/F031 in `FAILURES-findings-9.md`, `-10.md`, `-8.md`, F033 in `-11.md`, F034 in `-12.md`, F035/F036 in `-13.md`, F037 in `-14.md` |
 
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21) |
@@ -61,30 +61,30 @@ agent-labeled repositories — a complaint inside a dozen agent-project trackers
 not a cross-project problem (F033). F030: a prior-art verdict from one search
 query is wrong in both directions.
 
-**That verdict has now been measured, and it is the mission's weakest
-instrument** (`EXPERIMENTS/016`, D050, F035, F036). E016 re-adjudicated E012's
-19 prior-art kills on three corpora with six positive controls, phrasings
-written before the first fetch. **Arm 1 met: 6 of 6 controls recovered served.**
-**Arm 2 met exactly: 3 of 12 adjudicable judgement kills have no prior art** —
-item 7 (annotate once, then choose metric/log/trace per code path at runtime),
-item 12 (tag HN posts and authors inside an HN client), item 16 (a daily word
-game that shows the solution order so a player can give up) — and **one row
-decides it**, because item 16's open-web results include ten answer-aggregator
-sites that reveal solutions outside the game; a looser rule gives 2 and reverses
-the direction, so both numbers are in `results.json`. A thirteenth kill was
-never adjudicable: its clause asks for a game in which bots are allowed while
-E012's reason asked about Hacker News clients, so the verdict was decided
-against the reason. **Corpus carriage is the transferable result:** GitHub's
-index carried every verdict the code corpora carried, the registries carried
-none on their own, and **the open web carried 4 served verdicts two code corpora
-returned nothing for** — url-popularity (twelve named hosted services),
-cpp-subset-linter (PC-lint enforcing MISRA), selective-stage (`git add -p`
-itself), interest-field (contested). Two instruments refused or answered
-wrongly first: Bing answered HTTP 200 with ten well-formed results per query,
-all of them unrelated to the query (F036). D050 puts the three unserved needs
-into a mechanism step and narrows F029's generator verdict rather than
-reversing it: **they are need statements, not candidates, and an absence of a
-hit on three corpora is the absence of a hit.**
+**That verdict has now been measured on coverage, and it is the mission's weakest
+instrument** (`EXPERIMENTS/016`, D050, F035, F036). E016 re-adjudicated E012's 19
+prior-art kills on three corpora with six positive controls, phrasings written
+before the first fetch. **Both arms met: 6 of 6 controls recovered served, and 3
+of 12 adjudicable judgement kills have no prior art** — and one row decides that
+count, so `results.json` carries both numbers. **Corpus carriage is the
+transferable result:** GitHub's index carried every verdict the code corpora
+carried, the registries carried none on their own, and the open web carried 4
+served verdicts two code corpora returned nothing for. Bing answered HTTP 200 with
+ten well-formed results per query, all unrelated (F036). D050 puts the three
+unserved needs into a mechanism step and narrows F029 rather than reversing it:
+**they are need statements, not candidates, and an absence of a hit on three
+corpora is the absence of a hit.**
+
+**The third axis is now measured too, and it came out against the alternative**
+(`EXPERIMENTS/017`, F037). One explanation for F034's young-vocabulary failure had
+never been tested: that the screen's population is *documents*, so "prior art
+exists" is satisfied by prose. **It is 14 of 18 executable code** — 13 of 18 with
+every young root listing read by hand, so the verdict does not rest on the
+classifier's margins. Documents are 22% of the young arm and carry a **median 6,072
+stars against 566** for the code rows, while 14 of 18 young rows have no readable
+use channel at all and 13 of those are tools: **the most-starred tool in the young
+vocabulary is installed 363 times a month.** Supply is plentiful and measured use
+is scarce, and a prior-art screen counts the first and reports the second.
 
 **A restated experiment number was false, and the obvious gate is blind to
 it** (defect 22, T-0056, D047, F024). `docs/process/experiment-protocol.md` claimed
@@ -201,7 +201,9 @@ defects that running it on itself exposed (F003, F004), both fixed under test.
 ## Next actions
 
 Full list, with the ceiling on each item and the reasoning behind it, is in
-[`STATE-next-actions.md`](STATE-next-actions.md). Ordered by information gained
+[`STATE-next-actions.md`](STATE-next-actions.md); the standing constraints that hold
+whichever item is next are in
+[`STATE-constraints.md`](STATE-constraints.md). Ordered by information gained
 per unit of effort; the top item is:
 
 **The screen that killed every candidate has now been measured on both axes, and
@@ -218,13 +220,12 @@ decides that count, and `results.json` carries both numbers.
 
 **What changed is the method, not a candidate.** Prior art is judged on the open
 web and on the clause's attribute, never on a code index and a category (D050).
-What did *not* change is that the three survivors are need statements — no
-mechanism, no differentiation, no adoption path — so each goes to a mechanism
-question first, and F029's generator verdict is narrowed rather than reversed.
-**Choosing what the mission selects candidates on is still an owner decision**,
-and it is cheaper to ask now: F034 could read serving on 57% of its population
-and 22% of its young-vocabulary arm, so a screen whose premise is unmeasurable
-four times in five is not a screen. Item 0 of [`STATE-next-actions.md`](STATE-next-actions.md)
+The three survivors are need statements — no mechanism, no differentiation, no
+adoption path — so each goes to a mechanism question first, and F029's generator
+verdict is narrowed rather than reversed. **Choosing what the mission selects
+candidates on is still an owner decision**, and F037 narrows what the choice has
+to fix: the screen's *population* is sound and its *coverage* is not, so a better
+search does not repair it. Item 0 of [`STATE-next-actions.md`](STATE-next-actions.md)
 holds the three leads, the reasoning, and the axis still on offer.
 
 **The gaps in that pattern, both found by colliding with it, and one of them in

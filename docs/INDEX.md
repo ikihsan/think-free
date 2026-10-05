@@ -176,11 +176,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/013-prior-art-predicts-adoption/README.md`](../EXPERIMENTS/013-prior-art-predicts-adoption/README.md) | `docs/INDEX.md` | active | 2026-10-04 | F027 and F028 counted stars. This counts installs, because "does prior |
 | [`EXPERIMENTS/014-repository-signal-filter/README.md`](../EXPERIMENTS/014-repository-signal-filter/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/015-incumbent-serving/README.md`](../EXPERIMENTS/015-incumbent-serving/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-<<<<<<< HEAD
 | [`EXPERIMENTS/016-prior-art-adjudication/README.md`](../EXPERIMENTS/016-prior-art-adjudication/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-=======
-| [`EXPERIMENTS/016-incumbent-artifact-type/README.md`](../EXPERIMENTS/016-incumbent-artifact-type/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
->>>>>>> T-0061: the design, the classifier, both gates, and the falsifications against them
+| [`EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md`](../EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md) | `EXPERIMENTS/017-incumbent-artifact-type/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/017-incumbent-artifact-type/README.md |
+| [`EXPERIMENTS/017-incumbent-artifact-type/README.md`](../EXPERIMENTS/017-incumbent-artifact-type/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
