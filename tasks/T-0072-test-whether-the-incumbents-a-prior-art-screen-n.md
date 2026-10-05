@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0072
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-05-017-e028-test-whether-the-incumbents-a-prior
+claim-vm: 
 verify: python3 -m unittest discover -s EXPERIMENTS/028-incumbent-fit -p 'test_*.py' -t EXPERIMENTS/028-incumbent-fit && tools/origin doc lint
 -->
 
