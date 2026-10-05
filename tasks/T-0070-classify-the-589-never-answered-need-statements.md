@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0070
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: unknown-agent
 claim-session: 2026-10-05-014-measure-the-structure-of-the-589-never-a

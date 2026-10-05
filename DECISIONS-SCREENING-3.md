@@ -12,7 +12,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D053–D054, D057**. Split from
+Decisions **D053–D054, D057, D058**. Split from
 [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) by invariant, not by date:
 what a screen must have measured before its silence can mean anything.
 
@@ -202,3 +202,26 @@ invisible in both arms. Within the control arm the tag tracks overall HN activit
 hard (median 2416 items for builders against 467 for non-builders), so the control
 arm's exposure is shared with the need arm but not equal to it. Arms are not
 matched on tenure. The finding is about people in one community on one platform.
+
+## D058 — A gate written before the data fires, and its firing can still be noise until the sensitivity is run (2026-10-05)
+
+**Context.** E026's B2 gate fired on two trigger phrases over-represented in
+the unserved arm — and those two phrases pool 4 and 5 rows, with the
+corpus-wide trigger × answered test at p ≈ 0.06. D056's rule (a majority
+gate reported with its sensitivity) and F025's rule (a red run's cause is
+the last line, not the first twelve) point the same way: the pre-registered
+gate is what keeps the reading honest, and the sensitivity is what keeps
+the gate from certifying small-count noise.
+
+**Decision.** Report both, as E026 does: the gate fired; the sensitivity
+does not carry it; the structure claim is withdrawn. Do not amend the gate
+retroactively to make the clean reading say "no structure" — the honest
+artifact is a firing gate plus a withdrawn claim, kept together.
+
+**Consequence.** The E022 corpus's open readings are all taken, and its
+closure stands on measurement at every arm. Nothing new is owed to this
+corpus.
+
+**Ceiling.** N = 1401 supports answering "is there large structure" and
+"is length a vagueness signal" — it does not support naming a specific
+unserved need class.

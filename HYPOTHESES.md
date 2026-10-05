@@ -108,6 +108,17 @@ candidate for measurement, not a finding. The sentence is corrected at the sourc
 need-staters are a fifth builders, they build *less* than their neighbours, and the
 rate at which they build **what they asked for** is unchanged (F045).
 
+**E026 tested the shape of the corpus's unserved tail, not a candidate**
+(`EXPERIMENTS/026-unserved-need-structure/`, T-0070). All 1401 comments
+fetched (100%, A1 passes). Unserved statements are **not** shorter — median
+55 words against 58 (ratio 0.948, B1 fails) — and trigger shares do not
+predict answer rate (χ² = 34.33, 23 df, p ≈ 0.06). B2 fired as pre-registered
+on two triggers at ≥2× share, but they pool 9 rows, so the structure claim is
+withdrawn by its own sensitivity (D058). **No candidate entered or left the
+table.** What changed: the corpus's last open reading is closed — the
+unserved tail is diffuse in the dimensions measured, with one hint resting on
+9 rows and not established (F046).
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |

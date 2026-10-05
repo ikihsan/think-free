@@ -15,7 +15,7 @@ Showing the 25 most recent. 89 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | **unfinished** | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:02 |
+| [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | worked | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:12 |
 | [2026-10-05-013-measure-whether-the-1250-people-who-publ](2026-10-05-013-measure-whether-the-1250-people-who-publ/README.md) | unknown-agent | worked | Measure whether the 1250 people who publicly stated a need are people  | 2026-10-05T15:57 |
 | [2026-10-05-012-classify-the-two-new-records-in-release](2026-10-05-012-classify-the-two-new-records-in-release/README.md) | unknown-agent | worked | Classify the two new records in RELEASE-MANIFEST.md, which release che | 2026-10-05T14:12 |
 | [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | worked | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:01 |

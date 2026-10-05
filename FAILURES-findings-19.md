@@ -88,3 +88,41 @@ with the four originals **kept in the capture with their zeros**;
 stay recorded as empty so a later reader cannot quietly restore them. **The gate
 threshold was never moved; only the membership of the control population was
 corrected, against the instrument's own output.**
+
+## F046 — The corpus's unserved tail is diffuse, and its one structured hint rests on 9 rows (2026-10-05)
+
+Source: session `2026-10-05-014`, 2026-10-05. Full record:
+[`EXPERIMENTS/026-unserved-need-structure/`](EXPERIMENTS/026-unserved-need-structure/).
+T-0070.
+
+**What was asked.** The last open reading of the E022 corpus: do the 589
+statements that drew no reply carry structure — a vagueness signal, a trigger
+penny it all hangs on — or are they the diffuse tail any such corpus
+produces? Protocol written before the first text fetch.
+
+**What was measured.** All 1401 comments fetched (100%, gate A1 passes).
+Unserved statements are **not** shorter — median 55 words against 58
+(ratio 0.948), so B1 fails. One pre-registered gate did fire: B2, two
+trigger phrases at ≥2× share in the unserved arm (`does anyone know a tool`
+4.14×, `is there a python library` 2.07×).
+
+**What the firing gate is worth.** The two firing triggers carry 4 and 5
+rows total, and the corpus-wide chi-square of trigger × answered is χ² =
+34.33 on 23 df, p ≈ 0.06 — not significant at 0.05. B2 is a true firing of
+a gate written before the data, and the structure claim it would carry does
+not survive its own sensitivity. The honest reading is H0: the unserved
+tail is **diffuse** in length and trigger, with one hint at answer rates of
+0.25 and 0.40 against the corpus's 0.58 that rests on 9 rows and is not
+established.
+
+**What it changes.** The E022 corpus's readings are now all taken: outcomes
+(F042), served-baseline control (F043), builderhood (F045), need-stater
+population (F039), candidate generation (F029), and now the shape of the
+unserved tail (F046). No hidden structured sub-population remains at this
+resolution, so the closure of the corpus as a generator stands on
+measurement, not on the absence of a reading.
+
+**Ceiling.** One platform, one corpus, one reader of the text; length is
+stripped words, not judged vagueness; triggers are E012's 23, which F042
+showed mark staters rather than outcomes. A decision would need a
+population too small to defend at this sample.

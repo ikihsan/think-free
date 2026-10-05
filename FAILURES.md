@@ -35,7 +35,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
 [`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
 [`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044) and
-[`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045), split because
+[`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -89,6 +89,7 @@ side per the rule in
 | F043 | E022's 38.5% served figure is the ordinary base rate of a Hacker News conversation (0.368 in the same threads), so the trigger vocabulary is invisible to what happens to a need after it is stated |
 | F044 | "Twelve candidates, twelve prior-art deaths" is a plurality with a one-row margin (10 of 18 = 0.556) over a population of 20, and 7 of the 18 died of something else — a falsified mechanism, a claim no observation could establish, or a supported mechanism that died of being supported |
 | F045 | 22.2% of the 1250 people who publicly stated a need have publicly shipped something, against 27.8% for ordinary commenters in the same stories — so "need-staters are not builders" is false as an absolute, true only comparatively, and E022's disclosure floor is a measurement rather than an excuse |
+| F046 | The 589 unanswered needs in the E022 corpus are diffuse in length (55 vs 58 words) and trigger (χ² p ≈ 0.06); B2 fired on two phrases pooling 9 rows, so its hint does not carry a decision — the corpus's last open reading is closed with no hidden structure |
 
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader
@@ -183,3 +184,11 @@ These remain live questions, not settled negatives:
 A failed idea returns when the specific evidence that killed it is invalidated —
 not because effort was previously spent on it. Record that evidence here so the
 next session finds it in one search.
+
+**F046's evidence lives at `EXPERIMENTS/026-unserved-need-structure/`:**
+the protocol fixed both hypotheses and all three gates **before the first text
+fetch**; `raw/texts.jsonl` holds all 1401 comment texts (100%, A1 passes);
+`stats.py` reproduces the numbers in `results.json`, including the chi-square
+sensitivity that withdraws the B2 claim. The declared gate fired and its
+firing is the record: **the gate fired before its sensitivity was run, and the
+sensitivity is what a firing gate is owed** (D058).

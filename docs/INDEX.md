@@ -201,6 +201,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/024-kill-reason-causes/README.md`](../EXPERIMENTS/024-kill-reason-causes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. T-0068. The declaration was written before any row was |
 | [`EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md`](../EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before the first author is fetched. Task T-0069. |
 | [`EXPERIMENTS/025-need-staters-builderhood/README.md`](../EXPERIMENTS/025-need-staters-builderhood/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0069. Protocol written before the first fetch: |
+| [`EXPERIMENTS/026-unserved-need-structure/PROTOCOL.md`](../EXPERIMENTS/026-unserved-need-structure/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before the first text fetch. Task T-0070. |
+| [`EXPERIMENTS/026-unserved-need-structure/README.md`](../EXPERIMENTS/026-unserved-need-structure/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
