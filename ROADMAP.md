@@ -242,13 +242,9 @@ than tooling — twice over: on what no experiment here can answer (whether a kn
 generated repair plan, and whether E3's finding generalises beyond one builder, item 8), and
 since E016, on which axis a candidate is selected. **That blocker has narrowed six times**
 (F035, F037, F039, F041, F042, F043, D053–D055) and resolves to an owner decision. **The twelve
-prior-art deaths stand**, and E022 followed the demand-side asset forward: of 1401 statements
-**58.0% were answered** and 0 of 24 unserved requesters built it — needs the world **absorbed in
-conversation**, not ones awaiting a builder. **E023 then removed the sentence that made that read
-as a demand-side discovery**: the uncontrolled 0.385 `served` rate is **0.368 for ordinary
-comments in the same threads**, and two readers on the identical rows agree at κ = 0.923, so the
-asset rests on two measured numbers rather than three (F043, D055). See
-[`STATE-in-flight.md`](STATE-in-flight.md).
+prior-art deaths stand**, and E022 followed the demand-side asset forward — 58.0% of 1401 answered,
+0 of 24 unserved requesters building it — with E023 withdrawing the one uncontrolled number under
+that reading (F043, D055). See [`STATE-in-flight.md`](STATE-in-flight.md).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython

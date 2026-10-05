@@ -52,6 +52,7 @@ _(none recorded)_
 | sessions/INDEX.md | 706496093c98 | 6784 |
 | STATE.md | 2d55aafa29df | 31219 |
 | tasks/CLAIMS.jsonl | 1049ff3ccf6d | 68357 |
+| ROADMAP.md | 1cc68aa4cf70 | 19990 |
 
 ## Commands
 
@@ -122,6 +123,8 @@ _(none recorded)_
 | 38 | 12:08:30 | milestone | task verify green (exit 0); 790 tests pass; doc lint exit 0 |
 | 39 | 12:08:31 | artifact | wrote tasks/CLAIMS.jsonl |
 | 40 | 12:08:47 | task_rewrite | rewrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md (status: done) |
+| 41 | 12:08:47 | task_rewrite | appended a complete record for T-0067 |
+| 42 | 12:12:05 | artifact | wrote ROADMAP.md |
 
 ## Reproduce this record
 
