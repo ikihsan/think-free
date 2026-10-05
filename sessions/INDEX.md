@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-111 recorded session(s). One `events.jsonl` per session, so concurrent
+112 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 86 older session(s) are in the directory listing.
+Showing the 25 most recent. 87 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-012-classify-the-two-new-records-in-release](2026-10-05-012-classify-the-two-new-records-in-release/README.md) | unknown-agent | **unfinished** | Classify the two new records in RELEASE-MANIFEST.md, which release che | 2026-10-05T14:12 |
 | [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | worked | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:01 |
 | [2026-10-05-010-test-whether-twelve-candidates-twelve-pr](2026-10-05-010-test-whether-twelve-candidates-twelve-pr/README.md) | unknown-agent | worked | Test whether 'twelve candidates, twelve prior-art deaths' is a fact ab | 2026-10-05T13:58 |
 | [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 86 older session(s) are in the directory listing.
 | [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
 | [2026-10-04-044-record-the-measured-ci-state-after-t-005](2026-10-04-044-record-the-measured-ci-state-after-t-005/README.md) | unknown-agent | worked | record the measured CI state after T-0057 and the fixture-cost questio | 2026-10-04T19:24 |
 | [2026-10-04-044-choose-and-advance-the-highest-informati](2026-10-04-044-choose-and-advance-the-highest-informati/README.md) | unknown-agent | worked | Choose and advance the highest-information invention-bearing action fr | 2026-10-04T19:11 |
-| [2026-10-04-043-test-whether-the-record-s-falsifiability](2026-10-04-043-test-whether-the-record-s-falsifiability/README.md) | unknown-agent | partial | Test whether the record's falsifiability-first screen is what starves  | 2026-10-04T18:56 |
 
 
 ## Reading a session
