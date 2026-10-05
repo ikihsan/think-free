@@ -37,7 +37,7 @@ _(none recorded)_
 
 ## Commands
 
-17 captured, 1 non-zero exit.
+23 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -58,6 +58,12 @@ _(none recorded)_
 | 17 | ['python3', 'EXPERIMENTS/030-departure-recurrence/recurrence.py'] | 0 | 4105 |
 | 18 | ['python3', 'EXPERIMENTS/030-departure-recurrence/permutation_control.py'] | 0 | 22784 |
 | 19 | ['python3', 'EXPERIMENTS/030-departure-recurrence/a8_separation.py'] | 0 | 395 |
+| 26 | ['git', 'commit', '-m', "E030: close H1 as not_evaluated -- B1's statistic measured length and coincidence (F050, A9 null, length-matched sign flip);  | 0 | 300 |
+| 27 | ['python3', 'EXPERIMENTS/030-departure-recurrence/recurrence.py'] | 0 | 2982 |
+| 28 | ['python3', 'EXPERIMENTS/030-departure-recurrence/a8_separation.py'] | 0 | 216 |
+| 29 | ['python3', 'EXPERIMENTS/030-departure-recurrence/verify_labels.py', 'treatment'] | 0 | 203 |
+| 30 | ['python3', 'EXPERIMENTS/030-departure-recurrence/verify_labels.py', 'control'] | 0 | 178 |
+| 31 | ['git', 'push', 'origin', 'research/origin'] | 0 | 5902 |
 
 ## Integrity
 
@@ -98,6 +104,13 @@ _(none recorded)_
 | 23 | 22:39:25 | artifact | wrote EXPERIMENTS/030-departure-recurrence/raw/a8_separation.json |
 | 24 | 22:39:25 | artifact | wrote FAILURES-findings-20.md |
 | 25 | 22:39:25 | milestone | A8 fired (0.64 vs 0.036); A9 null explains arm difference; length-matched sign flips; H1 not_evaluated third and final time |
+| 26 | 22:39:35 | command | $ git commit -m E030: close H1 as not_evaluated -- B1's statistic measured length and coincidence (F050, A9 null, length-matched sign flip); A |
+| 27 | 22:39:46 | command | $ python3 EXPERIMENTS/030-departure-recurrence/recurrence.py |
+| 28 | 22:39:47 | command | $ python3 EXPERIMENTS/030-departure-recurrence/a8_separation.py |
+| 29 | 22:39:47 | command | $ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment |
+| 30 | 22:39:48 | command | $ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control |
+| 31 | 22:40:50 | command | $ git push origin research/origin |
+| 32 | 22:40:57 | task_rewrite | rewrote tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md (status: claimed) |
 
 ## Reproduce this record
 

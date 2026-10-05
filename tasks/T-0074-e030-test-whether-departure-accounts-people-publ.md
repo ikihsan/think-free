@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0074
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-05-020-e030-test-whether-departure-accounts-peo
+claim-vm: 
 verify: tools/x -- python3 EXPERIMENTS/030-departure-recurrence/recurrence.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/a8_separation.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control && tools/origin doc lint
 -->
 

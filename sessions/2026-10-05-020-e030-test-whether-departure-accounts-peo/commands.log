@@ -338,3 +338,120 @@ cwd: /home/ubuntu/think-free
 {"control": {"ci95": [0.006332519846951601, 0.1771219774818545], "k": 1, "n": 28, "rate": 0.03571428571428571, "unanswered": 2}, "event": "a8", "fires": true, "treatment": {"ci95": [0.4451849774378259, 0.7975211922840683], "k": 16, "n": 25, "rate": 0.64, "unanswered": 5}}
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 395  redactions: none
+==============================================================================
+[seq 26] 2026-10-05T22:39:35+00:00
+$ git commit -m E030: close H1 as not_evaluated -- B1's statistic measured length and coincidence (F050, A9 null, length-matched sign flip); A8 held-out separation fires
+
+The pair-level recurrence gate fired (diff 0.1338 [0.0997, 0.1687]) but its
+own printed linkage is ordinary English tokens between unrelated comments,
+its permutation null explains the arm difference (0.3493 vs 0.2925 +/- 0.012),
+and the length-matched recomputation reverses the sign (-0.0735). C1's pilot
+never ran; A2's 1-of-6 and A6's unreachable 0.60 gate stand as recorded.
+A8 on the held-out 30/30 read: treatment 16/25 = 0.64 vs control 1/28 = 0.036,
+so the departure-framing population is real and distinct even though the
+clause-recurrence ruler is falsified. Protocol amendments 4-9 and the
+experiment README record the gates, the withdrawn verdicts, and one reader's
+pass as one reader's pass.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[research/origin 894c212] E030: close H1 as not_evaluated -- B1's statistic measured length and coincidence (F050, A9 null, length-matched sign flip); A8 held-out separation fires
+ 52 files changed, 6379 insertions(+), 21 deletions(-)
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/README.md
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/a8_separation.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/make_a8_views.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/make_reader_views.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/permutation_control.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a5_register_check.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a6_key.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a6_key_rows.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a6_labels_control.tsv
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a6_labels_treatment.tsv
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a8_key_rows.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a8_labels_control.tsv
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a8_labels_treatment.tsv
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a8_separation.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/a9_permutation.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/clusters_control.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/clusters_treatment.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/clusters_treatment_first_person.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/clusters_treatment_matched.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/mutual_treatment.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/mutual_treatment_first_person.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/mutual_treatment_matched.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/recurrence.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_a6_control.txt
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_a6_treatment.txt
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_a8_control.txt
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_a8_treatment.txt
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_digests.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/raw/view_digests_a8.json
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/recurrence.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/register_check.py
+ create mode 100644 EXPERIMENTS/030-departure-recurrence/verify_labels.py
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 300  redactions: none
+==============================================================================
+[seq 27] 2026-10-05T22:39:46+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/recurrence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"R_pair": 0.3493, "accounts_with_partner": 321, "arm": "treatment", "ci": [0.3192, 0.3807], "distinct_artifact_pairs": 321, "event": "pair_stats", "n": 919, "pairs": 449}
+{"accounts_in_groups_ge3": 101, "arm": "treatment", "event": "mutual_groups", "groups": 225, "largest": 4, "size_distribution": {"2": 192, "3": 31, "4": 2}}
+{"R_pair": 0.2155, "accounts_with_partner": 579, "arm": "control", "ci": [0.2003, 0.2314], "distinct_artifact_pairs": 0, "event": "pair_stats", "n": 2687, "pairs": 451}
+{"accounts_in_groups_ge3": 71, "arm": "control", "event": "mutual_groups", "groups": 346, "largest": 4, "size_distribution": {"2": 323, "3": 21, "4": 2}}
+{"R_pair": 0.3689, "accounts_with_partner": 339, "arm": "treatment_matched", "ci": [0.3383, 0.4006], "distinct_artifact_pairs": 321, "event": "pair_stats", "n": 919, "pairs": 466}
+{"accounts_in_groups_ge3": 101, "arm": "treatment_matched", "event": "mutual_groups", "groups": 237, "largest": 4, "size_distribution": {"2": 204, "3": 31, "4": 2}}
+{"event": "first_person_subset", "matched": 388, "of": 919}
+{"R_pair": 0.5799, "accounts_with_partner": 225, "arm": "treatment_first_person", "ci": [0.5302, 0.628], "distinct_artifact_pairs": 225, "event": "pair_stats", "n": 388, "pairs": 458}
+{"accounts_in_groups_ge3": 151, "arm": "treatment_first_person", "event": "mutual_groups", "groups": 166, "largest": 4, "size_distribution": {"2": 117, "3": 45, "4": 4}}
+{"ci95": [0.0997, 0.1687], "diff": 0.1338, "event": "diff_pair", "variant": "declared"}
+{"ci95": [0.1189, 0.1885], "diff": 0.1534, "event": "diff_pair", "variant": "matched"}
+{"b1_fires": true, "b2_fires": false, "ci_overlap": false, "event": "verdict", "gate_b1_diff_threshold": 0.1, "gate_b1_min_groups": 3, "multi_artifact_mutual_groups_ge3": 33, "mutual_groups_ge3": 33, "verdict": "H1_survives"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2982  redactions: none
+==============================================================================
+[seq 28] 2026-10-05T22:39:47+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/a8_separation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"control": {"ci95": [0.006332519846951601, 0.1771219774818545], "k": 1, "n": 28, "rate": 0.03571428571428571, "unanswered": 2}, "event": "a8", "fires": true, "treatment": {"ci95": [0.4451849774378259, 0.7975211922840683], "k": 16, "n": 25, "rate": 0.64, "unanswered": 5}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 216  redactions: none
+==============================================================================
+[seq 29] 2026-10-05T22:39:47+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a8_labels_treatment.tsv", "rows": 30, "sha256_view": "b4f3fbe5a2dee369", "view": "view_a8_treatment.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 203  redactions: none
+==============================================================================
+[seq 30] 2026-10-05T22:39:48+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a8_labels_control.tsv", "rows": 30, "sha256_view": "c51c96d3da32aefc", "view": "view_a8_control.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 178  redactions: none
+==============================================================================
+[seq 31] 2026-10-05T22:40:50+00:00
+$ git push origin research/origin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+To https://github.com/ikihsan/think-free.git
+   e769aed..894c212  research/origin -> research/origin
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5902  redactions: none
