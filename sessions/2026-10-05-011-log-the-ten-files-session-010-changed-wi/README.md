@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T14:00:19+00:00
-- **Duration:** ?s
+- **Duration:** 57.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Log the ten files session 010 changed without declaring, so the record gap is re
 
 ## Summary
 
-_(none recorded)_
+Logged the ten files session 010's finish reported as undeclared, with their digests and a note attributing them to E024's records update. No content changed; the gap is closed rather than left open.
+
+## Next
+
+A second reader labelling E024's 18 rows, given the deciding sentences and no category vocabulary: at a one-row margin, kappa there decides whether the record's sentence is a fact or a coin-flip.
 
 ## Artifacts
 
@@ -42,19 +46,22 @@ _(none recorded)_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+1 captured, 0 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 12 | ['git', 'commit', '-q', '-m', "session 011: log the ten files session 010 changed without declaring\n\nSession 010's finish reported ten undeclared fi | 0 | 171 |
 
 ## Integrity
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 2 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | sessions/2026-10-05-010-test-whether-twelve-candidates-twelve-pr/commands.log |
+|   undeclared | sessions/2026-10-05-010-test-whether-twelve-candidates-twelve-pr/events.jsonl |
 
 ## Timeline
 
@@ -71,6 +78,10 @@ _none_
 | 9 | 14:00:32 | artifact | Records session 010 (T-0068, E024) updated to carry F044 and D056. Session 010's finish reported these ten as undeclared: they were written before its |
 | 10 | 14:00:32 | artifact | Records session 010 (T-0068, E024) updated to carry F044 and D056. Session 010's finish reported these ten as undeclared: they were written before its |
 | 11 | 14:00:32 | artifact | Records session 010 (T-0068, E024) updated to carry F044 and D056. Session 010's finish reported these ten as undeclared: they were written before its |
+| 12 | 14:01:01 | command | $ git commit -q -m session 011: log the ten files session 010 changed without declaring  Session 010's finish reported ten undeclared file cha |
+| 13 | 14:01:16 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-05-010-test-whether-twelve-candidates-twelve-pr/commands.log |
+| 14 | 14:01:16 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-05-010-test-whether-twelve-candidates-twelve-pr/events.jsonl |
+| 15 | 14:01:17 | session_end | Logged the ten files session 010's finish reported as undeclared, with their digests and a note attributing them to E024's records update. No content  |
 
 ## Reproduce this record
 

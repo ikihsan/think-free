@@ -1,0 +1,14 @@
+==============================================================================
+[seq 12] 2026-10-05T14:01:01+00:00
+$ git commit -q -m session 011: log the ten files session 010 changed without declaring
+
+Session 010's finish reported ten undeclared file changes. They are the mission
+records session 010 updated to carry F044 and D056, written before its artifact
+events, so the stream did not attribute them. Logged here with their digests and
+a note naming the session they belong to, which is the protocol's instruction not
+to paper over the report rather than the fix.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 171  redactions: none

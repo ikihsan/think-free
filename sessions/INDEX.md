@@ -15,7 +15,7 @@ Showing the 25 most recent. 86 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | **unfinished** | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:00 |
+| [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | worked | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:01 |
 | [2026-10-05-010-test-whether-twelve-candidates-twelve-pr](2026-10-05-010-test-whether-twelve-candidates-twelve-pr/README.md) | unknown-agent | worked | Test whether 'twelve candidates, twelve prior-art deaths' is a fact ab | 2026-10-05T13:58 |
 | [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
