@@ -92,6 +92,22 @@ and it closed no candidate, so it is recorded here only because the session
 logged an `experiment_result` and the tooling requires this file to change when
 one does. Nothing below rests on it, and no candidate's state moved.
 
+**E025 tested the disclosure floor under F042's third number, not a candidate**
+(`EXPERIMENTS/025-need-staters-builderhood/`, T-0069). F042's build arm read
+**0 of 24** unserved requesters building what they asked for, and the record called
+that a *floor on disclosure* rather than an estimate of building — but
+`STATE-next-actions.md` item 0 then carried it as "the people who state a need are
+not the people who build it", which is what the floor could not support. E025 read
+the missing channel over **1750 authors with zero refusals**: **278 of 1250
+need-staters (22.2%, CI [0.200, 0.246]) have publicly shipped something** against
+**139 of 500 (27.8%, CI [0.241, 0.319])** ordinary commenters in the same stories.
+The declared hypothesis (≥2×, disjoint intervals) **fails at 0.80× with overlapping
+intervals.** **No candidate entered or left the table** and no prior-art verdict is
+falsified. What changed is D057: an absence declared by an instrument is a
+candidate for measurement, not a finding. The sentence is corrected at the source —
+need-staters are a fifth builders, they build *less* than their neighbours, and the
+rate at which they build **what they asked for** is unchanged (F045).
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |

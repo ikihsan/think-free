@@ -29,13 +29,10 @@ prior art, usefulness and adoption untouched, and every item says which.
    claims, and price each one's gate before promoting it**, which is what F006's
    A1 shows is available at report time. `tools/origin` remains the prior-art
    death the record treats as the twelfth (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026,
-   F027). F034 measures the prior-art verdict's own premise on the population that
-   screen consulted: **4 of 4
-   on-topic incumbents in mature vocabularies are served, 1 of 4 in a young
-   one.** The screen is therefore sound where it is least load-bearing and unsound
-   precisely where this mission's candidates live — which is neither a reason to
-   keep it nor a reason to drop it, but a reason to state the axis in terms of
-   the vocabulary a candidate sits in. Still an **owner decision**: which axis
+   F027). F034 measures the prior-art verdict's premise on the population that
+   screen consulted: **4 of 4 on-topic incumbents in mature vocabularies are
+   served, 1 of 4 in a young one** — sound where it is least load-bearing, unsound
+   where this mission's candidates live. Still an **owner decision**: which axis
    replaces it (usefulness without users, distribution, domain knowledge, or
    something not yet named), and whether publishing the tooling as-is is ever on
    the table. **Ceiling:** F034's own gate is `inconclusive` — 43% of incumbents
@@ -63,19 +60,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    of something else. Full reading in
    [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-   **The third reading has now been taken, and it is answered in the negative**
-   (F041, D053). Full account in
-   [`STATE-in-flight.md`](STATE-in-flight.md); the summary that matters for
-   selection is one sentence: **the serving channel the prior-art screen was
-   alleged to be blind to measured 0.118× the install channel**, so the screen was
-   reading the dominant one, **F037's "used and invisible" reading is withdrawn**,
-   and **the twelve prior-art deaths stand** unless something other than the
-   screen is wrong. The instrument premise in this file was also wrong — a public
-   unauthenticated API does serve the copy count — and the instrument's own blind
-   spot is recorded beside it: **17 of 18 young-arm repositories and 0 of 13
-   placebo ones.** **H2 (are forks and templates an adequate stand-in?) is `not
-   evaluable`**, and its low band is a declared mechanical slice, so a rerun needs
-   no new decisions — only a host the endpoint will answer.
+   **The third reading has been taken, and it is answered in the negative**
+   (F041, D053), full account in [`STATE-in-flight.md`](STATE-in-flight.md):
+   **the serving channel the prior-art screen was alleged to be blind to
+   measured 0.118× the install channel**, so the screen was reading the dominant
+   one and **the twelve prior-art deaths stand.** The instrument premise here was
+   also wrong — a public unauthenticated API does serve the copy count — and its
+   blind spot is recorded beside it: **17 of 18 young-arm repositories and 0 of
+   13 placebo ones.**
 
    **What was left for the owner was one question, and E022 has now measured
    it.** Everything measured about supply says supply is uninformative about
@@ -97,10 +89,17 @@ prior art, usefulness and adoption untouched, and every item says which.
    now run reads **0.368** against the need arm's 0.395 on 38 rows each, so it is
    the ordinary base rate of a Hacker News conversation rather than a fact about
    needs. The asset is **not** a population of unmet needs awaiting a builder. The
-   axis this item was drifting toward carries a measured problem: **the people who
-   state a need are not the people who build it.** That is a floor on disclosure
-   rather than on building (CI to 0.138), not a claim that nobody builds what they
-   ask for.
+   axis this item was drifting toward carries a measured problem — and the sentence
+   this item carried for it has since been **measured and corrected** (F045, D057,
+   `EXPERIMENTS/025-need-staters-builderhood/`). It read *"the people who state a
+   need are not the people who build it"*, which is **false as an absolute**:
+   **278 of the 1250 need-staters (22.2%, CI [0.200, 0.246]) have publicly shipped
+   something on Hacker News**, against **139 of 500 (27.8%, CI [0.241, 0.319])**
+   ordinary commenters in the *same stories* — ratio **0.80×**, intervals
+   overlapping. So they are a fifth builders, they build **less** than their
+   neighbours, and the rate at which they build **what they asked for** is
+   unchanged at a 0-of-24 floor. **Item 0d's closure of this corpus is now
+   measured rather than assumed.**
 
    **A second result is about the instrument that drew the corpus** (gate A2
    fired as declared before the first fetch): **carrying a trigger phrase does
@@ -154,8 +153,11 @@ prior art, usefulness and adoption untouched, and every item says which.
    against. **F043 removes the last prop under that sentence:** the "served"
    figure that made it read as a demand-side discovery is the base rate of
    ordinary comments in the same threads, and what is left is the two cells that
-   were measured properly. **Do not promote anything from this corpus.** E2's
-   lockfile claim is the only live mechanism here: `EXPERIMENTS/009` side B,
+   were measured properly. **F045 then removed the last remaining reason to think
+   this corpus hid builders:** 22.2% of its authors have publicly shipped
+   something, so they are a fifth builders — they simply build **other things**,
+   and less often than their neighbours do. **Do not promote anything from this
+   corpus.** E2's lockfile claim is the only live mechanism here: `EXPERIMENTS/009` side B,
    **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
    where invention work goes; it does not make invention happen, and with every
    generator closed it names an empty seat rather than a queue.

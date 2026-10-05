@@ -12,7 +12,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D053–D054**. Split from
+Decisions **D053–D054, D057**. Split from
 [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) by invariant, not by date:
 what a screen must have measured before its silence can mean anything.
 
@@ -148,3 +148,57 @@ Ceiling: one self-selected community, a corpus harvested by phrase rather than
 sampled from needs, one observation window on 2026-10-05, and 40 labels from one
 reader with no second coder — so the served interval is a sampling interval over a
 single judgement, not over a population of judgements.
+
+## D057 — An absence declared by an instrument is a candidate for measurement, not a finding, until the specific missing channel is read (2026-10-05)
+
+**Context.** D056 recorded F042's 0-of-24 build arm as a *floor on disclosure*
+rather than an estimate of building, because it could only see a builder announce
+themselves on Hacker News. That caveat was correct and it was not acted on:
+[`STATE-next-actions.md`](STATE-next-actions.md) item 0 nonetheless carried the
+number as *"the people who state a need are not the people who build it"*, and
+item 0d used it to close the corpus. **A caveat on an instrument had been promoted
+into a fact about people** — the one move D055 exists to prevent, in the opposite
+direction.
+
+**Decision.** When a record's load-bearing statement is *justified by an absence in
+the instrument that produced it*, the missing channel is measured before the
+statement is repeated in a summary, a next-action item, or a closure. The cost is
+one instrument and one control arm; the alternative is that every downstream
+reader inherits a caveat nobody re-reads.
+
+Applied to itself: E025 read the `show_hn` tag for **1750 authors — 1250 need
+authors and 500 control commenters from the need arm's own stories — with zero
+refusals** and a verified instrument (6 of 6 controls, nonsense 0). The result
+(F045) **fails the hypothesis and confirms the closure**: need-staters announce at
+**0.2224** against **0.2780** for their neighbours, ratio **0.80×**, intervals
+overlapping. So the disclosure-floor reading was not the escape it looked like, and
+item 0d's closure is now *measured* rather than *assumed*.
+
+**The number that changed a belief.** 22.2% of the people who publicly stated a
+need have publicly shipped something. *"Need-staters are not builders"* is **false
+as an absolute**. What the evidence supports is weaker and relative: they build
+less than their neighbours, and the rate at which they build **what they asked
+for** is unchanged at a 0-of-24 floor. A mission record that had generalized the
+zero now carries the correct weaker sentence, and a summary that had inherited it
+is corrected at the source.
+
+**Rejected:** (a) treating the 22.2% as a supply of builders the corpus had been
+hiding — a builderhood rate is not a need, and F029's 0 of 50 and F039's population
+reading are untouched by it; (b) reporting the ratio as a difference, since the
+intervals overlap and 500 control authors resolve a 2× ratio only to about ±0.035;
+(c) correcting the control set silently, which is what nearly produced a **false
+positive**: two of Gate A1's four original controls were never positive controls,
+and reading "4 of 4" as a pass would have certified the finding. The correction is
+in `PROTOCOL.md` with the two zeros kept in the capture, and a test asserts they
+stay empty.
+
+**Consequence.** A caveat written to protect a number becomes a task, not a
+footnote. It also means the instrument's own limits are the first thing to test
+rather than the last — the `show_hn` tag has the same disclosure floor as the arm
+it replaced, and saying so up front is what kept it from being read as a lift.
+
+**Ceiling.** The floor here is **inherited, not lifted**: an unannounced build is
+invisible in both arms. Within the control arm the tag tracks overall HN activity
+hard (median 2416 items for builders against 467 for non-builders), so the control
+arm's exposure is shared with the need arm but not equal to it. Arms are not
+matched on tenure. The finding is about people in one community on one platform.

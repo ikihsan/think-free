@@ -34,7 +34,8 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-15.md`](FAILURES-findings-15.md) (F039, F040) and
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
 [`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
-[`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044), split because
+[`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044) and
+[`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -87,6 +88,7 @@ side per the rule in
 | F042 | A repair walk that printed "no new ancestors" 29 times resolved 0 of 434 unreadable comments and exited 0; it never advanced the node, so no chain longer than one hop could close |
 | F043 | E022's 38.5% served figure is the ordinary base rate of a Hacker News conversation (0.368 in the same threads), so the trigger vocabulary is invisible to what happens to a need after it is stated |
 | F044 | "Twelve candidates, twelve prior-art deaths" is a plurality with a one-row margin (10 of 18 = 0.556) over a population of 20, and 7 of the 18 died of something else — a falsified mechanism, a claim no observation could establish, or a supported mechanism that died of being supported |
+| F045 | 22.2% of the 1250 people who publicly stated a need have publicly shipped something, against 27.8% for ordinary commenters in the same stories — so "need-staters are not builders" is false as an absolute, true only comparatively, and E022's disclosure floor is a measurement rather than an excuse |
 
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader
@@ -106,6 +108,19 @@ killed *by*. Its binding limit is **one reader, no second coder**, the same defe
 E023 fixed with κ = 0.923, and at a one-row margin the second reader is the
 measurement that would settle whether the record's sentence is a fact or a
 coin-flip.
+
+**F045's evidence lives at `EXPERIMENTS/025-need-staters-builderhood/`:**
+`PROTOCOL.md` declares the question, the two-world framing, all four gates and
+the control arm's stopping rule **before any figure existed** — including a
+correction entry written while `control_arm.jsonl` still did not exist, so the
+stopping rule could not have been tuned on the control rate.
+`test_gates_falsified.py` holds 15 properties against fixtures built to break
+them, including **that the two failed Gate A1 controls stay recorded as
+empty**. It **confirms item 0d's closure rather than withdrawing it**, and
+bounds F042's third cell without repairing it. Its binding limit is inherited
+rather than lifted: the `show_hn` tag is set by HN, so **an unannounced build is
+invisible in both arms**, and within the control arm the tag tracks overall HN
+activity hard (median 2416 items for builders against 467 for non-builders).
 
 **F042's evidence lives at `EXPERIMENTS/022-need-outcomes/`,** and the defect
 itself is in `need_depth_walk.py`. The reported result did not move across the

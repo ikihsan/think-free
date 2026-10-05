@@ -39,7 +39,8 @@ repository's own instruments, and the first that answers a question about *peopl
 | **answered** (≥1 reply) | **812 / 1401 = 0.580**, CI95 [0.554, 0.605] |
 | **served** — a reply names an artifact serving the clause | **15 / 39 = 0.385** — **withdrawn as a demand-side figure, F043** |
 | **the same arm against a control** | **14 / 38 = 0.368**, CI95 [0.234, 0.527], ordinary comments in the same stories |
-| **built by the requester** | **0 / 24**, CI95 [0.0, 0.138] — 6 candidates, all hand-checked, none related |
+| **built by the requester** | **0 / 24**, CI95 [0.0, 0.138] — 6 candidates, all hand-checked, none related. **Read as a disclosure floor, then measured: 278/1250 = 0.222 of these authors have publicly shipped something (F045)** |
+| **of which have shipped anything at all, vs a control** | **0.2224** CI95 [0.2002, 0.2463] against **0.2780** CI95 [0.2405, 0.3188] for ordinary commenters in the same stories — ratio **0.80×**, intervals overlap (F045, D057) |
 
 **The withdrawal, in one paragraph.** `served` had no control; E022's C1 and C2
 both measure `answered`, and its own protocol says "`answered` is not `served`".
@@ -52,6 +53,18 @@ the cause: two readers labelled the identical 39 rows at κ = 0.9226.** So the
 description of needs. What is left of E022 is the two cells that were measured
 properly, and the sentence they support is the weaker one: the corpus records
 needs the world **absorbed in conversation**.
+
+**The build arm's own ceiling has now been measured (F045, D057).** `0 of 24` was
+declared a floor on disclosure, and `STATE-next-actions.md` item 0 then carried it
+as *"the people who state a need are not the people who build it"* — the one thing
+the floor cannot say. Reading the missing channel over 1750 authors with zero
+refusals: **22.2% of the 1250 have publicly shipped something on HN**, against
+**27.8%** of control commenters from the need arm's own stories. So the corpus
+**does** contain builders, in a fifth of its members, who build **less** than their
+neighbours — and item 0d's closure is **confirmed by measurement rather than
+withdrawn by caveat.** The rate at which they build *what they asked for* is
+unchanged. Evidence: `EXPERIMENTS/025-need-staters-builderhood/`. D057 generalises
+the lesson: an absence declared by an instrument is a candidate for measurement.
 
 **Gate A2 fired as declared, before the first fetch.** The within-thread lift is
 **0.703** (Mantel-Haenszel, CI95 [0.176, 2.814]) against a declared floor of 1.0:

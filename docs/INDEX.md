@@ -197,6 +197,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/024-kill-reason-causes/CONTROL.md`](../EXPERIMENTS/024-kill-reason-causes/CONTROL.md) | `docs/INDEX.md` | active | 2026-10-05 | observed 2026-10-05, T-0068. Run before any row of the treatment |
 | [`EXPERIMENTS/024-kill-reason-causes/PROTOCOL.md`](../EXPERIMENTS/024-kill-reason-causes/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Date declared: 2026-10-05, before any row of the candidate inventory was |
 | [`EXPERIMENTS/024-kill-reason-causes/README.md`](../EXPERIMENTS/024-kill-reason-causes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. T-0068. The declaration was written before any row was |
+| [`EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md`](../EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before the first author is fetched. Task T-0069. |
+| [`EXPERIMENTS/025-need-staters-builderhood/README.md`](../EXPERIMENTS/025-need-staters-builderhood/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0069. Protocol written before the first fetch: |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

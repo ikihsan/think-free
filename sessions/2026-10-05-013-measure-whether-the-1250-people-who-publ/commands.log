@@ -1,0 +1,191 @@
+==============================================================================
+[seq 3] 2026-10-05T15:14:05+00:00
+$ python3 EXPERIMENTS/025-need-staters-builderhood/fetch_control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+resolved 668 distinct control authors
+  control probed 100
+  control probed 200
+  control probed 300
+  control probed 400
+  control probed 500
+control arm complete: 500 probed (stop rule: 500)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 971294  redactions: none
+==============================================================================
+[seq 4] 2026-10-05T15:14:34+00:00
+$ python3 EXPERIMENTS/025-need-staters-builderhood/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms": {
+  "control": {
+   "arm": "control",
+   "authors_fetched_ok": 500,
+   "authors_refused": 0,
+   "authors_with_at_least_one_show_hn": 139,
+   "ci95_high": 0.318849,
+   "ci95_low": 0.240536,
+   "raw_rate": 0.278,
+   "refused_authors": []
+  },
+  "need": {
+   "arm": "need",
+   "authors_fetched_ok": 1250,
+   "authors_refused": 0,
+   "authors_with_at_least_one_show_hn": 278,
+   "ci95_high": 0.246285,
+   "ci95_low": 0.200216,
+   "raw_rate": 0.2224,
+   "refused_authors": []
+  }
+ },
+ "computed_by": "stats.py from raw/*.jsonl",
+ "confounder_not_corrected": {
+  "description": "HN assigns show_hn to people who post; heavy posters are selected into it. Both arms are exposed identically, which is why the control arm is drawn from the same stories rather than from HN at large.",
+  "footprint_sample": {
+   "control": {
+    "authors_with_a_footprint_sample": 40,
+    "median_total_items_builders": 3288,
+    "median_total_items_non_builders": 488
+   }
+  }
+ },
+ "experiment": "025-need-staters-builderhood",
+ "gates": {
+  "gate_a1": {
+   "detail": [
+    {
+     "author": "olalonde",
+     "group": "verified_positive",
+     "nb_show_hn": 11
+    },
+    {
+     "author": "keepamovin",
+     "group": "verified_positive",
+     "nb_show_hn": 152
+    },
+    {
+     "author": "byran",
+     "group": "verified_positive",
+     "nb_show_hn": 3
+    },
+    {
+     "author": "jart",
+     "group": "verified_positive",
+     "nb_show_hn": 10
+    },
+    {
+     "author": "mikemcquaid",
+     "group": "verified_positive",
+     "nb_show_hn": 1
+    },
+    {
+     "author": "erohead",
+     "group": "verified_positive",
+     "nb_show_hn": 6
+    },
+    {
+     "author": "pg",
+     "group": "original_believed_positive",
+     "nb_show_hn": 1,
+     "note": "kept with its 0; see the Gate A1 correction in PROTOCOL.md"
+    },
+    {
+     "author": "patio11",
+     "group": "original_believed_positive",
+     "nb_show_hn": 0,
+     "note": "kept with its 0; see the Gate A1 correction in PROTOCOL.md"
+    },
+    {
+     "author": "chromium",
+     "group": "original_believed_positive",
+     "nb_show_hn": 0,
+     "note": "kept with its 0; see the Gate A1 correction in PROTOCOL.md"
+    },
+    {
+     "author": "antirez",
+     "group": "original_believed_positive",
+     "nb_show_hn": 2,
+     "note": "kept with its 0; see the Gate A1 correction in PROTOCOL.md"
+    },
+    {
+     "author": "zzqqxxnonsensecontrol",
+     "group": "nonsense",
+     "nb_show_hn": 0
+    }
+   ],
+   "met": true,
+   "nonsense_value": 0,
+   "original_believed_positive_controls": [
+    "pg",
+    "patio11",
+    "chromium",
+    "antirez"
+   ],
+   "question": "is the show_hn tag recoverable: 6 of 6 verified positives, and 0 for a nonsense account",
+   "recovered": 6,
+   "threshold": ">= 6 of 6 verified positives, and nonsense == 0",
+   "verified_positive_control_members": [
+    "olalonde",
+    "keepamovin",
+    "byran",
+    "jart",
+    "mikemcquaid",
+    "erohead"
+   ]
+  },
+  "gate_a2": {
+   "intervals_overlap": true,
+   "met": false,
+   "question": "is the need arm's show_hn rate at least 2x the control arm's, with non-overlapping Wilson intervals",
+   "ratio": 0.8,
+   "reading": "H1 survives: need-staters announce at an ordinary-or-higher rate, so the corpus is not closed by the disclosure floor E022 declared.",
+   "threshold": ">= 2x ratio AND intervals do not overlap"
+  },
+  "gate_b1": {
+   "met": true,
+   "question": "do the two arms' intervals overlap",
+   "reading": "H1 fails: the need arm is not distinguishable from ordinary commenters in the same stories.",
+   "threshold": "overlapping intervals kill H1 and confirm W1"
+  },
+  "gate_c1": {
+   "met": false,
+   "need_arm_raw_rate": 0.2224,
+   "question": "is the need arm's raw rate below 5%, which makes 'who builds' not evaluable and leaves only the null",
+   "threshold": "< 0.05 -> not_evaluated for who builds"
+  }
+ },
+ "instrument": {
+  "count_read": "nbHits",
+  "query": "tags=author_<name>,show_hn&hitsPerPage=1",
+  "source": "Hacker News Algolia index, https://hn.algolia.com/api/v1/search",
+  "what_it_is": "a floor on public disclosure of having shipped something on HN",
+  "what_it_is_not": "a rate of building. It cannot see a build that was never announced, and it says nothing about whether what was built was good, used, or related to the stated need."
+ },
+ "limits": [
+  "The show_hn tag is set by HN, not by the author. Any positive reading is a lower bound on disclosure, and E022's arm had the same floor, so this does not measure what E022 could not.",
+  "One platform and one announcement channel. A builder who ships without announcing on HN is invisible here, in both arms.",
+  "The arms differ in when their members were active: the need corpus spans 2024-01-01 onward, the control comments are drawn from the same stories in the same window, so the window is shared but the population is not matched on tenure.",
+  "This measures whether need-staters and ordinary commenters differ in announcing. It does not measure whether any candidate exists, and it reopens no prior-art death.",
+  "Gate A1's original control set was wrong (two of four were not positive controls at all). The correction is recorded in PROTOCOL.md and README.md; the instrument recovered the tag correctly throughout."
+ ],
+ "observed_utc": "2026-10-05",
+ "schema": "origin.need-staters-builderhood/1",
+ "verdict": "h1_fails"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 121  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T15:29:48+00:00
+$ python3 -m unittest discover -s EXPERIMENTS/025-need-staters-builderhood -p test_*.py -t EXPERIMENTS/025-need-staters-builderhood
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.004s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 689  redactions: none
