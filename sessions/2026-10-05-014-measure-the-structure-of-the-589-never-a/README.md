@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 16:02:10 | session_start | Measure the structure of the 589 never-answered need statements (the corpus's last open reading) |
+| 2 | 16:02:17 | task_rewrite | appended a create record for T-0070 |
+| 3 | 16:02:32 | task_rewrite | appended a create record for T-0071 |
 
 ## Reproduce this record
 
