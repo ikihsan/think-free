@@ -153,3 +153,35 @@ none of them is advice.
   as a refusal, not a capture** — eight such files were written before E028's
   own tests caught it, and a later reader reads an empty file as "the
   documentation says nothing" rather than "we did not get it."
+
+- **A judgement over text is evidence only if it can be tied to the bytes it was
+  read from** (D061, F049). E029's run produced a label file with **222 correct row
+  ids and a wrong row-to-pair mapping**: a reader noticed the view being regenerated
+  beneath it, discarded its own pass, re-labelled correctly, and then emitted rows in
+  the *previous* view's order. A second reader returned four duplicated and four
+  missing ids. Both passed an id-**set** check. Three requirements follow, and none
+  is optional: **hash the input and record the digest beside the result; check row ids
+  by order, not by set; and verify with a command, not with the reader's own account
+  of what it did.** The first part of that report — the digest — was the only part
+  that mattered.
+- **A high agreement rate against an unestablished reference is indistinguishable
+  from success** (F049, D061). Seeing one positional mismatch in that same file, I
+  concluded it was mis-keyed and wrote a repair that re-keyed it against the wrong
+  reference. It reported **221 of 222 agreeing** and overwrote a correct ordering with
+  a false one; the script is deleted. A repair must establish its reference *before*
+  measuring agreement against it, which is the mirror of F019's shape: a check whose
+  subject was never established.
+- **A test's population is part of the property it checks** (F049). The defect that
+  emptied 45 of 74 control rows was invisible to a test written over the treatment
+  arm only, and invisible to any test over "the view" that did not ask whether each
+  row's *pairing* differed. The control's defining property is that its pairings
+  differ from the treatment's, so the test must be over the pairs. It now also holds
+  the two arms' lexical statistics to being different — the reading that exposed the
+  control as a **relabelled replicate of the treatment arm** (74 self-pairs, 0
+  cross-pairs), which is the most expensive kind of mistake to make because it looks
+  like a result.
+- **An arm that feeds no gate is worth its cost for what it catches.** E029's
+  lexical arm exists only as a sanity reading, because E028 measured lexical coverage
+  as `informative: false`. It printed byte-identical means for two arms that were
+  supposed to differ, and that was the only signal that the control was the treatment
+  arm renamed.

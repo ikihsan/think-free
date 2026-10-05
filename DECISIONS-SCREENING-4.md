@@ -12,7 +12,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D059, D060**. Split from
+Decisions **D059, D060, D061**. Split from
 [`DECISIONS-SCREENING-3.md`](DECISIONS-SCREENING-3.md) at the 300-line cap: the
 invariant that moved is *what a verdict's own evidence must be*, which is what
 D050, D059 and D060 share and what the other entries in part 3 are about. A
@@ -108,3 +108,44 @@ fit* — E028's rubric records a documentation's **silence** as evidence of no
 documented fit, and a product that does the thing without saying so is
 invisible in both directions. Distinguishing those two needs a different
 instrument again, and naming it is what E028 leaves open.
+## D061 — A reader's labels are admissible only if they can be tied to the exact
+## bytes the reader saw (2026-10-05)
+
+**Decision.** A judgement made by a model over rows of text is evidence only when
+the artefact it was made from is *frozen and identified*, and only when the
+labelling is checked mechanically against that artefact rather than by the reader's
+own account of what it did. Concretely, three requirements:
+
+1. **The input is identified, not described.** The view is hashed and the digest
+   recorded beside the result. Reader r1's report carried the digest; that is the
+   part of its report that mattered.
+2. **Row ids are checked by order, not by set.** An id *set* can be complete while
+   the id-to-pair mapping is wrong, and nothing downstream can tell.
+3. **The verification is a command, not a self-check.** A reader that has drifted
+   cannot notice by looking harder.
+
+**Why now.** E029 produced a label file with **222 correct row ids and a wrong
+row-to-pair mapping**: a reader detected the view being regenerated beneath it,
+discarded its own pass, re-labelled correctly, and then emitted rows in the
+*previous* view's order. A second reader returned four duplicated and four missing
+ids. Both passed an id-set check. The defence D059 requires — that a verdict rest
+on evidence of the property it claims — is meaningless if the evidence cannot be
+tied to the bytes it was read from.
+
+**The part that is about me.** I saw one positional mismatch, concluded the file was
+mis-keyed, and wrote a repair that re-keyed it against the wrong reference. It
+reported **221 of 222 agreeing** and overwrote a correct ordering with a false one.
+The script is deleted. *A high agreement rate against an unestablished reference is
+indistinguishable from success*, so a repair must establish its reference before
+measuring agreement against it.
+
+**Consequence.** E029's reader arm is `not_evaluated`, refused twice: κ = 0.5004
+against a floor of 0.6, and the declared negative control's separation 0.0405 against
+0.20. Three reader passes produced no usable comparison. The demand-corpus closure
+stands, confirmed on an instrument 10× larger than E022's rather than refuted.
+
+**Ceiling.** This governs how a judgement is *bound to its input*. It does not make
+any reader better: κ = 0.5004 is a real disagreement between two passes of one model
+family, and no amount of provenance tracking moves it. E029 also shows the cheap
+half of the defence — a test over the population — catching two of three defects
+before the data were read, which is the part worth copying.

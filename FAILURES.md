@@ -35,7 +35,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
 [`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
 [`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044) and
-[`FAILURES-findings-20.md`](FAILURES-findings-20.md) (F048) and
+[`FAILURES-findings-20.md`](FAILURES-findings-20.md) (F048, F049) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
@@ -93,6 +93,7 @@ side per the rule in
 | F046 | The 589 unanswered needs in the E022 corpus are diffuse in length (55 vs 58 words) and trigger (χ² p ≈ 0.06); B2 fired on two phrases pooling 9 rows, so its hint does not carry a decision — the corpus's last open reading is closed with no hidden structure |
 | F047 | 31 of F029's 50 verdicts were assigned from a regex-extracted clause rather than a comment, and 6 of its 15 `vague` kills state a mechanism or an artifact in the text the screen never read; F029's 0-of-50 stands anyway because none of the 8 re-opened rows is a candidate |
 | F048 | a prior-art verdict justified by install counts is not evidence of fit: the row with the strongest evidence of use in the record (`sharp`, 437M downloads/month) has documentation that establishes nothing about its clause's attribute, and the instrument built to test fit is refused by its own declared positive control — `not_evaluated`, with the ten sealed-report rows unrun |
+| F049 | 167 of the 241 need-staters with a public `Show HN` item shipped it **before** they stated the need, so 69% of the population was never askable and the corpus is substantially people who had already built something; the reader arm that would have quantified the rest returned `not_evaluated` on two counts (κ = 0.5004, C1 separation 0.0405) after three defects in its own instrument, and bounds the need-to-build link at CI95 [−0.0156, +0.1125] — consistent with zero, so F042's 0-of-24 is confirmed on a 10× larger instrument rather than refuted |
 
 **F048's evidence lives at `EXPERIMENTS/028-incumbent-fit/`:**
 `PROTOCOL.md` declares the population, the category/attribute distinction, four

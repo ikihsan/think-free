@@ -30,7 +30,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 |---|---|
 | Workspace | Git repository on `research/origin`, synced with origin. Two VMs in play: opencode on `instance-20260717-0944` (sessions 024–026, 030, 037–040, T-0012, T-0013, T-0017, T-0021–T-0023, T-0029, T-0040) and on `instance-20260717-0947` (sessions 020–023, 027–029, 031–038, T-0011, T-0014–T-0016, T-0018–T-0020, T-0024–T-0028, T-0042–T-0045) |
 | Investigations | A, B, C, D, E, F all sealed; cross-report screen in `RESEARCH/SYNTHESIS.md` (T-0012); knitting prior-art check in `RESEARCH/PRIOR-ART-KNITTING.md` (T-0015) |
-| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021); `012-candidate-harvest` complete (0 of 50 needs survive the screens, F029, D049); ``014-repository-signal-filter` complete (E012's strongest cluster collapses ~200× under the filter it was promised, F033); `015-incumbent-serving` complete (**gate inconclusive**; the premise behind "prior art exists" is now measured directly and **holds in mature vocabularies, fails in young ones** — 4/4 versus 1/4, F034); `016-prior-art-adjudication` complete (both arms met — 6 of 6 positive controls recovered, and 3 of 12 adjudicable judgement kills have no prior art on three corpora, F035; two web instruments refused or answered wrongly first, F036); `017-incumbent-artifact-type` complete (F037); `018-runtime-signal-selection` complete (lead 7's mechanism answered — a stock-SDK feature gap, not a candidate, F038); `019-corpus-person-diversity` complete (F039); `020-copied-config-drift` complete (**gate inconclusive**, copying instructed 687× and duplicated 4.7% of content, F040); `021-copied-artifact-serving` complete (the copy channel is 0.118× the install channel, so the screen's young-vocabulary failure is the world, F041); `022-need-outcomes` complete (gate A1 met at 100% readable, **gate A2 fires at lift 0.703** against a declared floor of 1.0; 58.0% of 1401 stated needs were answered, **0/24 built by the requester**, F042); `023-served-baseline` complete (**the `served` cell now has the control it never had** — 15/38 = 0.395 for need statements against **14/38 = 0.368** for ordinary comments in the same threads, intervals overlapping; two readers on the identical 39 rows agree at **κ = 0.923**, so F042's third number is withdrawn as a demand-side figure, F043, D055); `025-need-staters-builderhood` complete (F042's 0/24 build arm was a *disclosure floor*, so the missing channel was read: **278 of 1250 need-staters = 0.222 have publicly shipped something** against **139 of 500 = 0.278** ordinary commenters in the same stories, ratio 0.80×, intervals overlapping — need-staters are a fifth builders and build *less* than their neighbours, which **confirms** item 0d's closure rather than withdrawing it, F045, D057) |
+| Experiments | `000-capabilities` complete; `001-photo-baseline` complete with its kill gate met; `002-a1-masking` gate met with caveats; `003-information-sufficiency` complete (W1/W3 survive, W2 spec insufficient); `004-knitting-stage-a` complete (local planner valid 9/9, suboptimal on 1 shared-release case, verdict narrow-not-abandon); `005-knitting-bounded-search` complete (whole-neighbourhood search exact 115/115 against the same oracle, per-error 85/115, cheaper settings not exact, verdict narrow); `006-ventilation-measurement-design` complete (kill gate **not met**, C2 stopped, F008); `007-build-timestamps` complete (E3's declared 5% gate met at 0.965, but the metric measures DOS-epoch pinning, not reproducibility — F010); `008-build-timestamp-attribution` complete (398 of 398 differing bytes are timestamp fields, `SOURCE_DATE_EPOCH` gives bit-identical builds — mechanism supported, candidate abandoned, F012); `010-annotation-rendering` complete (GitHub files a check-run annotation on the workflow command's `file=`, `observed` on run `37191658964`; the run the record had quoted for that never reached the annotator, F021); `012-candidate-harvest` complete (0 of 50 needs survive the screens, F029, D049); ``014-repository-signal-filter` complete (E012's strongest cluster collapses ~200× under the filter it was promised, F033); `015-incumbent-serving` complete (**gate inconclusive**; the premise behind "prior art exists" is now measured directly and **holds in mature vocabularies, fails in young ones** — 4/4 versus 1/4, F034); `016-prior-art-adjudication` complete (both arms met — 6 of 6 positive controls recovered, and 3 of 12 adjudicable judgement kills have no prior art on three corpora, F035; two web instruments refused or answered wrongly first, F036); `017-incumbent-artifact-type` complete (F037); `018-runtime-signal-selection` complete (lead 7's mechanism answered — a stock-SDK feature gap, not a candidate, F038); `019-corpus-person-diversity` complete (F039); `020-copied-config-drift` complete (**gate inconclusive**, copying instructed 687× and duplicated 4.7% of content, F040); `021-copied-artifact-serving` complete (the copy channel is 0.118× the install channel, so the screen's young-vocabulary failure is the world, F041); `022-need-outcomes` complete (gate A1 met at 100% readable, **gate A2 fires at lift 0.703** against a declared floor of 1.0; 58.0% of 1401 stated needs were answered, **0/24 built by the requester**, F042); `023-served-baseline` complete (**the `served` cell now has the control it never had** — 15/38 = 0.395 for need statements against **14/38 = 0.368** for ordinary comments in the same threads, intervals overlapping; two readers on the identical 39 rows agree at **κ = 0.923**, so F042's third number is withdrawn as a demand-side figure, F043, D055); `025-need-staters-builderhood` complete (F042's 0/24 build arm was a *disclosure floor*, so the missing channel was read: **278 of 1250 need-staters = 0.222 have publicly shipped something** against **139 of 500 = 0.278** ordinary commenters in the same stories, ratio 0.80×, intervals overlapping — need-staters are a fifth builders and build *less* than their neighbours, which **confirms** item 0d's closure rather than withdrawing it, F045, D057); `029-need-build-match` complete (**167 of 241 shipped *before* the need, so 69% of the population was never askable**; the reader arm is `not_evaluated` on κ = 0.5004 and a control separation of 0.0405 against a required 0.20, and the need-to-build link is bounded at CI95 [−0.0156, +0.1125] — consistent with zero, so F042's 0-of-24 is confirmed on a 10× larger instrument, F049, D061) |
 | Disproved | F001 photo-auditor motivating example; F002 E001 parser failure (implementation, not hypothesis); F003 and F004, both defects in this session's own record-keeping; F005 local-only claims; F006 DD advantage does not transfer to fieldwork cost; F007 knitting planner input set information-insufficient; F008 adaptive ventilation selection loses to a prescribed intervention; F009 the knitting planner's algorithmic advantage is prior art; F010 E3's declared timestamp gate is near-vacuous; F011 `sync land` broke on git >= 2.26, so every CI run failed; F012 E3's ordering claim holds and that is why there is nothing to build; F013 three mission records were committed with conflict markers and every gate passed; F016 a falsification harness overwrote a VM's real `~/.gitconfig`; F017 the clock-stamped generated dates the other VM recorded as D029; F018 the suite failed on every interpreter the record had never named, because a gate asserted a fact about the record instead of about the code; F019 the same class one function away, so every CI row was red because the runner's git 2.55.0 was not in the record and the log could not be read; F020 the public check-runs API does publish annotations, so a red run is diagnosable without admin rights — and the claim that it does not was generalised from one shape of failure to the case that needed it; F021 the annotator's rendering was declared `unmeasured` on a run whose annotating steps never ran, because a red `Tests` step silently skipped all five. F025 a red-run cause was made readable but never explained; F026 this mission's own tooling is prior art as a candidate; F027 every project in that niche has zero users; F028 the flat adoption tail is vocabulary age, not niche; F029 a live corpus of 1401 need statements yielded 0 of 50 candidates that survive the screens; F030 a prior-art verdict from one search query is wrong in both directions; F033 a repository count without a relevance filter overstates prevalence by ~200; F035 "a tool already serves this" is materially overstated as a cause of death and a third of what it can find lives in a corpus it never read; F036 a web capture can answer HTTP 200 with results unrelated to every query; F037 the screen's young-vocabulary population is real code, so the prior-art premise's failure is not a population artefact. Six candidate areas rejected in `RESEARCH/D.md` and `RESEARCH/B.md`. F039 the demand-side need corpus is 1250 individual requesters rather than a sample of shared needs, so its 0-of-50 measured the corpus and not the screens; F044 "twelve candidates, twelve prior-art deaths" is a plurality with a one-row margin over a population of 20, and 7 of the 18 died of something else; F045 the corpus's authors are a fifth builders (0.222 vs a 0.278 control) and build *less* than their neighbours, so "need-staters are not builders" is false as an absolute and the corpus closure is confirmed rather than withdrawn; F048 a prior-art verdict justified by install counts is not evidence of fit — the row with the strongest evidence of use in the record (437M downloads/month) has documentation establishing nothing about its clause; |
 | Experimental validation | **Three invention claims tested and disproved** (E001's motivating example, C2's measurement design, the knitting planner's algorithmic advantage), one declared gate shown not to be able to fail (F010), and one mechanism confirmed whose candidate died of the confirmation (F012). **The mission's own tooling was tested as a candidate for the first time and is prior art — mechanism six weeks old, process discipline independently reinvented (F026), and every project in the niche has zero users (F027).** **Two more candidate lines were opened and closed in one day**: this repository's own tooling as a byproduct candidate (F026) and a live need corpus as a generator (F029).  No candidate validated. Findings F001-F008 in `FAILURES-findings.md`, F009-F012 in `FAILURES-findings-2.md`, F013+ in `FAILURES-findings-3.md`, F022-F025 in `FAILURES-findings-5.md`, F026+ in `FAILURES-findings-6.md`, F029/F030/F031 in `FAILURES-findings-9.md`, `-10.md`, `-8.md`, F033 in `-11.md`, F034 in `-12.md`, F035/F036 in `-13.md`, F037/F038 in `-14.md`, F039 in `-15.md`, F041 in `-16.md`, F042/F043 in `-17.md`, F044 in `-18.md`, F045 in `-19.md`, F048 in `-20.md`. **The premise behind the dominant kill reason has now been measured five ways over**: coverage (F035), soundness (F034), population (F037), **what its evidence is evidence of (F048: use is not fit, so a download count cannot carry a kill)** — and **the premise itself, counted (F044: prior art is 10 of 18 = 0.556, a one-row margin, and the population is 20 rather than twelve)**. No candidate validated and no prior-art verdict falsified |
 
@@ -49,35 +49,35 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**F037's reconciliation for the supply question is withdrawn: the copies are
-adapted, not duplicated** (`EXPERIMENTS/020`, F040, T-0065) — the first line in
-five experiments about the world rather than about this repository's own
-instruments. **Copying is widely instructed (`cp -r .claude`, 687 Sourcegraph
-matches against a nonsense control of 0) and barely duplicated (92 of 1950
-distinct contents, 4.7%; no cross-author pair overlaps by half)**, so the install
-readings are not explained by an invisible channel. Drift is **`inconclusive`**,
-not zero: 0 attributable pairs exist in the measurable population, so the declared
-gate fires. Two instruments this session built were falsified and both retractions
-are held by a test — see [`STATE-constraints.md`](STATE-constraints.md).
+**F037's reconciliation for the supply question is withdrawn: the copies are adapted,
+not duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed
+(687 matches, nonsense control 0) and barely duplicated (4.7% of contents, no
+cross-author pair overlapping by half), so near-zero install readings are not an
+invisible channel. Drift is **`inconclusive`**, not zero: 0 attributable pairs exist.
+Reading in [`STATE-in-flight.md`](STATE-in-flight.md).
 
-**The number that narrowed item 0 had no control, and the control is now run**
+**F049 followed the 1250 forward through the channel F045 opened.** Of the 241
+need-staters with a public `Show HN` item, **167 shipped it before they stated the
+need** and only 74 after (`EXPERIMENTS/029`, T-0073), so the corpus is substantially
+**people who had already built something and then hit a gap they did not close** —
+which is what E045's 22.2% means read against *when*. The reader arm that would
+have quantified the rest is `not_evaluated` (κ = 0.5004; control separation 0.0405
+against a required 0.20), and bounds the need-to-build link at **[−0.0156, +0.1125]**,
+consistent with zero: F042's 0-of-24 is confirmed on a 10× larger instrument, not
+refuted. **The number that narrowed item 0 had no control, and the control is now run**
 (`EXPERIMENTS/023`, F043, D055, T-0067): E022's hand-labelled **15/39 = 0.385**
 "served" rate is **0.368** for ordinary comments in the *same stories*, drawn
 from answered comments so both arms share the "a reply exists" condition. The
 difference is 0.026 and the Wilson intervals overlap across nearly their whole
 width. **The rubric is not the cause** — this reader and E022's labelled the
-identical 39 rows at **κ = 0.923**, which turns E022's "one reader, no second
-coder" caveat into a measured magnitude. **What is withdrawn is the inference,
-not the measurement:** a reply naming an artifact is not distinguishable from
-what an ordinary comment receives, so 0.385 was a description of Hacker News
-read as a description of needs. **E022's other two numbers stand** — 58.0%
-answered, and 0 of 24 unserved requesters who built it themselves. **The second
-was a disclosure floor, and E025 has now read the missing channel: 22.2% of the
-1250 have publicly shipped something** (F045), so they are a fifth builders who
-build less than their neighbours. **The transferable bound:** a trigger vocabulary
-finds people who state needs and is invisible to what happens to those needs
-afterwards (lift 0.703 on answered, +0.026 on served), which bounds every outcome
-read from a trigger-harvested corpus, E022's included.
+identical 39 rows at **κ = 0.923**. **What is withdrawn is the inference, not the
+measurement:** a reply naming an artifact is not distinguishable from what an
+ordinary comment receives. **E022's other two numbers stand** — 58.0% answered, and 0
+of 24 unserved requesters who built it themselves, the second a disclosure floor that
+F045 read. **The transferable bound:** a trigger vocabulary finds people who state
+needs and is invisible to what happens to those needs afterwards (lift 0.703 on
+answered, +0.026 on served), which bounds every outcome read from a trigger-harvested
+corpus, E022's and E029's included.
 
 **The candidate generator was refuted and its strongest cluster with it**
 (`EXPERIMENTS/012`, `EXPERIMENTS/014`, D049, F029, F033): 1401 harvested need
@@ -135,32 +135,34 @@ rebase records nothing and its paths are then attributed to whoever holds the tr
   been shown to meet it.** Evidence in
   [`EXPERIMENTS/028-incumbent-fit`](EXPERIMENTS/028-incumbent-fit/README.md).
 
-**Five earlier per-session highlights left this file on 2026-10-05** at the line
-cap, and as every time before the repair moved material to the file whose
-invariant owns it. They are **session 053** (T-0063, F039, D051: 1250 distinct
-authors), **sessions 008 and 010** (T-0066/T-0068, F042/F043/F044: the outcomes
-of the 1401 stated needs, and the kill reasons), **session 009** (T-0067, F043,
-D055: a control arm and a second reader for the `served` figure) and **session
-015** (T-0071, F047, D059: the screen read against its own extract — **6 of its 15
-`vague` kills are not vague**, and F029's 0-of-50 stands anyway). Their readings
-are in [`STATE-in-flight.md`](STATE-in-flight.md) and
-[`STATE-in-flight-2.md`](STATE-in-flight-2.md), so the highlights were duplicate
-summaries rather than evidence. Per-session detail is in
-[`STATE-history.md`](STATE-history.md). The open readings are
-enumerated in [`STATE-in-flight.md`](STATE-in-flight.md), so they can grow
-without pressing this file against the cap. **Six are closed:** F041's third axis
-(the copy channel is 0.118x the install channel), F035's coverage measurement
-(3 of 12 adjudicable kills have no prior art on any of three corpora), F039 and
-F029's refutation of the corpus as a generator, **F042's** — the outcomes of
-those 1401 statements, measured — **F043's** missing control on the one cell of
-that measurement that carried a conclusion, and now **F047's**, the re-read of
-the screen that made the call.
+- **Session 019, VM 0944 (T-0073, F049, D061). The one demand-side population joined
+  to itself: do the need-staters who shipped something ship *what they asked for*?**
+  **Of the 241 eligible, 167 shipped *before* they stated the need and only 74 after**
+  — a build cannot answer a need stated later, so 69% of the population was never
+  askable and the first design would have manufactured its own null. The corpus is
+  substantially **people who had already built something and then hit a gap they did
+  not close**, which is what E045's 22.2% means read against *when*. The reader arm is
+  **`not_evaluated` twice over**: κ = 0.5004 against a floor of 0.6, and the declared
+  control's separation 0.0405 against 0.20. **F042's 0-of-24 is confirmed on an
+  instrument 10× larger, not refuted** — the link is bounded at CI95 [−0.0156, +0.1125],
+  consistent with zero. Three defects in this run's own instrument, none found by a
+  result: 45 control rows rendered an empty SHIPPED section; **the control was the
+  treatment arm renamed**, caught by an arm that feeds no gate printing byte-identical
+  lexical means; and a label file with 222 correct ids and a wrong row-to-pair mapping,
+  **which my own repair script then made worse** at a reassuring 221/222. Evidence in
+  [`EXPERIMENTS/029-need-build-match`](EXPERIMENTS/029-need-build-match/README.md).
 
-Full detail per session is in [`STATE-history.md`](STATE-history.md) and
-[`STATE-history-2.md`](STATE-history-2.md). That cap has now been hit by this
-file eight times, and each repair moved material to the file whose invariant owns
-it.
-
+**Earlier per-session highlights moved out of this file** at the 300-line cap: session
+017 (T-0072, F048, D059/D060 — **use is not fit**; `sharp` at 437M downloads/month has
+documentation establishing nothing about its clause, the declared positive control
+failed, and **no prior-art verdict here has been shown to rest on evidence of fit**),
+session 053 (F039: 1250 distinct authors), sessions 008/010 (F042/F043/F044), session
+009 (F043, D055) and session 015 (F047: **6 of 15 `vague` kills are not vague**).
+**Six readings are closed** (F041's third axis, F035's coverage, F039, F029's
+refutation, F042's, F043's missing control, F047's re-read). Readings live in
+[`STATE-in-flight.md`](STATE-in-flight.md) and
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md); per-session detail in
+[`STATE-history.md`](STATE-history.md). That cap has been hit eight times.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -177,8 +179,8 @@ infrastructure track in [`ROADMAP.md`](ROADMAP.md).
 3. `tools/origin preflight` — do the tooling and the documents still agree?
 4. `git status` and `git log --oneline -5` before editing. Preserve anything
    unexpected; another agent or an earlier session may own it.
-5. Read the raw evidence for the next experiment, not a summary of it.
-6. Continue the highest-information experiment, and update this file with it.
+5. Read the raw evidence for the next experiment, not a summary of it, and continue
+   the highest-information one.
 
 ## Next actions
 
@@ -198,31 +200,28 @@ young arm is **14 of 18 executable code**, not prose. F040 measures
 **distribution**: that supply is lightly used rather than invisibly copied. F048
 measures **what its evidence is**, and the answer is that **use is not fit**.
 
-**What changed is the method, not a candidate — and every source the method was
-drawing on has now been measured.** Prior art is judged on the open web and on the
-clause's attribute, never on a code index and a category (D050); F039 then showed
-the need corpus those survivors came from is **1250 individual requesters** with no
-need-level recurrence inside it (D051). **Choosing what the mission selects
-candidates on is still an owner decision**, narrowed to: none of the three axes —
-prior art, star-shaped adoption, harvested recurrence — can carry it, and F048
-adds that the prior-art axis's own verdict is not yet shown to rest on evidence of
-fit. **The one asset no failure had touched, 1250 named people who each wrote down
-what was missing, has now been followed forward and it narrows rather than opens**:
-58.0% of their statements were answered, 0 of the 24 unserved requesters built the
-thing, and a fifth of them have shipped something *else* — so it is a population of
-needs the world **absorbed in conversation**. The "about a third were served"
-figure was uncontrolled and its control reads **0.368 against the need arm's
-0.395** (F043), so item 0 rests on two measured numbers rather than three, and D055
-states what a trigger-harvested rate is worth. Item 0 of
-[`STATE-next-actions.md`](STATE-next-actions.md) holds the reasoning; the readings
-are in [`STATE-in-flight.md`](STATE-in-flight.md).
+**What changed is the method, not a candidate — and every source the method draws on
+has now been measured.** Prior art is judged on the open web and on the clause's
+attribute, never on a code index and a category (D050); F039 then showed the need
+corpus those survivors came from is **1250 individual requesters** with no need-level
+recurrence inside it (D051). **Choosing what the mission selects candidates on is
+still an owner decision**, narrowed to: none of the three axes — prior art, star-shaped
+adoption, harvested recurrence — can carry it, and F048 adds that the prior-art axis's
+own verdict is not yet shown to rest on evidence of fit. **The one asset no failure had
+touched has now been followed forward twice and narrows both times**: 58.0% of the
+1250 statements were answered, 0 of the 24 unserved requesters built the thing, and a
+fifth of the 1250 have shipped something — **and F049 shows 167 of the 241 who did
+ship had shipped *before* they complained.** So it is a population of needs the world
+absorbed in conversation, asked largely by people who had already built something. The
+"about a third were served" figure was uncontrolled and its control reads **0.368
+against the need arm's 0.395** (F043). Item 0 of
+[`STATE-next-actions.md`](STATE-next-actions.md) holds the reasoning.
 
-**The gaps in that pattern, both found by colliding with it, and one of them in
-the record rather than in a red run.** Rule 7 did not read the numbered list in
+**The gaps in that pattern, both found by colliding with it, and one in the record
+rather than in a red run.** Rule 7 did not read the numbered list in
 `STATE-defects.md`, so two VMs took defect 7 in the same hour and nothing said so
-(T-0036). It then did not read the third place a decision number is written — the
-`Decisions **…**` header under each record's title — so two of five records were
-false while every gate passed, with both index rows correct throughout (T-0042,
+(T-0036); it then did not read the third place a decision number is written, so two
+of five records were false while every gate passed (T-0042,
 defect 14). One entry point reads all three sources now.
 
 **The pattern in the red runs of 2026-10-04 is not "gates are missing" but gates
@@ -289,10 +288,11 @@ pushes via the GitHub App as `Ihsan Ai Server Bot`.
   `RESEARCH/PRIOR-ART-ORIGIN.md`), and a verdict needs more than one phrasing (F030).
 - The screen's own weakness: decidable from prose, so cheap and also vulnerable to
   a persuasive report. It guarantees the *next* experiment is worth running.
-- **Three of the last four experiments answered questions about this repository's
-  own instruments rather than about software in the world**, and E020 is the first
-  to turn outward. Its own measurement was still bounded by a population a search
-  engine chooses (F040).
+- **The turn outward happened, and it is uneven.** Five consecutive experiments
+  audited this repository's own instruments before E020 asked about the world; since
+  then E022–E029 have asked about people, and **three of E029's own findings were
+  defects in its instrument**. A run can be about the world and still mostly measure
+  the measurer, so the two have to be counted separately (F048, F049, D061).
 - The tooling's own coverage is demonstrated by its tests, not by independent
   reproduction. `tests/README.md` lists what is and is not covered.
 - Unattended execution is not implemented. What exists is the record that makes an

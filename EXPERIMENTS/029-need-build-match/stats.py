@@ -13,77 +13,20 @@ gate, because E028 measured lexical coverage as `informative: false` and F043's
 lesson is that a bare rate without its base rate is not a finding.
 """
 import json
-import math
 import os
-import re
 import sys
+
+import intervalstats as I
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(ROOT, "raw")
 DECLARED_POPULATION = 278      # PROTOCOL.md, fixed before the fetch
-LABELS = {"addresses", "unrelated", "unclear"}
+LABELS = I.LABELS
 
 
 def read_jsonl(path):
     with open(path) as f:
         return [json.loads(l) for l in f if l.strip()]
-
-
-def wilson(k, n, z=1.96):
-    """Wilson score interval. Returns (lo, hi) or (None, None) for an empty arm."""
-    if not n:
-        return None, None
-    p = k / n
-    d = 1 + z * z / n
-    c = p + z * z / (2 * n)
-    m = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))
-    return max(0.0, (c - m) / d), min(1.0, (c + m) / d)
-
-
-def cohen_kappa(a, b):
-    """Unweighted Cohen's kappa over the shared label set. Returns (kappa, table)."""
-    cats = sorted(LABELS)
-    n = len(a)
-    if n == 0:
-        return None, {}
-    obs = {x: {y: 0 for y in cats} for x in cats}
-    for x, y in zip(a, b):
-        obs[x][y] += 1
-    agree = sum(obs[x][x] for x in cats) / float(n)
-    ra = {x: sum(obs[x].values()) / float(n) for x in cats}
-    ca = {y: sum(obs[x][y] for x in cats) / float(n) for y in cats}
-    exp = sum(ra[x] * ca[x] for x in cats)
-    kappa = None if abs(1 - exp) < 1e-12 else (agree - exp) / (1 - exp)
-    return kappa, {"observed_agreement": round(agree, 6), "expected": round(exp, 6),
-                   "table": obs, "n": n}
-
-
-STOP = set("""a an the is are was were be been being do does did doing have has had having
-i you he she it we they them his her its their my your our this that these those there here
-what which who whom when where why how all any some no not but if then than so as by for
-from with without into onto about over under again more most other such only own same too
-very can will just should now im ive dont doesnt isnt arent id like get got would could one
-two also using use used make made get thing things way ways really something anything lot
-know think want need looking look time people person way good great nice better best also
-thing even still much many because while although though ever never always often sometimes
-""".split())
-
-
-def content_words(text):
-    ws = re.findall(r"[a-z][a-z0-9+#.-]{2,}", (text or "").lower())
-    return {w.strip(".-") for w in ws} - STOP
-
-
-def lexical_overlap(need_text, titles):
-    nw = content_words(need_text)
-    if not nw:
-        return None
-    tw = set()
-    for t in titles:
-        tw |= content_words(t or "")
-    if not tw:
-        return None
-    return len(nw & tw) / float(len(nw))
 
 
 def main():
@@ -125,6 +68,13 @@ def main():
             print("reader %s: %d missing, %d extra row ids" % (reader, len(missing), len(extra)))
             return 1
 
+    # The view is frozen and its digest is recorded, so a label file can be tied to the
+    # exact bytes it was read from. This is the property whose absence let a 222-row
+    # label file with a wrong id-to-pair mapping through (amendment 3).
+    import hashlib
+    view_path = os.path.join(RAW, "view_r1.txt")
+    view_md5 = hashlib.md5(open(view_path, "rb").read()).hexdigest() if os.path.exists(view_path) else None
+
     arm_of = {k["row_id"]: k["arm"] for k in key}
     author_of = {k["row_id"]: k["author"] for k in key}
     story_of = {k["row_id"]: k["story_id"] for k in key}
@@ -143,20 +93,20 @@ def main():
             "both_readers_addresses": both,
             "either_reader_addresses": either,
             "both_rate": round(both / n, 6) if n else None,
-            "both_ci95": [round(v, 6) for v in wilson(both, n)],
+            "both_ci95": [round(v, 6) for v in I.wilson(both, n)],
             "either_rate": round(either / n, 6) if n else None,
-            "either_ci95": [round(v, 6) for v in wilson(either, n)],
+            "either_ci95": [round(v, 6) for v in I.wilson(either, n)],
             "label_counts_r1": {lab: sum(1 for r in ids if labels["r1"][r] == lab) for lab in sorted(LABELS)},
             "label_counts_r2": {lab: sum(1 for r in ids if labels["r2"][r] == lab) for lab in sorted(LABELS)},
         }
 
     # ---- agreement, over every row the readers saw ----
-    k_all, tab_all = cohen_kappa([labels["r1"][r] for r in expected_ids],
+    k_all, tab_all = I.cohen_kappa([labels["r1"][r] for r in expected_ids],
                                  [labels["r2"][r] for r in expected_ids])
     k_arm = {}
     for a in arms:
         ids = rows_by_arm[a]
-        k_arm[a], _ = cohen_kappa([labels["r1"][r] for r in ids],
+        k_arm[a], _ = I.cohen_kappa([labels["r1"][r] for r in ids],
                                   [labels["r2"][r] for r in ids])
 
     # ---- gates ----
@@ -212,7 +162,7 @@ def main():
             if k["arm"] != a:
                 continue
             src = k.get("partner") or k["author"]
-            ov = lexical_overlap(pop[k["author"]]["need"]["text"],
+            ov = I.lexical_overlap(pop[k["author"]]["need"]["text"],
                                  [it.get("title") or "" for it in builds[src].get("items") or []])
             if ov is not None:
                 vals.append(ov)
@@ -224,8 +174,23 @@ def main():
         "experiment": "029-need-build-match",
         "declared_before_any_reader": True,
         "primary_rate_rule": "both readers say 'addresses' (fixed before labels existed)",
+        "view_md5": view_md5,
         "declared_population": DECLARED_POPULATION,
         "population_reached_fetch": n_fetched,
+        "post_hoc_descriptive_feeds_no_gate": {
+            "note": "Added after the labels existed, for bounding a separation the "
+                    "sample cannot resolve. No gate reads these, and the verdict is "
+                    "unchanged by them. Declared here so their provenance is on the record.",
+            "difference_matched_minus_mismatched": I.newcombe_difference(
+                rates["matched"]["both_readers_addresses"], rates["matched"]["n"],
+                rates["mismatched"]["both_readers_addresses"], rates["mismatched"]["n"]),
+            "difference_matched_minus_story_title": I.newcombe_difference(
+                rates["matched"]["both_readers_addresses"], rates["matched"]["n"],
+                rates["story_title"]["both_readers_addresses"], rates["story_title"]["n"]),
+            "fisher_two_sided_matched_vs_mismatched": I.fisher_two_sided(
+                rates["matched"]["both_readers_addresses"], rates["matched"]["n"],
+                rates["mismatched"]["both_readers_addresses"], rates["mismatched"]["n"]),
+        },
         "temporal_split": {
             "eligible_build_postdates_need": later,
             "build_predates_need_only": 241 - later,
@@ -260,7 +225,8 @@ def main():
                         "fired": bool(b1_kill)},
             "B2_survive": {"declared": "matched CI95 lower > both control uppers",
                            "observed_matched_lower": m_lo, "fired": bool(b2_survive)},
-            "A4": {"fires_when": "A2, A3 or C1 fails", "fired": verdict == "not_evaluated"},
+            "A4": {"declared": "the verdict is not_evaluated if A2, A3 or C1 fails",
+                   "fired": verdict == "not_evaluated"},
         },
         "verdict": verdict,
         "rates": rates,

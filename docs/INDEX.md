@@ -213,6 +213,12 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/028-incumbent-fit/PROTOCOL.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, task T-0072, before any label was produced and before any |
 | [`EXPERIMENTS/028-incumbent-fit/README.md`](../EXPERIMENTS/028-incumbent-fit/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0072. Protocol declared before any label and |
 | [`EXPERIMENTS/028-incumbent-fit/RUBRIC.md`](../EXPERIMENTS/028-incumbent-fit/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Given to both readers, unchanged, before either ran. The labels are the whole |
+| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/029-need-build-match/PROTOCOL.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/029-need-build-match/README.md`](../EXPERIMENTS/029-need-build-match/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0073. Protocol declared before the first fetch |
+| [`EXPERIMENTS/029-need-build-match/RUBRIC.md`](../EXPERIMENTS/029-need-build-match/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

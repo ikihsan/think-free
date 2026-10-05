@@ -54,10 +54,45 @@ _(none recorded)_
 | EXPERIMENTS/029-need-build-match/raw/view_r1_xonly.txt | a518d8ccd34b | 57643 |
 | EXPERIMENTS/029-need-build-match/raw/view_r2_xonly.txt | a518d8ccd34b | 57643 |
 | EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md | a56005286144 | 5525 |
+| EXPERIMENTS/029-need-build-match/intervalstats.py | a658cd6b004e | 4572 |
+| EXPERIMENTS/029-need-build-match/test_reader_blindness.py | fd271896b84c | 12272 |
+| EXPERIMENTS/029-need-build-match/test_label_provenance.py | 5bb1c329c4b0 | 4983 |
+| EXPERIMENTS/029-need-build-match/test_claims.py | 64bb2c6ad1e0 | 9388 |
+| EXPERIMENTS/029-need-build-match/stats.py | 0520a4e0e3e5 | 12881 |
+| EXPERIMENTS/README.md | 9ba4177b1516 | 5151 |
+| vendor/MANIFEST.md | ffb2167f0e7d | 6437 |
+| EXPERIMENTS/029-need-build-match/verify_chronology.py | 363249963842 | 4954 |
+| EXPERIMENTS/029-need-build-match/raw/chronology_verification.jsonl | 155502228961 | 4138 |
+| EXPERIMENTS/029-need-build-match/README.md | cb33929d675c | 9046 |
+| EXPERIMENTS/029-need-build-match/results.json | 26135383f6a6 | 14299 |
+| EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv | b8f419084bd6 | 22869 |
+| EXPERIMENTS/029-need-build-match/raw/labels_r2.tsv | 7d9199f464d8 | 21725 |
+| EXPERIMENTS/029-need-build-match/raw/view_r1.txt | ee2d4b0c2fcb | 138017 |
+| EXPERIMENTS/029-need-build-match/raw/view_r2.txt | ee2d4b0c2fcb | 138017 |
+| FAILURES-findings-20.md | 04c31b02cf89 | 10388 |
+| FAILURES.md | ccd42e0d4efb | 17786 |
+| DECISIONS-SCREENING-4.md | 0b25d47ae1ea | 8717 |
+| DECISIONS.md | 976754534199 | 8576 |
+| STATE.md | cbda63a7299e | 33592 |
+| STATE-next-actions.md | 33dd8fba6bc0 | 21048 |
+| STATE-constraints.md | 9a210d452816 | 13250 |
+| ROADMAP.md | f764a130b266 | 20383 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r1.tsv | 54a3c72b14c8 | 26209 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r1_final.tsv | a593678ef24e | 3046 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r1_x.tsv | fb4c11124723 | 8508 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r2.tsv | 7a5bd5c31b86 | 23413 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r2_final.tsv | 6fdd050f2746 | 3066 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r2_firstpass_4_duplicates.tsv | da6798f73d02 | 25657 |
+| EXPERIMENTS/029-need-build-match/superseded/labels_r2_x.tsv | 63f286b3fac4 | 9290 |
+| EXPERIMENTS/029-need-build-match/superseded/view_key.json | 866e4c73c7cd | 21835 |
+| EXPERIMENTS/029-need-build-match/superseded/view_r1.txt | 178827b1b12a | 138017 |
+| EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt | a518d8ccd34b | 57643 |
+| EXPERIMENTS/029-need-build-match/superseded/view_r2.txt | 178827b1b12a | 138017 |
+| EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt | a518d8ccd34b | 57643 |
 
 ## Commands
 
-11 captured, 3 non-zero exit.
+18 captured, 3 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -72,6 +107,13 @@ _(none recorded)_
 | 37 | ['python3', 'EXPERIMENTS/029-need-build-match/stats.py'] | 1 | 848 |
 | 38 | ['python3', 'EXPERIMENTS/029-need-build-match/stats.py'] | 0 | 181 |
 | 39 | ['python3', 'EXPERIMENTS/029-need-build-match/make_reader_views.py'] | 0 | 115 |
+| 50 | ['python3', 'EXPERIMENTS/029-need-build-match/verify_chronology.py'] | 0 | 23461 |
+| 54 | ['python3', 'EXPERIMENTS/029-need-build-match/stats.py'] | 0 | 192 |
+| 55 | ['python3', 'EXPERIMENTS/029-need-build-match/stats.py'] | 0 | 209 |
+| 56 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 487918 |
+| 57 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'EXPERIMENTS/029-need-build-match', '-p', 'test_*.py', '-t', 'EXPERIM | 0 | 2011 |
+| 58 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 913611 |
+| 59 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 852798 |
 
 ## Integrity
 
@@ -127,7 +169,18 @@ _(none recorded)_
 | 38 | 20:45:38 | command | $ python3 EXPERIMENTS/029-need-build-match/stats.py |
 | 39 | 20:48:14 | command | $ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py |
 | 40 | 20:56:53 | artifact | wrote EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md |
-| 41 | 20:56:53 | milestone | control arm found to be a relabelled replicate; view frozen at d604f1f9; all earlier labels superseded and retained |
+| 80 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/labels_r2_x.tsv |
+| 81 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_key.json |
+| 82 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r1.txt |
+| 83 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt |
+| 84 | 21:55:28 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r2.txt |
+| 85 | 21:55:28 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt |
+| 86 | 21:55:28 | milestone | E029 recorded: F049, D061, and the three records updated; 793 + 37 tests pass and doc lint is green |
+| 87 | 21:55:36 | decision | report the reader arm as not_evaluated on two counts rather than reading 3-of-74 against 0-of-74 as a positive result, because C1's declared 0.20 sepa |
+| 88 | 21:56:17 | task_rewrite | rewrote tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md (status: done) |
+| 89 | 21:56:17 | task_rewrite | appended a complete record for T-0073 |
+
+_39 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

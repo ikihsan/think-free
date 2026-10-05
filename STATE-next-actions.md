@@ -6,13 +6,11 @@ last-verified: 2026-10-05
 
 # Next actions and standing constraints
 
-Split out of [`STATE.md`](STATE.md) on 2026-10-04, which was at 299 of the 300
-permitted lines and had to grow. The reload point keeps a pointer and the top
-item; the reasoning behind each item lives here so that a rewrite of one does
-not force a rewrite of the other.
-
-Read the ceiling on an item before spending effort on it: a pass still leaves
-prior art, usefulness and adoption untouched, and every item says which.
+Split out of [`STATE.md`](STATE.md) on 2026-10-04 at its 300-line cap. The reload
+point keeps a pointer and the top item; the reasoning behind each item lives here so
+a rewrite of one does not force a rewrite of the other. Read an item's ceiling before
+spending effort on it: a pass still leaves prior art, usefulness and adoption
+untouched, and every item says which.
 
 ## Ordered by information gained per unit of effort
 
@@ -142,20 +140,24 @@ prior art, usefulness and adoption untouched, and every item says which.
    against. **F043 removes the last prop under that sentence:** the "served"
    figure that made it read as a demand-side discovery is the base rate of
    ordinary comments in the same threads, and what is left is the two cells that
-   were measured properly. **F045 removed the last reason to think this corpus hid
-   builders:** 22.2% of its authors have shipped something — a fifth builders,
-   building **other things**. **F047 removed the weakest prop under the closure:**
-   31 of F029's 50 verdicts came from a regex-extracted clause and **6 of the 15
-   `vague` kills are not vague** — **the closure survives the repair**. **F048 then
-   measured what the screen's evidence is evidence of, and the answer is not fit**
-   (`EXPERIMENTS/028-incumbent-fit/`, D060): the row with the strongest evidence of
-   *use* anywhere in this record — `sharp`, **437M downloads/month**, which E016
-   called served *"beyond argument"* — has documentation that establishes nothing
-   about its clause's attribute. **Use is not fit**, and **no prior-art verdict here
-   has yet been shown to rest on evidence of fit.** E028's instrument returned
-   `not_evaluated` and **nothing is reopened**; the twelve deaths now rest on a rule
-   D060 states and E016's evidence does not meet. **Do not promote anything from
-   this corpus.** E2's lockfile claim: `EXPERIMENTS/009`
+   were measured properly. **F049 removed the last reason to read this corpus as a demand-side discovery,
+   and replaced it with a better description of what it is.** Of the 241 need-staters
+   with a public `Show HN` item, **167 shipped it *before* they stated the need and
+   only 74 after** (`EXPERIMENTS/029`, T-0073). A build cannot answer a need stated
+   later, so **69% of the population was never askable** — and the question itself
+   survives at 4%: two independent readers each named **3 of 74** matched rows as
+   `addresses` and **0 of 74** cross-paired rows, which bounds the need-to-build
+   link at CI95 **[−0.0156, +0.1125]** (Fisher p = 0.245), consistent with zero. So
+   **F042's 0-of-24 is confirmed on an instrument 10× larger, not refuted**, and the
+   closure survives its second re-read. What is new is the description: this corpus is
+   substantially **people who had already built something and then hit a gap they did
+   not close**, which is what E045's 22.2% means when read against *when*. **The
+   seat stays empty**, and the honest reason is now sharper than "prior art": the
+   corpus records needs asked *by builders*, not need waiting for one.
+   **Ceiling:** 74 rows per arm after the temporal restriction, reader κ = 0.5004
+   against a declared floor of 0.6, one reader scheme and one model family. The
+   verdict is `not_evaluated`, and it is not raised by asking the same instrument for
+   more. E2's lockfile claim: `EXPERIMENTS/009`
    **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
    where invention work goes; with every generator closed it names an empty seat.
 1. **A gate must read the property it claims to check, and must be falsified

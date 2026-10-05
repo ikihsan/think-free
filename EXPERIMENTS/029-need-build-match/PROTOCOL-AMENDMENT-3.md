@@ -92,8 +92,8 @@ success, and a repair needs its reference to be established rather than chosen.
   only the id *set* is what let the bad file through.
 
 All four earlier label files and both earlier views are retained under
-[`superseded/`](../superseded) rather than deleted, because this repository keeps
-failed runs and because the record of how the id mapping was lost is evidence.
+`superseded/` rather than deleted, because this repository keeps failed runs and
+because the record of how the id mapping was lost is itself evidence.
 
 ## What this cost, stated plainly
 

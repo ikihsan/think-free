@@ -140,3 +140,296 @@ wrote raw/view_r2.txt with 222 rows
 wrote raw/view_key.json (222 rows)
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 115  redactions: none
+==============================================================================
+[seq 50] 2026-10-05T21:08:40+00:00
+$ python3 EXPERIMENTS/029-need-build-match/verify_chronology.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+9dev             claimed_eligible   need=1741210169 items=3 id_later=True ts_later=True -> agrees
+bredren          claimed_eligible   need=1776315196 items=13 id_later=True ts_later=True -> agrees
+joshcsimmons     claimed_eligible   need=1759790733 items=4 id_later=True ts_later=True -> agrees
+sarreph          claimed_eligible   need=1785844165 items=19 id_later=True ts_later=True -> agrees
+0xcb0            claimed_ineligible need=1770226020 items=1 id_later=False ts_later=False -> agrees
+beratbozkurt0    claimed_ineligible need=1781685386 items=2 id_later=False ts_later=False -> agrees
+hobofan          claimed_ineligible need=1783499536 items=1 id_later=False ts_later=False -> agrees
+noduerme         claimed_ineligible need=1763636815 items=8 id_later=False ts_later=False -> agrees
+
+authors sampled 8; agree 8; disagree 0; items unreadable 0
+PASS: item-id ordering agrees with created_at on every sampled author
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23461  redactions: none
+==============================================================================
+[seq 54] 2026-10-05T21:10:14+00:00
+$ python3 EXPERIMENTS/029-need-build-match/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+verdict: not_evaluated
+  matched      n= 74 both=  3 (0.0405, CI95 [0.013882, 0.112549]) either=  3 (0.0405)
+  mismatched   n= 74 both=  0 (0.0000, CI95 [0.0, 0.049352]) either=  0 (0.0000)
+  story_title  n= 74 both=  2 (0.0270, CI95 [0.007443, 0.093295]) either=  3 (0.0405)
+  kappa all rows: 0.5004   per arm: {'matched': 0.6641, 'mismatched': 0.6337, 'story_title': 0.3073}
+  C1 separation (both-rule): 0.040541
+  lexical arm (feeds no gate): {'matched': {'n': 74, 'mean_content_word_overlap': 0.044952, 'zero_overlap_rows': 32}, 'mismatched': {'n': 74, 'mean_content_word_overlap': 0.023632, 'zero_overlap_rows': 40}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 55] 2026-10-05T21:11:07+00:00
+$ python3 EXPERIMENTS/029-need-build-match/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+verdict: not_evaluated
+  matched      n= 74 both=  3 (0.0405, CI95 [0.013882, 0.112549]) either=  3 (0.0405)
+  mismatched   n= 74 both=  0 (0.0000, CI95 [0.0, 0.049352]) either=  0 (0.0000)
+  story_title  n= 74 both=  2 (0.0270, CI95 [0.007443, 0.093295]) either=  3 (0.0405)
+  kappa all rows: 0.5004   per arm: {'matched': 0.6641, 'mismatched': 0.6337, 'story_title': 0.3073}
+  C1 separation (both-rule): 0.040541
+  lexical arm (feeds no gate): {'matched': {'n': 74, 'mean_content_word_overlap': 0.044952, 'zero_overlap_rows': 32}, 'mismatched': {'n': 74, 'mean_content_word_overlap': 0.023632, 'zero_overlap_rows': 40}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 209  redactions: none
+==============================================================================
+[seq 56] 2026-10-05T21:23:28+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 793 tests in 487.062s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 487918  redactions: none
+==============================================================================
+[seq 57] 2026-10-05T21:40:36+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s EXPERIMENTS/029-need-build-match -p test_*.py -t EXPERIMENTS/029-need-build-match
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_claims.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/chronology_verification.jsonl' mode='r' encoding='UTF-8'>
+  rows = [json.loads(l) for l in open(path) if l.strip()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_claims.py:151: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/chronology_verification.jsonl' mode='r' encoding='UTF-8'>
+  rows = [json.loads(l) for l in open(path) if l.strip()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_claims.py:41: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_key.json' mode='r' encoding='UTF-8'>
+  self.key = json.load(open(os.path.join(RAW, "view_key.json")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_claims.py:183: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/results.json' mode='r' encoding='UTF-8'>
+  self.r = json.load(open(path))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:40: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_key.json' mode='r' encoding='UTF-8'>
+  json.load(open(os.path.join(RAW, "view_key.json")))]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:81: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv' mode='r' encoding='UTF-8'>
+  text = open(path).read().lower()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:81: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r2.tsv' mode='r' encoding='UTF-8'>
+  text = open(path).read().lower()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:48: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv' mode='r' encoding='UTF-8'>
+  for line in open(path):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:48: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r2.tsv' mode='r' encoding='UTF-8'>
+  for line in open(path):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:67: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt' mode='r' encoding='UTF-8'>
+  open(os.path.join(RAW, "view_r1.txt")).read(), re.M)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:72: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv' mode='r' encoding='UTF-8'>
+  got = [l.split("\t")[0].strip() for l in open(path) if l.strip()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:72: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r2.tsv' mode='r' encoding='UTF-8'>
+  got = [l.split("\t")[0].strip() for l in open(path) if l.strip()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:100: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r1.tsv'>
+  open(os.path.join(RAW, n), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:100: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/labels_r2.tsv'>
+  open(os.path.join(RAW, n), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r1.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r2.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r2_final.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r1_x.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r1_final.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r2_x.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_label_provenance.py:102: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/superseded/labels_r2_firstpass_4_duplicates.tsv'>
+  bad = hashlib.md5(open(os.path.join(sup, name), "rb").read()).hexdigest()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:39: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_key.json' mode='r' encoding='UTF-8'>
+  self.key = json.load(open(os.path.join(RAW, "view_key.json")))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:231: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt'>
+  a = open(os.path.join(RAW, "view_r1.txt"), "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:232: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r2.txt'>
+  b = open(os.path.join(RAW, "view_r2.txt"), "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:183: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt' mode='r' encoding='UTF-8'>
+  txt = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:183: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r2.txt' mode='r' encoding='UTF-8'>
+  txt = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:49: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt' mode='r' encoding='UTF-8'>
+  txt = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:49: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt' mode='r' encoding='UTF-8'>
+  txt = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....../home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:156: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt'>
+  a = open(os.path.join(RAW, "view_r1.txt"), "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:157: ResourceWarning: unclosed file <_io.BufferedReader name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r2.txt'>
+  b = open(os.path.join(RAW, "view_r2.txt"), "rb").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:198: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r1.txt' mode='r' encoding='UTF-8'>
+  text = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/test_reader_blindness.py:198: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/029-need-build-match/raw/view_r2.txt' mode='r' encoding='UTF-8'>
+  text = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.
+----------------------------------------------------------------------
+Ran 37 tests in 1.114s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2011  redactions: none
+==============================================================================
+[seq 58] 2026-10-05T21:53:34+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 793 tests in 912.213s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 913611  redactions: none
+==============================================================================
+[seq 59] 2026-10-05T21:54:59+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 793 tests in 850.411s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 852798  redactions: none

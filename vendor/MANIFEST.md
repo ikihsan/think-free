@@ -98,6 +98,16 @@ exempt: EXPERIMENTS/**/raw/*.sse.stderr
 # what the reader was shown.
 exempt: EXPERIMENTS/**/raw/docs/*.txt
 
+# Raw *reader-view* captures, added by E029. The same class a third time: the exact
+# bytes a reader was shown, generated from committed captures, never hand-edited. The
+# digest matters more here than anywhere else, because a reader's labels are keyed by
+# row id against these bytes and a regenerated view reorders them (E029 amendment 3).
+# `superseded/` is where invalidated views and label sets are kept rather than deleted,
+# because this repository retains failed runs.
+exempt: EXPERIMENTS/**/raw/view_*.txt
+exempt: EXPERIMENTS/**/superseded/view_*.txt
+exempt: EXPERIMENTS/**/superseded/view_key.json
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**

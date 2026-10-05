@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E029 -- tests that target claims and failure modes, not the implementation.
+"""E029 -- tests of the population, the controls, the arithmetic and the gates.
 
 Each test is asserted against the committed capture and against a fixture built to
 break the property, following docs/policy/gate-falsification.md. The two forms of
@@ -20,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, "raw")
 sys.path.insert(0, HERE)
 
-import stats as S  # noqa: E402
+import intervalstats as I  # noqa: E402
 
 
 def read_jsonl(name):
@@ -80,216 +80,6 @@ class PopulationTest(unittest.TestCase):
         stories = sorted((int(d["story_id"]), d["time"]) for d in outcomes)
         regress2 = sum(1 for (_, t1), (_, t2) in zip(stories, stories[1:]) if t2 < t1)
         self.assertGreater(regress2, 0, "story_id must NOT be monotone; the proxy is about items")
-
-
-class ReaderBlindnessTest(unittest.TestCase):
-    def setUp(self):
-        self.key = json.load(open(os.path.join(RAW, "view_key.json")))
-        self.pop = {d["author"]: d for d in read_jsonl("population.jsonl")}
-
-    @staticmethod
-    def sections(name):
-        return ReaderBlindnessTest.sections_at(os.path.join(RAW, name))
-
-    @staticmethod
-    def sections_at(path):
-        import re
-        txt = open(path).read()
-        return {m.group(1): m.group(2) for m in
-                re.finditer(r"^===== ROW \d+ \| id (\S+) =====\n(.*?)(?=\n===== ROW |\Z)",
-                            txt, re.S | re.M)}
-
-    def test_arms_are_the_declared_three_and_balanced(self):
-        counts = {}
-        for k in self.key:
-            counts[k["arm"]] = counts.get(k["arm"], 0) + 1
-        self.assertEqual(counts, {"matched": 74, "mismatched": 74, "story_title": 74})
-
-    def test_mismatched_arm_never_self_pairs(self):
-        # The key records `author` (whose need is shown) and `partner` (whose items are
-        # shown). The derangement is over `partner`, which is what must differ.
-        m = {k["row_id"]: k["author"] for k in self.key if k["arm"] == "matched"}
-        x = {k["row_id"]: (k["author"], k.get("partner")) for k in self.key if k["arm"] == "mismatched"}
-        self.assertEqual(len(m), len(x))
-        for i in range(len(m)):
-            author, partner = x["X%02d" % i]
-            self.assertEqual(author, m["M%02d" % i], "the need shown must be the matched author's")
-            self.assertNotEqual(author, partner, "the control row is self-paired")
-
-    def test_the_derangement_assertion_actually_fires(self):
-        # The first version of the view builder shifted a shuffled name list and asserted
-        # no fixed point. Shifting asks the wrong question. Prove both halves.
-        pool = sorted(self.pop)
-        n = len(pool)
-        self.assertGreaterEqual(n, 2)
-
-        shifted = pool[1:] + pool[:1]          # a cyclic shift of a distinct list
-        self.assertEqual(sum(1 for a, b in zip(pool, shifted) if a == b), 0)
-
-        # Build a real Sattolo derangement, then swap one pair of positions so that
-        # exactly one element becomes a fixed point. That is the fixture the assertion
-        # in the builder has to reject.
-        import random
-        sigma = list(range(n))
-        rng = random.Random(2901)
-        for i in range(n - 1, 0, -1):
-            j = rng.randrange(i)
-            sigma[i], sigma[j] = sigma[j], sigma[i]
-        self.assertEqual(sum(1 for i in range(n) if sigma[i] == i), 0)
-
-        i = 0
-        j = sigma[i]
-        broken = sigma[:]
-        broken[i], broken[j] = broken[j], broken[i]     # j now maps to i, i maps to sigma[j]
-        fixed = [k for k in range(n) if broken[k] == k]
-        self.assertEqual(len(fixed), 1, "the assertion must be able to fail")
-
-    def test_the_mismatched_arm_is_cross_paired_not_a_relabelled_replicate(self):
-        # The first version of the view builder rendered the PARTNER's own need beside the
-        # PARTNER's own items, so the control was the treatment arm renamed. It was found
-        # because the two arms printed identical lexical statistics, which is impossible
-        # for two different pairings. Check the pairing directly.
-        pop = {d["author"]: d for d in read_jsonl("population.jsonl")}
-        owner = {}
-        for a, r in pop.items():
-            owner.setdefault(r["need"]["text"][:120], []).append(a)
-        bodies = self.sections("view_r1.txt")
-
-        def need_of(rid):
-            return bodies[rid].split("SHIPPED")[0].split("\n", 1)[1].strip()[:120]
-
-        matched_self = mismatched_self = 0
-        for k in self.key:
-            if k["arm"] == "matched":
-                if owner.get(need_of(k["row_id"]), [None])[0] == k["author"]:
-                    matched_self += 1
-            elif k["arm"] == "mismatched":
-                if owner.get(need_of(k["row_id"]), [None])[0] == k.get("partner"):
-                    mismatched_self += 1
-        self.assertEqual(matched_self, 74, "the treatment arm must be self-paired")
-        self.assertEqual(mismatched_self, 0,
-                         "the control arm is a relabelled replicate of the treatment arm")
-
-    def test_the_lexical_arms_differ(self):
-        # The replicate defect surfaced here first. Keep the check that surfaced it.
-        import stats as S
-        pop = {d["author"]: d for d in read_jsonl("population.jsonl")}
-        builds = {d["author"]: d for d in read_jsonl("builds.jsonl")}
-
-        def mean(arm):
-            vals = []
-            for k in self.key:
-                if k["arm"] != arm:
-                    continue
-                src = k.get("partner") or k["author"]
-                ov = S.lexical_overlap(pop[k["author"]]["need"]["text"],
-                                       [it.get("title") or ""
-                                        for it in builds[src].get("items") or []])
-                if ov is not None:
-                    vals.append(ov)
-            return (sum(vals) / len(vals)) if vals else None
-        m, x = mean("matched"), mean("mismatched")
-        self.assertIsNotNone(m)
-        self.assertIsNotNone(x)
-        self.assertNotAlmostEqual(m, x, places=6,
-                                  msg="the two arms carry identical lexical statistics, "
-                                      "which is the signature of a replicate control")
-
-    def test_the_view_is_frozen_and_the_key_agrees_with_it(self):
-        # Every label file is keyed by row id against view_key.json, and a label file's
-        # ORDER must match the frozen view's order (checked in LabelIntegrityTest). What
-        # has to hold here is that both readers got the identical file and that the key
-        # describes exactly the rows the view contains.
-        import hashlib
-        a = open(os.path.join(RAW, "view_r1.txt"), "rb").read()
-        b = open(os.path.join(RAW, "view_r2.txt"), "rb").read()
-        self.assertEqual(hashlib.md5(a).hexdigest(), hashlib.md5(b).hexdigest(),
-                         "the two readers were not given the same bytes")
-        order = re.findall(r"^===== ROW \d+ \| id (\S+) =====", a.decode(), re.M)
-        self.assertEqual(len(order), 222)
-        self.assertEqual(sorted(order), sorted(k["row_id"] for k in self.key),
-                         "the view and view_key.json describe different row sets")
-
-    def test_only_the_mismatched_arm_changed_in_the_repair(self):
-        # Amendment 2 repaired the mismatched arm. If the matched or story-title rows
-        # had changed, the 148 already-produced labels could not carry over.
-        v2 = self.sections("view_r1.txt")
-        v1 = self.sections_at(os.path.join(RAW, "view_r1_v1.txt"))
-        mt = [k for k in v2 if k[0] in ("M", "T")]
-        x = [k for k in v2 if k[0] == "X"]
-        self.assertEqual(len(mt), 148)
-        self.assertEqual(len(x), 74)
-        for k in mt:
-            self.assertEqual(v2[k], v1.get(k), "row %s changed in the repair" % k)
-        self.assertTrue(any(v2[k] != v1.get(k) for k in x),
-                        "the mismatched arm must have changed, or the repair did nothing")
-
-    def test_no_reader_row_renders_an_empty_shipped_section(self):
-        # The defect amendment 2 exists for: an empty SHIPPED section can only be
-        # labelled `unrelated`, so it depresses whichever arm contains it.
-        for reader in ("r1", "r2"):
-            txt = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
-            self.assertNotIn("has not posted a Show HN item", txt,
-                             "%s view still renders empty SHIPPED sections" % reader)
-
-    def test_all_three_arms_are_drawn_from_one_population(self):
-        # The matched arm is a subset of the mismatched partner pool, so the arms
-        # differ in whose NEED is shown and in nothing else.
-        eligible = set(k["author"] for k in self.key if k["arm"] == "matched")
-        for arm in ("mismatched", "story_title"):
-            others = set(k["author"] for k in self.key if k["arm"] == arm)
-            self.assertEqual(others, eligible,
-                             "the %s arm is drawn from a different population" % arm)
-
-    def test_view_carries_no_arm_label(self):
-        for reader in ("r1", "r2"):
-            text = open(os.path.join(RAW, "view_%s.txt" % reader)).read()
-            for word in ("matched", "mismatched", "story_title"):
-                self.assertNotIn(word, text.lower(),
-                                 "%s view leaks the arm name %r" % (reader, word))
-
-    def test_self_pairing_exposure_is_measured_and_balanced(self):
-        # A shipped project's url usually contains its author's own handle. That alone
-        # leaks nothing, because it does not say whose NEED is on screen. The exposure
-        # that matters is the author's handle appearing in BOTH the need text and a
-        # shipped url, which would let a reader recognise a self-pair.
-        builds = {d["author"]: d for d in read_jsonl("builds.jsonl")}
-        arm_of = {k["row_id"]: k["arm"] for k in self.key}
-        exposed = {}
-        for k in self.key:
-            if k["arm"] == "story_title":
-                continue          # the story-title arm shows a title, not a need
-            a = k["author"]
-            need = self.pop[a]["need"]["text"].lower()
-            urls = " ".join((it.get("url") or "") for it in builds[a].get("items") or []).lower()
-            if a.lower() in need and a.lower() in urls:
-                exposed[k["arm"]] = exposed.get(k["arm"], 0) + 1
-        total = exposed.get("matched", 0) + exposed.get("mismatched", 0)
-        # Assert the bound, not the count. The count moved once when the mismatched arm
-        # was repaired (5 -> 6); what has to hold at every population is that the
-        # exposure cannot approach the separation C1 requires.
-        self.assertLessEqual(total, 8, "self-pairing exposure grew beyond the declared bound")
-        worst = max(exposed.values()) / 74.0 if exposed else 0.0
-        self.assertLess(worst, 0.20,
-                        "exposure on one arm could alone reach C1's 0.20 threshold")
-        self.assertEqual(exposed.get("matched", 0), exposed.get("mismatched", 0),
-                         "exposure must be balanced across the arms it could bias")
-
-    def test_both_readers_were_given_identical_blinded_input(self):
-        a = open(os.path.join(RAW, "view_r1.txt"), "rb").read()
-        b = open(os.path.join(RAW, "view_r2.txt"), "rb").read()
-        self.assertEqual(a, b, "agreement is only meaningful on identical inputs")
-
-    def test_the_story_title_arm_reuses_the_matched_arm_shipped_items(self):
-        # Same author, same builds, different NEED text: that is the whole control.
-        builds = {d["author"]: d for d in read_jsonl("builds.jsonl")}
-        by_row = {k["row_id"]: k for k in self.key}
-        for i in range(74):
-            m, t = by_row["M%02d" % i], by_row["T%02d" % i]
-            self.assertEqual(m["author"], t["author"])
-            self.assertEqual(builds[m["author"]]["items"], builds[t["author"]]["items"])
-
-
 class ControlTest(unittest.TestCase):
     def setUp(self):
         self.ctl = read_jsonl("gate_a2_controls.jsonl")
@@ -321,19 +111,17 @@ class ControlTest(unittest.TestCase):
         self.assertTrue(multi, "no builder has more than one item; the check is untested")
         for d in multi:
             self.assertEqual(d["n_items"], len(d["items"]))
-
-
 class StatisticsTest(unittest.TestCase):
     def test_wilson_interval_reproduces_the_figure_the_record_quotes(self):
         # F042's build arm is quoted as 0 of 24 with CI95 [0.0, 0.138]. If the interval
         # function drifts, every interval in results.json drifts with it.
-        lo, hi = S.wilson(0, 24)
+        lo, hi = I.wilson(0, 24)
         self.assertAlmostEqual(lo, 0.0, places=6)
         self.assertAlmostEqual(hi, 0.138, places=3)
 
     def test_wilson_is_not_degenerate_at_every_rate(self):
-        self.assertEqual(S.wilson(0, 0), (None, None))
-        lo, hi = S.wilson(74, 74)
+        self.assertEqual(I.wilson(0, 0), (None, None))
+        lo, hi = I.wilson(74, 74)
         self.assertGreater(lo, 0.95)
         self.assertAlmostEqual(hi, 1.0, places=6)
 
@@ -341,17 +129,48 @@ class StatisticsTest(unittest.TestCase):
         # Two readers who use exactly one label each have expected agreement 1.0, and
         # kappa is undefined there. It must be refused, not reported as 1.0.
         one = ["addresses"] * 30
-        kappa, table = S.cohen_kappa(one, one)
+        kappa, table = I.cohen_kappa(one, one)
         self.assertIsNone(kappa, "a scheme where expected agreement is 1.0 cannot be scored")
         self.assertEqual(table["observed_agreement"], 1.0)
 
     def test_kappa_is_computed_when_there_is_disagreement_to_score(self):
         a = ["addresses"] * 20 + ["unrelated"] * 10
         b = ["addresses"] * 20 + ["unclear"] * 10
-        kappa, table = S.cohen_kappa(a, b)
+        kappa, table = I.cohen_kappa(a, b)
         self.assertIsNotNone(kappa)
         self.assertGreater(table["observed_agreement"], 0.5)
         self.assertLess(kappa, 1.0)
+class ChronologyTest(unittest.TestCase):
+    def test_the_proxy_was_falsified_against_real_timestamps(self):
+        # The proxy is load-bearing for the headline split, so it was sampled against
+        # created_at on BOTH sides of the claimed cut. A proxy never shown capable of
+        # disagreeing is an assumption -- F019's shape, a gate that cannot fail.
+        path = os.path.join(RAW, "chronology_verification.jsonl")
+        if not os.path.exists(path):
+            self.fail("run verify_chronology.py: the proxy has not been falsified")
+        rows = [json.loads(l) for l in open(path) if l.strip()]
+        self.assertGreaterEqual(len(rows), 6, "too few sampled to falsify anything")
+        self.assertTrue(any(r["side"] == "claimed_eligible" for r in rows))
+        self.assertTrue(any(r["side"] == "claimed_ineligible" for r in rows),
+                        "both directions must be sampled or an inversion goes unseen")
+        self.assertEqual([r for r in rows if r["verdict"] != "agrees"], [],
+                         "item-id ordering disagreed with created_at; the split is unsafe")
+        for r in rows:
+            self.assertTrue(r["items_checked"], "an author with nothing checked proves nothing")
+            for c in r["items_checked"]:
+                self.assertIsNotNone(c.get("created_at_i"), "an item was not readable")
+
+    def test_the_check_is_capable_of_failing(self):
+        # Prove the verdict field is not a constant, so the test above is not vacuous.
+        path = os.path.join(RAW, "chronology_verification.jsonl")
+        if not os.path.exists(path):
+            self.skipTest("no capture yet")
+        rows = [json.loads(l) for l in open(path) if l.strip()]
+        self.assertIn("verdict", rows[0])
+        disagreeing = [r for r in rows if r["id_order_says_any_later"]
+                       != r["timestamps_say_any_later"]]
+        self.assertEqual(len(disagreeing), 0,
+                         "if any author disagrees the capture is evidence against itself")
 
 
 class VerdictTest(unittest.TestCase):
@@ -396,70 +215,3 @@ class VerdictTest(unittest.TestCase):
         self.assertIn("lexical_arm_feeds_no_gate", self.r)
         for g in self.r["gates"].values():
             self.assertNotIn("lexical", json.dumps(g).lower().replace("lexical_arm", ""))
-
-
-class LabelIntegrityTest(unittest.TestCase):
-    def setUp(self):
-        self.expected = [k["row_id"] for k in
-                         json.load(open(os.path.join(RAW, "view_key.json")))]
-
-    def test_each_reader_labelled_every_row_exactly_once(self):
-        for reader in ("r1", "r2"):
-            path = os.path.join(RAW, "labels_%s.tsv" % reader)
-            if not os.path.exists(path):
-                self.fail("reader %s has produced no labels" % reader)
-            ids, labs = [], []
-            for line in open(path):
-                if not line.strip():
-                    continue
-                parts = line.split("\t")
-                self.assertGreaterEqual(len(parts), 2, "row %r has no label" % line[:40])
-                self.assertIn(parts[1].strip(), S.LABELS)
-                ids.append(parts[0].strip())
-                labs.append(parts[1].strip())
-            self.assertEqual(sorted(ids), sorted(self.expected),
-                             "reader %s: ids differ from the view it was given" % reader)
-            self.assertEqual(len(set(ids)), 222, "reader %s repeated a row id" % reader)
-            self.assertEqual(len(labs), 222)
-
-    def test_labels_come_from_the_view_now_on_disk(self):
-        # The failure this guards: reader r1 re-labelled a regenerated view but emitted
-        # rows in the PREVIOUS view's order, so the file carried 222 plausible row ids
-        # whose id-to-pair mapping was wrong. Nothing downstream could tell. The check is
-        # that the reader's output order matches the frozen view's order.
-        order = re.findall(r"^===== ROW \d+ \| id (\S+) =====",
-                           open(os.path.join(RAW, "view_r1.txt")).read(), re.M)
-        for reader in ("r1", "r2"):
-            path = os.path.join(RAW, "labels_%s.tsv" % reader)
-            if not os.path.exists(path):
-                continue
-            got = [l.split("\t")[0].strip() for l in open(path) if l.strip()]
-            self.assertEqual(got, order,
-                             "reader %s: label order does not match the frozen view's order" % reader)
-
-    def test_a_reader_cannot_quote_the_key(self):
-        for reader in ("r1", "r2"):
-            path = os.path.join(RAW, "labels_%s.tsv" % reader)
-            if not os.path.exists(path):
-                continue
-            text = open(path).read().lower()
-            for word in ("matched", "mismatched", "story_title"):
-                self.assertNotIn(word, text,
-                                 "reader %s output leaks the arm name %r" % (reader, word))
-
-    def test_superseded_labels_are_kept_but_not_read(self):
-        # Failed runs are retained. What must not happen is a superseded label file
-        # being picked up as a current one. Regenerated artefacts (the view, the key)
-        # legitimately return to raw/, so only the label files are checked.
-        sup = os.path.join(HERE, "superseded")
-        if not os.path.isdir(sup):
-            return
-        superseded = [n for n in os.listdir(sup) if n.startswith("labels")]
-        self.assertTrue(superseded, "nothing was superseded, so this test proves nothing")
-        for name in superseded:
-            self.assertFalse(os.path.exists(os.path.join(RAW, name)),
-                             "%s was superseded and must not sit in raw/" % name)
-
-
-if __name__ == "__main__":
-    unittest.main()

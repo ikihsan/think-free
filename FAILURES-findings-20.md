@@ -120,3 +120,65 @@ fit rather than existence is answerable, and the instrument that answers it is
 buildable, and this run shows the two requirements it must satisfy — a positive
 control chosen on **fit demonstrated in documentation** rather than on use, and a
 reader scheme whose agreement clears its own floor.
+## F049 — 167 of 241 need-staters shipped *before* they stated the need, and the
+## reader arm could not resolve the rest
+
+`observed`, 2026-10-05, task T-0073,
+[`EXPERIMENTS/029-need-build-match/`](EXPERIMENTS/029-need-build-match/README.md).
+E029 is the join nobody had made: F042 followed the corpus's *needs* forward and
+F045 followed its *people* forward, and the two captures were never joined.
+
+**What failed.** Two things, and the second is the finding.
+
+**The instrument, first.** Verdict `not_evaluated`, and it is refused twice over:
+reader agreement **κ = 0.5004** against a declared floor of 0.6, and the declared
+negative control **C1 separation 0.0405** against a required 0.20. Three reader
+passes were spent and none produced a usable comparison. The run was invalidated by
+its own instrument, three times:
+
+- **45 of 74 control rows rendered an empty SHIPPED section**, so the control could
+  only be labelled `unrelated`. Caught by a test whose *population* was what hid the
+  defect — the first version iterated only the treatment arm and passed.
+- **The control was the treatment arm, renamed**: 74 self-pairs, 0 cross-pairs. The
+  alarm was an arm that feeds no gate printing byte-identical lexical means for both
+  (0.044952), which two different pairings cannot produce. Repaired: 0.023632.
+- **A label file with 222 correct row ids and a wrong row-to-pair mapping** — a
+  reader re-labelled a regenerated view in the previous view's order. Asserting the
+  id *set* is what let it through. **My repair script made it worse**, re-keying
+  against the wrong reference at a reassuring 221/222, and was deleted. A second
+  reader returned 4 duplicated and 4 missing ids, caught by the pre-declared test.
+
+**The population, which is the part that survives.** Of the 241 need-staters with a
+public `Show HN` item, **167 shipped it before they stated the need and only 74
+shipped anything after it.** A build cannot answer a need stated after it, so **69%
+of the population was never askable**, and the experiment as first written would have
+manufactured its own null. Selection is by HN item-id ordering and that proxy was
+falsified rather than assumed: **8 of 8 sampled authors agree with real
+`created_at`, 0 disagree, 0 unreadable**, sampled four from each side of the cut.
+
+**What it changes.** Not the closure — F042's `0 of 24 built it themselves` is not
+refuted, because the reader arm bounds the matched − control separation at CI95
+**[−0.0156, +0.1125]** (Fisher p = 0.245) and is consistent with zero. What changes
+is what the closure *is*: E025's `22.2% of need-staters have shipped something` is
+consistent with these people **having built something first and then hitting a gap
+they did not close**, which nobody had read that way because nobody asked *when*.
+
+### What this rules out, and what it does not
+
+- **It rules out** treating this corpus as 1401 independent unmet needs. A 69%
+  majority of the demonstrably-building subset had already shipped before they
+  complained, so "is there a tool that…" is substantially a question asked by people
+  who build, not a queue awaiting a builder.
+- **It does not rule out** a real need→build link: 3 of 74 matched rows against 0 of
+  74 cross-paired, named identically by two independent readers, is the predicted
+  direction. It is 4%, it is imprecise, and κ is below its own floor.
+- **It does not touch** any prior-art death, F029's 0 of 50, or F048/D060. Use is
+  still not fit, and E028's positive control is still mis-selected.
+
+### Ceilings
+
+One community, one trigger vocabulary, one reader scheme whose agreement is 0.50,
+74 rows per arm after the temporal restriction, `addresses` judged from a title by
+one model family. The direction is consistent and the magnitude is unresolved; a
+larger n is the only thing that would move the verdict, and it is the same instrument
+asked to do more.

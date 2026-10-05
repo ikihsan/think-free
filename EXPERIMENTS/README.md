@@ -40,3 +40,5 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `025-need-staters-builderhood` | Did the 0-of-24 build arm hide a disclosure channel? | **no** — rate 0.2224 of need-staters have shipped something, against 0.278 for ordinary commenters (F045) |
 | `026-unserved-need-structure` | Is the corpus's 589-statement unserved tail structured? | **no**; diffuse in length (0.948) and trigger (p ≈ 0.06), and B2's firing rests on 9 rows (F046) |
 | `027-cause-of-death-reread` | Were F029's 31 clause-based kills measured on a regex rather than a comment? | 6 of 15 `vague` kills are not vague, read by two blind readers; the six-label kappa fails but F029's 0-of-50 stands anyway (F047) |
+| `028-incumbent-fit` | Does the incumbent a prior-art screen named do what the clause asked? | **`not_evaluated`** — the declared positive control failed, and use is not fit (F048) |
+| `029-need-build-match` | Do the people who stated a need go on to ship that need? | 167 of 241 shipped **before** the need; the reader arm's verdict is in [`029-need-build-match/README.md`](029-need-build-match/README.md) (F049) |

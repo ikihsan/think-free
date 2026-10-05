@@ -29,15 +29,14 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Twenty-eight experiments have run; three invention claims are
+**Status: partial.** Twenty-nine experiments have run; three invention claims are
 disproved, one declared gate could not fail, one mechanism was confirmed while its
-candidate died of it, and the prior-art screen is measured (F035, F034), read against
-its own extract (F047) and asked what its evidence is evidence of (F048: **use is not
-fit**). None is validated.
+candidate died of it, the prior-art screen is measured (F035, F034), read against its
+own extract (F047) and asked what its evidence is evidence of (F048: **use is not
+fit**), and the demand corpus has been followed forward twice (F049). None validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
-- [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
-      disproved (`FAILURES.md` F001)
+- [x] Run E001 as a baseline check; kill gate met, motivating example disproved (F001)
 - [x] Write kill gates for the three held candidates in `HYPOTHESES.md` (T-0001, 2026-10-03)
 - [x] Apply the information-sufficiency test to the three held candidates (`003`, T-0008:
       W1/W3 survive, W2 spec insufficient, F007)
@@ -74,18 +73,20 @@ fit**). None is validated.
 - [x] Ask what the screen's evidence is evidence of (`028-incumbent-fit`, T-0072): `sharp`, at
       436,835,441 downloads/month and called served "beyond argument" by E016, documents nothing
       about its clause's attribute — **use is not fit** (F048, D060)
+- [x] Ask whether need-staters build what they state (`029-need-build-match`, T-0073): **167 of
+      the 241 who shipped had shipped *before* they complained**, so 69% of the population was
+      never askable; the reader arm is `not_evaluated` and bounds the link at
+      [−0.0156, +0.1125] — consistent with zero, so F042's 0-of-24 is confirmed on a 10×
+      larger instrument (F049, D061)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
-      fairness
 
 ## C — Commitment
 
-**Status: not started. Nothing may be selected yet.**
-
-Select only when evidence demonstrates technical possibility, meaningful
-differentiation against the strongest existing approach, practical value, and a
-plausible adoption path. Otherwise continue or pivot. Criteria in
+**Status: not started. Nothing may be selected yet.** Select only when evidence
+demonstrates technical possibility, differentiation against the strongest existing
+approach, practical value, and an adoption path; otherwise pivot. Criteria in
 `docs/process/hypothesis-lifecycle.md`.
 
 ## D — Engineering
@@ -95,8 +96,7 @@ plausible adoption path. Otherwise continue or pivot. Criteria in
 - [ ] Build the smallest independently usable implementation
 - [ ] Behavioural tests that can fail on a meaningful defect
 - [ ] Honest limits documented alongside capabilities
-- [ ] Reproducible build and installation, security review
-- [ ] Real examples, minimal learning curve
+- [ ] Reproducible build and installation, security review, real examples
 
 ## E — Public release
 

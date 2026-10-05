@@ -1,6 +1,7 @@
 # E029 — protocol amendment 2
 
-<!-- owner: EXPERIMENTS/PLAN.md
+<!-- origin-meta
+owner: EXPERIMENTS/PLAN.md
 status: active
 last-verified: 2026-10-05 -->
 
