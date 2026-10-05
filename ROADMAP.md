@@ -238,13 +238,13 @@ Separate from the invention stages: the mission cannot be run without it.
 ## Sequencing note
 
 The infrastructure track finished ahead of stage B because stage B is blocked on judgement
-rather than tooling. Sixteen experiments have run and none has validated a claim. Stage B is
-blocked on judgement twice over: on what no experiment here can answer — whether a knitter
-follows a generated repair plan, and whether E3's builder-level finding generalises beyond
+rather than tooling. Stage B is blocked on judgement twice over: on what no experiment here
+can answer — whether a knitter follows a generated repair plan, and whether E3's
+builder-level finding generalises beyond
 the one builder this machine has — and, since E016, on which axis a candidate is selected at
-all, because the screen that killed twelve candidates is now measured and does not hold
-(F035, F034, D050), and since F037 on the screen's **unit of measurement** for that vocabulary.
-E2's time-gated drift comparison is scheduled (side A banked, T-0019).
+all. **That second blocker has narrowed four times** (F035, F037, F039, F040, D052) and now
+resolves to an owner decision. **The twelve prior-art deaths stand.** Full account:
+[`STATE-in-flight.md`](STATE-in-flight.md).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython
@@ -252,12 +252,12 @@ minor from 3.8 to 3.14 has run the suite (T-0034, D035), identifiers are allocat
 shared base with the record printed (T-0031), and a red CI run is diagnosable without admin
 rights (F020, T-0038). The floor claim is still two things it is not: it says nothing about
 3.15 onwards, and a green row is evidence about that row and not the version below it. Git is
-weaker in kind, a git version being a property of a machine rather than of a workflow step,
+weaker in kind, being a property of a machine rather than of a workflow step,
 and `git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite
 that only passes where its author works is not a suite, and that is a recorded pattern rather
 than a coincidence: the interpreter assertion failed on every version the record lacked (F018),
 the git assertion on every runner whose git nobody recorded (F019), the credential fixture on
-every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the machine that wrote it.
+every runner exporting `GITHUB_TOKEN` (T-0035). Each was green where written.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
       defect 17). The five file-reading steps ran a gate, printed a report and exited, so
       the check run's only annotation was "Process completed with exit code 2" and the log

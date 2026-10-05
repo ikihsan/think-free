@@ -35,10 +35,18 @@ _(none recorded)_
 | EXPERIMENTS/020-copied-artifact-serving/coverage.json | 45d005318e39 | 10683 |
 | EXPERIMENTS/020-copied-artifact-serving/copycount.json | 829a3e01a14e | 46013 |
 | EXPERIMENTS/020-copied-artifact-serving/forkstatus.json | bea94793549d | 4763 |
+| STATE-in-flight.md | 7e5841c44d3d | 9820 |
+| STATE.md | af93f0ba6b30 | 28852 |
+| ROADMAP.md | e3c4745526a7 | 19957 |
+| RELEASE-MANIFEST.md | 6e3739ed5e3f | 4969 |
+| docs/INDEX.md | 36876264dddc | 25012 |
+| docs/process/experiment-protocol.md | aeced4ec42c4 | 8340 |
+| DECISIONS-SCREENING-3.md | 302e0fdb0331 | 4756 |
+| FAILURES-findings-16.md | 524194667ba1 | 7239 |
 
 ## Commands
 
-30 captured, 6 non-zero exit.
+32 captured, 6 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -72,6 +80,8 @@ _(none recorded)_
 | 33 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 503220 |
 | 34 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 500660 |
 | 35 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 494721 |
+| 43 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 529918 |
+| 46 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 528239 |
 
 ## Integrity
 
@@ -127,8 +137,18 @@ _(none recorded)_
 | 38 | 05:41:28 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/coverage.json |
 | 39 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/copycount.json |
 | 40 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
-| 41 | 05:41:45 | experiment_result | H1 dead: 1,026 indexed repositories holding a .claude/hooks/ directory against 8,676 monthly installs across the young arm's four channels, a ratio of |
-| 42 | 05:41:54 | milestone | F040 recorded in FAILURES-findings-16.md and D052 in DECISIONS-SCREENING-3.md; the prior-art protocol gains a fifth condition; three decision-file lis |
+| 45 | 06:17:15 | task_rewrite | appended a complete record for T-0064 |
+| 46 | 06:40:00 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 47 | 06:40:21 | artifact | wrote STATE-in-flight.md |
+| 48 | 06:40:21 | artifact | wrote STATE.md |
+| 49 | 06:40:22 | artifact | wrote ROADMAP.md |
+| 50 | 06:40:23 | artifact | wrote RELEASE-MANIFEST.md |
+| 51 | 06:40:23 | artifact | wrote docs/INDEX.md |
+| 52 | 06:40:24 | artifact | wrote docs/process/experiment-protocol.md |
+| 53 | 06:40:25 | artifact | wrote DECISIONS-SCREENING-3.md |
+| 54 | 06:40:26 | artifact | wrote FAILURES-findings-16.md |
+
+_4 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
