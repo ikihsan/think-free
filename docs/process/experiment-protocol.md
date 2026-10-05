@@ -60,10 +60,11 @@ Adversarial checklist: [`review-protocol.md`](review-protocol.md).
 
 ## Prior-art adjudication
 
-A prior-art verdict is admissible only when it satisfies all four of these. They
-come from F029, F030, F035 and F036, and D050 in
+A prior-art verdict is admissible only when it satisfies all five of these. They
+come from F029, F030, F035, F036 and F040; D050 in
 [`DECISIONS-SCREENING.md`](../../DECISIONS-SCREENING.md) is the decision that
-added the last three.
+added the first three, and D052 in
+[`DECISIONS-SCREENING-3.md`](../../DECISIONS-SCREENING-3.md) the last.
 
 1. **Read the open web, not only code indices.** A repository index and a package
    registry decide whether a *category* exists; only the open web shows whether
@@ -84,7 +85,18 @@ added the last three.
    well-formed results for each of 38 queries, every one unrelated to its query.
    Nothing inside such a capture distinguishes it from a real one.
 
-An item that survives all four has **no prior art found**. That is the absence of
+5. **Name the channels the screen could not read, and measure an alternative
+   channel before resting on one.** F040: a screen reading only installation
+   channels is not measuring competition in a vocabulary whose artifacts are
+   copied directories, and the belief that it was blind turned out to be false —
+   the copy channel measured 0.12× the install channel. The obligation is not to
+   find a bigger channel; it is to say which channels were consulted, so a reader
+   knows whether an absence means anything. A count instrument that cannot see a
+   declared minority of its own population must report that share beside the
+   number: E020's index read 17 of 18 young-arm repositories and **0 of 13
+   placebo ones**.
+
+An item that survives all five has **no prior art found**. That is the absence of
 a hit, which is not novelty, not a gap, and not a candidate: a mechanism, a
 differentiation and an adoption path are still owed, and each is a separate step.
 

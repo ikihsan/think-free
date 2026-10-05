@@ -30,10 +30,15 @@ _(none recorded)_
 | path | sha256 (first 12) | bytes |
 |---|---|---|
 | EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md | 1743f981724a | 9526 |
+| EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md | 1743f981724a | 9526 |
+| EXPERIMENTS/020-copied-artifact-serving/results.json | 294377447b78 | 10234 |
+| EXPERIMENTS/020-copied-artifact-serving/coverage.json | 45d005318e39 | 10683 |
+| EXPERIMENTS/020-copied-artifact-serving/copycount.json | 829a3e01a14e | 46013 |
+| EXPERIMENTS/020-copied-artifact-serving/forkstatus.json | bea94793549d | 4763 |
 
 ## Commands
 
-23 captured, 2 non-zero exit.
+30 captured, 6 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -60,6 +65,13 @@ _(none recorded)_
 | 26 | ['python3', 'EXPERIMENTS/020-copied-artifact-serving/tally.py'] | 0 | 61089 |
 | 27 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 442577 |
 | 28 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 496420 |
+| 29 | ['python3', 'EXPERIMENTS/020-copied-artifact-serving/tally.py'] | 0 | 57152 |
+| 30 | ['python3', 'EXPERIMENTS/020-copied-artifact-serving/tally.py'] | 1 | 17290 |
+| 31 | ['python3', 'EXPERIMENTS/020-copied-artifact-serving/tally.py'] | 1 | 680 |
+| 32 | ['python3', 'EXPERIMENTS/020-copied-artifact-serving/tally.py'] | 0 | 62625 |
+| 33 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 503220 |
+| 34 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 500660 |
+| 35 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 494721 |
 
 ## Integrity
 
@@ -103,3 +115,25 @@ _(none recorded)_
 | 26 | 04:19:52 | command | $ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py |
 | 27 | 04:29:08 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 28 | 04:46:59 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 29 | 04:58:02 | command | $ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py |
+| 30 | 04:59:10 | command | $ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py |
+| 31 | 04:59:27 | command | $ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py |
+| 32 | 05:00:57 | command | $ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py |
+| 33 | 05:19:19 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 34 | 05:27:53 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 35 | 05:37:47 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 36 | 05:41:26 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md |
+| 37 | 05:41:27 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/results.json |
+| 38 | 05:41:28 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/coverage.json |
+| 39 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/copycount.json |
+| 40 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
+| 41 | 05:41:45 | experiment_result | H1 dead: 1,026 indexed repositories holding a .claude/hooks/ directory against 8,676 monthly installs across the young arm's four channels, a ratio of |
+| 42 | 05:41:54 | milestone | F040 recorded in FAILURES-findings-16.md and D052 in DECISIONS-SCREENING-3.md; the prior-art protocol gains a fifth condition; three decision-file lis |
+
+## Reproduce this record
+
+```bash
+tools/origin session verify
+cat sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/events.jsonl
+```
+>>>>>>> 6835146... records: F040 and D052 -- the copy channel is 0.12x the install channel, so item 0's third reading is answered and the screen's young-vocabulary premise is no longer in question

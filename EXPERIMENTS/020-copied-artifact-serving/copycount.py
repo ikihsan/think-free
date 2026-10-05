@@ -3,92 +3,64 @@
 
 Every query writes its raw stream to raw/ before anything is parsed, so a figure
 in results.json can be traced to bytes on disk.  Declared in
-EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md; the instrument's three
-ceilings are repeated in INSTRUMENT_NOTES because they are load-bearing.
+EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md.
 
 Unauthenticated only.  A refused, truncated or errored answer is `refused` and is
 never counted as a zero -- F032's defect class, which has already bitten this
 repository twice.
+
+The on-disk format lives in `captureformat.py` and is not restated here: what a
+capture on disk means, how it is named, and how the index is re-derived from it
+are one invariant, and this file is only how to obtain one.
 """
 
 import json
 import os
-import re
 import subprocess
 import sys
 import time
+
+from captureformat import (  # noqa: F401  (re-exported: callers import these here)
+    CEILING,
+    CHALLENGE_MARKERS,
+    INSTRUMENT_NOTES,
+    detect_challenge,
+    read_raw,
+    rebuild_index,
+)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, "raw")
 
 STREAM_URL = "https://sourcegraph.com/.api/search/stream?q=%s&v=V3&t=literal"
 
-# Observed on 2026-10-05: the public stream sits behind a Cloudflare challenge that
-# arms after roughly 30 requests from one host and then answers every query with
-# an HTTP 200 HTML challenge page. That is F036's shape exactly -- a well-formed
-# response carrying nothing about the query -- and the fetcher's first job is to
-# notice it. `detect_challenge` looks for the challenge's own marker.
-CHALLENGE_MARKERS = ("__cf_chl", "cf_chl_opt", "Vercel Security Checkpoint", "Just a moment")
-
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/120.0.0.0 Safari/537.36"
 )
 
-# The instrument's declared ceilings, restated because every number depends on
-# them.  See PROTOCOL.md "What was read before this file existed".
-INSTRUMENT_NOTES = {
-    "is_a_floor": (
-        "Sourcegraph indexes a subset of GitHub. Every count is 'at least N'."
-    ),
-    "default_exclusions": (
-        "forks and archived repositories are excluded unless fork:yes archived:yes"
-    ),
-    "unit": (
-        "the file: pattern is a path glob, so a repository counts once however "
-        "many of its files match"
-    ),
-    "auth": "no token is sent; the public stream is the whole instrument",
-}
-
-# Saturation ceiling observed on the calibration anchors. Above this the
-# repositoriesCount is a floor set by our own count: parameter, not by the world,
-# and a query at the ceiling is reported as saturated rather than as its number.
-CEILING = 4000
-
 
 def _quote(term):
-    """Escape a query term for the URL, leaving Sourcegraph operators readable."""
-    return term.replace("%", "%25").replace(":", "%3A").replace(" ", "%20")
+    """Escape a query term for the URL, leaving Sourcegraph operators readable.
 
-
-def _slug(query):
-    safe = re.sub(r"[^A-Za-z0-9]+", "-", query).strip("-").lower()
-    return safe[:80]
-
-
-def detect_challenge(text):
-    """Name the challenge marker if this response is one, else None.
-
-    Kept separate from fetch() so that a challenge is a *named* refusal rather
-    than an unexplained zero, and so the distinction is testable.
+    `:` and `%` are the two that break a URL, and `:` is also the operator
+    character, so it is escaped without touching the operators the query is built
+    from. The slug is applied after this, never to the quoted string.
     """
-    for marker in CHALLENGE_MARKERS:
-        if marker in text:
-            return marker
-    return None
+    return term.replace("%", "%25").replace(":", "%3A").replace(" ", "%20")
 
 
 def capture_name(query, name=None):
     """The filename a query's raw capture is written under.
 
-    One definition, callable by the consumer. The slug was previously recomputed
-    independently by forkstatus.py and the two versions disagreed once the query
-    header was added to the file, which turned all twenty-two configurations into
-    `no_origin`. Anything that needs to find a capture must call this.
+    Re-exported from `captureformat`, which owns it. It lived here once and was
+    re-implemented independently by forkstatus.py; the two versions disagreed once
+    the query header was added to the capture, which turned all twenty-two
+    configurations into `no_origin`. One definition, imported by everyone.
     """
-    return name or _slug(query)
+    from captureformat import capture_name as _named
 
+    return _named(query, name)
 
 def fetch(query, name=None, sleep=0.0):
     """Run one query, write the raw stream, return a parsed record.
@@ -243,103 +215,15 @@ def fetch(query, name=None, sleep=0.0):
     return record
 
 
-def read_raw(path):
-    """Parse one raw stream back into a record.
-
-    The raw captures are the ground truth; copycount.json is an index over them.
-    Rebuilding from raw is what makes that true rather than merely intended -- the
-    clobbering defect above lost ten counts from the index while every raw file
-    was still on disk, and this function is how they came back.
-
-    The query is read from a `# query:` first line rather than recovered from the
-    filename: the slug is lossy (`^\.claude/hooks/README\.md$` and
-    `^\.claude/hooks/` differ only in a suffix the slug drops to the same shape),
-    so a rebuild keyed on the filename cannot tell two patterns apart. Streams
-    written before this header are read without one and are reported as such.
-    """
-    name = os.path.basename(path)[:-4]
-    with open(path) as handle:
-        text = handle.read()
-    record = {"name": name, "raw": os.path.relpath(path, HERE), "query": "",
-              "query_present": False}
-
-    if text.startswith("# query:"):
-        record["query"] = text.split("\n", 1)[0][len("# query:"):].strip()
-        record["query_present"] = True
-        text = text.split("\n", 1)[1] if "\n" in text else ""
-    else:
-        record["no_query_header"] = True
-
-    challenge = detect_challenge(text)
-    if challenge is not None:
-        record.update({"state": "refused", "count": None,
-                       "reason": "anti-bot challenge (%s), not an answer" % challenge})
-        return record
-
-    progress = None
-    for line in text.splitlines():
-        if not line.startswith("data: "):
-            continue
-        try:
-            blob = json.loads(line[6:])
-        except ValueError:
-            continue
-        if isinstance(blob, dict) and blob.get("done") is True:
-            progress = blob
-    if progress is None:
-        record.update({"state": "refused", "count": None, "reason": "no terminal progress event"})
-        return record
-
-    record["repositoriesCount"] = progress.get("repositoriesCount")
-    record["matchCount"] = progress.get("matchCount")
-    record["skipped"] = progress.get("skipped", [])
-    if progress.get("repositoriesCount") is None:
-        if progress.get("matchCount") == 0:
-            record.update({"state": "ok", "count": 0})
-        else:
-            record.update({"state": "refused", "count": None,
-                           "reason": "matched files but named no repository"})
-        return record
-    record["count"] = progress["repositoriesCount"]
-    limit_hit = any(i.get("reason") in ("shard-match-limit", "hit-limit")
-                    for i in record["skipped"])
-    if limit_hit or record["count"] >= CEILING:
-        record["state"] = "saturated"
-        record["reason"] = "at or above count:4000; a floor set by the query"
-    else:
-        record["state"] = "ok"
-    return record
-
-
-def rebuild_index():
-    """Re-derive copycount.json from every raw stream on disk."""
-    records = []
-    for entry in sorted(os.listdir(RAW)):
-        if not entry.endswith(".sse"):
-            continue
-        rec = read_raw(os.path.join(RAW, entry))
-        records.append(rec)
-
-    # The query lives in the capture's first line. Streams fetched before that
-    # header existed cannot be attributed to a pattern, so they are reported as
-    # unattributed rather than being matched by slug -- guessing here is what put
-    # a broad pattern's count on a narrow one in the first place.
-    attributed = [r for r in records if not r.get("no_query_header") and r["query"]]
-    out = os.path.join(HERE, "copycount.json")
-    with open(out, "w") as handle:
-        json.dump({"instrument": INSTRUMENT_NOTES, "rebuilt_from": "raw/",
-                   "attributed": len(attributed),
-                   "unattributed": len(records) - len(attributed),
-                   "records": records},
-                  handle, indent=1, sort_keys=True)
-        handle.write("\n")
-    return records
-
-
 def main(argv):
+    """The command line, in the file that fetches.
+
+    `--rebuild` re-derives the index from captures already on disk, which is a
+    property of the format rather than a fetch; it is routed here because this is
+    where a caller looks for it.
+    """
     if len(argv) >= 2 and argv[1] == "--rebuild":
-        records = rebuild_index()
-        print("rebuilt %d records from raw/" % len(records))
+        print("rebuilt %d records from raw/" % len(rebuild_index()))
         return 0
     if len(argv) < 2:
         sys.stderr.write("usage: copycount.py PATTERN [PATTERN ...] | --rebuild\n")
@@ -355,8 +239,7 @@ def main(argv):
     # so re-running three patterns to add a hook path silently discarded the nine
     # counts fetched before it -- and the consumer then reported "3 of 10
     # configurations have a count", which reads as a fact about the vocabulary
-    # rather than as this file having been clobbered. The first run in a fresh
-    # clone still creates it.
+    # rather than as this file having been clobbered.
     out = os.path.join(HERE, "copycount.json")
     existing = []
     if os.path.exists(out):

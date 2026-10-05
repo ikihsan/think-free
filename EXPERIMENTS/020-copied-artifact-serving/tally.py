@@ -14,6 +14,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
 
+# The capture-lookup helpers moved to `captureindex.py` at the 300-line cap: which
+# capture answers a given path pattern is one invariant, and it had already been
+# three separate defects. They are imported rather than restated.
+from captureindex import (  # noqa: E402
+    best_capture,
+    canon,
+    headerless_captures,
+    raw_by_query,
+    slug_for,
+    term_of,
+)
+
 from copycount import read_raw  # noqa: E402
 
 # 015's floors, unchanged and imported rather than restated -- PROTOCOL.md says so.
@@ -36,19 +48,6 @@ C3_PATTERNS = {
     "^\\.pre-commit-config\\.yaml$": "mature hook runner configuration",
     "^\\.githooks/pre-commit$": "mature hook script",
 }
-
-
-def raw_by_query():
-    """Every capture on disk, keyed by the query it answers."""
-    out = {}
-    raw = os.path.join(HERE, "raw")
-    for entry in sorted(os.listdir(raw)):
-        if not entry.endswith(".sse"):
-            continue
-        rec = read_raw(os.path.join(raw, entry))
-        if rec.get("query"):
-            out[rec["query"]] = rec
-    return out
 
 
 def _recover_h1_from_records():
@@ -132,60 +131,6 @@ def canon(pattern):
     if not out.startswith("^"):
         out = "^" + out
     return out
-
-
-def headerless_captures():
-    """Captures fetched before the query header existed, keyed by their slug.
-
-    These cannot be attributed by reading the file: the query was never written
-    into it. They are recovered through the slug, which IS lossy, and the loss is
-    declared rather than absorbed -- the slug cannot distinguish
-    `^\.claude/hooks/README\.md$` from `^\.claude/hooks/`, which is the exact
-    confusion that produced defect 1 in this file. So a slug-matched capture is
-    only used when the pattern sought is the ONLY one its slug could stand for,
-    and the result carries `attributed_by: slug`.
-    """
-    raw = os.path.join(HERE, "raw")
-    out = {}
-    for entry in sorted(os.listdir(raw)):
-        if not entry.endswith(".sse"):
-            continue
-        rec = read_raw(os.path.join(raw, entry))
-        if rec.get("query"):
-            continue
-        rec["attributed_by"] = "slug"
-        out[rec["name"]] = rec
-    return out
-
-
-def slug_for(pattern):
-    from copycount import capture_name
-
-    return capture_name("context:global file:%s select:repo count:4000" % pattern)
-
-
-def best_capture(captures, pattern):
-    """The largest count any capture of this path pattern recorded.
-
-    Keyed on the `file:` term rather than the whole query, because the ceiling
-    parameter differs between fetches -- a pattern first asked at count:4000 and
-    later at count:20000 has two captures, and the larger is the better floor.
-    """
-    best = None
-    wanted = canon(pattern)
-    for query, rec in captures.items():
-        term = term_of(query)
-        if term is None or canon(term) != wanted:
-            continue
-        if rec["state"] not in ("ok", "saturated"):
-            continue
-        if best is None or rec["count"] > best["count"]:
-            best = rec
-    if best is not None:
-        return best
-    # Fall back to the pre-header captures, by slug.
-    rec = headerless_captures().get(slug_for(pattern))
-    return rec
 
 
 def h2_from_rows(rows):

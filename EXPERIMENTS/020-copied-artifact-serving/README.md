@@ -162,13 +162,21 @@ screen is wrong.** That is an uncomfortable result and it is the measured one.
 
 | step | script | what it fixes |
 |---|---|---|
-| fetch | `copycount.py` | one paced query per pattern, raw capture written before parsing, the query recorded in the capture, challenges named as refusals, answers never overwritten, `--rebuild` re-derives the index from `raw/` |
+| format | `captureformat.py` | what a capture on disk **means**: its `# query:` header, challenge detection, the saturation ceiling, and `rebuild_index()`, which re-derives the index from `raw/` |
+| lookup | `captureindex.py` | which capture answers a given path pattern — equality on the recovered term, escaping canonicalised, largest count across ceiling variants, slug fallback marked as such |
+| fetch | `copycount.py` | one paced query per pattern, capture written before parsing, a challenge named as a refusal, an answer never overwritten |
 | coverage | `coverage.py` | C2, from 017's committed artifacts; retries only unanswered rows and backs off on a refusal streak |
 | forks | `forkstatus.py` | H2: copy count per configuration, then `fork` and `is_template` from GitHub's core API for the repository shipping the path |
-| verdict | `tally.py` | both gates, all four controls, and every refusal recorded rather than dropped |
+| verdict | `tally.py` | both gates, all four controls, H1's recovery from the records that still hold it, and every refusal recorded rather than dropped |
 
-Tests: `tests/test_copy_channel.py`, which holds each defect above against the
-committed captures rather than against a fixture.
+`captureformat`, `captureindex`, `coverage` and `forkstatus` were one file until the
+300-line cap; they are split by invariant, and each split is a fault line — the
+lookups, the fetcher and the verdict each had their own defect, and none of the
+three defects was visible from the other two.
+
+Tests: `tests/test_copy_channel.py` (the capture format) and
+`tests/test_copy_channel_gates.py` (both gates and all four controls), which hold
+each defect above against the committed captures rather than against a fixture.
 
 ## Limits on the ceiling
 

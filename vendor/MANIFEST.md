@@ -83,6 +83,13 @@ Five vendored files exceed 300 lines:
 | `.agents/skills/writing-skills/testing-skills-with-subagents.md` | 384 |
 | `.agents/skills/test-driven-development/SKILL.md` | 320 |
 
+# Raw instrument captures. Same class as `.json` and `.log`: bytes an external
+# endpoint returned, written before parsing, never hand-edited, and the reason a
+# figure in a results.json can be traced to the request that produced it. E020's
+# 82 captures are the reason; the rule is the extension, not the experiment.
+exempt: EXPERIMENTS/**/raw/*.sse
+exempt: EXPERIMENTS/**/raw/*.sse.stderr
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**
