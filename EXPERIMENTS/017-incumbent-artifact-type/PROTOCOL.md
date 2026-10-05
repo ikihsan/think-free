@@ -1,7 +1,7 @@
-# 016 — the protocol as declared, in full
+# 017 — the protocol as declared, in full
 
 <!-- origin-meta
-owner: EXPERIMENTS/016-incumbent-artifact-type/README.md
+owner: EXPERIMENTS/017-incumbent-artifact-type/README.md
 status: active
 last-verified: 2026-10-05
 -->

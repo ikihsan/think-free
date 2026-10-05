@@ -37,7 +37,14 @@ for path in (PREV, HERE):
 import attribution  # noqa: E402
 
 EMPTY = "empty_or_missing"
-REFUSED = "refused"
+# One vocabulary for a refusal, taken from the transport every channel shares.
+# This module first declared its own `"refused"` while `classification.py`
+# compared against `attribution.REFUSED` (`"refused:upstream"`), so a genuinely
+# refused listing matched neither branch and was classified by the
+# `unexpected_shape` fallback -- right class, wrong reason, and one edit away from
+# right class and wrong count. Found by holding the committed cache to the
+# property in tests/test_artifact_population.py::FetchCacheTest.
+REFUSED = attribution.REFUSED
 
 
 def contents(full_name):

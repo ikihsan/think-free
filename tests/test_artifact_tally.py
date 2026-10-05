@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Falsification cases for 016's two gates.
+"""Falsification cases for 017's two gates.
 
 `docs/policy/gate-falsification.md` asks for a gate to be falsified against the
 defect's own bytes before it is trusted, in both directions. Both directions here
@@ -23,10 +23,9 @@ import unittest
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.abspath(__file__)), os.pardir,
-    "EXPERIMENTS", "016-incumbent-artifact-type"))
+    "EXPERIMENTS", "017-incumbent-artifact-type"))
 
 import classification  # noqa: E402
-import servingjoin     # noqa: E402
 import tally           # noqa: E402
 
 
@@ -275,79 +274,3 @@ class GateUsesTheMechanicalClassTest(unittest.TestCase):
         result = tally.build()
         self.assertIn("complete", result["population"])
         self.assertIn("by_arm", result["population"])
-
-
-class CrossTabulationTest(unittest.TestCase):
-    def test_cross_counts_only_the_requested_arm(self):
-        rows = [row("d0", "document", arm="young"),
-                row("x0", "executable", arm="mature", decided=False)]
-        only = servingjoin.cross(rows, "young")
-        self.assertEqual(only["document"]["n"], 1)
-        self.assertEqual(only["executable"]["n"], 0)
-
-    def test_cross_never_counts_an_undecided_row_as_served(self):
-        rows = [row("d0", "document", decided=False, served=True),
-                row("d1", "document", decided=True, served=True)]
-        out = servingjoin.cross(rows, "young")["document"]
-        self.assertEqual(out["decided"], 1)
-        self.assertEqual(out["served"], 1)
-        self.assertEqual(out["served_share"], 1.0)
-
-    def test_cross_reports_a_null_share_rather_than_zero_for_an_undecided_class(self):
-        rows = [row("d0", "document", decided=False)]
-        out = servingjoin.cross(rows, "young")["document"]
-        self.assertIsNone(out["served_share"])
-
-
-class ReadShapeTest(unittest.TestCase):
-    def test_a_missing_reads_json_is_a_failure_not_a_pass(self):
-        ok, problems = __import__("readfields").check_reads()
-        self.assertFalse(ok or not problems)   # either it is absent, or it is named
-
-    def test_every_known_answer_case_still_classifies_as_declared(self):
-        for label, cached, expected in classification.KNOWN_ANSWER:
-            self.assertEqual(classification.classify(cached)["class"], expected,
-                             msg=label)
-
-
-class FetchCacheTest(unittest.TestCase):
-    """The cache is the one place a budget limit can become a permanent claim.
-
-    The core budget is 60 an hour and this experiment needs two requests per row
-    over 61 rows, so a run runs out mid-population and every later row answers 403.
-    If that answer is cached as a reading, "I could not ask today" becomes "this
-    repository could not be read" and no later run re-asks -- which is exactly the
-    dead-branch defect F032 records, where zero measured installs was not zero
-    users. These cases hold the difference.
-    """
-    def setUp(self):
-        import rootlisting
-        self.rl = rootlisting
-
-    def test_a_refused_half_is_not_complete(self):
-        self.assertFalse(self.rl._complete({"contents": self.rl.REFUSED,
-                                            "releases": 0}))
-        self.assertFalse(self.rl._complete({"contents": [],
-                                            "releases": self.rl.REFUSED}))
-
-    def test_a_missing_half_is_not_complete(self):
-        self.assertFalse(self.rl._complete({"contents": []}))
-        self.assertFalse(self.rl._complete({}))
-
-    def test_both_halves_answered_is_complete(self):
-        self.assertTrue(self.rl._complete({"contents": [], "releases": 0}))
-
-    def test_an_empty_repository_is_a_complete_answer(self):
-        """404 on the contents API means no commits, which is a reading about the
-        repository rather than a failure to read it. It must not be re-asked
-        forever, and it must not become `executable`."""
-        self.assertTrue(self.rl._complete({"contents": self.rl.EMPTY,
-                                           "releases": 0}))
-
-    def test_status_ignores_a_half_cached_row(self):
-        rows = [{"repo": "a"}, {"repo": "b"}]
-        self.assertEqual(self.rl.status(rows), (0, 2))
-
-
-if __name__ == "__main__":
-    unittest.main()

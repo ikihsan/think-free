@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Falsification cases for 016's mechanical README fields.
+"""Falsification cases for 017's mechanical README fields.
 
-Four of 016's five read fields are decided by looking for a string, and H2's
+Four of 017's five read fields are decided by looking for a string, and H2's
 verdict turns on two of them: a document is only a *witness of an unmet need* if
 it offers no software, and `teaches_only` is what says that. So the two string
 fields have to fail in a known direction rather than an unknown one.
@@ -21,7 +21,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.abspath(__file__)), os.pardir,
-    "EXPERIMENTS", "016-incumbent-artifact-type"))
+    "EXPERIMENTS", "017-incumbent-artifact-type"))
 
 import readfields  # noqa: E402
 

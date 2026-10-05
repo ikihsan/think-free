@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Falsification cases for 016's classifier, written before the population was
+"""Falsification cases for 017's classifier, written before the population was
 classified.
 
 `docs/policy/gate-falsification.md` asks for a gate to be falsified against the
@@ -31,7 +31,7 @@ import unittest
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.abspath(__file__)), os.pardir,
-    "EXPERIMENTS", "016-incumbent-artifact-type"))
+    "EXPERIMENTS", "017-incumbent-artifact-type"))
 
 import classification  # noqa: E402
 

@@ -1,4 +1,4 @@
-# 016 — what does the prior-art screen's population actually contain?
+# 017 — what does the prior-art screen's population actually contain?
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -15,7 +15,7 @@ before that file existed.
 **Verdict: H1 is `dead`.** In the young vocabulary the prior-art screen's
 population is **14 of 18 working code, not documents** — the hypothesis this
 experiment was built to test is disproved, and by hand rather than by the rule's
-own margins. F035.
+own margins. F037.
 
 **The hypothesis was not formed blind, and the leak is named.** I read the 48
 repository *names* inside `EXPERIMENTS/015-incumbent-serving/results.json`

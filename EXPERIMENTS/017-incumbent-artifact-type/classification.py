@@ -52,6 +52,12 @@ DECLARED_CORRECTION = (
 REFUSED = "refused:upstream"
 EMPTY = "empty_or_missing"
 
+# The refusal vocabulary is the transport's, not this module's. `rootlisting.py`
+# once declared its own `"refused"` while this compared against
+# `"refused:upstream"`, and a genuinely refused listing therefore matched no
+# branch and reached the `unexpected_shape` fallback. Asserted equal by
+# tests/test_artifact_population.py so the two cannot drift apart again.
+
 
 def _marker_hits(entries, stems_restricted):
     hits = []
