@@ -41,13 +41,15 @@ _(none recorded)_
 
 ## Commands
 
-3 captured, 0 non-zero exit.
+5 captured, 0 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 4 | ['git', 'add', 'EXPERIMENTS/024-kill-reason-causes/'] | 0 | 81 |
 | 9 | ['git', 'commit', '-q', '-m', "E024: prior art is the plurality of kill reasons, and the population is 20 rows rather than twelve\n\nT-0068. 'Twelve c | 0 | 20 |
 | 10 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 511241 |
+| 16 | ['git', 'commit', '-q', '-m', "F044 and D056: correct the four summaries that carried the count, and record what the counting changed\n\nThe populatio | 0 | 175 |
+| 18 | ['git', 'push', '-q', 'origin', 'research/origin'] | 0 | 3575 |
 
 ## Integrity
 
@@ -78,6 +80,11 @@ _(none recorded)_
 | 13 | 13:50:55 | artifact | wrote EXPERIMENTS/024-kill-reason-causes/classify.py |
 | 14 | 13:50:56 | artifact | wrote STATE-in-flight-2.md |
 | 15 | 13:50:56 | artifact | wrote EXPERIMENTS/024-kill-reason-causes/results.json |
+| 16 | 13:51:28 | command | $ git commit -q -m F044 and D056: correct the four summaries that carried the count, and record what the counting changed  The population is 2 |
+| 17 | 13:51:55 | milestone | E024 complete: F044 recorded, D056 recorded, four summaries corrected, doc lint OK, 790 tests pass |
+| 18 | 13:52:07 | command | $ git push -q origin research/origin |
+| 19 | 13:52:44 | task_rewrite | rewrote tasks/T-0068-classify-what-killed-each-candidate-from-its-p.md (status: done) |
+| 20 | 13:52:45 | task_rewrite | appended a complete record for T-0068 |
 
 ## Reproduce this record
 

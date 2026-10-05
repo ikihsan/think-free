@@ -88,3 +88,35 @@ Ran 790 tests in 510.183s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 511241  redactions: none
+==============================================================================
+[seq 16] 2026-10-05T13:51:28+00:00
+$ git commit -q -m F044 and D056: correct the four summaries that carried the count, and record what the counting changed
+
+The population is 20 rows rather than twelve, and prior art is a plurality with a
+one-row margin rather than a majority. STATE.md, HYPOTHESES.md,
+STATE-next-actions.md and FAILURES-findings-6.md all stated the twelve; each now
+states what was measured, and FAILURES-findings-6's own headline is corrected
+in place because F026's conclusion survives on the narrower evidence.
+
+The second reading matters more than the first: 7 of the 18 died of something
+else -- a mechanism its own test refuted or confirmed into uselessness, a claim no
+observation could establish, or a promotion with no gate priced. Item 0 gains
+that option with a count behind it, and keeps its owner-decision status.
+
+STATE-in-flight-2.md holds the closed readings item 0 leans on, split from
+STATE-in-flight.md at the cap. classify.py splits into rowcheck.py (does the
+record obey its own rule) and the gates, with every figure identical across the
+split.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 175  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T13:52:07+00:00
+$ git push -q origin research/origin
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3575  redactions: none
