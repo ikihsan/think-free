@@ -150,6 +150,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md`](../tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md`](../tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md`](../tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md`](../tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 
