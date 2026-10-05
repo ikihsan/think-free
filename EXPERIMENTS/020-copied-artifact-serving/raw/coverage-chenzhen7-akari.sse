@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64321557,"repository":"github.com/chenzhen7/akari","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":26,"line":0,"column":26}}],"repoStars":257,"repoLastFetched":"2026-10-05T01:48:01.572239Z","description":"Akari 是一个面向开发者团队的 AI Agent 并行开发管理平台。它基于 Git worktree 为每个会话创建完全隔离的工作区，让你能够同时启动多个 Agent（Claude Code、Kimi、Aider、Shell 等），通过统一界面查看状态、终端输出、代码 Diff，并在任务完成后统一 Review、合并回主干。"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":33,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=d587aa6f734ebecde04c3a2f67e3adfa\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

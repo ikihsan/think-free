@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(conftest)","label":"conftest","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(git-hooks)","label":"git-hooks","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(opa)","label":"opa","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(openpolicyagent)","label":"openpolicyagent","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(pre-commit)","label":"pre-commit","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(pre-commit-hooks)","label":"pre-commit-hooks","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(rego)","label":"rego","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":41880681,"repository":"github.com/anderseknert/pre-commit-opa","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":38,"line":0,"column":38}}],"repoStars":69,"repoLastFetched":"2026-10-04T20:39:59.357648Z","description":"Pre-commit git hooks for Open Policy Agent (OPA) and Rego development","topics":["rego","opa","git-hooks","pre-commit","pre-commit-hooks","conftest","openpolicyagent"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(conftest)","label":"conftest","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(git-hooks)","label":"git-hooks","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(opa)","label":"opa","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(openpolicyagent)","label":"openpolicyagent","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(pre-commit)","label":"pre-commit","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(pre-commit-hooks)","label":"pre-commit-hooks","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(rego)","label":"rego","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":34,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=fe14edba1a470d08593dbfb3bd1be0c0\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

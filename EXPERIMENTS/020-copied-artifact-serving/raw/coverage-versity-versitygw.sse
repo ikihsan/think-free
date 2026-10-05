@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(filesystem)","label":"filesystem","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(object-storage)","label":"object-storage","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(s3)","label":"s3","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(s3-storage)","label":"s3-storage","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":61201160,"repository":"github.com/versity/versitygw","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":28,"line":0,"column":28}}],"repoStars":2982,"repoLastFetched":"2026-10-05T02:46:53.400694Z","description":"A simple to deploy but feature rich S3 object storage server for your filesystem","topics":["filesystem","s3","s3-storage","object-storage"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(filesystem)","label":"filesystem","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(object-storage)","label":"object-storage","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(s3)","label":"s3","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(s3-storage)","label":"s3-storage","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":37,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=1f4f303012a090f52de73e2961078821\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

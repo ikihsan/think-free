@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(claude-code)","label":"claude-code","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(mobile-ide)","label":"mobile-ide","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64333744,"repository":"github.com/techjarves/Mobile-Harness","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":36,"line":0,"column":36}}],"repoStars":508,"repoLastFetched":"2026-10-05T00:52:31.669244Z","description":"Claude Code on Android:  AI-powered mobile coding IDE for Android — chat with a coding agent, run Linux commands, edit files, review diffs, and preview web apps directly from your phone. No root required.","topics":["claude-code","mobile-ide"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(claude-code)","label":"claude-code","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(mobile-ide)","label":"mobile-ide","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":16,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=4fc5ec2d51e43ab4a8291d5f4551b8f5\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":39973708,"repository":"github.com/seanooi/iOS-WebP","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":27,"line":0,"column":27}}],"repoStars":853,"repoLastFetched":"2026-10-05T01:13:47.212384Z","description":"Google's WebP image format decoder and encoder for iOS"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":14,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=eb4c6392c64078f5a52bd8cea29f750f\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

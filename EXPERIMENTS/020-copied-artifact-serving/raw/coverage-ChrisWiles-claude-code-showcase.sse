@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64246251,"repository":"github.com/ChrisWiles/claude-code-showcase","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":42,"line":0,"column":42}}],"repoStars":6072,"repoLastFetched":"2026-10-04T23:49:23.476915Z","description":"Comprehensive Claude Code project configuration example with hooks, skills, agents, commands, and GitHub Actions workflows"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":32,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=e3bf7dcfef6ee519d86b5223c040a23c\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

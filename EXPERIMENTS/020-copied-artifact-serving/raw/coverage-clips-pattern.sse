@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(machine-learning)","label":"machine-learning","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(natural-language-processing)","label":"natural-language-processing","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(network-analysis)","label":"network-analysis","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(python)","label":"python","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(sentiment-analysis)","label":"sentiment-analysis","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(web-mining)","label":"web-mining","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(wordnet)","label":"wordnet","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":48308,"repository":"github.com/clips/pattern","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":24,"line":0,"column":24}}],"repoStars":8859,"repoLastFetched":"2026-10-04T22:00:15.648303Z","description":"Web mining module for Python, with tools for scraping, natural language processing, machine learning, network analysis and visualization.","topics":["python","machine-learning","natural-language-processing","web-mining","wordnet","sentiment-analysis","network-analysis"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(machine-learning)","label":"machine-learning","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(natural-language-processing)","label":"natural-language-processing","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(network-analysis)","label":"network-analysis","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(python)","label":"python","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(sentiment-analysis)","label":"sentiment-analysis","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(web-mining)","label":"web-mining","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(wordnet)","label":"wordnet","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":33,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=4a59cb9e9c57609c38c590c7e89d7459\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

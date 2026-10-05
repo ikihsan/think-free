@@ -1,0 +1,1612 @@
+{
+ "attributed": 23,
+ "instrument": {
+  "auth": "no token is sent; the public stream is the whole instrument",
+  "default_exclusions": "forks and archived repositories are excluded unless fork:yes archived:yes",
+  "is_a_floor": "Sourcegraph indexes a subset of GitHub. Every count is 'at least N'.",
+  "unit": "the file: pattern is a path glob, so a repository counts once however many of its files match"
+ },
+ "rebuilt_from": "raw/",
+ "records": [
+  {
+   "count": 2165,
+   "matchCount": 2165,
+   "name": "context-global-file-claude-commands-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/commands/ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-commands-select-repo-count-4000.sse",
+   "repositoriesCount": 2165,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "context-global-file-claude-hooks-pre-commit-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-hooks-pre-commit-select-repo-count-4000.sse",
+   "repositoriesCount": null,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 42,
+   "matchCount": 42,
+   "name": "context-global-file-claude-hooks-readme-md-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/hooks/README\\.md$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-hooks-readme-md-select-repo-count-4000.sse",
+   "repositoriesCount": 42,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": null,
+   "name": "context-global-file-claude-hooks-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/hooks/ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-hooks-select-repo-count-4000.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": 165,
+   "matchCount": 165,
+   "name": "context-global-file-claude-hooks-session-start-sh-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/hooks/session-start\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-hooks-session-start-sh-select-repo-count-4000.sse",
+   "repositoriesCount": 165,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "context-global-file-claude-hooks-zzqqxx-prep-task-sh-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-hooks-zzqqxx-prep-task-sh-select-repo-count-4000.sse",
+   "repositoriesCount": null,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 20000,
+   "matchCount": 20000,
+   "name": "context-global-file-claude-md-select-repo-count-20000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-md-select-repo-count-20000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 20000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:21000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 4000,
+   "matchCount": 4000,
+   "name": "context-global-file-claude-md-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-md-select-repo-count-4000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 4000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:5000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 3807,
+   "matchCount": 3807,
+   "name": "context-global-file-claude-settings-json-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-settings-json-select-repo-count-4000.sse",
+   "repositoriesCount": 3807,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 1510,
+   "matchCount": 1510,
+   "name": "context-global-file-claude-settings-local-json-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/settings\\.local\\.json$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-settings-local-json-select-repo-count-4000.sse",
+   "repositoriesCount": 1510,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 4000,
+   "matchCount": 4000,
+   "name": "context-global-file-claude-skills-select-repo-count-4000",
+   "query": "context:global file:^\\.claude/skills/ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-claude-skills-select-repo-count-4000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 4000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:5000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "context-global-file-claude-zzqqxx-nonexistent-9f3a-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-claude-zzqqxx-nonexistent-9f3a-select-repo-count-4000.sse",
+   "repositoriesCount": null,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 2137,
+   "matchCount": 2137,
+   "name": "context-global-file-cursor-rules-select-repo-count-4000",
+   "query": "context:global file:^\\.cursor/rules/ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-cursor-rules-select-repo-count-4000.sse",
+   "repositoriesCount": 2137,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 697,
+   "matchCount": 697,
+   "name": "context-global-file-cursorrules-select-repo-count-4000",
+   "query": "context:global file:^\\.cursorrules$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-cursorrules-select-repo-count-4000.sse",
+   "repositoriesCount": 697,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 1770,
+   "matchCount": 1770,
+   "name": "context-global-file-githooks-pre-commit-select-repo-count-4000",
+   "query": "context:global file:^\\.githooks/pre-commit$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse",
+   "repositoriesCount": 1770,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 20000,
+   "matchCount": 20000,
+   "name": "context-global-file-github-workflows-ci-yml-select-repo-count-20000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 20000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:21000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 4000,
+   "matchCount": 4000,
+   "name": "context-global-file-github-workflows-ci-yml-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-github-workflows-ci-yml-select-repo-count-4000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 4000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:5000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 1923,
+   "matchCount": 1923,
+   "name": "context-global-file-mcp-json-select-repo-count-4000",
+   "query": "context:global file:^\\.mcp\\.json$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/context-global-file-mcp-json-select-repo-count-4000.sse",
+   "repositoriesCount": 1923,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 18989,
+   "matchCount": 18989,
+   "name": "context-global-file-pre-commit-config-yaml-select-repo-count-20000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 18989,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 4000,
+   "matchCount": 4000,
+   "name": "context-global-file-pre-commit-config-yaml-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-pre-commit-config-yaml-select-repo-count-4000.sse",
+   "reason": "at or above count:4000; a floor set by the query",
+   "repositoriesCount": 4000,
+   "skipped": [
+    {
+     "message": "Not all results have been returned due to hitting a match limit. Sourcegraph has limits for the number of results returned from a line, document and repository.",
+     "reason": "shard-match-limit",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "count:5000",
+      "title": "increase limit"
+     },
+     "title": "result limit hit"
+    },
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "saturated"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "context-global-file-zzqqxx-nonexistent-9f3a-claude-select-repo-count-4000",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/context-global-file-zzqqxx-nonexistent-9f3a-claude-select-repo-count-4000.sse",
+   "repositoriesCount": null,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-Aethereal-Tech-storage",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Aethereal-Tech-storage.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Aryia-Behroziuan-References",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Aryia-Behroziuan-References.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-BFGriffith-spaced-repetition",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-BFGriffith-spaced-repetition.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-CalibreWeb-Ebook-Server-github",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-CalibreWeb-Ebook-Server-github.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-ChrisWiles-claude-code-showcase",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-ChrisWiles-claude-code-showcase.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Cloudgeni-ai-infrastructure-agents-guide",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Cloudgeni-ai-infrastructure-agents-guide.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Dujltqzv-Some-Many-Books",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Dujltqzv-Some-Many-Books.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Evil0ctal-Douyin-TikTok-Download-API",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Evil0ctal-Douyin-TikTok-Download-API.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-FlorianBruniaux-claude-code-ultimate-guide",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-FlorianBruniaux-claude-code-ultimate-guide.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-FriendsOfPHP-Goutte",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-FriendsOfPHP-Goutte.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Gentleman-Programming-engram",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Gentleman-Programming-engram.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Gentleman-Programming-gentle-ai",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Gentleman-Programming-gentle-ai.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Gentleman-Programming-gentle-shell",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Gentleman-Programming-gentle-shell.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-JermellB-Python-WebImageScraper",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-JermellB-Python-WebImageScraper.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-JoaquimFreitas-azurestack-uptime-monitor",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-JoaquimFreitas-azurestack-uptime-monitor.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Kodiqa-Solutions-VaultS3",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Kodiqa-Solutions-VaultS3.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-LeeYudok-agents-scaffold",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-LeeYudok-agents-scaffold.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-Notifuse-selfhost-s3",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Notifuse-selfhost-s3.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-Piebald-AI-claude-code-system-prompts",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Piebald-AI-claude-code-system-prompts.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-Vladyslav-Soldatenko-ProcrastiLearn",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-Vladyslav-Soldatenko-ProcrastiLearn.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-YoanWai-agent-manager",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-YoanWai-agent-manager.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-alibaba-open-code-review",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-alibaba-open-code-review.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-anderseknert-pre-commit-opa",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-anderseknert-pre-commit-opa.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-ankitects-anki",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-ankitects-anki.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-bluewave-labs-Checkmate",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-bluewave-labs-Checkmate.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-bruin-data-dac",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-bruin-data-dac.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-chenzhen7-akari",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-chenzhen7-akari.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-cirosantilli-china-dictatorship",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-cirosantilli-china-dictatorship.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-clay-good-OpenLore",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-clay-good-OpenLore.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-clips-pattern",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-clips-pattern.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-dariusk-express-activitypub",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-dariusk-express-activitypub.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-diet103-claude-code-infrastructure-showcase",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-diet103-claude-code-infrastructure-showcase.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-donnemartin-interactive-coding-challenges",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-donnemartin-interactive-coding-challenges.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-donnemartin-system-design-primer",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-donnemartin-system-design-primer.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-espebra-stupid-simple-s3",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-espebra-stupid-simple-s3.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-eugeniughelbur-obsidian-second-brain",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-eugeniughelbur-obsidian-second-brain.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-ghostwright-phantom",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-ghostwright-phantom.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-gotson-komga",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-gotson-komga.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-ibireme-YYImage",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-ibireme-YYImage.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-indada-repopilot",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-indada-repopilot.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-jadeocr-jadeocr",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-jadeocr-jadeocr.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-kaplanelad-shellfirm",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-kaplanelad-shellfirm.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-landy22granatt-Kumpulan-Script-Termux",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-landy22granatt-Kumpulan-Script-Termux.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-lorien-awesome-web-scraping",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-lorien-awesome-web-scraping.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-louislam-uptime-kuma",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-louislam-uptime-kuma.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-masaruhoshi-uptimerobot-prometheus-exporter",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-masaruhoshi-uptimerobot-prometheus-exporter.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-mfoc-monitor-internet-connection",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-mfoc-monitor-internet-connection.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-random1st-secguard",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-random1st-secguard.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-rustfs-mcp",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-rustfs-mcp.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-seanooi-iOS-WebP",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-seanooi-iOS-WebP.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-seblucas-cops",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-seblucas-cops.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-st3v3nmw-obsidian-spaced-repetition",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-st3v3nmw-obsidian-spaced-repetition.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-techjarves-Mobile-Harness",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-techjarves-Mobile-Harness.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-tigerless-labs-agent-memory",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-tigerless-labs-agent-memory.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-twintproject-twint",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-twintproject-twint.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-unclecode-crawl4ai",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-unclecode-crawl4ai.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-upptime-upptime",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-upptime-upptime.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 0,
+   "matchCount": 0,
+   "name": "coverage-uptimepage-uptimepage",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-uptimepage-uptimepage.sse",
+   "repositoriesCount": null,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-versity-versitygw",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-versity-versitygw.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-webpack-compression-webpack-plugin",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-webpack-compression-webpack-plugin.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": 1,
+   "matchCount": 1,
+   "name": "coverage-xzf-thu-VoiceMem",
+   "no_query_header": true,
+   "query": "",
+   "query_present": false,
+   "raw": "raw/coverage-xzf-thu-VoiceMem.sse",
+   "repositoriesCount": 1,
+   "skipped": [],
+   "state": "ok"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_SessionStart_browserless_sh",
+   "query": "context:global file:^\\.claude/hooks/SessionStart/browserless\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_SessionStart_browserless_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_block_dangerous_sh",
+   "query": "context:global file:^\\.claude/hooks/block\\-dangerous\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_block_dangerous_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_block_env_dump_sh",
+   "query": "context:global file:^\\.claude/hooks/block\\-env\\-dump\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_block_env_dump_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_canon_hint_injector_py",
+   "query": "context:global file:^\\.claude/hooks/canon_hint_injector\\.py$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_canon_hint_injector_py.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_codex_json",
+   "query": "context:global file:^\\.claude/hooks/codex\\.json$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_codex_json.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_command_logger_hook_json",
+   "query": "context:global file:^\\.claude/hooks/command\\-logger/hook\\.json$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_command_logger_hook_json.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_deny_generic_agent_run_sh",
+   "query": "context:global file:^\\.claude/hooks/deny\\-generic\\-agent/run\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_deny_generic_agent_run_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_dist_tests_mainHandoffFirst_test_js",
+   "query": "context:global file:^\\.claude/hooks/dist/__tests__/mainHandoffFirst\\.test\\.js$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_dist_tests_mainHandoffFirst_test_js.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_gh_setup_sh",
+   "query": "context:global file:^\\.claude/hooks/gh\\-setup\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_gh_setup_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_greenlight_assert_loaded_instructions_py",
+   "query": "context:global file:^\\.claude/hooks/greenlight/assert\\-loaded\\-instructions\\.py$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_greenlight_assert_loaded_instructions_py.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_moai_handle_pre_tool_sh",
+   "query": "context:global file:^\\.claude/hooks/moai/handle\\-pre\\-tool\\.sh$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_moai_handle_pre_tool_sh.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": null,
+   "name": "lowband-_claude_hooks_scripts_validate_grounded_claim_py",
+   "query": "context:global file:^\\.claude/hooks/scripts/validate_grounded_claim\\.py$ select:repo count:4000",
+   "query_present": true,
+   "raw": "raw/lowband-_claude_hooks_scripts_validate_grounded_claim_py.sse",
+   "reason": "anti-bot challenge (__cf_chl), not an answer",
+   "state": "refused"
+  },
+  {
+   "count": 1026,
+   "matchCount": 5765,
+   "name": "probe-hook-paths",
+   "query": "context:global file:^\\.claude/hooks/ type:path count:all",
+   "query_present": true,
+   "raw": "raw/probe-hook-paths.sse",
+   "repositoriesCount": 1026,
+   "skipped": [
+    {
+     "message": "By default we exclude forked repositories. Include them with `fork:yes` in your query.",
+     "reason": "repository-fork",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "fork:yes",
+      "title": "include forked"
+     },
+     "title": "282 forked"
+    },
+    {
+     "message": "By default we exclude archived repositories. Include them with `archived:yes` in your query.",
+     "reason": "excluded-archive",
+     "severity": "info",
+     "suggested": {
+      "queryExpression": "archived:yes",
+      "title": "include archived"
+     },
+     "title": "68k archived"
+    }
+   ],
+   "state": "ok"
+  }
+ ],
+ "unattributed": 72
+}

@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64258062,"repository":"github.com/Gentleman-Programming/engram","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":39,"line":0,"column":39}}],"repoStars":7033,"repoLastFetched":"2026-10-05T02:48:38.515496Z","description":"Persistent memory system for AI coding agents. Agent-agnostic Go binary with SQLite + FTS5, MCP server, HTTP API, CLI, and TUI."}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":12,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=5efe9de44e84024f4648e99e8a1de219\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

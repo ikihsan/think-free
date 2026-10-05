@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(ai-agents)","label":"ai-agents","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(business-intelligence)","label":"business-intelligence","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(dashboard)","label":"dashboard","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(semantic-layer)","label":"semantic-layer","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64296034,"repository":"github.com/bruin-data/dac","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":25,"line":0,"column":25}}],"repoStars":781,"repoLastFetched":"2026-10-05T02:41:22.557868Z","description":"DaC is a dashboard-as-code tool. Build interactive dashboards using YAML and JSX. Built-in semantic layer. Get your agents to build standardized, reviewable dashboards.","topics":["ai-agents","business-intelligence","dashboard","semantic-layer"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(ai-agents)","label":"ai-agents","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(business-intelligence)","label":"business-intelligence","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(dashboard)","label":"dashboard","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(semantic-layer)","label":"semantic-layer","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":16,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=2776fef4f83b45aafd489cfabb230b1c\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

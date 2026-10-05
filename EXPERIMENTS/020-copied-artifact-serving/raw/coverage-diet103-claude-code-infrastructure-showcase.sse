@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64237698,"repository":"github.com/diet103/claude-code-infrastructure-showcase","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":54,"line":0,"column":54}}],"repoStars":10035,"repoLastFetched":"2026-10-04T21:56:00.95773Z","description":"Examples of my Claude Code infrastructure with skill auto-activation, hooks, and agents"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":14,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=cdfaad8ff4b323caf0f71705c5009802\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

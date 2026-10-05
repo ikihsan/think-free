@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(agent)","label":"agent","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(agent-skills)","label":"agent-skills","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(code-review)","label":"code-review","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(code-review-assistant)","label":"code-review-assistant","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(harness)","label":"harness","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(repository-level-context)","label":"repository-level-context","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64313310,"repository":"github.com/alibaba/open-code-review","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":35,"line":0,"column":35}}],"repoStars":43705,"repoLastFetched":"2026-10-05T02:30:54.362375Z","description":"Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI \u0026 Anthropic compatible.","topics":["agent","code-review","code-review-assistant","harness","repository-level-context","agent-skills"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(agent)","label":"agent","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(agent-skills)","label":"agent-skills","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(code-review)","label":"code-review","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(code-review-assistant)","label":"code-review-assistant","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(harness)","label":"harness","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(repository-level-context)","label":"repository-level-context","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":14,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=d567000b39cad133364649411ae5346a\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

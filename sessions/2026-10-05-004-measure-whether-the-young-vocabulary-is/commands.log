@@ -1,0 +1,671 @@
+==============================================================================
+[seq 6] 2026-10-05T02:50:56+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/coverage.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+in index: 28 of 61
+  mature   28/30
+  placebo   0/13
+  young     0/18
+young arm monthly install total: 8676
+
+
+[stderr]
+population: 61 rows
+  Dujltqzv/Some-Many-Books                       ok    True
+  donnemartin/system-design-primer               ok    True
+  landy22granatt/Kumpulan-Script-Termux          ok    True
+  seanooi/iOS-WebP                               ok    True
+  Evil0ctal/Douyin_TikTok_Download_API           ok    True
+  FriendsOfPHP/Goutte                            ok    True
+  Gentleman-Programming/engram                   ok    True
+  Gentleman-Programming/gentle-ai                ok    True
+  Kodiqa-Solutions/VaultS3                       ok    True
+  ankitects/anki                                 ok    True
+  bluewave-labs/Checkmate                        ok    True
+  cirosantilli/china-dictatorship                ok    True
+  clips/pattern                                  ok    True
+  dariusk/express-activitypub                    ok    True
+  donnemartin/interactive-coding-challenges      ok    True
+  eugeniughelbur/obsidian-second-brain           ok    True
+  ghostwright/phantom                            ok    True
+  gotson/komga                                   ok    True
+  ibireme/YYImage                                ok    True
+  lorien/awesome-web-scraping                    ok    True
+  louislam/uptime-kuma                           ok    True
+  seblucas/cops                                  ok    True
+  st3v3nmw/obsidian-spaced-repetition            ok    True
+  tigerless-labs/agent-memory                    ok    True
+  twintproject/twint                             ok    True
+  unclecode/crawl4ai                             ok    True
+  upptime/upptime                                ok    True
+  versity/versitygw                              ok    True
+  webpack/compression-webpack-plugin             refused False
+  xzf-thu/VoiceMem                               refused False
+  Aryia-Behroziuan/References                    refused False
+  ChrisWiles/claude-code-showcase                refused False
+  Cloudgeni-ai/infrastructure-agents-guide       refused False
+  diet103/claude-code-infrastructure-showcase    refused False
+  FlorianBruniaux/claude-code-ultimate-guide     refused False
+  Gentleman-Programming/gentle-shell             refused False
+  LeeYudok/agents-scaffold                       refused False
+  Piebald-AI/claude-code-system-prompts          refused False
+  YoanWai/agent-manager                          refused False
+  alibaba/open-code-review                       refused False
+  anderseknert/pre-commit-opa                    refused False
+  bruin-data/dac                                 refused False
+  chenzhen7/akari                                refused False
+  clay-good/OpenLore                             refused False
+  indada/repopilot                               refused False
+  kaplanelad/shellfirm                           refused False
+  random1st/secguard                             refused False
+  techjarves/Mobile-Harness                      refused False
+  CalibreWeb-Ebook-Server/.github                refused False
+  JermellB/Python-WebImageScraper                refused False
+  JoaquimFreitas/azurestack-uptime-monitor       refused False
+  mfoc/monitor-internet-connection               refused False
+  Aethereal-Tech/storage                         refused False
+  BFGriffith/spaced-repetition                   refused False
+  Notifuse/selfhost_s3                           refused False
+  Vladyslav-Soldatenko/ProcrastiLearn            refused False
+  espebra/stupid-simple-s3                       refused False
+  jadeocr/jadeocr                                refused False
+  masaruhoshi/uptimerobot-prometheus-exporter    refused False
+  rustfs/mcp                                     refused False
+  uptimepage/uptimepage                          refused False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 13711  redactions: none
+==============================================================================
+[seq 7] 2026-10-05T03:05:46+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/coverage.py --delay 8
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+in index: 47 of 61 (0 still unanswered)
+  mature   30/30 in index, 0 unanswered
+  placebo   0/13 in index, 0 unanswered
+  young    17/18 in index, 0 unanswered
+young arm monthly install total: 8676
+
+
+[stderr]
+population: 61 rows, delay 8.0s, up to 3 rounds
+carried forward from a previous pass: 28
+round 1: 33 unanswered
+  webpack/compression-webpack-plugin             refused   None
+  xzf-thu/VoiceMem                               refused   None
+  Aryia-Behroziuan/References                    refused   None
+  ChrisWiles/claude-code-showcase                refused   None
+  Cloudgeni-ai/infrastructure-agents-guide       refused   None
+  diet103/claude-code-infrastructure-showcase    refused   None
+  FlorianBruniaux/claude-code-ultimate-guide     refused   None
+  Gentleman-Programming/gentle-shell             refused   None
+  challenge still armed; ending this round
+round 2: 33 unanswered
+  webpack/compression-webpack-plugin             refused   None
+  xzf-thu/VoiceMem                               refused   None
+  Aryia-Behroziuan/References                    refused   None
+  ChrisWiles/claude-code-showcase                ok        1
+  Cloudgeni-ai/infrastructure-agents-guide       ok        1
+  diet103/claude-code-infrastructure-showcase    ok        1
+  FlorianBruniaux/claude-code-ultimate-guide     ok        1
+  Gentleman-Programming/gentle-shell             ok        1
+  LeeYudok/agents-scaffold                       ok        0
+  Piebald-AI/claude-code-system-prompts          ok        1
+  YoanWai/agent-manager                          ok        1
+  alibaba/open-code-review                       ok        1
+  anderseknert/pre-commit-opa                    ok        1
+  bruin-data/dac                                 ok        1
+  chenzhen7/akari                                ok        1
+  clay-good/OpenLore                             ok        1
+  indada/repopilot                               ok        1
+  kaplanelad/shellfirm                           ok        1
+  random1st/secguard                             ok        1
+  techjarves/Mobile-Harness                      ok        1
+  CalibreWeb-Ebook-Server/.github                ok        0
+  JermellB/Python-WebImageScraper                ok        0
+  JoaquimFreitas/azurestack-uptime-monitor       ok        0
+  mfoc/monitor-internet-connection               ok        0
+  Aethereal-Tech/storage                         ok        0
+  BFGriffith/spaced-repetition                   ok        0
+  Notifuse/selfhost_s3                           ok        0
+  Vladyslav-Soldatenko/ProcrastiLearn            ok        0
+  espebra/stupid-simple-s3                       ok        0
+  jadeocr/jadeocr                                ok        0
+  masaruhoshi/uptimerobot-prometheus-exporter    ok        0
+  rustfs/mcp                                     ok        0
+  uptimepage/uptimepage                          ok        0
+round 3: 3 unanswered
+  webpack/compression-webpack-plugin             ok        1
+  xzf-thu/VoiceMem                               ok        1
+  Aryia-Behroziuan/References                    ok        1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 630670  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T03:09:08+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/copycount.py context:global file:^\.claude/hooks/ select:repo count:4000 context:global file:^\.claude/settings\.json$ select:repo count:4000 context:global file:^CLAUDE\.md$ select:repo count:4000 context:global file:^\.claude/commands/ select:repo count:4000 context:global file:^\.mcp\.json$ select:repo count:4000 context:global file:^\.cursorrules$ select:repo count:4000 context:global file:^\.github/workflows/ci\.yml$ select:repo count:4000 context:global file:^\.pre-commit-config\.yaml$ select:repo count:4000 context:global file:^zzqqxx-nonexistent-9f3a\.claude$ select:repo count:4000 context:global file:^\.claude/zzqqxx-nonexistent-9f3a/ select:repo count:4000
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+context:global file:^\.claude/hooks/ select:repo count:400 ok        1026
+context:global file:^\.claude/settings\.json$ select:repo  ok        3807
+context:global file:^CLAUDE\.md$ select:repo count:4000    saturated 4000
+context:global file:^\.claude/commands/ select:repo count: ok        2166
+context:global file:^\.mcp\.json$ select:repo count:4000   ok        1923
+context:global file:^\.cursorrules$ select:repo count:4000 ok        697
+context:global file:^\.github/workflows/ci\.yml$ select:re saturated 4000
+context:global file:^\.pre-commit-config\.yaml$ select:rep saturated 4000
+context:global file:^zzqqxx-nonexistent-9f3a\.claude$ sele ok        0
+context:global file:^\.claude/zzqqxx-nonexistent-9f3a/ sel ok        0
+wrote copycount.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 175230  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T03:10:11+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/copycount.py context:global file:^CLAUDE\.md$ select:repo count:20000 context:global file:^\.github/workflows/ci\.yml$ select:repo count:20000 context:global file:^\.pre-commit-config\.yaml$ select:repo count:20000
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+context:global file:^CLAUDE\.md$ select:repo count:20000   saturated 20000
+context:global file:^\.github/workflows/ci\.yml$ select:re saturated 20000
+context:global file:^\.pre-commit-config\.yaml$ select:rep saturated 18989
+wrote copycount.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 46626  redactions: none
+==============================================================================
+[seq 10] 2026-10-05T03:11:58+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/copycount.py context:global file:^\.claude/hooks/session-start\.sh$ select:repo count:4000 context:global file:^\.claude/hooks/pre-commit$ select:repo count:4000 context:global file:^\.githooks/pre-commit$ select:repo count:4000 context:global file:^\.claude/skills/ select:repo count:4000 context:global file:^\.cursor/rules/ select:repo count:4000
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+context:global file:^\.claude/hooks/session-start\.sh$ sel ok        165
+context:global file:^\.claude/hooks/pre-commit$ select:rep ok        0
+context:global file:^\.githooks/pre-commit$ select:repo co ok        1770
+context:global file:^\.claude/skills/ select:repo count:40 saturated 4000
+context:global file:^\.cursor/rules/ select:repo count:400 ok        2137
+wrote copycount.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 81094  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T03:13:57+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/copycount.py context:global file:^\.claude/hooks/session-start\.sh$ select:repo count:4000 context:global file:^\.claude/hooks/zzqqxx-prep-task\.sh$ select:repo count:4000 context:global file:^\.claude/settings\.local\.json$ select:repo count:4000 context:global file:^\.claude/hooks/README\.md$ select:repo count:4000
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+context:global file:^\.claude/hooks/session-start\.sh$ sel ok        165
+context:global file:^\.claude/hooks/zzqqxx-prep-task\.sh$  ok        0
+context:global file:^\.claude/settings\.local\.json$ selec ok        1510
+context:global file:^\.claude/hooks/README\.md$ select:rep ok        42
+wrote copycount.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 80693  redactions: none
+==============================================================================
+[seq 12] 2026-10-05T03:14:40+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+usable 0 of 10 configurations
+high band (>=100 copies): 0
+low band (<=5 copies): 0
+
+
+[stderr]
+claude_hooks               copies=42     origin=None                                       no_origin fork=None tmpl=None
+claude_settings_local      copies=1510   origin=None                                       no_origin fork=None tmpl=None
+claude_hooks_readme        copies=42     origin=None                                       no_origin fork=None tmpl=None
+claude_hook_session_start  copies=165    origin=None                                       no_origin fork=None tmpl=None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T03:15:48+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+usable 3 of 10 configurations
+high band (>=100 copies): 2
+  claude_settings_local      1510   fork=False template=False shadcn-ui/ui
+  claude_hook_session_start  165    fork=False template=False astral-sh/ruff
+low band (<=5 copies): 0
+
+
+[stderr]
+claude_settings_local      copies=1510   origin=shadcn-ui/ui                               ok fork=False tmpl=False
+claude_hooks_readme        copies=42     origin=bitwarden/server                           ok fork=False tmpl=False
+claude_hook_session_start  copies=165    origin=astral-sh/ruff                             ok fork=False tmpl=False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 13641  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T03:16:45+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+usable 0 of 10 configurations
+high band (>=100 copies): 0
+low band (<=5 copies): 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 122  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T03:23:23+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+lowband _claude_hooks_gh_setup_sh                ok        1
+lowband _claude_hooks_command_logger_hook_json   ok        1
+lowband _claude_hooks_deny_generic_agent_run_sh  ok        1
+lowband _claude_hooks_canon_hint_injector_py     ok        1
+lowband _claude_hooks_scripts_validate_grounded_claim_py ok        2
+lowband _claude_hooks_moai_handle_pre_tool_sh    refused   None
+lowband _claude_hooks_dist_tests_mainHandoffFirst_test_js refused   None
+lowband _claude_hooks_block_env_dump_sh          refused   None
+lowband _claude_hooks_codex_json                 refused   None
+lowband _claude_hooks_greenlight_assert_loaded_instructions_py refused   None
+lowband _claude_hooks_SessionStart_browserless_sh refused   None
+lowband _claude_hooks_block_dangerous_sh         refused   None
+usable 0 of 22 configurations
+high band (>=100 copies): 0
+low band (<=5 copies): 0
+
+
+[stderr]
+claude_hooks               copies=1026   origin=None                                       no_origin fork=None tmpl=None
+claude_commands            copies=2165   origin=None                                       no_origin fork=None tmpl=None
+claude_settings_local      copies=1510   origin=None                                       no_origin fork=None tmpl=None
+cursor_rules               copies=2137   origin=None                                       no_origin fork=None tmpl=None
+mcp_json                   copies=1923   origin=None                                       no_origin fork=None tmpl=None
+githooks_precommit         copies=1770   origin=None                                       no_origin fork=None tmpl=None
+cursorrules                copies=697    origin=None                                       no_origin fork=None tmpl=None
+claude_skills              copies=4000   origin=None                                       no_origin fork=None tmpl=None
+claude_hooks_readme        copies=42     origin=None                                       no_origin fork=None tmpl=None
+claude_hook_session_start  copies=165    origin=None                                       no_origin fork=None tmpl=None
+_claude_hooks_gh_setup_sh  copies=1      origin=None                                       no_origin fork=None tmpl=None
+_claude_hooks_command_logger_hook_json copies=1      origin=None                                       no_origin fork=None tmpl=None
+_claude_hooks_deny_generic_agent_run_sh copies=1      origin=None                                       no_origin fork=None tmpl=None
+_claude_hooks_canon_hint_injector_py copies=1      origin=None                                       no_origin fork=None tmpl=None
+_claude_hooks_scripts_validate_grounded_claim_py copies=2      origin=None                                       no_origin fork=None tmpl=None
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 83184  redactions: none
+==============================================================================
+[seq 16] 2026-10-05T03:26:09+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+lowband _claude_hooks_gh_setup_sh                refused   None
+lowband _claude_hooks_command_logger_hook_json   refused   None
+lowband _claude_hooks_deny_generic_agent_run_sh  refused   None
+lowband _claude_hooks_canon_hint_injector_py     refused   None
+lowband _claude_hooks_scripts_validate_grounded_claim_py refused   None
+lowband _claude_hooks_moai_handle_pre_tool_sh    refused   None
+lowband _claude_hooks_dist_tests_mainHandoffFirst_test_js refused   None
+lowband _claude_hooks_block_env_dump_sh          refused   None
+lowband _claude_hooks_codex_json                 refused   None
+lowband _claude_hooks_greenlight_assert_loaded_instructions_py refused   None
+lowband _claude_hooks_SessionStart_browserless_sh refused   None
+lowband _claude_hooks_block_dangerous_sh         refused   None
+usable 10 of 22 configurations
+high band (>=100 copies): 9
+  claude_hooks               1026   fork=False template=False pytorch/pytorch
+  claude_commands            2165   fork=False template=False affaan-m/ECC
+  claude_settings_local      1510   fork=False template=False shadcn-ui/ui
+  cursor_rules               2137   fork=False template=False affaan-m/ECC
+  mcp_json                   1923   fork=False template=False affaan-m/ECC
+  githooks_precommit         1770   fork=False template=False lobehub/lobehub
+  cursorrules                697    fork=False template=False avelino/awesome-go
+  claude_skills              4000   fork=False template=False vinta/awesome-python
+  claude_hook_session_start  165    fork=False template=False astral-sh/ruff
+low band (<=5 copies): 0
+
+
+[stderr]
+claude_hooks               copies=1026   origin=pytorch/pytorch                            ok fork=False tmpl=False
+claude_commands            copies=2165   origin=affaan-m/ECC                               ok fork=False tmpl=False
+claude_settings_local      copies=1510   origin=shadcn-ui/ui                               ok fork=False tmpl=False
+cursor_rules               copies=2137   origin=affaan-m/ECC                               ok fork=False tmpl=False
+mcp_json                   copies=1923   origin=affaan-m/ECC                               ok fork=False tmpl=False
+githooks_precommit         copies=1770   origin=lobehub/lobehub                            ok fork=False tmpl=False
+cursorrules                copies=697    origin=avelino/awesome-go                         ok fork=False tmpl=False
+claude_skills              copies=4000   origin=vinta/awesome-python                       ok fork=False tmpl=False
+claude_hooks_readme        copies=42     origin=bitwarden/server                           ok fork=False tmpl=False
+claude_hook_session_start  copies=165    origin=astral-sh/ruff                             ok fork=False tmpl=False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118186  redactions: none
+==============================================================================
+[seq 17] 2026-10-05T03:27:37+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/020-copied-artifact-serving/forkstatus.py", line 293, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/020-copied-artifact-serving/forkstatus.py", line 211, in main
+    counts = load_counts()
+  File "EXPERIMENTS/020-copied-artifact-serving/forkstatus.py", line 162, in load_counts
+    rec = read_raw(rec_path)
+NameError: name 'read_raw' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 676  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T03:36:41+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/forkstatus.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+lowband round 1: 12 to fetch
+lowband _claude_hooks_gh_setup_sh                      refused   None
+lowband _claude_hooks_command_logger_hook_json         refused   None
+lowband _claude_hooks_deny_generic_agent_run_sh        refused   None
+lowband _claude_hooks_canon_hint_injector_py           refused   None
+  challenge still armed; ending this round
+lowband round 2: 12 to fetch
+lowband _claude_hooks_gh_setup_sh                      refused   None
+lowband _claude_hooks_command_logger_hook_json         refused   None
+lowband _claude_hooks_deny_generic_agent_run_sh        refused   None
+lowband _claude_hooks_canon_hint_injector_py           refused   None
+  challenge still armed; ending this round
+lowband round 3: 12 to fetch
+lowband _claude_hooks_gh_setup_sh                      refused   None
+lowband _claude_hooks_command_logger_hook_json         refused   None
+lowband _claude_hooks_deny_generic_agent_run_sh        refused   None
+lowband _claude_hooks_canon_hint_injector_py           refused   None
+  challenge still armed; ending this round
+lowband round 4: 12 to fetch
+lowband _claude_hooks_gh_setup_sh                      refused   None
+lowband _claude_hooks_command_logger_hook_json         refused   None
+lowband _claude_hooks_deny_generic_agent_run_sh        refused   None
+lowband _claude_hooks_canon_hint_injector_py           refused   None
+  challenge still armed; ending this round
+usable 10 of 22 configurations
+high band (>=100 copies): 9
+  claude_hooks               1026   fork=False template=False pytorch/pytorch
+  claude_commands            2165   fork=False template=False affaan-m/ECC
+  claude_settings_local      1510   fork=False template=False shadcn-ui/ui
+  cursor_rules               2137   fork=False template=False affaan-m/ECC
+  mcp_json                   1923   fork=False template=False affaan-m/ECC
+  githooks_precommit         1770   fork=False template=False lobehub/lobehub
+  cursorrules                697    fork=False template=False avelino/awesome-go
+  claude_skills              4000   fork=False template=False vinta/awesome-python
+  claude_hook_session_start  165    fork=False template=False astral-sh/ruff
+low band (<=5 copies): 0
+
+
+[stderr]
+claude_hooks               copies=1026   origin=pytorch/pytorch                            ok fork=False tmpl=False
+claude_commands            copies=2165   origin=affaan-m/ECC                               ok fork=False tmpl=False
+claude_settings_local      copies=1510   origin=shadcn-ui/ui                               ok fork=False tmpl=False
+cursor_rules               copies=2137   origin=affaan-m/ECC                               ok fork=False tmpl=False
+mcp_json                   copies=1923   origin=affaan-m/ECC                               ok fork=False tmpl=False
+githooks_precommit         copies=1770   origin=lobehub/lobehub                            ok fork=False tmpl=False
+cursorrules                copies=697    origin=avelino/awesome-go                         ok fork=False tmpl=False
+claude_skills              copies=4000   origin=vinta/awesome-python                       ok fork=False tmpl=False
+claude_hooks_readme        copies=42     origin=bitwarden/server                           ok fork=False tmpl=False
+claude_hook_session_start  copies=165    origin=astral-sh/ruff                             ok fork=False tmpl=False
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 527061  redactions: none
+==============================================================================
+[seq 19] 2026-10-05T03:41:30+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=None, mature hook runner configuration=None, mature hook script=1770
+C1 absent-path controls: ^zzqqxx-nonexistent-9f3a.claude$=None, ^zzqqxx-nonexistent-9f3a/=None
+session refusals recorded: 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8685  redactions: none
+==============================================================================
+[seq 20] 2026-10-05T03:42:06+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=None, mature hook runner configuration=None, mature hook script=1770
+C1 absent-path controls: ^zzqqxx-nonexistent-9f3a.claude$=None, ^zzqqxx-nonexistent-9f3a/=None
+session refusals recorded: 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7585  redactions: none
+==============================================================================
+[seq 21] 2026-10-05T03:42:36+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=None, mature hook runner configuration=None, mature hook script=1770
+C1 absent-path controls: ^zzqqxx-nonexistent-9f3a.claude$=None, ^zzqqxx-nonexistent-9f3a/=None
+session refusals recorded: 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11109  redactions: none
+==============================================================================
+[seq 22] 2026-10-05T03:44:05+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=4000, mature hook runner configuration=4000, mature hook script=1770
+C1 absent-path controls: ^zzqqxx-nonexistent-9f3a.claude$=0, ^zzqqxx-nonexistent-9f3a/=None
+session refusals recorded: 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 54131  redactions: none
+==============================================================================
+[seq 23] 2026-10-05T03:45:19+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=4000, mature hook runner configuration=4000, mature hook script=1770
+C1 absent-path controls: ^\.claude/zzqqxx-nonexistent-9f3a/=0, ^zzqqxx-nonexistent-9f3a.claude$=0
+session refusals recorded: 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 46207  redactions: none
+==============================================================================
+[seq 24] 2026-10-05T03:59:58+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=4000, mature hook runner configuration=4000, mature hook script=1770
+C1 absent-path controls: ^\.claude/zzqqxx-nonexistent-9f3a/=0, ^zzqqxx-nonexistent-9f3a.claude$=0
+session refusals recorded: 13
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 58094  redactions: none
+==============================================================================
+[seq 25] 2026-10-05T04:17:13+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=4000, mature hook runner configuration=4000, mature hook script=1770
+C1 absent-path controls: ^\.claude/zzqqxx-nonexistent-9f3a/=0, ^zzqqxx-nonexistent-9f3a.claude$=0
+session refusals recorded: 13
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 60269  redactions: none
+==============================================================================
+[seq 26] 2026-10-05T04:19:52+00:00
+$ python3 EXPERIMENTS/020-copied-artifact-serving/tally.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+H1 dead           copies=1026 installs/month=8676 ratio=0.118
+H2 not_evaluated  one band is empty: 9 configurations at >=100 copies, 0 at <=5. The rate the gate declares cannot be computed from one band.
+C2 coverage: mature 30/30, placebo 0/13, young 17/18
+C3 mature:   mature CI configuration=4000, mature hook runner configuration=4000, mature hook script=1770
+C1 absent-path controls: ^\.claude/zzqqxx-nonexistent-9f3a/=0, ^zzqqxx-nonexistent-9f3a.claude$=0
+session refusals recorded: 13
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 61089  redactions: none
+==============================================================================
+[seq 27] 2026-10-05T04:29:08+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................../home/ubuntu/think-free/tests/test_copy_channel.py:109: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/020-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:116: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/020-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...EE.E....EE..E.E....EEEE.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+======================================================================
+ERROR: test_the_h1_capture_is_intact_or_the_loss_is_declared (test_copy_channel.CapturePreservationTest)
+The one figure the whole experiment turns on must have bytes behind it.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 128, in test_the_h1_capture_is_intact_or_the_loss_is_declared
+    captures = tally.raw_by_query()
+AttributeError: module 'tally' has no attribute 'raw_by_query'
+
+======================================================================
+ERROR: test_the_recovered_figure_is_corroborated_in_the_session_log (test_copy_channel.CapturePreservationTest)
+Not asserted in prose: the log line is found and checked.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 142, in test_the_recovered_figure_is_corroborated_in_the_session_log
+    hits = tally.session_log_evidence("claude/hooks", 1026)
+AttributeError: module 'tally' has no attribute 'session_log_evidence'
+
+======================================================================
+ERROR: test_absent_path_control_reads_zero_not_refused (test_copy_channel.ChallengeDetectionTest)
+C4/C1: a zero from this instrument is a zero.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 60, in test_absent_path_control_reads_zero_not_refused
+    captures = tally.raw_by_query()
+AttributeError: module 'tally' has no attribute 'raw_by_query'
+
+======================================================================
+ERROR: test_a_row_outside_both_bands_is_not_counted (test_copy_channel.GateTest)
+The declared gap: a band this wide cannot order anything.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 308, in test_a_row_outside_both_bands_is_not_counted
+    decided = tally.h2_from_rows(GateTest._bands(
+AttributeError: module 'tally' has no attribute 'h2_from_rows'
+
+======================================================================
+ERROR: test_a_single_band_is_not_reported_as_a_rate (test_copy_channel.GateTest)
+The blind rule for this gate: compute it over the high band alone.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 265, in test_a_single_band_is_not_reported_as_a_rate
+    decided = tally.h2_from_rows(rows)
+AttributeError: module 'tally' has no attribute 'h2_from_rows'
+
+======================================================================
+ERROR: test_h1_is_dead_and_the_ratio_is_below_the_declared_floor (test_copy_channel.GateTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 241, in test_h1_is_dead_and_the_ratio_is_below_the_declared_floor
+    self.assertLessEqual(h1["ratio"], tally.H1_DEAD_RATIO)
+AttributeError: module 'tally' has no attribute 'H1_DEAD_RATIO'
+
+======================================================================
+ERROR: test_the_gate_computes_a_rate_when_both_bands_are_present (test_copy_channel.GateTest)
+The rule must not be 'never answer' -- it answers when it can.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 285, in test_the_gate_computes_a_rate_when_both_bands_are_present
+    survives = tally.h2_from_rows(GateTest._bands(
+AttributeError: module 'tally' has no attribute 'h2_from_rows'
+
+======================================================================
+ERROR: test_a_different_pattern_is_not_matched (test_copy_channel.PatternMatchingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 179, in test_a_different_pattern_is_not_matched
+    captures = tally.raw_by_query()
+AttributeError: module 'tally' has no attribute 'raw_by_query'
+
+======================================================================
+ERROR: test_escaping_does_not_decide_identity (test_copy_channel.PatternMatchingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 176, in test_escaping_does_not_decide_identity
+    self.assertEqual(tally.canon("^\\.claude/hooks/"), tally.canon("^.claude/hooks/"))
+AttributeError: module 'tally' has no attribute 'canon'
+
+======================================================================
+ERROR: test_overlapping_patterns_do_not_share_a_count (test_copy_channel.PatternMatchingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 162, in test_overlapping_patterns_do_not_share_a_count
+    captures = tally.raw_by_query()
+AttributeError: module 'tally' has no attribute 'raw_by_query'
+
+======================================================================
+ERROR: test_headerless_captures_are_marked_as_such (test_copy_channel.RebuiltIndexTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_copy_channel.py", line 369, in test_headerless_captures_are_marked_as_such
+    legacy = tally.headerless_captures()
+AttributeError: module 'tally' has no attribute 'headerless_captures'
+
+----------------------------------------------------------------------
+Ran 762 tests in 441.671s
+
+FAILED (errors=11)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 442577  redactions: none
+==============================================================================
+[seq 28] 2026-10-05T04:46:59+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................../home/ubuntu/think-free/tests/test_copy_channel.py:124: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/020-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:131: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/020-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 762 tests in 495.595s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 496420  redactions: none

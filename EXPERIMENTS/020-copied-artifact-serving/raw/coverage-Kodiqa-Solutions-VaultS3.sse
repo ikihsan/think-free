@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64317993,"repository":"github.com/Kodiqa-Solutions/VaultS3","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":35,"line":0,"column":35}}],"repoStars":1622,"repoLastFetched":"2026-10-05T01:04:51.695059Z","description":"Lightweight, S3-compatible object storage server with built-in web dashboard. Single binary, low memory, encryption at rest."}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":13,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=5ae7ee7c3bfe73fbd96da6132205aeea\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

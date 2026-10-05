@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(flashcards)","label":"flashcards","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(obsidian)","label":"obsidian","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(obsidian-md)","label":"obsidian-md","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(obsidian-plugin)","label":"obsidian-plugin","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(spaced-repetition)","label":"spaced-repetition","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(spaced-repetition-system)","label":"spaced-repetition-system","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(srs)","label":"srs","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":43382234,"repository":"github.com/st3v3nmw/obsidian-spaced-repetition","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":46,"line":0,"column":46}}],"repoStars":2572,"repoLastFetched":"2026-10-04T23:03:50.319563Z","description":"Fight the forgetting curve by reviewing flashcards \u0026 entire notes on Obsidian","topics":["obsidian","obsidian-md","obsidian-plugin","spaced-repetition","flashcards","spaced-repetition-system","srs"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(flashcards)","label":"flashcards","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(obsidian)","label":"obsidian","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(obsidian-md)","label":"obsidian-md","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(obsidian-plugin)","label":"obsidian-plugin","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(spaced-repetition)","label":"spaced-repetition","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(spaced-repetition-system)","label":"spaced-repetition-system","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(srs)","label":"srs","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":37,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=1407b0e6d6e6eca6bdbf0af5e74875d3\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

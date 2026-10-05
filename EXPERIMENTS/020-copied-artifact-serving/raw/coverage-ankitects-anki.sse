@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":48571,"repository":"github.com/ankitects/anki","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":25,"line":0,"column":25}}],"repoStars":31753,"repoLastFetched":"2026-10-05T02:45:57.674836Z","description":"Anki is a smart spaced repetition flashcard program"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":15,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=2c62d6769eee2a99d799162106c59543\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64319560,"repository":"github.com/random1st/secguard","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":29,"line":0,"column":29}}],"repoStars":60,"repoLastFetched":"2026-10-05T01:36:17.66263Z","description":"3-level security toolkit for AI agents: regex patterns, heuristic rules, ML classification. Claude Code hooks, git pre-commit, CI/CD scanner."}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":13,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=2522aa852de93000219704afe96725e8\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

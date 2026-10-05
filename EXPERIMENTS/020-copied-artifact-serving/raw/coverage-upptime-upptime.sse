@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(incidents-reports)","label":"incidents-reports","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(status)","label":"status","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(statuspage)","label":"statuspage","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(upptime)","label":"upptime","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(uptime)","label":"uptime","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(uptime-monitor)","label":"uptime-monitor","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":41781108,"repository":"github.com/upptime/upptime","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":26,"line":0,"column":26}}],"repoStars":17175,"repoLastFetched":"2026-10-04T22:16:51.097564Z","description":"⬆️ GitHub Actions uptime monitor \u0026 status page by @AnandChowdhary","topics":["uptime","uptime-monitor","status","statuspage","incidents-reports","upptime"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(incidents-reports)","label":"incidents-reports","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(status)","label":"status","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(statuspage)","label":"statuspage","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(upptime)","label":"upptime","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(uptime)","label":"uptime","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(uptime-monitor)","label":"uptime-monitor","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":36,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=b21232cce1c9259991403ef330e10645\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":49661,"repository":"github.com/FriendsOfPHP/Goutte","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":30,"line":0,"column":30}}],"repoStars":9183,"repoLastFetched":"2026-10-04T21:53:10.419329Z","description":"Goutte, a simple PHP Web Scraper","archived":true}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":13,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=04ffdf17df43fb651b148d1d9f13736d\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

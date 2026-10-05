@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(webpack-plugin)","label":"webpack-plugin","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":686098,"repository":"github.com/webpack/compression-webpack-plugin","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":45,"line":0,"column":45}}],"repoStars":1425,"repoLastFetched":"2026-10-04T20:59:28.713483Z","description":"Prepare compressed versions of assets to serve them with Content-Encoding","archived":true,"topics":["webpack-plugin"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(webpack-plugin)","label":"webpack-plugin","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":18,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=4c4a3e7197ba311a0f234ca745d58c11\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

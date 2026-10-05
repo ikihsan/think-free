@@ -1,0 +1,200 @@
+{
+ "bands": {
+  "high": 100,
+  "low": 5
+ },
+ "rows": [
+  {
+   "config": "claude_hooks",
+   "copies": 1026,
+   "fork": false,
+   "forks_count": 31371,
+   "is_template": false,
+   "origin": "pytorch/pytorch",
+   "pattern": "^\\.claude/hooks/",
+   "stars": 103762,
+   "state": "ok",
+   "subscribers_count": 1800
+  },
+  {
+   "config": "claude_commands",
+   "copies": 2165,
+   "fork": false,
+   "forks_count": 40753,
+   "is_template": false,
+   "origin": "affaan-m/ECC",
+   "pattern": "^\\.claude/commands/",
+   "stars": 273034,
+   "state": "ok",
+   "subscribers_count": 1371
+  },
+  {
+   "config": "claude_settings_local",
+   "copies": 1510,
+   "fork": false,
+   "forks_count": 12157,
+   "is_template": false,
+   "origin": "shadcn-ui/ui",
+   "pattern": "^\\.claude/settings\\.local\\.json$",
+   "stars": 125111,
+   "state": "ok",
+   "subscribers_count": 425
+  },
+  {
+   "config": "cursor_rules",
+   "copies": 2137,
+   "fork": false,
+   "forks_count": 40753,
+   "is_template": false,
+   "origin": "affaan-m/ECC",
+   "pattern": "^\\.cursor/rules/",
+   "stars": 273034,
+   "state": "ok",
+   "subscribers_count": 1371
+  },
+  {
+   "config": "mcp_json",
+   "copies": 1923,
+   "fork": false,
+   "forks_count": 40753,
+   "is_template": false,
+   "origin": "affaan-m/ECC",
+   "pattern": "^\\.mcp\\.json$",
+   "stars": 273034,
+   "state": "ok",
+   "subscribers_count": 1371
+  },
+  {
+   "config": "githooks_precommit",
+   "copies": 1770,
+   "fork": false,
+   "forks_count": 15959,
+   "is_template": false,
+   "origin": "lobehub/lobehub",
+   "pattern": "^\\.githooks/pre-commit$",
+   "stars": 82987,
+   "state": "ok",
+   "subscribers_count": 307
+  },
+  {
+   "config": "cursorrules",
+   "copies": 697,
+   "fork": false,
+   "forks_count": 13604,
+   "is_template": false,
+   "origin": "avelino/awesome-go",
+   "pattern": "^\\.cursorrules$",
+   "stars": 186976,
+   "state": "ok",
+   "subscribers_count": 2829
+  },
+  {
+   "config": "claude_skills",
+   "copies": 4000,
+   "fork": false,
+   "forks_count": 28866,
+   "is_template": false,
+   "origin": "vinta/awesome-python",
+   "pattern": "^\\.claude/skills/",
+   "stars": 325223,
+   "state": "ok",
+   "subscribers_count": 6148
+  },
+  {
+   "config": "claude_hooks_readme",
+   "copies": 42,
+   "fork": false,
+   "forks_count": 1783,
+   "is_template": false,
+   "origin": "bitwarden/server",
+   "pattern": "^\\.claude/hooks/README\\.md$",
+   "stars": 20242,
+   "state": "ok",
+   "subscribers_count": 223
+  },
+  {
+   "config": "claude_hook_session_start",
+   "copies": 165,
+   "fork": false,
+   "forks_count": 2473,
+   "is_template": false,
+   "origin": "astral-sh/ruff",
+   "pattern": "^\\.claude/hooks/session-start\\.sh$",
+   "stars": 49908,
+   "state": "ok",
+   "subscribers_count": 139
+  },
+  {
+   "config": "_claude_hooks_gh_setup_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/gh\\-setup\\.sh$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_command_logger_hook_json",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/command\\-logger/hook\\.json$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_deny_generic_agent_run_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/deny\\-generic\\-agent/run\\.sh$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_canon_hint_injector_py",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/canon_hint_injector\\.py$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_scripts_validate_grounded_claim_py",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/scripts/validate_grounded_claim\\.py$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_moai_handle_pre_tool_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/moai/handle\\-pre\\-tool\\.sh$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_dist_tests_mainHandoffFirst_test_js",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/dist/__tests__/mainHandoffFirst\\.test\\.js$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_block_env_dump_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/block\\-env\\-dump\\.sh$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_codex_json",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/codex\\.json$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_greenlight_assert_loaded_instructions_py",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/greenlight/assert\\-loaded\\-instructions\\.py$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_SessionStart_browserless_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/SessionStart/browserless\\.sh$",
+   "state": "no_count"
+  },
+  {
+   "config": "_claude_hooks_block_dangerous_sh",
+   "copies": null,
+   "pattern": "^\\.claude/hooks/block\\-dangerous\\.sh$",
+   "state": "no_count"
+  }
+ ]
+}

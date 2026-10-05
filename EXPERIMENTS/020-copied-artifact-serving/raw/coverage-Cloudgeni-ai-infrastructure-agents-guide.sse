@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"},{"value":"repo:has.topic(ai-agents)","label":"ai-agents","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(cloud)","label":"cloud","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(devops)","label":"devops","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(iac)","label":"iac","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(infrastructure)","label":"infrastructure","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(platform-engineering)","label":"platform-engineering","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(sre)","label":"sre","count":1,"exhaustive":false,"kind":"repo topic"},{"value":"repo:has.topic(terraform)","label":"terraform","count":1,"exhaustive":false,"kind":"repo topic"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":64264987,"repository":"github.com/Cloudgeni-ai/infrastructure-agents-guide","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":51,"line":0,"column":51}}],"repoStars":206,"repoLastFetched":"2026-10-04T21:55:51.749014Z","description":"How to design, build, and operate AI agents for infrastructure teams — safely. 13 chapters covering architecture, sandboxing, credentials, change control, observability, and more.","topics":["ai-agents","cloud","devops","iac","infrastructure","platform-engineering","sre","terraform"]}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"},{"value":"repo:has.topic(ai-agents)","label":"ai-agents","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(cloud)","label":"cloud","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(devops)","label":"devops","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(iac)","label":"iac","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(infrastructure)","label":"infrastructure","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(platform-engineering)","label":"platform-engineering","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(sre)","label":"sre","count":1,"exhaustive":true,"kind":"repo topic"},{"value":"repo:has.topic(terraform)","label":"terraform","count":1,"exhaustive":true,"kind":"repo topic"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":31,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=2f98f8e3b14b6c1891ddf1eca79e1b98\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+

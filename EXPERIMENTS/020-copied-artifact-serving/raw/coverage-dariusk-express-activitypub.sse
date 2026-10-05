@@ -1,0 +1,15 @@
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":false,"kind":"type"}]
+
+event: matches
+data: [{"type":"repo","repositoryID":40294309,"repository":"github.com/dariusk/express-activitypub","externalServiceType":"github","repositoryMatches":[{"start":{"offset":0,"line":0,"column":0},"end":{"offset":38,"line":0,"column":38}}],"repoStars":603,"repoLastFetched":"2026-10-05T02:31:03.244146Z","description":"A very simple reference implementation of an ActivityPub server using Express.js"}]
+
+event: filters
+data: [{"value":"type:repo","label":"Repositories","count":1,"exhaustive":true,"kind":"type"}]
+
+event: progress
+data: {"done":true,"repositoriesCount":1,"matchCount":1,"durationMs":32,"skipped":[],"trace":"https://console.cloud.google.com/traces/list?tid=74e3ff2c330b56a37333d7a1fd503f06\u0026authuser=0\u0026project=src-c4cd661e8a76d6b51c26"}
+
+event: done
+data: {}
+
