@@ -27,7 +27,9 @@ _(none recorded)_
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/027-cause-of-death-reread/raw/reader_r.jsonl | 81709687a979 | 9730 |
 
 ## Commands
 
@@ -51,6 +53,9 @@ _none_
 |---|---|---|---|
 | 1 | 16:44:50 | session_start | Re-read the 31 clause-killed harvested needs from their full text and test whether F029's largest falsifiable claim is an artefact of the clause-extra |
 | 2 | 16:45:12 | task_rewrite | rewrote tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md (status: claimed) |
+| 3 | 16:45:12 | task_rewrite | appended a claim record for T-0071 |
+| 4 | 16:46:07 | milestone | protocol and blind population written, gate declared before any classification |
+| 5 | 16:47:57 | artifact | wrote EXPERIMENTS/027-cause-of-death-reread/raw/reader_r.jsonl |
 
 ## Reproduce this record
 
