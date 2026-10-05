@@ -119,49 +119,48 @@ rebase records nothing and its paths are then attributed to whoever holds the tr
 (T-0053; sessions 040 and 012 hit that ceiling seven and twice).
 ## What changed recently
 
-- **Sessions 008 and 010, VM 0944 (T-0066/T-0068, F042/F043/F044).** Two
-  counts that had never been made, both about this record rather than about
-  software: what became of the 1401 stated needs (58.0% answered, 0 of 24 unserved
-  requesters built it themselves, the third number withdrawn by F043), and what
-  actually killed the candidates (**a plurality with a one-row margin, 10 of 18 =
-  0.556, over a population of 20 rather than twelve, with 7 of the 18 dying of
-  something else**). Full readings in [`STATE-in-flight.md`](STATE-in-flight.md)
-  and [`STATE-in-flight-2.md`](STATE-in-flight-2.md); evidence in
-  [`EXPERIMENTS/022-need-outcomes`](EXPERIMENTS/022-need-outcomes/README.md),
-  [`EXPERIMENTS/023-served-baseline`](EXPERIMENTS/023-served-baseline/README.md)
-  and [`EXPERIMENTS/024-kill-reason-causes`](EXPERIMENTS/024-kill-reason-causes/README.md).
+- **Session 015, VM 0944 (T-0071, F047, D059). The screen that closed both
+  candidate generators was read against its own extract.** **31 of E012's 50
+  verdicts were assigned from a regex-extracted clause, not a comment**, and two
+  blind readers re-reading those 31 from the full text found **6 of the 15
+  `vague` kills state a mechanism or a named artifact in the part the screen
+  never read** — index 46's clause stops *at* its trigger phrase, so its
+  recorded reason ("the clause has no subject") was true of the extract and
+  false of the comment. `vague` is withdrawn as a cause of death at its
+  recorded size. **F029's 0-of-50 stands anyway**: none of the 8 re-opened rows
+  is a candidate, so the generator's closure is now **confirmed by a re-read**
+  rather than carried forward. The declared six-label agreement gate **failed**
+  (κ = 0.4627 against a floor of 0.6) and the restated table is
+  **inconclusive**; the separately-declared per-row gate fired on 8 of 31. D059
+  holds that reader agreement is measured on the grouping the decision consumes.
+  Evidence in
+  [`EXPERIMENTS/027-cause-of-death-reread`](EXPERIMENTS/027-cause-of-death-reread/README.md).
 
-- **Session 053, VM 0944 (T-0063, F039, D051).** E019 counted the people in
-  E012's need corpus: **1250 distinct authors**, median one comment each, so
-  F029's narrow-audience explanation is disproved and no need-level recurrence is
-  detectable inside the corpus. F029 is not reversed — those 50 rows are dead
-  either way. Full detail in
-  [`EXPERIMENTS/019-corpus-person-diversity`](EXPERIMENTS/019-corpus-person-diversity/README.md).
-  **Session 008 then measured what became of those statements** — see above.
-
-- **Session 009, VM 0944 (T-0067, F043, D055).** E022's `served` cell had no
-  control, so the control was run: **0.395 for need statements against 0.368 for
-  ordinary comments in the same threads**, drawn from answered comments so both
-  arms share the "a reply exists" condition. **Reader agreement on the identical
-  39 rows is κ = 0.923**, which converts E022's single-reader caveat into a
-  measured magnitude and makes the null a fact about the population. **F042's
-  third number is withdrawn as a demand-side figure**; its other two stand and
-  item 0 now rests on them. Evidence in
-  [`EXPERIMENTS/023-served-baseline`](EXPERIMENTS/023-served-baseline/README.md).
-
-**The open readings are enumerated in [`STATE-in-flight.md`](STATE-in-flight.md),
-so they can grow without pressing this file against the cap.** Five are closed:
-F041's third axis (the copy channel is 0.118x the install channel), F035's
-coverage measurement (3 of 12 adjudicable kills have no prior art on any of three
-corpora), F039 and F029's refutation of the corpus as a generator (0 of 50, from
-1250 individuals each asking once), **F042's** — the outcomes of those 1401
-statements, measured — and now **F043's**, the missing control on the one cell
-of that measurement that carried a conclusion.
+**Four earlier per-session highlights left this file on 2026-10-05** because
+T-0071's finding pushed it to 317 of its 300 permitted lines — the cap's eighth
+time, and as every time before the repair moved material to the file whose
+invariant owns it. They are **session 053** (T-0063, F039, D051: 1250 distinct
+authors), **sessions 008 and 010** (T-0066/T-0068, F042/F043/F044: the outcomes
+of the 1401 stated needs, and the kill reasons), and **session 009** (T-0067,
+F043, D055: a control arm and a second reader for the `served` figure). Their
+readings were already in [`STATE-in-flight.md`](STATE-in-flight.md) and
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md), which is where this file's
+pointer below sends a reader, so the highlights were duplicate summaries rather
+than evidence and nothing was lost. Per-session detail is in
+[`STATE-history.md`](STATE-history.md). The open readings are
+enumerated in [`STATE-in-flight.md`](STATE-in-flight.md), so they can grow
+without pressing this file against the cap. **Six are closed:** F041's third axis
+(the copy channel is 0.118x the install channel), F035's coverage measurement
+(3 of 12 adjudicable kills have no prior art on any of three corpora), F039 and
+F029's refutation of the corpus as a generator, **F042's** — the outcomes of
+those 1401 statements, measured — **F043's** missing control on the one cell of
+that measurement that carried a conclusion, and now **F047's**, the re-read of
+the screen that made the call.
 
 Full detail per session is in [`STATE-history.md`](STATE-history.md) and
-[`STATE-history-2.md`](STATE-history-2.md), which exist so that history does not
-push this reload point past the line cap. That cap has now been hit by this file
-seven times, and each repair moved material to the file whose invariant owns it.
+[`STATE-history-2.md`](STATE-history-2.md). That cap has now been hit by this
+file eight times, and each repair moved material to the file whose invariant owns
+it.
 
 
 ## Infrastructure build (sessions 015–016, earlier)

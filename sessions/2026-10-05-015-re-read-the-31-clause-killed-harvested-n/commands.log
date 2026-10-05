@@ -1,0 +1,14 @@
+==============================================================================
+[seq 6] 2026-10-05T16:58:43+00:00
+$ python3 EXPERIMENTS/027-cause-of-death-reread/recheck.py --selftest
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+selftest ok: 31 clause-killed rows, 19 prior_art rows held out
+population rule      31 rows, no leaked field
+C1 on no flips       fires=False (must be False)
+C1 on every flip     fires=True (must be True)
+C1 on 4 flips        fires=False (must be False, the refused band)
+B1 on inverted       kappa=-0.8445 pass=False (must be False)
+selftest ok
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 113  redactions: none

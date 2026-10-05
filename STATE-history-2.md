@@ -256,29 +256,17 @@ degeneration. Verdict `narrow`, not `abandon`; the next test is a
 bounded-neighbourhood planner against the same oracle before Stage-B physical
 work. `task verify T-0010` exit 0.
 
-## What changed in sessions 038–040, VM 0944
+## What changed in sessions 042 and 035, both VMs
 
-Moved here from `STATE.md` (T-0033, T-0056) each time the reload point passed 300
-lines again. Newest first within the group.
+Moved here from `STATE.md` (T-0024, T-0029, D029, D030) and (T-0051,
+D041, defect 19). Newest first.
 
-- **Session 040, VM 0944 (T-0029, D030, F016, F017).** `doctor` reported a property it
-  never read — `credentials none present` for a working App credential, for the recorded
-  `instance-20260717-0947` failure, and for no credential at all. It now reports the
-  configured helper, whether it is executable, App key files by mode, dependencies outside
-  `~/.config`, and whether `git credential fill` obtains a credential, with `configured`
-  explicitly not meaning it can push. It found a live defect here: the helper invoked
-  `/tmp/github-app-jwt.sh`, repaired and proven by deleting it. **F016:** this session's own
-  harness overwrote the real `~/.gitconfig`. **F017:** clock-stamped generated dates, found
-  independently of D029.
-- **Session 039, VM 0944 (T-0023).** Two public operations documents told a fresh
-  VM something untrue: a Python floor of 3.11+ invented from one machine's 3.14.6
-  (this VM runs 3.8.10 with the suite green), and `github-app.md` claiming no App
-  exists while 123 of 133 commits carry a `[bot]` App identity. Both repaired.
-  **The App's real permissions remain unverified** — no agent can read them.
-- **Session 038, VM 0944 (T-0022).** `origin release check` enforces
-  `RELEASE-MANIFEST.md`, which three times said nothing did: nine top-level entries
-  classified by neither table, three declared public paths absent, no declared state on
-  the front door. All closed in the same commit as the check.
+**Sessions 038, 039 and 040 used to be here as well, and were removed
+2026-10-05 (T-0071) because they were already carried in full by
+[`STATE-history.md`](STATE-history.md)** — which is what put both files at
+the 300-line cap at the moment a new finding needed room. The duplication
+was the cause of the overflow, not the new finding.
+
 - **Session 042, VM 0947 (T-0024, D028, D029).** A session that landed another VM's work
   was reported as having changed it: session 029 closed with nine false `unlogged_change`
   events and inherited four false `doc_update` events. `sync pull`/`sync land` now record

@@ -126,3 +126,83 @@ measurement, not on the absence of a reading.
 stripped words, not judged vagueness; triggers are E012's 23, which F042
 showed mark staters rather than outcomes. A decision would need a
 population too small to defend at this sample.
+
+## F047 — F029's `vague` cause of death was measured on a regex, and 6 of its 15 rows are not vague (2026-10-05)
+
+Source: session `2026-10-05-015`, 2026-10-05. Full record:
+[`EXPERIMENTS/027-cause-of-death-reread/`](EXPERIMENTS/027-cause-of-death-reread/).
+T-0071. **Withdraws a cause of death at its recorded size, and confirms the
+conclusion it was carrying. Falsifies no prior-art verdict and produces no
+candidate.**
+
+**The belief under test.** F029 screened 50 harvested need statements and **0
+survived**: `prior_art` 19, `vague` 15, `not_a_software_need` 12,
+`needs_hardware` 4. That result closed the live-need generator (D049, D051),
+emptied item 0d's invention seat, and is carried in four files as a fact about
+the world's stated needs. **31 of the 50 verdicts were assigned from a clause,
+not a comment** — `sample_needs.py::clause()` takes the text between the matched
+trigger phrase and the first sentence break, capped at 300 characters.
+
+Two consequences were visible in the committed file before the protocol was
+written: **13 of the 31 carry at least 20 further words of comment the screen
+never read**, and **3 of the 50 clauses are not substrings of their own text**.
+One recorded reason asserts *"no mechanism stated anywhere in the comment"* —
+a claim about the whole document made without reading it, which is F030's shape
+one stage earlier.
+
+**What was measured.** The 31 clause-based kills, re-read from the **full
+comment** by two readers blind to the original verdict and, for the second, to
+the first reader. Protocol and gates written first; both gates falsified against
+fabricated populations in both directions before their results were read
+(`recheck.py --selftest`).
+
+| gate | declared | observed | verdict |
+|---|---|---|---|
+| A1 | 31 rows, each with non-empty text, no leaked field | 31 of 31 | pass |
+| B1 | Cohen's κ ≥ 0.6 over the six categories | **0.4627** | **FAILS — the restated table is inconclusive** |
+| C1 | fires at ≥5 rows survivor-relevant to **both** readers | **8 of 31** | **FIRES** |
+
+**Six of the fifteen `vague` kills are not vague.** Both readers independently
+read a stated mechanism or a named artifact in the part the screen did not read.
+Index 46's clause stops *at the trigger phrase*, so its recorded reason — "the
+clause has no subject" — was true of the extract and false of the comment
+(the need is the single word after it: "Uber"). Index 20's commenter names the
+artifact **they built themselves**, with a URL. Index 19's mechanism is in the
+sentence *before* the clause. Index 27's is the sentence after it. **`vague` is
+withdrawn as a cause of death at its recorded size.**
+
+**What survives is narrower and it is the more useful half.** All 13
+disagreements are one-directional: the conservative reader's survivor-relevant
+set is a **strict subset** of the other reader's, so no flip is contested. But
+**F029's 0-of-50 stands**, because none of the 8 re-opened rows is a candidate:
+two are features of products the commenters do not own (a Spotify playlist, a
+Budibase roadmap item), one was already built by the commenter, one needs
+per-vendor consent surfaces or a single browser fingerprint, one needs issuers
+and regulators, one is a game port, and one is an open-source Uber that S
+better classified as prior art. **The generator is closed for a repaired reason
+rather than an unrepaired one** — D049 and D051 stand, and F029's 0 of 50 is now
+confirmed by a re-read rather than carried forward.
+
+**Three things it does not do.** No prior-art verdict moves: the 19 `prior_art`
+rows were held out by design, because E016 already re-adjudicated that category
+on three corpora with six positive controls, a stronger procedure than a second
+prose reader. No candidate enters. And the restated six-category table is **not
+usable** — B1 failed and the protocol says so, so no cause share from this
+experiment is a fact.
+
+**The transferable part is about gate design, and it is the sharpest instance of
+`docs/policy/gate-falsification.md` in this record.** A post-hoc binary κ on the
+split the gate actually asks about is **0.5412**, against 0.4627 for the six
+declared labels, and the gap is entirely two readers disagreeing about *which*
+non-survivor label a row takes (`still_vague` versus `not_a_software_need`) —
+a disagreement that cannot change any decision. **A gate can ask about a grouping
+its own categories do not deliver agreement on.** The pre-registered six-category
+floor was the wrong floor, and the protocol said the table was inconclusive while
+the per-row gate it also declared was unambiguous. D059.
+
+**Ceilings.** Two readers from the same model family as the original screen,
+blind to the labels but not to how the original phrased its reasons. 31 of
+F029's 50 rows only. A clause-based verdict that survives re-reading is still
+right for the clause: C1 says the rule moved verdicts at a rate that changes the
+table, not that it was wrong for every row. One corpus, one platform, one
+50-row sample.

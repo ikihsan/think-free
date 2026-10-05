@@ -247,14 +247,21 @@ judgement before one asked a question about the world.
 
 ## The candidate generator is refuted as a generator
 
-**Status: closed (F029, F033, F039, D049, D051).** Kept here because the item is
-closed on a population measurement rather than a prior-art verdict, which is the
-distinction a later reader is most likely to get wrong.
+**Status: closed (F029, F033, F039, D049, D051, and re-read by F047).** Kept here
+because the item is closed on a population measurement rather than a prior-art
+verdict, which is the distinction a later reader is most likely to get wrong.
 
 1401 practitioner need statements harvested from Hacker News comments since
 2024-01-01; 50 drawn by a stated rule; **0 survived** — 38% prior art, 30% no
 mechanism, 24% not software, 8% needing hardware, against the prior generator's
-own 3-of-16. The corpus cannot supply recurrence: term recurrence returns only
+own 3-of-16. **The 30% "no mechanism" cell is withdrawn as a measurement of the
+needs** (F047, `EXPERIMENTS/027-cause-of-death-reread/`): 31 of the 50 verdicts
+were assigned from a regex-extracted clause rather than a comment, and two blind
+readers re-reading those 31 from the full text found 6 of the 15 `vague` kills
+state a mechanism or a named artifact in the part the screen never read. **The
+0-of-50 stands** — none of the 8 re-opened rows is a candidate — so the closure
+is now confirmed by a re-read rather than carried forward. The corpus cannot
+supply recurrence: term recurrence returns only
 function words. E014 applied the repository-signal half of D049 and the "5805
 issues / 28 repositories" cluster collapsed to 15 issues across 9 agent-labeled
 repositories — a complaint inside a dozen agent-project trackers, not a

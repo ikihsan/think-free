@@ -48,6 +48,19 @@ only external dependency is the public Algolia, GitHub and GitHub-search APIs.
 Causes of death across the 50: `prior_art` 19, `vague` 15, `not_a_software_need`
 12, `needs_hardware` 4.
 
+**Correction, 2026-10-05 (F047, `EXPERIMENTS/027-cause-of-death-reread/`).** The
+numbers above are this experiment's record and are not restated here. **31 of
+the 50 were assigned from a clause, not from a comment** — `sample_needs.py`
+extracts the text between the trigger phrase and the first sentence break,
+capped at 300 characters — and re-reading those 31 from the full comment with
+two blind readers found **6 of the 15 `vague` kills state a mechanism or a named
+artifact in the text this screen never read**. `vague` is therefore withdrawn as
+a cause of death at the size recorded above. **The 0-of-50 result stands and
+the 19 `prior_art` verdicts are untouched**, because none of the 8 re-opened
+rows is a candidate and because E016 already re-adjudicated `prior_art` on three
+corpora. Read this table as a screen's original output, not as a measurement of
+the world's stated needs.
+
 **Kill gate, as declared:** if at least one harvested need yields a candidate
 passing Screen 1 (a killing experiment smaller than the argument) and Screen 3 (a
 surviving result changes a build decision), the generator is better and becomes

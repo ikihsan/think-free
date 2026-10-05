@@ -1,0 +1,380 @@
+{
+ "category_counts": {
+  "R": {
+   "mechanism_stated": 7,
+   "needs_hardware": 5,
+   "not_a_software_need": 11,
+   "self_built": 1,
+   "still_vague": 7
+  },
+  "S": {
+   "mechanism_stated": 9,
+   "needs_hardware": 5,
+   "not_a_software_need": 11,
+   "prior_art": 4,
+   "self_built": 2
+  }
+ },
+ "computed_by": "stats.py from raw/reader_r.jsonl and raw/reader_s.jsonl",
+ "convergent_flips": [
+  {
+   "both_survivor_relevant": true,
+   "clause": "a way I could just definitively tell them this",
+   "id": "49793876",
+   "index": 2,
+   "original_cause": "vague",
+   "original_reason": "no mechanism stated anywhere in the comment",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "prove that you are of age, but you can t be deanonymized even if the government, identity provider and the website itself collaborate to do it",
+   "id": "49109778",
+   "index": 11,
+   "original_cause": "needs_hardware",
+   "original_reason": "anonymous age credentials need real issuers, regulators and users",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "block or manually change the GDID from being revealed",
+   "id": "48817048",
+   "index": 15,
+   "original_cause": "vague",
+   "original_reason": "asks to change one vendor's identifier settings",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "something reduced to the amazing essence of Stunts",
+   "id": "48381342",
+   "index": 19,
+   "original_cause": "vague",
+   "original_reason": "no mechanism",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "an instant play button for some of the multiplayer games, the server browser interface is kind of obtuse",
+   "id": "48217922",
+   "index": 20,
+   "original_cause": "vague",
+   "original_reason": "no mechanism; specific to one game",
+   "reader_r": "self_built",
+   "reader_s": "self_built"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "you write inline in your instructions - the agent has access to use",
+   "id": "47440344",
+   "index": 27,
+   "original_cause": "vague",
+   "original_reason": "no mechanism stated",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "a way to offshore the effort and work needed to toggle each option off to the culprit website",
+   "id": "46224817",
+   "index": 37,
+   "original_cause": "vague",
+   "original_reason": "no mechanism stated",
+   "reader_r": "mechanism_stated",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": true,
+   "clause": "Uber There are multiple open source AI models far beyond what SOTA was just 1 year ago",
+   "id": "45113128",
+   "index": 46,
+   "original_cause": "vague",
+   "original_reason": "the clause has no subject",
+   "reader_r": "mechanism_stated",
+   "reader_s": "prior_art"
+  }
+ ],
+ "disagreements": [
+  {
+   "both_survivor_relevant": false,
+   "index": 4,
+   "original_cause": "not_a_software_need",
+   "reader_r": "not_a_software_need",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 9,
+   "original_cause": "not_a_software_need",
+   "reader_r": "still_vague",
+   "reader_s": "not_a_software_need"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 10,
+   "original_cause": "vague",
+   "reader_r": "still_vague",
+   "reader_s": "prior_art"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 13,
+   "original_cause": "not_a_software_need",
+   "reader_r": "still_vague",
+   "reader_s": "not_a_software_need"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 17,
+   "original_cause": "not_a_software_need",
+   "reader_r": "not_a_software_need",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 18,
+   "original_cause": "vague",
+   "reader_r": "still_vague",
+   "reader_s": "not_a_software_need"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 22,
+   "original_cause": "not_a_software_need",
+   "reader_r": "still_vague",
+   "reader_s": "not_a_software_need"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 29,
+   "original_cause": "not_a_software_need",
+   "reader_r": "not_a_software_need",
+   "reader_s": "prior_art"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 41,
+   "original_cause": "not_a_software_need",
+   "reader_r": "not_a_software_need",
+   "reader_s": "needs_hardware"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 43,
+   "original_cause": "needs_hardware",
+   "reader_r": "needs_hardware",
+   "reader_s": "mechanism_stated"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 44,
+   "original_cause": "vague",
+   "reader_r": "still_vague",
+   "reader_s": "prior_art"
+  },
+  {
+   "both_survivor_relevant": true,
+   "index": 46,
+   "original_cause": "vague",
+   "reader_r": "mechanism_stated",
+   "reader_s": "prior_art"
+  },
+  {
+   "both_survivor_relevant": false,
+   "index": 47,
+   "original_cause": "vague",
+   "reader_r": "still_vague",
+   "reader_s": "self_built"
+  }
+ ],
+ "experiment": "027-cause-of-death-reread",
+ "gates": {
+  "a1_integrity": {
+   "declared": "31 rows, each with non-empty text",
+   "pass": true,
+   "problems": [],
+   "rows": 31
+  },
+  "b1_agreement": {
+   "agree": 18,
+   "consequence": "the restated six-category table is inconclusive and no cause share from this experiment is reported as a fact",
+   "declared": "Cohen's kappa >= 0.6 over the six categories",
+   "kappa": 0.46266666666666667,
+   "n": 31,
+   "pass": false,
+   "pe": 0.2195629552549428,
+   "po": 0.5806451612903226
+  },
+  "c1_kill_gate": {
+   "convergent_flips": 8,
+   "declared": "fires if >= 5 of the 31 rows are survivor-relevant to BOTH readers; <=2 the extraction rule is not the cause; 3-4 refuses a verdict",
+   "fires": true,
+   "union_of_either_reader": 15,
+   "verdict": "c1_fires"
+  }
+ },
+ "original_vague_rows": {
+  "convergent_flips": 7,
+  "per_row": [
+   {
+    "both_survivor_relevant": true,
+    "index": 2,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "mechanism_stated"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 6,
+    "original_cause": "vague",
+    "reader_r": "not_a_software_need",
+    "reader_s": "not_a_software_need"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 10,
+    "original_cause": "vague",
+    "reader_r": "still_vague",
+    "reader_s": "prior_art"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 15,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "mechanism_stated"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 18,
+    "original_cause": "vague",
+    "reader_r": "still_vague",
+    "reader_s": "not_a_software_need"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 19,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "mechanism_stated"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 20,
+    "original_cause": "vague",
+    "reader_r": "self_built",
+    "reader_s": "self_built"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 23,
+    "original_cause": "vague",
+    "reader_r": "needs_hardware",
+    "reader_s": "needs_hardware"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 25,
+    "original_cause": "vague",
+    "reader_r": "needs_hardware",
+    "reader_s": "needs_hardware"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 27,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "mechanism_stated"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 37,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "mechanism_stated"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 39,
+    "original_cause": "vague",
+    "reader_r": "not_a_software_need",
+    "reader_s": "not_a_software_need"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 44,
+    "original_cause": "vague",
+    "reader_r": "still_vague",
+    "reader_s": "prior_art"
+   },
+   {
+    "both_survivor_relevant": true,
+    "index": 46,
+    "original_cause": "vague",
+    "reader_r": "mechanism_stated",
+    "reader_s": "prior_art"
+   },
+   {
+    "both_survivor_relevant": false,
+    "index": 47,
+    "original_cause": "vague",
+    "reader_r": "still_vague",
+    "reader_s": "self_built"
+   }
+  ],
+  "rows": 15
+ },
+ "population": {
+  "original_causes": {
+   "needs_hardware": 4,
+   "not_a_software_need": 12,
+   "vague": 15
+  },
+  "prior_art_rows_held_out": 19,
+  "rows": 31,
+  "rule": "the clause-based causes of death in E012's 50-row screen"
+ },
+ "posthoc_binary_agreement": {
+  "agree": 24,
+  "kappa": 0.5412262156448203,
+  "n": 31,
+  "note": "the declared six-category kappa is low partly because the readers disagree about which non-survivor label a row takes; the gate is declared over the survivor/not-survivor split, so this is reported as structure and used in no verdict",
+  "pe": 0.5078043704474505,
+  "po": 0.7741935483870968
+ },
+ "structure": {
+  "contested_survivor_rows": [],
+  "r_is_strict_subset_of_s": true,
+  "reader_r_survivor_set": [
+   2,
+   11,
+   15,
+   19,
+   20,
+   27,
+   37,
+   46
+  ],
+  "reader_s_survivor_set": [
+   2,
+   4,
+   10,
+   11,
+   15,
+   17,
+   19,
+   20,
+   27,
+   29,
+   37,
+   43,
+   44,
+   46,
+   47
+  ]
+ }
+}

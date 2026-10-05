@@ -28,6 +28,10 @@ SOURCE = os.path.join(
 
 CLAUSE_BASED = ("vague", "not_a_software_need", "needs_hardware")
 
+# The size PROTOCOL.md declares, held here so the falsification harness and the
+# reporting script read one number rather than two literals.
+POPULATION = 31
+
 # Fields copied to the blind file. The original `cause`, `reason` and `name` are
 # deliberately absent; `index` is kept only so a row can be joined back.
 ALLOWED = ("index", "id", "date", "story", "trigger", "text", "clause")
@@ -62,9 +66,9 @@ def selftest(rows, population):
     problems = []
 
     expected = [r for r in rows if r.get("cause") in CLAUSE_BASED]
-    if len(population) != 31:
-        problems.append("population is %d rows, the protocol declares 31"
-                        % len(population))
+    if len(population) != POPULATION:
+        problems.append("population is %d rows, the protocol declares %d"
+                        % (len(population), POPULATION))
     if len(population) != len(expected):
         problems.append("population does not match the declared category rule")
 

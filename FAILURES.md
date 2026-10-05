@@ -35,7 +35,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
 [`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042, F043) and
 [`FAILURES-findings-18.md`](FAILURES-findings-18.md) (F044) and
-[`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046), split because
+[`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -90,6 +90,7 @@ side per the rule in
 | F044 | "Twelve candidates, twelve prior-art deaths" is a plurality with a one-row margin (10 of 18 = 0.556) over a population of 20, and 7 of the 18 died of something else — a falsified mechanism, a claim no observation could establish, or a supported mechanism that died of being supported |
 | F045 | 22.2% of the 1250 people who publicly stated a need have publicly shipped something, against 27.8% for ordinary commenters in the same stories — so "need-staters are not builders" is false as an absolute, true only comparatively, and E022's disclosure floor is a measurement rather than an excuse |
 | F046 | The 589 unanswered needs in the E022 corpus are diffuse in length (55 vs 58 words) and trigger (χ² p ≈ 0.06); B2 fired on two phrases pooling 9 rows, so its hint does not carry a decision — the corpus's last open reading is closed with no hidden structure |
+| F047 | 31 of F029's 50 verdicts were assigned from a regex-extracted clause rather than a comment, and 6 of its 15 `vague` kills state a mechanism or an artifact in the text the screen never read; F029's 0-of-50 stands anyway because none of the 8 re-opened rows is a candidate |
 
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader
@@ -184,6 +185,20 @@ These remain live questions, not settled negatives:
 A failed idea returns when the specific evidence that killed it is invalidated —
 not because effort was previously spent on it. Record that evidence here so the
 next session finds it in one search.
+
+**F047's evidence lives at `EXPERIMENTS/027-cause-of-death-reread/`:**
+`PROTOCOL.md` declares the population rule, the six categories, both readers
+and all three gates **before any row was classified**. `raw/population.jsonl`
+is the blind file — `population.py --selftest` asserts it carries no `cause`,
+`reason` or `name` field, so no classifier was handed the answer.
+`raw/reader_r.jsonl` was committed **before** reader S existed;
+`raw/reader_s.jsonl` is a second reader blind to the original verdict and to R.
+`stats.py` reproduces every number in `results.json`, and
+`recheck.py --selftest` shows C1 and B1 failing and firing against fabricated
+populations in both directions. **The declared agreement gate failed (κ 0.4627
+against a floor of 0.6) and the per-row kill gate fired on 8 of 31**; both are
+reported, and the post-hoc binary κ of 0.5412 is labelled structure and used in
+no verdict (D059).
 
 **F046's evidence lives at `EXPERIMENTS/026-unserved-need-structure/`:**
 the protocol fixed both hypotheses and all three gates **before the first text

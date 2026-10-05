@@ -119,6 +119,26 @@ table.** What changed: the corpus's last open reading is closed — the
 unserved tail is diffuse in the dimensions measured, with one hint resting on
 9 rows and not established (F046).
 
+**E027 re-read F029's own screen, not a candidate**
+(`EXPERIMENTS/027-cause-of-death-reread/`, T-0071). **31 of E012's 50 verdicts
+were assigned from a regex-extracted clause rather than a comment**, so the
+`vague` category — 15 rows — was measured on an extract. Two blind readers
+re-read those 31 from the full text, R committed before S existed. **6 of the
+15 `vague` kills state a mechanism or a named artifact in the part the screen
+never read**, and index 46's clause stops *at* its trigger phrase, so its
+recorded reason was true of the extract and false of the comment. The declared
+six-label agreement gate **failed** (κ = 0.4627 against a floor of 0.6) and the
+restated table is **inconclusive**; the separately-declared per-row gate fired
+on 8 of 31, with the conservative reader's flips a strict subset of the other
+reader's. **No candidate entered or left the table and F029's 0-of-50 stands**,
+because none of the 8 re-opened rows is a candidate: two are features of
+products the commenters do not own, one was already built by the commenter, one
+is an open-source ride-hailing platform, and the rest need hardware, issuers or
+per-vendor surfaces. What changed: `vague` is withdrawn as a cause of death at
+its recorded size, the generator's closure is now **confirmed by a re-read
+rather than carried forward**, and D059 holds that reader agreement is measured
+on the grouping the decision consumes (F047).
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |
