@@ -33,45 +33,44 @@ prior art, usefulness and adoption untouched, and every item says which.
    four decided rows. F027's sample is small and self-selected, and 0 stars is a
    weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
    blocked on tooling.
-   **F035, F037 and F039 have since taken the three measurements that bear on this,
-   and F039 removed the last remaining source.** F035 measured **coverage** (3 of
-   12 adjudicable kills have no prior art on any of three corpora; 4 were reachable
-   only on the open web); F037 measured **composition** (the young-vocabulary
-   population is **14 of 18 executable code**, so it is not documents and a better
-   filter is not the repair); F039 measured the **need corpus the survivors came
-   from** and found it is **1250 distinct individuals**, median one comment each
-   over 466 days, with **no need-level recurrence detectable inside it**. A yield
-   measured on it was never interpretable (D051), so E016's two surviving leads
-   (12 and 16) are closed *as sources*: the premise that anyone shares the request
-   was never measured. The instrument question is answered too — **four of six
-   positive controls with demonstrated adoption returned 0 or 1 distinct author**,
-   so no recurrence verdict could be drawn and the kill gate is recorded *not
-   evaluable*. A lexical count cannot carry a claim about demand, which bounds
-   every recurrence figure this mission has taken against a written population.
-   **The session also falsified its own headline:** a shared content *word* is a
-   weak test, and two stricter measures added afterwards disagree with the 79.25%
-   they were meant to test — the bigram sharing is grammatical coincidence and the
-   rare-word sharing is ordinary English — so the claim is stated in its weaker form
-   everywhere. **What survives for the owner is narrower than this item first said:
-   not what to search, and not what the screen found, but what a fact about supply
-   is supposed to tell us about demand** — the young arm's median row is a 60-star
-   tool, 14 of 18 rows have no readable use channel, and the most-starred tool there
-   is installed 363 times a month.
+   **F035, F037, F039 and F040 have since taken the four measurements that bear on
+   this, and each closed a reading rather than opening one.** F035 measured
+   **coverage** (3 of 12 adjudicable kills have no prior art on any of three
+   corpora; 4 were reachable only on the open web); F037 measured **composition**
+   (the young-vocabulary population is **14 of 18 executable code**, so it is not
+   documents and a better filter is not the repair); F039 measured the **need
+   corpus the survivors came from** and found it is **1250 distinct individuals**,
+   median one comment each, with **no need-level recurrence detectable inside it**,
+   so a yield measured on it was never interpretable (D051) and E016's two surviving
+   leads are closed *as sources*. The instrument questions are answered too —
+   **four of six positive controls with demonstrated adoption returned 0 or 1
+   distinct author**, so the recurrence kill gate is recorded *not evaluable*, and
+   **the copy-count instrument read 17 of 18 young-arm repositories and 0 of 13
+   placebo ones.** A lexical count cannot carry a claim about demand, and a code
+   index cannot carry one about unpopular work; both bound every figure this
+   mission has taken against a written or indexed population.
+   **The sessions also falsified their own headlines where the measures were weak**
+   (F039's 79.25% is single-word overlap, not request uniqueness), and every record
+   says so in the weaker form. **What survives for the owner is narrower than this
+   item first said: not what to search, and not what the screen found, but what a
+   fact about supply is supposed to tell us about demand** — the young arm's median
+   row is a 60-star tool, 14 of 18 rows have no readable use channel, and the
+   most-starred tool there is installed 363 times a month.
 
-   **The third reading has now been taken, and it removes the reconciliation this
-   item was built on** (F040, `EXPERIMENTS/020`). Copying is widely *instructed*
-   — `cp -r .claude` in **687** Sourcegraph content matches against a nonsense
-   control of **0** — and barely *duplicated*: **92 of 1950** distinct
-   configuration file contents (4.7%) are byte-identical across repositories, and
-   **no two repositories from different authors overlap by half**. So the reader
-   is told to copy and adapts what they copy; the copies do not accumulate as
-   identical copies that install counts would have hidden. **The near-zero install
-   readings are therefore not explained by an invisible distribution channel, and
-   the supply the screen sees really is lightly used.** Drift itself is
-   **`inconclusive`**, not zero: 0 attributable copy/upstream pairs exist in the
-   measurable population and the declared gate fires. The live question — forks
-   and dependents as a serving signal — is unchanged and is now owned by VM 0944's
-   open **T-0064**, which has the instrument this VM lacked.
+   **The third reading has now been taken, and it is answered in the negative**
+   (F040, D052). Full account in
+   [`STATE-in-flight.md`](STATE-in-flight.md); the summary that matters for
+   selection is one sentence: **the serving channel the prior-art screen was
+   alleged to be blind to measured 0.118× the install channel**, so the screen was
+   reading the dominant one, **F037's "used and invisible" reading is withdrawn**,
+   and **the twelve prior-art deaths stand** unless something other than the
+   screen is wrong. The instrument premise in this file was also wrong — a public
+   unauthenticated API does serve the copy count — and the instrument's own blind
+   spot is recorded beside it: **17 of 18 young-arm repositories and 0 of 13
+   placebo ones.** **H2 (are forks and templates an adequate stand-in?) is `not
+   evaluable`**, and its low band is a declared mechanical slice, so a rerun needs
+   no new decisions — only a host the endpoint will answer.
+>>>>>>> 97c65f0... records: move the open readings to STATE-in-flight.md so the reload point and the item list sit under the cap
 
    **What is left for the owner is one question, with a candidate answer the
    owner has not seen.** Everything measured about supply says supply is
@@ -90,6 +89,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    the owner's; what E019 supplies is the population, and the measurement that
    makes it a population rather than 1401 rows.
 
+   **F040 narrows what is left further, and not in the direction anyone wanted.**
+   With the copy channel measured and *smaller*, the "find the channel the
+   instrument was missing" reading has nothing left to find here. So the deferred
+   question is no longer *which axis* in the abstract: it is whether **a specific
+   named requester is worth building for**, the only axis in this list that
+   produces a falsifiable next step without a market to estimate first. It still
+   needs authorization to contact anyone, and it is still the owner's.
+
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the
      next occurrence name itself; the unmeasured half is that `make_fleet` builds a
@@ -97,23 +104,7 @@ prior art, usefulness and adoption untouched, and every item says which.
      test count and only a 2-CPU runner shows it. **Deferred because CI is green
      and nothing is blocked on it**, and not worth displacing a research question.
 
-0c. **The cheapest question F034 opened, partly answered by F037 and now mostly
-   closed.** F034 could read serving evidence for 57% of the incumbents its own
-   population contained and 22% of the young arm, so *a screen whose premise is
-   unmeasurable four times in five is not a screen* — a statement about the
-   world's distribution rather than about this repository's tooling. **F037
-   measured the fraction and it is high where the candidates live: 14 of 18 young
-   rows undecided, 13 of them tools, and 43% of the mature arm.** What it also
-   shows is that undecidability does **not** track artifact class — 10 of the 14
-   unreadable young rows are executable — so "this is just a document" never
-   explains an unreadable row. **What remains open is whether the fraction
-   predicts anything about the need**, and its falsifier is a population where
-   the unmeasurable fraction is near zero. **Ceiling:** 015's `placebo.py` shows
-   the instrument *can* read unpopular projects when it looks for readable ones,
-   so "unmeasurable" is partly an artefact of which channels were consulted; a
-   follow-up must state the channel set or it measures the instrument.
-
-0d. **Invention item (D048), and its seat is now empty by measurement.** This entry
+   0d. **Invention item (D048), and its seat is now empty by measurement.** This entry
    holds the seat for candidate work; every other item here had been gates, CI
    diagnosis, identifier allocation or line caps (F031's complaint). E016's arm 2
    put **three needs no artifact on three corpora serves** (F035, D050) — the
