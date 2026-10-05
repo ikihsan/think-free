@@ -145,3 +145,37 @@ as an artefact.
 - Installs are not users. Homebrew counts macOS and Linuxbrew only. Release-asset
   downloads include a project's own CI. 14 of 18 young rows were unreadable, and
   the 25% rests on four decided rows.
+## F038 — Lead 7's mechanism question is answered, and the answer is a feature gap, not a candidate
+
+### What happened
+
+E016's third arm put three need statements no artifact on three corpora serves
+(F035, D050). The first went to its mechanism question the same day
+(`EXPERIMENTS/018`): *is there an interposition point that sees the code path
+and can select a signal per path, or is the choice always made at
+instrumentation time?*
+
+### The two probe results
+
+- Against the stock OTel Python SDK 1.33.1 (`otel_probe.py`): the only
+  runtime mutation points are `add_span_processor` and
+  `add_log_record_processor`. No remove, no disable, no runtime sampler swap,
+  and no per-call signal switch. The nearest built-in prior art, the collector's
+  tail-sampling processor, keeps or drops whole traces by static policy — it
+  never chooses metric-vs-log-vs-trace for a path.
+- Against the need itself (`sigsel.py`): one annotation per path, a mode
+  variable read on every call, and the same call site emitted `metric`, `log`,
+  then `trace` across four calls — asserted, not eyeballed. ~70 lines.
+
+### What it rules out
+
+- It does **not** rule lead 7 back out. "No prior art found on three corpora"
+  is still the state of the world, and the stock-SDK friction the HN clause
+  complains about is now demonstrated, not assumed.
+- It does rule lead 7 out as a project. The missing piece is a thin built-in
+  conditional in an observability SDK — a feature request, not an invention,
+  until a use case with users is named. Utility is unmeasured and no user has
+  been quoted beyond the original HN comment.
+
+Ceiling: one SDK version, one language, one collector README read once on
+2026-10-05.

@@ -1,0 +1,40 @@
+{
+  "experiment": "E018 runtime-signal-selection",
+  "date": "2026-10-05",
+  "environment": {
+    "python": "3.8.10",
+    "pip": "20.0.2",
+    "opentelemetry_sdk": "1.33.1",
+    "otel_install": "pip3 install --target /tmp/opencode/otelpkg opentelemetry-sdk opentelemetry-api"
+  },
+  "hypotheses": {
+    "H1": "The stock OTel SDK has no runtime per-path signal-type selector: predicted, observed via otel_probe.py",
+    "H2": "The need's exact semantics are implementable around a decorator with a per-call runtime mode read: observed via sigsel.py"
+  },
+  "otel_probe": {
+    "tracer_provider_runtime_methods": ["add_span_processor"],
+    "tracer_provider_has_remove_span_processor": false,
+    "tracer_provider_has_set_sampler": false,
+    "meter_provider_runtime_methods": ["_all_metric_readers", "_all_metric_readers_lock"],
+    "meter_provider_has_remove_reader": false,
+    "logger_provider_runtime_methods": ["add_log_record_processor"],
+    "logger_provider_has_remove_processor": false,
+    "stock_runtime_signal_mux_per_path": false
+  },
+  "sigsel": {
+    "observed_emission_sequence": ["metric", "log", "trace", "trace"],
+    "expected_emission_sequence": ["metric", "log", "trace", "trace"],
+    "pass": true
+  },
+  "collector_tail_sampling_prior_art": {
+    "source": "https://github.com/open-telemetry/opentelemetry-collector-contrib/raw/refs/heads/main/processor/tailsamplingprocessor/README.md",
+    "retrieved": "2026-10-05",
+    "scope": "keeps or drops whole traces by static per-pipeline policy; does not choose metric-vs-log-vs-trace per annotated path"
+  },
+  "gate": {
+    "kill_candidate": "if stock OTel runtime performed the per-path signal switch — did not",
+    "kill_need": "if the need's semantics were not implementable — it was, in ~70 lines",
+    "outcome": "neither kill fired; the mechanism is real, the stock-SDK friction is real, and the missing piece is a thin built-in conditional processor — a feature gap, not yet a candidate"
+  },
+  "failures": ["F038"]
+}

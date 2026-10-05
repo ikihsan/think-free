@@ -82,6 +82,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    | 12 `hn-tagging` | tag HN posts, and tag/follow their authors, inside an HN client | what is the tag graph *for* — filtering, a reading queue, related threads? 892 clients already compete on reading comfort, so a schema with no use behind it is not a candidate |
    | 16 `word-game` | a daily word game that shows the solution order so a player can give up | the need is a mode, not a value: what does a give-up reveal that a hint ladder does not? 7658 clones and an answer-farm population already serve the adjacent want |
 
+   **Lead 7 has had its mechanism answer (E018, F038):** a per-call mode
+   variable is the interposition point, the stock OTel Python SDK ships none
+   (add-only processor lists, no remove, no runtime sampler swap), and the
+   collector's tail sampler keeps whole traces by static policy. The friction
+   is real, the mechanism is real, and the missing piece is a thin built-in
+   conditional processor — a feature gap, not a candidate. Lead 7 moves out of
+   the candidate queue; leads 12 and 16 still carry their mechanism questions.
+
    **None of the three is a gap, a candidate, or useful yet.** An absence of a hit
    on three corpora is the absence of a hit, and a need statement still has no
    mechanism, differentiation or adoption path. D050 narrows F029 rather than

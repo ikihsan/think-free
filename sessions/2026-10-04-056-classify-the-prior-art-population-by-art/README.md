@@ -68,6 +68,7 @@ _none_
 | 10 | 01:05:47 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/reviewed.json |
 | 11 | 01:05:48 | artifact | wrote FAILURES-findings-14.md |
 | 12 | 01:05:48 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md |
+| 13 | 01:05:57 | base_advance | rebase completed outside land: base moved c1feee880aa5 -> 70bfe216f976, 7 commit(s) arrived from the shared base |
 
 ## Reproduce this record
 

@@ -179,6 +179,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/016-prior-art-adjudication/README.md`](../EXPERIMENTS/016-prior-art-adjudication/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md`](../EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md) | `EXPERIMENTS/017-incumbent-artifact-type/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/017-incumbent-artifact-type/README.md |
 | [`EXPERIMENTS/017-incumbent-artifact-type/README.md`](../EXPERIMENTS/017-incumbent-artifact-type/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| [`EXPERIMENTS/018-runtime-signal-selection/README.md`](../EXPERIMENTS/018-runtime-signal-selection/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

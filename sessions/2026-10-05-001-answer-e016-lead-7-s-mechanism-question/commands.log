@@ -1,0 +1,40 @@
+==============================================================================
+[seq 2] 2026-10-05T01:14:45+00:00
+$ python3 EXPERIMENTS/018-runtime-signal-selection/sigsel.py --run
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{'kind': 'metric', 'path': 'checkout', 'name': 'call_duration_ms', 'value': 0.0007320195436477661}
+{'kind': 'log', 'path': 'checkout', 'line': 'checkout took 0.0000s'}
+{'kind': 'trace', 'path': 'checkout', 'span': 'checkout', 'duration': 3.91155481338501e-07}
+{'kind': 'trace', 'path': 'search', 'span': 'search', 'duration': 3.6135315895080566e-07}
+sigsel: OK — runtime per-path flip observed ['metric', 'log', 'trace', 'trace']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 31  redactions: none
+==============================================================================
+[seq 3] 2026-10-05T01:14:50+00:00
+$ python3 EXPERIMENTS/018-runtime-signal-selection/otel_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "experiment": "E018 otel_probe",
+  "logger_provider_has_remove_processor": false,
+  "logger_provider_runtime_methods": [
+    "add_log_record_processor"
+  ],
+  "meter_provider_has_remove_reader": false,
+  "meter_provider_runtime_methods": [
+    "_all_metric_readers",
+    "_all_metric_readers_lock"
+  ],
+  "note": "add_span_processor / add_log_record_processor exist, but no remove or disable, and no per-path or per-call signal-type switch. A user must write the conditional themselves (see sigsel.py for the minimal shape).",
+  "python": "3.8.10",
+  "sdk": "1.33.1",
+  "stock_runtime_signal_mux_per_path": false,
+  "tracer_provider_has_remove_span_processor": false,
+  "tracer_provider_has_set_sampler": false,
+  "tracer_provider_runtime_methods": [
+    "add_span_processor"
+  ]
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 509  redactions: none
