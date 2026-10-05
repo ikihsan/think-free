@@ -53,6 +53,19 @@ prior-art deaths stand. Renumbered from F040/D052/`020-` on the unpushed side: t
 other VM took those numbers for `EXPERIMENTS/020-copied-config-drift`, which
 closed the same escape hatch from the other end.
 
+**E023 tested a rate against its own baseline, not a candidate**
+(`EXPERIMENTS/023-served-baseline/`, T-0067). F042 had concluded from a
+hand-labelled **15/39 = 0.385** `served` rate that the corpus records needs the
+world *absorbed conversationally*. That cell had no control. Drawn properly —
+ordinary comments in the need arm's own stories, restricted to answered so both
+arms share the "a reply exists" condition — the control arm reads **0.368**, and
+two readers labelling the identical 39 rows agree at **κ = 0.923** (F043). The
+withdrawal is of the *inference*: a reply naming an artifact is not distinguishable
+from what an ordinary comment receives. E022's other two numbers stand. **No
+candidate entered or left the table.** What changed is D055: a rate read from a
+trigger-harvested corpus without a control arm is a description of Hacker News,
+and any such corpus bounds its own outcome readings.
+
 **One recorded result belongs to none of these.** T-0034 measured the test suite
 on the CPython versions the fleet's own record named as never run, and found two
 gates asserting that the machine running them was covered by that record

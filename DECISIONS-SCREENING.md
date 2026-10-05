@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D019–D023**. Each entry records a choice that was
+Decisions **D019–D023, D055**. Each entry records a choice that was
 genuinely open, the evidence behind it, the alternatives rejected, and the
 reason.
 
@@ -166,4 +166,50 @@ decision exists to prevent — the same shape of near-vacuous gate as F008.
 Consequence: the census reports `lead-survives` and F010 explains why that
 verdict licenses nothing yet. The attribution measurement is T-0017
 (`EXPERIMENTS/008-build-timestamp-attribution/`).
+
+## D055 — A hand-labelled rate is only a finding once a control arm shares the population it controls (2026-10-05)
+
+Observed: E022 concluded that a need corpus is "a population of needs the world
+absorbed conversationally" from two numbers — 58.0% of 1401 statements drew a
+reply, and 15 of 39 hand-labelled replies named an artifact serving the clause
+(0.385). The second number had **no control**: E022's C1 and C2 both measure
+`answered`, and its own protocol says "`answered` is not `served`".
+
+T-0067 (`EXPERIMENTS/023-served-baseline/`) drew the missing control: ordinary
+comments in the same stories, matching none of the 23 trigger phrases, and
+**restricted to answered** so both arms share the "a reply exists" condition. The
+need arm reads 15/38 = 0.395 and the control arm 14/38 = 0.368, with the Wilson
+intervals overlapping. The rubric is not the cause: two readers labelled the
+identical 39 rows at κ = 0.9226.
+
+Decision: **a rate measured against no population is a rate, not a finding, and
+no state record may carry one into a conclusion that depends on the difference.**
+The 0.385 is withdrawn as a demand-side measurement. It describes how Hacker News
+conversations go, and the record read it as a description of needs.
+
+The two design rules this commits to, both written into E023's `PROTOCOL.md`
+before the run:
+
+1. **A control arm shares the conditioning of the arm it controls.** `served` is
+   defined only where a reply exists, so a control drawn from unanswered comments
+   would re-measure `answered` — the cell E022 already controlled. This is the
+   rule that made E023 a test rather than a second reading of the same
+   population.
+2. **Instrument reliability is established before instrument output is
+   believed.** Gate B3 is computed and reported *before* gate B2, because a
+   difference between populations means nothing while two readers disagree about
+   what the labels mean. E022 recorded "one reader, no second coder" as a limit;
+   this turns that caveat into a measured quantity by re-reading its own sample.
+
+Rejected: (a) keeping the 0.385 with a caveat, because the number's function in
+the record is comparative — it is what makes "absorbed conversationally" sound
+like a demand-side discovery — and a caveat on a number doing comparative work
+does not reduce that work; (b) re-running E022 with a second coder only, which
+would measure the rubric's reliability and still leave the population question
+open; (c) drawing the control from all non-trigger comments regardless of whether
+they were answered, which is the cheaper draw and measures `answered` again.
+
+Consequence: `STATE.md` item 0 rests on E022's `answered` rate and its build arm,
+both of which survive; the sentence about `served` is withdrawn. Nothing reopens
+a prior-art death, the 589 unanswered statements, or item 12. F043.
 

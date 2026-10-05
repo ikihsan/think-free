@@ -79,3 +79,78 @@ exactly. It is left in `run.py` as a function that raises, naming the live file.
 Ceiling: one repair, one experiment. The generalisable rule is narrow and is
 already D025's: **a walk that terminates on a round with nothing new to do has
 not converged, it has stalled, and the two look identical in a log.**
+## F043 — the number that carried E022's conclusion is the ordinary base rate of a Hacker News conversation
+
+Source: session `2026-10-05-009`, T-0067. Raw results:
+[`EXPERIMENTS/023-served-baseline/results.json`](EXPERIMENTS/023-served-baseline/results.json).
+Labels, one note per row: [`EXPERIMENTS/023-served-baseline/raw/labels.tsv`](EXPERIMENTS/023-served-baseline/raw/labels.tsv).
+Instrument `observed` 2026-10-05.
+
+**The claim withdrawn.** E022 measured that a need statement is answered 58.0% of
+the time, and that when a reply exists something serving it is named in **38.5%**
+of a hand-labelled sample (15/39). From those two the record concluded the corpus
+is "a population of needs the world **absorbed conversationally** rather than one
+awaiting a builder", and `STATE-next-actions.md` item 0 was narrowed on it.
+
+**The measurement was inadequate, not the approach.** No control was ever run on
+the `served` cell. E022's C1 and C2 both measure `answered` — whether a reply
+exists — while its own protocol states "`answered` is not `served`". The cell
+carrying the conclusion was the only cell with no counterfactual.
+
+**Measured, `observed`.** Control arm: ordinary comments in the **same stories**,
+matching none of the 23 trigger phrases, **restricted to answered** so both arms
+share the "a reply exists" condition.
+
+| arm | served | rate | Wilson CI95 |
+|---|---|---|---|
+| need statements | 15/38 | 0.395 | [0.256, 0.553] |
+| **ordinary comments, same stories** | 14/38 | **0.368** | [0.234, 0.527] |
+
+Difference **0.026**, intervals overlapping across nearly their whole width. The
+protocol declared that overlap reads `not informative`, and it does.
+
+**The rubric is not why.** Two readers labelled the **identical 39 rows** — this
+one blind to E022's labels before writing its own — and agree at **κ = 0.9226**
+(raw agreement 0.9487, two disagreements, both `partial` versus `not_served`).
+Gate B3 passed, so the null is about the population and not about a reader who
+cannot tell the categories apart. E022's recorded limit, "40 labels from one
+reader with no second coder", is now a measured magnitude rather than a caveat.
+
+**What this does not touch.** E022's two other numbers stand, and one of them is
+the sharpest thing the corpus has produced: **58.0% of 1401 stated needs drew a
+reply**, and **0 of 24 requesters whose need went unserved built it themselves**.
+Nothing here reopens them, the 589 unanswered statements, the prior-art screen,
+or any of the twelve deaths.
+
+**What it does change is the inference.** A reply naming an artifact is a pointer,
+and on this population it is **not distinguishable from what an ordinary comment
+in the same thread receives**. So the 0.385 was never a rate *about needs*; it
+was a rate about Hacker News that the record read as a rate about needs. The
+corpus is still a population the world mostly absorbed in thread — that
+conclusion now rests on `answered` and on the build arm, which are the two cells
+that were measured — but the sentence that made it sound like a demand-side
+discovery is withdrawn.
+
+**The pattern, which is the transferable part.** Two neighbouring cells now say
+the same thing: a comment matching a need trigger is answered at lift **0.703**
+(E022's gate A2, declared floor 1.0) and is served at **0.026 above ordinary
+conversation** (this experiment). A trigger vocabulary can find people who state
+needs and be **invisible to what happens to those needs next**. That is the
+generalisable claim, and it bounds every outcome measured from a
+trigger-harvested corpus — this one included.
+
+**Ceiling.** One community, one observation day, 38 rows per arm; a difference
+below roughly 0.2 is unresolvable at this sample size, so the honest reading is
+that a small need effect is not excluded. The control arm is defined by *not
+matching the trigger vocabulary*, which may still catch a need phrased
+unusually, making 0.026 a lower bound rather than an estimate. `served` is
+labelled, not measured, and both arms carry that equally.
+
+**One instrument fact, and a control that failed for the wrong reason.**
+Firebase answers **HTTP 200 with the literal body `null`** for an absent comment
+id; Algolia answers 404. The first falsification run asserted a 404 and returned
+exit 3 on a healthy reader — a control that fails on a status code the API never
+uses would have rejected a working instrument. Repaired to assert **no reply
+tree**, which is the property C3 exists to test. E022 had already named this
+shape `null_body`; it was re-derived here rather than read.
+

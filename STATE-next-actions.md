@@ -85,16 +85,18 @@ prior art, usefulness and adoption untouched, and every item says which.
 
    **E022 has now measured that asset, and the answer narrows it** (F042,
    `EXPERIMENTS/022-need-outcomes/`; the numbers and the reading are in
-   [`STATE-in-flight.md`](STATE-in-flight.md)). Three of them decide this item:
-   **58.0% of 1401 stated needs drew a reply; of a hand-labelled sample of those,
-   38.5% named something serving the need; and of the 24 requesters whose need
-   went unserved, 0 built it themselves.** So the asset is **not a population of
-   unmet needs awaiting a builder — it is a population of needs the world
-   absorbed conversationally.** The axis this item was drifting toward, "a named
-   requester told us exactly what they want", now carries a measured problem:
-   **the people who state a need are not the people who build it.** That is a
-   floor on disclosure rather than on building (CI to 0.138), not a claim that
-   nobody builds what they ask for.
+   [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of its three numbers
+   decide this item: **58.0% of 1401 stated needs drew a reply; and of the 24
+   requesters whose need went unserved, 0 built it themselves.** The third —
+   "38.5% named something serving the need" — **is withdrawn** (F043, D055,
+   `EXPERIMENTS/023-served-baseline/`): it had **no control**, and the control arm
+   now run reads **0.368** against the need arm's 0.395 on 38 rows each, so it is
+   the ordinary base rate of a Hacker News conversation rather than a fact about
+   needs. The asset is **not** a population of unmet needs awaiting a builder. The
+   axis this item was drifting toward carries a measured problem: **the people who
+   state a need are not the people who build it.** That is a floor on disclosure
+   rather than on building (CI to 0.138), not a claim that nobody builds what they
+   ask for.
 
    **A second result is about the instrument that drew the corpus** (gate A2
    fired as declared before the first fetch): **carrying a trigger phrase does
@@ -102,6 +104,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    interval spans 1.0, so "answered less" is not established. F039 showed the
    corpus is 1250 people each asking once; **E022 shows the phrase that found
    them does not mark the comments that get answered.**
+
+   **Those two cells now say one thing, and it bounds every outcome read from a
+   trigger-harvested corpus — E022's included** (F043): a trigger vocabulary finds
+   people who state needs and is **invisible to what happens to those needs
+   afterwards** — lift 0.703 on being answered, **+0.026 on being served**. Two
+   readers labelling the same 39 rows agree at **κ = 0.923**, so this is the
+   population and not the rubric. A rate read from this corpus without a control
+   arm is a description of Hacker News (D055).
 
    **What E022 names and deliberately does not run:** the **589 statements that
    drew no reply at all** are the only sub-population the outcome data marks
@@ -139,12 +149,15 @@ prior art, usefulness and adoption untouched, and every item says which.
    controls (F039). **E022 adds a fifth negative here:** the outcomes of those
    statements are now measured, and 58.0% were answered in thread while 0 of 24
    unserved requesters built the thing, so the corpus records needs the world
-   **absorbed conversationally** — it holds no standing unmet need to build
-   against. **Do not promote anything from this corpus.** E2's lockfile claim is
-   the only live mechanism here: `EXPERIMENTS/009` side B, **zero drift at ~21h**,
-   a fast-drift null only. **Ceiling:** this item names where invention work goes;
-   it does not make invention happen, and with every generator closed it names an
-   empty seat rather than a queue.
+   **absorbed in conversation** — it holds no standing unmet need to build
+   against. **F043 removes the last prop under that sentence:** the "served"
+   figure that made it read as a demand-side discovery is the base rate of
+   ordinary comments in the same threads, and what is left is the two cells that
+   were measured properly. **Do not promote anything from this corpus.** E2's
+   lockfile claim is the only live mechanism here: `EXPERIMENTS/009` side B,
+   **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
+   where invention work goes; it does not make invention happen, and with every
+   generator closed it names an empty seat rather than a queue.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated

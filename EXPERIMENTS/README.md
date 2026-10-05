@@ -33,3 +33,6 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `018-runtime-signal-selection` | Can one annotation select metric/log/trace at runtime per path? | mechanism real, stock-OTel friction real, **feature gap, not a candidate** (F038) |
 | `019-corpus-person-diversity` | How many people are in the need corpus, and can a shared need appear in it? | 1250 individuals; 79% of clauses share no content word; the recurrence instrument failed its own controls (F039, D051) |
 | `020-copied-config-drift` | Does agent-configuration copied into a repository go stale? | **inconclusive** (0 attributable pairs); copying is instructed 687× and duplicated in 4.7% of content, which corrects F037's "it is copied" (F040) |
+| `021-copied-artifact-serving` | Is copying a larger serving channel than installing? | **no**, 0.118×; the copy channel is the smaller one (F041) |
+| `022-need-outcomes` | What becomes of a publicly stated unmet need? | 1401 statements, 812 answered (0.5796), 0 of 24 built it themselves; `served` later withdrawn (F042, F043) |
+| `023-served-baseline` | Is E022's 38.5% `served` above ordinary comments in the same threads? | **no**, 0.395 vs 0.368; reader agreement κ = 0.923, so it is the population (F043) |

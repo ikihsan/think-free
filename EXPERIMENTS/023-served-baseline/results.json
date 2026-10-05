@@ -1,0 +1,85 @@
+{
+ "experiment": "023-served-baseline",
+ "task": "T-0067",
+ "measured": "2026-10-05",
+ "rubric": "served = a reply names an artifact serving the clause; partial counts as not served, matching E022",
+ "arms": {
+  "need": {
+   "drawn": 39,
+   "unreadable": 1,
+   "labelled": 38,
+   "served": 15,
+   "rate": 0.39473684210526316,
+   "ci95": [
+    0.25597859263618905,
+    0.5528241300130403
+   ],
+   "counts": {
+    "served": 15,
+    "partial": 7,
+    "not_served": 16
+   }
+  },
+  "control": {
+   "drawn": 39,
+   "unreadable": 1,
+   "labelled": 38,
+   "served": 14,
+   "rate": 0.3684210526315789,
+   "ci95": [
+    0.23384013155413794,
+    0.5271632717573987
+   ],
+   "counts": {
+    "served": 14,
+    "partial": 0,
+    "not_served": 24
+   }
+  }
+ },
+ "gate_b3_label_agreement": {
+  "rows_shared": 39,
+  "raw_agreement": 0.9487,
+  "cohen_kappa": 0.9226,
+  "categories": [
+   "not_served",
+   "partial",
+   "served",
+   "unreadable"
+  ],
+  "disagreements": [
+   {
+    "comment_id": "45409327",
+    "this_reader": "not_served",
+    "e022_reader": "partial"
+   },
+   {
+    "comment_id": "48387387",
+    "this_reader": "not_served",
+    "e022_reader": "partial"
+   }
+  ],
+  "verdict": "pass"
+ },
+ "gate_b2_arms": {
+  "need_rate": 0.3947,
+  "control_rate": 0.3684,
+  "need_ci95": [
+   0.256,
+   0.5528
+  ],
+  "control_ci95": [
+   0.2338,
+   0.5272
+  ],
+  "intervals_overlap": true,
+  "difference": 0.0263,
+  "verdict": "not informative -- the arms are statistically indistinguishable"
+ },
+ "gate_b1_population_read": {
+  "drawn": 78,
+  "unreadable": 2,
+  "readable_rate": 0.9744,
+  "verdict": "pass"
+ }
+}

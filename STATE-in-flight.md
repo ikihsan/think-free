@@ -18,8 +18,9 @@ across findings files.
 
 ## What became of the 1401 stated needs?
 
-**Status: closed, and it narrows item 0 rather than opening it. F042.
-`EXPERIMENTS/022-need-outcomes/`.**
+**Status: closed, and it narrows item 0 rather than opening it. F042, with its
+third number withdrawn by F043. `EXPERIMENTS/022-need-outcomes/`,
+`EXPERIMENTS/023-served-baseline/`.**
 
 The one asset no failure in this record has touched — 1250 named people who each
 wrote down, publicly and unprompted, what was missing from their work — had never
@@ -31,9 +32,21 @@ repository's own instruments, and the first that answers a question about *peopl
 |---|---|
 | need statements, and their readability | 1401, **100.0%** (gate A1 requires ≥95%) |
 | **answered** (≥1 reply) | **812 / 1401 = 0.580**, CI95 [0.554, 0.605] |
-| **served** — a reply names an artifact serving the clause | **15 / 39 = 0.385**, CI95 [0.249, 0.541], hand-labelled |
-| served, restricted to software clauses | 12 / 26 = 0.462 |
+| **served** — a reply names an artifact serving the clause | **15 / 39 = 0.385** — **withdrawn as a demand-side figure, F043** |
+| **the same arm against a control** | **14 / 38 = 0.368**, CI95 [0.234, 0.527], ordinary comments in the same stories |
 | **built by the requester** | **0 / 24**, CI95 [0.0, 0.138] — 6 candidates, all hand-checked, none related |
+
+**The withdrawal, in one paragraph.** `served` had no control; E022's C1 and C2
+both measure `answered`, and its own protocol says "`answered` is not `served`".
+T-0067 drew the missing arm — ordinary comments in the need arm's own stories,
+matching none of the 23 trigger phrases, **restricted to answered** so both arms
+share the "a reply exists" condition — and it reads 0.368 against the need arm's
+0.395, intervals overlapping across nearly their whole width. **The rubric is not
+the cause: two readers labelled the identical 39 rows at κ = 0.9226.** So the
+0.385 describes how Hacker News conversations go and the record read it as a
+description of needs. What is left of E022 is the two cells that were measured
+properly, and the sentence they support is the weaker one: the corpus records
+needs the world **absorbed in conversation**.
 
 **Gate A2 fired as declared, before the first fetch.** The within-thread lift is
 **0.703** (Mantel-Haenszel, CI95 [0.176, 2.814]) against a declared floor of 1.0:
@@ -41,7 +54,10 @@ carrying a need trigger does not make a comment more likely to be replied to. At
 depth 0 need comments are answered *less* often than their thread neighbours
 (0.599 vs 0.728) and at depth 1 not differently (0.575 vs 0.565). **The interval
 spans 1.0, so "answered less" is not established** — what is established is that
-the lift is not greater than 1.0, which is all the gate claimed.
+the lift is not greater than 1.0, which is all the gate claimed. **F043's +0.026
+on `served` is the same result in the neighbouring cell**, and together they say
+one thing: **a trigger vocabulary finds people who state needs and is invisible
+to what happens to those needs afterwards.**
 
 **What this changes about item 0, in one direction.** The asset is **not** a
 population of unmet needs awaiting a builder. It is a population of needs the
@@ -68,6 +84,15 @@ estimate of building.
 ratio was 0.701 over the defective capture and 0.703 after — the two strata the
 arm uses were never affected. That is only knowable *after* the repair, and
 before it the record claimed 434 comments were unreadable when none were.
+
+**The ceiling E023 added, and the ceiling it did not close.** One community, one
+day, 38 rows per arm: a difference below roughly 0.2 is unresolvable, so **a small
+need effect is not excluded** and the honest reading is that E023 could not find
+one. The control arm is defined by *not matching the trigger vocabulary*, which may
+still catch a need phrased unusually, making 0.026 a lower bound rather than an
+estimate. And `served` is labelled, not measured — a reply naming an artifact is a
+pointer — which both arms carry equally and which is why the comparison is fair and
+the absolute numbers remain unusable.
 
 ## The third axis: is the young vocabulary served by copies rather than installs?
 

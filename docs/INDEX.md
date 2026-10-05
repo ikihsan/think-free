@@ -142,6 +142,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md`](../tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md`](../tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0066-measure-what-happens-to-a-publicly-stated-unmet.md`](../tasks/T-0066-measure-what-happens-to-a-publicly-stated-unmet.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md`](../tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 
@@ -190,6 +191,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/021-copied-artifact-serving/README.md`](../EXPERIMENTS/021-copied-artifact-serving/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/022-need-outcomes/PROTOCOL.md`](../EXPERIMENTS/022-need-outcomes/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Written 2026-10-05, before any outcome was observed. T-0066. |
 | [`EXPERIMENTS/022-need-outcomes/README.md`](../EXPERIMENTS/022-need-outcomes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| [`EXPERIMENTS/023-served-baseline/PROTOCOL.md`](../EXPERIMENTS/023-served-baseline/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Written 2026-10-05, before any reply was read for this experiment. T-0067. |
+| [`EXPERIMENTS/023-served-baseline/README.md`](../EXPERIMENTS/023-served-baseline/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
