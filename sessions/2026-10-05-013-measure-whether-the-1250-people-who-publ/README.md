@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T14:30:22+00:00
-- **Duration:** ?s
+- **Duration:** 5204.6s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Measure whether the 1250 people who publicly stated a need are people who build,
 
 ## Summary
 
-_(none recorded)_
+E025 (T-0069) read the disclosure floor under F042's 0-of-24 build arm. 278 of 1250 need-staters (0.222, CI [0.200,0.246]) have a public show_hn post against 139 of 500 (0.278, CI [0.241,0.319]) control commenters in the same stories: ratio 0.80x, intervals overlap, zero refusals, Gate A1 6 of 6. The hypothesis fails in the opposite direction, so item 0d's corpus closure is CONFIRMED by measurement rather than withdrawn by caveat. 'Need-staters are not builders' is false as an absolute - a fifth of them are builders of other things. F045, D057. Also found and recorded an instrument defect in the gate protecting the finding: two of Gate A1's four original controls had no Show HN post at all, so reading '4 of 4' as a pass would have been a false positive.
+
+## Next
+
+The corpus's remaining sub-population is the 589 statements that drew no reply (named in STATE-in-flight.md and still unrun). It needs its own falsifiable claim before it is worth the budget, and it would be a third read of a population already read three times - so prefer a population not yet read.
 
 ## Artifacts
 
@@ -65,7 +69,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -107,6 +110,13 @@ _(none recorded)_
 | 30 | 15:44:56 | task_rewrite | rewrote tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md (status: done) |
 | 31 | 15:44:56 | task_rewrite | appended a complete record for T-0069 |
 | 32 | 15:56:20 | artifact | wrote ROADMAP.md |
+| 33 | 15:57:07 | doc_update | updated DECISIONS-SCREENING-3.md |
+| 34 | 15:57:07 | doc_update | updated DECISIONS.md |
+| 35 | 15:57:07 | doc_update | updated FAILURES.md |
+| 36 | 15:57:07 | doc_update | updated HYPOTHESES.md |
+| 37 | 15:57:07 | doc_update | updated ROADMAP.md |
+| 38 | 15:57:07 | doc_update | updated STATE.md |
+| 39 | 15:57:07 | session_end | E025 (T-0069) read the disclosure floor under F042's 0-of-24 build arm. 278 of 1250 need-staters (0.222, CI [0.200,0.246]) have a public show_hn post  |
 
 ## Reproduce this record
 
