@@ -15,7 +15,7 @@ Showing the 25 most recent. 93 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-018-declare-the-raw-captures-and-files-sessi](2026-10-05-018-declare-the-raw-captures-and-files-sessi/README.md) | unknown-agent | **unfinished** | Declare the raw captures and files session 017 left undeclared in its  | 2026-10-05T20:03 |
+| [2026-10-05-018-declare-the-raw-captures-and-files-sessi](2026-10-05-018-declare-the-raw-captures-and-files-sessi/README.md) | unknown-agent | worked | Declare the raw captures and files session 017 left undeclared in its  | 2026-10-05T20:03 |
 | [2026-10-05-017-e028-test-whether-the-incumbents-a-prior](2026-10-05-017-e028-test-whether-the-incumbents-a-prior/README.md) | unknown-agent | worked | E028: test whether the incumbents a prior-art screen named do what eac | 2026-10-05T20:02 |
 | [2026-10-05-016-repair-session-record-defects-blocking-s](2026-10-05-016-repair-session-record-defects-blocking-s/README.md) | unknown-agent | worked | repair session-record defects blocking strict verify | 2026-10-05T18:22 |
 | [2026-10-05-015-re-read-the-31-clause-killed-harvested-n](2026-10-05-015-re-read-the-31-clause-killed-harvested-n/README.md) | opencode | worked | Re-read the 31 clause-killed harvested needs from their full text and  | 2026-10-05T17:40 |

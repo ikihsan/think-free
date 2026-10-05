@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T20:03:14+00:00
-- **Duration:** ?s
+- **Duration:** 29.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Declare the raw captures and files session 017 left undeclared in its reconcilia
 
 ## Summary
 
-_(none recorded)_
+Declared the 24 paths session 017's reconciliation reported as undeclared: E028's raw captures, the four reader label files, the split test module, and the three hand-maintained lists that the new DECISIONS-SCREENING-4.md had to be added to.
+
+## Next
+
+E028 arm 2 - the ten sealed-report prior-art deaths - is declared and unrun, and is the next measurement if the fit question is worth a second arm.
 
 ## Artifacts
 
@@ -66,11 +70,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 1 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/events.jsonl |
 
 ## Timeline
 
@@ -102,6 +106,8 @@ _(none recorded)_
 | 24 | 20:03:36 | artifact | wrote vendor/MANIFEST.md |
 | 25 | 20:03:36 | artifact | wrote RELEASE-MANIFEST.md |
 | 26 | 20:03:36 | command | $ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch1.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch2.js |
+| 27 | 20:03:43 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/events.jsonl |
+| 28 | 20:03:43 | session_end | Declared the 24 paths session 017's reconciliation reported as undeclared: E028's raw captures, the four reader label files, the split test module, an |
 
 ## Reproduce this record
 
