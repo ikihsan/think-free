@@ -15,7 +15,7 @@ Showing the 25 most recent. 84 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | **unfinished** | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T11:27 |
+| [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
 | [2026-10-05-006-record-the-post-rename-artifact-paths-an](2026-10-05-006-record-the-post-rename-artifact-paths-an/README.md) | unknown-agent | worked | Record the post-rename artifact paths and the HYPOTHESES entry that th | 2026-10-05T07:34 |

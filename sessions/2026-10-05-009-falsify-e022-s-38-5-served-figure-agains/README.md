@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T11:27:34+00:00
-- **Duration:** ?s
+- **Duration:** 2856.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `HEAD`
 
@@ -23,7 +23,11 @@ Falsify E022's 38.5% served figure against a control arm of ordinary comments in
 
 ## Summary
 
-_(none recorded)_
+E022's 'served' cell had no control, so I ran it. A control arm of ordinary comments in the need arm's own stories, restricted to answered so both arms share the 'a reply exists' condition, reads 14/38 = 0.368 against the need arm's 15/38 = 0.395; Wilson intervals overlap, so the protocol's declared verdict is 'not informative'. The rubric is not the cause: I labelled the identical 39 rows blind and agree with E022's reader at Cohen's kappa 0.923, which converts E022's single-reader caveat into a measured magnitude. F042's 0.385 is withdrawn as a demand-side figure -- it described how Hacker News conversations go and the record read it as a description of needs. E022's other two numbers stand (58.0% answered, 0 of 24 unserved requesters built it themselves) and item 0 now rests on those. F043, D055, T-0067; 790 tests pass, doc lint exit 0. One pre-existing condition left alone: VM 0947's session 054 left T-0060 claimed with an expired lease; its work already landed as F034, and taking over another VM's claim is the work-collision hazard.
+
+## Next
+
+Apply D055's second rule to the record's other uncontrolled rates: E022's 58.0% answered has a within-thread lift of 0.703 and its own control, but STATE-in-flight.md's open readings still quote bare rates (F037's 1-of-4 young-arm serving, F041's 0.118 ratio) whose denominators were chosen after the fact -- decide per rate whether it is doing comparative work, and downgrade the ones that are.
 
 ## Artifacts
 
@@ -73,7 +77,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -126,6 +129,13 @@ _(none recorded)_
 | 41 | 12:08:47 | task_rewrite | appended a complete record for T-0067 |
 | 42 | 12:12:05 | artifact | wrote ROADMAP.md |
 | 43 | 12:14:31 | milestone | preflight green except one pre-existing condition: VM 0947's session 054 left T-0060 claimed with an expired lease; its work already landed as F034/01 |
+| 44 | 12:15:11 | doc_update | updated DECISIONS-SCREENING.md |
+| 45 | 12:15:11 | doc_update | updated DECISIONS.md |
+| 46 | 12:15:11 | doc_update | updated FAILURES.md |
+| 47 | 12:15:11 | doc_update | updated HYPOTHESES.md |
+| 48 | 12:15:11 | doc_update | updated ROADMAP.md |
+| 49 | 12:15:11 | doc_update | updated STATE.md |
+| 50 | 12:15:11 | session_end | E022's 'served' cell had no control, so I ran it. A control arm of ordinary comments in the need arm's own stories, restricted to answered so both arm |
 
 ## Reproduce this record
 
