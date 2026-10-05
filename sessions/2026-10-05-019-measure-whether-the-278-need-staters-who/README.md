@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `partial`
 - **Agent:** `opencode`
 - **Started:** 2026-10-05T20:13:48+00:00
-- **Duration:** ?s
+- **Duration:** 6184.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Measure whether the 278 need-staters who shipped something shipped the thing the
 
 ## Summary
 
-_(none recorded)_
+Chose the one join nobody had made in the demand-side corpus and ran it end to end. The fetch alone produced the durable result: of 241 need-staters with a public Show HN item, 167 shipped BEFORE they stated the need and only 74 after, so 69% of the population was never askable and the first design would have manufactured its own null; the id-ordering proxy behind that split was falsified against real timestamps on 8 of 8 sampled authors from both sides. The reader arm came back not_evaluated on two pre-declared counts (kappa 0.5004 against a floor of 0.6; control separation 0.0405 against a required 0.20) and bounds the need-to-build link at CI95 [-0.0156, +0.1125], consistent with zero -- so F042's 0-of-24 is CONFIRMED on a 10x larger instrument rather than refuted, and item 0d's closure stands with a better description of what the corpus is. Three defects in the run's own instrument, none found by a result: 45 control rows rendered an empty SHIPPED section (caught by a test whose population was what hid it); the control was the treatment arm renamed, caught by the arm that feeds no gate printing byte-identical lexical means; and a label file with 222 correct ids and a wrong row-to-pair mapping, which my own repair script then made worse at a reassuring 221/222. No candidate and no validated claim; the generator seat stays empty.
+
+## Next
+
+Stop reading the need corpus -- it has now been read three times and each reading narrows it. The open question item 0 cannot settle is what the mission selects candidates on now that no axis can carry it; the cheapest untried move is to name one concrete selection rule, apply it to the one untested mechanism line left (E2's lockfile claim, side A already banked and needing a weeks-later side B), and see whether it selects anything.
 
 ## Artifacts
 
@@ -119,11 +123,13 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 3 |
 | redactions applied to command output | 0 |
+|   error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/assemble_labels.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/raw/view_r1_xonly.txt |
+|   error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/raw/view_r2_xonly.txt |
 
 ## Timeline
 
@@ -169,18 +175,18 @@ _(none recorded)_
 | 38 | 20:45:38 | command | $ python3 EXPERIMENTS/029-need-build-match/stats.py |
 | 39 | 20:48:14 | command | $ python3 EXPERIMENTS/029-need-build-match/make_reader_views.py |
 | 40 | 20:56:53 | artifact | wrote EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md |
-| 80 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/labels_r2_x.tsv |
-| 81 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_key.json |
-| 82 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r1.txt |
-| 83 | 21:55:27 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt |
-| 84 | 21:55:28 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r2.txt |
-| 85 | 21:55:28 | artifact | wrote EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt |
-| 86 | 21:55:28 | milestone | E029 recorded: F049, D061, and the three records updated; 793 + 37 tests pass and doc lint is green |
-| 87 | 21:55:36 | decision | report the reader arm as not_evaluated on two counts rather than reading 3-of-74 against 0-of-74 as a positive result, because C1's declared 0.20 sepa |
-| 88 | 21:56:17 | task_rewrite | rewrote tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md (status: done) |
 | 89 | 21:56:17 | task_rewrite | appended a complete record for T-0073 |
+| 90 | 21:56:52 | integrity_error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/assemble_labels.py |
+| 91 | 21:56:52 | integrity_error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/raw/view_r1_xonly.txt |
+| 92 | 21:56:52 | integrity_error | declared artifact no longer exists: EXPERIMENTS/029-need-build-match/raw/view_r2_xonly.txt |
+| 93 | 21:56:52 | doc_update | updated DECISIONS-SCREENING-4.md |
+| 94 | 21:56:52 | doc_update | updated DECISIONS.md |
+| 95 | 21:56:52 | doc_update | updated FAILURES.md |
+| 96 | 21:56:52 | doc_update | updated ROADMAP.md |
+| 97 | 21:56:52 | doc_update | updated STATE.md |
+| 98 | 21:56:53 | session_end | Chose the one join nobody had made in the demand-side corpus and ran it end to end. The fetch alone produced the durable result: of 241 need-staters w |
 
-_39 middle events omitted; see `events.jsonl`._
+_48 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

@@ -95,6 +95,18 @@ All four earlier label files and both earlier views are retained under
 `superseded/` rather than deleted, because this repository keeps failed runs and
 because the record of how the id mapping was lost is itself evidence.
 
+**Three files this session declared as artifacts are no longer at their declared
+paths, and the distinction matters.** `raw/view_r1_xonly.txt` and
+`raw/view_r2_xonly.txt` were **moved** into `superseded/` — they are the partial
+re-reads this amendment abandons, kept because a later reader should be able to see
+what the repair threw away. `assemble_labels.py` was **deleted**: it existed only to
+merge a full-view pass with a partial re-read, and with no partial carry-over there
+is nothing to merge. That is the third script in this experiment to be deleted after
+proving wrong (`repair_reader_ids.py` was the second, and it made things worse), and
+the pattern is the finding: **each repair added a layer that the next defect made
+unnecessary.** The lesson is not "write fewer scripts" — it is that a repair should
+be justified by the property it restores, not by the mismatch it can see.
+
 ## What this cost, stated plainly
 
 Three reader passes were spent and neither produced a usable matched/control
