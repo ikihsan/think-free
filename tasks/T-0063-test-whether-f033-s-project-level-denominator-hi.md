@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0063
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: unknown-agent
 claim-session: 2026-10-05-002-test-whether-f033-s-project-level-denomi
