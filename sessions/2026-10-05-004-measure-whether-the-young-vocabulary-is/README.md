@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 02:44:46 | session_start | Measure whether the young vocabulary is served by copied directories rather than installations, using a code-search instrument the record says does no |
+| 2 | 02:46:28 | task_rewrite | appended a create record for T-0064 |
+| 3 | 02:46:51 | task_rewrite | rewrote tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md (status: claimed) |
 
 ## Reproduce this record
 
