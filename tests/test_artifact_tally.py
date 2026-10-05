@@ -224,6 +224,15 @@ class H2Test(unittest.TestCase):
         out = tally.h2(reads, mech_by_repo)
         self.assertEqual(out["control"]["generative_reading"], "live")
 
+    def test_a_control_too_small_to_run_is_unexercised_not_live(self):
+        """The declared control needs rows on both sides of it. One placebo row
+        read and zero hits is the control not having run, which is the shape 015
+        recorded as five unreadable placebos reported as a pass."""
+        reads = {"rows": {"p0": read(arm="placebo", stars=10)}}
+        out = tally.h2(reads, {"p0": mech("teaches_only")})
+        self.assertEqual(out["control"]["generative_reading"], "unexercised")
+        self.assertEqual(out["control"]["n"], 1)
+
     def test_a_declared_population_that_differs_from_the_read_is_reported(self):
         reads = {"rows": {"a": read()}, "declared_population": "young documents",
                  "population_mismatch": "read 4, declared 10"}

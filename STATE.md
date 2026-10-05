@@ -82,9 +82,14 @@ exists" is satisfied by prose. **It is 14 of 18 executable code** — 13 of 18 w
 every young root listing read by hand, so the verdict does not rest on the
 classifier's margins. Documents are 22% of the young arm and carry a **median 6,072
 stars against 566** for the code rows, while 14 of 18 young rows have no readable
-use channel at all and 13 of those are tools: **the most-starred tool in the young
-vocabulary is installed 363 times a month.** Supply is plentiful and measured use
-is scarce, and a prior-art screen counts the first and reports the second.
+use channel at all, and 10 of those 14 are tools: **the most-starred tool in the young
+vocabulary is installed 363 times a month.** H2 is dead at 0 of 4, and the reason
+is the point: **none of those four documents is a manual workaround.** The reader
+copies a `.claude/` directory into their own repository once and the hooks run
+themselves thereafter — so the artifact in use is *not a package*, and every
+serving channel here counts installations. Supply is plentiful, the use may be
+equally plentiful, and the prior-art screen counts the first and reports the
+second.
 
 **A restated experiment number was false, and the obvious gate is blind to
 it** (defect 22, T-0056, D047, F024). `docs/process/experiment-protocol.md` claimed
@@ -138,23 +143,17 @@ Full detail per session is in [`STATE-history.md`](STATE-history.md) and
 push this reload point past the line cap. That cap has now been hit by this file
 five times, and each repair moved material to the file whose invariant owns it.
 
-- **Sessions 050-051, VM 0944 (F029, F030, D049, E012).** D048's invention seat
-  was **tested rather than filled**: 1401 need statements harvested from Hacker
-  News since 2024-01-01, 50 drawn by a stated rule, **0 survived the screens**
-  (38% prior art, 30% no mechanism, 24% not software, 8% needing hardware)
-  against the prior generator's own 3-of-16. A need statement is not a candidate,
-  and a need corpus cannot supply recurrence — term recurrence over 1273 clauses
-  returns only function words — while an issue corpus counted **by repository**
-  does (5805 issues across 28 repositories for the one cluster that recurred by
-  eye). F030 is the methodological by-product: one search query decides a
-  prior-art verdict wrongly in both directions. **What it changed is the
-  pipeline's inputs, not a candidate's state** — and the owner decision already
-  recorded above, on which axis candidates are now selected, is the binding one.
-  **Two costs recorded:** a concurrent instance of session 044 closed that
-  stream mid-session, so these commits predate session 050's record; and the
-  renumbering from `EXPERIMENTS/011` to `012` was applied to the README while
-  the rebase that renamed the directory was discarded, leaving two indexed copies
-  of one experiment that no gate could see, consolidated in `c38f1b4`.
+- **Sessions 050-051, VM 0944 (F029, F030, D049, E012).** The invention seat was
+  **tested rather than filled**: 1401 harvested need statements, 50 drawn by a
+  stated rule, **0 survived the screens** (38% prior art, 30% no mechanism, 24% not
+  software, 8% needing hardware) against the prior generator's own 3-of-16. A need
+  corpus cannot supply recurrence — term recurrence returns only function words —
+  while an issue corpus counted **by repository** does (5805 issues, 28
+  repositories). F030: one search query decides a prior-art verdict wrongly in both
+  directions. Two costs recorded: a concurrent instance closed session 044's stream
+  mid-session, so those commits predate its record; and a renumbering applied to a
+  README while the rebase that renamed the directory was discarded left two indexed
+  copies of one experiment that no gate could see, consolidated in `c38f1b4`.
 - **Session 047, VM 0947 (T-0058, F028).** The flat adoption tail is vocabulary
   age, not niche: `build provenance` / `supply chain audit` carry long-lived or
   vendor-official outliers, so a stars-based "plausible adoption path" criterion
@@ -178,15 +177,15 @@ five times, and each repair moved material to the file whose invariant owns it.
 ## Infrastructure build (sessions 015–016, earlier)
 
 `tools/origin` (session logging, task dispatch, documentation lint, index
-generation, skill checks, environment doctor), `tools/x` (command capture with
-exit codes and secret redaction), per-session append-only logs reconciled against
-git, multi-VM safety with a two-clone fleet harness (T-0004), the
-metadata-tagged documentation graph, and 21 skills vendored in-repo and mirrored.
-Standard-library Python, no installation step. Current state: the **Implemented**
-rows above and the infrastructure track in [`ROADMAP.md`](ROADMAP.md); the
-session-by-session account is in [`STATE-history.md`](STATE-history.md) and
-[`STATE-history-2.md`](STATE-history-2.md), including the two record-keeping
-defects that running it on itself exposed (F003, F004), both fixed under test.
+generation, skill checks, environment doctor), `tools/x` (command capture with exit
+codes and secret redaction), append-only per-session logs reconciled against git,
+multi-VM safety with a two-clone fleet harness (T-0004), the metadata-tagged
+documentation graph, and 21 skills vendored in-repo and mirrored. Standard-library
+Python, no installation step. Current state: the **Implemented** rows above and the
+infrastructure track in [`ROADMAP.md`](ROADMAP.md); the session-by-session account,
+including the two record-keeping defects running it on itself exposed (F003, F004),
+is in [`STATE-history.md`](STATE-history.md) and
+[`STATE-history-2.md`](STATE-history-2.md).
 
 ## Resume procedure
 
@@ -220,13 +219,13 @@ decides that count, and `results.json` carries both numbers.
 
 **What changed is the method, not a candidate.** Prior art is judged on the open
 web and on the clause's attribute, never on a code index and a category (D050).
-The three survivors are need statements — no mechanism, no differentiation, no
-adoption path — so each goes to a mechanism question first, and F029's generator
-verdict is narrowed rather than reversed. **Choosing what the mission selects
-candidates on is still an owner decision**, and F037 narrows what the choice has
-to fix: the screen's *population* is sound and its *coverage* is not, so a better
-search does not repair it. Item 0 of [`STATE-next-actions.md`](STATE-next-actions.md)
-holds the three leads, the reasoning, and the axis still on offer.
+The three survivors are need statements, so each goes to a mechanism question
+first, and F029's generator verdict is narrowed rather than reversed. **Choosing
+what the mission selects candidates on is still an owner decision**, and F037
+narrows what the choice has to fix: the screen's *population* is sound, its
+*coverage* is not, and its *unit of measurement* may be the wrong artifact
+entirely. Item 0 of [`STATE-next-actions.md`](STATE-next-actions.md) holds the
+three leads, the reasoning, and the axis still on offer.
 
 **The gaps in that pattern, both found by colliding with it, and one of them in
 the record rather than in a red run.** Rule 7 did not read the numbered list in

@@ -135,6 +135,14 @@ def mechanical(full_name, text):
             if not (host == pattern or host.endswith("." + pattern)):
                 continue
             segments = [s for s in path.split("/") if s][:depth]
+            # A self-link carrying a `.git` suffix is still a self-link. The error
+            # direction matters: a false foreign link makes a document look like a
+            # tutorial of somebody else's software, which is the reading that
+            # rescues every candidate the mission has killed. One row's class does
+            # not turn on it (it also carries install commands), and both readings
+            # are in `results.json`.
+            if segments and segments[-1].endswith(".git"):
+                segments[-1] = segments[-1][:-4]
             if len(segments) < depth or tuple(segments) != own:
                 links.add(host + "/" + "/".join(segments))
             break

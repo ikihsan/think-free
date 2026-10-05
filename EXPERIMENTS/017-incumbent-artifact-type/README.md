@@ -89,14 +89,14 @@ population was classified. This file carries the result.
 
 | arm | class | n | decided | served | share |
 |---|---|---|---|---|---|
-| mature | executable | 25 | 17 | 12 | **71%** |
+| mature | executable | 26 | 17 | 12 | **71%** |
 | mature | document | 4 | 0 | — | — |
-| mature | unreadable | 1 | 0 | — | — |
 | young | executable | **14** | 4 | 1 | **25%** |
 | young | document | **4** | 0 | — | — |
-| placebo | executable | 8 | 6 | 0 | 0% |
+| placebo | executable | 9 | 7 | 0 | 0% |
 | placebo | document | 4 | 1 | 0 | 0% |
-| placebo | unreadable | 1 | 1 | 0 | 0% |
+
+All 61 rows read; `results.json` carries `population.complete: true`.
 
 **The young arm is 14 of 18 executable. `document` is 22% of the readable young
 arm, against a declared 50% threshold, so the share condition fires and H1 is
@@ -153,24 +153,71 @@ composition established: supply is plentiful, measured use is scarce, and **the 
 are not the same population.** A prior-art screen counts the first and reads it as
 the second.
 
-### H2 could not be evaluated on the population it was declared for
+### H2 is `dead` at 0 of 4, and the reason is the useful part
 
 The declared H2 population is the 10 highest-starred young-arm rows classified
 `document`. **There are 4.** The gate is reported as `population_short` with
-`n = 4`, which is a quarter of what the thresholds were written for: whatever H2
-says, it rests on four observations and cannot be more than that. The gate also
-has a third answer it did not have when declared — `not_evaluated` for an empty
-read — added after the first run printed `dead` for a population nobody had read.
+`n = 4`, so whatever it says rests on four observations. It says: all four are
+`tutorial` by the mechanical fields, and **none teaches a repeated procedure**.
 
-### An instrument defect of my own, found by reading the cache
+| repository | ★ | what the reader is told to do | repeated? |
+|---|---|---|---|
+| `diet103/claude-code-infrastructure-showcase` | 10,035 | "This is NOT a working application — it's a reference library. Copy what you need into your own projects." Then `git clone` + `npx tsx setup.ts ~/my-project`. "Time to integrate: 15-30 minutes" | no |
+| `ChrisWiles/claude-code-showcase` | 6,072 | "1. Create the `.claude` directory 2. Add a `CLAUDE.md` file 3. Add `settings.json` with hooks 4. Add your first skill" | no |
+| `Cloudgeni-ai/infrastructure-agents-guide` | 206 | thirteen chapters of decisions, then "if you want to see these patterns implemented in a real product, see OpenGeni" | no |
+| `Aryia-Behroziuan/References` | 70 | 37,405 bytes under one heading | no |
 
-The first fetch run **cached two budget refusals as readings**: the core limit is
-60 an hour and the run needed two requests for each of 30 rows, so
-`dariusk/express-activitypub` and `landy22granatt/Kumpulan-Script-Termux` were
-answered `403` and stored. A later run would have skipped them as already asked.
-That is F032's dead branch again — *I could not ask today* becoming *this
-repository could not be read* — in a new place, and it was invisible because the
-rows still classified as `unreadable`, which looks like a finding. `rootlisting._complete`
-now refuses a half-answered row and the refused half is re-asked;
-`tests/test_artifact_tally.py::FetchCacheTest` holds the difference in both
-directions.
+**None of them is a manual workaround.** The reader copies a **directory of files
+into their own repository once**, and after that the hooks the document installed
+are what run, on every prompt and every edit.
+
+**And that has a consequence the instruments cannot see.** In this vocabulary the
+artifact that gets used is not a package; it is a `.claude/` directory, delivered
+by clone or by copy. npm, PyPI, crates, Homebrew, Docker Hub and GitHub release
+assets all count *installations*, and a directory committed into somebody's
+repository is none of those. So *1 of 18 young-arm incumbents clears a serving
+floor, 14 of 18 have no readable channel* is consistent with a field that is
+**used and invisible to the instrument** — and F037 has now removed the two
+explanations that were on the table before (the population is documents; the
+population is unreadable). Full table and quotes in
+[`FAILURES-findings-14.md`](../../FAILURES-findings-14.md) and `reads.json`.
+
+The declared control **could not run**: one of the four placebo documents was
+readable and it is a 119-byte stub, so it is reported `unexercised` rather than
+as a pass. That is a defect in the population rule, not in the read.
+
+### Four instrument defects, each found by this experiment running on itself
+
+**A budget refusal cached as a reading.** The core limit is 60 an hour and the run
+needed two requests for each of 30 rows, so three rows were answered `403` and
+stored. A later run skipped them as already asked. That is F032's dead branch
+again — *I could not ask today* becoming *this repository could not be read* — in
+a new place, and it was invisible because the rows still classified as
+`unreadable`, which looks like a finding. `rootlisting._complete` now refuses a
+half-answered row; `tests/test_artifact_population.py::FetchCacheTest` holds the
+property against the **committed** cache rather than a fixture.
+
+**Two vocabularies for "refused".** The fetcher declared `"refused"` and the
+classifier compared against `"refused:upstream"`, so a genuinely refused listing
+matched no branch and reached the `unexpected_shape` fallback — the right class
+for the wrong reason, and one edit from the wrong count.
+
+**A gate that answered about a population nobody read.** H2's thresholds are
+counts and 0 hits is ≤ 2, so the first run printed `dead` for an empty read. It
+has a third answer now, `not_evaluated`.
+
+**A self-link with a `.git` suffix read as a link to somebody else's software**,
+which makes a document look like a tutorial — the reading that rescues every
+killed candidate. It does not change that row's class (it also carries install
+commands) and both readings are in `results.json`.
+
+### The land cost, recorded because it will recur
+
+The first `land` conflicted on **this session's own generated report** — a file
+both VMs' tooling rewrites — and after resolving it, `git rebase --continue`
+failed with *Failed to merge in the changes*, twice, so the rebase had to be
+finished by hand. That is the ceiling T-0053/T-0048 named: a hand-run
+continuation records no `base_advance` and attributes the base's paths to whoever
+resolved. `landrebase.recover()` is the documented route and it did record the
+arrival. **A generated file both VMs rewrite conflicts on every land**, which is
+a fourth instance of the class defect 13 describes and is not repaired here.

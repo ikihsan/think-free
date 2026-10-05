@@ -1,0 +1,49 @@
+{
+ "read_on": "2026-10-05",
+ "declared_population": "the 10 highest-starred young-arm rows classified `document`",
+ "population_short": "there are 4 of them, so n = 4 against thresholds written for 10",
+ "judgement_rule": "`repeated` means the procedure the README asks the reader to perform is naturally performed more than once - per project, per day, per commit. It is judged from the quoted text and is the one field in this arm that is not mechanical; the other four are produced by readfields.py and can be re-derived by a reader who disagrees. Every quote below was read by one annotator, which is the limit PROTOCOL.md declares.",
+ "rows": {
+  "diet103/claude-code-infrastructure-showcase": {
+   "arm": "young",
+   "stars": 10035,
+   "repeated": false,
+   "procedure": "\"This is NOT a working application - it's a reference library. Copy what you need into your own projects.\" Option A: `git clone https://github.com/diet103/claude-code-infrastructure-showcase.git` then `npx tsx setup.ts ~/my-project`. Option B, manual: \"1. Clone this repo 2. Copy .claude/ into YOUR project 3. Install hook dependencies\". README: \"Time investment to build: 6 months of iteration. Time to integrate into your project: 15-30 minutes.\"",
+   "judgement_note": "The reader's action is a one-time scaffold per project. After it, nothing manual recurs: the hooks the document installs are what run, automatically, on every prompt and every edit. A one-time copy is not a repeated procedure, and reading it as one is exactly the reading that would manufacture an unmet need.",
+   "what_it_shows_instead": "The need is being served by copying a directory of files into a repository, not by installing a package."
+  },
+  "ChrisWiles/claude-code-showcase": {
+   "arm": "young",
+   "stars": 6072,
+   "repeated": false,
+   "procedure": "\"Claude Code Project Configuration Showcase\". Quick Start: \"1. Create the .claude directory 2. Add a CLAUDE.md file 3. Add settings.json with hooks 4. Add your first skill\", against a directory tree of `your-project/.claude/{settings.json,agents/,commands/,hooks/,skills/}`.",
+   "judgement_note": "Per-project scaffolding, performed once per repository. The document's own contents thereafter are configuration the agent reads, not steps the person repeats.",
+   "what_it_shows_instead": "Same channel as the row above and it is the second independent instance of it: a `.claude/` directory, authored and copied."
+  },
+  "Cloudgeni-ai/infrastructure-agents-guide": {
+   "arm": "young",
+   "stars": 206,
+   "repeated": false,
+   "procedure": "\"How to design, build, and operate AI agents for infrastructure teams - safely.\" Thirteen chapters of architectural decisions, patterns and a risk framework. \"If you want to see these patterns implemented in a real product, see OpenGeni ... which packages this guide's architecture into a proven stack.\"",
+   "judgement_note": "A reading guide that funnels to the author's own product. There is no procedure here for the reader to perform at all, repeatedly or once.",
+   "what_it_shows_instead": "The guide is demand-side content for a commercial product, not a manual workaround."
+  },
+  "Aryia-Behroziuan/References": {
+   "arm": "young",
+   "stars": 70,
+   "repeated": false,
+   "procedure": "37,405 bytes under a single heading, `References`.",
+   "judgement_note": "A link list. Nothing to do.",
+   "what_it_shows_instead": "The low end of the same attention gradient: a bare list of links with 70 stars."
+  },
+  "CalibreWeb-Ebook-Server/.github": {
+   "arm": "placebo",
+   "stars": 0,
+   "repeated": false,
+   "procedure": "119 bytes, one heading, no procedure.",
+   "judgement_note": "The control arm could not be read. Only one of the four placebo documents was fetched, and it is a 119-byte stub, so the declared control is reported as unexercised rather than as a pass. Its exclusion does not change H2, which is already at 0 hits with 4 rows read.",
+   "what_it_shows_instead": "Nothing."
+  }
+ },
+ "control_note": "The declared control was the placebo documents behaving differently from the primary arm. It could not be run: the population builder's placebo documents are `CalibreWeb-Ebook-Server/.github` and three repositories whose root listings are documents for other reasons, and only the first was fetched inside the core budget. Reported unexercised."
+}

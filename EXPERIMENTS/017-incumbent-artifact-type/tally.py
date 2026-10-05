@@ -137,8 +137,17 @@ def h2(reads, mech):
     else:
         verdict = "inconclusive"
 
-    generative = "dead" if (control and len(control_hits) >= max(2, len(control) // 2)) \
-        else "live"
+    # The control's declared rule needs rows on both sides of it. With fewer than
+    # four control rows read, "the control did not fire" is not evidence that the
+    # generative reading is live -- it is the control not having run. 015 hit this
+    # exact shape: five declared placebos that no channel could read were reported
+    # as a pass when they had proved nothing, and were relabelled `unexercised`.
+    if len(control) < 4:
+        generative = "unexercised"
+    elif len(control_hits) >= max(2, len(control) // 2):
+        generative = "dead"
+    else:
+        generative = "live"
     return {"hypothesis": "H2", "verdict": verdict,
             "n": len(primary), "hits": len(hits), "key": H2_KEY,
             "population_short": len(primary) < H2_N,

@@ -76,9 +76,17 @@ class ForeignLinkTest(unittest.TestCase):
         out = m("owner/name", "See [docs](docs/README.md) and [x](./install.sh)")
         self.assertFalse(out["foreign_link"])
 
-    def test_an_anchor_is_stripped_before_comparing(self):
-        out = m("owner/name", "https://github.com/other/repo#install")
-        self.assertIn("github.com/other/repo", out["foreign_links"])
+    def test_a_self_link_with_a_git_suffix_is_not_foreign(self):
+        """Found on a real row: `https://github.com/<owner>/<repo>.git` is the
+        repository's own clone URL, and reading it as a link to somebody else's
+        software would make the document a `tutorial`."""
+        out = m("owner/name", "git clone https://github.com/owner/name.git")
+        self.assertFalse(out["foreign_link"], msg=out["foreign_links"])
+        self.assertTrue(out["install_line"])   # the clone command is an install shape
+
+    def test_a_git_suffix_on_another_repository_is_still_foreign(self):
+        out = m("owner/name", "git clone https://github.com/other/repo.git")
+        self.assertTrue(out["foreign_link"])
 
     def test_the_class_is_tutorial_when_either_field_fires(self):
         self.assertEqual(m(text="pip install x")["class"], "tutorial")
@@ -110,10 +118,22 @@ class CountIsNotAJudgementTest(unittest.TestCase):
 
 
 class ReadShapeTest(unittest.TestCase):
-    def test_a_missing_reads_json_is_named_not_treated_as_empty(self):
+    def test_the_committed_reads_json_satisfies_its_own_shape_check(self):
         ok, problems = readfields.check_reads()
-        self.assertFalse(ok)
-        self.assertTrue(problems)
+        self.assertTrue(ok, msg=problems)
+
+    def test_every_read_row_carries_a_quoted_procedure_and_a_boolean(self):
+        import json
+        reads = json.load(open(os.path.join(
+            os.path.dirname(os.path.abspath(readfields.__file__)),
+            "reads.json")))
+        self.assertTrue(reads.get("rows"))
+        for repo, row in reads["rows"].items():
+            self.assertIn("repeated", row, msg=repo)
+            self.assertIsInstance(row["repeated"], bool, msg=repo)
+            self.assertTrue(row["procedure"].strip(), msg=repo)
+            self.assertTrue(row["judgement_note"].strip(), msg=repo)
+            self.assertIn(row["arm"], ("young", "placebo"), msg=repo)
 
     def _write(self, payload):
         path = os.path.join(os.path.dirname(os.path.abspath(readfields.__file__)),

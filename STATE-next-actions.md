@@ -45,6 +45,19 @@ prior art, usefulness and adoption untouched, and every item says which.
    about demand** — the young arm's median row is a 60-star tool, its documents
    carry a median 6,072 stars against 566, 14 of 18 rows have no readable use
    channel, and the most-starred tool there is installed 363 times a month.
+   **The third reading is now the cheapest one and nobody has taken it.** H2 is
+   dead at 0 of 4 because none of those documents is a manual workaround: the
+   reader copies a `.claude/` **directory** into their own repository once and the
+   hooks run themselves. **The artifact in use is not a package**, and every
+   serving channel this repository owns counts installations — so *1 of 18
+   clears a floor* is consistent with a field that is used and invisible. The
+   testable form: **is the serving signal for a young vocabulary forks and
+   dependents rather than installs?** Falsifier: a known-copied configuration
+   whose repository has neither. Cheapest honest proxy for "was this copied" is
+   the count of repositories containing a `.claude/` directory with hooks, which
+   no public API serves — so the first move is to decide whether forks,
+   dependents or templates are an adequate stand-in, and a control is a tool
+   people install against a configuration people copy.
 
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the
@@ -60,8 +73,8 @@ prior art, usefulness and adoption untouched, and every item says which.
    world's distribution rather than about this repository's tooling. **F037
    measured the fraction and it is high where the candidates live: 14 of 18 young
    rows undecided, 13 of them tools, and 43% of the mature arm.** What it also
-   shows is that undecidability does **not** track artifact class — the unreadable
-   rows are overwhelmingly executable — so "this is just a document" never
+   shows is that undecidability does **not** track artifact class — 10 of the 14
+   unreadable young rows are executable — so "this is just a document" never
    explains an unreadable row. **What remains open is whether the fraction
    predicts anything about the need**, and its falsifier is a population where
    the unmeasurable fraction is near zero. **Ceiling:** 015's `placebo.py` shows

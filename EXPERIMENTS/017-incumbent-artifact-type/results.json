@@ -17,7 +17,7 @@
    },
    "executable": {
     "decided": 17,
-    "n": 25,
+    "n": 26,
     "repos": [
      "Evil0ctal/Douyin_TikTok_Download_API",
      "FriendsOfPHP/Goutte",
@@ -28,6 +28,7 @@
      "bluewave-labs/Checkmate",
      "cirosantilli/china-dictatorship",
      "clips/pattern",
+     "dariusk/express-activitypub",
      "donnemartin/interactive-coding-challenges",
      "eugeniughelbur/obsidian-second-brain",
      "ghostwright/phantom",
@@ -65,14 +66,12 @@
    },
    "unreadable": {
     "decided": 0,
-    "n": 1,
-    "repos": [
-     "dariusk/express-activitypub"
-    ],
+    "n": 0,
+    "repos": [],
     "served": 0,
     "served_repos": [],
     "served_share": null,
-    "stars_median": 603
+    "stars_median": null
    }
   },
   "placebo": {
@@ -91,11 +90,12 @@
     "stars_median": 0
    },
    "executable": {
-    "decided": 6,
-    "n": 8,
+    "decided": 7,
+    "n": 9,
     "repos": [
      "Aethereal-Tech/storage",
      "BFGriffith/spaced-repetition",
+     "Notifuse/selfhost_s3",
      "Vladyslav-Soldatenko/ProcrastiLearn",
      "espebra/stupid-simple-s3",
      "jadeocr/jadeocr",
@@ -106,18 +106,16 @@
     "served": 0,
     "served_repos": [],
     "served_share": 0.0,
-    "stars_median": 30
+    "stars_median": 25
    },
    "unreadable": {
-    "decided": 1,
-    "n": 1,
-    "repos": [
-     "Notifuse/selfhost_s3"
-    ],
+    "decided": 0,
+    "n": 0,
+    "repos": [],
     "served": 0,
     "served_repos": [],
-    "served_share": 0.0,
-    "stars_median": 19
+    "served_share": null,
+    "stars_median": null
    }
   },
   "young": {
@@ -503,25 +501,28 @@
      "boundary": true,
      "hits": [],
      "mechanical": "document",
-     "reason": "`README.md` plus `dkfb.bin`. A Termux script collection; the `.bin` name gives nothing to classify and no manifest is present. The release half of the row was also a budget refusal and was re-asked.",
+     "reason": "Re-read in full: `README.md` and `dkfb.bin`, 0 releases. A Termux script collection. `dkfb.bin` gives nothing to classify and no manifest is present, so `document` stands, but it is a script collection and a reader could reasonably call it executable.",
      "repo": "landy22granatt/Kumpulan-Script-Termux",
      "reviewed": "document",
      "stars": 755
     },
     {
      "boundary": false,
-     "hits": [],
-     "mechanical": "unreadable",
-     "reason": "Both halves came back REFUSED on the first run, and that was this instrument's core budget running out rather than anything about the repository - the row next to it in the same run read fine. The fetcher's first version would have cached that answer permanently; `rootlisting._complete` now refuses to. Re-asked in a later budget window.",
+     "hits": [
+      "index.js",
+      "package.json"
+     ],
+     "mechanical": "executable",
+     "reason": "Re-read in a later budget window: `package.json`, `index.js`, `routes/`, `config-template.json`. An Express ActivityPub server. The mechanical class is right and my first review was wrong to leave it `unreadable`; the refusal was this instrument's budget, not the repository.",
      "repo": "dariusk/express-activitypub",
-     "reviewed": "unreadable",
+     "reviewed": "executable",
      "stars": 603
     }
    ],
    "unreviewed": 21
   },
   "placebo": {
-   "agree": 1,
+   "agree": 0,
    "boundary": 0,
    "disagree": 0,
    "rows": [
@@ -659,15 +660,19 @@
     },
     {
      "boundary": false,
-     "hits": [],
-     "mechanical": "unreadable",
-     "reason": "A budget refusal in the first window, like `dariusk/express-activitypub`. Re-asked.",
+     "hits": [
+      "Dockerfile",
+      "Makefile",
+      "go.mod"
+     ],
+     "mechanical": "executable",
+     "reason": null,
      "repo": "Notifuse/selfhost_s3",
-     "reviewed": "unreadable",
+     "reviewed": null,
      "stars": 19
     }
    ],
-   "unreviewed": 12
+   "unreviewed": 13
   },
   "young": {
    "agree": 5,
@@ -903,23 +908,95 @@
  },
  "h2": {
   "control": {
-   "generative_reading": "live",
+   "generative_reading": "unexercised",
    "hit_repos": [],
    "hits": 0,
-   "n": 0,
-   "rows": []
+   "n": 1,
+   "rows": [
+    {
+     "arm": "placebo",
+     "class": "teaches_only",
+     "foreign_link": false,
+     "install_line": false,
+     "judgement_note": "The control arm could not be read. Only one of the four placebo documents was fetched, and it is a 119-byte stub, so the declared control is reported as unexercised rather than as a pass. Its exclusion does not change H2, which is already at 0 hits with 4 rows read.",
+     "key": false,
+     "procedure": "119 bytes, one heading, no procedure.",
+     "repeated": false,
+     "repo": "CalibreWeb-Ebook-Server/.github",
+     "shell_blocks": 0,
+     "stars": 0,
+     "teaches_only": true
+    }
+   ]
   },
-  "declared_population": null,
+  "declared_population": "the 10 highest-starred young-arm rows classified `document`",
   "hit_repos": [],
   "hits": 0,
   "hypothesis": "H2",
   "key": "repeated_teaches_only",
-  "n": 0,
+  "n": 4,
   "population_declared_n": 10,
   "population_mismatch": null,
   "population_short": true,
-  "rows": [],
-  "verdict": "not_evaluated"
+  "rows": [
+   {
+    "arm": "young",
+    "class": "tutorial",
+    "foreign_link": false,
+    "install_line": true,
+    "judgement_note": "The reader's action is a one-time scaffold per project. After it, nothing manual recurs: the hooks the document installs are what run, automatically, on every prompt and every edit. A one-time copy is not a repeated procedure, and reading it as one is exactly the reading that would manufacture an unmet need.",
+    "key": false,
+    "procedure": "\"This is NOT a working application - it's a reference library. Copy what you need into your own projects.\" Option A: `git clone https://github.com/diet103/claude-code-infrastructure-showcase.git` then `npx tsx setup.ts ~/my-project`. Option B, manual: \"1. Clone this repo 2. Copy .claude/ into YOUR project 3. Install hook dependencies\". README: \"Time investment to build: 6 months of iteration. Time to integrate into your project: 15-30 minutes.\"",
+    "repeated": false,
+    "repo": "diet103/claude-code-infrastructure-showcase",
+    "shell_blocks": 11,
+    "stars": 10035,
+    "teaches_only": false
+   },
+   {
+    "arm": "young",
+    "class": "tutorial",
+    "foreign_link": true,
+    "install_line": true,
+    "judgement_note": "Per-project scaffolding, performed once per repository. The document's own contents thereafter are configuration the agent reads, not steps the person repeats.",
+    "key": false,
+    "procedure": "\"Claude Code Project Configuration Showcase\". Quick Start: \"1. Create the .claude directory 2. Add a CLAUDE.md file 3. Add settings.json with hooks 4. Add your first skill\", against a directory tree of `your-project/.claude/{settings.json,agents/,commands/,hooks/,skills/}`.",
+    "repeated": false,
+    "repo": "ChrisWiles/claude-code-showcase",
+    "shell_blocks": 7,
+    "stars": 6072,
+    "teaches_only": false
+   },
+   {
+    "arm": "young",
+    "class": "tutorial",
+    "foreign_link": true,
+    "install_line": false,
+    "judgement_note": "A reading guide that funnels to the author's own product. There is no procedure here for the reader to perform at all, repeatedly or once.",
+    "key": false,
+    "procedure": "\"How to design, build, and operate AI agents for infrastructure teams - safely.\" Thirteen chapters of architectural decisions, patterns and a risk framework. \"If you want to see these patterns implemented in a real product, see OpenGeni ... which packages this guide's architecture into a proven stack.\"",
+    "repeated": false,
+    "repo": "Cloudgeni-ai/infrastructure-agents-guide",
+    "shell_blocks": 1,
+    "stars": 206,
+    "teaches_only": false
+   },
+   {
+    "arm": "young",
+    "class": "teaches_only",
+    "foreign_link": false,
+    "install_line": false,
+    "judgement_note": "A link list. Nothing to do.",
+    "key": false,
+    "procedure": "37,405 bytes under a single heading, `References`.",
+    "repeated": false,
+    "repo": "Aryia-Behroziuan/References",
+    "shell_blocks": 0,
+    "stars": 70,
+    "teaches_only": true
+   }
+  ],
+  "verdict": "dead"
  },
  "population": {
   "by_arm": {

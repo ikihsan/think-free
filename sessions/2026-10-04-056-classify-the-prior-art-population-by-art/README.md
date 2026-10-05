@@ -35,6 +35,9 @@ _(none recorded)_
 | EXPERIMENTS/017-incumbent-artifact-type/reviewed.json | 3eb1ef6e7c19 | 6673 |
 | FAILURES-findings-14.md | 4098e39fd5e9 | 8058 |
 | EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md | f7f50ca86084 | 10065 |
+| EXPERIMENTS/017-incumbent-artifact-type/reads.json | 7d9baf2d0529 | 4349 |
+| EXPERIMENTS/017-incumbent-artifact-type/README.md | cd8284c9e559 | 12476 |
+| STATE-constraints.md | 96f50fbac1bd | 6125 |
 
 ## Commands
 
@@ -69,6 +72,11 @@ _none_
 | 11 | 01:05:48 | artifact | wrote FAILURES-findings-14.md |
 | 12 | 01:05:48 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md |
 | 13 | 01:05:57 | base_advance | rebase completed outside land: base moved c1feee880aa5 -> 70bfe216f976, 7 commit(s) arrived from the shared base |
+| 14 | 01:06:22 | base_advance | sync land: base moved fbb6dcf05df0 -> d7b5908b3b82, 1 commit(s) arrived from the shared base |
+| 15 | 01:55:17 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/reads.json |
+| 16 | 01:55:17 | artifact | wrote EXPERIMENTS/017-incumbent-artifact-type/README.md |
+| 17 | 01:55:18 | artifact | wrote STATE-constraints.md |
+| 18 | 01:55:18 | milestone | H2 read and dead at 0 of 4; the four documents copy a .claude/ directory rather than teaching a manual procedure, so the serving channels may be count |
 
 ## Reproduce this record
 

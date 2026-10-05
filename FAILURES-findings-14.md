@@ -37,14 +37,16 @@ declared serving floor at the same rate executable rows do.
 
 | arm | class | n | decided | served | share |
 |---|---|---|---|---|---|
-| mature | executable | 25 | 17 | 12 | **71%** |
+| mature | executable | 26 | 17 | 12 | **71%** |
 | mature | document | 4 | 0 | — | — |
-| mature | unreadable | 1 | 0 | — | — |
 | young | executable | **14** | 4 | 1 | **25%** |
 | young | document | **4** | 0 | — | — |
-| placebo | executable | 8 | 6 | 0 | 0% |
+| placebo | executable | 9 | 7 | 0 | 0% |
 | placebo | document | 4 | 1 | 0 | 0% |
-| placebo | unreadable | 1 | 1 | 0 | 0% |
+
+All 61 rows were read; `results.json` carries `population.complete: true`. The
+first run reached 58 and named the three it could not — they were this
+instrument's core budget, not the repositories, and two of them classify as tools.
 
 **H is dead.** The young arm is 14 of 18 executable; `document` is 22% of the
 readable young arm against a declared 50% threshold. **The verdict does not
@@ -71,7 +73,7 @@ arm's *median* row is a 60★ tool, its top four by stars are a Go tool
 (`alibaba/open-code-review`, 43,700★), a prompt collection (12,829★), a showcase
 (10,035★) and a guide-with-an-MCP-server (6,101★), and its documents are not
 where the stars are. Meanwhile **14 of 18 young rows have no serving reading at
-all and 13 of those are tools.** The four rows that could be read are the whole
+all, and 10 of those 14 are tools.** The four rows that could be read are the whole
 of what is known about use in this vocabulary, and one of them clears a floor:
 
 | repository | stars | best reading | floor |
@@ -83,6 +85,36 @@ of what is known about use in this vocabulary, and one of them clears a floor:
 
 **Supply is plentiful, measured use is scarce, and they are not the same
 population.** A prior-art screen counts the first and reports it as the second.
+
+### What the four documents turned out to be, and it is the useful part
+
+H2 is dead, and its control could not run, so this is a four-row observation
+rather than a gate. It is recorded because the *reason* it is dead is not the
+reason the hypothesis expected.
+
+| repository | ★ | what the reader is told to do | repeated? | class |
+|---|---|---|---|---|
+| `diet103/claude-code-infrastructure-showcase` | 10,035 | "This is NOT a working application — it's a reference library. Copy what you need into your own projects." Then `git clone` + `npx tsx setup.ts ~/my-project`, or copy `.claude/` and install hook dependencies. README: "Time to integrate: 15-30 minutes" | no — once per project | tutorial |
+| `ChrisWiles/claude-code-showcase` | 6,072 | "1. Create the `.claude` directory 2. Add a `CLAUDE.md` file 3. Add `settings.json` with hooks 4. Add your first skill", against a `your-project/.claude/{agents,commands,hooks,skills}` tree | no — once per project | tutorial |
+| `Cloudgeni-ai/infrastructure-agents-guide` | 206 | thirteen chapters of architectural decisions, then "if you want to see these patterns implemented in a real product, see OpenGeni" | no — nothing to perform | tutorial |
+| `Aryia-Behroziuan/References` | 70 | 37,405 bytes under one heading, `References` | no | teaches_only |
+
+**None of them is a manual workaround.** The hypothesis was that the field's
+best-known documents would show a repeated procedure that nothing runs. They show
+the opposite: the reader copies a **directory of files into their own repository
+once**, and after that the hooks the document installed are what run, on every
+prompt and every edit.
+
+**That is the observation with a consequence.** In this vocabulary the artifact
+that gets used is not a package — it is a `.claude/` directory, delivered by clone
+or by copy. **Every serving channel this repository has is blind to it:** npm,
+PyPI, crates, Homebrew, Docker Hub and GitHub release assets all count
+installations, and a directory committed into somebody's repository is none of
+those. So the number F034 and this experiment both read — *1 of 18 young-arm
+incumbents clears a serving floor, 14 of 18 have no readable channel at all* — is
+consistent with a field that is **used and invisible to the instrument**, and
+F037 has now removed the two explanations that were available before
+(population-is-documents, and population-is-not-what-was-read).
 
 ### What it changes, and what it does not
 
@@ -126,15 +158,21 @@ as an artefact.
 
 - **Not a novelty claim.** A GitHub count can refute and cannot establish (F030),
   and 015 measured 21 of 30 mature rows to be off-topic.
-- **Three rows were never read**: the core budget ran out twice, so
-  `dariusk/express-activitypub` and `landy22granatt/Kumpulan-Script-Termux`
-  (mature) and `Notifuse/selfhost_s3` (placebo) are absent from the table and
-  named in `results.json`. Two are mature and one is placebo, so the young arm's
-  counts — the ones the gate uses — are complete.
-- **H2 was not evaluated.** Its declared population is the 10 highest-starred
-  young-arm `document` rows. There are 4. `tally.py` reports `population_short`
-  with `n = 4`, which is a quarter of what the thresholds were written for, and
-  the read of those 4 rows is not in this finding because it cannot carry a gate.
+- **H2 is four rows.** The declared control did not run, and no amount of
+  reading fixes that: the placebo documents in this population are
+  `CalibreWeb-Ebook-Server/.github` and three repositories whose roots are
+  documents incidentally. A control built on that population cannot discriminate,
+  which is a defect in the population rule and not in the read.
+- **The four-row read is one annotator's judgement** of `repeated`. Every quote
+  is in `reads.json` so the disagreement can be had with the judgement rather
+  than with the number.
+- **H2 was read and is `dead` at 0 of 4.** Its declared population is the 10
+  highest-starred young-arm `document` rows. There are 4, so `population_short` is
+  true and the verdict rests on four observations whatever it says. It says: all
+  four are `tutorial` by the mechanical fields, and **none of the four teaches a
+  repeated procedure**. The declared control could not run — one of the four
+  placebo documents was readable and it is a 119-byte stub — so it is reported
+  `unexercised`, not as a pass.
 - **One young vocabulary**, chosen by 015 because its cluster recurred.
 - **Classification is about what a repository contains.** A `Makefile` for
   checking links is a build file and the repository is an awesome list; a prompt

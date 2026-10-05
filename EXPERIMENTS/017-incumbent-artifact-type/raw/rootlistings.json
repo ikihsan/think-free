@@ -1439,6 +1439,91 @@
   ],
   "releases": 2
  },
+ "Notifuse/selfhost_s3": {
+  "contents": [
+   {
+    "name": ".github",
+    "path": ".github",
+    "type": "dir"
+   },
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "type": "file"
+   },
+   {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "type": "file"
+   },
+   {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "type": "file"
+   },
+   {
+    "name": "Makefile",
+    "path": "Makefile",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "cmd",
+    "path": "cmd",
+    "type": "dir"
+   },
+   {
+    "name": "codecov.yml",
+    "path": "codecov.yml",
+    "type": "file"
+   },
+   {
+    "name": "compose.test.yaml",
+    "path": "compose.test.yaml",
+    "type": "file"
+   },
+   {
+    "name": "compose.yaml",
+    "path": "compose.yaml",
+    "type": "file"
+   },
+   {
+    "name": "go.mod",
+    "path": "go.mod",
+    "type": "file"
+   },
+   {
+    "name": "go.sum",
+    "path": "go.sum",
+    "type": "file"
+   },
+   {
+    "name": "integration",
+    "path": "integration",
+    "type": "dir"
+   },
+   {
+    "name": "internal",
+    "path": "internal",
+    "type": "dir"
+   }
+  ],
+  "releases": 4
+ },
  "Piebald-AI/claude-code-system-prompts": {
   "contents": [
    {
@@ -3159,6 +3244,51 @@
   ],
   "releases": 1
  },
+ "dariusk/express-activitypub": {
+  "contents": [
+   {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "type": "file"
+   },
+   {
+    "name": "LICENSE-MIT",
+    "path": "LICENSE-MIT",
+    "type": "file"
+   },
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "config-template.json",
+    "path": "config-template.json",
+    "type": "file"
+   },
+   {
+    "name": "index.js",
+    "path": "index.js",
+    "type": "file"
+   },
+   {
+    "name": "package.json",
+    "path": "package.json",
+    "type": "file"
+   },
+   {
+    "name": "public",
+    "path": "public",
+    "type": "dir"
+   },
+   {
+    "name": "routes",
+    "path": "routes",
+    "type": "dir"
+   }
+  ],
+  "releases": 0
+ },
  "diet103/claude-code-infrastructure-showcase": {
   "contents": [
    {
@@ -4303,6 +4433,21 @@
    }
   ],
   "releases": 29
+ },
+ "landy22granatt/Kumpulan-Script-Termux": {
+  "contents": [
+   {
+    "name": "README.md",
+    "path": "README.md",
+    "type": "file"
+   },
+   {
+    "name": "dkfb.bin",
+    "path": "dkfb.bin",
+    "type": "file"
+   }
+  ],
+  "releases": 0
  },
  "lorien/awesome-web-scraping": {
   "contents": [
