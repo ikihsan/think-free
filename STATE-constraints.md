@@ -139,3 +139,17 @@ none of them is advice.
   byte-identical across repositories. Documentation of a practice is not evidence
   of the practice, and F037's four hand-read documents produced a mechanism
   sentence that measurement did not support.
+- **Evidence of use is not evidence of fit, and a control chosen on the wrong
+  criterion fails for that reason rather than for the reader's sake.** E028's
+  declared positive control was the row with the strongest evidence of use in
+  this record — `sharp`, 436,835,441 downloads/month, which E016 called served
+  *"beyond argument"* — and two blind readers read its documentation as
+  `partial`, because no document states a latency figure. The run returned
+  `not_evaluated` and **the threshold was not moved afterwards** (D058 forbids
+  it). Three consequences for any future screen: a kill must rest on the
+  artifact doing what the clause asked (D060); a control for an attribute test
+  is selected on **fit demonstrated in documentation**, never on use; and an
+  instrument that reads text must treat **HTTP 200 whose body strips to nothing
+  as a refusal, not a capture** — eight such files were written before E028's
+  own tests caught it, and a later reader reads an empty file as "the
+  documentation says nothing" rather than "we did not get it."

@@ -71,35 +71,24 @@ prior art, usefulness and adoption untouched, and every item says which.
 
    **What was left for the owner was one question, and E022 has now measured
    it.** Everything measured about supply says supply is uninformative about
-   demand (F028, F032, F037), and the demand-side corpus cannot answer it either
-   — but that corpus is 1250 named, publicly identified people who each wrote
-   down, in public and unprompted, what was missing from their work, and it had
-   never been followed forward. **The suggestion was that the axis is not "does
-   anyone want this" (unmeasurable without publishing) but "is there a specific
-   person who already told us exactly what they want, and did they use the
-   thing?"** That is measurable, and it has been measured.
+   demand (F028, F032, F037). The demand-side corpus is 1250 named people who
+   each wrote down, in public and unprompted, what was missing, and it had never
+   been followed forward — and the question was measurable, so it was measured.
 
-   **E022 has now measured that asset, and the answer narrows it** (F042,
-   `EXPERIMENTS/022-need-outcomes/`; the numbers and the reading are in
-   [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of its three numbers
-   decide this item: **58.0% of 1401 stated needs drew a reply; and of the 24
-   requesters whose need went unserved, 0 built it themselves.** The third —
-   "38.5% named something serving the need" — **is withdrawn** (F043, D055,
-   `EXPERIMENTS/023-served-baseline/`): it had **no control**, and the control arm
-   now run reads **0.368** against the need arm's 0.395 on 38 rows each, so it is
-   the ordinary base rate of a Hacker News conversation rather than a fact about
-   needs. The asset is **not** a population of unmet needs awaiting a builder. The
-   axis this item was drifting toward carries a measured problem — and the sentence
-   this item carried for it has since been **measured and corrected** (F045, D057,
-   `EXPERIMENTS/025-need-staters-builderhood/`). It read *"the people who state a
-   need are not the people who build it"*, which is **false as an absolute**:
-   **278 of the 1250 need-staters (22.2%, CI [0.200, 0.246]) have publicly shipped
-   something on Hacker News**, against **139 of 500 (27.8%, CI [0.241, 0.319])**
-   ordinary commenters in the *same stories* — ratio **0.80×**, intervals
-   overlapping. So they are a fifth builders, they build **less** than their
+   **E022 has now measured that asset, and the answer narrows it** (F042, F043;
+   numbers and reading in [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of
+   its three numbers decide this item: **58.0% of 1401 stated needs drew a reply;
+   and of the 24 whose need went unserved, 0 built it themselves.** The third —
+   "38.5% named something serving the need" — **is withdrawn** (F043, D055): it had
+   **no control**, and the control now run reads **0.368** against the need arm's
+   0.395, so it is the base rate of a Hacker News conversation. The asset is **not**
+   a population of unmet needs awaiting a builder. *"Need-staters are not builders"*
+   is **false as an absolute** (F045, D057): **22.2%** of the 1250 have publicly
+   shipped something against **27.8%** for ordinary commenters in the same stories,
+   ratio **0.80×**. So they are a fifth builders who build **less** than their
    neighbours, and the rate at which they build **what they asked for** is
-   unchanged at a 0-of-24 floor. **Item 0d's closure of this corpus is now
-   measured rather than assumed.**
+   unchanged at a 0-of-24 floor. **Item 0d's closure of this corpus is now measured
+   rather than assumed.**
 
    **A second result is about the instrument that drew the corpus** (gate A2
    fired as declared before the first fetch): **carrying a trigger phrase does
@@ -157,8 +146,16 @@ prior art, usefulness and adoption untouched, and every item says which.
    builders:** 22.2% of its authors have shipped something — a fifth builders,
    building **other things**. **F047 removed the weakest prop under the closure:**
    31 of F029's 50 verdicts came from a regex-extracted clause and **6 of the 15
-   `vague` kills are not vague** — **the closure survives the repair**. **Do not
-   promote anything from this corpus.** E2's lockfile claim: `EXPERIMENTS/009`
+   `vague` kills are not vague** — **the closure survives the repair**. **F048 then
+   measured what the screen's evidence is evidence of, and the answer is not fit**
+   (`EXPERIMENTS/028-incumbent-fit/`, D060): the row with the strongest evidence of
+   *use* anywhere in this record — `sharp`, **437M downloads/month**, which E016
+   called served *"beyond argument"* — has documentation that establishes nothing
+   about its clause's attribute. **Use is not fit**, and **no prior-art verdict here
+   has yet been shown to rest on evidence of fit.** E028's instrument returned
+   `not_evaluated` and **nothing is reopened**; the twelve deaths now rest on a rule
+   D060 states and E016's evidence does not meet. **Do not promote anything from
+   this corpus.** E2's lockfile claim: `EXPERIMENTS/009`
    **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
    where invention work goes; with every generator closed it names an empty seat.
 1. **A gate must read the property it claims to check, and must be falsified
