@@ -18,10 +18,8 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Verify the environment and record actual limits (`EXPERIMENTS/000-capabilities`)
 - [x] Preserve the mission and boundaries (`MISSION.md`)
 - [x] Sealed reports A–D (`RESEARCH/A.md`–`D.md`)
-- [x] Investigation E: experimental engineer — three cheap falsifiable
-      mechanisms. Sealed 2026-10-03 (T-0002). E1 and E2 remain `untested`; E3's
-      census ran (T-0013) and its declared gate turned out not to be able to fail
-      (`FAILURES.md` F010)
+- [x] Investigation E: three falsifiable mechanisms. Sealed 2026-10-03 (T-0002).
+      E1 and E2 remain `untested`; E3's declared gate could not fail (F010)
 - [x] Investigation F: adoption researcher — six pre-release checkable criteria.
       Sealed 2026-10-03 (T-0003); the criteria become a gate at stage D, not a
       candidate screen
@@ -31,7 +29,7 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Sixteen experiments have run; three invention claims are
+**Status: partial.** Twenty-five experiments have run; three invention claims are
 disproved, one declared gate could not fail, one mechanism was confirmed while
 its candidate died of it, the prior-art screen is measured (F035, F034), and no
 candidate is validated.
@@ -66,12 +64,14 @@ candidate is validated.
       14 of 18 young-vocabulary rows are executable code, so F034's premise failure is not a
       population artefact; its documents teach no repeated procedure (F037)
 - [x] Test the consequence F037 inferred (`020-copied-config-drift`, T-0065): copying is
-      instructed in 687 places, duplicated in 4.7% of distinct contents, no cross-author
-      overlap, so the reader adapts rather than copies (F040)
+      instructed in 687 places and duplicated in 4.7% of distinct contents, so the reader adapts
+      rather than copies (F040)
+- [x] Read the disclosure floor under F042's build arm (`025-need-staters-builderhood`, T-0069):
+      278/1250 = 0.222 of need-staters have publicly shipped something against 139/500 = 0.278 for
+      ordinary commenters in the same stories, so the 0-of-24 was a floor and not a fact about
+      people. Item 0d's closure is **confirmed**, not withdrawn (F045, D057)
 - [ ] Run at least two materially different falsification experiments before any
-      commitment decision. Only the knitting line has had two, and both runs produced no
-      product claim; with C2 stopped (F008) and the knitting claim abandoned (F009), no
-      candidate has two.
+      commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
       fairness
 

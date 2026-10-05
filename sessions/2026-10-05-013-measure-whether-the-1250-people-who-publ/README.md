@@ -49,6 +49,7 @@ _(none recorded)_
 | STATE-in-flight.md | c6487a801e98 | 16890 |
 | STATE-next-actions.md | 20a39c70fc0c | 20908 |
 | STATE.md | 426ff1911caa | 32405 |
+| ROADMAP.md | 93ea4ea41452 | 20122 |
 
 ## Commands
 
@@ -102,6 +103,10 @@ _(none recorded)_
 | 26 | 15:41:48 | artifact | wrote STATE.md |
 | 27 | 15:43:14 | task_rewrite | appended a create record for T-0069 |
 | 28 | 15:44:32 | task_rewrite | rewrote tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md (status: claimed) |
+| 29 | 15:44:32 | task_rewrite | appended a claim record for T-0069 |
+| 30 | 15:44:56 | task_rewrite | rewrote tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md (status: done) |
+| 31 | 15:44:56 | task_rewrite | appended a complete record for T-0069 |
+| 32 | 15:56:20 | artifact | wrote ROADMAP.md |
 
 ## Reproduce this record
 
