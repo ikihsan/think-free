@@ -143,3 +143,101 @@ Arms A and A2 are local and deterministic. Arms A and B re-fetch from two
 unauthenticated public endpoints, so the author and author-count figures are
 `observed` on 2026-10-05 and may drift as HN's corpus grows; the capture in
 `raw/` is the evidence for the figures quoted here.
+---
+
+## F040 — F037's "the artifact is a copied directory" is an instruction, not an observation, and the copies it predicts do not appear where they can be seen
+
+### What was tested
+
+F037 read the four hand-reviewed high-star rows of the prior-art screen's
+young-vocabulary arm and concluded that the reader **copies a `.claude/`
+directory into their own repository once**, that the hooks then run themselves,
+and that "the artifact in use is not a package". That inference is load-bearing
+in [`STATE-next-actions.md`](STATE-next-actions.md) item 0, which proposes
+testing whether forks and dependents are the serving signal for a young
+vocabulary. If the artifact is copied, a versioned channel is not needed and
+installs are the wrong measure; if it is not copied, the near-zero install
+readings in F037 and F059 need a different explanation.
+
+E020 tested the consequence rather than the sentence: if whole directories are
+copied between repositories, **byte-identical content will appear across
+repositories**, with no credit given — because a copied config file is anonymous
+by construction and no README rule can ever find it.
+
+### What was measured
+
+Population by declared rule: 175 repositories from GitHub repository search over
+five claude-config terms, of which **31** carry a `.claude/settings.json`
+(`observed`, `EXPERIMENTS/020-copied-config-drift/raw/`). Every one was shallow
+cloned and every file under `.claude/` hashed.
+
+| quantity | value |
+|---|---|
+| file instances under `.claude/` | 2072 |
+| distinct file contents | 1950 |
+| contents shared by 2+ repositories | **92 (4.7%)** |
+| widest shared content | **3** repositories |
+| repository pairs overlapping by ≥50% | 2 — **both one author's two repositories** |
+| cross-author overlapping pairs | **0** |
+
+And at global scale, through Sourcegraph's unauthenticated streaming index:
+**4,540** repositories carry a `.claude/settings.json` path, and **`cp -r
+.claude` appears in 687 content matches** against a nonsense-token control that
+returns **0**.
+
+### The finding
+
+**Copying is widely documented and barely duplicated.** 687 sites instruct a
+reader to copy a `.claude/` directory; 4.7% of distinct configuration file
+contents are byte-identical across repositories; and no repository pair from
+different authors overlaps by even half. The two facts are compatible and the
+compatibility is the point: the copy is *retypewritten or adapted per site*, so
+each of those 687 instructions produces a configuration that no longer matches
+any upstream the search can name.
+
+This corrects F037's wording rather than its substance. F037 read four documents
+and inferred a mechanism from them; the mechanism is real as **documented
+practice**, but "the reader copies the directory" overstates it. What the
+evidence supports is: the reader is *told* to copy, and adapts what they copy.
+
+### What this does not establish, and why the answer is `inconclusive`
+
+**The drift rate is not measured.** Attribution by README returned **0 of 31** —
+23 repositories contain attribution *language* and reading every match by hand
+shows nearly all of it is `source code`, `source ~/.bashrc` and "data source";
+the two genuine attributions name an *idea* (a Karpathy gist, `livekit/agent-skills`),
+not a copied directory. Attribution by identical content returned **0
+cross-author pairs**. The declared no-drift gate fires at 0 attributable rows, so
+this is **an unanswerable question, not a measurement of low drift** — and the
+difference is carried in `results.json` as `drift_rate: null` rather than `0`,
+because 017's H2 thresholds were once satisfied by an empty read.
+
+### Two instruments were falsified, and both retractions are held by a test
+
+- **The marker-file probe.** `.claude/agents/README.md` returning 404 does not
+  mean `.claude/agents/` is absent. Checked against the contents API on 8
+  repositories: **8 of 8 disagreements**, 6 with directories the probe missed.
+  Had this gone unnoticed, E020 would have reported that 30 of 31 repositories
+  commit nothing but a settings file — an artefact of a probe for a README that
+  does not exist. Replaced by `git clone --depth 1`.
+- **The version-record regex.** It matched **17 of 31** and every match pins a
+  Claude Code CLI version, a hook event, or the repository's own release badge.
+  None records the version of a copied configuration, so **17/31 must not be
+  cited**, and the test asserts the naive rule is *green* on all 17 — because if
+  it were red, nobody would be tempted to reinstate it.
+
+### Why it matters to the mission
+
+Item 0 asks what a fact about supply should tell us about demand, and F037 offered
+"the artifact is copied, so install counts read zero" as the reconciliation.
+E020 **removes that reconciliation**: the copies are not byte-identical, so the
+near-zero install readings are not explained by an invisible distribution channel.
+The supply the screen sees really is lightly used.
+
+The remaining live question is sharper and is now owned elsewhere: VM
+`instance-20260717-0944` holds an open claim on **T-0064**, "measure whether the
+young vocabulary's artifacts are copied into other repositories", using
+Sourcegraph. E020 could not do that work — authenticated code search returns 401
+here — and its 4.7% is bounded by the population repository search can return.
+E020's contribution to T-0064 is the falsified probes and the `cp -r .claude`
+count; the drift rate is T-0064's to measure.

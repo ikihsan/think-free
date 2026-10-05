@@ -1,2 +1,0 @@
-# super
-.claude/settings.json                                                                               

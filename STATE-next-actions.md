@@ -58,19 +58,20 @@ prior art, usefulness and adoption untouched, and every item says which.
    tool, 14 of 18 rows have no readable use channel, and the most-starred tool there
    is installed 363 times a month.
 
-   **The third reading is now the cheapest one and nobody has taken it.** H2 is
-   dead at 0 of 4 because none of those documents is a manual workaround: the
-   reader copies a `.claude/` **directory** into their own repository once and the
-   hooks run themselves. **The artifact in use is not a package**, and every
-   serving channel this repository owns counts installations — so *1 of 18 clears
-   a floor* is consistent with a field that is used and invisible. The testable
-   form: **is the serving signal for a young vocabulary forks and dependents
-   rather than installs?** Falsifier: a known-copied configuration whose
-   repository has neither. Cheapest honest proxy for "was this copied" is the
-   count of repositories containing a `.claude/` directory with hooks, which no
-   public API serves — so the first move is to decide whether forks, dependents
-   or templates are an adequate stand-in, and a control is a tool people install
-   against a configuration people copy.
+   **The third reading has now been taken, and it removes the reconciliation this
+   item was built on** (F040, `EXPERIMENTS/020`). Copying is widely *instructed*
+   — `cp -r .claude` in **687** Sourcegraph content matches against a nonsense
+   control of **0** — and barely *duplicated*: **92 of 1950** distinct
+   configuration file contents (4.7%) are byte-identical across repositories, and
+   **no two repositories from different authors overlap by half**. So the reader
+   is told to copy and adapts what they copy; the copies do not accumulate as
+   identical copies that install counts would have hidden. **The near-zero install
+   readings are therefore not explained by an invisible distribution channel, and
+   the supply the screen sees really is lightly used.** Drift itself is
+   **`inconclusive`**, not zero: 0 attributable copy/upstream pairs exist in the
+   measurable population and the declared gate fires. The live question — forks
+   and dependents as a serving signal — is unchanged and is now owned by VM 0944's
+   open **T-0064**, which has the instrument this VM lacked.
 
    **What is left for the owner is one question, with a candidate answer the
    owner has not seen.** Everything measured about supply says supply is

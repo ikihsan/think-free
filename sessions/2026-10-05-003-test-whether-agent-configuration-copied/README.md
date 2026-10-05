@@ -152,10 +152,93 @@ _(none recorded)_
 | EXPERIMENTS/019-copied-config-drift/surface.py | df111faf7eb5 | 2318 |
 | EXPERIMENTS/019-copied-config-drift/trees.py | d8e08c799df3 | 3656 |
 | EXPERIMENTS/019-copied-config-drift/validate_probe.py | 65e017d2a216 | 3286 |
+| EXPERIMENTS/020-copied-config-drift/README.md | 03d00b14dac6 | 13380 |
+| EXPERIMENTS/020-copied-config-drift/results.json | 47e47f6fe821 | 6256 |
+| tests/test_copied_config_drift.py | b742cf444822 | 6289 |
+| FAILURES-findings-15.md | 01754f7217dd | 13620 |
+| ROADMAP.md | 2c3f835163e2 | 20007 |
+| STATE.md | a20e31ec0eb6 | 30539 |
+| STATE-next-actions.md | 0e5c1d247352 | 21628 |
+| STATE-constraints.md | 15f3f217f8f1 | 9837 |
+| FAILURES.md | a5401589c06a | 8777 |
+| FAILURES-findings-15.md | 5395e9cf0602 | 13617 |
+| EXPERIMENTS/README.md | 6f58a1e0f3c1 | 3395 |
+| docs/INDEX.md | 73a32a9d0ff6 | 24993 |
+| DECISIONS.md | b0bb42886da8 | 7599 |
+| DECISIONS-SCREENING-2.md | d160d84639cd | 18452 |
+| tests/test_copied_config_drift.py | a356d129641e | 6932 |
+| tasks/CLAIMS.jsonl | 8851dceb6c31 | 66205 |
+| tasks/INDEX.md | ce02678550e2 | 8941 |
+| tasks/README.md | 36c8e7a5bebe | 2624 |
+| tasks/T-0001-write-falsification-kill-gates-for-the-three-hel.md | db8c6a87bbbd | 2098 |
+| tasks/T-0002-run-investigation-e-the-experimental-engineer-ro.md | 53b150d6a94e | 1900 |
+| tasks/T-0003-run-investigation-f-the-adoption-researcher-role.md | 80507f9bd456 | 1841 |
+| tasks/T-0004-make-concurrent-multi-vm-sessions-safe-isolated.md | 10f60fbe97b0 | 4371 |
+| tasks/T-0005-a1-run-the-bounded-sidewalk-survey-masking-exper.md | 9ad86c67489d | 887 |
+| tasks/T-0006-002-a1-masking-sensitivity-sweep-over-budget-k-a.md | 0219fe628855 | 734 |
+| tasks/T-0007-002-a1-masking-distance-limited-fieldwork-cost-b.md | e3c03f6cd691 | 1300 |
+| tasks/T-0008-apply-the-information-sufficiency-witness-to-the.md | 510f7c33d99d | 2671 |
+| tasks/T-0009-repair-the-knitting-witness-input-set-by-adding.md | 99b17e806f2f | 2688 |
+| tasks/T-0010-run-the-knitting-stage-a-planner-comparison-loca.md | 573fe278832f | 2488 |
+| tasks/T-0011-knitting-stage-a-follow-up-bounded-neighbourhood.md | 6fcecb073999 | 2055 |
+| tasks/T-0012-screen-all-six-sealed-investigations-with-e-s-fa.md | a9a374f2a76c | 2909 |
+| tasks/T-0013-run-e3-s-build-timestamp-census-over-200-recent.md | 26c375a1c308 | 3474 |
+| tasks/T-0014-c2-ventilation-kill-gate-adaptive-next-measureme.md | b021931cba52 | 2778 |
+| tasks/T-0015-run-the-knitting-candidate-s-remaining-kill-gate.md | 1c9f08d0c549 | 3323 |
+| tasks/T-0016-make-the-test-suite-pass-on-the-ci-runner-s-pyth.md | 7729e7ad24fd | 2255 |
+| tasks/T-0017-build-one-source-twice-under-different-source-da.md | f0db3413eea3 | 5826 |
+| tasks/T-0018-record-exercised-git-versions-machine-readably-a.md | cd873e63caf5 | 1520 |
+| tasks/T-0019-snapshot-side-a-of-the-e2-dependency-closure-dri.md | 1bc7e63a7e02 | 1867 |
+| tasks/T-0020-tell-an-in-flight-session-apart-from-an-abandone.md | 8c8e8132190f | 6495 |
+| tasks/T-0021-resolve-the-merge-conflict-markers-committed-to.md | 5264e02b5cad | 3954 |
+| tasks/T-0022-implement-origin-release-check-so-release-manife.md | 36599cc36be8 | 5563 |
+| tasks/T-0023-repair-the-two-operations-documents-whose-stated.md | d329d1fad195 | 4135 |
+| tasks/T-0024-stop-session-reconciliation-and-the-documentatio.md | 9b3b6624ec04 | 6434 |
+| tasks/T-0025-record-the-measured-result-of-the-pushed-ci-run.md | ecd0e25c1fcb | 3416 |
+| tasks/T-0026-make-task-new-leave-no-orphan-a-new-task-file-re.md | a8b6bdf12d82 | 4252 |
+| tasks/T-0027-make-the-published-claim-commit-carry-the-regene.md | 3f85552e5245 | 3519 |
+| tasks/T-0028-record-the-ci-run-history-around-the-orphan-fix.md | 10af69e73dcb | 2883 |
+| tasks/T-0029-make-origin-doctor-report-the-push-credential-me.md | eb0e3c5028d6 | 7195 |
+| tasks/T-0030-refuse-a-commit-that-gives-one-finding-decision.md | 780adde2cfc5 | 3071 |
+| tasks/T-0031-allocate-f-d-and-t-identifiers-from-the-shared-b.md | 9b90733eef91 | 5372 |
+| tasks/T-0032-record-the-python-versions-the-suite-has-actuall.md | 9ac33ef9bd5b | 6496 |
+| tasks/T-0033-make-doctor-compare-this-vm-s-git-and-interprete.md | 3a6e5ab4b731 | 5355 |
+| tasks/T-0034-run-the-test-suite-on-the-python-versions-tests.md | 1cb3179da822 | 7394 |
+| tasks/T-0035-stop-the-credential-sandbox-from-inheriting-a-ci.md | d92134f31ae0 | 5527 |
+| tasks/T-0036-report-a-duplicate-defect-number-in-state-defect.md | 372433d4b7aa | 4422 |
+| tasks/T-0037-explain-the-four-red-ci-runs-since-the-version-m.md | fac29bd23685 | 6151 |
+| tasks/T-0038-record-that-the-public-check-run-annotations-wer.md | b885818dba8c | 2179 |
+| tasks/T-0039-make-acceptance-and-steps-append-on-task-new-so.md | 658857dcefa9 | 1980 |
+| tasks/T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md | 1d936ce4f0e7 | 6226 |
+| tasks/T-0041-make-sync-land-rebuild-any-generated-file-the-re.md | b6cdb0e774e0 | 2376 |
+| tasks/T-0042-report-a-decision-file-whose-own-header-disagree.md | 00fc226bfac8 | 7525 |
+| tasks/T-0043-split-tools-originlib-identifiers-py-so-doc-lint.md | 733893f55d5b | 5782 |
+| tasks/T-0044-date-the-lease-tests-from-the-clock-the-code-act.md | a1666ee9861c | 4576 |
+| tasks/T-0045-run-release-check-from-preflight-and-classify-de.md | b3e7031d51b7 | 4456 |
+| tasks/T-0046-measure-how-github-files-an-annotation-on-the-fi.md | 12b14b56a8b3 | 8168 |
+| tasks/T-0047-attribute-a-task-file-that-a-task-command-rewrot.md | 5640f27c3475 | 9823 |
+| tasks/T-0048-teach-sync-land-to-finish-a-paused-rebase-whose.md | 9d5f32ec9157 | 7444 |
+| tasks/T-0049-record-the-measured-ci-state-on-the-tip-and-the.md | 1f05eb9d6b2e | 4723 |
+| tasks/T-0050-separate-the-line-cap-exemption-from-reconciliat.md | ba661ec2149c | 5942 |
+| tasks/T-0051-make-doc-lint-s-broken-link-verdict-a-function-o.md | 3a044675864f | 6648 |
+| tasks/T-0052-report-a-row-a-document-s-own-table-already-cont.md | 9992ced14d65 | 7023 |
+| tasks/T-0053-record-a-base-advance-when-a-paused-rebase-is-co.md | 1e86eb1b14b9 | 1818 |
+| tasks/T-0054-measure-every-commit-on-the-base-branch-that-red.md | 2b6a3318d733 | 5104 |
+| tasks/T-0055-publish-a-task-claim-from-inside-an-open-session.md | d0c44d890287 | 2491 |
+| tasks/T-0056-hold-a-mission-record-s-restated-experiment-numb.md | faf36696acc1 | 3793 |
+| tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md | f37ba49a8458 | 4225 |
+| tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md | c8c4620dd83b | 1033 |
+| tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md | 8d80eedf6076 | 2242 |
+| tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md | 694aa9b36893 | 2401 |
+| tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md | 3e550048105f | 3174 |
+| tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md | 6fe1abca66aa | 3512 |
+| tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md | b53897c2f12d | 2181 |
+| tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md | 280a954db75c | 2613 |
+| tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md | 57ba73d01557 | 2731 |
 
 ## Commands
 
-9 captured, 1 non-zero exit.
+11 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -168,6 +251,8 @@ _(none recorded)_
 | 13 | ['python3', 'EXPERIMENTS/019-copied-config-drift/trees.py'] | 0 | 166631 |
 | 14 | ['python3', 'EXPERIMENTS/019-copied-config-drift/a5_structural.py'] | 0 | 163 |
 | 15 | ['python3', 'EXPERIMENTS/019-copied-config-drift/control.py'] | 0 | 299035 |
+| 154 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 383367 |
+| 155 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 371183 |
 
 ## Integrity
 
@@ -223,18 +308,18 @@ _(none recorded)_
 | 38 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--.claude__settings.json |
 | 39 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--.claude__settings.local.json |
 | 40 | 02:46:36 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/body--centminmod__my-claude-code-setup--README.md |
-| 128 | 02:46:55 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/probe--wesammustafa__Claude-Code-Everything-You-Need-to-Know--settings |
-| 129 | 02:46:56 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/probe_validation.json |
-| 130 | 02:46:56 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/surface.json |
-| 131 | 02:46:56 | artifact | wrote EXPERIMENTS/019-copied-config-drift/raw/trees.json |
-| 132 | 02:46:56 | artifact | wrote EXPERIMENTS/019-copied-config-drift/results.json |
-| 133 | 02:46:57 | artifact | wrote EXPERIMENTS/019-copied-config-drift/results_a5.json |
-| 134 | 02:46:57 | artifact | wrote EXPERIMENTS/019-copied-config-drift/surface.py |
-| 135 | 02:46:57 | artifact | wrote EXPERIMENTS/019-copied-config-drift/trees.py |
-| 136 | 02:46:57 | artifact | wrote EXPERIMENTS/019-copied-config-drift/validate_probe.py |
-| 137 | 02:49:18 | task_rewrite | rewrote tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md (status: claimed) |
+| 221 | 03:24:32 | artifact | wrote tasks/T-0056-hold-a-mission-record-s-restated-experiment-numb.md |
+| 222 | 03:24:32 | artifact | wrote tasks/T-0057-make-the-ci-failure-annotation-carry-the-excepti.md |
+| 223 | 03:24:33 | artifact | wrote tasks/T-0058-test-whether-flat-adoption-is-general-or-niche-s.md |
+| 224 | 03:24:33 | artifact | wrote tasks/T-0059-measure-whether-prior-art-exists-can-predict-any.md |
+| 225 | 03:24:33 | artifact | wrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md |
+| 226 | 03:24:33 | artifact | wrote tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md |
+| 227 | 03:24:33 | artifact | wrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md |
+| 228 | 03:24:34 | artifact | wrote tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md |
+| 229 | 03:24:34 | artifact | wrote tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md |
+| 230 | 03:24:34 | artifact | wrote tasks/T-0065-test-whether-agent-configuration-copied-into-rep.md |
 
-_87 middle events omitted; see `events.jsonl`._
+_180 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
@@ -242,3 +327,5 @@ _87 middle events omitted; see `events.jsonl`._
 tools/origin session verify
 cat sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl
 ```
+
+> Truncated to 300 lines. Full record: `sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl`

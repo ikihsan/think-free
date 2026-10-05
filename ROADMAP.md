@@ -21,10 +21,10 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 - [x] Investigation E: experimental engineer — three cheap falsifiable
       mechanisms. Sealed 2026-10-03 (T-0002). E1 and E2 remain `untested`; E3's
       census ran (T-0013) and its declared gate turned out not to be able to fail
-      (`FAILURES.md` F010), so E3's load-bearing claim is still `untested`.
+      (`FAILURES.md` F010)
 - [x] Investigation F: adoption researcher — six pre-release checkable criteria.
       Sealed 2026-10-03 (T-0003); the criteria become a gate at stage D, not a
-      candidate screen.
+      candidate screen
 - [ ] Consolidate the reports into competing hypotheses, preserving
       disagreements. Partly done in `HYPOTHESES.md`; the cross-report screen is
       `RESEARCH/SYNTHESIS.md` (T-0012).
@@ -57,15 +57,17 @@ candidate is validated.
       reproducibility and attributes no cause (`FAILURES.md` F010)
 - [x] Attribute the byte difference (`008`, T-0017): 398 of 398 differing bytes are
       timestamp fields and `SOURCE_DATE_EPOCH` makes builds bit-identical, so E3's
-      mechanism is supported and its candidate abandoned — the remedy is one
-      environment variable the builder already honours (`FAILURES.md` F012)
+      mechanism is supported and its candidate abandoned (`FAILURES.md` F012)
 - [x] Measure the prior-art screen itself, coverage (`016-prior-art-adjudication`, T-0062):
       6 of 6 controls recovered, 3 of 12 adjudicable kills have no prior art on three
       corpora, and the open web carries 4 served verdicts two code corpora return nothing
       for (F035/F036)
 - [x] Measure the prior-art screen's own population (`017-incumbent-artifact-type`, T-0061):
       14 of 18 young-vocabulary rows are executable code, so F034's premise failure is not a
-      population artefact; and its four documents teach no repeated procedure (F037)
+      population artefact; its documents teach no repeated procedure (F037)
+- [x] Test the consequence F037 inferred (`020-copied-config-drift`, T-0065): copying is
+      instructed in 687 places, duplicated in 4.7% of distinct contents, no cross-author
+      overlap, so the reader adapts rather than copies (F040)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs produced no
       product claim; with C2 stopped (F008) and the knitting claim abandoned (F009), no
@@ -198,14 +200,12 @@ Separate from the invention stages: the mission cannot be run without it.
 - [x] `doctor` compares this VM's git and interpreter against both records
       (T-0033), reporting `exercised` / `NOT exercised` / `record unreadable` /
       `no record` with the matched entry's own scope attached, so an unexercised
-      VM is warned rather than undocumented and an unreadable record cannot read
-      as a failing machine
+      VM is warned rather than undocumented
 - [x] CI runs one row per CPython minor from 3.8 to 3.14, and the matrix is held
       to the exercised-version record (`tests/test_ci_matrix.py`, T-0034, D035,
-      `FAILURES.md` F018). The gap was real rather than theoretical: running the
-      suite on the five unrecorded interpreters failed on all five, on a test
-      that asserted a fact about the record instead of about the code. The five
-      gates that read files stay on one row, guarded explicitly
+      `FAILURES.md` F018). Running the suite on the five unrecorded interpreters
+      failed on all five, on a test that asserted a fact about the record instead
+      of about the code
 - [x] The identifier rule reads every source of definitions, through one entry
       point both publishing gates call (`tools/originlib/idcheck.py`, T-0036,
       defect 10). Rule 7 did not read the numbered list in `STATE-defects.md`, so
@@ -293,8 +293,8 @@ every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the machine th
       could see it**: the exclusivity the command exists to provide was not in force, and each
       retry added another `claim` line to the ledger (three identical ones for T-0053). Falsified
       both ways, and on a clone of this repository's own history
-- [x] Standard-library test suite (575 tests on git 2.25.1), with
-      [`tests/git-versions.json`](tests/git-versions.json) recording how much of the suite
-      each git version has actually run. A test's correctness depends on every clock the code
-      under it reads: three tests behind the in-flight gate read one the fixture never handed
-      over, so one assertion expired on a schedule and could never pass again (T-0044, defect 15)
+- [x] Standard-library test suite, with [`tests/git-versions.json`](tests/git-versions.json)
+      recording how much of the suite each git version has actually run. A test's correctness
+      depends on every clock the code under it reads: three tests behind the in-flight gate
+      read one the fixture never handed over, so one assertion expired on a schedule and could
+      never pass again (T-0044, defect 15)

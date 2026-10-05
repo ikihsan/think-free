@@ -116,3 +116,26 @@ none of them is advice.
   `rootlisting._complete` refuses a half-answered row; the test holds the
   property against the **committed** cache rather than a fixture, which is the
   only version of it that would have caught this.
+- **A marker file is not a directory listing, and a version string is not a
+  version record.** Both were built and both were falsified in one session
+  (T-0065, F040), and both would have produced a confident wrong number. (a) `.claude/agents/README.md`
+  returning 404 was read as `.claude/agents/` being absent; checked against the
+  contents API it disagreed on **8 of 8** repositories and missed real
+  directories in 6. It would have reported that 30 of 31 repositories commit
+  nothing but a settings file. (b) A regex for "the version this config was
+  copied from" matched **17 of 31**, and reading all 17 showed every one pins a
+  *Claude Code CLI* version, a hook event, or the repository's own release badge.
+  **The test asserts the naive rule is green on all 17**, because a rejected rule
+  that reads as red is a rejected rule nobody will reinstate. `git clone --depth 1`
+  replaces both and costs no API budget.
+- **A control population drawn from search does not bound prevalence.** The
+  150-repository control found 1 `.claude/` directory, which reads as "essentially
+  never" and is not: repository search returns repositories ranked by relevance and
+  popularity. The same instrument against a global index puts it at **4,540**.
+  Bounds the top of a topic, never the corpus.
+- **A "the reader copies it" claim needs identical content across repositories to
+  be tested, and identical content is not the same as an instruction.** `cp -r
+  .claude` appears in 687 places; 4.7% of distinct configuration file contents are
+  byte-identical across repositories. Documentation of a practice is not evidence
+  of the practice, and F037's four hand-read documents produced a mechanism
+  sentence that measurement did not support.

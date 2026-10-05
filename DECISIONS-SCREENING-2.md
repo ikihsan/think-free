@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D048–D051**. Each entry records a choice that was genuinely open,
+Decisions **D048–D052**. Each entry records a choice that was genuinely open,
 the evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** the same as [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) —
@@ -232,3 +232,62 @@ recorded where the next reader looks and is not part of this decision: the corpu
 is 1250 named, publicly identified people who each wrote down what was missing,
 which is a population the mission holds and has never used. Item 0 remains the
 owner's choice; this removes one axis from the table and names that population.
+## D052 — Test a claim by a consequence its mechanism predicts, and hold "unanswerable" apart from "negative"
+
+**Decision.** Two rules, both taken from the same session (`EXPERIMENTS/020`,
+T-0065, F040).
+
+1. **A claim about behaviour is tested by a consequence, not by restating the
+   sentence.** F037 read four documents and concluded a reader "copies a `.claude/`
+   directory into their own repository". E020 did not re-read documents; it tested
+   the consequence the mechanism predicts — if whole directories are copied
+   between repositories, **byte-identical content must appear across
+   repositories** — and measured it by hashing every file under `.claude/` in 31
+   repositories.
+2. **An unanswerable question is a different result from a negative one.** Zero
+   attributable copy/upstream pairs exist in the measurable population, so the
+   declared no-drift gate fires. `results.json` carries `drift_rate: null`, never
+   `0`, and a test asserts the distinction.
+
+**Evidence.** Content hashing found **92 of 1950** distinct configuration file
+contents (4.7%) shared by two or more repositories, the widest held by **3**, and
+**no two repositories from different authors overlap by half**. README attribution
+returned **0 of 31** — 23 repositories contain attribution *language* and reading
+every match by hand shows nearly all of it is `source code`, `source ~/.bashrc` or
+"data source". So the copy is documented in **687** `cp -r .claude` content matches
+against a nonsense control of **0**, and duplicated in 4.7%: the reader is told to
+copy and adapts it. At the same time **no attributable pair exists**, so the drift
+rate is unmeasured.
+
+**Alternatives rejected.**
+
+- *Re-read more documents, the way F037 reached its conclusion.* Rejected: it
+  produces prose where the claim needs a count, and F037's own wording overstated
+  the mechanism.
+- *Attribute by README, as declared before the first fetch.* Rejected **after** it
+  returned 0, because it could never have worked — a copied configuration file is
+  anonymous by construction and nobody credits a config. Recorded as a limitation
+  of the instrument, and a second channel was declared before it was run.
+- *Report the drift rate as 0.* Rejected: `017`'s H2 thresholds were once
+  satisfied by an empty read and the first run printed a verdict no evidence
+  supported. An absent measurement and a negative result are different keys.
+
+**Cost, stated.** The second channel was declared after seeing the first return
+zero, which is exactly the amendment this repository warns about. It is admissible
+only because **the gate's form and threshold were unchanged** — fewer than 20
+attributable rows still means inconclusive — so coverage rose and the bar did not
+fall. Had A5 also returned zero, the reading would have been that configuration is
+*recreated* from documentation, a different fact with a different implication.
+
+**What this does not license.** A drift rate of 0% cross-author overlap is a fact
+about a population repository search can return, not about every repository on
+GitHub; authenticated code search answers 401 here. VM `instance-20260717-0944`
+holds open **T-0064** for the question E020 could not close, with Sourcegraph as
+the instrument. **F040's contribution to it is the falsified probes and the 687
+count; the drift rate is T-0064's to measure.**
+
+**Alternative that was considered and is still open.** Retract F037's mechanism
+sentence outright. Not taken: the *documented practice* is real and was measured.
+What is withdrawn is the inference that the copies accumulate as identical copies,
+and therefore that the near-zero install readings are an invisible distribution
+channel.

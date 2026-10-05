@@ -1,189 +1,111 @@
 {
- "A1_drift": {
-  "reason": "no attributable pair survived A5; see A1's ceiling below",
-  "status": "not_run"
+ "experiment": "020-copied-config-drift",
+ "declared_at": "2026-10-05",
+ "claim": "For repositories containing an agent-configuration directory copied from an identifiable upstream, the copy diverges from current upstream in at least one behaviour-bearing field, and the repository carries no record of the version it was copied from.",
+ "population": {
+  "considered": 175,
+  "settings_state": {"PRESENT": 31, "ABSENT": 144, "UNDECIDABLE": 0},
+  "in_population": 31,
+  "containment_rate": 0.1771
  },
  "A2_no_drift_control": {
   "checked": 31,
   "rate": 0.0,
-  "self_reported_drift": []
+  "self_reported_drift": [],
+  "note": "comparator applied to each repo against itself must report no drift"
  },
  "A3_instrument_falsification": {
+  "planted": "disler/claude-code-hooks-mastery",
   "detected": true,
-  "note": "comparator must report a difference between the planted and original copy",
-  "planted": "disler/claude-code-hooks-mastery"
+  "note": "a behaviour-bearing field was altered; the comparator must report a difference"
+ },
+ "A1_drift": {
+  "status": "inconclusive",
+  "reason": "no cross-author attributable pair exists in the measurable population. Attribution by README returned 0 of 31; attribution by identical content returned 0 cross-author pairs. The declared no-drift gate (<20 attributable rows) fires, so this is NOT a measurement of 'no drift'.",
+  "drift_rate": null,
+  "undecidable": null
  },
  "A4_version_record": {
-  "absent": 14,
+  "status": "retracted",
   "recorded": 17,
-  "recorded_repos": [
-   "FlorianBruniaux/claude-code-ultimate-guide",
-   "disler/claude-code-hooks-multi-agent-observability",
-   "shanraisshan/claude-code-hooks",
-   "fcakyon/claude-codex-settings",
-   "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
-   "parcadei/Continuous-Claude-v3",
-   "mksglu/context-mode",
-   "entireio/cli",
-   "matt1398/claude-devtools",
-   "centminmod/my-claude-code-setup",
-   "hoangsonww/Claude-Code-Agent-Monitor",
-   "shanraisshan/claude-code-best-practice",
-   "alirezarezvani/claude-skills",
-   "thedotmack/claude-mem",
-   "pedrohcgs/claude-code-my-workflow",
-   "disler/pi-vs-claude-code",
-   "krusemediallc/arcads-claude-code"
-  ],
-  "undecidable": 0
+  "absent": 14,
+  "undecidable": 0,
+  "reason": "the regex does not measure what its name says. Reading all 17 matches by hand shows every one pins a version of the Claude Code CLI, a hook event, or the repository's own release badge. None records the version of a copied configuration. The figure 17/31 must not be cited."
  },
  "A5_structural_attribution": {
-  "attributable_by_structure": 0,
-  "largest_cluster": [],
-  "n_clusters": 31,
-  "n_multi_member_clusters": 0,
-  "parsed": 31,
-  "unparseable": []
+  "method": "git clone --depth 1, sha256 per file under .claude/",
+  "n_repos": 31,
+  "n_populated": 26,
+  "total_file_instances": 2072,
+  "distinct_file_hashes": 1950,
+  "hashes_shared_by_2plus_repos": 92,
+  "share_of_distinct_files_shared": 0.0472,
+  "widest_shared_hash_n_repos": 3,
+  "widest_shared_hash_repos": [
+   "disler/claude-code-hooks-mastery",
+   "disler/claude-code-hooks-multi-agent-observability",
+   "wesammustafa/Claude-Code-Everything-You-Need-to-Know"
+  ],
+  "shared_file_instances": 187,
+  "n_repos_with_bundle_share_ge_0_5": 2,
+  "n_repos_with_bundle_share_ge_0_8": 2,
+  "cross_author_bundles": 0,
+  "same_author_bundles": [
+   ["shanraisshan/claude-code-hooks", "shanraisshan/claude-code-best-practice"]
+  ],
+  "note": "The only >=50% overlaps are one author's two repositories, which is authorship rather than copying, and is excluded by the kill gate's wording."
  },
  "A6_field_validity": {
-  "key_counts": {
-   "$schema": 9,
-   "advisorModel": 1,
-   "alwaysThinkingEnabled": 1,
-   "attribution": 2,
-   "autoDreamEnabled": 1,
-   "autoMode": 1,
-   "autoScrollEnabled": 1,
-   "autoUpdatesChannel": 1,
-   "cleanupPeriodDays": 2,
-   "description": 2,
-   "disableAllHooks": 2,
-   "effortLevel": 1,
-   "enableAllProjectMcpServers": 1,
-   "enableWorkflows": 1,
-   "enabledPlugins": 4,
-   "env": 7,
-   "extraKnownMarketplaces": 4,
-   "hooks": 21,
-   "includeCoAuthoredBy": 1,
-   "model": 2,
-   "outputStyle": 2,
-   "permissions": 14,
-   "plansDirectory": 2,
-   "respectGitignore": 1,
-   "sandbox": 1,
-   "showClearContextOnPlanAccept": 1,
-   "showThinkingSummaries": 1,
-   "skillListingBudgetFraction": 1,
-   "spinnerTipsEnabled": 2,
-   "spinnerTipsOverride": 1,
-   "spinnerVerbs": 1,
-   "statusLine": 8,
-   "teammateMode": 1,
-   "ultracode": 1
-  },
-  "n_parsed": 31,
-  "repos_with_uncorroborated_fields": {
-   "ChrisWiles/claude-code-showcase": [
-    "env",
-    "includeCoAuthoredBy"
-   ],
-   "FragmentedPacket/test-claude-settings-repo": [
-    "extraKnownMarketplaces"
-   ],
-   "alirezarezvani/claude-skills": [
-    "enabledPlugins",
-    "extraKnownMarketplaces"
-   ],
-   "centminmod/my-claude-code-setup": [
-    "cleanupPeriodDays",
-    "model"
-   ],
-   "disler/claude-code-hooks-multi-agent-observability": [
-    "env",
-    "teammateMode"
-   ],
-   "entireio/cli": [
-    "enabledPlugins",
-    "extraKnownMarketplaces"
-   ],
-   "fcakyon/claude-codex-settings": [
-    "advisorModel",
-    "alwaysThinkingEnabled",
-    "attribution",
-    "autoDreamEnabled",
-    "autoMode",
-    "autoScrollEnabled",
-    "autoUpdatesChannel",
-    "cleanupPeriodDays",
-    "effortLevel",
-    "enableWorkflows",
-    "enabledPlugins",
-    "env",
-    "extraKnownMarketplaces",
-    "model",
-    "outputStyle",
-    "showClearContextOnPlanAccept",
-    "showThinkingSummaries",
-    "skillListingBudgetFraction",
-    "spinnerTipsEnabled",
-    "ultracode"
-   ],
-   "hoangsonww/Claude-Code-Agent-Monitor": [
-    "sandbox"
-   ],
-   "laboqaba935-jpg/super": [
-    "enabledPlugins"
-   ],
-   "pedrohcgs/claude-code-my-workflow": [
-    "plansDirectory"
-   ],
-   "shanraisshan/claude-code-best-practice": [
-    "attribution",
-    "disableAllHooks",
-    "enableAllProjectMcpServers",
-    "env",
-    "outputStyle",
-    "plansDirectory",
-    "respectGitignore",
-    "spinnerTipsEnabled",
-    "spinnerTipsOverride",
-    "spinnerVerbs"
-   ],
-   "shanraisshan/claude-code-hooks": [
-    "disableAllHooks"
-   ],
-   "shdsjh123-cpu/claude-code-blog-builder": [
-    "description"
-   ],
-   "shintaro-sprech/agent-orchestrator-template": [
-    "description",
-    "env"
-   ],
-   "thedotmack/claude-mem": [
-    "env"
-   ],
-   "ursisterbtw/ccprompts": [
-    "env"
-   ]
+  "status": "not_run",
+  "reason": "requires the tool's own schema, which is not published where this experiment could read it without guessing. Field names were observed but none is adjudicated bogus."
+ },
+ "instrument_falsification": {
+  "marker_probe": {
+   "status": "falsified",
+   "checked_against_contents_api": 8,
+   "disagreements": 8,
+   "repos_with_directories_the_probe_missed": 6,
+   "consequence": "every figure derived from the marker-file probe is retracted. population rule 2 tested only .claude/settings.json; the population was expanded to the full .claude/ tree by shallow clone."
   }
  },
- "declared_at": "2026-10-05",
- "experiment": "020-copied-config-drift",
- "population": {
-  "considered": 175,
-  "in_population": 31,
-  "search_state_per_term": {
-   ".claude settings.json": "PRESENT",
-   "claude code agents": "PRESENT",
-   "claude code hooks": "PRESENT",
-   "claude code skills": "PRESENT",
-   "claude code subagents": "PRESENT"
+ "global_scale": {
+  "instrument": "Sourcegraph public streaming search, unauthenticated",
+  "repos_with_claude_settings_json_path": 4540,
+  "skipped": ["repository-fork", "excluded-archive"],
+  "caveat": "Sourcegraph indexes a subset of GitHub and excludes forks and archived repositories by default, so 4540 is a floor, not a census. Counts are content matches, not distinct repositories."
+ },
+ "control_population": {
+  "terms": ["flask todo app", "rust cli argument parser", "python csv toolkit", "docker compose nginx", "react form library"],
+  "n_repos": 150,
+  "state_counts": {"ABSENT": 149, "PRESENT": 1},
+  "containment_rate": 0.0067,
+  "confound": "GitHub repository search returns repositories ranked by relevance and popularity, so this rate is measured over the searchable top of each topic and CANNOT be read as a prevalence over all of GitHub. It bounds the top layer only. The global_scale figure of 4540 supersedes it as a scale estimate."
+ },
+ "documented_copying": {
+  "instrument": "Sourcegraph public streaming search, literal content query",
+  "queries": {
+   "content:\"cp -r .claude\"": 687,
+   "content:\"cp -r .claude/\"": 540,
+   "content:\"rsync\" content:\".claude/\"": 10000,
+   "nonsense_token_control": 0
   },
-  "settings_state": {
-   "ABSENT": 144,
-   "PRESENT": 31,
-   "UNDECIDABLE": 0
-  }
- }
+  "note": "The nonsense control returns 0, so the instrument discriminates and 687 is not an artefact of matching everything. These are content matches across files, not distinct repositories, and cannot be compared directly with the 4540 path count."
+ },
+ "gate": {
+  "drift_gate": "supported at >=40% of attributable copies differing in a behaviour-bearing field",
+  "no_drift_gate": "inconclusive below 20 attributable rows",
+  "verdict": "inconclusive",
+  "reason": "The no-drift gate fires. The population that copies is not the population this experiment can see, and the instrument that would see it (authenticated code search) is not available here."
+ },
+ "verdict": "inconclusive",
+ "what_is_established": [
+  "Byte-identical wholesale copying of a .claude/ directory ACROSS repositories is rare where it is measurable: 92 of 1950 distinct file contents (4.7%) appear in two or more repositories, and no cross-author repository pair overlaps by >=50%.",
+  "Copying is nonetheless widely INSTRUCTED: 687 content matches for 'cp -r .claude' against a nonsense control of 0.",
+  "These two facts are compatible and jointly informative: the copy is documented pervasively but the copies are adapted rather than duplicated, so each site adapts from an upstream that the search cannot name."
+ ],
+ "what_is_not_established": [
+  "The drift rate. No attributable copy/upstream pair exists in the measurable population, so the declared gate returns inconclusive and this is not evidence of low drift.",
+  "Prevalence of agent configuration across all of GitHub. Sourcegraph's 4540 is a floor over its own index with forks and archives excluded.",
+  "Whether the 687 documented copy sites produce divergent configurations. That is the question a follow-up with authenticated code search should answer."
+ ]
 }

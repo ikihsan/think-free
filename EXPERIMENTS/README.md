@@ -32,3 +32,4 @@ Each experiment must include a hypothesis and falsification criterion, implement
 | `017-incumbent-artifact-type` | Is the screen's young-vocabulary population mostly documents? | **no**; 14 of 18 are executable code, by hand 13 of 18 (F037) |
 | `018-runtime-signal-selection` | Can one annotation select metric/log/trace at runtime per path? | mechanism real, stock-OTel friction real, **feature gap, not a candidate** (F038) |
 | `019-corpus-person-diversity` | How many people are in the need corpus, and can a shared need appear in it? | 1250 individuals; 79% of clauses share no content word; the recurrence instrument failed its own controls (F039, D051) |
+| `020-copied-config-drift` | Does agent-configuration copied into a repository go stale? | **inconclusive** (0 attributable pairs); copying is instructed 687× and duplicated in 4.7% of content, which corrects F037's "it is copied" (F040) |

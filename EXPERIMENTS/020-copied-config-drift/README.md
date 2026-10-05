@@ -6,7 +6,22 @@ last-verified: 2026-10-05
 
 # E020 — Does agent-configuration copied into a repository go stale?
 
-**Date:** 2026-10-05. **Status: designed, no figure read yet.**
+**Date:** 2026-10-05. **Verdict: `inconclusive`, and two figures retracted.**
+
+The drift rate is not measured: **0 attributable copy/upstream pairs** exist in
+the measurable population, so the declared no-drift gate fires. That is an
+unanswerable question, not evidence that drift is low, and `results.json` carries
+`drift_rate: null` rather than `0`.
+
+Two things *were* established, and one of them corrects F037. Copying is widely
+**instructed** — `cp -r .claude` appears in **687** Sourcegraph content matches
+against a nonsense control of **0** — and barely **duplicated**: of 1950 distinct
+configuration file contents across 31 repositories, **92 (4.7%)** are
+byte-identical across repositories, and **no two repositories from different
+authors overlap by half**. So F037's "the reader copies the directory" is an
+instruction people are given; what they do is adapt it.
+
+See [`FAILURES-findings-15.md`](../../FAILURES-findings-15.md) F040.
 
 ## Why this experiment and not another instrument measurement
 
@@ -181,3 +196,47 @@ before anyone writes the argument.
 
 `raw/` — one file per fetch, `results.json` — the tallies with `undecidable`
 carried beside every rate.
+
+## What the arms returned
+
+| arm | result |
+|---|---|
+| **A1 drift** | **`inconclusive`** — 0 attributable pairs. `drift_rate: null`, never `0` |
+| **A2 no-drift** | 0/31 self-reported drift — the comparator is sound |
+| **A3 falsification** | the planted stale copy **is** detected |
+| **A4 version record** | **retracted** — 17/31 matched, and every match pins a *CLI* version, not a copied config |
+| **A5 structural** | 92 of 1950 distinct contents (4.7%) shared by 2+ repos; widest 3; **0 cross-author bundles** |
+| **A6 field validity** | **not run** — needs the tool's schema, which is not published where this could read it |
+| marker probe | **falsified** — 8 of 8 disagreements against the contents API; replaced by shallow clone |
+
+## Population-scale context, and one figure that must not be misread
+
+Sourcegraph's unauthenticated index reports **4,540** repositories carrying a
+`.claude/settings.json` path. A 150-repository control drawn from non-agent search
+terms found **1** `.claude/` directory — and **that rate is not a prevalence**,
+because repository search returns repositories ranked by relevance and popularity.
+It bounds the top of each topic and nothing else; the 4540 supersedes it. The
+confound is recorded in `results.json` and asserted by a test.
+
+## Reproduction
+
+```bash
+python3 EXPERIMENTS/020-copied-config-drift/population.py   # 175 repos, 3-state
+python3 EXPERIMENTS/020-copied-config-drift/bodies.py       # per-path captures
+python3 EXPERIMENTS/020-copied-config-drift/surface.py      # marker probe (falsified)
+python3 EXPERIMENTS/020-copied-config-drift/validate_probe.py  # its falsification
+python3 EXPERIMENTS/020-copied-config-drift/trees.py        # authoritative clones
+python3 EXPERIMENTS/020-copied-config-drift/a5_structural.py
+python3 EXPERIMENTS/020-copied-config-drift/control.py
+python3 EXPERIMENTS/020-copied-config-drift/analyse.py      # A1-A4 tallies
+```
+
+`trees.py` clones into `/tmp/opencode/e020-clones`; the committed evidence is
+`raw/trees.json`, so a re-run does not need the clones.
+
+The `probe--*` files that `surface.py` once wrote are **deleted, not kept**: they
+were captured by the probe `validate_probe.py` falsified, and every path they
+cover is already hashed in `raw/trees.json`. `raw/captured_bodies.json` holds the
+README and `settings.json` bodies verbatim as JSON, because raw captures are data
+rather than documents this repository maintains — storing them as `.md` made
+`doc lint` check a third party's links as if they were ours.
