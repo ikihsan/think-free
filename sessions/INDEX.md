@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-114 recorded session(s). One `events.jsonl` per session, so concurrent
+115 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 89 older session(s) are in the directory listing.
+Showing the 25 most recent. 90 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-015-re-read-the-31-clause-killed-harvested-n](2026-10-05-015-re-read-the-31-clause-killed-harvested-n/README.md) | opencode | **unfinished** | Re-read the 31 clause-killed harvested needs from their full text and  | 2026-10-05T16:44 |
 | [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | worked | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:12 |
 | [2026-10-05-013-measure-whether-the-1250-people-who-publ](2026-10-05-013-measure-whether-the-1250-people-who-publ/README.md) | unknown-agent | worked | Measure whether the 1250 people who publicly stated a need are people  | 2026-10-05T15:57 |
 | [2026-10-05-012-classify-the-two-new-records-in-release](2026-10-05-012-classify-the-two-new-records-in-release/README.md) | unknown-agent | worked | Classify the two new records in RELEASE-MANIFEST.md, which release che | 2026-10-05T14:12 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 89 older session(s) are in the directory listing.
 | [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | worked | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:44 |
 | [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | worked | Decide and execute the highest-information research action after 12 pr | 2026-10-04T21:33 |
 | [2026-10-04-046-test-whether-zero-adoption-is-general-or](2026-10-04-046-test-whether-zero-adoption-is-general-or/README.md) | unknown-agent | worked | Test whether zero-adoption is general or specific to the agent-auditin | 2026-10-04T20:20 |
-| [2026-10-04-045-prior-art-check-the-mission-s-only-subst](2026-10-04-045-prior-art-check-the-mission-s-only-subst/README.md) | unknown-agent | worked | Prior-art check the mission's only substantial artifact (tools/origin, | 2026-10-04T19:58 |
 
 
 ## Reading a session
