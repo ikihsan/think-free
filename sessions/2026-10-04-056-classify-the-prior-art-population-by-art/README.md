@@ -27,7 +27,10 @@ _(none recorded)_
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/016-incumbent-artifact-type/README.md | c2c27ab7d119 | 9394 |
+| EXPERIMENTS/016-incumbent-artifact-type/classification.py | 890bfa83bab6 | 8474 |
 
 ## Commands
 
@@ -53,6 +56,9 @@ _none_
 | 2 | 23:51:56 | task_rewrite | appended a create record for T-0061 |
 | 3 | 23:52:24 | task_rewrite | rewrote tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md (status: claimed) |
 | 4 | 23:52:25 | task_rewrite | appended a claim record for T-0061 |
+| 5 | 23:58:22 | milestone | T-0061 claimed; experiment 016 designed with both gates and the control's interpretation rule declared before any artifact type was read; classifier w |
+| 6 | 23:58:23 | artifact | wrote EXPERIMENTS/016-incumbent-artifact-type/README.md |
+| 7 | 23:58:23 | artifact | wrote EXPERIMENTS/016-incumbent-artifact-type/classification.py |
 
 ## Reproduce this record
 
