@@ -40,16 +40,31 @@ posters. H1 is supported; H2 — that the corpus is too narrow for a shared need
 to appear — is **disproved**.
 
 **Arm A2, no verdict, by the experiment's own declared band.** Under a rule
-fixed before the count, 79.25% of the 1152 eligible clauses share **no content
-word at all** with any other clause; 43 of the 49 sample rows the 0-of-50 screen
-actually used score 1. That sits inside the declared 50–90% band, so the
-experiment reports the distribution and refuses a verdict. The single
+fixed before the count — a clause's *bottleneck* is the fewest other clauses
+sharing any one of its content words — **79.25% of the 1152 eligible clauses
+share no content word with any other clause**, and 43 of the 49 sample rows the
+0-of-50 screen actually used score 1. That sits inside the declared 50–90% band,
+so the experiment reports the distribution and refuses a verdict. The single
 highest-frequency content term is `x2f` (119 clauses), a URL-escaping artefact
 of the harvester rather than anything about software; the top genuine terms are
 `better` 41, `people` 41, `know` 31, `easy` 30 — all generic. F029's sentence is
-**confirmed in substance and corrected in method**: the claim "recurrence
-returns only function words" is now a measured distribution under a declared
-rule, not an aside.
+**confirmed in substance and measured under a declared rule instead of
+asserted**.
+
+**The robustness check added after that figure was read came out against it, and
+this finding is corrected rather than quietly kept.** 79.25% does *not* mean 79%
+of the requests are unique needs — a shared content word is a weak test, since
+"file" or "tool" would satisfy it. Two stricter measures disagree with it and
+with each other: **57.47%** of clauses share an adjacent content-word bigram,
+and **2.90%** share a content word that is rare corpus-wide. Neither shows
+sharing. The bigram figure is grammatical coincidence — of 312 shared bigrams the
+leading twelve are `china figure`, `single solid`, `solid source`,
+`video videos`, `write x2f`, `www x2f`, `actually bad`, `alternative another`,
+`behind china`, and `claude code` at three clauses, the only topical collocation
+in the corpus with any recurrence at all. The 2.90% are `render`, `websites`,
+`directly`, `happening` and `easier`: ordinary English outside the corpus's
+top-40, not domain vocabulary. **The claim that survives is the weaker one: no
+need-level recurrence is detectable in this corpus.**
 
 **Arm B, the instrument failed its own controls.** Queried for distinct authors
 by exact phrase over HN comments: ten mechanically chosen clauses (sample rows

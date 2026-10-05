@@ -168,6 +168,20 @@ verdict and reports the distribution. The top document-frequency content term is
 "recurrence returns only function words", now measured under a declared rule
 instead of asserted.
 
+**Then the session's own robustness check corrected its headline, and this entry
+carries the correction.** A shared content word is a weak test — "file" or "tool"
+would satisfy it — so 79.25% does *not* mean 79% of the requests are unique.
+Two stricter measures were added and they disagree with it and with each other:
+**57.47%** of clauses share an adjacent content-word bigram, and **2.90%** share
+a word that is rare corpus-wide. Neither shows sharing: the leading bigrams are
+`china figure`, `single solid`, `video videos`, `actually bad` — grammatical
+coincidence across unrelated requests, with `claude code` at three clauses the
+only topical collocation with any recurrence at all — and the 2.90% are
+`render`, `websites`, `directly`, `happening`, `easier`, which is ordinary
+English rather than domain vocabulary. **What survives is the weaker claim: no
+need-level recurrence is detectable in this corpus.** The decision below does not
+rest on the 79.25% and is not withdrawn by this.
+
 **Arm B, the instrument failed its own controls.** Ten mechanically chosen
 clauses and six positive plus six negative controls, queried for distinct authors
 by exact phrase over HN comments. **Four of the six positive controls returned 0

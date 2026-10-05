@@ -33,33 +33,30 @@ prior art, usefulness and adoption untouched, and every item says which.
    four decided rows. F027's sample is small and self-selected, and 0 stars is a
    weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
    blocked on tooling.
-**F035, F037 and F039 have since taken the three measurements that bear on
-   this, and F039 removed the last remaining source.** F035 measured
-   **coverage** (3 of 12 adjudicable kills have no prior art on any of three
-   corpora; 4 were reachable only on the open web); F037 measured
-   **composition** (the young-vocabulary population is **14 of 18 executable
-   code**, so it is not documents and a better filter is not the repair); F039
-   measured the **need corpus the survivors came from** and found it is **1250
-   distinct individuals**, median one comment each over 466 days, with **no
-   need-level recurrence detectable inside it**. It is a wide audience of
-   one-off requesters, so a yield measured on it was never interpretable (D051)
-   and E016's two surviving leads (12 and 16) are closed *as sources* — the
-   premise that anyone shares the request was never measured. The instrument
-   question is answered too: **four of six positive controls with demonstrated
-   adoption returned 0 or 1 distinct author**, so no recurrence verdict could be
-   drawn and the kill gate is recorded *not evaluable* rather than met. A
-   lexical count cannot carry a claim about demand, which bounds every recurrence
-   figure this mission has taken against a written population. **The session also
-   falsified its own headline:** a shared content *word* is a weak test, and two
-   stricter measures added afterwards disagree with the 79.25% they were meant to
-   test — the bigram sharing is grammatical coincidence and the rare-word sharing
-   is ordinary English — so the claim is stated in its weaker form everywhere.
-   **What survives for the owner is narrower than this item first said: not what
-   to search, and not what the screen found, but what a fact about supply is
-   supposed to tell us about demand** — the young arm's median row is a 60-star
-   tool, its documents carry a median 6,072 stars against 566, 14 of 18 rows have
-   no readable use channel, and the most-starred tool there is installed 363 times
-   a month.
+   **F035, F037 and F039 have since taken the three measurements that bear on this,
+   and F039 removed the last remaining source.** F035 measured **coverage** (3 of
+   12 adjudicable kills have no prior art on any of three corpora; 4 were reachable
+   only on the open web); F037 measured **composition** (the young-vocabulary
+   population is **14 of 18 executable code**, so it is not documents and a better
+   filter is not the repair); F039 measured the **need corpus the survivors came
+   from** and found it is **1250 distinct individuals**, median one comment each
+   over 466 days, with **no need-level recurrence detectable inside it**. A yield
+   measured on it was never interpretable (D051), so E016's two surviving leads
+   (12 and 16) are closed *as sources*: the premise that anyone shares the request
+   was never measured. The instrument question is answered too — **four of six
+   positive controls with demonstrated adoption returned 0 or 1 distinct author**,
+   so no recurrence verdict could be drawn and the kill gate is recorded *not
+   evaluable*. A lexical count cannot carry a claim about demand, which bounds
+   every recurrence figure this mission has taken against a written population.
+   **The session also falsified its own headline:** a shared content *word* is a
+   weak test, and two stricter measures added afterwards disagree with the 79.25%
+   they were meant to test — the bigram sharing is grammatical coincidence and the
+   rare-word sharing is ordinary English — so the claim is stated in its weaker form
+   everywhere. **What survives for the owner is narrower than this item first said:
+   not what to search, and not what the screen found, but what a fact about supply
+   is supposed to tell us about demand** — the young arm's median row is a 60-star
+   tool, 14 of 18 rows have no readable use channel, and the most-starred tool there
+   is installed 363 times a month.
 
    **The third reading is now the cheapest one and nobody has taken it.** H2 is
    dead at 0 of 4 because none of those documents is a manual workaround: the

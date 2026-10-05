@@ -39,10 +39,14 @@ _(none recorded)_
 | DECISIONS-SCREENING-2.md | b6f6ea73e1d3 | 13749 |
 | tools/originlib/decisionindex.py | f999fe05c8fc | 5361 |
 | tests/test_decision_row_pattern.py | 6fe3180bd864 | 3069 |
+| EXPERIMENTS/019-corpus-person-diversity/results.json | 3e19ee4a78a2 | 10982 |
+| EXPERIMENTS/019-corpus-person-diversity/raw/arm_a2.json | e68413ac64ca | 3907 |
+| DECISIONS-SCREENING-2.md | cb83e82e82e0 | 14752 |
+| FAILURES-findings-15.md | ca34ac8ea167 | 8156 |
 
 ## Commands
 
-7 captured, 1 non-zero exit.
+10 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -53,6 +57,9 @@ _(none recorded)_
 | 10 | ['python3', 'EXPERIMENTS/019-corpus-person-diversity/arm_a2_local.py'] | 0 | 229 |
 | 11 | ['python3', 'EXPERIMENTS/019-corpus-person-diversity/stats.py'] | 0 | 124 |
 | 12 | ['bash', '-c', 'PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 \| tail -4'] | 0 | 342725 |
+| 24 | ['python3', 'EXPERIMENTS/019-corpus-person-diversity/arm_a2_local.py'] | 0 | 596 |
+| 25 | ['python3', 'EXPERIMENTS/019-corpus-person-diversity/stats.py'] | 0 | 504 |
+| 26 | ['python3', 'EXPERIMENTS/019-corpus-person-diversity/stats.py'] | 0 | 195 |
 
 ## Integrity
 
@@ -91,6 +98,14 @@ _(none recorded)_
 | 21 | 02:10:27 | artifact | wrote tools/originlib/decisionindex.py |
 | 22 | 02:10:27 | artifact | wrote tests/test_decision_row_pattern.py |
 | 23 | 02:10:28 | milestone | E019 complete: 1250 distinct authors measured (gate A1 met), A2 inside its declared band so no verdict, arm B's instrument failed its own controls; F0 |
+| 24 | 02:11:56 | command | $ python3 EXPERIMENTS/019-corpus-person-diversity/arm_a2_local.py |
+| 25 | 02:13:57 | command | $ python3 EXPERIMENTS/019-corpus-person-diversity/stats.py |
+| 26 | 02:14:12 | command | $ python3 EXPERIMENTS/019-corpus-person-diversity/stats.py |
+| 27 | 02:14:13 | milestone | robustness check falsified this session's own headline (79.25% is single-word overlap, not request uniqueness); the claim is corrected in weaker form  |
+| 28 | 02:20:11 | artifact | wrote EXPERIMENTS/019-corpus-person-diversity/results.json |
+| 29 | 02:20:12 | artifact | wrote EXPERIMENTS/019-corpus-person-diversity/raw/arm_a2.json |
+| 30 | 02:20:13 | artifact | wrote DECISIONS-SCREENING-2.md |
+| 31 | 02:20:13 | artifact | wrote FAILURES-findings-15.md |
 
 ## Reproduce this record
 

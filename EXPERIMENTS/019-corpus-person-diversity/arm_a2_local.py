@@ -60,6 +60,53 @@ def content_words(text):
     return set(WORD.findall(text.lower())) - STOPWORDS
 
 
+def strict_sharing(clauses, df):
+    """Two stricter tests of the same claim, both local.
+
+    A2's rule asks whether two clauses share *any* content word, which is weak:
+    "tool" or "file" would satisfy it. These ask for a shared adjacent
+    content-word bigram, and for a shared word that is rare corpus-wide. If
+    either finds substantial sharing that A2's rule hid, then 79.25% is
+    overstated and is reported as overstated.
+    """
+    bigram_df = {}
+    for c in clauses:
+        for bg in zip(c["content_words"], c["content_words"][1:]):
+            bigram_df[bg] = bigram_df.get(bg, 0) + 1
+    rare_df = {w: n for w, n in df.items() if n <= 5}
+    bg_hits = rare_hits = 0
+    bg_pairs = rare_pairs = []
+    for c in clauses:
+        toks = c["content_words"]
+        for bg in [tuple(p) for p in zip(toks, toks[1:])]:
+            if bigram_df[bg] > 1:
+                bg_hits += 1
+                bg_pairs.append({"comment_id": c["comment_id"],
+                                 "bigram": " ".join(bg),
+                                 "clauses": bigram_df[bg]})
+        for w in sorted(set(toks) & set(rare_df)):
+            if rare_df[w] > 1:
+                rare_hits += 1
+                rare_pairs.append({"comment_id": c["comment_id"],
+                                   "term": w, "clauses": rare_df[w]})
+    n = len(clauses)
+    shared_bg = sorted(
+        [{"bigram": " ".join(bg), "clauses": c}
+         for bg, c in bigram_df.items() if c > 1],
+        key=lambda r: (-r["clauses"], r["bigram"]))
+    return {
+        "clauses": n,
+        "clauses_with_a_shared_content_bigram": bg_hits,
+        "share_shared_bigram": round(bg_hits / float(n or 1), 4),
+        "clauses_containing_a_shared_rare_term": rare_hits,
+        "share_shared_rare_term": round(rare_hits / float(n or 1), 4),
+        "n_shared_bigrams": len(shared_bg),
+        "top_shared_bigrams": shared_bg[:12],
+        "examples": (sorted(bg_pairs, key=lambda r: -r["clauses"])[:5]
+                     + sorted(rare_pairs, key=lambda r: -r["clauses"])[:5]),
+    }
+
+
 def main():
     rows = [json.loads(l) for l in open(CORPUS) if l.strip()]
     clauses = []
@@ -121,6 +168,7 @@ def main():
         "top_document_frequency_terms": [{"term": w, "clauses": k}
                                           for w, k in top],
         "terms_shared_by_any_clause": len(shared),
+        "strict_sharing": strict_sharing(clauses, df),
         "the_50_row_screen_sample": {
             "clauses": len(srecs),
             "bottleneck_1": s_b1,

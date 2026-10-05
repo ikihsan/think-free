@@ -178,10 +178,13 @@ def main():
         "arm_b1": "instrument failed its own controls",
         "arm_b2": "inconclusive",
         "what_is_established": (
-            "1401 comments carry 1250 distinct authors, and 79.25% of eligible "
-            "clauses share no content word with any other clause. The corpus is "
-            "a wide audience of individual requesters, not a sample of shared "
-            "needs."),
+            "1401 comments carry 1250 distinct authors, so the corpus is a "
+            "wide audience of individual requesters, and no need-level "
+            "recurrence is detectable inside it. The single-content-word "
+            "figure behind that (79.25%) is a weaker statement than it first "
+            "reads, and the two stricter measures added afterwards disagree "
+            "with it: 57.47% bigram sharing is grammatical coincidence and "
+            "2.90% rare-word sharing is ordinary English."),
         "what_is_not_established": (
             "that the requests lack shared demand; only that this corpus cannot "
             "show it, and that no lexical recurrence instrument tried here can "

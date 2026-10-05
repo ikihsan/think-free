@@ -148,6 +148,15 @@ Public Hacker News Firebase item API and `hn.algolia.com` search index, both
 unauthenticated. Python 3.8.10, `instance-20260717-0944`, 2 CPUs. No rate limit
 was hit and every refused answer is kept apart from an absence.
 
+**Robustness check on A2, declared after the headline figure was read and
+reported as it comes out.** A single shared content word is a *weak* test of
+sharing: "tool" or "file" would satisfy it. The load-bearing number is therefore
+re-measured with **adjacent content-word bigrams**, which are far stricter, and
+with a **rare-term** rule: two clauses are counted as sharing only if they
+contain a content word that occurs in at most 5 clauses corpus-wide. If
+substantial sharing exists and A2's single-word rule hid it, the 79.25% is
+overstated and must be reported as overstated.
+
 ## Results
 
 All figures computed from the captures in `raw/` by `stats.py`.
@@ -189,6 +198,33 @@ the harvester; the top genuine terms are all generic, which is F029's
 "recurrence returns only function words" confirmed in substance and measured
 under a declared rule instead of asserted.
 
+**The robustness check on A2 came out against the headline, and is reported
+here rather than in a footnote.** A2's rule asks whether two clauses share *any*
+content word, which is weak — "file" or "tool" would satisfy it, and 79.25%
+therefore does **not** mean "79% of these requests are unique needs". Two
+stricter measures were added:
+
+| stricter measure | share of clauses sharing something with another clause |
+|---|---|
+| a shared adjacent content-word **bigram** | **57.47%** |
+| a shared content word that is **rare** (≤5 clauses corpus-wide) | **2.90%** |
+
+**The two disagree with each other and with A2, and neither rescues sharing.**
+The bigram figure is grammatical coincidence: of 312 shared bigrams the top
+twelve are `china figure` (4), `single solid` (4), `solid source` (4),
+`video videos` (4), `write x2f` (4), `www x2f` (4), `actually bad` (3),
+`alternative another` (3), `behind china` (3) and `claude code` (3) — adjacent
+word pairs from unrelated requests. The rare-word figure is 2.90%, and reading
+those rows shows the "rare" terms are `render`, `websites`, `directly`,
+`happening` and `easier`: ordinary English that happens not to be among the
+corpus's top-40, not domain vocabulary. **`claude code` at three clauses is the
+only topical collocation in the corpus with any recurrence at all.**
+
+So the substantive claim survives in a weaker and more precise form: **no
+need-level recurrence is detectable in this corpus**, while the number 79.25%
+is a statement about *single content-word* overlap and carries no claim about
+uniqueness of the request.
+
 ### Arm B — the recurrence instrument, and the person-level cluster count
 
 | query group | distinct authors |
@@ -226,8 +262,10 @@ co-occurrence of a common term family. **Inconclusive.**
 | B2 | inconclusive |
 
 **What is established (`observed`):** the corpus is a wide audience of
-individual requesters, and 79.25% of its clauses share no content word with any
-other clause. It is not a sample of shared needs.
+individual requesters — 1250 distinct authors — and **no need-level recurrence
+is detectable inside it**. The single-content-word figure behind that (79.25%)
+is a weaker statement than it first reads, and the two stricter measures added
+afterwards are reported because they disagreed with it.
 
 **What is not established:** that these requests lack shared demand — only that
 this corpus cannot show it, and that no lexical recurrence instrument tried here
