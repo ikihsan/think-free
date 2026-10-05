@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0067
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-05-009-falsify-e022-s-38-5-served-figure-agains
+claim-vm: 
 verify: python3 EXPERIMENTS/023-served-baseline/draw_arms.py --verify && python3 EXPERIMENTS/023-served-baseline/analyse.py
 -->
 

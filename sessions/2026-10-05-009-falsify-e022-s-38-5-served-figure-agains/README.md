@@ -47,6 +47,10 @@ _(none recorded)_
 | STATE-in-flight.md | 3f733fee9b69 | 16930 |
 | HYPOTHESES.md | 37ddf4f94b01 | 13836 |
 | EXPERIMENTS/README.md | 89acd70e0eab | 3887 |
+| tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md | 89ced09be775 | 2318 |
+| docs/INDEX.md | 7f4139fc35fd | 26533 |
+| sessions/INDEX.md | 706496093c98 | 6784 |
+| STATE.md | 2d55aafa29df | 31219 |
 
 ## Commands
 
@@ -107,6 +111,12 @@ _(none recorded)_
 | 28 | 11:46:33 | command | $ ./tools/origin doc lint |
 | 29 | 11:46:52 | command | $ ./tools/origin doc lint |
 | 30 | 11:48:25 | command | $ ./tools/origin doc lint |
+| 31 | 12:07:11 | task_rewrite | appended a create record for T-0067 |
+| 32 | 12:07:33 | artifact | wrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md |
+| 33 | 12:07:34 | artifact | wrote docs/INDEX.md |
+| 34 | 12:07:34 | artifact | wrote sessions/INDEX.md |
+| 35 | 12:07:35 | artifact | wrote STATE.md |
+| 36 | 12:08:08 | task_rewrite | rewrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md (status: claimed) |
 
 ## Reproduce this record
 
