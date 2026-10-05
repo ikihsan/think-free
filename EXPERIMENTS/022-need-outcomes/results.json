@@ -1,0 +1,113 @@
+{
+ "build_arm": {
+  "hand_checked": 6,
+  "judged_related": 0,
+  "note": "A later HN story is not a build. Of 6 candidates, 0 were related to the need, so the arm's rate over the unserved population is 0 with a wide interval. It cannot see a build posted off-site, so this is a floor on disclosure, not on building.",
+  "population": 24,
+  "rate_ci95": [
+   0.0,
+   0.138
+  ],
+  "rate_of_population_related": 0.0,
+  "readable": 24,
+  "truncated_at_page_cap": 15,
+  "with_a_later_story": 6
+ },
+ "controls": {
+  "c1_positive_prior_art_sample": "20 corpus comments carrying an E012 prior_art verdict; their served rate is the calibration row and is reported in serve_sample.tsv",
+  "c2_negative_trigger_sample": "raw/control.jsonl, same stories, no trigger phrase",
+  "c3_nonsense_ids": {
+   "control": "C3_nonsense_ids",
+   "ids": [
+    {
+     "body": "null",
+     "carries_reply_count": false,
+     "http": 200,
+     "id": "99999999999999",
+     "status": "null_body"
+    },
+    {
+     "body": "null",
+     "carries_reply_count": false,
+     "http": 200,
+     "id": "88888888888888",
+     "status": "null_body"
+    },
+    {
+     "body": "null",
+     "carries_reply_count": false,
+     "http": 200,
+     "id": "77777777777777",
+     "status": "null_body"
+    }
+   ],
+   "verdict": "reader_reports_absence"
+  }
+ },
+ "experiment": "022-need-outcomes",
+ "lift_arm": {
+  "ceiling": "The control arm holds depths 0 and 1 only, so 442 need comments at depth 2 or below have no matched control. The odds ratio is computed over the 2 strata where both arms exist and says nothing about the deep tail.",
+  "gate_a2": {
+   "declared_floor": 1.0,
+   "meaning": "need comments are not more likely to be answered than non-need comments at the same depth, so a trigger phrase does not mark a comment the thread answers",
+   "odds_ratio": 0.7035,
+   "verdict": "fires"
+  },
+  "mantel_haenszel_ci95": [
+   0.1758493457704234,
+   2.8144092291375453
+  ],
+  "mantel_haenszel_or": 0.7034998377214304,
+  "need_rows_without_a_depth_matched_control": 442,
+  "strata_counted": 2
+ },
+ "limits": [
+  "One community. Hacker News commenters are a self-selected technical population and no figure here generalises beyond it.",
+  "The corpus was harvested by trigger phrase, not sampled from needs.",
+  "One observation window, 2026-10-05, via two APIs, neither snapshotted.",
+  "The build arm sees HN self-disclosure only, so 0 of 24 is a floor on disclosure and not an estimate of building."
+ ],
+ "observed_utc": "2026-10-05",
+ "population": {
+  "answered": 812,
+  "answered_ci95": [
+   0.5536,
+   0.6052
+  ],
+  "answered_rate": 0.5796,
+  "distinct_requesters": 1250,
+  "distinct_threads": 1276,
+  "need_statements": 1401,
+  "readable": 1401,
+  "replies_below_needs": 1860,
+  "unreadable": 0
+ },
+ "schema": "origin.need-outcomes/1",
+ "served_arm": {
+  "counts": {
+   "not_served": 14,
+   "partial": 10,
+   "served": 15,
+   "unreadable": 1
+  },
+  "judged": 39,
+  "labelled": 40,
+  "labels_are_a_subset_of_answered": true,
+  "lexical_rule_agrees_with_labels": 16,
+  "lexical_rule_fires_on": 39,
+  "served_ci95": [
+   0.2489,
+   0.541
+  ],
+  "served_or_partial_rate": 0.641,
+  "served_rate_of_judged": 0.3846,
+  "software_need_judged": 26,
+  "software_need_labelled": 27,
+  "software_need_served": 12,
+  "software_need_served_ci95": [
+   0.2876,
+   0.6454
+  ],
+  "software_need_served_rate": 0.4615
+ }
+}

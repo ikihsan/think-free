@@ -1,0 +1,272 @@
+{
+ "ceiling": "The control arm holds depths 0 and 1 only, so 442 need comments at depth 2 or below have no matched control. The odds ratio is computed over the 2 strata where both arms exist and says nothing about the deep tail.",
+ "gate_a2": {
+  "declared_floor": 1.0,
+  "meaning": "need comments are not more likely to be answered than non-need comments at the same depth, so a trigger phrase does not mark a comment the thread answers",
+  "odds_ratio": 0.7035,
+  "verdict": "fires"
+ },
+ "mantel_haenszel_ci95": [
+  0.1758493457704234,
+  2.8144092291375453
+ ],
+ "mantel_haenszel_or": 0.7034998377214304,
+ "need_rows_without_a_depth_matched_control": 442,
+ "note": "Depth stratified because the pooled control was top-level only. 'unresolved' holds need comments whose ancestor chain could not be read; they are not folded into depth 0. After F042's repair that stratum is empty.",
+ "schema": "origin.need-outcome-lift-stratified/1",
+ "strata": [
+  {
+   "control_answered": 9748,
+   "control_ci95": [
+    0.7193693823695154,
+    0.7344494415253408
+   ],
+   "control_n": 13409,
+   "control_rate": 0.7269744201655605,
+   "depth": 0,
+   "lift": 0.8240509513691996,
+   "need_answered": 384,
+   "need_ci95": [
+    0.5606420360685748,
+    0.6363055554019508
+   ],
+   "need_n": 641,
+   "need_rate": 0.5990639625585024
+  },
+  {
+   "control_answered": 7479,
+   "control_ci95": [
+    0.5563742092892996,
+    0.5732611651345064
+   ],
+   "control_n": 13241,
+   "control_rate": 0.5648364927120308,
+   "depth": 1,
+   "lift": 1.018828821328651,
+   "need_answered": 183,
+   "need_ci95": [
+    0.5205625190831265,
+    0.6285791704933609
+   ],
+   "need_n": 318,
+   "need_rate": 0.5754716981132075
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 2,
+   "lift": null,
+   "need_answered": 97,
+   "need_ci95": [
+    0.46601294817862354,
+    0.6101395657246497
+   ],
+   "need_n": 180,
+   "need_rate": 0.5388888888888889
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 3,
+   "lift": null,
+   "need_answered": 59,
+   "need_ci95": [
+    0.4616974618645223,
+    0.6475507646726002
+   ],
+   "need_n": 106,
+   "need_rate": 0.5566037735849056
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 4,
+   "lift": null,
+   "need_answered": 47,
+   "need_ci95": [
+    0.5213160229966365,
+    0.7356160030665482
+   ],
+   "need_n": 74,
+   "need_rate": 0.6351351351351351
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 5,
+   "lift": null,
+   "need_answered": 16,
+   "need_ci95": [
+    0.24999520898785943,
+    0.5318623178000363
+   ],
+   "need_n": 42,
+   "need_rate": 0.38095238095238093
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 6,
+   "lift": null,
+   "need_answered": 10,
+   "need_ci95": [
+    0.38640647097934805,
+    0.8151901744524719
+   ],
+   "need_n": 16,
+   "need_rate": 0.625
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 7,
+   "lift": null,
+   "need_answered": 6,
+   "need_ci95": [
+    0.2800877556899882,
+    0.7872904245601196
+   ],
+   "need_n": 11,
+   "need_rate": 0.5454545454545454
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 8,
+   "lift": null,
+   "need_answered": 3,
+   "need_ci95": [
+    0.30063605244263664,
+    0.9544139373553638
+   ],
+   "need_n": 4,
+   "need_rate": 0.75
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 9,
+   "lift": null,
+   "need_answered": 2,
+   "need_ci95": [
+    0.3423719528896193,
+    1.0
+   ],
+   "need_n": 2,
+   "need_rate": 1.0
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 10,
+   "lift": null,
+   "need_answered": 2,
+   "need_ci95": [
+    0.3423719528896193,
+    1.0
+   ],
+   "need_n": 2,
+   "need_rate": 1.0
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 12,
+   "lift": null,
+   "need_answered": 2,
+   "need_ci95": [
+    0.3423719528896193,
+    1.0
+   ],
+   "need_n": 2,
+   "need_rate": 1.0
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 13,
+   "lift": null,
+   "need_answered": 1,
+   "need_ci95": [
+    0.09452865480086611,
+    0.905471345199134
+   ],
+   "need_n": 2,
+   "need_rate": 0.5
+  },
+  {
+   "control_answered": 0,
+   "control_ci95": [
+    null,
+    null
+   ],
+   "control_n": 0,
+   "control_rate": null,
+   "depth": 20,
+   "lift": null,
+   "need_answered": 0,
+   "need_ci95": [
+    0.0,
+    0.7934567085261071
+   ],
+   "need_n": 1,
+   "need_rate": 0.0
+  }
+ ],
+ "strata_counted": 2
+}

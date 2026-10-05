@@ -1,0 +1,1102 @@
+==============================================================================
+[seq 4] 2026-10-05T08:00:36+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/run.py --limit 40
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+captured 40 rows
+  ok         40
+gate A1 (>=95% readable)  met  (100.0%)
+
+
+[stderr]
+corpus 40, already decided 0, to fetch 40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5984  redactions: none
+==============================================================================
+[seq 5] 2026-10-05T08:02:21+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+captured 1401 rows
+  ok         1401
+gate A1 (>=95% readable)  met  (100.0%)
+
+
+[stderr]
+corpus 1401, already decided 40, to fetch 1361
+200/1361 14s
+400/1361 31s
+600/1361 43s
+800/1361 56s
+1000/1361 68s
+1200/1361 81s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 90801  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T08:03:01+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/nonsense_control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+99999999999999 -> not_json
+88888888888888 -> not_json
+77777777777777 -> not_json
+verdict: reader_reports_absence
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2014  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T08:08:27+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/nonsense_control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+99999999999999 -> status=not_json http=200 body='null'
+88888888888888 -> status=not_json http=200 body='null'
+77777777777777 -> status=not_json http=200 body='null'
+verdict: reader_reports_absence
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4221  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T08:08:56+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/nonsense_control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+99999999999999 -> status=null_body http=200 body='null'
+88888888888888 -> status=null_body http=200 body='null'
+77777777777777 -> status=null_body http=200 body='null'
+verdict: reader_reports_absence
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3906  redactions: none
+==============================================================================
+[seq 10] 2026-10-05T08:08:57+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+nothing to do
+
+
+[stderr]
+corpus 1401, already decided 1401, to fetch 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 234  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T08:09:29+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/control.py --limit 30
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+control siblings captured: 318
+
+
+[stderr]
+stories 30, trigger phrases 24
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 24809  redactions: none
+==============================================================================
+[seq 12] 2026-10-05T08:27:37+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+control siblings captured: 13409
+
+
+[stderr]
+stories 1276, trigger phrases 24
+100/1276 stories 82s, 754 siblings
+200/1276 stories 163s, 1835 siblings
+300/1276 stories 236s, 2888 siblings
+400/1276 stories 323s, 3967 siblings
+500/1276 stories 405s, 5007 siblings
+600/1276 stories 483s, 5962 siblings
+700/1276 stories 581s, 7033 siblings
+800/1276 stories 669s, 8082 siblings
+900/1276 stories 756s, 9140 siblings
+1000/1276 stories 838s, 10210 siblings
+1100/1276 stories 919s, 11204 siblings
+1200/1276 stories 1003s, 12273 siblings
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1080704  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T08:28:00+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/022-need-outcomes/lift.py", line 172, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/022-need-outcomes/lift.py", line 87, in main
+    tail = sum(math.comb(n_ab, i) for i in range(0, k + 1)) / float(2 ** n_ab)
+OverflowError: int too large to convert to float
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1009  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T08:28:13+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/022-need-outcomes/lift.py", line 175, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/022-need-outcomes/lift.py", line 91, in main
+    p_two = min(1.0, 2.0 * (num / float(den)) if num * 2 < den else 1.0)
+OverflowError: int too large to convert to float
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 901  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T08:28:30+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population
+  need comments      1401 readable, 0 unreadable
+  control comments   13409 readable, 0 unreadable
+  stories            1276 with needs, 1228 with BOTH arms
+pooled
+  need answered      812/1401  0.580  CI95 [0.554, 0.605]
+  control answered   9748/13409  0.727  CI95 [0.719, 0.734]
+  lift               0.797x
+paired within thread
+  need answered      798/1353  0.590
+  control answered   9748/13409  0.727
+  lift               0.811x
+sign test
+  needs higher 8, controls higher 1180, tied 40, p=0
+gate A2 (>1.0 lift)  NOT met
+verdict               not informative
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 323  redactions: none
+==============================================================================
+[seq 16] 2026-10-05T08:30:23+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/control_depth.py --limit 12
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth-matched control rows: 270
+
+
+[stderr]
+stories 12, phrases 24
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 52615  redactions: none
+==============================================================================
+[seq 17] 2026-10-05T09:12:06+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments 1401, depth resolved 0 (0.0%)
+depth distribution: {}
+
+
+[stderr]
+round 1: 1401 comments, 1276 ancestors to fetch
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 65989  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T09:14:30+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments 1401, depth resolved 670 (47.8%) in 75s
+depth distribution {0: 641, 1: 29}
+
+
+[stderr]
+depth-0 decided locally: -119, to walk: 760
+round 1: 760 to resolve, 729 ancestors unknown
+round 2: 731 to resolve, 729 ancestors unknown
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 75582  redactions: none
+==============================================================================
+[seq 19] 2026-10-05T09:26:59+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments 1401, depth resolved 670 (47.8%) in 719s
+depth distribution {0: 641, 1: 29}
+
+
+[stderr]
+depth 0 decided locally: 641; to walk: 760
+round 2: 731 unresolved, fetching 729 ancestors
+round 3: 731 unresolved, fetching 729 ancestors
+round 4: 731 unresolved, fetching 729 ancestors
+round 5: 731 unresolved, fetching 729 ancestors
+round 6: 731 unresolved, fetching 729 ancestors
+round 7: 731 unresolved, fetching 729 ancestors
+round 8: 731 unresolved, fetching 729 ancestors
+round 9: 731 unresolved, fetching 729 ancestors
+round 10: 731 unresolved, fetching 729 ancestors
+round 11: 731 unresolved, fetching 729 ancestors
+round 12: 731 unresolved, fetching 729 ancestors
+round 13: 731 unresolved, fetching 729 ancestors
+round 14: 731 unresolved, fetching 729 ancestors
+round 15: 731 unresolved, fetching 729 ancestors
+round 16: 731 unresolved, fetching 729 ancestors
+round 17: 731 unresolved, fetching 729 ancestors
+round 18: 731 unresolved, fetching 729 ancestors
+round 19: 731 unresolved, fetching 729 ancestors
+round 20: 731 unresolved, fetching 729 ancestors
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 719068  redactions: none
+==============================================================================
+[seq 20] 2026-10-05T09:28:25+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments 1401, depth resolved 1256 (89.7%) in 60s
+depth distribution {0: 930, 1: 318, 2: 8}
+
+
+[stderr]
+depth 0 decided locally: 641; to walk: 760
+round 2: 731 unresolved, fetching 729 ancestors
+round 5: 434 unresolved, fetching 432 ancestors
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 60197  redactions: none
+==============================================================================
+[seq 21] 2026-10-05T09:28:48+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift_stratified.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth      need             control              lift
+0          384/641=0.599    90/134=0.672       0.892x
+1          183/318=0.575    74/136=0.544       1.058x
+2          2/8=0.250        -                       -
+unresolved 243/434=0.560    -                       -
+
+MH common odds ratio 0.902  CI95 [0.178, 4.564]  over 2 strata
+  (>1 means need comments are more likely to be answered)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 193  redactions: none
+==============================================================================
+[seq 22] 2026-10-05T09:29:47+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/control_depth.py --limit 12
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth-matched control rows: 270 total, 270 this run
+story stride 1
+
+
+[stderr]
+stories 12, phrases 24
+stories 12, already walked 0, to walk 12
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18087  redactions: none
+==============================================================================
+[seq 23] 2026-10-05T09:31:35+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/serve_sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+answered comments in population 812
+sample drawn 40 (seed 20261005), unreadable 0
+lexical rule fires on 39 of 40
+labels file: raw/labels.tsv (empty until a human writes it)
+
+
+[stderr]
+10/40
+20/40
+30/40
+40/40
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 62987  redactions: none
+==============================================================================
+[seq 24] 2026-10-05T09:32:59+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/serve_sample.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample rows     40
+declared n      40
+labelled        40
+unlabelled      0
+labelled served 15 of 40 (38%)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 312  redactions: none
+==============================================================================
+[seq 25] 2026-10-05T09:34:14+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/author_build.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population (not_served + partial) 24
+readable 24
+with >=1 story posted after the need  0
+truncated at the page cap              15
+candidate builders -- HAND CHECK REQUIRED, see raw/build_check.tsv
+
+
+[stderr]
+10/24 22s
+20/24 28s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 35753  redactions: none
+==============================================================================
+[seq 26] 2026-10-05T09:39:08+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/author_build.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+_tags discriminator control: PASS (kinds seen in first 50 hits: ['comment', 'story'])
+population (not_served + partial) 24
+readable 24
+with >=1 story posted after the need  6
+truncated at the page cap              15
+candidate builders -- HAND CHECK REQUIRED, see raw/build_check.tsv
+
+
+[stderr]
+10/24 21s
+20/24 26s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 36909  redactions: none
+==============================================================================
+[seq 27] 2026-10-05T09:39:41+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/author_build.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population            24
+captured rows         24
+candidate builders    6
+hand-checked          7
+awaiting a hand check 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1198  redactions: none
+==============================================================================
+[seq 28] 2026-10-05T09:40:04+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/combine.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population
+  need_statements        1401
+  readable               1401
+  unreadable             0
+  answered               812
+  answered_rate          0.5796
+  distinct_requesters    1250
+  distinct_threads       1276
+  replies_below_needs    1860
+served arm (hand labelled, conditional on a reply existing)
+  labelled 40, judged 39
+  counts {'served': 15, 'partial': 10, 'not_served': 14, 'unreadable': 1}
+  served           15/39 = 0.385 CI95 (0.2489, 0.541)
+  served or partial 25/39 = 0.641
+  software needs only 12/26 = 0.462 CI95 (0.2876, 0.6454)
+build arm
+  population 24, later story 6, hand-checked 6, related 0
+  rate 0.0 CI95 (0.0, 0.138)
+wrote /home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 378  redactions: none
+==============================================================================
+[seq 29] 2026-10-05T09:40:23+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift_stratified.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth      need             control              lift
+0          384/641=0.599    3212/4396=0.731    0.820x
+1          183/318=0.575    2507/4384=0.572    1.006x
+2          2/8=0.250        -                       -
+unresolved 243/434=0.560    -                       -
+
+MH common odds ratio 0.692  CI95 [0.158, 3.033]  over 2 strata
+  (>1 means need comments are more likely to be answered)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 598  redactions: none
+==============================================================================
+[seq 30] 2026-10-05T09:42:55+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_length.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments 1401, with a length 1401 (100.0%)
+
+
+[stderr]
+need arm 1401, have length 0, to fetch 1401
+200/1401
+400/1401
+600/1401
+800/1401
+1000/1401
+1200/1401
+1400/1401
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 88289  redactions: none
+==============================================================================
+[seq 31] 2026-10-05T09:43:03+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_length.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows 1401, with a length 1401 (100.0%)
+need length median 310, p25 178, p75 610, mean 500
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 394  redactions: none
+==============================================================================
+[seq 32] 2026-10-05T09:43:32+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift_length.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+length quartile cuts (pooled): [151, 287, 527]  n=12760
+
+len band       depth  need             control              lift
+Q1 <=151       0      76/146=0.521     656/1122=0.585     0.890x
+Q1 <=151       1      28/53=0.528      839/1828=0.459     1.151x
+Q1 <=151       2      0/2=0.000        -                       -
+Q1 <=151       unresolved 40/64=0.625      -                       -
+Q2 151-287     0      120/195=0.615    984/1324=0.743     0.828x
+Q2 151-287     1      54/92=0.587      862/1469=0.587     1.000x
+Q2 151-287     2      0/2=0.000        -                       -
+Q2 151-287     unresolved 52/94=0.553      -                       -
+Q3 287-527     0      82/137=0.599     1164/1534=0.759    0.789x
+Q3 287-527     1      53/89=0.596      810/1313=0.617     0.965x
+Q3 287-527     unresolved 56/108=0.519     -                       -
+Q4 >527        0      106/163=0.650    1357/1705=0.796    0.817x
+Q4 >527        1      48/84=0.571      734/1064=0.690     0.828x
+Q4 >527        2      2/4=0.500        -                       -
+Q4 >527        unresolved 95/168=0.565     -                       -
+
+pooled within length band (depth ignored):
+  Q1 <=151       need 144/265=0.543  control 1495/2950=0.507  lift 1.072x
+  Q2 151-287     need 226/383=0.590  control 1846/2793=0.661  lift 0.893x
+  Q3 287-527     need 191/334=0.572  control 1974/2847=0.693  lift 0.825x
+  Q4 >527        need 251/419=0.599  control 2091/2769=0.755  lift 0.793x
+wrote /home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/length_adjusted.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1592  redactions: none
+==============================================================================
+[seq 33] 2026-10-05T09:43:41+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+capture rows      1401
+corpus rows       1401
+readable (ok)     1401 (100.0%)
+gate A1 (>=95%)   met
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 498  redactions: none
+==============================================================================
+[seq 34] 2026-10-05T09:43:42+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/control_depth.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows 11757  depth0 5890  depth1 5867  depths [0, 1]
+gate A1 analogue: both depths present -> met
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 579  redactions: none
+==============================================================================
+[seq 35] 2026-10-05T09:43:43+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     967
+absent           0
+depth null       434
+distribution     {0: 641, 1: 318, 2: 8}
+PROBLEM: 434 rows have depth null
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 498  redactions: none
+==============================================================================
+[seq 36] 2026-10-05T09:44:59+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth_walk.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+resolved 967 of 1401 (69.0%) in 23s
+depth distribution {0: 641, 1: 318, 2: 8}
+ancestors fetched 432, statuses {'ok': 432}
+
+
+[stderr]
+carrying 967 resolved, walking 434 unresolved
+round 1: 434 unresolved, 432 new ancestors
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23405  redactions: none
+==============================================================================
+[seq 37] 2026-10-05T09:45:27+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth_walk.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+resolved 967 of 1401 (69.0%) in 0s
+depth distribution {0: 641, 1: 318, 2: 8}
+ancestors fetched 432, statuses {'ok': 432}
+
+
+[stderr]
+carrying 967 resolved, walking 434 unresolved
+round 1: 434 chains, no new ancestors
+round 2: 434 chains, no new ancestors
+round 3: 434 chains, no new ancestors
+round 4: 434 chains, no new ancestors
+round 5: 434 chains, no new ancestors
+round 6: 434 chains, no new ancestors
+round 7: 434 chains, no new ancestors
+round 8: 434 chains, no new ancestors
+round 9: 434 chains, no new ancestors
+round 10: 434 chains, no new ancestors
+round 11: 434 chains, no new ancestors
+round 12: 434 chains, no new ancestors
+round 13: 434 chains, no new ancestors
+round 14: 434 chains, no new ancestors
+round 15: 434 chains, no new ancestors
+round 16: 434 chains, no new ancestors
+round 17: 434 chains, no new ancestors
+round 18: 434 chains, no new ancestors
+round 19: 434 chains, no new ancestors
+round 20: 434 chains, no new ancestors
+round 21: 434 chains, no new ancestors
+round 22: 434 chains, no new ancestors
+round 23: 434 chains, no new ancestors
+round 24: 434 chains, no new ancestors
+round 25: 434 chains, no new ancestors
+round 26: 434 chains, no new ancestors
+round 27: 434 chains, no new ancestors
+round 28: 434 chains, no new ancestors
+round 29: 434 chains, no new ancestors
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 596  redactions: none
+==============================================================================
+[seq 39] 2026-10-05T09:53:58+00:00
+$ tools/origin session step Resumed after interruption. E022 measured: 1401/1401 readable (gate A1 met), 812 answered (0.580), depth-stratified MH OR 0.692, build arm 0/24 hand-judged related. One gate is red: need_depth --verify reports 434 nulls. Diagnosed as a real bug in need_depth_walk.py: the chain never advances node to parent[node], so a comment whose parent is itself a reply never reaches the story. The three sampled chains resolve at 4, 2 and 3 hops live.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 38
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1128  redactions: none
+==============================================================================
+[seq 40] 2026-10-05T09:56:32+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth_walk.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+resolved 1401 of 1401 (100.0%) in 82s
+depth distribution {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+ancestors fetched 1807, statuses {'ok': 1409, 'ok_no_parent': 398}
+
+
+[stderr]
+carrying 967 resolved, walking 434 unresolved
+round 1: 434 chains, no new ancestors
+round 2: 434 chains, 412 ancestors to fetch
+round 3: 434 chains, 412 ancestors to fetch
+round 4: 262 chains, 249 ancestors to fetch
+round 5: 156 chains, 146 ancestors to fetch
+round 6: 82 chains, 77 ancestors to fetch
+round 7: 40 chains, 39 ancestors to fetch
+round 8: 24 chains, 23 ancestors to fetch
+round 9: 13 chains, 12 ancestors to fetch
+round 10: 9 chains, 8 ancestors to fetch
+round 11: 7 chains, 6 ancestors to fetch
+round 12: 5 chains, 4 ancestors to fetch
+round 13: 5 chains, 4 ancestors to fetch
+round 14: 3 chains, 3 ancestors to fetch
+round 15: 1 chains, 1 ancestors to fetch
+round 16: 1 chains, 1 ancestors to fetch
+round 17: 1 chains, 1 ancestors to fetch
+round 18: 1 chains, 1 ancestors to fetch
+round 19: 1 chains, 1 ancestors to fetch
+round 20: 1 chains, 1 ancestors to fetch
+round 21: 1 chains, 1 ancestors to fetch
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 83112  redactions: none
+==============================================================================
+[seq 41] 2026-10-05T09:56:42+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/need_depth.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 423  redactions: none
+==============================================================================
+[seq 42] 2026-10-05T09:56:53+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift_stratified.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth      need             control              lift
+0          384/641=0.599    8110/11134=0.728   0.822x
+1          183/318=0.575    6226/11018=0.565   1.018x
+2          97/180=0.539     -                       -
+3          59/106=0.557     -                       -
+4          47/74=0.635      -                       -
+5          16/42=0.381      -                       -
+6          10/16=0.625      -                       -
+7          6/11=0.545       -                       -
+8          3/4=0.750        -                       -
+9          2/2=1.000        -                       -
+10         2/2=1.000        -                       -
+12         2/2=1.000        -                       -
+13         1/2=0.500        -                       -
+20         0/1=0.000        -                       -
+
+MH common odds ratio 0.701  CI95 [0.173, 2.838]  over 2 strata
+  (>1 means need comments are more likely to be answered)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 781  redactions: none
+==============================================================================
+[seq 43] 2026-10-05T10:00:42+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_need_depth_gate -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+
+
+[stderr]
+test_a_committed_deep_chain_re_derives_from_the_committed_fetch_log (tests.test_need_depth_gate.ClimbTest)
+The repair, checked against bytes the experiment produced. ... FAIL
+test_a_parent_that_is_the_story_is_depth_zero (tests.test_need_depth_gate.ClimbTest) ... ok
+test_a_self_referential_ancestor_ends_the_chain (tests.test_need_depth_gate.ClimbTest) ... ok
+test_a_two_hop_chain_closes_at_depth_two (tests.test_need_depth_gate.ClimbTest) ... FAIL
+test_an_unknown_ancestor_ends_the_chain_rather_than_claiming_zero (tests.test_need_depth_gate.ClimbTest)
+The direction that manufactures a result. ... ok
+test_the_rejected_loop_shape_resolves_nothing (tests.test_need_depth_gate.ClimbTest)
+The falsification, held as an assertion rather than a memory. ... ok
+test_depth_is_never_negative_and_story_parents_are_zero (tests.test_need_depth_gate.DepthCaptureTest) ... /home/ubuntu/think-free/tests/test_need_depth_gate.py:139: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  self.need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_every_need_comment_has_a_depth (tests.test_need_depth_gate.DepthCaptureTest) ... ok
+test_the_capture_covers_the_whole_outcome_population (tests.test_need_depth_gate.DepthCaptureTest) ... ok
+test_the_verify_command_the_task_declares_agrees (tests.test_need_depth_gate.DepthCaptureTest) ... /home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_unresolved_is_below_the_declared_ten_percent (tests.test_need_depth_gate.DepthCaptureTest)
+The gate's own line, so the threshold cannot be quietly raised. ... ok
+test_depth_strata_are_reported_separately_not_pooled (tests.test_need_depth_gate.StrataTest) ... /home/ubuntu/think-free/tests/test_need_depth_gate.py:186: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:188: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  ndepth = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:190: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl' mode='r' encoding='UTF-8'>
+  ctrl = [json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_the_deep_comments_are_present_and_would_have_been_dropped (tests.test_need_depth_gate.StrataTest)
+A regression guard on the whole point of the repair. ... ok
+
+======================================================================
+FAIL: test_a_committed_deep_chain_re_derives_from_the_committed_fetch_log (tests.test_need_depth_gate.ClimbTest)
+The repair, checked against bytes the experiment produced.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_need_depth_gate.py", line 104, in test_a_committed_deep_chain_re_derives_from_the_committed_fetch_log
+    self.assertEqual(walk.climb(str(p), str(rec["story_id"]), chain),
+AssertionError: None != 3 : row 49603973 does not re-derive from the fetch log
+
+======================================================================
+FAIL: test_a_two_hop_chain_closes_at_depth_two (tests.test_need_depth_gate.ClimbTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_need_depth_gate.py", line 56, in test_a_two_hop_chain_closes_at_depth_two
+    self.assertEqual(walk.climb("30", "99", {"30": "20", "20": "10", "10": "99"}), 2)
+AssertionError: 3 != 2
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.192s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2801  redactions: none
+==============================================================================
+[seq 44] 2026-10-05T10:01:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_need_depth_gate
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+
+
+[stderr]
+....F../home/ubuntu/think-free/tests/test_need_depth_gate.py:154: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  self.need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../home/ubuntu/think-free/tests/test_need_depth_gate.py:201: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:203: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  ndepth = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:205: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl' mode='r' encoding='UTF-8'>
+  ctrl = [json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..
+======================================================================
+FAIL: test_a_two_hop_chain_closes_at_depth_two (tests.test_need_depth_gate.ClimbTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_need_depth_gate.py", line 56, in test_a_two_hop_chain_closes_at_depth_two
+    self.assertEqual(walk.climb("30", "99", {"30": "20", "20": "10"}), 2)
+AssertionError: None != 2
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.727s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2590  redactions: none
+==============================================================================
+[seq 45] 2026-10-05T10:02:08+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_need_depth_gate
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+
+
+[stderr]
+......./home/ubuntu/think-free/tests/test_need_depth_gate.py:155: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  self.need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../home/ubuntu/think-free/tests/test_need_depth_gate.py:202: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:204: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  ndepth = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:206: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl' mode='r' encoding='UTF-8'>
+  ctrl = [json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..
+----------------------------------------------------------------------
+Ran 14 tests in 2.201s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2816  redactions: none
+==============================================================================
+[seq 46] 2026-10-05T10:03:25+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/lift_stratified.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+depth      need             control              lift
+0          384/641=0.599    9748/13409=0.727   0.824x
+1          183/318=0.575    7479/13241=0.565   1.019x
+2          97/180=0.539     -                       -
+3          59/106=0.557     -                       -
+4          47/74=0.635      -                       -
+5          16/42=0.381      -                       -
+6          10/16=0.625      -                       -
+7          6/11=0.545       -                       -
+8          3/4=0.750        -                       -
+9          2/2=1.000        -                       -
+10         2/2=1.000        -                       -
+12         2/2=1.000        -                       -
+13         1/2=0.500        -                       -
+20         0/1=0.000        -                       -
+
+MH common odds ratio 0.703  CI95 [0.176, 2.814]  over 2 strata
+  (>1 means need comments are more likely to be answered)
+
+gate A2 (declared floor 1.0)  fires
+  need comments are not more likely to be answered than non-need comments at the same depth, so a trigger phrase does not mark a comment the thread answers
+ceiling: 442 need comments at depth >=2 have no depth-matched control, so the deep tail is unmeasured
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 620  redactions: none
+==============================================================================
+[seq 47] 2026-10-05T10:03:53+00:00
+$ python3 EXPERIMENTS/022-need-outcomes/combine.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+population
+  need_statements        1401
+  readable               1401
+  unreadable             0
+  answered               812
+  answered_rate          0.5796
+  distinct_requesters    1250
+  distinct_threads       1276
+  replies_below_needs    1860
+served arm (hand labelled, conditional on a reply existing)
+  labelled 40, judged 39
+  counts {'served': 15, 'partial': 10, 'not_served': 14, 'unreadable': 1}
+  served           15/39 = 0.385 CI95 (0.2489, 0.541)
+  served or partial 25/39 = 0.641
+  software needs only 12/26 = 0.462 CI95 (0.2876, 0.6454)
+build arm
+  population 24, later story 6, hand-checked 6, related 0
+  rate 0.0 CI95 (0.0, 0.138)
+gates
+  A1 population read  met
+  A2 within-thread lift  fires (odds ratio 0.7035, declared floor 1.0)
+  A3 build arm  evaluable (population 24 readable 24, hand-checked 6)
+wrote /home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 114  redactions: none
+==============================================================================
+[seq 49] 2026-10-05T10:04:11+00:00
+$ tools/origin session step Repaired need_depth_walk.py (F042): it re-appended the same node instead of the node's parent, so no chain longer than one hop ever closed. 1401/1401 depths now resolve (was 967); all six arms verify; gate A2 fires at OR 0.7035 against a declared floor of 1.0. Added tests/test_need_depth_gate.py, 14 tests, including the defective loop shape as an explicit falsification. results.json now carries A1/A2/A3 and the controls instead of a pointer.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 48
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1115  redactions: none
+==============================================================================
+[seq 50] 2026-10-05T10:05:44+00:00
+$ tools/origin preflight
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1058 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 846 lines (exempt from cap)
+  FAIL  EXPERIMENTS/022-need-outcomes/run.py: 305 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 2 violation(s)
+skills: 21 skill(s) in .agents/skills
+skills: OK
+session verify: 108 session(s) checked
+  note  2026-10-05-008-measure-the-outcome-distribution-of-e012: in progress (command)
+  FAIL  sessions/2026-10-04-054-test-whether-prior-art-exists-means-the/events.jsonl: last event is 'task_rewrite'; session may be unfinished; the claim on T-0060 is 12.3h old, past the 12h lease
+session verify: 1 problem(s)
+release check: 59 path(s) checked
+release check: OK
+preflight: FAILED
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 94312  redactions: none
+==============================================================================
+[seq 51] 2026-10-05T10:29:18+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................................................................................................................................................./home/ubuntu/think-free/tests/test_need_depth_gate.py:155: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  self.need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+../home/ubuntu/think-free/tests/test_need_depth_gate.py:202: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl' mode='r' encoding='UTF-8'>
+  need = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:204: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  ndepth = {str(json.loads(l)["comment_id"]): json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_need_depth_gate.py:206: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl' mode='r' encoding='UTF-8'>
+  ctrl = [json.loads(l)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 790 tests in 499.479s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 500388  redactions: none
+==============================================================================
+[seq 52] 2026-10-05T10:30:43+00:00
+$ env PYTHONPATH=tools:tests python3 -W error::ResourceWarning -m unittest tests.test_need_depth_gate
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+
+
+[stderr]
+..........Exception ignored in: <_io.FileIO name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='rb' closefd=True>
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py", line 168, in verify
+    for line in open(OUT):
+ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+....
+----------------------------------------------------------------------
+Ran 14 tests in 0.779s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1118  redactions: none
+==============================================================================
+[seq 53] 2026-10-05T10:30:49+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_need_depth_gate
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+
+
+[stderr]
+........../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....
+----------------------------------------------------------------------
+Ran 14 tests in 0.792s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1110  redactions: none
+==============================================================================
+[seq 62] 2026-10-05T11:04:04+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..............................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 790 tests in 487.090s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 488220  redactions: none

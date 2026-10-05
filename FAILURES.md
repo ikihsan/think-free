@@ -32,7 +32,8 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-13.md`](FAILURES-findings-13.md) (F035, F036) and
 [`FAILURES-findings-14.md`](FAILURES-findings-14.md) (F037, F038) and
 [`FAILURES-findings-15.md`](FAILURES-findings-15.md) (F039, F040) and
-[`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041), split because
+[`FAILURES-findings-16.md`](FAILURES-findings-16.md) (F041) and
+[`FAILURES-findings-17.md`](FAILURES-findings-17.md) (F042), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
 2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
@@ -82,6 +83,14 @@ side per the rule in
 | F039 | The need corpus is 1250 individuals with no need-level recurrence detectable inside it, so its 0-of-50 was never interpretable (D051) |
 | F040 | F037's "the reader copies the directory" is an instruction rather than an observation: 687 documented copy sites, 4.7% duplicated content, no cross-author overlap |
 | F041 | The young vocabulary's copy channel is 0.12x its install channel, so the prior-art screen's young-vocabulary failure is the world and not a channel it failed to read |
+| F042 | A repair walk that printed "no new ancestors" 29 times resolved 0 of 434 unreadable comments and exited 0; it never advanced the node, so no chain longer than one hop could close |
+
+**F042's evidence lives at `EXPERIMENTS/022-need-outcomes/`,** and the defect
+itself is in `need_depth_walk.py`. The reported result did not move across the
+repair (odds ratio 0.701 before, 0.703 after), because the two strata the arm
+uses were never affected — which could only be known after the repair.
+`tests/test_need_depth_gate.py` holds the defective loop shape as a failing
+assertion and reads the committed capture rather than the walk's exit code.
 
 **F041's evidence lives at `EXPERIMENTS/021-copied-artifact-serving/`,** not at
 the `020-` path some records still name: the other VM took `020-copied-config-drift`

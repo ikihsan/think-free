@@ -282,5 +282,3 @@ exception those annotations would now carry was the part being dropped. The caus
 `untested`, and the most likely suspect is the fixture itself — `make_fleet` copies
 the whole tooling tree into a fresh bare remote plus two clones *per test class*, which
 on a 2-CPU runner is the only thing here that scales with the number of tests.
-
-=======

@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0066
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: opencode
 claim-session: 2026-10-05-008-measure-the-outcome-distribution-of-e012

@@ -1,0 +1,11 @@
+# Hand check of every candidate the author join produced.
+# A row is one candidate: a need statement whose requester posted >=1 story after it.
+# `related` is the judgement: does the later story address the need, or is it unrelated?
+# The arm's own output is 6 candidates; writing this file is what licenses any rate.
+comment_id	label	related	note
+42380916	not_served	no	need was "nobody built a sustainable browser"; the later story is about moving ReadMe to Git
+45427317	partial	no	need was blocking a word in a news reader; the later story is a neuroscience piece
+45923961	partial	no	need was consent-based recurring billing; the later story is about Dropbox
+46042271	partial	no	need was keeping an SSD powered without mounting; the later story is financial data as paintings
+46302823	not_served	no	need was tech peers in Minnesota; the 9 later stories are unrelated posts
+46330324	not_served	no	need was a law assigning value to PII leaks; the 65 later stories are unrelated

@@ -16,6 +16,59 @@ force a rewrite of the other, which is the same reason
 Read a finding number and go to the file it is defined in. Identifiers are stable
 across findings files.
 
+## What became of the 1401 stated needs?
+
+**Status: closed, and it narrows item 0 rather than opening it. F042.
+`EXPERIMENTS/022-need-outcomes/`.**
+
+The one asset no failure in this record has touched — 1250 named people who each
+wrote down, publicly and unprompted, what was missing from their work — had never
+been followed forward. **Nobody had measured what became of any of them.** This is
+the fourth measurement in a row about the world rather than about this
+repository's own instruments, and the first that answers a question about *people*.
+
+| outcome | figure |
+|---|---|
+| need statements, and their readability | 1401, **100.0%** (gate A1 requires ≥95%) |
+| **answered** (≥1 reply) | **812 / 1401 = 0.580**, CI95 [0.554, 0.605] |
+| **served** — a reply names an artifact serving the clause | **15 / 39 = 0.385**, CI95 [0.249, 0.541], hand-labelled |
+| served, restricted to software clauses | 12 / 26 = 0.462 |
+| **built by the requester** | **0 / 24**, CI95 [0.0, 0.138] — 6 candidates, all hand-checked, none related |
+
+**Gate A2 fired as declared, before the first fetch.** The within-thread lift is
+**0.703** (Mantel-Haenszel, CI95 [0.176, 2.814]) against a declared floor of 1.0:
+carrying a need trigger does not make a comment more likely to be replied to. At
+depth 0 need comments are answered *less* often than their thread neighbours
+(0.599 vs 0.728) and at depth 1 not differently (0.575 vs 0.565). **The interval
+spans 1.0, so "answered less" is not established** — what is established is that
+the lift is not greater than 1.0, which is all the gate claimed.
+
+**What this changes about item 0, in one direction.** The asset is **not** a
+population of unmet needs awaiting a builder. It is a population of needs the
+world **absorbed conversationally**: answered in the majority, served in about a
+third of those, and self-built essentially never. That is a real demand-side
+population and no failure in this record has touched it — but on this evidence it
+contains no standing unmet need, and it still cannot supply a candidate. F029's
+0-of-50 and F035's coverage measurement are untouched by this.
+
+**The inverse filter is named here and deliberately not run**, because running it
+would be the same population read a second time rather than a new question: **the
+589 statements that drew no reply at all** are the only sub-population the outcome
+data marks unserved, and the build arm says their requesters did not self-serve
+either. That needs the same two public APIs and no new instrument.
+
+**Ceiling on the whole thing:** one community, self-selected and technical; a
+corpus harvested by trigger phrase rather than sampled from needs; one observation
+window on 2026-10-05; and 40 labels from one reader with no second coder, so the
+served interval is a sampling interval over a single judgement. The build arm
+sees HN self-disclosure only, so 0-of-24 is a floor on disclosure and not an
+estimate of building.
+
+**F042 is the instrument defect, and the repaired number did not move.** The odds
+ratio was 0.701 over the defective capture and 0.703 after — the two strata the
+arm uses were never affected. That is only knowable *after* the repair, and
+before it the record claimed 434 comments were unreadable when none were.
+
 ## The third axis: is the young vocabulary served by copies rather than installs?
 
 **Status: closed, negative (F041, D053). `EXPERIMENTS/021-copied-artifact-serving/`.**

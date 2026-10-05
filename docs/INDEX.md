@@ -188,6 +188,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/020-copied-config-drift/README.md`](../EXPERIMENTS/020-copied-config-drift/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. Verdict: inconclusive, and two figures retracted. |
 | [`EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md`](../EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md) | `EXPERIMENTS/021-copied-artifact-serving/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/021-copied-artifact-serving/README.md |
 | [`EXPERIMENTS/021-copied-artifact-serving/README.md`](../EXPERIMENTS/021-copied-artifact-serving/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| [`EXPERIMENTS/022-need-outcomes/PROTOCOL.md`](../EXPERIMENTS/022-need-outcomes/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Written 2026-10-05, before any outcome was observed. T-0066. |
+| [`EXPERIMENTS/022-need-outcomes/README.md`](../EXPERIMENTS/022-need-outcomes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
