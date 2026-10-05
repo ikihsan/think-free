@@ -52,6 +52,7 @@ _none_
 | 1 | 23:50:43 | session_start | Classify the prior-art population by artifact type and read what the high-star documents in young vocabularies teach people to do by hand |
 | 2 | 23:51:56 | task_rewrite | appended a create record for T-0061 |
 | 3 | 23:52:24 | task_rewrite | rewrote tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md (status: claimed) |
+| 4 | 23:52:25 | task_rewrite | appended a claim record for T-0061 |
 
 ## Reproduce this record
 

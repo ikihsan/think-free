@@ -31,39 +31,41 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Eight experiments have run; three invention claims are
-disproved, one declared gate was shown not to be able to fail, one mechanism was
-confirmed while its candidate died of it, and no candidate is validated.
+**Status: partial.** Sixteen experiments have run; three invention claims are
+disproved, one declared gate could not fail, one mechanism was confirmed while
+its candidate died of it, the prior-art screen is measured (F035, F034), and no
+candidate is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
       disproved (`FAILURES.md` F001)
 - [x] Write kill gates for the three held candidates in `HYPOTHESES.md` (T-0001, 2026-10-03)
-- [x] Apply the information-sufficiency test to the three held candidates (`003-information-sufficiency`, T-0008: W1/W3 survive, W2 spec insufficient, F007)
-- [x] Run the A1 masking experiment on the PPNA sidewalk extract (`002-a1-masking`, T-0005/T-0006/T-0007: count-budget gate met, fieldwork-cost gate fails, F006)
+- [x] Apply the information-sufficiency test to the three held candidates (`003`, T-0008:
+      W1/W3 survive, W2 spec insufficient, F007)
+- [x] Run the A1 masking experiment on the PPNA sidewalk extract (`002`, T-0005/6/7:
+      count-budget gate met, fieldwork-cost gate fails, F006)
 - [x] Test the knitting candidate's Stage-A planner twice: per-error rule
-      suboptimal (`004-knitting-stage-a`, T-0010), whole-neighbourhood search
-      exact (`005-knitting-bounded-search`, T-0011)
-- [x] Search the knitting candidate's last kill-gate condition in three
-      vocabularies (`RESEARCH/PRIOR-ART-KNITTING.md`, T-0015): the algorithmic
-      advantage is prior art (`FAILURES.md` F009), no tool supplies an
-      intervention sequence for an existing hand-knit
+      suboptimal (`004`, T-0010), whole-neighbourhood search exact (`005`, T-0011)
+- [x] Search the knitting candidate's last kill-gate condition in three vocabularies
+      (`RESEARCH/PRIOR-ART-KNITTING.md`, T-0015): the algorithmic advantage is prior
+      art (`FAILURES.md` F009), and no tool supplies an intervention sequence
 - [x] Run the ventilation candidate's measurement-design kill gate
       (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
       stopped (`FAILURES.md` F008)
-- [x] Run E3's build-timestamp census over 200 PyPI wheels
-      (`007-build-timestamps`, T-0013): declared 5% gate met at 0.965, but the
-      metric measures DOS-epoch pinning rather than reproducibility and attributes
-      no cause (`FAILURES.md` F010)
-- [x] Attribute the byte difference (`008-build-timestamp-attribution`, T-0017):
-      398 of 398 differing bytes are timestamp fields, and `SOURCE_DATE_EPOCH`
-      makes builds bit-identical, so E3's mechanism is supported and its
-      candidate abandoned — the remedy is one environment variable the builder
-      already honours (`FAILURES.md` F012)
+- [x] Run E3's build-timestamp census over 200 PyPI wheels (`007`, T-0013): declared
+      5% gate met at 0.965, but the metric measures DOS-epoch pinning rather than
+      reproducibility and attributes no cause (`FAILURES.md` F010)
+- [x] Attribute the byte difference (`008`, T-0017): 398 of 398 differing bytes are
+      timestamp fields and `SOURCE_DATE_EPOCH` makes builds bit-identical, so E3's
+      mechanism is supported and its candidate abandoned — the remedy is one
+      environment variable the builder already honours (`FAILURES.md` F012)
+- [x] Measure the prior-art screen itself (`016-prior-art-adjudication`, T-0062): 6 of 6
+      controls recovered, 3 of 12 adjudicable kills have no prior art on three corpora, and
+      the open web carries 4 served verdicts two code corpora return nothing for (F035/F036)
 - [ ] Run at least two materially different falsification experiments before any
-      commitment decision. Only the knitting line has had two, and both runs
-      produced no product claim; with C2 stopped (F008) and the knitting
-      algorithmic claim abandoned (F009), no candidate has two.
+      commitment decision. Only the knitting line has had two, and both runs produced no
+      product claim; with C2 stopped (F008) and the knitting claim abandoned (F009), no
+      candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
       fairness
 
@@ -116,11 +118,11 @@ was previously spent.
 
 ## Infrastructure track
 
-Separate from the invention stages, because the mission cannot be run without it.
+Separate from the invention stages: the mission cannot be run without it.
 
-- [x] Session logging with append-only events and git reconciliation, including
-      attribution by recorded evidence: a base move the tooling performed (D028), and a
-      command's own write, honoured only while the file holds those bytes (T-0047, D040)
+- [x] Session logging with append-only events and git reconciliation, with attribution
+      by recorded evidence: a base move the tooling performed (D028), and a command's own
+      write, honoured only while the file holds those bytes (T-0047, D040)
 - [x] Command capture with exit codes and secret redaction; task dispatch with an
       append-only claim ledger
 - [x] Documentation lint: line cap, metadata, links, table rows, orphans, generated
@@ -132,11 +134,10 @@ Separate from the invention stages, because the mission cannot be run without it
       because three mission records had reached the shared base with markers in
       them while every gate read those files for a different property
 - [x] Machine-readable exercised-git-versions record (`tests/git-versions.json`, T-0018)
-- [x] Identifier allocation from the shared base for F, D and T, with the record
-      it was read from printed by every command that hands out a number
-      (`tools/originlib/idalloc.py`, `origin id next`, T-0031). Twelve
-      collisions between two VMs in two days were the cost of allocating from a
-      working tree instead
+- [x] Identifier allocation from the shared base for F, D and T, with the record it was
+      read from printed by every command that hands out a number
+      (`tools/originlib/idalloc.py`, `origin id next`, T-0031); twelve collisions between
+      two VMs in two days were the cost of allocating from a working tree instead
 - [x] Decision log split by invariant a second time (`DECISIONS-GATING.md`, T-0018)
 - [x] Environment doctor with presence-only credential checks
 - [x] Continuous integration running lint, tests, release manifest, and session
@@ -234,30 +235,29 @@ Separate from the invention stages, because the mission cannot be run without it
 ## Sequencing note
 
 The infrastructure track finished ahead of stage B because stage B is blocked on judgement
-rather than tooling. Kill gates exist for the three held candidates, eight experiments have
-run, and none has validated a claim. Stage B is blocked on what no experiment here can
-answer: whether a knitter follows a generated repair plan, and whether E3's builder-level
-finding generalises beyond the one builder this machine has. E2's time-gated drift
-comparison is scheduled (side A banked, T-0019).
+rather than tooling. Sixteen experiments have run and none has validated a claim. Stage B is
+blocked on judgement twice over: on what no experiment here can answer — whether a knitter
+follows a generated repair plan, and whether E3's builder-level finding generalises beyond
+the one builder this machine has — and, since E016, on which axis a candidate is selected at
+all, because the screen that killed twelve candidates is now measured and does not hold
+(F035, F034, D050). E2's time-gated drift comparison is scheduled (side A banked, T-0019).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), and every
 CPython minor from 3.8 to 3.14 has now run the suite — on portable builds on one VM, and one
-matrix row per minor in CI (T-0034, D035). The floor claim is still two things it is not: it
-says nothing about 3.15 onwards, and a green row is evidence about that row and not the version
-below it. Git is weaker in kind, a git version being a property of a machine rather than of a workflow
+matrix row per minor in CI (T-0034, D035). The floor claim is still two things it is not: it says
+nothing about 3.15 onwards, and a green row is evidence about that row and not the version below
+it. Git is weaker in kind, a git version being a property of a machine rather than of a workflow
 step: T-0034 added the runner's own 2.55.0 to the record by running the suite on it, and
-`git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite that only passes where its author works is not a suite, and that is a
-recorded pattern rather than a coincidence: the interpreter assertion failed on every version the
-record lacked (F018), the git assertion on every runner whose git nobody recorded (F019), and the
-credential fixture on every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the
-machine that wrote it.
-Identifiers are allocated from the shared base and the record is printed (T-0031), so a
-stale tree no longer collides — but two VMs allocating between their own fetches still do, and
-T-0030's detector catches that. A red CI run is diagnosable without admin rights, the check-run
+`git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite that
+only passes where its author works is not a suite, and that is a recorded pattern rather than a
+coincidence: the interpreter assertion failed on every version the record lacked (F018), the git
+assertion on every runner whose git nobody recorded (F019), the credential fixture on every
+runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the machine that wrote it.
+Identifiers are allocated from the shared base and the record is printed (T-0031), so a stale
+tree no longer collides — but two VMs allocating between their own fetches still do. A red CI run is diagnosable without admin rights, the check-run
 annotations naming the failing test and public all along (F020, T-0038); what is left is that
-the endpoint answers "nothing" in three different ways, one a 403 from the unauthenticated rate
-limit. T-0020 is the pattern for the rest: run the documented sequence, and fix what it does.
+the endpoint answers "nothing" in three ways, one a 403 from the unauthenticated rate limit.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
       defect 17). The five file-reading steps ran a gate, printed a report and exited, so
       the check run's only annotation was "Process completed with exit code 2" and the log

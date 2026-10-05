@@ -158,13 +158,33 @@ class RealRepositoryTest(unittest.TestCase):
         # F025's claim: measurement of the world is a small minority of commits,
         # and it shrank on the second day. Assert the direction, not the digits,
         # so the finding survives honest further work.
+        #
+        # The window is F025's own two days and is fixed deliberately. The first
+        # version of this assertion compared the first day of history with the
+        # last, which made a finding about 2026-10-03/04 depend on how much
+        # history existed when it was re-derived: a third day appeared carrying
+        # five commits, one of them world-facing, and the assertion went red on
+        # 2026-10-05 with 20.0% against 11.1%. That is F018 and F019 with the
+        # environment being the calendar again — a gate reading a property of the
+        # record rather than of the artefact — and the repair is to name the two
+        # days the finding measured, not to relax the direction.
         days = sorted(per_day)
         self.assertGreaterEqual(len(days), 2,
                                 "expected at least two days of history")
-        first = 100.0 * per_day[days[0]]["world"] / per_day[days[0]]["commits"]
-        last = 100.0 * per_day[days[-1]]["world"] / per_day[days[-1]]["commits"]
-        self.assertLess(last, first,
-                        "F025 claims the world share fell; it rose instead")
+        for day in days:
+            self.assertLess(
+                100.0 * per_day[day]["world"] / per_day[day]["commits"], 50.0,
+                "%s: world-facing measurement is a minority of that day's commits" % day)
+        first, second = "2026-10-03", "2026-10-04"
+        for day in (first, second):
+            self.assertIn(day, per_day,
+                          "F025 was measured over %s and %s; a re-derivation needs both"
+                          % (first, second))
+        first_share = 100.0 * per_day[first]["world"] / per_day[first]["commits"]
+        second_share = 100.0 * per_day[second]["world"] / per_day[second]["commits"]
+        self.assertLess(second_share, first_share,
+                        "F025 claims the world share fell from %s to %s; it rose instead"
+                        % (first, second))
         ratio = data["lines"]["ratio_machinery_to_experiment"]
         self.assertIsNotNone(ratio)
         self.assertGreater(ratio, 1.0,

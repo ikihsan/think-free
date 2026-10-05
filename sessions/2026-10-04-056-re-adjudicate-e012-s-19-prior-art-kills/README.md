@@ -38,10 +38,12 @@ _(none recorded)_
 | FAILURES-findings-12.md | 0f2b8070ed75 | 8501 |
 | FAILURES-findings-13.md | 70b749d617d4 | 9440 |
 | tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md | 0c8dd689a289 | 3420 |
+| ROADMAP.md | 9e3cb4a251b0 | 20202 |
+| tests/test_allocation_measurement.py | 1afdac710b56 | 9224 |
 
 ## Commands
 
-11 captured, 0 non-zero exit.
+15 captured, 2 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -56,6 +58,10 @@ _(none recorded)_
 | 21 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 327413 |
 | 22 | ['python3', 'EXPERIMENTS/016-prior-art-adjudication/stats.py'] | 0 | 97 |
 | 23 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 334419 |
+| 31 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 329638 |
+| 32 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 337284 |
+| 33 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'tests.test_allocation_measurement', '-v'] | 0 | 1009 |
+| 36 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 325110 |
 
 ## Integrity
 
@@ -100,6 +106,16 @@ _(none recorded)_
 | 27 | 00:08:26 | base_advance | sync land: base moved 33749cb3b389 -> 4bde980af369, 2 commit(s) arrived from the shared base |
 | 28 | 00:08:41 | artifact | wrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md |
 | 29 | 00:08:59 | task_rewrite | rewrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md (status: claimed) |
+| 30 | 00:08:59 | task_rewrite | appended a claim record for T-0062 |
+| 31 | 00:14:46 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 32 | 00:20:29 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 33 | 00:21:17 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_allocation_measurement -v |
+| 34 | 00:28:02 | task_rewrite | rewrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md (status: done) |
+| 35 | 00:28:02 | task_rewrite | appended a complete record for T-0062 |
+| 36 | 00:40:19 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 37 | 00:40:31 | artifact | wrote ROADMAP.md |
+| 38 | 00:40:32 | artifact | wrote tests/test_allocation_measurement.py |
+| 39 | 00:40:32 | milestone | T-0062 verified and completed; repaired the F025 allocation assertion, which re-derived a two-day finding against a growing history (F018's shape a fo |
 
 ## Reproduce this record
 
