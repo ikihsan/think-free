@@ -50,6 +50,7 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 12:55:55 | session_start | Test whether 'twelve candidates, twelve prior-art deaths' is a fact about the candidates or an artefact of counting |
+| 2 | 12:59:41 | task_rewrite | rewrote tasks/T-0068-classify-what-killed-each-candidate-from-its-p.md (status: claimed) |
 
 ## Reproduce this record
 

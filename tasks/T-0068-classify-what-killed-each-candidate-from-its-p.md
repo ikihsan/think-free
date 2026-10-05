@@ -6,9 +6,12 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0068
-status: open
+status: claimed
 created: 2026-10-05
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests 2>&1 | tail -3
+claim-agent: unknown-agent
+claim-vm:
+claim-session: 2026-10-05-010-test-whether-twelve-candidates-twelve-pr
 -->
 
 # T-0068 — Classify what killed each candidate, from its primary source
