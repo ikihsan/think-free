@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0071
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: opencode
 claim-session: 2026-10-05-015-re-read-the-31-clause-killed-harvested-n

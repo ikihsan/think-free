@@ -153,14 +153,14 @@ prior art, usefulness and adoption untouched, and every item says which.
    against. **F043 removes the last prop under that sentence:** the "served"
    figure that made it read as a demand-side discovery is the base rate of
    ordinary comments in the same threads, and what is left is the two cells that
-   were measured properly. **F045 then removed the last remaining reason to think
-   this corpus hid builders:** 22.2% of its authors have publicly shipped
-   something, so they are a fifth builders — they simply build **other things**,
-   and less often than their neighbours do. **Do not promote anything from this
-   corpus.** E2's lockfile claim is the only live mechanism here: `EXPERIMENTS/009` side B,
+   were measured properly. **F045 removed the last reason to think this corpus hid
+   builders:** 22.2% of its authors have shipped something — a fifth builders,
+   building **other things**. **F047 removed the weakest prop under the closure:**
+   31 of F029's 50 verdicts came from a regex-extracted clause and **6 of the 15
+   `vague` kills are not vague** — **the closure survives the repair**. **Do not
+   promote anything from this corpus.** E2's lockfile claim: `EXPERIMENTS/009`
    **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
-   where invention work goes; it does not make invention happen, and with every
-   generator closed it names an empty seat rather than a queue.
+   where invention work goes; with every generator closed it names an empty seat.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated

@@ -100,6 +100,7 @@ _(none recorded)_
 | 25 | 17:34:35 | artifact | wrote STATE-history.md |
 | 26 | 17:34:36 | artifact | wrote STATE-history-2.md |
 | 27 | 17:34:36 | milestone | E027 complete: 8 of 31 convergent flips, declared agreement gate failed at kappa 0.4627, F029's 0-of-50 confirmed by re-read |
+| 28 | 17:35:18 | task_rewrite | rewrote tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md (status: done) |
 
 ## Reproduce this record
 

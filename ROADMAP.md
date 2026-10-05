@@ -29,10 +29,10 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Twenty-five experiments have run; three invention claims are
-disproved, one declared gate could not fail, one mechanism was confirmed while
-its candidate died of it, the prior-art screen is measured (F035, F034), and no
-candidate is validated.
+**Status: partial.** Twenty-seven experiments have run; three invention claims
+are disproved, one declared gate could not fail, one mechanism was confirmed
+while its candidate died of it, the prior-art screen is measured (F035, F034)
+and has itself been read against its own extract (F047), and none is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
