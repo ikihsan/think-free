@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0071
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-05-015-re-read-the-31-clause-killed-harvested-n
+claim-vm: 
 verify: python3 EXPERIMENTS/027-cause-of-death-reread/recheck.py --selftest && python3 EXPERIMENTS/027-cause-of-death-reread/stats.py
 -->
 

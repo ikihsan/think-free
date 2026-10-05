@@ -50,6 +50,7 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 16:44:50 | session_start | Re-read the 31 clause-killed harvested needs from their full text and test whether F029's largest falsifiable claim is an artefact of the clause-extra |
+| 2 | 16:45:12 | task_rewrite | rewrote tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md (status: claimed) |
 
 ## Reproduce this record
 
