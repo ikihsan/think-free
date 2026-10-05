@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-05T16:44:50+00:00
-- **Duration:** ?s
+- **Duration:** 3368.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Re-read the 31 clause-killed harvested needs from their full text and test wheth
 
 ## Summary
 
-_(none recorded)_
+E027: re-read the 31 clause-based cause-of-death verdicts of E012's 50-row screen from the full comment with two blind readers. Found that 6 of the 15 'vague' kills state a mechanism or a named artifact in the comment text the screen never read, because the cause of death was assigned from a regex-extracted clause rather than a comment. 'vague' withdrawn as a cause of death at its recorded size. F029's 0-of-50 stands: none of the 8 re-opened rows is a candidate, so the generator's closure is now confirmed by a re-read rather than carried forward. The declared six-category agreement gate failed (kappa 0.4627 against a floor of 0.6) and the restated table is reported inconclusive; the separately declared per-row gate fired on 8 of 31, and both gates were falsified against fabricated populations before their results were read. F047, D059, T-0071.
+
+## Next
+
+Item 0d's seat is still empty and this session closed its weakest prop rather than filling it. The live question is item 0: what the mission selects candidates on, which is still an owner decision and is not blocked on tooling. If that decision is deferred again, the one measurement never made is on the 19 prior_art rows F029 kept: E016 adjudicated them on three corpora but never against F029's own clause, so the remaining half of F029's table has been read by exactly one procedure.
 
 ## Artifacts
 
@@ -63,11 +67,12 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 2 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | ROADMAP.md |
+|   undeclared | STATE-next-actions.md |
 
 ## Timeline
 
@@ -101,6 +106,16 @@ _(none recorded)_
 | 26 | 17:34:36 | artifact | wrote STATE-history-2.md |
 | 27 | 17:34:36 | milestone | E027 complete: 8 of 31 convergent flips, declared agreement gate failed at kappa 0.4627, F029's 0-of-50 confirmed by re-read |
 | 28 | 17:35:18 | task_rewrite | rewrote tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md (status: done) |
+| 29 | 17:35:18 | task_rewrite | appended a complete record for T-0071 |
+| 30 | 17:40:58 | unlogged_change | changed but never declared as an artifact: ROADMAP.md |
+| 31 | 17:40:58 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 32 | 17:40:58 | doc_update | updated DECISIONS-SCREENING-3.md |
+| 33 | 17:40:58 | doc_update | updated DECISIONS.md |
+| 34 | 17:40:58 | doc_update | updated FAILURES.md |
+| 35 | 17:40:58 | doc_update | updated HYPOTHESES.md |
+| 36 | 17:40:58 | doc_update | updated ROADMAP.md |
+| 37 | 17:40:58 | doc_update | updated STATE.md |
+| 38 | 17:40:58 | session_end | E027: re-read the 31 clause-based cause-of-death verdicts of E012's 50-row screen from the full comment with two blind readers. Found that 6 of the 15 |
 
 ## Reproduce this record
 
