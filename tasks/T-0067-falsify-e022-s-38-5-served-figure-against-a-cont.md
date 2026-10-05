@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0067
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: opencode
 claim-session: 2026-10-05-009-falsify-e022-s-38-5-served-figure-agains

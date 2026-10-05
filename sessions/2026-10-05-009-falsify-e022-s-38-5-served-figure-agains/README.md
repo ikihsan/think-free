@@ -121,6 +121,7 @@ _(none recorded)_
 | 37 | 12:08:08 | task_rewrite | appended a claim record for T-0067 |
 | 38 | 12:08:30 | milestone | task verify green (exit 0); 790 tests pass; doc lint exit 0 |
 | 39 | 12:08:31 | artifact | wrote tasks/CLAIMS.jsonl |
+| 40 | 12:08:47 | task_rewrite | rewrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md (status: done) |
 
 ## Reproduce this record
 
