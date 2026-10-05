@@ -8,14 +8,15 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-102 recorded session(s). One `events.jsonl` per session, so concurrent
+103 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 77 older session(s) are in the directory listing.
+Showing the 25 most recent. 78 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | **unfinished** | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T01:24 |
+| [2026-10-05-003-declare-e019-s-raw-captures-and-land-the](2026-10-05-003-declare-e019-s-raw-captures-and-land-the/README.md) | unknown-agent | worked | Declare E019's raw captures and land the corrected F039 index row | 2026-10-05T02:31 |
+| [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | worked | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T02:30 |
 | [2026-10-05-001-answer-e016-lead-7-s-mechanism-question](2026-10-05-001-answer-e016-lead-7-s-mechanism-question/README.md) | unknown-agent | worked | Answer E016 lead 7's mechanism question with a prototype and OTel grou | 2026-10-05T01:19 |
 | [2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills](2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/README.md) | unknown-agent | worked | Re-adjudicate E012's 19 prior-art kills on three corpora with positive | 2026-10-05T00:40 |
 | [2026-10-04-056-classify-the-prior-art-population-by-art](2026-10-04-056-classify-the-prior-art-population-by-art/README.md) | unknown-agent | worked | Classify the prior-art population by artifact type and read what the h | 2026-10-05T02:07 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 77 older session(s) are in the directory listing.
 | [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
 | [2026-10-04-036-report-a-row-a-document-s-own-table-alre](2026-10-04-036-report-a-row-a-document-s-own-table-alre/README.md) | opencode | worked | report a row a document's own table already contains, so a merge that  | 2026-10-04T13:42 |
 | [2026-10-04-036-record-the-measured-ci-state-on-the-tip](2026-10-04-036-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip and T-0050's one red run, from | 2026-10-04T13:53 |
-| [2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu](2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/README.md) | opencode | worked | make doc lint's broken-link verdict a function of the repository, not  | 2026-10-04T12:39 |
 
 
 ## Reading a session

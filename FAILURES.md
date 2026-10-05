@@ -78,7 +78,7 @@ side per the rule in
 | F036 | A web capture can answer HTTP 200 with results unrelated to every query |
 | F037 | The screen's young-vocabulary population is real code, so the prior-art premise's failure is not a population artefact |
 | F038 | Lead 7's mechanism is implementable and the stock-SDK friction is real, but the missing piece is a feature gap, not a candidate |
-| F039 | The need corpus is 1250 individuals, not a sample of shared needs, so its 0-of-50 was never interpretable (D051) |
+| F039 | The need corpus is 1250 individuals with no need-level recurrence detectable inside it, so its 0-of-50 was never interpretable (D051) |
 
 
 **The invariant that makes the split sensible.** A finding is only useful if a
