@@ -125,6 +125,7 @@ _(none recorded)_
 | 40 | 12:08:47 | task_rewrite | rewrote tasks/T-0067-falsify-e022-s-38-5-served-figure-against-a-cont.md (status: done) |
 | 41 | 12:08:47 | task_rewrite | appended a complete record for T-0067 |
 | 42 | 12:12:05 | artifact | wrote ROADMAP.md |
+| 43 | 12:14:31 | milestone | preflight green except one pre-existing condition: VM 0947's session 054 left T-0060 claimed with an expired lease; its work already landed as F034/01 |
 
 ## Reproduce this record
 
