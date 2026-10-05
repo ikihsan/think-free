@@ -1,0 +1,189 @@
+{
+ "A1_drift": {
+  "reason": "no attributable pair survived A5; see A1's ceiling below",
+  "status": "not_run"
+ },
+ "A2_no_drift_control": {
+  "checked": 31,
+  "rate": 0.0,
+  "self_reported_drift": []
+ },
+ "A3_instrument_falsification": {
+  "detected": true,
+  "note": "comparator must report a difference between the planted and original copy",
+  "planted": "disler/claude-code-hooks-mastery"
+ },
+ "A4_version_record": {
+  "absent": 14,
+  "recorded": 17,
+  "recorded_repos": [
+   "FlorianBruniaux/claude-code-ultimate-guide",
+   "disler/claude-code-hooks-multi-agent-observability",
+   "shanraisshan/claude-code-hooks",
+   "fcakyon/claude-codex-settings",
+   "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+   "parcadei/Continuous-Claude-v3",
+   "mksglu/context-mode",
+   "entireio/cli",
+   "matt1398/claude-devtools",
+   "centminmod/my-claude-code-setup",
+   "hoangsonww/Claude-Code-Agent-Monitor",
+   "shanraisshan/claude-code-best-practice",
+   "alirezarezvani/claude-skills",
+   "thedotmack/claude-mem",
+   "pedrohcgs/claude-code-my-workflow",
+   "disler/pi-vs-claude-code",
+   "krusemediallc/arcads-claude-code"
+  ],
+  "undecidable": 0
+ },
+ "A5_structural_attribution": {
+  "attributable_by_structure": 0,
+  "largest_cluster": [],
+  "n_clusters": 31,
+  "n_multi_member_clusters": 0,
+  "parsed": 31,
+  "unparseable": []
+ },
+ "A6_field_validity": {
+  "key_counts": {
+   "$schema": 9,
+   "advisorModel": 1,
+   "alwaysThinkingEnabled": 1,
+   "attribution": 2,
+   "autoDreamEnabled": 1,
+   "autoMode": 1,
+   "autoScrollEnabled": 1,
+   "autoUpdatesChannel": 1,
+   "cleanupPeriodDays": 2,
+   "description": 2,
+   "disableAllHooks": 2,
+   "effortLevel": 1,
+   "enableAllProjectMcpServers": 1,
+   "enableWorkflows": 1,
+   "enabledPlugins": 4,
+   "env": 7,
+   "extraKnownMarketplaces": 4,
+   "hooks": 21,
+   "includeCoAuthoredBy": 1,
+   "model": 2,
+   "outputStyle": 2,
+   "permissions": 14,
+   "plansDirectory": 2,
+   "respectGitignore": 1,
+   "sandbox": 1,
+   "showClearContextOnPlanAccept": 1,
+   "showThinkingSummaries": 1,
+   "skillListingBudgetFraction": 1,
+   "spinnerTipsEnabled": 2,
+   "spinnerTipsOverride": 1,
+   "spinnerVerbs": 1,
+   "statusLine": 8,
+   "teammateMode": 1,
+   "ultracode": 1
+  },
+  "n_parsed": 31,
+  "repos_with_uncorroborated_fields": {
+   "ChrisWiles/claude-code-showcase": [
+    "env",
+    "includeCoAuthoredBy"
+   ],
+   "FragmentedPacket/test-claude-settings-repo": [
+    "extraKnownMarketplaces"
+   ],
+   "alirezarezvani/claude-skills": [
+    "enabledPlugins",
+    "extraKnownMarketplaces"
+   ],
+   "centminmod/my-claude-code-setup": [
+    "cleanupPeriodDays",
+    "model"
+   ],
+   "disler/claude-code-hooks-multi-agent-observability": [
+    "env",
+    "teammateMode"
+   ],
+   "entireio/cli": [
+    "enabledPlugins",
+    "extraKnownMarketplaces"
+   ],
+   "fcakyon/claude-codex-settings": [
+    "advisorModel",
+    "alwaysThinkingEnabled",
+    "attribution",
+    "autoDreamEnabled",
+    "autoMode",
+    "autoScrollEnabled",
+    "autoUpdatesChannel",
+    "cleanupPeriodDays",
+    "effortLevel",
+    "enableWorkflows",
+    "enabledPlugins",
+    "env",
+    "extraKnownMarketplaces",
+    "model",
+    "outputStyle",
+    "showClearContextOnPlanAccept",
+    "showThinkingSummaries",
+    "skillListingBudgetFraction",
+    "spinnerTipsEnabled",
+    "ultracode"
+   ],
+   "hoangsonww/Claude-Code-Agent-Monitor": [
+    "sandbox"
+   ],
+   "laboqaba935-jpg/super": [
+    "enabledPlugins"
+   ],
+   "pedrohcgs/claude-code-my-workflow": [
+    "plansDirectory"
+   ],
+   "shanraisshan/claude-code-best-practice": [
+    "attribution",
+    "disableAllHooks",
+    "enableAllProjectMcpServers",
+    "env",
+    "outputStyle",
+    "plansDirectory",
+    "respectGitignore",
+    "spinnerTipsEnabled",
+    "spinnerTipsOverride",
+    "spinnerVerbs"
+   ],
+   "shanraisshan/claude-code-hooks": [
+    "disableAllHooks"
+   ],
+   "shdsjh123-cpu/claude-code-blog-builder": [
+    "description"
+   ],
+   "shintaro-sprech/agent-orchestrator-template": [
+    "description",
+    "env"
+   ],
+   "thedotmack/claude-mem": [
+    "env"
+   ],
+   "ursisterbtw/ccprompts": [
+    "env"
+   ]
+  }
+ },
+ "declared_at": "2026-10-05",
+ "experiment": "020-copied-config-drift",
+ "population": {
+  "considered": 175,
+  "in_population": 31,
+  "search_state_per_term": {
+   ".claude settings.json": "PRESENT",
+   "claude code agents": "PRESENT",
+   "claude code hooks": "PRESENT",
+   "claude code skills": "PRESENT",
+   "claude code subagents": "PRESENT"
+  },
+  "settings_state": {
+   "ABSENT": 144,
+   "PRESENT": 31,
+   "UNDECIDABLE": 0
+  }
+ }
+}

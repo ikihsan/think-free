@@ -1,0 +1,346 @@
+==============================================================================
+[seq 5] 2026-10-05T02:28:30+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/population.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+considered 175 repos -> /home/ubuntu/think-free/EXPERIMENTS/019-copied-config-drift/raw/population.json
+settings.json state: {'PRESENT': 31, 'ABSENT': 144}
+
+
+[stderr]
+search claude code hooks            -> PRESENT (40 repos)
+search claude code subagents        -> PRESENT (40 repos)
+search .claude settings.json        -> PRESENT (40 repos)
+search claude code agents           -> PRESENT (40 repos)
+search claude code skills           -> PRESENT (40 repos)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 242661  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T02:29:14+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/bodies.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/019-copied-config-drift/bodies.py", line 15, in <module>
+    from population import RAW, fetch, UNDECIDABLE  # noqa: E402
+ImportError: cannot import name 'UNDECIDABLE' from 'population' (/home/ubuntu/think-free/EXPERIMENTS/019-copied-config-drift/population.py)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 618  redactions: none
+==============================================================================
+[seq 7] 2026-10-05T02:30:10+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/bodies.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+fetched bodies for 31 repos
+
+
+[stderr]
+disler/claude-code-hooks-mastery                     settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+diet103/claude-code-infrastructure-showcase          settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+ChrisWiles/claude-code-showcase                      settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+FlorianBruniaux/claude-code-ultimate-guide           settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+disler/claude-code-hooks-multi-agent-observability   settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+shanraisshan/claude-code-hooks                       settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+fcakyon/claude-codex-settings                        settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+carlrannaberg/claudekit                              settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+wesammustafa/Claude-Code-Everything-You-Need-to-Know settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+parcadei/Continuous-Claude-v3                        settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+mksglu/context-mode                                  settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+coleam00/claude-memory-compiler                      settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+entireio/cli                                         settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+s0ld13rr/claude-code-backdoor                        settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+matt1398/claude-devtools                             settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+centminmod/my-claude-code-setup                      settings.json=PRESENT README.md=PRESENT settings.local.json=PRESENT
+theaiautomators/claude-code-agentic-rag-masterclass  settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+hoangsonww/Claude-Code-Agent-Monitor                 settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+shdsjh123-cpu/claude-code-blog-builder               settings.json=PRESENT README.md=PRESENT settings.local.json=PRESENT
+ursisterbtw/ccprompts                                settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+shintaro-sprech/agent-orchestrator-template          settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+laboqaba935-jpg/super                                settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+adriancooney/claude-code-configurator                settings.json=PRESENT README.md=PRESENT settings.local.json=PRESENT
+FragmentedPacket/test-claude-settings-repo           settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+shanraisshan/claude-code-best-practice               settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+Donchitos/Claude-Code-Game-Studios                   settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+alirezarezvani/claude-skills                         settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+thedotmack/claude-mem                                settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+pedrohcgs/claude-code-my-workflow                    settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+disler/pi-vs-claude-code                             settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+krusemediallc/arcads-claude-code                     settings.json=PRESENT README.md=PRESENT settings.local.json=ABSENT
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 47659  redactions: none
+==============================================================================
+[seq 10] 2026-10-05T02:31:56+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/analyse.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "A1_drift": {
+  "reason": "no attributable pair survived A5; see A1's ceiling below",
+  "status": "not_run"
+ },
+ "A2_no_drift_control": {
+  "checked": 31,
+  "rate": 0.0,
+  "self_reported_drift": []
+ },
+ "A3_instrument_falsification": {
+  "detected": true,
+  "note": "comparator must report a difference between the planted and original copy",
+  "planted": "disler/claude-code-hooks-mastery"
+ },
+ "A4_version_record": {
+  "absent": 14,
+  "recorded": 17,
+  "recorded_repos": [
+   "FlorianBruniaux/claude-code-ultimate-guide",
+   "disler/claude-code-hooks-multi-agent-observability",
+   "shanraisshan/claude-code-hooks",
+   "fcakyon/claude-codex-settings",
+   "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+   "parcadei/Continuous-Claude-v3",
+   "mksglu/context-mode",
+   "entireio/cli",
+   "matt1398/claude-devtools",
+   "centminmod/my-claude-code-setup",
+   "hoangsonww/Claude-Code-Agent-Monitor",
+   "shanraisshan/claude-code-best-practice",
+   "alirezarezvani/claude-skills",
+   "thedotmack/claude-mem",
+   "pedrohcgs/claude-code-my-workflow",
+   "disler/pi-vs-claude-code",
+   "krusemediallc/arcads-claude-code"
+  ],
+  "undecidable": 0
+ },
+ "A5_structural_attribution": {
+  "attributable_by_structure": 0,
+  "largest_cluster": [],
+  "n_clusters": 31,
+  "n_multi_member_clusters": 0,
+  "parsed": 31,
+  "unparseable": []
+ },
+ "A6_field_validity": {
+  "key_counts": {
+   "$schema": 9,
+   "advisorModel": 1,
+   "alwaysThinkingEnabled": 1,
+   "attribution": 2,
+   "autoDreamEnabled": 1,
+   "autoMode": 1,
+   "autoScrollEnabled": 1,
+   "autoUpdatesChannel": 1,
+   "cleanupPeriodDays": 2,
+   "description": 2,
+   "disableAllHooks": 2,
+   "effortLevel": 1,
+   "enableAllProjectMcpServers": 1,
+   "enableWorkflows": 1,
+   "enabledPlugins": 4,
+   "env": 7,
+   "extraKnownMarketplaces": 4,
+   "hooks": 21,
+   "includeCoAuthoredBy": 1,
+   "model": 2,
+   "outputStyle": 2,
+   "permissions": 14,
+   "plansDirectory": 2,
+   "respectGitignore": 1,
+   "sandbox": 1,
+   "showClearContextOnPlanAccept": 1,
+   "showThinkingSummaries": 1,
+   "skillListingBudgetFraction": 1,
+   "spinnerTipsEnabled": 2,
+   "spinnerTipsOverride": 1,
+   "spinnerVerbs": 1,
+   "statusLine": 8,
+   "teammateMode": 1,
+   "ultracode": 1
+  },
+  "n_parsed": 31,
+  "repos_with_uncorroborated_fields": {
+   "ChrisWiles/claude-code-showcase": [
+    "env",
+    "includeCoAuthoredBy"
+   ],
+   "FragmentedPacket/test-claude-settings-repo": [
+    "extraKnownMarketplaces"
+   ],
+   "alirezarezvani/claude-skills": [
+    "enabledPlugins",
+    "extraKnownMarketplaces"
+   ],
+   "centminmod/my-claude-code-setup": [
+    "cleanupPeriodDays",
+    "model"
+   ],
+   "disler/claude-code-hooks-multi-agent-observability": [
+    "env",
+    "teammateMode"
+   ],
+   "entireio/cli": [
+    "enabledPlugins",
+    "extraKnownMarketplaces"
+   ],
+   "fcakyon/claude-codex-settings": [
+    "advisorModel",
+    "alwaysThinkingEnabled",
+    "attribution",
+    "autoDreamEnabled",
+    "autoMode",
+    "autoScrollEnabled",
+    "autoUpdatesChannel",
+    "cleanupPe
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 301  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T02:35:16+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/surface.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+surface signatures (n=31):
+  26  settings
+   1  agents, hooks, settings, skills
+   1  settings, skills
+   1  agents, settings
+   1  hooks, settings, skills
+   1  commands, settings
+
+
+[stderr]
+disler/claude-code-hooks-mastery                     agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+diet103/claude-code-infrastructure-showcase          agents=P agents_alt=A commands=A hooks=P settings=P skills=P
+ChrisWiles/claude-code-showcase                      agents=A agents_alt=A commands=A hooks=A settings=P skills=P
+FlorianBruniaux/claude-code-ultimate-guide           agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+disler/claude-code-hooks-multi-agent-observability   agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+shanraisshan/claude-code-hooks                       agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+fcakyon/claude-codex-settings                        agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+carlrannaberg/claudekit                              agents=P agents_alt=A commands=A hooks=A settings=P skills=A
+wesammustafa/Claude-Code-Everything-You-Need-to-Know agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+parcadei/Continuous-Claude-v3                        agents=A agents_alt=A commands=A hooks=P settings=P skills=P
+mksglu/context-mode                                  agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+coleam00/claude-memory-compiler                      agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+entireio/cli                                         agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+s0ld13rr/claude-code-backdoor                        agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+matt1398/claude-devtools                             agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+centminmod/my-claude-code-setup                      agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+theaiautomators/claude-code-agentic-rag-masterclass  agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+hoangsonww/Claude-Code-Agent-Monitor                 agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+shdsjh123-cpu/claude-code-blog-builder               agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+ursisterbtw/ccprompts                                agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+shintaro-sprech/agent-orchestrator-template          agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+laboqaba935-jpg/super                                agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+adriancooney/claude-code-configurator                agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+FragmentedPacket/test-claude-settings-repo           agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+shanraisshan/claude-code-best-practice               agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+Donchitos/Claude-Code-Game-Studios                   agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+alirezarezvani/claude-skills                         agents=A agents_alt=A commands=P hooks=A settings=P skills=A
+thedotmack/claude-mem                                agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+pedrohcgs/claude-code-my-workflow                    agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+disler/pi-vs-claude-code                             agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+krusemediallc/arcads-claude-code                     agents=A agents_alt=A commands=A hooks=A settings=P skills=A
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106060  redactions: none
+==============================================================================
+[seq 12] 2026-10-05T02:35:56+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/validate_probe.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+checked 8 repos against the contents API: 8 disagreements
+
+
+[stderr]
+ursisterbtw/ccprompts                          dirs=agents,commands,workflows      probe_missed=['agents', 'commands', 'workflows']
+alirezarezvani/claude-skills                   dirs=claudex,commands               probe_missed=['claudex']
+laboqaba935-jpg/super                          dirs=-                              probe_missed=[]
+FragmentedPacket/test-claude-settings-repo     dirs=-                              probe_missed=[]
+Donchitos/Claude-Code-Game-Studios             dirs=agents,docs,hooks,rules,scripts,skills probe_missed=['agents', 'docs', 'hooks', 'rules', 'scripts', 'skills']
+disler/pi-vs-claude-code                       dirs=commands,status_lines          probe_missed=['commands', 'status_lines']
+pedrohcgs/claude-code-my-workflow              dirs=agents,hooks,output-styles,references,rules,scripts,skills probe_missed=['agents', 'hooks', 'output-styles', 'references', 'rules', 'scripts', 'skills']
+shintaro-sprech/agent-orchestrator-template    dirs=agents,commands,skills         probe_missed=['agents', 'commands', 'skills']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10768  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T02:39:18+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/trees.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+state: {'PRESENT': 31}
+repos with a populated .claude/: 26
+
+
+[stderr]
+disler/claude-code-hooks-mastery               .claude files=83    bytes=269999
+diet103/claude-code-infrastructure-showcase    .claude files=88    bytes=703559
+ChrisWiles/claude-code-showcase                .claude files=22    bytes=88293
+FlorianBruniaux/claude-code-ultimate-guide     .claude files=48    bytes=215506
+disler/claude-code-hooks-multi-agent-observability .claude files=75    bytes=331253
+shanraisshan/claude-code-hooks                 .claude files=85    bytes=7032482
+fcakyon/claude-codex-settings                  .claude files=7     bytes=60428
+carlrannaberg/claudekit                        .claude files=16    bytes=171667
+wesammustafa/Claude-Code-Everything-You-Need-to-Know .claude files=21    bytes=101247
+parcadei/Continuous-Claude-v3                  .claude files=717   bytes=4202432
+mksglu/context-mode                            .claude files=10    bytes=98753
+coleam00/claude-memory-compiler                .claude files=1     bytes=735
+entireio/cli                                   .claude files=34    bytes=109413
+s0ld13rr/claude-code-backdoor                  .claude files=1     bytes=212
+matt1398/claude-devtools                       .claude files=11    bytes=73833
+centminmod/my-claude-code-setup                .claude files=112   bytes=2905204
+theaiautomators/claude-code-agentic-rag-masterclass .claude files=3     bytes=1932
+hoangsonww/Claude-Code-Agent-Monitor           .claude files=37    bytes=129685
+shdsjh123-cpu/claude-code-blog-builder         .claude files=15    bytes=31893
+ursisterbtw/ccprompts                          .claude files=89    bytes=941829
+shintaro-sprech/agent-orchestrator-template    .claude files=10    bytes=31451
+laboqaba935-jpg/super                          .claude files=1     bytes=79
+adriancooney/claude-code-configurator          .claude files=3     bytes=11009
+FragmentedPacket/test-claude-settings-repo     .claude files=1     bytes=190
+shanraisshan/claude-code-best-practice         .claude files=113   bytes=7235805
+Donchitos/Claude-Code-Game-Studios             .claude files=284   bytes=3258851
+alirezarezvani/claude-skills                   .claude files=13    bytes=31686
+thedotmack/claude-mem                          .claude files=4     bytes=35606
+pedrohcgs/claude-code-my-workflow              .claude files=163   bytes=1392006
+disler/pi-vs-claude-code                       .claude files=4     bytes=16404
+krusemediallc/arcads-claude-code               .claude files=1     bytes=258
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 166631  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T02:39:46+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/a5_structural.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+repos 31 (populated 26), file instances 2072, distinct hashes 1950
+hashes shared by 2+ repos: 92 (4.7% of distinct)
+widest shared file held by 3 repos: ['disler/claude-code-hooks-mastery', 'disler/claude-code-hooks-multi-agent-observability', 'wesammustafa/Claude-Code-Everything-You-Need-to-Know']
+
+top bundles (share of one repo's .claude/ matching ONE other repo):
+  shanraisshan/claude-code-hooks                 99% <- shanraisshan/claude-code-best-practice
+  shanraisshan/claude-code-best-practice         96% <- shanraisshan/claude-code-hooks
+  disler/claude-code-hooks-mastery               16% <- disler/claude-code-hooks-multi-agent-observability
+  disler/claude-code-hooks-multi-agent-observabi 13% <- disler/claude-code-hooks-mastery
+  wesammustafa/Claude-Code-Everything-You-Need-t 7% <- disler/claude-code-hooks-mastery
+
+repos whose .claude/ is >=50% one other repo: 2; >=80%: 2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 163  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T02:45:43+00:00
+$ python3 EXPERIMENTS/019-copied-config-drift/control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+control: 150 repos, states {'ABSENT': 149, 'PRESENT': 1}, .claude/ containment 0.0067
+
+
+[stderr]
+control search flask todo app             -> PRESENT (30)
+control search rust cli argument parser   -> PRESENT (30)
+control search python csv toolkit         -> PRESENT (30)
+control search docker compose nginx       -> PRESENT (30)
+control search react form library         -> PRESENT (30)
+open-circle/formisch                           .claude files=0 bytes=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 299035  redactions: none

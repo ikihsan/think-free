@@ -1,0 +1,197 @@
+{
+ "checked": [
+  "ursisterbtw/ccprompts",
+  "alirezarezvani/claude-skills",
+  "laboqaba935-jpg/super",
+  "FragmentedPacket/test-claude-settings-repo",
+  "Donchitos/Claude-Code-Game-Studios",
+  "disler/pi-vs-claude-code",
+  "pedrohcgs/claude-code-my-workflow",
+  "shintaro-sprech/agent-orchestrator-template"
+ ],
+ "n_disagree": 8,
+ "note": "probe claims a directory exists only if its marker file returned 200",
+ "rows": {
+  "Donchitos/Claude-Code-Game-Studios": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "agents",
+    "docs",
+    "hooks",
+    "rules",
+    "scripts",
+    "skills"
+   ],
+   "listing": [
+    "agents",
+    "docs",
+    "hooks",
+    "rules",
+    "scripts",
+    "settings.json",
+    "skills",
+    "statusline.sh"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "agents",
+    "docs",
+    "hooks",
+    "rules",
+    "scripts",
+    "skills"
+   ]
+  },
+  "FragmentedPacket/test-claude-settings-repo": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [],
+   "listing": [
+    "settings.json"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": []
+  },
+  "alirezarezvani/claude-skills": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "claudex",
+    "commands"
+   ],
+   "listing": [
+    "claudex",
+    "commands",
+    "settings.json"
+   ],
+   "probe_claimed": [
+    "commands",
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "claudex"
+   ]
+  },
+  "disler/pi-vs-claude-code": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "commands",
+    "status_lines"
+   ],
+   "listing": [
+    "commands",
+    "settings.json",
+    "status_lines"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "commands",
+    "status_lines"
+   ]
+  },
+  "laboqaba935-jpg/super": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [],
+   "listing": [
+    "settings.json"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": []
+  },
+  "pedrohcgs/claude-code-my-workflow": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "agents",
+    "hooks",
+    "output-styles",
+    "references",
+    "rules",
+    "scripts",
+    "skills"
+   ],
+   "listing": [
+    "WORKFLOW_QUICK_REF.md",
+    "agents",
+    "hooks",
+    "output-styles",
+    "references",
+    "rules",
+    "scripts",
+    "settings.json",
+    "skills"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "agents",
+    "hooks",
+    "output-styles",
+    "references",
+    "rules",
+    "scripts",
+    "skills"
+   ]
+  },
+  "shintaro-sprech/agent-orchestrator-template": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "agents",
+    "commands",
+    "skills"
+   ],
+   "listing": [
+    "agents",
+    "commands",
+    "settings.json",
+    "skills"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "agents",
+    "commands",
+    "skills"
+   ]
+  },
+  "ursisterbtw/ccprompts": {
+   "agrees": false,
+   "api_state": "PRESENT",
+   "dirs": [
+    "agents",
+    "commands",
+    "workflows"
+   ],
+   "listing": [
+    "README.md",
+    "agents",
+    "command-registry-cache.json",
+    "commands",
+    "settings.json",
+    "workflows"
+   ],
+   "probe_claimed": [
+    "settings"
+   ],
+   "probe_missed_a_dir": [
+    "agents",
+    "commands",
+    "workflows"
+   ]
+  }
+ }
+}
