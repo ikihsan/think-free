@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-103 recorded session(s). One `events.jsonl` per session, so concurrent
+104 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 78 older session(s) are in the directory listing.
+Showing the 25 most recent. 79 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | **unfinished** | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T02:44 |
 | [2026-10-05-003-declare-e019-s-raw-captures-and-land-the](2026-10-05-003-declare-e019-s-raw-captures-and-land-the/README.md) | unknown-agent | worked | Declare E019's raw captures and land the corrected F039 index row | 2026-10-05T02:31 |
 | [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | worked | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T02:30 |
 | [2026-10-05-001-answer-e016-lead-7-s-mechanism-question](2026-10-05-001-answer-e016-lead-7-s-mechanism-question/README.md) | unknown-agent | worked | Answer E016 lead 7's mechanism question with a prototype and OTel grou | 2026-10-05T01:19 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 78 older session(s) are in the directory listing.
 | [2026-10-04-038-record-a-base-advance-when-a-paused-reba](2026-10-04-038-record-a-base-advance-when-a-paused-reba/README.md) | unknown-agent | worked | Record a base_advance when a paused rebase is completed by hand (T-005 | 2026-10-04T14:53 |
 | [2026-10-04-037-record-that-a-taskless-session-publishin](2026-10-04-037-record-that-a-taskless-session-publishin/README.md) | unknown-agent | worked | Record that a taskless session publishing a code commit is red on its  | 2026-10-04T14:01 |
 | [2026-10-04-036-report-a-row-a-document-s-own-table-alre](2026-10-04-036-report-a-row-a-document-s-own-table-alre/README.md) | opencode | worked | report a row a document's own table already contains, so a merge that  | 2026-10-04T13:42 |
-| [2026-10-04-036-record-the-measured-ci-state-on-the-tip](2026-10-04-036-record-the-measured-ci-state-on-the-tip/README.md) | unknown-agent | worked | Record the measured CI state on the tip and T-0050's one red run, from | 2026-10-04T13:53 |
 
 
 ## Reading a session

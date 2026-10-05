@@ -139,6 +139,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md`](../tasks/T-0061-test-whether-a-prior-art-screen-s-population-in.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md`](../tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md) | `tasks/INDEX.md` | active | 2026-10-04 | ## Goal |
 | [`tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md`](../tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md`](../tasks/T-0064-measure-whether-the-young-vocabulary-s-artifacts.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 
