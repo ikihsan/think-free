@@ -99,6 +99,7 @@ _(none recorded)_
 | 26 | 00:06:23 | base_advance | rebase completed outside land: base moved 5ffe28ec8d15 -> 44fa38c1b100, 6 commit(s) arrived from the shared base |
 | 27 | 00:08:26 | base_advance | sync land: base moved 33749cb3b389 -> 4bde980af369, 2 commit(s) arrived from the shared base |
 | 28 | 00:08:41 | artifact | wrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md |
+| 29 | 00:08:59 | task_rewrite | rewrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md (status: claimed) |
 
 ## Reproduce this record
 
