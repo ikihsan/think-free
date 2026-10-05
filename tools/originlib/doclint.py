@@ -116,6 +116,14 @@ def is_data_suffix(rel: str) -> bool:
     return Path(rel).suffix in DATA_SUFFIXES
 
 
+GENERATED_REPORT = re.compile(r"^sessions/[^/]+/README\.md$")
+
+
+def is_generated_report(rel: str) -> bool:
+    """A session report: exempt from the cap, length only. Rule in doc-standards."""
+    return bool(GENERATED_REPORT.match(rel))
+
+
 def is_declared_exempt(rel: str, globs: list[str]) -> bool:
     """Paths someone declared as covered by a stronger check than the cap's.
 
@@ -147,7 +155,7 @@ def check_line_cap(result: Result, files: list[Path], globs: list[str]) -> None:
             count = len(path.read_text(encoding="utf-8", errors="replace").splitlines())
         except OSError:
             continue
-        if is_exempt(rel, globs):
+        if is_exempt(rel, globs) or is_generated_report(rel):
             if count > MAX_LINES:
                 result.infos.append(f"{rel}: {count} lines (exempt from cap)")
             continue

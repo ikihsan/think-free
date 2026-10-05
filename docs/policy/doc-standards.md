@@ -27,10 +27,22 @@ Two exemptions, and only two:
 | Exempt | Where it is declared |
 |---|---|
 | Vendored third-party content, kept byte-identical to upstream | `vendor/MANIFEST.md`, by name |
-| Append-only logs and machine-generated raw results | Marked in `docs/policy/logging-standard.md` |
+| Append-only logs, machine-generated raw results, and **generated session reports** | Marked in `docs/policy/logging-standard.md`; session reports by the pattern `sessions/*/README.md` |
 
 Exempt files are **still reported** by lint as `info` lines with their line
 counts. Exemption means "not a failure", never "invisible".
+
+**A session report is exempt for the same reason a command log is.** Its length
+is a function of the session's work, not of prose anyone maintains:
+`session artifact --dir` over a raw-capture directory writes one artifact event
+per file, so a session that sweeps 121 captures gets a 211-line artifact table
+inside a document whose prose did not grow at all. T-0065 hit exactly that, and
+the file it blocked was the record of a real finding. The exemption covers the
+**length only**: a report still has to carry `origin-meta` and is still
+link-checked, so editing one to make it shorter is still the wrong repair.
+`tests/test_doclint_generated_reports.py` asserts that the cap still fires on a
+hand-authored document of the same length, because a length exemption that
+ignores the author would stop being a statement about generated tables.
 
 ### 2. Split at 250 lines, not at 300
 

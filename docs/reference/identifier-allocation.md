@@ -84,6 +84,27 @@ Renumbering is still a manual act on the side that has not been pushed, and it
 is still recorded where the next reader looks. See
 [`../process/multi-vm-coordination.md`](../process/multi-vm-coordination.md).
 
+## The 2026-10-05 collision, and what it did to the session record
+
+Both VMs allocated **T-0064** and both called their experiment **E019** within 23
+minutes of each other, while working the same question by different routes. The
+unpushed side (VM 0947) renumbered to **T-0065** and
+`EXPERIMENTS/020-copied-config-drift`; the ledger kept both lines, because it is a
+sequence of events.
+
+**A consequence worth knowing before it happens again: renumbering a directory
+invalidates the session's own artifact declarations.** The artifacts were declared
+under the pre-renumber names, so that session's reconciliation reports **121
+integrity errors** naming `EXPERIMENTS/019-copied-config-drift/…` for files that
+exist and are declared under their current paths. Nothing is missing. The session
+was already closed when this was discovered, so the note could not be appended to
+the event stream, and it is recorded here instead — which is the same rule this
+file exists to enforce.
+
+**Declare the post-renumber paths, not the pre-renumber ones**, and re-run
+`session artifact --dir <new path>` after a directory rename rather than trusting
+the declarations made before it.
+
 ## What this does not do
 
 - It does not reserve a number. Nothing here stops a VM holding a number it has
