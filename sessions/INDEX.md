@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-119 recorded session(s). One `events.jsonl` per session, so concurrent
+120 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 94 older session(s) are in the directory listing.
+Showing the 25 most recent. 95 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-020-e030-test-whether-departure-accounts-peo](2026-10-05-020-e030-test-whether-departure-accounts-peo/README.md) | unknown-agent | **unfinished** | E030: test whether departure accounts (people publicly leaving a tool) | 2026-10-05T22:03 |
 | [2026-10-05-019-measure-whether-the-278-need-staters-who](2026-10-05-019-measure-whether-the-278-need-staters-who/README.md) | opencode | partial | Measure whether the 278 need-staters who shipped something shipped the | 2026-10-05T21:56 |
 | [2026-10-05-018-declare-the-raw-captures-and-files-sessi](2026-10-05-018-declare-the-raw-captures-and-files-sessi/README.md) | unknown-agent | worked | Declare the raw captures and files session 017 left undeclared in its  | 2026-10-05T20:03 |
 | [2026-10-05-017-e028-test-whether-the-incumbents-a-prior](2026-10-05-017-e028-test-whether-the-incumbents-a-prior/README.md) | unknown-agent | worked | E028: test whether the incumbents a prior-art screen named do what eac | 2026-10-05T20:02 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 94 older session(s) are in the directory listing.
 | [2026-10-04-055-build-the-repository-signal-recurrence-f](2026-10-04-055-build-the-repository-signal-recurrence-f/README.md) | unknown-agent | worked | Build the repository-signal recurrence filter and test the strongest r | 2026-10-04T22:01 |
 | [2026-10-04-054-test-whether-prior-art-exists-means-the](2026-10-04-054-test-whether-prior-art-exists-means-the/README.md) | unknown-agent | abandoned | Test whether 'prior art exists' means 'the need is served', using incu | 2026-10-05T17:48 |
 | [2026-10-04-053-classify-the-three-findings-files-releas](2026-10-04-053-classify-the-three-findings-files-releas/README.md) | unknown-agent | worked | Classify the three findings files release check named, and confirm pre | 2026-10-04T21:13 |
-| [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | worked | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:10 |
 
 
 ## Reading a session
