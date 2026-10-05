@@ -1,0 +1,164 @@
+{
+ "control_question": "Reading each item's primary evidence rather than a cause column, does the rule recover E016's three no_prior_art_found verdicts without producing false positives on the nine it called served?",
+ "excluded": {
+  "unadjudicable_for_clause_served_for_reason": "E016 excluded item 0 itself for the same reason this experiment excludes it: the clause asks about a different thing than F029's reason asked about."
+ },
+ "known_false_positives": "The three named items are 7 (runtime-instrumentation), 12 (hn-tagging) and 16 (word-game). They were known to this reader before the rule was applied -- see the disclosure in CONTROL.md.",
+ "limit": "Agreement with E016 is not correctness. E016's arm-2 gate landed exactly on its threshold with one row deciding it, and F035 records that item 16 reverses under a stricter reading.",
+ "pass_condition": "Declared in CONTROL.md: the rule is free to score worse than 9 of 12. Passing means recovering the three known gaps, not matching the reference exactly.",
+ "population": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+ "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+ "rows": [
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "github"
+   ],
+   "id": "5",
+   "name": "agent-memory",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "unrecorded",
+   "corpora_with_deciding_text": [],
+   "id": "7",
+   "name": "runtime-instrumentation",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "no_prior_art_found",
+   "truth_is_prior_art": false
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "unrecorded",
+   "corpora_with_deciding_text": [],
+   "id": "12",
+   "name": "hn-tagging",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "no_prior_art_found",
+   "truth_is_prior_art": false
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "github"
+   ],
+   "id": "14",
+   "name": "atproto-pds",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "unrecorded",
+   "corpora_with_deciding_text": [],
+   "id": "16",
+   "name": "word-game",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "no_prior_art_found",
+   "truth_is_prior_art": false
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "github"
+   ],
+   "id": "26",
+   "name": "scraper-trap",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "openweb"
+   ],
+   "id": "34",
+   "name": "url-popularity",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "openweb"
+   ],
+   "id": "35",
+   "name": "cpp-subset-linter",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "openweb"
+   ],
+   "id": "40",
+   "name": "interest-field",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "contested_counted_as_served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "openweb"
+   ],
+   "id": "42",
+   "name": "selective-stage",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "github"
+   ],
+   "id": "45",
+   "name": "model-changelog",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  },
+  {
+   "assigned_by": "mechanical -- served=True with a deciding text is prior art; all three corpora False with no deciding text is not. No judgement was applied.",
+   "category": "prior_art",
+   "corpora_with_deciding_text": [
+    "github"
+   ],
+   "id": "49",
+   "name": "gdrive-disk-usage",
+   "population_note": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+   "source": "EXPERIMENTS/016-prior-art-adjudication/raw/attributions.jsonl",
+   "truth": "served",
+   "truth_is_prior_art": true
+  }
+ ],
+ "schema": "origin.kill-reason-control/1"
+}

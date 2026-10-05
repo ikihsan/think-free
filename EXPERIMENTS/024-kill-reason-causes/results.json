@@ -1,0 +1,82 @@
+{
+ "control": {
+  "baseline_always_prior_art": 9,
+  "correct": 12,
+  "false_negatives": [],
+  "false_positives": [],
+  "note_on_baseline": "A rule that read F029's cause column and nothing else would label all 12 prior_art and score 9 of 12 -- three false positives, the exact error F035 documented. The control's discriminating cases are those three.",
+  "population": "E016's per-item prior-art verdicts: 13 adjudicable judgement kills of F029's, each with the deciding text recorded. A different instrument at a different time from the treatment population, and with known errors in the reference labels.",
+  "reference_no_prior_art": 3,
+  "reference_prior_art": 9,
+  "rows": 12,
+  "rule_prior_art": 9,
+  "verdict": "passes",
+  "verdict_rule": "Passes at no false negatives and at most one false positive: the reference labels contain three known errors, so a rule that reproduced all three would be failing, not succeeding.",
+  "what_this_does_not_establish": "Agreement with E016 is not correctness -- its arm-2 gate landed exactly on its threshold with one row deciding it. And the decisive limit is the one E023 already measured on this mission's labels: one reader, no second coder. This bounds whether the rule tracks an external label set, not whether this reader's judgements on the treatment rows are right."
+ },
+ "experiment": "024-kill-reason-causes",
+ "limits": [
+  "One reader assigned every category and there is no second coder. The deciding sentence is recorded per row so a disagreeing reader can re-derive each category and name the single sentence they disagree about.",
+  "The four categories are the record's own vocabulary, not the world's, and the precedence order is a declared convention that can move a row across the 50% line.",
+  "This is a count over the record as written. It is not a measurement of what exists in the world and nothing here is a novelty claim.",
+  "H1's denominator excludes never_a_candidate rows. Including them would report a smaller prior-art share by adding rows to which no kill reason applies."
+ ],
+ "observed_utc": "2026-10-05",
+ "rule_problems": [],
+ "schema": "origin.kill-reason-causes/1",
+ "sensitivity": {
+  "contested_rows": [
+   "A1",
+   "C2",
+   "D1",
+   "D2",
+   "D5",
+   "C3"
+  ],
+  "eligible": 18,
+  "every_prior_art_row_flips_it_alone": true,
+  "margin_over_the_floor": 0.05555555555555558,
+  "prior_art_n": 10,
+  "reading": "H1 survives, and it survives by exactly one row. Every one of the 10 prior-art rows, moved to any other declared category, puts the share at 9/18 = 0.500 and kills it. A majority gate with a one-row margin is a verdict about the population, not a robust finding about prior art.",
+  "rows_that_flip_the_verdict_alone": [
+   "A2",
+   "A3",
+   "B3",
+   "B4",
+   "C1",
+   "C3",
+   "C4",
+   "D3",
+   "D4",
+   "ORIGIN"
+  ],
+  "share_if_every_contested_prior_art_row_moves": 0.5,
+  "verdict_if_contested_rows_all_move": "killed",
+  "verdict_if_one_row_moves": "killed"
+ },
+ "treatment": {
+  "counts": {
+   "falsified_mechanism": 4,
+   "information_insufficient": 3,
+   "never_a_candidate": 2,
+   "prior_art": 10,
+   "unrecorded": 1
+  },
+  "counts_eligible_only": {
+   "falsified_mechanism": 4,
+   "information_insufficient": 3,
+   "prior_art": 10,
+   "unrecorded": 1
+  },
+  "declared_floor": 0.5,
+  "h1_denominator": 18,
+  "h1_prior_art_share": 0.5555555555555556,
+  "h1_verdict": "survives",
+  "h2_agrees_with_the_stated_twelve": false,
+  "h2_measured_count": 20,
+  "h2_stated_count": 12,
+  "never_a_candidate_excluded": 2,
+  "population": 20,
+  "prior_art_n": 10
+ }
+}

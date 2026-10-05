@@ -1,0 +1,204 @@
+{
+ "schema": "origin.kill-reason-rows/1",
+ "population_rule": "PROTOCOL.md: every row of the RESEARCH/SYNTHESIS.md candidate inventory table, plus tools/origin. Primary source only; summaries are the objects under test.",
+ "precedence": [
+  "never_a_candidate",
+  "unrecorded",
+  "information_insufficient",
+  "falsified_mechanism",
+  "prior_art"
+ ],
+ "reader": "one reader, no second coder -- see limits in results.json and CLASSIFYING.md",
+ "rows": [
+  {
+   "id": "A1",
+   "name": "Decision-directed sidewalk survey",
+   "source": "FAILURES-findings.md",
+   "category": "falsified_mechanism",
+   "deciding_sentence": "F006 - Decision-directed advantage does not transfer to a fieldwork-cost budget",
+   "reason_text": "Its gate failed 6 of 6: the decision-directed policy's regret stayed at 85.2 across every walking-distance budget while the centrality baseline reached 0-16.3. A test of the candidate's own claim was run and the claim failed.",
+   "secondary": [],
+   "secondary_note": "Prior art is recorded in the primary source for this row, and the declared precedence assigns the higher-ranked category. Because prior_art ranks lowest in PROTOCOL.md's order it cannot be carried as a secondary of another category, so the coexistence is stated here in prose instead and the row's category is the single declared answer."
+  },
+  {
+   "id": "A2",
+   "name": "Appliance diagnosis by information gain",
+   "source": "RESEARCH/A.md",
+   "category": "prior_art",
+   "deciding_sentence": "Not advanced: this is old decision-theoretic troubleshooting.",
+   "reason_text": "The report declines on the existence of the underlying method, naming no new artifact and running no test.",
+   "secondary": []
+  },
+  {
+   "id": "A3",
+   "name": "Household critical-load optimisation",
+   "source": "RESEARCH/A.md",
+   "category": "prior_art",
+   "deciding_sentence": "Not advanced: REopt already provides open energy sizing, dispatch, outage analysis and critical-load construction.",
+   "reason_text": "Named incumbent, named capabilities, no test run.",
+   "secondary": []
+  },
+  {
+   "id": "B1",
+   "name": "Photo-migration witness",
+   "source": "FAILURES-findings.md",
+   "category": "falsified_mechanism",
+   "deciding_sentence": "F001 - Photo-migration auditor: the motivating example is not evidence",
+   "reason_text": "The motivating example was executed (E001) and did not reproduce the claimed preservation failure. No prior-art verdict is recorded as the kill reason.",
+   "secondary": []
+  },
+  {
+   "id": "B2",
+   "name": "Heat-pump silent-fallback detector",
+   "source": "RESEARCH/SYNTHESIS.md",
+   "category": "unrecorded",
+   "deciding_sentence": null,
+   "reason_text": "RESEARCH/B.md §2 is titled 'Domestic heat pumps: serious pain, crowded and physically constrained' and the SYNTHESIS inventory records it as 'Parked' with no stated kill reason. No primary-source sentence decides it, so this row is reported rather than inferred.",
+   "secondary": [],
+   "sentence_absent_because": "B2 WAS promoted (it is a promoted hypothesis in RESEARCH/B.md section 2) and then neither advanced nor killed with a stated reason. The inventory says only 'Parked'. A category is recorded because the protocol requires one, and unrecorded is the honest answer: there is no deciding sentence to quote, which is itself the finding."
+  },
+  {
+   "id": "B3",
+   "name": "Sewing-projector auto-calibration",
+   "source": "RESEARCH/B.md",
+   "category": "prior_art",
+   "deciding_sentence": "**Decision:** reject “automatic sewing-projector calibration” as this pass’s invention.",
+   "reason_text": "The deciding paragraph names the capability already present: 'Pattern Projector's primary documentation already describes a free open-source PWA, four-corner calibration against a known grid', plus a 'September/October 2026 creator post' describing self-calibration and 'a 2026 beta-app announcement' already proposing camera calibration. The report's own summary line is 'Improvement may be worthwhile upstream, but a material capability gap is not demonstrated' -- the gap is denied because the capability is occupied, not because a test failed.",
+   "secondary": []
+  },
+  {
+   "id": "B4",
+   "name": "Care-handoff discrepancy packet",
+   "source": "RESEARCH/B.md",
+   "category": "prior_art",
+   "deciding_sentence": "These descriptions do not establish clinical effectiveness, but they do defeat a basic novelty claim.",
+   "reason_text": "Two named incumbents with described capability: CareClear 'describes extracting instructions from documents, patient confirmation, conflict flags and appointment questions' and MedSignal 'describes local source-linked clinical facts, contradiction checks and reviewable handoffs'.",
+   "secondary": []
+  },
+  {
+   "id": "C1",
+   "name": "Knitting repair planner",
+   "source": "FAILURES-findings-2.md",
+   "category": "prior_art",
+   "deciding_sentence": "F009 - The knitting planner's algorithmic advantage is prior art, not a gap",
+   "reason_text": "Minimum-cost repair planning is prior art from 2007-2026. Note what is NOT the reason: the local planner passed 9/9 on stage A and was valid; the gate it failed was the prior-art condition.",
+   "secondary": []
+  },
+  {
+   "id": "C2",
+   "name": "Adaptive ventilation measurement selection",
+   "source": "FAILURES-findings.md",
+   "category": "falsified_mechanism",
+   "deciding_sentence": "## F008 — Adaptive ventilation measurement selection: prescribing one intervention beats choosing it",
+   "reason_text": "Its own simulation was run against a prescribed door-open protocol at equal budget and lost: 0.833 against 0.792. The candidate's claim -- that choosing the next informative observation beats a fixed protocol -- was tested and refuted.",
+   "secondary": [],
+   "secondary_note": "Prior art is recorded in the primary source for this row, and the declared precedence assigns the higher-ranked category. Because prior_art ranks lowest in PROTOCOL.md's order it cannot be carried as a secondary of another category, so the coexistence is stated here in prose instead and the row's category is the single declared answer."
+  },
+  {
+   "id": "C3",
+   "name": "Archaeological fragment reconstruction",
+   "source": "RESEARCH/C.md",
+   "category": "prior_art",
+   "deciding_sentence": "RePAIR and earlier pottery-reassembly research establish substantial prior art.",
+   "reason_text": "Discarded in the cross-discipline exploration table, on named prior art plus a fieldwork-cost objection. No test was run.",
+   "secondary": [
+    "falsified_mechanism"
+   ]
+  },
+  {
+   "id": "C4",
+   "name": "Irregular-remnant nesting",
+   "source": "RESEARCH/C.md",
+   "category": "prior_art",
+   "deciding_sentence": "Generic nesting was discarded: several open-source tools already cover irregular remnants.",
+   "reason_text": "OpenNest 'explicitly supports nonrectangular remnants and holes'; ironnest 'claims deterministic irregular-remnant nesting'. No test was run.",
+   "secondary": []
+  },
+  {
+   "id": "D1",
+   "name": "Universal accessibility certification",
+   "source": "RESEARCH/D.md",
+   "category": "information_insufficient",
+   "deciding_sentence": "Passing structural rules does not establish correct meaning or task success.",
+   "reason_text": "The report's stated objection is to the universal claim's unfalsifiability, and its own falsifier requires 'blind assessment by qualified users' -- an observation this VM cannot make. Prior art (axe-core, ARIA-AT) is recorded but the report states the burden is 'A high differentiation burden', i.e. a gap not demonstrated, which is the same shape as the information_insufficient condition rather than a prior-art verdict.",
+   "secondary": [],
+   "secondary_note": "Prior art is recorded in the primary source for this row, and the declared precedence assigns the higher-ranked category. Because prior_art ranks lowest in PROTOCOL.md's order it cannot be carried as a secondary of another category, so the coexistence is stated here in prose instead and the row's category is the single declared answer."
+  },
+  {
+   "id": "D2",
+   "name": "Appliance disaggregation from aggregate power",
+   "source": "RESEARCH/D.md",
+   "category": "information_insufficient",
+   "deciding_sentence": "The result proves non-identifiability for an unrestricted aggregate-only claim",
+   "reason_text": "An executed witness shows aggregate power is many-to-one: two distinct appliance worlds produce identical meter readings. NILMTK is named as prior art but the report's stated limit is that the observation cannot exist, not that an artifact occupies the space.",
+   "secondary": [],
+   "secondary_note": "Prior art is recorded in the primary source for this row, and the declared precedence assigns the higher-ranked category. Because prior_art ranks lowest in PROTOCOL.md's order it cannot be carried as a secondary of another category, so the coexistence is stated here in prose instead and the row's category is the single declared answer."
+  },
+  {
+   "id": "D3",
+   "name": "Trustworthy maps for underserved places",
+   "source": "RESEARCH/D.md",
+   "category": "prior_art",
+   "deciding_sentence": "“Open-source map annotation plus humans” therefore is not a new mechanism.",
+   "reason_text": "HOT Tasking Manager already organises the work and fAIr shipped in production in 2024. Coordination cost is also named, but the report's stated reason for not nominating a tool is that no unmet mechanism was established against named prior art.",
+   "secondary": []
+  },
+  {
+   "id": "D4",
+   "name": "Capture any computation once, reproduce forever",
+   "source": "RESEARCH/D.md",
+   "category": "prior_art",
+   "deciding_sentence": "A missing capability warrants an upstream patch before assuming a new platform is necessary.",
+   "reason_text": "ReproZip (2013) already traces system calls and captures dependencies; reprotest already varies the environment. The report's recommendation is an upstream patch, which presupposes the space is occupied.",
+   "secondary": []
+  },
+  {
+   "id": "D5",
+   "name": "Universal local-first sync layer",
+   "source": "RESEARCH/D.md",
+   "category": "information_insufficient",
+   "deciding_sentence": "Deterministic convergence is not preservation of every business invariant or of user intent.",
+   "reason_text": "The report's objection is that CRDT convergence does not establish the invariant, with a worked counterexample: two offline actors each reserving capacity beyond a shared limit. CRDT libraries (Automerge, Cambria) are named as prior art, but the deciding claim is that the required property cannot be obtained from the selected mechanism -- an information/necessity argument, not an occupancy verdict.",
+   "secondary": [],
+   "secondary_note": "Prior art is recorded in the primary source for this row, and the declared precedence assigns the higher-ranked category. Because prior_art ranks lowest in PROTOCOL.md's order it cannot be carried as a secondary of another category, so the coexistence is stated here in prose instead and the row's category is the single declared answer."
+  },
+  {
+   "id": "E1",
+   "name": "Retry storms are a synchronisation failure",
+   "source": "RESEARCH/E.md",
+   "category": "never_a_candidate",
+   "deciding_sentence": null,
+   "reason_text": "Never promoted and never killed. D020 Screen 3 declines to run it as uninformative; SYNTHESIS records it as untested. It was not a candidate, so no kill reason applies to it.",
+   "secondary": [],
+   "sentence_absent_because": "No kill reason exists to quote. E1 was never promoted -- D020 Screen 3 declines it as uninformative -- and E2 was never promoted -- it is time-gated by design. Neither was a candidate, so neither was killed."
+  },
+  {
+   "id": "E2",
+   "name": "Lockfiles are weak witnesses of reproducibility",
+   "source": "RESEARCH/E.md",
+   "category": "never_a_candidate",
+   "deciding_sentence": null,
+   "reason_text": "Never promoted and never killed. Time-gated by design; snapshot A is banked with no verdict and a ~21h comparison found zero drift, which the record calls a fast-drift null that 'neither validates E2 nor kills it'.",
+   "secondary": [],
+   "sentence_absent_because": "No kill reason exists to quote. E1 was never promoted -- D020 Screen 3 declines it as uninformative -- and E2 was never promoted -- it is time-gated by design. Neither was a candidate, so neither was killed."
+  },
+  {
+   "id": "E3",
+   "name": "Build timestamps are the cheapest determinism violation to count",
+   "source": "FAILURES-findings-2.md",
+   "category": "falsified_mechanism",
+   "deciding_sentence": "F012 - E3's ordering claim holds, and that is why there is nothing to build",
+   "reason_text": "398 of 398 differing bytes are timestamp fields and SOURCE_DATE_EPOCH gives bit-identical builds. The mechanism was supported -- and the candidate died BECAUSE it was supported. No prior-art verdict is recorded.",
+   "secondary": []
+  },
+  {
+   "id": "ORIGIN",
+   "name": "tools/origin, the mission's own tooling",
+   "source": "FAILURES-findings-6.md",
+   "category": "prior_art",
+   "deciding_sentence": "F026 - The byproduct thesis is disconfirmed: this mission's own tooling is prior art, and so is its discipline",
+   "reason_text": "gitreceipts 'reconcile a coding-agent session log against the git history it claims to explain', created 2026-07-23, covers more reconciliation ground than origin does; opentrail covers the recording half. The process discipline is prior art too.",
+   "secondary": []
+  }
+ ]
+}
