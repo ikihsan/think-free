@@ -188,6 +188,15 @@ def finish(outcome: str, summary: str, next_steps: str, push: bool = False) -> d
     if outcome not in OUTCOMES:
         raise SessionError(f"--outcome must be one of {', '.join(OUTCOMES)}")
     active = require_active()
+    # A session that already ended must not grow a second session_end:
+    # observed on session 014 (2026-10-05-014), finish ran twice and the
+    # event stream now carries two ends with the unlogged work between.
+    prior_ends = [e for e in events.events_for(active.session) if e.kind == "session_end"]
+    if prior_ends:
+        raise SessionError(
+            f"session {active.session} already ended at seq {prior_ends[0].seq}; "
+            "start a new session instead of re-finishing"
+        )
     if push:
         _prepare_push(active)
     report = reconcile(active)

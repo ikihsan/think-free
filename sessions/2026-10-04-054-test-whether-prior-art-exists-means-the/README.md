@@ -3,14 +3,14 @@
 <!-- origin-meta
 owner: sessions/INDEX.md
 status: active
-last-verified: 2026-10-04
+last-verified: 2026-10-05
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `abandoned`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-04T21:44:25+00:00
 - **Duration:** ?s
@@ -23,7 +23,11 @@ Test whether 'prior art exists' means 'the need is served', using incumbents nam
 
 ## Summary
 
-_(none recorded)_
+Abandoned stream closed by reconciliation: only the T-0060 claim was recorded, no session_end was ever written; the claimed work landed as EXPERIMENTS/015 (F034) and T-0060 is completed.
+
+## Next
+
+None. The stream is terminal; do not append.
 
 ## Artifacts
 
@@ -39,7 +43,6 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -53,6 +56,7 @@ _none_
 | 2 | 21:45:59 | task_rewrite | appended a create record for T-0060 |
 | 3 | 21:46:46 | task_rewrite | rewrote tasks/T-0060-measure-whether-the-incumbents-a-prior-art-scree.md (status: claimed) |
 | 4 | 21:46:46 | task_rewrite | appended a claim record for T-0060 |
+| 5 | 17:48:29 | session_end | Abandoned stream closed by reconciliation: only the T-0060 claim was recorded, no session_end was ever written; the claimed work landed as EXPERIMENTS |
 
 ## Reproduce this record
 

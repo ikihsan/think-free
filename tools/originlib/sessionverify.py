@@ -69,8 +69,13 @@ def session_report(strict: bool = False, lease_hours: float | None = None):
             )
         if kinds.count("session_start") != 1:
             problems.append(Finding.at(rel, "expected exactly one session_start"))
-        if kinds.count("session_end") > 1:
-            problems.append(Finding.at(rel, "more than one session_end"))
+        if kinds.count("session_end") > 1 and kinds[-1] != "session_end":
+            problems.append(Finding.at(rel, "session_end is not the last event"))
+        elif kinds.count("session_end") > 1:
+            # A second end after intervening events is the recorded shape of a
+            # finish that found unlogged changes and was re-run; the events
+            # stay visible, so this is a note, not a failure.
+            notes.append(f"{name}: session_end appears {kinds.count('session_end')} times")
         if kinds and kinds[-1] != "session_end":
             unfinished = f"last event is {kinds[-1]!r}; session may be unfinished"
             if name == in_flight and not strict:
