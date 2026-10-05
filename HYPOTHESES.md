@@ -40,6 +40,19 @@ cannot supply recurrence, while an issue corpus counted by repository does
 (F029, D049). The corpus is kept as a dated, countable problem-statement source
 and the harvesting route is closed as a generator.
 
+**E021 tested a serving channel, not a candidate**
+(`EXPERIMENTS/021-copied-artifact-serving/`, T-0064). F037 left one reading
+standing for the prior-art screen's young-vocabulary failure: the artifact a
+coding-agent user commits is a **directory copied** into their repository, so
+install channels would miss the field entirely. The declared gate asked whether
+copying is a **larger** channel than installing. It is **0.118×** — 1,026 indexed
+repositories holding a `.claude/hooks/` directory against 8,676 monthly installs
+across four channels (F041, D053). No candidate entered or left the table; what
+changed is that **the screen was reading the dominant channel**, so the twelve
+prior-art deaths stand. Renumbered from F040/D052/`020-` on the unpushed side: the
+other VM took those numbers for `EXPERIMENTS/020-copied-config-drift`, which
+closed the same escape hatch from the other end.
+
 **One recorded result belongs to none of these.** T-0034 measured the test suite
 on the CPython versions the fleet's own record named as never run, and found two
 gates asserting that the machine running them was covered by that record

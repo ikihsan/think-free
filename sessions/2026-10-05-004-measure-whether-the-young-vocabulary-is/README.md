@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T02:44:46+00:00
-- **Duration:** ?s
+- **Duration:** 17168.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Measure whether the young vocabulary is served by copied directories rather than
 
 ## Summary
 
-_(none recorded)_
+E021 measured the serving channel the prior-art screen was alleged to be blind to and found it 0.118x the channel it already read (1,026 indexed repos holding a .claude/hooks/ directory against 8,676 monthly installs), so F037's 'used and invisible' reading is withdrawn and the twelve prior-art deaths stand (F041, D053). C2 did not refuse the experiment -- young arm 17/18 in the index -- but read 0 of 13 placebos, so the instrument is blind where this mission's candidates live. H2 not_evaluated after this session's own retry loop destroyed five captures. The other VM took F040/D052 for a different experiment on the same reading and published first; renumbered on the unpushed side per the multi-VM rule, and recovered this session's work after an interrupted sync land.
+
+## Next
+
+Rerun H2's low band from a host Sourcegraph will answer -- the slice is declared mechanically, so it needs no new decisions.
 
 ## Artifacts
 
@@ -92,11 +96,26 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 53 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 6 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING-2.md |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/README.md |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/a5_structural.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/analyse.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/bodies.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/control.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/population.py |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/bodies.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/captured_bodies.json |
+|   undeclared | EXPERIMENTS/020-copied-config-drift/raw/control.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/copycount.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/coverage.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/results.json |
+|   error | HYPOTHESES.md was not updated although the session recorded experiment_result |
 
 ## Timeline
 
@@ -142,18 +161,18 @@ _(none recorded)_
 | 38 | 05:41:28 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/coverage.json |
 | 39 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/copycount.json |
 | 40 | 05:41:30 | artifact | wrote EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
-| 51 | 06:40:23 | artifact | wrote docs/INDEX.md |
-| 52 | 06:40:24 | artifact | wrote docs/process/experiment-protocol.md |
-| 53 | 06:40:25 | artifact | wrote DECISIONS-SCREENING-3.md |
-| 54 | 06:40:26 | artifact | wrote FAILURES-findings-16.md |
-| 55 | 07:23:50 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 56 | 07:24:09 | artifact | wrote STATE.md |
-| 57 | 07:24:11 | artifact | wrote STATE-in-flight.md |
-| 58 | 07:24:11 | artifact | wrote FAILURES.md |
-| 59 | 07:24:12 | artifact | wrote DECISIONS.md |
-| 60 | 07:24:13 | milestone | recovered this session's five commits after an interrupted sync land left HEAD on the base; resolved 6 files of cherry-pick conflicts, keeping both VM |
+| 117 | 07:30:55 | integrity_error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/forkstatus.json |
+| 118 | 07:30:55 | integrity_error | declared artifact no longer exists: EXPERIMENTS/020-copied-artifact-serving/results.json |
+| 119 | 07:30:55 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 120 | 07:30:55 | doc_update | updated DECISIONS-SCREENING-2.md |
+| 121 | 07:30:55 | doc_update | updated DECISIONS-SCREENING-3.md |
+| 122 | 07:30:55 | doc_update | updated DECISIONS.md |
+| 123 | 07:30:55 | doc_update | updated FAILURES.md |
+| 124 | 07:30:55 | doc_update | updated ROADMAP.md |
+| 125 | 07:30:55 | doc_update | updated STATE.md |
+| 126 | 07:30:55 | session_end | E021 measured the serving channel the prior-art screen was alleged to be blind to and found it 0.118x the channel it already read (1,026 indexed repos |
 
-_10 middle events omitted; see `events.jsonl`._
+_76 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

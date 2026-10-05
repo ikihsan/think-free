@@ -83,6 +83,13 @@ side per the rule in
 | F040 | F037's "the reader copies the directory" is an instruction rather than an observation: 687 documented copy sites, 4.7% duplicated content, no cross-author overlap |
 | F041 | The young vocabulary's copy channel is 0.12x its install channel, so the prior-art screen's young-vocabulary failure is the world and not a channel it failed to read |
 
+**F041's evidence lives at `EXPERIMENTS/021-copied-artifact-serving/`,** not at
+the `020-` path some records still name: the other VM took `020-copied-config-drift`
+and F040/D052 for a different experiment on the same reading, and this side
+renumbered on the unpushed side per the multi-VM rule. `PROTOCOL.md` holds the
+declaration, `results.json` the verdict and the lost capture, and `raw/` the 95
+instrument captures.
+
 
 **The invariant that makes the split sensible.** A finding is only useful if a
 reader can tell a disproved claim from a still-open question, so the findings
