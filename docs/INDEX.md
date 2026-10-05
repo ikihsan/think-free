@@ -147,6 +147,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md`](../tasks/T-0069-measure-whether-the-people-who-publicly-stated-a.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0070-classify-the-589-never-answered-need-statements.md`](../tasks/T-0070-classify-the-589-never-answered-need-statements.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md`](../tasks/T-0071-re-read-the-31-clause-killed-harvested-needs-fro.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md`](../tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 
 ## RESEARCH
 

@@ -8,13 +8,14 @@ last-verified: 2026-10-05
 
 <!-- generated-by: origin; do not edit by hand -->
 
-116 recorded session(s). One `events.jsonl` per session, so concurrent
+117 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 91 older session(s) are in the directory listing.
+Showing the 25 most recent. 92 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-05-017-e028-test-whether-the-incumbents-a-prior](2026-10-05-017-e028-test-whether-the-incumbents-a-prior/README.md) | unknown-agent | **unfinished** | E028: test whether the incumbents a prior-art screen named do what eac | 2026-10-05T18:34 |
 | [2026-10-05-016-repair-session-record-defects-blocking-s](2026-10-05-016-repair-session-record-defects-blocking-s/README.md) | unknown-agent | worked | repair session-record defects blocking strict verify | 2026-10-05T18:22 |
 | [2026-10-05-015-re-read-the-31-clause-killed-harvested-n](2026-10-05-015-re-read-the-31-clause-killed-harvested-n/README.md) | opencode | worked | Re-read the 31 clause-killed harvested needs from their full text and  | 2026-10-05T17:40 |
 | [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | worked | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:12 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 91 older session(s) are in the directory listing.
 | [2026-10-04-052-record-the-two-reconciliation-reports-th](2026-10-04-052-record-the-two-reconciliation-reports-th/README.md) | unknown-agent | worked | Record the two reconciliation reports the last two sessions left, so a | 2026-10-04T21:10 |
 | [2026-10-04-051-close-the-three-documentation-gaps-sessi](2026-10-04-051-close-the-three-documentation-gaps-sessi/README.md) | unknown-agent | worked | Close the three documentation gaps session 050 reported, and record wh | 2026-10-04T21:02 |
 | [2026-10-04-050-test-whether-a-live-corpus-of-practition](2026-10-04-050-test-whether-a-live-corpus-of-practition/README.md) | unknown-agent | worked | Test whether a live corpus of practitioner needs generates candidates, | 2026-10-04T20:44 |
-| [2026-10-04-047-decide-and-execute-the-highest-informati](2026-10-04-047-decide-and-execute-the-highest-informati/README.md) | unknown-agent | worked | Decide and execute the highest-information research action after 12 pr | 2026-10-04T21:33 |
 
 
 ## Reading a session
