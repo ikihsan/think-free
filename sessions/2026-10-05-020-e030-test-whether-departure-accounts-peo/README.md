@@ -31,9 +31,15 @@ _none_
 
 ## Commands
 
-0 captured, 0 non-zero exit.
+5 captured, 1 non-zero exit.
 
-_none_
+| # | command | exit | ms |
+|---|---|---|---|
+| 3 | ['python3', 'EXPERIMENTS/030-departure-recurrence/harvest.py'] | 0 | 49078 |
+| 4 | ['python3', 'EXPERIMENTS/030-departure-recurrence/harvest.py'] | 0 | 56006 |
+| 5 | ['python3', 'EXPERIMENTS/030-departure-recurrence/extract.py'] | 1 | 904 |
+| 6 | ['python3', 'EXPERIMENTS/030-departure-recurrence/extract.py'] | 0 | 113534 |
+| 7 | ['python3', 'EXPERIMENTS/030-departure-recurrence/extract.py'] | 0 | 117678 |
 
 ## Integrity
 
@@ -50,6 +56,12 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 22:03:03 | session_start | E030: test whether departure accounts (people publicly leaving a tool) supply a recurring, unmet, capability clause that the need corpus could not --  |
+| 2 | 22:04:17 | task_rewrite | appended a create record for T-0074 |
+| 3 | 22:08:42 | command | $ python3 EXPERIMENTS/030-departure-recurrence/harvest.py |
+| 4 | 22:10:55 | command | $ python3 EXPERIMENTS/030-departure-recurrence/harvest.py |
+| 5 | 22:11:28 | command | $ python3 EXPERIMENTS/030-departure-recurrence/extract.py |
+| 6 | 22:13:38 | command | $ python3 EXPERIMENTS/030-departure-recurrence/extract.py |
+| 7 | 22:15:55 | command | $ python3 EXPERIMENTS/030-departure-recurrence/extract.py |
 
 ## Reproduce this record
 
