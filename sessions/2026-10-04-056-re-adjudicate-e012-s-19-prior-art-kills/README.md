@@ -37,6 +37,7 @@ _(none recorded)_
 | EXPERIMENTS/015-prior-art-adjudication/raw/web_log.jsonl | 44710ee13a3c | 23954 |
 | FAILURES-findings-12.md | 0f2b8070ed75 | 8501 |
 | FAILURES-findings-13.md | 70b749d617d4 | 9440 |
+| tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md | 0c8dd689a289 | 3420 |
 
 ## Commands
 
@@ -95,6 +96,9 @@ _(none recorded)_
 | 23 | 00:05:44 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 24 | 00:06:15 | artifact | wrote FAILURES-findings-13.md |
 | 25 | 00:06:15 | milestone | merged onto the new base by hand: kept both VMs' findings parts (12 and 13), both experiments rows, both STATE-next-actions items 0/0b/0c/0d, and repa |
+| 26 | 00:06:23 | base_advance | rebase completed outside land: base moved 5ffe28ec8d15 -> 44fa38c1b100, 6 commit(s) arrived from the shared base |
+| 27 | 00:08:26 | base_advance | sync land: base moved 33749cb3b389 -> 4bde980af369, 2 commit(s) arrived from the shared base |
+| 28 | 00:08:41 | artifact | wrote tasks/T-0062-re-adjudicate-e012-s-19-prior-art-kills-on-three.md |
 
 ## Reproduce this record
 
