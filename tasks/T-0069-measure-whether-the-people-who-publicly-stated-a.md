@@ -6,11 +6,11 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0069
-status: open
+status: claimed
 created: 2026-10-05
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-05-013-measure-whether-the-1250-people-who-publ
+claim-vm: 
 verify: python3 EXPERIMENTS/025-need-staters-builderhood/stats.py > /dev/null && python3 -m unittest discover -s EXPERIMENTS/025-need-staters-builderhood -p 'test_*.py' -t EXPERIMENTS/025-need-staters-builderhood && tools/origin doc lint
 -->
 
