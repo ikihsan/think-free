@@ -242,7 +242,7 @@ rather than tooling. Stage B is blocked on judgement twice over: on what no expe
 can answer — whether a knitter follows a generated repair plan, and whether E3's
 builder-level finding generalises beyond
 the one builder this machine has — and, since E016, on which axis a candidate is selected at
-all. **That second blocker has narrowed four times** (F035, F037, F039, F040, D052) and now
+all. **That second blocker has narrowed four times** (F035, F037, F039, F041, D053) and now
 resolves to an owner decision. **The twelve prior-art deaths stand.** Full account:
 [`STATE-in-flight.md`](STATE-in-flight.md).
 

@@ -33,7 +33,7 @@ prior art, usefulness and adoption untouched, and every item says which.
    four decided rows. F027's sample is small and self-selected, and 0 stars is a
    weak proxy with known false negatives (`ripgrep`, `jq`). Nothing here is
    blocked on tooling.
-   **F035, F037, F039 and F040 have since taken the four measurements that bear on
+   **F035, F037, F039 and F041 have since taken the four measurements that bear on
    this, and each closed a reading rather than opening one.** F035 measured
    **coverage** (3 of 12 adjudicable kills have no prior art on any of three
    corpora; 4 were reachable only on the open web); F037 measured **composition**
@@ -58,7 +58,7 @@ prior art, usefulness and adoption untouched, and every item says which.
    most-starred tool there is installed 363 times a month.
 
    **The third reading has now been taken, and it is answered in the negative**
-   (F040, D052). Full account in
+   (F041, D053). Full account in
    [`STATE-in-flight.md`](STATE-in-flight.md); the summary that matters for
    selection is one sentence: **the serving channel the prior-art screen was
    alleged to be blind to measured 0.118× the install channel**, so the screen was
@@ -89,7 +89,7 @@ prior art, usefulness and adoption untouched, and every item says which.
    the owner's; what E019 supplies is the population, and the measurement that
    makes it a population rather than 1401 rows.
 
-   **F040 narrows what is left further, and not in the direction anyone wanted.**
+   **F041 narrows what is left further, and not in the direction anyone wanted.**
    With the copy channel measured and *smaller*, the "find the channel the
    instrument was missing" reading has nothing left to find here. So the deferred
    question is no longer *which axis* in the abstract: it is whether **a specific

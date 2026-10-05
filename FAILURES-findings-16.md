@@ -4,19 +4,27 @@ status: active
 last-verified: 2026-10-05
 -->
 
-# Failures — recorded findings, part 16 (F040)
+# Failures — recorded findings, part 16 (F041)
 
 Continues [`FAILURES-findings-15.md`](FAILURES-findings-15.md), which holds F039,
 and [`FAILURES-findings-14.md`](FAILURES-findings-14.md), which holds F037
 and F038. **Identifiers are stable across all findings files**: a reference to
-`F040` means the same entry wherever it appears.
+`F041` means the same entry wherever it appears.
+
+> **Renumbered.** This was written as F040 and was renumbered to **F041** on the
+> unpushed side: the other VM took F040 for `EXPERIMENTS/020-copied-config-drift`
+> (whether a copied configuration goes stale) and published it first. Two
+> experiments, one reading, opposite directions, and **both close F037's escape
+> hatch** — its correction additionally withdraws the *reconciliation*, which this
+> one does not. Experiment `020-` became `021-` for the same reason. The
+> measurement is unchanged; only the labels are.
 
 Source: session `2026-10-05-004`, task T-0064. Runnable evidence:
-`EXPERIMENTS/020-copied-artifact-serving/` — `PROTOCOL.md` (the declaration),
+`EXPERIMENTS/021-copied-artifact-serving/` — `PROTOCOL.md` (the declaration),
 `copycount.py`, `coverage.py`, `forkstatus.py`, `tally.py`, `results.json`, and
 82 raw captures under `raw/`. Tests: `tests/test_copy_channel.py` (30).
 
-## F040 — the prior-art screen's young-vocabulary failure is the world, not a channel it failed to look at
+## F041 — the prior-art screen's young-vocabulary failure is the world, not a channel it failed to look at
 
 **Observed, 2026-10-05.** F037 left the prior-art premise's split — 4 of 4
 on-topic incumbents served in mature vocabularies, 1 of 4 in a young one — with

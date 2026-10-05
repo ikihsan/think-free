@@ -61,9 +61,9 @@ Adversarial checklist: [`review-protocol.md`](review-protocol.md).
 ## Prior-art adjudication
 
 A prior-art verdict is admissible only when it satisfies all five of these. They
-come from F029, F030, F035, F036 and F040; D050 in
+come from F029, F030, F035, F036 and F041; D050 in
 [`DECISIONS-SCREENING.md`](../../DECISIONS-SCREENING.md) is the decision that
-added the first three, and D052 in
+added the first three, and D053 in
 [`DECISIONS-SCREENING-3.md`](../../DECISIONS-SCREENING-3.md) the last.
 
 1. **Read the open web, not only code indices.** A repository index and a package
@@ -86,7 +86,7 @@ added the first three, and D052 in
    Nothing inside such a capture distinguishes it from a real one.
 
 5. **Name the channels the screen could not read, and measure an alternative
-   channel before resting on one.** F040: a screen reading only installation
+   channel before resting on one.** F041: a screen reading only installation
    channels is not measuring competition in a vocabulary whose artifacts are
    copied directories, and the belief that it was blind turned out to be false —
    the copy channel measured 0.12× the install channel. The obligation is not to

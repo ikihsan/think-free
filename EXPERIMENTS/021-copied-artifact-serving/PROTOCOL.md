@@ -1,7 +1,7 @@
-# 020 — the protocol as declared, in full
+# 021 — the protocol as declared, in full
 
 <!-- origin-meta
-owner: EXPERIMENTS/020-copied-artifact-serving/README.md
+owner: EXPERIMENTS/021-copied-artifact-serving/README.md
 status: active
 last-verified: 2026-10-05
 -->

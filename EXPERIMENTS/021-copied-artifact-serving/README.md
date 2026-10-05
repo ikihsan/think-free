@@ -1,4 +1,4 @@
-# 020 — is the young vocabulary served by copies rather than installs?
+# 021 — is the young vocabulary served by copies rather than installs?
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -8,7 +8,27 @@ last-verified: 2026-10-05
 
 **Date:** declared and run 2026-10-05. **T-0064.** The declaration is in
 [`PROTOCOL.md`](PROTOCOL.md), written before any count on the population was
-read. **H1 is `dead`; H2 is `not evaluable`.** F040.
+read. **H1 is `dead`; H2 is `not evaluable`.** F041.
+
+**Renumbered on the unpushed side, and the collision is worth more than the
+renumbering.** The other VM, working from the same F037 reading, took **F040** and
+**D052** and published `EXPERIMENTS/020-copied-config-drift` while this
+experiment was unpushed. Its question was whether a **copied** configuration goes
+stale, which is a *different* question from whether copying is a **larger**
+channel than installing, and its answer is complementary: copying is widely
+instructed (687 `cp -r .claude` matches against a nonsense control of 0) but
+barely duplicated (4.7% of 1,950 distinct configuration contents are
+byte-identical across repositories, and no two repositories from different authors
+overlap by half). **Both experiments reached the same place from opposite ends**:
+F037's "the reader copies a directory" is not a serving channel this mission was
+blind to, so the screen's young-vocabulary failure is not an instrument artefact.
+Its F037 correction is stronger than this one's — it withdraws the *reconciliation*
+as well as the reading — and that is recorded where its finding lives, not here.
+
+Renumbered per the rule in
+[`docs/process/multi-vm-coordination.md`](../../docs/process/multi-vm-coordination.md):
+**F040 → F041, D052 → D053, `020-` → `021-`, on the side that had not been
+pushed.** The measurement is unchanged; only the labels are.
 
 ## The two results
 
@@ -153,7 +173,7 @@ coding-agent hooks).
 So the selection axis item 0 defers to the owner cannot be "find the channel the
 instrument was missing" — there is no such channel here, and F028, F032 and F037
 already established that supply-side counts do not speak for demand. What is left
-is the narrower question the item already named, with F040 removing the escape
+is the narrower question the item already named, with F041 removing the escape
 hatch it was holding open: **the prior-art screen is not obviously wrong in young
 vocabularies, which means the twelve deaths stand unless something other than the
 screen is wrong.** That is an uncomfortable result and it is the measured one.

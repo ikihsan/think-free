@@ -3,7 +3,7 @@
 
 Every query writes its raw stream to raw/ before anything is parsed, so a figure
 in results.json can be traced to bytes on disk.  Declared in
-EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md.
+EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md.
 
 Unauthenticated only.  A refused, truncated or errored answer is `refused` and is
 never counted as a zero -- F032's defect class, which has already bitten this

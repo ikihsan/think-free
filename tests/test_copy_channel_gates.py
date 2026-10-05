@@ -5,7 +5,7 @@ instrument's own properties -- what a capture on disk means and cannot be made t
 mean. This one holds what the run concluded: both declared gates, all four
 controls, and the refusal H2 could not be answered from.
 
-Every assertion reads `EXPERIMENTS/020-copied-artifact-serving/` rather than a
+Every assertion reads `EXPERIMENTS/021-copied-artifact-serving/` rather than a
 fixture, so a test cannot pass against bytes the experiment did not produce.
 """
 
@@ -16,7 +16,7 @@ import sys
 import unittest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPERIMENT = os.path.join(ROOT, "EXPERIMENTS", "020-copied-artifact-serving")
+EXPERIMENT = os.path.join(ROOT, "EXPERIMENTS", "021-copied-artifact-serving")
 sys.path.insert(0, EXPERIMENT)
 
 

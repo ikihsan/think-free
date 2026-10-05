@@ -12,16 +12,23 @@ status: active
 last-verified: 2026-10-05
 -->
 
-Decisions **D052**. Split from
+Decisions **D053**. Split from
 [`DECISIONS-SCREENING-2.md`](DECISIONS-SCREENING-2.md) by invariant, not by date:
 what a screen must have measured before its silence can mean anything.
+
+**Renumbered.** Written as D052 on the unpushed side; the other VM took D052 for
+its own copy-drift finding in `DECISIONS-SCREENING-2.md`, which that put at 293 of
+300 lines — so this split is necessary rather than tidy, and the two entries
+together are one argument from opposite ends: **that** the copies do not
+accumulate as identical copies, **this** that the copy channel is 0.118× the
+install channel.
 
 **Invariant:** the same as [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) —
 what passes, and on what evidence. Identifiers are stable across decision files.
 
-## D052 — A channel's absence from an instrument is not evidence that the world uses it (2026-10-05)
+## D053 — A channel's absence from an instrument is not evidence that the world uses it (2026-10-05)
 
-Observed: F040, from E020's H1 and C2/C3. F037 ended with one escape route
+Observed: F041, from E020's H1 and C2/C3. F037 ended with one escape route
 standing for the prior-art screen's young-vocabulary failure (F034: 4 of 4
 on-topic incumbents served in mature vocabularies, 1 of 4 in a young one): the
 artifact a coding-agent user commits is a **directory they copied**, not a
@@ -34,7 +41,7 @@ A public unauthenticated API does serve it — Sourcegraph's streaming search
 endpoint returns repository-level counts for a path pattern — and the count is
 **1,026 indexed repositories holding a `.claude/hooks/` directory against 8,676
 monthly installs across the young arm's four channels. Ratio 0.118**, where the
-gate declared in `EXPERIMENTS/020-copied-artifact-serving/PROTOCOL.md` needed
+gate declared in `EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md` needed
 ≥ 20× to survive and ≤ 5× to be dead.
 
 Decision: **an alternative channel is a candidate explanation until it is
@@ -78,7 +85,7 @@ selection axis here, which is item 0's and the owner's.
 Consequence: `docs/process/experiment-protocol.md`'s prior-art rule gains a fifth
 condition — a screen that consulted only install channels must say so, and must
 name the channels it could not read. The screen was not wrong; it was
-**unqualified**, and F034 through F040 is the cost of that distinction going
+**unqualified**, and F034 through F041 is the cost of that distinction going
 unrecorded for four findings.
 
 Ceiling: one young vocabulary, one code index, one afternoon. This is a statement

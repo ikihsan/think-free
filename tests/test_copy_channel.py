@@ -1,7 +1,7 @@
 """Tests for E020's copy-channel instrument, held against the committed captures.
 
 Each test here corresponds to a defect this experiment found by running on
-itself, and asserts against `EXPERIMENTS/020-copied-artifact-serving/raw/` --
+itself, and asserts against `EXPERIMENTS/021-copied-artifact-serving/raw/` --
 the actual bytes the run produced -- rather than against a fixture that cannot
 disagree with them. `docs/policy/gate-falsification.md` is the method.
 """
@@ -12,7 +12,7 @@ import sys
 import unittest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPERIMENT = os.path.join(ROOT, "EXPERIMENTS", "020-copied-artifact-serving")
+EXPERIMENT = os.path.join(ROOT, "EXPERIMENTS", "021-copied-artifact-serving")
 RAW = os.path.join(EXPERIMENT, "raw")
 sys.path.insert(0, EXPERIMENT)
 

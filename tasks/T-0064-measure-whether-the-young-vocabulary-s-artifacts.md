@@ -37,7 +37,7 @@ Unauthenticated Sourcegraph streaming search API only. No token. Pace the querie
 
 ## Acceptance criteria
 
-Both declared gate arms are answered in one direction from results.json, the instrument's coverage of the population class is reported, and the finding F040 is recorded or the ceiling stated.
+Both declared gate arms are answered in one direction from results.json, the instrument's coverage of the population class is reported, and the finding F041 is recorded or the ceiling stated.
 
 ## Verification
 

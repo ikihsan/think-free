@@ -82,7 +82,7 @@ def _recover_h1_from_records():
         ),
         "corroborated_by": [
             "sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log",
-            "EXPERIMENTS/020-copied-artifact-serving/forkstatus.json",
+            "EXPERIMENTS/021-copied-artifact-serving/forkstatus.json",
         ],
         "session_log_hits": len(log_hits),
     }

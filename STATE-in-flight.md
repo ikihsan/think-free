@@ -18,7 +18,7 @@ across findings files.
 
 ## The third axis: is the young vocabulary served by copies rather than installs?
 
-**Status: closed, negative (F040, D052). `EXPERIMENTS/020-copied-artifact-serving/`.**
+**Status: closed, negative (F041, D053). `EXPERIMENTS/021-copied-artifact-serving/`.**
 
 F037 ended with exactly one reading standing for the prior-art screen's
 young-vocabulary failure. The screen reads installation channels; the artifact a
@@ -111,13 +111,13 @@ the experiment and the refusal was recorded as a refusal.
 - **Nothing here reopens a prior-art death.** "Prior art exists" and "the need is
   served" remain different claims, and only the first has been in question.
 
-Full text and the per-configuration table: `EXPERIMENTS/020-copied-artifact-serving/README.md`
+Full text and the per-configuration table: `EXPERIMENTS/021-copied-artifact-serving/README.md`
 and [`FAILURES-findings-16.md`](FAILURES-findings-16.md).
 
 ## Is a screen whose premise is unmeasurable four times in five a screen?
 
-**Status: closed as an open reading, with one question left (F034, F037, F040).**
-Was item 0c of `STATE-next-actions.md`, moved here when F040 made the ranked list's
+**Status: closed as an open reading, with one question left (F034, F037, F041).**
+Was item 0c of `STATE-next-actions.md`, moved here when F041 made the ranked list's
 entry redundant.
 
 F034 could read serving evidence for **57% of the incumbents its own population
@@ -127,7 +127,7 @@ fraction and it is **high exactly where the candidates live: 14 of 18 young rows
 undecided, 13 of them tools, and 43% of the mature arm.** It also showed
 undecidability does **not** track artifact class — 10 of the 14 unreadable young
 rows are executable — so "this is just a document" never explains an unreadable row.
-F040 then found the missing channel is a *smaller* one, and that its own blind spot
+F041 then found the missing channel is a *smaller* one, and that its own blind spot
 is the placebo arm.
 
 **What remains open is whether the unmeasurable fraction predicts anything about the
