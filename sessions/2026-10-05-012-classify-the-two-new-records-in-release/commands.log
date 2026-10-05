@@ -1,0 +1,13 @@
+==============================================================================
+[seq 3] 2026-10-05T14:12:48+00:00
+$ git commit -q -m release check: classify F044's findings file and the second in-flight register
+
+Both were tracked and in neither manifest table, which release check reported
+rather than passing -- the gate doing the one thing it exists for. F044 joins the
+candidate-and-failure records, STATE-in-flight-2.md the mission-control records,
+which is where their siblings already sit.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 92  redactions: none
