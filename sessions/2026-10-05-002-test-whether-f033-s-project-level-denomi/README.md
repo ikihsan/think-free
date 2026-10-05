@@ -52,6 +52,7 @@ _none_
 | 1 | 01:24:48 | session_start | Test whether F033's project-level denominator hid genuine cross-person recurrence in the need corpus (E019) |
 | 2 | 01:24:56 | task_rewrite | appended a create record for T-0063 |
 | 3 | 01:25:15 | task_rewrite | rewrote tasks/T-0063-test-whether-f033-s-project-level-denominator-hi.md (status: claimed) |
+| 4 | 01:25:16 | task_rewrite | appended a claim record for T-0063 |
 
 ## Reproduce this record
 

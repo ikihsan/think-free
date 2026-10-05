@@ -89,3 +89,30 @@ none of them is advice.
   the cap, both paid for by removing text another file already owns;
   `STATE-defects.md` cannot be split inside its own numbered list without
   `tools/originlib/defectlist.py` reading more than one file — a task, not an edit.
+
+- **A generated file both VMs' tooling rewrites conflicts on every `land`, and
+  the rebase then has to be finished by hand.** Observed 2026-10-05 on this
+  session's own report: `sync land` stopped on it, `git rebase --continue` failed
+  with *Failed to merge in the changes* twice after the conflict was resolved and
+  staged, and the rebase was finished with raw git. That is T-0053/T-0048's
+  recorded ceiling reached again — a hand-run continuation records no
+  `base_advance`, so the base's paths are attributed to whoever resolved it. The
+  documented route is `landrebase.recover()`, which reads `ORIG_HEAD` and the
+  reflog and did record the arrival; the repair would be for `land` to regenerate
+  the derived file after the rebase rather than conflict on it. Not repaired here:
+  it is not blocking anything, and it is a fourth instance of defect 13.
+- **A gate can answer about a population nobody read.** `017`'s H2 thresholds are
+  counts, so 0 hits satisfied "dead at ≤ 2" on an empty read and the first run
+  printed a verdict no evidence supported. A gate with a numeric threshold needs a
+  third answer for "the population was not measured", and needs it *before* the
+  measurement, because adding it afterwards is indistinguishable from adding it to
+  make a result look better. `tally.h2` has `not_evaluated`; the placebo control
+  has `unexercised`, after 015 made the same mistake with five unreadable
+  placebos.
+- **A budget limit is not a fact about the repository.** GitHub's unauthenticated
+  core budget is 60 an hour and `017` needs two requests per row, so three rows
+  were answered `403` and — in the fetcher's first version — cached. Both rows
+  still classified as `unreadable`, which is indistinguishable from a finding.
+  `rootlisting._complete` refuses a half-answered row; the test holds the
+  property against the **committed** cache rather than a fixture, which is the
+  only version of it that would have caught this.

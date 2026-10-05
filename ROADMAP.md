@@ -59,9 +59,13 @@ candidate is validated.
       timestamp fields and `SOURCE_DATE_EPOCH` makes builds bit-identical, so E3's
       mechanism is supported and its candidate abandoned — the remedy is one
       environment variable the builder already honours (`FAILURES.md` F012)
-- [x] Measure the prior-art screen itself (`016-prior-art-adjudication`, T-0062): 6 of 6
-      controls recovered, 3 of 12 adjudicable kills have no prior art on three corpora, and
-      the open web carries 4 served verdicts two code corpora return nothing for (F035/F036)
+- [x] Measure the prior-art screen itself, coverage (`016-prior-art-adjudication`, T-0062):
+      6 of 6 controls recovered, 3 of 12 adjudicable kills have no prior art on three
+      corpora, and the open web carries 4 served verdicts two code corpora return nothing
+      for (F035/F036)
+- [x] Measure the prior-art screen's own population (`017-incumbent-artifact-type`, T-0061):
+      14 of 18 young-vocabulary rows are executable code, so F034's premise failure is not a
+      population artefact; and its four documents teach no repeated procedure (F037)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and both runs produced no
       product claim; with C2 stopped (F008) and the knitting claim abandoned (F009), no
@@ -228,9 +232,8 @@ Separate from the invention stages: the mission cannot be run without it.
       the artifact?" answers *yes*, since `113` also sits at `patch_cost_sensitivity/*/cases`. So
       the rule decides the property from the number's *shape*, and
       `tests/test_result_numbers_falsified.py` asserts that blindness.
-- [ ] Seed tasks from `STATE.md` next actions
-- [ ] Headless task-runner script for VMs, once a VM exists
-- [ ] Scheduling or supervision, once unattended execution is authorised
+- [ ] Seed tasks from `STATE.md` next actions; a headless task-runner once a VM exists;
+      scheduling or supervision, once unattended execution is authorised
 
 ## Sequencing note
 
@@ -240,24 +243,21 @@ blocked on judgement twice over: on what no experiment here can answer — wheth
 follows a generated repair plan, and whether E3's builder-level finding generalises beyond
 the one builder this machine has — and, since E016, on which axis a candidate is selected at
 all, because the screen that killed twelve candidates is now measured and does not hold
-(F035, F034, D050). E2's time-gated drift comparison is scheduled (side A banked, T-0019).
+(F035, F034, D050), and since F037 on the screen's **unit of measurement** for that vocabulary.
+E2's time-gated drift comparison is scheduled (side A banked, T-0019).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
-work: the exercised-version records exist and `doctor` reads them (T-0033), and every
-CPython minor from 3.8 to 3.14 has now run the suite — on portable builds on one VM, and one
-matrix row per minor in CI (T-0034, D035). The floor claim is still two things it is not: it says
-nothing about 3.15 onwards, and a green row is evidence about that row and not the version below
-it. Git is weaker in kind, a git version being a property of a machine rather than of a workflow
-step: T-0034 added the runner's own 2.55.0 to the record by running the suite on it, and
-`git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite that
-only passes where its author works is not a suite, and that is a recorded pattern rather than a
-coincidence: the interpreter assertion failed on every version the record lacked (F018), the git
-assertion on every runner whose git nobody recorded (F019), the credential fixture on every
-runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the machine that wrote it.
-Identifiers are allocated from the shared base and the record is printed (T-0031), so a stale
-tree no longer collides — but two VMs allocating between their own fetches still do. A red CI run is diagnosable without admin rights, the check-run
-annotations naming the failing test and public all along (F020, T-0038); what is left is that
-the endpoint answers "nothing" in three ways, one a 403 from the unauthenticated rate limit.
+work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython
+minor from 3.8 to 3.14 has run the suite (T-0034, D035), identifiers are allocated from the
+shared base with the record printed (T-0031), and a red CI run is diagnosable without admin
+rights (F020, T-0038). The floor claim is still two things it is not: it says nothing about
+3.15 onwards, and a green row is evidence about that row and not the version below it. Git is
+weaker in kind, a git version being a property of a machine rather than of a workflow step,
+and `git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite
+that only passes where its author works is not a suite, and that is a recorded pattern rather
+than a coincidence: the interpreter assertion failed on every version the record lacked (F018),
+the git assertion on every runner whose git nobody recorded (F019), the credential fixture on
+every runner exporting `GITHUB_TOKEN` (T-0035). Each was green on the machine that wrote it.
 - [x] A red gate step names the file it rejected (`tools/origin annotate`, T-0040,
       defect 17). The five file-reading steps ran a gate, printed a report and exited, so
       the check run's only annotation was "Process completed with exit code 2" and the log
