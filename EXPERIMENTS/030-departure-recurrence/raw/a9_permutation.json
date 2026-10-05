@@ -1,0 +1,93 @@
+{
+  "control": {
+    "common_fraction_cutoff": 54,
+    "gate_a9_fires": true,
+    "mean_rare_signature_size": 8.06,
+    "mean_signature_size": 25.32,
+    "median_words": 74,
+    "n_accounts": 2687,
+    "observed": {
+      "R_pair": 0.21548195013025678,
+      "accounts_with_partner": 579,
+      "ci95": [
+        0.20034783127231232,
+        0.2314284277908712
+      ],
+      "pairs": 451
+    },
+    "permutation": {
+      "max_R": 0.060290286564942314,
+      "mean_R": 0.04963155935988091,
+      "mean_ci95": [
+        0.04192007712352204,
+        0.058361363813016376
+      ],
+      "min_R": 0.03758838853740231,
+      "n": 50,
+      "sd_R": 0.004384418961321547
+    },
+    "z_observed": 37.82722231462694
+  },
+  "length_matched": {
+    "control_length_matched": {
+      "R_pair": 0.4144736842105263,
+      "ci95": [
+        0.38292533921356514,
+        0.4467395023403757
+      ],
+      "median_words": 82.0,
+      "n": 912
+    },
+    "diff": {
+      "ci95": [
+        -0.11755119533217992,
+        -0.028970732644288608
+      ],
+      "diff": -0.07346491228070179
+    },
+    "treatment_length_matched": {
+      "R_pair": 0.34100877192982454,
+      "ci95": [
+        0.3109668456649105,
+        0.3723844623520307
+      ],
+      "median_words": 90.0,
+      "n": 912
+    }
+  },
+  "treatment": {
+    "common_fraction_cutoff": 18,
+    "gate_a9_fires": false,
+    "mean_rare_signature_size": 15.36,
+    "mean_signature_size": 27.97,
+    "median_words": 90,
+    "n_accounts": 919,
+    "observed": {
+      "R_pair": 0.34929270946681173,
+      "accounts_with_partner": 321,
+      "ci95": [
+        0.319154658395362,
+        0.38068544160031964
+      ],
+      "pairs": 449
+    },
+    "permutation": {
+      "max_R": 0.31229597388465724,
+      "mean_R": 0.2924918389553863,
+      "mean_ci95": [
+        0.26420332855047296,
+        0.3229413577251758
+      ],
+      "min_R": 0.2611534276387378,
+      "n": 50,
+      "sd_R": 0.012038578181448817
+    },
+    "z_observed": 4.718237457555772
+  },
+  "verdict": {
+    "a9_control_fires": true,
+    "a9_treatment_fires": false,
+    "h1": "not_evaluated",
+    "reason": "the recurrence statistic is at or below its own permutation null, so a difference in it is not a difference in clause recurrence"
+  }
+}

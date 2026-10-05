@@ -11,7 +11,7 @@ created: 2026-10-05
 claim-agent:
 claim-session:
 claim-vm:
-verify: tools/x -- python3 EXPERIMENTS/030-departure-recurrence/harvest.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/extract.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/stats.py && python3 -m unittest discover -s EXPERIMENTS/030-departure-recurrence -p 'test_*.py' -t EXPERIMENTS/030-departure-recurrence && tools/origin doc lint
+verify: tools/x -- python3 EXPERIMENTS/030-departure-recurrence/recurrence.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/a8_separation.py && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment && tools/x -- python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control && tools/origin doc lint
 -->
 
 # T-0074 — E030: test whether departure accounts (people publicly leaving a named

@@ -1,0 +1,25 @@
+{
+  "control": {
+    "ci95": [
+      0.006332519846951601,
+      0.1771219774818545
+    ],
+    "k": 1,
+    "n": 28,
+    "rate": 0.03571428571428571,
+    "unanswered": 2
+  },
+  "event": "a8",
+  "fires": true,
+  "rule": "treatment q1 CI95 lower > control q1 CI95 upper",
+  "treatment": {
+    "ci95": [
+      0.4451849774378259,
+      0.7975211922840683
+    ],
+    "k": 16,
+    "n": 25,
+    "rate": 0.64,
+    "unanswered": 5
+  }
+}

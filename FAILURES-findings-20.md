@@ -182,3 +182,35 @@ One community, one trigger vocabulary, one reader scheme whose agreement is 0.50
 one model family. The direction is consistent and the magnitude is unresolved; a
 larger n is the only thing that would move the verdict, and it is the same instrument
 asked to do more.
+
+## F050 — the recurrence statistic that "found" clause sharing measured comment length and coincidence, not clauses
+
+E030 (`EXPERIMENTS/030-departure-recurrence/`) declared a pair-level recurrence
+statistic over rare shared signature tokens and a B1 gate, then measured it:
+treatment 0.3493 vs control 0.2155, difference 0.1338 with CI95
+[0.0997, 0.1687] — B1 fired. Printing the mutual groups' linking tokens showed
+four unrelated comments (firewall, mainframes, Ruby, Go) chained through
+`abandon`, `absolute`, `allocation`, `apis` — ordinary English of length ≥ 4
+occurring in ≤ 5 of 919 accounts, which is what ~8 500 rare tokens spread over
+long comments produce (`raw/mutual_treatment.jsonl`, AMENDMENT-8).
+
+**What it rules out:** B1's verdict and every cluster-level figure. **What it
+shows instead:** the treatment arm's comments are longer (median 90 vs 74
+words), its common-token cutoff keeps more rare tokens per account (2% of 919
+vs 2% of 2687), and the declared statistic tracks those, not clause sharing.
+The A9 permutation control explains the arm difference (treatment observed
+0.3493 against a 50-permutation null of 0.2925 ± 0.012; control 0.2155
+against 0.0496 ± 0.0044), and the length-matched recomputation reverses the
+sign: −0.0735, CI95 [−0.1176, −0.0290]. H1 is `not_evaluated` a third and
+final time; A6's absolute-precision gate had already failed (0.3855) and is
+unreachable at n=24; A8's held-out separation **did** fire (16/25 = 0.64 vs
+1/28 = 0.036), so the departure-framing population is real and distinct — the
+population rule works, and the ruler for recurrence was falsified. C1's pilot
+was never run, because its referent (clusters of clauses) never established.
+
+**Ceilings:** one reader pass (A8's 25 and 28 answered rows, agreement not
+measured), one corpus, one framing set, and the extraction's own defect
+recorded in AMENDMENT-4 §2 (it names the replacement artifact when the
+departure is not name-shaped, q2 = 13/24). A recurrence claim on this corpus
+must wire A9's null and printed linkage into the protocol before the first
+fetch; the production token rule remains unproven.

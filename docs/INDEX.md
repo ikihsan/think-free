@@ -220,6 +220,17 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/029-need-build-match/PROTOCOL.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/029-need-build-match/README.md`](../EXPERIMENTS/029-need-build-match/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0073. Protocol declared before the first fetch |
 | [`EXPERIMENTS/029-need-build-match/RUBRIC.md`](../EXPERIMENTS/029-need-build-match/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/030-departure-recurrence/README.md`](../EXPERIMENTS/030-departure-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0074. Protocol declared in |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

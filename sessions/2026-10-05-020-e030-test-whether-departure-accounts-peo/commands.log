@@ -160,3 +160,181 @@ cwd: /home/ubuntu/think-free
 {"author_in_treatment": 947, "duplicate": 0, "event": "control_exclusions", "has_framing": 27, "no_author": 0, "reply_to_treatment": 29, "too_short": 4173}
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 117678  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T22:21:14+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/register_check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "a5_candidate", "name": "Bambu", "status": 200, "total_count": 3094}
+{"event": "a5_candidate", "name": "PyCharm", "status": 200, "total_count": 14696}
+{"event": "a5_candidate", "name": "NixOS", "status": 200, "total_count": 20019}
+{"event": "a5_candidate", "name": "UUID", "status": 200, "total_count": 7719}
+{"event": "a5_candidate", "name": "Herdr", "status": 200, "total_count": 3212}
+{"event": "a5_candidate", "name": "CENTOS", "status": 200, "total_count": 16970}
+{"event": "a5_candidate", "name": "Google Translate", "status": 200, "total_count": 3311}
+{"event": "a5_candidate", "name": "Altavista", "status": 200, "total_count": 87}
+{"event": "a5_candidate", "name": "XWayland", "status": 200, "total_count": 88}
+{"event": "a5_candidate", "name": "Obsidian", "status": 200, "total_count": 65164}
+{"event": "a5_candidate", "name": "S3", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "Authy", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "Splunk", "status": 200, "total_count": 16129}
+{"event": "a5_candidate", "name": "Ivy League", "status": 200, "total_count": 127}
+{"event": "a5_candidate", "name": "Wix", "status": 200, "total_count": 8795}
+{"event": "a5_candidate", "name": "XED", "status": 200, "total_count": 2188}
+{"event": "a5_candidate", "name": "adtech-funded", "status": 200, "total_count": 0}
+{"event": "a5_candidate", "name": "Arc", "status": 200, "total_count": 678896}
+{"event": "a5_candidate", "name": "Replit", "status": 200, "total_count": 15013}
+{"event": "a5_candidate", "name": "Simplenote", "status": 200, "total_count": 2349}
+{"event": "a5_candidate", "name": "Sqlite", "status": 200, "total_count": 75840}
+{"event": "a5_candidate", "name": "GnuCash", "status": 200, "total_count": 616}
+{"event": "a5_candidate", "name": "R", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "GLM", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "NOVA", "status": 200, "total_count": 123432}
+{"event": "a5_candidate", "name": "LE", "status": 200, "total_count": 6252432}
+{"event": "a5_candidate", "name": "Keepass", "status": 200, "total_count": 2000}
+{"event": "a5_candidate", "name": "DISTAR", "status": 200, "total_count": 97}
+{"event": "a5_candidate", "name": "CEO", "status": 200, "total_count": 14501}
+{"event": "a5_candidate", "name": "M", "status": 200, "total_count": 44917164}
+{"event": "a5_candidate", "name": "Mongo", "status": 200, "total_count": 341891}
+{"event": "a5_candidate", "name": "Sceptre", "status": 200, "total_count": 340}
+{"event": "a5_candidate", "name": "Trump", "status": 200, "total_count": 10479}
+{"event": "a5_candidate", "name": "WordStar", "status": 200, "total_count": 55}
+{"event": "a5_candidate", "name": "TUI", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "Verzion", "status": null, "total_count": null}
+{"event": "a5_candidate", "name": "ChromeOS Flex", "status": 200, "total_count": 11}
+{"event": "a5_candidate", "name": "home-grown", "status": 200, "total_count": 140}
+{"event": "a5_candidate", "name": "Meli", "status": 200, "total_count": 26022}
+{"event": "a5_candidate", "name": "Minio", "status": 200, "total_count": 17691}
+{"event": "a5_nonsense", "name": "zzqxvpn", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "qqvxplm", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "zzqxvkbd", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "vvxqzpp", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "zzqvxmbn", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "qxzvbnpp", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "zzqxvtk", "status": null, "total_count": null}
+{"event": "a5_nonsense", "name": "qvzxmbpn", "status": null, "total_count": null}
+{"event": "a5_nonsense", "name": "zzxqvbnp", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "vqzxbmnp", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "zzqxvbnt", "status": 200, "total_count": 0}
+{"event": "a5_nonsense", "name": "qzvxbnmp", "status": 200, "total_count": 0}
+{"ci_c": [0.8508, 0.9948], "diff": 0.9706, "diff_ci": [0.6683, 0.9948], "event": "a5_result", "gate_passes": true, "n_candidates": 34, "n_nonsense": 10, "nonsense_hit": 0, "rate_c": 0.9706, "resolved": 33}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 251389  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T22:21:58+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/make_reader_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"control_rows": 24, "event": "a6_views", "sha256_control": "61c5218dd6f8f874", "sha256_treatment": "903c40eaf4c9b8ff", "treatment_rows": 24}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 406  redactions: none
+==============================================================================
+[seq 10] 2026-10-05T22:23:26+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a6_labels_treatment.tsv", "rows": 24, "sha256_view": "903c40eaf4c9b8ff", "view": "view_a6_treatment.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T22:23:27+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a6_labels_control.tsv", "rows": 24, "sha256_view": "61c5218dd6f8f874", "view": "view_a6_control.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 174  redactions: none
+==============================================================================
+[seq 12] 2026-10-05T22:24:15+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/make_a8_views.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"control_pool": 2663, "event": "a8_pool", "excluded_as_already_read": 48, "treatment_pool": 895}
+{"control_rows": 30, "event": "a8_views", "sha256_control": "c51c96d3da32aefc", "sha256_treatment": "b4f3fbe5a2dee369", "treatment_rows": 30}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 302  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T22:25:22+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py treatment
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a8_labels_treatment.tsv", "rows": 30, "sha256_view": "b4f3fbe5a2dee369", "view": "view_a8_treatment.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 196  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T22:25:23+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/verify_labels.py control
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "file": "/home/ubuntu/think-free/EXPERIMENTS/030-departure-recurrence/raw/a8_labels_control.tsv", "rows": 30, "sha256_view": "c51c96d3da32aefc", "view": "view_a8_control.txt"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 187  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T22:26:50+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/recurrence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"R": 0.34929270946681173, "R_ci95": [0.319154658395362, 0.38068544160031964], "accounts_in_multi_clusters": 321, "arm": "treatment", "clusters_ge2": 27, "common_fraction_cutoff": 18, "distinct_signature_tokens": 10176, "event": "recurrence", "multi_artifact_clusters": 27, "n_accounts": 919, "rare_max_df": 5, "rare_tokens": 8507, "shared_min": 2}
+{"R": 0.0, "R_ci95": [0.0, 0.0014276050377854997], "accounts_in_multi_clusters": 0, "arm": "control", "clusters_ge2": 165, "common_fraction_cutoff": 54, "distinct_signature_tokens": 15833, "event": "recurrence", "multi_artifact_clusters": 0, "n_accounts": 2687, "rare_max_df": 5, "rare_tokens": 12536, "shared_min": 2}
+{"R": 0.35690968443960824, "R_ci95": [0.32658953085888354, 0.38842110559911014], "accounts_in_multi_clusters": 328, "arm": "treatment_matched", "clusters_ge2": 30, "common_fraction_cutoff": 18, "distinct_signature_tokens": 10176, "event": "recurrence", "multi_artifact_clusters": 25, "n_accounts": 919, "rare_max_df": 5, "rare_tokens": 8507, "shared_min": 2}
+{"event": "first_person_subset", "matched": 388, "of": 919}
+{"R": 0.5798969072164949, "R_ci95": [0.5302369145232535, 0.627990344497048], "accounts_in_multi_clusters": 225, "arm": "treatment_first_person", "clusters_ge2": 5, "common_fraction_cutoff": 8, "distinct_signature_tokens": 5684, "event": "recurrence", "multi_artifact_clusters": 5, "n_accounts": 388, "rare_max_df": 5, "rare_tokens": 4914, "shared_min": 2}
+{"ci95": [0.3191, 0.3807], "diff": 0.3493, "event": "diff_declared"}
+{"ci95": [0.3266, 0.3884], "diff": 0.3569, "event": "diff_matched"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2485  redactions: none
+==============================================================================
+[seq 16] 2026-10-05T22:27:56+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/recurrence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"arm": "treatment", "clusters_ge2": 27, "cross": {"accounts": 319, "ci95": [0.3170319822368499, 0.3784736787695997], "clusters": 26, "rate": 0.3471164309031556}, "event": "recurrence", "max_cluster_accounts": 259, "max_cluster_stories": 249, "multi": {"accounts": 321, "ci95": [0.319154658395362, 0.38068544160031964], "clusters": 27, "rate": 0.34929270946681173}, "n": 919, "shared": {"accounts": 321, "ci95": [0.319154658395362, 0.38068544160031964], "clusters": 27, "rate": 0.34929270946681173}}
+{"arm": "control", "clusters_ge2": 165, "cross": {"accounts": 367, "ci95": [0.12411681718105619, 0.15008791398336327], "clusters": 71, "rate": 0.1365835504279866}, "event": "recurrence", "max_cluster_accounts": 127, "max_cluster_stories": 25, "multi": "not_defined", "n": 2687, "shared": {"accounts": 579, "ci95": [0.20034783127231232, 0.2314284277908712], "clusters": 165, "rate": 0.21548195013025678}}
+{"arm": "treatment_matched", "clusters_ge2": 30, "cross": {"accounts": 331, "ci95": [0.32977850485621746, 0.3917337900856244], "clusters": 26, "rate": 0.3601741022850925}, "event": "recurrence", "max_cluster_accounts": 272, "max_cluster_stories": 258, "multi": {"accounts": 328, "ci95": [0.32658953085888354, 0.38842110559911014], "clusters": 25, "rate": 0.35690968443960824}, "n": 919, "shared": {"accounts": 339, "ci95": [0.3382899717077313, 0.4005600791910386], "clusters": 30, "rate": 0.36887921653971706}}
+{"event": "first_person_subset", "matched": 388, "of": 919}
+{"arm": "treatment_first_person", "clusters_ge2": 5, "cross": {"accounts": 225, "ci95": [0.5302369145232535, 0.627990344497048], "clusters": 5, "rate": 0.5798969072164949}, "event": "recurrence", "max_cluster_accounts": 216, "max_cluster_stories": 210, "multi": {"accounts": 225, "ci95": [0.5302369145232535, 0.627990344497048], "clusters": 5, "rate": 0.5798969072164949}, "n": 388, "shared": {"accounts": 225, "ci95": [0.5302369145232535, 0.627990344497048], "clusters": 5, "rate": 0.5798969072164949}}
+{"ci95": [0.0997, 0.1687], "diff": 0.1338, "event": "diff_shared", "variant": "declared"}
+{"ci95": [0.1189, 0.1885], "diff": 0.1534, "event": "diff_shared", "variant": "matched"}
+{"ci95": [0.3918, 0.493], "diff": 0.4433, "event": "diff_shared", "variant": "first_person_cross_story"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2513  redactions: none
+==============================================================================
+[seq 17] 2026-10-05T22:29:21+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/recurrence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"R_pair": 0.3493, "accounts_with_partner": 321, "arm": "treatment", "ci": [0.3192, 0.3807], "distinct_artifact_pairs": 321, "event": "pair_stats", "n": 919, "pairs": 449}
+{"accounts_in_groups_ge3": 101, "arm": "treatment", "event": "mutual_groups", "groups": 225, "largest": 4, "size_distribution": {"2": 192, "3": 31, "4": 2}}
+{"R_pair": 0.2155, "accounts_with_partner": 579, "arm": "control", "ci": [0.2003, 0.2314], "distinct_artifact_pairs": 0, "event": "pair_stats", "n": 2687, "pairs": 451}
+{"accounts_in_groups_ge3": 71, "arm": "control", "event": "mutual_groups", "groups": 346, "largest": 4, "size_distribution": {"2": 323, "3": 21, "4": 2}}
+{"R_pair": 0.3689, "accounts_with_partner": 339, "arm": "treatment_matched", "ci": [0.3383, 0.4006], "distinct_artifact_pairs": 321, "event": "pair_stats", "n": 919, "pairs": 466}
+{"accounts_in_groups_ge3": 101, "arm": "treatment_matched", "event": "mutual_groups", "groups": 237, "largest": 4, "size_distribution": {"2": 204, "3": 31, "4": 2}}
+{"event": "first_person_subset", "matched": 388, "of": 919}
+{"R_pair": 0.5799, "accounts_with_partner": 225, "arm": "treatment_first_person", "ci": [0.5302, 0.628], "distinct_artifact_pairs": 225, "event": "pair_stats", "n": 388, "pairs": 458}
+{"accounts_in_groups_ge3": 151, "arm": "treatment_first_person", "event": "mutual_groups", "groups": 166, "largest": 4, "size_distribution": {"2": 117, "3": 45, "4": 4}}
+{"ci95": [0.0997, 0.1687], "diff": 0.1338, "event": "diff_pair", "variant": "declared"}
+{"ci95": [0.1189, 0.1885], "diff": 0.1534, "event": "diff_pair", "variant": "matched"}
+{"b1_fires": true, "b2_fires": false, "ci_overlap": false, "event": "verdict", "gate_b1_diff_threshold": 0.1, "gate_b1_min_groups": 3, "multi_artifact_mutual_groups_ge3": 33, "mutual_groups_ge3": 33, "verdict": "H1_survives"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4105  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T22:30:58+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/permutation_control.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"arm": "treatment", "event": "a9", "gate_fires": false, "mean_rare_sig": 15.4, "n": 919, "null_mean": 0.2925, "null_sd": 0.012, "observed": 0.3493, "z": 4.72}
+{"arm": "control", "event": "a9", "gate_fires": true, "mean_rare_sig": 8.1, "n": 2687, "null_mean": 0.0496, "null_sd": 0.0044, "observed": 0.2155, "z": 37.83}
+{"R_pair": 0.341, "arm": "treatment_length_matched", "ci": [0.311, 0.3724], "event": "length_matched", "median_words": 90.0, "n": 912}
+{"R_pair": 0.4145, "arm": "control_length_matched", "ci": [0.3829, 0.4467], "event": "length_matched", "median_words": 82.0, "n": 912}
+{"ci95": [-0.1176, -0.029], "diff": -0.0735, "event": "length_matched", "variant": "diff"}
+{"a9_control_fires": true, "a9_treatment_fires": false, "event": "verdict", "h1": "not_evaluated", "reason": "the recurrence statistic is at or below its own permutation null, so a difference in it is not a difference in clause recurrence"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22784  redactions: none
+==============================================================================
+[seq 19] 2026-10-05T22:35:09+00:00
+$ python3 EXPERIMENTS/030-departure-recurrence/a8_separation.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"control": {"ci95": [0.006332519846951601, 0.1771219774818545], "k": 1, "n": 28, "rate": 0.03571428571428571, "unanswered": 2}, "event": "a8", "fires": true, "treatment": {"ci95": [0.4451849774378259, 0.7975211922840683], "k": 16, "n": 25, "rate": 0.64, "unanswered": 5}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 395  redactions: none

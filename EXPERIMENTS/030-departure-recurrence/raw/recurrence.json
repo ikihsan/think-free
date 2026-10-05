@@ -1,0 +1,150 @@
+{
+  "control_declared": {
+    "R_distinct_artifact_pair": 0.0,
+    "R_pair": 0.21548195013025678,
+    "R_pair_ci95": [
+      0.20034783127231232,
+      0.2314284277908712
+    ],
+    "accounts_in_distinct_artifact_pairs": 0,
+    "accounts_with_a_partner": 579,
+    "arm": "control",
+    "artifact_condition": false,
+    "artifact_field_defined": false,
+    "common_fraction_cutoff": 54,
+    "distinct_signature_tokens": 15833,
+    "mutual": {
+      "accounts_in_groups_ge3": 71,
+      "arm": "control",
+      "largest_group": 4,
+      "n_groups": 346,
+      "size_distribution": {
+        "2": 323,
+        "3": 21,
+        "4": 2
+      }
+    },
+    "n_accounts": 2687,
+    "n_pairs": 451,
+    "rare_max_df": 5,
+    "rare_tokens": 12536,
+    "shared_min": 2
+  },
+  "diff_declared": {
+    "ci95": [
+      0.0997139519762494,
+      0.16866108479289138
+    ],
+    "diff": 0.13381075933655495
+  },
+  "diff_matched": {
+    "ci95": [
+      0.11890100502983186,
+      0.18850735914557093
+    ],
+    "diff": 0.15339726640946028
+  },
+  "treatment_declared": {
+    "R_distinct_artifact_pair": 0.34929270946681173,
+    "R_pair": 0.34929270946681173,
+    "R_pair_ci95": [
+      0.319154658395362,
+      0.38068544160031964
+    ],
+    "accounts_in_distinct_artifact_pairs": 321,
+    "accounts_with_a_partner": 321,
+    "arm": "treatment",
+    "artifact_condition": true,
+    "artifact_field_defined": true,
+    "common_fraction_cutoff": 18,
+    "distinct_signature_tokens": 10176,
+    "mutual": {
+      "accounts_in_groups_ge3": 101,
+      "arm": "treatment",
+      "largest_group": 4,
+      "n_groups": 225,
+      "size_distribution": {
+        "2": 192,
+        "3": 31,
+        "4": 2
+      }
+    },
+    "n_accounts": 919,
+    "n_pairs": 449,
+    "rare_max_df": 5,
+    "rare_tokens": 8507,
+    "shared_min": 2
+  },
+  "treatment_first_person": {
+    "R_distinct_artifact_pair": 0.5798969072164949,
+    "R_pair": 0.5798969072164949,
+    "R_pair_ci95": [
+      0.5302369145232535,
+      0.627990344497048
+    ],
+    "accounts_in_distinct_artifact_pairs": 225,
+    "accounts_with_a_partner": 225,
+    "arm": "treatment_first_person",
+    "artifact_condition": true,
+    "artifact_field_defined": true,
+    "common_fraction_cutoff": 8,
+    "distinct_signature_tokens": 5684,
+    "mutual": {
+      "accounts_in_groups_ge3": 151,
+      "arm": "treatment_first_person",
+      "largest_group": 4,
+      "n_groups": 166,
+      "size_distribution": {
+        "2": 117,
+        "3": 45,
+        "4": 4
+      }
+    },
+    "n_accounts": 388,
+    "n_pairs": 458,
+    "rare_max_df": 5,
+    "rare_tokens": 4914,
+    "shared_min": 2
+  },
+  "treatment_matched": {
+    "R_distinct_artifact_pair": 0.34929270946681173,
+    "R_pair": 0.36887921653971706,
+    "R_pair_ci95": [
+      0.3382899717077313,
+      0.4005600791910386
+    ],
+    "accounts_in_distinct_artifact_pairs": 321,
+    "accounts_with_a_partner": 339,
+    "arm": "treatment_matched",
+    "artifact_condition": false,
+    "artifact_field_defined": true,
+    "common_fraction_cutoff": 18,
+    "distinct_signature_tokens": 10176,
+    "mutual": {
+      "accounts_in_groups_ge3": 101,
+      "arm": "treatment_matched",
+      "largest_group": 4,
+      "n_groups": 237,
+      "size_distribution": {
+        "2": 204,
+        "3": 31,
+        "4": 2
+      }
+    },
+    "n_accounts": 919,
+    "n_pairs": 466,
+    "rare_max_df": 5,
+    "rare_tokens": 8507,
+    "shared_min": 2
+  },
+  "verdict": {
+    "b1_fires": true,
+    "b2_fires": false,
+    "ci_overlap": false,
+    "gate_b1_diff_threshold": 0.1,
+    "gate_b1_min_groups": 3,
+    "multi_artifact_mutual_groups_ge3": 33,
+    "mutual_groups_ge3": 33,
+    "verdict": "H1_survives"
+  }
+}

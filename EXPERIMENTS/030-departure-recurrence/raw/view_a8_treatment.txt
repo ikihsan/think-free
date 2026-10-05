@@ -1,0 +1,189 @@
+========================================================================
+ID: T01
+DECLARED ARTIFACT CANDIDATE: Chinese
+TEXT:
+I haven't said anything about "good", I just pointed out that there isn't exactly an alternative to Chinese models if censorship and restrictions are regarded as bad for longevity. You can't really do better than the Chinese models for longevity; US models are by far the worst in this regard. So "What about censorship?" is an absolutely hilarious question to ask when Chinese models are presented as an alternative. Yes, what about it? They have less than the obvious alternative from US labs, and where is it you imagine you'll find less censorship?
+
+========================================================================
+ID: T02
+DECLARED ARTIFACT CANDIDATE: Node
+TEXT:
+We recently switched from Node.js + Mathjax for rendering latex to Goja ( https://github.com/dop251/goja ) + Mathjax, and surprisingly it worked really well. We did this because the app is already 99% golang, and this allows us to eliminate the remaining non-go pieces, greatly simplifying the SBOM. And yes, we tried go-latex, but it's not nearly as feature complete as Mathjax. Not to mention using goja + Mathjax adds 10MB to binary size while Node.js adds 200MB+
+
+========================================================================
+ID: T03
+DECLARED ARTIFACT CANDIDATE: Trump
+TEXT:
+That's where you're wrong, the election was very, very close. In fact, if roughly 40k voters (across three states) had switched from Trump to Hillary, she would have won, that's how close it was. 40k voters, that's really not very many. So it's hard to say whether Trump had a 30% chance of winning or 40% or whatever, but the election at most was a toss-up. Many random events could have resulted in a different outcome.
+
+========================================================================
+ID: T04
+DECLARED ARTIFACT CANDIDATE: preprocess-then-validate
+TEXT:
+hey HN, sharing harness engineering deep dive on tool calling repairs for open models. i've been thinking about why "open model bad at tool calling" is almost always a harness problem, not a model problem. spent time looking at billions of tokens from DeepSeek (and other open models) in our coding agent. ended up building a tool-input repair layer on top of Zod. by the end, DeepSeek V4 Pro was beating Opus 4.7 in 6/10 of our internal evals. the main things that helped: - most failures came from a small set of recurring schema mistakes
+- switched from preprocess-then-validate to validate-then-repair
+- handled some weird cases like markdown auto-links leaking into file paths full writeup:  https://x.com/MrAhmadAwais/status/2050956678502420612  video version (more detailed):  https://www.youtube.com/watch?v=f61DCDwvFis
+
+========================================================================
+ID: T05
+DECLARED ARTIFACT CANDIDATE: AC
+TEXT:
+The ignorant part is claiming we have workable alternatives to AC. Now you one-up your previous statement by claiming people thrive(d) in these temperatures. Even if you had mistaken thrive for survive, it would still be incorrect, indicated by excess mortality during high temperatures. I'd grant you that you didn't explicitly advocated for restrictive AC regulation, but I claim your dismissive attitude is implicitly part of the reason AC regulation remains restrictive.
+
+========================================================================
+ID: T06
+DECLARED ARTIFACT CANDIDATE: Pixel
+TEXT:
+I switched from iPhone to Pixel after I couldn't stand Liquid Glass and found myself using Gemini more than I expected. If you're in the Google ecosystem like Gmail and Calendar, it is exceptionally refreshing to be able to use an assistant that uses that ecosystem, instead of iOS requiring you to use Mail or its own Calendar app. I don't think there's any real gap between Pixel and iPhone on the things that matter: UX jank, battery life, camera. Even the messaging issue in the US has closed with encrytped RCS support between them launching. So now it's just an ecosystem question, which might be why Gemini is mentioned so much with Pixel.
+
+========================================================================
+ID: T07
+DECLARED ARTIFACT CANDIDATE: DOGE
+TEXT:
+That's not the best theory. He thinks government was too big, and wanted to cut waste. Trump, it turns out, wanted to have a "big beautiful bill" and Musk strongly opposed that, saying any bill that's big isn't beautiful. So he got moved off DOGE by Trump. SpaceX has always complied with the regulations and timings needed by regulatory bodies. This isn't a thing.
+
+========================================================================
+ID: T08
+DECLARED ARTIFACT CANDIDATE: Plan Mode
+TEXT:
+This is definitely getting at least some things right about how we work with agents today, specifically that we often work at the architecture level, and we need a better alternative to the current Plan Mode offered by coding agents to efficiently architect software at a high level, which is more visual and offers better back-and-forth incrementation with the agent than simply "reject final plan with X message". From the website demos i definitely think this is a clean interface, although I don't know how much better this is compared to some simple custom Mermaid format, which the agent can write as artifact files and present to users. Zooming out, this app seems like 1 feature (a MCP with a GUI attached to it) rather than an entire product. Also, I don't know if asking the agent to write specific code changes into the plan is a good idea. I think maybe that a "plan -> approve -> write code" would let the agent write higher quality code than "plan which contains code -> approve". But maybe you can make it work when combined with some specific prompting marking the code as clearly work-in-progress and subject to change, and that the agent should surface any parts implemented differently relative to the plan to the user, etc.
+
+========================================================================
+ID: T09
+DECLARED ARTIFACT CANDIDATE: X
+TEXT:
+I refuse to use Bluesky because it is clearly being pushed on the masses, in collusion with mainstream media, as an alternative to X. Clearly another attempt by certain people to control information. It's shocking how people fall for this stuff over and over again. I hope if backfires, mostly draws in users from existing speech-unfriendly platforms and then the number of social media platforms will multiply from here onward and a large number of platforms will compete based on who is most permissive with regards to speech. Most of the highly suggestible masses already moved off X to Threads... So now that Bluesky is being pushed hard, I hope the suggestible people from Threads will switch over and split up their censorship ecosystems. It makes sense from that perspective. The censored ecosystems should be separated into lots of small platforms because you need a lot of different filter bubbles to maintain the deceptions and impermeable information silos. A large centralized ecosystem will create too many opportunities for exposure to alternative information so it cannot be controlled as well. In the future, there will be a different platform for every kind of delusion and each one will focus on its own delusion and will make up stories to discredit rival platforms so people always doubt information received outside. It's a matter of time before large corporations start preventing their employees from using non-approved platforms. They'll probably use cybersecurity safety as an excuse. They might carry out hacking false flags on their own employees to convince them to not use other platforms they won't feel forced.
+
+========================================================================
+ID: T10
+DECLARED ARTIFACT CANDIDATE: Windows
+TEXT:
+Which card and which drivers? I switched from Windows 10 to Xubuntu last year and have had endless issues with my Nvidia card (GTX 970). At the moment, I can't even use the desktop without annoying flickering & hard to diagnose / fix bugs. Its an old card so I have no idea why I'm still struggling to get it to work. Is it perhaps because I'm using Xfce? I heard that Nvidia cards play better with Wayland although I haven't tested this myself.
+
+========================================================================
+ID: T11
+DECLARED ARTIFACT CANDIDATE: Proton
+TEXT:
+I love fastmail, I switched from Proton a couple years ago after deciding the trade offs to have encrypted email were not worth it, since even if I fully trust Proton, most emails come from or go to AWS, Outlook, or Gmail anyway. I have been extremely happy with the service. Fairly priced, very fast even with a huge inbox, and they don’t add unnecessary features or bloat. I thought I would use my OS’s mail apps but the fastmail app and website are so good I just use that.
+
+========================================================================
+ID: T12
+DECLARED ARTIFACT CANDIDATE: Google Suite
+TEXT:
+My company recently switched from Google Suite to Office 365. Both are web apps. It’s NIGHT AND DAY. Google did everything  instantly . Outlook
+doesn’t. This morning Outlook decided to spin for 30+ seconds (at which point I gave up) showing a folder. I get a modal pop-up telling me I have to “refresh” teams  multiple times a day . Search  always  fails the first time.  Always . Then it works. Some. I agree. It’s not web tech. It’s MS not caring.
+
+========================================================================
+ID: T13
+DECLARED ARTIFACT CANDIDATE: M
+TEXT:
+It used to only happen when I had it plugged in, initially when I took my MacBook to Romania a few years ago and plugged it into the power grid there, they use a different frequency and I had to use an adaptor. But then it started happening in the US as well, and even after I switched from the 2020 model to the new M series, and now it happens to me even when its not plugged in anything, whether I'm grounded or not...that's why I'm wondering if they're actively changing the EM field encapsulation specs.
+
+========================================================================
+ID: T14
+DECLARED ARTIFACT CANDIDATE: Cpp1
+TEXT:
+There are several semantic differences between Cpp1 and Cpp2. Cpp2 moves from last use, which is the biggest one. In a contrived example, that could result in a "hello world" changing to "goodbye world" or any other arbitrary behavior change you want to demonstrate. Cpp2 also doesn't require you to order functions and types or declare prototypes, which means partial template specializations and function overloads can produce similar changes when migrating from Cpp1 to Cpp2.
+
+========================================================================
+ID: T15
+DECLARED ARTIFACT CANDIDATE: MP
+TEXT:
+I switched from MP to Homebrew  over a decade ago. At the time, Homebrew was less finicky and better at resolving dependency conflicts. It was a lot easier to get a system running MacPorts into a an irretrievably borked state. Not long after, Homebrew install instructions became ubiquitous, whereas with MacPorts it seemed like you always had to figure it out for yourself — if the package was even available, which it more often wasn’t. Haven’t used MacPorts since. Has it gotten any better at those things?
+
+========================================================================
+ID: T16
+DECLARED ARTIFACT CANDIDATE: Flash
+TEXT:
+The most famous criticism of Flash was "Thoughts on Flash" by Steve Jobs, which said among other things that it's too inefficient. He did cite inconsistent hardware acceleration for H.264 that was a real performance drawback of Flash for video in particular, and was also complaining about the power usage for interactive Flash content in general. Jobs was right at the time from what I can tell, but somehow the end result was even slower stuff. People did keep repeating the line that Flash is slow. I also remember people citing performance as a reason YouTube switched from Flash to HTML5. Searching those blogs now is giving a lot of 404s. Like I said this should've helped since it's video, but somehow YouTube immediately got slower anyway back then. Back then I installed an extension to force it to use QuickTime Player for that reason. The proprietary and insecure parts were real problems too. I'm fine with the decisions that were made, but this was a drawback.
+
+========================================================================
+ID: T17
+DECLARED ARTIFACT CANDIDATE: Mac
+TEXT:
+Thanks! I still have a g4 mini and a g4 imac for old times sake. I moved off Mac these days but it reminds me of when they were still awe inspiring Unix machines. These days they're way too iOS for me to be interested.
+
+========================================================================
+ID: T18
+DECLARED ARTIFACT CANDIDATE: Terraform
+TEXT:
+Well folks are already migrating from Terraform to OpenTofu. I am sure similar open source projects for other HashiCorp's products unencumbered with IBM business model will be out pretty soon. So all in all I think another big win for open source even if little indirectly.
+
+========================================================================
+ID: T19
+DECLARED ARTIFACT CANDIDATE: B
+TEXT:
+Fwiw, GDPR has a forgotten clause that data exports need to also be provided in machine-readable format for easy service migrations and promoting competition / reducing vendor lock-in The only reason I can imagine why nobody implements this, is that they like the status quo where it's hard to switch to their service, but equally hard to switch away. Once this becomes commonplace (e.g. because vendor A makes users aware it's a thing by implementing it for migrating from vendor B), vendor B will "retaliate" and A will have to truly be better than vendor B to retain said users That is all to say, this might yet totally be a viable and legally unblockable business avenue for a third party to initiate. I'm just not sure there's enough demand to warrant (read: pay for) the effort involved. Maybe if you can have an LLM read the api docs of the service where you want to do the import and autogenerate a mostly-working version?
+
+========================================================================
+ID: T20
+DECLARED ARTIFACT CANDIDATE: V4
+TEXT:
+I can't remember the number of times I have given up on software because there is no “Concepts and Facilities” document that gives me a mental model of what the program will do and how I operate it. Instead, one sees a website with a mass of unrelated documents that I'm supposed to read in some order, and divine how everything works. Maybe because I'm a child of the 20th century that I value documentation that gives me a path from understanding what and why to learning how I can use it, with a master index so I can look up exactly what the “Mung Until No Good” command does, and see which other commands relate to it. Perhaps one day generative AI will be good enough that we can feed in one of these websites, with its pages with titles like “Migrating from V4.7.2 to V4.7.3” and “Building for OS/2 Warp” (I exaggerate, but only slightly) to documentation that is useful for learning, use, and troubleshooting. I live in hope.
+
+========================================================================
+ID: T21
+DECLARED ARTIFACT CANDIDATE: Total Commander
+TEXT:
+> It's packaged in Debian and Ubuntu as "doublecmd-qt" and "doublecmd-gtk" Ah, I found it now. I must have misspelled it, just saw the language files earlier. Yes, this seems to be a valid alternative to Total Commander. It has what I need, including script buttons, very nice. There are still a few bugs, like the buttons are currently all light grey. I will see if I can resolve that. Thanks for this tip.
+
+========================================================================
+ID: T22
+DECLARED ARTIFACT CANDIDATE: Green
+TEXT:
+How many sales do that 1% drive? They also tend to be the evangelical users / YouTubers / tech bloggers that drive sales for the company. Bambu is following Synology's footsteps here. And just like Synology, they will wake up to press at some point and common wisdom "don't buy Synology, the elite moved off when Green came out and now the rest are leaving too". I own the most expensive Bambu (The H2C) - and even I am willing to admit that the snap maker is a great printer, and a better technical path in someways then the H2C vortek system for anyone who doesn't care about engineering filament
+
+========================================================================
+ID: T23
+DECLARED ARTIFACT CANDIDATE: US
+TEXT:
+As someone outside both USA and China. I think it is time to increase my spending on Chinese infra/services. It is imperative to have alternatives to US oligopolies else will be at whims of these techbros and govt elected by money and relgious fanaticism. So, bye-bye Claude; hello Kimi.
+
+========================================================================
+ID: T24
+DECLARED ARTIFACT CANDIDATE: EdgeRouter
+TEXT:
+I'm slowly in the process of migrating from an EdgeRouter and Edgeswitches (including the 16XG for my SAN backplane) to Unifi. Am comfortable at the command line (and actually just had Claude help me build a bunch of configs and an IaC harness for my whole infrastructure) but the SPOG will be nice - that and Ubiquiti has basically abandoned the Edge* line. This was prompted by not wanting to by having persistent problems with the Cat 6 STP termination and the length of the run between my office and the rack in my garage, and my Mac Studio and Edgeswitch would generally only negotiate at 5gbps and even then be error prone, so I got a Unifi switch with 8 ports and 2 SFP+ and ran fiber to the garage for the uplink, and just a short 10' run between the switch and my studio gave me rock solid 10gig (I just run the controller, for now, on a small VM, with my 2 WAPs, but will go all in when I pull the trigger, though, oof, $2,500 for everything I need).
+
+========================================================================
+ID: T25
+DECLARED ARTIFACT CANDIDATE: Docker
+TEXT:
+> ... the old method was too hacky and involved the usage of redundant commands. > There must be an easier way, you might think. Especially if you experienced the convenience that Docker Compose provides. I really hope this new approach helps people migrate from Docker to Podman. Docker-Compose is the reason a lot of people resist switching (including myself), and admittedly, Podman didn't really have an answer until Quadlets. If you were hesitant about migrating from Docker because of Docker-Compose, Podman with Quadlets is a much more comparable alternative. You probably won't miss Docker as much as you think, and you'll benefit from enhanced security running rootless containers.
+
+========================================================================
+ID: T26
+DECLARED ARTIFACT CANDIDATE: Nvidia
+TEXT:
+After I switched from Nvidia to AMD GPUs on my main rig, I can now run Sid without issue and upgrade my Kernel whenever I want to without getting a black screen with a blinking cursor on the next boot.
+
+========================================================================
+ID: T27
+DECLARED ARTIFACT CANDIDATE: Plex
+TEXT:
+Subtitles are the Achilles heel of Jellyfin (at least the Android client sending the stream to Chromecast stick connected to the TV). I can see the subtitle present but it doesn't show on the movie. Ok, I will just add manually - can't, progress indicator loops forever. Ok, I will remove the existing subtitles and add - removal succeeds - addition fails. This is the same fiddling everytime. If it works, it is a miracle. I used to forget about the subtitles and start the movie - you could just fix it on the fly right?! Nope, now I do full prep before calling everyone that the movie is good to go. This is not coming from a bad place - I am very appreciative of having a open source alternative to Plex. Just putting this out there in case it catches someone's interest to improve it.
+
+========================================================================
+ID: T28
+DECLARED ARTIFACT CANDIDATE: Jekyll Ruby
+TEXT:
+Cobalt + Liquid-Rust + iSH enables offline writing with iPad portability, lockdown mode security and battery life, retaining interoperability with Linux static publishing toolchains. No jailbreaks or sideloading required. Due to lack of JIT on iOS, Jekyll is too slow to run on iSH. Liquid-Rust ( https://github.com/cobalt-org/liquid-rust ) templates, even with partial compatibility for the Ruby-based Liquid template engine, reduce the cost of migrating from the Jekyll Ruby static site generator used by Github Pages. On Debian x86, build a cobalt static binary for use on iSH (Alpine Linux /w musl libc) on iPadOS:     sudo apt install rustup build-essential
+  rustup target add i586-unknown-linux-musl
+  git clone https://github.com/cobalt-org/cobalt.rs
+  cd cobalt.rs
+  cargo build --release --target i586-unknown-linux-musl
+  cp target/i586-unknown-linux-musl/release/cobalt /mnt/usb
+  
+Copy cobalt static binary to iSH filesystem via iOS Files app, execute and view http://localhost:NNNN with a web browser:     ./cobalt --no-watch --host 0.0.0.0 --port NNNN
+
+========================================================================
+ID: T29
+DECLARED ARTIFACT CANDIDATE: DDS
+TEXT:
+Zenoh ( https://zenoh.io/ ) is a good alternative to DDS in many cases - it scales down to microcontrollers with most features still intact, but scales up to a routed hybrid mesh if needed. It does move the schema enforcement out of the middleware layer, so it’s a bit different. But it’s now a first-class alternative middleware implementation for ROS2 as an alternative to DDS.
+
+========================================================================
+ID: T30
+DECLARED ARTIFACT CANDIDATE: Google Photos
+TEXT:
+Alternatives to Google Photos and self hosting: If you pay for an Amazon Prime account, Amazon Photos is included. You get unlimited photos storage If you pay for a M365 license, you get 1TB of photo space on OneDrive I get these aren't free, however if you are already paying for a service which give you photo storage, why pay Google. Also, let's face it, most people have an Amazon Prime account or pay for a M365 account to use Office.

@@ -1,0 +1,181 @@
+========================================================================
+ID: T01
+DECLARED ARTIFACT CANDIDATE: A2P SMS
+TEXT:
+Hi HN, I'm Harold, founder of The Notifier. We built this to solve a few of problems I run into: - I get so many scam texts that now I hate getting any promo texts even from businesses and orgs I like - A lot of events, conferences and orgs want me to dowload their app mainly so they can send notifications to my phone, like a last minute update. I don't mind the notifications but I do mind downloading their app  when all the info I need is already on their website. - Sometimes you just want to broadcast message - one way with no replies. When my sons played sports, sometimes the coach would text gym changes to the players and parents in a group chat, their message would get lost in the group chat chaos and players would show up late. Or worse, the coach would send an email which hardly anyone checks regularly - especially the players. The Notifier is 2 things: 1. A SaaS platform that lets you broadcast alerts/messages to groups of people. 2. A personal alert app: no signup, no phone number, no PII. You can create personal alerts/reminders or join a group anonymously. And you can pause, resume, or leave a group with one tap. The demo page has two live groups running on the same infrastructure our customers use, so you can get an idea of how these one-way, broadcast alerts work: GitHub Incidents: alerts when GitHub's status page reports an incident.
+Indie Hackers Case Studies: alerts when Indie Hackers publishes a new case study The Show HN title says GitHub Incidents but this isn't a GitHub-specific tool. It a general delivery layer. The GitHub Incidents is the type of alert a community organization can send to residents, or a conference can send to attendees, for last-minute updates. The IH Case Studies is the type of alert an online store can use to announce an upcoming drop, or a company can use to pre-register customers for an upcoming product launch. Currently, our platform lets you manually send alerts. We had some devs ask about API access, mostly folks who wanted an alternative to A2P SMS without collecting phone numbers, and we are currently working on that - so these GitHub and IH alerts are meant to show how our service can be used in a product or website. Happy to answer anything.
+
+========================================================================
+ID: T02
+DECLARED ARTIFACT CANDIDATE: Big Two
+TEXT:
+This is a very good point and I'm not sure why you're being downvoted. I considered contributing to KDE Connect but decided against it for many reasons: 1. This would be a major subsystem added to KDE Connect and I have no history with the project. 2. The KDE Connect roadmap explicitly lists iMessage / SMS support as "Won't Implement" 3. My project requires a browser extension and mail extension, I can't imagine I have much of a chance of getting a "KDE Connect" extension approved. 4. Time: it would have taken much longer to jump through all the (appropriate) hoops. 5. Choice. While I'm not a fan of Omarchy, I LOVE what it is doing. Having an alternative to the Big Two and embracing "custom" desktops is very appealing to me, and I think it is a good thing for Linux and FOSS. 6. I was going to do this no matter what, it worked better than I expected, I wanted everyone to have it.
+
+========================================================================
+ID: T03
+DECLARED ARTIFACT CANDIDATE: US
+TEXT:
+It will take _many_ years for alternatives to come online in the US and most other places. So much of the west is unable to execute on any kind of large project. In addition, in the US, the current administration has an irrational opposition to the main cost-effective alternatives.
+
+========================================================================
+ID: T04
+DECLARED ARTIFACT CANDIDATE: Keychron K2
+TEXT:
+I switched from a typical keyboard to a 75% Keychron K2 HE ( https://www.keychron.com/products/keychron-k2-he-wireless-ma... ) and I like it a lot. I wasn't using the side keys enough for the desk real estate required so this is more efficient. However as a result it's hard to go smaller; I like the function keys! There's also a few notes on how reducing the actuation distance using the magnetic switches is a decent productitiy/RSI-reducer but that's a subject for another thread.
+
+========================================================================
+ID: T05
+DECLARED ARTIFACT CANDIDATE: Svelte
+TEXT:
+As someone who is in the midst of migrating from Svelte 4 to Svelte 5, I definitely feel the pain of syntax changes. However, I'd argue that `on:change` -> `onchange` isn't frivolous. A real world example: in Svelte 4, I had a custom input component that wrapped an   element. To be able to do ` ` took a bunch of event forwarding boiler plate (or magic `on:change` syntax to forward that one event). When I wanted to also forward blur events I had to go through the same process. Now in Svelte 5 I can just use `const { foo, ...rest } = $props()` then spread with ` ` and I get all events forwarded for free. They could have kept the original `on:change` syntax, but that would have made property access more painful (who wants to call `rest['on:change']`?) and would have broken all my other components that I haven't migrated yet. The same goes for slots to snippets. Being able to pass snippets around like props has allowed me to simplify tons of components where slots were limiting. As a solo dev working part time on a Javascript project, I definitely hate some of the ecosystem churn, but this is one refactor I'm happy to do, and I'd say the same about most of the Svelte 5 changes.
+
+========================================================================
+ID: T06
+DECLARED ARTIFACT CANDIDATE: Microsoft
+TEXT:
+I don't see the correlation here. You insinuate that codeberg's opinion is due to hosting Zig. I don't see any indicator of that. I also don't see your points of contention - it may help to be more specific. Last but not least, I am also not sure they are a community hub. This depends on how many people use codeberg. IMO it is still a niche right now; perhaps that will change, but right now I am not entirely certain it is a community hub per se when compared to github. But competition is good and if there are alternatives to fatso Microsoft controlling github, I am all up for that. The upcoming mandatory age sniffing will be a waterfall moment.
+
+========================================================================
+ID: T07
+DECLARED ARTIFACT CANDIDATE: WordPerfect
+TEXT:
+Most of the reason was corporate decisions.  My wife was perfectly happy writing a novel in WordStar under CP/M on our Osborne.  But in offices you have to use what you are given so when our company switched from WordPerfect to Microsoft Word that's what everyone had to learn to use.
+
+========================================================================
+ID: T08
+DECLARED ARTIFACT CANDIDATE: Radix
+TEXT:
+Just read the post! It's essentially "we switched from Radix to Base UI". Why? "the ecosystem moved on". Nothing says braindead web frontend churn like this post, and them not having written it in the first place is just the cherry on the cake. They could have just written "we asked Claude to rewrite our project with Base UI because it eclipsed Radix in NPM downloads".
+
+========================================================================
+ID: T09
+DECLARED ARTIFACT CANDIDATE: QuickBooks
+TEXT:
+It's fun to see a plaintext accounting view as the example... I just switched from QuickBooks to Beancount+Fava for my sole proprietorship, and couldn't be happier. I've added a text-based simple invoice system, a text-based vehicle mileage tracker, and have validators that ensure that every expense with a tax status has a document attached to it. It's far easier and faster to use than QuickBooks, I don't have to put up with ads, and with git + RFC3161 attestation of commits, I can prove I made additions when I said I made them, and there's no accidental erasures from lazy text edits, and it's a simple command to see exactly when each entry was made. All based on plain text at the core, but I've now added Fava extensions so that I can do it all in the browser when I want. If there was a TUI fava with graphs, great, but the web isn't so bad either. Now, let's see what my accountant thinks of this...
+
+========================================================================
+ID: T10
+DECLARED ARTIFACT CANDIDATE: OpenRouter
+TEXT:
+> to separate ZDR, attestation, and confidential routes Could you please clarify what that means? Given what I've been searching for, I might in principle be part of your intended customer profile, but I can't figure out whether you are merely doing routing (alternative to OpenRouter) or also inference (alternative to the names I've mentioned above). If it's merely routing, then how do you protect me from any potential misbehavior on the part of the inference provider? Just feedback for what you're building, so please take this in a positive spirit... I'm an AI researcher and not quite an infra guy, and I'm making recommendations on token APIs for several less knowledgeable around me (I've gotten a few people set up with Baseten recently), and I couldn't figure out whether/why I would be interested in TrustedRouter. You should communicate the story better :-) EDIT: Here's what I now understand after some digging; please correct if wrong. There are some M token providers ( not  the names I listed above?) who provide cryptographic guarantees about inference services. But somebody still needs to verify what they do on each request. For an individual running a single harness, that harness would be a logical place to perform this verification if possible. For an org with N users each running their own harness, TrustedRouter solves the N*M problem and becomes the single gateway for trusted inference -- provided one somehow trusts/verifies TrustedRouter.
+
+========================================================================
+ID: T11
+DECLARED ARTIFACT CANDIDATE: REST API
+TEXT:
+I think the idea is that the stored procedures ARE an Application Programming Interface, as an alternative to a REST API. (I agree with you that for some use cases, an API consisting of a set of stored procedures is just as good as an API layered on top of the database in another language.)
+
+========================================================================
+ID: T12
+DECLARED ARTIFACT CANDIDATE: Python
+TEXT:
+Except that Python took the  other  path when migrating from Python 1 to Python 2 and ... guess what?  That was a "disaster" too. The only difference was that by the time of Python 3, Python programs were  orders of magnitude  bigger so the pain was that much worse.
+
+========================================================================
+ID: T13
+DECLARED ARTIFACT CANDIDATE: NURBS
+TEXT:
+I've had a similar experience. LLMs doing math has made math far more accessible to me than it was pre-LLM. Not just using existing math, but developing new math. (For example, I developed an alternative to NURBS surfaces for geometric kernels using LLMs.) It's really annoying that anyone, anywhere is talking about halting math progress with AI.
+
+========================================================================
+ID: T14
+DECLARED ARTIFACT CANDIDATE: Windows
+TEXT:
+I've been using Firefox as my main browser since I switched from Windows to Linux. No real complaints so far, haven't really noticed any difference from Chrome to be honest which is about as good a recommendation as I could give. It does chew up memory but so did Chrome I guess, I haven't done a head-to-head comparison.
+
+========================================================================
+ID: T15
+DECLARED ARTIFACT CANDIDATE: SWIFT
+TEXT:
+Because Iran is a member of BRICS and BRICS establishes its own payment system as an alternative to SWIFT:  https://observerdiplomat.com/brics-officially-announces-fina...  on top of which they have digital payment systems with globally the most users - all of that bypassing US banks, so that the US no longer has a means to control/sanction trade and payments. TL;DR the world is leaving the premises where the US unilaterally decides which population should starve.
+
+========================================================================
+ID: T16
+DECLARED ARTIFACT CANDIDATE: SUSE
+TEXT:
+Before I was a Linux type I was a Windows expert, and when I went freelance
+  in 1996, I built myself a fairly serious NT 4 rig: Pentium II 450, 192MB of
+  RAM (I think), and dual Matrox Millennium cards so I could drive dual 14-15
+  inch CRT (glass) screens as a single big display.
+
+  I think I kept those cards, as a pair, in my next 3 or 4 PCs – I know I was
+  still using them about a decade later, because when I switched from SUSE to
+  Ubuntu in 2004, Ubuntu's very screen-config tools couldn't configure 2 GPUs
+  and so I had to keep SUSE around for several years in dual boot. Every time
+  I made some screen config change or whatever, I booted into SUSE, set up my
+  Matrox cards and then copied `/etc/X11/xorg.conf` into my Ubuntu partition,
+  then I could reboot into Ubuntu and use them.
+
+  Ubuntu finally caught up around release 6.06 or something.
+
+  I didn't stay on two 14" displays for long... then two 15", then a 17" plus
+  a 15", then the widescreen luxury of dual 17" Idek Iiyama displays. :-) 
+
+  I stopped playing video games much decades ago, so I never cared about what
+  3D performance was like. Nor did 99% of my consultancy clients. As 3D cards
+  gradually became the norm, I used to install the free Microsoft-advertising
+  version of the Computer Artworks "Organic Art" screensaver:
+
+  https://cuttlefish.org/archive/earlysites/artworks/organic-art/index.html
+
+  ... just so the 3D card had something to do. It looked impressive, and when
+  Windows 2000 was new, watching how smoothly the screensaver ran was quite a
+  treat. When the app first came out it was like a slideshow.
+
+  What was good news for me was when LCD flat screens started to appear: lots
+  of people and companies started throwing out even high-end high-quality CRT
+  screens, and big ones too. For years I ran a pair of 21" Trinitron displays
+  which cost a fortune new. I filled my garage with good quality CRTs just as
+  spares. I had a small and rather sickly cat and she vomited a lot. There is
+  a nice big warm flat space on the back of a big CRT ideal for a cat to take
+  naps on. She killed dozens of monitors, by vomiting into them, but I had so
+  many spares that for several years I simply didn't care. I sent them to the
+  recycling and grabbed another one from the spares.
+
+========================================================================
+ID: T17
+DECLARED ARTIFACT CANDIDATE: Mac
+TEXT:
+I have switched from a Mac to Linux, but that was 20 years ago and the switch was only in laptops, because in desktops I had already switched from Windows to Linux earlier. I had been very satisfied with the hardware quality of my Apple laptop, but I had mixed feelings about the Apple software. There were a few things that I liked, but overall I was dissatisfied because there were too many constraints in what I was allowed to do and I like to have absolute control over my computers. In the beginning, I had experimented with many Linux distributions, but eventually, around 2003 I switched to Gentoo, also because it allowed me even better control of everything that a computer does than most Linux distributions available then (or now). At that time, Gentoo had exceptional documentation, similar to that of FreeBSD, which had been a major source of inspiration for Gentoo, and I learned a lot of things from that documentation and from configuring and managing Gentoo on various desktops, laptops and servers. I have continued to use Gentoo until today. Unfortunately, while Gentoo still has a reasonably good documentation for newbies, nowadays no Linux distribution has documentation as good as that from a couple of decades ago, because many new features have been added and a lot of the old features have become obsolete, but much of the documentation, at all Linux distributions, has not been completely updated with everything that has changed. Until now, I did not have any reason to change from Gentoo, as it continues to allow me the fine control that I want. I have used from time to time other distributions, like Ubuntu, Fedora, Debian, Arch, but all were more difficult to customize. My parents had used Gentoo for more than a decade, until being around ninety years old, and they did not know what "Linux" is. Nonetheless, they did whatever they wanted, like reading and writing various kinds of documents, browsing Internet, watching movies, listening music, watching TV (with a TV tuner card) etc. That was possible because they had me for installing the OS and the applications that they needed. Once everything was installed, nothing was more difficult than it would have been in MacOS or Windows. Actually many things were simpler. Nevertheless, it is likely that Gentoo is not recommendable for someone who does not have programming experience and who does not have someone to help, like my parents had. Among the other Linux distributions, the one that implements some features that I want, so it is tempting to try, is NixOS (or its derivative Guix). But until now I have not found time to experiment with it, because there was no pressing need, as Gentoo, with which I am habituated, still works fine. Gentoo is renowned for slow installations, because typically you must compile all the programs from sources. But with modern fast computers that is not really true. With a fast CPU with many cores and high frequency, most packages can be compiled in seconds and there are only a few outliers, like Chromium, Webkit, Firefox, LLVM, which may need a long compilation time. Moreover, for installing Gentoo on a slow laptop or mini-PC, you can run the installation on a fast desktop, where you install everything in a temporary directory after a fast compilation, and then you just copy the contents of the directory into the root file system of the target computer. Running the Gentoo installation can be done even if that desktop uses a different Linux distribution, or even if it does not have Linux, but you boot it from a USB memory containing some live Linux image.
+
+========================================================================
+ID: T18
+DECLARED ARTIFACT CANDIDATE: Mullvad
+TEXT:
+There are no alternatives to Mullvad where you _know_ that all of the founders have "better" beliefs than this guy. If you have one, share it. What proves the point is that someone suggested moving to Proton, whose founder (not even co-founder AFAIK) is outwardly pro-MAGA. And comments calling that out are the ones that get downvoted. This shows people are just pretending to care. It's not silly to boycott companies in general, but this specific case it's silly. Not because of the reason, but because boycotting only makes sense if it's very likely that an alternative is going to be better in the specific factor that instigates the boycott. In this case, it's not likely, you have no clue whether an alternative is going to have more or less $0.0x of your $1 going to people supporting far-right parties. Especially when VPN companies are known to be some of the dodgiest tech companies in general. Mullvad is one of the most transparent ones.
+
+========================================================================
+ID: T19
+DECLARED ARTIFACT CANDIDATE: Ansible
+TEXT:
+I switched from Ansible to Pyinfra for my homelab, and continue to use Ansible at work. The biggest difference is that Pyinfra is simply Python code. It's incredibly easy to control the system in whatever manner you need to. You can probably do the same thing in Ansible, but it's never quite as obvious  how  to do it. This also means it's much more clear where and why things work the way they do in Pyinfra, where in Ansible I end up digging through numerous role files to try to find where some variable gets injected.
+
+========================================================================
+ID: T20
+DECLARED ARTIFACT CANDIDATE: GNOME
+TEXT:
+i switched from GNOME to KDE just a few weeks ago. the main reason was that i thought GNOME had become unstable on fedora 42 because my session started crashing rather frequently. since i was already using some KDE applications i thought i'd give it a try. the switch cost me a week of productivity until i had it configured the way i liked it. (which was mostly to make it similar to GNOME/Mac with a main bar at the top and a dock at the bottom) the biggest painpoints after switching were: KDE and GNOME use a different wallet for keys. signal ties its keys to that wallet and does not allow me to switch. that's frankly very bad. key management should be desktop agnostic. this screams for a systemd solution. when setting up the panel, it took me 3 days to find the spacer widget, hidden in a submenu in the panel settings. it was extra confusing because there was also a kind of spacer/separator in the list of widgets. it wasn't until i watched a video that showed me the right spacer. except in the video the spacer was not hidden in a submenu, which is weird.  you can see the old location here:  https://youtu.be/MpeY-XjdiNU  and the new locaton here:  https://youtu.be/03FbIo_KnsY  why did they change that? i would have found the it much faster in the old location. i used activities instead of virtual desktops, mainly because that's how i used GNOME's virtual desktops before. each desktop had a dedicated functionality. KDE activities allow me to add specific settings for each and name them. the downside, activities are sorted by names, so i had to prefix them with numbers. GNOME's virtual desktop handling was something that had annoyed me anyways. either desktops are dynamic, which means if i close all windows the desktop disappears, and then i have to make a dance to reopen it, or i use a fixed number of desktops, but then i can't easily add new desktops if i need them. KDE activities can't be created quickly either, but it has both, so if i need some space  i can get an additional virtual desktop on the activity where i need it. KDE still supports decorating windows. most apps can work with that and don't use their own decorations. that makes my desktop look more consistent. because some apps have built in decorations that are just appalling. a big issue that KDE fixed for me was that in GNOME when windows want attention, they just show up on your active desktop, with no other indication that the window wanted attention. the thing is, i saw this happening for a long time without understanding why. only after switching to KDE where instead the app icon in the panel was highlighted i even understood what was going on. what i miss from GNOME: the KDE file chooser does not warn me right away if a file i want to save already exists. in GNOME the save button changes to a red replace. in KDE the existing file is just highlighted. it asks if i want to overwrite, but still the GNOME way to handle this is much better. i had some issues with windows not remembering their position. they were only few because most windows were maximized anyways. in GNOME i just lived with it. in KDE i fixed the problem with a window rule. one blast from the past was windows remembering their size wrong if the window manager added borders to a window. the window would ask its size and get the value with the borders, and then on next start it would apply that size to itself without borders so at each start the window grew by the thickness of the borders. i remember that happening many years ago under X11 with the classical bordered window managers. a window rule fixed that issue quickly. one more thing. the desktop keeps crashing. so i suspect that it's an issue with GDM. i tried to switch to SDDM and then plasmalogin, but the crashes kept coming with SDDM too, and plasmalogin does not show a list of user accounts. on a multiuser desktop i need that. both also do not remember the chosen desktop per user like GDM does, so i have to stick with GDM for the time being. overall my impression is that GNOME is more polished while KDE is more configurable and has a number of minor issues. since i was fine with the default GNOME configuration, i didn't win that much here. most issues in KDE were easily fixed through explicit configuration or workarounds. i long avoided KDE specifically because of to much configurability. i felt it gets in the way. when i tried it before i felt it was to easy to accidentally change the configuration. a friend of mine told me he had dozens of extensions on GNOME. i only had very few. anyways, in KDE i didn't need any extensions, but i added a few themes. i'll stick with KDE for now, mainly because it does make it easier to fix issues (there are still some minor warts i need to figure out, but much less than what i put up with in GNOME) and i use some KDE apps like dolphin, KDE connect and kphotoalbum.
+
+========================================================================
+ID: T21
+DECLARED ARTIFACT CANDIDATE: OF
+TEXT:
+There are still people on there who make $$$ by pretty much just publishing Instagram-level stuff, but in bigger sets + videos. Most actual cosplayers moved off OF eventually and either sell directly or via Patreon now. It doesn't always have to be hardcore, but the implication of having an OF is "porn star".
+
+========================================================================
+ID: T22
+DECLARED ARTIFACT CANDIDATE: Rocq
+TEXT:
+I am an expert (in formal methods). LLMs absolutely need more safeguards rather than less. Not because they /need/ them in order to produce functioning code, or even because they produce as many braindead bugs as humans, but because in an era of explosive code quantity, what has become valuable is (assured) code quality. Going back to C++ would be particularly bizarre to me given that AI is also very proficient at verified languages. Not merely typesafe, but languages comprising their own spec languages such as Rocq and Lean. I predict that in the next decade: (1) the market will understand the difference between a "code writer" and a "spec writer," with (2) the expectation that the latter is overwhelmingly more necessary than the former in an AI-dominated field, and (3) there will emerge more useful and less mathematically specialized formal verification alternatives to Rocq and Lean, and a filling-out of the tooling gap of between "static typing" and "interactive proof assistant," perhaps in the vein of ACSL-like contract annotations, and (4) there will be a subsequent shift in the traditional curriculum for programmers. Since educational change is slow (and spec writing depends on good coding fundamentals anyway), perhaps (4) is a stretch, but I'm more confident in the first three.
+
+========================================================================
+ID: T23
+DECLARED ARTIFACT CANDIDATE: E
+TEXT:
+Funny, I was also one of those people who switched from E to WindowMaker. At the time I had no idea it resembled NeXTStep, but it was great. After that I changed to KDE 3 which was a major milestone at the time. I think GNOME at the time was technically superior though. Then shortly after I realized that desktop on Linux wasn't really going anywhere, so I switched to macOS (OS X at the time).
+
+========================================================================
+ID: T24
+DECLARED ARTIFACT CANDIDATE: C
+TEXT:
+That's because programmers in 2006 didn't understand programming.  They didn't understand how to make their software  better . Real programming means writing your own javascript glue, pulling in hundreds of supply-chain-compromised js libraries that you never inspect or profile, and running the whole thing in a browser engine, while making sure to store all state in the cloud. The modern breed of programmers who don't understand programming have switched from C and C++ to Rust and Go, so they're on the right track of using more resources to  improve  the developer and user experience, but they haven't gone nearly far enough.  They still do dumb things like write efficient code, and profile and put effort into reducing binary and resident size.  They should trust in javascript and the browser and the internet, like all good programmers do. Zig programmers have completely lost the plot.  They're of the type that tries to write "hello, world" manually rather than pulling in a third party library so they can efficiently call helloWorld().  Writing single-binary apps that fit on a floppy?  Who even cares?  What even is a floppy?  How do they call themselves programmers without css and advertising telemetry?
