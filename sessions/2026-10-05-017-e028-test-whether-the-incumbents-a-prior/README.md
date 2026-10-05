@@ -42,10 +42,21 @@ _(none recorded)_
 | EXPERIMENTS/028-incumbent-fit/stats.py | da159a45bea0 | 16455 |
 | EXPERIMENTS/028-incumbent-fit/make_step_b_view.py | d79194e4d74e | 5176 |
 | EXPERIMENTS/028-incumbent-fit/split_batches.py | 9439595e58be | 1679 |
+| STATE.md | 00976b04d448 | 32749 |
+| STATE-next-actions.md | 769bd54353ff | 20751 |
+| STATE-constraints.md | d38c8711a6cc | 10902 |
+| ROADMAP.md | e12f28f257f2 | 20703 |
+| FAILURES.md | 5f92ceb6e030 | 17216 |
+| FAILURES-findings-20.md | 436c5aefaed6 | 6491 |
+| DECISIONS.md | fe8f31c88ac2 | 8502 |
+| DECISIONS-SCREENING-4.md | 374943f564de | 6119 |
+| RELEASE-MANIFEST.md | f1877453868b | 5127 |
+| ROADMAP.md | 8687b64fe4fb | 20038 |
+| tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md | 5564a08143b6 | 2772 |
 
 ## Commands
 
-32 captured, 7 non-zero exit.
+38 captured, 8 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -81,6 +92,12 @@ _(none recorded)_
 | 48 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 476693 |
 | 49 | ['tools/origin', 'preflight'] | 0 | 94498 |
 | 50 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 477435 |
+| 52 | ['tools/origin', 'session', 'step', 'E028 complete: not_evaluated on the declared control, F048 and D060 recorded, DECISIONS-SCREENING-4 split for D05 | 0 | 1026 |
+| 53 | ['tools/origin', 'task', 'complete', 'T-0072', '--evidence', 'EXPERIMENTS/028-incumbent-fit/README.md', '--evidence', 'EXPERIMENTS/028-incumbent-fit/r | 2 | 418 |
+| 56 | ['tools/origin', 'task', 'complete', 'T-0072', '--summary', "The prior-art screen had been checked for existence and never for fit. Tested on the 19 h | 0 | 1204 |
+| 66 | ['tools/origin', 'session', 'artifact', 'STATE.md', 'STATE-next-actions.md', 'STATE-constraints.md', 'ROADMAP.md', 'FAILURES.md', 'FAILURES-findings-2 | 0 | 2659 |
+| 67 | ['tools/origin', 'preflight'] | 0 | 95373 |
+| 70 | ['tools/origin', 'session', 'artifact', 'ROADMAP.md', 'tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md'] | 0 | 924 |
 
 ## Integrity
 
@@ -136,16 +153,18 @@ _(none recorded)_
 | 38 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/stats.py |
 | 39 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/make_step_b_view.py |
 | 40 | 19:10:44 | artifact | wrote EXPERIMENTS/028-incumbent-fit/split_batches.py |
-| 41 | 19:10:44 | command | $ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/README.md EXPERIMENTS/028-incumbent-fit/results.json EXPERIMENTS/028-incumbent-f |
-| 42 | 19:14:01 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
-| 43 | 19:14:17 | command | $ tools/origin doc lint |
-| 44 | 19:16:42 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
-| 45 | 19:16:50 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
-| 46 | 19:20:46 | command | $ python3 EXPERIMENTS/028-incumbent-fit/stats.py |
-| 47 | 19:21:05 | command | $ tools/origin doc lint |
-| 48 | 19:31:17 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 49 | 19:38:41 | command | $ tools/origin preflight |
-| 50 | 19:46:44 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 61 | 19:55:11 | artifact | wrote FAILURES.md |
+| 62 | 19:55:11 | artifact | wrote FAILURES-findings-20.md |
+| 63 | 19:55:11 | artifact | wrote DECISIONS.md |
+| 64 | 19:55:12 | artifact | wrote DECISIONS-SCREENING-4.md |
+| 65 | 19:55:12 | artifact | wrote RELEASE-MANIFEST.md |
+| 66 | 19:55:12 | command | $ tools/origin session artifact STATE.md STATE-next-actions.md STATE-constraints.md ROADMAP.md FAILURES.md FAILURES-findings-20.md DECISIONS.m |
+| 67 | 20:02:06 | command | $ tools/origin preflight |
+| 68 | 20:02:14 | artifact | wrote ROADMAP.md |
+| 69 | 20:02:14 | artifact | wrote tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md |
+| 70 | 20:02:14 | command | $ tools/origin session artifact ROADMAP.md tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md |
+
+_20 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

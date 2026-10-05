@@ -29,10 +29,11 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Twenty-seven experiments have run; three invention claims
-are disproved, one declared gate could not fail, one mechanism was confirmed
-while its candidate died of it, the prior-art screen is measured (F035, F034)
-and has itself been read against its own extract (F047), and none is validated.
+**Status: partial.** Twenty-eight experiments have run; three invention claims are
+disproved, one declared gate could not fail, one mechanism was confirmed while its
+candidate died of it, and the prior-art screen is measured (F035, F034), read against
+its own extract (F047) and asked what its evidence is evidence of (F048: **use is not
+fit**). None is validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, candidate's motivating example
@@ -70,6 +71,9 @@ and has itself been read against its own extract (F047), and none is validated.
       278/1250 = 0.222 of need-staters have publicly shipped something against 139/500 = 0.278 for
       ordinary commenters in the same stories, so the 0-of-24 was a floor and not a fact about
       people. Item 0d's closure is **confirmed**, not withdrawn (F045, D057)
+- [x] Ask what the screen's evidence is evidence of (`028-incumbent-fit`, T-0072): `sharp`, at
+      436,835,441 downloads/month and called served "beyond argument" by E016, documents nothing
+      about its clause's attribute — **use is not fit** (F048, D060)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
@@ -189,12 +193,11 @@ Separate from the invention stages: the mission cannot be run without it.
 - [x] Operations documents agree with what the fleet has actually run (T-0023 repaired the
       Python floor and the GitHub App status; T-0029 closed the `doctor` gap). The App's real
       permissions still need a human with its settings page — nothing here can read them
-- [x] `doctor` reports the push credential mechanism (T-0029): the configured
-      `credential.helper`, whether each named helper exists and is executable,
-      App key files by path and mode, whether the helper depends on anything outside
-      `~/.config`, and whether `git credential fill` obtains a credential. Three-valued verdict
-      (`configured`/`broken`/`unavailable`), no value ever recorded, and `configured` explicitly
-      does not mean the credential can push (`docs/operations/doctor.md`)
+- [x] `doctor` reports the push credential mechanism (T-0029): the configured helper, whether
+      each named helper exists and runs, App key files by path and mode, whether the helper
+      depends on anything outside `~/.config`, and whether `git credential fill` obtains a
+      credential. Three-valued, no value ever recorded, and `configured` does not mean it can push
+      (`docs/operations/doctor.md`)
 - [x] A machine-readable record of the Python versions the suite is verified on, the way
       `tests/git-versions.json` records git versions (`tests/python-versions.json`, T-0032)
 - [x] `doctor` compares this VM's git and interpreter against both records
@@ -237,24 +240,22 @@ Separate from the invention stages: the mission cannot be run without it.
 
 ## Sequencing note
 
-The infrastructure track finished ahead of stage B because stage B is blocked on judgement rather
-than tooling — twice over: on what no experiment here can answer (whether a knitter follows a
-generated repair plan, and whether E3's finding generalises beyond one builder, item 8), and
-since E016, on which axis a candidate is selected. **That blocker has narrowed six times**
-(F035, F037, F039, F041, F042, F043, D053–D055) and resolves to an owner decision. **The twelve
-prior-art deaths stand**, and E022 followed the demand-side asset forward — 58.0% of 1401 answered,
-0 of 24 unserved requesters building it — with E023 withdrawing the one uncontrolled number under
-that reading (F043, D055). See [`STATE-in-flight.md`](STATE-in-flight.md).
+The infrastructure track finished ahead of stage B because stage B is blocked on judgement, not
+tooling — twice over: on what no experiment here can answer (whether a knitter follows a generated
+repair plan, whether E3's finding generalises beyond one builder, item 8) and, since E016, on
+which axis a candidate is selected. **That blocker has narrowed seven times**
+(F035, F037, F039, F041, F042, F043, F048, D053–D055, D060) and resolves to an owner decision.
+**The twelve prior-art deaths stand**, and F048 leaves them resting on a rule they do not yet meet.
+E022 followed the demand-side asset forward and E023 withdrew its one uncontrolled number
+(F043, D055). See [`STATE-in-flight.md`](STATE-in-flight.md).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython
 minor from 3.8 to 3.14 has run the suite (T-0034, D035), identifiers are allocated from the
 shared base with the record printed (T-0031), and a red CI run is diagnosable without admin
-rights (F020, T-0038). The floor claim is still two things it is not: it says nothing about
-3.15 onwards, and a green row is evidence about that row and not the version below it. Git is
-weaker in kind, being a property of a machine rather than of a workflow step,
-and `git-versions.json` names what it does **not** run against (2.26-2.54 and 2.57+). A suite
-that only passes where its author works is not a suite, and that is a recorded pattern: the
+rights (F020, T-0038). The floor claim is still two things it is not: nothing about 3.15
+onwards, and a green row is evidence about that row and not the version below it. A suite that
+only passes where its author works is not a suite, and that is a recorded pattern: the
 interpreter assertion failed on every version the record lacked (F018), the git assertion on
 every runner whose git nobody recorded (F019), the credential fixture on every runner
 exporting `GITHUB_TOKEN` (T-0035) — **each green where written.**
@@ -287,12 +288,11 @@ exporting `GITHUB_TOKEN` (T-0035) — **each green where written.**
       general form: an exemption is a claim about what another check covers, and the cheap way to
       write one is to borrow a predicate.
 - [x] A claim is publishable from inside the session that made it (T-0055, D044, defect 21,
-      F023). `task claim` committed the claim then called `push`, which refuses a dirty tree —
-      and an open session guarantees one, so the refusal named the session's own record and told
-      the agent to commit or revert it. The claim stayed local and unpushed, so **no other VM
-      could see it**: the exclusivity the command exists to provide was not in force, and each
-      retry added another `claim` line to the ledger (three identical ones for T-0053). Falsified
-      both ways, and on a clone of this repository's own history
+      F023). `task claim` committed then called `push`, which refuses a dirty tree — and an open
+      session guarantees one, so the claim stayed local and **no other VM could see it**: the
+      exclusivity the command exists for was not in force, and each retry added another `claim`
+      line (three identical ones for T-0053). Falsified both ways, and on a clone of this
+      repository's own history
 - [x] Standard-library test suite, with [`tests/git-versions.json`](tests/git-versions.json)
       recording how much of the suite each git version has actually run. A test's correctness
       depends on every clock the code under it reads: three tests behind the in-flight gate
