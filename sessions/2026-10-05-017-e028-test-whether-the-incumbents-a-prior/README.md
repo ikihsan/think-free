@@ -10,10 +10,10 @@ last-verified: 2026-10-05
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T18:34:19+00:00
-- **Duration:** ?s
+- **Duration:** 5290.3s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E028: test whether the incumbents a prior-art screen named do what each killed c
 
 ## Summary
 
-_(none recorded)_
+E028 tested whether a prior-art screen's evidence is evidence of fit, on the 19 harvest-side prior-art deaths with two blind readers over each named incumbent's own documentation. Result is not_evaluated under the declared gate: the positive control H03 failed, both readers reading sharp (436,835,441 downloads/month, called served beyond argument by E016) as partial because no document states the clause's latency attribute. Use is not fit (F048, D060). Nothing reopened. Three defects found in the run's own instrument and repaired under tests.
+
+## Next
+
+Item 0 stays an owner decision and is now better bounded: F048 says the prior-art axis's own verdicts have not been shown to rest on evidence of fit, so a future screen must test fit rather than existence or use. E028's arm 2 - the ten sealed-report prior-art deaths, the ones that closed this mission's own candidates - is declared and unrun, and it is the next measurement if that question is worth a second arm.
 
 ## Artifacts
 
@@ -103,11 +107,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 24 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING-3.md |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/fitstats.py |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/fetch_log.jsonl |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/incumbents.jsonl |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/record_facts.json |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/requirements.jsonl |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/sealed_row_ids.json |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/step_a_r1.jsonl |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/step_a_r2.jsonl |
+|   undeclared | EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch1.jsonl |
 
 ## Timeline
 
@@ -153,18 +166,18 @@ _(none recorded)_
 | 38 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/stats.py |
 | 39 | 19:10:43 | artifact | wrote EXPERIMENTS/028-incumbent-fit/make_step_b_view.py |
 | 40 | 19:10:44 | artifact | wrote EXPERIMENTS/028-incumbent-fit/split_batches.py |
-| 61 | 19:55:11 | artifact | wrote FAILURES.md |
-| 62 | 19:55:11 | artifact | wrote FAILURES-findings-20.md |
-| 63 | 19:55:11 | artifact | wrote DECISIONS.md |
-| 64 | 19:55:12 | artifact | wrote DECISIONS-SCREENING-4.md |
-| 65 | 19:55:12 | artifact | wrote RELEASE-MANIFEST.md |
-| 66 | 19:55:12 | command | $ tools/origin session artifact STATE.md STATE-next-actions.md STATE-constraints.md ROADMAP.md FAILURES.md FAILURES-findings-20.md DECISIONS.m |
-| 67 | 20:02:06 | command | $ tools/origin preflight |
-| 68 | 20:02:14 | artifact | wrote ROADMAP.md |
-| 69 | 20:02:14 | artifact | wrote tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md |
-| 70 | 20:02:14 | command | $ tools/origin session artifact ROADMAP.md tasks/T-0072-test-whether-the-incumbents-a-prior-art-screen-n.md |
+| 92 | 20:02:29 | unlogged_change | changed but never declared as an artifact: tools/originlib/paths.py |
+| 93 | 20:02:29 | unlogged_change | changed but never declared as an artifact: tools/originlib/reconcile.py |
+| 94 | 20:02:29 | unlogged_change | changed but never declared as an artifact: vendor/MANIFEST.md |
+| 95 | 20:02:29 | doc_update | updated DECISIONS-SCREENING-3.md |
+| 96 | 20:02:29 | doc_update | updated DECISIONS-SCREENING-4.md |
+| 97 | 20:02:29 | doc_update | updated DECISIONS.md |
+| 98 | 20:02:29 | doc_update | updated FAILURES.md |
+| 99 | 20:02:29 | doc_update | updated ROADMAP.md |
+| 100 | 20:02:29 | doc_update | updated STATE.md |
+| 101 | 20:02:29 | session_end | E028 tested whether a prior-art screen's evidence is evidence of fit, on the 19 harvest-side prior-art deaths with two blind readers over each named i |
 
-_20 middle events omitted; see `events.jsonl`._
+_51 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

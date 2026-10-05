@@ -1,0 +1,49 @@
+==============================================================================
+[seq 2] 2026-10-05T20:03:14+00:00
+$ tools/origin session start --goal Declare the raw captures and files session 017 left undeclared in its reconciliation
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+session 2026-10-05-018-declare-the-raw-captures-and-files-sessi started
+  goal:  Declare the raw captures and files session 017 left undeclared in its reconciliation
+  agent: unknown-agent   host: instance-20260717-0944   branch: research/origin
+  log work with: tools/x -- <command>
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1930  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T20:03:27+00:00
+$ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/fitstats.py EXPERIMENTS/028-incumbent-fit/split_batches.py EXPERIMENTS/028-incumbent-fit/fetch_docs.py EXPERIMENTS/028-incumbent-fit/build_population.py EXPERIMENTS/028-incumbent-fit/raw/requirements.jsonl EXPERIMENTS/028-incumbent-fit/raw/incumbents.jsonl EXPERIMENTS/028-incumbent-fit/raw/record_facts.json EXPERIMENTS/028-incumbent-fit/raw/sealed_row_ids.json EXPERIMENTS/028-incumbent-fit/raw/fetch_log.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_a_r1.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_a_r2.jsonl
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 3  EXPERIMENTS/028-incumbent-fit/fitstats.py  5097b90750af
+seq 4  EXPERIMENTS/028-incumbent-fit/split_batches.py  9439595e58be
+seq 5  EXPERIMENTS/028-incumbent-fit/fetch_docs.py  95e58e3d760a
+seq 6  EXPERIMENTS/028-incumbent-fit/build_population.py  48e991d19757
+seq 7  EXPERIMENTS/028-incumbent-fit/raw/requirements.jsonl  55a93db98e2a
+seq 8  EXPERIMENTS/028-incumbent-fit/raw/incumbents.jsonl  76458e357cce
+seq 9  EXPERIMENTS/028-incumbent-fit/raw/record_facts.json  955859a38024
+seq 10  EXPERIMENTS/028-incumbent-fit/raw/sealed_row_ids.json  6bacc7238836
+seq 11  EXPERIMENTS/028-incumbent-fit/raw/fetch_log.jsonl  aa4edbb5ad5a
+seq 12  EXPERIMENTS/028-incumbent-fit/raw/step_a_r1.jsonl  7430c1a5bd9d
+seq 13  EXPERIMENTS/028-incumbent-fit/raw/step_a_r2.jsonl  527d84de2b52
+11 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5303  redactions: none
+==============================================================================
+[seq 26] 2026-10-05T20:03:36+00:00
+$ tools/origin session artifact EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch1.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch2.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_b_r2_batch1.jsonl EXPERIMENTS/028-incumbent-fit/raw/step_b_r2_batch2.jsonl EXPERIMENTS/028-incumbent-fit/test_capture_integrity.py DECISIONS-SCREENING-4.md tests/test_decision_files.py tools/originlib/paths.py tools/originlib/reconcile.py vendor/MANIFEST.md RELEASE-MANIFEST.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+seq 15  EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch1.jsonl  a329de46fea7
+seq 16  EXPERIMENTS/028-incumbent-fit/raw/step_b_r1_batch2.jsonl  26138a050809
+seq 17  EXPERIMENTS/028-incumbent-fit/raw/step_b_r2_batch1.jsonl  25bbe65e046b
+seq 18  EXPERIMENTS/028-incumbent-fit/raw/step_b_r2_batch2.jsonl  70fe9a5160b5
+seq 19  EXPERIMENTS/028-incumbent-fit/test_capture_integrity.py  c95f70e64112
+seq 20  DECISIONS-SCREENING-4.md  374943f564de
+seq 21  tests/test_decision_files.py  2b92509a6860
+seq 22  tools/originlib/paths.py  9260711048f9
+seq 23  tools/originlib/reconcile.py  f5426c8e87b2
+seq 24  vendor/MANIFEST.md  5fad15b65a29
+seq 25  RELEASE-MANIFEST.md  f1877453868b
+11 artifact(s) recorded
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2990  redactions: none
