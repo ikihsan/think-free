@@ -62,10 +62,12 @@ _(none recorded)_
 | EXPERIMENTS/034-reask-tail/check.py | 974961117d69 | 12249 |
 | EXPERIMENTS/034-reask-tail/falsify.py | 408da457bf2d | 7245 |
 | EXPERIMENTS/034-reask-tail/README.md | 96417b7dd8af | 13166 |
+| ROADMAP.md | 8c70acdd463b | 14826 |
+| tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md | 6e15bd33da25 | 2454 |
 
 ## Commands
 
-56 captured, 24 non-zero exit.
+58 captured, 25 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -164,18 +166,18 @@ _(none recorded)_
 | 38 | 05:20:41 | command | $ python3 EXPERIMENTS/034-reask-tail/reask.py report |
 | 39 | 05:20:53 | command | $ python3 EXPERIMENTS/034-reask-tail/tally.py --check |
 | 40 | 05:43:23 | artifact | wrote EXPERIMENTS/034-reask-tail/PROTOCOL.md |
-| 91 | 06:02:36 | artifact | wrote EXPERIMENTS/034-reask-tail/harvest.py |
-| 92 | 06:02:37 | artifact | wrote EXPERIMENTS/034-reask-tail/measures.py |
-| 93 | 06:02:37 | artifact | wrote EXPERIMENTS/034-reask-tail/tally.py |
-| 94 | 06:02:38 | artifact | wrote EXPERIMENTS/034-reask-tail/check.py |
-| 95 | 06:02:38 | artifact | wrote EXPERIMENTS/034-reask-tail/falsify.py |
-| 96 | 06:02:39 | artifact | wrote EXPERIMENTS/034-reask-tail/README.md |
 | 97 | 06:02:40 | note | The refactor that split reask.py and tally.py in two introduced a real defect, found by re-running the gates: reask.load() returns every sample, so th |
 | 98 | 06:05:41 | command | $ bash -c cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 99 | 06:07:53 | command | $ bash -c git add -A && git commit -q -m "D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate |
 | 100 | 06:08:05 | command | $ bash -c git add -A && git commit -q -m "E034: the questions people re-ask sit in the score tail, 4.5x what the Active tab shows, and the rat |
+| 101 | 06:08:15 | command | $ bash -c git add -A && git commit -q -m "F057: E034 per-tag spread is real, reproducible, and not attributable; STATE, DECISIONS, FAILURES an |
+| 102 | 06:08:22 | command | $ bash -c tools/origin task complete T-0078 |
+| 103 | 06:08:30 | task_rewrite | rewrote tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md (status: done) |
+| 104 | 06:08:31 | task_rewrite | appended a complete record for T-0078 |
+| 105 | 06:09:38 | artifact | wrote ROADMAP.md |
+| 106 | 06:09:38 | artifact | wrote tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md |
 
-_50 middle events omitted; see `events.jsonl`._
+_56 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

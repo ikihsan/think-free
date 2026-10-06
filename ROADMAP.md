@@ -29,13 +29,18 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Thirty-two experiments have run; three invention claims are
+**Status: partial.** Thirty-three experiments have run; three invention claims are
 disproved, one declared gate could not fail, one mechanism was confirmed while its
 candidate died of it, the prior-art screen is measured (F035, F034), read against its
 own extract (F047) and asked what its evidence is evidence of (F048: **use is not
 fit**), the demand corpus has been followed forward twice (F049), and **the
 recurrence zero has been checked for the venue it was a result about and survived a
-venue change** (F053, F054). None validated.
+venue change** (F053, F054). **E034 then returned positives for the first time on the
+demand side and could not read two thirds of them** (F057): the score tail runs 4.5× the
+`Active` tab's duplicate-closure rate, the rate is a per-tag property spanning 0.0000 to
+0.4300 with both extremes replicating out of sample — and the per-tag reading is
+`not_established`, because duplicate closure is a moderator act and tag is not yet
+separable from site. None validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, motivating example disproved (F001)
@@ -93,7 +98,13 @@ venue change** (F053, F054). None validated.
       failed its gate (6 of 24), so the closure's canonical is treated as unreadable and the
       declared visibility product is not printed
 - [ ] Measure recurrence on a population that is **not** selected by answer state — the
-      D7 counterfactual says the current draws are, and it says it without needing a canonical
+      D7 counterfactual says the current draws are, and it says it without needing a canonical.
+      **E034 did this** (`034-reask-tail`, T-0078): three matched arms per tag with the
+      `Active` tab as the control, pooled tail **0.1352** against **0.0303**, and the rate
+      turned out to be a **per-tag** property spanning 0.0000 to 0.4300 — a lever no earlier
+      draw in this record had. **What it did not settle is attribution**: duplicate closure
+      is a moderator act, so at 3–5 tags per site the tag and the site are not separable
+      (F057). **Next: 3–4 more tags on each of the three sites, `tail` arm only**
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline

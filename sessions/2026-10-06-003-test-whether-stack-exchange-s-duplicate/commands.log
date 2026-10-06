@@ -2795,3 +2795,32 @@ cwd: /home/ubuntu/think-free
 06ae1af E034: the questions people re-ask sit in the score tail, 4.5x what the Active tab shows, and the rate is a per-tag property this record had never measured
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 185  redactions: none
+==============================================================================
+[seq 101] 2026-10-06T06:08:15+00:00
+$ bash -c git add -A && git commit -q -m "F057: E034 per-tag spread is real, reproducible, and not attributable; STATE, DECISIONS, FAILURES and the next-action seat carry the reading
+
+F057 records the two declared claims that failed (D6 tag/site attribution, B1 the
+answer-existed mechanism) and the falsified a-priori stratum hypothesis, plus the two
+facts that outlive the run: the canonical edge is unreachable, and the label is ten
+literals so E033 0.0540 is a floor. STATE gains the reading and an honest-limitation
+bullet saying the candidate is not a candidate yet; STATE.md came back under its 300-line
+cap by moving duplicated material into the file whose invariant owns it." && git log --oneline -3 && git status --short | head
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+62b63de F057: E034 per-tag spread is real, reproducible, and not attributable; STATE, DECISIONS, FAILURES and the next-action seat carry the reading
+06ae1af E034: the questions people re-ask sit in the score tail, 4.5x what the Active tab shows, and the rate is a per-tag property this record had never measured
+d3e8a02 D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate about a relation is a partition or a statistic
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 102] 2026-10-06T06:08:22+00:00
+$ bash -c tools/origin task complete T-0078
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+usage: origin task complete [-h] --summary SUMMARY
+                            [--evidence [EVIDENCE [EVIDENCE ...]]]
+                            task_id
+origin task complete: error: the following arguments are required: --summary
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 396  redactions: none
