@@ -180,6 +180,32 @@ described a population whose mechanism turned out to be a documented query. **Th
 population is untouched; what died is the claim that it is unreachable, and the
 adoption question is now the whole question and has never been measured.**
 
+**E039 measured what happened to the need corpus's statements, and found the
+corpus records recognition, not service** (`EXPERIMENTS/039-need-statement-response/`,
+T-0081). E012's 1401 Hacker News comments shaped like "is there a tool that X" were
+never followed, and their reply subtrees are the only channel available that is
+contemporaneous, demand-side and written by practitioners rather than by a search
+engine. All 1276 parent threads captured — 278,686 comments, 1391 needs against
+277,295 matched controls.
+
+The declared kill gate fired on three estimators: **1.235x** the same-thread control
+rate at all ages, 1.238x at ≥180 days, 1.286x within-story, against a bar of 1.5 fixed
+before the first fetch. Attention to a need is not distinguishable from position in a
+thread. **The two figures that carry the decision are about the channel rather than
+the needs: 0 of 1391 needs drew a reply naming a tool new to its own thread, and 1 of
+794 requesters whose need drew a reply replied again** (0 of the 77 that drew a link).
+
+So the community answers "has anyone else hit this?" and almost never "here is what to
+use" — which is why F029's 0-of-50 and F035's corpus silence are hard to contradict:
+prior art is found by searching, and the reply is not where it lives. **D068 restates
+the corpus as a recognition signal** rather than reusing it as an artifact one, and
+closes the axis item 0 could propose: a return rate of 1 in 794 means the outcome of a
+need is not recorded anywhere in the thread it was asked in. **No candidate was
+produced and none is claimed.** The 597 unanswered needs are not a queue: 417 sit in
+threads where ≥40% of other comments were answered, and a hand-read of 21 found
+hardware requests, an article request, a platform request and several requests for a
+toggle in someone else's product.
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |
@@ -195,6 +221,7 @@ adoption question is now the whole question and has never been measured.**
 | Appliance disaggregation from aggregate power | `RESEARCH/D.md` | Rejected: information-insufficient | — |
 | Automated trustworthy map building | `RESEARCH/D.md` | Rejected: coordination cost dominates | — |
 | Capture-and-reproduce-any-computation | `RESEARCH/D.md` | Rejected: ReproZip and reprotest prior art | — |
+| Need corpus as a candidate generator, and its reply subtrees as a serving signal | `EXPERIMENTS/012-candidate-harvest/` E012, `EXPERIMENTS/039-need-statement-response/` E039 | **Both generators closed, on measured grounds** (`FAILURES.md` F029, F060): 0 of 50 needs survive the screens, and the corpus's own threads name a tool in **0 of 1391** and record a requester returning in **1 of 794** | **Nothing to build from it.** D068 restates it as a recognition signal. The only route to a measured outcome is a prototype addressed to one named requester, which needs authorization |
 | Universal local-first sync layer | `RESEARCH/D.md` | Rejected: invariants not preserved | — |
 | Duplicate-closure rate of the score tail, and the worklist over it | `EXPERIMENTS/034-reask-tail/` E034, `EXPERIMENTS/036-search-backlog/` E036 | **The measurement stands and the candidate is prior art** (`FAILURES.md` F057, F059): pooled tail 0.1352 against the `Active` tab's 0.0303, per-tag 0.0000–0.4300, and the ordering plus the label both arrive from one unauthenticated `/search/advanced` query | **Nothing to build.** The one gap F059 names — whether the *rendered* site exposes this against the API — needs a browser or a user, not a request |
 

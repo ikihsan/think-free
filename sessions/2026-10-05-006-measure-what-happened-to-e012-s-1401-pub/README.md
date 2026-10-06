@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-05T03:45:05+00:00
-- **Duration:** ?s
+- **Duration:** 124018.9s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Measure what happened to E012's 1401 public need statements: did the thread's ow
 
 ## Summary
 
-_(none recorded)_
+E039 measured what happened to E012's 1401 public need statements, the one channel that was still unmeasured: their own reply subtrees. All 1276 parent threads captured (278,686 comments), giving 1391 needs against 277,295 matched controls. The declared kill gate fired on three estimators (1.235x against a bar of 1.5 fixed before the first fetch), so attention to a need is not distinguishable from position in a thread. The finding that changes a decision: 0 of 1391 needs drew a reply naming a tool new to its thread and 1 of 794 requesters replied again, so the corpus records that a need was recognised and never that it was served - which explains why F029's 0-of-50 and F035's corpus silence are hard to contradict, closes item 0's last proposed axis, and is the fifth measurement agreeing the supply-side screens measure the wrong channel. Three defects in my own instruments are recorded against me: a declared gate that cannot fail (0 of everything), an endpoint that undercounts replies one-directionally, and a hand-written manifest whose sha256 fields were padded with hex never measured. No candidate was found and none is claimed.
+
+## Next
+
+The owner decision on what the mission selects candidates on is now fully informed and is the only thing blocking stage B: five measurements say supply-side counts do not carry it, and the one demand-side channel that could be read from public data records recognition rather than service. STATE-selection.md holds the reasoning and the ceilings. Alternatives if that decision is deferred: (a) run E2 side B, the lockfile two-snapshot drift comparison, which is banked and waiting on time to pass; (b) build a prototype for one named need from the 1250, which needs authorization to contact anyone and is the only route to a measured outcome signal this repository has now shown it lacks; (c) pick a fresh research direction unrelated to the prior-art screen entirely.
 
 ## Artifacts
 
@@ -125,11 +129,30 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 17 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 19 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/039-need-statement-response/PROTOCOL.md |
+|   undeclared | EXPERIMENTS/039-need-statement-response/README.md |
+|   undeclared | EXPERIMENTS/039-need-statement-response/arms.py |
+|   undeclared | EXPERIMENTS/039-need-statement-response/calibration.json |
+|   undeclared | EXPERIMENTS/039-need-statement-response/calibration.py |
+|   undeclared | EXPERIMENTS/039-need-statement-response/capture.py |
+|   undeclared | EXPERIMENTS/039-need-statement-response/merge.py |
+|   undeclared | EXPERIMENTS/039-need-statement-response/raw/MANIFEST.json |
+|   undeclared | EXPERIMENTS/039-need-statement-response/raw/arms.jsonl |
+|   undeclared | EXPERIMENTS/039-need-statement-response/raw/fetch_log.jsonl |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/PROTOCOL.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/README.md |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/arms.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/calibration.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/calibration.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/capture.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/merge.py |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/raw/MANIFEST.json |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/raw/arms.jsonl |
+|   error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/raw/fetch_log.jsonl |
 
 ## Timeline
 
@@ -175,18 +198,18 @@ _(none recorded)_
 | 38 | 12:49:14 | artifact | wrote EXPERIMENTS/README.md |
 | 39 | 12:49:17 | artifact | wrote EXPERIMENTS/020-copied-config-drift/README.md |
 | 40 | 12:49:20 | artifact | wrote docs/INDEX.md |
-| 85 | 14:09:04 | artifact | wrote STATE-selection.md |
-| 86 | 14:09:05 | artifact | wrote STATE-in-flight-4.md |
-| 87 | 14:09:05 | artifact | wrote STATE-next-actions.md |
-| 88 | 14:09:06 | artifact | wrote STATE-next-actions-closed.md |
-| 89 | 14:09:07 | artifact | wrote STATE-next-actions-closed-2.md |
-| 90 | 14:09:07 | artifact | wrote STATE-history-3.md |
-| 91 | 14:09:34 | task_rewrite | rewrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md (status: done) |
-| 92 | 14:09:34 | task_rewrite | appended a complete record for T-0081 |
-| 93 | 14:10:43 | artifact | wrote ROADMAP.md |
-| 94 | 14:10:44 | artifact | wrote STATE.md |
+| 128 | 14:11:45 | integrity_error | declared artifact no longer exists: EXPERIMENTS/021-need-statement-response/verify_manifest.py |
+| 129 | 14:11:45 | integrity_error | declared artifact no longer exists: tasks/T-0066-measure-what-happened-to-e012-s-1401-pub.md |
+| 130 | 14:12:03 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 131 | 14:12:03 | doc_update | updated DECISIONS-SCREENING-2.md |
+| 132 | 14:12:04 | doc_update | updated DECISIONS-SCREENING-8.md |
+| 133 | 14:12:04 | doc_update | updated DECISIONS.md |
+| 134 | 14:12:04 | doc_update | updated FAILURES.md |
+| 135 | 14:12:04 | doc_update | updated ROADMAP.md |
+| 136 | 14:12:04 | doc_update | updated STATE.md |
+| 137 | 14:12:04 | session_end | E039 measured what happened to E012's 1401 public need statements, the one channel that was still unmeasured: their own reply subtrees. All 1276 paren |
 
-_44 middle events omitted; see `events.jsonl`._
+_87 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
