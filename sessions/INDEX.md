@@ -8,10 +8,10 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-126 recorded session(s). One `events.jsonl` per session, so concurrent
+127 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 101 older session(s) are in the directory listing.
+Showing the 25 most recent. 102 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -36,10 +36,10 @@ Showing the 25 most recent. 101 older session(s) are in the directory listing.
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
 | [2026-10-05-006-record-the-post-rename-artifact-paths-an](2026-10-05-006-record-the-post-rename-artifact-paths-an/README.md) | unknown-agent | worked | Record the post-rename artifact paths and the HYPOTHESES entry that th | 2026-10-05T07:34 |
+| [2026-10-05-006-measure-what-happened-to-e012-s-1401-pub](2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/README.md) | opencode | **unfinished** | Measure what happened to E012's 1401 public need statements: did the t | 2026-10-05T03:45 |
 | [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | worked | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T07:30 |
 | [2026-10-05-003-test-whether-agent-configuration-copied](2026-10-05-003-test-whether-agent-configuration-copied/README.md) | unknown-agent | worked | Test whether agent-configuration copied into repositories goes stale,  | 2026-10-05T03:25 |
 | [2026-10-05-003-declare-e019-s-raw-captures-and-land-the](2026-10-05-003-declare-e019-s-raw-captures-and-land-the/README.md) | unknown-agent | worked | Declare E019's raw captures and land the corrected F039 index row | 2026-10-05T02:31 |
-| [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | worked | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T02:30 |
 
 
 ## Reading a session

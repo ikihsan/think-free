@@ -31,7 +31,11 @@ it, and this module failed with the file's name in the message.
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
 documentation obligation reaches, which would make a recorded decision satisfy a
-gate by changing nothing.
+gate by changing nothing. **It earned its keep a third time on 2026-10-06
+(T-0081)**, when `DECISIONS-SCREENING-8.md` was added for D068: the test failed
+naming the new file, and the same addition was needed in `paths.py` and
+`reconcile.py` or a recorded decision would have satisfied its obligation by
+changing nothing.
 """
 
 from __future__ import annotations
@@ -52,6 +56,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING-5.md",
     "DECISIONS-SCREENING-6.md",
     "DECISIONS-SCREENING-7.md",
+    "DECISIONS-SCREENING-8.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

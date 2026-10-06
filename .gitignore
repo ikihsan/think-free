@@ -21,3 +21,15 @@ sessions/active.json
 # one request rebuilds the file.
 EXPERIMENTS/*/sdists/
 EXPERIMENTS/*/raw/pypi-simple-index.txt
+# E039's capture is 334 MB of Hacker News comment rows across 21 files. The
+# record is raw/MANIFEST.json - url, status, bytes, row count and a
+# verify_manifest.py-computed sha256 per file - and re-running capture.py
+# rebuilds it, by the same clause as the index above. arms.jsonl, the 1391
+# need records every figure in results.json is derived from, is tracked.
+EXPERIMENTS/039-need-statement-response/raw/shard-*.jsonl
+EXPERIMENTS/039-need-statement-response/raw/log-*.jsonl
+EXPERIMENTS/039-need-statement-response/raw/comments.jsonl
+EXPERIMENTS/039-need-statement-response/raw/control.jsonl
+# stories.done is capture.py's resume ledger: 1276 story ids, one per line. It
+# is machine state, not a document, and its count is in MANIFEST.json.
+EXPERIMENTS/039-need-statement-response/raw/stories.done

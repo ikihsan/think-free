@@ -41,11 +41,16 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-23.md`](FAILURES-findings-23.md) (F057, F058) and
 [`FAILURES-findings-24.md`](FAILURES-findings-24.md) (F059) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
+[`FAILURES-findings-25.md`](FAILURES-findings-25.md) (F060-F063), split because
 each file reached the 300-line cap and because both VMs published a part 12 on
-2026-10-05; identifiers are stable across the files, so neither was renumbered. **F025 through F028 were taken by the other VM
+2026-10-05; identifiers are stable across the files, so neither was renumbered.
+**This file's own entries end at F040.** The other VM published F041 onward
+across `-16.md` to `-24.md`, so this session's findings were renumbered **F060-F063**
+on the unpushed side, per the rule in
+[`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md).
+**F025 through F028 were taken by the other VM
 first**, so this side's findings are F029 onward, renumbered on the unpushed
-side per the rule in
-[`docs/process/multi-vm-coordination.md`](docs/process/multi-vm-coordination.md):
+side per the same rule:
 
 | Id | Subject |
 |---|---|
@@ -102,7 +107,6 @@ side per the rule in
 | F051 | Accounts seeking an alternative state a missing capability at nearly **twice** the rate of ordinary same-story comments (0.347 vs 0.181, CI95 [0.0224, 0.3024], below the declared 0.20 margin) — but the **seek and move strata are identical at 0.347 vs 0.347**, so "unfilled" is not a property the population has and the premise the experiment was built on is retired by measurement. **0 of 100** reader-adjudicated candidate clause pairs and **0 of 100** random pairs state the same requirement, with A3 (κ = 0.7189), A4 (0/24), A5 (0.486) and A6 (20/20 positives, 0/10 negatives) all passing, and length matching moving the arm difference 0.1667 → 0.1698 — **not** a length artifact as in F050. A fourth demand-side generator closes, on its own premise rather than on prior art; its declared linkage rule could not fire at all (4 candidate pairs against a chance expectation of 4.9), the mirror image of F010 |
 | F052 | The gate carrying F031's allocation finding asserted `ratio > 1.0` with the message "machinery should outweigh experiment code" — and **F031's own measured ratio was 4.8 : 1**, which passes it. The gate written to detect machinery dominating the work was satisfied *by* machinery dominating the work, nearly five times over, and it went red on 2026-10-06 only because a session added experiment code (1,535 lines against 4). Repaired to a **ceiling of 3.0 : 1**, below the recorded complaint, with `RatioCeilingTest` falsifying it in both directions; **a passing gate here is not evidence about allocation** |
 | F053 | The sentence "a cross-author recurring requirement will not be found by mining public conversations — three populations, three instruments, three zeros" rests on **3,856 distinct Hacker News comment ids and one venue**: E019, E022, E026 and E029 all re-read E012's single 1401-comment file at **100% identifier overlap**, and E030's 2457-comment harvest shares **2** ids with it. Two corpora, one venue, five readings; the vocabulary claim (the zero survives a change of trigger phrase) is sound and is the stronger half, but the venue was never varied. F051's own ceilings say so — the summary sentence is what over-reaches, and it is the sentence item 0d closes the invention seat on |
-
 | F054 | **E032 changed the venue and nothing else** — 60 long-form questions from three non-programming Stack Exchange sites, 53 authors, selected by date/site/length with **no requirement vocabulary**, against E031's own linkage rule, control and four gates. **0 of 32** candidate pairs and **0 of 60** control pairs state the same requirement, difference **0.0000 CI95 [−0.0602, +0.1072]**, with **A2 reachable** (32 candidates vs 1.19 chance), **κ = 0.8344**, **0/24** nonsense, **20/20** positives and **0/10** negatives. So the zero is **not** Hacker News's length, self-containedness, population or selection — it holds across two structurally different venue classes. It is a **bound, not a zero**: the upper bound is **0.0894** here, **0.0223** pooled with E031's 100. The run's own two instrument defects (reading sheets instead of labels, which made κ undefined; and a key file out of order with its sheet) were caught by running the step, not by a reader's account. **F055 measures the population F054 drew from and shows `sort=votes` selected the tertile where recurrence is 4.5× rarest** |
 | F055 | **The pooled 0.0223 bound is refuted, and E032's population was drawn where recurrence is rarest.** Reading recurrence off Stack Exchange's own `closed_reason == "Duplicate"` judgement instead of a linkage rule this mission invented, over 1000 questions from two volume-selected sites: **54 duplicates = 0.0540, CI95 [0.0416, 0.0698]**, `travel` 0.0660 and `math` 0.0420 — and the label counts only closures, so the true rate is higher. The sample was the problem: **the top 60 by score contains 0** duplicate closures against a mean of 3.37 over all 941 sliding windows, and the rate runs **0.0180 in the top score tertile against 0.0808 in the bottom**, a 4.5× gradient that E032 declared as a caveat and that is in fact load-bearing. `sort=votes` was chosen because elaborated needs live there, and it selects for answered questions — the ones that were not repeats. A second claim was **withdrawn by the run itself**: the same data read as convergent-and-unanswered demand (0.5556 against 0.2114) but zero of the 54 duplicates has an accepted answer, and closing a question as a duplicate does not answer it. **This explains E032 and only E032** — the Hacker News zeros have F039's own separate cause, 1250 individuals each asking once. No candidate is revived: no clause or cluster was recovered and no prior-art screen was run. The constraint that follows is about the archive — **a duplicate closure is a reliable label and an unreachable edge**, since neither `closed_details` nor `question_type` is exposed and the four vectorised `{ids}` routes tried all return `no_method`, so `tally.py` declines to print the declared visibility product rather than compute it from canonicals the reader arm rejected (6 of 24) |
 **F048's evidence lives at `EXPERIMENTS/028-incumbent-fit/`:**
@@ -128,9 +132,7 @@ banning a word the requirement itself used, and bundles that could show a produc
 with no documentation.
 | F059 | **The score-tail worklist is one unauthenticated URL, and F058's reachability claim was a fact about one rendered view.** `EXPERIMENTS/036-search-backlog/`, T-0080, 8 requests, **KILL-R met**. One request to `/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100` returns **100 questions ascending by score (−20..−5, non-decreasing), 81 of them ids already in E034's committed harvest** (first at rank 1), and **13 labelled `Duplicate`/`exact duplicate` in the payload's own `closed_reason` field** — no API key, no custom filter, no second route, no computation. E035's stated differentiator was *"the platform's own closure label over a population no surface orders that way"*; **both halves are the platform's.** Three corrections: F058's *"no surface offers the ordering"* was established on a tag page's seven tabs and did not enumerate the filter vocabulary (`sort`, `order`, `tagged`, `closed`, `votes`, …) — **D066**; `closed` is the one filter value this route **does not validate** (`closed=maybe` → 200, same items), so no closed-only control was establishable from the route's behaviour, while `order` and `filter` both return 400 on invalid values; and E035's *"the label needs an API key"* generalised two routes (`/questions/unanswered`, `/questions/{ids}`) to the platform — **F020's shape** — and removed the key premise a tool would have rested on. Retrieval arms, thin: tail titles **3/4** recovered (ranks 1, 7, 1), `Active` control **2/2** (both rank 1), positive control fired on real positive examples, **KILL-Q `not_evaluated`** at n=4 and **R4 negative control `not_evaluated`** on the quota wall. The run also failed twice in its own plumbing — a stage argument fell through to a 9-request plan against a 4-request budget, and `quota_wall()` discarded successful 200s reporting negative quota — **both in the raw bytes, neither load-bearing on the kill**, which is an id-intersection against committed evidence. **The population is untouched**; what died is the claim that it is unreachable. **The adoption question is now the whole question and has never been measured in three experiments** |
 | F058 | **The score-tail population is not one that was overlooked, no Stack Overflow page orders it the way it was measured, and the mission's top-ranked next action was aimed at the wrong constraint.** Four results over E034's committed bytes at zero quota cost. **The findability frame is falsified:** within E034's tail arm the duplicate-closed rows have a **higher** median view count than their non-duplicate neighbours (**251 against 193**), and the arm's median age is **8.49 yr** against the `Active` tab's 5.53 -- these questions have been read ~200 times each, so this is an eight-year-old backlog, not a rescue. **The `Active` and `tail` arms do not intersect** for two of eight tags (`stackoverflow`/`python` tail -34..-11 against Active -9..304; `math`/`probability` -9..-4 against -2..159), so a 4.5x gradient is a statement about *membership*. **No *rendered tag page* offers the ordering (corrected by F059, which found the API route does):** 409,639 bytes of first-party rendered HTML from a 2026-09-26 archive snapshot of a real tag page list `Newest / Active / Votes / Frequent / Trending / Bounties / Unanswered` and contain **0 occurrences** of `oldest`, `order=asc`, `sort=votes&order=asc` or `ascending`; the direction of `tab=Votes` is `not_measured` because the archive refused that snapshot. **D6's declared remedy (3-4 more tags per site, ~30 requests, ranked the mission's top action) is largely already answered by the committed bytes:** between-tag excess variance on the arcsine scale reads **+0.0417 pooled and +0.0420 within `stackoverflow` alone** -- the four SO tags run 0.000/0.130/0.150/0.210 and their spread inside one site *equals* the whole spread. The obvious objection to a rank-selected tail is **unsupported** (r=+0.2485, t=0.725, df=8). **E035's own gates:** U1 fired at a median Jaccard of **0.0283** but **D065** shows the overlap was definitional -- `/questions/unanswered` returns **open** questions and holds **0** of E034's 224 known duplicate-closed ids while **98 of 186** tail duplicates meet its advertised `is_answered == false` criterion -- and **U2 is `not_evaluated`** because the label is unreadable *on that route* (six filter forms, custom filters refused unauthenticated, `/questions/{ids}` also omits it; an API key is required — **F059 shows `/search/advanced`'s default filter carries it without a key, so this is a per-route fact and not a platform one**) |
-
 `PROTOCOL.md` declares the population, the category/attribute distinction, four
-
 **F043's evidence lives at `EXPERIMENTS/023-served-baseline/`:** `PROTOCOL.md`
 holds the declaration, `raw/labels.tsv` carries one note per row from a reader
 blind to E022's, and `results.json` the four gates. It **withdraws the inference**
@@ -138,7 +140,6 @@ that a reply naming an artifact is evidence the need was served, and leaves
 E022's other two numbers standing — 58.0% answered, and 0 of 24 unserved
 requesters who built it themselves. Label agreement between the two readers on
 the identical 39 rows is κ = 0.9226, so the null is a property of the population.
-
 **F044's evidence lives at `EXPERIMENTS/024-kill-reason-causes/`:** `PROTOCOL.md`
 declares the population, the four categories and both gates before any row is
 read; `CONTROL.md` records the declared control failing as constructed, the
@@ -149,7 +150,6 @@ killed *by*. Its binding limit is **one reader, no second coder**, the same defe
 E023 fixed with κ = 0.923, and at a one-row margin the second reader is the
 measurement that would settle whether the record's sentence is a fact or a
 coin-flip.
-
 **F045's evidence lives at `EXPERIMENTS/025-need-staters-builderhood/`:**
 `PROTOCOL.md` declares the question, the two-world framing, all four gates and
 the control arm's stopping rule **before any figure existed** — including a
@@ -162,20 +162,22 @@ bounds F042's third cell without repairing it. Its binding limit is inherited
 rather than lifted: the `show_hn` tag is set by HN, so **an unannounced build is
 invisible in both arms**, and within the control arm the tag tracks overall HN
 activity hard (median 2416 items for builders against 467 for non-builders).
-
 **F042's evidence lives at `EXPERIMENTS/022-need-outcomes/`,** and the defect
 itself is in `need_depth_walk.py`. The reported result did not move across the
 repair (odds ratio 0.701 before, 0.703 after), because the two strata the arm
 uses were never affected — which could only be known after the repair.
 `tests/test_need_depth_gate.py` holds the defective loop shape as a failing
 assertion and reads the committed capture rather than the walk's exit code.
-
 **F041's evidence lives at `EXPERIMENTS/021-copied-artifact-serving/`,** not at
 the `020-` path some records still name: the other VM took `020-copied-config-drift`
 and F040/D052 for a different experiment on the same reading, and this side
 renumbered on the unpushed side per the multi-VM rule. `PROTOCOL.md` holds the
 declaration, `results.json` the verdict and the lost capture, and `raw/` the 95
 instrument captures.
+| F060 | The reply subtree of a need statement carries no prior art (0 of 1391 drew a novel-host link) and no outcome (1 of 794 requesters returned) |
+| F061 | A prevalence threshold over a denominator that grows with thread size is green on everything, including the defect |
+| F062 | The Algolia items endpoint undercounts a need's reply subtree, one-directionally, so it is not evidence |
+| F063 | A hand-written manifest padded sha256 fields with hex that was never measured |
 
 
 **The invariant that makes the split sensible.** A finding is only useful if a

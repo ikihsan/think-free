@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-05
+last-verified: 2026-10-06
 -->
 
 # Decision log
@@ -23,6 +23,7 @@ ordinary edits do not.
 | [`DECISIONS-SCREENING-5.md`](DECISIONS-SCREENING-5.md) | D062 | What passes, continued: a linkage rule is part of the instrument — tested for power against its own chance expectation before its output is read, and the control is reader-adjudicated random pairs rather than a permutation of the selected set |
 | [`DECISIONS-SCREENING-6.md`](DECISIONS-SCREENING-6.md) | D063, D064, D065 | What passes, continued: an enumerated field is read as a set of literals and an absent key must be shown to mean "does not apply"; a gate about how one candidate relates to several others is an exclusive partition or a statistic over the relation, never a conjunction over a subset of comparators; and a baseline that excludes the treatment by its own selection rule cannot be compared to it, so its non-overlap is definitional and not a finding |
 | [`DECISIONS-SCREENING-7.md`](DECISIONS-SCREENING-7.md) | D066, D067 | What passes, continued: a "no surface offers X" claim must enumerate the platform's interface surface and say which part of it was not reached, so a finding about one rendered view cannot be generalised to the platform; and a candidate whose value is a mechanism is tested against that mechanism's existing source before any population measurement on its behalf |
+| [`DECISIONS-SCREENING-8.md`](DECISIONS-SCREENING-8.md) | D068 | What passes, continued: a serving signal must come from a channel that answers the question the clause asked, and a channel that answers a different question is restated rather than re-used |
 | [`DECISIONS-GATING.md`](DECISIONS-GATING.md) | D024–D026, D030, D036–D039 | How a gate, a diagnostic, or its control must be written before it is trusted |
 | [`DECISIONS-RECORDS.md`](DECISIONS-RECORDS.md) | D029, D032, D035, D041, D043, D046, D047 | What this repository's own records must be: a function of the tree, no number with two meanings, and two artefacts held to each other |
 

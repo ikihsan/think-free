@@ -116,6 +116,23 @@ none of them is advice.
   `rootlisting._complete` refuses a half-answered row; the test holds the
   property against the **committed** cache rather than a fixture, which is the
   only version of it that would have caught this.
+- **A channel answers the question it was built for, and this mission's screens ask
+  a different one.** E039 measured the reply subtree of the 1401 public need
+  statements — contemporaneous, demand-side, made by practitioners, which is what
+  every corpus and registry the mission searches is not — and it answers "has anyone
+  else hit this?", not "here is what to use": 57% of needs draw a reply, 5.5% draw a
+  link, and **0 of 1391 draw a link to a host new to their thread** (F060, D068).
+  Before measuring a serving signal, ask *which question the channel answers*.
+- **A share over a denominator that grows with the population cannot fail.** E039's
+  declared novelty gate — a host appearing in under 1% of the other comments' links
+  in the same story — returned **0 for every need and for 98.2% of linked
+  controls** (F061). A prevalence threshold needs a **rank or a count**. This is the
+  third gate in this record that can be met or missed without evidence: a zero
+  denominator (E019), an unmeasured population (E017), and now an unreachable one.
+- **A hand-written digest is not a measurement.** E039's `MANIFEST.json` was padded
+  with 48 hex characters per shard that had never been computed, and a reader
+  checking the 16 measured characters would have seen a match and stopped (F063).
+  `verify_manifest.py` recomputes from the bytes and exits 3 on any difference.
 - **A marker file is not a directory listing, and a version string is not a
   version record.** Both were built and both were falsified in one session
   (T-0065, F040), and both would have produced a confident wrong number. (a) `.claude/agents/README.md`
