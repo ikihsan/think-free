@@ -55,6 +55,7 @@ _none_
 | 1 | 12:24:42 | session_start | Package stage-lines for real use and record the KILL-Q evaluation |
 | 2 | 12:29:13 | command | $ python3 -m unittest discover -s stage-lines |
 | 3 | 12:37:10 | command | $ python3 -m unittest discover -s tests -t tests |
+| 4 | 12:44:32 | milestone | packaging committed db622b2: pyproject, console script, README fixes, decision lists; tests.test_decision_files green |
 
 ## Reproduce this record
 
