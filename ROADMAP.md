@@ -29,11 +29,13 @@ Status legend: **done**, **partial**, **not started**, **blocked**.
 
 ## B — Experimental discovery
 
-**Status: partial.** Twenty-nine experiments have run; three invention claims are
+**Status: partial.** Thirty-two experiments have run; three invention claims are
 disproved, one declared gate could not fail, one mechanism was confirmed while its
 candidate died of it, the prior-art screen is measured (F035, F034), read against its
 own extract (F047) and asked what its evidence is evidence of (F048: **use is not
-fit**), and the demand corpus has been followed forward twice (F049). None validated.
+fit**), the demand corpus has been followed forward twice (F049), and **the
+recurrence zero has been checked for the venue it was a result about and survived a
+venue change** (F053, F054). None validated.
 
 - [x] Write the experiment protocol (`docs/process/experiment-protocol.md`)
 - [x] Run E001 as a baseline check; kill gate met, motivating example disproved (F001)
@@ -71,6 +73,13 @@ fit**), and the demand corpus has been followed forward twice (F049). None valid
 - [x] Read the departure population for the gap, not the move (`031-unfilled-requirement`,
       T-0075): **the seek and move strata are identical at 0.347 each**, so the "unfilled"
       premise is retired by measurement; 0 of 100 clause pairs recur (F051, D062)
+- [x] Ask what the recurrence zeros were a result *about* (`032-venue-recurrence`, T-0076):
+      all 3,856 comment ids behind F039/F042/F043/F049/F051 are Hacker News and four of five
+      experiments re-read one file at 100% id overlap, so "three populations" was two corpora on
+      one platform (F053); **E032 then changed the venue and nothing else** — 0 of 32 candidate
+      pairs and 0 of 60 control pairs, difference 0.0000 CI95 [−0.0602, +0.1072], κ = 0.8344,
+      20/20 positives — so the zero is **not** that platform's properties, and the generalisation
+      becomes a venue-agnostic **bound of 0.0223** pooled with E031's 100 (F054)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
@@ -84,12 +93,10 @@ approach, practical value, and an adoption path; otherwise pivot. Criteria in
 
 ## D — Engineering
 
-**Status: not started. No product exists.**
-
-- [ ] Build the smallest independently usable implementation
-- [ ] Behavioural tests that can fail on a meaningful defect
-- [ ] Honest limits documented alongside capabilities
-- [ ] Reproducible build and installation, security review, real examples
+**Status: not started. No product exists.** Smallest independently usable
+implementation; behavioural tests that can fail on a meaningful defect; honest
+limits documented alongside capabilities; reproducible build and installation,
+security review, real examples.
 
 ## E — Public release
 
@@ -98,19 +105,17 @@ approach, practical value, and an adoption path; otherwise pivot. Criteria in
 - [ ] Licence, install path, demo, honest comparison, contributor guide
 - [x] `origin release check` implemented against `RELEASE-MANIFEST.md` (T-0022)
 - [ ] Push with explicit user authorization
-- [ ] No unreleased behaviour described as shipped — the front-door state
-      directive now makes this an agreement the machine checks, not a promise
+- [ ] No unreleased behaviour described as shipped — the front-door directive makes
+      this an agreement the machine checks, not a promise
 
 ## F — Real-world validation
 
-**Status: not started.**
-
-- [ ] Observe actual use and adoption friction
-- [ ] No fabricated feedback, no unsolicited outreach
+**Status: not started.** Observe actual use and adoption friction. No fabricated
+feedback, no unsolicited outreach.
 
 ## G — Expansion
 
-**Status: not started.** Improve reliability, capability, accessibility, and
+**Status: not started.** Improve reliability, capability, accessibility and
 interoperability in response to observed problems.
 
 ## H — Sustained reassessment
@@ -228,25 +233,26 @@ Separate from the invention stages: the mission cannot be run without it.
       the artifact?" answers *yes*, since `113` also sits at `patch_cost_sensitivity/*/cases`. So
       the rule decides the property from the number's *shape*, and
       `tests/test_result_numbers_falsified.py` asserts that blindness.
-- [ ] Seed tasks from `STATE.md` next actions; a headless task-runner once a VM exists;
-      scheduling or supervision, once unattended execution is authorised
+- [ ] Seed tasks from `STATE.md` next actions; a headless task-runner once a VM exists
 
 ## Sequencing note
 
 The infrastructure track finished ahead of stage B because stage B is blocked on judgement, not
 tooling — twice over: on what no experiment here can answer (whether a knitter follows a generated
 repair plan, whether E3's finding generalises beyond one builder, item 8) and, since E016, on
-which axis a candidate is selected. **That blocker has narrowed seven times**
-(F035, F037, F039, F041, F042, F043, F048, D053–D055, D060) and resolves to an owner decision.
-**The twelve prior-art deaths stand**, and F048 leaves them resting on a rule they do not yet meet.
-E022 followed the demand-side asset forward and E023 withdrew its one uncontrolled number
-(F043, D055). See [`STATE-in-flight.md`](STATE-in-flight.md).
+which axis a candidate is selected. **That blocker has narrowed nine times**
+(F035, F037, F039, F041, F042, F043, F048, F053, F054, D053–D055, D060) and resolves to an
+owner decision. **The twelve prior-art deaths stand**, and F048 leaves them resting on a rule they
+do not yet meet. E022 followed the demand-side asset forward and E023 withdrew its one
+uncontrolled number (F043, D055); E032 then removed the demand side's last excuse by showing the
+recurrence zero is not one platform's property (F053, F054). See
+[`STATE-in-flight.md`](STATE-in-flight.md).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython
 minor from 3.8 to 3.14 has run the suite (T-0034, D035), identifiers are allocated from the
 shared base with the record printed (T-0031), and a red CI run is diagnosable without admin
-rights (F020, T-0038). The floor claim is still two things it is not: nothing about 3.15
+rights (F020, T-0038). The floor claim is two things it is not: nothing about 3.15
 onwards, and a green row is evidence about that row and not the version below it. A suite that
 only passes where its author works is not a suite, and that is a recorded pattern: the
 interpreter assertion failed on every version the record lacked (F018), the git assertion on
@@ -257,13 +263,11 @@ exporting `GITHUB_TOKEN` (T-0035) — **each green where written.**
       the check run's only annotation was "Process completed with exit code 2" and the log
       that says which rule failed needs admin rights. A violation now carries the file and
       line its own rule knows; falsified against `e53ca23`'s own bytes in both directions,
-      and `observed` on run `37196459285` filing all seven. The same session found the
-      workflow's awk escaping `%` wrongly, and four CLI handlers raising a `Usage` they had
-      never imported — all in [`STATE-defects.md`](STATE-defects.md).
+      and `observed` on run `37196459285` filing all seven.
 - [x] A diagnostic step runs whenever the job runs, and a probe measures it on the same run
       (T-0046, defect 18, F021, D038). An `if:` naming no status function gets an implicit
       `success()`, so a red `Tests` step skipped all five gate steps on two runs. `always() &&`
-      on each, plus `tools/origin probe`: one annotation per rendering shape on every push
+      on each, plus `tools/origin probe`
 - [x] A refusal is followable by the tool that gave it (T-0048, D039,
       `tools/originlib/landrebase.py`). `sync land` stopped on a real conflict and said *resolve
       it and land again*; the second `land` refused on the dirty tree that resolving leaves, so
@@ -284,12 +288,12 @@ exporting `GITHUB_TOKEN` (T-0035) — **each green where written.**
       F023). `task claim` committed then called `push`, which refuses a dirty tree — and an open
       session guarantees one, so the claim stayed local and **no other VM could see it**: the
       exclusivity the command exists for was not in force, and each retry added another `claim`
-      line (three identical ones for T-0053). Falsified both ways, and on a clone of this
-      repository's own history
+      line (three identical ones for T-0053). Falsified both ways
 - [x] Standard-library test suite, with [`tests/git-versions.json`](tests/git-versions.json)
-      recording how much of the suite each git version has actually run. A test's correctness
-      depends on every clock the code under it reads (T-0044, defect 15)
-- [x] A gate is falsified against the bytes of the defect it guards. Four ways an
-      instrument is wrong about what it measures are now named: **cannot fail** (F010), **fires
-      on coincidence** (F050), **cannot fire** (F051), and **passes on the condition it
-      detects** (F052, where `ratio > 1.0` cleared F031's own 4.8:1)
+      recording how much of the suite each git version has run. A test's correctness depends on
+      every clock the code under it reads (T-0044, defect 15)
+- [x] A gate is falsified against the bytes of the defect it guards. Five ways an instrument
+      is wrong about what it measures are now named: **cannot fail** (F010), **fires on
+      coincidence** (F050), **cannot fire** (F051), **passes on the condition it detects**
+      (F052), and **reads its input's file instead of its labels**, which made a κ undefined
+      and 28 clauses look like 60 (E032, `link.py`)

@@ -6,7 +6,7 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0076
-status: claimed
+status: done
 created: 2026-10-06
 claim-agent: opencode
 claim-session: 2026-10-06-001-e032-test-whether-the-mission-s-three-ze

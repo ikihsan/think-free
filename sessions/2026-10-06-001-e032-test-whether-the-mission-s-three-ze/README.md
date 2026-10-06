@@ -31,7 +31,7 @@ _none_
 
 ## Commands
 
-34 captured, 10 non-zero exit.
+43 captured, 16 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -69,6 +69,12 @@ _none_
 | 36 | ['bash', '-c', 'PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| tail -8'] | 0 | 485889 |
 | 37 | ['bash', '-c', 'PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^(OK\|FAILED\|Ran [0-9]+ test)" \|  | 0 | 485643 |
 | 38 | ['python3', 'EXPERIMENTS/032-venue-recurrence/tally.py', '--check'] | 0 | 218 |
+| 41 | ['tools/origin', 'doc', 'lint'] | 2 | 15026 |
+| 42 | ['tools/origin', 'doc', 'lint'] | 2 | 14682 |
+| 43 | ['tools/origin', 'doc', 'lint'] | 2 | 15072 |
+| 44 | ['tools/origin', 'doc', 'lint'] | 2 | 15117 |
+| 45 | ['tools/origin', 'doc', 'lint'] | 2 | 14429 |
+| 46 | ['tools/origin', 'doc', 'lint'] | 2 | 13018 |
 
 ## Integrity
 
@@ -122,6 +128,17 @@ _none_
 | 36 | 01:28:36 | command | $ bash -c PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| tail -8 |
 | 37 | 01:36:52 | command | $ bash -c PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^(OK\|FAILED\|Ran [0-9]+ test)" \| ta |
 | 38 | 01:37:03 | command | $ python3 EXPERIMENTS/032-venue-recurrence/tally.py --check |
+| 39 | 01:39:17 | task_rewrite | rewrote tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md (status: done) |
+| 40 | 01:39:18 | task_rewrite | appended a complete record for T-0076 |
+| 41 | 01:40:00 | command | $ tools/origin doc lint |
+| 42 | 01:40:26 | command | $ tools/origin doc lint |
+| 43 | 01:40:55 | command | $ tools/origin doc lint |
+| 44 | 01:41:19 | command | $ tools/origin doc lint |
+| 45 | 01:41:46 | command | $ tools/origin doc lint |
+| 46 | 01:42:16 | command | $ tools/origin doc lint |
+| 47 | 01:42:43 | command | $ tools/origin doc lint |
+| 48 | 01:44:17 | command | $ tools/origin release check |
+| 49 | 01:59:19 | command | $ bash -c PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^(OK\|FAILED\|Ran )" \| tail -3 |
 
 ## Reproduce this record
 
