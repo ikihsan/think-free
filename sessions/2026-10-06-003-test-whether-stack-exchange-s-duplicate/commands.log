@@ -1,0 +1,2743 @@
+==============================================================================
+[seq 2] 2026-10-06T04:58:59+00:00
+$ bash -c 
+UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+mkdir -p /tmp/opencode/probe
+for host in travel.stackexchange.com stackoverflow.com; do
+  echo "== $host plain"
+  curl -s -o /tmp/opencode/probe/$host.html -w "code=%{http_code} size=%{size_download}\n" --max-time 25 -A "$UA" "https://$host/questions/189910"
+done
+echo "== stackprinter appspot retry x3"
+for i in 1 2 3; do
+  curl -s -o /tmp/opencode/probe/sp$i.html -w "code=%{http_code} size=%{size_download}\n" --max-time 30 "https://stackprinter.appspot.com/export?question=189910&service=travel.stackexchange&language=en&hideAnswers=false&showAll=true&width=640"
+  sleep 3
+done
+echo "== stackprinter www"
+curl -s -o /tmp/opencode/probe/spwww.html -w "code=%{http_code} size=%{size_download}\n" --max-time 30 "https://www.stackprinter.com/export?question=189910&service=travel.stackexchange&language=en&hideAnswers=false&showAll=true&width=640"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== travel.stackexchange.com plain
+code=403 size=5676
+== stackoverflow.com plain
+code=403 size=5647
+== stackprinter appspot retry x3
+code=200 size=1213
+code=200 size=1213
+code=200 size=1213
+== stackprinter www
+code=200 size=1213
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12546  redactions: none
+==============================================================================
+[seq 3] 2026-10-06T04:59:45+00:00
+$ bash -c 
+for q in 189869 189816 189334; do
+  echo "== q=$q answers"
+  curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions/$q/answers?site=travel&filter=!nNPvSNdWme" | python3 -m json.tool | head -40
+done
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== q=189869 answers
+{
+    "items": [
+        {
+            "owner": {
+                "account_id": 4319082,
+                "reputation": 105623,
+                "user_id": 30703,
+                "user_type": "registered",
+                "profile_image": "https://i.sstatic.net/k1R45.jpg?s=256",
+                "display_name": "jcaron",
+                "link": "https://travel.stackexchange.com/users/30703/jcaron"
+            },
+            "is_accepted": false,
+            "score": 2,
+            "last_activity_date": 1719524826,
+            "creation_date": 1719524826,
+            "answer_id": 189870,
+            "question_id": 189869,
+            "content_license": "CC BY-SA 4.0",
+            "body": "<p>Your passport was issued:</p>\n<ul>\n<li><strong>by</strong> Nigeria (issuing authority)</li>\n<li><strong>in</strong> Cotonou (issuing place)</li>\n</ul>\n<p>The answer is clearly Nigeria.</p>\n"
+        }
+    ],
+    "has_more": false,
+    "quota_max": 300,
+    "quota_remaining": 190
+}
+== q=189816 answers
+{
+    "items": [
+        {
+            "owner": {
+                "account_id": 2067036,
+                "reputation": 128772,
+                "user_id": 13971,
+                "user_type": "registered",
+                "accept_rate": 25,
+                "profile_image": "https://www.gravatar.com/avatar/27caf1b4834e7f79a4bc8af5890424ba?s=256&d=identicon&r=PG",
+                "display_name": "Hilmar",
+                "link": "https://travel.stackexchange.com/users/13971/hilmar"
+            },
+            "is_accepted": false,
+            "score": 1,
+            "last_activity_date": 1719318660,
+            "creation_date": 1719318660,
+            "answer_id": 189834,
+            "question_id": 189816,
+            "content_license": "CC BY-SA 4.0",
+            "body": "<p>It's tight.</p>\n<p>Since Avianca sold you this as a single ticket, you have a good chance of making it but there is no guarantee and little room for error or anything unusual.</p>\n<p>I found the airport to be a bit on the chaotic and disorganized side and Avianca is also not know as the most efficient airline to grace the skies, so I think this itinerary has a &quot;higher than usual&quot; connection risk.</p>\n<p>If you miss it, Avianca is required to take care of you and put you on the next available flight. This may be on the next day. If you need to stay over night, Avianca should put you up in a hotel, but that depends a bit on your negotiating skills and your legal ability to enter Columbia.</p>\n<blockquote>\n<p>I am unsure if I would need to go through security or customs.</p>\n</blockquote>\n<p>You definitely will go through security and quite likely through an extra doc check for US bound passengers.</p>\n<p>You should not need to go through immigrations or customs, nor should you need a transit visa, but precise info around this is murky and I recommend putting your specific details in here: <a href=\"https://www.iatatravelcentre.com/passport-visa-health-travel-document-requirements.htm\" rel=\"nofollow noreferrer\">https://www.iatatravelcentre.com/passport-visa-health-travel-document-requirements.htm</a></p>\n"
+        }
+    ],
+    "has_more": false,
+    "quota_max": 300,
+    "quota_remaining": 190
+}
+== q=189334 answers
+{
+    "items": [
+        {
+            "owner": {
+                "account_id": 1808506,
+                "reputation": 528,
+                "user_id": 131831,
+                "user_type": "registered",
+                "profile_image": "https://i.sstatic.net/2pe7v.png?s=256",
+                "display_name": "Saransh Sharma",
+                "link": "https://travel.stackexchange.com/users/131831/saransh-sharma"
+            },
+            "is_accepted": false,
+            "score": -2,
+            "last_activity_date": 1717181565,
+            "last_edit_date": 1717181565,
+            "creation_date": 1717098079,
+            "answer_id": 189336,
+            "question_id": 189334,
+            "content_license": "CC BY-SA 4.0",
+            "body": "<p>As an Indian citizen you need a transit visa for Germany and the Frankfurt airport operates from 5 AM to 11 PM check Frankfurt airport website.</p>\n<p>See this note source here <a href=\"https://www.germany.info/blob/917514/d7511f4c7c8abcadbf209968aaea36bb/airport-transit-country-list-data.pdf\" rel=\"nofollow noreferrer\">Germany Transit Visa Conditions </a></p>\n<p>The document first states</p>\n<p>The vast majority of foreign travelers benefit from the \u201ctransit privilege\u201d - if during a stopover at a\nGerman airport, you do not leave the International Airport Area and if the destination is not in a Schengen country, you do not need a transit visa.</p>\n<p>\u2026 conditions and then it says</p>\n<p>Nationals of the following countries do not have the transit privilege and therefore require an airport transit visa (category A) for transit at a German airport</p>\n<p>Unfortunately India is one of them.</p>\n<p>Then the document outlines the exhaustive list of exception too but as I see you have a PR in Canada and the exception does not state Canada either</p>\n<p>Then this another source that I found says Canada <a href=\"https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/33-transit/606710\" rel=\"nofollow noreferrer\">2</a></p>\n<p>Finally the German Embassy in Canada website<a href=\"https://canada.diplo.de/ca-en/consular-services/visa/-/2169884\" rel=\"nofollow noreferrer\">3</a>states you don\u2019t need a transit visa if you are a permanent resident.</p>\n<p>So there you go with Indian citizen and Canadian PR you don\u2019t need a transit visa but  you will have to   stay in the International area.</p>\n"
+        },
+        {
+            "owner": {
+                "account_id": 163592,
+                "reputation": 145599,
+                "user_id": 19400,
+                "user_type": "registered",
+                "accept_rate": 100,
+                "profile_image": "https://www.gravatar.com/avatar/21ffea7aa8a0cf833901322567c61df9?s=256&d=identicon&r=PG",
+                "display_name": "phoog",
+                "link": "https://travel.stackexchange.com/users/19400/phoog"
+            },
+            "is_accepted": false,
+            "score": 0,
+            "last_activity_date": 1717176854,
+            "creation_date": 1717176854,
+            "answer_id": 189356,
+            "question_id": 189334,
+            "content_license": "CC BY-SA 4.0",
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1370  redactions: none
+==============================================================================
+[seq 4] 2026-10-06T04:59:58+00:00
+$ bash -c 
+echo "== default filter answers q=189869"
+curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions/189869/answers?site=travel&order=desc&sort=activity" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(json.dumps(d,indent=1)[:1200])
+"
+echo "== SEDE reachability"
+curl -s -o /tmp/opencode/probe/sede.html -w "sede code=%{http_code} size=%{size_download}\n" --max-time 30 -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0" "https://data.stackexchange.com/StackOverflow/query/new"
+curl -s -o /dev/null -w "sede saved-query code=%{http_code} size=%{size_download}\n" --max-time 30 -A "Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0" "https://data.stackexchange.com/StackOverflow/query/775847?format=JSON"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== default filter answers q=189869
+{
+ "items": [
+  {
+   "owner": {
+    "account_id": 4319082,
+    "reputation": 105623,
+    "user_id": 30703,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/k1R45.jpg?s=256",
+    "display_name": "jcaron",
+    "link": "https://travel.stackexchange.com/users/30703/jcaron"
+   },
+   "is_accepted": false,
+   "score": 2,
+   "last_activity_date": 1719524826,
+   "creation_date": 1719524826,
+   "answer_id": 189870,
+   "question_id": 189869,
+   "content_license": "CC BY-SA 4.0"
+  }
+ ],
+ "has_more": false,
+ "quota_max": 300,
+ "quota_remaining": 187
+}
+== SEDE reachability
+sede code=403 size=5524
+sede saved-query code=403 size=5605
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1021  redactions: none
+==============================================================================
+[seq 5] 2026-10-06T05:00:15+00:00
+$ bash -c 
+for q in 189910 189869 189816; do
+  echo "== q=$q comments (withbody)"
+  curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions/$q/comments?site=travel&filter=withbody&order=asc&sort=creation" \
+   | python3 -c "
+import json,sys,re
+d=json.load(sys.stdin)
+print(\"items\",len(d.get(\"items\",[])),\"quota_left\",d.get(\"quota_remaining\"))
+for c in d.get(\"items\",[]):
+    b=c.get(\"body\",\"\")
+    if \"answer here\" in b or \"duplicate\" in b.lower() or \"questions/\" in b:
+        print(\" *\", c.get(\"owner\",{}).get(\"display_name\"), repr(b[:220]))
+"
+done
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== q=189910 comments (withbody)
+items 3 quota_left 186
+== q=189869 comments (withbody)
+items 3 quota_left 186
+ * DavidRecallsMonica 'Your passport was issued by the country of Nigeria, using Nigeria&#39;s consulte in Cotonou. This question is similar to: <a href="https://travel.stackexchange.com/questions/182390/passport-issued-in-vs-issuing-country-i'
+ * DavidRecallsMonica 'You might also review the comments and answers in <a href="https://travel.stackexchange.com/questions/99783/which-country-issued-my-passport-if-i-received-it-at-a-consulate-abroad?noredirect=1&amp;lq=1">this earlier SE:T'
+== q=189816 comments (withbody)
+items 0 quota_left 184
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1205  redactions: none
+==============================================================================
+[seq 6] 2026-10-06T05:00:23+00:00
+$ bash -c 
+for q in 189910 189816 189814; do
+  echo "== q=$q all comments"
+  curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions/$q/comments?site=travel&filter=withbody&order=asc&sort=creation" \
+   | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(\"items\",len(d.get(\"items\",[])))
+for c in d.get(\"items\",[]):
+    print(\"  -\", c.get(\"owner\",{}).get(\"display_name\"), c.get(\"post_owner\"), repr(c.get(\"body\",\"\")[:200]))
+"
+done
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== q=189910 all comments
+items 3
+  - jcaron None 'Can you confirm that both flights are on the same ticket?'
+  - lambshaanxy None 'The one potentially interesting angle here as that you don&#39;t need a visa for connections <i>under</i> 12 hours, while the OP&#39;s is apparently <i>exactly</i> 12 hours. But since their flights ar'
+  - Leaderboard None 'Or just get a e-visa which British citizens are eligible for...'
+== q=189816 all comments
+items 0
+== q=189814 all comments
+items 2
+  - asdfex None 'Because this is duplicate and will likely be closed just a comment: There&#39;s no issue with this connection at any time of the day. Fast trains are 3 per hour during the day and at least once per ho'
+  - Sabine None 'Note that the 10 minute walk from Fernbahnhof is through an enclosed corridor with a tiled floor - you&#39;re basically walking through an &quot;airport extension&quot;. No fresh air :) , no rain or w'
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1646  redactions: none
+==============================================================================
+[seq 7] 2026-10-06T05:01:08+00:00
+$ bash -c 
+echo "== TAIL: sort=votes order=asc pagesize=25"
+curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions?site=travel&tagged=visas&sort=votes&order=asc&pagesize=25&filter=!6VvPDzQ)S" \
+ | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+it=d[\"items\"]
+print(\"items\",len(it),\"has_more\",d.get(\"has_more\"),\"quota\",d.get(\"quota_remaining\"),\"backoff\",d.get(\"backoff\"))
+from collections import Counter
+print(Counter(r.get(\"closed_reason\") for r in it))
+print(Counter(r.get(\"score\") for r in it).most_common(6))
+print([r.get(\"score\") for r in it])
+"
+echo "== HEAD: sort=votes order=desc same tag"
+curl -s --max-time 25 --compressed "https://api.stackexchange.com/2.3/questions?site=travel&tagged=visas&sort=votes&order=desc&pagesize=25&filter=!6VvPDzQ)S" \
+ | python3 -c "
+import json,sys
+from collections import Counter
+d=json.load(sys.stdin)
+it=d[\"items\"]
+print(\"items\",len(it),\"has_more\",d.get(\"has_more\"),\"quota\",d.get(\"quota_remaining\"))
+print(Counter(r.get(\"closed_reason\") for r in it))
+print([r.get(\"score\") for r in it])
+"
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== TAIL: sort=votes order=asc pagesize=25
+items 25 has_more True quota 180 backoff None
+Counter({None: 25})
+[(-4, 11), (-5, 8), (-6, 4), (-7, 2)]
+[-7, -7, -6, -6, -6, -6, -5, -5, -5, -5, -5, -5, -5, -5, -4, -4, -4, -4, -4, -4, -4, -4, -4, -4, -4]
+== HEAD: sort=votes order=desc same tag
+items 25 has_more True quota 179
+Counter({None: 25})
+[167, 132, 110, 96, 95, 89, 87, 81, 77, 75, 73, 72, 71, 70, 70, 70, 69, 68, 65, 62, 60, 59, 58, 57, 57]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1112  redactions: none
+==============================================================================
+[seq 13] 2026-10-06T05:05:05+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+  File "EXPERIMENTS/034-reask-tail/check.py", line 53
+    sorted(t[0] for t in reask.TAGS).count(s) == 2
+    ^
+SyntaxError: Generator expression must be parenthesized
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 895  redactions: none
+==============================================================================
+[seq 14] 2026-10-06T05:05:21+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 169, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 147, in main
+    res = check(_load(path))
+  File "EXPERIMENTS/034-reask-tail/check.py", line 93, in check
+    reask.report(rows=[dict(r, arm="tail", tag=next(iter(tagset)), site="stackoverflow",
+  File "/home/ubuntu/think-free/EXPERIMENTS/034-reask-tail/reask.py", line 189, in report
+    site = next(r["site"] for r in rows if r["tag"] == tag)
+StopIteration
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 593  redactions: none
+==============================================================================
+[seq 15] 2026-10-06T05:05:35+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 169, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 147, in main
+    res = check(_load(path))
+  File "EXPERIMENTS/034-reask-tail/check.py", line 93, in check
+    reask.report(rows=[dict(r, arm="tail", tag=next(iter(tagset)), site="stackoverflow",
+  File "/home/ubuntu/think-free/EXPERIMENTS/034-reask-tail/reask.py", line 212, in report
+    arm=arm, n=n, mn=min(scores), mx=max(scores), k=k, p=p, lo=lo, hi=hi))
+ValueError: min() arg is an empty sequence
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 555  redactions: none
+==============================================================================
+[seq 16] 2026-10-06T05:05:54+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 169, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 147, in main
+    res = check(_load(path))
+  File "EXPERIMENTS/034-reask-tail/check.py", line 93, in check
+    reask.report(rows=[dict(r, arm="tail", tag=next(iter(tagset)), site="stackoverflow",
+  File "/home/ubuntu/think-free/EXPERIMENTS/034-reask-tail/reask.py", line 220, in report
+    out("  {arm:<8} n={n:<5} score {span}  dup {k:>3}  rate {p:.4f}  CI95 [{lo:.4f},{hi:.4f}]\n".format(
+TypeError: unsupported format string passed to NoneType.__format__
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 547  redactions: none
+==============================================================================
+[seq 17] 2026-10-06T05:06:12+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+
+18 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                            NOT APPLIED anchor not found: "('tail', 'votes', 'asc')"
+both score arms read the head                  NOT APPLIED anchor not found: "('head', 'votes', 'desc')"
+a missing closure reason counts as a duplicate caught     only the literal Duplicate counts, a None closure reason is not a duplicate
+the case is dropped from the literal           caught     only the literal Duplicate counts, a None closure reason is not a duplicate
+the denominator becomes the page budget        MISSED     no check fired
+the tail arm is dropped from the population    caught     crash
+the declared tag list shrinks to one tag       MISSED     no check fired
+
+7 mutations, 4 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 250  redactions: none
+==============================================================================
+[seq 18] 2026-10-06T05:06:44+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 197, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 175, in main
+    res = check(_load(path))
+  File "EXPERIMENTS/034-reask-tail/check.py", line 114, in check
+    rec("the reported range is ascending", line.index("[") < line.rindex("]"), line)
+ValueError: substring not found
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 707  redactions: none
+==============================================================================
+[seq 19] 2026-10-06T05:07:01+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+report does not crash when only one arm has rows      ok   
+a 30-row arm reports n=30                             FAIL 
+a 30-row arm reports dup 3                            FAIL 
+the reported range is ascending                       FAIL 
+report pools all three arms                           ok   
+
+23 checks, 3 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports n=30, a 30-row arm reports dup 3
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page in the pooled section caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+the score range is printed upside down             caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags, the reported range is ascending
+
+10 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 287  redactions: none
+==============================================================================
+[seq 20] 2026-10-06T05:07:20+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+report does not crash when only one arm has rows      ok   
+a 30-row arm reports n=30                             ok   
+a 30-row arm reports dup 3                            ok   
+the reported range is ascending                       FAIL stackoverflow/regex                    tail      30  [  -3,  -2]     3  0.1000  [0.0346,0.2562]
+report pools all three arms                           ok   
+
+23 checks, 1 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs, the reported range is ascending
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs, the reported range is ascending
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs, the reported range is ascending
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the reported range is ascending
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page in the pooled section caught     the reported range is ascending
+the score range is printed upside down             caught     the reported range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags, the reported range is ascending
+
+10 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 689  redactions: none
+==============================================================================
+[seq 21] 2026-10-06T05:07:32+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+report does not crash when only one arm has rows      ok   
+a 30-row arm reports n=30                             FAIL 
+a 30-row arm reports dup 3                            FAIL 
+the reported range is ascending                       FAIL 
+report pools all three arms                           ok   
+
+23 checks, 3 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs, a 30-row arm reports n=30, a 30-row arm reports dup 3
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports n=30, a 30-row arm reports dup 3
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page in the pooled section caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+the score range is printed upside down             caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags, a 30-row arm reports n=30, a 30-row arm reports dup 3
+
+10 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 296  redactions: none
+==============================================================================
+[seq 22] 2026-10-06T05:08:03+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+report does not crash when only one arm has rows      ok   
+a 30-row arm reports n=30                             ok   
+a 30-row arm reports dup 3                            ok   
+the reported range is ascending                       FAIL travel/customs                  tail      30  [  -3,  -2]     3  0.1000  [0.0346,0.2562]
+report pools all three arms                           ok   
+
+23 checks, 1 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs, the reported range is ascending
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs, the reported range is ascending
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs, the reported range is ascending
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the reported range is ascending
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, the reported range is ascending
+an arm is capped at one page in the pooled section caught     the reported range is ascending
+the score range is printed upside down             caught     the reported range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags, the reported range is ascending
+
+10 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 298  redactions: none
+==============================================================================
+[seq 23] 2026-10-06T05:08:14+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                          ok   
+head is sort=votes order=desc                         ok   
+default is sort=activity order=desc                   ok   
+the three arms are three distinct URLs                ok   
+page is carried in the URL                            ok   
+the declared tag list is eight tags                   ok   
+every stratum has exactly two tags                    ok   
+no tag was visited twice                              ok   
+wilson(54,1000) reproduces E033's published CI95      ok   
+wilson(0,0) is undefined, not zero                    ok   
+wilson(0,100) has lower bound 0 and no negative width ok   
+only the literal Duplicate counts                     ok   
+a None closure reason is not a duplicate              ok   
+denominator is the fetched row count                  ok   
+an empty arm has no rate rather than a rate of zero   ok   
+every other literal closure reason is excluded        ok   
+report names every declared tag                       ok   
+report prints a row for an empty arm                  ok   
+report does not crash when only one arm has rows      ok   
+a 30-row arm reports n=30                             ok   
+a 30-row arm reports dup 3                            ok   
+the reported score range is ascending                 ok   
+report pools all three arms                           ok   
+
+23 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section MISSED     no check fired
+the score range is printed upside down             caught     the reported score range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags
+
+10 mutations, 1 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 238  redactions: none
+==============================================================================
+[seq 24] 2026-10-06T05:08:32+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                              ok   
+head is sort=votes order=desc                             ok   
+default is sort=activity order=desc                       ok   
+the three arms are three distinct URLs                    ok   
+page is carried in the URL                                ok   
+the declared tag list is eight tags                       ok   
+every stratum has exactly two tags                        ok   
+no tag was visited twice                                  ok   
+wilson(54,1000) reproduces E033's published CI95          ok   
+wilson(0,0) is undefined, not zero                        ok   
+wilson(0,100) has lower bound 0 and no negative width     ok   
+only the literal Duplicate counts                         ok   
+a None closure reason is not a duplicate                  ok   
+denominator is the fetched row count                      ok   
+an empty arm has no rate rather than a rate of zero       ok   
+every other literal closure reason is excluded            ok   
+report names every declared tag                           ok   
+report prints a row for an empty arm                      ok   
+report does not crash when only one arm has rows          ok   
+a 30-row arm reports n=30                                 ok   
+a 30-row arm reports dup 3                                ok   
+the reported score range is ascending                     ok   
+report pools all three arms                               ok   
+the pooled row count is the sum of the arms, not one page ok   
+the pooled duplicate count is the sum too                 ok   
+
+25 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                      caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead        caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate     caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+the case is dropped from the literal               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+an arm is capped at one page inside report         caught     a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down             caught     the reported score range is ascending
+the tail arm is dropped from the population        caught     crash
+a stratum loses a tag                              caught     the declared tag list is eight tags, every stratum has exactly two tags
+
+10 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 236  redactions: none
+==============================================================================
+[seq 25] 2026-10-06T05:09:47+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py harvest --pages 4
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+requests=85 rows=2124 backoff=0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 64990  redactions: none
+==============================================================================
+[seq 26] 2026-10-06T05:09:53+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py report
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+site/tag                          arm       n  score range    dup  rate     CI95
+stackoverflow/git                      tail     100  [ -20,  -5]    12  0.1200  [0.0700,0.1981]
+stackoverflow/git                      head     100  [2127,27242]     4  0.0400  [0.0157,0.0984]
+stackoverflow/git                      default  100  [ -11,5855]     2  0.0200  [0.0055,0.0700]
+stackoverflow/regex                    tail     100  [ -85,  -8]    19  0.1900  [0.1251,0.2778]
+stackoverflow/regex                    head     100  [ 384,5483]     9  0.0900  [0.0481,0.1623]
+stackoverflow/regex                    default  100  [ -10,4323]     5  0.0500  [0.0215,0.1118]
+stackoverflow/python                   tail     100  [ -34, -11]    15  0.1500  [0.0931,0.2328]
+stackoverflow/python                   head     100  [1885,13135]     6  0.0600  [0.0278,0.1248]
+stackoverflow/python                   default  100  [  -9, 304]     4  0.0400  [0.0157,0.0984]
+stackoverflow/docker                   tail      25  [ -14,  -5]     2  0.0800  [0.0222,0.2497]
+stackoverflow/docker                   head      24  [ 993,4501]     0  0.0000  [0.0000,0.1380]
+stackoverflow/docker                   default   25  [  -5, 142]     1  0.0400  [0.0071,0.1954]
+stackoverflow/excel-formula            tail     100  [ -11,  -5]     0  0.0000  [0.0000,0.0370]
+stackoverflow/excel-formula            head      50  [  30, 388]     1  0.0200  [0.0035,0.1050]
+stackoverflow/excel-formula            default  100  [  -4, 388]     3  0.0300  [0.0103,0.0845]
+travel/customs                  tail     100  [  -7,   0]    43  0.4300  [0.3373,0.5278]
+travel/customs                  head     100  [  31, 251]     1  0.0100  [0.0018,0.0545]
+travel/customs                  default  100  [  -3,  24]     2  0.0200  [0.0055,0.0700]
+math/linear-algebra           tail     100  [ -12,  -4]     5  0.0500  [0.0215,0.1118]
+math/linear-algebra           head     100  [  73, 851]     1  0.0100  [0.0018,0.0545]
+math/linear-algebra           default  100  [  -8, 291]     4  0.0400  [0.0157,0.0984]
+math/probability              tail     100  [  -9,  -4]     2  0.0200  [0.0055,0.0700]
+math/probability              head     100  [  51, 319]     3  0.0300  [0.0103,0.0845]
+math/probability              default  100  [  -2, 159]     1  0.0100  [0.0018,0.0545]
+
+pooled over all 8 tags
+  tail     n=725   score [ -85,   0]  dup  98  rate 0.1352  CI95 [0.1122,0.1620]
+  head     n=674   score [  30,27242]  dup  25  rate 0.0371  CI95 [0.0252,0.0542]
+  default  n=725   score [ -11,5855]  dup  22  rate 0.0303  CI95 [0.0201,0.0455]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 303  redactions: none
+==============================================================================
+[seq 27] 2026-10-06T05:11:05+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py replicate
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/reask.py", line 321, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/reask.py", line 312, in main
+    replicate(tags=tuple(a.tags), first=a.first, pages=a.pages)
+  File "EXPERIMENTS/034-reask-tail/reask.py", line 218, in replicate
+    sys.stderr.write("replicate requests={} rows={}\n".format(requests=requests,
+IndexError: Replacement index 0 out of range for positional args tuple
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6698  redactions: none
+==============================================================================
+[seq 28] 2026-10-06T05:11:05+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+customs replicate n=100 dup=48 rate=0.4800 CI95[0.3846,0.5768] score[0,0]
+excel-formula replicate n=100 dup=0 rate=0.0000 CI95[0.0000,0.0370] score[-5,-4]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 211  redactions: none
+==============================================================================
+[seq 29] 2026-10-06T05:12:15+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 93 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2320 rows
+                  rule: no row is closed without stating a reason (the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable)
+A1c         n/a  1717 of 2320 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability, customs|python, customs|regex
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the tag that decides A4 reproduces on the next pages
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+AMENDMENT-1 out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1717
+  'Not suitable for this site'   204
+  'Duplicate'                    193
+  'Needs details or clarity'     95
+  'Needs more focus'             70
+  'Opinion-based'                12
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    5
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 422  redactions: none
+==============================================================================
+[seq 30] 2026-10-06T05:14:23+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py replicate --sample R2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+R2 requests=8 rows=200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8134  redactions: none
+==============================================================================
+[seq 31] 2026-10-06T05:15:59+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                              ok   
+head is sort=votes order=desc                             ok   
+default is sort=activity order=desc                       ok   
+the three arms are three distinct URLs                    ok   
+page is carried in the URL                                ok   
+the declared tag list is the protocol's eight, in order   FAIL ['git', 'regex', 'python', 'docker', 'excel-formula', 'customs', 'linear-algebra', 'probability']
+the declared list has eight tags                          ok   
+every declared tag appears in TAGS                        ok   
+every stratum has exactly two declared tags               ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site   ok   
+no tag was visited twice                                  ok   
+wilson(54,1000) reproduces E033's published CI95          ok   
+wilson(0,0) is undefined, not zero                        ok   
+wilson(0,100) has lower bound 0 and no negative width     ok   
+only the literal Duplicate counts                         ok   
+a None closure reason is not a duplicate                  ok   
+denominator is the fetched row count                      ok   
+an empty arm has no rate rather than a rate of zero       ok   
+every other literal closure reason is excluded            ok   
+report names every declared tag                           ok   
+report prints a row for an empty arm                      ok   
+report does not crash when only one arm has rows          ok   
+a 30-row arm reports n=30                                 ok   
+a 30-row arm reports dup 3                                ok   
+the reported score range is ascending                     ok   
+report pools all three arms                               ok   
+the pooled row count is the sum of the arms, not one page ok   
+the pooled duplicate count is the sum too                 ok   
+
+28 checks, 1 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs, the declared tag list is the protocol's eight, in order
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs, the declared tag list is the protocol's eight, in order
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs, the declared tag list is the protocol's eight, in order
+a missing closure reason counts as a duplicate               caught     the declared tag list is the protocol's eight, in order, only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     the declared tag list is the protocol's eight, in order, only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     the declared tag list is the protocol's eight, in order, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the declared tag list is the protocol's eight, in order, the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the declared tag list is the protocol's eight, in order, the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     the declared tag list is the protocol's eight, in order, every declared tag appears in TAGS, every stratum has exactly two declared tags
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+
+11 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 345  redactions: none
+==============================================================================
+[seq 32] 2026-10-06T05:16:12+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                     ok   
+head is sort=votes order=desc                                    ok   
+default is sort=activity order=desc                              ok   
+the three arms are three distinct URLs                           ok   
+page is carried in the URL                                       ok   
+the declared tag list is the protocol's eight, in declared order ok   
+the declared list has eight tags                                 ok   
+every declared tag appears in TAGS                               ok   
+every stratum has exactly two declared tags                      ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site          ok   
+no tag was visited twice                                         ok   
+wilson(54,1000) reproduces E033's published CI95                 ok   
+wilson(0,0) is undefined, not zero                               ok   
+wilson(0,100) has lower bound 0 and no negative width            ok   
+only the literal Duplicate counts                                ok   
+a None closure reason is not a duplicate                         ok   
+denominator is the fetched row count                             ok   
+an empty arm has no rate rather than a rate of zero              ok   
+every other literal closure reason is excluded                   ok   
+report names every declared tag                                  ok   
+report prints a row for an empty arm                             ok   
+report does not crash when only one arm has rows                 ok   
+a 30-row arm reports n=30                                        ok   
+a 30-row arm reports dup 3                                       ok   
+the reported score range is ascending                            ok   
+report pools all three arms                                      ok   
+the pooled row count is the sum of the arms, not one page        ok   
+the pooled duplicate count is the sum too                        ok   
+
+28 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     the declared tag list is the protocol's eight, in declared order, every declared tag appears in TAGS, every stratum has exactly two declared tags
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+
+11 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 343  redactions: none
+==============================================================================
+[seq 33] 2026-10-06T05:16:13+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+
+INTEGRITY PROBLEMS
+  declared arm never fetched: baggage/head
+  declared arm never fetched: baggage/default
+  declared arm never fetched: calculus/head
+  declared arm never fetched: calculus/default
+------------------------------------------------------------------------------
+exit: 4  duration_ms: 396  redactions: none
+==============================================================================
+[seq 34] 2026-10-06T05:17:38+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 388, in <module>
+    sys.exit(main(sys.argv[1:]))
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 283, in main
+    g = gates(d)
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 261, in gates
+    "; ".join("%s %d/%d=%.3f" % (k, v["dup"], v["n"], v["rate"])
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 261, in <genexpr>
+    "; ".join("%s %d/%d=%.3f" % (k, v["dup"], v["n"], v["rate"])
+TypeError: must be real number, not NoneType
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 896  redactions: none
+==============================================================================
+[seq 35] 2026-10-06T05:18:04+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 343  redactions: none
+==============================================================================
+[seq 36] 2026-10-06T05:20:40+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 213, in <module>
+    sys.exit(main(sys.argv[1:]))
+  File "EXPERIMENTS/034-reask-tail/tally.py", line 128, in main
+    out("\npooled, primary literal %r\n" % DUPLICATE)
+NameError: name 'DUPLICATE' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 839  redactions: none
+==============================================================================
+[seq 37] 2026-10-06T05:20:40+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                     ok   
+head is sort=votes order=desc                                    ok   
+default is sort=activity order=desc                              ok   
+the three arms are three distinct URLs                           ok   
+page is carried in the URL                                       ok   
+the declared tag list is the protocol's eight, in declared order ok   
+the declared list has eight tags                                 ok   
+every declared tag appears in TAGS                               ok   
+every stratum has exactly two declared tags                      ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site          ok   
+no tag was visited twice                                         ok   
+wilson(54,1000) reproduces E033's published CI95                 ok   
+wilson(0,0) is undefined, not zero                               ok   
+wilson(0,100) has lower bound 0 and no negative width            ok   
+only the literal Duplicate counts                                ok   
+a None closure reason is not a duplicate                         ok   
+denominator is the fetched row count                             ok   
+an empty arm has no rate rather than a rate of zero              ok   
+every other literal closure reason is excluded                   ok   
+report names every declared tag                                  ok   
+report prints a row for an empty arm                             ok   
+report does not crash when only one arm has rows                 ok   
+a 30-row arm reports n=30                                        ok   
+a 30-row arm reports dup 3                                       ok   
+the reported score range is ascending                            ok   
+report pools all three arms                                      ok   
+the pooled row count is the sum of the arms, not one page        ok   
+the pooled duplicate count is the sum too                        ok   
+
+28 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     the declared tag list is the protocol's eight, in declared order, every declared tag appears in TAGS, every stratum has exactly two declared tags
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+
+11 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 38] 2026-10-06T05:20:41+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py report
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+site/tag                          arm       n  score range    dup  rate     CI95
+stackoverflow/git                      tail     100  [ -20,  -5]    12  0.1200  [0.0700,0.1981]
+stackoverflow/git                      head     100  [2127,27242]     4  0.0400  [0.0157,0.0984]
+stackoverflow/git                      default  100  [ -11,5855]     2  0.0200  [0.0055,0.0700]
+stackoverflow/regex                    tail     100  [ -85,  -8]    19  0.1900  [0.1251,0.2778]
+stackoverflow/regex                    head     100  [ 384,5483]     9  0.0900  [0.0481,0.1623]
+stackoverflow/regex                    default  100  [ -10,4323]     5  0.0500  [0.0215,0.1118]
+stackoverflow/python                   tail     100  [ -34, -11]    15  0.1500  [0.0931,0.2328]
+stackoverflow/python                   head     100  [1885,13135]     6  0.0600  [0.0278,0.1248]
+stackoverflow/python                   default  100  [  -9, 304]     4  0.0400  [0.0157,0.0984]
+stackoverflow/docker                   tail      25  [ -14,  -5]     2  0.0800  [0.0222,0.2497]
+stackoverflow/docker                   head      24  [ 993,4501]     0  0.0000  [0.0000,0.1380]
+stackoverflow/docker                   default   25  [  -5, 142]     1  0.0400  [0.0071,0.1954]
+stackoverflow/excel-formula            tail     100  [ -11,  -5]     0  0.0000  [0.0000,0.0370]
+stackoverflow/excel-formula            head      50  [  30, 388]     1  0.0200  [0.0035,0.1050]
+stackoverflow/excel-formula            default  100  [  -4, 388]     3  0.0300  [0.0103,0.0845]
+travel/customs                  tail     100  [  -7,   0]    43  0.4300  [0.3373,0.5278]
+travel/customs                  head     100  [  31, 251]     1  0.0100  [0.0018,0.0545]
+travel/customs                  default  100  [  -3,  24]     2  0.0200  [0.0055,0.0700]
+travel/baggage                  tail      0  -               0   -        -
+travel/baggage                  head      0  -               0   -        -
+travel/baggage                  default   0  -               0   -        -
+math/calculus                 tail      0  -               0   -        -
+math/calculus                 head      0  -               0   -        -
+math/calculus                 default   0  -               0   -        -
+math/linear-algebra           tail     100  [ -12,  -4]     5  0.0500  [0.0215,0.1118]
+math/linear-algebra           head     100  [  73, 851]     1  0.0100  [0.0018,0.0545]
+math/linear-algebra           default  100  [  -8, 291]     4  0.0400  [0.0157,0.0984]
+math/probability              tail     100  [  -9,  -4]     2  0.0200  [0.0055,0.0700]
+math/probability              head     100  [  51, 319]     3  0.0300  [0.0103,0.0845]
+math/probability              default  100  [  -2, 159]     1  0.0100  [0.0018,0.0545]
+
+pooled over all 10 tags
+  tail     n=725   score [ -85,   0]  dup  98  rate 0.1352  CI95 [0.1122,0.1620]
+  head     n=674   score [  30,27242]  dup  25  rate 0.0371  CI95 [0.0252,0.0542]
+  default  n=725   score [ -11,5855]  dup  22  rate 0.0303  CI95 [0.0201,0.0455]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 39] 2026-10-06T05:20:53+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 245  redactions: none
+==============================================================================
+[seq 60] 2026-10-06T05:48:42+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 903  redactions: none
+==============================================================================
+[seq 61] 2026-10-06T05:48:44+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                     ok   
+head is sort=votes order=desc                                    ok   
+default is sort=activity order=desc                              ok   
+the three arms are three distinct URLs                           ok   
+page is carried in the URL                                       ok   
+the declared tag list is the protocol's eight, in declared order ok   
+the declared list has eight tags                                 ok   
+every declared tag appears in TAGS                               ok   
+every stratum has exactly two declared tags                      ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site          ok   
+no tag was visited twice                                         ok   
+wilson(54,1000) reproduces E033's published CI95                 ok   
+wilson(0,0) is undefined, not zero                               ok   
+wilson(0,100) has lower bound 0 and no negative width            ok   
+only the literal Duplicate counts                                ok   
+a None closure reason is not a duplicate                         ok   
+denominator is the fetched row count                             ok   
+an empty arm has no rate rather than a rate of zero              ok   
+every other literal closure reason is excluded                   ok   
+report names every declared tag                                  ok   
+report prints a row for an empty arm                             ok   
+report does not crash when only one arm has rows                 ok   
+a 30-row arm reports n=30                                        ok   
+a 30-row arm reports dup 3                                       ok   
+the reported score range is ascending                            ok   
+report pools all three arms                                      ok   
+the pooled row count is the sum of the arms, not one page        ok   
+the pooled duplicate count is the sum too                        ok   
+
+28 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, the pooled duplicate count is the sum too
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     the declared tag list is the protocol's eight, in declared order, every declared tag appears in TAGS, every stratum has exactly two declared tags
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+
+11 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 683  redactions: none
+==============================================================================
+[seq 68] 2026-10-06T05:52:33+00:00
+$ bash -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F.............................................................................................................................................................................................................................................../home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 71, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-SCREENING-6.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-6.md'
+
+- ['DECISIONS-SCREENING-6.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 799 tests in 564.687s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 566835  redactions: none
+==============================================================================
+[seq 69] 2026-10-06T05:54:06+00:00
+$ bash -c PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_files tests.test_decision_row_pattern tests.test_decision_header 2>&1 | tail -8
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+   'DECISIONS-SCREENING.md',
+   'DECISIONS-SESSIONS.md',
+   'DECISIONS.md']
+
+----------------------------------------------------------------------
+Ran 22 tests in 2.805s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3169  redactions: none
+==============================================================================
+[seq 70] 2026-10-06T05:54:16+00:00
+$ bash -c PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_files tests.test_decision_row_pattern tests.test_decision_header 2>&1 | grep -E "FAIL:|AssertionError|Ran " | head
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+FAIL: test_a_decision_event_is_satisfied_by_any_decision_file (tests.test_decision_files.DecisionFileListTest)
+AssertionError: Lists differ: ['DEC[249 chars]ENING.md', 'DECISIONS-SESSIONS.md', 'DECISIONS.md'] != ['DEC[249 chars]ENING-6.md', 'DECISIONS-SCREENING.md', 'DECISI[28 chars].md']
+Ran 22 tests in 2.694s
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2999  redactions: none
+==============================================================================
+[seq 71] 2026-10-06T05:54:46+00:00
+$ bash -c cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_files tests.test_decision_row_pattern tests.test_decision_header 2>&1 | tail -4
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+----------------------------------------------------------------------
+Ran 22 tests in 2.907s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3292  redactions: none
+==============================================================================
+[seq 76] 2026-10-06T05:55:01+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py report
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+site/tag                          arm       n  score range    dup  rate     CI95
+stackoverflow/git                      tail     100  [ -20,  -5]    12  0.1200  [0.0700,0.1981]
+stackoverflow/git                      head     100  [2127,27242]     4  0.0400  [0.0157,0.0984]
+stackoverflow/git                      default  100  [ -11,5855]     2  0.0200  [0.0055,0.0700]
+stackoverflow/regex                    tail     100  [ -85,  -8]    19  0.1900  [0.1251,0.2778]
+stackoverflow/regex                    head     100  [ 384,5483]     9  0.0900  [0.0481,0.1623]
+stackoverflow/regex                    default  100  [ -10,4323]     5  0.0500  [0.0215,0.1118]
+stackoverflow/python                   tail     100  [ -34, -11]    15  0.1500  [0.0931,0.2328]
+stackoverflow/python                   head     100  [1885,13135]     6  0.0600  [0.0278,0.1248]
+stackoverflow/python                   default  100  [  -9, 304]     4  0.0400  [0.0157,0.0984]
+stackoverflow/docker                   tail      25  [ -14,  -5]     2  0.0800  [0.0222,0.2497]
+stackoverflow/docker                   head      24  [ 993,4501]     0  0.0000  [0.0000,0.1380]
+stackoverflow/docker                   default   25  [  -5, 142]     1  0.0400  [0.0071,0.1954]
+stackoverflow/excel-formula            tail     100  [ -11,  -5]     0  0.0000  [0.0000,0.0370]
+stackoverflow/excel-formula            head      50  [  30, 388]     1  0.0200  [0.0035,0.1050]
+stackoverflow/excel-formula            default  100  [  -4, 388]     3  0.0300  [0.0103,0.0845]
+travel/customs                  tail     100  [  -7,   0]    43  0.4300  [0.3373,0.5278]
+travel/customs                  head     100  [  31, 251]     1  0.0100  [0.0018,0.0545]
+travel/customs                  default  100  [  -3,  24]     2  0.0200  [0.0055,0.0700]
+travel/baggage                  tail      0  -               0   -        -
+travel/baggage                  head      0  -               0   -        -
+travel/baggage                  default   0  -               0   -        -
+math/calculus                 tail      0  -               0   -        -
+math/calculus                 head      0  -               0   -        -
+math/calculus                 default   0  -               0   -        -
+math/linear-algebra           tail     100  [ -12,  -4]     5  0.0500  [0.0215,0.1118]
+math/linear-algebra           head     100  [  73, 851]     1  0.0100  [0.0018,0.0545]
+math/linear-algebra           default  100  [  -8, 291]     4  0.0400  [0.0157,0.0984]
+math/probability              tail     100  [  -9,  -4]     2  0.0200  [0.0055,0.0700]
+math/probability              head     100  [  51, 319]     3  0.0300  [0.0103,0.0845]
+math/probability              default  100  [  -2, 159]     1  0.0100  [0.0018,0.0545]
+
+pooled over all 10 tags
+  tail     n=725   score [ -85,   0]  dup  98  rate 0.1352  CI95 [0.1122,0.1620]
+  head     n=674   score [  30,27242]  dup  25  rate 0.0371  CI95 [0.0252,0.0542]
+  default  n=725   score [ -11,5855]  dup  22  rate 0.0303  CI95 [0.0201,0.0455]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 407  redactions: none
+==============================================================================
+[seq 77] 2026-10-06T05:56:36+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 263, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 241, in main
+    res = check(_load(path))
+  File "EXPERIMENTS/034-reask-tail/check.py", line 138, in check
+    line = [l for l in text.splitlines() if l.startswith(site_of[one] + "/" + one + " ")][0]
+IndexError: list index out of range
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5813  redactions: none
+==============================================================================
+[seq 78] 2026-10-06T05:57:03+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      FAIL 
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears in two samples                                        ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     FAIL ['baggage', 'calculus', 'customs', 'docker', 'excel-formula', 'git', 'linear-algebra', 'probability', 'python', 'regex']
+
+39 checks, 2 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs, report names every declared tag, the registry's tags cover TAGS exactly once each
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs, report names every declared tag, the registry's tags cover TAGS exactly once each
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs, report names every declared tag, the registry's tags cover TAGS exactly once each
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, report names every declared tag, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, report names every declared tag, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     report names every declared tag, a 30-row arm reports n=30, a 30-row arm reports dup 3, a 30-row arm reports n=30
+an arm is capped at one page in the pooled section           caught     report names every declared tag, the pooled row count is the sum of the arms, not one page, the registry's tags cover TAGS exactly once each
+the score range is printed upside down                       caught     report names every declared tag, the reported score range is ascending, the reported score range is ascending, the registry's tags cover TAGS exactly once each
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     crash
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+the R2 sample is dropped from the registry                   caught     crash
+R2's tail arm is declared as the score head                  caught     report names every declared tag, both amendment samples carry the tail arm only, the registry's tags cover TAGS exactly once each
+a tag is fetched in two samples at once                      caught     report names every declared tag, no tag appears in two samples, the registry's tags cover TAGS exactly once each
+a sample with no rows is skipped instead of declared         caught     the report labels the sample it is printing, a sample with no committed rows says so rather than printing nothing, the pooled row count is the sum of the arms, not one page, the pooled duplicate count is the sum too
+
+15 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 475  redactions: none
+==============================================================================
+[seq 79] 2026-10-06T05:57:53+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+
+41 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending, the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     crash
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+the R2 sample is dropped from the registry                   caught     crash
+R2's tail arm is declared as the score head                  caught     both amendment samples carry the tail arm only
+a tag is fetched in two samples at once                      caught     R1 re-samples declared tags and R2 adds new ones, the registry's tags cover TAGS exactly once each
+R1 silently stops being an out-of-sample re-read             caught     both amendments start past the declared pages
+a sample with no rows is skipped instead of declared         caught     the report labels the sample it is printing, a sample with no committed rows says so rather than printing nothing, the pooled row count is the sum of the arms, not one page, the pooled duplicate count is the sum too
+
+16 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 679  redactions: none
+==============================================================================
+[seq 80] 2026-10-06T05:57:57+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2524 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1795 of 2524 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1381 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1381 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 13 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          FAIL 
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 3/7 = 0.43 vs cross-site 10/14 = 0.71
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0265, +0.3401]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 73/868=0.084; -2..0 105/257=0.409; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=1125 dup=178 rate=0.1582 CI95[0.1381,0.1807] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/200=0.0000 [0.0000,0.0188]   default 3/100=0.0300
+  customs                  tail 91/200=0.4550 [0.3875,0.5242]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     186/1125=0.1653 (was 178/1125=0.1582)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     152/178=0.8539 CI95[0.7946,0.8983]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0265, +0.3401]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=868  dup=73  rate=0.0841 CI95[0.0674,0.1044]
+  -2..0  n=257  dup=105 rate=0.4086 CI95[0.3502,0.4696]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 200 of 200)
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 200 of 200)
+  D6 within-site disjoint pairs 3/7 = 0.43; cross-site 10/14 = 0.71
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1795
+  'Not suitable for this site'   261
+  'Duplicate'                    225
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                17
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1403  redactions: none
+==============================================================================
+[seq 81] 2026-10-06T05:58:28+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 600  redactions: none
+==============================================================================
+[seq 82] 2026-10-06T05:58:58+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+the declared population carries no amendment row                     ok   
+the declared population has no customs tail rows from a later page   ok   
+load() spans every sample while the declared arms do not             ok   
+the R1 sample is held apart from the declared arms                   ok   
+
+45 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs, load() spans every sample while the declared arms do not
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs, load() spans every sample while the declared arms do not
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs, load() spans every sample while the declared arms do not
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page, load() spans every sample while the declared arms do not
+the score range is printed upside down                       caught     the reported score range is ascending, the reported score range is ascending, load() spans every sample while the declared arms do not
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     crash
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+the R2 sample is dropped from the registry                   caught     crash
+R2's tail arm is declared as the score head                  caught     both amendment samples carry the tail arm only, load() spans every sample while the declared arms do not
+a tag is fetched in two samples at once                      caught     R1 re-samples declared tags and R2 adds new ones, the registry's tags cover TAGS exactly once each, load() spans every sample while the declared arms do not
+R1 silently stops being an out-of-sample re-read             caught     both amendments start past the declared pages, load() spans every sample while the declared arms do not
+a sample with no rows is skipped instead of declared         caught     the report labels the sample it is printing, a sample with no committed rows says so rather than printing nothing, the pooled row count is the sum of the arms, not one page, the pooled duplicate count is the sum too
+the declared gates absorb the amendment samples              NOT APPLIED anchor not found: 'declared = reask.load_sample("declared")'
+
+17 mutations, 1 not caught
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5096  redactions: none
+==============================================================================
+[seq 83] 2026-10-06T05:59:28+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+the declared population carries no amendment row                     ok   
+the declared population has no customs tail rows from a later page   ok   
+load() spans every sample while the declared arms do not             ok   
+the R1 sample is held apart from the declared arms                   ok   
+
+45 checks, 0 failed
+
+falsification — each mutation must be caught:
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 323, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 311, in main
+    f = falsify(path)
+  File "EXPERIMENTS/034-reask-tail/check.py", line 267, in falsify
+    src = open(os.path.join(here, target)).read()
+NotADirectoryError: [Errno 20] Not a directory: '/home/ubuntu/think-free/EXPERIMENTS/034-reask-tail/reask.py/reask.py'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2795  redactions: none
+==============================================================================
+[seq 84] 2026-10-06T05:59:54+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+the declared population carries no amendment row                     ok   
+the declared population has no customs tail rows from a later page   ok   
+load() spans every sample while the declared arms do not             ok   
+the R1 sample is held apart from the declared arms                   ok   
+
+45 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending, the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     crash
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+the R2 sample is dropped from the registry                   caught     crash
+R2's tail arm is declared as the score head                  caught     both amendment samples carry the tail arm only
+a tag is fetched in two samples at once                      caught     R1 re-samples declared tags and R2 adds new ones, the registry's tags cover TAGS exactly once each
+R1 silently stops being an out-of-sample re-read             caught     both amendments start past the declared pages
+a sample with no rows is skipped instead of declared         caught     the report labels the sample it is printing, a sample with no committed rows says so rather than printing nothing, the pooled row count is the sum of the arms, not one page, the pooled duplicate count is the sum too
+the declared gates absorb the amendment samples              caught     crash
+
+17 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 10784  redactions: none
+==============================================================================
+[seq 85] 2026-10-06T06:00:03+00:00
+$ python3 EXPERIMENTS/034-reask-tail/reask.py report
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+sample declared — 2124 rows
+site/tag                          arm       n  score range    dup  rate     CI95
+stackoverflow/git                      tail     100  [ -20,  -5]    12  0.1200  [0.0700,0.1981]
+stackoverflow/git                      head     100  [2127,27242]     4  0.0400  [0.0157,0.0984]
+stackoverflow/git                      default  100  [ -11,5855]     2  0.0200  [0.0055,0.0700]
+stackoverflow/regex                    tail     100  [ -85,  -8]    19  0.1900  [0.1251,0.2778]
+stackoverflow/regex                    head     100  [ 384,5483]     9  0.0900  [0.0481,0.1623]
+stackoverflow/regex                    default  100  [ -10,4323]     5  0.0500  [0.0215,0.1118]
+stackoverflow/python                   tail     100  [ -34, -11]    15  0.1500  [0.0931,0.2328]
+stackoverflow/python                   head     100  [1885,13135]     6  0.0600  [0.0278,0.1248]
+stackoverflow/python                   default  100  [  -9, 304]     4  0.0400  [0.0157,0.0984]
+stackoverflow/docker                   tail      25  [ -14,  -5]     2  0.0800  [0.0222,0.2497]
+stackoverflow/docker                   head      24  [ 993,4501]     0  0.0000  [0.0000,0.1380]
+stackoverflow/docker                   default   25  [  -5, 142]     1  0.0400  [0.0071,0.1954]
+stackoverflow/excel-formula            tail     100  [ -11,  -5]     0  0.0000  [0.0000,0.0370]
+stackoverflow/excel-formula            head      50  [  30, 388]     1  0.0200  [0.0035,0.1050]
+stackoverflow/excel-formula            default  100  [  -4, 388]     3  0.0300  [0.0103,0.0845]
+travel/customs                  tail     100  [  -7,   0]    43  0.4300  [0.3373,0.5278]
+travel/customs                  head     100  [  31, 251]     1  0.0100  [0.0018,0.0545]
+travel/customs                  default  100  [  -3,  24]     2  0.0200  [0.0055,0.0700]
+math/linear-algebra           tail     100  [ -12,  -4]     5  0.0500  [0.0215,0.1118]
+math/linear-algebra           head     100  [  73, 851]     1  0.0100  [0.0018,0.0545]
+math/linear-algebra           default  100  [  -8, 291]     4  0.0400  [0.0157,0.0984]
+math/probability              tail     100  [  -9,  -4]     2  0.0200  [0.0055,0.0700]
+math/probability              head     100  [  51, 319]     3  0.0300  [0.0103,0.0845]
+math/probability              default  100  [  -2, 159]     1  0.0100  [0.0018,0.0545]
+  pooled over 8 tags
+    tail     n=725   score [ -85,   0]  dup  98  rate 0.1352  CI95 [0.1122,0.1620]
+    head     n=674   score [  30,27242]  dup  25  rate 0.0371  CI95 [0.0252,0.0542]
+    default  n=725   score [ -11,5855]  dup  22  rate 0.0303  CI95 [0.0201,0.0455]
+
+sample R1 — 200 rows
+site/tag                          arm       n  score range    dup  rate     CI95
+travel/customs                  tail     100  [   0,   0]    48  0.4800  [0.3846,0.5768]
+stackoverflow/excel-formula            tail     100  [  -5,  -4]     0  0.0000  [0.0000,0.0370]
+  pooled over 2 tags
+    tail     n=200   score [  -5,   0]  dup  48  rate 0.2400  CI95 [0.1861,0.3037]
+
+sample R2 — 200 rows
+site/tag                          arm       n  score range    dup  rate     CI95
+travel/baggage                  tail     100  [  -6,   0]    21  0.2100  [0.1417,0.2998]
+math/calculus                 tail     100  [ -14,  -4]    11  0.1100  [0.0625,0.1863]
+  pooled over 2 tags
+    tail     n=200   score [ -14,   0]  dup  32  rate 0.1600  CI95 [0.1157,0.2171]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 318  redactions: none
+==============================================================================
+[seq 86] 2026-10-06T06:01:01+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+the declared population carries no amendment row                     ok   
+the declared population has no customs tail rows from a later page   ok   
+load() spans every sample while the declared arms do not             ok   
+the R1 sample is held apart from the declared arms                   ok   
+
+45 checks, 0 failed
+
+falsification — each mutation must be caught:
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/034-reask-tail/check.py", line 231, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/034-reask-tail/check.py", line 219, in main
+    f = falsify()
+NameError: name 'falsify' is not defined
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 3205  redactions: none
+==============================================================================
+[seq 87] 2026-10-06T06:01:31+00:00
+$ python3 EXPERIMENTS/034-reask-tail/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+tail is sort=votes order=asc                                         ok   
+head is sort=votes order=desc                                        ok   
+default is sort=activity order=desc                                  ok   
+the three arms are three distinct URLs                               ok   
+page is carried in the URL                                           ok   
+the declared tag list is the protocol's eight, in declared order     ok   
+the declared list has eight tags                                     ok   
+every declared tag appears in TAGS                                   ok   
+every stratum has exactly two declared tags                          ok   
+AMENDMENT-1 added exactly the two R2 tags, one per site              ok   
+no tag was visited twice                                             ok   
+wilson(54,1000) reproduces E033's published CI95                     ok   
+wilson(0,0) is undefined, not zero                                   ok   
+wilson(0,100) has lower bound 0 and no negative width                ok   
+only the literal Duplicate counts                                    ok   
+a None closure reason is not a duplicate                             ok   
+denominator is the fetched row count                                 ok   
+an empty arm has no rate rather than a rate of zero                  ok   
+every other literal closure reason is excluded                       ok   
+report names every declared tag                                      ok   
+report prints a row for an empty arm                                 ok   
+report does not crash when only one arm has rows                     ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+a 30-row arm reports n=30                                            ok   
+a 30-row arm reports dup 3                                           ok   
+the reported score range is ascending                                ok   
+the report labels the sample it is printing                          ok   
+a sample with no committed rows says so rather than printing nothing ok   
+the pooled row count is the sum of the arms, not one page            ok   
+the pooled duplicate count is the sum too                            ok   
+a sample registry exists                                             ok   
+the registry holds the declared sample plus both amendments          ok   
+the declared sample carries the declared eight tags                  ok   
+both amendment samples carry the tail arm only                       ok   
+no tag appears twice inside one amendment sample                     ok   
+R1 re-samples declared tags and R2 adds new ones                     ok   
+every tag in the registry is in TAGS                                 ok   
+the registry's tags cover TAGS exactly once each                     ok   
+both amendments start past the declared pages                        ok   
+the declared population carries no amendment row                     ok   
+the declared population has no customs tail rows from a later page   ok   
+load() spans every sample while the declared arms do not             ok   
+the R1 sample is held apart from the declared arms                   ok   
+
+45 checks, 0 failed
+
+falsification — each mutation must be caught:
+tail reads the head                                          caught     tail is sort=votes order=asc, the three arms are three distinct URLs
+both score arms read the head                                caught     head is sort=votes order=desc, the three arms are three distinct URLs
+the Active tab reads the score head instead                  caught     default is sort=activity order=desc, the three arms are three distinct URLs
+a missing closure reason counts as a duplicate               caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+the case is dropped from the literal                         caught     only the literal Duplicate counts, a None closure reason is not a duplicate, a 30-row arm reports dup 3, a 30-row arm reports dup 3
+an arm is capped at one page inside report                   caught     a 30-row arm reports n=30, a 30-row arm reports dup 3, a 30-row arm reports n=30, a 30-row arm reports dup 3
+an arm is capped at one page in the pooled section           caught     the pooled row count is the sum of the arms, not one page
+the score range is printed upside down                       caught     the reported score range is ascending, the reported score range is ascending
+the tail arm is dropped from the population                  caught     crash
+a stratum loses a declared tag                               caught     crash
+an amended R2 tag is quietly promoted into the declared list caught     the declared tag list is the protocol's eight, in declared order, the declared list has eight tags, every stratum has exactly two declared tags, AMENDMENT-1 added exactly the two R2 tags, one per site
+the R2 sample is dropped from the registry                   caught     crash
+R2's tail arm is declared as the score head                  caught     both amendment samples carry the tail arm only
+a tag is fetched in two samples at once                      caught     R1 re-samples declared tags and R2 adds new ones, the registry's tags cover TAGS exactly once each
+R1 silently stops being an out-of-sample re-read             caught     both amendments start past the declared pages
+a sample with no rows is skipped instead of declared         caught     the report labels the sample it is printing, a sample with no committed rows says so rather than printing nothing, the pooled row count is the sum of the arms, not one page, the pooled duplicate count is the sum too
+the declared gates absorb the amendment samples              caught     crash
+
+17 mutations, 0 not caught
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9389  redactions: none
+==============================================================================
+[seq 88] 2026-10-06T06:02:18+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --check
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 705  redactions: none
+==============================================================================
+[seq 89] 2026-10-06T06:02:19+00:00
+$ python3 EXPERIMENTS/034-reask-tail/tally.py --gates
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+A1a         pass 0 of 101 non-200
+                  rule: every logged request returned 200
+A1b         pass 0 closed rows with no reason key, of 2514 rows
+                  rule: no row is closed without stating a reason — the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable
+A1c         n/a  1790 of 2514 rows carry no closed_reason key
+                  rule: declared disclosure: the key is absent on open rows, not missing data
+A1d         n/a  9 rows carry 'exact duplicate', which the primary label excludes
+                  rule: declared disclosure: the label is a set of literals, not one
+A2          pass 7 of 8
+                  rule: at least 3 of 8 tags have a duplicate closure in the tail arm
+A3a         pass 0.1122 > 0.0455
+                  rule: pooled tail CI95 lower > pooled default (Active tab) CI95 upper
+A3b         pass 0.1122 > 0.0542
+                  rule: pooled tail CI95 lower > pooled head CI95 upper
+A3b-matched pass 0.1208 > 0.0542
+                  rule: matched-n tail CI95 lower > matched-n head CI95 upper
+A3a-matched pass 0.1208 > 0.0436
+                  rule: matched-n tail CI95 lower > matched-n default CI95 upper
+A4          pass 7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability
+                  rule: two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]
+R1          pass customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok
+                  rule: AMENDMENT-1: the two tags that decide A4 reproduce on the next pages
+D6          FAIL within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54
+                  rule: AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact
+B1          FAIL [-0.0774, +0.3075]
+                  rule: tail minus default share of duplicates with no accepted answer, CI95 excludes 0
+D7          n/a  s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-
+                  rule: declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed
+
+pooled, primary literal 'Duplicate'
+  tail     n=725  dup=98  rate=0.1352 CI95[0.1122,0.1620] score[-85,0]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542] score[30,27242]
+  default  n=725  dup=22  rate=0.0303 CI95[0.0201,0.0455] score[-11,5855]
+
+matched-n (each arm truncated to the smallest per-tag arm)
+  tail     n=674  dup=98  rate=0.1454 CI95[0.1208,0.1740]
+  head     n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]
+  default  n=674  dup=19  rate=0.0282 CI95[0.0181,0.0436]
+
+per-tag tail rate, and the Active-tab rate it is being compared against
+  git                      tail 12/100=0.1200 [0.0700,0.1981]   default 2/100=0.0200
+  regex                    tail 19/100=0.1900 [0.1251,0.2778]   default 5/100=0.0500
+  python                   tail 15/100=0.1500 [0.0931,0.2328]   default 4/100=0.0400
+  docker                   tail 2/25=0.0800 [0.0222,0.2497]   default 1/25=0.0400
+  excel-formula            tail 0/100=0.0000 [0.0000,0.0370]   default 3/100=0.0300
+  customs                  tail 43/100=0.4300 [0.3373,0.5278]   default 2/100=0.0200
+  linear-algebra           tail 5/100=0.0500 [0.0215,0.1118]   default 4/100=0.0400
+  probability              tail 2/100=0.0200 [0.0055,0.0700]   default 1/100=0.0100
+
+S1 sensitivity: adding the legacy literal 'exact duplicate'
+  tail     106/725=0.1462 (was 98/725=0.1352)
+  head     26/674=0.0386 (was 25/674=0.0371)
+  default  22/725=0.0303 (was 22/725=0.0303)
+
+B1: duplicates with no accepted answer
+  tail     80/98=0.8163 CI95[0.7282,0.8805]
+  default  16/22=0.7273 CI95[0.5185,0.8685]
+  difference (tail - default) CI95 [-0.0774, +0.3075]
+
+D7 the tail arm split by score: is the gradient only downvotes?
+  s<=-3  n=650  dup=61  rate=0.0938 CI95[0.0738,0.1187]
+  -2..0  n=75   dup=37  rate=0.4933 CI95[0.3833,0.6040]
+  1..2   n=0
+  s>=3   n=0
+  head   n=674  dup=25  rate=0.0371 CI95[0.0252,0.0542]  (scores all >= 30)
+
+AMENDMENT-1 R1, out-of-sample replication (overlapping ids removed: 4 of 200)
+  customs                  declared 0.4300 [0.3373,0.5278]  replicate 48/97=0.4948 [0.3975,0.5926]
+  excel-formula            declared 0.0000 [0.0000,0.0370]  replicate 0/99=0.0000 [0.0000,0.0374]
+
+AMENDMENT-1 R2, the site/tag confound test (overlapping ids removed: 6 of 200)
+  baggage                  travel           tail 19/96=0.1979 [0.1305,0.2886]
+  calculus                 math             tail 10/98=0.1020 [0.0564,0.1777]
+  D6 within-site disjoint pairs 4/10 = 0.40; cross-site 14/26 = 0.54
+
+D5 the canonical edge: channels consulted and what each returned
+  question page, browser UA              403 Cloudflare challenge                       travel.stackexchange.com/questions/189910
+  stackoverflow.com, browser UA          403 Cloudflare challenge                       stackoverflow.com/questions/189910
+  stackprinter.appspot.com x3            200, 1213 B, server too busy                   export?question=189910
+  stackprinter www x1                    200, 1213 B, server too busy                   www.stackprinter.com/export
+  SEDE query page and a saved query      403 Cloudflare challenge                       data.stackexchange.com
+  question comments                      200, no system comment naming a canonical      /questions/{id}/comments
+  answer closed_details                  200, field absent                              /questions/{id}/answers
+  API closed_details filter              400 invalid filter; not in filters/create      filters/create
+  four vectorised {ids} routes           no_method (E033)                               /questions/1644,1011
+
+closure-reason literals seen, verbatim
+  None                           1790
+  'Not suitable for this site'   260
+  'Duplicate'                    222
+  'Needs details or clarity'     122
+  'Needs more focus'             74
+  'Opinion-based'                16
+  'not a real question'          9
+  'exact duplicate'              9
+  'off topic'                    6
+  'not constructive'             4
+  'too localized'                2
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 605  redactions: none
+==============================================================================
+[seq 98] 2026-10-06T06:05:41+00:00
+$ bash -c cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 799 tests in 644.187s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 644972  redactions: none

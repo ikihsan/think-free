@@ -103,6 +103,44 @@ untouched, and every item says which.
    58.0% answered, 0 of 24 unserved requesters built it, and 167 of the 241 who
    shipped anything shipped **before** they complained (F042, F049).
 
+ 0e. **The seat is no longer empty: E034 put a candidate in it and could not read two
+     thirds of it** (`EXPERIMENTS/034-reask-tail`, F057, D063/D064, T-0078). Three
+     matched arms of eight pre-named tags on one route, labelled by Stack Exchange's own
+     `closed_reason`, with the **`Active` tab as the control** — the ordering a person
+     browsing the tag actually sees. Pooled duplicate-closure rate **0.1352 in the score
+     tail against 0.0303 in the Active tab**, 4.5×, on equal denominators too, which
+     **replicates F055's whole-site gradient on an independent tag-stratified population**.
+     **The rate is a per-tag property nothing in this record had measured**: ten tags span
+     **0.0000 to 0.4300**, seven clear n ≥ 50, **12 pairs have disjoint intervals**, and
+     both extremes reproduce on the next four pages (`customs` 0.430→0.495,
+     `excel-formula` 0.000→0.000) from 43 distinct askers over 28 months. **The Active
+     tab shows none of it**: it reads 0.02 where the tail reads 0.43 for `customs`, and
+     0.03 where the tail reads 0.00 for `excel-formula`.
+
+     **Two of the three claims that would make it a diagnostic failed, and that is what
+     the next action is.** **D6:** duplicate closure is a **moderator act**, the declared
+     population had one `travel` tag against five `stackoverflow` ones, and after
+     AMENDMENT-1 added `travel`/`baggage` (0.1979) and `math`/`calculus` (0.1020),
+     **within-site tag pairs separate 4/10 against 14/26 cross-site** — site and tag both
+     carry real variance and 3–5 tags per site cannot apportion them, so the **per-tag
+     reading is `not_established`** even though its kill gate fired. **B1:** among
+     duplicates, the share with no accepted answer is 0.8163 in the tail against 0.7273 in
+     the Active tab, difference **CI95 [−0.0774, +0.3075]**, so *"the answer existed and
+     was not found"* cannot be separated from *"a moderator closed it"*. The a-priori
+     stratum hypothesis is **backwards** — the situational exemplar has the lowest rate of
+     all ten tags. **What is established is where the repeats sit, not what happened to
+     them**, and that is still the first demand-side instrument in this record to return
+     positives at all. **D064** governs the decision rule that failed to be exclusive,
+     **D063** the ten-literal label that makes E033's 0.0540 a floor.
+
+     **Ceiling and next action:** one platform, one label, three sites at 3–5 tags each,
+     and the canonical edge unreachable through nine named channels — so nothing here
+     separates a moderator's judgement from a findability failure. **The single next
+     action is D6's own: three to four more tags on each of the three sites, `tail` arm
+     only, 4 pages each — about 30 requests against a fresh 300.** Nothing is built on
+     this population until tag is separable from site. Reading in
+     [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the
      next occurrence name itself; the unmeasured half is that `make_fleet` builds a

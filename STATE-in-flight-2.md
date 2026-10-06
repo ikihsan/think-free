@@ -142,6 +142,72 @@ to print the declared visibility product rather than compute it from canonicals 
 had just rejected. Four routes tried, in
 [`API.md`](EXPERIMENTS/033-question-recurrence/API.md).
 
+## The first demand-side instrument that returned positives — and could not read them (F057, D063, D064)
+
+**Status: the pooled gradient is closed and replicated; the per-tag reading is
+`not_established`; the mechanism is not measurable on this instrument.** Item 0d's
+empty invention seat. `EXPERIMENTS/034-reask-tail/`, T-0078, D063/D064.
+
+**What was measured.** Duplicate closure read off Stack Exchange's own `closed_reason`
+on three matched arms of the same tags — `tail` (`sort=votes&order=asc`), `head`
+(`sort=votes&order=desc`), and **`default` (`sort=activity&order=desc`, the `Active`
+tab, which is what a person browsing the tag actually sees)** — 2124 rows over eight
+pre-named tags in four a-priori strata, 101 requests, every response body committed
+beside its sha256.
+
+| arm | n | duplicates | rate | CI95 | score range |
+|---|---|---|---|---|---|
+| `tail` | 725 | 98 | **0.1352** | [0.1122, 0.1620] | −85 … 0 |
+| `head` | 674 | 25 | 0.0371 | [0.0252, 0.0542] | 30 … 27242 |
+| `default` | 725 | 22 | **0.0303** | [0.0201, 0.0455] | −11 … 5855 |
+
+**4.5× against the feed a person reads**, on equal denominators too (0.1454 against
+0.0282), and **F055's whole-site gradient is now measured twice in two designs**.
+
+**What is new: the rate is a per-tag property, and it was never measured before.** Ten
+tags span **0.0000 to 0.4300** with **12 disjoint interval pairs** among the seven
+clearing n ≥ 50, and **both extremes reproduce on the next four pages** out of sample
+(`customs` 0.430 → 0.495, `excel-formula` 0.000 → 0.000) from **43 distinct askers over
+28 distinct months**. The `Active` tab reads 0.02 where the tail reads 0.43 for
+`customs`, and 0.03 where the tail reads 0.00 for `excel-formula`: a reader watching the
+feed would call those two tags identical and would be wrong in opposite directions.
+
+**Why it is still not a candidate, in two sentences each.**
+
+- **D6 fails.** Duplicate closure is a **moderator act**, and the declared population had
+  one `travel` tag against five `stackoverflow` ones, so the highest cell was the only
+  cell from its site. AMENDMENT-1 added `travel`/`baggage` (0.1979) and
+  `math`/`calculus` (0.1020); **within-site disjoint tag pairs run 4/10 against 14/26
+  cross-site**, so site and tag both carry real variance and 3–5 tags per site cannot
+  apportion them. The declared R2 gate was **ill-formed before the fetch** — "disjoint
+  from *both* math tags" and "overlaps *a* math tag" were both true — which is D064.
+- **B1 fails.** Among duplicates, the share with no accepted answer is 0.8163 in the tail
+  against 0.7273 in the `Active` tab, difference **CI95 [−0.0774, +0.3075]**. *"The
+  answer existed and was not found"* cannot be separated here from *"a moderator closed
+  it"* or from *"closure hides the answer"* — E033's AMENDMENT-3 §2 error, walked into a
+  second time because nothing in the protocol asked whether the label could produce the
+  difference by itself. **What is established is where the repeats sit, not what
+  happened to them.**
+
+A third declared claim is dead: **the a-priori stratum hypothesis is backwards.**
+`excel-formula`, the situational exemplar, has the *lowest* rate of all ten tags at 0/100
+while the "one canonical answer exists" tags sit at 0.12–0.19. It was declared before
+the fetch, and nothing replaces it.
+
+**Two facts that outlive this run.** **The canonical edge is unreachable** from this host
+through **nine** named channels — adding the question's own comments, the answer's
+`closed_details`, a browser User-Agent on two hosts, both StackPrinter hosts and SEDE to
+E033's five — so **E033's open question "what to measure recurrence on" is answered on
+its other half: the label is available, the edge is not.** And **the label is ten
+literals, not one** (D063): `closed_reason` is absent on all 1790 open rows and present
+on every one of the 724 closed rows, so absence means "not closed" and nothing is
+imputed, but `exact duplicate` (9 rows) is the legacy spelling of `Duplicate` (222).
+**E033's 0.0540 is a floor, and every rate derived from it is too.**
+
+**The single next action is D6's own:** three to four more tags on each of the three
+sites, `tail` arm only, 4 pages each — about 30 requests against a fresh 300. Nothing is
+built on this population until tag is separable from site.
+
 ## The demand-side absence of recurrence survives a change of venue — **superseded by F055**
 
 **Status: withdrawn as a general statement. What it measured is sound; what it concluded

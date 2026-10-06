@@ -1,0 +1,112 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-06
+-->
+
+# Failures — recorded finding F057
+
+Split out of [`FAILURES-findings-22.md`](FAILURES-findings-22.md), which held
+F053–F056 at 288 of 300 lines. See [`FAILURES.md`](FAILURES.md) for the index.
+**Identifiers are stable across all findings files.**
+
+## F057 — the per-tag spread is real, reproducible, and not attributable: two of E034's three declared claims did not survive its own run
+
+**Status: a design that produced the numbers and could not read them.** `EXPERIMENTS/034-reask-tail/`,
+T-0078, 2026-10-06. What fired: the pooled gradient on all four variants, the per-tag
+kill gate A4, and AMENDMENT-1's replication of both extremes. What failed: **D6**, the
+attribution of the spread, and **B1**, the mechanism the proposed application rests on.
+A third declared claim — the a-priori stratum hypothesis — is falsified outright.
+
+### What the run measured, and what is safe to keep
+
+Three matched arms of the same tag on one route, 2124 rows over eight tags, labelled by
+Stack Exchange's own `closed_reason == "Duplicate"`. Pooled duplicate-closure rate:
+**tail 0.1352 [0.1122, 0.1620]**, score head **0.0371**, **`Active` tab 0.0303
+[0.0201, 0.0455]**. **4.5× against the ordering a person actually reads**, on equal
+denominators too. This replicates F055's whole-site gradient on an independent,
+tag-stratified population, and **F055 stands**.
+
+### Failure 1 — the spread cannot be apportioned between tag and site (D6)
+
+Per-tag tail rates run **0.0000 to 0.4300**, with 12 disjoint interval pairs among the
+seven tags clearing n ≥ 50, and both extremes reproducing on the next four pages
+(`customs` 0.430→0.495, `excel-formula` 0.000→0.000). That part is solid.
+
+It is not attributable, because **duplicate closure is a moderator act**. A community's
+closing practice is a first-class explanation of a rate this instrument cannot observe,
+and the declared population had **one `travel` tag and three `math` tags against five
+`stackoverflow` ones**, so the highest cell was the only cell from its site. AMENDMENT-1
+added one more tag on each of the two sites that produced an extreme —
+`travel`/`baggage` 0.1979 and `math`/`calculus` 0.1020 — and the unambiguous statistic
+answers **4/10 within-site disjoint pairs against 14/26 cross-site**.
+
+**Site carries a real part of the variance and tag carries a real part, and three to
+five tags per site cannot say how much of each.** The per-tag reading — the entire
+differentiating output of the proposed tool — is therefore **not established**, even
+though the kill gate it was gated on fired.
+
+**The declared R2 gate was also ill-formed, and it was ill-formed before the fetch.**
+It read "`baggage`'s CI95 is disjoint from **both** math tags", and the data gave
+`baggage` disjoint from `probability` and `linear-algebra` but overlapping `calculus`, so
+both declared branches could fire at once. A binary gate over a pair-relation needs an
+exclusive partition; the fix was a statistic (D6's density) rather than a threshold, and
+it should have been declared that way. This is D062's shape one level up: the linkage
+rule here was not the candidate-pair rule but the **decision rule applied to a relation
+between candidates**, and nothing tested whether it could return two answers.
+
+### Failure 2 — the mechanism the application claims is not measurable here (B1)
+
+The proposed reading of a duplicate closure is *"the answer existed and was not found."*
+B1 tested the observable half: among duplicates, the share with no accepted answer.
+Tail **0.8163**, `Active` tab **0.7273**, difference **CI95 [−0.0774, +0.3075]** —
+spans zero. **This run cannot separate "people re-asked it" from "moderators closed it",
+nor "nobody answered it" from "closure hides the answer".** E033 had already recorded the
+second half of that error (AMENDMENT-3 §2) and E034 walked into it anyway, because the
+label is *about* closing and nothing in the protocol asked whether closing could produce
+the difference by itself.
+
+What is established is **where the repeats sit, not what happened to them** — which is a
+narrower result than the one the run was declared to produce, and it is the first
+demand-side instrument in this record that returned positives at all.
+
+### Failure 3 — the a-priori stratum hypothesis is backwards
+
+`PROTOCOL.md` §3 declared two tags per stratum on the reasoning that *a tag with one
+obvious canonical answer should be findable*. The prediction is inverted on this
+population: **`excel-formula`, the situational exemplar, has the lowest tail rate of all
+ten tags at 0 of 100**, while the "one canonical answer" tags sit at 0.12–0.19. The
+hypothesis was declared before the fetch and it is dead, with nothing replacing it. It is
+recorded because a stratum rule that was declared, could have failed, and did, is the only
+kind worth reading — and because it means §3's stratum column is decoration in every
+number above.
+
+### Two instrument facts that outlive this run
+
+- **The canonical edge is unreachable from this host.** Nine named channels: four
+  vectorised `{ids}` routes (E033), the question page and `stackoverflow.com` with a
+  browser User-Agent (Cloudflare 403), both StackPrinter hosts (1213-byte "server too
+  busy", four attempts), SEDE (403), the question's own **comments** (no system comment
+  naming a canonical), the answer's **`closed_details`** (field absent), and the
+  `closed_details` filter itself (`400 invalid filter`). **A duplicate closure is a
+  reliable label and an unreachable edge**, and any future instrument here is built on the
+  label alone. This closes E033's open question "what to measure recurrence on" on its
+  other half.
+- **The label is a set of literals, not one.** `closed_reason` is absent on all 1790 open
+  rows and present on every one of the 724 closed rows — **no row is closed without
+  stating a reason**, so absence means "not closed" and nothing is imputed. But ten
+  literals occur, and **`exact duplicate` (9 rows) is the legacy spelling of `Duplicate`
+  (222)**. The primary label is the exact literal, which is conservative: including the
+  legacy spelling raises the pooled tail rate from 0.1352 to 0.1462. **E033's published
+  0.0540 is a floor for the same reason**, and so is every rate derived from it.
+
+### Ceiling
+
+One platform, one label, and a label that means *a moderator judged these two the same*.
+Nothing here separates that from findability. The tail arm is the most-downvoted
+questions and four pages of `order=asc` never reach score ≥ +1, so the comparison is
+{score ≤ 0} against {score ≥ 30} with an unsampled gap; within the tail, score −2..0 runs
+0.4933 against 0.0938 at score ≤ −3, which argues against "closure earns the downvotes"
+but does not rule out that both happen. Three to five tags per site cannot apportion site
+from tag. And **whether anyone acts on a per-tag reading is entirely unmeasured** — that
+is the adoption question, and no gate here touches it.

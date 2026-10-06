@@ -1,0 +1,696 @@
+{
+ "b1": {
+  "default": {
+   "ci": [
+    0.5184787630099803,
+    0.8684941798418556
+   ],
+   "dups": 22,
+   "no_accepted_answer": 16,
+   "share": 0.7272727272727273
+  },
+  "difference_ci95": [
+   -0.07738323086725368,
+   0.3074990613396016
+  ],
+  "tail": {
+   "ci": [
+    0.728248226304025,
+    0.8805403237580323
+   ],
+   "dups": 98,
+   "no_accepted_answer": 80,
+   "share": 0.8163265306122449
+  }
+ },
+ "channels": [
+  [
+   "question page, browser UA",
+   "403 Cloudflare challenge",
+   "travel.stackexchange.com/questions/189910"
+  ],
+  [
+   "stackoverflow.com, browser UA",
+   "403 Cloudflare challenge",
+   "stackoverflow.com/questions/189910"
+  ],
+  [
+   "stackprinter.appspot.com x3",
+   "200, 1213 B, server too busy",
+   "export?question=189910"
+  ],
+  [
+   "stackprinter www x1",
+   "200, 1213 B, server too busy",
+   "www.stackprinter.com/export"
+  ],
+  [
+   "SEDE query page and a saved query",
+   "403 Cloudflare challenge",
+   "data.stackexchange.com"
+  ],
+  [
+   "question comments",
+   "200, no system comment naming a canonical",
+   "/questions/{id}/comments"
+  ],
+  [
+   "answer closed_details",
+   "200, field absent",
+   "/questions/{id}/answers"
+  ],
+  [
+   "API closed_details filter",
+   "400 invalid filter; not in filters/create",
+   "filters/create"
+  ],
+  [
+   "four vectorised {ids} routes",
+   "no_method (E033)",
+   "/questions/1644,1011"
+  ]
+ ],
+ "d6": {
+  "cross_site_density": 0.5384615384615384,
+  "cross_site_disjoint": 14,
+  "cross_site_pairs": 26,
+  "within_site_density": 0.4,
+  "within_site_disjoint": 4,
+  "within_site_pairs": 10
+ },
+ "d7": {
+  "-2..0": {
+   "ci": [
+    0.38329818473419525,
+    0.6040181558778673
+   ],
+   "dup": 37,
+   "n": 75,
+   "rate": 0.49333333333333335,
+   "score_max": 0,
+   "score_min": -2
+  },
+  "1..2": {
+   "ci": [
+    null,
+    null
+   ],
+   "dup": 0,
+   "n": 0,
+   "rate": null,
+   "score_max": null,
+   "score_min": null
+  },
+  "s<=-3": {
+   "ci": [
+    0.07375281351674831,
+    0.11871215047453029
+   ],
+   "dup": 61,
+   "n": 650,
+   "rate": 0.09384615384615384,
+   "score_max": -3,
+   "score_min": -85
+  },
+  "s>=3": {
+   "ci": [
+    null,
+    null
+   ],
+   "dup": 0,
+   "n": 0,
+   "rate": null,
+   "score_max": null,
+   "score_min": null
+  }
+ },
+ "disjoint_pairs": [
+  [
+   "customs",
+   "excel-formula"
+  ],
+  [
+   "customs",
+   "git"
+  ],
+  [
+   "customs",
+   "linear-algebra"
+  ],
+  [
+   "customs",
+   "probability"
+  ],
+  [
+   "customs",
+   "python"
+  ],
+  [
+   "customs",
+   "regex"
+  ],
+  [
+   "excel-formula",
+   "git"
+  ],
+  [
+   "excel-formula",
+   "python"
+  ],
+  [
+   "excel-formula",
+   "regex"
+  ],
+  [
+   "linear-algebra",
+   "regex"
+  ],
+  [
+   "probability",
+   "python"
+  ],
+  [
+   "probability",
+   "regex"
+  ]
+ ],
+ "gates": [
+  {
+   "detail": "0 of 101 non-200",
+   "name": "A1a",
+   "outcome": true,
+   "rule": "every logged request returned 200"
+  },
+  {
+   "detail": "0 closed rows with no reason key, of 2514 rows",
+   "name": "A1b",
+   "outcome": true,
+   "rule": "no row is closed without stating a reason \u2014 the substitution for the declared key rule, which the API's own behaviour makes unsatisfiable"
+  },
+  {
+   "detail": "1790 of 2514 rows carry no closed_reason key",
+   "name": "A1c",
+   "outcome": null,
+   "rule": "declared disclosure: the key is absent on open rows, not missing data"
+  },
+  {
+   "detail": "9 rows carry 'exact duplicate', which the primary label excludes",
+   "name": "A1d",
+   "outcome": null,
+   "rule": "declared disclosure: the label is a set of literals, not one"
+  },
+  {
+   "detail": "7 of 8",
+   "name": "A2",
+   "outcome": true,
+   "rule": "at least 3 of 8 tags have a duplicate closure in the tail arm"
+  },
+  {
+   "detail": "0.1122 > 0.0455",
+   "name": "A3a",
+   "outcome": true,
+   "rule": "pooled tail CI95 lower > pooled default (Active tab) CI95 upper"
+  },
+  {
+   "detail": "0.1122 > 0.0542",
+   "name": "A3b",
+   "outcome": true,
+   "rule": "pooled tail CI95 lower > pooled head CI95 upper"
+  },
+  {
+   "detail": "0.1208 > 0.0542",
+   "name": "A3b-matched",
+   "outcome": true,
+   "rule": "matched-n tail CI95 lower > matched-n head CI95 upper"
+  },
+  {
+   "detail": "0.1208 > 0.0436",
+   "name": "A3a-matched",
+   "outcome": true,
+   "rule": "matched-n tail CI95 lower > matched-n default CI95 upper"
+  },
+  {
+   "detail": "7 tags eligible, 12 disjoint pairs: customs|excel-formula, customs|git, customs|linear-algebra, customs|probability",
+   "name": "A4",
+   "outcome": true,
+   "rule": "two tags with tail n>=50 have disjoint tail CI95s  [KILL GATE]"
+  },
+  {
+   "detail": "customs 0.430->0.495 ok; excel-formula 0.000->0.000 ok",
+   "name": "R1",
+   "outcome": true,
+   "rule": "AMENDMENT-1: the two tags that decide A4 reproduce on the next pages"
+  },
+  {
+   "detail": "within-site 4/10 = 0.40 vs cross-site 14/26 = 0.54",
+   "name": "D6",
+   "outcome": false,
+   "rule": "AMENDMENT-1: same-site tag pairs separate as often as cross-site pairs, so the spread is not a site artefact"
+  },
+  {
+   "detail": "[-0.0774, +0.3075]",
+   "name": "B1",
+   "outcome": false,
+   "rule": "tail minus default share of duplicates with no accepted answer, CI95 excludes 0"
+  },
+  {
+   "detail": "s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-",
+   "name": "D7",
+   "outcome": null,
+   "rule": "declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed"
+  }
+ ],
+ "matched": {
+  "default": {
+   "ci": [
+    0.018119839763440535,
+    0.043607855910593046
+   ],
+   "dup": 19,
+   "n": 674,
+   "rate": 0.028189910979228485,
+   "score_max": 5855,
+   "score_min": -11
+  },
+  "head": {
+   "ci": [
+    0.025248250458297965,
+    0.05418269624075385
+   ],
+   "dup": 25,
+   "n": 674,
+   "rate": 0.037091988130563795,
+   "score_max": 27242,
+   "score_min": 30
+  },
+  "tail": {
+   "ci": [
+    0.12079698773170156,
+    0.17402351310507214
+   ],
+   "dup": 98,
+   "n": 674,
+   "rate": 0.14540059347181009,
+   "score_max": 0,
+   "score_min": -85
+  }
+ },
+ "overlap_rows_removed": {
+  "r1": 4,
+  "r2": 6
+ },
+ "per_tag": {
+  "customs": {
+   "default": {
+    "ci": [
+     0.005501852234968184,
+     0.07001316294199364
+    ],
+    "dup": 2,
+    "n": 100,
+    "rate": 0.02,
+    "score_max": 24,
+    "score_min": -3
+   },
+   "head": {
+    "ci": [
+     0.0017673865655472639,
+     0.05448752476093461
+    ],
+    "dup": 1,
+    "n": 100,
+    "rate": 0.01,
+    "score_max": 251,
+    "score_min": 31
+   },
+   "tail": {
+    "ci": [
+     0.3373313900052838,
+     0.5278478830413564
+    ],
+    "dup": 43,
+    "n": 100,
+    "rate": 0.43,
+    "score_max": 0,
+    "score_min": -7
+   }
+  },
+  "docker": {
+   "default": {
+    "ci": [
+     0.007096050386699169,
+     0.19544472405022525
+    ],
+    "dup": 1,
+    "n": 25,
+    "rate": 0.04,
+    "score_max": 142,
+    "score_min": -5
+   },
+   "head": {
+    "ci": [
+     0.0,
+     0.13798057582897535
+    ],
+    "dup": 0,
+    "n": 24,
+    "rate": 0.0,
+    "score_max": 4501,
+    "score_min": 993
+   },
+   "tail": {
+    "ci": [
+     0.02221993369109194,
+     0.2496651212295782
+    ],
+    "dup": 2,
+    "n": 25,
+    "rate": 0.08,
+    "score_max": -5,
+    "score_min": -14
+   }
+  },
+  "excel-formula": {
+   "default": {
+    "ci": [
+     0.010254338223414811,
+     0.08452078080402699
+    ],
+    "dup": 3,
+    "n": 100,
+    "rate": 0.03,
+    "score_max": 388,
+    "score_min": -4
+   },
+   "head": {
+    "ci": [
+     0.0035391680889764613,
+     0.10495686471836953
+    ],
+    "dup": 1,
+    "n": 50,
+    "rate": 0.02,
+    "score_max": 388,
+    "score_min": 30
+   },
+   "tail": {
+    "ci": [
+     0.0,
+     0.03699480747600191
+    ],
+    "dup": 0,
+    "n": 100,
+    "rate": 0.0,
+    "score_max": -5,
+    "score_min": -11
+   }
+  },
+  "git": {
+   "default": {
+    "ci": [
+     0.005501852234968184,
+     0.07001316294199364
+    ],
+    "dup": 2,
+    "n": 100,
+    "rate": 0.02,
+    "score_max": 5855,
+    "score_min": -11
+   },
+   "head": {
+    "ci": [
+     0.015663050551848013,
+     0.09837217232607373
+    ],
+    "dup": 4,
+    "n": 100,
+    "rate": 0.04,
+    "score_max": 27242,
+    "score_min": 2127
+   },
+   "tail": {
+    "ci": [
+     0.06999337365267776,
+     0.1981226800290837
+    ],
+    "dup": 12,
+    "n": 100,
+    "rate": 0.12,
+    "score_max": -5,
+    "score_min": -20
+   }
+  },
+  "linear-algebra": {
+   "default": {
+    "ci": [
+     0.015663050551848013,
+     0.09837217232607373
+    ],
+    "dup": 4,
+    "n": 100,
+    "rate": 0.04,
+    "score_max": 291,
+    "score_min": -8
+   },
+   "head": {
+    "ci": [
+     0.0017673865655472639,
+     0.05448752476093461
+    ],
+    "dup": 1,
+    "n": 100,
+    "rate": 0.01,
+    "score_max": 851,
+    "score_min": 73
+   },
+   "tail": {
+    "ci": [
+     0.021543361456313564,
+     0.11175196527208817
+    ],
+    "dup": 5,
+    "n": 100,
+    "rate": 0.05,
+    "score_max": -4,
+    "score_min": -12
+   }
+  },
+  "probability": {
+   "default": {
+    "ci": [
+     0.0017673865655472639,
+     0.05448752476093461
+    ],
+    "dup": 1,
+    "n": 100,
+    "rate": 0.01,
+    "score_max": 159,
+    "score_min": -2
+   },
+   "head": {
+    "ci": [
+     0.010254338223414811,
+     0.08452078080402699
+    ],
+    "dup": 3,
+    "n": 100,
+    "rate": 0.03,
+    "score_max": 319,
+    "score_min": 51
+   },
+   "tail": {
+    "ci": [
+     0.005501852234968184,
+     0.07001316294199364
+    ],
+    "dup": 2,
+    "n": 100,
+    "rate": 0.02,
+    "score_max": -4,
+    "score_min": -9
+   }
+  },
+  "python": {
+   "default": {
+    "ci": [
+     0.015663050551848013,
+     0.09837217232607373
+    ],
+    "dup": 4,
+    "n": 100,
+    "rate": 0.04,
+    "score_max": 304,
+    "score_min": -9
+   },
+   "head": {
+    "ci": [
+     0.027785745266656618,
+     0.12476968531222504
+    ],
+    "dup": 6,
+    "n": 100,
+    "rate": 0.06,
+    "score_max": 13135,
+    "score_min": 1885
+   },
+   "tail": {
+    "ci": [
+     0.09305903191162297,
+     0.23283733332157835
+    ],
+    "dup": 15,
+    "n": 100,
+    "rate": 0.15,
+    "score_max": -11,
+    "score_min": -34
+   }
+  },
+  "regex": {
+   "default": {
+    "ci": [
+     0.021543361456313564,
+     0.11175196527208817
+    ],
+    "dup": 5,
+    "n": 100,
+    "rate": 0.05,
+    "score_max": 4323,
+    "score_min": -10
+   },
+   "head": {
+    "ci": [
+     0.048071995163884884,
+     0.16226374696643667
+    ],
+    "dup": 9,
+    "n": 100,
+    "rate": 0.09,
+    "score_max": 5483,
+    "score_min": 384
+   },
+   "tail": {
+    "ci": [
+     0.12514653992704258,
+     0.2777902407080786
+    ],
+    "dup": 19,
+    "n": 100,
+    "rate": 0.19,
+    "score_max": -8,
+    "score_min": -85
+   }
+  }
+ },
+ "pooled": {
+  "default": {
+   "ci": [
+    0.02012317599540126,
+    0.045517424102068486
+   ],
+   "dup": 22,
+   "n": 725,
+   "rate": 0.030344827586206897,
+   "score_max": 5855,
+   "score_min": -11
+  },
+  "head": {
+   "ci": [
+    0.025248250458297965,
+    0.05418269624075385
+   ],
+   "dup": 25,
+   "n": 674,
+   "rate": 0.037091988130563795,
+   "score_max": 27242,
+   "score_min": 30
+  },
+  "tail": {
+   "ci": [
+    0.11219832793455439,
+    0.16199238785334796
+   ],
+   "dup": 98,
+   "n": 725,
+   "rate": 0.13517241379310344,
+   "score_max": 0,
+   "score_min": -85
+  }
+ },
+ "r2": {
+  "baggage": {
+   "ci": [
+    0.13052631601888467,
+    0.2885535064198583
+   ],
+   "dup": 19,
+   "n": 96,
+   "rate": 0.19791666666666666,
+   "score_max": 0,
+   "score_min": -6
+  },
+  "calculus": {
+   "ci": [
+    0.05637539562846752,
+    0.17772933171281546
+   ],
+   "dup": 10,
+   "n": 98,
+   "rate": 0.10204081632653061,
+   "score_max": -4,
+   "score_min": -14
+  }
+ },
+ "replication": {
+  "customs": {
+   "ci": [
+    0.3974565165320966,
+    0.5926269410885678
+   ],
+   "dup": 48,
+   "n": 97,
+   "rate": 0.4948453608247423,
+   "score_max": 0,
+   "score_min": 0
+  },
+  "excel-formula": {
+   "ci": [
+    0.0,
+    0.03735453357396229
+   ],
+   "dup": 0,
+   "n": 99,
+   "rate": 0.0,
+   "score_max": -4,
+   "score_min": -5
+  }
+ },
+ "sensitivity": {
+  "default": {
+   "ci": [
+    0.02012317599540126,
+    0.045517424102068486
+   ],
+   "dup": 22,
+   "n": 725,
+   "rate": 0.030344827586206897
+  },
+  "head": {
+   "ci": [
+    0.026458845676768785,
+    0.05592264285978607
+   ],
+   "dup": 26,
+   "n": 674,
+   "rate": 0.03857566765578635
+  },
+  "tail": {
+   "ci": [
+    0.12235325417773886,
+    0.17379010536705117
+   ],
+   "dup": 106,
+   "n": 725,
+   "rate": 0.14620689655172414
+  }
+ }
+}
