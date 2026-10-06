@@ -89,6 +89,7 @@ _(none recorded)_
 | tests/test_decision_files.py | 8ab726e0d271 | 4735 |
 | tasks/INDEX.md | 7c089390604a | 8941 |
 | tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md | 1454c34355b8 | 3233 |
+| STATE-selection.md | 5f6eb7674d1c | 6966 |
 
 ## Commands
 
@@ -163,8 +164,6 @@ _(none recorded)_
 | 38 | 12:49:14 | artifact | wrote EXPERIMENTS/README.md |
 | 39 | 12:49:17 | artifact | wrote EXPERIMENTS/020-copied-config-drift/README.md |
 | 40 | 12:49:20 | artifact | wrote docs/INDEX.md |
-| 69 | 13:38:22 | artifact | wrote FAILURES-findings-25.md |
-| 70 | 13:38:24 | artifact | wrote RELEASE-MANIFEST.md |
 | 71 | 13:38:25 | artifact | wrote EXPERIMENTS/README.md |
 | 72 | 13:38:26 | artifact | wrote docs/INDEX.md |
 | 73 | 13:38:28 | artifact | wrote tools/originlib/paths.py |
@@ -173,8 +172,10 @@ _(none recorded)_
 | 76 | 13:38:32 | artifact | wrote tasks/INDEX.md |
 | 77 | 13:38:33 | artifact | wrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md |
 | 78 | 13:38:46 | task_rewrite | rewrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md (status: claimed) |
+| 79 | 13:38:47 | task_rewrite | appended a claim record for T-0081 |
+| 80 | 13:42:47 | artifact | wrote STATE-selection.md |
 
-_28 middle events omitted; see `events.jsonl`._
+_30 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

@@ -21,6 +21,10 @@ Nothing here is a defect to repair and nothing here is blocked on tooling.
 **What does this mission select candidates on, now that novelty cannot be the
 filter — and the premise behind the old filter is now measured?**
 
+**Renumbered on 2026-10-06.** This file was written as `STATE-next-actions.md`
+item 0 with D053 and E021, and moved here with the numbering the other VM's
+publication forced (F060, D068, E039). The reasoning is unchanged.
+
 ## Why it is not novelty, and why that took four measurements
 
 Twelve candidates, twelve prior-art deaths, the twelfth being `tools/origin`
