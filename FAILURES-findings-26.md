@@ -4,9 +4,9 @@ status: active
 last-verified: 2026-10-06
 -->
 
-# Findings 62 to 64 — E038, the prior-art search E037 could not run
+# Findings 66 to 68 — E038, the prior-art search E037 could not run
 
-## F062 — E037's "not prior art as an interface" rested on git's own documentation, and two tools answer it
+## F066 — E037's "not prior art as an interface" rested on git's own documentation, and two tools answer it
 
 **`observed` 2026-10-06.** E037 declared KILL-B not met after checking `git add --help`,
 three shell routes and git's behaviour, and its own ceiling said so: *"Web search was
@@ -39,7 +39,7 @@ recorded in its own ceiling exactly what it had not checked. That is the record 
 The cost was one session of confident reasoning from an unsearched absence, and the
 absence turned out to be populated.
 
-## F063 — an oracle that reads hunk anchors cannot see an over-staging bug, and one test asserted the bug as intended behaviour
+## F067 — an oracle that reads hunk anchors cannot see an over-staging bug, and one test asserted the bug as intended behaviour
 
 **`observed` 2026-10-06.** `stg` was **6 of 6** in E037. It was silently wrong on two of the
 six, and E037's instrument was structurally incapable of detecting either.
@@ -78,7 +78,7 @@ the incumbent immediately read **12 of 30**, consistent with E037's own 4 of 6.
 narrower than E037 stated. What is withdrawn is E037's 6 of 6, which was the number the
 candidate's headline rested on.
 
-## F064 — a keyword classifier's 100-of-195 was 2-of-30, and two readers disagree exactly where the claim lives
+## F068 — a keyword classifier's 100-of-195 was 2-of-30, and two readers disagree exactly where the claim lives
 
 **`observed` 2026-10-06.** E038 classified 195 GitHub issues by keyword and reported **100
 "in-population"**. A mechanically selected sample of 61 rows — every third distinct issue,

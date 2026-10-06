@@ -4,9 +4,9 @@ status: active
 last-verified: 2026-10-06
 -->
 
-# Failure and defect findings — part 27 (F065)
+# Failure and defect findings — part 27 (F069)
 
-## F065 — A correctness oracle never ran the caller the candidate is for
+## F069 — A correctness oracle never ran the caller the candidate is for
 
 E037–E039 scored `stg` as a correctness problem: can it select the requested
 change, against which hunk anchors, with what exit code. The demand evidence

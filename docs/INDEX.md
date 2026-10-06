@@ -162,6 +162,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md`](../tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0079-e035-establish-whether-the-score-tail-population.md`](../tasks/T-0079-e035-establish-whether-the-score-tail-population.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md`](../tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
+| [`tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md`](../tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 
 ## RESEARCH
 
@@ -266,8 +267,12 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/038-staging-prior-art/PROTOCOL.md`](../EXPERIMENTS/038-staging-prior-art/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Declared 2026-10-06, session 2026-10-06-009, before any request was sent. |
 | [`EXPERIMENTS/038-staging-prior-art/README.md`](../EXPERIMENTS/038-staging-prior-art/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-009, VM instance-20260717-0944, git 2.25.1, |
 | [`EXPERIMENTS/039-honest-exit/README.md`](../EXPERIMENTS/039-honest-exit/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Date: 2026-10-06. Status: complete. Verdict: the claim holds on all eight |
+| [`EXPERIMENTS/039-need-statement-response/PROTOCOL.md`](../EXPERIMENTS/039-need-statement-response/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Every declaration in this file was written before the population counts were |
+| [`EXPERIMENTS/039-need-statement-response/README.md`](../EXPERIMENTS/039-need-statement-response/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/040-agent-staging-loop/README.md`](../EXPERIMENTS/040-agent-staging-loop/README.md) | `docs/INDEX.md` | active | 2026-10-06 | E037 measured the interface cost of git add -p (a 133-line pty driver, 4 of 6); |
 | [`EXPERIMENTS/041-strongest-baseline/README.md`](../EXPERIMENTS/041-strongest-baseline/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-013, VM instance-20260717-0944, git 2.25.1, |
+| [`EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md`](../EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## Goal |
+| [`EXPERIMENTS/042-stg-end-to-end/README.md`](../EXPERIMENTS/042-stg-end-to-end/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
