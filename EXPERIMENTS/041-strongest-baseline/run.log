@@ -1,0 +1,16 @@
+{"route": "stg", "exit": 1, "stdout": "stage f:2\n", "stderr": "", "staged": "'a\\nB\\nc\\nd\\n'", "case": "adjacent-modifications", "expected": "'a\\nB\\nc\\nd\\n'", "exact": true, "honest": true}
+{"route": "shell_baseline", "exit": 1, "stdout": "applied\n", "stderr": "", "staged": "'a\\nB\\nc\\nd\\n'", "case": "adjacent-modifications", "expected": "'a\\nB\\nc\\nd\\n'", "exact": true, "honest": true}
+{"route": "stg", "exit": 1, "stdout": "stage f:2\n", "stderr": "", "staged": "'a\\nx\\nd\\n'", "case": "two-line-insertion", "expected": "'a\\nx\\nd\\n'", "exact": true, "honest": true}
+{"route": "shell_baseline", "exit": 1, "stdout": "applied\n", "stderr": "", "staged": "'a\\nx\\nd\\n'", "case": "two-line-insertion", "expected": "'a\\nx\\nd\\n'", "exact": true, "honest": true}
+{"route": "stg", "exit": 1, "stdout": "stage f:2\n", "stderr": "", "staged": "'a\\nb\\nc\\n'", "case": "single-line-insertion", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true}
+{"route": "shell_baseline", "exit": 1, "stdout": "applied\n", "stderr": "", "staged": "'a\\nb\\nc\\n'", "case": "single-line-insertion", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true}
+{"route": "stg", "exit": 1, "stdout": "stage f:3\n", "stderr": "", "staged": "'a\\nb\\nC\\n'", "case": "tail-modification", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true}
+{"route": "shell_baseline", "exit": 1, "stdout": "applied\n", "stderr": "", "staged": "'a\\nb\\nC\\n'", "case": "tail-modification", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true}
+{"route": "stg", "exit": 2, "stdout": "", "stderr": "stg: no stage change matches f:2\n", "staged": "'a\\nb\\n'", "case": "unchanged-line", "expected": "'a\\nb\\n'", "exact": true, "honest": true}
+{"route": "shell_baseline", "exit": 2, "stdout": "", "stderr": "no hunk covers line 2\n", "staged": "'a\\nb\\n'", "case": "unchanged-line", "expected": "'a\\nb\\n'", "exact": true, "honest": true}
+
+--- Summary ---
+stg: exact=5/5, honest=5/5
+shell_baseline: exact=5/5, honest=5/5
+
+KILL GATE MET: shell baseline matches stg exactly and honestly

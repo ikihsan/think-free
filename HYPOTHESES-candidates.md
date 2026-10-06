@@ -7,8 +7,10 @@ last-verified: 2026-10-06
 # E037 — line-addressable partial staging, `stage-lines` / `stg`
 
 **Status:** `mechanism` and `interface` **supported but narrower than first stated**,
-`usefulness` and `adoption` **untested**. Candidate, not product. Started 2026-10-06,
-session 2026-10-06-006; revised by E038 (F062–F064, D069) in session 2026-10-06-009.
+`usefulness` and `adoption` **untested**, `mechanism_differentiation` **falsified by E041**.
+Candidate, not product. Started 2026-10-06, session 2026-10-06-006; revised by E038
+(F062–F064, D069) in session 2026-10-06-009; mechanism differentiation falsified by E041
+in session 2026-10-06-013.
 
 ## Claim, as revised by E038
 
@@ -78,6 +80,32 @@ rate of **0.016–0.066** of matching GitHub issues.
 Full numbers: [`EXPERIMENTS/037-line-staging/README.md`](EXPERIMENTS/037-line-staging/README.md)
 and [`EXPERIMENTS/038-staging-prior-art/README.md`](EXPERIMENTS/038-staging-prior-art/README.md).
 
+## E041 — strongest shell baseline falsifies mechanism differentiation
+
+E037 hypothesized that "a ten-line `git diff -U0` filter" could be the real competitor to
+`stg`. E040 compared `stg` against a naive approach and found a practical difference.
+E038 compared against `filterdiff` and `git add -p` via pty and found `stg` superior.
+But neither tested the **strongest achievable shell baseline** — a script that correctly
+implements the line-pairing split logic.
+
+E041 builds `shell_baseline.py` (~180 lines of Python) implementing the same algorithm
+as `stg`: parse `git diff -U0`, pair removes with adds line-for-line, split surplus adds
+per-line, select the hunk covering the requested working-tree line, apply via
+`git apply --cached --unidiff-zero`, return honest exit codes.
+
+**Result: the shell baseline matches `stg` exactly and honestly on all tests.**
+
+| Test suite | stg | shell_baseline |
+|------------|-----|----------------|
+| E040 agent-style (5 cases) | 5/5 exact, 5/5 honest | 5/5 exact, 5/5 honest |
+| E038 full matrix (10 cases × 3 diff.context = 30 rows) | 30/30 correct | 30/30 correct |
+
+**Kill gate met:** a well-implemented script achieves parity with `stg` on correctness
+and honesty. The mechanism is not the differentiator — the differentiator is packaging
+(a ready-to-use, tested, documented CLI tool vs. writing/maintaining your own script).
+
+Full numbers: [`EXPERIMENTS/041-strongest-baseline/README.md`](EXPERIMENTS/041-strongest-baseline/README.md).
+
 ## Two bugs E038 found in `stg`, and why E037's 6 of 6 missed them
 
 E037's oracle read `staged_anchors` — the line numbers of the hunks now in the index. A hunk
@@ -99,24 +127,26 @@ so it scored as correct. E038's oracle reads the index **content**.
 
 ## What would falsify the useful claim
 
-**KILL-Q is the whole open question and it is `not_evaluated`.** Nothing in E037 or E038 says a
-person wants this; both say the interface is thin on the command line. The falsifiable form:
+**KILL-Q is the whole open question and it is `not_evaluated`.** Nothing in E037–E041 says a
+person wants this; all say the interface is thin on the command line. The falsifiable form:
 *given a working `stg`, a developer or an agent asked to stage one specific line will use it
 rather than `git add -p`, `filterdiff`, or a hand-built patch.*
 
-The cheapest honest test that does not need permission to contact strangers:
+**E041 tested the strongest shell baseline (item 1 above) and the kill gate for mechanism
+differentiation is met.** A ~180-line Python script implementing the same splitting logic
+matches `stg` on all 35 test rows (5 E040 + 30 E038). The practical advantage E040 measured
+was against a naive baseline, not the strongest achievable one.
 
-1. **The strongest shell baseline, which is not `filterdiff` alone.** `filterdiff` names the
-   *original* file's line; `stg` names the working tree's line. A pipeline combining them, or a
-   ten-line `git diff -U0` filter, is the real competitor, and it is untested. E038 measured the
-   tool, not the best way to use it.
-2. **Agent end-to-end, with attempts counted.** Give a coding agent "stage only the line you
-   changed" against a real repository and count attempts and wrong answers. `mcp-multi-root-git#3`
+Remaining honest tests that do not need permission to contact strangers:
+
+1. **Agent end-to-end, with attempts counted.** Give a coding agent "stage only the line you
+   changed" against a real repository and count attempts and wrong answers. Compare `stg` vs
+   the agent writing its own script vs. `filterdiff` vs. naive `git add -p`. `mcp-multi-root-git#3`
    is a real requester of exactly this, so there is a population to instrument, and it is
    measurable offline.
-3. **E038's unrun Pool B** — 15 pre-named Stack Exchange phrasings × 2 sites with its negative
+2. **E038's unrun Pool B** — 15 pre-named Stack Exchange phrasings × 2 sites with its negative
    and denominator controls, blocked only by a quota window.
-4. Only then, and only with authorisation, the named requesters cited in E038. **Contacting them
+3. Only then, and only with authorisation, the named requesters cited in E038. **Contacting them
    is outside current permissions** and is not proposed here.
 
 ## Mechanism, stated separately from usefulness
@@ -140,3 +170,12 @@ tool was unavailable on this host**, so "no prior art" is narrowed, not establis
 E038's own finding of `filterdiff` and VS Code is the proof of that. The
 gap is on the interface, not the capability, and an interface gap is the kind that closes
 quietly: if a future git takes `file:line`, this is dead, and the check is one command.
+
+**E041 ceiling:** The shell baseline is Python, not pure shell (awk/sed). A pure shell
+implementation would be significantly harder and more fragile. The baseline implements
+`stg`'s exact algorithm — it's not an independent alternative. The "independent
+implementation arriving at the same mechanism" (VS Code's `git.stageSelectedRanges`, F062)
+is evidence the mechanism is natural, not that it's trivial to reimplement. Only tested on
+git 2.25.1. Git 2.55.0 (CI runner) may behave differently. Does not test renames, mode
+changes, `--intent-to-add`, `diff.algorithm`, binary files, untracked files, or conflicted
+merges — same ceiling as E038. KILL-Q remains `not_evaluated` for the fifth experiment.
