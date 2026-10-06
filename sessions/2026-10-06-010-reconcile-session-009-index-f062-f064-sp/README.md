@@ -141,7 +141,6 @@ Choose and run the demand-side evaluation for the stg candidate (KILL-Q), or a f
 | 38 | 11:08:56 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/038-staging-prior-art/score.py |
 | 39 | 11:08:56 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log |
 | 40 | 11:08:56 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/events.jsonl |
-| 45 | 11:08:56 | session_end | Session 009 reconciled: F062-F064 indexed, oversized files split, both decision-file list copies updated, doc lint OK, stage-lines 30 tests and E038 c |
 | 46 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
 | 47 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
 | 48 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
@@ -151,8 +150,9 @@ Choose and run the demand-side evaluation for the stg candidate (KILL-Q), or a f
 | 52 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
 | 53 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
 | 54 | 11:09:45 | artifact | declared after finish flagged the undeclared byte digest |
+| 55 | 12:17:46 | session_end | Late artifact declarations (undeclared byte digests found at finish) recorded after the first session_end; the second end preserves the append-only sh |
 
-_4 middle events omitted; see `events.jsonl`._
+_5 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
