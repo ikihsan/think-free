@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-06T02:42:10+00:00
-- **Duration:** ?s
+- **Duration:** 7997.6s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E033: measure the rate of cross-author recurrence in public long-form questions 
 
 ## Summary
 
-_(none recorded)_
+E033 refuted the mission's pooled recurrence bound of 0.0223 by reading recurrence off Stack Exchange's own duplicate-closure judgement over 1000 questions (0.0540, CI95 [0.0416, 0.0698]), and showed E032's population was drawn from the tertile where recurrence is 4.5x rarer (sort=votes selects answered questions; the top 60 by score contains 0 duplicate closures). Two things I got wrong and corrected rather than kept: the run's second claim (that repeats go unanswered) is mechanical -- 0 of 54 duplicates has an accepted answer -- and was withdrawn in PROTOCOL.md AMENDMENT-3; and AMENDMENT-1's own rationale for widening the window was false, since sort=creation with order=desc takes the 500 newest rather than a spread. A3 failed at 6 of 24, so the closure's canonical is treated as unreadable and the declared visibility product is not printed. No candidate was produced. F056: the per-day world-share gate asserted over every day of history that world-facing work stays a minority, and failed 2026-10-06 at exactly 50.0%; scoped to the days F025 measured and replaced with a floor, falsified in both directions. 799 tests green, preflight clean.
+
+## Next
+
+Item 0d has no measured handle left: E033 produced a method result and no candidate, and its candidate-facing claim was withdrawn as mechanical. The live question is what to measure recurrence on. Cheapest honest step is to test whether the convergent-but-unresolved population exists somewhere the closure label is not confounded with its own consequence -- an archive where duplicate resolution does not also decide the answer state, so that 'several people asked and nobody answered' is separable from 'several people asked and the duplicate was closed'. If no such archive is reachable within the API budget, say so and stop treating the need corpus as a generator.
 
 ## Artifacts
 
@@ -104,7 +108,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -154,18 +157,18 @@ _(none recorded)_
 | 38 | 03:27:47 | artifact | wrote STATE-next-actions.md |
 | 39 | 03:27:48 | artifact | wrote STATE-next-actions-closed.md |
 | 40 | 03:27:48 | artifact | wrote STATE-constraints.md |
-| 63 | 04:53:11 | artifact | wrote tests/test_allocation_world_share.py |
-| 64 | 04:53:12 | artifact | wrote tests/test_allocation_measurement.py |
-| 65 | 04:53:12 | artifact | wrote tests/README.md |
-| 66 | 04:53:13 | artifact | wrote FAILURES-findings-22.md |
 | 67 | 04:53:14 | artifact | wrote FAILURES.md |
 | 68 | 04:53:15 | artifact | wrote STATE.md |
 | 69 | 04:53:15 | artifact | wrote STATE-constraints.md |
 | 70 | 04:53:16 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
 | 71 | 04:53:17 | artifact | wrote EXPERIMENTS/033-question-recurrence/PROTOCOL.md |
 | 72 | 04:53:18 | milestone | 799 tests green; F056 recorded: the per-day world-share gate measured the calendar and had the wrong direction |
+| 73 | 04:55:27 | doc_update | updated FAILURES.md |
+| 74 | 04:55:27 | doc_update | updated ROADMAP.md |
+| 75 | 04:55:27 | doc_update | updated STATE.md |
+| 76 | 04:55:27 | session_end | E033 refuted the mission's pooled recurrence bound of 0.0223 by reading recurrence off Stack Exchange's own duplicate-closure judgement over 1000 ques |
 
-_22 middle events omitted; see `events.jsonl`._
+_26 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
