@@ -6,7 +6,7 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0079
-status: claimed
+status: done
 created: 2026-10-06
 claim-agent: unknown-agent
 claim-session: 2026-10-06-004-test-whether-the-population-e034-found-i
