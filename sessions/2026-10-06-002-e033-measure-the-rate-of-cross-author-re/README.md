@@ -138,6 +138,7 @@ _(none recorded)_
 | 44 | 03:27:51 | artifact | wrote RELEASE-MANIFEST.md |
 | 45 | 03:27:52 | artifact | wrote docs/INDEX.md |
 | 46 | 03:27:52 | milestone | E033 complete: B1 fires, the pooled 0.0223 recurrence bound is refuted at 0.0540 CI95 [0.0416, 0.0698]; F055 recorded |
+| 47 | 03:39:54 | task_rewrite | rewrote tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md (status: done) |
 
 ## Reproduce this record
 
