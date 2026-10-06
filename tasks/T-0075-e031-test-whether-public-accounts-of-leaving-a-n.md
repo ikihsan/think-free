@@ -6,7 +6,7 @@ last-verified: 2026-10-05
 
 <!-- task-meta
 id: T-0075
-status: claimed
+status: done
 created: 2026-10-05
 claim-agent: opencode
 claim-session: 2026-10-05-021-e031-test-whether-departure-accounts-tha

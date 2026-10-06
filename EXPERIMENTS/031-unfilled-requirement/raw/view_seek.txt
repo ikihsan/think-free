@@ -1,0 +1,901 @@
+E031 reader view. One comment. You are told nothing about where it came from, who wrote it, or which group it is in.
+========================================================================
+ID: S01
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Everyone yells loudly about how bad the us is, but then you realize that the whole world voted with there feet that every other alternative is worse. The main problem right now is that the US are not the US for which we voted with our feet. They  are  a worse alternative to the US that created the status quo (to their advantage obviously, but much of the world also benefitted from free trade and the lack of other world wars).
+
+========================================================================
+ID: S02
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Does immutability mean something like ChromeOS, where you cannot install packages on the system itself, but you can create containers on which you can freely install software, including GUI? If yes, what are some good options for someone looking for a replacement to ChromeOS Flex on an old but decent laptop?
+
+========================================================================
+ID: S03
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I always wanted an alternative to Youtube to play in the background while I work, so I built this quite simple player and randomizer for the Archive. It takes a random video from its DB and just plays it for you. There are a few different "stations", like for old movies and commercials, but they just set the frame – everything that's playing is pure random. It does not use an algorithm (except randomizer), recommendations, or even cookies.
+
+========================================================================
+ID: S04
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is FANTASTIC!  I laughed so hard I nearly fell out of my chair. Have you seen DNSControl? If you want a serious alternative to the Route53 API, there's an open source project called  https://dnscontrol.org/  DNSControl.  It's like Terraform for DNS but it doesn't suck like Terraform. Version v5.0 just shipped. It's a major rewrite that makes it much more extensible.  https://github.com/DNSControl/dnscontrol/releases/tag/v5.0.0
+
+========================================================================
+ID: S05
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The ignorant part is claiming we have workable alternatives to AC. Now you one-up your previous statement by claiming people thrive(d) in these temperatures. Even if you had mistaken thrive for survive, it would still be incorrect, indicated by excess mortality during high temperatures. I'd grant you that you didn't explicitly advocated for restrictive AC regulation, but I claim your dismissive attitude is implicitly part of the reason AC regulation remains restrictive.
+
+========================================================================
+ID: S06
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The "much more capable" is debatable. The RP2000 series is quite disappointing IO-wise: no timers, barely any ADC, no touch sensors, no CAN, bare minimum of USART/I2C/SPI, no I2S, no I3C, no ethernet, no USB PD... And yeah, it has its PIO modules, but those aren't powerful enough to make up for it. They are  fine  as an alternative to bitbanging Neopixels, but you can't rely on some hobbyist's vibe-coded weekend PIO project which takes up all the PIO slices and 30% of one core to do application-critical communications. I would take an RP2000 in a heartbeat for most of my hobbyist products, but for anything professional an STM32 is orders of magnitudes better, and even a CH32v303 looks like a more attractive option at first glance.
+
+========================================================================
+ID: S07
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Not using Wayland I am not 100% sure, I think Xephyr works in XWayland and I think their is a similar tool to Xephyr for setting up an embedded Wayland session (I would have thought this is even easier and more elegant in wayland but not sure). So could be even better. I personally use X11 as I am on exwm and exwm does not support wayland and no alternative to it does AFAIK (I think theirs a POC floating around somewhere). Also I know X11 even though it's a bit crap in many ways it's the devil I know.
+
+========================================================================
+ID: S08
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Ruby should go back to oldschool, before things such as splitting the community, adding arbitrary 100.000 download limits (past that point you can no longer remove your project from rubygems.org; on github.org there is no such restriction. This madness comes from top-down people thinking they control the ecosystem). As for the idea itself: it is not a bad idea but sounds way too bureaucratic. It should be automated or automatable, no matter where, be it hosted on codeberg or github. Say I have a project on codeberg; I would like a subforum or something like that, so I'd register this via some commandline gem or so that does that. (Also,  https://www.rubyforum.org/  is looking strange to me ... github issue trackers or discussion seem more logical to me). Can that be styled or themed? I mean, having alternatives to github is a nice thing but I can't quite imagine how it looks. They should do some screenshots, overview, demo or something like that.
+
+========================================================================
+ID: S09
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I built AstraBox. I've now open-sourced it. It is a self-hosted alternative to Claude Managed Agents. The key point is allowing your agents to be fed work from the systems your team already has set up. You set up an agent with whatever skills, plugins, and MCP tools it will need to perform the work, and then launch it via a schedule, webhook, or API call. No one has to open a terminal window and kick off every one of those jobs by hand. I believe we are transitioning from local copilots to remote agents. Working with AI on a laptop is helpful, but there are also tasks you should be able to delegate and check back on when there's something to look at. Take a new request in Jira. You could attach it to an agent that interprets the request and generates a system design, then have your workflow pass the result to coding and testing agents. The team determines where human review is necessary. In initial trials, you might check every step of the way. If the team gains confidence in the results, it could let the stages run and check the changes before deploying. That's exactly the kind of workflow I want to make possible with AstraBox. It manages the execution of agents in sandboxes, streams their output and tracks the session history. Schedules and webhooks make that execution work with whatever else you've got. It supports Claude Code, Codex, pi, and DeepSeek Harness, with Hermes for personal assistant workspaces. It can be run via Docker Compose or Kubernetes. The code is Apache-2.0 licensed. The README has setup instructions and a demo you can try in your browser.
+
+========================================================================
+ID: S10
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Is this "don't vibe" code, or "don't accept" code written with agents? We have a philosophical (and potentially legal) aversion to code written by models. I can appreciate not wanting to fill Codeberg up with potential AI slop, though the effort to validate is likely higher than just accepting it. What I think will backfire is being one of the most prominent alternatives to GitHub and prohibiting code written by models, which is currently a large constituency and one which is growing exponentially. Co-Authored-By: Claude Sonnet 4.6
+
+========================================================================
+ID: S11
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+What is the support like for them? Can they be seriously considered as alternatives to Nvidia or AMD cards? I have been looking into buying a GPU, specifically the Radeon R9700 AI Pro but noticed the Intel cards too and was not sure what you make of them.
+
+========================================================================
+ID: S12
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+When I bought a new car in the US. circa 2010 I got a really great financing deal (0.3% interest) from the dealer that was backed by the manufacturer because they were trying to move metal.  When the car got totalled and I was looking for a replacement I was in a hurry and took the loan I got from the dealer which probably wasn't the best I could have gotten.  Previously my credit union had been pretty aggressive about giving out car loans but when I called them up they weren't that interested.
+
+========================================================================
+ID: S13
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+If you want pure-play Linux, there's Purism (PureOS), Pine (PineOS), SailfishOS, Ubuntu Touch (33 supported devices, including Fairphone, Xiaomi, Google Pixel, and Lenovo, amongst others), Tizen, Mobian (based on Debian), and postMarketOS (based on Alpine Linux). If you want an alternative to the iOS / Android duopoly, and will accept AOSP (Android Open Source Project) or de-Googled Android, there are AOSP devices (including KaiOS), GrapheneOS, LineageOS, /e/OS, LightOS (Light Phone), and a number of feature phone / dumbphone OSes including System30+ (S30+), OpenHarmony, and a few others, see Wikipedia's list:   https://en.wikipedia.org/wiki/Mobile_operating_system >. Practically, I'd suggest a feature-phone plus either a small laptop (far more capable than iOS/Android),  or  a tablet/phone running GrapheneOS or LineageOS, possibly one of the full-featured Linux OSes above.  Google Pixel is ironically amongst the most viable non-Android hardware devices, with Fairphone and Purism being my next-strongest options.  Apparently Lineage is now supporting Samsung's Galaxy series:   https://news.ycombinator.com/item?id=49339930 >, and GrapheneOS Motorola support has previously been announced, though remains pending:   https://motorolanews.com/motorola-three-new-b2b-solutions-at... >. I'm not sure which of these include bundled AI, though I suspect that that's going to be coming to more platforms, absent AI backlash which seems to be swelling presently.
+
+========================================================================
+ID: S14
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I'm really enjoying muse+have used it to make some amazon orders.  This is a big bummer to me, in future I'll find an alternative to amazon OR find an alternative to muse. No matter what I'll continue to use some AI agent and some shopping provider.
+
+========================================================================
+ID: S15
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That was certainly not overnight. The biggest disruption they personally did was offering a better alternative to Bootstrap. More customization, JIT compilation that allowed for custom class interpretation without any added CSS, proper flex consideration, removing unused library classes in the production compilation step, etc. Beyond this, you should really be thanking things like Shadcn for the “date picker disruption”. It is a component library which arguably could’ve existed without Tailwind ever existing.
+
+========================================================================
+ID: S16
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+You make it sound as if Trump was the only choice, but there was an alternative to Trump on the ticket. Biden's age isn't the reason Americans voted for Trump, and it isn't the reason Americans didn't vote for Kamala Harris.
+
+========================================================================
+ID: S17
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I really do hope they can catch up with the American models, but I think setting the Chinese models as the goal would be best. They seems to be able to create great models with low cost that are probably useful for 90% of the day to day tasks. Mistral should not focus on competing with Claude Fable or OpenAI's Astra at first but have a good EU alternative to Opus or even Sonnet. The fact that it's European will be enough to be used by a lot of companies and governments in the EU that are (trying to) move away from US tech.
+
+========================================================================
+ID: S18
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I've been looking for a replacement for Google Assistant/Nest/Nest Mini that is cloudless and could support things like verbally setting alarms, inquiring about the weather, and random queries. This looks like a decent fit.  Just needs a case, microphone, and speaker.  Oh an one of the newer small LLMs that fit in under 8GB.
+
+========================================================================
+ID: S19
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+You're making the same mistake again. I saw NixOS and I wanted to know what kind kernel it is running on first. Why? Because the post title is talking about a Windows alternative,  not a package manager. The website nixos.org talks immediately about package management, which does not help with answering if it is a viable Windows alternative. It is like saying Apt or RPM is an alternative to Windows. Whereas you are coming to it knowing what NixOS is, so already have the context. Clearly whoever wrote NixOS.org was the same. A pretty site for people who already know what Nix is.... which is a very very common pattern for open source projects.  A nice front page mantra for true believers, but useless for outsiders. Claude actually explained it all to me but I forced it to summarise it down. That is enough for all the people on this thread, who don't know what NixOS is to see that they are pushing a Linux distro as an alternative to Windows.
+
+========================================================================
+ID: S20
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I bet they had to change identity verification providers so that's why you have to re-validate again. It's a shame there's no alternative to Meli. I'm shopping around for a macbook and I would much rather have a marketplace with verified identities and profiles than the shady whatsapp groups and contacts I'm finding.
+
+========================================================================
+ID: S21
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Existing regulations should cover software in their respective industries. Outside of that what you are asking for is simply onerous and isn't something that can be regulated in a meaningful manner. We've already had opensource projects threatened by the age-check legality nonsense (which cannot be enforced). If you regulate what features can/can't be in an OS you will end up negatively affecting opensource and/or hobbyists which will give the consumer less choice. The only reason we have an actual alternative to Windows is because people create their own Linux distros and software around it.
+
+========================================================================
+ID: S22
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> No, linking blog post and posting AI generated content is not the same. One is ok, other is not. Meet "the masses". Sorry, but no. Sending me a link as an alternative to having a conversation is totally not OK.
+
+========================================================================
+ID: S23
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> ...like how is that not contradicting what you are saying... A careful and honest reader notes that I've  never  claimed or suggested that there exists a software project that will never get better with enough time and appropriately-focused effort. But, the single thing in this thread that statement by GK-H addresses is your claim [0] that     ...nobody seems to be talking about any real [alternatives to using LLMs provided by the major LLM manufacturers]...
+  
+Of the things I've talked about in this thread, that's the  least  important one. However, I do understand that it  is  the easiest one for you to talk about while still staying vaguely "on message". [0]  https://news.ycombinator.com/item?id=49948725 >
+
+========================================================================
+ID: S24
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The opportunity to vibe code and reinforce with something like claud code for example will poach any application that thinks they have the market share and charge whatever the hell they want.  I am very excited for projects like this where you leverage open source for a very specific user and offer alternatives to SAAS.  Keep iterating and solidy you security and make sure you get direct feedback from experienced CAD users, which I am not.  good luck
+
+========================================================================
+ID: S25
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Insightful comment I fully agree that the hardest part needs to be automated fully, there's plenty of DNS providers with API access so it can be done. Naming is oftentimes the hardest part we have in tech, I dream of a future we are more decentralized and we have alternatives to DNS to access ressources,see this great text by Andrew Nesbitt about the subject of naming:  https://nesbitt.io/2026/03/03/package-management-is-naming-a...
+
+========================================================================
+ID: S26
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Xioami, Huawei and Samsung all have the points I mentioned, with Android forks If I buy a Samsung phone in North America or Europe today I get Google Play as the main app store, Google services etc. and if I want to develop an app for a Samsung Android phone, I use the official Google SDK and Kotlin like for every other Android phone. They have their own skin and store, but nobody really uses that. Google Play it is, be it Samsung or Xioami. They're very far from offering any kind of genuine alternative to Google Play, Google or Android. Their stores are junkware no different than ASUS preinstalling some antivirus nobody wants. > Harmony NEXT is no longer based on Android. That's my point. Huawei is the only OEM offering something different, but not easy to get in Western markets and thus doesn't have app mindshare.
+
+========================================================================
+ID: S27
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Looks like he developed the original on his employer's equipment during work hours. And the copyright on tetris pieces is just ridiculous given the Colomb's publication and probably others. I personally appreciated the write-up as it presents an alternative to the glossed up candy narrative that I have read and seen more than once. Didn't know about Gerasimov either (who single-handedly coded up the DOS version it seems).
+
+========================================================================
+ID: S28
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+GLM 5 is the main model I'm currently using. My usage with it is around 90,000 requests per month. Although its capability isn't the strongest, I think that because the quota is so large, it feels really great to use. For certain cases, I'll use the DeepSeek V4 model. Actually, my latest open-source project, vocnly, was developed on GLM 5. It's a local voice-input tool, and it can be seen as an open-source alternative to Typeless. I think it works without any issues. For certain cases, I'll use the DeepSeek V4 flash model.
+
+========================================================================
+ID: S29
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+My guess would be that the best solution is multi sensorial anyways. So you have GPS, but then you would have an Inertial  Measurement Unit, based purely on acceleration and inertia, radar and barometric systems and maybe optical systems for terrain identification and celestial navigation. I have recently heard an episode of Amp Hour podcast¹ where they talked about using Bluetooth from satellites as a GPS replacement for asset tags. So maybe alternatives to GPS on different bands are on the verge. Another interesting idea would be to have an antenna array on the plane that captures different radio sources and the angles from which they seem to come from and create a always updating radio activity map that maps a certain "radio landscape" to a position on the planet. AFAIK this is currently being worked on as well under the name "radio-SLAM" (with SLAM standing for Simultaneous Localization and Mapping). This means, jammers could maybe even be used as potential beacons themselves. ¹: The episode in question:  https://theamphour.com/728-space-age-bluetooth-with-alex-har...
+
+========================================================================
+ID: S30
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is definitely getting at least some things right about how we work with agents today, specifically that we often work at the architecture level, and we need a better alternative to the current Plan Mode offered by coding agents to efficiently architect software at a high level, which is more visual and offers better back-and-forth incrementation with the agent than simply "reject final plan with X message". From the website demos i definitely think this is a clean interface, although I don't know how much better this is compared to some simple custom Mermaid format, which the agent can write as artifact files and present to users. Zooming out, this app seems like 1 feature (a MCP with a GUI attached to it) rather than an entire product. Also, I don't know if asking the agent to write specific code changes into the plan is a good idea. I think maybe that a "plan -> approve -> write code" would let the agent write higher quality code than "plan which contains code -> approve". But maybe you can make it work when combined with some specific prompting marking the code as clearly work-in-progress and subject to change, and that the agent should surface any parts implemented differently relative to the plan to the user, etc.
+
+========================================================================
+ID: S31
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The way I see it, both things are true - European politicians and major parties have stirred anger by their incompetence, AND Russia has exploited this anger for their own purposes. EU has huge flaws, but it's still better than Russia. Germans, French and the British may not understand it, but us unfortunate enough to live next to Russia do. There is a reason why Poland, Baltic countries and now even Finland and Sweden joined NATO. Russia is ruled by evil, murderous tyrants (as is always has been), while EU elite is merely lazy, greedy and incompetent. I'll choose pro-EU parties over pro-Russian parties as long as EU is not bombing children's hospitals and massacring civilians. I can only hope citizens of other countries do the same, or otherwise there's a pretty good possibility my country will face what Ukraine has suffered. It's unfortunate that so many alternatives to mainstream parties in big EU countries are also more or less pro-Russian. One should be able to vote against the flaws of European Union without voting for closer ties with Putin.
+
+========================================================================
+ID: S32
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That only works if viable alternatives exist, the moats aren’t too large and users have the freedom to switch. For example, Reddit was a viable alternative to Digg at the time, Facebook was a viable alternative to MySpace. Enterprise software has some truly grotesque UI but the user doesn’t have the freedom to switch and the moats are enormous.
+
+========================================================================
+ID: S33
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+for you tennis players out there, I'm working on RallyClip, an app for free tennis match segmentation. It's a free and open source alternative to SwingVision: github:  https://github.com/iroblesrazzaq/RallyClip 
+website: rallyclip.app I'm working on model performance and an iOS app right now; would love feedback on the macOS desktop app.
+
+========================================================================
+ID: S34
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+(continuing) the shuttle into a phone line and point it at the AppleLink phone number. Well, it turns out that wouldn't work, because the servers running AppleLink's modems required full-duplex two-way communications. So instead, they connected that audio out to a Gateway Macintosh that was set up in JSC. On one side, it had a modem that was connected to the regular AppleLink services through, you know, regular phone line. And on the other side, which actually had to be connected to the printer port, because, you know, normally the modem takes the modem port, it would talk to the shuttle communications. And there was a special piece of software in there that would understand half-duplex signals, you know, tweak them around, repackage them. And on the other side, it would talk to the AppleLink services and make this whole thing possible. So that's how it was supposed to work. But they did have a number of technical problems. The first time they tried to do this, there was some data switching system on the ground that was asleep. So they had to, like, power cycle their system decoding on the ground. The next time they tried, it failed because that hardware was still sort of in the process of waking up. Finally, the third time they hit send, it sent. And it worked and history was made. Now, an interesting side of this, on this, was that they used the standard AppleLink memo service, which was basically email. But the email addresses weren't protected in any way. So it was, they had to keep the shuttle email address secret. In fact, they registered STS-43 at AppleLink as an address so that curious people would be sending to that address rather than the actual shuttle address. So anyway, after this flight, the Mac did fly again, but NASA elected to move the communication systems over to their tried and tested grid compass laptops. And I don't have any information on exactly how this operated beyond knowing that it used the same kind of modem. There might have been the same Mac at JSC for all I know, or they might have run their own bulletin board at NASA, right? NASA, BBS. There's very little information on this. There's a few references to the modem still being used and there's some photos of crew using it on later missions. But I do know that by 1998, the email system was able to receive messages from the general internet because Bill Clinton sent an email to the crew of STS-95, which included Senator John Glenn. And he used a laptop that belonged to somebody that was in the right place at the right time. It wasn't a government laptop, it was like some doctor who was there and they used his AOL account to send a message to the space shuttle. And this is the first time, by the way, a sitting US president has sent an email. Bill was also the only president to attend a shuttle launch. Obama was actually supposed to see STS-134, which would include Mark Kelly, who of course is now a senator. That launch was scrubbed and Obama wasn't there when they retried again. Incidentally, by the way, AOL also has its roots back in AppleLink because when Apple wanted to find an alternative to paying GE for their very expensive services, they approached quantum computer services, which had built a very similar online system for Commodore 64 users. From this, they produced AppleLink Personal Edition. It was launched in 1988. But because it wasn't using the GE backend, there was no way for the regular AppleLink users to interact with the AppleLink Personal users and the service didn't really go for long. The partnership was dissolved in 1989 and the service was rebranded, relaunched as America Online. So anyway, yeah, in 1998, I do know that on the shuttle, the computer that they were using now at that time to read the mail was an IBM ThinkPad running PC DOS. And I'm not sure when they transitioned from the grid compass to the PCs, but I do know that at that point, they were still using a 2400 baud modem connection because there's a document from 1999 where NASA is looking for a replacement modem and this is part of the specification. Of course, these days, the space station has amazing communication capabilities and like the space station has Wi-Fi. Not only does it have Wi-Fi, it has Wi-Fi antennas on the outside so they can talk to space suits. And last year, there was actually a demonstration of a video link from an approaching cargo spacecraft from 600 meters away, more than half a kilometer away, they were able to get a Wi-Fi signal. And that's the kind of thing you can do when you don't have tons of other people with Wi-Fi networks clogging the airwaves. I'm Scott Manley, fly safe.
+
+========================================================================
+ID: S35
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Entirety of interpreter state is encapsulated inside the interpreter object This was their attempt to position Tcl as an alternative to JS. The sub-interpreters were introduced as controllable sandboxes for running untrusted code with reduced privilege. Instead we got a web scripting language that allows untrusted code to interact with your USB devices. Python sub-interpreters are a joke compared to what Tcl has.
+
+========================================================================
+ID: S36
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I agree that "privacy is not the currency Google deals with." However when I run an adblocker and Blockada on Android, when I use alternatives to the YouTube app (and Google is technologically fighting them) when I don't log into Google, then those exchanges happen with very little of the currency Google is interested in.
+
+========================================================================
+ID: S37
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+There are no alternatives to Mullvad where you _know_ that all of the founders have "better" beliefs than this guy. If you have one, share it. What proves the point is that someone suggested moving to Proton, whose founder (not even co-founder AFAIK) is outwardly pro-MAGA. And comments calling that out are the ones that get downvoted. This shows people are just pretending to care. It's not silly to boycott companies in general, but this specific case it's silly. Not because of the reason, but because boycotting only makes sense if it's very likely that an alternative is going to be better in the specific factor that instigates the boycott. In this case, it's not likely, you have no clue whether an alternative is going to have more or less $0.0x of your $1 going to people supporting far-right parties. Especially when VPN companies are known to be some of the dodgiest tech companies in general. Mullvad is one of the most transparent ones.
+
+========================================================================
+ID: S38
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+It doesn’t have to be fully sound, it’s there to provide _some_ degree of interim protection. Evidently, it makes _enough_ of a difference for the people running it. Criticising it is just letting the perfect be the enemy of the good. The alternative to Anubis isn’t “something better that isn’t being picked”, it’s “completely unprotected”, and the people criticising it for being imperfect could helpfully move the conversation forward by actively suggesting a concrete alternative.
+
+========================================================================
+ID: S39
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Lots of bold statements, zero arguments except the usual fear mongering. "Think of the children!!!" Hyphanet (formerly Freenet) works, people are actually using it. Meanwhile, almost every single day there is news on hackernews about the corporate surveillance dystopia that the regular internet has become. Yet a project which provides actually private, anonymous communication and publishing, and has a track record of decades of doing so, is attacked with such vitriol. You should rather ask yourself: Are you doing society a service by trying to discourage the very few people who, as unpaid volunteers, actually provide an alternative to the adtech-funded walled garden that the internet is nowadays?
+
+========================================================================
+ID: S40
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Ignores that there is already a well established C alternative: C++. I don't consider C++ an alternative to C. I see it as "a more modern language", but there are "even more modern" languages nowadays. The only reason I see to pick C++ instead of something like Rust would be if there are very mature C++ libraries and it is not practical to call them from the newer language. Typically for computer vision (or maybe just linear algebra?), I would still go with C++, probably? But in terms of language, I would pick any modern language over C++ if they do the job. What about C, then? I use C when I want interoperability. Nothing currently beats C in that domain, as far as I know. I often wrap whatever I have into a C interface just for that. IMHO, the interesting question about "replacing C" is really this: if you had to design a modern language meant to compete with C's interop story, how would it look like? Not sure if such a language could have memory-safety, for instance? Could such a language be meaningfully nicer than C? Disclaimer: I don't know Zig.
+
+========================================================================
+ID: S41
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> 10 years ago, GitHub had a far better reputation While this might have been true in rust-circles (which I'm an outsider to), I think this varied a lot in different circles. Most free software projects invested a lot of money, time and effort in setting up better (for themselves) alternatives to Github. Everything from videolan and GNU Savannah to XDG, Gnome, KDE, etc.
+
+========================================================================
+ID: S42
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Does it do sleep tracking? How long does the battery last? I still daily drive a Pebble 2HR with over a week of battery life but am looking for a replacement compatible with Gadgetbridge, and there really aren't any that can track sleep in a way Gadgetbridge can understand...
+
+========================================================================
+ID: S43
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The history is that Aurelien Pierre was leading some big changes in Darktable around the time the filmic module was introduced and the bigger switch from rethinking the internal architecture and processing pipeline to be happening in the right color spaces before things get crammed down into the RGB display color space. There's a lot of subtlety to that. But it boils down to a lot less rounding errors and loss of information for basic edits related to color correction, tone mapping, etc. Aurelien Pierre was the main developer of filmic and several related modules and a key driver of that whole transition. A few versions ago there were some other developers that forced through a bunch of changes that in his view took the product in a poor direction in terms of UX. He argued against that and people ignored him and he basically decided to do it properly with Ansel and strip away all the stuff he never liked as well as beat some sense into especially the lightroom part of Darktable which is where you organize your photos. IMHO he did a great job on that from what I've seen so far. Since the fork, a lot of stuff happened of course and there are now several competing alternatives to filmic in Darktable (Sigmoid and Agx). They each have their pros and cons and the differences can be very subtle; especially if you are new to the topic. There's a lot of complexity here. Which is why UX matters. And a point of criticism with especially Filmic is that it is a very complex module. But I'm still on Darktable and Ansel is actually not compatible with the newer Darktable versions.
+
+========================================================================
+ID: S44
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Unfortunately this comment entirely misses the mark. The reason this is such a big deal is precisely because it's  not  a sketchy product. For people who are using their FDM printers for more than just minifigs from thingiverse there's no proper alternative to Bambu. Their hardware and software is significantly ahead of the competition. If you want to print engineering-grade plastics reliably and accurately you are going to need a Bambu device, or drop 5 figures on a commercial machine. Those are the alternatives. Very few other firms offer consistent, accurate, high temperature printing - and the few that do, don't have the software to manage vibrations, flow control and thousands of other parameters well enough to get consistent hiqh quality results. Some examples: Prusa have the One+, and good software management. But the "heated chamber" is actually just a fan attached to the underside of the bed, which means that the chamber temperature is not consistent across the volume, leading to poor quality  products. There's a few niche devices from people like Qidi, but they don't have the build and software quality to get reliable, repeatable results. Overall if you're trying to solve actual problems with your FDM device, rather than messing around as a hobby you need a tool that just works, and that can handle materials like PA12, PET and PC. Bambu are really the only sensible choice for this. Yes, I'd be far far happier if the software was really FOSS (the encrypted non-user-readable logs enrage me!), but overall it's a tool not a hobby. I don't have a sensible alternative.
+
+========================================================================
+ID: S45
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+There is just no alternative to Microsoft. Since they push everything into cloud MS gets centralised control. Cutting MS literally cuts the person off from anything digital. There is some movement to reduce MS dependency in Europe, but it's not yet there. Until then, this will be a huge lever available to US. I've written about this back in the day:  https://blog.miloslavhomer.cz/microsoft-dependency-has-risks...  Discussion:  https://news.ycombinator.com/item?id=44381358
+
+========================================================================
+ID: S46
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Brave search is the best alternative to Google. They have an independent index and good UI. Very rarely do I switch to another engine. Brave does well at surfacing forum threads and the AI summary has been surprisingly good for a while.  https://www.privacyguides.org/en/search-engines/
+
+========================================================================
+ID: S47
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I mean this is really the authors fault.
+First of all, this huge AI overview only blocks 90% of the screen if you use google on a phone, which you should not do in the first place.
+Secondly, alternatives to Google exist.
+
+========================================================================
+ID: S48
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I don't think it's helpful to suggest that "both sides" are equal in American politics, but I do think you have to be a least a little understanding that the democrats aren't an attractive alternative to most Americans. I'm afraid a pretty large minority of Americans have landed in the lose-lose position of "if i can't make it better, i might as well make it worse faster".
+
+========================================================================
+ID: S49
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> other internet providers dumping tens of thousands of satellites in orbit instead of building municipal internet Ah yes, that municipal internet in the Pacific Ocean. The municipal internet in the 1 person per square mile rural area. The municipal internet to mountain villages. The municipal internet running to airplanes. The municipal internet to the Antarctic research stations. Tell me you don’t know the point of satellite internet without telling me. If you want to make arguments against sat constellations so people can make long exposure photos, go for it. But don’t pretend there are actual viable alternatives to LEO sat internet.
+
+========================================================================
+ID: S50
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Dual 4090, getting 85-113 t/s depending on task (draft seems to speed up quite a lot, disproportionately more for content like svg etc):     ./llama.cpp/llama-server \
+        -hf unsloth/Qwen3.8-27B-GGUF:UD-Q8_K_XL \
+        --webui-mcp-proxy \
+        --no-mmproj \
+        --parallel 1 \
+        --kv-unified \
+        --flash-attn on \
+        --fit off \
+        --split-mode tensor \
+        -ngl 999 \
+        --cache-type-k q8_0 \
+        --cache-type-v q8_0 \
+        -ub 256 \
+        --no-context-shift \
+        --host 0.0.0.0 \
+        --tools all \
+        --jinja \
+        --ctx-size 262144 \
+        --spec-type draft-mtp \
+        --spec-draft-n-max 3 \
+        --reasoning on \
+        --chat-template-kwargs '{"reasoning_effort":"medium"}' \
+        --reasoning-preserve \
+        --temp 1.0 \
+        --top-p 0.95 \
+        --top-k 20 \
+        --min-p 0.0 \
+        --presence-penalty 0.0 \
+        --repeat-penalty 1.0
+  
+Use claude/codex/whatever with /goal to optimize params for you. IMHO draft model support on dense models is great alternative to MoE on GPUs (high bandwidth, less memory) – more intelligence, speed somewhere mid way there which is usually sufficient.
+
+========================================================================
+ID: S51
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I get your point, and even in Italy we have Banca Sella (first one that comes to mind) which is a great way to collect payments with a local processor. But it's not Stripe... Stripe is not just an integration for Link or Card payments, and payment fees are actually not that bad. Developer experience matters most to me.
+Plus, I agree there are alternatives to a basic Stripe implementation, but what about Stripe Connect?
+
+========================================================================
+ID: S52
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I refuse to use Bluesky because it is clearly being pushed on the masses, in collusion with mainstream media, as an alternative to X. Clearly another attempt by certain people to control information. It's shocking how people fall for this stuff over and over again. I hope if backfires, mostly draws in users from existing speech-unfriendly platforms and then the number of social media platforms will multiply from here onward and a large number of platforms will compete based on who is most permissive with regards to speech. Most of the highly suggestible masses already moved off X to Threads... So now that Bluesky is being pushed hard, I hope the suggestible people from Threads will switch over and split up their censorship ecosystems. It makes sense from that perspective. The censored ecosystems should be separated into lots of small platforms because you need a lot of different filter bubbles to maintain the deceptions and impermeable information silos. A large centralized ecosystem will create too many opportunities for exposure to alternative information so it cannot be controlled as well. In the future, there will be a different platform for every kind of delusion and each one will focus on its own delusion and will make up stories to discredit rival platforms so people always doubt information received outside. It's a matter of time before large corporations start preventing their employees from using non-approved platforms. They'll probably use cybersecurity safety as an excuse. They might carry out hacking false flags on their own employees to convince them to not use other platforms they won't feel forced.
+
+========================================================================
+ID: S53
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Something i said multiple times on here, with a less refined paraphrasing, and less articulate wording. The perception that the good will have a everlasting run is none-sense and drawn from the foul thought of being invincible. I read a book a wile ago called ( power of agility, agility, ...) and it illustrates the importance of agility. The book depicts the implication of agility and how agility applies to one's self to large enterprises, the thinking behind it is that "Agility" can be applied to a wide range of scenarios. Interesting enough i finished the book at the book store before buying it ( it was like a little over 100 pages), however i still remember what i read from that book and it stuck with me. The part that stuck to me from the book the most is the importance of being prepared to be agile in tough situation. The importance in affirming change in a scenarios that might seem stagnate but hide the true damage or negative impact on self or organization. ill stop there about the book, but i think you get the point. The book was depicting the realities of both one's own life ups and downs, which includes a side comparison of a organizations reality. In many ways this isn't much different. The enabling aided by the government has increased many sectors of the US to not be agile or just toss the idea out the window " we don't need to be agile we'll just try to takeover this sector in Italy to increase revenue". Becoming comfortable with just creating alternatives to problems is not FIXING the problem that originates.
+
+========================================================================
+ID: S54
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Another interpretation of the high modal share of cars in the US is that there are no viable alternatives to driving in many US cities. In Europe, public transport and biking are viable forms of transportation, so we're not forced into car ownership to participate in society (although the situation can definitely still be improved further). I believe this to be a more "democraticed" outcome than an inescapable  85% modal share for cars.
+
+========================================================================
+ID: S55
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+It is more of a regulatory capture byproduct to prop up an artificial token driven Ponzi scheme. There is a serious alternative to NVIDIA "AI" hardware dropping out of China in February 2027.  There is no moat, but a whole lot of unpaid debts in the near future. Popcorn ready =3
+
+========================================================================
+ID: S56
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The "safety" guardrails in Anthropic and OpenAI models are becoming a noticeable problem for security work. And, the reason I'm keeping my Kimi subscription even though it's not a great deal; Kimi subscriptions are quite stingy for the price, but K3 will do vulnerability analysis and make a PoC without requiring you to be on the approved list of Fortune 500 or government entities that have access to Mythos or Daybreak. I'm not touching Grok. But there are alternatives to Anthropic and OpenAI that don't refuse to do security work.
+
+========================================================================
+ID: S57
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Thanks for the candid response. Do you think that many of these examples were issues before, but now have become associated with AI? I can relate to many of them, but they seem to predate AI for me. I feel like Google search has been nearly useless for several years now, flooded with fake advertising results, even without AI. I'm happy that AI gives me an alternative to Google search, which is one of my top use cases. I remember spending hours navigating annoying automated phone menus or on hold 10 years ago. Perhaps the same frustration exists, but includes AI is the face of the current embodiment. I also agree AI can give bad advice, but the same was true for Reddit or a lazy Store employee or house contractor.
+
+========================================================================
+ID: S58
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Don't forget that when they increase export restrictions under the current US regime they signal further that economic ties are on their terms not fair terms.  The rest of the world will continue to steer towards alternatives to US tech.
+
+========================================================================
+ID: S59
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I wanted to like Rust (memory safety and performance - what's not to like?) but both of my experiments with it ended in frustration. It seemed a way too complex language for what I needed. Recently, a coworker of mine made a great observation that made everything clear to me. I was looking for a replacement for C, but Rust is actually a replacement for C++. Totally different beast - powerful but complex. I need to see if Zig is any closer to C in spirit.
+
+========================================================================
+ID: S60
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is where Behringer absolutely shine - about a decade ago they established a fully automated mega-factory in Malaysia designed around Siemens’ Xcelerator portfolio, PLM/MES software, and Digital Twin technology. Korg 2600 - ~ €1000
+Behringer 2600 - €300 CZ Series doesn't have much cachet simply because phase distortion synthesis was the 'we have FM Synthesis at home' cheap alternative to 4 OP FM Synthesis in the 80s. About the only USP they have in that arena is the fact they're responsible for the 'Reese Bass' sound - the 'Wilhelm Scream' of Techno if you will.
+
+========================================================================
+ID: S61
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> It will (again by definition) never be a viable alternative to driving I don’t follow the logic here. Why would a bus (periodically) getting stuck in traffic forever invalidate it in comparison to getting stuck in the same traffic in a car?
+
+========================================================================
+ID: S62
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I'm sorry, but there are so many alternatives to spending your time on TikTok, more than ever, and more accessible than ever. Perhaps people do want to spend their time on TikTok, that's what freedom is. It is certainly addictive by design, but it's not magic, it is addictive exactly because it's giving you what you want. We got so much of what we wanted, that was the goal and we are achieving it. Of course, getting everything we want is often not good for us. And what we want to want is not always the same of what we actually want.
+
+========================================================================
+ID: S63
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+What would it mean for them to not exist? The issue, as I see it, is that elite credentials are overvalued, and that we live in a society which is becoming more and more unequal, and where housing prices in particular are skyrocketing. Without solving that, the alternatives to the Ivy League (e.g. undisguised nepotism) seem to be even worse.
+
+========================================================================
+ID: S64
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Haha seems you have found your arch-nemesis ;p I wasn't familiar with the RoR implementation. We may have been talking past each other. I'm thinking about  it from an access control PoV. There are alternatives to JWT which work on the same principle but personally I haven't found any reason to move off a well established and popular format to some unknown format whose drawbacks aren't as well understood or which limits interoperability. I checked with Claude. It seems that RoR's default is in fact its own custom implementation of a similar mechanism but with encryption instead of just signatures. This is a good approach if you want to store secret data in the session but personally I only store non-sensitive info and I prefer using JWT HS256 which is fast/cheap compared to full encryption. I try to keep my signed data light, especially if it has to be sent over the wire frequently. I find the JWT approach more minimalist; it's only for determining account ID and privilege level, nothing else and it doesn't have to be secret. I feel like storing anything more than the bare minimum required to determine access to resources is overkill.
+
+========================================================================
+ID: S65
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I read a lot of comments like this, saying "we should have an alternative". And I agree that it would be really cool, BUT: AOSP and the Android SDK are open source. GrapheneOS is exactly an alternative to Google Android. Sure, Google could shut down the Play Store (but alternative stores exist), or destroy the Play Services (but even then, there is microG). I am happy that Google is still contributing to Android because they have a ton of money and many brilliant engineers, even though as a company it seems like it's somehow trying to burn it to the ground. But I am optimistic: it would be possible to build on top of the open source parts of Android if needed.
+
+========================================================================
+ID: S66
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Pillage First! (Ask Questions Later) is an open-source, single-player, strategy game inspired by Travian. Build villages, manage resources, train troops, start adventures and wage war in persistent, offline-first game worlds. Pillage First! requires no account or download. We strive to offer a more customizable and time-friendly alternative to Travian.
+
+========================================================================
+ID: S67
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I’m looking for a replacement OS for my mother in law whose computer is aging out of Windows 10 support. I’m glad to see slick distributions like this trying to fill that gap. That said her requirements are _so_ simple that Debian with Chromium would probably satisfy 100% of her requirements which are ‘download documents from gmail and print them’.
+
+========================================================================
+ID: S68
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That is definitely one of the biggest painpoints, and we feel it ourselves for whatever it's worth! However, if you're just looking for a replacement for Pocket, you only need the Reader app/extension and it shouldn't be clunky at all. It's only if you want our highlight-specific reviewing/exporting functionality that you would also need the Readwise app... still not ideal, but merging two complex products like this without making the experience janky/complicated for new users is a really really hard problem!
+
+========================================================================
+ID: S69
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+It's a very scalable and almost fun task once you get into it. Alternatives to VMware can run VMware VMs almost immediately, by translating the configuration and with only a few (or sometimes no) changes to the guest.  Usually those changes are scriptable.  I've done it a few times, moving between VMware and KVM of Windows guests pretty much just worked; the rest was optimisation, i.e. guest driver changes, etc. Live migration is not realistic between different hypervisors, but a very short downtime per VM is realistic if the new hypervisor can adopt the old disk images directly, which some can.  If you want, you can convert formats in the background while the VM is running on the new hypervisor.  E.g. KVM and things built on KVM can do all these things. So to each guest, it looks like a quick reboot with a quick hardware upgrade. If that's coordinated properly, with a generic HA or Kubernetes setup, there's absolutely zero service downtime (if there are no serious mistakes), as it's just nodes within a cluster taken down one at a time while the others keep the services running, and state migrates among the nodes which are live. Most of the things you'll change when migrating are the same for large numbers of VMs that are configured the same way except for their disk images, and easily minor things like MAC/IP.  So after you've verified a small number, you can go right ahead and script the migrations for another thousand VMs, even doing them in parallel. You don't need to migrate all VMs at the same time, and you shouldn't do that anyway.  So the temporary hardware / cloud cost can be in the low single-digit percentage (for a few weeks to months at 40k VM scale, a few hours to days at 10 VM scale).  You probably have some slack in there already, though, so might not need any additional hardware.
+
+========================================================================
+ID: S70
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+C++ is no doubt king  in games  (for reasons that aren't necessarily primarily performance [1]), but not only are there plenty of high-throughput low-latency applications in C++, I believe there are more than in C++. BTW, "low latency" is relative, and in most games the relevant latency is the frame, which is usually between 5-15 ms. I worked at a place that did large low-latency software, some soft realtime and some safety-critical hard realtime, where the cutoff between Java and low-level was whether the required latency was under 10us (tha's microseconds!). That's an order of magnitude below what's in games. We did use specialised versions of Java (and specialised kernels), but these days, on normal OSes and plain Java, the cutoff is usually around 1-3ms (although at that point you often need special kernels anyway). Something that C++ people often don't know is that there's nothing in Java that makes it any harder to compile and run with optimisations at least as good as those offered by C++, but the opposite isn't the case: there are fundamental problems that make it hard to perform some optimisations in C++. Of course, the tradeoff is predictability. Some aggressive optimisations require speculation, which means a fallback to deoptimised (even interpreted) code and then recompilation. I pure compilation and memory management terms, Java has the advantage, but it aims to make the average-case faster than C++ at the expense of the worst case. [1]: E.g. AAA games are extremely conservative when it comes to technology choices; more conservative than even the military. AAA games often need to target limited consoles where there are few alternatives to C++ available.
+
+========================================================================
+ID: S71
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+They care about Linux, on their own distribution and licensing terms, NVidia even has their own distro. Like most FOSS done by companies, what they don't care is GPL, which sadly will eventually be meaningless after boomer and Gen X devs that created the GNU movement no longer walk this plane. There isn't a single embedded OS FOSS alternative to GNU/Linux that uses GPL, including Linux Foundation's own Zephyr.
+
+========================================================================
+ID: S72
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Yes, where it's feasible I think that's what a lot of people in this thread are missing. There are alternatives to Mullvad, so it's pretty easy to take your money elsewhere if you're unhappy with where it's being spent right now. The counter-reaction to the reaction is so dumb. If you think it's silly to boycott a company because of a co-founders political donations, fine. But it's just as silly to try to argue people into not boycotting. Live and let live.

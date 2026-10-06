@@ -1,0 +1,887 @@
+E031 reader view. One comment. You are told nothing about where it came from, who wrote it, or which group it is in.
+========================================================================
+ID: M01
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I think there is lock-in, despite those things - for containerization, you're still a lot of the times beholden to the particular runtime that provider prefers, and whatever weird quirks exist there. Migrating can have some surprises. K8s, usually you will go managed there, and while they provide the same functionality, AKS != EKS != GKE at all, at least in terms of managing them and how they plug into everything else. In terraform, migrating from AWS provider to GCP provider will hold a lot of surprises for you for what looks like it should be the exact same thing. My point was, I don't think it mattered much, and it feels like an ok comparison - cloud offerings are  mostly  the exact same things, at least at their core, but the ecosystem around them is the moat, and how expensive it is to migrate off of them. I would not be surprised at all if frontier AI model providers go much the same way. I'm pretty much there already with how much I prefer claude code CLI, even if half the time I'm using it as a harness for OpenAI calls.
+
+========================================================================
+ID: M02
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Can you explain more what's wrong with the Neovim ecosystem? I just switched from Doom Emacs to Neovim and my impression of Neovim has been much better. (I get that Emacs has a much more powerful backbone, I just realized that I didn't really need that power; I just want a good text editor)
+
+========================================================================
+ID: M03
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I switched from a Polish company to a German one (both remote), but my pay is more or less the same.
+The difference is that in Poland to get that money I have to be a "top performer" with a lot of stress and not a lot of time, while in Germany I can be just a mid dev.
+
+========================================================================
+ID: M04
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Back when I first moved off of Firefox the answer was performance. A lot of users mass-migrated to Chrome because it supported a very similar set of extensions and was significantly more stable and performant. People like me evangelized switching to Chrome for everyone. Many copies of Chrome were installed by me. Now the performance still hasn’t caught up to Chrome but it has improved, and uBlock Origin Lite does a decent job at a baseline level of blocking for most people.
+
+========================================================================
+ID: M05
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I absolutely love Fastmail. I moved off of Gmail years ago with zero regrets. Better UI, better apps, better company, and need I say better service?  I still maintain and fetch from a Gmail account so it all just works seamlessly for receiving and sending Gmail, so you don’t have to give anything up either.
+
+========================================================================
+ID: M06
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I switched from kimi to GLM for claws. I found it tends to be a stronger debugger when it comes to fixing openclaw issues with bash, being more thorough in finding the right root cause. Kimi tended to confidently misdiagnose. It's also much faster. The only downside is that it seems to cost an order of magnitude more than kimi.
+
+========================================================================
+ID: M07
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Yep.  You've got it right. BTC has been an ASIC game for a very long time.  GPUs haven't been profitable there since the ASICs showed up a dozen or so years ago (with odd exceptions where power is "free"). Eth kept hitting the GPU market hard until ~4 years ago, when the network switched from proof-of-work to proof-of-stake.  That cut the home-gamer hobbyist miners out rather completely. (That last one kind of sucked for me.  When my office-room had resistive heating, I rather liked getting paid for my otherwise-idle GPU to make heat for me in the winter time.  It wasn't much, but >0 is more than <0.)
+
+========================================================================
+ID: M08
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Hard disagree. It’s inherently true that I can’t work on remote servers and all those things but VCS are not inherently remote. I have entire local hobby projects I’ve never git pushed anywhere because my local copy is authoritative. We as an industry largely moved off centralized VCS because of those advantages of having 100% functionality on an airplane.
+
+========================================================================
+ID: M09
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+They were, but they moved off them - probably with a move away from OSS as a long term plan. I've used Localstack extensively for ~7 years, and I will rejoice when I can finally be free of it. I've found it to be low quality software, and full of bugs.
+
+========================================================================
+ID: M10
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I remember FSP seeming to have a more "underground" vibe to it. This was right after migrating from BBS to "Shell Account". Shortly after every noob was told: "FtP to 127.0.0.1 for l33t w4R3Z!", and then the gobsmacked horror as you were loooking at your own home directory. laf.
+
+========================================================================
+ID: M11
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is basically exactly what we needed at the start up I worked at, with the added need of being able to host open source projects (airbyte, metabase) with a reasonable level of confidence. We ended up migrating from Heroku to Kubernetes. I tried to take some of the learnings to build  https://github.com/czhu12/canine  It basically wraps Kubernetes and tries to hide as much complexity from Kubernetes as possible, and only expose the good parts that will be enough for 95% of web application work loads.
+
+========================================================================
+ID: M12
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I was confused as well. Turns out the right link is this one:
+ http://sininenankka.dy.fi/~sami/fdshell/index.php  Tl;Dr: "lEEt/OS is a graphical shell and partially posix-compliant multitasking operating environment that runs on top of a DOS kernel." [...] "lEEt/OS is slowly but surely migrating from FreeDOS to ST-DOS, its own DOS kernel."
+
+========================================================================
+ID: M13
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+>  Cloudflare's cloud offerings are usually much cheaper, and I've saved plenty of money by migrating from AWS S3 to Cloudflare's R2. This new offering is 3x the AWS price, though. Weird. Anyway, most small companies don't send enough email for it to matter.  For certain types of marketing and transactional emails, it's cheaper I think. AWS SES pricing doesn't include attachments. If you assume a maxed out 25MB email attachment body, I think the price comes out to be mostly similar, amortized at least. But if you are sending basic text/mostly text transactional emails for stuff like password resets, then SES comes out ahead for sure.
+
+========================================================================
+ID: M14
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Been using PHP for 20 years and have built multiple startups with it that went from ideas to exits. Today's PHP is better than it has ever been. Are there some things that are rough around the edges? yes ofc. But there is no language that doesn't have that. It's all trade-offs. Last week I switched from Nginx+FPM to FrankenPHP and my god even the deployment experience got 10x better. Safe to say that if you haven't tried the language, give it a shot. Within a few days you'll know if it's a good fit for you or not!
+
+========================================================================
+ID: M15
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+As a coder, I’ve had no desire to use Fable. In fact I switched from Opus models to sonnet 5 and haven’t noticed any drop in quality on large repos. It seems the gap at the top is very small and not hugely noticeable for backed/frontend. Has anyone else had this experience?
+
+========================================================================
+ID: M16
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+There are so many examples of large companies and open source projects that have moved off of npm that I just don’t think this is true anymore. PNPM and bun are fast enough that the increase in development velocity is worth the occasional rough edge IMO.
+
+========================================================================
+ID: M17
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Surprised to see Clojure/ClojureScript come up on socials more often all of a sudden. I used it professionally for a few years around ~2012 and like many others moved off JVM and moved into typed [functional] languages. Is the sudden buzz due to agentic coding? Does it rip through code faster with no type checking and fewer invalid syntax errors and reserved keywords to deal with? are we in for a sexp resurgence?
+
+========================================================================
+ID: M18
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+>I could see migrating from C or C++ or Python to Rust, for various reasons, but for web back-end work Go is a good match. I write almost entirely in Rust, but the last time I had to do something web server side in Rust, I now wish I'd used Go. Now there is a cult of rewriting everything in Rust.  System level software? Yes. Web? I prefer not to.
+
+========================================================================
+ID: M19
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Ente Auth  https://auth.ente.io/  was my go to choice for migrating from Authy. It supports importing and exporting (so no dead end unlike Authy) and I can see the second factor on my desktop without reaching my phone (through Ente Auth website). I've exported from a rooted phone from Authy->Aegis->Ente Auth. I have no need for their main product but they are building amazing software!
+
+========================================================================
+ID: M20
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Has Wired gone evil now too? Just because some SV programmer circles who excel at marketing switched from Ayahuasca to a new drug does not mean everyone is going to use the new drug. There are literally no good programmers mentioned in that article. They are all boiler room VC types. Shame on Levy, this article is planted or has has no clue.
+
+========================================================================
+ID: M21
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+What a shame I didn't discover this sooner -- I finally sent my 11-year-old TrueNAS system[1] through the one-way Linux door about a year ago because I gave up on any hope that something like this would come along and I didn't see another way to keep it current. The migration path went smoothly but I preferred the FreeBSD setup if only because it forced me to do something a bit more interesting in my spare time.  I do quite a lot of Linux work in my day job and it was nice to occasionally work on something that was surface-level similar but subtly and not-so-subtly different. [1] Over 11 years I have replaced every component (even the CPU/motherboard) at least once except for the case.  Migrating from MBR to UEFI was "fun".
+
+========================================================================
+ID: M22
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+None of those are standard and open except for Decent and UVI which does have third party developers albiet not many. Anecdotally the only dev I know on UVI is acoustic samples? Since Virharmonic moved off of UVI onto their own powered by gorilla The rest you listed, Soundpaint, Engine, etc. are company specific proprietary samplers. Their only market share is the market share of their own company A lot of these aren't even samplers? SINEfactory is just OT's free collection of instruments. Labs is not even a free collection either anymore, Spitfire has done some strange subscription or monetization wrapper around it (and fyi labs used to be on Kontakt).
+
+========================================================================
+ID: M23
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I recently switched from full IDE to Emacs (wrote up about the things I learned at  https://github.com/KallDrexx/emacs-zero-to-ide-journey/blob/... ) Typescript is a perfect example of why Emacs shouldn't own that setup. Typescript version 6 uses the "typescript-language-server" which is a totally stand alone nom package for lsp support. Typescript 7, is incompatible with typescript-language-server and the compiler itself now acts as a lsp. If Emacs handles that all by default it then needs to handle versioning of each language server itself across all operating systems, handle cases when different machines have different npm version managers, upgrades, etc... It's not impossible but it's a lot to ask, and it requires more frequent version upgrades just to keep things in sync. I couldn't even use the built in version of eglot and had to use ELPA version for bug fixes that affect c# LSP support that were committed to the package back in December.
+
+========================================================================
+ID: M24
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+As someone who is in the midst of migrating from Svelte 4 to Svelte 5, I definitely feel the pain of syntax changes. However, I'd argue that `on:change` -> `onchange` isn't frivolous. A real world example: in Svelte 4, I had a custom input component that wrapped an   element. To be able to do ` ` took a bunch of event forwarding boiler plate (or magic `on:change` syntax to forward that one event). When I wanted to also forward blur events I had to go through the same process. Now in Svelte 5 I can just use `const { foo, ...rest } = $props()` then spread with ` ` and I get all events forwarded for free. They could have kept the original `on:change` syntax, but that would have made property access more painful (who wants to call `rest['on:change']`?) and would have broken all my other components that I haven't migrated yet. The same goes for slots to snippets. Being able to pass snippets around like props has allowed me to simplify tons of components where slots were limiting. As a solo dev working part time on a Javascript project, I definitely hate some of the ecosystem churn, but this is one refactor I'm happy to do, and I'd say the same about most of the Svelte 5 changes.
+
+========================================================================
+ID: M25
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That feature is the single worst thing Apple has done I have ever encountered: it stole my music library. At some point when migrating from one Mac to another, it "forgot" which songs were actually mine. It's all Apple Music now. I have songs that the application _knows_ were added to my library in 2003, but for which it steadfastly maintains they're Apple Music downloads. Worse: some songs have been replaced with other recordings. Other are "unavailable" for unexplained reasons.
+
+========================================================================
+ID: M26
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Do a Google search for Sidekiq DHH.  First link is about migrating from Sidekiq to Solid Queue.  Third result (for me anyway) is a Reddit thread where Perham talks about trying to make Basecamp a customer and that he wasn't able to...
+
+========================================================================
+ID: M27
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Deckset was the OG in this space, which I used a decade (!) ago in college. Looks like they moved off the Mac App Store, and are bringing out an iOS app now:  https://www.deckset.com  Now I much prefer something like  https://quarto.org  with dataviz.
+
+========================================================================
+ID: M28
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This seems deeply flawed. Every 'category' I drill into has mostly articles that are nothing of the sort. "Writing and Gaming" has 6+ Sieve of Erasthones articles (generating prime numbers), the Lehmer sieve (also primes), and "Migrating from Procmail to Sieve", along with a half dozen articles on the death of cursive. The only vaguely gaming related articles are one on Katamari (nothing about writing) and an exercise of naming big numbers. Math/Tech/Gender Representation is articles about Magic the Gathering, or about Larry Wall of Perl fame. Monty Hall Problem Explanation has several articles about "The Gettysburg Powerpoint Presentation", articles about the name of the Ogg container format, mythbusting 6 misconceptions about learning english, "in defense of swap common misperceptions", adages have opposites - a list, the Assange case, and an article ("I've got some things to say") about poverty and american football. Animal Cognition & Development - an article about chinese spies (Operation Fox Hunt), a Schnier on Security post about an NSA program called FOXACID, an examination of Bill Ngyuen's investments, articles about github merges and security metaphors about food delivery by zebra, a traffic calming mechanism in La Paz Bolivia, a complex journey to the middle ear, 6 Creatures by Hieronymus Bosch That Could Be Pokémon, crippling digestive problems, the wikipedia list of organisms named after the Harry Potter series, an article about the Cumberland County New Jersey election board, the scientific evidence for discarding a glass of wine that a fruit fly has touched, a 17th century european blood sport of tossing foxes high into the air, an article about the standard english pangram sentence of fox and dog, a hate-filled rant (sierra juliet foxtrot) about "skulking juvenile fascists" and a Mozilla project to incorporate image processing into their browser. Lobster News - articles about the sky being blue, in literal and metaphorical senses both. Microsoft Azure. BlueSky, the twitter alternative. An article about 3d engine lighting. The Timing of Evolutionary Transitions Suggests Intelligent Life is Rare. Keeping a grocery store lobster as a pet. Lobster.rs launched 8 years ago. Bootstrapping Ikarus Scheme. Project Daedalus, a theoretical insterstellar drive. An article about the metaphorical fall of icarus, with visualization of the Chutes and Ladders boardgame. A youtube music album called Land Locked Blues. An rpi car pc. Murmation - the flocking pattern of starlings. Articles about the abuse of a font. An Israeli mining company unearthing a rare mineral. ICARUS, the swiss neutrino detector. An article about "His Majesty’s Airship No. 1, the rigid, phallic Mayfly". A podcast about the stages of color terms in langauge and blue's position at the end. Black Swan Theory - A cluster of "I fell in love with a female assassin" (literal, an account of the Cambodian civil war), joined with a cluster around "Disneyland with the Death Penalty" a 4,500 word nonfictional article by William Gibson (of Neuromancer fame) about Singapore's governance as an authoritarian and austere city-state, an article about PMS, the Bill Nye the Science Guy reddit ama, the Bill Nye - Ken Ham debate, Bill Nye on the abortion argument, a capitalist named Bill Ackman's views on a possible pyramid scheme called Herbalife, and a big cluster on Covid vaccine's effect on periods and vaginal bleeding, I'm sorry, what?
+
+========================================================================
+ID: M29
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+people write silly comments like this all the time. Google and Googlers makes lot of dumb choices all the time, but comments like this always miss the mark. > Google forever obsessing about injecting their own versions of things. many things Google did their own version of is because it didn't really exist anywhere else.  some examples: - mapreduce
+- flume
+- bigtable
+- spanner, both the mad original one and the new one
+- borg
+- fairly secure containerisation
+- industrial scale monitoring
+- industrial scale logs processing
+- industrial scale static analysis for shitty languages like Java and C++
+- industrial scale profiling all of this things were printing money inside Google for many many years before anything equivalent existed outside. etc >  It rejected Java for systems programming and came up with Go no, no one uses Java for "systems programming", and Go was some extremely senior engineers deciding to invent a new language/toolchain because they hated writing C++. > with Go they built their own compiler instead of building on the llvm ecosystem as well (unlike what Apple did with Swift). who was using LLVM for new, light, fast-compiling languages in 2006? > It also rejected Java for frontend programming on the web everybody, at every company in the entire world, including Sun, rejected Java for frontend web programming. > , and Dart became a thing. Which eventually got repurposed for Flutter so they could get rid of Java on Android too. that's obviously untrue? > Early on, it started funding Firefox. But then it partnered with Apple on Webkit only to fork that into Chrome. it's an advertising company worth a trillion dollars, "ensure web browsers work well on multiple platforms so our ads can be shown" seems like a pretty obviously correct business choice. > And of course they then came up with Chrome OS (a linux based OS running their own browser. unsurprisingly, as web browsers became more functional and humans wanted to maintain PCs less, systems like this and iPadOS came to into their own. > With Fuchsia the goal was to replace Linux and have a whole Google only stack and replace both Chrome OS and Android. fuschia is/was a project to get a modern security model and to escape from the nightmare of SoC vendors never ever ever ever caring about drivers. > One thing that keeps on happening to Google is outside innovation making their internal efforts redundant. for sure things outside later appear.  that doesn't mean that Google was wrong to spend person centuries on their internal thing, if they got > person centuries of value in the meantime.  it also doesn't mean that just because for example they're both called "distributed KV stores" that migrating from BigTable to HBase would be a good idea.  obviously sometimes Google should move to a more successful external thing, but the costs of doing so for anything that was successful internally are comically high. > And because Google is so big, it usually doesn't take long for external stuff to start getting used internally and become more or less strategic. Dart/flutter solved a problem. But they never really got rid of Java. And then Kotlin came along and largely replaced Java on Android largely removing the need for Flutter. Flutter is not dead. But at this point it's also clearly not replacing Kotlin. because Google is so big and historically wealthy, it quite deliberately willing to try four vaguely similar things and see if any of them work out.  that was not seen as a mistake. > On the system programming side, Go has worked really well and it's pretty popular. But it did not really displace Java/Kotlin even inside Google. no one ever intended Go to replace Java or Kotlin - obviously?  Java is a higher level and more annoying language, and Kotlin didn't exist at all until 4 years after Go was started.  even the creators of Go didn't intend to replace Java, they wanted to write less C++. > And now we have Rust popping up everywhere as a better C++. Including places like the Linux kernel. Rust is popular especially for things that need to be fast and secure. So, Go is kind of sandwiched between those ecosystems now. ok?  it's great that Rust is doing well.  what does that have to do with anything else?  Go started in 2007, should no one have invented non-runtime-based languages in 2007 because Graydon had stopped working on Monotone and started writing a toy language in OCaml in 2006?  or that Google should stop funding Go now?  why would it stop spending a tiny amount of money to sustain a pretty useful (and also quite shitty in some ways) language?  it has millions of LOC of Go code internally now, too.  telling Go developers they'll only be writing Rust now isn't a way to get more Rust developers, it's a way to get resignations. Go also avoided one of the other traps Google usually fell in to when solving problems it had and others didn't - opensourcing it instead of just writing a paper and then letting some Apache project take all the mindshare. > The pattern here is Google having the right analysis about what needs doing, work on some internal solution, only to then have external solutions popping up that that remove the need for Google's in house thing. lol.  I assume you've looked closely at how Go and Rust work in google3?  and the different problems they are used to solve, and then determined that the cost of re-writing all in Rust and re-training everyone and re-writing all tooling is worthwhile?  that's a fascinating claim. I think fundamentally, people just like making dumb assertions about big companies that seem - and are - dumb, like Google.  all of the above is public domain knowledge that you could have looked up instead of writing 250 words.  you got lots of facts wrong, you don't seem to appreciate that big organisations inherently - and deliberately - try multiple things that you feel overlap, you seem to not understand how cost/benfit and RoI work, etc. just...why?  there's so much to criticise Google for, I don't get why people bother to do it but put so little effort in to it.
+
+========================================================================
+ID: M30
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+The article seems to be just a way to say "Rust is better" - and it fails to do so by spreading misinformation such as the channels part ( https://corrode.dev/learn/migration-guides/go-to-rust/#chann... ) or making a fair comparison of pprof vs Rust's flamegraph. It also skips entirely over debugging (delve vs gdb), IDE support, ecosystem (why the hell does Rust have N async runtimes?!), statically linking and so on. A comparison between the performance of RLS / rust-analyzer (painfully slow) and gopls would be enough to kill the whole argument about developer happiness and productivity. It even passes traits as a "reason to switch" to Rust - where in fact it would probably be a reason (IMHO) not to use it (together with lifetimes). I think both languages are amazing, so a migration Go -> Rust (or Rust -> Go) makes no sense most of the time. I've written code in both for a while now, so I know the pain and advantages of both. For example, Go sucks at microcontroller stuff - in fact it's not even Go officially (see my presentation about porting "Go" to an ESP32-S3 [1]) - whereas Rust is amazing and even has a strong project behind ( https://esp.rs ) and amazing tooling (probe-rs & co). What's also not addressed here is the Go ecosystem. The Go packages are one `go mod add` away (pkgs.go.dev) and the module owner guarantees v1 backwards compatibility for the whole lifetime of the module. This means that, no matter what happens, your dependencies will always be up-to-date with no migration struggle. This makes creating stuff for anything around the Kubernets ecosystem a breeze, you can literally import the types from another project and start your integration right away. The most valuable part of the article seems the link to the opposite view ( https://blainsmith.com/articles/just-fucking-use-go/ ). They're equally biased, but one is more straightforward than the other. All in all, it's not a fair comparison and it's very biased (which is fair) - at the same time I think the idea behind the article is "wrong". If you find yourself migrating from Go to Rust (or vice versa), you're likely doing something wrong - and the performance gain is not the reason you're really doing it for. [1]:  https://docs.google.com/presentation/d/18jWccV-F2FguZiB5gXLk...
+
+========================================================================
+ID: M31
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+How many sales do that 1% drive? They also tend to be the evangelical users / YouTubers / tech bloggers that drive sales for the company. Bambu is following Synology's footsteps here. And just like Synology, they will wake up to press at some point and common wisdom "don't buy Synology, the elite moved off when Green came out and now the rest are leaving too". I own the most expensive Bambu (The H2C) - and even I am willing to admit that the snap maker is a great printer, and a better technical path in someways then the H2C vortek system for anyone who doesn't care about engineering filament
+
+========================================================================
+ID: M32
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I'm actually building an app on the side and went the other way around on this. Migrating from Typescript back to Python. Granted, my gripes were more with NextJS rather than Node or Typescript. Using Django was so intuitive although the nomenclature could do a bit better. But what took me days trying to battle it out on NextJS was literally done in an hour with Django (admin management on the backend). While Django still looks and feels a bit antiquated, at least it worked! Meanwhile I lost the entirety of the past weekend (or rather quite a bit of it), trying to fight my code and clean up things in NextJS because somehow the recommended approach for most things is mixing up your frontend and backend, and a complete disregard for separation of concerns. My new stack from now one will likely be NextJS for the frontend alone, Django for the CRUD and authentication backend, Supabase Edge functions for serverless and FastAPI if needed for intensive AI APIs. Open to suggestions, ideas and opinions though.
+
+========================================================================
+ID: M33
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I’ve actually switched from Just Eat to slightly more expensive Deliveroo because the latter one makes it extremely easy (at least in the UK) to report wrong deliveries and you get your money back in a matter of minutes. Also make sure to do the McD survey via the link on the receipt - that usually improves things for a while.
+
+========================================================================
+ID: M34
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This sounds interesting on paper but I wonder how likely it is they actually pull it off. Even putting aside the logistics of installing new oses across a bunch of workstations, migrating from legacy Active Directory domains is something even small enterprises struggle with.
+
+========================================================================
+ID: M35
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Delegating the complexity to the user was my biggest motivation behind many features of soupault. Hugo has two different Markdown libraries baked in and you have to choose them, and it also had hardcoded commands to call rST and AsciiDoc processors. If you are migrating from a different SSG, Markdown processors behavior differences can bite you and there's  no way out. With soupault, you just configure a command to convert a file with a certain extension to HTML, and all features (ToC, footnotes, anything provided by plugins...) work the same because they they are implemented by manipulating the parsed HTML element tree. Want a CSS preprocessor? You can pipe   tag contents through any external program if you feel like it. Want to re-compress or manipulate images? You can write a Lua script that gets their paths from   and   tags and calls an external program on their files. And so on.
+
+========================================================================
+ID: M36
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> - Tabs. Tabs aren't really new: look at BeOS which could "tab" windows.. That said I agree with you that tab are really nice, especially the way VSCode manage them with the vertical list of opened files (I switched from vim to VSCode due to this feature).
+
+========================================================================
+ID: M37
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This caused me to go back and try Firefox again, I struggled with performance years ago on Mac when I did this. This time it’s been great, I switched from Arc to Zen and don’t see any reason to go back.
+
+========================================================================
+ID: M38
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I completely missed that thread. Just the first post is horrifying. About a year ago I switched from Debian to FreeBSD (after going back the other way in 2003) because even that was getting wonky. Glad I’m far far away from this crap.
+
+========================================================================
+ID: M39
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Has anyone switched from Claude 4.7 Opus or ChatGPT 5.5 to this? 
+How does it feel? Dumber? Worth it for the speed? I'd love someone's subjective take on it, after doing a long session of coding. Reiner Pope gave a talk on Dwarkesh Patel about token economics. I guess faster is a lot more expensive, generally. Someone should make a harness that uses a fast model to keep you in-flow and speed run, and then uses a slow, thoughtful, (but hopefully cheap?) model to async check the work of the faster model. Maybe even talk directly to the faster model? Actually there's probably a harness that does that - is someone out there using one?
+
+========================================================================
+ID: M40
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Hey, thanks a lot for the comment! I share your frustration with protobuf: although I think it's great, it carries a few design flaws which are hard to fix at this point and they create pain points which are not going away. I completely agree with you about timing, wish I had done this 10 years ago :) "Here is an idea to contemplate as a side gig with your favorite Ai assistant: A tool to convert proto to Skir. Or at least as much as possible. As someone who had to maintain larger and complex proto files, a lot of proto specific pain points are addressed."  https://skir.build/ " and it works pretty well. I created  http://skir.build/llms.txt  which helps with this.
+The pain point is data migration though, and as much as I want Skir to succeed: I cannot recommend people migrating from protobuf to Skir if they have some persisted data to migrate, the effort is probably not worth it.
+
+========================================================================
+ID: M41
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is great and am wishing the team well on this endeavor! One nitpick is that while the site looks clean, and there seems to be some good amount of documentation, i think there was a lost opportunity for a simple, yet more universal description of *what this is*! I mean, i get that this descends from FreeNAS and TrueNAS CORE...but why could they not add a small, single line of text that also helps explain it to other folks who don't know fully what the means?  Here is a crappy but at least slightly more descriptive option: "FreeCORE is an operating system and associated software for your network attached storage (NAS) needs. FreeCORE descends from FreeNAS and TrueNAS® CORE, and builds on FreeBSD and OpenZFS..." I'm not going to win the Pulitzer prize any time soon, i get that. But at least most folks will get a little more of the gist of what this FreeCore thing is or could help them. I'm only making this suggestion because i want more folks to participate and enjoy free and open source software. I'm not expecting someone's grandparents to understand this, but i betcha other folks who for example might be migrating from Windows NAS-like offerings might have an interest...so making the intro at least a tiny more descriptive helps. Again, even with my comments, i do wish the team well, and only want them to succeed. So please take my comments as merely a suggestion for improving things for all to benefit. In fact I'll be playing around with this to set it up and test on my homelab.
+
+========================================================================
+ID: M42
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> Is this how things are usually done in your business domain? I don't know about "usually" and I cannot explain details. But many banks are migrating from batch-based mainframes to real-time systems. Maybe that answers your question about "efficiently".
+
+========================================================================
+ID: M43
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+This is giving real "if all you have is a hammer" vibes. I also have years of experience with Rust, but I moved off Rust a few years back simply because I'm sick of the anemic stdlib and lack of mature ecosystem around anything even one inch off the beaten path. Cargo is a shitshow and Rust forces you into an npm-like experience for a whole bunch of functionality that ought to be included in the box. You're juggling libraries with versions like 0.1.2 of which there's seven, none of which are feature complete and five of which are semi abandoned. Then you run into the orphan rule trying to fix or extend any of them. I kind of think some other language will come along, take the borrow checker, take all the type conveniences that Rust stole from OCaml that make Rust so nice, glue it all to a Python/Go/dotnet style fat stdlib, complete with an optional GC for all the things that don't actually need bare metal performance (just stick an arena in stdlib), and Rust will feel like a clunker by comparison.
+
+========================================================================
+ID: M44
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Lots of respect for what JetBrains has built, but I switched from PyCharm to Zed full-time about 6 months ago because while feature wise PyCharm was very good, I could not deal with the interminable "indexing". Fine if you have one project that you're working with all day long but I open a dozen different ones throughout the day and there was such a big project switching cost each time. I've been very happy with Zed, and that was before it had as many features as it does now.
+
+========================================================================
+ID: M45
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That site has a count of sites moved off WP Engine (currently 17K) and a graph showing the total rising over time.  And some JS highlighting individual sites.  So it obviously is recording sites that moved off WP Engine. It looks like they have a list of ones not moved from them too... that doesn't change the fact they are recording the ones that moved.  Either list... how is it 'anticompetitive'?  If they moved, they moved; if they didn't, they didn't.
+
+========================================================================
+ID: M46
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I've recently heard that using Linux is an excuse to spend the day tinkering and ricing and do no productive work. It's the same kind of prejudice, but opposite. I like the freedom to run my machine the way I want, but I also enjoy something that is reliable and seamless. My macbook air's battery lasts forever. It works flawlessly, almost always. "oh with nixos if you brick it you can rollback..." that's great, but it does not beat working great on the first try. Having said that, I'm progressively migrating from MacOS to Linux as MacOS is starting to "get in the way" enough to bother me.
+
+========================================================================
+ID: M47
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+From my observation, people who use the api either end up learning to be much more token efficient, or use a cheaper model. I have been using the API for the last 2 years, OpenRouter for personal projects and Claude API for work, most of it in zed, always on high thinking.
+For work I usually spend $25 if I use opus/sonnet all day, and for personal stuff I usually spend $2-$5 if I use sonnet for a full evening. But, I don’t think someone who’s used to not thinking about token cost and efficient use would get anywhere close to that low spending if they switched from a plan to the API.
+
+========================================================================
+ID: M48
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+In that instance climate change (probably?) played a role, but that is unfortunately not obvious enough to reach the people who are not already concerned about climate change. Millions migrating from India somewhere else because there is no water or wet bulb temperatures become deadly hopefully would cause more people to notice.
+
+========================================================================
+ID: M49
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+That's surprising to me. I recently switched from Claude to Codex because I was blowing through my Claude limits. With Codex I haven't been able to use up all of my usage on the 20x plan, with Claude and fable I could do that in a day. Codex is also a lot faster than Claude. I do think Fable is slightly better and can come up with better abstractions than Codex but trying to read it's output became really frustrating to me.
+
+========================================================================
+ID: M50
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+It used to only happen when I had it plugged in, initially when I took my MacBook to Romania a few years ago and plugged it into the power grid there, they use a different frequency and I had to use an adaptor. But then it started happening in the US as well, and even after I switched from the 2020 model to the new M series, and now it happens to me even when its not plugged in anything, whether I'm grounded or not...that's why I'm wondering if they're actively changing the EM field encapsulation specs.
+
+========================================================================
+ID: M51
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Now I see the problem: migrating from an ERP to a spreadsheet in one month would be a hell. But with a longer timeframe, I think it would be possible to migrate to a proper ERP without missing key functionalities.
+
+========================================================================
+ID: M52
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Back in the day when analog modems were becoming obsolete, there was a hue and cry from broadband enthusiasts that cable modem technology was inferior infrastructure. These folks all agreed that DOCSIS and cable modems would suffer crippling congestion in neighborhoods. That your cable modem's bandwidth would be shared bandwidth, shared on a medium with all your neighbors up to that head-end, and that this shared medium would inevitably be oversold many times over, and that cable-modem ISPs could never possibly meet bandwidth demands on these local networks. In contrast, DSL technology was sold as "never congested, never shared": that is, your copper pairs would wire up directly to the wire center, and have a dedicated connection into the ISP's backbone (and that ISP was experienced in telecommunications, rather than the entertainment industry) and therefore, DSL was always superior due to its lack of shared mediums. It was a weird argument, because inevitably, every provider's core network is shared to some degree, and cable modems really have not suffered congestion beyond the ordinary. Conversely, DSL also had its strategies for aggregation, overselling, and shared media. But a lot of people believed those stories about topology myths. Personally, I switched from ADSL to cable modem over 18 years ago, and I haven't regretted it. Very stable, always available and reliable, and plenty of bandwidth to spare, for my applications.
+
+========================================================================
+ID: M53
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+SDL2 was not "just SDL1 with explicit window handles". There were a variety of changes and new features all over the API, including (like SDL3) major changes to the graphics subsystem (SDL1 used software rendering, SDL2 added hardware acceleration). Also, SDL2 has evolved considerably since 2.0.0, and SDL3 continues that evolution while allowing API-breaking changes. SDL3 is not a from-scratch re-write and as an SDL user I dont anticipate migrating from SDL2 to SDL3 will be that difficult. [edit] And SDL1/2 was never so "thin" that it didn't have its own high-level graphics system, which is useful to have out-of-the-box so that new/basic users can get stuff on screen right away. [edit2] As ahefner points out, SDL1 was pretty "thin" by modern standards, but it still gave you enough to draw basic stuff on screen without writing your own pixel math, which was pretty helpful back in the 90's.
+
+========================================================================
+ID: M54
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Earlier this month I switched from Claude Code to Codex and wanted to try Gemini CLI as well.
+It felt far behind both CC and Codex but I wanted to give it another chance with the new Antigravity CLI. 
+What can I say, it did surprise me and not in a good way in but two short sessions that included just two prompts (trying to reverse engineer some earbuds OTA firmware) using Gemini Flash 3.5, I managed to finish my weekly quota. I'm currently on the Google AI Pro subscription. Couldn't even figure out my tokens usage or if my plan is even counted toward usage inside Antigravity CLI.
+
+========================================================================
+ID: M55
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I've been watching this thread closely. We built miget ( https://miget.com/ ) specifically because of these pain points. The Heroku-style DX without the eye-watering bills or corporate neglect. What stood out from the comments: people don't want to leave the simplicity, they just can't justify the cost or trust the direction. That's exactly the gap we're trying to fill. Flat pricing (hobby plans from $5/mo, pro from $22/mo), unlimited apps per plan, and we're actually shipping features. Not trying to be opportunistic here, but if anyone's evaluating alternatives, happy to help. We have people migrating from Heroku weekly and the feedback has been solid.
+
+========================================================================
+ID: M56
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I had switched from Claude Cowork to OAI Codex a month ago. This seems like a rebranding and app merging to make it more obvious. And switching between the newly named "ChatGPT Work" vs "ChatGPT Code" mostly just seems to increase the verbosity of technical outputs, while using the same harness underneath. I switched because Cowork felt like a bunch of features thrown in by engineers without thought to the UX. Codex solved a lot of those issues for me 
+- remote control from mobile has native approval dialogs, and you can start new threads from mobile
+- you can remote control from another laptop
+- computer use doesn't hijack my computer from me because it uses a11y trees instead of screenshots
+- it was super unclear which skills were accessible to which surface (claude chat, cowork in app, code in app, code in cli). 
+- codex chooses the right browser profile and gets stuck less often than cowork + claude-in-chrome. I know there are 3P skills to use playwright or the chrome CDP, but I've found the native browser use most productive even if slower. A few people here are missing the old ChatGPT app, but I found myself increasingly using Codex for casual chats too, and never using ChatGPT. You never know when the conversation might evolve to requiring tools in Codex, so no real downside to it. Yes, separation of work and personal accounts, or connecting multiple google accounts, is still unsolved on both Codex and Cowork AFAICT. For a bit, I got FOMO because of Fable, but now it looks like 5.6 might continue the monthly model leapfrog pattern.
+
+========================================================================
+ID: M57
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I remember at one point RuneScape switched from the built in Microsoft midi whatever to their own sound engine, and from that day, everything sounded wrong, even the frogs, because to me, the crappy midi sounds were the whole personality and feel of the game.
+
+========================================================================
+ID: M58
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I remember reading about these automated store businesses on a marketing forum. I did something like this myself in 2009. I would use my own software to find arbitrage opportunities on other websites (and also cancel listings when they were sold out). It worked pretty well for a couple of years. Low amount of cancellations and happy customers. After awhile, it became harder and harder to make a profit, because as soon as I found something profitable, Amazon would start selling from their own warehouse and out-compete me or all my sales would drop off to 0. I eventually moved off of Amazon completely and 10X my profit.
+
+========================================================================
+ID: M59
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I switched from using Vim as my primary editor to using Zed's Vim Mode. When you have a second process editing your project in the background you need an editor that can display those changes immediately without clunky buffer reloads. I've also customized Zed's UI to optimize for reading and reviewing code, and mostly adding notes or small focused edits, rather than writing entire files from scratch.
+
+========================================================================
+ID: M60
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+> switched from communism to free markets Free markets are a component of capitalism just as they are a component of market socialism. China is a planned economy which stands in contrast to a market economy. But China has taken bits and pieces from many systems to create something that works for them, a hybrid that's probably specific to China alone. It's just capitalist enough to be able to interface with big wallets around the world, but we can all agree China itself is very far from being free market capitalism.
+
+========================================================================
+ID: M61
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+There's some parallels to how the consumption of non local media and general connectivity is pushing dialects and vernaculars out of use. I've also noticed the tool used for communication having a big change on speech patterns too.
+I basically got the same group of people migrating from IRC, to Discord and then to Signal group and the level of discussion hit rock bottom with the last move.
+Most of the dialogue shifted to phones and it's inconvenient input system and lack of readability. Even if people return to the desktop the space is already polluted with low quality short-form banter making it less attractive for higher level of communication that used to be the default.
+
+========================================================================
+ID: M62
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I went through this trade off at my last job. I started off migrating my adhoc queries to duckdb directly from delta tables. Over time, I used duckdb enough to do some performance tuning. I found that migrating from Delta to duckdb's native file format provided substantial speed wins. The author focuses on read/write performance on Delta (makes sense for the scope of the comparison). I think if an engineer is considering switching from spark to duckdb/polars for their data warehouse, they would likely be open to data formats other than Delta, which is tightly coupled to the spark (and even more so to the closed-source Databricks implementation). In my use case, we saw enough speed wins and cost savings that it made sense to fully migrate our data warehouse to a self managed duckdb warehouse using duckdb's native file format.
+
+========================================================================
+ID: M63
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I came in expecting not to, but I completely agree with this article. I moved off RHEL after using CentOS exclusively for a decade because of the changes in 2023. I loved SELinux, it's a technology you need to sink your teeth into if you want to understand it, but it has decent tooling (like audit2why) and isn't too hard to modify to get working if needed (SELinux booleans are a powerful way to modify base policies without having to recompile). I do a lot in Kubernetes, and there's been more than one CVE with a line like "Affects all versions of docker/containerd, unless running SELinux," which gave me a lot of reassurance that the effort put into making SELinux work was worth it. Now that I'm on Debian, I'm slowly building a new set of policies for the OS. Thankfully SELinux has an excellent reference policy[1] to base off of. I'm hoping my new debian base images for my homelab & elsewhere will have a nice restrictive default SELinux policy by the end of the year. I hope there's more community effort here as well, SELinux really can't compare to AppArmor, and is absolutely necessary for proper security. Honestly I'd love if the wider community took another stab at replacing SELinux with a KSM that had similar functionality but better tooling and design. I'd pick it up in a heartbeat, but right now SELinux is what we have. [1]:  https://selinuxproject.org/page/NB_RefPolicy
+
+========================================================================
+ID: M64
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Can't access the page without reducing browser security. :( But if I understand the concept this might be good for computers other than Windows PCs. When using Windows, a desktop program is not even worth money if it only works on the exact PC it was first installed on. Experience has shown that's about as fragile as you can get. For mission-critical work all installed programs need to be robust enough to participate in the comprehensive backup of Windows into a single file representing everything on the C: drive at the time. Must not fail when recovering to a different compatible PC having a different HDD or SSD of any appropriate size and manufacture, plus any type of random hardware differences under emergency conditions. Recovery must also be completely reliable on the first attempt, as long as Windows recovers you need to be good to go instantly with no further encumbrances or friction.  Just like no emergency ever happened. Naturally must also perform ideally for instance when migrating from W10 to W11 without a hitch.  That's supposed to be the easy part, when there is no emergency involved.  And if the user can't confidently feel ready for Windows 12 how good an investment would a new app be about now? Hardware ID is exactly the wrong thing to do if you have Windows, compared to relying on a more robust Windows ID of some kind that persists across Windows version updates as well as physical substitution. Note: I'm still giving an upvote for your submission.  This could have some application in games or things that don't come near mission-critical needs.  Others must have deadened your text before my comment.  Not me.  I'm not nearly as negative as I would need to be to downvote or flag anything so far.  OTOH I haven't really been looking at HN that long either.
+
+========================================================================
+ID: M65
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Right place, right time, right level of curiosity. Back then, I didn't really have a choice: there weren't any other books in my school library, I didn't want to spend lunchtimes in the playground (I was being bullied), I knew programming would be potentially useful (my Dad had switched from being an accountant to something I heard was called a "systems analyst", which I knew had something to do with computers, and had allowed him to emigrate with his new family), and well, I was a bit of a mess. I have seen some of the newer projects, and like I say, the Raspberry Pi stuff makes programmable computing accessible to a kid without much, I just don't think the bar overall is as low as it was for me. And yeah, survivorship bias, and a weird population skew with me: I was literally the only kid in that computer room determined to learn how to code.
+
+========================================================================
+ID: M66
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Fwiw, GDPR has a forgotten clause that data exports need to also be provided in machine-readable format for easy service migrations and promoting competition / reducing vendor lock-in The only reason I can imagine why nobody implements this, is that they like the status quo where it's hard to switch to their service, but equally hard to switch away. Once this becomes commonplace (e.g. because vendor A makes users aware it's a thing by implementing it for migrating from vendor B), vendor B will "retaliate" and A will have to truly be better than vendor B to retain said users That is all to say, this might yet totally be a viable and legally unblockable business avenue for a third party to initiate. I'm just not sure there's enough demand to warrant (read: pay for) the effort involved. Maybe if you can have an LLM read the api docs of the service where you want to do the import and autogenerate a mostly-working version?
+
+========================================================================
+ID: M67
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Thanks for explaining. Something that makes me feel uneasy about the fact that the post gets hidden is that this strongly benefits Netlify. It seemed like lots of people moved off Netlify after reading the post. I'm not suggesting that HN actively took an action in Netlify's favor, but the potential is there. Is the algorithm for flame war detection open source? Or do we essentially need to trust you that there was no interference from Netlify? (I do trust you but others might not).
+
+========================================================================
+ID: M68
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+tangent Once I've tried one SCM to track every single change to my files, and the other for bulk commits. The result was quite satisfying. It was some 15 years ago, we just switched from CVS to SVN and everyone thought it was the end of the history, at least for SCMs. Main branch was called master, and we were locking files by simply telling our teammates not to touch them. At one time I decided I really missed the Eclipse feature which was tracking all local changes to the files, even without an active SCM. Making tiny commits was not an option, because I want it to track every file save, and we haven't yet figured out working with branches. So I decided to install mercurial and made a hook which made a dummy commit every time I saved a file. Everything mercurial related was ignored by SVN. Suddenly I was able to teleport myself to a version from before the lunch while SVN history was crystal clear. Somehow I still miss integrated, per file, timeline in IDE.
+
+========================================================================
+ID: M69
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+GE moved off Clearcase in 2019 because even IBM didn’t want to use or support it anymore. Wasn’t set up as bad as you had but wouldn’t describe it as pleasant. Lot of alias cheatsheets. Now we’re on perforce transitioning to git.
+
+========================================================================
+ID: M70
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+I just switched from Claude to openAI. I'm surprised at how much easier it is to  talk to . Claude always spoke to me with a suspicious side eye as if I was trying to do something naughty. For example I could not get it to help me get an old abandonware game running (sim tower).
+
+========================================================================
+ID: M71
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Does tensorflow have a future?  I doubt it.  I don't think Google is really investing many resources into it (beyond the necessary maintainence to support whatever production models still depend on it).  The cost of migrating from old TF to new TF was really large, half the projects that depend on TF that I try to use just break out of the box (only 1/4 of torch projects I try fail that way). From what I can tell Google is moving in a direction that doesn't require tensorflow, and I don't see it gaining signficant adoption outside google, so it seems most likely we will simply see it deprecated in about 10 years.  It's best to see it as a transitional technology that Jeff Dean created to spur ML development internally, which was mistakenly open sourced, and now, Jeff's reports typically use Jax or other systems.
+
+========================================================================
+ID: M72
+q1: Does this comment state a capability that something the author relies
+    on cannot do? Answer 1 (yes), 0 (no), or u (unclear).
+q2: Only if q1 is 1. Copy the SHORTEST phrase INSIDE this comment that
+    states the missing capability, verbatim, original casing and
+    punctuation. Do not paraphrase. If q1 is 0 or u, write -.
+q3: Does this comment name the thing the author moved to? 1, 0, or u.
+    (q3 is asked separately; write q1 and q2 only here.)
+COMMENT:
+Your own engine?! Wow, that's incredible. Is this gonna be like Servo where people can build a browser around this, or will it be a standalone browser? I recently switched from Arc to Helium but it's still Chrome with different paint. When I was using Opera 12, it was the most standards-compliant browser so it became my main. What are the goals for cwbrowser (and is the name permanent)?

@@ -85,3 +85,51 @@ consulted. **A follow-up must state its channel set or it measures the
 instrument.** That is now also the fifth condition of
 [`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md)'s
 prior-art rule.
+
+## The demand-side absence of recurrence is now a property of public accounts, not of a harvest vocabulary
+
+**Status: closed as an open reading (F039, F049, F051).** Item 0d's last
+standing question.
+
+**What the two populations now say.** F039 found the need corpus is **1250
+individuals each asking once**, with no need-level recurrence inside it. E031
+reached the same reading from a **structurally different** population — 919
+departure accounts from people who had depended on the thing, 326 of them framed
+as seeking an alternative — and found **0 recurring requirements in 63 clauses**,
+against a reader-adjudicated random-pair control at 0.
+
+**Why this is a change and not a repetition.** Until now the recurrence null had a
+single alternative explanation available: F043 showed the trigger vocabulary is
+blind to outcomes, so the need corpus's zero could have been the instrument's. A
+second population, harvested by **different phrases about a different event**,
+with its own reader question and its own controls, gives the same zero. The
+absence is therefore **a fact about what people write in public about tools they
+have left**, and it does not follow from any vocabulary this mission chose.
+
+**The premise that failed is the useful part.** E031's hypothesis was that
+accounts seeking an alternative state a requirement the artifact failed. They
+state a missing capability at **twice** the base rate of ordinary comments — and
+**exactly as often as accounts that named a successor** (0.347 against 0.347).
+**What a departure account lacks is not a missing capability; it is a named
+successor.** The population is people reporting friction, not people holding an
+unfilled slot. That is why recurrence is zero, and it is why this closes a
+generator rather than merely failing to open one.
+
+**What this makes cheap to believe, and what it does not license.** It is now
+cheap to believe that **a cross-author recurring requirement will not be found by
+mining public conversations** — three populations, three instruments, three
+zeros. It licenses **no** claim that unmet requirements do not exist, that none
+recur, or that they cannot recur: F042's 0-of-24 and F049's CI95
+[−0.0156, +0.1125] are disclosures and bounded intervals, not zeros, and E031's
+own sample is **63 clauses** with its ceiling declared before the adjudication
+(AMENDMENT-4).
+
+**The transferable instrument lesson is D062.** A linkage rule is part of the
+instrument: state the candidate count it produces against the count chance alone
+produces, before reading any adjudication. E031's declared rule produced **4
+pairs against a chance expectation of 4.9** — unreachable, the mirror of F010's
+gate that could not fail — and **fixing F050's coincidence problem caused it**,
+because a ≥ 2-rare-token rule tuned for 90-word comments does not transfer to
+11-word clauses. The control is **reader-adjudicated random pairs from the same
+arms through the same filters**, not a permutation of the candidate set, which is
+F043's missing control in a second instrument.

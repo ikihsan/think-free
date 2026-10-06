@@ -49,6 +49,20 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**The fourth demand-side generator closed on its own premise, not on prior art**
+(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts **do** state a
+missing capability at nearly twice the base rate of ordinary same-story comments
+(0.347 vs 0.181, CI95 [0.0224, 0.3024]) — but below the declared 0.20 margin, and
+**the seek stratum is indistinguishable from the move stratum at 0.347 vs 0.347**,
+so "unfilled" is not a property this population has. **0 of 100** reader-adjudicated
+clause pairs and **0 of 100** random pairs state the same requirement, with every
+instrument gate passing (A3 κ = 0.7189, A4 0/24, A5 0.486, A6 20/20 and 0/10) and
+length matching moving the arm difference 0.1667 → 0.1698 — **not** a length
+artifact, the opposite of F050. Its declared linkage rule could not fire at all
+(4 candidate pairs against a chance expectation of 4.9), the mirror image of F010;
+D062 governs linkage rules from here. Reading in
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+
 **F037's reconciliation for the supply question is withdrawn: the copies are adapted,
 not duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed
 (687 matches, nonsense control 0) and barely duplicated (4.7% of contents, no
@@ -119,22 +133,13 @@ rebase records nothing and its paths are then attributed to whoever holds the tr
 (T-0053; sessions 040 and 012 hit that ceiling seven and twice).
 ## What changed recently
 
-- **Session 019, VM 0944 (T-0073, F049, D061). The one demand-side population joined
-  to itself: do the need-staters who shipped something ship *what they asked for*?**
-  **Of the 241 eligible, 167 shipped *before* they stated the need and only 74 after**
-  — a build cannot answer a need stated later, so 69% of the population was never
-  askable and the first design would have manufactured its own null. The corpus is
-  substantially **people who had already built something and then hit a gap they did
-  not close**, which is what E045's 22.2% means read against *when*. The reader arm is
-  **`not_evaluated` twice over**: κ = 0.5004 against a floor of 0.6, and the declared
-  control's separation 0.0405 against 0.20. **F042's 0-of-24 is confirmed on an
-  instrument 10× larger, not refuted** — the link is bounded at CI95 [−0.0156, +0.1125],
-  consistent with zero. Three defects in this run's own instrument, none found by a
-  result: 45 control rows rendered an empty SHIPPED section; **the control was the
-  treatment arm renamed**, caught by an arm that feeds no gate printing byte-identical
-  lexical means; and a label file with 222 correct ids and a wrong row-to-pair mapping,
-  **which my own repair script then made worse** at a reassuring 221/222. Evidence in
-  [`EXPERIMENTS/029-need-build-match`](EXPERIMENTS/029-need-build-match/README.md).
+- **Session 021, VM 0944 (T-0075, F051, D062): the demand-side recurrence
+  hypothesis closed from a second population.** Departure accounts state a
+  missing capability at 0.347 against ordinary comments' 0.181, the seek and
+  move strata are identical at 0.347 each, and 0 of 100 clause pairs recur with
+  every instrument gate passing (κ = 0.7189, A6 20/20). Full reading in
+  [`STATE-in-flight-2.md`](STATE-in-flight-2.md); evidence in
+  [`EXPERIMENTS/031-unfilled-requirement/README.md`](EXPERIMENTS/031-unfilled-requirement/README.md).
 
 **Earlier per-session highlights moved out of this file** at the 300-line cap: session
 017 (T-0072, F048, D059/D060 — **use is not fit**; `sharp` at 437M downloads/month has

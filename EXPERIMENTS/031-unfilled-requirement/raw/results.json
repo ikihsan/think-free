@@ -1,0 +1,170 @@
+{
+  "H1_verdict": "H1_does_not_survive",
+  "amendments": [
+    "PROTOCOL-AMENDMENT-1.md",
+    "PROTOCOL-AMENDMENT-2.md",
+    "PROTOCOL-AMENDMENT-3.md",
+    "PROTOCOL-AMENDMENT-4.md"
+  ],
+  "arms": {
+    "move": {
+      "ci95": [
+        0.24753423006214206,
+        0.4623869615714493
+      ],
+      "median_words": 91,
+      "n": 72,
+      "q1_unclear": 4,
+      "q1_yes": 25,
+      "rate": 0.3472222222222222
+    },
+    "ordinary": {
+      "ci95": [
+        0.108668165087126,
+        0.2848034174194741
+      ],
+      "median_words": 71,
+      "n": 72,
+      "q1_unclear": 2,
+      "q1_yes": 13,
+      "rate": 0.18055555555555555
+    },
+    "seek": {
+      "ci95": [
+        0.24753423006214206,
+        0.4623869615714493
+      ],
+      "median_words": 83,
+      "n": 72,
+      "q1_unclear": 1,
+      "q1_yes": 25,
+      "rate": 0.3472222222222222
+    }
+  },
+  "corpus": "E030 raw captures; no network fetch in this experiment",
+  "declared": "PROTOCOL.md",
+  "experiment": "E031",
+  "gate_A1_integrity": {
+    "source_sha256": {
+      "control.jsonl": "b740ff013ca855b4c4714c1432e7ffba5f720ee03e242ad21ec7c11c3c79d814",
+      "treatment.jsonl": "366bf97601bce780735c5d9e1d70018d087a71daba98d63b5b978252901e259a"
+    },
+    "strata": {
+      "move": 593,
+      "ordinary": 2687,
+      "seek": 326
+    },
+    "strata_as_declared": {
+      "move": 593,
+      "ordinary": 2687,
+      "seek": 326
+    },
+    "verdict": "passes",
+    "view_digest_mismatches": []
+  },
+  "gate_A3_reader_agreement": {
+    "floor": 0.6,
+    "kappa": 0.718887262079063,
+    "n": 96,
+    "per_arm_kappa": {
+      "move": 0.7593984962406015,
+      "ordinary": 0.7037037037037037,
+      "seek": 0.6559139784946236
+    },
+    "raw_agreement": 0.875,
+    "verdict": "passes"
+  },
+  "gate_A4_nonsense_control": {
+    "ceiling": 0.25,
+    "per_reader": {
+      "r1": {
+        "n": 24,
+        "rate": 0.0,
+        "yes": 0
+      },
+      "r2": {
+        "n": 24,
+        "rate": 0.0,
+        "yes": 0
+      }
+    },
+    "verdict": "passes"
+  },
+  "gate_A5_planted_separation": {
+    "margin": 0.2,
+    "q3_move": 0.5833333333333334,
+    "q3_ordinary": 0.06944444444444445,
+    "q3_seek": 0.09722222222222222,
+    "separation_move_minus_seek": 0.48611111111111116,
+    "verdict": "passes"
+  },
+  "gate_A6_pair_positive_control": {
+    "ceiling": "the positive rendering shares nearly all content words with its source, so this gate shows the instrument can return a positive and rejects matched negatives; it does not validate semantic paraphrase discrimination",
+    "n_negative": 10,
+    "n_positive": 20,
+    "negative_rate": 0.0,
+    "negative_rate_ceiling": 0.2,
+    "negative_same": 0,
+    "positive_min": 16,
+    "positive_rate": 1.0,
+    "positive_same": 20,
+    "verdict": "passes"
+  },
+  "gate_B1_H1": {
+    "ci95": [
+      0.022426199099111782,
+      0.30242643278953485
+    ],
+    "diff_seek_minus_ordinary": 0.16666666666666666,
+    "margin": 0.2,
+    "verdict": "fails"
+  },
+  "gate_C1_H2": {
+    "candidate_pairs": 100,
+    "candidate_same": 0,
+    "candidate_same_rate": 0.0,
+    "candidate_unclear": 5,
+    "ci95": [
+      -0.03699349822370594,
+      0.03699349822370594
+    ],
+    "control_pairs": 100,
+    "control_same": 0,
+    "control_same_rate": 0.0,
+    "control_unclear": 0,
+    "diff": 0.0,
+    "enough_same_pairs": false,
+    "margin": 0.2,
+    "min_same_pairs": 2,
+    "prerequisites_passed": true,
+    "separation_holds": false,
+    "threshold_sensitivity": {
+      "ge_1": 100,
+      "ge_2": 4,
+      "ge_3": 0
+    }
+  },
+  "label_sha256": {
+    "e031_labels_move__r1.tsv": "67202a20a8ebf8fde631bc0d5c91654241c4185ca92a55ee96ff998df2f62af6",
+    "e031_labels_move__r2.tsv": "7f097332b6349baa63327cbb440e9ba7e0ff63dc043dc2846f17fecf4162a26d",
+    "e031_labels_ordinary__r1.tsv": "76e5c0979678de3162a269e1f687611ba98e957c5fca68434b4c2dbeafc9651d",
+    "e031_labels_ordinary__r2.tsv": "02e202be03937c2a8c50adacf2175ba06e8f86ae51ca9ebeda750ef49684aef9",
+    "e031_labels_seek__r1.tsv": "499a6c112e0440d79e4d95d20f7f953fdd47642c1e5baaf5fabf9d42ccdd5f10",
+    "e031_labels_seek__r2.tsv": "bdbcad32e806822733b1aecfd63382fcbadefef51b91f24c475bfd95eee7c71c"
+  },
+  "pair_view_sha256": {
+    "view_e031_pairs_candidates.txt": "18870ac717e47005c98fc408e55205ae4a755eb8a71359145ef4c0d6c7249146",
+    "view_e031_pairs_control.txt": "cbd62337b30c45871d963ec23776af8e36a37db2936013f8d841cd1177a5404d",
+    "view_e031_pairs_poscontrol.txt": "9e50759d8e8e4220b34b8a465db826090f8434ec0ba63992bf02d5e5e668ec80"
+  },
+  "question": "do departure accounts that name no successor state an unfilled requirement, and does such a requirement recur across independent authors and artifacts",
+  "seek_minus_move": {
+    "ci95": [
+      -0.15231747427752215,
+      0.15231747427752215
+    ],
+    "diff": 0.0,
+    "note": "secondary contrast, not a declared gate"
+  },
+  "verdict": "H2_not_survives"
+}

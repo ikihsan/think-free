@@ -44,40 +44,33 @@ fit**), and the demand corpus has been followed forward twice (F049). None valid
       count-budget gate met, fieldwork-cost gate fails, F006)
 - [x] Test the knitting candidate's Stage-A planner twice: per-error rule
       suboptimal (`004`, T-0010), whole-neighbourhood search exact (`005`, T-0011)
-- [x] Search the knitting candidate's last kill-gate condition in three vocabularies
-      (`RESEARCH/PRIOR-ART-KNITTING.md`, T-0015): the algorithmic advantage is prior
-      art (`FAILURES.md` F009), and no tool supplies an intervention sequence
+- [x] Search the knitting candidate's last kill-gate condition (`RESEARCH/PRIOR-ART-KNITTING.md`,
+      T-0015): the algorithmic advantage is prior art (F009)
 - [x] Run the ventilation candidate's measurement-design kill gate
       (`006-ventilation-measurement-design`, T-0014): gate not met, formulation
       stopped (`FAILURES.md` F008)
-- [x] Run E3's build-timestamp census over 200 PyPI wheels (`007`, T-0013): declared
-      5% gate met at 0.965, but the metric measures DOS-epoch pinning rather than
-      reproducibility and attributes no cause (`FAILURES.md` F010)
-- [x] Attribute the byte difference (`008`, T-0017): 398 of 398 differing bytes are
-      timestamp fields and `SOURCE_DATE_EPOCH` makes builds bit-identical, so E3's
-      mechanism is supported and its candidate abandoned (`FAILURES.md` F012)
-- [x] Measure the prior-art screen itself, coverage (`016-prior-art-adjudication`, T-0062):
-      6 of 6 controls recovered, 3 of 12 adjudicable kills have no prior art on three
-      corpora, and the open web carries 4 served verdicts two code corpora return nothing
-      for (F035/F036)
+- [x] Run E3's build-timestamp census over 200 PyPI wheels (`007`, T-0013): declared 5% gate
+      met at 0.965, but the metric measures DOS-epoch pinning (F010)
+- [x] Attribute the byte difference (`008`, T-0017): 398 of 398 differing bytes are timestamp
+      fields, so E3's mechanism is supported and its candidate abandoned (F012)
+- [x] Measure the prior-art screen's coverage (`016`, T-0062): 6 of 6 controls recovered,
+      3 of 12 adjudicable kills have no prior art (F035/F036)
 - [x] Measure the prior-art screen's own population (`017-incumbent-artifact-type`, T-0061):
       14 of 18 young-vocabulary rows are executable code, so F034's premise failure is not a
-      population artefact; its documents teach no repeated procedure (F037)
+      population artefact (F037)
 - [x] Test the consequence F037 inferred (`020-copied-config-drift`, T-0065): copying is
-      instructed in 687 places and duplicated in 4.7% of distinct contents, so the reader adapts
-      rather than copies (F040)
+      instructed in 687 places and duplicated in 4.7% of contents, so readers adapt (F040)
 - [x] Read the disclosure floor under F042's build arm (`025-need-staters-builderhood`, T-0069):
-      278/1250 = 0.222 of need-staters have publicly shipped something against 139/500 = 0.278 for
-      ordinary commenters in the same stories, so the 0-of-24 was a floor and not a fact about
-      people. Item 0d's closure is **confirmed**, not withdrawn (F045, D057)
+      278/1250 = 0.222 of need-staters have publicly shipped something against 0.278 for ordinary
+      commenters in the same stories, so the 0-of-24 was a floor (F045, D057)
 - [x] Ask what the screen's evidence is evidence of (`028-incumbent-fit`, T-0072): `sharp`, at
-      436,835,441 downloads/month and called served "beyond argument" by E016, documents nothing
-      about its clause's attribute — **use is not fit** (F048, D060)
-- [x] Ask whether need-staters build what they state (`029-need-build-match`, T-0073): **167 of
-      the 241 who shipped had shipped *before* they complained**, so 69% of the population was
-      never askable; the reader arm is `not_evaluated` and bounds the link at
-      [−0.0156, +0.1125] — consistent with zero, so F042's 0-of-24 is confirmed on a 10×
-      larger instrument (F049, D061)
+      437M downloads/month, documents nothing about its clause — **use is not fit** (F048, D060)
+- [x] Ask whether need-staters build what they state (`029`, T-0073): **167 of the 241 who
+      shipped had shipped *before* they complained**, so 69% was never askable; the link bounds
+      at [−0.0156, +0.1125], consistent with zero (F049, D061)
+- [x] Read the departure population for the gap, not the move (`031-unfilled-requirement`,
+      T-0075): **the seek and move strata are identical at 0.347 each**, so the "unfilled"
+      premise is retired by measurement; 0 of 100 clause pairs recur (F051, D062)
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline
@@ -295,6 +288,8 @@ exporting `GITHUB_TOKEN` (T-0035) — **each green where written.**
       repository's own history
 - [x] Standard-library test suite, with [`tests/git-versions.json`](tests/git-versions.json)
       recording how much of the suite each git version has actually run. A test's correctness
-      depends on every clock the code under it reads: three tests behind the in-flight gate
-      read one the fixture never handed over, so one assertion expired on a schedule and could
-      never pass again (T-0044, defect 15)
+      depends on every clock the code under it reads (T-0044, defect 15)
+- [x] A gate is falsified against the bytes of the defect it guards. Four ways an
+      instrument is wrong about what it measures are now named: **cannot fail** (F010), **fires
+      on coincidence** (F050), **cannot fire** (F051), and **passes on the condition it
+      detects** (F052, where `ratio > 1.0` cleared F031's own 4.8:1)

@@ -128,37 +128,35 @@ untouched, and every item says which.
    **D051 supersedes D050's narrowing here: the harvest is refuted as a generator
    on a population measurement, not on a screen.**
 
-   **Both generators under this seat are closed, and now for a measured reason
-   rather than a prior-art one** — the live corpus 0 of 50 (F029), which F039
+   **A third generator closed in session 021, and it settles the reading rather
+   than adding a candidate** (F051, D062, T-0075). Accounts seeking an
+   alternative state a missing capability at 0.347 against ordinary comments'
+   0.181 — and **the seek and move strata are identical at 0.347 each**, so the
+   population has no "unfilled" property and this seat's premise is retired by
+   measurement. **0 of 100** clause pairs recur, with κ = 0.7189 and a pair
+   positive control at 20/20, so the zero comes from an instrument that works.
+   Three populations, three instruments, **no cross-author recurring requirement
+   in public text**. **Ceiling:** 63 clauses; four channels unread by declaration.
+   Reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+
+   **All three generators under this seat are closed, for measured reasons rather
+   than a prior-art one** — the live corpus 0 of 50 (F029), which F039
    shows was 1250 individuals each asking once rather than a sample of shared
    needs, and the recurrence hypothesis, which collapsed every cluster it was
    promised by >100× (F033) and whose person-level instrument failed its own
-   controls (F039). **E022 adds a fifth negative here:** the outcomes of those
-   statements are now measured, and 58.0% were answered in thread while 0 of 24
-   unserved requesters built the thing, so the corpus records needs the world
-   **absorbed in conversation** — it holds no standing unmet need to build
-   against. **F043 removes the last prop under that sentence:** the "served"
-   figure that made it read as a demand-side discovery is the base rate of
-   ordinary comments in the same threads, and what is left is the two cells that
-   were measured properly. **F049 removed the last reason to read this corpus as a demand-side discovery,
-   and replaced it with a better description of what it is.** Of the 241 need-staters
-   with a public `Show HN` item, **167 shipped it *before* they stated the need and
-   only 74 after** (`EXPERIMENTS/029`, T-0073). A build cannot answer a need stated
-   later, so **69% of the population was never askable** — and the question itself
-   survives at 4%: two independent readers each named **3 of 74** matched rows as
-   `addresses` and **0 of 74** cross-paired rows, which bounds the need-to-build
-   link at CI95 **[−0.0156, +0.1125]** (Fisher p = 0.245), consistent with zero. So
-   **F042's 0-of-24 is confirmed on an instrument 10× larger, not refuted**, and the
-   closure survives its second re-read. What is new is the description: this corpus is
-   substantially **people who had already built something and then hit a gap they did
-   not close**, which is what E045's 22.2% means when read against *when*. **The
-   seat stays empty**, and the honest reason is now sharper than "prior art": the
-   corpus records needs asked *by builders*, not need waiting for one.
-   **Ceiling:** 74 rows per arm after the temporal restriction, reader κ = 0.5004
-   against a declared floor of 0.6, one reader scheme and one model family. The
-   verdict is `not_evaluated`, and it is not raised by asking the same instrument for
-   more. E2's lockfile claim: `EXPERIMENTS/009`
-   **zero drift at ~21h**, a fast-drift null only. **Ceiling:** this item names
+   controls (F039), and the departure population (F051, above). **F049 removed
+   the last reason to read the need corpus as a demand-side discovery, and
+   replaced it with a better description of what it is.**
+   Of the 241 need-staters with a public `Show HN` item, **167 shipped it *before*
+   they stated the need and only 74 after** (`EXPERIMENTS/029`, T-0073), so 69% of
+   the population was never askable, and the need-to-build link bounds at CI95
+   **[−0.0156, +0.1125]** (Fisher p = 0.245), consistent with zero. **F042's 0-of-24
+   is confirmed on an instrument 10× larger, not refuted.** The corpus records
+   needs asked *by builders*, not need waiting for one. **Ceiling:** 74 rows per arm,
+   reader κ = 0.5004 against a 0.6 floor, so that arm is `not_evaluated` and is not
+   raised by asking the same instrument for more. E2's lockfile claim:
+   `EXPERIMENTS/009` **zero drift at ~21h**, a fast-drift null only. **Ceiling:**
+   this item names
    where invention work goes; with every generator closed it names an empty seat.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
@@ -262,9 +260,8 @@ untouched, and every item says which.
    **Ceiling:** bookkeeping hygiene, not a claim about a candidate. `exercised`
    means a run happened, and nothing between 3.8 and 3.12 has ever run this
    suite.
-7. **Done in T-0025: the pushed CI run is read and recorded** (run `37165413909`,
-   commit `9e865a4`, all six steps green, `observed`), which closes the standing
-   "CI is not claimed green" caveat for that commit. A run says nothing about a
+7. **Done in T-0025** (run `37165413909`, commit `9e865a4`, six steps green,
+   `observed`); superseded by item 0b's newer runs. A run says nothing about a
    second runner image or a rebase conflict.
 8. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
    are the only byte-level cause for the one builder available here, and
@@ -275,8 +272,8 @@ untouched, and every item says which.
    the prior-art condition is settled (T-0015): the algorithmic advantage is
    prior art (F009) and no tool supplies an intervention sequence for an
    existing hand-knit structure. Stage B needs an experienced knitter and
-   authorization. **Ceiling:** nothing software-side remains; the only live
-   question is usefulness, which this repository cannot measure.
+   authorization. **Ceiling:** nothing software-side remains; only usefulness
+   is live, and this repository cannot measure it.
 10. **Do not run E1** (retry jitter). It is the cheapest experiment in the
    repository and the least informative: jitter is already in every modern
    client library, so a pass changes no build decision. D020, Screen 3.

@@ -232,6 +232,13 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/030-departure-recurrence/PROTOCOL.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/030-departure-recurrence/README.md`](../EXPERIMENTS/030-departure-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0074. Protocol declared in |
+| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-4.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-4.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/README.md`](../EXPERIMENTS/031-unfilled-requirement/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/031-unfilled-requirement/RUBRIC.md`](../EXPERIMENTS/031-unfilled-requirement/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

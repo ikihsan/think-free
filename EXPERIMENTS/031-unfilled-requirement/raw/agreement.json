@@ -1,0 +1,125 @@
+{
+  "declared_floor": 0.6,
+  "gate": "A3",
+  "kappa_overall": 0.718887262079063,
+  "n_double_read": 96,
+  "note": "two independent sub-agent contexts, same model family; independent context, not independent priors",
+  "per_arm": {
+    "move": {
+      "agreement": 0.875,
+      "disagreements": [
+        {
+          "clause_r1": "-",
+          "clause_r2": "None of those are standard and open",
+          "id": "M22",
+          "r1": "0",
+          "r2": "1"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "-",
+          "id": "M28",
+          "r1": "u",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "-",
+          "id": "M29",
+          "r1": "u",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "-",
+          "id": "M30",
+          "r1": "u",
+          "r2": "0"
+        }
+      ],
+      "kappa": 0.7593984962406015,
+      "n_disagree": 4,
+      "n_double_read": 32,
+      "r1_yes": 11,
+      "r2_yes": 12
+    },
+    "ordinary": {
+      "agreement": 0.90625,
+      "disagreements": [
+        {
+          "clause_r1": "-",
+          "clause_r2": "-",
+          "id": "O36",
+          "r1": "u",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "they're not really an answer to docker-compose on the local development side",
+          "id": "O53",
+          "r1": "u",
+          "r2": "1"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "I know it's not actually impossible, some people finished it, but I never have",
+          "id": "O54",
+          "r1": "0",
+          "r2": "1"
+        }
+      ],
+      "kappa": 0.7037037037037037,
+      "n_disagree": 3,
+      "n_double_read": 32,
+      "r1_yes": 4,
+      "r2_yes": 6
+    },
+    "seek": {
+      "agreement": 0.84375,
+      "disagreements": [
+        {
+          "clause_r1": "-",
+          "clause_r2": "-",
+          "id": "S34",
+          "r1": "u",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "-",
+          "clause_r2": "controllable sandboxes for running untrusted code with reduced privilege",
+          "id": "S35",
+          "r1": "0",
+          "r2": "1"
+        },
+        {
+          "clause_r1": "don\u2019t pretend there are actual viable alternatives to LEO sat internet",
+          "clause_r2": "-",
+          "id": "S49",
+          "r1": "1",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "there are fundamental problems that make it hard to perform some optimisations in C++",
+          "clause_r2": "-",
+          "id": "S70",
+          "r1": "1",
+          "r2": "0"
+        },
+        {
+          "clause_r1": "There isn't a single embedded OS FOSS alternative to GNU/Linux that uses GPL",
+          "clause_r2": "-",
+          "id": "S71",
+          "r1": "1",
+          "r2": "0"
+        }
+      ],
+      "kappa": 0.6559139784946236,
+      "n_disagree": 5,
+      "n_double_read": 32,
+      "r1_yes": 11,
+      "r2_yes": 9
+    }
+  },
+  "raw_agreement": 0.875,
+  "verdict": "passes"
+}

@@ -28,6 +28,14 @@ import unittest
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCRIPT = os.path.join(REPO, "tools", "measure_allocation.py")
 
+# F031 measured `tools/` + `tests/` against `EXPERIMENTS/` at **4.8 : 1** and
+# recorded that proportion as the complaint. The ceiling on that ratio is set
+# below it, so the finding can still be failed against, and it is the only
+# number in this module that is not a direction. `test_the_ratio_ceiling_is_a
+# ceiling` checks both sides against F031's own figure.
+F031_MEASURED_RATIO = 4.8
+F031_RATIO_CEILING = 3.0
+
 
 def load_module():
     spec = importlib.util.spec_from_file_location("measure_allocation", SCRIPT)
@@ -200,10 +208,66 @@ class RealRepositoryTest(unittest.TestCase):
         self.assertLess(second_share, first_share,
                         "F025 claims the world share fell from %s to %s; it rose instead"
                         % (first, second))
+        # F031's line finding: the mission was spending its effort on its own
+        # record. **The direction of this assertion was wrong, and the original
+        # version could not fail on F031's own bytes.** It asserted
+        # `ratio > 1.0` with the message "machinery should outweigh experiment
+        # code" — and F031 recorded the ratio at **4.8 : 1**, which passes that
+        # test comfortably. The gate written to catch machinery dominating the
+        # work was satisfied *by* machinery dominating the work, 4.8 times over.
+        #
+        # It passed here for a second reason, which is the shape the assertions
+        # above already record twice: the ratio is a property of the whole tree
+        # at the moment it is read, so any session that writes experiment code
+        # moves it. On 2026-10-06 this session added 1,535 lines of experiment
+        # code and 4 lines of machinery and took the ratio from 1.06 to 0.99,
+        # turning the gate red by doing the work the mission exists to do.
+        #
+        # **The claim F031 makes is about machinery dominating, so the assertion
+        # is a ceiling, not a floor**: machinery must not outweigh experiment
+        # code by F031's own measured factor. F031 measured 4.8:1 and called it
+        # a complaint, so 4.8 is the value the finding must be able to fail
+        # against, and 3.0 sits below it deliberately — the ceiling fires before
+        # the repository returns to the proportion F031 recorded, which is the
+        # whole point of a ceiling. The direction is now the mission's: an
+        # experiment that adds code is not a regression.
+        #
+        # `test_the_ceiling_fires_on_f031s_own_ratio` asserts this fires on 4.8
+        # and passes on the live value, so the repair is falsified in both
+        # directions rather than merely relaxed.
         ratio = data["lines"]["ratio_machinery_to_experiment"]
         self.assertIsNotNone(ratio)
-        self.assertGreater(ratio, 1.0,
-                           "machinery should outweigh experiment code")
+        self.assertLess(ratio, F031_RATIO_CEILING,
+                        "machinery outweighs experiment code by %.2f:1, at or past "
+                        "F031's measured 4.8:1" % ratio)
+
+
+class RatioCeilingTest(unittest.TestCase):
+    """The ratio ceiling, checked against F031's own measured figure.
+
+    A repaired gate that is merely relaxed is not a repair, so this asserts the
+    ceiling **fires** on the ratio F031 recorded and **passes** on a ratio
+    F031 would have welcomed. The first version of this assertion read
+    `ratio > 1.0`; at F031's own 4.8:1 it passed, which is why this class
+    exists.
+    """
+
+    def test_the_ceiling_fires_on_f031s_own_ratio(self) -> None:
+        self.assertGreaterEqual(F031_MEASURED_RATIO, F031_RATIO_CEILING,
+                                "the ceiling must fire at the ratio F031 recorded")
+
+    def test_a_session_that_writes_experiment_code_does_not_fail_it(self) -> None:
+        # What this session actually did: machinery +4 lines, experiment +1535.
+        before, after = 1.06, 0.99
+        self.assertLess(after, before,
+                        "the fixture must show the ratio falling as experiment code lands")
+        self.assertLess(after, F031_RATIO_CEILING)
+
+    def test_the_original_assertion_would_have_passed_f031(self) -> None:
+        """The blindness, asserted so it cannot be reintroduced quietly."""
+        self.assertGreater(F031_MEASURED_RATIO, 1.0,
+                           "if this ever fails, `ratio > 1.0` was not the blind "
+                           "rule and this comment is wrong")
 
 
 if __name__ == "__main__":

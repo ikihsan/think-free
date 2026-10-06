@@ -1,0 +1,362 @@
+==============================================================================
+[seq 5] 2026-10-05T23:00:02+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/recount.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "views_written", "move": 72, "n_views": 5, "nonsense": 24, "ordinary": 72, "reread": 40, "seek": 72}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 684  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T23:01:20+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/select_doubleread.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "doubleread_frozen", "n": 96, "path": "raw/doubleread_ids.txt", "seed": 3103, "sha256": "5a5b2ba06119c93b386f974c6338b6f4ea46bd851e52aaf51cd1b6c76750287b"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 123  redactions: none
+==============================================================================
+[seq 7] 2026-10-05T23:07:34+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 107  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T23:07:34+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 109  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T23:07:35+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 103  redactions: none
+==============================================================================
+[seq 10] 2026-10-05T23:07:35+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 96  redactions: none
+==============================================================================
+[seq 11] 2026-10-05T23:07:36+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 114  redactions: none
+==============================================================================
+[seq 12] 2026-10-05T23:07:36+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "question_bytes_differ", "detail": {"move": "0e80cf06e388e11f", "ordinary": "fb1068d2c47a3c69", "seek": "257aa0f3f5e1b5ed"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 101  redactions: none
+==============================================================================
+[seq 13] 2026-10-05T23:07:54+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "acf1016b9f0415a0", "view": "view_seek.txt", "yes": 25}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 165  redactions: none
+==============================================================================
+[seq 14] 2026-10-05T23:07:55+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "order_or_set", "detail": {"extra": [], "label_first5": ["S05", "S07", "S09", "S11", "S15"], "label_n": 32, "missing": ["S01", "S02", "S03", "S04", "S06", "S08", "S10", "S12", "S13", "S14", "S16", "S17", "S18", "S19", "S21", "S22", "S24", "S26", "S27", "S28", "S31", "S32", "S33", "S37", "S38", "S39", "S40", "S41", "S47", "S53", "S54", "S56", "S57", "S58", "S59", "S60", "S63", "S65", "S66", "S67"], "view_first5": ["S01", "S02", "S03", "S04", "S05"], "view_n": 72}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 123  redactions: none
+==============================================================================
+[seq 15] 2026-10-05T23:07:55+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "q2_not_verbatim", "detail": {"examples": [{"id": "M69", "q1": "1", "q2": "even IBM didn't want to use or support it anymore", "why": "not a verbatim substring"}], "n": 1}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 108  redactions: none
+==============================================================================
+[seq 16] 2026-10-05T23:07:56+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "order_or_set", "detail": {"extra": [], "label_first5": ["M02", "M05", "M06", "M08", "M09"], "label_n": 32, "missing": ["M01", "M03", "M04", "M07", "M10", "M11", "M12", "M15", "M16", "M17", "M18", "M20", "M23", "M25", "M26", "M31", "M34", "M36", "M38", "M40", "M41", "M42", "M46", "M47", "M51", "M52", "M55", "M56", "M57", "M59", "M60", "M61", "M64", "M65", "M66", "M67", "M69", "M70", "M71", "M72"], "view_first5": ["M01", "M02", "M03", "M04", "M05"], "view_n": 72}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 100  redactions: none
+==============================================================================
+[seq 17] 2026-10-05T23:07:56+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "b519e5b93eb4b374", "view": "view_ordinary.txt", "yes": 13}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 105  redactions: none
+==============================================================================
+[seq 18] 2026-10-05T23:07:57+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "order_or_set", "detail": {"extra": [], "label_first5": ["O07", "O14", "O15", "O17", "O20"], "label_n": 32, "missing": ["O01", "O02", "O03", "O04", "O05", "O06", "O08", "O09", "O10", "O11", "O12", "O13", "O16", "O18", "O19", "O23", "O27", "O28", "O29", "O31", "O32", "O33", "O34", "O38", "O42", "O43", "O44", "O49", "O50", "O60", "O61", "O62", "O63", "O65", "O66", "O67", "O68", "O70", "O71", "O72"], "view_first5": ["O01", "O02", "O03", "O04", "O05"], "view_n": 72}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 86  redactions: none
+==============================================================================
+[seq 19] 2026-10-05T23:08:39+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "acf1016b9f0415a0", "view": "view_seek.txt", "yes": 25}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 104  redactions: none
+==============================================================================
+[seq 20] 2026-10-05T23:08:39+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 32, "sha256_view": "acf1016b9f0415a0", "view": "view_seek.txt", "yes": 9}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 21] 2026-10-05T23:08:40+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "71b2dfb44624ec5e", "view": "view_move.txt", "yes": 25}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 22] 2026-10-05T23:08:40+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 32, "sha256_view": "71b2dfb44624ec5e", "view": "view_move.txt", "yes": 12}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 23] 2026-10-05T23:08:41+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "b519e5b93eb4b374", "view": "view_ordinary.txt", "yes": 13}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 110  redactions: none
+==============================================================================
+[seq 24] 2026-10-05T23:08:41+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "q2_not_verbatim", "detail": {"examples": [{"id": "O54", "q1": "1", "q2": "I know it's not actually impossible, some people finished it, but I never have", "why": "not a verbatim substring"}], "n": 1}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 161  redactions: none
+==============================================================================
+[seq 25] 2026-10-05T23:09:20+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "acf1016b9f0415a0", "view": "view_seek.txt", "yes": 25}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 192  redactions: none
+==============================================================================
+[seq 26] 2026-10-05T23:09:20+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py seek r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 32, "sha256_view": "acf1016b9f0415a0", "view": "view_seek.txt", "yes": 9}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 104  redactions: none
+==============================================================================
+[seq 27] 2026-10-05T23:09:21+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "71b2dfb44624ec5e", "view": "view_move.txt", "yes": 25}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 158  redactions: none
+==============================================================================
+[seq 28] 2026-10-05T23:09:21+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py move r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 32, "sha256_view": "71b2dfb44624ec5e", "view": "view_move.txt", "yes": 12}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102  redactions: none
+==============================================================================
+[seq 29] 2026-10-05T23:09:22+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 72, "sha256_view": "b519e5b93eb4b374", "view": "view_ordinary.txt", "yes": 13}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 108  redactions: none
+==============================================================================
+[seq 30] 2026-10-05T23:09:22+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py ordinary r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 32, "sha256_view": "b519e5b93eb4b374", "view": "view_ordinary.txt", "yes": 6}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 116  redactions: none
+==============================================================================
+[seq 31] 2026-10-05T23:09:23+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py reread r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "not_in_doubleread_set", "detail": {"ids": ["R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08", "R09", "R10"], "n": 40}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 104  redactions: none
+==============================================================================
+[seq 32] 2026-10-05T23:09:36+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py reread r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "unknown_id", "detail": {"id": "R01"}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 103  redactions: none
+==============================================================================
+[seq 33] 2026-10-05T23:09:46+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/recount.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "views_written", "move": 72, "n_views": 5, "nonsense": 24, "ordinary": 72, "reread": 40, "seek": 72}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 427  redactions: none
+==============================================================================
+[seq 34] 2026-10-05T23:09:47+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py reread r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 40, "sha256_view": "0dc094095ff08d39", "view": "view_reread.txt", "yes": 10}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 115  redactions: none
+==============================================================================
+[seq 35] 2026-10-05T23:10:00+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/agreement.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"disagree": {"move": 4, "ordinary": 3, "seek": 5}, "event": "agreement", "floor": 0.6, "kappa": 0.718887262079063, "n": 96, "per_arm_kappa": {"move": 0.7593984962406015, "ordinary": 0.7037037037037037, "seek": 0.6559139784946236}, "verdict": "passes"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 100  redactions: none
+==============================================================================
+[seq 36] 2026-10-05T23:16:01+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 24, "sha256_view": "2c1fbab4e5111c71", "view": "view_nonsense.txt", "yes": 0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 407  redactions: none
+==============================================================================
+[seq 37] 2026-10-05T23:16:02+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"check": "not_in_doubleread_set", "detail": {"ids": ["N01", "N02", "N03", "N04", "N05", "N06", "N07", "N08", "N09", "N10"], "n": 24}, "event": "labels_rejected"}
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 188  redactions: none
+==============================================================================
+[seq 38] 2026-10-05T23:16:21+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r1", "rows": 24, "sha256_view": "2c1fbab4e5111c71", "view": "view_nonsense.txt", "yes": 0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 57  redactions: none
+==============================================================================
+[seq 39] 2026-10-05T23:16:21+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r2
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "labels_accepted", "reader": "r2", "rows": 24, "sha256_view": "2c1fbab4e5111c71", "view": "view_nonsense.txt", "yes": 0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 109  redactions: none
+==============================================================================
+[seq 40] 2026-10-05T23:16:45+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/recurrence.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "pairs", "move": 1, "ordinary": 0, "seek": 1}
+{"clears": false, "event": "null", "mean": 0.64, "observed": 2, "p95": 2}
+{"event": "rates", "move": 0.3472222222222222, "ordinary": 0.18055555555555555, "seek": 0.3472222222222222}
+{"A4": "passes", "A5": "passes", "B1": "fails", "event": "gates"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 203  redactions: none
+==============================================================================
+[seq 41] 2026-10-05T23:17:45+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/build_pairs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"candidates": 100, "control": 100, "event": "pairs_built", "pool": 1849, "sweep": {"ge_1": 100, "ge_2": 4, "ge_3": 0}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 211  redactions: none
+==============================================================================
+[seq 42] 2026-10-05T23:20:56+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/build_poscontrol.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"band": [9.5, 15.5], "event": "poscontrol_built", "negative": 10, "positive": 20, "skipped": 0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 119  redactions: none
+==============================================================================
+[seq 43] 2026-10-05T23:22:07+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "rates", "move": 0.3472, "ordinary": 0.1806, "seek": 0.3472}
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/031-unfilled-requirement/stats.py", line 224, in <module>
+    main()
+  File "EXPERIMENTS/031-unfilled-requirement/stats.py", line 209, in main
+    C.log("gates", **{g.replace("gate_", ""): res[g]["verdict"] for g in
+  File "EXPERIMENTS/031-unfilled-requirement/stats.py", line 209, in <dictcomp>
+    C.log("gates", **{g.replace("gate_", ""): res[g]["verdict"] for g in
+KeyError: 'verdict'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 906  redactions: none
+==============================================================================
+[seq 44] 2026-10-05T23:22:16+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "rates", "move": 0.3472, "ordinary": 0.1806, "seek": 0.3472}
+{"A1_integrity": "passes", "A3_reader_agreement": "passes", "A4_nonsense_control": "passes", "A5_planted_separation": "passes", "A6_pair_positive_control": "passes", "B1_H1": "fails", "C1_H2": "?", "event": "gates"}
+{"candidate_same": 0, "control_same": 0, "event": "verdict", "h1": "H1_does_not_survive", "verdict": "H2_not_survives"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 106  redactions: none
+==============================================================================
+[seq 45] 2026-10-05T23:33:07+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/build_pairs.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"candidates": 100, "control": 100, "event": "pairs_built", "pool": 1849, "sweep": {"ge_1": 100, "ge_2": 4, "ge_3": 0}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 217  redactions: none
+==============================================================================
+[seq 46] 2026-10-05T23:33:08+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/build_poscontrol.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"band": [9.5, 15.5], "event": "poscontrol_built", "negative": 10, "positive": 20, "skipped": 0}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 188  redactions: none
+==============================================================================
+[seq 47] 2026-10-05T23:33:25+00:00
+$ python3 EXPERIMENTS/031-unfilled-requirement/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"event": "rates", "move": 0.3472, "ordinary": 0.1806, "seek": 0.3472}
+{"A1_integrity": "passes", "A3_reader_agreement": "passes", "A4_nonsense_control": "passes", "A5_planted_separation": "passes", "A6_pair_positive_control": "passes", "B1_H1": "fails", "C1_H2": "?", "event": "gates"}
+{"candidate_same": 0, "control_same": 0, "event": "verdict", "h1": "H1_does_not_survive", "verdict": "H2_not_survives"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 114  redactions: none

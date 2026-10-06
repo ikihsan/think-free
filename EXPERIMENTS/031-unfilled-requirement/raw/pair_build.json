@@ -1,0 +1,23 @@
+{
+  "dropped": {
+    "same_artifact": 1,
+    "same_author": 0,
+    "same_story": 3
+  },
+  "min_shared_tokens": 1,
+  "n_candidates": 100,
+  "n_clauses": 63,
+  "n_control": 100,
+  "n_control_pool": 1849,
+  "pair_threshold_sensitivity": {
+    "ge_1": 100,
+    "ge_2": 4,
+    "ge_3": 0
+  },
+  "seed_candidates": 3121,
+  "seed_control": 3122,
+  "view_sha256": {
+    "view_e031_pairs_candidates.txt": "18870ac717e47005c98fc408e55205ae4a755eb8a71359145ef4c0d6c7249146",
+    "view_e031_pairs_control.txt": "cbd62337b30c45871d963ec23776af8e36a37db2936013f8d841cd1177a5404d"
+  }
+}
