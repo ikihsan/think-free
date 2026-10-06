@@ -4,9 +4,9 @@ status: active
 last-verified: 2026-10-06
 -->
 
-# Screening decision D069 — the oracle reads what the user receives
+# Screening decision D070 — the oracle reads what the user receives
 
-Decisions **D069**. Split from [`DECISIONS-SCREENING-8.md`](DECISIONS-SCREENING-8.md) on
+Decisions **D070**. Split from [`DECISIONS-SCREENING-8.md`](DECISIONS-SCREENING-8.md) on
 2026-10-06. `observed` from E038 and F063, session 2026-10-06-009. Completes D068: its
 three questions were answered correctly, and the instruments that answered them were
 capable of agreeing with a broken tool.
@@ -16,7 +16,7 @@ surface E037 did not have, and found two tools that take the coordinate. That is
 as F062 and narrows the candidate. This entry is about the two instruments that run got
 wrong first, because both would have reported a good result.
 
-## D069 — an oracle reads the artifact the user receives
+## D070 — an oracle reads the artifact the user receives
 
 **The rule.** A comparison's oracle reads **the artifact the user receives**, not a
 property of the route that produced it. For a staging tool that is the file content in
@@ -48,7 +48,7 @@ Three consequences, all in force:
    33 rows could not build a reference patch. They were scored anyway, and the routes looked
    wrong on them.
 
-## D069b — a hand label is checked against a second reader, and a rate built on a keyword match is a measurement of the match
+## D070b — a hand label is checked against a second reader, and a rate built on a keyword match is a measurement of the match
 
 Two rules from the same run, because both decide whether a demand number means anything.
 

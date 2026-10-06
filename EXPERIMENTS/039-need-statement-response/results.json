@@ -1,0 +1,216 @@
+{
+ "arms": {
+  "age_note": "needs aged by the same clock as controls: created_at_i against 2026-10-05",
+  "aged_180d": {
+   "control": {
+    "comments": 140346,
+    "label": "control, >=180d",
+    "max_subtree": 379,
+    "median_replies_when_replied": 1,
+    "median_story_total": 392.0,
+    "replied": 65747,
+    "reply_rate": 0.4684636541119804,
+    "with_link_reply": 3698,
+    "with_link_reply_share": 0.026349165633505766,
+    "with_novel_host": 627,
+    "with_novel_host_share": 0.004467530246676072
+   },
+   "need": {
+    "comments": 712,
+    "label": "need, >=180d",
+    "max_subtree": 76,
+    "median_replies_when_replied": 1,
+    "median_story_total": 141.0,
+    "replied": 413,
+    "reply_rate": 0.5800561797752809,
+    "with_link_reply": 42,
+    "with_link_reply_share": 0.05898876404494382,
+    "with_novel_host": 0,
+    "with_novel_host_share": 0.0
+   }
+  },
+  "all": {
+   "control": {
+    "comments": 277295,
+    "label": "control, all ages",
+    "max_subtree": 436,
+    "median_replies_when_replied": 1.0,
+    "median_story_total": 405,
+    "replied": 128150,
+    "reply_rate": 0.46214320489009897,
+    "with_link_reply": 6761,
+    "with_link_reply_share": 0.024381975874069133,
+    "with_novel_host": 1613,
+    "with_novel_host_share": 0.005816909789213653
+   },
+   "need": {
+    "comments": 1391,
+    "label": "need, all ages",
+    "max_subtree": 478,
+    "median_replies_when_replied": 1.0,
+    "median_story_total": 149,
+    "replied": 794,
+    "reply_rate": 0.5708123652048885,
+    "with_link_reply": 77,
+    "with_link_reply_share": 0.055355859094176854,
+    "with_novel_host": 0,
+    "with_novel_host_share": 0.0
+   }
+  }
+ },
+ "capture": {
+  "comment_rows": 278686,
+  "fetch_log_kinds": {
+   "truncated": 26
+  },
+  "fetch_log_rows": 26,
+  "gate_a1_met": true,
+  "gate_a1_recovery": 0.9928622412562456,
+  "gate_a2_control_coverage": 0.9586655750562432,
+  "gate_a2_met": true,
+  "needs_recovered": 1391,
+  "stories_in_corpus": 1276,
+  "stories_in_ledger": 1276,
+  "stories_with_truncation": [
+   "43684536",
+   "45418675",
+   "45619329",
+   "45751400",
+   "45980117",
+   "46473348",
+   "46635345",
+   "46902223",
+   "46945663",
+   "47050488",
+   "47459296",
+   "47584540",
+   "47840219",
+   "47879092",
+   "48019219",
+   "48085993",
+   "48632884",
+   "48823557",
+   "48835111",
+   "48935342",
+   "49076057",
+   "49563355",
+   "49613262",
+   "49630931",
+   "49686380",
+   "49913571"
+  ]
+ },
+ "computed_by": "stats.py from raw/ only",
+ "gates": {
+  "aged_180d": {
+   "control_reply_rate": 0.4684636541119804,
+   "kill_gate_met": true,
+   "kill_gate_ratio_required": 1.5,
+   "need_reply_rate": 0.5800561797752809,
+   "positive_gate_met": false,
+   "ratio": 1.2382095701209421
+  },
+  "all": {
+   "control_reply_rate": 0.46214320489009897,
+   "kill_gate_met": true,
+   "kill_gate_ratio_required": 1.5,
+   "need_reply_rate": 0.5708123652048885,
+   "positive_gate_met": false,
+   "ratio": 1.2351417464649987
+  },
+  "second_kill_link_floor": {
+   "floor": 0.02,
+   "kill_gate_met": false,
+   "need_link_reply_share": 0.055355859094176854
+  }
+ },
+ "h4_asker_returned": {
+  "all_needs_asker_replied_again": 1,
+  "all_needs_with_subtree": 794,
+  "floor": 0.1,
+  "floor_met": false,
+  "needs_with_link_reply": 77,
+  "note": "an asker returning is not evidence the need was satisfied; the protocol declares it a floor, not a satisfaction measure",
+  "of_which_asker_replied_again": 0,
+  "share": 0.0
+ },
+ "per_trigger": {
+  "any tool that": {
+   "need_comments": 97,
+   "replied": 57,
+   "reply_rate": 0.5876288659793815
+  },
+  "does anyone know any": {
+   "need_comments": 53,
+   "replied": 33,
+   "reply_rate": 0.6226415094339622
+  },
+  "i wish there was": {
+   "need_comments": 744,
+   "replied": 413,
+   "reply_rate": 0.5551075268817204
+  },
+  "is there a way to": {
+   "need_comments": 153,
+   "replied": 89,
+   "reply_rate": 0.5816993464052288
+  },
+  "is there an open source": {
+   "need_comments": 26,
+   "replied": 20,
+   "reply_rate": 0.7692307692307693
+  },
+  "is there anything like": {
+   "need_comments": 23,
+   "replied": 16,
+   "reply_rate": 0.6956521739130435
+  },
+  "is there anything that": {
+   "need_comments": 54,
+   "replied": 38,
+   "reply_rate": 0.7037037037037037
+  },
+  "looking for a tool": {
+   "need_comments": 37,
+   "replied": 14,
+   "reply_rate": 0.3783783783783784
+  },
+  "looking for a way to": {
+   "need_comments": 69,
+   "replied": 34,
+   "reply_rate": 0.4927536231884058
+  },
+  "nobody has built": {
+   "need_comments": 48,
+   "replied": 22,
+   "reply_rate": 0.4583333333333333
+  }
+ },
+ "residual": {
+  "median_story_total_of_answered": 150.0,
+  "median_story_total_of_silent": 144,
+  "needs_with_no_reply": 597,
+  "needs_with_no_reply_aged180": 299,
+  "share": 0.4291876347951114,
+  "silent_in_truncated_stories": 15
+ },
+ "schema": "origin.e021.results/1",
+ "verdicts": [
+  {
+   "band": "all",
+   "verdict": "H0: thread position explains reply presence; instrument closed"
+  },
+  {
+   "band": "aged_180d",
+   "verdict": "H0: thread position explains reply presence; instrument closed"
+  }
+ ],
+ "within_story": {
+  "mean_peer_reply_rate": 0.46141388921751636,
+  "need_reply_rate": 0.5932896890343698,
+  "needs_with_at_least_20_controls": 1222,
+  "ratio": 1.2858080411070711,
+  "silent_in_a_live_thread": 417,
+  "silent_in_a_live_thread_definition": "a need with no reply in a story where at least 40% of other comments did get one: silence that thread size does not explain"
+ }
+}

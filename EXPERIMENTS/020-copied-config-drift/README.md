@@ -21,7 +21,7 @@ byte-identical across repositories, and **no two repositories from different
 authors overlap by half**. So F037's "the reader copies the directory" is an
 instruction people are given; what they do is adapt it.
 
-See [`FAILURES-findings-15.md`](../../FAILURES-findings-15.md) F040.
+See [`FAILURES-findings-25.md`](../../FAILURES-findings-25.md) F040.
 
 ## Why this experiment and not another instrument measurement
 

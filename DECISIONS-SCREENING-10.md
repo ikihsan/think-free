@@ -4,16 +4,16 @@ status: active
 last-verified: 2026-10-06
 -->
 
-# Screening decision D070 — the caller is tested in the caller's loop
+# Screening decision D071 — the caller is tested in the caller's loop
 
-Decisions **D070**. Split from [`DECISIONS-SCREENING-9.md`](DECISIONS-SCREENING-9.md) on
+Decisions **D071**. Split from [`DECISIONS-SCREENING-9.md`](DECISIONS-SCREENING-9.md) on
 2026-10-06. `observed` from E040 and F065, session 2026-10-06-012. Completes
 D068/D069 for the `stg` line: D068 named the right question (the interface,
 not the mechanism), D069 made the comparator read the artifact the user
 receives, and D070 adds that the *caller* whose interface is under test is
 put in the loop before the claim is stated.
 
-## D070 — an interface claim is measured in the loop of the caller it names
+## D071 — an interface claim is measured in the loop of the caller it names
 
 E037–E039 all proved the mechanism and the oracle's agreement with it, through
 three increasingly honest instruments. What they never measured is the cost a

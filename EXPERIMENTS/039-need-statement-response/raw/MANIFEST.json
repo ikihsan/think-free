@@ -1,0 +1,148 @@
+{
+ "files": [
+  {
+   "bytes": 398503,
+   "name": "arms.jsonl",
+   "rows": 1391,
+   "sha256": "af77ebbd4ca6d4ea2f250bf1d71c930f4ed9fb64327d450954403a0885054924"
+  },
+  {
+   "bytes": 134935947,
+   "name": "comments.jsonl",
+   "rows": 278686,
+   "sha256": "094634c7ba4cf895b3a98815cb21648d3ae653fe316e657d53cdfcf1d0154f79"
+  },
+  {
+   "bytes": 79140725,
+   "name": "control.jsonl",
+   "rows": 277295,
+   "sha256": "593eab4cfd376ee30cddb103498abd8fbe56cc2a35db12a0d66f1483e07008fc"
+  },
+  {
+   "bytes": 2418,
+   "name": "fetch_log.jsonl",
+   "rows": 26,
+   "sha256": "a5f9a9ebd27663ed99fa3bd2e153191646f7ad1bc734e4451f8569e78eaa07dc"
+  },
+  {
+   "bytes": 372,
+   "name": "log-00.jsonl",
+   "rows": 4,
+   "sha256": "25cd31e785cb898fe26a435c639e18ce4e92d4cb29f3e2145984a194370fb300"
+  },
+  {
+   "bytes": 93,
+   "name": "log-01.jsonl",
+   "rows": 1,
+   "sha256": "b39a4391a243ed2e75582a33f39c40a574e142ac0cf8fe3678accb08c0d487b6"
+  },
+  {
+   "bytes": 186,
+   "name": "log-02.jsonl",
+   "rows": 2,
+   "sha256": "29ba3b9762167fb617571b7f6f758de7201f656e9ddb1c9091fe03a4653a44f8"
+  },
+  {
+   "bytes": 372,
+   "name": "log-03.jsonl",
+   "rows": 4,
+   "sha256": "a5cc7d86ac7772cbf6aff907b87187e7b34e3f2c61a9e19fff869a528e4d4a99"
+  },
+  {
+   "bytes": 558,
+   "name": "log-04.jsonl",
+   "rows": 6,
+   "sha256": "15b84c809bc175b00ce818b9003c3aeecc29bd75cfbbc00f036c01635ac10bcb"
+  },
+  {
+   "bytes": 558,
+   "name": "log-05.jsonl",
+   "rows": 6,
+   "sha256": "421b73e8f51ef7361e89f12a697f5e98671b9ee0eca4191ae854829b1d4a601d"
+  },
+  {
+   "bytes": 0,
+   "name": "log-06.jsonl",
+   "rows": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "bytes": 279,
+   "name": "log-07.jsonl",
+   "rows": 3,
+   "sha256": "2fa41ddf2b90a1d19b0c4f258da66bc5fd1a42ac807ef3890a030db7717b84ea"
+  },
+  {
+   "bytes": 16977389,
+   "name": "shard-00.jsonl",
+   "rows": 34871,
+   "sha256": "436c5000b4eddefb13172c61e08ff47facb174b9ba1e872e6a489098b36fc759"
+  },
+  {
+   "bytes": 16298625,
+   "name": "shard-01.jsonl",
+   "rows": 33457,
+   "sha256": "04e62f8e325c9757783c4653513209f2eeb6e0e31de999996eef071bde781beb"
+  },
+  {
+   "bytes": 16498785,
+   "name": "shard-02.jsonl",
+   "rows": 34608,
+   "sha256": "b479937a930f833f7e65d4dbb75d3bcea5a13fff452c7221e2c8615ea28a091c"
+  },
+  {
+   "bytes": 16652277,
+   "name": "shard-03.jsonl",
+   "rows": 34099,
+   "sha256": "03246887fa88c606f4803e78db31ade6d6482e7d79b77b936486a3acb0b4148c"
+  },
+  {
+   "bytes": 17405974,
+   "name": "shard-04.jsonl",
+   "rows": 35255,
+   "sha256": "626f29db19edeb935bc1346bb820ea7c4fbb5a6d5a3852efff595b18cc988127"
+  },
+  {
+   "bytes": 17575850,
+   "name": "shard-05.jsonl",
+   "rows": 36470,
+   "sha256": "b449a86afca753c7568c91c3eb195e79f7be915f828a836430cb8a358e8ec0a8"
+  },
+  {
+   "bytes": 16437258,
+   "name": "shard-06.jsonl",
+   "rows": 33602,
+   "sha256": "3690954855834a20641b15732740465b43296601f36e28c119cf20145ce66858"
+  },
+  {
+   "bytes": 17089789,
+   "name": "shard-07.jsonl",
+   "rows": 36324,
+   "sha256": "0ca9666e7010d083f3c1bfb0a8fcb58b5f6e30256de301d750a0dbad39945c1e"
+  },
+  {
+   "bytes": 11484,
+   "name": "stories.done",
+   "rows": 1276,
+   "sha256": "898a9a9f4d09f154d4e621703131df8cd03c31023b270d60eb91110710f3a9f1"
+  }
+ ],
+ "note_on_digests": "Full-length sha256, recomputed from the bytes by verify_manifest.py. Digests shorter than 64 characters were hand-transcribed and are not compared; the script rewrites them.",
+ "rebuild": "python3 capture.py && python3 merge.py && python3 arms.py && python3 stats.py && python3 trigger_shape.py",
+ "schema": "origin.e021.raw-manifest/1",
+ "source": {
+  "auth": "none",
+  "captured_by": "capture.py, 8 threads, resumable via raw/stories.done",
+  "endpoint": "https://hn.algolia.com/api/v1/search?tags=comment,story_<id>&hitsPerPage=100&page=<n>",
+  "page_ceiling_hits": 1000,
+  "requests_issued": "about 3,700 (100 rows per request, plus empty-page probes)",
+  "stories_requested": 1276
+ },
+ "tracked": [
+  "arms.jsonl",
+  "fetch_log.jsonl",
+  "stories.done",
+  "MANIFEST.json"
+ ],
+ "why": "The capture is 334 MB across 22 files. Tracked-bytes for that is vendored input that nothing verifies, and the mission's precedent for it is E015's 905,521-name PyPI index: gitignore the bulk, keep the record - url, status, bytes, sha256, row count - because re-running capture.py rebuilds it. This file is that record."
+}

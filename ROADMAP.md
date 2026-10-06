@@ -169,13 +169,19 @@ cap, by invariant rather than by size.
 The infrastructure track finished ahead of stage B because stage B is blocked on judgement, not
 tooling — twice over: on what no experiment here can answer (whether a knitter follows a generated
 repair plan, whether E3's finding generalises beyond one builder, item 8) and, since E016, on
-which axis a candidate is selected. **That blocker has narrowed nine times**
-(F035, F037, F039, F041, F042, F043, F048, F053, F054, F055, D053–D055, D060) and resolves to
-an owner decision. **The twelve prior-art deaths stand**, and F048 leaves them resting on a rule they
-do not yet meet. E022 followed the demand-side asset forward and E023 withdrew its one
-uncontrolled number (F043, D055); E032 showed the recurrence zero is not one platform's
-property (F053, F054), and **E033 then showed the bound that zero produced was an artefact
-of the draw** (F055). See [`STATE-in-flight.md`](STATE-in-flight.md).
+which axis a candidate is selected. **That blocker is now an owner decision on both
+sides.** E022 followed the demand-side asset forward and E023 withdrew its one
+uncontrolled number (F043, D055); E032 showed the recurrence zero is not one
+platform's property (F053, F054), and E033 showed the bound that zero produced was an
+artefact of the draw (F055). **E039 then measured the last channel that had not been
+measured — the reply subtree of the need corpus itself — and found it carries no
+serving signal and no outcome** (F060, D068): 0 of 1391 needs drew a reply naming a
+tool new to its thread, and 1 of 794 requesters replied again. Five measurements of
+the selection question now agree; see [`STATE-selection.md`](STATE-selection.md).
+**The twelve prior-art deaths stand**, and F048 leaves them resting on a rule they
+do not yet meet. Earlier readings are in [`STATE-in-flight.md`](STATE-in-flight.md),
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
+[`STATE-in-flight-3.md`](STATE-in-flight-3.md).
 
 The tooling itself is not finished, and what remains is *fleet* work rather than invention
 work: the exercised-version records exist and `doctor` reads them (T-0033), every CPython

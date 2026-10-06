@@ -1,0 +1,382 @@
+==============================================================================
+[seq 2] 2026-10-05T03:48:10+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/calibration.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+49898688 algolia=0 firebase=0 agree
+46330240 algolia=8 firebase=8 agree
+48902129 algolia=4 firebase=4 agree
+48188885 algolia=0 firebase=0 agree
+45688682 algolia=0 firebase=0 agree
+49219797 algolia=1 firebase=1 agree
+45727630 algolia=5 firebase=7 DISAGREE
+45409327 algolia=1 firebase=1 agree
+49627397 algolia=0 firebase=0 agree
+45450613 algolia=1 firebase=1 agree
+48551678 algolia=8 firebase=9 DISAGREE
+48883876 algolia=3 firebase=3 agree
+agree=10 disagree=2 max_gap=2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 40136  redactions: none
+==============================================================================
+[seq 3] 2026-10-05T03:56:05+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/021-need-statement-response/arms.py", line 140, in <module>
+    main()
+  File "EXPERIMENTS/021-need-statement-response/arms.py", line 87, in main
+    text_of = {r["id"]: r["text"] for r in srows}
+  File "EXPERIMENTS/021-need-statement-response/arms.py", line 87, in <dictcomp>
+    text_of = {r["id"]: r["text"] for r in srows}
+KeyError: 'text'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 821  redactions: none
+==============================================================================
+[seq 4] 2026-10-05T03:56:30+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm A (needs): 6   arm B (controls): 782   stories: 6   log rows: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 265  redactions: none
+==============================================================================
+[seq 5] 2026-10-05T03:58:27+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/merge.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+merged 9697 unique comments, 1 log rows
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 893  redactions: none
+==============================================================================
+[seq 6] 2026-10-05T03:58:29+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm A (needs): 44   arm B (controls): 9653   stories: 40   log rows: 1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1730  redactions: none
+==============================================================================
+[seq 7] 2026-10-05T03:58:30+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "comment_rows": 9697,
+ "fetch_log_kinds": {
+  "truncated": 1
+ },
+ "fetch_log_rows": 1,
+ "gate_a1_met": false,
+ "gate_a1_recovery": 0.03140613847251963,
+ "gate_a2_control_coverage": 0.942554432348367,
+ "gate_a2_met": true,
+ "needs_recovered": 44,
+ "stories_in_corpus": 1276,
+ "stories_in_ledger": 40,
+ "stories_with_truncation": [
+  "49563355"
+ ]
+}
+{
+ "aged_180d": {
+  "control_reply_rate": 0.4968314321926489,
+  "kill_gate_met": false,
+  "kill_gate_ratio_required": 1.5,
+  "need_reply_rate": 0.75,
+  "positive_gate_met": true,
+  "ratio": 1.5095663265306123
+ },
+ "all": {
+  "control_reply_rate": 0.4589246866259194,
+  "kill_gate_met": true,
+  "kill_gate_ratio_required": 1.5,
+  "need_reply_rate": 0.6590909090909091,
+  "positive_gate_met": false,
+  "ratio": 1.4361635542786784
+ },
+ "second_kill_link_floor": {
+  "floor": 0.02,
+  "kill_gate_met": false,
+  "need_link_reply_share": 0.11363636363636363
+ }
+}
+{
+ "median_story_total_of_answered": 170,
+ "median_story_total_of_silent": 95,
+ "needs_with_no_reply": 15,
+ "needs_with_no_reply_aged180": 2,
+ "share": 0.3409090909090909,
+ "silent_in_truncated_stories": 0
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 757  redactions: none
+==============================================================================
+[seq 8] 2026-10-05T04:11:41+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/merge.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+merged 278686 unique comments, 26 log rows
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 113497  redactions: none
+==============================================================================
+[seq 9] 2026-10-05T09:16:03+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/stats.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "comment_rows": 278686,
+ "fetch_log_kinds": {
+  "truncated": 26
+ },
+ "fetch_log_rows": 26,
+ "gate_a1_met": true,
+ "gate_a1_recovery": 0.9928622412562456,
+ "gate_a2_control_coverage": 0.9586655750562432,
+ "gate_a2_met": true,
+ "needs_recovered": 1391,
+ "stories_in_corpus": 1276,
+ "stories_in_ledger": 1276,
+ "stories_with_truncation": [
+  "43684536",
+  "45418675",
+  "45619329",
+  "45751400",
+  "45980117",
+  "46473348",
+  "46635345",
+  "46902223",
+  "46945663",
+  "47050488",
+  "47459296",
+  "47584540",
+  "47840219",
+  "47879092",
+  "48019219",
+  "48085993",
+  "48632884",
+  "48823557",
+  "48835111",
+  "48935342",
+  "49076057",
+  "49563355",
+  "49613262",
+  "49630931",
+  "49686380",
+  "49913571"
+ ]
+}
+{
+ "aged_180d": {
+  "control_reply_rate": 0.4684636541119804,
+  "kill_gate_met": true,
+  "kill_gate_ratio_required": 1.5,
+  "need_reply_rate": 0.5800561797752809,
+  "positive_gate_met": false,
+  "ratio": 1.2382095701209421
+ },
+ "all": {
+  "control_reply_rate": 0.46214320489009897,
+  "kill_gate_met": true,
+  "kill_gate_ratio_required": 1.5,
+  "need_reply_rate": 0.5708123652048885,
+  "positive_gate_met": false,
+  "ratio": 1.2351417464649987
+ },
+ "second_kill_link_floor": {
+  "floor": 0.02,
+  "kill_gate_met": false,
+  "need_link_reply_share": 0.055355859094176854
+ }
+}
+{
+ "median_story_total_of_answered": 150.0,
+ "median_story_total_of_silent": 144,
+ "needs_with_no_reply": 597,
+ "needs_with_no_reply_aged180": 299,
+ "share": 0.4291876347951114,
+ "silent_in_truncated_stories": 15
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17598248  redactions: none
+==============================================================================
+[seq 24] 2026-10-06T12:03:24+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/verify_manifest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+manifest: 21 files, 0 changed, 0 missing
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6581  redactions: none
+==============================================================================
+[seq 25] 2026-10-06T12:05:40+00:00
+$ python3 EXPERIMENTS/021-need-statement-response/verify_manifest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+manifest: 21 files, 0 changed, 0 missing
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3868  redactions: none
+==============================================================================
+[seq 54] 2026-10-06T13:26:00+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..............................................................................................................................................................................................................F...............................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_lint_passes_while_a_session_is_open (test_doclint.OpenSessionLintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_doclint.py", line 215, in test_lint_passes_while_a_session_is_open
+    self.assertEqual(self.cli("doc", "lint"), 0, self.output())
+AssertionError: 2 != 0 : doc lint: 74 file(s) checked
+  FAIL  tools/originlib/paths.py:45: unresolved conflict block; terminator on line 51
+  FAIL  tools/originlib/reconcile.py:41: unresolved conflict block; terminator on line 47
+doc lint: 2 violation(s)
+
+
+----------------------------------------------------------------------
+Ran 746 tests in 703.309s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 705320  redactions: none
+==============================================================================
+[seq 55] 2026-10-06T13:35:28+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+............................................................................/home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..................................................................................................................F........F..................F...............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_a_waived_conflict_is_reported_as_info (test_conflicts.LintTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_conflicts.py", line 214, in test_a_waived_conflict_is_reported_as_info
+    self.assertFalse(
+AssertionError: True is not false : ['AGENTS.md: orphan document; no other document links to it', 'MISSION.md: orphan document; no other document links to it', 'README.md: orphan document; no other document links to it', 'RELEASE-MANIFEST.md: orphan document; no other document links to it', 'STATE.md: orphan document; no other document links to it', 'docs/policy/doc-standards.md: orphan document; no other document links to it', 'docs/policy/quoted.md: orphan document; no other document links to it', 'docs/process/session-protocol.md: orphan document; no other document links to it', 'docs/process/task-lifecycle.md: orphan document; no other document links to it', 'docs/reference/skill-inventory.md: orphan document; no other document links to it', 'sessions/INDEX.md: generated file missing', "docs/INDEX.md: generated file is stale; run 'tools/origin doc index'", 'tasks/INDEX.md: generated file missing', 'tools/originlib/paths.py:44: unresolved conflict block; terminator on line 52', 'tools/originlib/reconcile.py:40: unresolved conflict block; terminator on line 48']
+
+======================================================================
+FAIL: test_no_tracked_file_holds_an_unresolved_conflict (test_conflicts.ThisRepositoryTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_conflicts.py", line 249, in test_no_tracked_file_holds_an_unresolved_conflict
+    self.assertEqual(violations, [])
+AssertionError: Lists differ: ['DECISIONS.md:19: unresolved conflict blo[1068 chars] 48'] != []
+
+First list contains 15 additional elements.
+First extra element 0:
+'DECISIONS.md:19: unresolved conflict block; terminator on line 31'
+
+Diff is 1183 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 66, in test_the_mission_record_list_covers_every_decision_file
+    "DECISIONS-RECORDS.md",
+AssertionError: Lists differ: ['DECISIONS-SCREENING-3.md', 'DECISIONS-SC[93 chars].md'] != []
+
+First list contains 5 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-3.md'
+
++ []
+- ['DECISIONS-SCREENING-3.md',
+-  'DECISIONS-SCREENING-4.md',
+-  'DECISIONS-SCREENING-5.md',
+-  'DECISIONS-SCREENING-6.md',
+-  'DECISIONS-SCREENING-7.md'] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 746 tests in 859.703s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 862917  redactions: none
+==============================================================================
+[seq 82] 2026-10-06T13:58:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................................./home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 816 tests in 1208.564s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1210417  redactions: none

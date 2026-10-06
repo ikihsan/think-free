@@ -20,9 +20,12 @@ taken on. How this repository's own gates are written and run belongs in
 Split out of `DECISIONS-SCREENING.md` on 2026-10-05 (T-0063) when D051 pushed
 that file past the 300-line cap. D048–D050 moved verbatim; numbering is
 continuous and unchanged, so any existing reference to a decision id still
-resolves. **The split continues the same invariant rather than narrowing it**,
-which is why this header repeats the screening invariant instead of inventing a
-new one — a narrower invariant is what
+resolves. **Split a second time on 2026-10-06 (T-0081) into
+[`DECISIONS-SCREENING-8.md`](DECISIONS-SCREENING-8.md), which carries the same
+invariant for D068; this file's range remains D048-D052. **The split continues
+the same invariant rather than narrowing it**, which is why this header repeats
+the screening invariant instead of inventing a new one — a narrower invariant is
+what
 [`DECISIONS-SESSIONS.md`](DECISIONS-SESSIONS.md) had to revert after T-0030,
 when two files' prose contradicted each other.
 
