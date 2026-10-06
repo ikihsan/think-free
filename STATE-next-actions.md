@@ -133,13 +133,42 @@ untouched, and every item says which.
      positives at all. **D064** governs the decision rule that failed to be exclusive,
      **D063** the ten-literal label that makes E033's 0.0540 a floor.
 
-     **Ceiling and next action:** one platform, one label, three sites at 3–5 tags each,
-     and the canonical edge unreachable through nine named channels — so nothing here
-     separates a moderator's judgement from a findability failure. **The single next
-     action is D6's own: three to four more tags on each of the three sites, `tail` arm
-     only, 4 pages each — about 30 requests against a fresh 300.** Nothing is built on
-     this population until tag is separable from site. Reading in
+     **Ceiling:** one platform, one label, three sites at 3–5 tags each, and the
+     canonical edge unreachable through nine named channels — so a moderator's judgement
+     and a findability failure are not separated here. Reading in
      [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+
+  0f. **This item's next action is superseded, and so is its motivating frame** (F058,
+      D065, `EXPERIMENTS/035-unanswered-surface/`). Four reads of E034's **committed**
+      bytes, at zero quota cost, reordered it: the population is **not one that was
+      overlooked** — within the tail arm duplicate rows are viewed *more* than their
+      neighbours, **251 against 193**, at a median age of **8.49 yr** — so the frame is an
+      eight-year-old backlog rather than a findability rescue; the `Active` and `tail` arms
+      **do not intersect** for two of eight tags, so the 4.5× is about *membership*; **no
+      Stack Overflow page offers the ordering** (409,639 bytes of rendered HTML, **0**
+      occurrences of `order=asc`, `oldest` or `ascending`); and **D6's remedy was aimed at
+      the wrong constraint** — between-tag excess variance is **+0.0420 within
+      `stackoverflow` alone**, equal to the pooled **+0.0417**. Figures and mechanism:
+      [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+
+      **E035's own gates did not close it either.** `/questions/unanswered` — the surface
+      `tab=Unanswered` is built on — **excludes the population by definition**: **0** of
+      E034's 224 known duplicate-closed ids appear in its 2050 rows, while **98 of 186** tail
+      duplicates meet its advertised `is_answered == false` criterion and are still absent.
+      **D065**: the overlap gate fired at 0.0283 and the firing was definitional, so its
+      declared branch is *not* taken. **U2 is `not_evaluated`, not zero** — `closed_reason`
+      is unreadable on that route (six filter forms; **custom filters refused
+      unauthenticated**; `/questions/{ids}` omits it too), so the density comparison needs an
+      API key this host does not have. A prototype runs offline on committed bytes:
+      `readout.py --survey`, `--tag site/tag`.
+
+      **Ceiling:** `customs` at 0.4650 and `excel-formula` at 0.0000 remain single cells, and nothing measures whether anyone
+      wants the backlog surfaced — the whole adoption question. **The single next action is the one alternative this
+      line never tested, a person's own search box.** `/search/advanced` and `/search/excerpts` are reachable from this
+      host while every `stackoverflow.com` page is not, they accept `hasaccepted=no`, and **search is what a person with
+      a problem types into**. It is the strongest alternative to any reader here, and the question is not whether the
+      tail is denser (**measured: 0.1653 [0.1448, 0.1882]**) but **whether a good query already returns the backlog**.
+      If it does, the candidate dies to the platform's own search — a kill worth having before anything is built.
 
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the

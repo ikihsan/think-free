@@ -8,13 +8,14 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-124 recorded session(s). One `events.jsonl` per session, so concurrent
+125 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 99 older session(s) are in the directory listing.
+Showing the 25 most recent. 100 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-004-test-whether-the-population-e034-found-i](2026-10-06-004-test-whether-the-population-e034-found-i/README.md) | unknown-agent | **unfinished** | Test whether the population E034 found is reachable by the people who  | 2026-10-06T06:31 |
 | [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | worked | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T06:09 |
 | [2026-10-06-002-e033-measure-the-rate-of-cross-author-re](2026-10-06-002-e033-measure-the-rate-of-cross-author-re/README.md) | unknown-agent | worked | E033: measure the rate of cross-author recurrence in public long-form  | 2026-10-06T04:55 |
 | [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | worked | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T02:08 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 99 older session(s) are in the directory listing.
 | [2026-10-05-003-declare-e019-s-raw-captures-and-land-the](2026-10-05-003-declare-e019-s-raw-captures-and-land-the/README.md) | unknown-agent | worked | Declare E019's raw captures and land the corrected F039 index row | 2026-10-05T02:31 |
 | [2026-10-05-002-test-whether-f033-s-project-level-denomi](2026-10-05-002-test-whether-f033-s-project-level-denomi/README.md) | unknown-agent | worked | Test whether F033's project-level denominator hid genuine cross-person | 2026-10-05T02:30 |
 | [2026-10-05-001-answer-e016-lead-7-s-mechanism-question](2026-10-05-001-answer-e016-lead-7-s-mechanism-question/README.md) | unknown-agent | worked | Answer E016 lead 7's mechanism question with a prototype and OTel grou | 2026-10-05T01:19 |
-| [2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills](2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/README.md) | unknown-agent | worked | Re-adjudicate E012's 19 prior-art kills on three corpora with positive | 2026-10-05T00:40 |
 
 
 ## Reading a session

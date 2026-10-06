@@ -1,0 +1,221 @@
+{
+  "a1": {
+    "fires": false,
+    "label_readable": false,
+    "label_readable_note": "closed_reason is absent from all 2050 rows because the /questions/unanswered default filter omits it and the API refuses custom filters unauthenticated. See PROTOCOL.md 4a and 4b.",
+    "requests": 21,
+    "requests_fire": true,
+    "requests_ok": 21,
+    "requests_ok_share": 1.0,
+    "rows": 2050,
+    "rows_with_closed_reason_key": 0,
+    "rows_with_key_share": 0.0
+  },
+  "label": {
+    "duplicate_literals": [
+      "duplicate",
+      "exact duplicate"
+    ],
+    "input_sha256": {
+      "harvest.jsonl": "d752ae2909f38830ba11c0beeabc3b22404f5ec1cec9ab0477e21601add00e71",
+      "r1.jsonl": "5b6c7283242ce198d2578618f40f87b798b05316423430cc714952f4d59103b4",
+      "r2.jsonl": "399468ab791f9b0a45a1e68dd99dc95a5b998599f986d33139a21771cb6a8001"
+    }
+  },
+  "u1": {
+    "fires": true,
+    "median_jaccard": 0.0283,
+    "per_tag": [
+      {
+        "jaccard": 0.0336,
+        "shared": 13,
+        "tag": "stackoverflow/git",
+        "tail_n": 100,
+        "u_n": 300
+      },
+      {
+        "jaccard": 0.023,
+        "shared": 9,
+        "tag": "stackoverflow/regex",
+        "tail_n": 100,
+        "u_n": 300
+      },
+      {
+        "jaccard": 0.0,
+        "shared": 0,
+        "tag": "stackoverflow/python",
+        "tail_n": 100,
+        "u_n": 293
+      },
+      {
+        "jaccard": 0.0636,
+        "shared": 7,
+        "tag": "stackoverflow/docker",
+        "tail_n": 25,
+        "u_n": 92
+      },
+      {
+        "jaccard": 0.1161,
+        "shared": 52,
+        "tag": "stackoverflow/excel-formula",
+        "tail_n": 200,
+        "u_n": 300
+      },
+      {
+        "jaccard": 0.0702,
+        "shared": 24,
+        "tag": "travel/customs",
+        "tail_n": 200,
+        "u_n": 166
+      },
+      {
+        "jaccard": 0.0076,
+        "shared": 3,
+        "tag": "math/linear-algebra",
+        "tail_n": 100,
+        "u_n": 300
+      },
+      {
+        "jaccard": 0.0,
+        "shared": 0,
+        "tag": "math/probability",
+        "tail_n": 100,
+        "u_n": 299
+      }
+    ],
+    "tags_scored": 8
+  },
+  "u1_mechanism": {
+    "e034_known_duplicate_ids": 224,
+    "e034_known_duplicate_ids_in_U": 0,
+    "reads_as": "route_excludes_closed_questions",
+    "tail_duplicates": 186,
+    "tail_duplicates_in_U": 0,
+    "tail_duplicates_meeting_U_criterion_but_absent_from_U": 98,
+    "tail_nonduplicates_in_U": 108
+  },
+  "u2": {
+    "fires": null,
+    "reason": "closed_reason is absent from every U row and from every /questions/{ids} re-read of them. The API refuses custom filters unauthenticated (six forms tried, 400 Invalid filter specified), so the label needs an API key this host does not have. A 0.0000 read off an absent field would be a statement about the filter.",
+    "status": "not_evaluated",
+    "tail": {
+      "ci95": [
+        0.1448,
+        0.1882
+      ],
+      "dups": 186,
+      "n": 1125,
+      "rate": 0.1653
+    },
+    "unanswered": {
+      "ci95": null,
+      "dups": null,
+      "n": 2050,
+      "rate": null
+    }
+  },
+  "u3": {
+    "fires": true,
+    "per_tag": [
+      {
+        "overlap": true,
+        "tag": "stackoverflow/git",
+        "tail_score": [
+          -20,
+          -5
+        ],
+        "u_score": [
+          -6,
+          -2
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "stackoverflow/regex",
+        "tail_score": [
+          -85,
+          -8
+        ],
+        "u_score": [
+          -13,
+          -4
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "stackoverflow/python",
+        "tail_score": [
+          -34,
+          -11
+        ],
+        "u_score": [
+          -11,
+          -6
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "stackoverflow/docker",
+        "tail_score": [
+          -14,
+          -5
+        ],
+        "u_score": [
+          -7,
+          -3
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "stackoverflow/excel-formula",
+        "tail_score": [
+          -11,
+          -4
+        ],
+        "u_score": [
+          -11,
+          -2
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "travel/customs",
+        "tail_score": [
+          -7,
+          0
+        ],
+        "u_score": [
+          -1,
+          16
+        ]
+      },
+      {
+        "overlap": true,
+        "tag": "math/linear-algebra",
+        "tail_score": [
+          -12,
+          -4
+        ],
+        "u_score": [
+          -5,
+          -1
+        ]
+      },
+      {
+        "overlap": false,
+        "tag": "math/probability",
+        "tail_score": [
+          -9,
+          -4
+        ],
+        "u_score": [
+          -3,
+          -1
+        ]
+      }
+    ],
+    "tags": 8,
+    "tags_overlapping": 7
+  },
+  "verdict": "backlog_confirmed_unanswered_surface_excluded_density_unknown"
+}

@@ -6,8 +6,9 @@ last-verified: 2026-10-06
 
 # Verified state
 
-Date: 2026-10-06, Asia/Kolkata. Phase: B — the prior-art screen is measured and the
-recurrence bound is refuted. **No product selected.**
+Date: 2026-10-06, Asia/Kolkata. Phase: B — the prior-art screen is measured, the recurrence
+bound is refuted, and the score-tail backlog is confirmed real, unreachable and **not a
+rescue**. **No product selected.**
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -49,23 +50,31 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**The fifth demand-side generator returned positives for the first time, and could not
-read two thirds of them** (`EXPERIMENTS/034-reask-tail`, F057, D063/D064, T-0078).
-Duplicate closure on Stack Exchange runs at **0.1352 in the score tail against 0.0303 in
-the `Active` tab** — 4.5×, on equal denominators too — which **replicates F055's
-whole-site gradient on an independent tag-stratified population**, and **the rate is a
-per-tag property spanning 0.0000 to 0.4300**, with 12 disjoint interval pairs and both
-extremes reproducing on the next four pages. **The seat is no longer empty and the
-candidate is not yet one**: duplicate closure is a *moderator act*, and with one `travel`
-tag against five `stackoverflow` ones the highest cell was the only cell from its site —
-after AMENDMENT-1, within-site tag pairs separate **4/10** against **14/26** cross-site,
-so **site and tag both carry real variance and 3–5 tags per site cannot apportion them**
-(D6). The mechanism claim fails outright: *"the answer existed and was not found"* cannot
-be separated from *"a moderator closed it"* (B1, CI95 [−0.0774, +0.3075]). The
-a-priori stratum hypothesis is backwards — the situational exemplar has the *lowest* rate
-of all ten tags. Two facts outlive it: **the canonical edge is unreachable** through nine
-named channels, and **the label is ten literals, so E033's 0.0540 is a floor** (D063).
-Full reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+**The fifth demand-side generator returned positives, and the next one found out where they
+are — and that they were not being overlooked** (`EXPERIMENTS/035-unanswered-surface`,
+F058, D065, T-0079). E035 spent **zero quota** re-reading E034's committed bytes and
+changed four things. **The premise is falsified as a rescue**: within the tail arm the
+duplicate rows are viewed *more* than their neighbours — **251 against 193**, at a median
+age of **8.49 yr** — so this is an eight-year-old backlog, not a findability failure. **The
+`Active` and `tail` arms do not intersect** for two of eight tags, so the 4.5× is about
+**membership**, not density. **No Stack Overflow page offers the ordering**: 409,639 bytes
+of first-party rendered HTML list `Newest / Active / Votes / Frequent / Trending /
+Bounties / Unanswered` and contain **0** occurrences of `order=asc`, `oldest` or
+`ascending`. **And D6's remedy was aimed at the wrong constraint** — between-tag excess
+variance is **+0.0420 within `stackoverflow` alone**, equal to the pooled **+0.0417** — so
+item 0e's 30-request fix, ranked the mission's top action, was not the binding one.
+
+**Its own gates did not close it either.** `/questions/unanswered`, the surface
+`tab=Unanswered` is built on, **excludes the population by definition**: **0** of E034's
+224 known duplicate-closed ids appear in its 2050 rows, while **98 of 186** tail duplicates
+meet its advertised `is_answered == false` criterion and are still absent. **D065**: the
+overlap gate fired at 0.0283, the firing was definitional, and its declared branch is
+**not taken**. **U2 is `not_evaluated`, not zero** — `closed_reason` is unreadable on that
+route, so the density comparison needs an API key this host does not have. **A prototype
+exists and runs offline on committed bytes.** Evidence in
+[`EXPERIMENTS/035-unanswered-surface/README.md`](EXPERIMENTS/035-unanswered-surface/README.md);
+readings in [`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
+[`STATE-in-flight-3.md`](STATE-in-flight-3.md).
 
 **The fourth demand-side generator closed on its own premise, not on prior art**
 (`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing capability
@@ -89,56 +98,24 @@ refuted, and the zeros were a stratum effect**: the top 60 by score, which is wh
 sliding windows, and the rate is **4.5× higher in the bottom score tertile**. Statement,
 and what it does not license, in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-**F037's reconciliation for the supply question is withdrawn: the copies are adapted, not
-duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed (687 matches)
-and barely duplicated (4.7% of contents), so near-zero install readings are not an invisible
-channel. Drift is **`inconclusive`**, not zero.
+**Five closed readings, kept here as pointers only — each one's full text is in the file
+named, and none of them changes what is next.** (i) **F037's reconciliation for the supply
+question is withdrawn:** the copies are adapted, not duplicated, so near-zero install
+readings are not an invisible channel (F040, `EXPERIMENTS/020`); drift is `inconclusive`.
+(ii) **F049 followed the 1250 need-starters forward**: of the 241 with a public `Show HN`
+item, **167 shipped before they stated the need** and only 74 after, and the reader arm is
+`not_evaluated` (κ = 0.5004), so the need-to-build link bounds at **[−0.0156, +0.1125]**
+— F042's 0-of-24 is confirmed on a 10× larger instrument. (iii) **The candidate generator
+was refuted**: 1401 harvested need statements, 50 drawn by rule, **0 survived**, and its
+strongest cluster collapsed ~200× (F029, F033). (iv) **The prior-art screen measured on
+coverage**: 6 of 6 positive controls recovered, 3 of 12 adjudicable kills have no prior art,
+and **corpus carriage is the result** — GitHub's index carried every verdict the code corpora
+carried (F035, F036, D050). (v) **Its population came out against it**: 14 of 18 young
+rows are executable code, documents carry a median 6,072 stars against 566, and the most
+-starred tool there is installed 363 times a month (F037). Readings in
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
+[`STATE-in-flight.md`](STATE-in-flight.md).
 
-**F049 followed the 1250 forward through the channel F045 opened.** Of the 241
-need-starters with a public `Show HN` item, **167 shipped it before they stated the
-need** and only 74 after (`EXPERIMENTS/029`, T-0073), so the corpus is substantially
-**people who had already built something and then hit a gap they did not close** —
-which is what E045's 22.2% means read against *when*. The reader arm that would
-have quantified the rest is `not_evaluated` (κ = 0.5004; control separation 0.0405
-against a required 0.20), and bounds the need-to-build link at
-**[−0.0156, +0.1125]**, consistent with zero: F042's 0-of-24 is confirmed on a 10×
-larger instrument, not refuted. **The number that narrowed item 0 had no control, and
-the control is now run** (`EXPERIMENTS/023`, F043, D055, T-0067): E022's
-hand-labelled **15/39 = 0.385** "served" rate is **0.368** for ordinary comments in
-the *same stories*, drawn from answered comments so both arms share the "a reply
-exists" condition — difference 0.026, Wilson intervals overlapping across nearly
-their whole width. **The rubric is not the cause**: this reader and E022's labelled
-the identical 39 rows at **κ = 0.923**. **What is withdrawn is the inference, not the
-measurement.** **E022's other two numbers stand** — 58.0% answered, and 0 of 24
-unserved requesters who built it themselves. **The transferable bound:** a trigger
-vocabulary finds people who state needs and is invisible to what happens to those
-needs afterwards (lift 0.703 on answered, +0.026 on served), which bounds every
-outcome read from a trigger-harvested corpus, E022's and E029's included — and it
-is why E032's own population was selected with no requirement vocabulary at all.
-
-**The candidate generator was refuted and its strongest cluster with it**
-(`EXPERIMENTS/012`, `EXPERIMENTS/014`, D049, F029, F033): 1401 harvested need statements,
-50 drawn by a stated rule, **0 survived**; the "5805 issues / 28 repositories" cluster
-collapsed to 15 issues across 9 agent-labelled repositories. F030: a prior-art verdict from
-one query is wrong in both directions.
-
-**The prior-art screen was then measured on coverage** (`EXPERIMENTS/016`, D050,
-F035, F036): re-adjudicated on three corpora with six positive controls, **6 of 6
-controls recovered served and 3 of 12 adjudicable kills have no prior art**.
-**Corpus carriage is the transferable result:** GitHub's index carried every
-verdict the code corpora carried, the registries carried none on their own, and
-the open web carried 4 served verdicts two code corpora returned nothing for. D050:
-**an absence of a hit on three corpora is the absence of a hit.** E019 then closed
-two of the three as sources (F039).
-
-**The screen's population was measured too, and it came out against the
-alternative** (`EXPERIMENTS/017`, F037): **14 of 18** young-vocabulary rows are
-executable code, 13 of 18 with every root listing read by hand. Documents are 22%
-of the young arm and carry a **median 6,072 stars against 566**, 14 of 18 rows have
-no readable use channel, and **the most-starred tool there is installed 363 times
-a month.** The reading that followed — the reader copies a `.claude/` directory,
-so the artifact is not a package and installs read zero — **is withdrawn by F040
-above.**
 **Four closed tooling findings, kept as pointers because they are the standing reasons a
 session's own gate can be green and its records still false.** A restated experiment number
 was false and the obvious gate is blind to it (defect 22, T-0056, D047, F024);
@@ -155,13 +132,15 @@ that ceiling seven and twice).
 
 ## What changed recently
 
-- **Session 003, VM 0944 (T-0078, F057, D063/D064): the demand-side instrument returned
-  positives and a control.** E034's `tail` arm reads **4.5×** the `Active` tab's
-  duplicate-closure rate, per-tag rates span **0.0000 to 0.4300** and both extremes
-  replicate out of sample, and **the per-tag reading is `not_established`** because site
-  and tag cannot be told apart at 3–5 tags per site. Evidence in
-  [`EXPERIMENTS/034-reask-tail/README.md`](EXPERIMENTS/034-reask-tail/README.md);
-  reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md). Earlier: sessions 001–002,
+- **Session 004, VM 0944 (T-0079, F058, D065): four reads of committed bytes settled
+  reachability, refuted the frame, and re-scoped the top item for zero quota.** Evidence in
+  [`EXPERIMENTS/035-unanswered-surface/README.md`](EXPERIMENTS/035-unanswered-surface/README.md);
+  reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md). **Session 003 (T-0078, F057,
+  D063/D064):** E034's `tail` arm reads **4.5×** the `Active` tab's rate, per-tag rates span
+  **0.0000 to 0.4300** and both extremes replicate out of sample, and **the per-tag reading
+  is `not_established`**. Evidence in
+  [`EXPERIMENTS/034-reask-tail/README.md`](EXPERIMENTS/034-reask-tail/README.md).
+  Earlier: sessions 001–002,
   VM 0944 (T-0076, T-0077, F053–F056, `EXPERIMENTS/033-question-recurrence/`) — the
   recurrence zeros were checked for what they were a result about, one venue then one
   population, and the pooled bound was refuted.
@@ -199,25 +178,28 @@ whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md). Ordered by information gained
 per unit of effort; the top item is:
 
-**The top item is now E034's own next action: separate tag from site.**
-**The screen that killed most candidates has been measured on every axis and each
+**The top item is now the one alternative this line never tested: a person's own search
+box.** The screen that killed most candidates has been measured on every axis and each
 measurement came out against it — F034 soundness, F035 coverage, F037 composition, F040
-distribution, F048 what-its-evidence-is.** What changed is the method, not a candidate,
-and every source the method draws on has now been measured including its own population
-(D050, D051).
+distribution, F048 what-its-evidence-is — and what changed is the method, not a candidate
+(D050, D051). **Item 0e's declared next action is superseded** (F058): its premise is
+falsified as a findability failure, its ordering is offered by no surface, and its remedy
+was aimed at a constraint that was not binding. What is left is the honest question about
+the population E034 found — an eight-year-old backlog, 16.5% duplicate-closed, invisible to
+every ordering Stack Overflow offers — and **whether Stack Overflow's own search already
+returns it.** That is reachable from this host while the site itself is not.
 
 **The need corpus those survivors came from is 1250 individual requesters each asking
 once**, and 167 of the 241 who shipped anything shipped *before* they complained (F039,
 F049); the "about a third were served" figure was uncontrolled and its control reads
-**0.368 against the need arm's 0.395** (F043). **E034 then opened the first demand-side
-instrument that returned positives at all** — a platform-owned label rather than a linkage
-rule of this repository's, with the `Active` tab as its control — and its per-tag reading
-is `not_established` for want of tags per site. **Choosing what the mission selects
+**0.368 against the need arm's 0.395** (F043). **Choosing what the mission selects
 candidates on is still an owner decision**, narrowed to: none of the three original axes —
-prior art, star-shaped adoption, harvested recurrence — can carry it, F048 adds that the
-prior-art axis's own verdict is not shown to rest on evidence of fit, and E034 adds a
-fourth that is neither an axis nor an audit: **a per-domain rate measured on someone
-else's label, against the ordering that domain's own readers actually see.**
+prior art, star-shaped adoption, harvested recurrence — can carry it, and F048 adds that
+the prior-art axis's own verdict is not shown to rest on evidence of fit. E034 and E035
+add a fourth that is neither an axis nor an audit: **a per-domain rate measured on
+someone else's label, against the orderings that domain's own readers actually see** — and
+E035's contribution is that **three of those four orderings cannot return the population at
+all**, so the rate measures a surface nobody is on.
 
 **The gaps in that pattern, both found by colliding with it, and one in the record rather
 than in a red run**, are closed and carried in full by item 2 of
@@ -280,12 +262,15 @@ unattended supervision, GPU.
   kills the majority reading** (count and sensitivity in
   [`STATE-in-flight-2.md`](STATE-in-flight-2.md)). Seven of the 18 died of something else,
   and a verdict needs more than one phrasing (F030).
-- **E034's candidate is not a candidate yet, and the two things that would make it one
-  both failed.** Its per-tag spread is real, large and reproducible, but **duplicate closure
-  is a moderator act** and at 3–5 tags per site the site and the tag cannot be told apart
-  (D6, F057); and the reading it offers — *"the answer existed and was not found"* — cannot
-  be separated from *"a moderator closed it"* on this instrument (B1). Nothing has measured
-  whether anyone acts on such a reading, which is the whole adoption question.
+- **The backlog is not a candidate yet, and the reason is now different from F057's.**
+  Its per-tag spread is real and reproducible, its premise as a *rescue* is **falsified**
+  (F058: the duplicate rows are viewed more than their neighbours, 251 against 193, at a
+  median age of 8.49 yr), and **no ordering Stack Overflow offers can return it** — the
+  `Active` arm does not intersect the tail for two of eight tags, no page carries an
+  ascending-score control, and `tab=Unanswered` excludes closed questions by definition
+  (0 of 224 known duplicate-closed ids; D065). **Nothing has measured whether anyone wants
+  it surfaced**, which is the whole adoption question, and E035's own density gate is
+  `not_evaluated` because the label is unreadable without an API key.
 - The screen's own weakness: decidable from prose, so cheap and also vulnerable to
   a persuasive report. It guarantees the *next* experiment is worth running.
 - **The turn outward happened, and it is uneven.** Five consecutive experiments

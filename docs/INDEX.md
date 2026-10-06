@@ -154,6 +154,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md`](../tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md`](../tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md`](../tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
+| [`tasks/T-0079-e035-establish-whether-the-score-tail-population.md`](../tasks/T-0079-e035-establish-whether-the-score-tail-population.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 
 ## RESEARCH
 
@@ -250,6 +251,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/033-question-recurrence/README.md`](../EXPERIMENTS/033-question-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/034-reask-tail/PROTOCOL.md`](../EXPERIMENTS/034-reask-tail/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/034-reask-tail/README.md`](../EXPERIMENTS/034-reask-tail/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/035-unanswered-surface/PROTOCOL.md`](../EXPERIMENTS/035-unanswered-surface/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Declared 2026-10-06 in session 2026-10-06-004, after the §2 feasibility probes and |
+| [`EXPERIMENTS/035-unanswered-surface/README.md`](../EXPERIMENTS/035-unanswered-surface/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-004, VM instance-20260717-0944. Protocol: |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

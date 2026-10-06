@@ -6,7 +6,7 @@ status: active
 last-verified: 2026-10-06
 -->
 
-Decisions **D063, D064**. Split from [`DECISIONS-SCREENING-5.md`](DECISIONS-SCREENING-5.md)
+Decisions **D063, D064, D065**. Split from [`DECISIONS-SCREENING-5.md`](DECISIONS-SCREENING-5.md)
 at its cap. Read [`DECISIONS.md`](DECISIONS.md) for the index. **Identifiers are stable
 across the parts.**
 
@@ -88,3 +88,40 @@ about whether within-site disjointness would have been a good statistic. D6 is a
 for "the site does not determine the tag", chosen because it is unambiguous and cheap; a
 variance decomposition with three or four tags per site would be the better instrument and
 is exactly what F057 names as the next action.
+
+## D065 — a baseline that excludes the treatment by definition cannot be compared to it (2026-10-06)
+
+**Decision.** When the strongest accessible alternative is a platform's own surface, the
+population that surface returns must be shown to be a **comparable** population before its
+non-overlap with the treatment is read as a finding. Concretely: before a gate about
+overlap or density fires, declare a check on **whether the baseline's own selection rule
+admits the treatment's rows at all**. If it does not, the overlap is definitional, the gate
+has not tested what it was declared to test, and its verdict is reported as the weaker
+claim it actually supports.
+
+**Why, and what fired.** E035 declared U1 — median per-tag Jaccard overlap between
+`/questions/unanswered` and the score-tail population below 0.10 — as the gate that would
+give a candidate its home, with a declared verdict branch attached. U1 fired at **0.0283**.
+The mechanism check, free and over committed bytes, reads: of E034's **224** known
+duplicate-closed ids, **0** appear in the 2050 rows the route returned, while **98 of 186**
+tail duplicates satisfy that route's only stated criterion (`is_answered == false`) and are
+still absent. **The route returns open questions; the population is closed ones.** The
+overlap could not have been anything else, and the protocol's branch treated it as evidence.
+
+This is F055's rule one level up. F055: *when a population is selected by a rule, measure
+the property being measured as a function of the selection variable.* D065: when a
+population is **compared** to a baseline, measure whether the baseline's selection rule
+admits the treatment's rows at all. Both are the same failure — a comparison whose
+denominators were never shown to be commensurable — and both were invisible to a gate that
+was green.
+
+**Consequence.** U1 is recorded as fired and as *not sufficient*. The branch it was
+declared to support is not taken. The honest reading of E035 is narrower than its protocol
+assumed and is stated in its README: the population is confirmed, `/questions/unanswered`
+excludes it by construction, and the density comparison is `not_evaluated` because the
+label is unreadable on that route without an API key.
+
+**Ceiling.** It is a rule about how a comparison to a platform surface is declared. It does
+not say whether a *surface* could be made comparable — a different question — and it does
+not touch comparisons between two arms of the same route, where the selection rules are
+shared and the risk does not arise.
