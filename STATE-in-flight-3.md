@@ -96,7 +96,7 @@ established nor killed.** Item 0f. `EXPERIMENTS/035-unanswered-surface/`,
    not intersect: `stackoverflow`/`python` tail −34…−11 against `Active` −9…304;
    `math`/`probability` −9…−4 against −2…159. The 4.5× reads much more usefully as a
    statement about **membership**.
-3. **No Stack Overflow page offers the ordering.** With the site itself behind a Cloudflare
+3. **No rendered Stack Overflow tag page offers the ordering (corrected by F059: the API route does).** With the site itself behind a Cloudflare
    challenge from this host on every path, a 2026-09-26 archive snapshot of a real tag page
    was read: **409,639 bytes** of first-party rendered HTML whose tab bar offers `Newest ·
    Active · Votes · Frequent · Trending · Bounties · Unanswered` and which contains **0**
@@ -116,9 +116,11 @@ E034's 224 known duplicate-closed ids appear in its 2050 rows, while **98 of 186
 duplicates meet the route's advertised `is_answered == false` criterion and are still
 absent. The overlap gate **fired at 0.0283** and its firing was definitional — which is
 **D065**, and the branch §6 attached to it is therefore **not taken**. **U2 is
-`not_evaluated`, not zero**: `closed_reason` is unreadable on that route (six filter forms,
-custom filters refused unauthenticated, `/questions/{ids}` omits it too), so the density
-comparison needs an API key. Quota ended at 19 of a shared 300.
+`not_evaluated`, not zero**: `closed_reason` is unreadable *on that route* (six filter
+forms, custom filters refused unauthenticated, `/questions/{ids}` omits it too), so the
+density comparison needs an API key **— and F059 shows `/search/advanced`'s default
+filter carries it without one, so this is a per-route fact and not a platform one.**
+Quota ended at 19 of a shared 300.
 
 **The transferable rule, and the one this section earns.** **Before spending a declared
 remedy on a population, check the committed bytes for whether its premise is still the
@@ -130,3 +132,105 @@ discovering the label was unreadable on the route that mattered.
 **Ceiling.** One platform; duplicate closure is a moderator act; `customs` at 0.4650 and
 `excel-formula` at 0.0000 are single cells; **whether anyone wants the backlog surfaced is
 entirely unmeasured**, and that is the whole adoption question.
+
+## The mechanism was a public query the whole time (F059, D066, D067)
+
+**Status: the candidate is closed, the measurement stands, and the order of work
+changed.** `EXPERIMENTS/036-search-backlog/`, T-0080, 8 requests. Verdict
+`platform_enumerates_the_tail`, **KILL-R met**, `candidate_status:
+mechanism_killed_no_build`.
+
+**The finding, in one request's worth of bytes.**
+
+```
+/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100
+```
+
+100 questions, ordered **−20 … −5, non-decreasing**; **81 are ids already in E034's
+committed harvest**, the first at **rank 1**; **48 rows carry `closed_reason`** and **13
+of those are `Duplicate` or `exact duplicate`**. Unauthenticated, default filter, no
+computation. E035 named the differentiator as *"the platform's own closure label over a
+population no surface orders that way"*, and **both halves are the platform's**.
+`readout.py` prints the URL and the 13 rows — it is a URL, not an algorithm, and deeper
+pages need `page=2`, a documented parameter (`inferred`, not fetched).
+
+**Why the three experiments before it read it the other way.** They enumerated one
+**rendered** interface. The platform also ships a documented filter vocabulary —
+`sort`, `order`, `tagged`, `closed`, `votes`, `answers`, `accepted`, `body`, `title`,
+`user`, `url`, `created`, `updated` — and **two of those are an ordering**. F058 was a
+correct reading of 409,639 bytes of a tag page and was used as a statement about the
+platform; that gap is **D066**. E035's *"the label needs an API key"* came from two
+routes and generalised to the platform, and `/search/advanced`'s default filter carries
+it — **F020's shape, in the mission's own instrument.**
+
+**The instrument's own controls, and one that mattered.** `order` is validated
+(`order=descending` → 400 `order`), `filter` is validated (400 `Invalid filter
+specified`), and **`closed` is not**: `closed=maybe` returns 200 with `closed=yes`'s
+first three items. So a closed-only control was never establishable from this route's
+behaviour, and gate **R0** existed only to settle it — it showed the closed tail returns
+with **no `closed` parameter at all**.
+
+**Retrieval, thin.** Tail titles 3 of 4 (ranks 1, 7, 1; one absent past 100), `Active`
+control 2 of 2 (both rank 1). **The positive control fired on real positive examples**,
+which is the check this record has needed seven times. **KILL-Q is `not_evaluated`** — the
+rule is not decidable at n=4 against n=2 — and the negative control was **refused by the
+quota window**, so a nonzero rate rests on the positive control alone.
+
+**The run failed twice in its own plumbing, and both are in the raw bytes.** A stage
+argument fell through to a nine-request plan against a four-request budget, so three
+requests were refused; and `quota_wall()` discarded successful 200s reporting negative
+quota, which zeroed R3's apparent rate until it was fixed. **The kill rests on neither**,
+being an id-intersection against committed evidence. The retrieval arms do need controls,
+and they are thin.
+
+**What this changes beyond the line.** F055, F058 and F059 are one shape three times over:
+a fact about the instrument's own selection, read *after* the measurement. **D067** now
+orders the work — a mechanism-bearing candidate faces **its mechanism's existing source**
+first, in about two requests, before any population is measured for it. Three experiments
+and 1125 rows described a population whose mechanism was a documented query. **The
+adoption question is now the whole question, and three experiments never measured it.**
+
+**Ceiling.** The rendered site is Cloudflare-blocked from this host, so whether the **web
+UI** exposes this against the API is `not_measured` — a browser or user question, not
+another request. **R1 is unexplained**: `tagged=customs&closed=yes&sort=votes&order=asc`
+on `travel` returned 200 with **0 items** while the same construction worked on
+`stackoverflow`. One page fetched, so depth is `inferred`.
+
+## Moved out of STATE.md on 2026-10-06 — closed readings, kept whole
+
+`STATE.md` hit the 300-line cap again on adding E036, and this is the same repair the cap
+has required thirteen times: **material moved to the file whose invariant owns it, and
+nothing shortened.** Both blocks below were already labelled "pointers only" in
+`STATE.md`; they are now the pointers' own text, here, next to E034–E036.
+
+**Five closed readings, kept here as pointers only — each one's full text is in the file
+named, and none of them changes what is next.** (i) **F037's reconciliation for the supply
+question is withdrawn:** the copies are adapted, not duplicated, so near-zero install
+readings are not an invisible channel (F040, `EXPERIMENTS/020`); drift is `inconclusive`.
+(ii) **F049 followed the 1250 need-starters forward**: of the 241 with a public `Show HN`
+item, **167 shipped before they stated the need** and only 74 after, and the reader arm is
+`not_evaluated` (κ = 0.5004), so the need-to-build link bounds at **[−0.0156, +0.1125]**
+— F042's 0-of-24 is confirmed on a 10× larger instrument. (iii) **The candidate generator
+was refuted**: 1401 harvested need statements, 50 drawn by rule, **0 survived**, and its
+strongest cluster collapsed ~200× (F029, F033). (iv) **The prior-art screen measured on
+coverage**: 6 of 6 positive controls recovered, 3 of 12 adjudicable kills have no prior art,
+and **corpus carriage is the result** — GitHub's index carried every verdict the code corpora
+carried (F035, F036, D050). (v) **Its population came out against it**: 14 of 18 young
+rows are executable code, documents carry a median 6,072 stars against 566, and the most
+-starred tool there is installed 363 times a month (F037). Readings in
+[`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
+[`STATE-in-flight.md`](STATE-in-flight.md).
+
+**Four closed tooling findings, kept as pointers because they are the standing reasons a
+session's own gate can be green and its records still false.** A restated experiment number
+was false and the obvious gate is blind to it (defect 22, T-0056, D047, F024);
+identifier collisions between two VMs are closed (T-0030, T-0031) but **the work-collision
+case still has no detector**, so read the remote task list first
+([`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md)); a
+gate belongs in the one command the protocol tells every agent to run (T-0045); and a test
+can read a clock the code does not (defect 15, T-0044). Accounts:
+[`STATE-defects.md`](STATE-defects.md),
+[`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md). **One rule survives:**
+rebase a moving base with `origin sync land`, because a hand-run rebase records nothing and
+its paths are then attributed to whoever holds the tree (T-0053; sessions 040 and 012 hit
+that ceiling seven and twice).

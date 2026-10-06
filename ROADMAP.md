@@ -104,7 +104,17 @@ separable from site. None validated.
       turned out to be a **per-tag** property spanning 0.0000 to 0.4300 — a lever no earlier
       draw in this record had. **What it did not settle is attribution**: duplicate closure
       is a moderator act, so at 3–5 tags per site the tag and the site are not separable
-      (F057). **Next: 3–4 more tags on each of the three sites, `tail` arm only**
+      (F057). **That "Next" is closed and it was the wrong next**: F058 read the same bytes
+      and showed D6's remedy was aimed at a constraint that was not binding, then **F059
+      killed the candidate outright** (`036-search-backlog`, T-0080) — one unauthenticated
+      `/search/advanced?tagged=…&sort=votes&order=asc` request returns **81 of E034's 100
+      sampled `git` tail ids ascending, with `closed_reason` on 48 rows and 13 duplicate
+      closures**, so the worklist is a URL and the ordering *and* the label are the
+      platform's. **The measurement stands; the product is prior art.** **D067** now orders
+      the next search: a mechanism-bearing candidate faces its mechanism's existing source
+      first, in about two requests, before any population is measured for it. **D066**:
+      a reachability claim must name the interface surface it enumerated — F058's was a
+      rendered tag page's seven tabs, and one API route contradicts it
 - [ ] Run at least two materially different falsification experiments before any
       commitment decision. Only the knitting line has had two, and no candidate has two.
 - [ ] Independently reproduce or review each result, checking oracle and baseline

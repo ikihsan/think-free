@@ -24,6 +24,9 @@ did the same thing the third time: the file existed, the three lists did not
 name it, and this module failed with the file's name in the message rather than
 a count. `DECISIONS-SCREENING-5.md` is the tenth, added 2026-10-06 for D062, and
 it earned the gate its keep a fourth time in exactly the same way.
+`DECISIONS-SCREENING-7.md` is the eleventh, added 2026-10-06 for D066–D067,
+and it earned it a fifth time: the file existed, all three lists did not name
+it, and this module failed with the file's name in the message.
 
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
@@ -48,6 +51,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING-4.md",
     "DECISIONS-SCREENING-5.md",
     "DECISIONS-SCREENING-6.md",
+    "DECISIONS-SCREENING-7.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

@@ -1,0 +1,138 @@
+{
+  "gates": {
+    "r0": {
+      "e034_tail_ids_in_scope": 100,
+      "e034_tail_ids_returned": 81,
+      "fires": true,
+      "first_target_rank": 1,
+      "items": 100,
+      "of_which_closed_duplicate_in_e034_bytes": 9,
+      "quota_remaining": 5,
+      "quota_wall": null,
+      "rule": "/search/advanced with no `closed` parameter returns >=1 id in E034's known closed set",
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100"
+    },
+    "r1": {
+      "e034_tail_ids_in_scope": 200,
+      "e034_tail_ids_returned": 0,
+      "evaluated": false,
+      "fires": false,
+      "items": 0,
+      "not_evaluated_reason": "status 200 with 0 items; cause untested. R0 met KILL-R without it, so no request was spent separating a site-parameter mistake from a population fact.",
+      "quota_remaining": 4,
+      "quota_wall": null,
+      "rule": ">=30 of E034's 200 travel/customs tail ids returned, in non-decreasing score order",
+      "scores_nondecreasing": null,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=travel&tagged=customs&closed=yes&sort=votes&order=asc&pagesize=100"
+    },
+    "r2": {
+      "ci95": [
+        0.3006,
+        0.9544
+      ],
+      "evaluated": false,
+      "n_evaluated": 4,
+      "n_requested": 4,
+      "not_evaluated_reason": "KILL-Q cannot be evaluated at this n: the declared rule needs >=0.60 in the tail arm, which at n=4 means 3 or 4 of 4, and a Wilson interval that spans 0.2 to 0.95. Reported as a raw count, not a rate.",
+      "quota_wall_n": 0,
+      "ranks": [
+        1,
+        7,
+        1
+      ],
+      "ranks_note": "rank of the question's own id, or absent past 100",
+      "rate": 0.75,
+      "recovered": 3,
+      "rule": "tail title self-recovery >= 0.60 and >= control - 0.20 (KILL-Q)"
+    },
+    "r3": {
+      "ci95": [
+        0.3424,
+        1.0
+      ],
+      "fires": true,
+      "fires_weakly": "met at n=2; the interval's lower bound is 0.3424",
+      "n_evaluated": 2,
+      "n_requested": 4,
+      "quota_wall_n": 2,
+      "ranks": [
+        1,
+        1
+      ],
+      "rate": 1.0,
+      "recovered": 2,
+      "rule": "control-arm title self-recovery >= 0.80 (the instrument can recover independently real positive examples; fails -> every rate is not_evaluated, not zero)"
+    },
+    "r4": {
+      "error_message": "too many requests from this IP, more requests available in 53004 seconds",
+      "evaluated": false,
+      "items": 0,
+      "not_evaluated_reason": "the quota window closed before this request; the API refused it with 'too many requests from this IP, more requests available in 53004 seconds'.",
+      "quota_wall": "quota_refused_by_api",
+      "rule": "a nonsense query returns 0 items (negative control; a route that answers anything makes R2 and R3 void)",
+      "status": 400,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&q=zzqxwv+nonexistent+phrase+4198&pagesize=100"
+    }
+  },
+  "inputs": {
+    "e034_rows": 2524
+  },
+  "instrument": {
+    "closed_is_validated": null,
+    "closed_is_validated_note": "`closed=maybe` returned 200 with the same first three items as `closed=yes`, so the route does not reject an invalid closed value. R0 exists to settle whether `closed` does any work at all.",
+    "filter_is_validated": false,
+    "first_row_of_asc": null,
+    "order_is_validated": false
+  },
+  "probe": {
+    "probe-advanced": {
+      "error_message": null,
+      "items": 3,
+      "quota_remaining": 10,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&q=python&pagesize=3"
+    },
+    "probe-closed-maybe": {
+      "error_message": null,
+      "items": 5,
+      "quota_remaining": 7,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&tagged=git&closed=maybe&pagesize=5"
+    },
+    "probe-closed-yes": {
+      "error_message": null,
+      "items": 5,
+      "quota_remaining": 8,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&tagged=git&closed=yes&pagesize=5"
+    },
+    "probe-closed-yes-asc": {
+      "error_message": null,
+      "items": 5,
+      "quota_remaining": 7,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&tagged=git&closed=yes&sort=votes&order=asc&pagesize=5"
+    },
+    "probe-excerpts": {
+      "error_message": null,
+      "items": 3,
+      "quota_remaining": 10,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/search/excerpts?site=stackoverflow&q=python&pagesize=3"
+    },
+    "probe-info": {
+      "error_message": null,
+      "items": 1,
+      "quota_remaining": 11,
+      "status": 200,
+      "url": "https://api.stackexchange.com/2.3/info?site=stackoverflow"
+    }
+  },
+  "verdict": {
+    "branch": "platform_enumerates_the_tail",
+    "candidate_status": "mechanism_killed_no_build",
+    "kill_gate_met": "KILL-R"
+  }
+}

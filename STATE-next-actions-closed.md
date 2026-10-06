@@ -1,4 +1,4 @@
-# Next actions, closed items 3–12
+# Next actions, closed items
 
 <!-- origin-meta
 owner: docs/INDEX.md
@@ -7,16 +7,106 @@ last-verified: 2026-10-06
 -->
 
 Split out of [`STATE-next-actions.md`](STATE-next-actions.md) on 2026-10-06 at its
-300-line cap, by invariant rather than by size: **items 3–12 are all closed,
-done, or standing "do not" instructions**, and none of them is a candidate for
-the next session's effort. The live items (0, 0b, 0d, 1, 2) stayed in the ranked
-list, so a reader looking for what to do next finds only things that are open.
+300-line cap, by invariant rather than by size: **everything here is closed, done, or a
+standing "do not" instruction**, and none of it is a candidate for the next session's
+effort. Originally items 3–12; **items 0b, 1 and 2 moved here the same day**, so that a
+reader looking for what to do next finds only things that are open. The live items are
+now **0** and **0d**.
 
 **Why the split is not housekeeping.** The list had reached 300 lines partly
 because closed entries kept their full derivations, which made the open items
 harder to find than the closed ones. Read this file when a future session wants
 the reasoning behind a closed item — most often to check whether re-running it
 would produce anything new.
+
+**A second move on 2026-10-06, and it was the owner's brief rather than the line
+count.** Items **0b, 1 and 2** moved here. All three are about *this
+repository's own gates and CI*, none is candidate work, and leaving them in a
+file headed **Ordered by information gained per unit of effort** made maintenance
+look like the next experiment. F031 raised this in the first place, and five of the
+last eight sessions have been about instruments. **The live items are now 0 and 0d,
+and only one of those is research.** The gate discipline D025 and T-0036/T-0042
+established is a *rule for writing gates* and stays in force from
+[`docs/policy/gate-falsification.md`](docs/policy/gate-falsification.md); it does
+not need a place in the ranked list to keep applying.
+
+## Items moved on 2026-10-06
+
+**The gaps in the gate pattern, both found by colliding with it, and one in the record
+rather than in a red run**, are closed and were carried in full by items 1 and 2 of
+[`STATE-next-actions.md`](STATE-next-actions.md), which moved to
+[`STATE-next-actions-closed.md`](STATE-next-actions-closed.md) on 2026-10-06 because they
+are maintenance and the list is ranked by what to do next: rule 7 read three of the four
+places a number is written, so two VMs took **defect 7** in the same hour (T-0036) and two of
+five decision records were false while every gate passed (T-0042). One entry point reads the
+sources now, and its residual ceiling is written down: a repeated number is detectable, a
+dropped one is not.
+
+**F055 is the ninth instance of that shape and the sharpest, because no gate was involved
+at all:** a selection rule declared for one reason — `sort=votes`, because "elaborated need
+statements live there" — selects for *answered* questions, and the stratum it draws is
+**4.5× poorer in the thing being measured**. Full statement and the rule it generalises
+to, in [`STATE-constraints.md`](STATE-constraints.md).
+**The pattern in the red runs of 2026-10-04 is not "gates are missing" but gates that exist
+and are never run**: a task's `verify` omits the one gate its change can break, a fixture
+omits the clock the code reads, a split leaves one reader unwired. T-0045's fix is the
+general one — put the gate in the command the protocol already points at, so there is
+nothing to forget. A gate must also read the property it claims to check and be falsified
+against the defect's own bytes (D025, F013); ten gates work that way, the two newest being
+a restated experiment number held to its artifact by the number's *shape* (T-0056, F024,
+defect 22) and E034's arms, whose 11 mutations are each caught. **Line caps are the
+standing friction**, and each repair moved material to the file whose invariant owns it —
+this session four times for E034. `STATE-defects.md` cannot be split inside its own list,
+so that split is a task.
+
+1. **A gate must read the property it claims to check, and must be falsified
+   against the defect's own bytes before it is trusted** (D025, from F013). Nine
+   gates now work that way, the newest being the rule that holds a restated
+   experiment number to its artifact (T-0056, D047, defect 22). Its case is the
+   sharpest yet, because the **obvious rule is green on the defect**: "does this
+   number occur anywhere in the artifact?" answers *yes* for `113`, which also
+   sits at `patch_cost_sensitivity/*/cases`. What settles it is reading the
+   number's *shape* rather than the file's contents, and the blindness of the
+   rejected rule is now asserted so the restriction cannot be dropped quietly.
+   Method: `docs/policy/gate-falsification.md`.
+   **Ceiling:** each rule detects only the shape it was written against, and
+   `resultnumbers.py`'s is one table row per experiment.
+2. **The gaps in that pattern, both found by hitting them — closed, and the
+   second found by reading the record rather than by a red run.** (a) **T-0036.**
+   Doc-lint rule 7 read findings definitions, index rows and decision spans, and
+   not the numbered list in [`STATE-defects.md`](STATE-defects.md), so two VMs
+   took **defect 7** in the same hour and nothing reported it; both copies reached
+   the shared base, each tree internally consistent, and the unpushed side
+   renumbered by hand. `idcheck.py` is now the one entry point both publishing
+   gates call, because a module wired into one gate is not thereby read by the
+   other, and it reports a list it cannot read.
+   **Ceiling:** a repeated number and nothing else — a dropped entry and a
+   withdrawn defect are the same bytes — and there is no allocator here, so this
+   is the detection half of a race it cannot prevent.
+   (b) Settled by item 3, which falsified its premise.
+   (c) **T-0042.** A decision number is written in three places that must agree —
+   the `## Dnnn` heading, the row in [`DECISIONS.md`](DECISIONS.md), and the
+   `Decisions **…**` header under each record's title — and only the first two had
+   a reader. Two of five records were false while every gate passed, with both
+   index rows correct throughout. `decisionheader.py` reads the third through the
+   same entry point.
+   **Ceiling:** identifier sets rather than wording, one line per record.
+   A cheaper observation belongs here: a commit published while a **taskless**
+   session is open is red on the session step — five runs in one day, every one
+   green on the next commit. D027's predicate can only prove a session alive from
+   a claim. `docs/operations/ci.md` now says how to recognise the case from the
+   run alone; whether a taskless session should publish code commits at all is
+   open.
+   (d) **Closed in T-0050 (D042, F022).** `reconcile._is_vendored` reused the
+   **line cap's** exemption predicate, which answers yes for every `.json`,
+   `.jsonl` and `.log`, so `tests/python-versions.json` — the record that decides
+   whether a VM can run the work — changed with nothing declared and nothing
+   reported. Priced first by a committed script: **72 (session, path) pairs over 17
+   paths**, 50 of them the ledger, so 50 closed sessions now report a file they
+   cannot declare; a closed stream is not edited, so the residual is written down
+   rather than discovered.
+   **Ceiling:** forward-only, and `EXPERIMENTS/**/results.json` now needs an
+   artifact event — 16 raw captures do.
 
 3. **Read a red run from the annotations it already publishes** — the successor to
    2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
@@ -95,6 +185,13 @@ would produce anything new.
    banked with no verdict, and a same-week rerun found **zero drift at ~21h**.
    Take side B no earlier than days later and diff the closures; fast drift
    shows as a version or hash change.
+0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
+     identical bytes and six full suite runs did not reproduce it. T-0057 makes the
+     next occurrence name itself; the unmeasured half is that `make_fleet` builds a
+     bare remote plus two clones **per test class**, so fixture cost scales with the
+     test count and only a 2-CPU runner shows it. **Deferred because CI is green
+     and nothing is blocked on it**, and not worth displacing a research question.
+
 12. **Do not build a product.** Nothing is selected, and the base rate for
    agent-generated ideas with prior art is high. Three candidate lines have
    returned negative results, and one (knitting) died of prior art rather than of

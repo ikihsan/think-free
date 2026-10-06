@@ -138,46 +138,40 @@ untouched, and every item says which.
      and a findability failure are not separated here. Reading in
      [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-  0f. **This item's next action is superseded, and so is its motivating frame** (F058,
-      D065, `EXPERIMENTS/035-unanswered-surface/`). Four reads of E034's **committed**
-      bytes, at zero quota cost, reordered it: the population is **not one that was
-      overlooked** — within the tail arm duplicate rows are viewed *more* than their
-      neighbours, **251 against 193**, at a median age of **8.49 yr** — so the frame is an
-      eight-year-old backlog rather than a findability rescue; the `Active` and `tail` arms
-      **do not intersect** for two of eight tags, so the 4.5× is about *membership*; **no
-      Stack Overflow page offers the ordering** (409,639 bytes of rendered HTML, **0**
-      occurrences of `order=asc`, `oldest` or `ascending`); and **D6's remedy was aimed at
-      the wrong constraint** — between-tag excess variance is **+0.0420 within
-      `stackoverflow` alone**, equal to the pooled **+0.0417**. Figures and mechanism:
-      [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+  0f. **CLOSED. The score-tail worklist is one unauthenticated URL, so the candidate is
+      prior art and nothing is built** (F059, D066, D067, `EXPERIMENTS/036-search-backlog/`,
+      T-0080). The declared next action — *does a person's own search box already return
+      this?* — was answered **before** the second measurement request, by a reachability
+      probe: `/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100`
+      returns **100 questions ascending by score, 81 of them ids already in E034's committed
+      harvest (first at rank 1), and 13 labelled `Duplicate`/`exact duplicate` in the
+      payload's own `closed_reason`**. No key, no custom filter, no computation. E035's
+      differentiator was *"the platform's own closure label over a population no surface
+      orders that way"*, and **the platform orders it that way itself**. KILL-R met at 8
+      requests after three experiments spent 1125 rows on the population. Gate R1 is
+      `not_evaluated` (200 with 0 items on `travel/customs`, cause untested), KILL-Q is
+      `not_evaluated` at n=4 against n=2, and the negative control was refused by the quota
+      window — **the kill does not need them**, being an id-intersection against committed
+      bytes, but the retrieval arms are thin and the two plumbing bugs are in the raw
+      evidence. Reading in [`STATE-in-flight-3.md`](STATE-in-flight-3.md).
 
-      **E035's own gates did not close it either.** `/questions/unanswered` — the surface
-      `tab=Unanswered` is built on — **excludes the population by definition**: **0** of
-      E034's 224 known duplicate-closed ids appear in its 2050 rows, while **98 of 186** tail
-      duplicates meet its advertised `is_answered == false` criterion and are still absent.
-      **D065**: the overlap gate fired at 0.0283 and the firing was definitional, so its
-      declared branch is *not* taken. **U2 is `not_evaluated`, not zero** — `closed_reason`
-      is unreadable on that route (six filter forms; **custom filters refused
-      unauthenticated**; `/questions/{ids}` omits it too), so the density comparison needs an
-      API key this host does not have. A prototype runs offline on committed bytes:
-      `readout.py --survey`, `--tag site/tag`.
+      **Three corrections to the record.** F058's *"no surface offers the ordering"* was
+      measured on a tag page's seven rendered tabs and is now scoped to that (**D066**:
+      a reachability claim must name the interface surface it enumerated). E035's *"the
+      label needs an API key"* was a per-route fact about `/questions/unanswered` and
+      `/questions/{ids}` generalised to the platform, and `/search/advanced`'s **default**
+      filter carries the label unauthenticated. And `closed` is the one filter value that
+      route does **not** validate — `closed=maybe` returns 200 with `closed=yes`'s items —
+      so no closed-only control was ever establishable from that route's behaviour.
 
-      **Ceiling:** `customs` at 0.4650 and `excel-formula` at 0.0000 remain single cells, and nothing measures whether anyone
-      wants the backlog surfaced — the whole adoption question. **The single next action is the one alternative this
-      line never tested, a person's own search box.** `/search/advanced` and `/search/excerpts` are reachable from this
-      host while every `stackoverflow.com` page is not, they accept `hasaccepted=no`, and **search is what a person with
-      a problem types into**. It is the strongest alternative to any reader here, and the question is not whether the
-      tail is denser (**measured: 0.1653 [0.1448, 0.1882]**) but **whether a good query already returns the backlog**.
-      If it does, the candidate dies to the platform's own search — a kill worth having before anything is built.
+      **D067 now governs the next candidate.** A candidate whose value is a mechanism is
+      tested against **that mechanism's existing source before any population is measured
+      for it**. Two requests, not 1125 rows. **Ceiling:** the rendered site is Cloudflare-
+      blocked from this host, so whether the *web UI* exposes this against the API is
+      `not_measured` — a browser or user question, not another request.
 
-  0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
-     identical bytes and six full suite runs did not reproduce it. T-0057 makes the
-     next occurrence name itself; the unmeasured half is that `make_fleet` builds a
-     bare remote plus two clones **per test class**, so fixture cost scales with the
-     test count and only a 2-CPU runner shows it. **Deferred because CI is green
-     and nothing is blocked on it**, and not worth displacing a research question.
-
-   0d. **Invention item (D048), and its seat is empty by measurement.** This entry
+   0d. **Invention item (D048), and its seat is empty by measurement — now by a kill
+   as well, and the rule that orders the next search is D067.** This entry
    holds the seat for candidate work; every other item here had been gates, CI
    diagnosis, identifier allocation or line caps (F031's complaint). E016's arm 2
    put **three needs no artifact on three corpora serves** (F035, D050) and
@@ -189,6 +183,22 @@ untouched, and every item says which.
    was never measured and cannot be measured from the corpus they came from.
    **D051 supersedes D050's narrowing here: the harvest is refuted as a generator
    on a population measurement, not on a screen.**
+
+   **A fourth closure, and the first that is not about a generator. E036 put a
+   candidate in this seat and killed it against the incumbent itself** (F059,
+   `EXPERIMENTS/036-search-backlog/`). The population E034 found is real,
+   reproducible, per-tag, and **unreachable by no surface**: one
+   `/search/advanced?tagged=…&sort=votes&order=asc` request returns it ascending,
+   81 of 100 sampled ids among them, with Stack Overflow's own duplicate label in
+   the same payload. **So the fourth generator question — "where does the next
+   candidate come from" — is not the blocker; the ordering of the work is.**
+   Three experiments harvested 1125 rows to describe a population whose *mechanism*
+   was a documented query all along. **D067: test a mechanism-bearing candidate
+   against its mechanism's existing source first, in about two requests, before
+   measuring anything on its behalf.** F055, F058 and F059 are the same shape three
+   times over — a fact about the instrument's own selection, read after the
+   measurement. Applying D067 forward is the highest-information move available and
+   it costs less than the cheapest experiment in this file.
 
    **A third generator closed in session 021, and it settles the reading rather
    than adding a candidate** (F051, D062, T-0075). Accounts seeking an
@@ -237,54 +247,6 @@ untouched, and every item says which.
    `EXPERIMENTS/009` **zero drift at ~21h**, a fast-drift null only. **Ceiling:**
    this item names
    where invention work goes; with every generator closed it names an empty seat.
-1. **A gate must read the property it claims to check, and must be falsified
-   against the defect's own bytes before it is trusted** (D025, from F013). Nine
-   gates now work that way, the newest being the rule that holds a restated
-   experiment number to its artifact (T-0056, D047, defect 22). Its case is the
-   sharpest yet, because the **obvious rule is green on the defect**: "does this
-   number occur anywhere in the artifact?" answers *yes* for `113`, which also
-   sits at `patch_cost_sensitivity/*/cases`. What settles it is reading the
-   number's *shape* rather than the file's contents, and the blindness of the
-   rejected rule is now asserted so the restriction cannot be dropped quietly.
-   Method: `docs/policy/gate-falsification.md`.
-   **Ceiling:** each rule detects only the shape it was written against, and
-   `resultnumbers.py`'s is one table row per experiment.
-2. **The gaps in that pattern, both found by hitting them — closed, and the
-   second found by reading the record rather than by a red run.** (a) **T-0036.**
-   Doc-lint rule 7 read findings definitions, index rows and decision spans, and
-   not the numbered list in [`STATE-defects.md`](STATE-defects.md), so two VMs
-   took **defect 7** in the same hour and nothing reported it; both copies reached
-   the shared base, each tree internally consistent, and the unpushed side
-   renumbered by hand. `idcheck.py` is now the one entry point both publishing
-   gates call, because a module wired into one gate is not thereby read by the
-   other, and it reports a list it cannot read.
-   **Ceiling:** a repeated number and nothing else — a dropped entry and a
-   withdrawn defect are the same bytes — and there is no allocator here, so this
-   is the detection half of a race it cannot prevent.
-   (b) Settled by item 3, which falsified its premise.
-   (c) **T-0042.** A decision number is written in three places that must agree —
-   the `## Dnnn` heading, the row in [`DECISIONS.md`](DECISIONS.md), and the
-   `Decisions **…**` header under each record's title — and only the first two had
-   a reader. Two of five records were false while every gate passed, with both
-   index rows correct throughout. `decisionheader.py` reads the third through the
-   same entry point.
-   **Ceiling:** identifier sets rather than wording, one line per record.
-   A cheaper observation belongs here: a commit published while a **taskless**
-   session is open is red on the session step — five runs in one day, every one
-   green on the next commit. D027's predicate can only prove a session alive from
-   a claim. `docs/operations/ci.md` now says how to recognise the case from the
-   run alone; whether a taskless session should publish code commits at all is
-   open.
-   (d) **Closed in T-0050 (D042, F022).** `reconcile._is_vendored` reused the
-   **line cap's** exemption predicate, which answers yes for every `.json`,
-   `.jsonl` and `.log`, so `tests/python-versions.json` — the record that decides
-   whether a VM can run the work — changed with nothing declared and nothing
-   reported. Priced first by a committed script: **72 (session, path) pairs over 17
-   paths**, 50 of them the ledger, so 50 closed sessions now report a file they
-   cannot declare; a closed stream is not edited, so the residual is written down
-   rather than discovered.
-   **Ceiling:** forward-only, and `EXPERIMENTS/**/results.json` now needs an
-   artifact event — 16 raw captures do.
 
 
 Items 3–12 — every closed, done, or standing "do not" entry, with the derivations

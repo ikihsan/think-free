@@ -41,6 +41,7 @@ IMPLICATIONS = {
             "DECISIONS-SCREENING-4.md",
             "DECISIONS-SCREENING-5.md",
             "DECISIONS-SCREENING-6.md",
+            "DECISIONS-SCREENING-7.md",
             "DECISIONS-GATING.md",
             "DECISIONS-SESSIONS.md",
             "DECISIONS-PUBLISHING.md",

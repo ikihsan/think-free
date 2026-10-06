@@ -138,13 +138,20 @@ sets do not intersect.** `stackoverflow`/`python`: tail −34…−11 against `A
 differently as a statement about *membership* than as a statement about density, and the
 stronger statement is the one the bytes support.
 
-**And no Stack Overflow page offers the ordering at all.** With `stackoverflow.com` behind
-a Cloudflare challenge from this host on every path, a 2026-09-26 Wayback snapshot of a
-real tag page was read: **409,639 bytes of first-party rendered HTML**, whose tab bar
-offers `Newest · Active · Votes · Frequent · Trending · Bounties · Unanswered` scoped by
-`Week`/`Month`, and which contains **0 occurrences** of `oldest`, `order=asc`,
-`sort=votes&order=asc`, `lowest.vote` or `ascending`. `not_measured`: the *direction* of
-`tab=Votes`, because the archive refused that snapshot.
+**And no rendered Stack Overflow tag page offers the ordering at all.** With
+`stackoverflow.com` behind a Cloudflare challenge from this host on every path, a
+2026-09-26 Wayback snapshot of a real tag page was read: **409,639 bytes of first-party
+rendered HTML**, whose tab bar offers `Newest · Active · Votes · Frequent · Trending ·
+Bounties · Unanswered` scoped by `Week`/`Month`, and which contains **0 occurrences** of
+`oldest`, `order=asc`, `sort=votes&order=asc`, `lowest.vote` or `ascending`.
+`not_measured`: the *direction* of `tab=Votes`, because the archive refused that snapshot.
+
+**Correction (F059, E036, 2026-10-06).** This was a correct reading of a tag page and was
+used as a statement about the platform. It is not one: `/search/advanced` accepts
+`sort=votes&order=asc&tagged=…` and returned **81 of E034's 100 `git` tail ids** in one
+unauthenticated request, ascending, with the closure label already in the response. The
+sentence above is now scoped to **rendered tag pages** and the platform-wide reading is
+withdrawn (**D066**). The evidence is unaffected; the claim it was asked to support is not.
 
 **The declared remedy for D6 was aimed at the wrong constraint.** Item 0e ranked "three to
 four more tags on each of the three sites, about 30 requests" the mission's top action.

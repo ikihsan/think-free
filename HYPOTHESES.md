@@ -159,6 +159,27 @@ through nine named channels, so `closed_reason` is the only handle there is; and
 label is **ten literals**, which makes every enumeration rate in this record a floor
 (D063).
 
+**E036 killed the candidate E034's numbers were being collected for**
+(`EXPERIMENTS/036-search-backlog/`, T-0080). The population is real and stands. The
+tool was not: **one unauthenticated request** to
+`/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100`
+returns 100 questions ascending by score, **81 of them ids already in E034's committed
+harvest**, with `closed_reason` in the payload — so **13 duplicate closures per tag per
+page, no key and no computation** (**F059**). E035's stated differentiator was the
+platform's own label over *a population no surface orders that way*; **the platform
+orders it that way itself**, and F058's own evidence had said so about the wrong
+interface. Two further corrections ride with it: `closed` is the one filter value
+`/search/advanced` does **not** validate, so no closed-only control was ever
+establishable from that route's behaviour; and *"the label needs an API key"* was a
+per-route fact about `/questions/unanswered` and `/questions/{ids}` generalised to the
+platform, when `/search/advanced`'s **default** filter carries it. **D066** requires a
+reachability claim to name the interface surface it enumerated; **D067** requires a
+candidate whose value is a mechanism to be tested against that mechanism's existing
+source **before** a population is measured for it — three experiments and 1125 rows
+described a population whose mechanism turned out to be a documented query. **The
+population is untouched; what died is the claim that it is unreachable, and the
+adoption question is now the whole question and has never been measured.**
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |
@@ -175,6 +196,7 @@ label is **ten literals**, which makes every enumeration rate in this record a f
 | Automated trustworthy map building | `RESEARCH/D.md` | Rejected: coordination cost dominates | — |
 | Capture-and-reproduce-any-computation | `RESEARCH/D.md` | Rejected: ReproZip and reprotest prior art | — |
 | Universal local-first sync layer | `RESEARCH/D.md` | Rejected: invariants not preserved | — |
+| Duplicate-closure rate of the score tail, and the worklist over it | `EXPERIMENTS/034-reask-tail/` E034, `EXPERIMENTS/036-search-backlog/` E036 | **The measurement stands and the candidate is prior art** (`FAILURES.md` F057, F059): pooled tail 0.1352 against the `Active` tab's 0.0303, per-tag 0.0000–0.4300, and the ordering plus the label both arrive from one unauthenticated `/search/advanced` query | **Nothing to build.** The one gap F059 names — whether the *rendered* site exposes this against the API — needs a browser or a user, not a request |
 
 ## Candidates awaiting a falsification experiment
 
@@ -194,79 +216,13 @@ person this repository cannot reach.
 | Adaptive ventilation measurement selection | Choosing the next cheap observation to separate competing explanations beats a fixed protocol | Too little information may be available at household cost, and the willing users can already use established tools |
 | Decision-directed sidewalk survey | Spending the next survey hour where it changes a feasible repair decision beats centrality or missingness heuristics | Procurement, utility relocation, and legal constraints may dominate survey prioritisation entirely; graph error may outweigh attribute uncertainty |
 
-### Sidewalk survey — kill gate and witness (proposed, untested)
+### The three kill gates and their witnesses
 
-**Kill gate (transcribed from `RESEARCH/A.md` step 5).** Go only if the
-decision-directed policy achieves at least 25% lower median repair-decision
-regret than the strongest simple baseline (random, highest centrality, highest
-missingness/entropy, shortest fieldwork tour) across 30 fixed masking seeds,
-including contiguous block-missingness cases, at no greater fieldwork cost.
-Report distributions, not only the mean. Failure (stop) if gains disappear
-under modest cost/profile/priors changes, if most recommendations depend on
-unmeasured structural data, or if useful regret cannot be defined without
-arbitrary demand assumptions.
-
-**Information-sufficiency witness.** Two underlying networks with identical
-currently-observable measurements but different feasible next repair packages:
-if no askable observation separates them in decision value, the policy has no
-advantage over the existing data. Run this witness before the full
-comparison.
-
-**Reconsider when.** A planner and affected residents reviewing one anonymized
-case confirm that no requested measurement could change a decision they
-control. Until then this remains `speculative`.
-
-**Outcome (E002, 2026-10-03, `EXPERIMENTS/002-a1-masking/`).** Under a
-count budget (150 of 955 crossings, 30 seeds, random and block masks) the
-gate **passed**: DD median regret 64.1 vs 109.9 for the strongest baseline.
-The T-0006 sweep confirmed it across 18 configs, failing only at the
-K~budget degenerate corner. Under a fieldwork-cost budget (T-0007,
-`distance.json`), DD's regret stayed at 85.2 across D ∈ {40, 80, 160} km
-while centrality reached 0–16.3; the gate failed 6/6. Recorded in
-`FAILURES.md` F006: the A1 mechanism's advantage does not transfer to the
-realistic cost model.
-
-### Knitting repair planner — kill gate and witness (proposed, untested)
-
-**Kill gate.** Stage A: the local planner must reproduce the exhaustive-search
-repair set on enumerably small graphs, preserve boundary loops, yarn order,
-pull-through legality, and exact final topology on every transition, and
-refuse unsupported shaping/ambiguous states rather than accepting them
-silently. Abandon the algorithmic-advantage claim if existing graph tooling
-already supplies equivalent intervention sequences, or if the planner
-repeatedly degenerates to full-row release in the supposedly useful cases.
-Stage B (physical): at least one nontrivial error class saves substantial
-undo work relative to tutorial and full-row rollback, with no unsupported
-operation silently accepted and no recurring undocumented interventions.
-
-**Information-sufficiency witness.** Two error configurations with identical
-chart-level inputs but different valid repairs: if the local planner cannot
-distinguish them from the patch alone, graph-level repair planning carries no
-additional information for choosing the intervention.
-
-**Reconsider when.** Stage B shows slack, friction, or manipulation access
-dominates repair success, or users must already read the full stitch structure
-to supply the patch (the tool then serves only those who can already solve
-it).
-
-### Adaptive ventilation measurement — kill gate and witness (proposed, untested)
-
-**Kill gate (transcribed from `RESEARCH/C.md`).** Stop if adaptive selection
-cannot distinguish the paired near-identical-trace hypotheses more reliably
-than the fixed door-open/door-closed protocol at equal observation budget, or
-if it produces confident wrong answers under common violations (changing
-weather, poor mixing). A gain on correctly specified synthetic models only
-establishes mathematical possibility; independent room measurements are
-required before any practical claim. No hardware spend before the simulation
-changes the decision.
-
-**Information-sufficiency witness.** Two parameter sets that produce nearly
-identical passive traces: if the adaptive action menu yields no observation
-that separates them, next-observation selection adds nothing over the fixed
-protocol. Run this witness before the paired-protocol comparison.
-
-**Reconsider when.** Adequate observations prove unavailable at household
-cost, or the willing users are already served by QICO2/NVAPF-class tools.
+All three moved to [`HYPOTHESES-results.md`](HYPOTHESES-results.md) on 2026-10-06 at this
+file's line cap: each candidate below was measured, each witness was run, and **none
+survived**, so the gates and witnesses now belong with the results that closed them rather
+than with a live candidate list. The table above keeps the objections and the *reconsider
+when* clauses.
 
 ## Standing cautions
 
