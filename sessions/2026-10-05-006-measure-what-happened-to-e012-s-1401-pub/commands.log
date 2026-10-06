@@ -334,3 +334,49 @@ Ran 746 tests in 859.703s
 FAILED (failures=3)
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 862917  redactions: none
+==============================================================================
+[seq 82] 2026-10-06T13:58:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................................./home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 816 tests in 1208.564s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1210417  redactions: none

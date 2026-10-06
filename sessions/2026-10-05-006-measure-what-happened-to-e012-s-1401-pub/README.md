@@ -91,10 +91,17 @@ _(none recorded)_
 | tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md | 1454c34355b8 | 3233 |
 | STATE-selection.md | 5f6eb7674d1c | 6966 |
 | STATE-selection.md | 8753ce6828e5 | 8501 |
+| STATE.md | 3b676fc756d5 | 42367 |
+| STATE-selection.md | 8753ce6828e5 | 8501 |
+| STATE-in-flight-4.md | 6e6491801215 | 6899 |
+| STATE-next-actions.md | 91567630ca83 | 15106 |
+| STATE-next-actions-closed.md | 9a4103e160d1 | 15939 |
+| STATE-next-actions-closed-2.md | b3b5fda2755d | 10274 |
+| STATE-history-3.md | 48b6e31c5403 | 4414 |
 
 ## Commands
 
-12 captured, 3 non-zero exit.
+13 captured, 3 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -110,6 +117,7 @@ _(none recorded)_
 | 25 | ['python3', 'EXPERIMENTS/021-need-statement-response/verify_manifest.py'] | 0 | 3868 |
 | 54 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 705320 |
 | 55 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 1 | 862917 |
+| 82 | ['env', 'PYTHONPATH=tools:tests', 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests'] | 0 | 1210417 |
 
 ## Integrity
 
@@ -165,18 +173,18 @@ _(none recorded)_
 | 38 | 12:49:14 | artifact | wrote EXPERIMENTS/README.md |
 | 39 | 12:49:17 | artifact | wrote EXPERIMENTS/020-copied-config-drift/README.md |
 | 40 | 12:49:20 | artifact | wrote docs/INDEX.md |
-| 72 | 13:38:26 | artifact | wrote docs/INDEX.md |
-| 73 | 13:38:28 | artifact | wrote tools/originlib/paths.py |
-| 74 | 13:38:29 | artifact | wrote tools/originlib/reconcile.py |
-| 75 | 13:38:30 | artifact | wrote tests/test_decision_files.py |
-| 76 | 13:38:32 | artifact | wrote tasks/INDEX.md |
-| 77 | 13:38:33 | artifact | wrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md |
-| 78 | 13:38:46 | task_rewrite | rewrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md (status: claimed) |
-| 79 | 13:38:47 | task_rewrite | appended a claim record for T-0081 |
-| 80 | 13:42:47 | artifact | wrote STATE-selection.md |
 | 81 | 13:48:04 | artifact | wrote STATE-selection.md |
+| 82 | 13:58:10 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 83 | 14:08:56 | milestone | landed on 4cd841b and 11758b3; 816 tests green, doc lint OK, release check OK, preflight OK |
+| 84 | 14:09:03 | artifact | wrote STATE.md |
+| 85 | 14:09:04 | artifact | wrote STATE-selection.md |
+| 86 | 14:09:05 | artifact | wrote STATE-in-flight-4.md |
+| 87 | 14:09:05 | artifact | wrote STATE-next-actions.md |
+| 88 | 14:09:06 | artifact | wrote STATE-next-actions-closed.md |
+| 89 | 14:09:07 | artifact | wrote STATE-next-actions-closed-2.md |
+| 90 | 14:09:07 | artifact | wrote STATE-history-3.md |
 
-_31 middle events omitted; see `events.jsonl`._
+_40 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
