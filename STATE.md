@@ -50,48 +50,59 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 ## In flight
 
 **The fourth demand-side generator closed on its own premise, not on prior art**
-(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts **do** state a
-missing capability at nearly twice the base rate of ordinary same-story comments
-(0.347 vs 0.181, CI95 [0.0224, 0.3024]) — but below the declared 0.20 margin, and
-**the seek stratum is indistinguishable from the move stratum at 0.347 vs 0.347**,
-so "unfilled" is not a property this population has. **0 of 100** reader-adjudicated
-clause pairs and **0 of 100** random pairs state the same requirement, with every
-instrument gate passing (A3 κ = 0.7189, A4 0/24, A5 0.486, A6 20/20 and 0/10) and
-length matching moving the arm difference 0.1667 → 0.1698 — **not** a length
-artifact, the opposite of F050. Its declared linkage rule could not fire at all
-(4 candidate pairs against a chance expectation of 4.9), the mirror image of F010;
-D062 governs linkage rules from here. Reading in
-[`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing
+capability at nearly twice the base rate of ordinary same-story comments (0.347 vs
+0.181, CI95 [0.0224, 0.3024]) — below the declared 0.20 margin, and **the seek
+stratum is indistinguishable from the move stratum at 0.347 vs 0.347**, so
+"unfilled" is not a property this population has. **0 of 100** clause pairs and **0
+of 100** random pairs state the same requirement, every instrument gate passing
+(κ = 0.7189, A6 20/20 and 0/10), and length matching moving the difference 0.1667 →
+0.1698 — **not** a length artifact, the opposite of F050. Its declared linkage rule
+could not fire at all (4 candidate pairs against a chance expectation of 4.9), the
+mirror image of F010; D062 governs linkage rules from here.
+
+**And the result those zeros rested on was checked for what it was a result about,
+which turned out to be one platform** (F053, F054,
+`EXPERIMENTS/032-venue-recurrence/`, T-0076). All **3,856** comment ids behind
+F039/F042/F043/F049/F051 are Hacker News, and four of the five experiments re-read
+E012's single 1401-comment file at **100% id overlap** — so "three populations,
+three instruments, three zeros" was **two corpora on one platform** (F051's own
+ceilings had said as much). **E032 changed the venue and nothing else**: 60
+long-form questions from three non-programming Stack Exchange sites, 53 authors,
+selected with **no requirement vocabulary**, against E031's linkage rule,
+reader-adjudicated control and four gates — **0 of 32** candidate pairs and **0 of
+60** control pairs `same`, difference **0.0000 CI95 [−0.0602, +0.1072]**, A2
+reachable, κ = 0.8344, A5 20/20. **The zero is not Hacker News's length, its
+unit, its population or its vocabulary selection — and it is a bound, not a zero:
+0.0894 here, 0.0223 pooled with E031's 100.** The three generators stay closed,
+now for a reason two venue classes support instead of one.
 
 **F037's reconciliation for the supply question is withdrawn: the copies are adapted,
 not duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed
-(687 matches, nonsense control 0) and barely duplicated (4.7% of contents, no
-cross-author pair overlapping by half), so near-zero install readings are not an
-invisible channel. Drift is **`inconclusive`**, not zero: 0 attributable pairs exist.
-Reading in [`STATE-in-flight.md`](STATE-in-flight.md).
+(687 matches) and barely duplicated (4.7% of contents), so near-zero install
+readings are not an invisible channel. Drift is **`inconclusive`**, not zero.
 
 **F049 followed the 1250 forward through the channel F045 opened.** Of the 241
-need-staters with a public `Show HN` item, **167 shipped it before they stated the
+need-starters with a public `Show HN` item, **167 shipped it before they stated the
 need** and only 74 after (`EXPERIMENTS/029`, T-0073), so the corpus is substantially
 **people who had already built something and then hit a gap they did not close** —
 which is what E045's 22.2% means read against *when*. The reader arm that would
 have quantified the rest is `not_evaluated` (κ = 0.5004; control separation 0.0405
-against a required 0.20), and bounds the need-to-build link at **[−0.0156, +0.1125]**,
-consistent with zero: F042's 0-of-24 is confirmed on a 10× larger instrument, not
-refuted. **The number that narrowed item 0 had no control, and the control is now run**
-(`EXPERIMENTS/023`, F043, D055, T-0067): E022's hand-labelled **15/39 = 0.385**
-"served" rate is **0.368** for ordinary comments in the *same stories*, drawn
-from answered comments so both arms share the "a reply exists" condition. The
-difference is 0.026 and the Wilson intervals overlap across nearly their whole
-width. **The rubric is not the cause** — this reader and E022's labelled the
-identical 39 rows at **κ = 0.923**. **What is withdrawn is the inference, not the
-measurement:** a reply naming an artifact is not distinguishable from what an
-ordinary comment receives. **E022's other two numbers stand** — 58.0% answered, and 0
-of 24 unserved requesters who built it themselves, the second a disclosure floor that
-F045 read. **The transferable bound:** a trigger vocabulary finds people who state
-needs and is invisible to what happens to those needs afterwards (lift 0.703 on
-answered, +0.026 on served), which bounds every outcome read from a trigger-harvested
-corpus, E022's and E029's included.
+against a required 0.20), and bounds the need-to-build link at
+**[−0.0156, +0.1125]**, consistent with zero: F042's 0-of-24 is confirmed on a 10×
+larger instrument, not refuted. **The number that narrowed item 0 had no control, and
+the control is now run** (`EXPERIMENTS/023`, F043, D055, T-0067): E022's
+hand-labelled **15/39 = 0.385** "served" rate is **0.368** for ordinary comments in
+the *same stories*, drawn from answered comments so both arms share the "a reply
+exists" condition — difference 0.026, Wilson intervals overlapping across nearly
+their whole width. **The rubric is not the cause**: this reader and E022's labelled
+the identical 39 rows at **κ = 0.923**. **What is withdrawn is the inference, not the
+measurement.** **E022's other two numbers stand** — 58.0% answered, and 0 of 24
+unserved requesters who built it themselves. **The transferable bound:** a trigger
+vocabulary finds people who state needs and is invisible to what happens to those
+needs afterwards (lift 0.703 on answered, +0.026 on served), which bounds every
+outcome read from a trigger-harvested corpus, E022's and E029's included — and it
+is why E032's own population was selected with no requirement vocabulary at all.
 
 **The candidate generator was refuted and its strongest cluster with it**
 (`EXPERIMENTS/012`, `EXPERIMENTS/014`, D049, F029, F033): 1401 harvested need
@@ -133,25 +144,25 @@ rebase records nothing and its paths are then attributed to whoever holds the tr
 (T-0053; sessions 040 and 012 hit that ceiling seven and twice).
 ## What changed recently
 
-- **Session 021, VM 0944 (T-0075, F051, D062): the demand-side recurrence
-  hypothesis closed from a second population.** Departure accounts state a
-  missing capability at 0.347 against ordinary comments' 0.181, the seek and
-  move strata are identical at 0.347 each, and 0 of 100 clause pairs recur with
-  every instrument gate passing (κ = 0.7189, A6 20/20). Full reading in
-  [`STATE-in-flight-2.md`](STATE-in-flight-2.md); evidence in
-  [`EXPERIMENTS/031-unfilled-requirement/README.md`](EXPERIMENTS/031-unfilled-requirement/README.md).
+- **Session 001, VM 0944 (T-0076, F053, F054): the recurrence zero was checked
+  for what it was a result about, and it was one platform — then survived a venue
+  change anyway.** Evidence in
+  [`EXPERIMENTS/032-venue-recurrence/README.md`](EXPERIMENTS/032-venue-recurrence/README.md);
+  reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
 **Earlier per-session highlights moved out of this file** at the 300-line cap: session
-017 (T-0072, F048, D059/D060 — **use is not fit**; `sharp` at 437M downloads/month has
+021 (T-0075, F051, D062 — the departure population's seek and move strata are
+identical at 0.347 each and 0 of 100 clause pairs recur), session 017 (T-0072,
+F048, D059/D060 — **use is not fit**; `sharp` at 437M downloads/month has
 documentation establishing nothing about its clause, the declared positive control
 failed, and **no prior-art verdict here has been shown to rest on evidence of fit**),
 session 053 (F039: 1250 distinct authors), sessions 008/010 (F042/F043/F044), session
 009 (F043, D055) and session 015 (F047: **6 of 15 `vague` kills are not vague**).
-**Six readings are closed** (F041's third axis, F035's coverage, F039, F029's
-refutation, F042's, F043's missing control, F047's re-read). Readings live in
-[`STATE-in-flight.md`](STATE-in-flight.md) and
+**Eight readings are closed** (F041's third axis, F035's coverage, F039, F029's
+refutation, F042's, F043's missing control, F047's re-read, F053/F054's venue).
+Readings live in [`STATE-in-flight.md`](STATE-in-flight.md) and
 [`STATE-in-flight-2.md`](STATE-in-flight-2.md); per-session detail in
-[`STATE-history.md`](STATE-history.md). That cap has been hit eight times.
+[`STATE-history.md`](STATE-history.md). That cap has been hit nine times.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -180,38 +191,38 @@ whichever item is next are in
 per unit of effort; the top item is:
 
 **The screen that killed most candidates has been measured on every axis, and
-each measurement came out against it.** F034 measures **soundness**: **4 of 4**
-on-topic incumbents in mature vocabularies are served and **1 of 4** in a young one
-— sound where it is least load-bearing, unsound where every candidate here lives.
-F035 measures **coverage**: of 12 adjudicable kills, **3 have no prior art at all**
-and **4 were served only on the open web**. F037 measures **composition**: the
-young arm is **14 of 18 executable code**, not prose. F040 measures
-**distribution**: that supply is lightly used rather than invisibly copied. F048
-measures **what its evidence is**, and the answer is that **use is not fit**.
+each measurement came out against it.** F034 **soundness**: **4 of 4** on-topic
+incumbents in mature vocabularies are served and **1 of 4** in a young one. F035
+**coverage**: of 12 adjudicable kills, **3 have no prior art at all** and **4 were
+served only on the open web**. F037 **composition**: the young arm is **14 of 18
+executable code**, not prose. F040 **distribution**: supply is lightly used rather
+than invisibly copied. F048 **what its evidence is**: **use is not fit**.
 
 **What changed is the method, not a candidate — and every source the method draws on
-has now been measured.** Prior art is judged on the open web and on the clause's
-attribute, never on a code index and a category (D050); F039 then showed the need
-corpus those survivors came from is **1250 individual requesters** with no need-level
-recurrence inside it (D051). **Choosing what the mission selects candidates on is
-still an owner decision**, narrowed to: none of the three axes — prior art, star-shaped
-adoption, harvested recurrence — can carry it, and F048 adds that the prior-art axis's
-own verdict is not yet shown to rest on evidence of fit. **The one asset no failure had
-touched has now been followed forward twice and narrows both times**: 58.0% of the
-1250 statements were answered, 0 of the 24 unserved requesters built the thing, and a
-fifth of the 1250 have shipped something — **and F049 shows 167 of the 241 who did
-ship had shipped *before* they complained.** So it is a population of needs the world
-absorbed in conversation, asked largely by people who had already built something. The
-"about a third were served" figure was uncontrolled and its control reads **0.368
-against the need arm's 0.395** (F043). Item 0 of
+has now been measured, including its own population.** Prior art is judged on the
+open web and on the clause's attribute, never on a code index and a category
+(D050); the need corpus those survivors came from is **1250 individual requesters**
+with no need-level recurrence inside it (D051), **and that corpus is Hacker News
+comments — so is the departure corpus beside it, and F054 found the recurrence zero
+holds on a second venue class too.** **Choosing what the mission selects candidates
+on is still an owner decision**, narrowed to: none of the three axes — prior art,
+star-shaped adoption, harvested recurrence — can carry it, and F048 adds that the
+prior-art axis's own verdict is not yet shown to rest on evidence of fit. **The one
+asset no failure had touched has been followed forward twice and narrows both
+times**: 58.0% of the 1250 statements were answered, 0 of the 24 unserved requesters
+built the thing, and **F049 shows 167 of the 241 who shipped anything shipped
+*before* they complained** — a population of needs the world absorbed in
+conversation, asked largely by people who had already built something. The "about a
+third were served" figure was uncontrolled and its control reads **0.368 against the
+need arm's 0.395** (F043). Item 0 of
 [`STATE-next-actions.md`](STATE-next-actions.md) holds the reasoning.
 
 **The gaps in that pattern, both found by colliding with it, and one in the record
 rather than in a red run.** Rule 7 did not read the numbered list in
 `STATE-defects.md`, so two VMs took defect 7 in the same hour and nothing said so
 (T-0036); it then did not read the third place a decision number is written, so two
-of five records were false while every gate passed (T-0042,
-defect 14). One entry point reads all three sources now.
+of five records were false while every gate passed (T-0042, defect 14). One entry
+point reads all three sources now.
 
 **The pattern in the red runs of 2026-10-04 is not "gates are missing" but gates
 that exist and are never run**: a task's `verify` omits the one gate its change can
@@ -224,16 +235,16 @@ artifact by the number's *shape* (T-0056, F024, defect 22).
 
 **Line caps are the standing friction, and each repair moved material to the file
 whose invariant owns it.** `STATE.md`, `STATE-defects.md`,
-`FAILURES-findings-4.md` and `tests/README.md` have each hit 300 and been split.
-`STATE-defects.md` cannot be split inside its own numbered list without
-`defectlist.py` reading more than one file, so that split is a task.
+`FAILURES-findings-4.md`, `STATE-next-actions.md` and `tests/README.md` have each
+hit 300 and been split. `STATE-defects.md` cannot be split inside its own numbered
+list without `defectlist.py` reading more than one file, so that split is a task.
 
 **The decision log could not record its own next decision, and that is now paid
-off.** `DECISIONS-GATING.md` stood at 297 of 300 permitted lines, so T-0036's
-decision lived in code and in this file instead of the log. D036 is recorded there,
-in the file its own invariant names. D059 joined D060 in `DECISIONS-SCREENING-4.md`
-at this session's own cap, and creating that file left three lists short of it —
-which the gate named rather than counted.
+off.** `DECISIONS-GATING.md` stood at 297 of 300, so T-0036's decision lived in
+code and in this file instead of the log; D036 is recorded in the file its own
+invariant names. D059 joined D060 in `DECISIONS-SCREENING-4.md` at that session's
+own cap, and creating that file left three lists short of it — which the gate named
+rather than counted.
 
 ## Capability evidence
 

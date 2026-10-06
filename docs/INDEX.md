@@ -240,6 +240,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/031-unfilled-requirement/README.md`](../EXPERIMENTS/031-unfilled-requirement/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/031-unfilled-requirement/RUBRIC.md`](../EXPERIMENTS/031-unfilled-requirement/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/032-venue-recurrence/PROTOCOL.md`](../EXPERIMENTS/032-venue-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/032-venue-recurrence/README.md`](../EXPERIMENTS/032-venue-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| [`EXPERIMENTS/032-venue-recurrence/VENUE.md`](../EXPERIMENTS/032-venue-recurrence/VENUE.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

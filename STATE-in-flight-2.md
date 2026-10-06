@@ -86,10 +86,12 @@ instrument.** That is now also the fifth condition of
 [`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md)'s
 prior-art rule.
 
-## The demand-side absence of recurrence is now a property of public accounts, not of a harvest vocabulary
+## The demand-side absence of recurrence survives a change of venue (F039, F049, F051, F053, F054)
 
-**Status: closed as an open reading (F039, F049, F051).** Item 0d's last
-standing question.
+**Status: closed, and now on two venue classes instead of one.** Item 0d's last
+standing question. **F053** counted what the closure stood on and found one
+platform; **F054** changed the venue and nothing else. Full reading below; raw
+evidence in [`EXPERIMENTS/032-venue-recurrence/`](EXPERIMENTS/032-venue-recurrence/README.md).
 
 **What the two populations now say.** F039 found the need corpus is **1250
 individuals each asking once**, with no need-level recurrence inside it. E031
@@ -101,10 +103,11 @@ against a reader-adjudicated random-pair control at 0.
 **Why this is a change and not a repetition.** Until now the recurrence null had a
 single alternative explanation available: F043 showed the trigger vocabulary is
 blind to outcomes, so the need corpus's zero could have been the instrument's. A
-second population, harvested by **different phrases about a different event**,
-with its own reader question and its own controls, gives the same zero. The
-absence is therefore **a fact about what people write in public about tools they
-have left**, and it does not follow from any vocabulary this mission chose.
+second corpus, harvested by **different phrases about a different event**, with
+its own reader question and its own controls, gives the same zero. The absence is
+therefore **not an artefact of any vocabulary this mission chose** — and it is a
+fact about **what people write on Hacker News about tools they have left**, which
+is what F053 leaves it as.
 
 **The premise that failed is the useful part.** E031's hypothesis was that
 accounts seeking an alternative state a requirement the artifact failed. They
@@ -115,14 +118,26 @@ successor.** The population is people reporting friction, not people holding an
 unfilled slot. That is why recurrence is zero, and it is why this closes a
 generator rather than merely failing to open one.
 
-**What this makes cheap to believe, and what it does not license.** It is now
-cheap to believe that **a cross-author recurring requirement will not be found by
-mining public conversations** — three populations, three instruments, three
-zeros. It licenses **no** claim that unmet requirements do not exist, that none
-recur, or that they cannot recur: F042's 0-of-24 and F049's CI95
-[−0.0156, +0.1125] are disclosures and bounded intervals, not zeros, and E031's
-own sample is **63 clauses** with its ceiling declared before the adjudication
-(AMENDMENT-4).
+**What this makes cheap to believe, and what it does not license.** It is cheap to
+believe that **a cross-author recurring requirement will not be found by mining
+Hacker News comments** — two corpora, five readings, five zeros, and the
+vocabulary varied each time. That part is earned and it is the stronger claim.
+It licenses **no** claim about other venues, and **not** one that unmet
+requirements do not exist, that none recur, or that they cannot recur: F042's
+0-of-24 and F049's CI95 [−0.0156, +0.1125] are disclosures and bounded
+intervals, not zeros, and E031's own sample is **63 clauses** with its ceiling
+declared before the adjudication (AMENDMENT-4).
+
+> **Corrected 2026-10-06 (F053).** This paragraph used to read "mining public
+> conversations — three populations, three instruments, three zeros". **The venue
+> was never varied.** All 3,856 comment ids behind F039, F042, F043, F049 and
+> F051 come from `hn.algolia.com` / `hacker-news.firebaseio.com`, and E019, E022,
+> E026 and E029 all re-read E012's single 1401-comment file at **100% identifier
+> overlap** — so there are two corpora, one of them read four times, not three
+> populations. F051's own ceilings already said as much ("One corpus and one
+> channel set"); the summary sentence was where the bound was dropped.
+> [`EXPERIMENTS/032-venue-recurrence/`](EXPERIMENTS/032-venue-recurrence/PROTOCOL.md)
+> tests the venue as the single changed variable.
 
 **The transferable instrument lesson is D062.** A linkage rule is part of the
 instrument: state the candidate count it produces against the count chance alone

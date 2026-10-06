@@ -34,38 +34,31 @@ untouched, and every item says which.
    replaces it (usefulness without users, distribution, domain knowledge, or
    something not yet named), and whether publishing the tooling as-is is ever on
    the table. **Ceiling:** F034's own gate is `inconclusive` — 43% of incumbents
-   were undecided against a declared 20% ceiling — and its young arm rests on
-   four decided rows; F027's sample is small and self-selected, and 0 stars is a
-   weak proxy with known false negatives (`ripgrep`, `jq`); **F044's has one
-   reader and no second coder at a one-row margin, which is the same defect E023
-   fixed with κ = 0.923.** **Nothing here is
-   blocked on tooling,** which is the standing reason this item stays the top
-   one.
-   **The four measurements that bear on this each closed a reading rather than
-   opening one (F035, F037, F039, F041).** F035 measured **coverage** (3 of 12
-   adjudicable kills have no prior art on any of three corpora; 4 were reachable
-   only on the open web); F037 measured **composition** (the young-vocabulary
-   population is **14 of 18 executable code**, so it is not documents); F039
-   measured the **need corpus the survivors came from** and found **1250 distinct
-   individuals**, median one comment each, with no need-level recurrence inside
-   it (D051). The instrument questions are answered too: **four of six positive
-   controls with demonstrated adoption returned 0 or 1 distinct author**, so the
-   recurrence gate is *not evaluable*, and **the copy-count instrument read 17 of
-   18 young-arm repositories and 0 of 13 placebo ones.** A lexical count cannot
-   carry a claim about demand and a code index cannot carry one about unpopular
-   work. **F044 then counted the kill reasons this item assumed:** a plurality
-   with a one-row margin, over 20 rows rather than twelve, with 7 of the 18 dying
-   of something else. Full reading in
-   [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
-
-   **The third reading has been taken, and it is answered in the negative**
-   (F041, D053), full account in [`STATE-in-flight.md`](STATE-in-flight.md):
-   **the serving channel the prior-art screen was alleged to be blind to
-   measured 0.118× the install channel**, so the screen was reading the dominant
-   one and **the twelve prior-art deaths stand.** The instrument premise here was
-   also wrong — a public unauthenticated API does serve the copy count — and its
-   blind spot is recorded beside it: **17 of 18 young-arm repositories and 0 of
-   13 placebo ones.**
+   were undecided against a declared 20% ceiling — on four decided young rows;
+   F027's sample is small and self-selected, and 0 stars is a weak proxy with
+   known false negatives (`ripgrep`, `jq`); **F044's has one reader and no second
+   coder at a one-row margin, which is the same defect E023 fixed with
+   κ = 0.923.** **Nothing here is blocked on tooling,** which is the standing
+   reason this item stays the top one.
+   **Five measurements bear on this and every one closed a reading rather than
+   opening one (F035, F037, F039, F041, F044).** **Coverage:** 3 of 12
+   adjudicable kills have no prior art on any of three corpora, and 4 were
+   reachable only on the open web. **Composition:** the young-vocabulary
+   population is **14 of 18 executable code**, not documents. **The need corpus
+   the survivors came from:** **1250 distinct individuals**, median one comment
+   each, with no need-level recurrence inside it (D051), from **four of six**
+   positive controls with demonstrated adoption returning 0 or 1 distinct author,
+   so the recurrence gate was *not evaluable*. **Distribution:** the serving
+   channel the screen was alleged to be blind to measured **0.118× the install
+   channel**, so **the twelve prior-art deaths stand** (F041, D053); its
+   instrument premise was also wrong, since a public unauthenticated API does
+   serve the copy count, and it read **17 of 18** young-arm repositories against
+   **0 of 13** placebos. **And the premise of this item:** F044 counted a
+   plurality with a one-row margin over 20 rows, with 7 of the 18 dying of
+   something else. A lexical count cannot carry a claim about demand and a code
+   index cannot carry one about unpopular work. Full reading in
+   [`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
+   [`STATE-in-flight.md`](STATE-in-flight.md).
 
    **What was left for the owner was one question, and E022 has now measured
    it.** Everything measured about supply says supply is uninformative about
@@ -100,12 +93,10 @@ untouched, and every item says which.
    needs and is **invisible to what happens to those needs afterwards**. Two
    readers on the same 39 rows agree at **κ = 0.923**.
 
-   **What E022 names and deliberately does not run:** the **589 statements that
-   drew no reply at all** are the only sub-population the outcome data marks
-   unserved, and their requesters did not self-serve either. That inverse filter
-   needs the same two public APIs and no new instrument. **Ceiling:** it is a
-   second read of a population already read twice, so it needs its own
-   falsifiable claim before it is worth the API budget.
+   **E022 named the 589 never-answered statements as the only sub-population the
+   outcome data marks unserved, and both have since been read** (T-0069, T-0070):
+   58.0% answered, 0 of 24 unserved requesters built it, and 167 of the 241 who
+   shipped anything shipped **before** they complained (F042, F049).
 
   0b. **The CI flake: deferred on purpose, not overlooked.** Three tests failed on
      identical bytes and six full suite runs did not reproduce it. T-0057 makes the
@@ -117,13 +108,12 @@ untouched, and every item says which.
    0d. **Invention item (D048), and its seat is empty by measurement.** This entry
    holds the seat for candidate work; every other item here had been gates, CI
    diagnosis, identifier allocation or line caps (F031's complaint). E016's arm 2
-   put **three needs no artifact on three corpora serves** (F035, D050) — the
-   first leads this mission had that did not come from its own sealed reports —
-   and **all three are now closed.** Lead 7 got its mechanism answer (E018,
-   F038): a per-call mode variable is the interposition point, the stock OTel
-   Python SDK ships none, and the missing piece is a feature gap rather than a
-   candidate. Leads 12 and 16 were closed by F039 rather than by their mechanism
-   answers — the premise underneath them, that someone else wants the same thing,
+   put **three needs no artifact on three corpora serves** (F035, D050) and
+   **all three are now closed.** Lead 7 got its mechanism answer (E018, F038): a
+   per-call mode variable is the interposition point, the stock OTel Python SDK
+   ships none, and the missing piece is a feature gap rather than a candidate.
+   Leads 12 and 16 were closed by F039 rather than by their mechanism answers —
+   the premise underneath them, that someone else wants the same thing,
    was never measured and cannot be measured from the corpus they came from.
    **D051 supersedes D050's narrowing here: the harvest is refuted as a generator
    on a population measurement, not on a screen.**
@@ -139,8 +129,22 @@ untouched, and every item says which.
    in public text**. **Ceiling:** 63 clauses; four channels unread by declaration.
    Reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-   **All three generators under this seat are closed, for measured reasons rather
-   than a prior-art one** — the live corpus 0 of 50 (F029), which F039
+   **All three generators under this seat are closed for measured reasons rather
+   than a prior-art one, and the closure no longer rests on one platform**
+   (F053, F054, `EXPERIMENTS/032-venue-recurrence/`). F053 counted what the
+   closure stood on: **one venue**, sampled five times, with E019, E022, E026 and
+   E029 all re-reading E012's single 1401-comment file at 100% id overlap — so
+   "three populations, three instruments, three zeros" was two corpora on one
+   platform. **E032 changed the venue and nothing else** — 60 long-form questions
+   from three non-programming Stack Exchange sites, selected with **no
+   requirement vocabulary**, against E031's own linkage rule, control and four
+   gates: **0 of 32** candidate pairs and **0 of 60** control pairs are `same`,
+   difference **0.0000 CI95 [−0.0602, +0.1072]**, κ = 0.8344, 20/20 positives,
+   0/10 negatives. **So the zero is not Hacker News's length,
+   self-containedness, population or selection.** It is a **bound, not a zero**:
+   **0.0894** in E032, **0.0223** pooled with E031's 100. **Ceiling:** 28 clauses
+   both readers agreed on, two readers of one model family, one platform,
+   2025–2026. Reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md). — the live corpus 0 of 50 (F029), which F039
    shows was 1250 individuals each asking once rather than a sample of shared
    needs, and the recurrence hypothesis, which collapsed every cluster it was
    promised by >100× (F033) and whose person-level instrument failed its own

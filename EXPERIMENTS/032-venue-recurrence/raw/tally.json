@@ -1,0 +1,81 @@
+{
+  "arms": {
+    "candidates": {
+      "n": 32,
+      "same": 0
+    },
+    "control": {
+      "n": 60,
+      "same": 0
+    },
+    "negative": {
+      "n": 10,
+      "same": 0
+    },
+    "positive": {
+      "n": 20,
+      "same": 20
+    }
+  },
+  "diff_ci95": [
+    -0.060173930477932895,
+    0.1071827150573635
+  ],
+  "difference": 0.0,
+  "gates": [
+    {
+      "detail": "6/6 fetches 200, 60 rows on disk",
+      "gate": "A1",
+      "result": "pass",
+      "rule": ">= 95% of attempted rows answer; 60 held rows re-readable"
+    },
+    {
+      "detail": "32 candidates vs chance 1.19",
+      "gate": "A2",
+      "result": "pass",
+      "rule": "candidate pairs > chance alone produces"
+    },
+    {
+      "detail": "kappa = 0.8344 on 60 double-read rows",
+      "gate": "A3",
+      "result": "pass",
+      "rule": "reader kappa >= 0.6"
+    },
+    {
+      "detail": "0/24 nonsense clauses; 0/10 negatives `same`",
+      "gate": "A4",
+      "result": "pass",
+      "rule": "nonsense clause rate <= 0.25 and negative pair `same` <= 0.20"
+    },
+    {
+      "detail": "20/20 positives `same`",
+      "gate": "A5",
+      "result": "pass",
+      "rule": ">= 16 of 20 positive pairs read `same`"
+    }
+  ],
+  "link": {
+    "A2_candidate_pairs": 32,
+    "A2_candidates_adjudicated": 32,
+    "A2_chance_expectation_mean": 1.19,
+    "A2_chance_span": [
+      0,
+      6
+    ],
+    "A2_reachable": true,
+    "A2_rule": ">= 1 shared normalised content token, different authors",
+    "A3_kappa": 0.8344,
+    "A3_raw_agreement": 0.9167,
+    "clauses_both_readers": 28,
+    "control_pairs": 60,
+    "negative_pairs": 10,
+    "positive_pairs": 20,
+    "q2_rows": 122,
+    "q2_sha256": "2d6874f56e3a80cbf15e953ca5a48a45dfddda7a35c4777098038663973b6433",
+    "rows_double_read": 60,
+    "schema": "origin.e032.link/1"
+  },
+  "nonsense_clause_rate": 0.0,
+  "schema": "origin.e032.tally/1",
+  "verdict": "B2_kills__the_zero_generalises_past_this_venue_class"
+}
