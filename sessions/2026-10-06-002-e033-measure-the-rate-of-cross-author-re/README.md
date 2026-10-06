@@ -61,6 +61,11 @@ _(none recorded)_
 | EXPERIMENTS/README.md | 4c6d6f5d9d0b | 6562 |
 | RELEASE-MANIFEST.md | 065a43931d90 | 5267 |
 | docs/INDEX.md | 60ac76b6fe0b | 37375 |
+| EXPERIMENTS/033-question-recurrence/API.md | 798c0fdb70d7 | 3974 |
+| EXPERIMENTS/033-question-recurrence/README.md | b3db7df91c43 | 8826 |
+| FAILURES-findings-22.md | 53462cd0a3c4 | 13069 |
+| FAILURES.md | 3158e1b20660 | 23295 |
+| STATE-in-flight-2.md | ec677e07d682 | 12611 |
 
 ## Commands
 
@@ -132,13 +137,18 @@ _(none recorded)_
 | 38 | 03:27:47 | artifact | wrote STATE-next-actions.md |
 | 39 | 03:27:48 | artifact | wrote STATE-next-actions-closed.md |
 | 40 | 03:27:48 | artifact | wrote STATE-constraints.md |
-| 41 | 03:27:49 | artifact | wrote ROADMAP.md |
-| 42 | 03:27:50 | artifact | wrote ROADMAP-infrastructure.md |
-| 43 | 03:27:50 | artifact | wrote EXPERIMENTS/README.md |
 | 44 | 03:27:51 | artifact | wrote RELEASE-MANIFEST.md |
 | 45 | 03:27:52 | artifact | wrote docs/INDEX.md |
 | 46 | 03:27:52 | milestone | E033 complete: B1 fires, the pooled 0.0223 recurrence bound is refuted at 0.0540 CI95 [0.0416, 0.0698]; F055 recorded |
 | 47 | 03:39:54 | task_rewrite | rewrote tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md (status: done) |
+| 48 | 03:39:56 | task_rewrite | appended a complete record for T-0077 |
+| 49 | 03:45:47 | artifact | wrote EXPERIMENTS/033-question-recurrence/API.md |
+| 50 | 03:45:49 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
+| 51 | 03:45:51 | artifact | wrote FAILURES-findings-22.md |
+| 52 | 03:45:53 | artifact | wrote FAILURES.md |
+| 53 | 03:45:55 | artifact | wrote STATE-in-flight-2.md |
+
+_3 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

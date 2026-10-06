@@ -74,7 +74,7 @@ from where it is rarest. Five experiments ran the right question on the wrong st
 `/questions/{id}/related` returns 6–10 rows per question with full metadata, so a canonical
 is *guessable* — but nothing in the public API says which row is the closure's target. The
 API does not expose `closed_details` (the field that names it) or `question_type` (which
-marks a related row as the duplicate), and **every vectorised `{ids}` path 404s**, so one
+marks a related row as the duplicate), and the **four vectorised `{ids}` routes tried all return `no_method`**, so one
 canonical costs one request. Details and the four routes tried:
 [`API.md`](API.md).
 

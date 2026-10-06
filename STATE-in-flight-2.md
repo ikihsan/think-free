@@ -124,8 +124,8 @@ defect transfers, not a rate.
 
 **The constraint that follows, and it is about the archive.** A duplicate closure is a
 reliable **label** and an unreachable **edge**: the public API exposes neither
-`closed_details` (which names the canonical) nor `question_type`, and every vectorised
-`{ids}` path returns `no_method`, so one canonical costs one request.
+`closed_details` (which names the canonical) nor `question_type`, and the four vectorised
+`{ids}` routes tried all return `no_method`, so one canonical costs one request.
 `/questions/{id}/related` returns topical rows that the reader arm confirmed as the
 canonical only **6 times of 24**, failing its declared gate. `tally.py` therefore refuses
 to print the declared visibility product rather than compute it from canonicals this run

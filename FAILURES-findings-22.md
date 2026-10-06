@@ -210,7 +210,7 @@ transfers is the method defect, not a rate.
 
 **A duplicate closure on this platform is a reliable label and an unreachable edge.** The
 public API exposes neither `closed_details` (which names the canonical) nor `question_type`
-(which marks a related row as the duplicate), and **every vectorised `{ids}` path returns
+(which marks a related row as the duplicate), and the **four vectorised `{ids}` routes tried all return
 `no_method`**, so one canonical costs one request. `/questions/{id}/related` does return
 6–10 topical rows with full metadata, so a canonical is guessable — and this run's reader
 arm confirmed **6 of 24** of those guesses, failing its declared gate of 30 of 40. Two
