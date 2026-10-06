@@ -68,6 +68,27 @@ _(none recorded)_
 | EXPERIMENTS/021-need-statement-response/verify_manifest.py | 5452f7ec4f4f | 2585 |
 | EXPERIMENTS/021-need-statement-response/trigger_shape.json | 2dba1d70c399 | 5581 |
 | STATE-next-actions.md | 86d14b53237d | 19403 |
+| STATE.md | 3b676fc756d5 | 42367 |
+| STATE-selection.md | a6c0262d8b79 | 6743 |
+| STATE-in-flight-4.md | 6e6491801215 | 6899 |
+| STATE-history-3.md | 48b6e31c5403 | 4414 |
+| STATE-next-actions.md | 91567630ca83 | 15106 |
+| STATE-next-actions-closed.md | 9a4103e160d1 | 15939 |
+| STATE-next-actions-closed-2.md | b3b5fda2755d | 10274 |
+| STATE-constraints.md | 719340ac0dcc | 17408 |
+| DECISIONS.md | 3a58b44713cf | 10109 |
+| DECISIONS-SCREENING-2.md | 3076eaf7c1d8 | 18638 |
+| DECISIONS-SCREENING-8.md | 6f20a9442917 | 5202 |
+| FAILURES.md | 626eb5d51ea6 | 32410 |
+| FAILURES-findings-25.md | 5aa31f6c2303 | 8147 |
+| RELEASE-MANIFEST.md | ec79ecf87851 | 6556 |
+| EXPERIMENTS/README.md | 0b56f262366e | 6884 |
+| docs/INDEX.md | 98ad901d22df | 39812 |
+| tools/originlib/paths.py | 34be56bc653d | 4158 |
+| tools/originlib/reconcile.py | 2a41410ab250 | 8262 |
+| tests/test_decision_files.py | 8ab726e0d271 | 4735 |
+| tasks/INDEX.md | 7c089390604a | 8941 |
+| tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md | 1454c34355b8 | 3233 |
 
 ## Commands
 
@@ -142,18 +163,18 @@ _(none recorded)_
 | 38 | 12:49:14 | artifact | wrote EXPERIMENTS/README.md |
 | 39 | 12:49:17 | artifact | wrote EXPERIMENTS/020-copied-config-drift/README.md |
 | 40 | 12:49:20 | artifact | wrote docs/INDEX.md |
-| 46 | 12:49:41 | artifact | wrote EXPERIMENTS/021-need-statement-response/raw/arms.jsonl |
-| 47 | 12:49:44 | artifact | wrote EXPERIMENTS/021-need-statement-response/raw/fetch_log.jsonl |
-| 48 | 12:49:47 | artifact | wrote EXPERIMENTS/021-need-statement-response/raw/MANIFEST.json |
-| 49 | 12:49:51 | artifact | wrote EXPERIMENTS/021-need-statement-response/verify_manifest.py |
-| 50 | 12:49:54 | artifact | wrote EXPERIMENTS/021-need-statement-response/trigger_shape.json |
-| 51 | 13:09:54 | artifact | wrote STATE-next-actions.md |
-| 52 | 13:14:20 | decision | read the reply subtree of the need corpus rather than searching for it, and restate the corpus as a recognition signal rather than reuse it as an arti |
-| 53 | 13:14:26 | experiment_result | kill gate fired at 1.235x against a bar of 1.5 declared in advance; 0 of 1391 needs drew a reply naming a tool new to its thread and 1 of 794 requeste |
-| 54 | 13:26:00 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 55 | 13:35:28 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 69 | 13:38:22 | artifact | wrote FAILURES-findings-25.md |
+| 70 | 13:38:24 | artifact | wrote RELEASE-MANIFEST.md |
+| 71 | 13:38:25 | artifact | wrote EXPERIMENTS/README.md |
+| 72 | 13:38:26 | artifact | wrote docs/INDEX.md |
+| 73 | 13:38:28 | artifact | wrote tools/originlib/paths.py |
+| 74 | 13:38:29 | artifact | wrote tools/originlib/reconcile.py |
+| 75 | 13:38:30 | artifact | wrote tests/test_decision_files.py |
+| 76 | 13:38:32 | artifact | wrote tasks/INDEX.md |
+| 77 | 13:38:33 | artifact | wrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md |
+| 78 | 13:38:46 | task_rewrite | rewrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md (status: claimed) |
 
-_5 middle events omitted; see `events.jsonl`._
+_28 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

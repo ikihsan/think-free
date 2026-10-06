@@ -6,8 +6,11 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0081
-status: open
+status: claimed
 created: 2026-10-06
+claim-agent: opencode
+claim-vm:
+claim-session: 2026-10-05-006-measure-what-happened-to-e012-s-1401-pub
 -->
 
 # T-0081 — Measure what happened to E012's 1401 public need statements
