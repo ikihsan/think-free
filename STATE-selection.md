@@ -29,19 +29,21 @@ publication forced (F060, D068, E039). The reasoning is unchanged.
 
 Twelve candidates, twelve prior-art deaths, the twelfth being `tools/origin`
 itself (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). Each measurement below
-attacks the screen's own premise, and **all four came out against it**:
+attacks the screen's own premise:
 
-| finding | axis | what it measured |
-|---|---|---|
-| F034 | soundness | 4 of 4 on-topic incumbents in mature vocabularies are served, **1 of 4** in a young one |
-| F035 | coverage | 3 of 12 adjudicable kills have no prior art on any of three corpora; 4 were reachable only on the open web |
-| F037 | composition | the young arm is **14 of 18 executable code**, not prose |
-| F060 | demand side | the need corpus's own threads answered 57% of its statements, drew a link for 5.5%, and named anything new in **0 of 1391** |
+| finding | axis | what it measured | which way it came out |
+|---|---|---|---|
+| F034 | soundness | 4 of 4 on-topic incumbents in mature vocabularies are served, **1 of 4** in a young one | against the screen |
+| F035 | coverage | 3 of 12 adjudicable kills have no prior art on any of three corpora; 4 were reachable only on the open web | against the screen |
+| F037 | composition | the young arm is **14 of 18 executable code**, not prose | against the "it's just documents" rescue |
+| F041 (other VM) | distribution | the copy channel holds **1,026** repositories against **8,676** monthly installs, ratio **0.118** | **against** the "used and invisible" reading |
+| F060 (this VM) | demand side | the need corpus's own threads answered 57% of its statements, drew a link for 5.5%, and named anything new in **0 of 1391** | against the corpus as an artifact signal |
 
 The screen is therefore sound where it is least load-bearing and unsound precisely
 where this mission's candidates live — which is neither a reason to keep it nor a
 reason to drop it, but a reason to state the axis in terms of the vocabulary a
-candidate sits in.
+candidate sits in. **Every channel that could have carried the choice has now been
+measured, and five measurements agree that supply-side counts do not carry it.**
 
 **This is an owner decision:** which axis replaces it (usefulness without users,
 distribution, domain knowledge, or something not yet named), and whether
@@ -110,16 +112,29 @@ nonsense control of **0** — and barely *duplicated*: **92 of 1950** distinct
 configuration file contents (4.7%) are byte-identical across repositories, and
 **no two repositories from different authors overlap by half**. The near-zero
 install readings are not explained by an invisible distribution channel. Drift
-itself is `inconclusive`, not zero. The forks-and-dependents question is VM 0944's
-open **T-0064**.
+itself is `inconclusive`, not zero. **The last open channel — forks and dependents
+— was VM 0944's T-0064 and has since been answered on the base.** Its result (F041
+in that VM's numbering, `EXPERIMENTS/021-copied-artifact-serving`) is the opposite
+of the reading above and it is the important one: the copy channel holds **1,026**
+indexed repositories against the young arm's **8,676** monthly installs, a ratio of
+**0.118** against a declared dead-gate of ≤5×. **So the artifact really is
+installed and lightly counted, and F037's "used and invisible" reading does not
+stand** — the fourth measurement of this screen, and it is the one that finally
+closes the young-vocabulary question.
 
 ## Related work this decision is not
 
 - **Item 0b**, the CI flake, is deferred on purpose: CI is green and nothing is
   blocked on it.
-- **Item 0c**, the undecidable-fraction question, is mostly closed by F037. What
-  remains open is whether the fraction predicts anything about the need, and its
-  falsifier is a population where the unmeasurable fraction is near zero.
+- **Item 0c**, the undecidable-fraction question, is mostly closed by F037 — and
+  **E039 supplied the falsifier it was waiting for.** Its falsifier was "a
+  population where the unmeasurable fraction is near zero". The need corpus's own
+  threads are exactly that, and in them the *reading* fraction is high (99.3% of
+  needs recovered) while the *serving* fraction is 0 of 1391. **A channel can read
+  an artifact perfectly well and still say nothing about whether it serves the
+  clause** — which is the sharper form of 0c's worry, now measured rather than
+  argued. What remains open is narrower: whether an *unreadable* row predicts
+  anything, which needs a stated channel set or it measures the instrument.
 - **Item 0d**, the invention seat, holds no queue: both generators under it are
   closed for measured reasons (F029, F033, F039), and lead 7's mechanism answer
   was a feature gap (F038). E2's lockfile claim is the only live mechanism there.
