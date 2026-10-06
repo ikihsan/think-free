@@ -6,9 +6,10 @@ last-verified: 2026-10-06
 
 # Verified state
 
-Date: 2026-10-06, Asia/Kolkata. Phase: B — the prior-art screen is measured, the recurrence
-bound is refuted, and the score-tail backlog is confirmed real, unreachable and **not a
-rescue**. **No product selected.**
+Date: 2026-10-06, Asia/Kolkata. Phase: B — and for the first time there is **a candidate with
+a working artifact**: `stage-lines` / `stg`, line-addressable partial staging for git
+(E037, F060, D068). It is a candidate, not a product; **adoption is `not_evaluated`** and the
+score-tail backlog remains closed.
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -37,7 +38,8 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21). A gate's pattern for this repository's split records now reads a numbered split — `decisionindex.py` reported `DECISIONS-SCREENING-2.md` as unlisted while its row was in the table, and the pattern is held to the spellings `DECISIONS.md` uses (`tests/test_decision_row_pattern.py`, T-0063) |
-| Users and adoption | None. No product, no release, no claims |
+| Implemented (3) | **`stage-lines/`** — `stg`, a non-interactive `git add -p`. `list`, `list --json`, `stage`, `unstage`, `split`; addresses any change by the working-tree line it occupies, splitting adjacent modifications per line. **285 lines of library + a 297-line CLI, standard library only, no install step. 28 tests, all against real git repositories with no mocks** (`python3 -m unittest discover -s stage-lines`). Correctness is anchored to git itself: on a real file in this repository the resulting `.git/index` is **byte-identical** to the one a hand-built patch leaves. **Not released**; its header says `status: draft` |
+| Users and adoption | None. No product, no release, no claims. **E037's KILL-Q — does anyone want this — is `not_evaluated`**, the third experiment to leave it so |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | **110 with an event stream, 108 closed** — counted from the tree rather than from a running total, because the two VMs had been counting different bases. An unfinished session on either VM is reported as in flight rather than as a failure (D027); VM 0947's 054 is the live one and its T-0060 claim is past the 12h lease |
@@ -50,86 +52,45 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**The score-tail worklist is one unauthenticated URL, and the candidate is closed**
-(`EXPERIMENTS/036-search-backlog`, **F059, D066, D067**, T-0080). The declared next action
-was *does a person's own search box already return this?*, and it was answered **before the
-second measurement request**:
-`/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100` returns
-**100 questions ascending by score (−20…−5)**, **81 of them ids already in E034's committed
-harvest** — the first at rank 1 — and **13 labelled `Duplicate`/`exact duplicate` in the
-payload's own `closed_reason`**. No key, no custom filter, no computation. E035's stated
-differentiator was *"the platform's own closure label over a population no surface orders
-that way"*, and **the platform orders it that way itself. KILL-R met at 8 requests**, after
-three experiments spent 1125 rows on the population.
+**A candidate with a working artifact exists, and the gap is the interface, not the
+capability** (E037, **F060, D068**, T-0081, [`stage-lines/`](stage-lines/README.md)). The
+D067 check was run and **the mechanism turned out to be available** — `git add -p` reads
+piped keys, and a purpose-written pty driver reaches the right answer on **4 of 6** cases for
+**133 lines** of caller code — so the probe's own reading was wrong (F060, F020's shape) and
+the candidate would have been killed by the wrong question. **D068 asks the interface one:**
+what must the caller already know to name the target? git takes no `file:line` for staging,
+its `s` splits only at context boundaries, and its headers name deletions one line before
+where their content was. `stg` is **6 of 6**, stable across `diff.context`. The pool came
+from reading all 589 never-answered need statements (**F061**), where two distinct named
+requesters ask for exactly this. **Whether anyone wants it is unmeasured** — KILL-Q, left
+`not_evaluated` by three experiments now.
 
-**Three corrections ride with it.** F058's *"no surface offers the ordering"* was measured
-on one rendered tag page's seven tabs and is now scoped to that (**D066**: a reachability
-claim must name the interface surface it enumerated — this platform also ships `sort`,
-`order`, `tagged`, `closed`, `votes`, `accepted`, `title`, `user` and more). E035's *"the
-label needs an API key"* was a per-route fact about `/questions/unanswered` and
-`/questions/{ids}` generalised to the platform, when `/search/advanced`'s **default** filter
-carries it unauthenticated — **F020's shape, in the mission's own instrument**. And
-`closed` is the one filter value that route does **not** validate (`closed=maybe` returns
-200 with `closed=yes`'s items), so no closed-only control was ever establishable from that
-route's behaviour, while `order` and `filter` both return 400 on invalid values.
-
-**D067 now orders the next search**: a candidate whose value is a mechanism is tested
-against **that mechanism's existing source first**, in about two requests, before any
-population is measured for it. F055, F058 and F059 are that shape three times over. **The
-population is untouched; what died is the claim that it is unreachable, and the adoption
-question is now the whole question — unmeasured in three experiments.** Retrieval arms,
-thin: tail titles 3 of 4, `Active` control 2 of 2 at rank 1 (the positive control fired on
-real positive examples), **KILL-Q `not_evaluated`** at n=4 and the negative control refused
-by the quota window; and the run failed twice in its own plumbing — a stage argument fell
-through to a nine-request plan against a four-request budget, and `quota_wall()` discarded
-successful 200s reporting negative quota. **Neither bug is load-bearing on the kill**, which
-is an id-intersection against committed evidence. Reading in
+**The score-tail worklist remains closed and is now a pointer, not text** (`EXPERIMENTS/036`,
+F059, D066, D067, T-0080). Its population is real, reproducible and per-tag; its mechanism is
+one unauthenticated `/search/advanced` query that returns it ascending with the closure label
+in the payload. **KILL-Q was `not_evaluated` there and is `not_evaluated` here**, so the one
+question this record has never answered is now attached to a candidate whose interface gap is
+demonstrated. Full reading, including the three corrections the kill forced, in
 [`STATE-in-flight-3.md`](STATE-in-flight-3.md).
 
-**Two closed readings on this line, kept as pointers — each full text is in the file named,
-and neither changes what is next.** (i) **E035** (`EXPERIMENTS/035-unanswered-surface`,
-F058, D065, T-0079) re-read E034's committed bytes at **zero quota** and falsified the frame:
-within the tail arm the duplicate rows are viewed *more* than their neighbours, **251 against
-193**, at a median age of **8.49 yr** — an eight-year-old backlog, not a findability rescue;
-the `Active` and `tail` arms do not intersect for two of eight tags, so the 4.5× is about
-**membership**; no **rendered** tag page carries an ascending-score control (F059 corrected
-this to the platform, where one API route does); and D6's remedy was aimed at the wrong
-constraint, since between-tag excess variance is **+0.0420 within `stackoverflow` alone**
-against a pooled **+0.0417**. Its own gates did not close it either: `tab=Unanswered`'s
-`/questions/unanswered` excludes the population **by definition** — **0** of E034's 224
-known duplicate-closed ids in 2050 rows — so D065's firing was definitional and its branch is
-**not taken**, and **U2 is `not_evaluated`, not zero**.
-(ii) **E032/E033** (F053, F054, **F055**) refuted the pooled recurrence bound: recurrence
-read off Stack Exchange's own duplicate closure is **0.0540 CI95 [0.0416, 0.0698]** against
-0.0223, and the zeros were a stratum effect — the top 60 by score, which is what `sort=votes`
-draws, contains **0** duplicate closures against a mean of 3.37. Reading in
-[`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
-[`STATE-in-flight-3.md`](STATE-in-flight-3.md).
-
-**The fourth demand-side generator closed on its own premise, not on prior art**
-(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing capability
-at nearly twice the base rate of ordinary same-story comments (0.347 vs 0.181) — below the
-declared 0.20 margin, and **the seek stratum is indistinguishable from the move stratum at
-0.347 vs 0.347**, so "unfilled" is not a property this population has. **0 of 100** clause
-pairs recur, every instrument gate passing. Its declared linkage rule could not fire at all
-(4 candidate pairs against a chance expectation of 4.9), the mirror image of F010; D062
-governs linkage rules from here.
-
-**Nine closed readings and four closed tooling findings are pointers, not text.** Each
-block that used to sit here — F037's withdrawn reconciliation, F049's need-build bound, the
-0-of-50 generator, F035's coverage and F037's population, and the four gate findings that
-explain how a green session can still hold false records — is now a pointer with its
-numbers in [`STATE-in-flight.md`](STATE-in-flight.md),
-[`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
-[`STATE-in-flight-3.md`](STATE-in-flight-3.md). **Nothing was shortened: the blocks moved to
-the files whose invariant owns them.** One rule from them survives into every session, so it
-stays here: **rebase a moving base with `origin sync land`**, because a hand-run rebase
-records nothing and its paths are then attributed to whoever holds the tree (T-0053).
+**Four further closed readings are pointers, not text:** the fourth demand-side generator
+(E031, F051, D062 — the seek and move strata are identical at 0.347, so the population has no
+"unfilled" property) and the four gate findings that explain how a green session can still
+hold false records. Numbers in [`STATE-in-flight-3.md`](STATE-in-flight-3.md). **Nothing was
+shortened; the blocks moved to the file whose invariant owns them.** One rule survives into
+every session, so it stays here: **rebase a moving base with `origin sync land`**, because a
+hand-run rebase records nothing and its paths are then attributed to whoever holds the tree
+(T-0053).
 
 ## What changed recently
 
-- **Session 005, VM 0944 (T-0080, F059, D066/D067): the score-tail candidate is prior art
-  as a URL.** 8 requests, one of which returned 81 of E034's own harvested ids in
+- **Session 006, VM 0944 (T-0081, E037, F060/F061, D068): a candidate, built and measured.**
+  `git add -p` has no non-interactive equivalent, and that is the wrong thing to fix: the
+  operation is available, the *interface* is not, and the difference costs a caller 133 lines.
+  `stg` is **6 of 6 against the incumbent's 4 of 6**, and its index is byte-identical to a
+  hand-built patch's. Evidence in [`EXPERIMENTS/037-line-staging/README.md`](EXPERIMENTS/037-line-staging/README.md)
+  and [`stage-lines/`](stage-lines/README.md); the candidate record is
+  [`HYPOTHESES-candidates.md`](HYPOTHESES-candidates.md). 8 requests, one of which returned 81 of E034's own harvested ids in
   ascending-score order with the closure label attached. Three corrections to the record,
   and **D067** reorders the work for the next candidate. Evidence in
   [`EXPERIMENTS/036-search-backlog/README.md`](EXPERIMENTS/036-search-backlog/README.md);

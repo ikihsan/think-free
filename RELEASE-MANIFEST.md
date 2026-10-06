@@ -29,6 +29,7 @@ absent, and the check fails the moment it appears.
 | `CODE_OF_CONDUCT.md` (pending) | Same. |
 | `docs/` | Policy, process, operations, reference. Shows the method is real. |
 | `tools/` `tests/` | The infrastructure that makes claims reproducible. |
+| `stage-lines/` | The first candidate artifact. Public because the experiment record cites it and its own tests are the correctness argument; its header says `status: draft`, so it is not presented as released. |
 | `.agents/` `.claude/` `vendor/` | Canonical skills, their mirrors, and the licences they keep. |
 | `.github/` | The CI gates that enforce those tests, and the agent entry point. |
 | `.gitignore` | A credible repository ships its ignore rules. |
@@ -40,10 +41,11 @@ absent, and the check fails the moment it appears.
 |---|---|
 | `sessions/` | Raw operational history of agent runs. Interesting to auditors, noise to users. |
 | `tasks/` | Dispatch state for the VM fleet. Meaningless outside the mission. |
-| `RESEARCH/` `EXPERIMENTS/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
+| `EXPERIMENTS/` | Working notes, sealed reports, and raw experiment outputs. Cited, not published. |
+| `RESEARCH/` | Sealed investigation reports. Cited, not published. |
 | `MISSION.md` `STATE.md` `STATE-defects.md` `STATE-defects-2.md` `STATE-history.md` `STATE-history-2.md` `STATE-next-actions.md` `STATE-next-actions-closed.md` `STATE-in-flight.md` `STATE-in-flight-2.md` `STATE-in-flight-3.md` `STATE-constraints.md` `ROADMAP.md` `ROADMAP-infrastructure.md` | Mission control records. Honest to keep, distracting as a front door. |
-| `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-SCREENING.md` `DECISIONS-SCREENING-2.md` `DECISIONS-SCREENING-3.md` `DECISIONS-SCREENING-4.md` `DECISIONS-SCREENING-5.md` `DECISIONS-SCREENING-6.md` `DECISIONS-SCREENING-7.md` `DECISIONS-GATING.md` `DECISIONS-SESSIONS.md` `DECISIONS-PUBLISHING.md` `DECISIONS-RECORDS.md` | The decision log, split by invariant. |
-| `HYPOTHESES.md` `HYPOTHESES-results.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` `FAILURES-findings-4.md` `FAILURES-findings-5.md` `FAILURES-findings-6.md` `FAILURES-findings-8.md` `FAILURES-findings-9.md` `FAILURES-findings-10.md` `FAILURES-findings-11.md` `FAILURES-findings-12.md` `FAILURES-findings-13.md` `FAILURES-findings-14.md`, `FAILURES-findings-15.md`, `FAILURES-findings-16.md`, `FAILURES-findings-17.md`, `FAILURES-findings-18.md`, `FAILURES-findings-19.md`, `FAILURES-findings-20.md`, `FAILURES-findings-21.md`, `FAILURES-findings-22.md`, `FAILURES-findings-23.md`, `FAILURES-findings-24.md` | Candidate and failure records, split at the line cap. |
+| `DECISIONS.md` `DECISIONS-FOUNDATION.md` `DECISIONS-PRACTICE.md` `DECISIONS-SCREENING.md` `DECISIONS-SCREENING-2.md` `DECISIONS-SCREENING-3.md` `DECISIONS-SCREENING-4.md` `DECISIONS-SCREENING-5.md` `DECISIONS-SCREENING-6.md` `DECISIONS-SCREENING-7.md` `DECISIONS-SCREENING-8.md` `DECISIONS-GATING.md` `DECISIONS-SESSIONS.md` `DECISIONS-PUBLISHING.md` `DECISIONS-RECORDS.md` | The decision log, split by invariant. |
+| `HYPOTHESES.md` `HYPOTHESES-results.md` `HYPOTHESES-candidates.md` `FAILURES.md` `FAILURES-findings.md` `FAILURES-findings-2.md` `FAILURES-findings-3.md` `FAILURES-findings-4.md` `FAILURES-findings-5.md` `FAILURES-findings-6.md` `FAILURES-findings-8.md` `FAILURES-findings-9.md` `FAILURES-findings-10.md` `FAILURES-findings-11.md` `FAILURES-findings-12.md` `FAILURES-findings-13.md` `FAILURES-findings-14.md`, `FAILURES-findings-15.md`, `FAILURES-findings-16.md`, `FAILURES-findings-17.md`, `FAILURES-findings-18.md`, `FAILURES-findings-19.md`, `FAILURES-findings-20.md`, `FAILURES-findings-21.md`, `FAILURES-findings-22.md`, `FAILURES-findings-23.md`, `FAILURES-findings-24.md`, `FAILURES-findings-25.md` | Candidate and failure records, split at the line cap. |
 | `RESEARCH.md` | Index for the sealed investigations. |
 
 ## Rules

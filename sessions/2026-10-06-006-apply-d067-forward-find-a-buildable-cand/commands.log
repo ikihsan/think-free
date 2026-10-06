@@ -1,0 +1,234 @@
+==============================================================================
+[seq 3] 2026-10-06T09:02:22+00:00
+$ python3 EXPERIMENTS/037-line-staging/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/037-line-staging/compare.py", line 204, in <module>
+    raise SystemExit(main())
+  File "EXPERIMENTS/037-line-staging/compare.py", line 191, in main
+    record["pipe_default"] = run_case(name, base, edited, line, "3",
+  File "EXPERIMENTS/037-line-staging/compare.py", line 151, in run_case
+    drive_pipe(keys, d)
+  File "EXPERIMENTS/037-line-staging/compare.py", line 114, in drive_pipe
+    return sh(["git", "add", "-p", "f"], cwd) if not keys else subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 495, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1028, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/lib/python3.8/subprocess.py", line 1845, in _communicate
+    self._save_input(input)
+  File "/usr/lib/python3.8/subprocess.py", line 1925, in _save_input
+    self._input = self._input.encode(self.stdin.encoding,
+AttributeError: 'bytes' object has no attribute 'encode'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1130  redactions: none
+==============================================================================
+[seq 4] 2026-10-06T09:03:00+00:00
+$ python3 EXPERIMENTS/037-line-staging/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"case": "modify-one-of-three", "hunks_at_U0": 3, "keys": "n,n,n", "line": 4, "mark": 4, "pipe_default": {"route": "pipe", "staged": []}, "pty_ctx1": {"route": "pty", "staged": []}, "pty_ctx3": {"route": "pty", "staged": []}, "pty_ctx5": {"route": "pty", "staged": []}, "pty_default": {"route": "pty", "staged": []}, "stg_default": {"rc": 2, "route": "stg", "staged": [], "stderr": "/usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg': [Errno 2] No such file or directory"}}
+{"case": "deletion-among-edits", "hunks_at_U0": 1, "keys": "y", "line": 2, "mark": 0, "pipe_default": {"route": "pipe", "staged": [3]}, "pty_ctx1": {"route": "pty", "staged": [3]}, "pty_ctx3": {"route": "pty", "staged": [3]}, "pty_ctx5": {"route": "pty", "staged": [3]}, "pty_default": {"route": "pty", "staged": [3]}, "stg_default": {"rc": 2, "route": "stg", "staged": [], "stderr": "/usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg': [Errno 2] No such file or directory"}}
+{"case": "insertion-among-edits", "hunks_at_U0": 1, "keys": "y", "line": 5, "mark": null, "pipe_default": {"route": "pipe", "staged": [5]}, "pty_ctx1": {"route": "pty", "staged": [5]}, "pty_ctx3": {"route": "pty", "staged": [5]}, "pty_ctx5": {"route": "pty", "staged": [5]}, "pty_default": {"route": "pty", "staged": [5]}, "stg_default": {"rc": 2, "route": "stg", "staged": [], "stderr": "/usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg': [Errno 2] No such file or directory"}}
+{"case": "adjacent-edits", "hunks_at_U0": 2, "keys": "y,n", "line": 2, "mark": 0, "pipe_default": {"route": "pipe", "staged": [1, 4]}, "pty_ctx1": {"route": "pty", "staged": [1, 4]}, "pty_ctx3": {"route": "pty", "staged": [1, 4]}, "pty_ctx5": {"route": "pty", "staged": [1, 4]}, "pty_default": {"route": "pty", "staged": [1, 4]}, "stg_default": {"rc": 2, "route": "stg", "staged": [], "stderr": "/usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg': [Errno 2] No such file or directory"}}
+{"case": "append-at-eof", "hunks_at_U0": 1, "keys": "y", "line": 4, "mark": null, "pipe_default": {"route": "pipe", "staged": [4]}, "pty_ctx1": {"route": "pty", "staged": [4]}, "pty_ctx3": {"route": "pty", "staged": [4]}, "pty_ctx5": {"route": "pty", "staged": [4]}, "pty_default": {"route": "pty", "staged": [4]}, "stg_default": {"rc": 2, "route": "stg", "staged": [], "stderr": "/usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg': [Errno 2] No such file or directory"}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17446  redactions: none
+==============================================================================
+[seq 5] 2026-10-06T09:04:07+00:00
+$ python3 EXPERIMENTS/037-line-staging/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"meta": {"driver_code_lines": 107}}
+{"ask": "edit line 4 of three edits", "case": "modify-one-of-three", "line": 4, "naive_reject_all": {"keys": "n,n,n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+{"ask": "delete line 2, keep the edit on line 3", "case": "deletion-among-edits", "line": 2, "naive_reject_all": {"keys": "n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 2, "staged": [], "stderr": "stg: no stage change matches f:2"}, "stg_ctx1": {"rc": 2, "staged": [], "stderr": "stg: no stage change matches f:2"}, "stg_ctx3": {"rc": 2, "staged": [], "stderr": "stg: no stage change matches f:2"}}
+{"ask": "insert line 5 of two edits", "case": "insertion-among-edits", "line": 5, "naive_reject_all": {"keys": "n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 1, "staged": [5], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [5], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [5], "stderr": ""}}
+{"ask": "take the second of two adjacent edits", "case": "adjacent-edits", "line": 2, "naive_reject_all": {"keys": "n,n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 1, "staged": [2], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [2], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [2], "stderr": ""}}
+{"ask": "append two lines at eof", "case": "append-at-eof", "line": 4, "naive_reject_all": {"keys": "n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+{"ask": "take one of two new lines", "case": "adjacent-inserts", "line": 4, "naive_reject_all": {"keys": "n", "rc": 0, "staged": []}, "pty_driver": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx1": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "pty_driver_ctx3": {"driver": {"note": "driver printed nothing parseable"}, "rc": 1, "staged": [], "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/think-free/EXPERIMENTS/037-line-staging/driver.py\", line 127, in <module>\n    raise SystemExit(main(sys.argv[1:]))\n  File \"/home/ubuntu/think-fr"}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23106  redactions: none
+==============================================================================
+[seq 6] 2026-10-06T09:06:45+00:00
+$ python3 EXPERIMENTS/037-line-staging/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"meta": {"driver_code_lines": 133}}
+{"ask": "edit line 4 of three edits", "case": "modify-one-of-three", "line": 4, "naive_ctx1": {"hunks_assumed": 3, "keys": "n,y,n", "rc": 0, "staged": [], "wanted_index": 1}, "naive_ctx3": {"hunks_assumed": 3, "keys": "n,y,n", "rc": 0, "staged": [], "wanted_index": 1}, "naive_default": {"hunks_assumed": 3, "keys": "n,y,n", "rc": 0, "staged": [], "wanted_index": 1}, "pty_ctx1": {"driver": {"actions": [{"key": "s", "runs": 3, "why": "hunk holds 3 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 4"}, {"key": "y", "runs": 1, "why": "anchor is line 4"}, {"key": "n", "runs": 1, "why": "anchor is line 6, not 4"}], "splits": 1, "steps": 4}, "rc": 0, "staged": [4]}, "pty_ctx3": {"driver": {"actions": [{"key": "s", "runs": 3, "why": "hunk holds 3 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 4"}, {"key": "y", "runs": 1, "why": "anchor is line 4"}, {"key": "n", "runs": 1, "why": "anchor is line 6, not 4"}], "splits": 1, "steps": 4}, "rc": 0, "staged": [4]}, "pty_driver": {"driver": {"actions": [{"key": "s", "runs": 3, "why": "hunk holds 3 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 4"}, {"key": "y", "runs": 1, "why": "anchor is line 4"}, {"key": "n", "runs": 1, "why": "anchor is line 6, not 4"}], "splits": 1, "steps": 4}, "rc": 0, "staged": [4]}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+{"ask": "delete line 3, keep the edit that follows it", "case": "deletion-among-edits", "line": 3, "naive_ctx1": {"hunks_assumed": 2, "keys": "y,n", "rc": 0, "staged": [3, 5], "wanted_index": 0}, "naive_ctx3": {"hunks_assumed": 2, "keys": "y,n", "rc": 0, "staged": [3, 5], "wanted_index": 0}, "naive_default": {"hunks_assumed": 2, "keys": "y,n", "rc": 0, "staged": [3, 5], "wanted_index": 0}, "pty_ctx1": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 2, not 3"}, {"key": "n", "runs": 1, "why": "anchor is line 5, not 3"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "pty_ctx3": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 2, not 3"}, {"key": "n", "runs": 1, "why": "anchor is line 5, not 3"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "pty_driver": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 2, not 3"}, {"key": "n", "runs": 1, "why": "anchor is line 5, not 3"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "stg": {"rc": 1, "staged": [3], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [3], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [3], "stderr": ""}}
+{"ask": "insert line 5 of two edits", "case": "insertion-among-edits", "line": 5, "naive_ctx1": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [5], "wanted_index": 0}, "naive_ctx3": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [5], "wanted_index": 0}, "naive_default": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [5], "wanted_index": 0}, "pty_ctx1": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 5"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [5]}, "pty_ctx3": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 5"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [5]}, "pty_driver": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 5"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [5]}, "stg": {"rc": 1, "staged": [5], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [5], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [5], "stderr": ""}}
+{"ask": "take the second of two adjacent edits", "case": "adjacent-edits", "line": 2, "naive_ctx1": {"hunks_assumed": 2, "keys": "n,n", "rc": 0, "staged": [], "wanted_index": null}, "naive_ctx3": {"hunks_assumed": 2, "keys": "n,n", "rc": 0, "staged": [], "wanted_index": null}, "naive_default": {"hunks_assumed": 2, "keys": "n,n", "rc": 0, "staged": [], "wanted_index": null}, "pty_ctx1": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 2"}, {"key": "n", "runs": 1, "why": "anchor is line 4, not 2"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "pty_ctx3": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 2"}, {"key": "n", "runs": 1, "why": "anchor is line 4, not 2"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "pty_driver": {"driver": {"actions": [{"key": "s", "runs": 2, "why": "hunk holds 2 changes, splitting"}, {"key": "n", "runs": 1, "why": "anchor is line 1, not 2"}, {"key": "n", "runs": 1, "why": "anchor is line 4, not 2"}], "splits": 1, "steps": 3}, "rc": 0, "staged": []}, "stg": {"rc": 1, "staged": [2], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [2], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [2], "stderr": ""}}
+{"ask": "append two lines at eof", "case": "append-at-eof", "line": 4, "naive_ctx1": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "naive_ctx3": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "naive_default": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "pty_ctx1": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "pty_ctx3": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "pty_driver": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+{"ask": "take one of two new lines", "case": "adjacent-inserts", "line": 4, "naive_ctx1": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "naive_ctx3": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "naive_default": {"hunks_assumed": 1, "keys": "y", "rc": 0, "staged": [4], "wanted_index": 0}, "pty_ctx1": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "pty_ctx3": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "pty_driver": {"driver": {"actions": [{"key": "y", "runs": 1, "why": "anchor is line 4"}], "splits": 0, "steps": 1}, "rc": 0, "staged": [4]}, "stg": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx1": {"rc": 1, "staged": [4], "stderr": ""}, "stg_ctx3": {"rc": 1, "staged": [4], "stderr": ""}}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 25412  redactions: none
+==============================================================================
+[seq 7] 2026-10-06T09:29:57+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 76, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-SCREENING-8.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-8.md'
+
+- ['DECISIONS-SCREENING-8.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 816 tests in 500.184s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 501040  redactions: none
+==============================================================================
+[seq 8] 2026-10-06T09:40:57+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 76, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-SCREENING-8.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-8.md'
+
+- ['DECISIONS-SCREENING-8.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 816 tests in 650.969s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 653486  redactions: none
+==============================================================================
+[seq 9] 2026-10-06T09:47:46+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................................./home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 816 tests in 603.323s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 604718  redactions: none

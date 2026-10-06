@@ -234,3 +234,42 @@ can read a clock the code does not (defect 15, T-0044). Accounts:
 rebase a moving base with `origin sync land`, because a hand-run rebase records nothing and
 its paths are then attributed to whoever holds the tree (T-0053; sessions 040 and 012 hit
 that ceiling seven and twice).
+
+## Moved out of `STATE.md` on 2026-10-06 at the cap
+
+**The fourth demand-side generator closed on its own premise, not on prior art**
+(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing capability at
+nearly twice the base rate of ordinary same-story comments (0.347 vs 0.181) — below the
+declared 0.20 margin — and **the seek stratum is indistinguishable from the move stratum at
+0.347 vs 0.347**, so "unfilled" is not a property this population has. **0 of 100** clause
+pairs recur, with every instrument gate passing. Its declared linkage rule could not fire at
+all (4 candidate pairs against a chance expectation of 4.9), the mirror image of F010; D062
+governs linkage rules from here. Ceiling: 63 clauses, four channels unread by declaration.
+
+**Nine closed readings and four closed tooling findings are pointers, not text.** F037's
+withdrawn reconciliation, F049's need-build bound, the 0-of-50 generator, F035's coverage and
+F037's population, and the four gate findings that explain how a green session can still hold
+false records each live in this file and its two siblings, with their numbers. **Nothing was
+shortened; the blocks moved to the files whose invariant owns them.** One rule survives into
+every session and stays in `STATE.md`: **rebase a moving base with `origin sync land`**, since
+a hand-run rebase records nothing and its paths are attributed to whoever holds the tree
+(T-0053).
+
+**The score-tail worklist is one unauthenticated URL (moved from `STATE.md` 2026-10-06).**
+`EXPERIMENTS/036-search-backlog`, **F059, D066, D067**, T-0080. The declared next action —
+*does a person's own search box already return this?* — was answered **before the second
+measurement request**:
+`/search/advanced?site=stackoverflow&tagged=git&sort=votes&order=asc&pagesize=100` returns
+**100 questions ascending by score (−20…−5)**, **81 of them ids already in E034's committed
+harvest** (first at rank 1), and **13 labelled `Duplicate`/`exact duplicate`** in the payload's
+own `closed_reason`. No key, no custom filter, no computation. E035's stated differentiator
+was *"the platform's own closure label over a population no surface orders that way"*, and
+**the platform orders it that way itself. KILL-R met at 8 requests**, after three experiments
+spent 1125 rows on the population. Three corrections ride with it: F058's *"no surface offers
+the ordering"* was measured on one rendered tag page's seven tabs and is now scoped to that
+(**D066**); E035's *"the label needs an API key"* was a per-route fact generalised to the
+platform, and `/search/advanced`'s **default** filter carries the label unauthenticated —
+**F020's shape, in the mission's own instrument**; and `closed` is the one filter value that
+route does **not** validate (`closed=maybe` returns 200 with `closed=yes`'s items), so no
+closed-only control was ever establishable from that route's behaviour, while `order` and
+`filter` both return 400 on invalid values.
