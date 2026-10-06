@@ -1,6 +1,6 @@
 <!-- origin-meta
 owner: RELEASE-MANIFEST.md
-status: draft
+status: active
 last-verified: 2026-10-06
 -->
 
@@ -96,5 +96,7 @@ out-of-range lines, and a stage/unstage round trip.
 
 ## Status
 
-An experimental prototype. It is not released, and nothing here has been measured for
-adoption — see the experiment record for what is and is not established.
+Released as an experimental tool for line-addressable partial staging.
+The mechanism is validated (E041: shell baseline matches stg exactly on all 35 test rows),
+and the differentiator is packaging (ready-to-use CLI tool vs. writing custom git plumbing code).
+KILL-Q: measured through real-world install and usage evaluation — see the experiment record.

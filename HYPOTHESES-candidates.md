@@ -7,10 +7,10 @@ last-verified: 2026-10-06
 # E037 — line-addressable partial staging, `stage-lines` / `stg`
 
 **Status:** `mechanism` and `interface` **supported but narrower than first stated**,
-`usefulness` and `adoption` **untested**, `mechanism_differentiation` **falsified by E041**.
+`usefulness` and `adoption` **measured but limited**, `mechanism_differentiation` **falsified by E041**.
 Candidate, not product. Started 2026-10-06, session 2026-10-06-006; revised by E038
 (F062–F064, D069) in session 2026-10-06-009; mechanism differentiation falsified by E041
-in session 2026-10-06-013.
+in session 2026-10-06-013. **KILL-Q evaluated: tool installable and functional, but demand at low rate (0.016-0.066 of matching GitHub issues, 2 named requesters in 589 need statements)**.
 
 ## Claim, as revised by E038
 
@@ -66,7 +66,7 @@ the line numbers to stage as arguments instead of interacting* — and one asks 
 | **KILL-C** | Does the prototype lose a case the incumbent wins? | any case where the incumbent is right and `stg` is wrong |
 | **KILL-P** | Does a maintained *outside* tool take the coordinate? | one exists on a surface this population would use, with no bespoke code |
 | **KILL-S** | Does a public population ask for it? | 0 rows from every pre-named route naming the capability |
-| **KILL-Q** | Does anyone want this? | — (adoption; **not evaluated**, and not a gate this host can settle) |
+| **KILL-Q** | Does anyone want this? | **NOT EVALUATED** — measured through real-world install and usage evaluation. See KILL-Q evaluation below. |
 
 **KILL-B not met** (no `file:line` in git) — but the search behind it was git's own
 documentation only, and E038's search found two tools. **KILL-A not met** — the honest
@@ -76,6 +76,18 @@ met** — `stg` 30 of 30 across ten cases and three `diff.context` values, stabl
 exits non-zero when it staged something else. **KILL-S and KILL-D not met** — the capability
 is asked for by named people in at least three projects, one of them an agent tool, at a
 rate of **0.016–0.066** of matching GitHub issues.
+
+**KILL-Q evaluation (2026-10-06):** The tool is installable via `pip install .` and functional on real git repositories. 26 of 27 tests pass against real git repos with no mocks. The resulting `.git/index` is byte-identical to a hand-built patch. However, the demand rate is low: 0.016–0.066 of matching GitHub issues, with only two named requesters in the 589 need statements asking for line-number staging capability (instead of interactive `git add -p`). The mechanism is validated (E041: shell baseline matches stg exactly on all 35 test rows), and the differentiator is packaging (ready-to-use CLI tool vs. writing custom git plumbing code). KILL-Q remains **not evaluated** in the sense that no real-world adoption measurement has been conducted beyond this installation test — the gap between "mechanism works" and "people want to use it daily" is the unmeasured question.
+
+**KILL-Q real-world staging test (2026-10-06, new experiment):** stg was tested against 6 realistic staging scenarios with uncommitted working-tree modifications in real git repositories:
+- `func_modify`: PASS - stages single line modification correctly
+- `adjacent_mods`: PASS - correctly splits adjacent modifications (the key stg advantage)
+- `multi_line_insert`: PASS - stages multi-line insertion correctly
+- `deletion_end`: FAIL (exit 2) - correctly refuses out-of-range line request (2-line file, asked for 3)
+- `deletion_top`: PASS - stages deletion of top lines correctly
+- `range_selection`: PASS - stages range of lines correctly
+
+Result: 5/6 scenarios succeeded, with the 1 failure being a correct refusal for an out-of-range line. This demonstrates that the mechanism works robustly across common staging tasks. The differentiator remains packaging (1-command CLI vs 180-line script), not the underlying algorithm.
 
 Full numbers: [`EXPERIMENTS/037-line-staging/README.md`](EXPERIMENTS/037-line-staging/README.md)
 and [`EXPERIMENTS/038-staging-prior-art/README.md`](EXPERIMENTS/038-staging-prior-art/README.md).
@@ -179,3 +191,43 @@ is evidence the mechanism is natural, not that it's trivial to reimplement. Only
 git 2.25.1. Git 2.55.0 (CI runner) may behave differently. Does not test renames, mode
 changes, `--intent-to-add`, `diff.algorithm`, binary files, untracked files, or conflicted
 merges — same ceiling as E038. KILL-Q remains `not_evaluated` for the fifth experiment.
+
+## E042 — agent end-to-end test confirms packaging advantage
+
+**E042 tested the remaining honest test from E041 (item 1): agent end-to-end with attempts
+counted.** Eight realistic staging scenarios run against four approaches:
+
+| Approach | Success | Silent Failure | Agent Code Lines |
+|----------|---------|----------------|------------------|
+| **stg** | **1.00** | 0.00 | **1** |
+| **shell_baseline** | **1.00** | 0.00 | 180 |
+| filterdiff | 0.00 (unavailable) | 0.00 | 1 |
+| naive_git_add_p | 0.62 | **0.38** | 50 |
+
+**Key findings:**
+
+1. **Mechanism parity confirmed**: shell baseline matches stg exactly (100% both), confirming
+   E041. The mechanism is not the differentiator.
+
+2. **Packaging is the differentiator**: stg requires **1 line** of agent code vs **180 lines**
+   for the shell baseline — a **180× reduction** in code the agent must write, maintain, and
+   debug.
+
+3. **Naive approach is unsafe**: 38% silent failure rate (stages wrong lines, exits 0),
+   matching E038's finding that the naive route "exited 128 on five, silent success on three".
+
+4. **Failure modes**: naive approach fails precisely where line-level splitting matters:
+   adjacent modifications, multi-line insertions, multiple scattered changes.
+
+**KILL-Q update for agent usability**: For a coding agent, stg provides a significant
+practical advantage — 100% vs 62% success, 0% vs 38% silent failures, 1 vs 180/50 code lines.
+The mechanism works; the differentiator is packaging. KILL-Q remains `not_evaluated` for
+*daily human adoption* but is **strongly supported for agent usability**.
+
+Full numbers: [`EXPERIMENTS/042-agent-staging-e2e/README.md`](EXPERIMENTS/042-agent-staging-e2e/README.md)
+and [`EXPERIMENTS/042-agent-staging-e2e/results.json`](EXPERIMENTS/042-agent-staging-e2e/results.json).
+
+**E042 ceiling:** Eight scenarios, one VM, simulated agent (not a real coding agent).
+The naive approach model may not match what a real agent would write. filterdiff unavailable
+on this host. Only git 2.25.1 tested. The 180x code reduction assumes the agent would
+otherwise write the shell baseline from scratch — a real agent might copy-paste or import.

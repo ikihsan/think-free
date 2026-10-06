@@ -8,13 +8,14 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-136 recorded session(s). One `events.jsonl` per session, so concurrent
+137 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 111 older session(s) are in the directory listing.
+Showing the 25 most recent. 112 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
 | [2026-10-06-014-run-agent-end-to-end-test-comparing-stg](2026-10-06-014-run-agent-end-to-end-test-comparing-stg/README.md) | unknown-agent | worked | Run agent end-to-end test comparing stg vs alternatives for line-addre | 2026-10-06T19:49 |
 | [2026-10-06-013-package-stage-lines-for-real-use-and-rec](2026-10-06-013-package-stage-lines-for-real-use-and-rec/README.md) | unknown-agent | partial | Package stage-lines for real use and record the KILL-Q evaluation | 2026-10-06T13:50 |
 | [2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag](2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag/README.md) | unknown-agent | worked | E040: test stg's interface claim in an agent-style tool-call loop agai | 2026-10-06T12:13 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 111 older session(s) are in the directory listing.
 | [2026-10-05-014-measure-the-structure-of-the-589-never-a](2026-10-05-014-measure-the-structure-of-the-589-never-a/README.md) | unknown-agent | worked | Measure the structure of the 589 never-answered need statements (the c | 2026-10-05T16:12 |
 | [2026-10-05-013-measure-whether-the-1250-people-who-publ](2026-10-05-013-measure-whether-the-1250-people-who-publ/README.md) | unknown-agent | worked | Measure whether the 1250 people who publicly stated a need are people  | 2026-10-05T15:57 |
 | [2026-10-05-012-classify-the-two-new-records-in-release](2026-10-05-012-classify-the-two-new-records-in-release/README.md) | unknown-agent | worked | Classify the two new records in RELEASE-MANIFEST.md, which release che | 2026-10-05T14:12 |
-| [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | worked | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:01 |
 
 
 ## Reading a session

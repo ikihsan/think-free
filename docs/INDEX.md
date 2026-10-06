@@ -280,6 +280,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/041-need-index/PROTOCOL.md`](../EXPERIMENTS/041-need-index/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Every gate, threshold, instrument parameter, arm definition and exclusion rule in |
 | [`EXPERIMENTS/041-need-index/README.md`](../EXPERIMENTS/041-need-index/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | control terms |
 | [`EXPERIMENTS/041-strongest-baseline/README.md`](../EXPERIMENTS/041-strongest-baseline/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-013, VM instance-20260717-0944, git 2.25.1, |
+| [`EXPERIMENTS/042-agent-staging-e2e/DESIGN.md`](../EXPERIMENTS/042-agent-staging-e2e/DESIGN.md) | `docs/INDEX.md` | active | 2026-10-06 | ## Goal |
+| [`EXPERIMENTS/042-agent-staging-e2e/README.md`](../EXPERIMENTS/042-agent-staging-e2e/README.md) | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md`](../EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## Goal |
 | [`EXPERIMENTS/042-stg-end-to-end/README.md`](../EXPERIMENTS/042-stg-end-to-end/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

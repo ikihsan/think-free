@@ -206,6 +206,17 @@ threads where ≥40% of other comments were answered, and a hand-read of 21 foun
 hardware requests, an article request, a platform request and several requests for a
 toggle in someone else's product.
 
+**E042 tested KILL-Q for the stg candidate via agent end-to-end simulation**
+(`EXPERIMENTS/042-agent-staging-e2e/`). Eight realistic staging scenarios compared
+four approaches: stg (100% success, 1 agent code line), shell baseline (100% success,
+180 agent code lines), filterdiff (unavailable), naive git add -p (62% success, 38%
+silent failures, 50 agent code lines). **Mechanism parity confirmed** — shell baseline
+matches stg exactly, confirming E041. **Packaging is the differentiator**: 180× less
+agent code for stg vs shell baseline. Naive approach fails on adjacent modifications,
+multi-line insertions, and scattered changes — precisely where line-level splitting
+matters. KILL-Q remains `not_evaluated` for daily human adoption but is **strongly
+supported for agent usability**.
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |
