@@ -6,7 +6,7 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0081
-status: claimed
+status: done
 created: 2026-10-06
 claim-agent: opencode
 claim-vm:

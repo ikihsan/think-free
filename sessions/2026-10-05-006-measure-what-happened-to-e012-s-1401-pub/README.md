@@ -98,6 +98,8 @@ _(none recorded)_
 | STATE-next-actions-closed.md | 9a4103e160d1 | 15939 |
 | STATE-next-actions-closed-2.md | b3b5fda2755d | 10274 |
 | STATE-history-3.md | 48b6e31c5403 | 4414 |
+| ROADMAP.md | 6a47b3426b0c | 16115 |
+| STATE.md | 16b5277315b2 | 42367 |
 
 ## Commands
 
@@ -173,18 +175,18 @@ _(none recorded)_
 | 38 | 12:49:14 | artifact | wrote EXPERIMENTS/README.md |
 | 39 | 12:49:17 | artifact | wrote EXPERIMENTS/020-copied-config-drift/README.md |
 | 40 | 12:49:20 | artifact | wrote docs/INDEX.md |
-| 81 | 13:48:04 | artifact | wrote STATE-selection.md |
-| 82 | 13:58:10 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 83 | 14:08:56 | milestone | landed on 4cd841b and 11758b3; 816 tests green, doc lint OK, release check OK, preflight OK |
-| 84 | 14:09:03 | artifact | wrote STATE.md |
 | 85 | 14:09:04 | artifact | wrote STATE-selection.md |
 | 86 | 14:09:05 | artifact | wrote STATE-in-flight-4.md |
 | 87 | 14:09:05 | artifact | wrote STATE-next-actions.md |
 | 88 | 14:09:06 | artifact | wrote STATE-next-actions-closed.md |
 | 89 | 14:09:07 | artifact | wrote STATE-next-actions-closed-2.md |
 | 90 | 14:09:07 | artifact | wrote STATE-history-3.md |
+| 91 | 14:09:34 | task_rewrite | rewrote tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md (status: done) |
+| 92 | 14:09:34 | task_rewrite | appended a complete record for T-0081 |
+| 93 | 14:10:43 | artifact | wrote ROADMAP.md |
+| 94 | 14:10:44 | artifact | wrote STATE.md |
 
-_40 middle events omitted; see `events.jsonl`._
+_44 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
