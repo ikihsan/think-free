@@ -1,0 +1,75 @@
+==============================================================================
+[seq 2] 2026-10-06T19:28:13+00:00
+$ python3 -c 
+import sys
+sys.path.insert(0, 'EXPERIMENTS/041-strongest-baseline')
+from shell_baseline import ShellBaseline
+import subprocess
+import tempfile
+import os
+
+# Test shell_baseline
+d = tempfile.mkdtemp(prefix='test_sb_')
+subprocess.run(['git', 'init', '-q', '.'], cwd=d, capture_output=True)
+subprocess.run(['git', 'config', 'user.email', 't@e.st'], cwd=d, capture_output=True)
+subprocess.run(['git', 'config', 'user.name', 'T'], cwd=d, capture_output=True)
+with open(os.path.join(d, 'f.txt'), 'w') as fh:
+    fh.write('line1\nline2\nline3\nline4\nline5\n')
+subprocess.run(['git', 'add', 'f.txt'], cwd=d, capture_output=True)
+subprocess.run(['git', 'commit', '-qm', 'init'], cwd=d, capture_output=True)
+with open(os.path.join(d, 'f.txt'), 'w') as fh:
+    fh.write('line1\nMODIFIED2\nline3\nline4\nline5\n')
+
+baseline = ShellBaseline()
+rc, out, err, staged = baseline.stage(d, 'f.txt', 2)
+print(f'rc={rc}, out={out!r}, err={err!r}, staged={staged!r}')
+
+# Check index
+result = subprocess.run(['git', 'show', ':f.txt'], cwd=d, capture_output=True)
+print(f'index: {result.stdout.decode()!r}')
+import shutil
+shutil.rmtree(d)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rc=1, out='applied\n', err='', staged='line1\nMODIFIED2\nline3\nline4\nline5\n'
+index: 'line1\nMODIFIED2\nline3\nline4\nline5\n'
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 368  redactions: none
+==============================================================================
+[seq 3] 2026-10-06T19:34:50+00:00
+$ python3 EXPERIMENTS/042-stg-end-to-end/run_experiment.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=default stg=correct  shell_baseline=correct  filterdiff=correct  naive=correct
+deletion-among-edits       ctx=default stg=correct  shell_baseline=correct  filterdiff=correct  naive=silent_failure
+insertion-among-edits      ctx=default stg=correct  shell_baseline=correct  filterdiff=exit_128  naive=correct
+adjacent-edits             ctx=default stg=correct  shell_baseline=correct  filterdiff=silent_failure  naive=silent_failure
+adjacent-inserts           ctx=default stg=correct  shell_baseline=correct  filterdiff=exit_128  naive=silent_failure
+append-at-eof              ctx=default stg=correct  shell_baseline=correct  filterdiff=exit_128  naive=silent_failure
+
+=== SUMMARY ===
+Cases: 6, Contexts: 1, Total rows: 6
+  stg          correct=6  silent_failure=0  honest_failure=0  ambiguous=0  other=0  error=0
+  shell_baseline correct=6  silent_failure=0  honest_failure=0  ambiguous=0  other=0  error=0
+  filterdiff   correct=2  silent_failure=1  honest_failure=0  ambiguous=0  other=3  error=0
+  naive        correct=2  silent_failure=4  honest_failure=0  ambiguous=0  other=0  error=0
+
+=== KILL GATE ===
+stg:           correct=6/6  silent_failure=0/6
+filterdiff:    correct=2/6  silent_failure=1/6
+naive:         correct=2/6  silent_failure=4/6
+
+Kill gate 1 (stg better than filterdiff AND naive): PASSED
+shell_baseline: correct=6/6  silent_failure=0/6
+Kill gate 2 (shell_baseline matches stg): PASSED (mechanism not differentiator)
+
+=== PER CASE ===
+  modify-one-of-three        want line 2   all correct
+  deletion-among-edits       want line 3   wrong: naive
+  insertion-among-edits      want line 5   wrong: filterdiff
+  adjacent-edits             want line 2   wrong: filterdiff, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, naive
+  append-at-eof              want line 4   wrong: filterdiff, naive
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5304  redactions: none
