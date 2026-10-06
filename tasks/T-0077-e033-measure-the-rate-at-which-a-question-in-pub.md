@@ -6,11 +6,11 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0077
-status: open
+status: claimed
 created: 2026-10-06
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-06-002-e033-measure-the-rate-of-cross-author-re
+claim-vm: 
 verify: cd /home/ubuntu/think-free && python3 EXPERIMENTS/033-question-recurrence/tally.py --check
 -->
 

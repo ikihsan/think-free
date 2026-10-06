@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 02:42:10 | session_start | E033: measure the rate of cross-author recurrence in public long-form questions against Stack Exchange's own duplicate-closure label, and test whether |
+| 2 | 02:42:39 | task_rewrite | appended a create record for T-0077 |
+| 3 | 02:42:52 | task_rewrite | rewrote tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md (status: claimed) |
 
 ## Reproduce this record
 
