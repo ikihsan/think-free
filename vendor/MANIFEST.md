@@ -98,6 +98,15 @@ exempt: EXPERIMENTS/**/raw/*.sse.stderr
 # what the reader was shown.
 exempt: EXPERIMENTS/**/raw/docs/*.txt
 
+# Raw *primary-source* captures, added by E038. The same class again: the exact
+# bytes a primary source served — git's own `Documentation/git-add.adoc` at
+# master, VS Code's `extensions/git/package.json` and `src/commands.ts`,
+# magit's 390 KB manual, patchutils' filterdiff(1) — fetched whole and read for
+# the prior-art question, never hand-edited. `raw/sources/` is the directory the
+# run writes, and a KILL-P verdict that cannot be traced to the bytes it was read
+# from is a verdict about nothing.
+exempt: EXPERIMENTS/**/raw/sources/*.txt
+
 # Raw *reader-view* captures, added by E029. The same class a third time: the exact
 # bytes a reader was shown, generated from committed captures, never hand-edited. The
 # digest matters more here than anywhere else, because a reader's labels are keyed by

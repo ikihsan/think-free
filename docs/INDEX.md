@@ -257,6 +257,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/036-search-backlog/PROTOCOL.md`](../EXPERIMENTS/036-search-backlog/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Task T-0080. Protocol written before the second measurement request; one reachability |
 | [`EXPERIMENTS/036-search-backlog/README.md`](../EXPERIMENTS/036-search-backlog/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-005, VM instance-20260717-0944, 8 requests |
 | [`EXPERIMENTS/037-line-staging/README.md`](../EXPERIMENTS/037-line-staging/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-006, VM instance-20260717-0944, git 2.25.1, |
+| [`EXPERIMENTS/038-staging-prior-art/PROTOCOL.md`](../EXPERIMENTS/038-staging-prior-art/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Declared 2026-10-06, session 2026-10-06-009, before any request was sent. |
+| [`EXPERIMENTS/038-staging-prior-art/README.md`](../EXPERIMENTS/038-staging-prior-art/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-009, VM instance-20260717-0944, git 2.25.1, |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

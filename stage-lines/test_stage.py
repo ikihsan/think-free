@@ -92,17 +92,35 @@ class StageTest(unittest.TestCase):
             "@@ -1 +1 @@\n", "-a\n", "+A\n"]))
         self.assertEqual(self.r.unstaged_hunks("f"), ["@@ -2 +2 @@"])
 
-    def test_a_multi_line_insertion_stays_whole(self):
-        # there is no valid hunk for half of a two-line insertion
+    def test_a_multi_line_insertion_splits_per_line(self):
+        # Two inserted lines are two changes to a reader, and git apply takes each
+        # on its own: `@@ -1,0 +2,1 @@` then `@@ -1,0 +3,1 @@`. An earlier version
+        # of this file asserted the opposite -- "there is no valid hunk for half of
+        # a two-line insertion" -- and that premise was wrong; verified against git
+        # in EXPERIMENTS/038-staging-prior-art (F063).
         self.r.write("f", "a\n")
         self.r.commit()
         self.r.write("f", "a\nh1\nh2\n")
         rows = json.loads(self.r.stg("list", "--json").stdout)
         changes = [r["change"] for r in rows if r.get("change")]
-        self.assertEqual(len(changes), 1)
-        self.assertEqual(changes[0]["added"], 2)
+        self.assertEqual(len(changes), 2)
+        self.assertEqual([c["anchor"] for c in changes], [2, 3])
+        self.assertEqual([c["added"] for c in changes], [1, 1])
 
-    def test_a_multi_line_deletion_stays_whole(self):
+    def test_staging_one_line_of_a_two_line_insertion_stages_one_line(self):
+        self.r.write("f", "a\n")
+        self.r.commit()
+        self.r.write("f", "a\nh1\nh2\n")
+        self.r.stg("stage", "f:2")
+        self.assertEqual(self.r.staged_body("f"), "".join([
+            "diff --git a/f b/f\n", "--- a/f\n", "+++ b/f\n",
+            "@@ -1,0 +2 @@\n", "+h1\n"]))
+        self.assertEqual(self.r.unstaged_hunks("f"), ["@@ -2,0 +3 @@"])
+
+    def test_a_multi_line_deletion_stays_one_change(self):
+        # Two consecutive deletions share an address: both are named by the line
+        # whose content moved up into the gap, so no coordinate selects one of them
+        # alone. Splitting the run would not add reach, only make `stg list` longer.
         self.r.write("f", "a\nb\nc\nd\n")
         self.r.commit()
         self.r.write("f", "a\nd\n")
@@ -110,6 +128,13 @@ class StageTest(unittest.TestCase):
         changes = [r["change"] for r in rows if r.get("change")]
         self.assertEqual(len(changes), 1)
         self.assertEqual(changes[0]["removed"], 2)
+
+    def test_a_two_line_deletion_is_staged_whole_at_its_one_address(self):
+        self.r.write("f", "a\nb\nc\nd\n")
+        self.r.commit()
+        self.r.write("f", "a\nd\n")
+        self.r.stg("stage", "f:2")
+        self.assertEqual(self.r.staged_file_content("f"), "a\nd\n")
 
     def test_one_removal_beside_two_additions_splits(self):
         # "-a +a2 +b2": the a->a2 edit is separable, the extra add is not

@@ -8,8 +8,8 @@ last-verified: 2026-10-06
 
 Date: 2026-10-06, Asia/Kolkata. Phase: B — and for the first time there is **a candidate with
 a working artifact**: `stage-lines` / `stg`, line-addressable partial staging for git
-(E037, F060, D068). It is a candidate, not a product; **adoption is `not_evaluated`** and the
-score-tail backlog remains closed.
+(E037, E038, F060, F062–F064, D068, D069). It is a candidate, not a product; **adoption is
+`not_evaluated`** and the score-tail backlog remains closed.
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -53,17 +53,30 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 ## In flight
 
 **A candidate with a working artifact exists, and the gap is the interface, not the
-capability** (E037, **F060, D068**, T-0081, [`stage-lines/`](stage-lines/README.md)). The
-D067 check was run and **the mechanism turned out to be available** — `git add -p` reads
-piped keys, and a purpose-written pty driver reaches the right answer on **4 of 6** cases for
-**133 lines** of caller code — so the probe's own reading was wrong (F060, F020's shape) and
-the candidate would have been killed by the wrong question. **D068 asks the interface one:**
-what must the caller already know to name the target? git takes no `file:line` for staging,
-its `s` splits only at context boundaries, and its headers name deletions one line before
-where their content was. `stg` is **6 of 6**, stable across `diff.context`. The pool came
-from reading all 589 never-answered need statements (**F061**), where two distinct named
-requesters ask for exactly this. **Whether anyone wants it is unmeasured** — KILL-Q, left
-`not_evaluated` by three experiments now.
+capability — but E038 searched for prior art and found two tools that take the coordinate**
+(E038, **F062, F063, D069**, [`stage-lines/`](stage-lines/README.md)). E037's KILL-B rested on
+git's own documentation because web search was unavailable, and said so; with a search surface
+available, **`filterdiff --lines=RANGE`** (patchutils 0.3.4, installed from a Debian `.deb` and
+run at 12 of 30) and **VS Code's `git.stageSelectedRanges`** both take a line coordinate. What
+survives is narrower and stated: **no *command-line* tool takes `file:line`, splits a run of
+adjacent changes correctly, and exits non-zero when it staged something else.**
+
+**E038 also found two real bugs in `stg` that E037's oracle could not see** (F063). The oracle
+read *hunk anchors*, so a hunk carrying two changes when one was asked for scored as correct:
+`stg f:4` on a two-line insertion staged both lines and exited 0, and a test asserted that as
+intended, in a comment whose premise was wrong — git apply takes the split hunks fine. Fixed,
+and **30 of 30** across ten cases and three `diff.context` values, against `filterdiff` 12 of
+30, E037's pty driver 12 of 30 and `naive` 6 of 30, with 78 wrong-but-exit-0 rows across the
+three alternatives and none for `stg`. **30 tests green.**
+
+**The population is small, real, and independently demanded** (F064): 195 GitHub issues read,
+a keyword classifier calling 100 of them the need, **precision 0.067 and 0.033 against two
+independent hand-labelled readers** (κ = 0.734 three-way, 0.889 collapsed, `yes-line` Jaccard
+0.25). The `yes-line` rows are named and cited — `sublime_merge#976`, `vim-gitgutter#446`,
+`sublime_merge#465`, and `mcp-multi-root-git#3`, which states the agent case in the agent's own
+terms. **Rate 0.016–0.066 of matching issues**, a range across readers rather than a prevalence
+measurement. **Whether anyone *wants* it is still unmeasured** — KILL-Q, `not_evaluated` by four
+experiments now.
 
 **The score-tail worklist remains closed and is now a pointer, not text** (`EXPERIMENTS/036`,
 F059, D066, D067, T-0080). Its population is real, reproducible and per-tag; its mechanism is
@@ -84,11 +97,22 @@ hand-run rebase records nothing and its paths are then attributed to whoever hol
 
 ## What changed recently
 
+- **Session 009, VM 0944 (E038, F062/F063/F064, D069): the candidate survives, narrower, and
+  two of its bugs die with the oracle that could not see them.** Prior art searched properly and
+  **found**: `filterdiff --lines=RANGE` and VS Code's `git.stageSelectedRanges` both take the
+  coordinate E037 declared absent. A stronger oracle then found `stg` staging *two* lines when
+  asked for one — a bug a test had pinned with a comment asserting a false premise — and fixed
+  it: **30 of 30** against 12, 12 and 6. The demand side read 195 issues and found a keyword
+  classifier with **precision 0.033–0.067**, so the 0.016–0.066 rate is a range across two
+  readers, not prevalence. **D069 makes an oracle read the artifact the user receives, and makes
+  a classifier's precision be measured before its output is read.** Evidence in
+  [`EXPERIMENTS/038-staging-prior-art/README.md`](EXPERIMENTS/038-staging-prior-art/README.md).
 - **Session 006, VM 0944 (T-0081, E037, F060/F061, D068): a candidate, built and measured.**
   `git add -p` has no non-interactive equivalent, and that is the wrong thing to fix: the
   operation is available, the *interface* is not, and the difference costs a caller 133 lines.
   `stg` is **6 of 6 against the incumbent's 4 of 6**, and its index is byte-identical to a
-  hand-built patch's. Evidence in [`EXPERIMENTS/037-line-staging/README.md`](EXPERIMENTS/037-line-staging/README.md)
+  hand-built patch's. **Both numbers superseded by E038 above** — the 6 of 6 was scored by an
+  oracle that could not detect over-staging. Evidence in [`EXPERIMENTS/037-line-staging/README.md`](EXPERIMENTS/037-line-staging/README.md)
   and [`stage-lines/`](stage-lines/README.md); the candidate record is
   [`HYPOTHESES-candidates.md`](HYPOTHESES-candidates.md). 8 requests, one of which returned 81 of E034's own harvested ids in
   ascending-score order with the closure label attached. Three corrections to the record,

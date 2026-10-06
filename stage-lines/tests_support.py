@@ -95,5 +95,14 @@ class Repo(object):
     def unstaged_hunks(self, name=None):
         return self.hunks(name)
 
+    def staged_file_content(self, name):
+        """The bytes now in the index for this file.
+
+        Asserting on the staged diff cannot see an over-staging bug: a hunk that
+        carries two changes when one was asked for still prints one clean hunk.
+        The index content is what the user gets, so it is what a test must read.
+        """
+        return git(["show", ":" + name], self.dir)
+
     def cleanup(self):
         shutil.rmtree(self.dir, ignore_errors=True)

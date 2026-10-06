@@ -1,0 +1,90 @@
+==============================================================================
+[seq 28] 2026-10-06T11:07:42+00:00
+$ PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k decision_files
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+tools/x: line 35: PYTHONPATH=tools:tests: command not found
+------------------------------------------------------------------------------
+exit: 127  duration_ms: 4  redactions: none
+==============================================================================
+[seq 29] 2026-10-06T11:07:47+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests -k decision_files
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 525  redactions: none
+==============================================================================
+[seq 30] 2026-10-06T11:08:02+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 9.401s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9711  redactions: none
+==============================================================================
+[seq 31] 2026-10-06T11:08:50+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+modify-one-of-three        ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+modify-one-of-three        ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+deletion-among-edits       ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+insertion-among-edits      ctx=1    stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+insertion-among-edits      ctx=3    stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+adjacent-edits             ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+three-adjacent             ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+three-adjacent             ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+adjacent-pair-plus-far     ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+whole-file-rewrite         ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+whole-file-rewrite         ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+
+scored rows: 30  (10 cases x 3 diff.context values)
+  stg          30/30 correct     0 wrong-but-exit-0     0 exit-0
+  filterdiff   12/30 correct     6 wrong-but-exit-0    18 exit-0
+  pty_driver   12/30 correct    18 wrong-but-exit-0    30 exit-0
+  naive         6/30 correct    24 wrong-but-exit-0    30 exit-0
+
+per-case, at default diff.context:
+  modify-one-of-three        want line 4   wrong: naive
+  deletion-among-edits       want line 3   wrong: pty_driver, naive
+  insertion-among-edits      want line 5   wrong: filterdiff
+  adjacent-edits             want line 2   wrong: filterdiff, pty_driver, naive
+  append-at-eof              want line 4   wrong: filterdiff, pty_driver, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, pty_driver, naive
+  three-adjacent             want line 3   wrong: naive
+  adjacent-pair-plus-far     want line 2   wrong: filterdiff, pty_driver, naive
+  adjacent-insert-run        want line 6   wrong: filterdiff, pty_driver, naive
+  whole-file-rewrite         want line 2   all correct
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 43516  redactions: none

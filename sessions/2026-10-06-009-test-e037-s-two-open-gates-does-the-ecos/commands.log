@@ -1,0 +1,1305 @@
+==============================================================================
+[seq 2] 2026-10-06T09:59:22+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py --probe
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+probe-gh-code                401 items=None  total=None     q=None  Requires authentication
+probe-gh-repos               200 items=1     total=13       q=None  
+probe-grep-app               429 items=None  total=None     q=None  
+probe-debian                 403 items=None  total=None     q=None  
+probe-se-info                400 items=None  total=None     q=None  too many requests from this IP, more requests available in 43411 seconds
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5775  redactions: none
+==============================================================================
+[seq 3] 2026-10-06T09:59:44+00:00
+$ python3 -
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+gh-issues                  200 len=14130   {"total_count":503,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/NeogitOrg/neogit/i
+gh-rate                    200 len=424     {"resources":{"code_search":{"limit":60,"remaining":52,"reset":1791282468,"used":8},"core":{"limit":60,"remain
+raw-github                 404 len=14      404: Not Found
+so-rendered                200 len=84750    <!DOCTYPE html>       <html  class="html__responsive " lang="en">          <head>                          <t
+git-scm                    200 len=79223   <!DOCTYPE html>    <html lang="en">       <head>   <script type="text/javascript">          const currentTheme
+manpages-debian            200 len=26190   <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-wid
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5359  redactions: none
+==============================================================================
+[seq 4] 2026-10-06T10:00:26+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py --probe
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+probe-gh-code                401 items=None  total=None     q=None  Requires authentication
+probe-gh-repos               200 items=1     total=13       q=None  
+probe-grep-app               429 items=None  total=None     q=None  
+probe-debian                 403 items=None  total=None     q=None  
+probe-se-info                400 items=None  total=None     q=None  too many requests from this IP, more requests available in 43352 seconds
+probe-gh-issues              200 items=3     total=503      q=None  
+probe-gh-rate                200 items=None  total=None     q=None  
+probe-so-rendered            200 items=None  total=None     q=None  
+probe-git-scm-add            200 items=None  total=None     q=None  
+probe-manpages-filterdiff    406 items=None  total=None     q=None  
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9557  redactions: none
+==============================================================================
+[seq 5] 2026-10-06T10:00:28+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py poola
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/038-staging-prior-art/harvest.py", line 372, in <module>
+    poola()
+  File "EXPERIMENTS/038-staging-prior-art/harvest.py", line 222, in poola
+    seen = done()
+TypeError: done() missing 1 required positional argument: 'measures'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 809  redactions: none
+==============================================================================
+[seq 6] 2026-10-06T10:01:19+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py poola
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+src-git-add-adoc             200 items=None  total=None     q=None  
+src-git-apply-adoc           200 items=None  total=None     q=None  
+src-vscode-git-package       200 items=None  total=None     q=None  
+src-vscode-git-readme        200 items=None  total=None     q=None  
+src-magit-manual             404 items=None  total=None     q=None  
+src-filterdiff-man           200 items=None  total=None     q=None  
+src-neogit-readme            200 items=None  total=None     q=None  
+src-jj-reference             404 items=None  total=None     q=None  
+gh-repo:git add -p in:name,description,readme 200 items=10    total=3131910  q=None  
+gh-repo:stage lines git in:name,description,readme 200 items=10    total=308367   q=None  
+gh-repo:partial staging git in:name,description,readme 200 items=10    total=20166    q=None  
+gh-repo:stg git staging in:name,description 200 items=5     total=5        q=None  
+gh-repo:stage-lines in:name  200 items=2     total=2        q=None  
+gh-repo:git hunk stage in:name,description,readme 200 items=10    total=7311     q=None  
+grep:stage selected ranges   429 items=None  total=None     q=None  
+grep:stageSelectedRanges     429 items=None  total=None     q=None  
+grep:stage_ranges            429 items=None  total=None     q=None  
+grep:stageRanges             429 items=None  total=None     q=None  
+grep:magit-stage-region      429 items=None  total=None     q=None  
+grep:stage a single line     429 items=None  total=None     q=None  
+grep:stage one line          429 items=None  total=None     q=None  
+grep:stage part of a file    429 items=None  total=None     q=None  
+grep:partial staging         429 items=None  total=None     q=None  
+grep:partial stage           429 items=None  total=None     q=None  
+grep:line-range staging      429 items=None  total=None     q=None  
+grep:stagerange              429 items=None  total=None     q=None  
+grep:rangeToStage            429 items=None  total=None     q=None  
+grep:stageLines              429 items=None  total=None     q=None  
+grep:stage_lines             429 items=None  total=None     q=None  
+grep:splitHunk               429 items=None  total=None     q=None  
+grep:split_hunk              429 items=None  total=None     q=None  
+grep:hunk by line            429 items=None  total=None     q=None  
+grep:unidiff-zero            429 items=None  total=None     q=None  
+grep:filterdiff              429 items=None  total=None     q=None  
+grep:git apply --cached      429 items=None  total=None     q=None  
+grep:add -p non-interactive  429 items=None  total=None     q=None  
+grep:add -p script           429 items=None  total=None     q=None  
+grep:interactive.diffFilter  429 items=None  total=None     q=None  
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39708  redactions: none
+==============================================================================
+[seq 7] 2026-10-06T10:06:57+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three              ctx=None oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three              ctx=1    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three              ctx=3    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits             ctx=None oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+deletion-among-edits             ctx=1    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+deletion-among-edits             ctx=3    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+insertion-among-edits            ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+insertion-among-edits            ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+insertion-among-edits            ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits                   ctx=None oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits                   ctx=1    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits                   ctx=3    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof                    ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof                    ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof                    ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts                 ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts                 ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts                 ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent-middline          ctx=None oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent-middline          ctx=1    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent-middline          ctx=3    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far           ctx=None oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far           ctx=1    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far           ctx=3    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-delete-pair             ctx=None oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-delete-pair             ctx=1    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-delete-pair             ctx=3    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run-want-last    ctx=None oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run-want-last    ctx=1    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run-want-last    ctx=3    oracle=False stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite-one-line      ctx=None oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite-one-line      ctx=1    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite-one-line      ctx=3    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+
+totals (oracle-matched rows, 11 cases x 3 contexts):
+  stg          18/33 correct    0 wrong-but-exit-0
+  filterdiff    9/33 correct    9 wrong-but-exit-0
+  pty_driver    0/33 correct    0 wrong-but-exit-0
+  naive         0/33 correct   33 wrong-but-exit-0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 54224  redactions: none
+==============================================================================
+[seq 8] 2026-10-06T10:08:36+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None oracle=False stg=no-oracle  filterdiff=no-oracle  pty_driver=no-oracle  naive=no-oracle
+modify-one-of-three        ctx=1    oracle=False stg=no-oracle  filterdiff=no-oracle  pty_driver=no-oracle  naive=no-oracle
+modify-one-of-three        ctx=3    oracle=False stg=no-oracle  filterdiff=no-oracle  pty_driver=no-oracle  naive=no-oracle
+deletion-among-edits       ctx=None oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=1    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=3    oracle=True  stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=None oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    oracle=True  stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=1    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=3    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=None oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=1    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=3    oracle=True  stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+
+scored rows: 27 of 30  (3 case x context rows had no reference patch)
+  skipped modify-one-of-three ctx=None: no reference body declared for this case
+  skipped modify-one-of-three ctx=1: no reference body declared for this case
+  skipped modify-one-of-three ctx=3: no reference body declared for this case
+  stg          15/27 correct     0 wrong-but-exit-0
+  filterdiff    6/27 correct     9 wrong-but-exit-0
+  pty_driver    0/27 correct     0 wrong-but-exit-0
+  naive         0/27 correct    27 wrong-but-exit-0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 47409  redactions: none
+==============================================================================
+[seq 9] 2026-10-06T10:11:13+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F.FF.......................
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_a_multi_line_deletion_stays_whole (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 111, in test_a_multi_line_deletion_stays_whole
+    self.assertEqual(len(changes), 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_a_multi_line_insertion_stays_whole (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 102, in test_a_multi_line_insertion_stays_whole
+    self.assertEqual(len(changes), 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 28 tests in 6.644s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7083  redactions: none
+==============================================================================
+[seq 10] 2026-10-06T10:11:25+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F.FF.......................
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_a_multi_line_deletion_stays_whole (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 111, in test_a_multi_line_deletion_stays_whole
+    self.assertEqual(len(changes), 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_a_multi_line_insertion_stays_whole (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 102, in test_a_multi_line_insertion_stays_whole
+    self.assertEqual(len(changes), 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 28 tests in 6.402s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 6682  redactions: none
+==============================================================================
+[seq 11] 2026-10-06T10:12:08+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F......................FF....
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_deletion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 135, in test_staging_one_line_of_a_two_line_deletion_stages_one_line
+    self.assertEqual(self.r.staged_body("f"), "".join([
+AssertionError: 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2,2 +1,0 @@\n-b\n-c\n' != 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2,1 +1,0 @@\n-b\n'
+  diff --git a/f b/f
+  --- a/f
+  +++ b/f
+- @@ -2,2 +1,0 @@
+?       ^
++ @@ -2,1 +1,0 @@
+?       ^
+  -b
+- -c
+
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_insertion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 115, in test_staging_one_line_of_a_two_line_insertion_stages_one_line
+    self.assertEqual(self.r.staged_body("f"), "".join([
+AssertionError: 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -1,0 +2 @@\n+h1\n' != 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -1,0 +2,1 @@\n+h1\n'
+  diff --git a/f b/f
+  --- a/f
+  +++ b/f
+- @@ -1,0 +2 @@
++ @@ -1,0 +2,1 @@
+?           ++
+  +h1
+
+
+----------------------------------------------------------------------
+Ran 30 tests in 8.386s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 8797  redactions: none
+==============================================================================
+[seq 12] 2026-10-06T10:12:22+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F......................FF....
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_deletion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 135, in test_staging_one_line_of_a_two_line_deletion_stages_one_line
+    self.assertEqual(self.r.staged_body("f"), "".join([
+AssertionError: 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2,2 +1,0 @@\n-b\n-c\n' != 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2 +1,0 @@\n-b\n'
+  diff --git a/f b/f
+  --- a/f
+  +++ b/f
+- @@ -2,2 +1,0 @@
+?      --
++ @@ -2 +1,0 @@
+  -b
+- -c
+
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_insertion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 118, in test_staging_one_line_of_a_two_line_insertion_stages_one_line
+    self.assertEqual(self.r.unstaged_hunks("f"), ["@@ -1,0 +3 @@"])
+AssertionError: Lists differ: ['@@ -2,0 +3 @@'] != ['@@ -1,0 +3 @@']
+
+First differing element 0:
+'@@ -2,0 +3 @@'
+'@@ -1,0 +3 @@'
+
+- ['@@ -2,0 +3 @@']
+?       ^
+
++ ['@@ -1,0 +3 @@']
+?       ^
+
+
+----------------------------------------------------------------------
+Ran 30 tests in 7.399s
+
+FAILED (failures=3)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7706  redactions: none
+==============================================================================
+[seq 13] 2026-10-06T10:12:35+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F......................F.....
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_deletion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 135, in test_staging_one_line_of_a_two_line_deletion_stages_one_line
+    self.assertEqual(self.r.staged_body("f"), "".join([
+AssertionError: 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2,2 +1,0 @@\n-b\n-c\n' != 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2 +1,0 @@\n-b\n'
+  diff --git a/f b/f
+  --- a/f
+  +++ b/f
+- @@ -2,2 +1,0 @@
+?      --
++ @@ -2 +1,0 @@
+  -b
+- -c
+
+
+----------------------------------------------------------------------
+Ran 30 tests in 7.491s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7740  redactions: none
+==============================================================================
+[seq 14] 2026-10-06T10:12:48+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F......................F.....
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+======================================================================
+FAIL: test_staging_one_line_of_a_two_line_deletion_stages_one_line (test_stage.StageTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_stage.py", line 135, in test_staging_one_line_of_a_two_line_deletion_stages_one_line
+    self.assertEqual(self.r.staged_body("f"), "".join([
+AssertionError: 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2,2 +1,0 @@\n-b\n-c\n' != 'diff --git a/f b/f\n--- a/f\n+++ b/f\n@@ -2 +1,0 @@\n-b\n'
+  diff --git a/f b/f
+  --- a/f
+  +++ b/f
+- @@ -2,2 +1,0 @@
+?      --
++ @@ -2 +1,0 @@
+  -b
+- -c
+
+
+----------------------------------------------------------------------
+Ran 30 tests in 9.100s
+
+FAILED (failures=2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 9391  redactions: none
+==============================================================================
+[seq 15] 2026-10-06T10:13:59+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.F............................
+======================================================================
+FAIL: test_splits_by_positional_pairing_and_keeps_positions (test_parser.ParserTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/stage-lines/test_parser.py", line 40, in test_splits_by_positional_pairing_and_keeps_positions
+    self.assertEqual([c.header() for c in changes], [
+AssertionError: Lists differ: ['@@ [53 chars] '@@ -20,0 +19,1 @@', '@@ -20,0 +20,1 @@', '@@ -20,0 +21,1 @@'] != ['@@ [53 chars] '@@ -20,0 +19,3 @@']
+
+First differing element 3:
+'@@ -20,0 +19,1 @@'
+'@@ -20,0 +19,3 @@'
+
+First list contains 2 additional elements.
+First extra element 4:
+'@@ -20,0 +20,1 @@'
+
++ ['@@ -1,1 +1,1 @@', '@@ -2,1 +2,1 @@', '@@ -10,1 +9,1 @@', '@@ -20,0 +19,3 @@']
+- ['@@ -1,1 +1,1 @@',
+-  '@@ -2,1 +2,1 @@',
+-  '@@ -10,1 +9,1 @@',
+-  '@@ -20,0 +19,1 @@',
+-  '@@ -20,0 +20,1 @@',
+-  '@@ -20,0 +21,1 @@']
+
+----------------------------------------------------------------------
+Ran 30 tests in 7.101s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 7475  redactions: none
+==============================================================================
+[seq 16] 2026-10-06T10:14:25+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 9.200s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9431  redactions: none
+==============================================================================
+[seq 17] 2026-10-06T10:15:30+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-edits             ctx=None stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+three-adjacent             ctx=1    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+three-adjacent             ctx=3    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-pair-plus-far     ctx=None stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-insert-run        ctx=1    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-insert-run        ctx=3    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+
+scored rows: 30  (10 cases x 3 diff.context values)
+  stg          18/30 correct     0 wrong-but-exit-0     0 exit-0
+  filterdiff    9/30 correct     9 wrong-but-exit-0    18 exit-0
+  pty_driver    0/30 correct    30 wrong-but-exit-0    30 exit-0
+  naive        12/30 correct    18 wrong-but-exit-0    30 exit-0
+
+per-case, at default diff.context:
+  modify-one-of-three        want line 4   wrong: pty_driver, naive
+  deletion-among-edits       want line 3   wrong: pty_driver, naive
+  insertion-among-edits      want line 5   wrong: filterdiff, pty_driver
+  adjacent-edits             want line 2   wrong: stg, filterdiff, pty_driver, naive
+  append-at-eof              want line 4   wrong: filterdiff, pty_driver, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, pty_driver, naive
+  three-adjacent             want line 3   wrong: stg, filterdiff, pty_driver
+  adjacent-pair-plus-far     want line 2   wrong: stg, filterdiff, pty_driver, naive
+  adjacent-insert-run        want line 6   wrong: stg, filterdiff, pty_driver
+  whole-file-rewrite         want line 2   wrong: pty_driver
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 41209  redactions: none
+==============================================================================
+[seq 18] 2026-10-06T10:16:37+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 6.576s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6797  redactions: none
+==============================================================================
+[seq 19] 2026-10-06T10:17:16+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-edits             ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=1    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=3    stg=WRONG  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+
+scored rows: 30  (10 cases x 3 diff.context values)
+  stg          27/30 correct     0 wrong-but-exit-0     0 exit-0
+  filterdiff   12/30 correct     6 wrong-but-exit-0    18 exit-0
+  pty_driver    0/30 correct    30 wrong-but-exit-0    30 exit-0
+  naive         6/30 correct    24 wrong-but-exit-0    30 exit-0
+
+per-case, at default diff.context:
+  modify-one-of-three        want line 4   wrong: pty_driver, naive
+  deletion-among-edits       want line 3   wrong: pty_driver, naive
+  insertion-among-edits      want line 5   wrong: filterdiff, pty_driver
+  adjacent-edits             want line 2   wrong: filterdiff, pty_driver, naive
+  append-at-eof              want line 4   wrong: filterdiff, pty_driver, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, pty_driver, naive
+  three-adjacent             want line 3   wrong: pty_driver, naive
+  adjacent-pair-plus-far     want line 2   wrong: filterdiff, pty_driver, naive
+  adjacent-insert-run        want line 6   wrong: stg, filterdiff, pty_driver, naive
+  whole-file-rewrite         want line 2   wrong: pty_driver
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 38992  redactions: none
+==============================================================================
+[seq 20] 2026-10-06T10:17:52+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 7.207s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7434  redactions: none
+==============================================================================
+[seq 21] 2026-10-06T10:18:32+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+modify-one-of-three        ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+insertion-among-edits      ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=OK
+adjacent-edits             ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+whole-file-rewrite         ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=OK
+
+scored rows: 30  (10 cases x 3 diff.context values)
+  stg          30/30 correct     0 wrong-but-exit-0     0 exit-0
+  filterdiff   12/30 correct     6 wrong-but-exit-0    18 exit-0
+  pty_driver    0/30 correct    30 wrong-but-exit-0    30 exit-0
+  naive         6/30 correct    24 wrong-but-exit-0    30 exit-0
+
+per-case, at default diff.context:
+  modify-one-of-three        want line 4   wrong: pty_driver, naive
+  deletion-among-edits       want line 3   wrong: pty_driver, naive
+  insertion-among-edits      want line 5   wrong: filterdiff, pty_driver
+  adjacent-edits             want line 2   wrong: filterdiff, pty_driver, naive
+  append-at-eof              want line 4   wrong: filterdiff, pty_driver, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, pty_driver, naive
+  three-adjacent             want line 3   wrong: pty_driver, naive
+  adjacent-pair-plus-far     want line 2   wrong: filterdiff, pty_driver, naive
+  adjacent-insert-run        want line 6   wrong: filterdiff, pty_driver, naive
+  whole-file-rewrite         want line 2   wrong: pty_driver
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 39410  redactions: none
+==============================================================================
+[seq 22] 2026-10-06T10:19:51+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/038-staging-prior-art/compare.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+modify-one-of-three        ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+modify-one-of-three        ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+modify-one-of-three        ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+deletion-among-edits       ctx=None stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=1    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+deletion-among-edits       ctx=3    stg=OK  filterdiff=OK  pty_driver=WRONG  naive=WRONG
+insertion-among-edits      ctx=None stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+insertion-among-edits      ctx=1    stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+insertion-among-edits      ctx=3    stg=OK  filterdiff=WRONG  pty_driver=OK  naive=OK
+adjacent-edits             ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-edits             ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+append-at-eof              ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-inserts           ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+three-adjacent             ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+three-adjacent             ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+three-adjacent             ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=WRONG
+adjacent-pair-plus-far     ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-pair-plus-far     ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=None stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=1    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+adjacent-insert-run        ctx=3    stg=OK  filterdiff=WRONG  pty_driver=WRONG  naive=WRONG
+whole-file-rewrite         ctx=None stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+whole-file-rewrite         ctx=1    stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+whole-file-rewrite         ctx=3    stg=OK  filterdiff=OK  pty_driver=OK  naive=OK
+
+scored rows: 30  (10 cases x 3 diff.context values)
+  stg          30/30 correct     0 wrong-but-exit-0     0 exit-0
+  filterdiff   12/30 correct     6 wrong-but-exit-0    18 exit-0
+  pty_driver   12/30 correct    18 wrong-but-exit-0    30 exit-0
+  naive         6/30 correct    24 wrong-but-exit-0    30 exit-0
+
+per-case, at default diff.context:
+  modify-one-of-three        want line 4   wrong: naive
+  deletion-among-edits       want line 3   wrong: pty_driver, naive
+  insertion-among-edits      want line 5   wrong: filterdiff
+  adjacent-edits             want line 2   wrong: filterdiff, pty_driver, naive
+  append-at-eof              want line 4   wrong: filterdiff, pty_driver, naive
+  adjacent-inserts           want line 4   wrong: filterdiff, pty_driver, naive
+  three-adjacent             want line 3   wrong: naive
+  adjacent-pair-plus-far     want line 2   wrong: filterdiff, pty_driver, naive
+  adjacent-insert-run        want line 6   wrong: filterdiff, pty_driver, naive
+  whole-file-rewrite         want line 2   all correct
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 44110  redactions: none
+==============================================================================
+[seq 32] 2026-10-06T10:20:07+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py --budget
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+SE quota_remaining None status 400
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1202  redactions: none
+==============================================================================
+[seq 33] 2026-10-06T10:20:25+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/harvest.py poolc
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+issue:in:title,body "stage specific lines" 200 items=30    total=171      q=None  
+issue:in:title,body "stage a single line" 200 items=30    total=991      q=None  
+issue:in:title,body "stage only one line" 200 items=30    total=676      q=None  
+issue:in:title,body "stage line number" 200 items=30    total=883      q=None  
+issue:in:title,body "stage by line number" 200 items=30    total=51       q=None  
+issue:in:title,body "git add -p non-interactive" 200 items=15    total=15       q=None  
+issue:in:title,body "git add -p" automation script 200 items=30    total=337      q=None  
+issue:in:title,body "partially stage" lines 403 items=None  total=None     q=None  You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID A368:1289CB:EC1001:F5886E:6AC4CB66.
+issue:in:title,body "stage hunks by line" 403 items=None  total=None     q=None  You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID A376:260572:EBB427:F52E88:6AC4CB67.
+issue:in:title,body "select lines to stage" 403 items=None  total=None     q=None  You have exceeded a secondary rate limit. Please wait a few minutes before you try again. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) If you reach out to GitHub Support for help, please include the request ID A37C:228C45:EA4286:F3B36F:6AC4CB68.
+issue-control-negative       403 items=None  total=None     q=None  API rate limit exceeded for 140.245.228.53. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
+issue-control-denominator    403 items=None  total=None     q=None  API rate limit exceeded for 140.245.228.53. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18538  redactions: none
+==============================================================================
+[seq 34] 2026-10-06T10:20:45+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/readout.py issues
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+rows read: 12 requests, 195 issues
+
+label totals (an issue can match several queries, so these overlap):
+  in-population            100
+  no-git-context           47
+  no-stage-verb            22
+  other-topic              17
+  stage-but-no-coordinate  9
+
+per query:
+  ?                                          {}
+  in:title,body "git add -p non-interactive" {'in-population': 5, 'stage-but-no-coordinate': 3, 'no-stage-verb': 4, 'other-topic': 3}
+  in:title,body "git add -p" automation script {'no-stage-verb': 18, 'in-population': 7, 'other-topic': 2, 'stage-but-no-coordinate': 3}
+  in:title,body "partially stage" lines      {}
+  in:title,body "select lines to stage"      {}
+  in:title,body "stage a single line"        {'in-population': 21, 'no-git-context': 8, 'other-topic': 1}
+  in:title,body "stage by line number"       {'in-population': 18, 'no-git-context': 9, 'other-topic': 3}
+  in:title,body "stage hunks by line"        {}
+  in:title,body "stage line number"          {'in-population': 18, 'other-topic': 2, 'no-git-context': 10}
+  in:title,body "stage only one line"        {'in-population': 14, 'no-git-context': 14, 'other-topic': 2}
+  in:title,body "stage specific lines"       {'in-population': 17, 'no-git-context': 6, 'other-topic': 4, 'stage-but-no-coordinate': 3}
+  zzqxwv nonexistent phrase 4198             {}
+
+the vocabulary, in full:
+  in-population           = says stage* AND git/diff context AND a line coordinate
+  stage-but-no-coordinate = says stage* AND git/diff context, but not by line
+  no-git-context          = stage* with no git/diff context
+  no-stage-verb           = never says stage/staged/staging
+  other-topic             = matched a non-staging sense of line/partial
+
+in-population -- 12 shown:
+  [aidlc-workflows/closed c=3] [RFC]: Restructure AI-DLC workflows
+      https://github.com/awslabs/aidlc-workflows/issues/105
+  [lazygit/closed c=4] Suggestion: add ability to edit hunk
+      https://github.com/jesseduffield/lazygit/issues/1275
+  [sourcegit/closed c=5] Easier single line staging (allow empty line staging)
+      https://github.com/sourcegit-scm/sourcegit/issues/360
+  [nextpnr/open c=0] Post-placement 'Max frequency' report is unlabelled and indistinguishable from the post-route result
+      https://github.com/YosysHQ/nextpnr/issues/1808
+  [lazygitrs/closed c=6] Feature Request: Line/Hunk-level staging
+      https://github.com/Blankeos/lazygitrs/issues/28
+  [mech/open c=6] Remove obsolete scaffolding and narrow contract validation
+      https://github.com/mech-lang/mech/pull/893
+  [vscode/closed c=3] Option to hide/disable "Commit all ..."
+      https://github.com/microsoft/vscode/issues/158194
+  [neogit/open c=0] Have a "stage specific lines" flow with `log_pager`
+      https://github.com/NeogitOrg/neogit/issues/1973
+  [Chasma/open c=0] Create Stage by patch
+      https://github.com/bee0018/Chasma/issues/228
+  [sublime_merge/open c=5] Allow more specific selection of lines to stage
+      https://github.com/sublimehq/sublime_merge/issues/976
+  [neogit/open c=0] fix: stage hunk with existing index file endings
+      https://github.com/NeogitOrg/neogit/pull/2012
+  [agentic-sdlc/closed c=0] docs: idempotency under human rewind — reconcile, don't re-execute
+      https://github.com/meridun/agentic-sdlc/pull/5
+
+stage-but-no-coordinate -- 9 shown:
+  [openclaw/closed c=3] refactor(doctor): carry the migration blocker from execution
+      https://github.com/openclaw/openclaw/pull/143912
+  [academicOps/closed c=1] fix(automode): unify autoMode SSoT + stabilise install fingerprint
+      https://github.com/nicsuzor/academicOps/pull/1596
+  [Data_science_dev/closed c=1] fix: resolve #817 — Agent Smith's stamp-collecting secret and 'perf...
+      https://github.com/BenjaminSRussell/Data_science_dev/pull/2385
+  [skills/closed c=1] commit: non-interactive hunk staging
+      https://github.com/pascalandy/skills/issues/154
+  [gather/open c=5] Ship Gather to production and the App Store and Google Play
+      https://github.com/AppElent/gather/issues/174
+  [Claude-Skills/closed c=0] Feature - Add split-work for separating tangled commits and branches
+      https://github.com/ryanalexanderbrashear/Claude-Skills/pull/2
+  [catamorphic/closed c=0] Agent skills and rules: current, accurate, and shorter
+      https://github.com/opencx-labs/catamorphic/pull/94
+  [gather/open c=5] Ship Gather to production and the App Store and Google Play
+      https://github.com/AppElent/gather/issues/174
+  [oh-my-pi/open c=1] feat(worktree): managed-workspace lifecycle — persisted ownership + explicit release, startup reconciliation, and safe content-proven retirement (incl. adopted worktrees and PR-delivered work)
+      https://github.com/can1357/oh-my-pi/issues/14047
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2312  redactions: none
+==============================================================================
+[seq 35] 2026-10-06T10:21:00+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/precision.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+mechanical sample: every 3rd distinct issue, 61 rows
+
+[ 1] in-population          want,gitctx,coord        lazygit
+     Suggestion: add ability to edit hunk
+     https://github.com/jesseduffield/lazygit/issues/1275  [closed, 4 comments]
+     > **Is your feature request related to a problem? Please describe.** Lazygit makes it really easy to select specific lines to be staged, however sometimes I need more flexibility. For example, I have these unstaged changes: ```diff export const demo = Demo.Collection.fromComponent(UserStatsSubRoute)({
+
+[ 2] in-population          want,gitctx,coord        nextpnr
+     Post-placement 'Max frequency' report is unlabelled and indistinguishable from the post-route result
+     https://github.com/YosysHQ/nextpnr/issues/1808  [open, 0 comments]
+     > ### Version nextpnr-ecp5 `Version 3e53a0b` (observed 2026-09; the same reporting path exists across architectures). ### Symptom nextpnr prints the line ``` Info: Max frequency for clock '<net>': XX.XX MHz (PASS at YY.YY MHz) ``` **twice per run** — once after placement and once after routing — and t
+
+[ 3] no-git-context         want,coord               Onward
+     feat: add initial project structure with core abstractions, session m…
+     https://github.com/taizhenC/Onward/pull/15  [closed, 0 comments]
+     > ## Summary This Pull Request bridges the gap between static mockups and dynamic, model-driven, and robustly fallback-protected text layers. It implements Phase 1A of the opening copy flow by moving the universal intro preface lines from a hard-coded React component into a generalized session-backed 
+
+[ 4] stage-but-no-coordinate want,gitctx              academicOps
+     fix(automode): unify autoMode SSoT + stabilise install fingerprint
+     https://github.com/nicsuzor/academicOps/pull/1596  [closed, 1 comments]
+     > ## Problem The Claude Code auto-mode classifier's rule set had **three disagreeing source-of-truth references** plus a stale install fingerprint, with the net effect that aops deployed **zero** custom classifier rules — `install()` failed with `"No aops autoMode rules found"` on every session start 
+
+[ 5] other-topic            notit,want,gitctx,coord  spacemacs
+     [upstream] magit status diff view broken, status buffer not updating on changes
+     https://github.com/syl20bnr/spacemacs/issues/13216  [closed, 9 comments]
+     > #### Description :octocat: Upstream bug: magit / magit-section Magit status shows a character based raw diff view, rather than the usual colorised display Example screenshot: ![](https://files.gitter.im/syl20bnr/spacemacs/KlyH/image.png) The status buffer does not update the details when staging fil
+
+[ 6] in-population          want,gitctx,coord        sublime_merge
+     Allow more specific selection of lines to stage
+     https://github.com/sublimehq/sublime_merge/issues/976  [open, 5 comments]
+     > **Problem description** I often encounter a situation where I make a simple change to line and also add or remove a line right before/after it. In this case the `Stage Line` command isn't usable because selecting the staged line and staging it results in the complete line being added, instead of the
+
+[ 7] stage-but-no-coordinate want,gitctx              Data_science_dev
+     fix: resolve #817 — Agent Smith's stamp-collecting secret and 'perf...
+     https://github.com/BenjaminSRussell/Data_science_dev/pull/2385  [closed, 1 comments]
+     > ## Summary Adds dialogue and character story data for a new NPC, "Agent Smith" (an IRS Investigator), including relationship-based story reveals and stage-specific dialogue lines. ## Key Decisions & Trade-offs * **Data-Driven Dialogue:** The implementation follows the existing pattern for `professor
+
+[ 8] in-population          want,gitctx,coord        AstroForge
+     docs: P1.5 M4 audit — Forge Mode UI close-out
+     https://github.com/emmanuel-a-otchere/AstroForge/pull/212  [closed, 0 comments]
+     > P1.5 Milestone 4 (Forge Mode UI) audit. **3 of 5 tasks shipped.** Closing at tracker with code refs: - #159 NodeSidebar (`src/components/NodeSidebar.svelte`, 183 lines: SVG edges + node cards + status LEDs + click → goToStep) - #160 ParameterSidebar (`src/components/ParameterSidebar.svelte`, 234 lin
+
+[ 9] no-git-context         want,coord               AstroForge
+     docs: P1.5 M3 audit — Wizard Mode UI close-out
+     https://github.com/emmanuel-a-otchere/AstroForge/pull/210  [closed, 0 comments]
+     > P1.5 Milestone 3 (Wizard Mode UI) audit. **4 of 6 tasks shipped.** Closing at tracker with code refs: - #153 WizardBottomSheet (`src/components/WizardBottomSheet.svelte`, ~510 lines) - #154 stage-specific parameter panels (`WizardBottomSheet.svelte:266-330`) - #155 Reveal Pipeline toggle (`App.svelt
+
+[10] no-git-context         want,coord               kianos
+     [DEFERRED · SOURCE] content(politics): reconcile LEG26 History compression/output baseline
+     https://github.com/kianwang022-hash/kianos/pull/420  [closed, 0 comments]
+     > ## Scope History Source→Knowledge reconciliation on top of the Xi LEG26 pass. Base: `work/politics-leg26-xi-knowledge-20260918` ## Completed LEG26-HISTORY is reconciled against Current History C01–C10 while preserving the accepted causal learner model. ### Three historical roles 1. Upper 13 topical 
+
+[11] no-git-context         want,coord               nushell
+     Three ideas for the future of nushell
+     https://github.com/nushell/nushell/issues/549  [open, 16 comments]
+     > # Introduction The suggestions in this issue, I recognise, are blue-sky, and may never be implemented. I admit they may not even be part of the nushell's aims or philosophy. However, I'd like to put them forward for the nushell team's consideration, if only to spark new ideas. Please bear in mind th
+
+[12] in-population          want,gitctx,coord        GitUp
+     Add button to stage / unstage next to chunks in Advanced Commit view
+     https://github.com/git-up/GitUp/issues/115  [open, 9 comments]
+     > Gitup is awesome but staging feels a bit clunky and I wish it was a bit easier. It would be great if there were buttons to stage a single change rather than just a file or line. In gitx, I can stage individual changes. The button to stage/discard is right where the change is. <img width="1375" alt="
+
+[13] in-population          want,gitctx,coord        SimplyBuild
+     Add count-aware discovery loading labels across build prompts
+     https://github.com/notkainoa/SimplyBuild/pull/3  [closed, 2 comments]
+     > ## Summary - add a shared discovery-stage wrapper to emit consistent loading states for projects, schemes, and devices/simulators - show count-aware success labels (`Found 1 project`, `Found 2 schemes`) and explicit empty-result labels (`No projects found`, `No devices or simulators found`) - includ
+
+[14] no-git-context         want,coord               rust
+     Indicate compilation progress in a form useful to end users
+     https://github.com/rust-lang/rust/issues/24335  [closed, 40 comments]
+     > Was #22227, closed due to vandalism. @sanxiyn said: > I think we should have `--progress` option. This could show phases, and for long phases like type checking, this could even show the name of the function being checked. To which I replied: +1. We can use control codes to update parts of the termi
+
+[15] in-population          want,gitctx,coord        aws-cdk-cli
+     (cli): cdk synth strips newlines from subprocess stdout/stderr output
+     https://github.com/aws/aws-cdk-cli/issues/1272  [closed, 1 comments]
+     > ### Describe the bug CDK CLI v2.1114.1 strips all newlines from stderr (and stdout) output during `cdk synth`. All output from the CDK app subprocess — including deprecation warnings, "Bundling asset..." messages, and custom bundling command output — is concatenated into a single line. In `@aws-cdk/
+
+[16] in-population          want,gitctx,coord        elastickv
+     feat(encryption): Stage 6C-2b — ErrSidecarBehindRaftLog guard primitive (encryption-side)
+     https://github.com/bootjp/elastickv/pull/782  [closed, 9 comments]
+     > ## Summary Stage 6C-2b per the [PR #762 plan](https://github.com/bootjp/elastickv/pull/762) and the 6C sub-decomposition landed in [PR #781](https://github.com/bootjp/elastickv/pull/781). Ships the **encryption-side primitive** for the `ErrSidecarBehindRaftLog` §9.1 guard so Stage 6D-and-later code 
+
+[17] in-population          want,gitctx,coord        git-autofixup
+     Speed up creation of temporary index when autofixing staged changes
+     https://github.com/torbiak/git-autofixup/pull/25  [closed, 3 comments]
+     > Instead of using "git read-tree" to create an entirely new index, start by copying the old index file, and then subtracting the changes made since HEAD. This greatly improves performance on a monorepo of 30k files, where my .git/index file is around 5MB. A run of git-autofixup with a single staged l
+
+[18] no-git-context         want,coord               trainspotting
+     Collapse each language stage to its headline number
+     https://github.com/jss367/trainspotting/pull/8  [closed, 1 comments]
+     > The language card drew every detected language as its own bar — fifty-odd rows across three stages, nearly all of them slivers — for a question most visitors answer with one number. Each stage is now a single line (share that is not English, how many other languages, sample size) that draws its bars
+
+[19] no-git-context         want,coord               airi
+     fix(stage-ui): center mobile user message text
+     https://github.com/moeru-ai/airi/pull/2505  [closed, 2 comments]
+     > ## Summary - Use equal 6px vertical padding for mobile user message bubbles. - Keep the existing 32px height for a single-line bubble. ## Visual changes | Before | After | |---|---| | ![](https://github.com/user-attachments/assets/270865b6-dc64-4f08-b8d0-56e7c1d8b073) | ![](https://github.com/user-a
+
+[20] no-git-context         want,coord               sublime_merge
+     Have to scroll up the whole previously used space after "stage all" on expanded files
+     https://github.com/sublimehq/sublime_merge/issues/1330  [open, 6 comments]
+     > **Version info** - OS: Kubuntu 21.10 - Build: 2062 **Description** A description of what the bug is. E.g. staging a lot of (or a single log) expanded files when having scrolled "to the bottom" does not remove the previously needed space. Thus, the user has to scroll up the whole previously filled bu
+
+[21] no-git-context         want,coord               ssv
+     eth/executionclient: widen the flaky tests' context budgets (#2970, convergence)
+     https://github.com/ssvlabs/ssv/pull/2977  [closed, 2 comments]
+     > Cherry-pick of #2976 onto `integration/boole-convergence` — today `TestStreamLogs`/`TestSimSSV` failed on essentially every CI run of the convergence-based PRs (#2971 needed four attempts), and a fix on `stage` doesn't reach their CI. Same two one-line test-only budget bumps (5s → 30s); the two bran
+
+[22] no-git-context         want,coord               kasb
+     feat(cli): report upgrade stages on an interactive stderr
+     https://github.com/cpaikr/kasb/pull/36  [closed, 3 comments]
+     > ## Problem `kasb upgrade` gave no feedback until it printed its final JSON document, so a person at a terminal could not tell whether it was querying releases, downloading, verifying, or installing. ## Change `kasb upgrade` and `kasb upgrade --check` write one plain-text line per stage to **stderr, 
+
+[23] no-git-context         want,coord               agenthub-control-spine
+     Finalize secret defense receipt readback
+     https://github.com/arwoxbx24/agenthub-control-spine/pull/4  [closed, 0 comments]
+     > ## Summary Updates the AH-500 receipt after PR #3 was merged and read back from `main`. ## Validation - Changed one receipt line only - `gitleaks protect --staged --redact=100` PASS with zero findings - No secret values added
+
+[24] no-git-context         want,coord               monorepo
+     feat(pos): Browse by — setting and root term set (slice 1 of roadmap#392)
+     https://github.com/wcpos/monorepo/pull/2401  [closed, 10 comments]
+     > Slice 1 of 4 for wcpos/roadmap#392 (spec and plan: wcpos/roadmap#403, `docs/specs/2026-10-05-pos-browse-by-spec.md`, `docs/superpowers/plans/2026-10-05-pos-browse-by.md`). ## What this slice does - **Setting.** `uiSettings['pos-products'].browseBy`: `all` | `categories` | `tags` | `brands` | `shortc
+
+[25] in-population          want,gitctx,coord        Trends2Targets
+     [codex] Remove dead budget frozen sheet constant
+     https://github.com/yukihiro-murai/Trends2Targets/pull/82  [closed, 0 comments]
+     > ## Summary - Remove the unused SHEETS.BUDGET_FROZEN entry after confirming there are no live references. - Bump VERSION to 2.3.3-dev and BUILD_STAGE to v8-sheet-consolidation-2 for traceability. - Leave DLM_BUILD_STAGE and all behavior paths unchanged. ## Pre-checks - SHEETS.BUDGET_FROZEN search had
+
+[26] in-population          want,gitctx,coord        compound-engineering-plugin
+     fix(ce-code-review): annotate model tier in Stage 3 team announce; read it at Stage 4 dispatch
+     https://github.com/EveryInc/compound-engineering-plugin/pull/979  [closed, 0 comments]
+     > ## Summary In `ce-code-review`, which model each reviewer runs on is now decided once — when the review team is selected — instead of being a rule the orchestrator has to remember to re-apply at each dispatch call. Previously the "use the cheaper mid-tier model for non-critical reviewers" instructio
+
+[27] other-topic            notit,want,gitctx,coord  relay-ide
+     docs: Add Node / Pair Device UX spec and trust profiles (#980)
+     https://github.com/donovan-yohan/relay-ide/pull/988  [closed, 5 comments]
+     > ## Summary Adds the customer-facing **Add Node / Pair Device UX spec** as the source of truth that implementation slices #981–#987 cite for copy, screens, states, and trust-profile language. Docs only — no backend/frontend/CLI behavior is implemented in this slice. New artifact: `docs/ADD_NODE_PAIR_
+
+[28] in-population          want,gitctx,coord        testissues
+     "Stage selected ranges" command changes encoding to UTF-8
+     https://github.com/vscodenpa/testissues/issues/18056  [open, 0 comments]
+     > <!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ --> <!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ --> <!-- 🕮 Read our guide about submitting -: https://github-com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions --> <!-- 🔎 Search existing - to avo
+
+[29] no-git-context         want,coord               Stocket
+     二级 LLM 深跑 + 完整结构化卡片（5 维打分 + Long-term View + Common Misreading）
+     https://github.com/xiguagua/Stocket/issues/3  [open, 0 comments]
+     > ## What to build Thickens the worker LLM pipeline from first-stage-only (issue #1) to the full two-stage pipeline (ADR-0002), and thickens the app to display the complete structured event card (Q13-D). ### Worker: second-stage LLM deep run (Q8, ADR-0002) After first-stage classification, events with
+
+[30] in-population          want,gitctx,coord        sublime_merge
+     Ability to stage individual lines in a more discoverable way
+     https://github.com/sublimehq/sublime_merge/issues/465  [open, 2 comments]
+     > **Problem description** Sometimes, Git decides to show multiple unrelated changes together as a single hunk, or perhaps you'd like to have more control about splitting out several sets of unrelated but co-developed changes when committing them. Right now it is possible to stage individual lines by s
+
+[31] in-population          want,gitctx,coord        financial-asset-relationship-db
+     Feature/issue 1233 typed lock ttl graph admin
+     https://github.com/DashFin-FarDb/financial-asset-relationship-db/pull/1236  [closed, 25 comments]
+     > ## **User description** ## Architectural Alignment - Backend: FastAPI (production path) - Frontend: Next.js (production path) - Gradio: non-production (demo/testing only) This PR strictly updates documentation (ADR) to reflect the existing production implementation of distributed lock coordination a
+
+[32] in-population          want,gitctx,coord        tig
+     line numbering and diff metadata
+     https://github.com/jonas/tig/issues/4  [open, 0 comments]
+     > when picking out hunks to stage, the diff line numbers don't match with tig's line numbering. they are offset by the diff header. my initial feeling is the line numbering should display the lines inside the file, but i might be missing something here. lmk please.
+
+[33] in-population          want,gitctx,coord        ha-bambulab
+     [Bug] Model not detected properly during setup. (Was Camera Entity Not Showing Up (P1S))
+     https://github.com/greghesp/ha-bambulab/issues/1273  [closed, 9 comments]
+     > ### Home Assistant Version 2025.4.4 ### Bambu Lab Integration Version v2.1.14-beta7 ### Describe the bug When adding a new printer, the camera entity is not created. I do not see any obvious errors, and all other functions work as expected. The printer is set up in lan only mode. All functions inclu
+
+[34] in-population          want,gitctx,coord        vim-gitgutter
+     Batch stage multiple hunks from visual selection / line number range
+     https://github.com/airblade/vim-gitgutter/issues/446  [closed, 1 comments]
+     > Is / can it be possible to select multiple lines containing more than one hunk and then issue a single command to (example) stage them all?
+
+[35] no-git-context         want,coord               DFIR-Companion
+     feat(dashboard): story so far shows the intrusion shape, missing stages and copy-as-brief (closes #1493)
+     https://github.com/hasamba/DFIR-Companion/pull/1497  [closed, 1 comments]
+     > Closes #1493. Follow-up to #1487 / #1491. ## What the analyst sees Three additions to **Story so far** in the Now cockpit, all derived from data the case already holds (no AI call, nothing written): - **Shape of the intrusion** — a strip above the cards: first activity → last activity, dwell time, t
+
+[36] in-population          want,gitctx,coord        DavidHLP.github.io
+     fix: prevent archive topic rail from overlapping counter
+     https://github.com/DavidHLP/DavidHLP.github.io/pull/22  [closed, 1 comments]
+     > ## Summary - Raise the archive topic rail from 188 to 230 stage pixels, with its matching desktop override, so it clears the full archive counter label and number line. - Raise the hover caption to 310 stage pixels to preserve separation above the rail. - Add nine CSS-contract regression cases for s
+
+[37] in-population          want,gitctx,coord        GlobalyApp-v3
+     business management fixes and Enhance spreadsheet import functionality 
+     https://github.com/Globaly-Inc/GlobalyApp-v3/pull/350  [open, 1 comments]
+     > - Change job status from "done" to "review" in spreadsheet staging to require admin approval. - Introduce source type handling for "spreadsheet" and "agentcis" in businesses repository. - Update ListQuerySchema to include new origin types for filtering. - Modify ExtractionJobRow to display source ty
+
+[38] in-population          want,gitctx,coord        perl-lsp-swarm
+     test(lite-xl): define one semantic workspace and expectation manifest for every client stage
+     https://github.com/EffortlessMetrics/perl-lsp-swarm/issues/11181  [open, 4 comments]
+     > Product controller: #8950 BDD/spec contract: #11178 Integration/source authority: #10651 Candidate profiles: #11170 / #11172 Generic provider expectation authority: #7109 and current provider-owned fixtures Position/raw-byte authorities: #2298 / #7713 Deterministic client simulation consumer: #11103
+
+[39] no-git-context         want,coord               OSS-2026-Mirobot-Photo-Sketch
+     Stage-by-stage line extraction with numbered edit proposals (agent + GUI)
+     https://github.com/yoobinkim541/OSS-2026-Mirobot-Photo-Sketch/pull/1  [closed, 0 comments]
+     > ## 요약 사진 → 로봇 드로잉 선 추출을 **단계별 파이프라인**으로 바꿔 단계마다 보고 조정할 수 있게 했습니다. LLM 에이전트(와 사람)가 **번호로 선을 살리고·지우고·점을 편집**할 수 있습니다. 편집은 먼저 제안(빨강 = 사라짐, 초록 = 생김)으로 보이고, 확인한 뒤 적용합니다. 이전에 커밋하지 않았던 작업도 이 브랜치의 첫 커밋(`e3ef4cf`)에 들어 있습니다. - LLM 에이전트 사이드 패널 (OpenRouter / Claude Code / Codex, MCP) - Claude Code 로그인 확인과 로그인 창
+
+[40] in-population          want,gitctx,coord        paperclip-rs
+     T1-6-P: gate (10) file_size_check.py 45 cases + register KD-1 (--write-baseline launders a grown baseline entry)
+     https://github.com/louloulin/paperclip-rs/pull/194  [closed, 0 comments]
+     > T1-6-P: gate (10) file_size_check.py 45 cases + register KD-1 (--write-baseline launders a grown baseline entry) ## Why `scripts/file_size_check.py` (329 lines) drives gate (10) and had ZERO test coverage. `grep -rIl` over the repo: it appears only in `.github/workflows/ci.yml`, `contracts/*.tsv` an
+
+[41] no-git-context         want,coord               IndustryGrow
+     Spec: M04, M05 and M06 gain the figure their topology needs
+     https://github.com/IIchukissII/IndustryGrow/pull/316  [closed, 0 comments]
+     > Three sections described a topology in text and had no drawing. Each now has one, and no figure carries a value that a table owns. M04 section 6: the acquisition chain. The module's whole function was six tables across sections 6.1 to 6.5, 10.1 and 10.2 with nothing linking them. The figure shows th
+
+[42] in-population          want,gitctx,coord        csl-orig
+     corrections: 2026-08 batch (57 changes across ap90, mw72, pwg)
+     https://github.com/sanskrit-lexicon/csl-orig/pull/2884  [open, 0 comments]
+     > Second batch of the queued corrections drained from `csl-corrections/batch_pending/`, delivered as one PR per the repo's batched-PR policy. **57 changes across 3 dictionaries.** Auto-merge intentionally OFF. | dict | changes | issue | validation | |---|---:|---|---| | ap90 | 2 | [CORRECTIONS#434](ht
+
+[43] in-population          want,gitctx,coord        dnd3.5-spellbook
+     Review Fiendish Codex I dice QA coverage
+     https://github.com/FrankHZ/dnd3.5-spellbook/pull/209  [closed, 2 comments]
+     > Completes the rulebook 66 Chinese name/body QA proposal under #169 and #120. The public diff contains only the reproducible, source-free coverage report; detailed reviews remain in the local private data repository at `b0df4a6e31c746effcea198aa4d2d03d8d2aade2` (not pushed). All 15 owned occurrences 
+
+[44] in-population          want,gitctx,coord        claude-all-in-one
+     test(review-benchmark): add a conventions-only conformance case
+     https://github.com/millerlai/claude-all-in-one/pull/159  [closed, 0 comments]
+     > ## Summary The review benchmark had no case for the conformance lens's convention input added in #145 — conformance reviewing against `<top>/CLAUDE.md` with no written requirement (`plugins/cai/skills/track/references/stage-verify.md:67-72`). This adds one, runs it twice, and records the numbers. - 
+
+[45] in-population          want,gitctx,coord        pmo-platform
+     Automate milestone position derivation (dep-graph to position; trigger-scheduled)
+     https://github.com/cody-hutson/pmo-platform/issues/52  [closed, 0 comments]
+     > > **Inherits design from epic #1194 — do not restate.** This DoR refinement scopes the testable contract only; architecture, rationale, and cross-cutting design live in the epic. ## Thrust ENG-Triage-Bundle-Automation (engine side, epic #1194 under #573) — cluster `stage3-bundling-composer-and-ident
+
+[46] in-population          want,gitctx,coord        doctrine
+     fix(tailwind): Wave 1 blockers for fw-tailwind
+     https://github.com/agh/doctrine/pull/35  [closed, 0 comments]
+     > ## Wave 1: fw-tailwind Blockers and high-severity security findings from the September 2026 audit for this area, fixed against the auditor evidence and refuter rulings. Files: - `guides/frameworks/tailwind.md` ### Findings - fw-tailwind-13: FIXED — @theme { --color-scheme } replaced with @custom-var
+
+[47] no-git-context         want,coord               horde
+     labs: derive the rev date from file mtime — the hand-typed half had drifted in all 9
+     https://github.com/Julian-B-Smith/horde/pull/185  [closed, 0 comments]
+     > ## What a "rev stamp" is The small badge in the top-right of every lab: ``` rev 2026-08-04 14:18 · fp 567fb8 ``` It exists because of your repeated "I'm not seeing the updates" reports. Two halves: - **`fp`** — a fingerprint hashed from the page's actual script text at load. Reload; if it doesn't ch
+
+[48] no-stage-verb          gitctx                   opencode-workflow-guard
+     feat: Policy 22 (TTY hang guard) and native desktop notifications
+     https://github.com/ultus-net/opencode-workflow-guard/pull/21  [closed, 0 comments]
+     > Changelog: Implements Policy 22 (Non-Interactive Shell & TTY Hang Guard) and zero-dependency native OS desktop notifications. ### Summary of Changes 1. **Policy 22 (TTY Hang Guard):** - Deterministically intercepts interactive terminal editors (`nano`, `vim`, `emacs`), interactive pagers (`less`, `m
+
+[49] stage-but-no-coordinate want,gitctx              gather
+     Ship Gather to production and the App Store and Google Play
+     https://github.com/AppElent/gather/issues/174  [open, 5 comments]
+     > Gather's path from development to a production web app and store-distributed mobile app, with a staging build that exercises the production backend before store review. ## Decisions and constraints - Staging uses the production Clerk instance and production Convex deployment; only distribution diffe
+
+[50] in-population          want,gitctx,coord        claude
+     feat: add split-commits skill for atomic commit-chunking
+     https://github.com/connorhewick/claude/pull/3  [closed, 0 comments]
+     > ## Summary Adds a **`split-commits`** skill that breaks an uncommitted working tree spanning multiple tasks into one logical, atomic commit per concern — instead of a single mixed commit. - **`.claude/skills/split-commits`** — survey the tree, cluster changes by *intent*, propose an ordered Conventi
+
+[51] other-topic            notit,want,gitctx,coord  mcp-multi-root-git
+     feat: batch_commit stage parameter — hunk-level staging for per-line-range commits
+     https://github.com/Rethunk-AI/mcp-multi-root-git/issues/3  [closed, 1 comments]
+     > FROM: BASTION J-5 TO: RETHUNK-AI/MCP-MULTI-ROOT-GIT ENGINEERING DTG: 280253ZAPR26 PRECEDENCE: ROUTINE SUBJ: BATCH_COMMIT HUNK-LEVEL STAGING NOT YET AVAILABLE — AGENTS CANNOT SPLIT SINGLE-FILE EDITS INTO N COMMITS ## 9-LINE PREAMBLE 1. UNIT: mcp-multi-root-git (Rethunk-AI) 2. LOCATION: `src/server/ba
+
+[52] no-stage-verb          gitctx,coord             EbookAutomation
+     [SCRUM-280] feat: Local VQA P2 calibration + grounding (partial close, R1/R3/R4/R5/R6 met)
+     https://github.com/jlfowler1084/EbookAutomation/pull/2  [closed, 0 comments]
+     > ## Summary - **R4 grounding solved via prompt-only.** Grounding clause appended to `build_request` trailing instruction (3 required elements: label reference, position negation, non-sequential example `[1,2,3,70]`). `PageNumberGroundingError` guard raises on positional output. Unit 3 schema widening
+
+[53] no-stage-verb          gitctx,coord             xum
+     🤖 perf: inspect untrusted repo automation config with one spawn
+     https://github.com/coder/xum/pull/4713  [closed, 6 comments]
+     > ## Summary In untrusted projects, `gitNoRepoAutomationEnvForLocalRepo` runs before every local `workspace.executeBash` and before untrusted worktree create/fork. It used to spawn 4 sequential `git` processes (5 with `extensions.worktreeConfig=true`) from the Electron main process. Now it makes **one
+
+[54] in-population          want,gitctx,coord        agent-orchestra
+     fix(batch): pre-commit hook safety, qualify copilot-instructions paths, Issue-Planner cross-agent check
+     https://github.com/Grimblaz/agent-orchestra/pull/154  [closed, 2 comments]
+     > ## Summary Batch of 4 small fixes — single commit, all validated. ## Changes ### #152 + #153 — `.githooks/pre-commit` **#152**: The hook unconditionally re-staged the full working-tree file after markdownlint, defeating `git add -p` partial staging. Fixed by only re-staging if markdownlint actually 
+
+[55] in-population          want,gitctx,coord        amp-benchkit
+     fix(deps): suppress LabJack stdout during import to fix CLI output contamination
+     https://github.com/bwedderburn/amp-benchkit/pull/12  [closed, 0 comments]
+     > ## Problem The `sweep` CLI command was producing contaminated output, causing test failures in `test_cli_sweep.py`. When LabJackPython fails to load the Exodriver (a common scenario in environments without the USB driver), it prints warnings directly to stdout during module import: ``` <class 'LabJa
+
+[56] no-stage-verb          gitctx                   AMEDEO-P_DT-OPTIM
+     ✨ Set up Copilot instructions
+     https://github.com/AmedeoPelliccia/AMEDEO-P_DT-OPTIM/issues/3  [closed, 0 comments]
+     > # **AMEDEO-P DT-OPTIM™ Directory Structure Build Instructions** ## **Complete Framework Directory Creation Guide** **Document Version**: 1.0.0 **Purpose**: Step-by-step instructions to build the complete AMEDEO-P DT-OPTIM directory structure **Target**: 3,920 Systems, 39,200 Configuration Items, 431
+
+[57] no-stage-verb          gitctx,coord             mcp-server
+     Implement Worktree Automation for Multi-Agent Swarms
+     https://github.com/DollhouseMCP/mcp-server/issues/1262  [open, 0 comments]
+     > ## Parent Issue Part of #1252 - Multi-Agent Swarm Architecture ## Objective Implement the worktree automation scripts from the DollhouseMCP elements we created today to support easy multi-agent swarm setup. ## Context Today we created three DollhouseMCP elements: 1. `git-worktree-automation` (skill)
+
+[58] no-stage-verb          gitctx,coord             DekkhO
+     Automated suggestion for issue #1166
+     https://github.com/ni-sh-a-char/DekkhO/issues/1398  [open, 0 comments]
+     > **Next step – create the skeleton workflow and open a PR** 1. **Add the workflow file** Create `.github/workflows/auto-core-feature.yml` with the full, runnable definition. A minimal version that triggers on the `cor` label and creates a new “core‑feature” issue can be done with the built‑in `github
+
+[59] in-population          want,gitctx,coord        nextjs-app-template
+     docs(gates): the partial-stage warning in lefthook.yml is false
+     https://github.com/tomada1114/nextjs-app-template/issues/95  [closed, 0 comments]
+     > ## What is wrong today `lefthook.yml:28-34` carries this warning next to the `format` job: > Caveat — `stage_fixed` re-stages a reformatted file with a plain `git add`, which stages > the file *whole*. So on a partially-staged file (`git add -p`) that Prettier rewrites, > the unstaged hunks are swep
+
+[60] no-stage-verb          gitctx,coord             Xafrun
+     build(deps): bump the go-deps group across 1 directory with 11 updates
+     https://github.com/omilun/Xafrun/pull/16  [open, 0 comments]
+     > Bumps the go-deps group with 6 updates in the /backend directory: | Package | From | To | | --- | --- | --- | | [github.com/fluxcd/helm-controller/api](https://github.com/fluxcd/helm-controller) | `1.5.4` | `1.6.3` | | [github.com/fluxcd/image-automation-controller/api](https://github.com/fluxcd/ima
+
+[61] no-stage-verb          gitctx,coord             tkt
+     chore(skills): require a dedicated worktree per change
+     https://github.com/giulianotesta7/tkt/pull/206  [closed, 0 comments]
+     > ## Summary Every change in this repository now gets its own git worktree, so several features can run in parallel without sharing the main checkout. The convention already existed in practice — `git worktree list` shows 15 worktrees under the sibling directory — but it was unwritten, so it drifted: 
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 521  redactions: none
+==============================================================================
+[seq 36] 2026-10-06T10:21:37+00:00
+$ python3 EXPERIMENTS/038-staging-prior-art/score.py --score
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+hand-labelled rows: 61
+  yes-line       3  (0.049 of the sample)
+  yes-adjacent   7  (0.115)
+  no            51  (0.836)
+
+precision of the keyword classifier's in-population label:
+  it labelled 30 rows in-population
+  2 of those are yes-line          precision 0.067
+  7 of those are yes-adjacent, 21 are no
+
+recall against the hand labels:
+  1 of 3 yes-line rows the classifier did not label in-population: [51]
+
+rows that are about the operation but not the coordinate:
+  [ 1] lazygit                  Suggestion: add ability to edit hunk
+  [12] GitUp                    Add button to stage / unstage next to chunks in Advanced Commit view
+  [28] testissues               "Stage selected ranges" command changes encoding to UTF-8
+  [30] sublime_merge            Ability to stage individual lines in a more discoverable way
+  [32] tig                      line numbering and diff metadata
+  [54] agent-orchestra          fix(batch): pre-commit hook safety, qualify copilot-instructions paths, Issue-Planner cross-agent check
+  [59] nextjs-app-template      docs(gates): the partial-stage warning in lefthook.yml is false
+
+rows that are the coordinate itself:
+  [ 6] sublime_merge            Allow more specific selection of lines to stage
+      https://github.com/sublimehq/sublime_merge/issues/976
+  [34] vim-gitgutter            Batch stage multiple hunks from visual selection / line number range
+      https://github.com/airblade/vim-gitgutter/issues/446
+  [51] mcp-multi-root-git       feat: batch_commit stage parameter — hunk-level staging for per-line-range commits
+      https://github.com/Rethunk-AI/mcp-multi-root-git/issues/3
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 500  redactions: none

@@ -36,12 +36,18 @@ class ParserTest(unittest.TestCase):
     )
 
     def test_splits_by_positional_pairing_and_keeps_positions(self):
+        # Modifications pair up line for line. A run of three insertions does not:
+        # each of them is its own line in the file as it reads now, so each gets its
+        # own address and its own hunk -- `@@ -20,0 +19,1 @@` .. `+21,1 @@` rather
+        # than one hunk carrying all three.
         changes = parse(self.SAMPLE)["x"].changes
         self.assertEqual([c.header() for c in changes], [
             "@@ -1,1 +1,1 @@", "@@ -2,1 +2,1 @@",
-            "@@ -10,1 +9,1 @@", "@@ -20,0 +19,3 @@"])
+            "@@ -10,1 +9,1 @@",
+            "@@ -20,0 +19,1 @@", "@@ -20,0 +20,1 @@", "@@ -20,0 +21,1 @@"])
         self.assertEqual([c.kind for c in changes],
-                         ["modify", "modify", "modify", "add"])
+                         ["modify", "modify", "modify", "add", "add", "add"])
+        self.assertEqual([c.anchor(21) for c in changes[3:]], [19, 20, 21])
 
     def test_rendered_patch_reparses_to_the_same_changes(self):
         """The strongest property available offline: what we emit, git reads back."""

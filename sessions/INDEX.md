@@ -8,13 +8,15 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-129 recorded session(s). One `events.jsonl` per session, so concurrent
+131 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 104 older session(s) are in the directory listing.
+Showing the 25 most recent. 106 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-010-reconcile-session-009-index-f062-f064-sp](2026-10-06-010-reconcile-session-009-index-f062-f064-sp/README.md) | unknown-agent | worked | Reconcile session 009: index F062-F064, split oversized files, declare | 2026-10-06T11:08 |
+| [2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos](2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/README.md) | unknown-agent | worked | Test E037's two open gates - does the ecosystem already serve line-add | 2026-10-06T11:06 |
 | [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | worked | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
 | [2026-10-06-007-declare-the-10-artifacts-session-006-s-f](2026-10-06-007-declare-the-10-artifacts-session-006-s-f/README.md) | unknown-agent | worked | declare the 10 artifacts session 006's finish reported unlogged, and c | 2026-10-06T09:51 |
 | [2026-10-06-006-apply-d067-forward-find-a-buildable-cand](2026-10-06-006-apply-d067-forward-find-a-buildable-cand/README.md) | unknown-agent | worked | apply D067 forward: find a buildable candidate from the one on-disk po | 2026-10-06T09:50 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 104 older session(s) are in the directory listing.
 | [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
 | [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
-| [2026-10-05-006-record-the-post-rename-artifact-paths-an](2026-10-05-006-record-the-post-rename-artifact-paths-an/README.md) | unknown-agent | worked | Record the post-rename artifact paths and the HYPOTHESES entry that th | 2026-10-05T07:34 |
-| [2026-10-05-004-measure-whether-the-young-vocabulary-is](2026-10-05-004-measure-whether-the-young-vocabulary-is/README.md) | unknown-agent | worked | Measure whether the young vocabulary is served by copied directories r | 2026-10-05T07:30 |
 
 
 ## Reading a session

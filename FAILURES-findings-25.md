@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-06
 -->
 
-# Findings 61 and 62 — split from `FAILURES.md` at the 300-line cap
+# Findings 60 and 61 — split from `FAILURES.md` at the 300-line cap
 
 ## F060 — `git add -p` is not unreachable from a program; it is unreachable *by line number*, and a wrong answer exits 0
 

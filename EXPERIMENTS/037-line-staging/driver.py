@@ -113,13 +113,18 @@ def anchor_of(body, new_start):
 
 
 def main(argv):
-    if len(argv) != 1:
-        sys.stderr.write("usage: driver.py LINE\n")
+    # usage: driver.py LINE [PATH]. PATH defaults to "f", which is the name E037's
+    # cases used. E038's harness names its file f.txt, and passing it through is the
+    # only way the incumbent gets a fair run: with the default it sees no hunks at
+    # all and reads 0 of 30 correct, which is a broken baseline, not a result.
+    if len(argv) not in (1, 2):
+        sys.stderr.write("usage: driver.py LINE [PATH]\n")
         return 2
     want = int(argv[0])
+    path = argv[1] if len(argv) == 2 else "f"
     pid, fd = pty.fork()
     if pid == 0:
-        os.execvp("git", ["git", "add", "-p", "f"])
+        os.execvp("git", ["git", "add", "-p", path])
         os._exit(127)
     actions, splits, guard = [], 0, 0
     last_runs = None
