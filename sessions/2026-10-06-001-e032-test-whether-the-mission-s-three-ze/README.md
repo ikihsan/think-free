@@ -50,6 +50,7 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 00:56:15 | session_start | E032: test whether the mission's three-zero recurrence result is a fact about public conversation or a fact about the single venue all three populatio |
+| 2 | 00:56:31 | task_rewrite | rewrote tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md (status: claimed) |
 
 ## Reproduce this record
 

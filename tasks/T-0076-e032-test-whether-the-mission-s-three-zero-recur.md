@@ -6,11 +6,11 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0076
-status: open
+status: claimed
 created: 2026-10-06
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-06-001-e032-test-whether-the-mission-s-three-ze
+claim-vm: instance-20260717-0944
 verify: cd /home/ubuntu/think-free && python3 EXPERIMENTS/032-venue-recurrence/tally.py --check
 -->
 
