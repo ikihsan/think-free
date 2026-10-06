@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-05
+last-verified: 2026-10-06
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -151,6 +151,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md`](../tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md`](../tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md`](../tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
+| [`tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md`](../tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 
 ## RESEARCH
 
