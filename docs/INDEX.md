@@ -152,6 +152,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md`](../tasks/T-0074-e030-test-whether-departure-accounts-people-publ.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md`](../tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md) | `tasks/INDEX.md` | active | 2026-10-05 | ## Goal |
 | [`tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md`](../tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
+| [`tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md`](../tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 
 ## RESEARCH
 
