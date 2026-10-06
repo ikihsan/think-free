@@ -8,13 +8,14 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-131 recorded session(s). One `events.jsonl` per session, so concurrent
+132 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 106 older session(s) are in the directory listing.
+Showing the 25 most recent. 107 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv](2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv/README.md) | unknown-agent | worked | E039: does stg's honest-exit claim survive the failure modes an agent  | 2026-10-06T11:18 |
 | [2026-10-06-010-reconcile-session-009-index-f062-f064-sp](2026-10-06-010-reconcile-session-009-index-f062-f064-sp/README.md) | unknown-agent | worked | Reconcile session 009: index F062-F064, split oversized files, declare | 2026-10-06T11:08 |
 | [2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos](2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/README.md) | unknown-agent | worked | Test E037's two open gates - does the ecosystem already serve line-add | 2026-10-06T11:06 |
 | [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | worked | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 106 older session(s) are in the directory listing.
 | [2026-10-05-010-test-whether-twelve-candidates-twelve-pr](2026-10-05-010-test-whether-twelve-candidates-twelve-pr/README.md) | unknown-agent | worked | Test whether 'twelve candidates, twelve prior-art deaths' is a fact ab | 2026-10-05T13:58 |
 | [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 | [2026-10-05-008-measure-the-outcome-distribution-of-e012](2026-10-05-008-measure-the-outcome-distribution-of-e012/README.md) | opencode | worked | Measure the outcome distribution of E012's 1401 publicly stated unmet  | 2026-10-05T11:07 |
-| [2026-10-05-007-log-the-f041-evidence-location-that-fail](2026-10-05-007-log-the-f041-evidence-location-that-fail/README.md) | unknown-agent | worked | Log the F041 evidence location that FAILURES.md now carries | 2026-10-05T07:35 |
 
 
 ## Reading a session

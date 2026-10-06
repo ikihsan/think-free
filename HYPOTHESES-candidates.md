@@ -35,6 +35,14 @@ editor selection and cannot be called from a script; `filterdiff` names the *ori
 file's line and cannot split a run of adjacent changes — on an adjacent-edit case it staged
 **both** lines and exited 0. Magit, read in full, has no line-addressed staging command.
 
+**E039 (session 2026-10-06-011) added the boundary claim.** On eight real-repository
+failure modes — binary file, untracked file, out-of-range line, missing path, conflict
+markers, staged rename, mode-change-only, overlapping partial staging — `stg` exited 2
+with a named refusal exactly when it did not stage, and exited 1 after the index matched
+the request; 8 of 8. The naive route could not distinguish "invalid request" from
+"applied" by exit code at all (128 with `error: unrecognized input` on five, silent
+success on three). `EXPERIMENTS/039-honest-exit/`.
+
 ## Why this candidate, and not another
 
 The pool was the **589 never-answered need statements** in

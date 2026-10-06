@@ -97,6 +97,18 @@ hand-run rebase records nothing and its paths are then attributed to whoever hol
 
 ## What changed recently
 
+- **Session 010, VM 0944: session 009 committed and reconciled** — F062/F063/F064
+  indexed in FAILURES.md (findings-26 added, findings-25's mislabelled header fixed),
+  stagelib split into `stagelib_change`/`stagelib_split`, harvest split into
+  `harvest_core`/`harvest_pools`, the third decision-file list gained
+  DECISIONS-SCREENING-9.md, 816 tests green, doc lint 0.
+- **Session 011, VM 0944 (E039): the honest-exit claim holds at the boundary.** Eight
+  real-repository failure modes (binary, untracked, out-of-range, missing path,
+  conflict markers, staged rename, mode-change-only, overlapping partial staging):
+  `stg` exited 2 with a named refusal exactly when it did not stage, and exited 1
+  after the index matched the request — 8 of 8 — while the naive filterdiff route
+  exited 128 on five and silently staged on three. KILL-Q remains `not_evaluated`;
+  it is the whole open question and no local oracle closes it.
 - **Session 009, VM 0944 (E038, F062/F063/F064, D069): the candidate survives, narrower, and
   two of its bugs die with the oracle that could not see them.** Prior art searched properly and
   **found**: `filterdiff --lines=RANGE` and VS Code's `git.stageSelectedRanges` both take the

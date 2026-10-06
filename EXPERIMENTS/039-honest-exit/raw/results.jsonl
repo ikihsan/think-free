@@ -1,0 +1,8 @@
+{"case": "binary-file", "exit_matches_outcome": true, "index_changed": false, "index_now": "BIN\u0000\u0001\u0002", "stg_argv": ["stg", "stage", "b.bin:1"], "stg_exit": 2, "stg_stderr": "stg: b.bin is binary; use plain `git stage`"}
+{"case": "untracked-file", "exit_matches_outcome": true, "index_changed": false, "index_now": null, "stg_argv": ["stg", "stage", "new.txt:1"], "stg_exit": 2, "stg_stderr": "stg: no stage change in new.txt"}
+{"case": "out-of-range-line", "exit_matches_outcome": true, "index_changed": false, "index_now": "a\nb\nc\n", "stg_argv": ["stg", "stage", "f:99"], "stg_exit": 2, "stg_stderr": "stg: f has 3 lines; you asked for 99"}
+{"case": "missing-path", "exit_matches_outcome": true, "index_changed": false, "index_now": "a\nb\n", "stg_argv": ["stg", "stage", "nope.txt:1"], "stg_exit": 2, "stg_stderr": "stg: no stage change in nope.txt"}
+{"case": "conflict-markers-in-file", "exit_matches_outcome": true, "index_changed": true, "index_now": "a\n<<<<<<< HEAD\nc\n", "stg_argv": ["stg", "stage", "f:2"], "stg_exit": 1, "stg_stderr": ""}
+{"case": "rename-mv", "exit_matches_outcome": true, "index_changed": true, "index_now": "a\nB\nc\n", "stg_argv": ["stg", "stage", "g:2"], "stg_exit": 1, "stg_stderr": ""}
+{"case": "mode-change-only", "exit_matches_outcome": true, "index_changed": false, "index_now": "echo hi\n", "stg_argv": ["stg", "stage", "run.sh:1"], "stg_exit": 2, "stg_stderr": "stg: no stage change matches run.sh:1"}
+{"case": "already-partially-staged", "exit_matches_outcome": true, "index_changed": true, "index_now": "A\n2\n3\nB\n5\n", "stg_argv": ["stg", "stage", "f:4"], "stg_exit": 1, "stg_stderr": ""}

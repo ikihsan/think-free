@@ -1,0 +1,8 @@
+{"case": "binary-file", "index_changed": false, "index_now": "BIN\u0000\u0001\u0002", "naive_exit": 128, "naive_stderr": "error: unrecognized input"}
+{"case": "untracked-file", "index_changed": false, "index_now": null, "naive_exit": 128, "naive_stderr": "error: unrecognized input"}
+{"case": "out-of-range-line", "index_changed": false, "index_now": "a\nb\nc\n", "naive_exit": 128, "naive_stderr": "error: unrecognized input"}
+{"case": "missing-path", "index_changed": false, "index_now": "a\nb\n", "naive_exit": 128, "naive_stderr": "error: unrecognized input"}
+{"case": "conflict-markers-in-file", "index_changed": true, "index_now": "a\n<<<<<<< HEAD\nB\n=======\nX\n>>>>>>> br\nc\n", "naive_exit": 0, "naive_stderr": ""}
+{"case": "rename-mv", "index_changed": true, "index_now": "a\nB\nc\n", "naive_exit": 0, "naive_stderr": ""}
+{"case": "mode-change-only", "index_changed": false, "index_now": "echo hi\n", "naive_exit": 128, "naive_stderr": "error: unrecognized input"}
+{"case": "already-partially-staged", "index_changed": true, "index_now": "A\n2\n3\nB\n5\n", "naive_exit": 0, "naive_stderr": ""}

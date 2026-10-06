@@ -1,0 +1,26 @@
+==============================================================================
+[seq 2] 2026-10-06T11:15:49+00:00
+$ env FILTERDIFF=/tmp/opencode/pu/x/usr/bin/filterdiff python3 EXPERIMENTS/039-honest-exit/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+case                         exit  chg  honest         stderr
+binary-file                  2     False True           stg: b.bin is binary; use plain `git stage`
+untracked-file               2     False True           stg: no stage change in new.txt
+out-of-range-line            2     False True           stg: f has 3 lines; you asked for 99
+missing-path                 2     False True           stg: no stage change in nope.txt
+conflict-markers-in-file     1     True True           
+rename-mv                    1     True True           
+mode-change-only             2     False True           stg: no stage change matches run.sh:1
+already-partially-staged     1     True True           
+
+naive route (filterdiff | git apply --cached):
+binary-file                  exit=128  changed=False error: unrecognized input
+untracked-file               exit=128  changed=False error: unrecognized input
+out-of-range-line            exit=128  changed=False error: unrecognized input
+missing-path                 exit=128  changed=False error: unrecognized input
+conflict-markers-in-file     exit=0    changed=True  
+rename-mv                    exit=0    changed=True  
+mode-change-only             exit=128  changed=False error: unrecognized input
+already-partially-staged     exit=0    changed=True  
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2697  redactions: none
