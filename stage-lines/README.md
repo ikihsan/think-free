@@ -65,10 +65,9 @@ Symlink it onto your `PATH` as `stg` if you want the bare name.
 
 ## What it does not do
 
-- **A multi-line insertion or deletion is one change.** Half of a two-line append is not a
-  hunk `git apply` can express without inventing context, so neither is it a thing `stg`
-  will pretend to stage. Two adjacent *modifications* do split, because each is its own
-  line pair.
+- Two adjacent *modifications* split into per-line changes, and an insertion
+  asked for one line at a time stages just that line (E038, F063). It does
+  not invent context for a hunk that names no requested line.
 - **Binary files.** Refused, with a message pointing at plain `git add`.
 - **Renames and mode changes.** Not implemented; run `git add` for those.
 - **Untracked files.** Listed, but not partially stageable — git has no index entry yet.

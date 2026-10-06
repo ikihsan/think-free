@@ -1,0 +1,72 @@
+==============================================================================
+[seq 2] 2026-10-06T12:01:46+00:00
+$ python3 EXPERIMENTS/040-agent-staging-loop/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"case": "adjacent-modifications", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "adjacent-modifications", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'A\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/040-agent-staging-loop/run.py", line 200, in <module>
+    main()
+  File "EXPERIMENTS/040-agent-staging-loop/run.py", line 176, in main
+    rc, out = route(root, case["request_line"], count)
+  File "EXPERIMENTS/040-agent-staging-loop/run.py", line 159, in route_filterdiff
+    rc2, out2 = sh(["filterdiff", "--lines=%d" % line], root,
+  File "EXPERIMENTS/040-agent-staging-loop/run.py", line 78, in sh
+    p = subprocess.run(
+  File "/usr/lib/python3.8/subprocess.py", line 493, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'filterdiff'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1185  redactions: none
+==============================================================================
+[seq 3] 2026-10-06T12:02:43+00:00
+$ python3 EXPERIMENTS/040-agent-staging-loop/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"case": "adjacent-modifications", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "adjacent-modifications", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'A\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+{"case": "adjacent-modifications", "route": "filterdiff", "exit": 0, "tool_calls": 3, "bytes_read": 93, "staged": "'A\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+{"case": "two-line-insertion", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nx\\nd\\n'", "expected": "'a\\nd\\n'", "exact": false, "honest": false, "silent_wrong": false, "silent_overstage": false}
+{"case": "two-line-insertion", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nx\\ny\\nd\\n'", "expected": "'a\\nd\\n'", "exact": false, "honest": false, "silent_wrong": false, "silent_overstage": true}
+{"case": "two-line-insertion", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nd\\n'", "expected": "'a\\nd\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nb\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nb\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": false, "honest": false, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "filterdiff", "exit": 0, "tool_calls": 3, "bytes_read": 85, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "stg", "exit": 2, "tool_calls": 1, "bytes_read": 33, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "plumbing", "exit": 2, "tool_calls": 1, "bytes_read": 22, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1976  redactions: none
+==============================================================================
+[seq 4] 2026-10-06T12:03:17+00:00
+$ python3 EXPERIMENTS/040-agent-staging-loop/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"case": "adjacent-modifications", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "adjacent-modifications", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'A\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+{"case": "adjacent-modifications", "route": "filterdiff", "exit": 0, "tool_calls": 3, "bytes_read": 93, "staged": "'A\\nB\\nc\\nd\\n'", "expected": "'a\\nB\\nc\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+{"case": "two-line-insertion", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nx\\nd\\n'", "expected": "'a\\nx\\nd\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "two-line-insertion", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nx\\ny\\nd\\n'", "expected": "'a\\nx\\nd\\n'", "exact": false, "honest": false, "silent_wrong": true, "silent_overstage": false}
+{"case": "two-line-insertion", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nd\\n'", "expected": "'a\\nx\\nd\\n'", "exact": false, "honest": false, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nb\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nb\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "single-line-insertion", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nc\\n'", "expected": "'a\\nb\\nc\\n'", "exact": false, "honest": false, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "stg", "exit": 1, "tool_calls": 1, "bytes_read": 10, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "plumbing", "exit": 0, "tool_calls": 2, "bytes_read": 10, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "tail-modification", "route": "filterdiff", "exit": 0, "tool_calls": 3, "bytes_read": 85, "staged": "'a\\nb\\nC\\n'", "expected": "'a\\nb\\nC\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "stg", "exit": 2, "tool_calls": 1, "bytes_read": 33, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "plumbing", "exit": 2, "tool_calls": 1, "bytes_read": 22, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+{"case": "unchanged-line", "route": "filterdiff", "exit": 128, "tool_calls": 3, "bytes_read": 26, "staged": "'a\\nb\\n'", "expected": "'a\\nb\\n'", "exact": true, "honest": true, "silent_wrong": false, "silent_overstage": false}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1910  redactions: none
