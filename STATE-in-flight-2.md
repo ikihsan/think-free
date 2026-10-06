@@ -112,11 +112,15 @@ answered questions — which are the ones that were *not* repeats.
 public questions, *and* the mission's samples were drawn from where it is rarest. The
 five zeros were a statement about a stratum before they were a statement about the world.
 
-**Where the signal is, which is the useful half.** A duplicate closure is **2.6× more
-likely to go unanswered** than anything else in the population — 0.5556 against 0.2114,
-difference CI95 [+0.2096, +0.4710], median score 1 against 2. Five harvests looked for
-demand in the *phrasing* of needs and in *popular* questions; the population that
-converges on a question and stays unanswered is neither.
+**A second claim was withdrawn by the run itself.** The same data reads as convergent-and-
+unanswered demand — a duplicate closure is **2.6× more likely to carry `answer_count == 0`**
+(0.5556 against 0.2114, CI95 [+0.2096, +0.4710]) — but **zero of the 54 has an accepted
+answer**, and closing a question as a duplicate does not answer it, so most of that gap is
+what closure *does* rather than what askers needed
+([`PROTOCOL.md`](EXPERIMENTS/033-question-recurrence/PROTOCOL.md) AMENDMENT-3 §2). The
+sharper defect is the order: **the mechanical explanation arrived only after both readers had
+reported**, because nothing in the protocol asked whether the label could produce the
+difference by itself. **The run therefore has one result, not two.**
 
 **What is not revived.** No candidate: 54 closures were counted, **no clause or cluster was
 recovered**, and no prior-art screen was run. This is not Hacker News either — the method

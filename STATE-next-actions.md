@@ -36,7 +36,7 @@ untouched, and every item says which.
    [0.0416, 0.0698]) and the five zeros were a stratum effect. Still an **owner
    decision**: which axis replaces them — usefulness without users, distribution,
    domain knowledge, **or the convergent-and-unanswered population F055 measured (a repeat
-   is 2.6× more likely to go unanswered, 0.5556 against 0.2114)** — and whether publishing
+   is F055's withdrawn claim that repeats go unanswered)** — and whether publishing
    the tooling as-is is ever on the table. **Ceiling:** F034's own gate is
    `inconclusive` — 43% of incumbents were undecided against a declared 20% ceiling — on
    four decided young rows; F027's sample is small and self-selected, and 0 stars is a weak
@@ -141,11 +141,12 @@ untouched, and every item says which.
    the rate is **4.5× higher in the bottom score tertile**. The demand-side generators are
    not closed on a fact about public conversation. **What survives is the instruction:**
    recurrence is real in public questions, and the mission's samples were drawn where it
-   is rarest. The live question is now *what to measure it on*, and **one measured handle
-   exists: a repeat is 2.6× more likely to go unanswered** (0.5556 against 0.2114) — the
-   convergent population and the unanswered population overlap. That is a population, not a
-   candidate: no clause or cluster was recovered, and the closure's canonical is **not
+   is rarest. **The run's one surviving result is a method result, and it produced no
+   candidate**: no clause or cluster was recovered, and the closure's canonical is **not
    readable from the public API** ([`API.md`](EXPERIMENTS/033-question-recurrence/API.md)).
+   Its mission-facing second claim, that repeats go unanswered, was **withdrawn as
+   mechanical** — zero of the 54 duplicates has an accepted answer. **So the live question
+   is *what to measure recurrence on*, and it has no measured handle yet.**
    **Ceiling:** two sites of 2024, one platform, a label that counts closures only, and no
    recovered cluster. **F053 and F054 are how the older closure got there** — one venue
    sampled five times, then a venue change that held the pooled bound at 0.0223 — and

@@ -88,26 +88,32 @@ reliable **label** and an unreachable **edge**. That is a property of the archiv
 means any future recurrence work here must be built on rates over whole populations, with
 no edge set available as a shortcut.
 
-## D9: the duplicates are also the unanswered ones
+## D9: withdrawn as a finding — the gap is largely mechanical
 
-Added post-hoc, labelled as such in the protocol, computed from the label rather than the
-reader so adjudication could not move it:
+**This section previously claimed that a repeat is 2.6× more likely to go unanswered, and
+that the convergent and unanswered populations overlap. Both are withdrawn.** See
+[`PROTOCOL.md`](PROTOCOL.md) AMENDMENT-3 §2.
+
+The measurement stands as written:
 
 | arm | `answer_count == 0` |
 |---|---|
 | closed as duplicate | **30 / 54 = 0.5556** |
 | every other closure state | **200 / 946 = 0.2114** |
-| difference | CI95 **[+0.2096, +0.4710]** |
+| difference | CI95 **[+0.2052, +0.4670]** against **open** questions only (194/900 = 0.2156); **+0.2096, +0.4710** against every non-duplicate row |
 
-**A repeat is 2.6× more likely to go unanswered than anything else in the population.**
-Median score is 1 for duplicates against 2 for the rest; 79.6% score ≤ 1 against 50.0%.
+**Zero of the 54 duplicate closures has an accepted answer**, and closing a question as a
+duplicate does not answer it. So the gap is substantially a property of what closure *does*,
+not of what the askers needed, and it cannot be read as evidence that convergent questions
+go unmet. Reporting it as the mission-facing half of the finding was wrong, and the wrong
+part is the part that would have driven a next action.
 
-This is the finding with a use, and it is not a candidate — nothing here was screened for
-prior art, and a recurring question is not a product. What it is: **the population where
-independent people converge on the same question is disproportionately the population where
-nobody answered it.** The demand signal that five failed harvests were looking for is not
-in the phrasing of needs, and not in popular questions; it is in the residue of questions
-that several people asked and the archive never resolved.
+What survives: duplicates were **older** than the rest — median 7.9 days old at the window
+edge against 3.3 — and still carried no answer of their own. Closure mechanics explain that
+too. **D9 decides nothing on its own** and is reported as a description.
+
+So the run has one result, not two: recurrence is 4.5× more common than the stratum the
+record sampled, and that is a statement about where this mission was looking.
 
 ## What this does not license
 
@@ -115,13 +121,20 @@ that several people asked and the archive never resolved.
   canonicals are unreadable, so no clause and no cluster was recovered.
 - **This is not Hacker News.** The zeros came from `hn.algolia.com`; these come from two
   Stack Exchange sites. What transfers is the **method defect**, not a rate.
-- **The rate is a lower bound.** A repeat that was answered rather than closed is not
-  labelled, and closure lags creation — the window was chosen to make that lag six months.
+- **The rate is a lower bound**, for a reason the protocol first got wrong (AMENDMENT-3 §1):
+  the sample is the 500 **newest** questions in the window, not a spread across it — `math`
+  is four days wide, `travel` ~90 — but closure lag is **median 0.3 days, max 64.3**, so
+  every row had 26 months to be closed, and a repeat that was answered instead of closed is
+  not labelled at all.
 - **D7 is a within-population counterfactual**, not a re-run of E032. The populations differ
   in site, instrument and question volume. What transfers is the *direction and rough size* of
   the stratum effect, not a corrected 0.0223.
 - **Two sites, 2024, English, one platform.** `math` and `travel` were chosen by volume, not
-  by answer rate.
+  by answer rate — and the time slice is narrow and uneven between them (four days for
+  `math`, ~90 for `travel`), so this is not one population sampled twice.
+- **D9 was withdrawn, not merely caveated** (AMENDMENT-3 §2). It had been the run's
+  mission-facing half; the mechanical explanation arrived only after both readers had
+  reported, which is the correct order and also why it was not caught sooner.
 
 ## Honest limitations
 

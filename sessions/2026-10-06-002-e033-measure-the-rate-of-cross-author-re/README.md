@@ -66,6 +66,14 @@ _(none recorded)_
 | FAILURES-findings-22.md | 53462cd0a3c4 | 13069 |
 | FAILURES.md | 3158e1b20660 | 23295 |
 | STATE-in-flight-2.md | ec677e07d682 | 12611 |
+| EXPERIMENTS/033-question-recurrence/README.md | 39deeffe9fc7 | 9833 |
+| EXPERIMENTS/033-question-recurrence/PROTOCOL.md | 760b64aeb192 | 17809 |
+| FAILURES-findings-22.md | d3a20d89d909 | 13389 |
+| FAILURES.md | d0d0f3903609 | 23351 |
+| STATE-in-flight-2.md | 9b740a54f973 | 12964 |
+| STATE-next-actions.md | 55174c943acf | 15928 |
+| EXPERIMENTS/README.md | 0939cc9436b7 | 6630 |
+| ROADMAP.md | e0038d82a9b8 | 13859 |
 
 ## Commands
 
@@ -137,18 +145,18 @@ _(none recorded)_
 | 38 | 03:27:47 | artifact | wrote STATE-next-actions.md |
 | 39 | 03:27:48 | artifact | wrote STATE-next-actions-closed.md |
 | 40 | 03:27:48 | artifact | wrote STATE-constraints.md |
-| 44 | 03:27:51 | artifact | wrote RELEASE-MANIFEST.md |
-| 45 | 03:27:52 | artifact | wrote docs/INDEX.md |
-| 46 | 03:27:52 | milestone | E033 complete: B1 fires, the pooled 0.0223 recurrence bound is refuted at 0.0540 CI95 [0.0416, 0.0698]; F055 recorded |
-| 47 | 03:39:54 | task_rewrite | rewrote tasks/T-0077-e033-measure-the-rate-at-which-a-question-in-pub.md (status: done) |
-| 48 | 03:39:56 | task_rewrite | appended a complete record for T-0077 |
-| 49 | 03:45:47 | artifact | wrote EXPERIMENTS/033-question-recurrence/API.md |
-| 50 | 03:45:49 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
-| 51 | 03:45:51 | artifact | wrote FAILURES-findings-22.md |
-| 52 | 03:45:53 | artifact | wrote FAILURES.md |
 | 53 | 03:45:55 | artifact | wrote STATE-in-flight-2.md |
+| 54 | 03:55:27 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
+| 55 | 03:55:31 | artifact | wrote EXPERIMENTS/033-question-recurrence/PROTOCOL.md |
+| 56 | 03:55:34 | artifact | wrote FAILURES-findings-22.md |
+| 57 | 03:55:37 | artifact | wrote FAILURES.md |
+| 58 | 03:55:41 | artifact | wrote STATE-in-flight-2.md |
+| 59 | 03:55:46 | artifact | wrote STATE-next-actions.md |
+| 60 | 03:55:50 | artifact | wrote EXPERIMENTS/README.md |
+| 61 | 03:55:53 | artifact | wrote ROADMAP.md |
+| 62 | 03:55:56 | milestone | F055 corrected: D9 withdrawn as mechanical (0 of 54 duplicates has an accepted answer) and AMENDMENT-1's window rationale shown false; AMENDMENT-3 rec |
 
-_3 middle events omitted; see `events.jsonl`._
+_12 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

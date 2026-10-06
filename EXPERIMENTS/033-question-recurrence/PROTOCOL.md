@@ -130,6 +130,32 @@ reader, so it cannot be voided by A3.
 the population. Reported **only if A3 passes**; otherwise `not_evaluated` with the count
 stated but not interpreted, because a count of wrong canonicals is not a count of anything.
 
+### AMENDMENT-3, made after the run, recording two statements this protocol got wrong
+
+Written after `tally.py` and after both readers had reported, so it cannot have influenced
+either. It corrects the record rather than the result, and the second correction
+**withdraws a conclusion the run had been carrying**.
+
+**1. AMENDMENT-1's rationale was false.** It claimed the widened window made the sample
+"the least closure-starved questions available in that window". It did the opposite. With
+`sort=creation` paired with `order=desc`, "the 500 questions inside the window" means the
+500 **newest**, so the population is not spread across the six months at all: `math` is
+**four days** of questions (2024-06-27…06-30) and `travel` is ~90 days with a median
+creation date of 2024-05-21. The *bias direction* is unaffected and if anything stronger,
+because the observation date is 2026-10-06 and the measured closure lag is **median 0.3
+days, max 64.3 days** — every row had 26 months to be closed. The headline rate is
+therefore still a lower bound on recurrence, but for a different reason than AMENDMENT-1
+gave, and the population is far narrower in time than the protocol describes.
+
+**2. D9 is confounded and its conclusion is withdrawn.** The run reported that a repeat is
+2.6× more likely to go unanswered (0.5556 against 0.2114). **Zero of the 54 duplicate
+closures has an accepted answer**, and closing a question as a duplicate does not answer
+it, so most of that gap is mechanical. It cannot be read as evidence that convergent
+questions go unmet. The weaker form that survives: duplicates were **older** than the rest
+(median 7.9 days old at the window edge against 3.3) and still carried no answer of their
+own — but closure mechanics explain that too, so D9 decides nothing on its own and is
+reported as a description, not a finding.
+
 ## 4. The label, declared before the fetch
 
 - **Positive:** `closed_reason` is exactly `"Duplicate"`.
@@ -213,7 +239,7 @@ order** against the key file, never by key set (D061, from F049).
 | **D4** | E[n] for n = 60 and n = 100 (§6) with its two measured inputs |
 | **D5** | word-length distribution, so the contrast with E032's 40–600 word filter is explicit |
 | **D6** | duplicate rate by score tertile |
-| **D9** | the share with `answer_count == 0` in the duplicate arm against every other closure arm, with the interval of the difference — **added after the harvest, before any reader saw a sheet, and labelled as post-hoc**: it uses the label, not the reader, so it cannot be moved by adjudication, but it was not in the declared table |
+| **D9** | the share with `answer_count == 0` in the duplicate arm against every other closure arm, with the interval of the difference — **added after the harvest, before any reader saw a sheet, and labelled as post-hoc**: it uses the label, not the reader, so it cannot be moved by adjudication, but it was not in the declared table. **Withdrawn as a finding by AMENDMENT-3 §2: zero of the 54 has an accepted answer, so the gap is substantially mechanical** |
 
 ## 9. What each outcome decides, written before the run
 

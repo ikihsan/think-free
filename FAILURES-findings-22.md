@@ -195,10 +195,14 @@ linkage rule this repository invented, over 1000 questions from two sites chosen
   **0** duplicate closures, against a mean of 3.37 over all 941 sliding windows. Duplicate
   closures are **0.0180 in the top score tertile and 0.0808 in the bottom**, a 4.5×
   gradient. E032 recorded this bias as a caveat; it was load-bearing.
-- **A repeat is 2.6× more likely to go unanswered**: 0.5556 of duplicate closures carry
-  `answer_count == 0` against 0.2114 of every other closure state, difference CI95
-  [+0.2096, +0.4710]. Five harvests looked for demand in the phrasing of needs and in
-  popular questions; the population that converges and stays unanswered is neither.
+- **The run's second claim was withdrawn by the run itself.** 0.5556 of duplicate closures
+  carry `answer_count == 0` against 0.2114 of every other closure state, and that gap reads
+  as convergent-and-unanswered demand — but **zero of the 54 has an accepted answer**, and
+  closing a question as a duplicate does not answer it, so most of the gap is what closure
+  does rather than what askers needed. `PROTOCOL.md` AMENDMENT-3 §2 withdraws it. The
+  sharper defect is the order: **the mechanical explanation only arrived after both readers
+  had reported**, because nothing in the protocol asked whether the label could produce the
+  difference by itself.
 
 ### What it does not license
 

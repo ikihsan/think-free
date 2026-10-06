@@ -87,8 +87,9 @@ venue change** (F053, F054). None validated.
       refuted** (F055). **The zeros were a stratum effect**: the top 60 by score, which is what
       `sort=votes` draws, contains **0** duplicate closures against a mean of 3.37 over all 941
       sliding windows, and the rate runs **0.0180 in the top score tertile against 0.0808 in the
-      bottom**. And **a repeat is 2.6× more likely to go unanswered** (0.5556 against 0.2114,
-      CI95 [+0.2096, +0.4710]) — the convergent and unanswered populations overlap. The edge arm
+      bottom**. A second claim — that repeats go unanswered (0.5556 against 0.2114) — was
+      **withdrawn by the run itself as mechanical**, since zero of the 54 duplicates has an
+      accepted answer and closure does not answer a question. The edge arm
       failed its gate (6 of 24), so the closure's canonical is treated as unreadable and the
       declared visibility product is not printed
 - [ ] Measure recurrence on a population that is **not** selected by answer state — the
@@ -200,5 +201,7 @@ where written.**
 - [x] A gate is falsified against the bytes of the defect it guards. Six ways an instrument is
       wrong about what it measures are now named: **cannot fail** (F010), **fires on coincidence**
       (F050), **cannot fire** (F051), **passes on the condition it detects** (F052), **reads its
-      input's file instead of its labels** (E032, `link.py`), and **is pointed at a population
-      where the thing it measures is rare** (F055, 4.5× — no gate involved at all)
+      input's file instead of its labels** (E032, `link.py`), **is pointed at a population where
+      the thing it measures is rare** (F055, 4.5× — no gate involved at all), and **cannot be
+      separated from a property of its own label** (F055's D9: 0 of 54 duplicates has an
+      accepted answer, so the "unanswered" gap was largely what closure does)
