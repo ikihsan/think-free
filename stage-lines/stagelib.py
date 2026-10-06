@@ -43,7 +43,28 @@ class FilePatch(object):
                    for l in self.header)
 
     def select(self, lo, hi):
-        return [c for c in self.changes if c.covers(lo, hi, self.new_nlines)]
+        """Select changes that intersect the line range [lo, hi].
+
+        When lo == hi (a specific line is requested), changes that span
+        multiple lines are split so only the requested line is included.
+        When lo < hi (a line range), the full changes intersecting the
+        range are returned, as before."""
+        result = []
+        for c in self.changes:
+            if not c.covers(lo, hi, self.new_nlines):
+                continue
+            if lo == hi and c.new_lines > 1:
+                # Split multi-line change: only include the portion
+                # up to and including the requested line lo.
+                # The change's anchor is its first line (new_start).
+                # Line lo is at position (lo - new_start + 1) within the change.
+                n = lo - c.new_start + 1  # 1-indexed position
+                n = max(1, min(n, c.new_lines, len(c.body)))
+                # Take only the first n body lines
+                c.new_lines = n
+                c.body = c.body[:n]
+            result.append(c)
+        return result
 
     def render(self, changes):
         """A patch `git apply --unidiff-zero` will accept for exactly these."""
