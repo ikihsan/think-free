@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-06T07:16:01+00:00
-- **Duration:** ?s
+- **Duration:** 5035.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether Stack Overflow's own search box already returns the E034 score-tail
 
 ## Summary
 
-_(none recorded)_
+E036 answered item 0f's declared next action before the second measurement request. A reachability probe showed /search/advanced?tagged=git&sort=votes&order=asc returns 100 questions ascending by score, 81 of them ids already in E034's committed harvest (first at rank 1), with closed_reason on 48 rows and 13 duplicate closures - unauthenticated, default filter, no computation. KILL-R met: the score-tail worklist is one URL, so the candidate is prior art and nothing is built. Three corrections to the record (F058's platform-wide reachability claim scoped to rendered tag pages; E035's API-key premise shown to be a per-route fact; closed shown to be the one filter value /search/advanced does not validate) and two decisions: D066 requires a reachability claim to name the interface surface it enumerated, D067 requires a mechanism-bearing candidate to face its mechanism's existing source before any population is measured for it. Gates: R0 fired, R3 positive control fired on real positive examples, R1 and KILL-Q not_evaluated, R4 refused by the quota window. The run failed twice in its own plumbing - a stage argument fell through to a 9-request plan against a 4-request budget, and quota_wall() discarded successful 200s reporting negative quota - both falsified against the new gate tests, 2 of 17 failing on the restored defect, with raw/tally.json byte-identical after the fix. 816 tests green, doc lint and preflight OK.
+
+## Next
+
+Apply D067 forward: the only gap F059 leaves is whether the *rendered* Stack Overflow web UI exposes an ascending-score or closed-only control that its own API does not, which needs a browser or a user and not another request - so the next session should spend its first two requests on /search/excerpts (never exercised, and the one route that returns answer bodies with the question id attached, so it can test whether the *answer* to a tail duplicate is retrievable) and then return to fresh candidate observation under D067, testing each mechanism against its existing source before measuring any population for it.
 
 ## Artifacts
 
@@ -117,7 +121,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -167,18 +170,18 @@ _(none recorded)_
 | 38 | 07:26:29 | command | $ python3 - |
 | 39 | 07:26:37 | command | $ python3 - |
 | 40 | 07:27:37 | command | $ python3 - |
-| 90 | 08:18:13 | milestone | 799-test suite green after naming DECISIONS-SCREENING-7 in all three decision-file lists; the gate fired naming the file, a fifth time |
-| 91 | 08:34:53 | command | $ bash -c PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests >/dev/null 2>&1 && python3 EXPERIMENTS/036-search-backlog/tall |
-| 92 | 08:35:04 | task_rewrite | rewrote tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md (status: done) |
-| 93 | 08:35:05 | task_rewrite | appended a complete record for T-0080 |
-| 94 | 08:35:28 | command | $ python3 -c  p='ROADMAP.md'; s=open(p).read() old='''      first, in about two requests, before any population is measured for it. **D066**: |
-| 95 | 08:35:44 | command | $ ./tools/origin doc lint |
-| 96 | 08:35:54 | artifact | wrote ROADMAP.md |
 | 97 | 08:37:33 | command | $ ./tools/origin release check |
 | 98 | 08:37:34 | command | $ ./tools/origin skills check |
 | 99 | 08:39:38 | command | $ ./tools/origin preflight |
+| 100 | 08:39:56 | doc_update | updated DECISIONS-SCREENING-7.md |
+| 101 | 08:39:56 | doc_update | updated DECISIONS.md |
+| 102 | 08:39:56 | doc_update | updated FAILURES.md |
+| 103 | 08:39:56 | doc_update | updated HYPOTHESES.md |
+| 104 | 08:39:56 | doc_update | updated ROADMAP.md |
+| 105 | 08:39:56 | doc_update | updated STATE.md |
+| 106 | 08:39:56 | session_end | E036 answered item 0f's declared next action before the second measurement request. A reachability probe showed /search/advanced?tagged=git&sort=votes |
 
-_49 middle events omitted; see `events.jsonl`._
+_56 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

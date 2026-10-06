@@ -15,7 +15,7 @@ Showing the 25 most recent. 101 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-06-005-test-whether-stack-overflow-s-own-search](2026-10-06-005-test-whether-stack-overflow-s-own-search/README.md) | opencode | **unfinished** | Test whether Stack Overflow's own search box already returns the E034  | 2026-10-06T07:16 |
+| [2026-10-06-005-test-whether-stack-overflow-s-own-search](2026-10-06-005-test-whether-stack-overflow-s-own-search/README.md) | opencode | worked | Test whether Stack Overflow's own search box already returns the E034  | 2026-10-06T08:39 |
 | [2026-10-06-004-test-whether-the-population-e034-found-i](2026-10-06-004-test-whether-the-population-e034-found-i/README.md) | unknown-agent | worked | Test whether the population E034 found is reachable by the people who  | 2026-10-06T07:13 |
 | [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | worked | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T06:09 |
 | [2026-10-06-002-e033-measure-the-rate-of-cross-author-re](2026-10-06-002-e033-measure-the-rate-of-cross-author-re/README.md) | unknown-agent | worked | E033: measure the rate of cross-author recurrence in public long-form  | 2026-10-06T04:55 |
