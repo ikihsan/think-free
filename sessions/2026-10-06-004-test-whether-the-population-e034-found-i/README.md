@@ -65,6 +65,7 @@ _none_
 | 7 | 06:40:32 | command | $ python3 EXPERIMENTS/035-unanswered-surface/tally.py |
 | 8 | 07:11:26 | task_rewrite | appended a create record for T-0079 |
 | 9 | 07:11:34 | milestone | E035 declared, fetched, tallied: F058, D065, T-0079; prototype runs offline on committed bytes |
+| 10 | 07:12:09 | task_rewrite | rewrote tasks/T-0079-e035-establish-whether-the-score-tail-population.md (status: claimed) |
 
 ## Reproduce this record
 

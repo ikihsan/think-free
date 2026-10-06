@@ -6,11 +6,11 @@ last-verified: 2026-10-06
 
 <!-- task-meta
 id: T-0079
-status: open
+status: claimed
 created: 2026-10-06
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-06-004-test-whether-the-population-e034-found-i
+claim-vm: 
 verify: PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests && python3 EXPERIMENTS/035-unanswered-surface/tally.py
 -->
 
