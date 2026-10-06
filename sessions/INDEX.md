@@ -8,13 +8,14 @@ last-verified: 2026-10-06
 
 <!-- generated-by: origin; do not edit by hand -->
 
-133 recorded session(s). One `events.jsonl` per session, so concurrent
+134 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 108 older session(s) are in the directory listing.
+Showing the 25 most recent. 109 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-013-package-stage-lines-for-real-use-and-rec](2026-10-06-013-package-stage-lines-for-real-use-and-rec/README.md) | unknown-agent | **unfinished** | Package stage-lines for real use and record the KILL-Q evaluation | 2026-10-06T12:24 |
 | [2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag](2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag/README.md) | unknown-agent | worked | E040: test stg's interface claim in an agent-style tool-call loop agai | 2026-10-06T12:13 |
 | [2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv](2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv/README.md) | unknown-agent | worked | E039: does stg's honest-exit claim survive the failure modes an agent  | 2026-10-06T11:18 |
 | [2026-10-06-010-reconcile-session-009-index-f062-f064-sp](2026-10-06-010-reconcile-session-009-index-f062-f064-sp/README.md) | unknown-agent | worked | Reconcile session 009: index F062-F064, split oversized files, declare | 2026-10-06T11:08 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 108 older session(s) are in the directory listing.
 | [2026-10-05-012-classify-the-two-new-records-in-release](2026-10-05-012-classify-the-two-new-records-in-release/README.md) | unknown-agent | worked | Classify the two new records in RELEASE-MANIFEST.md, which release che | 2026-10-05T14:12 |
 | [2026-10-05-011-log-the-ten-files-session-010-changed-wi](2026-10-05-011-log-the-ten-files-session-010-changed-wi/README.md) | unknown-agent | worked | Log the ten files session 010 changed without declaring, so the record | 2026-10-05T14:01 |
 | [2026-10-05-010-test-whether-twelve-candidates-twelve-pr](2026-10-05-010-test-whether-twelve-candidates-twelve-pr/README.md) | unknown-agent | worked | Test whether 'twelve candidates, twelve prior-art deaths' is a fact ab | 2026-10-05T13:58 |
-| [2026-10-05-009-falsify-e022-s-38-5-served-figure-agains](2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/README.md) | unknown-agent | worked | Falsify E022's 38.5% served figure against a control arm of ordinary c | 2026-10-05T12:15 |
 
 
 ## Reading a session

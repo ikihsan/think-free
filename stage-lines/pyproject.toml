@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stage-lines"
+version = "0.1.0"
+description = "Stage part of a file by line number, without a terminal"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Think Free"}]
+classifiers = []
+
+[project.scripts]
+stg = "stg_cli:main"
+
+[tool.setuptools]
+py-modules = ["stagelib", "stagelib_change", "stagelib_split", "stg_cli"]
+
+[tool.setuptools.package-dir]
+"" = "."

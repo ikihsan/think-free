@@ -54,14 +54,21 @@ Evidence, including what a 133-line pty driver achieves with the same goal:
 
 ## Install
 
-No dependencies, no build step, standard library only, Python 3.6+.
+No dependencies, standard library only, Python 3.8+.
+
+From a source checkout, no install step:
 
 ```
 git clone <this repo> && cd stage-lines
 ./stg list          # or: python3 stg list
 ```
 
-Symlink it onto your `PATH` as `stg` if you want the bare name.
+Or install the console script onto your environment:
+
+```
+pip install .       # puts `stg` on PATH
+stg list
+```
 
 ## What it does not do
 
@@ -77,10 +84,10 @@ Symlink it onto your `PATH` as `stg` if you want the bare name.
 ## Tests
 
 ```
-python3 test_stg.py
+python3 -m unittest discover -s . -p 'test_*.py'
 ```
 
-28 cases. Each builds a real git repository and asserts against real `git diff --cached`
+30 cases. Each builds a real git repository and asserts against real `git diff --cached`
 output — no mocks, because the claim is that the index it leaves is a real index git will
 commit. Covers single and multiple changes, ranges, multiple files, adjacent modifications,
 multi-line insertions and deletions, deletions at the top and end of a file, files with no
