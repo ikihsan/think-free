@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-05T22:49:03+00:00
-- **Duration:** ?s
+- **Duration:** 6285.7s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E031: test whether departure accounts that name no successor state a requirement
 
 ## Summary
 
-_(none recorded)_
+E031 closed the demand-side recurrence hypothesis on its own premise. Accounts seeking an alternative state a missing capability at 0.347 vs ordinary comments' 0.181 (below the declared 0.20 margin), but the seek and move strata are identical at 0.347 each, so the population has no 'unfilled' property; 0 of 100 clause pairs and 0 of 100 random pairs recur, with every instrument gate passing (kappa 0.7189, nonsense 0/24, separation 0.486, pair positive control 20/20 and 0/10) and length matching moving the arm difference 0.1667->0.1698. Recorded F051, D062, F052; two pre-existing repairs (tenth decision split, allocation-gate direction). 796 tests green, doc lint OK, release check OK.
+
+## Next
+
+Item 0d's seat is now empty for a structural reason: three populations with three instruments have found no cross-author recurring requirement in public text. The open owner decision is what the mission selects candidates on now that novelty, star-shaped adoption, harvested recurrence and prior-art fit have each been measured and each failed to carry it.
 
 ## Artifacts
 
@@ -92,11 +96,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 54 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-1.md |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-2.md |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-3.md |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-4.md |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/agreement.py |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/build_pairs.py |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/build_poscontrol.py |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/common.py |
+|   undeclared | EXPERIMENTS/031-unfilled-requirement/raw/doubleread_ids.txt |
 
 ## Timeline
 
@@ -142,18 +155,18 @@ _(none recorded)_
 | 38 | 23:16:21 | command | $ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r1 |
 | 39 | 23:16:21 | command | $ python3 EXPERIMENTS/031-unfilled-requirement/verify_labels.py nonsense r2 |
 | 40 | 23:16:45 | command | $ python3 EXPERIMENTS/031-unfilled-requirement/recurrence.py |
-| 52 | 00:27:14 | artifact | wrote EXPERIMENTS/031-unfilled-requirement/raw/agreement.json |
-| 53 | 00:27:15 | artifact | wrote EXPERIMENTS/031-unfilled-requirement/raw/strata.json |
-| 54 | 00:27:16 | artifact | wrote EXPERIMENTS/031-unfilled-requirement/raw/pair_build.json |
-| 55 | 00:27:16 | artifact | wrote EXPERIMENTS/031-unfilled-requirement/raw/poscontrol_build.json |
-| 56 | 00:27:17 | artifact | wrote FAILURES-findings-21.md |
-| 57 | 00:27:17 | artifact | wrote DECISIONS-SCREENING-5.md |
-| 58 | 00:27:23 | milestone | E031 run: H1 fails its margin (0.1667 vs 0.20) and the seek/move strata are identical at 0.347 each, so the 'unfilled' premise is retired by measureme |
-| 59 | 00:27:35 | task_rewrite | rewrote tasks/T-0075-e031-test-whether-public-accounts-of-leaving-a-n.md (status: done) |
-| 60 | 00:27:36 | task_rewrite | appended a complete record for T-0075 |
-| 61 | 00:33:30 | artifact | wrote EXPERIMENTS/031-unfilled-requirement/raw/e031_labels_seek__r1.tsv |
+| 112 | 00:33:48 | unlogged_change | changed but never declared as an artifact: tests/test_allocation_measurement.py |
+| 113 | 00:33:48 | unlogged_change | changed but never declared as an artifact: tests/test_decision_files.py |
+| 114 | 00:33:48 | unlogged_change | changed but never declared as an artifact: tools/originlib/paths.py |
+| 115 | 00:33:48 | unlogged_change | changed but never declared as an artifact: tools/originlib/reconcile.py |
+| 116 | 00:33:48 | doc_update | updated DECISIONS-SCREENING-5.md |
+| 117 | 00:33:48 | doc_update | updated DECISIONS.md |
+| 118 | 00:33:48 | doc_update | updated FAILURES.md |
+| 119 | 00:33:48 | doc_update | updated ROADMAP.md |
+| 120 | 00:33:48 | doc_update | updated STATE.md |
+| 121 | 00:33:48 | session_end | E031 closed the demand-side recurrence hypothesis on its own premise. Accounts seeking an alternative state a missing capability at 0.347 vs ordinary  |
 
-_11 middle events omitted; see `events.jsonl`._
+_71 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
