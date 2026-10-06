@@ -15,7 +15,7 @@ Showing the 25 most recent. 104 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | **unfinished** | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
+| [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | worked | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
 | [2026-10-06-007-declare-the-10-artifacts-session-006-s-f](2026-10-06-007-declare-the-10-artifacts-session-006-s-f/README.md) | unknown-agent | worked | declare the 10 artifacts session 006's finish reported unlogged, and c | 2026-10-06T09:51 |
 | [2026-10-06-006-apply-d067-forward-find-a-buildable-cand](2026-10-06-006-apply-d067-forward-find-a-buildable-cand/README.md) | unknown-agent | worked | apply D067 forward: find a buildable candidate from the one on-disk po | 2026-10-06T09:50 |
 | [2026-10-06-005-test-whether-stack-overflow-s-own-search](2026-10-06-005-test-whether-stack-overflow-s-own-search/README.md) | opencode | worked | Test whether Stack Overflow's own search box already returns the E034  | 2026-10-06T08:39 |
