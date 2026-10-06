@@ -175,11 +175,12 @@ it with is a venue-agnostic claim at a **2.2% upper bound**, which is a real
 constraint on candidate generation and is worth more than the sentence it
 corrects.
 
-## F055 — the recurrence zeros were drawn from the stratum where recurrence is rarest
+## F055 — the pooled recurrence bound is refuted, and E032's population was drawn where recurrence is rarest
 
 **Status: this refutes a reading the record drew, not a measurement in it.** Evidence in
 `EXPERIMENTS/033-question-recurrence/`, protocol declared before the fetch and amended
-three times (twice for defects in the *protocol*, once for a labelled post-hoc addition).
+three times: twice for defects in the *protocol* itself, and once after the run to withdraw
+this experiment's own second claim and correct one of the earlier amendments.
 
 Five experiments in this record reported zero cross-author recurring requirements, and
 `EXPERIMENTS/032-venue-recurrence/README.md` pooled two of them into an upper bound of
@@ -190,11 +191,12 @@ linkage rule this repository invented, over 1000 questions from two sites chosen
 - **54 of 1000 questions closed as duplicates = 0.0540, CI95 [0.0416, 0.0698]**, against
   the record's 0.0223. `travel` 0.0660, `math` 0.0420. **The bound is refuted** and the
   refutation is conservative: the label counts only closures, so the true rate is higher.
-- **The zeros were not wrong and were not about the world. They were about a stratum.**
-  Sorting the population by score and taking the top 60 — what `sort=votes` drew — yields
+- **E032's population was drawn where the thing is rarest.** Sorting this population by
+  score and taking the top 60 — what `sort=votes` drew — yields
   **0** duplicate closures, against a mean of 3.37 over all 941 sliding windows. Duplicate
   closures are **0.0180 in the top score tertile and 0.0808 in the bottom**, a 4.5×
-  gradient. E032 recorded this bias as a caveat; it was load-bearing.
+  gradient. E032 recorded this bias as a caveat; it was load-bearing — but it explains
+  E032, and only E032.
 - **The run's second claim was withdrawn by the run itself.** 0.5556 of duplicate closures
   carry `answer_count == 0` against 0.2114 of every other closure state, and that gap reads
   as convergent-and-unanswered demand — but **zero of the 54 has an accepted answer**, and
@@ -209,6 +211,13 @@ linkage rule this repository invented, over 1000 questions from two sites chosen
 Nothing revives a candidate: 54 closures were counted, **no clause or cluster was
 recovered**, and no prior-art screen was run. This is not Hacker News either — what
 transfers is the method defect, not a rate.
+
+**The two zeros have two explanations and only one is measured here.** E032's is the score
+tertile above. The Hacker News need corpus has a different one already on record: F039
+measured **1250 individuals each asking once**, so no requirement could recur inside it at
+any sample size. Reading both as "the wrong stratum" would be tidier than the evidence
+allows; the tertile effect is a fact about this population and its transfer to Hacker News
+is an inference.
 
 ### The instrument finding that constrains everything downstream
 

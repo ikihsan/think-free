@@ -100,13 +100,19 @@ the pooled **0.0223** bound E031 and E032 established. `travel` 0.0660, `math` 0
 **B1 fired; the bound is refuted**, and conservatively so, because the label counts only
 closures — a repeat that was answered is not counted.
 
-**The mechanism is measured, not argued, and it is not a defect in the reader.** Sorting
-this population by score and taking the top 60 — what `sort=votes` drew — yields **0**
-duplicate closures, against a mean of **3.37** over all 941 sliding 60-question windows.
-The rate runs **0.0180 in the top score tertile and 0.0808 in the bottom, a 4.5× gradient.**
-E032 declared that bias as a caveat in its own limitations section; it was load-bearing.
-`sort=votes` was chosen because "elaborated need statements live there", and it selects for
-answered questions — which are the ones that were *not* repeats.
+**The mechanism is measured for E032, and it is not a defect in the reader.** Sorting this
+population by score and taking the top 60 — what `sort=votes` drew — yields **0** duplicate
+closures, against a mean of **3.37** over all 941 sliding 60-question windows. The rate runs
+**0.0180 in the top score tertile and 0.0808 in the bottom, a 4.5× gradient.** E032 declared
+that bias as a caveat in its own limitations section; it was load-bearing. `sort=votes` was
+chosen because "elaborated need statements live there", and it selects for answered
+questions — which are the ones that were *not* repeats.
+
+**That explains E032 and only E032.** The Hacker News zeros have their own already-recorded
+explanation, F039: the corpus is **1250 individuals each asking once**, so no requirement
+could recur inside it at any sample size. Calling both "the wrong stratum" would be tidier
+than the evidence allows, and transferring the tertile effect to Hacker News is an
+inference, not a measurement.
 
 **So both readings were true and the record kept the weaker one.** Recurrence is common in
 public questions, *and* the mission's samples were drawn from where it is rarest. The

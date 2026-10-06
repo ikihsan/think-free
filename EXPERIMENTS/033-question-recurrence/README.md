@@ -7,10 +7,12 @@ last-verified: 2026-10-06
 -->
 
 **Date:** declared and run 2026-10-06. Task T-0077. Protocol declared in
-[`PROTOCOL.md`](PROTOCOL.md) before any fetch of the declared population, amended twice
-([`AMENDMENT-1`](PROTOCOL.md) — the declared site rule was unreachable; `AMENDMENT-2` — the
-declared canonical cross-check cannot be run on this API), and once more for the labelled
-post-hoc addition **D9**. Fetches in [`raw/fetch_log.jsonl`](raw/fetch_log.jsonl) and
+[`PROTOCOL.md`](PROTOCOL.md) before any fetch of the declared population, amended three
+times: [`AMENDMENT-1`](PROTOCOL.md) — the declared site rule was unreachable;
+`AMENDMENT-2` — the declared canonical cross-check cannot be run on this API; and
+**`AMENDMENT-3`, written after the run, which withdraws this experiment's second claim and
+corrects AMENDMENT-1's own rationale.** D9 was the one labelled post-hoc addition. Fetches in
+[`raw/fetch_log.jsonl`](raw/fetch_log.jsonl) and
 [`raw/resolve_log.jsonl`](raw/resolve_log.jsonl); every reader was handed the sha256 of
 the sheet it read, and `tally.py` recomputes that digest from committed bytes before it
 reads a single label.
@@ -66,8 +68,17 @@ load-bearing rather than merely noted. A population selected for being popular i
 population selected against being a repeat.
 
 **So both readings were true at once**, and the record kept only one: recurrence is common
-in public questions (0.054 against a 0.0223 bound), and the record's samples were drawn
-from where it is rarest. Five experiments ran the right question on the wrong stratum.
+in public questions (0.054 against a 0.0223 bound), and at least one of the record's samples
+was drawn from where it is rarest.
+
+**Two mechanisms, and only one of them is measured here.** E032's population is a 60-question
+`sort=votes` draw, and the tertile table above is a direct measurement of what that choice
+did. The Hacker News zeros have a **different and separately recorded** explanation: F039
+measured that the need corpus is **1250 individuals each asking once**, median one comment
+per author, so no need could recur *inside* it however large the sample. Calling both "the
+wrong stratum" would be tidier than the evidence allows — **the HN explanation is a fact
+about that corpus's composition; the score-tertile effect is a fact about this one, and
+transferring it to Hacker News is an inference.**
 
 ## Why A3 failed, and why that is the honest result
 

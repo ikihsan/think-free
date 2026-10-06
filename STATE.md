@@ -138,7 +138,7 @@ that ceiling seven and twice).
 ## What changed recently
 
 - **Sessions 001–002, VM 0944 (T-0076, T-0077, F053, F054, F055): the recurrence zeros
-  were checked for what they were a result about — one venue, then a wrong stratum — and the
+  were checked for what they were a result about — one venue, then one population — and the
   pooled bound is refuted.** Evidence in
   [`EXPERIMENTS/033-question-recurrence/README.md`](EXPERIMENTS/033-question-recurrence/README.md);
   reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
