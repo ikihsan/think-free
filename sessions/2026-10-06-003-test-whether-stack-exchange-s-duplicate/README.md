@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `opencode`
 - **Started:** 2026-10-06T04:58:20+00:00
-- **Duration:** ?s
+- **Duration:** 4292.8s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Test whether Stack Exchange's duplicate-closure canonical is recoverable by a ch
 
 ## Summary
 
-_(none recorded)_
+E034 (T-0078) ran, reported and completed. Pooled duplicate-closure rate 0.1352 CI95 [0.1122,0.1620] in the score tail against 0.0303 [0.0201,0.0455] in the Active tab and 0.0371 at the score head, 4.5x and 0.1454 vs 0.0282 on equal denominators, replicating F055 whole-site gradient on an independent tag-stratified population with a platform-owned label. The rate is a per-tag property this record had never measured: ten tags span 0.0000 to 0.4300, twelve pairs have disjoint intervals, and AMENDMENT-1 R1 replicates both extremes on the next four pages. Two declared claims failed and are recorded as failures: D6, tag and site are not apportioned at 3-5 tags per site (4/10 within-site disjoint pairs against 14/26 cross-site), and B1, the answer-existed mechanism is not separable from a moderator closing it (CI95 [-0.0774,+0.3075]); the a-priori stratum hypothesis is backwards. E033 open question is closed on its other half: the canonical edge is unreachable through nine named channels. F057, D063, D064 recorded; 799 tests green; doc lint and release check clean.
+
+## Next
+
+E034 next action, which is D6 own: three to four more tags on each of the three sites (stackoverflow, travel, math), tail arm only, 4 pages each, about 30 requests against a fresh 300 daily quota. Until tag is separable from site the per-tag reading stays not_established and nothing is built on it. If D6 clears, the next question is whether the repeats content clusters into a usable clause set, which is what four earlier demand-side generators could not answer; if it does not clear, the per-tag diagnostic dies and what remains is a sampling recommendation.
 
 ## Artifacts
 
@@ -67,7 +71,7 @@ _(none recorded)_
 
 ## Commands
 
-58 captured, 25 non-zero exit.
+59 captured, 25 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -116,11 +120,16 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 5 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 1 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/034-reask-tail/raw/harvest.jsonl |
+|   undeclared | EXPERIMENTS/034-reask-tail/raw/pages.jsonl |
+|   undeclared | EXPERIMENTS/034-reask-tail/raw/r1.jsonl |
+|   undeclared | EXPERIMENTS/034-reask-tail/raw/r2.jsonl |
+|   undeclared | EXPERIMENTS/034-reask-tail/raw/tally.json |
+|   error | HYPOTHESES.md was not updated although the session recorded experiment_result |
 
 ## Timeline
 
@@ -166,18 +175,18 @@ _(none recorded)_
 | 38 | 05:20:41 | command | $ python3 EXPERIMENTS/034-reask-tail/reask.py report |
 | 39 | 05:20:53 | command | $ python3 EXPERIMENTS/034-reask-tail/tally.py --check |
 | 40 | 05:43:23 | artifact | wrote EXPERIMENTS/034-reask-tail/PROTOCOL.md |
-| 97 | 06:02:40 | note | The refactor that split reask.py and tally.py in two introduced a real defect, found by re-running the gates: reask.load() returns every sample, so th |
-| 98 | 06:05:41 | command | $ bash -c cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
-| 99 | 06:07:53 | command | $ bash -c git add -A && git commit -q -m "D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate |
-| 100 | 06:08:05 | command | $ bash -c git add -A && git commit -q -m "E034: the questions people re-ask sit in the score tail, 4.5x what the Active tab shows, and the rat |
-| 101 | 06:08:15 | command | $ bash -c git add -A && git commit -q -m "F057: E034 per-tag spread is real, reproducible, and not attributable; STATE, DECISIONS, FAILURES an |
-| 102 | 06:08:22 | command | $ bash -c tools/origin task complete T-0078 |
-| 103 | 06:08:30 | task_rewrite | rewrote tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md (status: done) |
-| 104 | 06:08:31 | task_rewrite | appended a complete record for T-0078 |
-| 105 | 06:09:38 | artifact | wrote ROADMAP.md |
-| 106 | 06:09:38 | artifact | wrote tasks/T-0078-e034-test-whether-stack-exchange-questions-close.md |
+| 110 | 06:09:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/034-reask-tail/raw/r1.jsonl |
+| 111 | 06:09:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/034-reask-tail/raw/r2.jsonl |
+| 112 | 06:09:52 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/034-reask-tail/raw/tally.json |
+| 113 | 06:09:52 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 114 | 06:09:52 | doc_update | updated DECISIONS-SCREENING-6.md |
+| 115 | 06:09:52 | doc_update | updated DECISIONS.md |
+| 116 | 06:09:52 | doc_update | updated FAILURES.md |
+| 117 | 06:09:52 | doc_update | updated ROADMAP.md |
+| 118 | 06:09:52 | doc_update | updated STATE.md |
+| 119 | 06:09:52 | session_end | E034 (T-0078) ran, reported and completed. Pooled duplicate-closure rate 0.1352 CI95 [0.1122,0.1620] in the score tail against 0.0303 [0.0201,0.0455]  |
 
-_56 middle events omitted; see `events.jsonl`._
+_69 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

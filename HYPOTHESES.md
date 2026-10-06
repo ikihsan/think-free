@@ -139,6 +139,26 @@ its recorded size, the generator's closure is now **confirmed by a re-read
 rather than carried forward**, and D059 holds that reader agreement is measured
 on the grouping the decision consumes (F047).
 
+**E034 tested a generator, not a candidate** (`EXPERIMENTS/034-reask-tail/`,
+T-0078). Its declared kill gate A4: if no two tags with `tail` n ≥ 50 have
+disjoint duplicate-closure intervals, "sample the tail" is true and useless and
+the candidate dies. **A4 fired** — 7 tags eligible, 12 disjoint pairs, pooled tail
+**0.1352** against the `Active` tab's **0.0303** — so this is not a sampling note.
+Two further declared claims failed and no candidate entered or left the table
+because none was produced: **D6**, because duplicate closure is a *moderator act*
+and at 3–5 tags per site the tag and the site are not separable (4/10 within-site
+disjoint pairs against 14/26 cross-site), and **B1**, because the no-accepted-answer
+share does not separate the two arms (CI95 [−0.0774, +0.3075]). What changed is the
+inventory of levers: **the first demand-side instrument in this record that returned
+positives**, on a platform-owned label rather than a linkage rule of this
+repository's, with the strongest accessible alternative — the ordering that domain's
+own readers see — as its control. Its contribution is a **per-domain** rate, which no
+earlier draw had, and its cost is that the reading is `not_established` until tag is
+separable from site (F057). Two facts outlive it: the **canonical edge is unreachable**
+through nine named channels, so `closed_reason` is the only handle there is; and the
+label is **ten literals**, which makes every enumeration rate in this record a floor
+(D063).
+
 ## Status summary
 
 | Candidate | Source | State | Next experiment |

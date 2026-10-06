@@ -15,7 +15,7 @@ Showing the 25 most recent. 99 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | **unfinished** | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T04:58 |
+| [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | worked | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T06:09 |
 | [2026-10-06-002-e033-measure-the-rate-of-cross-author-re](2026-10-06-002-e033-measure-the-rate-of-cross-author-re/README.md) | unknown-agent | worked | E033: measure the rate of cross-author recurrence in public long-form  | 2026-10-06T04:55 |
 | [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | worked | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T02:08 |
 | [2026-10-05-021-e031-test-whether-departure-accounts-tha](2026-10-05-021-e031-test-whether-departure-accounts-tha/README.md) | unknown-agent | worked | E031: test whether departure accounts that name no successor state a r | 2026-10-06T00:33 |

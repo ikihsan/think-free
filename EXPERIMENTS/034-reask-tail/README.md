@@ -26,6 +26,13 @@ Reproduce: `python3 EXPERIMENTS/034-reask-tail/tally.py --check` (integrity, exi
 import an HTTP client. `measures.py` holds the statistics with no gate attached and
 `tally.py` the gate table, split the same way as E033's `descriptive.py`.
 
+**One gap in the record, stated rather than papered over.** `session finish` reported the
+five files under `raw/` as changed-but-undeclared: they were fetched by the reader after
+the artifact declarations were made, and a closed session accepts nothing further. They
+are committed and `tally.py --check` re-hashes every one of the 101 logged response
+bodies against the `sha256` beside it, so a reader can verify them — but they are not in
+the session's declared artifact set, and this line is the only place that says so.
+
 **One defect was introduced and caught in this session's own refactor, and the harness
 now holds it.** `reask.load()` returns every sample, so a gate table built from it
 double-counted the two tags R1 re-reads at a later page and reported the *replication*
