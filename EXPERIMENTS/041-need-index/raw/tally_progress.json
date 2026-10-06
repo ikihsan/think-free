@@ -1,0 +1,130 @@
+{
+ "done": {
+  "at": "2026-10-06T20:30:54Z",
+  "out": "/home/ubuntu/think-free/EXPERIMENTS/041-need-index/raw/tally.json"
+ },
+ "g4_U1": {
+  "A": 0.98059,
+  "B": 0.976995,
+  "at": "2026-10-06T20:30:54Z",
+  "met": false,
+  "n_A": 1391,
+  "n_B": 1391,
+  "ratio": 1.0036796503564502
+ },
+ "g4_U2": {
+  "A": 0.98059,
+  "B": 0.976995,
+  "at": "2026-10-06T20:30:54Z",
+  "met": false,
+  "n_A": 1391,
+  "n_B": 1391,
+  "ratio": 1.0036796503564502
+ },
+ "g4_start": {
+  "at": "2026-10-06T20:30:54Z"
+ },
+ "gates_U1": {
+  "at": "2026-10-06T20:30:53Z",
+  "frozen_tau": 0.05,
+  "verdict": "G1 not_evaluated; G2 False"
+ },
+ "gates_U2": {
+  "at": "2026-10-06T20:30:54Z",
+  "frozen_tau": 0.05,
+  "verdict": "G1 not_evaluated; G2 False"
+ },
+ "index_built_U1": {
+  "at": "2026-10-06T20:07:26Z",
+  "kept_vectors": 77,
+  "posting_terms": 173324,
+  "seconds": 15.1
+ },
+ "index_built_U2": {
+  "at": "2026-10-06T20:13:37Z",
+  "kept_vectors": 77,
+  "posting_terms": 2215790,
+  "seconds": 364.6
+ },
+ "instrument_checked_U1": {
+  "at": "2026-10-06T20:07:11Z",
+  "equivalent": true,
+  "pairs_compared": 14280,
+  "worst_abs_diff": "0.000e+00"
+ },
+ "instrument_checked_U2": {
+  "at": "2026-10-06T20:07:32Z",
+  "equivalent": true,
+  "pairs_compared": 14280,
+  "worst_abs_diff": "1.110e-16"
+ },
+ "start": {
+  "at": "2026-10-06T20:30:50Z",
+  "corpus_rows": 44669,
+  "excluded": [
+   "douglasjarquin/oigo",
+   "unvde/CP3407-Assessment"
+  ],
+  "pairs": 77
+ },
+ "unit_U1": {
+  "at": "2026-10-06T20:30:50Z",
+  "beats_impostor": 0.402597,
+  "mean_impostor_cos": 0.412809,
+  "mean_n0_cos": 0.000353,
+  "mean_target_cos": 0.401244,
+  "median_rank": 10,
+  "n": 77,
+  "recall_at_tau": {
+   "0.05": 0.74026,
+   "0.10": 0.701299,
+   "0.15": 0.649351,
+   "0.20": 0.545455,
+   "0.25": 0.480519,
+   "0.30": 0.38961,
+   "0.35": 0.363636,
+   "0.40": 0.337662,
+   "0.50": 0.324675,
+   "0.60": 0.298701
+  },
+  "seconds": -1,
+  "top1": 0.38961,
+  "top10": 0.506494,
+  "top100": 0.714286
+ },
+ "unit_U2": {
+  "at": "2026-10-06T20:30:53Z",
+  "beats_impostor": 0.142857,
+  "mean_impostor_cos": 0.484537,
+  "mean_n0_cos": 0.002091,
+  "mean_target_cos": 0.195465,
+  "median_rank": 11,
+  "n": 77,
+  "recall_at_tau": {
+   "0.05": 0.805195,
+   "0.10": 0.597403,
+   "0.15": 0.519481,
+   "0.20": 0.441558,
+   "0.25": 0.38961,
+   "0.30": 0.298701,
+   "0.35": 0.194805,
+   "0.40": 0.155844,
+   "0.50": 0.012987,
+   "0.60": 0.0
+  },
+  "seconds": -1,
+  "top1": 0.142857,
+  "top10": 0.376623,
+  "top100": 0.818182
+ },
+ "unit_done_U1": {
+  "at": "2026-10-06T20:07:28Z",
+  "pairs": 77,
+  "score_seconds": 1.7
+ },
+ "unit_done_U2": {
+  "at": "2026-10-06T20:14:21Z",
+  "pairs": 77,
+  "score_seconds": 41.9
+ }
+}

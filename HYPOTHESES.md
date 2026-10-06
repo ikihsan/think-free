@@ -245,7 +245,7 @@ person this repository cannot reach.
 
 ### The three kill gates and their witnesses
 
-All three moved to [`HYPOTHESES-results.md`](HYPOTHESES-results.md) on 2026-10-06 at this
+All three moved to [`HYPOTHESES-results-2.md`](HYPOTHESES-results-2.md) on 2026-10-06 at this
 file's line cap: each candidate below was measured, each witness was run, and **none
 survived**, so the gates and witnesses now belong with the results that closed them rather
 than with a live candidate list. The table above keeps the objections and the *reconsider

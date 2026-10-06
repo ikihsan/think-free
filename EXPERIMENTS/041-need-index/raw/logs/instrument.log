@@ -1,0 +1,19 @@
+[20:07:08] start {"corpus_rows": 44669, "excluded": ["douglasjarquin/oigo", "unvde/CP3407-Assessment"], "pairs": 77}
+[20:07:11] instrument_checked_U1 {"equivalent": true, "pairs_compared": 14280, "worst_abs_diff": "0.000e+00"}
+[20:07:26] index_built_U1 {"kept_vectors": 77, "posting_terms": 173324, "seconds": 15.1}
+[20:07:28] unit_done_U1 {"pairs": 77, "score_seconds": 1.7}
+[20:07:28] unit_U1 {"beats_impostor": 0.402597, "mean_impostor_cos": 0.412809, "mean_n0_cos": 0.000353, "mean_target_cos": 0.401244, "median_rank": 10, "n": 77, "recall_at_tau": {"0.05": 0.74026, "0.10": 0.701299, "0.15": 0.649351, "0.20": 0.545455, "0.25": 0.480519, "0.30": 0.38961, "0.35": 0.363636, "0.40": 0.337662, "0.50": 0.324675, "0.60": 0.298701}, "seconds": 20.2, "top1": 0.38961, "top10": 0.506494, "top100": 0.714286}
+[20:07:32] instrument_checked_U2 {"equivalent": true, "pairs_compared": 14280, "worst_abs_diff": "1.110e-16"}
+[20:13:37] index_built_U2 {"kept_vectors": 77, "posting_terms": 2215790, "seconds": 364.6}
+[20:14:21] unit_done_U2 {"pairs": 77, "score_seconds": 41.9}
+[20:16:41] unit_U2 {"beats_impostor": 0.142857, "mean_impostor_cos": 0.484537, "mean_n0_cos": 0.002091, "mean_target_cos": 0.195465, "median_rank": 11, "n": 77, "recall_at_tau": {"0.05": 0.805195, "0.10": 0.597403, "0.15": 0.519481, "0.20": 0.441558, "0.25": 0.38961, "0.30": 0.298701, "0.35": 0.194805, "0.40": 0.155844, "0.50": 0.012987, "0.60": 0.0}, "seconds": 552.2, "top1": 0.142857, "top10": 0.376623, "top100": 0.818182}
+[20:16:42] gates_U1 {"frozen_tau": 0.05, "verdict": "failed G1, G2"}
+[20:16:43] gates_U2 {"frozen_tau": 0.05, "verdict": "failed G1, G2"}
+[20:16:43] g4_start {}
+[20:16:51] g4_U1 {"A": 0.98059, "B": 0.976995, "met": false, "n_A": 1391, "n_B": 1391, "ratio": 1.0036796503564502}
+[20:16:57] g4_U2 {"A": 0.98059, "B": 0.976995, "met": false, "n_A": 1391, "n_B": 1391, "ratio": 1.0036796503564502}
+[20:16:57] done {"out": "/home/ubuntu/think-free/EXPERIMENTS/041-need-index/raw/tally.json"}
+{
+ "U1": "failed G1, G2",
+ "U2": "failed G1, G2"
+}

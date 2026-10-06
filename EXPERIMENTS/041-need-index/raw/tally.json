@@ -1,0 +1,502 @@
+{
+ "gates": {
+  "G4": {
+   "U1": {
+    "A": 0.98059,
+    "B": 0.976995,
+    "met": false,
+    "n_A": 1391,
+    "n_B": 1391,
+    "ratio": 1.0036796503564502
+   },
+   "U2": {
+    "A": 0.98059,
+    "B": 0.976995,
+    "met": false,
+    "n_A": 1391,
+    "n_B": 1391,
+    "ratio": 1.0036796503564502
+   }
+  },
+  "U1": {
+   "G1": {
+    "bar": "ratio >= 1.5 and diff >= 0.20 and CI95 lower > 0",
+    "ci95": [
+     0.6363636363636364,
+     0.8311688311688312
+    ],
+    "conditions": {
+     "ci": true,
+     "diff": true,
+     "ratio": null
+    },
+    "met": "not_evaluated",
+    "met_on_evaluated_conditions": true,
+    "paired_diff": 0.74026,
+    "ratio": null,
+    "ratio_state": "not_evaluated (no control row reached the frozen tau, so the ratio has no denominator -- F067)",
+    "recall_N0": 0.0,
+    "recall_P": 0.74026
+   },
+   "G2": {
+    "bar": "beats_impostor >= 0.50 (threshold-free)",
+    "beats_impostor": 0.402597,
+    "met": false,
+    "top1": 0.38961
+   },
+   "G3": {
+    "bar": "recall >= 0.50 at the frozen tau",
+    "met": true,
+    "recall_P": 0.74026
+   },
+   "S_easy": {
+    "beats_impostor": 0.492063,
+    "mean_impostor_cos": 0.413529,
+    "mean_n0_cos": 0.0,
+    "mean_target_cos": 0.490409,
+    "median_rank": 2,
+    "n": 63,
+    "top1": 0.47619,
+    "top10": 0.619048,
+    "top100": 0.873016
+   },
+   "S_hard": {
+    "beats_impostor": 0.0,
+    "mean_impostor_cos": 0.409568,
+    "mean_n0_cos": 0.001943,
+    "mean_target_cos": 0.0,
+    "median_rank": 1528.5,
+    "n": 14,
+    "top1": 0.0,
+    "top10": 0.0,
+    "top100": 0.0
+   },
+   "frozen_tau": 0.05,
+   "recall_at_tau_N0": {
+    "0.05": 0.0,
+    "0.10": 0.0,
+    "0.15": 0.0,
+    "0.20": 0.0,
+    "0.25": 0.0,
+    "0.30": 0.0,
+    "0.35": 0.0,
+    "0.40": 0.0,
+    "0.50": 0.0,
+    "0.60": 0.0
+   },
+   "verdict_S_easy": false
+  },
+  "U2": {
+   "G1": {
+    "bar": "ratio >= 1.5 and diff >= 0.20 and CI95 lower > 0",
+    "ci95": [
+     0.7142857142857143,
+     0.8831168831168831
+    ],
+    "conditions": {
+     "ci": true,
+     "diff": true,
+     "ratio": null
+    },
+    "met": "not_evaluated",
+    "met_on_evaluated_conditions": true,
+    "paired_diff": 0.805195,
+    "ratio": null,
+    "ratio_state": "not_evaluated (no control row reached the frozen tau, so the ratio has no denominator -- F067)",
+    "recall_N0": 0.0,
+    "recall_P": 0.805195
+   },
+   "G2": {
+    "bar": "beats_impostor >= 0.50 (threshold-free)",
+    "beats_impostor": 0.142857,
+    "met": false,
+    "top1": 0.142857
+   },
+   "G3": {
+    "bar": "recall >= 0.50 at the frozen tau",
+    "met": true,
+    "recall_P": 0.805195
+   },
+   "S_easy": {
+    "beats_impostor": 0.142857,
+    "mean_impostor_cos": 0.530977,
+    "mean_n0_cos": 0.001314,
+    "mean_target_cos": 0.22182,
+    "median_rank": 11,
+    "n": 63,
+    "top1": 0.142857,
+    "top10": 0.412698,
+    "top100": 0.904762
+   },
+   "S_hard": {
+    "beats_impostor": 0.142857,
+    "mean_impostor_cos": 0.275556,
+    "mean_n0_cos": 0.005587,
+    "mean_target_cos": 0.07687,
+    "median_rank": 949.0,
+    "n": 14,
+    "top1": 0.142857,
+    "top10": 0.214286,
+    "top100": 0.428571
+   },
+   "frozen_tau": 0.05,
+   "recall_at_tau_N0": {
+    "0.05": 0.0,
+    "0.10": 0.0,
+    "0.15": 0.0,
+    "0.20": 0.0,
+    "0.25": 0.0,
+    "0.30": 0.0,
+    "0.35": 0.0,
+    "0.40": 0.0,
+    "0.50": 0.0,
+    "0.60": 0.0
+   },
+   "verdict_S_easy": false
+  }
+ },
+ "instrument": {
+  "bootstrap": {
+   "n": 10000,
+   "seed": 20261006
+  },
+  "corpus_rows": 44669,
+  "corpus_sha256": "6f7b66d44a4ca01ab5392a3cd882fb69a09990b8f5fc7bed8652d7cafac59f22",
+  "diff_bar": 0.2,
+  "g4_ratio_bar": 1.5,
+  "instrument_source": "E040 gates.py (imported), streamed by stream.py with a per-unit equivalence check",
+  "n0_loud_ceiling": 0.05,
+  "pairs": 77,
+  "ratio_bar": 1.5,
+  "recall_bar": 0.5,
+  "repos_excluded_automation": [
+   "douglasjarquin/oigo",
+   "unvde/CP3407-Assessment"
+  ],
+  "strata": {
+   "S-easy": 63,
+   "S-hard": 14
+  },
+  "taus": [
+   0.05,
+   0.1,
+   0.15,
+   0.2,
+   0.25,
+   0.3,
+   0.35,
+   0.4,
+   0.5,
+   0.6
+  ],
+  "top1_bar": 0.5
+ },
+ "results": {
+  "U1": {
+   "S-easy": {
+    "beats_impostor": 0.492063,
+    "mean_impostor_cos": 0.413529,
+    "mean_n0_cos": 0.0,
+    "mean_target_cos": 0.490409,
+    "median_rank": 2,
+    "n": 63,
+    "recall_at_tau": {
+     "0.05": 0.904762,
+     "0.10": 0.857143,
+     "0.15": 0.793651,
+     "0.20": 0.666667,
+     "0.25": 0.587302,
+     "0.30": 0.47619,
+     "0.35": 0.444444,
+     "0.40": 0.412698,
+     "0.50": 0.396825,
+     "0.60": 0.365079
+    },
+    "top1": 0.47619,
+    "top10": 0.619048,
+    "top100": 0.873016
+   },
+   "S-hard": {
+    "beats_impostor": 0.0,
+    "mean_impostor_cos": 0.409568,
+    "mean_n0_cos": 0.001943,
+    "mean_target_cos": 0.0,
+    "median_rank": 1528.5,
+    "n": 14,
+    "recall_at_tau": {
+     "0.05": 0.0,
+     "0.10": 0.0,
+     "0.15": 0.0,
+     "0.20": 0.0,
+     "0.25": 0.0,
+     "0.30": 0.0,
+     "0.35": 0.0,
+     "0.40": 0.0,
+     "0.50": 0.0,
+     "0.60": 0.0
+    },
+    "top1": 0.0,
+    "top10": 0.0,
+    "top100": 0.0
+   },
+   "by_own_pool": {
+    "0-250": {
+     "beats_impostor": 0.705882,
+     "median_own_pool": 198,
+     "median_rank": 1,
+     "n": 17,
+     "top1": 0.705882
+    },
+    "1000-4000": {
+     "beats_impostor": 0.4,
+     "median_own_pool": 2182,
+     "median_rank": 2,
+     "n": 15,
+     "top1": 0.4
+    },
+    "250-1000": {
+     "beats_impostor": 0.47619,
+     "median_own_pool": 447,
+     "median_rank": 11,
+     "n": 21,
+     "top1": 0.47619
+    },
+    "4000-1000000000": {
+     "beats_impostor": 0.125,
+     "median_own_pool": 8315,
+     "median_rank": 1242,
+     "n": 24,
+     "top1": 0.083333
+    }
+   },
+   "corpus_rows": 44669,
+   "pairs": 77,
+   "per_repo": {
+    "buchochelliq-labs/rs-rich-cli": {
+     "beats_impostor": 1.0,
+     "pairs": 10,
+     "top1": 1.0
+    },
+    "jupyter/notebook": {
+     "beats_impostor": 0.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "michalwidera/retractordb": {
+     "beats_impostor": 0.705882,
+     "pairs": 17,
+     "top1": 0.705882
+    },
+    "pallets/click": {
+     "beats_impostor": 0.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "pl0n3r/brvtal": {
+     "beats_impostor": 0.0,
+     "pairs": 11,
+     "top1": 0.0
+    },
+    "pmxt-dev/pmxt": {
+     "beats_impostor": 0.428571,
+     "pairs": 14,
+     "top1": 0.428571
+    },
+    "psf/requests": {
+     "beats_impostor": 1.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "pytest-dev/pytest": {
+     "beats_impostor": 0.0,
+     "pairs": 5,
+     "top1": 0.0
+    },
+    "rust-lang/cargo": {
+     "beats_impostor": 0.117647,
+     "pairs": 17,
+     "top1": 0.117647
+    }
+   },
+   "pooled": {
+    "beats_impostor": 0.402597,
+    "mean_impostor_cos": 0.412809,
+    "mean_n0_cos": 0.000353,
+    "mean_target_cos": 0.401244,
+    "median_rank": 10,
+    "n": 77,
+    "recall_at_tau": {
+     "0.05": 0.74026,
+     "0.10": 0.701299,
+     "0.15": 0.649351,
+     "0.20": 0.545455,
+     "0.25": 0.480519,
+     "0.30": 0.38961,
+     "0.35": 0.363636,
+     "0.40": 0.337662,
+     "0.50": 0.324675,
+     "0.60": 0.298701
+    },
+    "top1": 0.38961,
+    "top10": 0.506494,
+    "top100": 0.714286
+   },
+   "unit": "U1"
+  },
+  "U2": {
+   "S-easy": {
+    "beats_impostor": 0.142857,
+    "mean_impostor_cos": 0.530977,
+    "mean_n0_cos": 0.001314,
+    "mean_target_cos": 0.22182,
+    "median_rank": 11,
+    "n": 63,
+    "recall_at_tau": {
+     "0.05": 0.904762,
+     "0.10": 0.68254,
+     "0.15": 0.587302,
+     "0.20": 0.507937,
+     "0.25": 0.460317,
+     "0.30": 0.349206,
+     "0.35": 0.222222,
+     "0.40": 0.190476,
+     "0.50": 0.015873,
+     "0.60": 0.0
+    },
+    "top1": 0.142857,
+    "top10": 0.412698,
+    "top100": 0.904762
+   },
+   "S-hard": {
+    "beats_impostor": 0.142857,
+    "mean_impostor_cos": 0.275556,
+    "mean_n0_cos": 0.005587,
+    "mean_target_cos": 0.07687,
+    "median_rank": 949.0,
+    "n": 14,
+    "recall_at_tau": {
+     "0.05": 0.357143,
+     "0.10": 0.214286,
+     "0.15": 0.214286,
+     "0.20": 0.142857,
+     "0.25": 0.071429,
+     "0.30": 0.071429,
+     "0.35": 0.071429,
+     "0.40": 0.0,
+     "0.50": 0.0,
+     "0.60": 0.0
+    },
+    "top1": 0.142857,
+    "top10": 0.214286,
+    "top100": 0.428571
+   },
+   "by_own_pool": {
+    "0-250": {
+     "beats_impostor": 0.0,
+     "median_own_pool": 198,
+     "median_rank": 17,
+     "n": 17,
+     "top1": 0.0
+    },
+    "1000-4000": {
+     "beats_impostor": 0.533333,
+     "median_own_pool": 2182,
+     "median_rank": 1,
+     "n": 15,
+     "top1": 0.533333
+    },
+    "250-1000": {
+     "beats_impostor": 0.0,
+     "median_own_pool": 447,
+     "median_rank": 11,
+     "n": 21,
+     "top1": 0.0
+    },
+    "4000-1000000000": {
+     "beats_impostor": 0.125,
+     "median_own_pool": 8315,
+     "median_rank": 450,
+     "n": 24,
+     "top1": 0.125
+    }
+   },
+   "corpus_rows": 44669,
+   "pairs": 77,
+   "per_repo": {
+    "buchochelliq-labs/rs-rich-cli": {
+     "beats_impostor": 0.0,
+     "pairs": 10,
+     "top1": 0.0
+    },
+    "jupyter/notebook": {
+     "beats_impostor": 0.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "michalwidera/retractordb": {
+     "beats_impostor": 0.0,
+     "pairs": 17,
+     "top1": 0.0
+    },
+    "pallets/click": {
+     "beats_impostor": 0.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "pl0n3r/brvtal": {
+     "beats_impostor": 0.0,
+     "pairs": 11,
+     "top1": 0.0
+    },
+    "pmxt-dev/pmxt": {
+     "beats_impostor": 0.571429,
+     "pairs": 14,
+     "top1": 0.571429
+    },
+    "psf/requests": {
+     "beats_impostor": 0.0,
+     "pairs": 1,
+     "top1": 0.0
+    },
+    "pytest-dev/pytest": {
+     "beats_impostor": 0.0,
+     "pairs": 5,
+     "top1": 0.0
+    },
+    "rust-lang/cargo": {
+     "beats_impostor": 0.176471,
+     "pairs": 17,
+     "top1": 0.176471
+    }
+   },
+   "pooled": {
+    "beats_impostor": 0.142857,
+    "mean_impostor_cos": 0.484537,
+    "mean_n0_cos": 0.002091,
+    "mean_target_cos": 0.195465,
+    "median_rank": 11,
+    "n": 77,
+    "recall_at_tau": {
+     "0.05": 0.805195,
+     "0.10": 0.597403,
+     "0.15": 0.519481,
+     "0.20": 0.441558,
+     "0.25": 0.38961,
+     "0.30": 0.298701,
+     "0.35": 0.194805,
+     "0.40": 0.155844,
+     "0.50": 0.012987,
+     "0.60": 0.0
+    },
+    "top1": 0.142857,
+    "top10": 0.376623,
+    "top100": 0.818182
+   },
+   "unit": "U2"
+  }
+ },
+ "verdict_by_unit": {
+  "U1": "G1 not_evaluated; G2 False",
+  "U2": "G1 not_evaluated; G2 False"
+ }
+}

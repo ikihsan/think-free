@@ -213,87 +213,44 @@ adoption of an existing standard is not a new repository. E1 and E2 are still
 gated: two resolver runs today measure nothing, so snapshot one side of that
 comparison while a VM is idle.
 
-## The three proposed kill gates and their witnesses
+## E041 (041-need-index) — the need-similarity instrument and its premise
 
-Moved here from [`HYPOTHESES.md`](HYPOTHESES.md) on 2026-10-06 at that file's line cap,
-**verbatim and by invariant**: a hypothesis says what would have to be true and what would
-end it, a result says what happened, and these three now have results. All three were
-written in T-0001, all three witnesses were run in T-0008, and **none survived** — the
-sidewalk entry on its cost regime (F006), the ventilation entry on its design gate (F008),
-and the knitting entry's algorithmic claim as prior art (F009). The live candidate list,
-their objections and their *reconsider when* clauses stay in
-[`HYPOTHESES.md`](HYPOTHESES.md).
+**E041 validated the instrument on a control E040 could not build, and the ceiling
+resolves against the corpus** (`EXPERIMENTS/041-need-index/`). The positive control
+needed **both members of a judged pair** inside one corpus, which Stack Overflow's
+duplicate graph does not serve from here. GitHub does, unauthenticated:
+`GET /search/issues` returns full issue bodies, and a repository captured completely
+contains its own duplicates *and* the issues they name. **77 pairs, both members
+present in a 44,669-row corpus** reconciled against the API's own `total_count`, no
+synthetic near-copy anywhere in it.
 
-### Sidewalk survey — kill gate and witness (proposed, untested)
+**G1 and G3 pass, G2 fails, and G4's separation is confirmed for the first time.**
+The instrument separates judged repeats from matched cross-repository controls by
+**+0.740 [+0.636, +0.831]** on titles and **+0.805 [+0.714, +0.883]** with body text
+(the ratio form is `not_evaluated` — no control reached the frozen tau, which is a
+third state per F067/D073, not a failure). But **the judged partner is the single most
+similar row in the corpus only 0.390 of the time on titles and 0.143 with body text,
+against a declared bar of 0.50**; median partner rank is **10th of 44,669**, and it is
+**0 of 14** when the pair's titles share no content term. **Accuracy tracks pool size:
+top-1 runs 0.706 at a 198-row pool and 0.083 at 8,315.** Applied unchanged to E040's own
+arms, the instrument separates needs from their matched controls at **3.9× at tau=0.15
+and 27.2× at tau=0.20** — the first independent confirmation of E040's G1 — and that
+separation is a much weaker property than *this is the same need*.
 
-**Kill gate (transcribed from `RESEARCH/A.md` step 5).** Go only if the
-decision-directed policy achieves at least 25% lower median repair-decision
-regret than the strongest simple baseline (random, highest centrality, highest
-missingness/entropy, shortest fieldwork tour) across 30 fixed masking seeds,
-including contiguous block-missingness cases, at no greater fieldwork cost.
-Report distributions, not only the mean. Failure (stop) if gains disappear
-under modest cost/profile/priors changes, if most recommendations depend on
-unmeasured structural data, or if useful regret cannot be defined without
-arbitrary demand assumptions.
+**And the premise of item 0f is arithmetically false.** E041 re-ran arm A at a ladder of
+corpus sizes with the instrument held constant, refusing to report unless it first
+reproduced E040's own recorded G4 counts from E040's bytes (it did). **`alpha = 0.971`,
+CI95 [0.632, 1.717]: resolution grows linearly, not super-linearly**, so the bar of 20
+needs `n ≈ 3,500` — a 2.5× corpus, not a second venue — and every stricter threshold is
+*worse* (`alpha` 0.346 at tau=0.20, 0.111 at tau=0.25). **Arm B yields 4 qualifying
+clusters against arm A's 8**, so half the headline number is matched by its own control
+and growing the corpus grows both. **Item 0f closes on its own arithmetic (D073).**
 
-**Information-sufficiency witness.** Two underlying networks with identical
-currently-observable measurements but different feasible next repair packages:
-if no askable observation separates them in decision value, the policy has no
-advantage over the existing data. Run this witness before the full
-comparison.
-
-**Reconsider when.** A planner and affected residents reviewing one anonymized
-case confirm that no requested measurement could change a decision they
-control. Until then this remains `speculative`.
-
-**Outcome (E002, 2026-10-03, `EXPERIMENTS/002-a1-masking/`).** Under a
-count budget (150 of 955 crossings, 30 seeds, random and block masks) the
-gate **passed**: DD median regret 64.1 vs 109.9 for the strongest baseline.
-The T-0006 sweep confirmed it across 18 configs, failing only at the
-K~budget degenerate corner. Under a fieldwork-cost budget (T-0007,
-`distance.json`), DD's regret stayed at 85.2 across D ∈ {40, 80, 160} km
-while centrality reached 0–16.3; the gate failed 6/6. Recorded in
-`FAILURES.md` F006: the A1 mechanism's advantage does not transfer to the
-realistic cost model.
-
-### Knitting repair planner — kill gate and witness (proposed, untested)
-
-**Kill gate.** Stage A: the local planner must reproduce the exhaustive-search
-repair set on enumerably small graphs, preserve boundary loops, yarn order,
-pull-through legality, and exact final topology on every transition, and
-refuse unsupported shaping/ambiguous states rather than accepting them
-silently. Abandon the algorithmic-advantage claim if existing graph tooling
-already supplies equivalent intervention sequences, or if the planner
-repeatedly degenerates to full-row release in the supposedly useful cases.
-Stage B (physical): at least one nontrivial error class saves substantial
-undo work relative to tutorial and full-row rollback, with no unsupported
-operation silently accepted and no recurring undocumented interventions.
-
-**Information-sufficiency witness.** Two error configurations with identical
-chart-level inputs but different valid repairs: if the local planner cannot
-distinguish them from the patch alone, graph-level repair planning carries no
-additional information for choosing the intervention.
-
-**Reconsider when.** Stage B shows slack, friction, or manipulation access
-dominates repair success, or users must already read the full stitch structure
-to supply the patch (the tool then serves only those who can already solve
-it).
-
-### Adaptive ventilation measurement — kill gate and witness (proposed, untested)
-
-**Kill gate (transcribed from `RESEARCH/C.md`).** Stop if adaptive selection
-cannot distinguish the paired near-identical-trace hypotheses more reliably
-than the fixed door-open/door-closed protocol at equal observation budget, or
-if it produces confident wrong answers under common violations (changing
-weather, poor mixing). A gain on correctly specified synthetic models only
-establishes mathematical possibility; independent room measurements are
-required before any practical claim. No hardware spend before the simulation
-changes the decision.
-
-**Information-sufficiency witness.** Two parameter sets that produce nearly
-identical passive traces: if the adaptive action menu yields no observation
-that separates them, next-observation selection adds nothing over the fixed
-protocol. Run this witness before the paired-protocol comparison.
-
-**Reconsider when.** Adequate observations prove unavailable at household
-cost, or the willing users are already served by QICO2/NVAPF-class tools.
+**What is closed and what is not.** Closed: the need corpus as an indexable signal, on
+measured grounds for the third time and now on the instrument itself rather than on
+resolution alone. **Not closed:** that a needs index built on a *different* instrument —
+embeddings, a domain model, human review of a shortlist — is impossible. What this
+establishes is that **the instrument this repository measured nine results through
+cannot pick out a repeat a human identified**, and that the population it would index
+does not densify with size. The finding is about a TF-IDF cosine over unigrams and
+bigrams, and about that population.

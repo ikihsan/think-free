@@ -1,0 +1,118 @@
+{
+ "arms": {
+  "A": {
+   "0.05": 0.98059,
+   "0.10": 0.335011,
+   "0.15": 0.128684,
+   "0.20": 0.078361,
+   "0.25": 0.059669,
+   "0.30": 0.045291,
+   "0.35": 0.034508,
+   "0.40": 0.025881,
+   "0.50": 0.017254,
+   "0.60": 0.008627
+  },
+  "B": {
+   "0.05": 0.976995,
+   "0.10": 0.239396,
+   "0.15": 0.03307,
+   "0.20": 0.002876,
+   "0.25": 0.0,
+   "0.30": 0.0,
+   "0.35": 0.0,
+   "0.40": 0.0,
+   "0.50": 0.0,
+   "0.60": 0.0
+  }
+ },
+ "bar": 1.5,
+ "best_ratio": [
+  27.24652294853964,
+  "0.20"
+ ],
+ "grid": {
+  "0.05": {
+   "A": 0.98059,
+   "B": 0.976995,
+   "met": false,
+   "ratio": 1.0036796503564502,
+   "ratio_state": "evaluated"
+  },
+  "0.10": {
+   "A": 0.335011,
+   "B": 0.239396,
+   "met": false,
+   "ratio": 1.3994009924977862,
+   "ratio_state": "evaluated"
+  },
+  "0.15": {
+   "A": 0.128684,
+   "B": 0.03307,
+   "met": true,
+   "ratio": 3.891260961596613,
+   "ratio_state": "evaluated"
+  },
+  "0.20": {
+   "A": 0.078361,
+   "B": 0.002876,
+   "met": true,
+   "ratio": 27.24652294853964,
+   "ratio_state": "evaluated"
+  },
+  "0.25": {
+   "A": 0.059669,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  },
+  "0.30": {
+   "A": 0.045291,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  },
+  "0.35": {
+   "A": 0.034508,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  },
+  "0.40": {
+   "A": 0.025881,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  },
+  "0.50": {
+   "A": 0.017254,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  },
+  "0.60": {
+   "A": 0.008627,
+   "B": 0.0,
+   "met": "not_evaluated",
+   "ratio": null,
+   "ratio_state": "not_evaluated (control arm is 0 -- F067)"
+  }
+ },
+ "separation_ever": true,
+ "taus": [
+  0.05,
+  0.1,
+  0.15,
+  0.2,
+  0.25,
+  0.3,
+  0.35,
+  0.4,
+  0.5,
+  0.6
+ ]
+}

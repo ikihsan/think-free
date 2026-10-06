@@ -104,6 +104,15 @@ hand-run rebase records nothing and its paths are then attributed to whoever hol
 
 ## What changed recently
 
+- **E041 (`EXPERIMENTS/041-need-index/`, this VM's second E-number collision, F070-F074, D072/D073): the needs-index premise closes on its own arithmetic.**
+  The instrument was first validated on the positive control E040 could not build
+  (**77 judged duplicate pairs**, both members in a 44,669-row corpus): G1/G3 pass,
+  **G2 fails** (top-1 0.390 titles, 0.143 with body, 0 of 14 no-shared-term pairs,
+  median partner rank 10), and G4's separation is confirmed for the first time
+  (3.9-27.2x), which is weaker than a same-need index. The scaling premise is
+  arithmetically false: `alpha = 0.971`, so 20 qualifying clusters needs n ~ 3,500,
+  and the matched control yields 4 of arm A's 8. Full reading in the experiment
+  README.
 - **Session 2026-10-06-013, VM 0944 (E041): the strongest shell baseline matches `stg`
   exactly and honestly on all tests.** A ~180-line Python script implementing the same
   pair-removes-with-adds splitting logic as `stg` achieves 5/5 on E040 agent-style cases
