@@ -174,3 +174,59 @@ F053 withdrew was the generalisation to public conversation; what F054 replaces
 it with is a venue-agnostic claim at a **2.2% upper bound**, which is a real
 constraint on candidate generation and is worth more than the sentence it
 corrects.
+
+## F055 — the recurrence zeros were drawn from the stratum where recurrence is rarest
+
+**Status: this refutes a reading the record drew, not a measurement in it.** Evidence in
+`EXPERIMENTS/033-question-recurrence/`, protocol declared before the fetch and amended
+three times (twice for defects in the *protocol*, once for a labelled post-hoc addition).
+
+Five experiments in this record reported zero cross-author recurring requirements, and
+`EXPERIMENTS/032-venue-recurrence/README.md` pooled two of them into an upper bound of
+**0.0223** — the number that closes item 0d's third demand-side generator. E033 read
+recurrence off **Stack Exchange's own duplicate-closure judgement** rather than off a
+linkage rule this repository invented, over 1000 questions from two sites chosen by volume:
+
+- **54 of 1000 questions closed as duplicates = 0.0540, CI95 [0.0416, 0.0698]**, against
+  the record's 0.0223. `travel` 0.0660, `math` 0.0420. **The bound is refuted** and the
+  refutation is conservative: the label counts only closures, so the true rate is higher.
+- **The zeros were not wrong and were not about the world. They were about a stratum.**
+  Sorting the population by score and taking the top 60 — what `sort=votes` drew — yields
+  **0** duplicate closures, against a mean of 3.37 over all 941 sliding windows. Duplicate
+  closures are **0.0180 in the top score tertile and 0.0808 in the bottom**, a 4.5×
+  gradient. E032 recorded this bias as a caveat; it was load-bearing.
+- **A repeat is 2.6× more likely to go unanswered**: 0.5556 of duplicate closures carry
+  `answer_count == 0` against 0.2114 of every other closure state, difference CI95
+  [+0.2096, +0.4710]. Five harvests looked for demand in the phrasing of needs and in
+  popular questions; the population that converges and stays unanswered is neither.
+
+### What it does not license
+
+Nothing revives a candidate: 54 closures were counted, **no clause or cluster was
+recovered**, and no prior-art screen was run. This is not Hacker News either — what
+transfers is the method defect, not a rate.
+
+### The instrument finding that constrains everything downstream
+
+**A duplicate closure on this platform is a reliable label and an unreachable edge.** The
+public API exposes neither `closed_details` (which names the canonical) nor `question_type`
+(which marks a related row as the duplicate), and **every vectorised `{ids}` path returns
+`no_method`**, so one canonical costs one request. `/questions/{id}/related` does return
+6–10 topical rows with full metadata, so a canonical is guessable — and this run's reader
+arm confirmed **6 of 24** of those guesses, failing its declared gate of 30 of 40. Two
+third-party renderers that would show the closure banner were tried: one 403s, one returns
+a "server too busy" page as HTTP 200. `tally.py` **declines to print** the declared
+visibility product `n·p·q` because its second input rests on canonicals this run had just
+rejected; a number that would have read as a decisive mechanism check is not reported.
+
+### The generalisable rule
+
+**An instrument's zero is a statement about the population it sampled before it is a
+statement about the world, and a selection criterion chosen for other reasons can invert a
+result.** `sort=votes` was declared because "elaborated need statements live there". It
+selected for answered questions, and answered questions are the ones that were *not*
+repeats — so the population was chosen against the signal while the sample was too small
+to see it anyway. F039's recurrence instrument and E032's were not wrong instruments;
+they were pointed at a stratum where the thing was 4.5× rarer.
+
+Full derivation, gates, amendments and the four routes tried: `EXPERIMENTS/033-question-recurrence/`.

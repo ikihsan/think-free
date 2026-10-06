@@ -86,12 +86,59 @@ instrument.** That is now also the fifth condition of
 [`docs/process/experiment-protocol.md`](docs/process/experiment-protocol.md)'s
 prior-art rule.
 
-## The demand-side absence of recurrence survives a change of venue (F039, F049, F051, F053, F054)
+## The recurrence bound is refuted; the zeros were a stratum effect (F055)
 
-**Status: closed, and now on two venue classes instead of one.** Item 0d's last
-standing question. **F053** counted what the closure stood on and found one
-platform; **F054** changed the venue and nothing else. Full reading below; raw
-evidence in [`EXPERIMENTS/032-venue-recurrence/`](EXPERIMENTS/032-venue-recurrence/README.md).
+**Status: closed, and it withdraws the reading below rather than confirming it.** Item
+0d's last standing question, re-asked with a different instrument. Raw evidence in
+[`EXPERIMENTS/033-question-recurrence/`](EXPERIMENTS/033-question-recurrence/README.md).
+
+**What was measured.** Cross-author recurrence read off **Stack Exchange's own
+duplicate-closure judgement** — `closed_reason == "Duplicate"`, decided by other people —
+rather than off a linkage rule this repository invented. **1000 questions from two
+volume-selected sites: 54 duplicate closures = 0.0540, CI95 [0.0416, 0.0698]**, against
+the pooled **0.0223** bound E031 and E032 established. `travel` 0.0660, `math` 0.0420.
+**B1 fired; the bound is refuted**, and conservatively so, because the label counts only
+closures — a repeat that was answered is not counted.
+
+**The mechanism is measured, not argued, and it is not a defect in the reader.** Sorting
+this population by score and taking the top 60 — what `sort=votes` drew — yields **0**
+duplicate closures, against a mean of **3.37** over all 941 sliding 60-question windows.
+The rate runs **0.0180 in the top score tertile and 0.0808 in the bottom, a 4.5× gradient.**
+E032 declared that bias as a caveat in its own limitations section; it was load-bearing.
+`sort=votes` was chosen because "elaborated need statements live there", and it selects for
+answered questions — which are the ones that were *not* repeats.
+
+**So both readings were true and the record kept the weaker one.** Recurrence is common in
+public questions, *and* the mission's samples were drawn from where it is rarest. The
+five zeros were a statement about a stratum before they were a statement about the world.
+
+**Where the signal is, which is the useful half.** A duplicate closure is **2.6× more
+likely to go unanswered** than anything else in the population — 0.5556 against 0.2114,
+difference CI95 [+0.2096, +0.4710], median score 1 against 2. Five harvests looked for
+demand in the *phrasing* of needs and in *popular* questions; the population that
+converges on a question and stays unanswered is neither.
+
+**What is not revived.** No candidate: 54 closures were counted, **no clause or cluster was
+recovered**, and no prior-art screen was run. This is not Hacker News either — the method
+defect transfers, not a rate.
+
+**The constraint that follows, and it is about the archive.** A duplicate closure is a
+reliable **label** and an unreachable **edge**: the public API exposes neither
+`closed_details` (which names the canonical) nor `question_type`, and every vectorised
+`{ids}` path returns `no_method`, so one canonical costs one request.
+`/questions/{id}/related` returns topical rows that the reader arm confirmed as the
+canonical only **6 times of 24**, failing its declared gate. `tally.py` therefore refuses
+to print the declared visibility product rather than compute it from canonicals this run
+had just rejected. Four routes tried, in
+[`API.md`](EXPERIMENTS/033-question-recurrence/API.md).
+
+## The demand-side absence of recurrence survives a change of venue — **superseded by F055**
+
+**Status: withdrawn as a general statement. What it measured is sound; what it concluded
+is refuted.** F039, F049 and F051 as below; F053 and F054 above. **The pooled 0.0223
+bound did not survive being measured on a whole population with the platform's own
+judgement instead of this repository's linkage rule** — see F055 above. Read this section
+for what the five zeros established, and the one above for what they were about.
 
 **What the two populations now say.** F039 found the need corpus is **1250
 individuals each asking once**, with no need-level recurrence inside it. E031
@@ -128,6 +175,14 @@ requirements do not exist, that none recur, or that they cannot recur: F042's
 intervals, not zeros, and E031's own sample is **63 clauses** with its ceiling
 declared before the adjudication (AMENDMENT-4).
 
+> **Superseded 2026-10-06 (F055).** The 0.0223 bound this paragraph defends is
+> **refuted**: 54 duplicate closures in 1000 questions, 0.0540 CI95 [0.0416, 0.0698], read
+> from Stack Exchange's own closure judgement rather than from this repository's linkage
+> rule. The mechanism is a stratum effect — `sort=votes` draws the tertile where recurrence
+> is 4.5× rarest, and the top 60 by score contains 0 duplicate closures. The paragraphs
+> below are kept because they record what each run established; none of them carries the
+> generalisation any further.
+>
 > **Corrected 2026-10-06 (F053).** This paragraph used to read "mining public
 > conversations — three populations, three instruments, three zeros". **The venue
 > was never varied.** All 3,856 comment ids behind F039, F042, F043, F049 and

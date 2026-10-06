@@ -14,9 +14,10 @@ untouched, and every item says which.
 
 ## Ordered by information gained per unit of effort
 
-0. **Decide what the mission selects candidates on, now that novelty cannot be
-   the filter — and the premise behind the old filter has now been counted.**
-   **F044 measured it: prior art is the plurality of kill reasons, not the
+0. **Decide what the mission selects candidates on, now that neither novelty nor
+   harvested recurrence can be the filter.**
+   **F044 measured the premise behind the old one: prior art is the plurality of
+   kill reasons, not the
    majority — 10 of 18 = 0.556, a one-row margin, and every prior-art row moved
    to another category kills the majority reading. The population is 20 rows, not
    the twelve this item previously carried, and 7 of the 18 died of something
@@ -30,18 +31,22 @@ untouched, and every item says which.
    F027). F034 measures the prior-art verdict's premise on the population that
    screen consulted: **4 of 4 on-topic incumbents in mature vocabularies are
    served, 1 of 4 in a young one** — sound where it is least load-bearing, unsound
-   where this mission's candidates live. Still an **owner decision**: which axis
-   replaces it (usefulness without users, distribution, domain knowledge, or
-   something not yet named), and whether publishing the tooling as-is is ever on
-   the table. **Ceiling:** F034's own gate is `inconclusive` — 43% of incumbents
-   were undecided against a declared 20% ceiling — on four decided young rows;
-   F027's sample is small and self-selected, and 0 stars is a weak proxy with
-   known false negatives (`ripgrep`, `jq`); **F044's has one reader and no second
-   coder at a one-row margin, which is the same defect E023 fixed with
-   κ = 0.923.** **Nothing here is blocked on tooling,** which is the standing
-   reason this item stays the top one.
-   **Five measurements bear on this and every one closed a reading rather than
-   opening one (F035, F037, F039, F041, F044).** **Coverage:** 3 of 12
+   where this mission's candidates live. **F055 removes the other filter this item
+   carried**: the pooled recurrence bound of 0.0223 is refuted (0.0540 measured, CI95
+   [0.0416, 0.0698]) and the five zeros were a stratum effect. Still an **owner
+   decision**: which axis replaces them — usefulness without users, distribution,
+   domain knowledge, **or the convergent-and-unanswered population F055 measured (a repeat
+   is 2.6× more likely to go unanswered, 0.5556 against 0.2114)** — and whether publishing
+   the tooling as-is is ever on the table. **Ceiling:** F034's own gate is
+   `inconclusive` — 43% of incumbents were undecided against a declared 20% ceiling — on
+   four decided young rows; F027's sample is small and self-selected, and 0 stars is a weak
+   proxy with known false negatives (`ripgrep`, `jq`); **F044's has one reader and no
+   second coder at a one-row margin, which is the same defect E023 fixed with κ = 0.923;
+   F055's population is two sites on one platform and recovers no cluster.**
+   **Nothing here is blocked on tooling,** which is the standing reason this item stays
+   the top one.
+   **Six measurements bear on this; five closed a reading and the sixth (F055) refuted
+   the filter this item rested on.** **Coverage:** 3 of 12
    adjudicable kills have no prior art on any of three corpora, and 4 were
    reachable only on the open web. **Composition:** the young-vocabulary
    population is **14 of 18 executable code**, not documents. **The need corpus
@@ -53,21 +58,21 @@ untouched, and every item says which.
    channel**, so **the twelve prior-art deaths stand** (F041, D053); its
    instrument premise was also wrong, since a public unauthenticated API does
    serve the copy count, and it read **17 of 18** young-arm repositories against
-   **0 of 13** placebos. **And the premise of this item:** F044 counted a
+   **0 of 13** placebos. **And this item's premise:** F044 counted a
    plurality with a one-row margin over 20 rows, with 7 of the 18 dying of
-   something else. A lexical count cannot carry a claim about demand and a code
+   something else, and F055 refuted the 0.0223 recurrence bound beside it. A lexical
+   count cannot carry a claim about demand and a code
    index cannot carry one about unpopular work. Full reading in
    [`STATE-in-flight-2.md`](STATE-in-flight-2.md) and
    [`STATE-in-flight.md`](STATE-in-flight.md).
 
-   **What was left for the owner was one question, and E022 has now measured
-   it.** Everything measured about supply says supply is uninformative about
-   demand (F028, F032, F037). The demand-side corpus is 1250 named people who
-   each wrote down, in public and unprompted, what was missing, and it had never
-   been followed forward — and the question was measurable, so it was measured.
+   **What was left for the owner was one question, and E022 has now measured it.**
+   Everything measured about supply says supply is uninformative about demand (F028,
+   F032, F037). The demand-side corpus is 1250 named people who each wrote down, in public
+   and unprompted, what was missing, and it had never been followed forward.
 
-   **E022 has now measured that asset, and the answer narrows it** (F042, F043;
-   numbers and reading in [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of
+   **E022 measured that asset and the answer narrows it** (F042, F043; numbers and reading
+   in [`STATE-in-flight.md`](STATE-in-flight.md)). **Two** of
    its three numbers decide this item: **58.0% of 1401 stated needs drew a reply;
    and of the 24 whose need went unserved, 0 built it themselves.** The third —
    "38.5% named something serving the need" — **is withdrawn** (F043, D055): it had
@@ -125,26 +130,28 @@ untouched, and every item says which.
    population has no "unfilled" property and this seat's premise is retired by
    measurement. **0 of 100** clause pairs recur, with κ = 0.7189 and a pair
    positive control at 20/20, so the zero comes from an instrument that works.
-   Three populations, three instruments, **no cross-author recurring requirement
-   in public text**. **Ceiling:** 63 clauses; four channels unread by declaration.
-   Reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
+   **Ceiling:** 63 clauses; four channels unread by declaration. Reading in
+   [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-   **All three generators under this seat are closed for measured reasons rather
-   than a prior-art one, and the closure no longer rests on one platform**
-   (F053, F054, `EXPERIMENTS/032-venue-recurrence/`). F053 counted what the
-   closure stood on: **one venue**, sampled five times, with E019, E022, E026 and
-   E029 all re-reading E012's single 1401-comment file at 100% id overlap — so
-   "three populations, three instruments, three zeros" was two corpora on one
-   platform. **E032 changed the venue and nothing else** — 60 long-form questions
-   from three non-programming Stack Exchange sites, selected with **no
-   requirement vocabulary**, against E031's own linkage rule, control and four
-   gates: **0 of 32** candidate pairs and **0 of 60** control pairs are `same`,
-   difference **0.0000 CI95 [−0.0602, +0.1072]**, κ = 0.8344, 20/20 positives,
-   0/10 negatives. **So the zero is not Hacker News's length,
-   self-containedness, population or selection.** It is a **bound, not a zero**:
-   **0.0894** in E032, **0.0223** pooled with E031's 100. **Ceiling:** 28 clauses
-   both readers agreed on, two readers of one model family, one platform,
-   2025–2026. Reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md). — the live corpus 0 of 50 (F029), which F039
+   **The third generator's closure is withdrawn as an artefact of sample size and
+   stratum** (F055, `EXPERIMENTS/033-question-recurrence/`). The other two closures
+   stand. Cross-author recurrence, read off Stack Exchange's own duplicate-closure
+   judgement over 1000 questions, is **0.0540 CI95 [0.0416, 0.0698]** against the pooled
+   0.0223 bound this item cited; **the top 60 by score contains 0 duplicate closures** and
+   the rate is **4.5× higher in the bottom score tertile**. The demand-side generators are
+   not closed on a fact about public conversation. **What survives is the instruction:**
+   recurrence is real in public questions, and the mission's samples were drawn where it
+   is rarest. The live question is now *what to measure it on*, and **one measured handle
+   exists: a repeat is 2.6× more likely to go unanswered** (0.5556 against 0.2114) — the
+   convergent population and the unanswered population overlap. That is a population, not a
+   candidate: no clause or cluster was recovered, and the closure's canonical is **not
+   readable from the public API** ([`API.md`](EXPERIMENTS/033-question-recurrence/API.md)).
+   **Ceiling:** two sites of 2024, one platform, a label that counts closures only, and no
+   recovered cluster. **F053 and F054 are how the older closure got there** — one venue
+   sampled five times, then a venue change that held the pooled bound at 0.0223 — and
+   both runs are read in [`STATE-in-flight-2.md`](STATE-in-flight-2.md), which is also
+   where F055 supersedes them. The seat's other two closures stand: the live corpus 0 of 50
+   (F029), which F039
    shows was 1250 individuals each asking once rather than a sample of shared
    needs, and the recurrence hypothesis, which collapsed every cluster it was
    promised by >100× (F033) and whose person-level instrument failed its own
@@ -211,87 +218,11 @@ untouched, and every item says which.
    **Ceiling:** forward-only, and `EXPERIMENTS/**/results.json` now needs an
    artifact event — 16 raw captures do.
 
-3. **Read a red run from the annotations it already publishes** — the successor to
-   2(b), and it starts by falsifying 2(b)'s premise. **Done in T-0038: the premise
-   is false, and the finding is `FAILURES.md` F020.** The public check-runs API
-   *does* publish annotations for a `Tests` failure — run `37178057818` at
-   `687961f` carries 11 on `verify (3.12)`, nine of them failures, one naming
-   `test_doctor_versions.RealRecordTest.test_this_vms_versions_are_exercised_against_the_real_records`
-   at line 69 — `observed`, no rights, no token. The runs that carry none are the
-   *Documentation lint* failures, whose step emits no `::error::` lines, so their
-   one failure annotation says only "Process completed with exit code 2". **That
-   answers most of VM 0944's claimed T-0037:** runs `37178057818` and `37179073002`
-   are the already-recorded F019 on all seven rows rather than unexplained runs.
-   Method: [`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md).
-   **The `::error::` half is closed in T-0040, and item 4 carries what it cost.**
-   **Ceiling:** the annotations are the workflow's own emission, capped at 60 lines,
-   and the endpoint gives four answers of which three look like "none" — the wrong
-   endpoint, the wrong sub-resource, and a 403 from the 60-requests-an-hour
-   unauthenticated limit. What survives of 2(b) is the half that is real: a red
-   `Documentation lint` used to name a step and nothing more, and a **red `Tests` step
-   used to skip every gate step**, so which of the four answers a red run is depends on
-   which step failed first. Defect 18, `FAILURES.md` F021.
-4. **Closed in T-0040, and its ceiling measured rather than guessed.** All five
-   file-reading steps run `tools/origin annotate`, so a violation becomes a
-   check-run annotation naming the file; falsified against `e53ca23`'s real bytes
-   in both directions. GitHub files an annotation on the emitted `file=`:
-   `observed` on run `37191658964`, whose `Documentation lint` annotation carries
-   `path: DECISIONS-RECORDS.md`, `start_line: 0`, message verbatim. What this file
-   called `unmeasured` had been measured once and read wrongly (F021): the run
-   quoted for it had a red `Tests` step, so every later `if:`-guarded step was
-   skipped and the annotator emitted nothing. Defect 18 is the repair and
-   `tools/origin probe` re-measures the rest on every run. **Ceiling:** the probe
-   measures the shapes it lists, and nothing observes a `file=` value containing
-   `:` or `,`, because this repository has no file whose name contains either.
-5. **Identifier allocation: the allocation half is done (T-0031), the detector
-   half is T-0030** (defect 5 in [`STATE-defects.md`](STATE-defects.md)).
-   `tools/originlib/idalloc.py` allocates F, D and T numbers from
-   `origin/<base>` plus this working tree, and every command that hands out a
-   number prints the record it read. Twelve collisions between two VMs in two
-   days; a stale tree no longer collides with the base, and a withdrawn task's
-   number is not recycled.
-   **Ceiling:** two VMs allocating between their own fetches still collide, and
-   an unpushed number reserves nothing. Rule and states:
-   [`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md).
-6. **Fleet bookkeeping is now end to end** (T-0018, T-0032, T-0033). The records
-   exist — `tests/git-versions.json` (`origin.git-versions/1`) and
-   `tests/python-versions.json` (`origin.python-versions/1`) — each entry saying
-   how much of the suite that version actually ran, each record naming the
-   versions nobody has run, and `doctor` now reads both and reports
-   `exercised` / `NOT exercised` / `record unreadable` / `no record` with the
-   entry's own scope attached. A VM outside the exercised set says so at the point
-   where an agent decides whether it can do the work.
-   **Ceiling:** bookkeeping hygiene, not a claim about a candidate. `exercised`
-   means a run happened, and nothing between 3.8 and 3.12 has ever run this
-   suite.
-7. **Done in T-0025** (run `37165413909`, commit `9e865a4`, six steps green,
-   `observed`); superseded by item 0b's newer runs. A run says nothing about a
-   second runner image or a rebase conflict.
-8. **E3's line is closed** (F010 census, F012 attribution, T-0017). Timestamps
-   are the only byte-level cause for the one builder available here, and
-   `SOURCE_DATE_EPOCH` removes all of it. **Do not re-run either half.** Still
-   open is the census's per-package heterogeneity, which this run does not
-   explain. **Ceiling:** one builder, pure-Python sources, Linux.
-9. **Do not extend the knitting line.** Stage A is settled (T-0010, T-0011) and
-   the prior-art condition is settled (T-0015): the algorithmic advantage is
-   prior art (F009) and no tool supplies an intervention sequence for an
-   existing hand-knit structure. Stage B needs an experienced knitter and
-   authorization. **Ceiling:** nothing software-side remains; only usefulness
-   is live, and this repository cannot measure it.
-10. **Do not run E1** (retry jitter). It is the cheapest experiment in the
-   repository and the least informative: jitter is already in every modern
-   client library, so a pass changes no build decision. D020, Screen 3.
-11. **E2 stays scheduled, side A snapshotted (T-0019, VM 0947), one fast-drift
-   null measured.** The informative comparison is two snapshots weeks apart, so
-   side A (`EXPERIMENTS/009-lockfile-drift-snapshot/snapshot-a.json`, 8
-   artifacts: requests/six/packaging/pyparsing plus 4 pulled deps, pip 20.0.2) is
-   banked with no verdict, and a same-week rerun found **zero drift at ~21h**.
-   Take side B no earlier than days later and diff the closures; fast drift
-   shows as a version or hash change.
-12. **Do not build a product.** Nothing is selected, and the base rate for
-   agent-generated ideas with prior art is high. Three candidate lines have
-   returned negative results, and one (knitting) died of prior art rather than of
-   measurement — which is the cheapest way to die and the one worth copying.
+
+Items 3–12 — every closed, done, or standing "do not" entry, with the derivations
+that made the ranked list too long to read — moved to
+[`STATE-next-actions-closed.md`](STATE-next-actions-closed.md) on 2026-10-06 at
+the 300-line cap. Read it when re-running a closed item looks tempting.
 
 ## Standing constraints
 

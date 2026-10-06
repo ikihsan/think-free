@@ -1,13 +1,13 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-05
+last-verified: 2026-10-06
 -->
 
 # Verified state
 
-Date: 2026-10-05, Asia/Kolkata. Phase: B — the prior-art screen is now measured
-and three unserved needs await a mechanism question. **No product selected.**
+Date: 2026-10-06, Asia/Kolkata. Phase: B — the prior-art screen is measured and the
+recurrence bound is refuted. **No product selected.**
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -50,37 +50,31 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 ## In flight
 
 **The fourth demand-side generator closed on its own premise, not on prior art**
-(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing
-capability at nearly twice the base rate of ordinary same-story comments (0.347 vs
-0.181, CI95 [0.0224, 0.3024]) — below the declared 0.20 margin, and **the seek
-stratum is indistinguishable from the move stratum at 0.347 vs 0.347**, so
-"unfilled" is not a property this population has. **0 of 100** clause pairs and **0
-of 100** random pairs state the same requirement, every instrument gate passing
-(κ = 0.7189, A6 20/20 and 0/10), and length matching moving the difference 0.1667 →
-0.1698 — **not** a length artifact, the opposite of F050. Its declared linkage rule
-could not fire at all (4 candidate pairs against a chance expectation of 4.9), the
-mirror image of F010; D062 governs linkage rules from here.
+(`EXPERIMENTS/031`, F051, D062, T-0075). Departure accounts state a missing capability
+at nearly twice the base rate of ordinary same-story comments (0.347 vs 0.181, CI95
+[0.0224, 0.3024]) — below the declared 0.20 margin, and **the seek stratum is
+indistinguishable from the move stratum at 0.347 vs 0.347**, so "unfilled" is not a
+property this population has. **0 of 100** clause pairs recur, every instrument gate
+passing (κ = 0.7189, A6 20/20 and 0/10). Its declared linkage rule could not fire at all
+(4 candidate pairs against a chance expectation of 4.9), the mirror image of F010; D062
+governs linkage rules from here.
 
-**And the result those zeros rested on was checked for what it was a result about,
-which turned out to be one platform** (F053, F054,
-`EXPERIMENTS/032-venue-recurrence/`, T-0076). All **3,856** comment ids behind
-F039/F042/F043/F049/F051 are Hacker News, and four of the five experiments re-read
-E012's single 1401-comment file at **100% id overlap** — so "three populations,
-three instruments, three zeros" was **two corpora on one platform** (F051's own
-ceilings had said as much). **E032 changed the venue and nothing else**: 60
-long-form questions from three non-programming Stack Exchange sites, 53 authors,
-selected with **no requirement vocabulary**, against E031's linkage rule,
-reader-adjudicated control and four gates — **0 of 32** candidate pairs and **0 of
-60** control pairs `same`, difference **0.0000 CI95 [−0.0602, +0.1072]**, A2
-reachable, κ = 0.8344, A5 20/20. **The zero is not Hacker News's length, its
-unit, its population or its vocabulary selection — and it is a bound, not a zero:
-0.0894 here, 0.0223 pooled with E031's 100.** The three generators stay closed,
-now for a reason two venue classes support instead of one.
+**And the bound those zeros built was then refuted by the platform's own judgement**
+(F053, F054, **F055**; `EXPERIMENTS/032-venue-recurrence/`,
+`EXPERIMENTS/033-question-recurrence/`). F053 found all **3,856** comment ids behind the
+five zeros were Hacker News and four of the five experiments re-read E012's single
+1401-comment file; F054 changed the venue and held the pooled bound at **0.0223**; **F055
+then measured recurrence where it is decided by other people** — Stack Exchange's own
+duplicate closure, 1000 questions, **0.0540 CI95 [0.0416, 0.0698]**. **The bound is
+refuted, and the zeros were a stratum effect**: the top 60 by score, which is what
+`sort=votes` draws, contains **0** duplicate closures against a mean of 3.37 over all 941
+sliding windows, and the rate is **4.5× higher in the bottom score tertile**. Statement,
+and what it does not license, in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
-**F037's reconciliation for the supply question is withdrawn: the copies are adapted,
-not duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed
-(687 matches) and barely duplicated (4.7% of contents), so near-zero install
-readings are not an invisible channel. Drift is **`inconclusive`**, not zero.
+**F037's reconciliation for the supply question is withdrawn: the copies are adapted, not
+duplicated** (`EXPERIMENTS/020`, F040, T-0066) — copying is widely instructed (687 matches)
+and barely duplicated (4.7% of contents), so near-zero install readings are not an invisible
+channel. Drift is **`inconclusive`**, not zero.
 
 **F049 followed the 1250 forward through the channel F045 opened.** Of the 241
 need-starters with a public `Show HN` item, **167 shipped it before they stated the
@@ -105,10 +99,10 @@ outcome read from a trigger-harvested corpus, E022's and E029's included — and
 is why E032's own population was selected with no requirement vocabulary at all.
 
 **The candidate generator was refuted and its strongest cluster with it**
-(`EXPERIMENTS/012`, `EXPERIMENTS/014`, D049, F029, F033): 1401 harvested need
-statements, 50 drawn by a stated rule, **0 survived**; the "5805 issues / 28
-repositories" cluster collapsed to 15 issues across 9 agent-labelled repositories.
-F030: a prior-art verdict from one query is wrong in both directions.
+(`EXPERIMENTS/012`, `EXPERIMENTS/014`, D049, F029, F033): 1401 harvested need statements,
+50 drawn by a stated rule, **0 survived**; the "5805 issues / 28 repositories" cluster
+collapsed to 15 issues across 9 agent-labelled repositories. F030: a prior-art verdict from
+one query is wrong in both directions.
 
 **The prior-art screen was then measured on coverage** (`EXPERIMENTS/016`, D050,
 F035, F036): re-adjudicated on three corpora with six positive controls, **6 of 6
@@ -127,42 +121,42 @@ no readable use channel, and **the most-starred tool there is installed 363 time
 a month.** The reading that followed — the reader copies a `.claude/` directory,
 so the artifact is not a package and installs read zero — **is withdrawn by F040
 above.**
-**Four closed tooling findings, kept as pointers because they are the standing
-reasons a session's own gate can be green and its records still false.** A
-restated experiment number was false and the obvious gate is blind to it (defect
-22, T-0056, D047, F024) — a protocol claimed 113/113 where the artifact said 115,
-and `resultnumbers.py` decides from the number's *shape*. Identifier collisions
-between two VMs are closed (T-0030, T-0031), but **the work-collision case still
-has no detector**, so read the remote task list first
-([`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md)).
-A gate belongs in the one command the protocol tells every agent to run (T-0045).
-A test can read a clock the code does not (defect 15, T-0044). Accounts:
+**Four closed tooling findings, kept as pointers because they are the standing reasons a
+session's own gate can be green and its records still false.** A restated experiment number
+was false and the obvious gate is blind to it (defect 22, T-0056, D047, F024) — a protocol
+claimed 113/113 where the artifact said 115, and `resultnumbers.py` decides from the
+number's *shape*. Identifier collisions between two VMs are closed (T-0030, T-0031), but
+**the work-collision case still has no detector**, so read the remote task list first
+([`docs/reference/identifier-allocation.md`](docs/reference/identifier-allocation.md)). A gate
+belongs in the one command the protocol tells every agent to run (T-0045). A test can read a
+clock the code does not (defect 15, T-0044). Accounts:
 [`STATE-defects.md`](STATE-defects.md),
-[`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md). **One rule
-survives:** rebase a moving base with `origin sync land`, because a hand-run
-rebase records nothing and its paths are then attributed to whoever holds the tree
-(T-0053; sessions 040 and 012 hit that ceiling seven and twice).
+[`docs/operations/ci-diagnosis.md`](docs/operations/ci-diagnosis.md). **One rule survives:**
+rebase a moving base with `origin sync land`, because a hand-run rebase records nothing and
+its paths are then attributed to whoever holds the tree (T-0053; sessions 040 and 012 hit
+that ceiling seven and twice).
 ## What changed recently
 
-- **Session 001, VM 0944 (T-0076, F053, F054): the recurrence zero was checked
-  for what it was a result about, and it was one platform — then survived a venue
-  change anyway.** Evidence in
-  [`EXPERIMENTS/032-venue-recurrence/README.md`](EXPERIMENTS/032-venue-recurrence/README.md);
+- **Sessions 001–002, VM 0944 (T-0076, T-0077, F053, F054, F055): the recurrence zeros
+  were checked for what they were a result about — one venue, then a wrong stratum — and the
+  pooled bound is refuted.** Evidence in
+  [`EXPERIMENTS/033-question-recurrence/README.md`](EXPERIMENTS/033-question-recurrence/README.md);
   reading in [`STATE-in-flight-2.md`](STATE-in-flight-2.md).
 
 **Earlier per-session highlights moved out of this file** at the 300-line cap: session
-021 (T-0075, F051, D062 — the departure population's seek and move strata are
-identical at 0.347 each and 0 of 100 clause pairs recur), session 017 (T-0072,
-F048, D059/D060 — **use is not fit**; `sharp` at 437M downloads/month has
-documentation establishing nothing about its clause, the declared positive control
-failed, and **no prior-art verdict here has been shown to rest on evidence of fit**),
-session 053 (F039: 1250 distinct authors), sessions 008/010 (F042/F043/F044), session
-009 (F043, D055) and session 015 (F047: **6 of 15 `vague` kills are not vague**).
-**Eight readings are closed** (F041's third axis, F035's coverage, F039, F029's
-refutation, F042's, F043's missing control, F047's re-read, F053/F054's venue).
+021 (T-0075, F051, D062 — the departure population's seek and move strata are identical at
+0.347 each and 0 of 100 clause pairs recur), session 017 (T-0072, F048, D059/D060 — **use is
+not fit**; `sharp` at 437M downloads/month has documentation establishing nothing about its
+clause, the declared positive control failed, and **no prior-art verdict here has been shown
+to rest on evidence of fit**), session 053 (F039: 1250 distinct authors), sessions 008/010
+(F042/F043/F044), session 009 (F043, D055) and session 015 (F047: **6 of 15 `vague` kills are
+not vague**).
+**Nine readings are closed** (F041's third axis, F035's coverage, F039, F029's
+refutation, F042's, F043's missing control, F047's re-read, F053/F054's venue,
+**F055's refutation of the bound they built**).
 Readings live in [`STATE-in-flight.md`](STATE-in-flight.md) and
 [`STATE-in-flight-2.md`](STATE-in-flight-2.md); per-session detail in
-[`STATE-history.md`](STATE-history.md). That cap has been hit nine times.
+[`STATE-history.md`](STATE-history.md). That cap has been hit eleven times.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -224,6 +218,12 @@ rather than in a red run.** Rule 7 did not read the numbered list in
 of five records were false while every gate passed (T-0042, defect 14). One entry
 point reads all three sources now.
 
+**F055 is the ninth instance of that shape and the sharpest, because no gate was involved
+at all:** a selection rule declared for one reason — `sort=votes`, because "elaborated need
+statements live there" — selects for *answered* questions, and the stratum it draws is
+**4.5× poorer in the thing being measured**. Full statement and the rule it generalises to,
+in [`STATE-constraints.md`](STATE-constraints.md).
+
 **The pattern in the red runs of 2026-10-04 is not "gates are missing" but gates
 that exist and are never run**: a task's `verify` omits the one gate its change can
 break, a fixture omits the clock the code reads, a split leaves one reader unwired.
@@ -233,11 +233,11 @@ claims to check and be falsified against the defect's own bytes (D025, F013); ni
 gates work that way, the newest holding a restated experiment number to its
 artifact by the number's *shape* (T-0056, F024, defect 22).
 
-**Line caps are the standing friction, and each repair moved material to the file
-whose invariant owns it.** `STATE.md`, `STATE-defects.md`,
-`FAILURES-findings-4.md`, `STATE-next-actions.md` and `tests/README.md` have each
-hit 300 and been split. `STATE-defects.md` cannot be split inside its own numbered
-list without `defectlist.py` reading more than one file, so that split is a task.
+**Line caps are the standing friction, and each repair moved material to the file whose
+invariant owns it** — this session twice, for F055: a paragraph from here into
+`STATE-constraints.md`, and `tally.py` split into `descriptive.py` for the statistics that
+have no gate attached. `STATE-defects.md` cannot be split inside its own numbered list
+without `defectlist.py` reading more than one file, so that split is a task.
 
 **The decision log could not record its own next decision, and that is now paid
 off.** `DECISIONS-GATING.md` stood at 297 of 300, so T-0036's decision lived in

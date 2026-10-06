@@ -180,6 +180,27 @@ none of them is advice.
   control as a **relabelled replicate of the treatment arm** (74 self-pairs, 0
   cross-pairs), which is the most expensive kind of mistake to make because it looks
   like a result.
+- **An instrument's zero is a statement about the population it sampled before it is a
+  statement about the world, and a selection criterion chosen for another reason can
+  invert the result** (F055). E032 declared `sort=votes` because "popular questions are
+  where people state needs in the most elaborated form", and filed the consequence in its
+  own limitations section as a bias: it "over-samples engaged users". Measured, the
+  stratum is **4.5× poorer in the thing being measured** — duplicate closures run
+  **0.0180 in the top score tertile against 0.0808 in the bottom**, and **the top 60 by
+  score contains 0** of them against a mean of 3.37 over all 941 sliding 60-question
+  windows. So `sort=votes` selects for *answered* questions, which are precisely the ones
+  that were not repeats. Five experiments (F039, F042, F043, F049, F051) reported zeros
+  from that draw, and the pooled **0.0223** bound built on them was **refuted at 0.0540,
+  CI95 [0.0416, 0.0698]** once recurrence was read off the platform's own closure
+  judgement over 1000 questions instead. Three rules follow, and the first is the one that
+  would have caught it: **when a population is selected by a rule, measure the property
+  being measured as a function of the selection variable** — here the score tertile table
+  cost nothing and no reader was needed for it; **a bias stated in a limitations section is
+  a hypothesis about magnitude, and the first cheap measurement of it should be made
+  before the finding is generalised**; and **a zero is never upgraded past the
+  population that produced it**, which is the sentence `STATE-in-flight-2.md` had already
+  needed once for the venue (F053).
+
 - **An arm that feeds no gate is worth its cost for what it catches.** E029's
   lexical arm exists only as a sanity reading, because E028 measured lexical coverage
   as `informative: false`. It printed byte-identical means for two arms that were

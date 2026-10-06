@@ -1,0 +1,199 @@
+{
+  "D3": {
+    "canonical_accepted_answer": 17,
+    "canonical_answer_count_ge_1": 40,
+    "canonical_in_population": 2,
+    "different_author": 38,
+    "edges": 40,
+    "q_raw": 0.05,
+    "q_verified": false
+  },
+  "D4": {
+    "expected_visible_edges": {
+      "100": null,
+      "60": null
+    },
+    "q": null
+  },
+  "D5": {
+    "in_e032_window": 904,
+    "max": 1397,
+    "median_words": 111,
+    "min": 11,
+    "window": [
+      40,
+      600
+    ]
+  },
+  "D6": {
+    "high (top third by score)": {
+      "ci95": [
+        0.008283213789313718,
+        0.0387466067554171
+      ],
+      "dup": 6,
+      "n": 333,
+      "rate": 0.018018018018018018
+    },
+    "low (bottom third)": {
+      "ci95": [
+        0.05614917036869484,
+        0.11506005904532643
+      ],
+      "dup": 27,
+      "n": 334,
+      "rate": 0.08083832335329341
+    },
+    "middle": {
+      "ci95": [
+        0.04161338228971422,
+        0.09447907184896696
+      ],
+      "dup": 21,
+      "n": 333,
+      "rate": 0.06306306306306306
+    },
+    "ratio_low_over_high": 4.486526946107785
+  },
+  "D7": {
+    "max_window": 12,
+    "mean_window_duplicates": 3.3698193411264614,
+    "top60_duplicates": 0,
+    "top_score_range": [
+      77,
+      8
+    ],
+    "windows": 941,
+    "windows_with_zero": 142
+  },
+  "D9": {
+    "difference_ci95": [
+      0.20956824281283923,
+      0.47101357736814353
+    ],
+    "duplicate": {
+      "ci95": [
+        0.4237541391136446,
+        0.6799774312440219
+      ],
+      "n": 54,
+      "rate": 0.5555555555555556,
+      "zero_answers": 30
+    },
+    "median_score": {
+      "duplicate": 1,
+      "other": 2
+    },
+    "other": {
+      "ci95": [
+        0.18659032039834786,
+        0.2385769917092709
+      ],
+      "n": 946,
+      "rate": 0.21141649048625794,
+      "zero_answers": 200
+    },
+    "ratio": 2.6277777777777778,
+    "share_score_le_1": {
+      "duplicate": 0.7962962962962963,
+      "other": 0.5
+    }
+  },
+  "a3_ok": false,
+  "arms": {
+    "edge": {
+      "both_same": 6,
+      "n": 24,
+      "same_r1": 9,
+      "same_r2": 6,
+      "unclear": 1
+    },
+    "unrelated": {
+      "both_same": 0,
+      "n": 24,
+      "same_r1": 0,
+      "same_r2": 0,
+      "unclear": 0
+    }
+  },
+  "closed_reason_distribution": {
+    "Duplicate": 54,
+    "Needs details or clarity": 17,
+    "Needs more focus": 3,
+    "Not suitable for this site": 23,
+    "Opinion-based": 3,
+    "absent (question not closed)": 900
+  },
+  "gates": [
+    {
+      "detail": "24/25 fetches 200, 1000 rows, 5 distinct closure reasons",
+      "gate": "A1",
+      "result": "pass",
+      "rule": ">= 95% of fetches 200; every row carries a closed_reason value or its documented absence"
+    },
+    {
+      "detail": "p = 0.0540 measured; q_raw = 0.0500 over 40 edges, A3 = FAIL",
+      "gate": "A2",
+      "result": "FAIL",
+      "rule": "the visibility calculation's inputs are measured, not assumed (q is gated on A3: a count of unverified canonicals is not a count)"
+    },
+    {
+      "detail": "6/24 sheet rows `same` by both readers; author differs on 38/40 edges",
+      "gate": "A3",
+      "result": "FAIL",
+      "rule": ">= 30 of 40 edges read `same` and canonical author differs on >= 30"
+    },
+    {
+      "detail": "kappa = 0.8327402135231318 on 47 double-read rows",
+      "gate": "A4",
+      "result": "pass",
+      "rule": "reader kappa >= 0.6 (undefined kappa => not_evaluated)"
+    },
+    {
+      "detail": "0/24 `same` on reader 1 (0.0000)",
+      "gate": "A5",
+      "result": "pass",
+      "rule": "the unrelated arm reads `same` for <= 0.20"
+    }
+  ],
+  "headline": {
+    "ci95": [
+      0.04162111458513981,
+      0.06979247895392054
+    ],
+    "duplicate_closures": 54,
+    "n": 1000,
+    "rate": 0.054,
+    "record_pool_bound": 0.0223
+  },
+  "kappa": 0.8327402135231318,
+  "kappa_rows": 47,
+  "per_site": {
+    "math": {
+      "ci95": [
+        0.027632099334746148,
+        0.06335205123956134
+      ],
+      "dup": 21,
+      "n": 500
+    },
+    "travel": {
+      "ci95": [
+        0.04737823802541255,
+        0.09123993085941158
+      ],
+      "dup": 33,
+      "n": 500
+    }
+  },
+  "population": {
+    "distinct_users": 862,
+    "n": 1000,
+    "sites": [
+      "math",
+      "travel"
+    ]
+  },
+  "schema": "origin.e033.tally/2",
+  "verdict": "B1__the_record_bound_is_refuted"
+}
