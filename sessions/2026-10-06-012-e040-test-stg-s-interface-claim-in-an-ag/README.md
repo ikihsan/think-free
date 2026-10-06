@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-06T11:58:06+00:00
-- **Duration:** ?s
+- **Duration:** 934.9s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E040: test stg's interface claim in an agent-style tool-call loop against git pl
 
 ## Summary
 
-_(none recorded)_
+E040 put the agent caller in the loop: stg exact+honest 5/5 (1 call, 10-33 bytes); hand-written plumbing silently over-staged 2/5; filterdiff exact 2/5 with opaque 128s. Correctness oracle (E037-E039) could not see this. Stale stg README bullet found and corrected. F065 recorded, D070 adopted, doc lint 0.
+
+## Next
+
+KILL-Q remains not_evaluated; the only open gate needs an external population, not a better oracle.
 
 ## Artifacts
 
@@ -54,7 +58,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -78,6 +81,10 @@ _(none recorded)_
 | 12 | 12:13:25 | artifact | wrote FAILURES.md |
 | 13 | 12:13:25 | artifact | wrote STATE.md |
 | 14 | 12:13:26 | artifact | wrote docs/INDEX.md |
+| 15 | 12:13:41 | doc_update | updated DECISIONS.md |
+| 16 | 12:13:41 | doc_update | updated FAILURES.md |
+| 17 | 12:13:41 | doc_update | updated STATE.md |
+| 18 | 12:13:41 | session_end | E040 put the agent caller in the loop: stg exact+honest 5/5 (1 call, 10-33 bytes); hand-written plumbing silently over-staged 2/5; filterdiff exact 2/ |
 
 ## Reproduce this record
 

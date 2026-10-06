@@ -15,7 +15,7 @@ Showing the 25 most recent. 108 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag](2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag/README.md) | unknown-agent | **unfinished** | E040: test stg's interface claim in an agent-style tool-call loop agai | 2026-10-06T11:58 |
+| [2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag](2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag/README.md) | unknown-agent | worked | E040: test stg's interface claim in an agent-style tool-call loop agai | 2026-10-06T12:13 |
 | [2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv](2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv/README.md) | unknown-agent | worked | E039: does stg's honest-exit claim survive the failure modes an agent  | 2026-10-06T11:18 |
 | [2026-10-06-010-reconcile-session-009-index-f062-f064-sp](2026-10-06-010-reconcile-session-009-index-f062-f064-sp/README.md) | unknown-agent | worked | Reconcile session 009: index F062-F064, split oversized files, declare | 2026-10-06T11:08 |
 | [2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos](2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/README.md) | unknown-agent | worked | Test E037's two open gates - does the ecosystem already serve line-add | 2026-10-06T11:06 |
