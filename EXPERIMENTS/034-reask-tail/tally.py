@@ -77,8 +77,9 @@ def gates(d):
         ("B1", "tail minus default share of duplicates with no accepted answer, CI95 "
                "excludes 0", "[%+.4f, %+.4f]" % (b1lo, b1hi),
          b1lo is not None and (b1lo > 0 or b1hi < 0)),
-        ("D7", "declared, not a gate: the gradient survives inside non-negative scores, so "
-               "it is not downvotes earned by being closed",
+        ("D7", "declared, not a gate: within the tail the peak is at score 0, not at the "
+               "most-downvoted, so closure earning its own downvotes does not explain the "
+               "whole gradient — and the tail never reaches score +1, which is why it cannot",
          "; ".join("%s %d/%d=%s" % (k, v["dup"], v["n"],
                                     "-" if v["rate"] is None else "%.3f" % v["rate"])
                    for k, v in d["d7"].items()), None),

@@ -257,7 +257,7 @@
    "detail": "s<=-3 61/650=0.094; -2..0 37/75=0.493; 1..2 0/0=-; s>=3 0/0=-",
    "name": "D7",
    "outcome": null,
-   "rule": "declared, not a gate: the gradient survives inside non-negative scores, so it is not downvotes earned by being closed"
+   "rule": "declared, not a gate: within the tail the peak is at score 0, not at the most-downvoted, so closure earning its own downvotes does not explain the whole gradient \u2014 and the tail never reaches score +1, which is why it cannot"
   }
  ],
  "matched": {
