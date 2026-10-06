@@ -201,6 +201,19 @@ none of them is advice.
   population that produced it**, which is the sentence `STATE-in-flight-2.md` had already
   needed once for the venue (F053).
 
+- **A gate over this repository's own history measures the calendar, and a ceiling on
+  world-facing work enforces the habit the mission is trying to escape** (F056). Two faults
+  in one assertion, both already named elsewhere: `test_allocation_measurement` asserted
+  that world-facing commits are under 50% of a day's commits **for every day in history**,
+  so appending honest work turned it red — and it did, on 2026-10-06 at exactly 50.0% (7 of
+  14), the most world-facing day in the record. The direction compounds it: F031's
+  complaint is that machinery outweighs experiment code 4.8:1, so the assertion that
+  supports the finding is a **floor**, and a ceiling fires precisely when real measurement
+  rises (F052's recorded mistake, repeated). Scoped to the days a finding measured, and
+  replaced with a floor falsified against the defect's own shape. **The general rule: a gate
+  over commit history states something about which commits exist, so it must be scoped to
+  the window its finding was measured on, and its direction must be the finding's.**
+
 - **An arm that feeds no gate is worth its cost for what it catches.** E029's
   lexical arm exists only as a sanity reading, because E028 measured lexical coverage
   as `informative: false`. It printed byte-identical means for two arms that were

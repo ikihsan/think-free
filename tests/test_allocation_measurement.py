@@ -191,18 +191,31 @@ class RealRepositoryTest(unittest.TestCase):
         # environment being the calendar again — a gate reading a property of the
         # record rather than of the artefact — and the repair is to name the two
         # days the finding measured, not to relax the direction.
-        days = sorted(per_day)
-        self.assertGreaterEqual(len(days), 2,
-                                "expected at least two days of history")
-        for day in days:
-            self.assertLess(
-                100.0 * per_day[day]["world"] / per_day[day]["commits"], 50.0,
-                "%s: world-facing measurement is a minority of that day's commits" % day)
+        # F025's two days, and only those two, are asserted. The previous
+        # version looped over *every* day in history, which is the same defect the
+        # direction assertion below documents having already been repaired once:
+        # the per-day share is a property of the calendar, so appending an honest
+        # day's commits can turn the gate red without any artefact changing. It
+        # did exactly that on 2026-10-06, when E033 made the world-facing share
+        # 7 of 14 = 50.0% and a rule requiring world-facing work to be a
+        # *minority* failed the most world-facing day in the record.
+        #
+        # That direction is also the wrong one to hold a repository to, and the
+        # file already says so about the ratio ceiling below: F031's complaint was
+        # that machinery outweighed experiment code 4.8:1, so a gate that fires
+        # when world-facing work *rises* enforces the thing the mission is trying
+        # to escape. `assert_the_world_share_is_not_dominated_by_prose` is the
+        # assertion in the direction the finding actually supports, and it is
+        # falsified against F031's own bytes.
         first, second = "2026-10-03", "2026-10-04"
         for day in (first, second):
             self.assertIn(day, per_day,
                           "F025 was measured over %s and %s; a re-derivation needs both"
                           % (first, second))
+        for day in (first, second):
+            self.assertLess(
+                100.0 * per_day[day]["world"] / per_day[day]["commits"], 50.0,
+                "%s: world-facing measurement is a minority of F025's measured days" % day)
         first_share = 100.0 * per_day[first]["world"] / per_day[first]["commits"]
         second_share = 100.0 * per_day[second]["world"] / per_day[second]["commits"]
         self.assertLess(second_share, first_share,
@@ -268,6 +281,7 @@ class RatioCeilingTest(unittest.TestCase):
         self.assertGreater(F031_MEASURED_RATIO, 1.0,
                            "if this ever fails, `ratio > 1.0` was not the blind "
                            "rule and this comment is wrong")
+
 
 
 if __name__ == "__main__":

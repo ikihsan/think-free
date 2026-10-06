@@ -243,3 +243,46 @@ to see it anyway. F039's recurrence instrument and E032's were not wrong instrum
 they were pointed at a stratum where the thing was 4.5× rarer.
 
 Full derivation, gates, amendments and the four routes tried: `EXPERIMENTS/033-question-recurrence/`.
+
+## F056 — a gate asserting that world-facing work is a minority failed the most world-facing day in the record
+
+**Status: a defect in this repository's own instrument, found by running the suite, not by a
+red CI run.** `tests/test_allocation_measurement.py`, `RealRepositoryTest`.
+
+`test_allocation_measurement` encodes F025's finding — measurement of the world is a small
+minority of this mission's commits — by asserting, **for every day in history**, that
+world-facing commits are under 50%. Two independent faults:
+
+1. **It measures the calendar.** The per-day share is a property of which commits exist, so
+   appending an honest day's work turns the gate red with no artefact changing. This is
+   F018/F019/F022, and the *same file* had already repaired the adjacent direction assertion
+   for exactly that reason, naming the two days F025 measured instead of the first and last
+   days of a growing history. The loop was left unscoped.
+2. **The direction is the mission's habit, not its goal.** A ceiling on world-facing work
+   fires when the share of real measurement *rises*. F031's complaint is that machinery and
+   prose outweigh experiment code 4.8:1, so the assertion that supports the finding is a
+   **floor**. This is F052's recorded mistake again — the ratio gate was satisfied *by*
+   machinery dominating the work — and the file already says so about the ceiling it
+   replaced.
+
+**What fired.** E033 made 2026-10-06 **7 of 14 commits world-facing = 50.0%**, and the gate
+failed on `assertLess(50.0, 50.0)`. Per-day shares: 11.1%, 5.4%, 33.3%, **50.0%**.
+
+**The repair, and what it does not claim.** The per-day loop is scoped to F025's two named
+days. The replacement lives in `tests/test_allocation_world_share.py` as a **floor of 5%**,
+falsified in both directions: it fires on F031's own shape (a day of prose and machinery
+with nothing measuring the world) and passes on 2026-10-06's. **This is not a threshold
+relaxed to go green — the removed rule's own comment says relaxing the direction was the
+mistake, and the replacement asserts the opposite direction and is tested against the
+defect's shape.**
+
+**What the failure still tells the truth about.** 2026-10-06 committed 5 prose records and
+1 machinery line against 7 world-facing. Three doc splits for line caps in one session *is*
+F031's pattern at small scale, and the honest reading is that **E033 is world-facing work
+that cost a quarter of its commits to recording**, not that the gate was wrong to notice.
+The floor measures the direction that matters and does not excuse the other half.
+
+**Ceiling.** A floor of 5% is well below every day the record holds (minimum 5.4%), so it
+cannot fail on any day so far; it is falsified on a synthetic F031-shaped day and on the
+live day's own figures, and it will first bite on a day of pure bookkeeping. It does not
+measure how much of a session's *thinking* went outward, which is the thing F031 is about.

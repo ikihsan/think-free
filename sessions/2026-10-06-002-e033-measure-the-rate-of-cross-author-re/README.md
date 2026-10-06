@@ -74,6 +74,15 @@ _(none recorded)_
 | STATE-next-actions.md | 55174c943acf | 15928 |
 | EXPERIMENTS/README.md | 0939cc9436b7 | 6630 |
 | ROADMAP.md | e0038d82a9b8 | 13859 |
+| tests/test_allocation_world_share.py | 8fa70bbfc0d1 | 3443 |
+| tests/test_allocation_measurement.py | 571c015613ea | 14668 |
+| tests/README.md | e6aa5a8d5316 | 30964 |
+| FAILURES-findings-22.md | 6650d71e04aa | 16922 |
+| FAILURES.md | 81bcad70d4d1 | 24549 |
+| STATE.md | f657e4589cf9 | 34222 |
+| STATE-constraints.md | e04df7b7bafa | 16013 |
+| EXPERIMENTS/033-question-recurrence/README.md | 199ec33eaf82 | 10599 |
+| EXPERIMENTS/033-question-recurrence/PROTOCOL.md | 760b64aeb192 | 17809 |
 
 ## Commands
 
@@ -145,18 +154,18 @@ _(none recorded)_
 | 38 | 03:27:47 | artifact | wrote STATE-next-actions.md |
 | 39 | 03:27:48 | artifact | wrote STATE-next-actions-closed.md |
 | 40 | 03:27:48 | artifact | wrote STATE-constraints.md |
-| 53 | 03:45:55 | artifact | wrote STATE-in-flight-2.md |
-| 54 | 03:55:27 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
-| 55 | 03:55:31 | artifact | wrote EXPERIMENTS/033-question-recurrence/PROTOCOL.md |
-| 56 | 03:55:34 | artifact | wrote FAILURES-findings-22.md |
-| 57 | 03:55:37 | artifact | wrote FAILURES.md |
-| 58 | 03:55:41 | artifact | wrote STATE-in-flight-2.md |
-| 59 | 03:55:46 | artifact | wrote STATE-next-actions.md |
-| 60 | 03:55:50 | artifact | wrote EXPERIMENTS/README.md |
-| 61 | 03:55:53 | artifact | wrote ROADMAP.md |
-| 62 | 03:55:56 | milestone | F055 corrected: D9 withdrawn as mechanical (0 of 54 duplicates has an accepted answer) and AMENDMENT-1's window rationale shown false; AMENDMENT-3 rec |
+| 63 | 04:53:11 | artifact | wrote tests/test_allocation_world_share.py |
+| 64 | 04:53:12 | artifact | wrote tests/test_allocation_measurement.py |
+| 65 | 04:53:12 | artifact | wrote tests/README.md |
+| 66 | 04:53:13 | artifact | wrote FAILURES-findings-22.md |
+| 67 | 04:53:14 | artifact | wrote FAILURES.md |
+| 68 | 04:53:15 | artifact | wrote STATE.md |
+| 69 | 04:53:15 | artifact | wrote STATE-constraints.md |
+| 70 | 04:53:16 | artifact | wrote EXPERIMENTS/033-question-recurrence/README.md |
+| 71 | 04:53:17 | artifact | wrote EXPERIMENTS/033-question-recurrence/PROTOCOL.md |
+| 72 | 04:53:18 | milestone | 799 tests green; F056 recorded: the per-day world-share gate measured the calendar and had the wrong direction |
 
-_12 middle events omitted; see `events.jsonl`._
+_22 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
