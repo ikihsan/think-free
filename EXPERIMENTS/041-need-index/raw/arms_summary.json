@@ -1,35 +1,35 @@
 {
- "arms_sha256": "cb52498e9185a37fa8a90a6775283075592b0343f33fe1c985657531122fbee1",
- "corpus_rows": 44669,
- "corpus_rows_by_repo": {
-  "buchochelliq-labs/rs-rich-cli": 464,
-  "d3/d3": 2247,
-  "jupyter/notebook": 5068,
-  "michalwidera/retractordb": 199,
-  "pallets/click": 1809,
-  "pl0n3r/brvtal": 448,
-  "pmxt-dev/pmxt": 2183,
-  "psf/requests": 4184,
-  "pytest-dev/pytest": 6415,
-  "rust-lang/cargo": 8316,
-  "scrapy/scrapy": 3306,
-  "vuejs/vue": 10030
- },
- "corpus_sha256": "6f7b66d44a4ca01ab5392a3cd882fb69a09990b8f5fc7bed8652d7cafac59f22",
- "dropped": {
-  "no_parseable_ref": 643,
-  "target_is_self": 1,
-  "target_missing_title": 0,
-  "target_not_in_corpus": 10
- },
- "duplicate_labelled_in_corpus": 731,
- "pairs_P": 77,
- "pairs_by_stratum": {
-  "S-easy": 63,
-  "S-hard": 14
- },
- "repos_excluded_automation": [
-  "douglasjarquin/oigo",
-  "unvde/CP3407-Assessment"
- ]
+  "arms_sha256": "cb52498e9185a37fa8a90a6775283075592b0343f33fe1c985657531122fbee1",
+  "corpus_rows": 44669,
+  "corpus_rows_by_repo": {
+    "buchochelliq-labs/rs-rich-cli": 464,
+    "d3/d3": 2247,
+    "jupyter/notebook": 5068,
+    "michalwidera/retractordb": 199,
+    "pallets/click": 1809,
+    "pl0n3r/brvtal": 448,
+    "pmxt-dev/pmxt": 2183,
+    "psf/requests": 4184,
+    "pytest-dev/pytest": 6415,
+    "rust-lang/cargo": 8316,
+    "scrapy/scrapy": 3306,
+    "vuejs/vue": 10030
+  },
+  "corpus_sha256": "1d7feabc164f71d01039e0a7193609de8ad04dcf726ff1840e5e1176443510ca",
+  "dropped": {
+    "no_parseable_ref": 643,
+    "target_is_self": 1,
+    "target_missing_title": 0,
+    "target_not_in_corpus": 10
+  },
+  "duplicate_labelled_in_corpus": 731,
+  "pairs_P": 77,
+  "pairs_by_stratum": {
+    "S-easy": 63,
+    "S-hard": 14
+  },
+  "repos_excluded_automation": [
+    "douglasjarquin/oigo",
+    "unvde/CP3407-Assessment"
+  ]
 }

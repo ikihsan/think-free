@@ -214,6 +214,15 @@ python3 EXPERIMENTS/041-need-index/verify_manifest.py    # digests and counts fr
 `verify_manifest.py` recomputes both input digests and re-derives the pair count and
 its stratum split from `raw/corpus.jsonl`, exiting 3 on any difference. It passes.
 
+**2026-10-06 note:** `raw/corpus.jsonl` is the capture *as published here*: every
+credential-shaped substring the repository's own scanner forbids (assigned
+credentials, AWS/GCP/OpenAI/GitHub-App patterns inside quoted issue text) was
+replaced with `<REDACTED:pattern>` before publication, and
+`raw/arms_summary.json`'s `corpus_sha256` was recomputed from the redacted bytes.
+Row counts, pair counts and stratum splits were re-derived from the bytes; the
+gate numbers in this README are statements about the pre-redaction capture, and
+the redaction touches issue *body* text, not counts, arm definitions or thresholds.
+
 ## Honest limitations
 
 - **The positive population is 77 pairs** from 11 repositories, 63 of them S-easy.
