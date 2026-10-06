@@ -2741,3 +2741,21 @@ Ran 799 tests in 644.187s
 OK
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 644972  redactions: none
+==============================================================================
+[seq 99] 2026-10-06T06:07:53+00:00
+$ bash -c git add -A && git commit -q -m "D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate about a relation is a partition or a statistic
+
+Two decisions from E034, in DECISIONS-SCREENING-6.md. D063: closed_reason carries ten
+literals and exact duplicate (9 rows) is the legacy spelling of Duplicate (225), so every
+enumeration rate in this record is a floor -- including E033 published 0.0540. D064: the
+R2 gate E034 declared before its fetch asked whether one tag was disjoint from BOTH math
+tags and overlapping A math tag; both were true, so it could not return one answer. The
+fix is a count over the whole relation, not a predicate over a chosen subset.
+
+Three lists name this repository decision files and all three now name part 6; the suite
+caught that on the way (test_decision_files, 799 green)." && git log --oneline -1
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+d3e8a02 D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate about a relation is a partition or a statistic
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 400  redactions: none

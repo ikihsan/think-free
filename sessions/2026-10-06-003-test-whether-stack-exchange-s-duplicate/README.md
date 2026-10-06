@@ -65,7 +65,7 @@ _(none recorded)_
 
 ## Commands
 
-54 captured, 24 non-zero exit.
+55 captured, 24 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
@@ -164,7 +164,6 @@ _(none recorded)_
 | 38 | 05:20:41 | command | $ python3 EXPERIMENTS/034-reask-tail/reask.py report |
 | 39 | 05:20:53 | command | $ python3 EXPERIMENTS/034-reask-tail/tally.py --check |
 | 40 | 05:43:23 | artifact | wrote EXPERIMENTS/034-reask-tail/PROTOCOL.md |
-| 89 | 06:02:19 | command | $ python3 EXPERIMENTS/034-reask-tail/tally.py --gates |
 | 90 | 06:02:35 | artifact | wrote EXPERIMENTS/034-reask-tail/reask.py |
 | 91 | 06:02:36 | artifact | wrote EXPERIMENTS/034-reask-tail/harvest.py |
 | 92 | 06:02:37 | artifact | wrote EXPERIMENTS/034-reask-tail/measures.py |
@@ -174,8 +173,9 @@ _(none recorded)_
 | 96 | 06:02:39 | artifact | wrote EXPERIMENTS/034-reask-tail/README.md |
 | 97 | 06:02:40 | note | The refactor that split reask.py and tally.py in two introduced a real defect, found by re-running the gates: reask.load() returns every sample, so th |
 | 98 | 06:05:41 | command | $ bash -c cd /home/ubuntu/think-free && PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
+| 99 | 06:07:53 | command | $ bash -c git add -A && git commit -q -m "D063/D064: an enumerated field is a set of literals and an absent key must mean inapplicable; a gate |
 
-_48 middle events omitted; see `events.jsonl`._
+_49 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
