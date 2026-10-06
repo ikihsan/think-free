@@ -97,6 +97,32 @@ E031's actual rule, imported from E031's own module, before any pair existed.
 Had it not been caught, the run would have changed two variables at once and the
 comparison it exists to make would have been void.
 
+## The gap this session's own record left, reconciled here
+
+`session finish` reported **22 undeclared file changes** for session
+`2026-10-06-001` and listed 10 of them. **A closed event stream is not edited**,
+and `session artifact` refuses a closed session, so the reconciliation is written
+here — which is where the next reader of this experiment arrives, the same repair
+`EXPERIMENTS/017-incumbent-artifact-type/README.md` made for the same reason.
+
+The cause is not a defect in the tooling and the report is honest about it: the
+protocol requires an artifact event for every raw capture, and this session
+recorded five digests *after* closing rather than as it went. The complete set of
+22 paths is this directory's 20 files — `PROTOCOL.md`, `README.md`, `VENUE.md`,
+four scripts, the four label files, the six raw files, and the five sheet files —
+plus `FAILURES-findings-22.md`, `FAILURES.md`, `RELEASE-MANIFEST.md`, `ROADMAP.md`,
+`STATE.md`, `STATE-next-actions.md`, `STATE-in-flight-2.md` and `docs/INDEX.md`.
+
+**What the digests that were recorded do cover**, and they are the ones that carry
+the run: `README.md` `b4e5e7229625`, `PROTOCOL.md` `ff82d98436ef`,
+`raw/tally.json` `17b5b7b4ae52`, `FAILURES-findings-22.md` `cb7bb2b80f9f`,
+`STATE-in-flight-2.md` `9d50285b56fb`. The three blinded sheets also carry a
+digest each **inside** `sheets/MANIFEST.json`, which every reader was handed before
+it read anything — so the reader/sheet binding is verifiable from committed bytes
+without the session stream at all. **The forward-looking rule this session broke
+and should not again: record the artifact event when the file is written, because
+the stream cannot be repaired afterwards.**
+
 ## Honest limitations
 
 - **28 clauses.** Two people needing the same capability twice must both land in

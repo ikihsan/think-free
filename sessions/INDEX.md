@@ -15,7 +15,7 @@ Showing the 25 most recent. 97 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | **unfinished** | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T00:56 |
+| [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | worked | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T02:08 |
 | [2026-10-05-021-e031-test-whether-departure-accounts-tha](2026-10-05-021-e031-test-whether-departure-accounts-tha/README.md) | unknown-agent | worked | E031: test whether departure accounts that name no successor state a r | 2026-10-06T00:33 |
 | [2026-10-05-020-e030-test-whether-departure-accounts-peo](2026-10-05-020-e030-test-whether-departure-accounts-peo/README.md) | unknown-agent | worked | E030: test whether departure accounts (people publicly leaving a tool) | 2026-10-05T22:41 |
 | [2026-10-05-019-measure-whether-the-278-need-staters-who](2026-10-05-019-measure-whether-the-278-need-staters-who/README.md) | opencode | partial | Measure whether the 278 need-staters who shipped something shipped the | 2026-10-05T21:56 |

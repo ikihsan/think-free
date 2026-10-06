@@ -10,10 +10,10 @@ last-verified: 2026-10-06
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-06T00:56:15+00:00
-- **Duration:** ?s
+- **Duration:** 4309.1s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,11 +23,26 @@ E032: test whether the mission's three-zero recurrence result is a fact about pu
 
 ## Summary
 
-_(none recorded)_
+F053 from primary sources: all 3,856 comment ids behind F039/F042/F043/F049/F051 are Hacker News, and four of five experiments re-read E012's single 1401-comment file at 100% id overlap, so 'three populations, three instruments, three zeros' was two corpora on one platform and the generalisation to public conversation was not carried by its evidence. E032 then changed the venue and nothing else - 60 long-form questions from three non-programming Stack Exchange sites, selected with no requirement vocabulary, against E031's own linkage rule imported from its module, its reader-adjudicated control and all four instrument gates - and got 0 of 32 candidate pairs and 0 of 60 control pairs, difference 0.0000 CI95 [-0.0602, +0.1072], with A2 reachable at 32 candidates against 1.19 chance, kappa 0.8344, 0/24 nonsense, 0/10 negatives, 20/20 positives. The zero is not Hacker News's length, unit, population or vocabulary selection; it is a bound of 0.0894 here and 0.0223 pooled with E031. Two of this run's own instrument defects were caught by running the step rather than by a reader's account. 796 tests green, doc lint, release check and preflight OK.
+
+## Next
+
+Item 0 is still an owner decision and is now the only thing blocking stage C: none of prior art, star-shaped adoption, or harvested recurrence can carry candidate selection (F034, F037, F041, F048), the demand side's recurrence zero is bounded at 0.0223 across two venue classes (F054), and F044 counted prior art as a plurality not a majority with a second option behind it - promote fewer claims and price each gate before promoting it. If a second venue class beyond long-form English Q&A is wanted, E032's ceiling names it: 28 clauses, one platform, one era.
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/032-venue-recurrence/README.md | b4e5e7229625 | 7175 |
+| EXPERIMENTS/032-venue-recurrence/PROTOCOL.md | ff82d98436ef | 8876 |
+| EXPERIMENTS/032-venue-recurrence/VENUE.md | c91822459a86 | 2685 |
+| EXPERIMENTS/032-venue-recurrence/raw/tally.json | 17b5b7b4ae52 | 1941 |
+| FAILURES-findings-22.md | cb7bb2b80f9f | 9293 |
+| EXPERIMENTS/032-venue-recurrence/README.md | b4e5e7229625 | 7175 |
+| EXPERIMENTS/032-venue-recurrence/PROTOCOL.md | ff82d98436ef | 8876 |
+| EXPERIMENTS/032-venue-recurrence/raw/tally.json | 17b5b7b4ae52 | 1941 |
+| FAILURES-findings-22.md | cb7bb2b80f9f | 9293 |
+| STATE-in-flight-2.md | 9d50285b56fb | 8842 |
 
 ## Commands
 
@@ -80,11 +95,20 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 22 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/extract.py |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/harvest.py |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/labels/q1_nonsense.tsv |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/labels/q1_reader1.tsv |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/labels/q1_reader2.tsv |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/labels/q2_pairs.tsv |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/link.py |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/raw/fetch_log.jsonl |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/raw/harvest.jsonl |
+|   undeclared | EXPERIMENTS/032-venue-recurrence/raw/link.json |
 
 ## Timeline
 
@@ -130,15 +154,18 @@ _none_
 | 38 | 01:37:03 | command | $ python3 EXPERIMENTS/032-venue-recurrence/tally.py --check |
 | 39 | 01:39:17 | task_rewrite | rewrote tasks/T-0076-e032-test-whether-the-mission-s-three-zero-recur.md (status: done) |
 | 40 | 01:39:18 | task_rewrite | appended a complete record for T-0076 |
-| 41 | 01:40:00 | command | $ tools/origin doc lint |
-| 42 | 01:40:26 | command | $ tools/origin doc lint |
-| 43 | 01:40:55 | command | $ tools/origin doc lint |
-| 44 | 01:41:19 | command | $ tools/origin doc lint |
-| 45 | 01:41:46 | command | $ tools/origin doc lint |
-| 46 | 01:42:16 | command | $ tools/origin doc lint |
-| 47 | 01:42:43 | command | $ tools/origin doc lint |
-| 48 | 01:44:17 | command | $ tools/origin release check |
-| 49 | 01:59:19 | command | $ bash -c PYTHONPATH=tools:tests timeout 900 python3 -m unittest discover -s tests -t tests 2>&1 \| grep -E "^(OK\|FAILED\|Ran )" \| tail -3 |
+| 76 | 02:08:04 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/032-venue-recurrence/tally.py |
+| 77 | 02:08:04 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 78 | 02:08:04 | unlogged_change | changed but never declared as an artifact: RELEASE-MANIFEST.md |
+| 79 | 02:08:04 | unlogged_change | changed but never declared as an artifact: ROADMAP.md |
+| 80 | 02:08:04 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 81 | 02:08:04 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 82 | 02:08:04 | doc_update | updated FAILURES.md |
+| 83 | 02:08:04 | doc_update | updated ROADMAP.md |
+| 84 | 02:08:04 | doc_update | updated STATE.md |
+| 85 | 02:08:04 | session_end | F053 from primary sources: all 3,856 comment ids behind F039/F042/F043/F049/F051 are Hacker News, and four of five experiments re-read E012's single 1 |
+
+_35 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 
