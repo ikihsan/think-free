@@ -163,132 +163,80 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0079-e035-establish-whether-the-score-tail-population.md`](../tasks/T-0079-e035-establish-whether-the-score-tail-population.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md`](../tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md`](../tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
-| [`tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md`](../tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
+| [`tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md`](../tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md) | `tasks/INDEX.md` | active | 2026-10-07 | # corpus needs three repositories, two of them clones, and a verify step that |
 | [`tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md`](../tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 
 ## RESEARCH
 
-| Document | Owner index | Status | Verified | Summary |
+| Directory | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
-| [`RESEARCH/A.md`](../RESEARCH/A.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/B.md`](../RESEARCH/B.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/C.md`](../RESEARCH/C.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/D.md`](../RESEARCH/D.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/E.md`](../RESEARCH/E.md) | `RESEARCH.md` | sealed | 2026-10-03 | Independent report. Written 2026-10-03 after reading MISSION.md only. The |
-| [`RESEARCH/EXPERIMENT-PROTOCOL.md`](../RESEARCH/EXPERIMENT-PROTOCOL.md) | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | The canonical text is now |
-| [`RESEARCH/F.md`](../RESEARCH/F.md) | `RESEARCH.md` | sealed | 2026-10-03 | Independent report. Written 2026-10-03 after reading MISSION.md only; |
-| [`RESEARCH/PRIOR-ART-KNITTING.md`](../RESEARCH/PRIOR-ART-KNITTING.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/PRIOR-ART-ORIGIN.md`](../RESEARCH/PRIOR-ART-ORIGIN.md) | `RESEARCH.md` | sealed | 2026-10-04 | Written 2026-10-04, session 2026-10-04-045. Follows the method of |
-| [`RESEARCH/README.md`](../RESEARCH/README.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/ROOT-SCOUTING.md`](../RESEARCH/ROOT-SCOUTING.md) | `RESEARCH.md` | sealed | 2026-10-03 | owner: RESEARCH.md |
-| [`RESEARCH/SYNTHESIS.md`](../RESEARCH/SYNTHESIS.md) | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
+| `RESEARCH/A.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/B.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/C.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/D.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/E.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/EXPERIMENT-PROTOCOL.md/` | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | 1 documents |
+| `RESEARCH/F.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/PRIOR-ART-KNITTING.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/PRIOR-ART-ORIGIN.md/` | `RESEARCH.md` | sealed | 2026-10-04 | 1 documents |
+| `RESEARCH/README.md/` | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
+| `RESEARCH/ROOT-SCOUTING.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/SYNTHESIS.md/` | `RESEARCH.md` | active | 2026-10-03 | 1 documents |
 
 ## EXPERIMENTS
 
-| Document | Owner index | Status | Verified | Summary |
+| Directory | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
-| [`EXPERIMENTS/000-capabilities/README.md`](../EXPERIMENTS/000-capabilities/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/001-photo-baseline/README.md`](../EXPERIMENTS/001-photo-baseline/README.md) | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/002-a1-masking/README.md`](../EXPERIMENTS/002-a1-masking/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
-| [`EXPERIMENTS/003-information-sufficiency/README.md`](../EXPERIMENTS/003-information-sufficiency/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
-| [`EXPERIMENTS/004-knitting-stage-a/README.md`](../EXPERIMENTS/004-knitting-stage-a/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | The knitting repair candidate's own Stage-A test (HYPOTHESES.md): does a cheap |
-| [`EXPERIMENTS/005-knitting-bounded-search/README.md`](../EXPERIMENTS/005-knitting-bounded-search/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Follow-up to EXPERIMENTS/004-knitting-stage-a (T-0010), testing the repair |
-| [`EXPERIMENTS/006-ventilation-measurement-design/README.md`](../EXPERIMENTS/006-ventilation-measurement-design/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | RESEARCH/C.md hypothesis 2, run as its own predeclared kill gate (T-0014). |
-| [`EXPERIMENTS/007-build-timestamps/README.md`](../EXPERIMENTS/007-build-timestamps/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | E3's build-timestamp census: RESEARCH/E.md's smallest falsifying experiment |
-| [`EXPERIMENTS/008-build-timestamp-attribution/README.md`](../EXPERIMENTS/008-build-timestamp-attribution/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-03 | Task T-0017. The second half of E3's own falsifying experiment: build the same |
-| [`EXPERIMENTS/009-lockfile-drift-snapshot/README.md`](../EXPERIMENTS/009-lockfile-drift-snapshot/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/010-annotation-rendering/README.md`](../EXPERIMENTS/010-annotation-rendering/README.md) | `EXPERIMENTS/README.md` | active | 2026-10-04 | Task T-0046. Does GitHub file a check-run annotation on the workflow command's |
-| [`EXPERIMENTS/011-niche-adoption-census/README.md`](../EXPERIMENTS/011-niche-adoption-census/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/012-candidate-harvest/README.md`](../EXPERIMENTS/012-candidate-harvest/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/013-prior-art-predicts-adoption/README.md`](../EXPERIMENTS/013-prior-art-predicts-adoption/README.md) | `docs/INDEX.md` | active | 2026-10-04 | F027 and F028 counted stars. This counts installs, because "does prior |
-| [`EXPERIMENTS/014-repository-signal-filter/README.md`](../EXPERIMENTS/014-repository-signal-filter/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/015-incumbent-serving/README.md`](../EXPERIMENTS/015-incumbent-serving/README.md) | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/016-prior-art-adjudication/README.md`](../EXPERIMENTS/016-prior-art-adjudication/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md`](../EXPERIMENTS/017-incumbent-artifact-type/PROTOCOL.md) | `EXPERIMENTS/017-incumbent-artifact-type/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/017-incumbent-artifact-type/README.md |
-| [`EXPERIMENTS/017-incumbent-artifact-type/README.md`](../EXPERIMENTS/017-incumbent-artifact-type/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/018-runtime-signal-selection/README.md`](../EXPERIMENTS/018-runtime-signal-selection/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/019-corpus-person-diversity/README.md`](../EXPERIMENTS/019-corpus-person-diversity/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/020-copied-config-drift/README.md`](../EXPERIMENTS/020-copied-config-drift/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. Verdict: inconclusive, and two figures retracted. |
-| [`EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md`](../EXPERIMENTS/021-copied-artifact-serving/PROTOCOL.md) | `EXPERIMENTS/021-copied-artifact-serving/README.md` | active | 2026-10-05 | owner: EXPERIMENTS/021-copied-artifact-serving/README.md |
-| [`EXPERIMENTS/021-copied-artifact-serving/README.md`](../EXPERIMENTS/021-copied-artifact-serving/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/022-need-outcomes/PROTOCOL.md`](../EXPERIMENTS/022-need-outcomes/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Written 2026-10-05, before any outcome was observed. T-0066. |
-| [`EXPERIMENTS/022-need-outcomes/README.md`](../EXPERIMENTS/022-need-outcomes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/023-served-baseline/PROTOCOL.md`](../EXPERIMENTS/023-served-baseline/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Written 2026-10-05, before any reply was read for this experiment. T-0067. |
-| [`EXPERIMENTS/023-served-baseline/README.md`](../EXPERIMENTS/023-served-baseline/README.md) | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/024-kill-reason-causes/CONTROL.md`](../EXPERIMENTS/024-kill-reason-causes/CONTROL.md) | `docs/INDEX.md` | active | 2026-10-05 | observed 2026-10-05, T-0068. Run before any row of the treatment |
-| [`EXPERIMENTS/024-kill-reason-causes/PROTOCOL.md`](../EXPERIMENTS/024-kill-reason-causes/PROTOCOL.md) | `docs/INDEX.md` | active | 2026-10-05 | Date declared: 2026-10-05, before any row of the candidate inventory was |
-| [`EXPERIMENTS/024-kill-reason-causes/README.md`](../EXPERIMENTS/024-kill-reason-causes/README.md) | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. T-0068. The declaration was written before any row was |
-| [`EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md`](../EXPERIMENTS/025-need-staters-builderhood/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before the first author is fetched. Task T-0069. |
-| [`EXPERIMENTS/025-need-staters-builderhood/README.md`](../EXPERIMENTS/025-need-staters-builderhood/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0069. Protocol written before the first fetch: |
-| [`EXPERIMENTS/026-unserved-need-structure/PROTOCOL.md`](../EXPERIMENTS/026-unserved-need-structure/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before the first text fetch. Task T-0070. |
-| [`EXPERIMENTS/026-unserved-need-structure/README.md`](../EXPERIMENTS/026-unserved-need-structure/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/027-cause-of-death-reread/PROTOCOL.md`](../EXPERIMENTS/027-cause-of-death-reread/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/027-cause-of-death-reread/README.md`](../EXPERIMENTS/027-cause-of-death-reread/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05 after reading the two captures' structure and after one |
-| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, before either reader ran and before any label exists. |
-| [`EXPERIMENTS/028-incumbent-fit/PROTOCOL.md`](../EXPERIMENTS/028-incumbent-fit/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Written 2026-10-05, task T-0072, before any label was produced and before any |
-| [`EXPERIMENTS/028-incumbent-fit/README.md`](../EXPERIMENTS/028-incumbent-fit/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0072. Protocol declared before any label and |
-| [`EXPERIMENTS/028-incumbent-fit/RUBRIC.md`](../EXPERIMENTS/028-incumbent-fit/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Given to both readers, unchanged, before either ran. The labels are the whole |
-| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/029-need-build-match/PROTOCOL.md`](../EXPERIMENTS/029-need-build-match/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/029-need-build-match/README.md`](../EXPERIMENTS/029-need-build-match/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0073. Protocol declared before the first fetch |
-| [`EXPERIMENTS/029-need-build-match/RUBRIC.md`](../EXPERIMENTS/029-need-build-match/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-4.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-5.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-6.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-7.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-8.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL-AMENDMENT-9.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/PROTOCOL.md`](../EXPERIMENTS/030-departure-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/030-departure-recurrence/README.md`](../EXPERIMENTS/030-departure-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0074. Protocol declared in |
-| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-1.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-2.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-3.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-4.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL-AMENDMENT-4.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md`](../EXPERIMENTS/031-unfilled-requirement/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/README.md`](../EXPERIMENTS/031-unfilled-requirement/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/031-unfilled-requirement/RUBRIC.md`](../EXPERIMENTS/031-unfilled-requirement/RUBRIC.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/032-venue-recurrence/PROTOCOL.md`](../EXPERIMENTS/032-venue-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/032-venue-recurrence/README.md`](../EXPERIMENTS/032-venue-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/032-venue-recurrence/VENUE.md`](../EXPERIMENTS/032-venue-recurrence/VENUE.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/033-question-recurrence/API.md`](../EXPERIMENTS/033-question-recurrence/API.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/033-question-recurrence/PROTOCOL.md`](../EXPERIMENTS/033-question-recurrence/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/033-question-recurrence/README.md`](../EXPERIMENTS/033-question-recurrence/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/034-reask-tail/PROTOCOL.md`](../EXPERIMENTS/034-reask-tail/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/034-reask-tail/README.md`](../EXPERIMENTS/034-reask-tail/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/035-unanswered-surface/PROTOCOL.md`](../EXPERIMENTS/035-unanswered-surface/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Declared 2026-10-06 in session 2026-10-06-004, after the §2 feasibility probes and |
-| [`EXPERIMENTS/035-unanswered-surface/README.md`](../EXPERIMENTS/035-unanswered-surface/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-004, VM instance-20260717-0944. Protocol: |
-| [`EXPERIMENTS/036-search-backlog/PROTOCOL.md`](../EXPERIMENTS/036-search-backlog/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Task T-0080. Protocol written before the second measurement request; one reachability |
-| [`EXPERIMENTS/036-search-backlog/README.md`](../EXPERIMENTS/036-search-backlog/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-005, VM instance-20260717-0944, 8 requests |
-| [`EXPERIMENTS/037-line-staging/README.md`](../EXPERIMENTS/037-line-staging/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-006, VM instance-20260717-0944, git 2.25.1, |
-| [`EXPERIMENTS/038-staging-prior-art/PROTOCOL.md`](../EXPERIMENTS/038-staging-prior-art/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Declared 2026-10-06, session 2026-10-06-009, before any request was sent. |
-| [`EXPERIMENTS/038-staging-prior-art/README.md`](../EXPERIMENTS/038-staging-prior-art/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-009, VM instance-20260717-0944, git 2.25.1, |
-| [`EXPERIMENTS/039-honest-exit/README.md`](../EXPERIMENTS/039-honest-exit/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Date: 2026-10-06. Status: complete. Verdict: the claim holds on all eight |
-| [`EXPERIMENTS/039-need-statement-response/PROTOCOL.md`](../EXPERIMENTS/039-need-statement-response/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Every declaration in this file was written before the population counts were |
-| [`EXPERIMENTS/039-need-statement-response/README.md`](../EXPERIMENTS/039-need-statement-response/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/040-agent-staging-loop/README.md`](../EXPERIMENTS/040-agent-staging-loop/README.md) | `docs/INDEX.md` | active | 2026-10-06 | E037 measured the interface cost of git add -p (a 133-line pty driver, 4 of 6); |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-1.md`](../EXPERIMENTS/041-need-index/AMENDMENT-1.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Written after the mechanism yield was read and before any similarity between |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-2.md`](../EXPERIMENTS/041-need-index/AMENDMENT-2.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Written after the screening pass returned its repositories and before any |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-3.md`](../EXPERIMENTS/041-need-index/AMENDMENT-3.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## point must reproduce E040's published number |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-4.md`](../EXPERIMENTS/041-need-index/AMENDMENT-4.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## to AMENDMENT-1's retry rule caused the failure it was meant to prevent |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-5.md`](../EXPERIMENTS/041-need-index/AMENDMENT-5.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Found by AMENDMENT-3's reproduction check, before any curve was computed. The |
-| [`EXPERIMENTS/041-need-index/AMENDMENT-7.md`](../EXPERIMENTS/041-need-index/AMENDMENT-7.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## would have printed a positive result as red |
-| [`EXPERIMENTS/041-need-index/PROTOCOL-scaling.md`](../EXPERIMENTS/041-need-index/PROTOCOL-scaling.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Split out of PROTOCOL.md on 2026-10-06 at its line cap, by invariant: that |
-| [`EXPERIMENTS/041-need-index/PROTOCOL.md`](../EXPERIMENTS/041-need-index/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Every gate, threshold, instrument parameter, arm definition and exclusion rule in |
-| [`EXPERIMENTS/041-need-index/README.md`](../EXPERIMENTS/041-need-index/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | control terms |
-| [`EXPERIMENTS/041-strongest-baseline/README.md`](../EXPERIMENTS/041-strongest-baseline/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-013, VM instance-20260717-0944, git 2.25.1, |
-| [`EXPERIMENTS/042-agent-staging-e2e/DESIGN.md`](../EXPERIMENTS/042-agent-staging-e2e/DESIGN.md) | `docs/INDEX.md` | active | 2026-10-06 | ## Goal |
-| [`EXPERIMENTS/042-agent-staging-e2e/README.md`](../EXPERIMENTS/042-agent-staging-e2e/README.md) | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
-| [`EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md`](../EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## Goal |
-| [`EXPERIMENTS/042-stg-end-to-end/README.md`](../EXPERIMENTS/042-stg-end-to-end/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
-| [`EXPERIMENTS/043-real-agent-staging/README.md`](../EXPERIMENTS/043-real-agent-staging/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-001, VM instance-20260717-0944, git 2.25.1, |
-| [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
-| [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/000-capabilities/` | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/001-photo-baseline/` | `EXPERIMENTS/PLAN.md` | sealed | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/002-a1-masking/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | Bounded A1 masking experiment over the PPNA Seattle crossings extract. |
+| `EXPERIMENTS/003-information-sufficiency/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | Applies the information-sufficiency witness (the cheap pre-implementation gate in |
+| `EXPERIMENTS/004-knitting-stage-a/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | The knitting repair candidate's own Stage-A test (HYPOTHESES.md): does a cheap |
+| `EXPERIMENTS/005-knitting-bounded-search/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | Follow-up to EXPERIMENTS/004-knitting-stage-a (T-0010), testing the repair |
+| `EXPERIMENTS/006-ventilation-measurement-design/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | RESEARCH/C.md hypothesis 2, run as its own predeclared kill gate (T-0014). |
+| `EXPERIMENTS/007-build-timestamps/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | E3's build-timestamp census: RESEARCH/E.md's smallest falsifying experiment |
+| `EXPERIMENTS/008-build-timestamp-attribution/` | `EXPERIMENTS/README.md` | active | 2026-10-03 | Task T-0017. The second half of E3's own falsifying experiment: build the same |
+| `EXPERIMENTS/009-lockfile-drift-snapshot/` | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| `EXPERIMENTS/010-annotation-rendering/` | `EXPERIMENTS/README.md` | active | 2026-10-04 | Task T-0046. Does GitHub file a check-run annotation on the workflow command's |
+| `EXPERIMENTS/011-niche-adoption-census/` | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| `EXPERIMENTS/012-candidate-harvest/` | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| `EXPERIMENTS/013-prior-art-predicts-adoption/` | `docs/INDEX.md` | active | 2026-10-04 | F027 and F028 counted stars. This counts installs, because "does prior |
+| `EXPERIMENTS/014-repository-signal-filter/` | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| `EXPERIMENTS/015-incumbent-serving/` | `docs/INDEX.md` | active | 2026-10-04 | owner: docs/INDEX.md |
+| `EXPERIMENTS/016-prior-art-adjudication/` | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| `EXPERIMENTS/017-incumbent-artifact-type/` | `EXPERIMENTS/017-incumbent-artifact-type/README.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| `EXPERIMENTS/018-runtime-signal-selection/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/019-corpus-person-diversity/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/020-copied-config-drift/` | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. Verdict: inconclusive, and two figures retracted. |
+| `EXPERIMENTS/021-copied-artifact-serving/` | `EXPERIMENTS/021-copied-artifact-serving/README.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| `EXPERIMENTS/022-need-outcomes/` | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| `EXPERIMENTS/023-served-baseline/` | `docs/INDEX.md` | active | 2026-10-05 | owner: docs/INDEX.md |
+| `EXPERIMENTS/024-kill-reason-causes/` | `docs/INDEX.md` | active | 2026-10-05 | Date: 2026-10-05. T-0068. The declaration was written before any row was |
+| `EXPERIMENTS/025-need-staters-builderhood/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0069. Protocol written before the first fetch: |
+| `EXPERIMENTS/026-unserved-need-structure/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/027-cause-of-death-reread/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/028-incumbent-fit/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0072. Protocol declared before any label and |
+| `EXPERIMENTS/029-need-build-match/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0073. Protocol declared before the first fetch |
+| `EXPERIMENTS/030-departure-recurrence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0074. Protocol declared in |
+| `EXPERIMENTS/031-unfilled-requirement/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/032-venue-recurrence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/033-question-recurrence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/034-reask-tail/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/035-unanswered-surface/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-004, VM instance-20260717-0944. Protocol: |
+| `EXPERIMENTS/036-search-backlog/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-005, VM instance-20260717-0944, 8 requests |
+| `EXPERIMENTS/037-line-staging/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-006, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/038-staging-prior-art/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-009, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/039-honest-exit/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | Date: 2026-10-06. Status: complete. Verdict: the claim holds on all eight |
+| `EXPERIMENTS/039-need-statement-response/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/040-agent-staging-loop/` | `docs/INDEX.md` | active | 2026-10-06 | E037 measured the interface cost of git add -p (a 133-line pty driver, 4 of 6); |
+| `EXPERIMENTS/041-need-index/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | control terms |
+| `EXPERIMENTS/041-strongest-baseline/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-013, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/042-agent-staging-e2e/` | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
+| `EXPERIMENTS/042-stg-end-to-end/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/043-real-agent-staging/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-001, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/046-real-changes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-06-016, VM instance-20260717-0947, |
+| `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
+| `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
 ## Generated maps
 

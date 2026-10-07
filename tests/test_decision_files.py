@@ -27,6 +27,10 @@ it earned the gate its keep a fourth time in exactly the same way.
 `DECISIONS-SCREENING-7.md` is the eleventh, added 2026-10-06 for D066–D067,
 and it earned it a fifth time: the file existed, all three lists did not name
 it, and this module failed with the file's name in the message.
+`DECISIONS-SCREENING-12.md` is the thirteenth, added 2026-10-07 for D075–D076,
+and it did the same thing a sixth time, on the first session that created a
+decision file after another VM had landed two in one sitting: `paths.py` was
+updated first and this module failed naming the file.
 
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
@@ -56,6 +60,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING-9.md",
     "DECISIONS-SCREENING-10.md",
     "DECISIONS-SCREENING-11.md",
+    "DECISIONS-SCREENING-12.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

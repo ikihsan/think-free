@@ -7,10 +7,12 @@ last-verified: 2026-10-06
 # E037 — line-addressable partial staging, `stage-lines` / `stg`
 
 **Status:** `mechanism` and `interface` **supported but narrower than first stated**,
-`usefulness` and `adoption` **measured but limited**, `mechanism_differentiation` **falsified by E041**.
+`usefulness` and `adoption` **measured but limited**, `mechanism_differentiation` **falsified by E041**,
+and the packaging claim **falsified on real input by E046** (four defects, all fixed).
 Candidate, not product. Started 2026-10-06, session 2026-10-06-006; revised by E038
 (F062–F064, D069) in session 2026-10-06-009; mechanism differentiation falsified by E041
 in session 2026-10-06-013. **KILL-Q evaluated: tool installable and functional, but demand at low rate (0.016-0.066 of matching GitHub issues, 2 named requesters in 589 need statements)**.
+Real-change corpus run by E046 (F076–F080, D075) in session 2026-10-06-016.
 
 ## Claim, as revised by E038
 
@@ -160,6 +162,10 @@ Remaining honest tests that do not need permission to contact strangers:
    and denominator controls, blocked only by a quota window.
 3. Only then, and only with authorisation, the named requesters cited in E038. **Contacting them
    is outside current permissions** and is not proposed here.
+
+## E046 — the packaging claim, measured on real changes, did not hold
+
+Full reading: [`HYPOTHESES-results-3.md`](HYPOTHESES-results-3.md).
 
 ## Mechanism, stated separately from usefulness
 

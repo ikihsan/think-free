@@ -12,6 +12,9 @@ Python 3.8.10. Raw evidence: [`raw/comparison.jsonl`](raw/comparison.jsonl),
 `python3 EXPERIMENTS/041-strongest-baseline/compare.py` and
 `python3 EXPERIMENTS/041-strongest-baseline/test_e038_cases.py`.
 
+The plan this experiment executed was written before the run and is kept at [`docs/2026-10-06-strongest-shell-baseline.md`](../../docs/2026-10-06-strongest-shell-baseline.md); it is linked from here because the generated `docs/INDEX.md` does not count as a link for the orphan rule.
+
+
 **Verdict: the strongest shell baseline (a Python script implementing the same
 pair-removes-with-adds splitting logic as `stg`) matches `stg` exactly and
 honestly on all E040 agent-style cases (5/5) and all E038 cases (30/30 across

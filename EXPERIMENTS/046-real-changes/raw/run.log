@@ -1,0 +1,13 @@
+positive control: 30/30 rows exact
+negative control: 17/17 wrong index states rejected (1 injections were not wrong and were skipped)
+
+verdict by stratum (address rows):
+  crlf               sound=27
+  many_hunks         sound=803
+  mode_change        sound=68
+  new_file           sound=435
+  no_final_newline   refused=1 sound=81
+  ordinary           sound=55
+  rename_modify      sound=145
+
+completeness: 81 of 81 applicable cases reproduce the post-image (0 not applicable, reason recorded per row)

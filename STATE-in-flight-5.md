@@ -112,3 +112,12 @@ untested and is the most plausible place `stg` still wins. An agent with only an
 edit tool and no diff access is a different population and is untested. The
 oracle was verified to discriminate on four routes but not against a second
 independent reader.
+
+## Where the other VM's task files are linked from
+
+[T-0073](tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md) and
+[T-0083](tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md) were
+committed without a hand-authored document naming them, and `doc lint`'s orphan
+rule does not count the generated `tasks/INDEX.md` as a link, so this file names
+them. Nothing about either task is asserted here; a task file that records its
+own goal and verify command does not need a second mention to be findable.

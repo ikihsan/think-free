@@ -29,6 +29,35 @@ ZONE_ORDER = [
     ("EXPERIMENTS", lambda p: p.parts[0] == "EXPERIMENTS"),
 ]
 
+# Zones whose members live one-per-directory, rolled up to the directory. An
+# experiment is looked up by name -- "what did 037 find" -- and its README is the
+# document; the other files are its parts. Listing all six separately made this
+# index the longest document in the repository and pushed it past the cap at 105
+# rows, a real cost paid for no gain in findability.
+ROLLED_UP = ("EXPERIMENTS", "RESEARCH")
+
+
+def _rollup_zone(group, root):
+    """One row per `zone/<name>/` directory, summarising what is inside it."""
+    dirs = {}
+    for path in group:
+        rel = path.relative_to(root)
+        dirs.setdefault(rel.parts[:2], []).append(path)
+    rows = []
+    for parts, members in sorted(dirs.items()):
+        meta = _meta_of(members[0])
+        readme = [m for m in members if m.name == "README.md"]
+        summary = (_first_paragraph(readme[0]) if readme
+                   else "%d documents" % len(members))
+        rows.append("| " + " | ".join([
+            "`%s/`" % "/".join(parts),
+            "`%s`" % meta.get("owner", "—"),
+            meta.get("status", "—"),
+            meta.get("last-verified", "—"),
+            summary,
+        ]) + " |")
+    return rows
+
 HEAD = """# Documentation index
 
 <!-- origin-meta
@@ -157,23 +186,28 @@ def render() -> str:
             continue
         lines.append(f"## {title}")
         lines.append("")
-        lines.append("| Document | Owner index | Status | Verified | Summary |")
-        lines.append("|---|---|---|---|---|")
-        for path in group:
-            meta = _meta_of(path)
-            lines.append(
-                "| "
-                + " | ".join(
-                    [
-                        _link(root, path, index_file),
-                        f"`{meta.get('owner', '—')}`",
-                        meta.get("status", "—"),
-                        meta.get("last-verified", "—"),
-                        _first_paragraph(path),
-                    ]
+        if title in ROLLED_UP:
+            lines.append("| Directory | Owner index | Status | Verified | Summary |")
+            lines.append("|---|---|---|---|---|")
+            lines.extend(_rollup_zone(group, root))
+        else:
+            lines.append("| Document | Owner index | Status | Verified | Summary |")
+            lines.append("|---|---|---|---|---|")
+            for path in group:
+                meta = _meta_of(path)
+                lines.append(
+                    "| "
+                    + " | ".join(
+                        [
+                            _link(root, path, index_file),
+                            f"`{meta.get('owner', '—')}`",
+                            meta.get("status", "—"),
+                            meta.get("last-verified", "—"),
+                            _first_paragraph(path),
+                        ]
+                    )
+                    + " |"
                 )
-                + " |"
-            )
         lines.append("")
     lines += ["## Generated maps", ""]
     lines += ["| Map | Purpose |", "|---|---|"]

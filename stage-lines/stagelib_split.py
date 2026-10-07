@@ -44,13 +44,27 @@ def _split_run(group, group_old, group_new):
                       new_start=group_new + new_at, new_lines=nnew,
                       body=body)
 
+    def is_noop(c):
+        """A pair that removes a line and adds the same line back.
+
+        git's `-U0` output pairs removes with adds positionally, and in a large
+        rewrite the pairing sometimes lands a line against itself: 9 of the 190
+        addresses in one real jq commit were `-` a blank line and `+` the same
+        blank line. Applying one leaves the index byte-identical to HEAD, and stg
+        exited 1 having printed `stage src/lexer.c:597` -- a success message for
+        nothing. An address that cannot change anything is not a change.
+        """
+        return c.removed == 1 and c.added == 1 and c.body[0][1:] == c.body[1][1:]
+
     nrem = sum(1 for l in content if l.startswith("-"))
     nadd = len(content) - nrem
     pairs = min(nrem, nadd)
     out = []
     for j in range(pairs):
         # remove j pairs with add j, and each pair is a hunk on its own
-        out.append(take([j, nrem + j], j, j))
+        c = take([j, nrem + j], j, j)
+        if not is_noop(c):
+            out.append(c)
     if nrem > nadd:
         # The surplus is a run of consecutive deletions, and it stays one change.
         # Each of them is addressed by the same line -- the line whose content moved

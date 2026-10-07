@@ -35,6 +35,7 @@ class FilePatch(object):
         self.header = header      # shared and still filling while parsing
         self.changes = changes
         self.new_nlines = None    # filled in by the caller, who knows the file
+        self._anchors = None      # filled in by anchors(), once per file
 
     @property
     def binary(self):
@@ -42,16 +43,60 @@ class FilePatch(object):
         return any(l.startswith("Binary files ") or l.startswith("GIT binary")
                    for l in self.header)
 
+    def anchors(self):
+        """change -> the line that names it, one line per change where possible.
+
+        A deletion has no line of its own: it is anchored to the line whose
+        content moved up, which is the next line in the file as it reads now.
+        That fallback can collide -- an insertion landing on exactly that line
+        gives one coordinate two changes, and `stg f:80` then staged an 8-line
+        deletion *and* a 1-line insertion while printing the coordinate twice.
+        Real commit, real corpus, `EXPERIMENTS/046-real-changes`.
+
+        So a deletion keeps its documented address -- the line whose content moved
+        up -- and only moves to the line above when that line is already spoken
+        for. Changes that occupy a line claim it first, because a line on disk is
+        evidence of what is there.
+        """
+        if self._anchors is None:
+            self._anchors = {}
+            taken = set()
+            for c in self.changes:
+                if c.kind == "delete":
+                    continue
+                a = max(1, c.new_start)
+                if a not in taken:
+                    self._anchors[id(c)] = a
+                    taken.add(a)
+            for c in self.changes:
+                if c.kind != "delete":
+                    continue
+                n = self.new_nlines
+                preferred = c.anchor(n)
+                free = [x for x in (preferred, c.new_start)
+                        if 1 <= x <= n and x not in taken]
+                a = free[0] if free else preferred
+                while a in taken and a > 1:
+                    a -= 1
+                self._anchors[id(c)] = a
+                taken.add(a)
+        return self._anchors
+
+    def anchor_of(self, change):
+        return self.anchors().get(id(change)) or change.anchor(self.new_nlines)
+
     def select(self, lo, hi):
         """Select changes that intersect the line range [lo, hi].
 
         When lo == hi (a specific line is requested), changes that span
-        multiple lines are split so only the requested line is included.
-        When lo < hi (a line range), the full changes intersecting the
-        range are returned, as before."""
+        multiple lines are split so only the requested line is included, and at
+        most one change is returned: a coordinate that names two changes is not
+        an address. When lo < hi (a line range), the full changes intersecting
+        the range are returned, as before.
+        """
         result = []
         for c in self.changes:
-            if not c.covers(lo, hi, self.new_nlines):
+            if not (lo <= self.anchor_of(c) <= hi):
                 continue
             if lo == hi and c.new_lines > 1:
                 # Split multi-line change: only include the portion
@@ -64,16 +109,46 @@ class FilePatch(object):
                 c.new_lines = n
                 c.body = c.body[:n]
             result.append(c)
+        if lo == hi and len(result) > 1:
+            occupying = [c for c in result if c.kind != "delete"]
+            result = occupying[:1] if occupying else result[:1]
         return result
 
     def render(self, changes):
-        """A patch `git apply --unidiff-zero` will accept for exactly these."""
+        """A patch `git apply --unidiff-zero` will accept for exactly these.
+
+        Two renderings, because git does not accept one patch shape for both
+        situations and the difference is not cosmetic:
+
+        - **A tracked file.** One hunk per change, as written.
+        - **A new file** (`git add -N` has put an empty index entry in place).
+          Two changes apply at once here. Naming `/dev/null` makes git refuse the
+          patch outright -- `fresh.py: already exists in index`, exit 2 -- which is
+          why every line of every new file used to be unreachable. Naming the path
+          on both sides turns the patch into an edit of that empty entry, which git
+          accepts. But separate hunks are then wrong: each carries `-0,0` and
+          `+N,1`, and applied together they land in reverse, so `split --all` on a
+          three-line new file staged `three two one`. One hunk carrying every
+          selected line, in order, is the shape git agrees with.
+
+        Measured over 435 addresses of 15 real file-creation commits in three
+        repositories in `EXPERIMENTS/046-real-changes`.
+        """
+        creating = any(l.startswith("--- /dev/null") for l in self.header)
         out = []
         for line in self.header:
             if line.startswith("index "):
                 # a stale blob hash makes git apply reject the patch
                 continue
+            if line.startswith("--- /dev/null"):
+                out.append("--- a/" + self.path + "\n")
+                continue
             out.append(line + "\n")
+        if creating:
+            added = [l for c in changes for l in c.body]
+            out.append("@@ -0,0 +1,%d @@\n" % len(added))
+            out.extend(l + "\n" for l in added)
+            return "".join(out)
         for c in changes:
             out.append(c.header() + "\n")
             out.extend(l + "\n" for l in c.body)

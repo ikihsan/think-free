@@ -6,19 +6,25 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0082
-status: claimed
+status: done
 created: 2026-10-07
 claim-agent: opencode
 claim-session: 2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo
 claim-vm: instance-20260717-0947
-verify: python3 EXPERIMENTS/043-real-changes/run.py
+verify: python3 EXPERIMENTS/046-real-changes/controls.py && python3 -m unittest discover -s stage-lines
+
+# The verify command is the instrument plus the artifact, not the corpus run: the
+# corpus needs three repositories, two of them clones, and a verify step that
+# clones is a verify step that fails on a machine without a network. The run
+# itself is preserved as evidence -- raw/results.jsonl and raw/run.log, both
+# recorded as session artifacts -- and `run.py --repo LABEL=PATH` reproduces it.
 -->
 
-# T-0082 — E043: measure stg on real repository changes (renames, mode changes, m
+# T-0082 — E046: measure stg on real repository changes (renames, mode changes, m
 
 ## Goal
 
-E043: measure stg on real repository changes (renames, mode changes, multi-hunk real diffs) using git's own diff as the referee, and decide whether the artifact is release-ready
+E046: measure stg on real repository changes (renames, mode changes, multi-hunk real diffs) using git's own diff as the referee, and decide whether the artifact is release-ready
 
 ## Why this matters
 
@@ -39,12 +45,12 @@ A results table over real changes with, per row, the address, the declared chang
 ## Verification
 
 ```bash
-python3 EXPERIMENTS/043-real-changes/run.py
+python3 EXPERIMENTS/046-real-changes/run.py
 ```
 
 ## Rollback
 
-All output is under EXPERIMENTS/043-real-changes/; the harvest is read-only over git history and the run works in temporary directories. No change to stg until a failure is reproduced and named.
+All output is under EXPERIMENTS/046-real-changes/; the harvest is read-only over git history and the run works in temporary directories. No change to stg until a failure is reproduced and named.
 
 ## Notes
 

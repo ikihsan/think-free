@@ -66,10 +66,11 @@ class Change(object):
                 return want + _clip(l[1:])
         return ""
 
-    def to_dict(self, new_nlines):
-        a = self.anchor(new_nlines)
+    def to_dict(self, anchor):
+        """`anchor` is passed in because a file assigns one line per change and
+        the assignment lives on the file, not on the change."""
         return {
-            "anchor": a,
+            "anchor": anchor,
             "kind": self.kind,
             "old_start": self.old_start,
             "old_lines": self.old_lines,

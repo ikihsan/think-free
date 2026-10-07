@@ -104,5 +104,13 @@ class Repo(object):
         """
         return git(["show", ":" + name], self.dir)
 
+    def read(self, name):
+        with open(os.path.join(self.dir, name), newline="") as fh:
+            return fh.read()
+
+    def head_body(self, name):
+        """The bytes HEAD holds for this file."""
+        return git(["show", "HEAD:" + name], self.dir)
+
     def cleanup(self):
         shutil.rmtree(self.dir, ignore_errors=True)

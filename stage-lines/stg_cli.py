@@ -16,134 +16,16 @@ coordinates you are already looking at: the line numbers of the file.
     stg split src/app.py              stage every change, or none
 
 Exit status: 0 nothing matched, 1 something did, 2 usage or git error.
+
+This file is the interface. Everything it asks of git is in `stg_git.py`.
 """
 
 import json
 import os
-import subprocess
 import sys
 
-from stagelib import parse  # noqa: E402
-
-USAGE = __doc__
-
-
-def git(args, repo):
-    p = subprocess.Popen(["git"] + args, cwd=repo,
-                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    return p.returncode, out.decode("utf-8", "replace"), \
-        err.decode("utf-8", "replace")
-
-
-def find_repo(start):
-    d = os.path.abspath(start)
-    while True:
-        if os.path.exists(os.path.join(d, ".git")):
-            return d
-        parent = os.path.dirname(d)
-        if parent == d:
-            return None
-        d = parent
-
-
-def unstaged(repo):
-    """git diff -U0 between the index and the working tree."""
-    rc, out, err = git(["diff", "-U0", "--no-color", "--no-ext-diff"], repo)
-    if rc != 0:
-        die("git diff failed: " + err.strip())
-    return annotate(repo, parse(out))
-
-
-def staged(repo):
-    """git diff -U0 between HEAD and the index."""
-    rc, out, err = git(["diff", "--cached", "-U0", "--no-color",
-                        "--no-ext-diff"], repo)
-    if rc != 0:
-        die("git diff --cached failed: " + err.strip())
-    return annotate(repo, parse(out), reverse=True)
-
-
-def untracked(repo):
-    rc, out, _ = git(["ls-files", "--others", "--exclude-standard"], repo)
-    return [l for l in out.split("\n") if l]
-
-
-def line_count(repo, path, reverse=False):
-    """How many lines the file has on the side the user is looking at.
-
-    For a stage that is the working tree; for an unstage it is the index.
-    """
-    if reverse:
-        rc, out, err = git(["show", ":" + path], repo)
-        if rc != 0:
-            return None
-    else:
-        try:
-            with open(os.path.join(repo, path), "rb") as fh:
-                out = fh.read().decode("utf-8", "replace")
-        except (IOError, OSError):
-            return None
-    if out == "":
-        return 0
-    return out.count("\n") + (0 if out.endswith("\n") else 1)
-
-
-def annotate(repo, files, reverse=False):
-    for path, fp in files.items():
-        fp.new_nlines = line_count(repo, path, reverse) or 0
-    return files
-
-
-def parse_spec(spec):
-    """'path/to/file.py:42' -> (path, 42, 42); 'path:42-51' -> (path, 42, 51).
-
-    A bare 'path' or 'path:' means the whole file, and comes back as lo=None.
-    Raises ValueError on anything malformed, so a caller can fall back to
-    treating the argument as a list.
-    """
-    if ":" not in spec:
-        return spec, None, None
-    path, _, rng = spec.rpartition(":")
-    if not path:
-        raise ValueError("no file path before the line number")
-    if not rng:
-        return path, None, None
-    a, sep, b = rng.partition("-")
-    if not sep:
-        b = a
-    try:
-        lo, hi = int(a), int(b)
-    except ValueError:
-        raise ValueError("%r is not a line number or range" % rng)
-    if lo < 1 or hi < lo:
-        raise ValueError("bad line range")
-    return path, lo, hi
-
-
-def read_spec(spec):
-    try:
-        return parse_spec(spec)
-    except ValueError as exc:
-        die("spec %r: %s" % (spec, exc))
-
-
-def apply_patch(repo, text, reverse=False):
-    args = ["apply", "--cached", "--unidiff-zero", "-"]
-    if reverse:
-        args.insert(1, "-R")
-    p = subprocess.Popen(["git"] + args, cwd=repo,
-                         stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                         stderr=subprocess.PIPE)
-    out, err = p.communicate(text.encode("utf-8"))
-    if p.returncode != 0:
-        die("git apply refused the patch:\n" + err.decode("utf-8", "replace"))
-
-
-def die(msg, code=2):
-    sys.stderr.write("stg: %s\n" % msg)
-    raise SystemExit(code)
-
+from stg_git import (apply_patch, die, find_repo, misplaced_insertions,  # noqa: E402
+                     parse_spec, read_spec, staged, untracked, unstaged)
 
 # ---------------------------------------------------------------- commands
 
@@ -158,7 +40,7 @@ def cmd_list(repo, args):
             continue
         for c in fp.changes:
             rows.append({"path": path, "binary": False,
-                         "change": c.to_dict(fp.new_nlines)})
+                         "change": c.to_dict(fp.anchor_of(c))})
     for path in sorted(untracked(repo)):
         rows.append({"path": path, "untracked": True, "changes": []})
 
@@ -241,6 +123,12 @@ def cmd_stage(repo, args, reverse=False):
             picked = fp.select(lo, hi)
         if not picked:
             die("no %s change matches %s" % (intent, spec))
+        bad = misplaced_insertions(fp, repo, picked)
+        if bad and not reverse:
+            die("%s has no newline at the end of file, and line %d is inserted "
+                "past its last line; git would glue the two together, so this "
+                "one is not offered. `git add %s` stages the whole file."
+                % (path, bad[0].new_start, path))
         selected.append((fp, picked))
 
     # one patch per file: git apply wants a single coherent file header
@@ -251,7 +139,7 @@ def cmd_stage(repo, args, reverse=False):
         fp, picked = by_path[path]
         apply_patch(repo, fp.render(picked), reverse=reverse)
         for c in picked:
-            print("%s %s:%d" % (intent, path, c.anchor(fp.new_nlines)))
+            print("%s %s:%d" % (intent, path, fp.anchor_of(c)))
     return 1
 
 
