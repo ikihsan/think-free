@@ -46,3 +46,9 @@ Files: one self-contained directory per chosen experiment, with `README.md`, run
 - [ ] Choose the next highest-information experiment. Keep the mission active until independently verifiable impact exists or continuation is externally blocked.
 
 Each experiment gets its own concrete design once evidence identifies a claim worth testing; inventing detailed implementation plans before discovery would prematurely anchor the project.
+
+---
+
+### Related documents
+
+- [`METHODOLOGY-SUMMARY.md`](docs/METHODOLOGY-SUMMARY.md) — Mission-wide lessons from closed invention claims: kill gate patterns, population measurement principles, and what makes experiment results actionable.

@@ -8,6 +8,17 @@
   "total_ground_truth": 8,
   "total_predictions": 8,
   "pair_results": {
+    "evening screen time|sleep": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "decrease_vs_no_effect"
+      ],
+      "pred_types": [
+        "decrease_vs_no_effect"
+      ]
+    },
     "remote work|productivity": {
       "true_positives": 1,
       "false_positives": 0,
@@ -30,28 +41,6 @@
         "increase_vs_no_effect"
       ]
     },
-    "aerobic exercise|cognitive": {
-      "true_positives": 1,
-      "false_positives": 0,
-      "false_negatives": 0,
-      "gt_types": [
-        "increase_vs_no_effect"
-      ],
-      "pred_types": [
-        "increase_vs_no_effect"
-      ]
-    },
-    "caffeine consumption|anxiety": {
-      "true_positives": 1,
-      "false_positives": 0,
-      "false_negatives": 0,
-      "gt_types": [
-        "increase_vs_decrease"
-      ],
-      "pred_types": [
-        "increase_vs_decrease"
-      ]
-    },
     "vitamin d supplementation|depressive": {
       "true_positives": 1,
       "false_positives": 0,
@@ -61,6 +50,17 @@
       ],
       "pred_types": [
         "increase_vs_decrease"
+      ]
+    },
+    "aerobic exercise|cognitive": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_no_effect"
+      ],
+      "pred_types": [
+        "increase_vs_no_effect"
       ]
     },
     "mindfulness meditation|perceived stress": {
@@ -85,15 +85,15 @@
         "increase_vs_no_effect"
       ]
     },
-    "evening screen time|sleep": {
+    "caffeine consumption|anxiety": {
       "true_positives": 1,
       "false_positives": 0,
       "false_negatives": 0,
       "gt_types": [
-        "decrease_vs_no_effect"
+        "increase_vs_decrease"
       ],
       "pred_types": [
-        "decrease_vs_no_effect"
+        "increase_vs_decrease"
       ]
     }
   }
