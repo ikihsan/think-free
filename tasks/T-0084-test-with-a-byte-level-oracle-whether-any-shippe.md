@@ -6,11 +6,11 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0084
-status: open
+status: claimed
 created: 2026-10-07
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-07-004-settle-the-hook-partial-stage-hazard-aga
+claim-vm: 
 verify: python3 EXPERIMENTS/047-hook-partial-stage/harness.py; test $? -eq 0
 -->
 

@@ -31,11 +31,12 @@ _none_
 
 ## Commands
 
-1 captured, 1 non-zero exit.
+2 captured, 1 non-zero exit.
 
 | # | command | exit | ms |
 |---|---|---|---|
 | 2 | ['tools/origin', 'sync', 'land'] | 1 | 1756 |
+| 3 | ['tools/origin', 'sync', 'land'] | 0 | 55994 |
 
 ## Integrity
 
@@ -53,6 +54,8 @@ _none_
 |---|---|---|---|
 | 1 | 08:44:38 | session_start | Settle the hook-partial-stage hazard against the shipped runners with a byte-level oracle (T-0084, E047) |
 | 2 | 08:45:38 | command | $ tools/origin sync land |
+| 3 | 08:47:24 | command | $ tools/origin sync land |
+| 4 | 08:48:51 | task_rewrite | rewrote tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md (status: claimed) |
 
 ## Reproduce this record
 
