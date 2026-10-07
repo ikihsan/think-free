@@ -6,11 +6,11 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0086
-status: open
+status: claimed
 created: 2026-10-07
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-07-013-land-e049-evidence-from-sessions-011-012
+claim-vm: 
 verify: python3 EXPERIMENTS/050-registry-mechanisms/harness.py --verify
 -->
 

@@ -53,6 +53,8 @@ _none_
 |---|---|---|---|
 | 1 | 17:06:24 | session_start | Land E049 evidence from sessions 011/012; test lockfile registry-drift mechanisms (Part B control re-run, PyPI yank check); decide E2's next step |
 | 2 | 17:06:33 | command | $ python3 EXPERIMENTS/049-lockfile-closure/harness.py --verify |
+| 3 | 17:08:53 | task_rewrite | appended a create record for T-0086 |
+| 4 | 17:13:55 | task_rewrite | rewrote tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md (status: claimed) |
 
 ## Reproduce this record
 
