@@ -1,0 +1,237 @@
+{
+  "date": "2026-10-07",
+  "cutoff": "2026-01-01T00:00:00Z",
+  "rows": [
+    {
+      "repo": "encode/httpx",
+      "path": "requirements.txt",
+      "old": {
+        "sha": "4b23574cf83307ce27d3b14b4a425dc58c57d28d",
+        "date": "2025-09-16T13:23:31Z",
+        "entries": 15
+      },
+      "head": {
+        "sha": "4b23574cf83307ce27d3b14b4a425dc58c57d28d",
+        "date": "2025-09-16T13:23:31Z",
+        "entries": 15
+      },
+      "added": 0,
+      "removed": 0,
+      "changed": false,
+      "status": "ok"
+    },
+    {
+      "repo": "fastapi/fastapi",
+      "path": "uv.lock",
+      "status": "missing-snapshot"
+    },
+    {
+      "repo": "python-poetry/poetry",
+      "path": "poetry.lock",
+      "old": {
+        "sha": "e7b52af00d915e94863ab668e3aad2a752a830bd",
+        "date": "2025-12-31T06:46:11Z",
+        "entries": 77
+      },
+      "head": {
+        "sha": "c93fd63cb73f7f1c9bdfb443278f09068c6bc5bd",
+        "date": "2026-09-19T17:58:16Z",
+        "entries": 78
+      },
+      "added": 51,
+      "removed": 50,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "astral-sh/ruff",
+      "path": "Cargo.lock",
+      "old": {
+        "sha": "b31ff2c5abfde17ee09488f9c786ce0dfda27699",
+        "date": "2025-12-29T17:24:54Z",
+        "entries": 523
+      },
+      "head": {
+        "sha": "62a42e0ad82b0133c97ec11eba39ba7de238061c",
+        "date": "2026-10-07T14:19:11Z",
+        "entries": 558
+      },
+      "added": 260,
+      "removed": 225,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "pallets/flask",
+      "path": "uv.lock",
+      "old": {
+        "sha": "96a01e420b741c59af59301f15612fde39bfb39d",
+        "date": "2025-11-17T17:45:56Z",
+        "entries": 80
+      },
+      "head": {
+        "sha": "7689f98403e2c0b0bc8d1031e60f8cff2620e86a",
+        "date": "2026-10-07T13:47:14Z",
+        "entries": 79
+      },
+      "added": 51,
+      "removed": 52,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "encode/starlette",
+      "path": "uv.lock",
+      "old": {
+        "sha": "a0499f60a6f13b8b42381d70bafc076b6ece4eee",
+        "date": "2025-11-01T15:16:15Z",
+        "entries": 80
+      },
+      "head": {
+        "sha": "ee93d2960b52c4e7c4a7abd40eb50773f7fad01e",
+        "date": "2026-10-03T10:10:41Z",
+        "entries": 89
+      },
+      "added": 41,
+      "removed": 32,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "tornadoweb/tornado",
+      "path": "requirements.txt",
+      "old": {
+        "sha": "61c79b6ec409af1330e82dfcdc182199f6c4fb91",
+        "date": "2025-12-16T22:45:34Z",
+        "entries": 49
+      },
+      "head": {
+        "sha": "44a59d150fe6f57b58dc6d7699d8bf7ca89a12a0",
+        "date": "2026-09-16T18:14:57Z",
+        "entries": 53
+      },
+      "added": 40,
+      "removed": 36,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "urllib3/urllib3",
+      "path": "uv.lock",
+      "old": {
+        "sha": "c19571de34c47de3a766541b041637ba5f716ed7",
+        "date": "2025-12-05T14:40:41Z",
+        "entries": 122
+      },
+      "head": {
+        "sha": "bcf84e6815f623521e1ffe3e6ab0224d778929c0",
+        "date": "2026-09-28T21:36:12Z",
+        "entries": 126
+      },
+      "added": 71,
+      "removed": 67,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "encode/uvicorn",
+      "path": "uv.lock",
+      "old": {
+        "sha": "19df042c54c1562f058daf021d6f7bd1d5ed621c",
+        "date": "2025-12-21T13:56:01Z",
+        "entries": 95
+      },
+      "head": {
+        "sha": "724f82fdba1765fe5f821a3ebed6da5c1ddcb386",
+        "date": "2026-10-01T19:36:27Z",
+        "entries": 89
+      },
+      "added": 59,
+      "removed": 65,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "samuelcolvin/pydantic",
+      "path": "uv.lock",
+      "old": {
+        "sha": "b834e9845de3fadc59a21fd226fd7695f03020c6",
+        "date": "2025-11-21T14:32:18Z",
+        "entries": 145
+      },
+      "head": {
+        "sha": "d2cbaaab74ba4a26bb66f604199ec9793aab6177",
+        "date": "2026-10-06T15:57:42Z",
+        "entries": 168
+      },
+      "added": 70,
+      "removed": 47,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "path": "uv.lock",
+      "old": {
+        "sha": "a9f6b3c7924912e62ea74f39f10fb611d6e7725e",
+        "date": "2025-11-29T02:50:20Z",
+        "entries": 90
+      },
+      "head": {
+        "sha": "2f60c2039d67868bbd98e32f9e006ea40806ddc3",
+        "date": "2026-09-27T19:06:32Z",
+        "entries": 74
+      },
+      "added": 48,
+      "removed": 64,
+      "changed": true,
+      "status": "ok"
+    },
+    {
+      "repo": "scrapy/scrapy",
+      "path": "docs/requirements.txt",
+      "old": {
+        "sha": "d1bd8eb49f7aba9289e4ff692006cead8bcd9080",
+        "date": "2025-12-31T18:03:16Z",
+        "entries": 7
+      },
+      "head": {
+        "sha": "5fc5de3f16674fe6220dc1a6dcbdce7a94b1c326",
+        "date": "2026-10-01T09:37:36Z",
+        "entries": 75
+      },
+      "added": 72,
+      "removed": 4,
+      "changed": true,
+      "status": "ok"
+    }
+  ],
+  "sampled": 11,
+  "changed": 10,
+  "part_b": {
+    "requirements": [
+      "requests==2.32.3",
+      "rich==13.9.4",
+      "httpx==0.28.1"
+    ],
+    "artifacts": {
+      "anyio-4.5.2-py3-none-any.whl": "c011ee36bc1e8ba40e5a81cb9df91925c218fe9b778554e0b56a21e1b5d4716f",
+      "certifi-2026.7.22-py3-none-any.whl": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl": "1c50fe28bbc2ced33386f298650d91218076c05420e6cbd790b913adc41659e7",
+      "exceptiongroup-1.3.1-py3-none-any.whl": "a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598",
+      "h11-0.16.0-py3-none-any.whl": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "httpcore-1.0.9-py3-none-any.whl": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "httpx-0.28.1-py3-none-any.whl": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "idna-3.15-py3-none-any.whl": "048adeaf8c2d788c40fee287673ccaa74c24ffd8dcf09ffa555a2fbb59f10ac8",
+      "markdown_it_py-3.0.0-py3-none-any.whl": "355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1",
+      "mdurl-0.1.2-py3-none-any.whl": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "pygments-2.19.2-py3-none-any.whl": "86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b",
+      "requests-2.32.3-py3-none-any.whl": "70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6",
+      "rich-13.9.4-py3-none-any.whl": "6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90",
+      "sniffio-1.3.1-py3-none-any.whl": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+      "typing_extensions-4.13.2-py3-none-any.whl": "a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c",
+      "urllib3-2.2.3-py3-none-any.whl": "ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"
+    }
+  },
+  "verdict": "drift-observed"
+}

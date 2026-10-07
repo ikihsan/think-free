@@ -8,13 +8,16 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-149 recorded session(s). One `events.jsonl` per session, so concurrent
+152 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 124 older session(s) are in the directory listing.
+Showing the 25 most recent. 127 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-07-013-land-e049-evidence-from-sessions-011-012](2026-10-07-013-land-e049-evidence-from-sessions-011-012/README.md) | unknown-agent | **unfinished** | Land E049 evidence from sessions 011/012; test lockfile registry-drift | 2026-10-07T17:06 |
+| [2026-10-07-012-explore-independently-until-a-specific-t](2026-10-07-012-explore-independently-until-a-specific-t/README.md) | unknown-agent | worked | explore independently until a specific testable opportunity appears | 2026-10-07T16:56 |
+| [2026-10-07-011-e049-measure-dependency-lockfile-closure](2026-10-07-011-e049-measure-dependency-lockfile-closure/README.md) | unknown-agent | worked | E049: measure dependency-lockfile closure drift (E2) | 2026-10-07T16:47 |
 | [2026-10-07-010-fresh-observation-find-a-concrete-testab](2026-10-07-010-fresh-observation-find-a-concrete-testab/README.md) | unknown-agent | no-change | fresh observation: find a concrete testable opportunity | 2026-10-07T15:55 |
 | [2026-10-07-009-fresh-observation-pass-find-a-testable-o](2026-10-07-009-fresh-observation-pass-find-a-testable-o/README.md) | unknown-agent | no-change | fresh observation pass: find a testable opportunity via live GitHub AP | 2026-10-07T15:43 |
 | [2026-10-07-008-fresh-observation-pass-for-a-new-candida](2026-10-07-008-fresh-observation-pass-for-a-new-candida/README.md) | unknown-agent | no-change | fresh observation pass for a new candidate after E048/F085 seat emptin | 2026-10-07T14:48 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 124 older session(s) are in the directory listing.
 | [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | worked | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
 | [2026-10-06-007-declare-the-10-artifacts-session-006-s-f](2026-10-06-007-declare-the-10-artifacts-session-006-s-f/README.md) | unknown-agent | worked | declare the 10 artifacts session 006's finish reported unlogged, and c | 2026-10-06T09:51 |
 | [2026-10-06-006-apply-d067-forward-find-a-buildable-cand](2026-10-06-006-apply-d067-forward-find-a-buildable-cand/README.md) | unknown-agent | worked | apply D067 forward: find a buildable candidate from the one on-disk po | 2026-10-06T09:50 |
-| [2026-10-06-005-test-whether-stack-overflow-s-own-search](2026-10-06-005-test-whether-stack-overflow-s-own-search/README.md) | opencode | worked | Test whether Stack Overflow's own search box already returns the E034  | 2026-10-06T08:39 |
-| [2026-10-06-004-test-whether-the-population-e034-found-i](2026-10-06-004-test-whether-the-population-e034-found-i/README.md) | unknown-agent | worked | Test whether the population E034 found is reachable by the people who  | 2026-10-06T07:13 |
-| [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | worked | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T06:09 |
 
 
 ## Reading a session

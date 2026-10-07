@@ -1,0 +1,100 @@
+==============================================================================
+[seq 2] 2026-10-07T15:57:44+00:00
+$ python3 -c 
+import json,urllib.request
+repos=[('encode/httpx','requirements.txt'),('encode/httpx','poetry.lock'),('fastapi/fastapi','requirements.txt'),('python-poetry/poetry','poetry.lock'),('astral-sh/ruff','Cargo.lock'),('pallets/flask','requirements/requirements.txt'),('psf/black','requirements.txt'),('encode/starlette','requirements.txt'),('aio-libs/aiohttp','requirements/requirements.txt'),('tornadoweb/tornado','requirements.txt')]
+for r,p in repos:
+    u=f'https://raw.githubusercontent.com/{r}/HEAD/{p}'
+    try:
+        urllib.request.urlopen(u,timeout=10)
+        print(r,p,'OK')
+    except Exception as e:
+        print(r,p,'MISS',getattr(e,'code',e))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+encode/httpx requirements.txt OK
+encode/httpx poetry.lock MISS 404
+fastapi/fastapi requirements.txt MISS 404
+python-poetry/poetry poetry.lock OK
+astral-sh/ruff Cargo.lock OK
+pallets/flask requirements/requirements.txt MISS 404
+psf/black requirements.txt MISS 404
+encode/starlette requirements.txt MISS 404
+aio-libs/aiohttp requirements/requirements.txt MISS 404
+tornadoweb/tornado requirements.txt OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 94263  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T16:00:18+00:00
+$ python3 -c 
+import urllib.request,json
+repos=['encode/httpx','fastapi/fastapi','python-poetry/poetry','astral-sh/ruff','pallets/flask','psf/black','encode/starlette','aio-libs/aiohttp','tornadoweb/tornado','scrapy/scrapy','urllib3/urllib3','encode/uvicorn','samuelcolvin/pydantic','pallets/werkzeug']
+for r in repos:
+    u=f'https://api.github.com/repos/{r}/git/trees/HEAD?recursive=1'
+    try:
+        d=json.load(urllib.request.urlopen(u,timeout=15))
+        paths=[t['path'] for t in d.get('tree',[]) if t['path'].rsplit('/',1)[-1] in ('poetry.lock','requirements.txt','package-lock.json','Cargo.lock','Pipfile.lock','pdm.lock','uv.lock','yarn.lock')]
+        print(r, '->', paths[:4])
+    except Exception as e: print(r,'ERR',getattr(e,'code',e))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+encode/httpx -> ['requirements.txt']
+fastapi/fastapi -> ['uv.lock']
+python-poetry/poetry -> ['poetry.lock', 'tests/fixtures/deleted_directory_dependency/poetry.lock', 'tests/fixtures/deleted_file_dependency/poetry.lock', 'tests/fixtures/incompatible_lock/poetry.lock']
+astral-sh/ruff -> ['Cargo.lock', 'crates/ty_completion_eval/truth/auto-import-includes-modules/uv.lock', 'crates/ty_completion_eval/truth/auto-import-skips-current-module/uv.lock', 'crates/ty_completion_eval/truth/auto-import-skips-third-party-tests/uv.lock']
+pallets/flask -> ['examples/celery/requirements.txt', 'uv.lock']
+psf/black -> []
+encode/starlette -> ['uv.lock']
+aio-libs/aiohttp -> []
+tornadoweb/tornado -> ['demos/blog/requirements.txt', 'requirements.txt']
+scrapy/scrapy -> ['docs/requirements.txt']
+urllib3/urllib3 -> ['uv.lock']
+encode/uvicorn -> ['uv.lock']
+samuelcolvin/pydantic -> ['pydantic-core/Cargo.lock', 'pydantic-core/uv.lock', 'tests/typechecking/uv.lock', 'uv.lock']
+pallets/werkzeug -> ['uv.lock']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8227  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T16:09:18+00:00
+$ python3 EXPERIMENTS/049-lockfile-closure/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sampled 11 changed 10 -> drift-observed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 476167  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T16:09:34+00:00
+$ python3 -c 
+import json; d=json.load(open('EXPERIMENTS/049-lockfile-closure/results.json'))
+for r in d['rows']:
+    print(r['repo'], r['status'], r.get('added'), r.get('removed'), r.get('old',{}).get('date'), r.get('old',{}).get('entries'), '->', r.get('head',{}).get('entries'))
+print('part_b artifacts:', len(d['part_b'].get('artifacts',{})))
+print('verdict', d['verdict'])
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+encode/httpx ok 0 0 2025-09-16T13:23:31Z 15 -> 15
+fastapi/fastapi missing-snapshot None None None None -> None
+python-poetry/poetry ok 51 50 2025-12-31T06:46:11Z 77 -> 78
+astral-sh/ruff ok 260 225 2025-12-29T17:24:54Z 523 -> 558
+pallets/flask ok 51 52 2025-11-17T17:45:56Z 80 -> 79
+encode/starlette ok 41 32 2025-11-01T15:16:15Z 80 -> 89
+tornadoweb/tornado ok 40 36 2025-12-16T22:45:34Z 49 -> 53
+urllib3/urllib3 ok 71 67 2025-12-05T14:40:41Z 122 -> 126
+encode/uvicorn ok 59 65 2025-12-21T13:56:01Z 95 -> 89
+samuelcolvin/pydantic ok 70 47 2025-11-21T14:32:18Z 145 -> 168
+pallets/werkzeug ok 48 64 2025-11-29T02:50:20Z 90 -> 74
+scrapy/scrapy ok 72 4 2025-12-31T18:03:16Z 7 -> 75
+part_b artifacts: 16
+verdict drift-observed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T16:10:17+00:00
+$ python3 EXPERIMENTS/049-lockfile-closure/harness.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+results.json complete: drift-observed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 223  redactions: none
