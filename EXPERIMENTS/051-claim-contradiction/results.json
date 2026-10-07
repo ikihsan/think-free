@@ -1,0 +1,100 @@
+{
+  "true_positives": 8,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "total_ground_truth": 8,
+  "total_predictions": 8,
+  "pair_results": {
+    "remote work|productivity": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_decrease"
+      ],
+      "pred_types": [
+        "increase_vs_decrease"
+      ]
+    },
+    "omega-3 fatty acid supplementation|cardiovascular": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_no_effect"
+      ],
+      "pred_types": [
+        "increase_vs_no_effect"
+      ]
+    },
+    "aerobic exercise|cognitive": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_no_effect"
+      ],
+      "pred_types": [
+        "increase_vs_no_effect"
+      ]
+    },
+    "caffeine consumption|anxiety": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_decrease"
+      ],
+      "pred_types": [
+        "increase_vs_decrease"
+      ]
+    },
+    "vitamin d supplementation|depressive": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_decrease"
+      ],
+      "pred_types": [
+        "increase_vs_decrease"
+      ]
+    },
+    "mindfulness meditation|perceived stress": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "decrease_vs_no_effect"
+      ],
+      "pred_types": [
+        "decrease_vs_no_effect"
+      ]
+    },
+    "sugar consumption|hyperactivity": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "increase_vs_no_effect"
+      ],
+      "pred_types": [
+        "increase_vs_no_effect"
+      ]
+    },
+    "evening screen time|sleep": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "gt_types": [
+        "decrease_vs_no_effect"
+      ],
+      "pred_types": [
+        "decrease_vs_no_effect"
+      ]
+    }
+  }
+}

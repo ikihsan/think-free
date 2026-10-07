@@ -78,3 +78,21 @@ wrong is silent.
 before ranking it; this measures a stated pain against incumbents before ranking
 it. D075 turned a candidate's limitations section into a measurement plan; F084 is
 what that plan finds when the limitation is *someone else's default behaviour*.
+
+## D080 — Fresh exploration begins with a runnable falsification experiment, not a product design (2026-10-07)
+
+`observed` 2026-10-07, session 2026-10-07-014, E051.
+
+**The situation.** The stg candidate (E037) was withdrawn after seven measurements (E043–E048, F075–F085) showed no population for it. The mission's seat for a candidate is empty. The owner brief requires fresh exploration until a specific testable opportunity appears, not reopening closed readings.
+
+**The choice.** Select literature review workflows as a new domain based on independent observation of researcher frustration with manual synthesis tasks. Design a falsification experiment (E051) before any implementation: a rule-based claim extractor for directional contradictions (increases/decreases/no effect) in paper abstracts, tested on synthetic fixtures with predeclared kill gates (recall ≥60%, precision ≥80%).
+
+**The evidence.** The experiment was built and run in the same session: 20 synthetic abstracts, 8 ground-truth contradictions. Extractor achieved 100% precision and 100% recall. Negative controls verified: non-directional abstracts (correlation-only language) produce no claims and no contradictions. Hedged language (may increase/may decrease) correctly detected as contradictions.
+
+**Why this is a rule and not a one-off.** The mission has repeatedly built artifacts before falsifying them (E037 built stg before E043 ran real agents; E049/E050 built lockfile tools before E049's census gate was met). D080 makes the order explicit: **kill gate first, implementation only if it passes**. The experiment must be runnable on this machine (stdlib Python, no external deps), with synthetic fixtures labeled as such, and negative controls that must fail.
+
+**Rejected: build a literature review tool first.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
+
+**Rejected: use an LLM for extraction.** The falsification must be cheap and deterministic. LLM calls add cost, variance, and API dependency. A rule-based extractor on synthetic fixtures is the minimum viable test of the mechanism.
+
+**Ceiling.** Synthetic fixtures only. Real abstracts use varied language, hedging, and indirect phrasing that verb matching will miss. A 100% result on synthetic data does not establish real-world precision/recall. The next step is testing on real PubMed Central abstracts; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
