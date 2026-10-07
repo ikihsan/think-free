@@ -31,6 +31,12 @@ it, and this module failed with the file's name in the message.
 and it did the same thing a sixth time, on the first session that created a
 decision file after another VM had landed two in one sitting: `paths.py` was
 updated first and this module failed naming the file.
+`DECISIONS-SCREENING-13.md` is the fourteenth, added the same day for D078, and it
+did the same thing a seventh time: all three lists were updated and **this module
+still failed**, because a fourth copy exists — `DECISIONS.md`'s own index row,
+which the lint's identifier check had already caught. The gate and the lint
+therefore failed the same session on the same omission from two directions, which
+is the argument for having both.
 
 This is bookkeeping hygiene and says nothing about any candidate. What it buys
 is narrow and real: a seventh split cannot leave a decision file that no
@@ -61,6 +67,7 @@ DECISION_FILES = (
     "DECISIONS-SCREENING-10.md",
     "DECISIONS-SCREENING-11.md",
     "DECISIONS-SCREENING-12.md",
+    "DECISIONS-SCREENING-13.md",
     "DECISIONS-GATING.md",
     "DECISIONS-SESSIONS.md",
     "DECISIONS-PUBLISHING.md",

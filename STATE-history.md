@@ -19,6 +19,12 @@ is in [`STATE-history-2.md`](STATE-history-2.md).
   suite is green (OK, 651s), doc lint exits 0, and the test-suite and release-check
   gates it had left "running in background" are captured in its command log.
 
+## Moved out of `STATE.md` on 2026-10-07, at the 300-line cap
+
+These entries are about the `stg` line and are superseded by E045's withdrawal of the
+candidate (F081, F082) and by E047 (F084). They are kept here, not deleted, because
+the identifiers they carry are still cited by the candidate record.
+
 - **E041 (`EXPERIMENTS/041-need-index/`, this VM's second E-number collision, F070-F074, D072/D073): the needs-index premise closes on its own arithmetic.**
   The instrument was first validated on the positive control E040 could not build
   (**77 judged duplicate pairs**, both members in a 44,669-row corpus): G1/G3 pass,

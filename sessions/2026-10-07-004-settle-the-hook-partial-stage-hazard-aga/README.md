@@ -56,6 +56,7 @@ _none_
 | 2 | 08:45:38 | command | $ tools/origin sync land |
 | 3 | 08:47:24 | command | $ tools/origin sync land |
 | 4 | 08:48:51 | task_rewrite | rewrote tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md (status: claimed) |
+| 5 | 08:48:53 | task_rewrite | appended a claim record for T-0084 |
 
 ## Reproduce this record
 

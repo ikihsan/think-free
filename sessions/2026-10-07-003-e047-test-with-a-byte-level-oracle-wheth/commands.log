@@ -1,0 +1,848 @@
+==============================================================================
+[seq 2] 2026-10-07T07:17:13+00:00
+$ bash -c echo "node: $(command -v node && node --version)"; echo "npm: $(command -v npm && npm --version)"; echo "go: $(command -v go && go version)"; echo "pip3: $(command -v pip3 && pip3 --version)"; echo "git: $(git --version)"; echo "python3: $(python3 --version)"; echo "--- network ---"; curl -s -o /dev/null -w "registry.npmjs.org %{http_code}\n" https://registry.npmjs.org/lint-staged; curl -s -o /dev/null -w "pypi %{http_code}\n" https://pypi.org/simple/pre-commit/; curl -s -o /dev/null -w "github raw %{http_code}\n" https://raw.githubusercontent.com/evilmartians/lefthook/master/README.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: 
+npm: 
+go: 
+pip3: /usr/bin/pip3
+pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+git: git version 2.25.1
+python3: Python 3.8.10
+--- network ---
+registry.npmjs.org 200
+pypi 200
+github raw 200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3489  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T07:17:22+00:00
+$ bash -c curl -s -o /dev/null -w "nodejs.org %{http_code}\n" https://nodejs.org/dist/latest-v20.x/ ; curl -s https://nodejs.org/dist/index.json | head -c 300; echo; uname -m
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+nodejs.org 200
+[
+{"version":"v26.10.0","date":"2026-09-21","files":["aix-ppc64","headers","linux-arm64","linux-ppc64le","linux-s390x","linux-x64","linux-x64-musl","osx-arm64-tar","osx-x64-pkg","osx-x64-tar","src","win-arm64-7z","win-arm64-zip","win-x64-7z","win-x64-exe","win-x64-msi","win-x64-zip"],"npm":"11.19.1"
+x86_64
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 297  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T07:18:21+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+lefthook: resolving the latest release
+lefthook: v2.1.17	2026-10-05T07:47:47Z
+
+
+[stderr]
+curl: (3) URL using bad/illegal format or missing URL
+------------------------------------------------------------------------------
+exit: 3  duration_ms: 27522  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T07:19:28+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+lefthook: resolving the latest release
+lefthook: v2.1.17
+e3c6e271b6a77a8fac527d7cc21c1036f7605afcb6653aabe4b166913322f900  /tmp/opencode/e047/logs/lefthook.gz
+lefthook: 2.1.17
+pre-commit: creating the venv
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.8-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: ['/tmp/opencode/e047/venv/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']
+------------------------------------------------------------------------------
+exit: 127  duration_ms: 29317  redactions: none
+==============================================================================
+[seq 7] 2026-10-07T07:20:45+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+lefthook: 2.1.17
+pre-commit: creating the venv
+fb24e693bab954209a063d90953621412ccad4a500905a726286e038f508ddf6  /tmp/opencode/e047/logs/get-pip.py
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 26682  redactions: none
+==============================================================================
+[seq 8] 2026-10-07T07:29:31+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+lefthook: 2.1.17
+python: fetching a standalone CPython 3.12 (this VM has 3.8, pre-commit 3+ needs 3.9+)
+731af898886c5f821890dc901eca3c651cca8e51fa7308c159d12a1194aeac91  /tmp/opencode/e047/logs/python.tar.gz
+python: Python 3.12.15
+pre-commit: creating the venv
+pre-commit 4.6.2
+npm: installing lint-staged
+npm: installing husky
+husky 9.1.7
+prettier 3.9.9
+
+setup complete: /tmp/opencode/e047
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 203146  redactions: none
+==============================================================================
+[seq 9] 2026-10-07T07:31:12+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+lefthook: 2.1.17
+python: Python 3.12.15
+pre-commit 4.6.2
+npm: installing lint-staged, husky and prettier
+lint-staged 17.6.0
+husky 9.1.7
+prettier 3.9.9
+
+setup complete: /tmp/opencode/e047
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 29890  redactions: none
+==============================================================================
+[seq 10] 2026-10-07T07:31:18+00:00
+$ timeout 1200 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            ERROR          expect_sweep=True  fixture: the unstaged diff has 2 hunks, expected 1
+B0-no-hook                     ERROR          expect_sweep=False fixture: the unstaged diff has 2 hunks, expected 1
+A1-lefthook-stage_fixed        ERROR          expect_sweep=None  fixture: the unstaged diff has 2 hunks, expected 1
+A1b-lefthook-no-stage_fixed    ERROR          expect_sweep=None  fixture: the unstaged diff has 2 hunks, expected 1
+A2-precommit-local-hook        ERROR          expect_sweep=True  fixture: the unstaged diff has 2 hunks, expected 1
+A3-lint-staged-default         ERROR          expect_sweep=None  fixture: the unstaged diff has 2 hunks, expected 1
+A4-lint-staged-no-stash        ERROR          expect_sweep=None  fixture: the unstaged diff has 2 hunks, expected 1
+A5-husky                       ERROR          expect_sweep=True  fixture: the unstaged diff has 2 hunks, expected 1
+X1-git-stash-keep-index        ERROR          expect_sweep=False fixture: the unstaged diff has 2 hunks, expected 1
+
+control C0 swept: False   (must be True)
+fixture control B0 clean and no formatter: False   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1920  redactions: none
+==============================================================================
+[seq 11] 2026-10-07T07:32:02+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=False 
+A1-lefthook-stage_fixed        INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=None  
+A1b-lefthook-no-stage_fixed    INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=None  
+A2-precommit-local-hook        INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=True  
+A3-lint-staged-default         ERROR          expect_sweep=None  neither a commit nor a readable index
+A4-lint-staged-no-stash        ERROR          expect_sweep=None  neither a commit nor a readable index
+A5-husky                       INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=True  
+X1-git-stash-keep-index        INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3610  redactions: none
+==============================================================================
+[seq 12] 2026-10-07T07:32:40+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP          expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=False 
+A1-lefthook-stage_fixed        INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=None  
+A1b-lefthook-no-stage_fixed    INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=None  
+A2-precommit-local-hook        clean          expect_sweep=True  
+A3-lint-staged-default         ERROR          expect_sweep=None  neither a commit nor a readable index
+A4-lint-staged-no-stash        ERROR          expect_sweep=None  neither a commit nor a readable index
+A5-husky                       SWEEP          expect_sweep=True  
+X1-git-stash-keep-index        clean          expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5613  redactions: none
+==============================================================================
+[seq 13] 2026-10-07T07:34:09+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+git: building git-2.56.0 from source (system git is 2.25.1)
+26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3  /tmp/opencode/e047/logs/git.tar.xz
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 41586  redactions: none
+==============================================================================
+[seq 15] 2026-10-07T07:50:30+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+git: building git-2.56.0 from source (system git is 2.25.1)
+26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3  /tmp/opencode/e047/logs/git.tar.xz
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 404390  redactions: none
+==============================================================================
+[seq 17] 2026-10-07T08:00:21+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+git: building git-2.56.0 from source (system git is 2.25.1)
+26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3  /tmp/opencode/e047/logs/git.tar.xz
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 398791  redactions: none
+==============================================================================
+[seq 18] 2026-10-07T08:09:09+00:00
+$ sh EXPERIMENTS/047-hook-partial-stage/setup.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+node: fetching v26.10.0
+ca70e9e349de048b9522abb3adc05b3bd6f43c5ffd3ec57916c7da292f59f022  /tmp/opencode/e047/logs/node.tar.xz
+node: v26.10.0  npm: 11.19.1
+git: building git-2.56.0 from source (system git is 2.25.1)
+26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3  /tmp/opencode/e047/logs/git.tar.xz
+git: git version 2.56.0  (built at /tmp/opencode/e047/git/bin/git)
+lefthook: 2.1.17
+python: Python 3.12.15
+pre-commit 4.6.2
+lint-staged 17.6.0
+husky 9.1.7
+prettier 3.9.9
+
+setup complete: /tmp/opencode/e047
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 432934  redactions: none
+==============================================================================
+[seq 19] 2026-10-07T08:10:40+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP          expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=False 
+A1-lefthook-stage_fixed        clean          expect_sweep=None  
+A1b-lefthook-no-stage_fixed    INCONCLUSIVE: the formatter did not run, so nothing was tested expect_sweep=None  
+A2-precommit-local-hook        clean          expect_sweep=True  
+A3-lint-staged-default         ERROR          expect_sweep=None  neither a commit nor a readable index
+A4-lint-staged-no-stash        ERROR          expect_sweep=None  neither a commit nor a readable index
+A5-husky                       SWEEP          expect_sweep=True  
+X1-git-stash-keep-index        clean          expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11421  redactions: none
+==============================================================================
+[seq 20] 2026-10-07T08:12:45+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not change the worktree, so the runner's staging behaviour was never exercised expect_sweep=False 
+A1-lefthook-stage_fixed        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A1b-lefthook-no-stage_fixed    no sweep, but the formatter's change did not reach the commit: formatted worktree, unformatted commit expect_sweep=None  
+A2-precommit-local-hook        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=True  
+A3-lint-staged-default         no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A4-lint-staged-no-stash        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A5-husky                       SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+X1-git-stash-keep-index        INCONCLUSIVE: the formatter did not change the worktree, so the runner's staging behaviour was never exercised expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22471  redactions: none
+==============================================================================
+[seq 21] 2026-10-07T08:13:27+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not change the worktree, so the runner's staging behaviour was never exercised expect_sweep=False 
+A1-lefthook-stage_fixed        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A1b-lefthook-no-stage_fixed    no sweep, but the formatter's change did not reach the commit: formatted worktree, unformatted commit expect_sweep=None  
+A2-precommit-local-hook        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=True  
+A3-lint-staged-default         no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A4-lint-staged-no-stash        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A5-husky                       SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+X1-git-stash-keep-index        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23746  redactions: none
+==============================================================================
+[seq 22] 2026-10-07T08:14:27+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not change the worktree, so the runner's staging behaviour was never exercised expect_sweep=None  
+A1-lefthook-stage_fixed        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A1b-lefthook-no-stage_fixed    no sweep, but the formatter's change did not reach the commit: formatted worktree, unformatted commit expect_sweep=None  
+A2-precommit-local-hook        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=True  
+A3-lint-staged-default         no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A4-lint-staged-no-stash        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A5-husky                       SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+X1-git-stash-keep-index        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22787  redactions: none
+==============================================================================
+[seq 23] 2026-10-07T08:20:17+00:00
+$ timeout 1500 python3 EXPERIMENTS/047-hook-partial-stage/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+C0-naive-shell-hook            SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+B0-no-hook                     INCONCLUSIVE: the formatter did not change the worktree, so the runner's staging behaviour was never exercised expect_sweep=None  
+A1-lefthook-stage_fixed        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A1b-lefthook-no-stage_fixed    no sweep, but the formatter's change did not reach the commit: formatted worktree, unformatted commit expect_sweep=None  
+A2-precommit-local-hook        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=True  
+A3-lint-staged-default         no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A4-lint-staged-no-stash        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=None  
+A5-husky                       SWEEP: the unstaged hunk's content reached the commit expect_sweep=True  
+X1-git-stash-keep-index        no sweep: the unstaged hunk stayed out and the fix was staged expect_sweep=False 
+
+control C0 swept: True   (must be True)
+fixture control B0 clean and no formatter: True   (must be True)
+wrote /home/ubuntu/think-free/EXPERIMENTS/047-hook-partial-stage/raw/results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 23419  redactions: none
+==============================================================================
+[seq 40] 2026-10-07T08:32:35+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1777 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/045-demand-evidence/raw/sources/git-hunk-README.txt: 359 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  info  sessions/2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/commands.log: 744 lines (exempt from cap)
+  info  sessions/2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/commands.log: 341 lines (exempt from cap)
+  FAIL  tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md: orphan document; no other document links to it
+  FAIL  identifier collision: F083: defined at FAILURES-findings-31.md:17 but absent from the FAILURES.md index
+  FAIL  identifier collision: DECISIONS-SCREENING-12.md: DECISIONS.md does not list this file at all
+  FAIL  identifier collision: DECISIONS-SCREENING-13.md: DECISIONS.md does not list this file at all
+doc lint: 4 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 97507  redactions: none
+==============================================================================
+[seq 41] 2026-10-07T08:39:28+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1777 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/045-demand-evidence/raw/sources/git-hunk-README.txt: 359 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  info  sessions/2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/commands.log: 744 lines (exempt from cap)
+  info  sessions/2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/commands.log: 527 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 55875  redactions: none
+==============================================================================
+[seq 42] 2026-10-07T08:55:10+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................F................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+======================================================================
+FAIL: test_the_mission_record_list_covers_every_decision_file (test_decision_files.DecisionFileListTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_decision_files.py", line 85, in test_the_mission_record_list_covers_every_decision_file
+    self.assertEqual(sorted(self.on_disk() - listed), [], "a decision file no session obligation reaches")
+AssertionError: Lists differ: ['DECISIONS-SCREENING-13.md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'DECISIONS-SCREENING-13.md'
+
+- ['DECISIONS-SCREENING-13.md']
++ [] : a decision file no session obligation reaches
+
+----------------------------------------------------------------------
+Ran 816 tests in 686.995s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 689403  redactions: none
+==============================================================================
+[seq 43] 2026-10-07T08:59:58+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_files tests.test_decision_row_pattern tests.test_decision_index
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........E
+======================================================================
+ERROR: test_decision_index (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_decision_index
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'tests.test_decision_index'
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+FAILED (errors=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 306  redactions: none
+==============================================================================
+[seq 44] 2026-10-07T09:11:39+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+................................................................................................................................................................................................................................................................................................./home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 816 tests in 672.776s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 674622  redactions: none
+==============================================================================
+[seq 45] 2026-10-07T09:19:30+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+origin: rebase stopped on a real content conflict in DECISIONS.md, FAILURES.md, STATE-history.md, STATE-next-actions.md, STATE.md; resolve it (or 'git rebase --abort') and land again
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2498  redactions: none

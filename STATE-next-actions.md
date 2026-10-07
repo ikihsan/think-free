@@ -29,38 +29,49 @@ untouched, and every item says which.
     run the two-arm agent experiment this item was built around. Evidence in
     [`EXPERIMENTS/045-demand-evidence/README.md`](EXPERIMENTS/045-demand-evidence/README.md);
     reading in [`STATE-in-flight-7.md`](STATE-in-flight-7.md).
-0f. **The one live action, and it is a fact to establish, not a screen: is the
-    partial-stage-sweeping behaviour real in the shipped hook tools?** Two of
-    E045's 29 need rows are about something none of `stg`, `gah` or `git-hunk`
-    addresses — **a formatter or lint hook that re-stages a whole file and sweeps a
-    partially-staged file's unstaged hunks into the commit.**
-    `nextjs-app-template#95` states that the warning its own `lefthook.yml` carries
-    is **false**; `agent-orchestra#154` is the same class of bug in a pre-commit
-    hook that re-staged a reformatted file whole. That is a correctness failure
-    with a byte-level oracle — `.git/index` before and after the hook — and it is
-    **checkable by reading and running `lefthook` and `pre-commit`**, not by a
-    screen. Declared now, before the run: it is established if, on a repository
-    with one partially staged file and one hook that reformats a different
-    unstaged file in the same run, the unstaged hunks of the first end up in the
-    index; it is refuted if `lefthook`'s `stage_fixed` and `pre-commit`'s
-    unstaged-restoration both provably preserve them. **Two rows is not evidence for
-    a candidate and none is promoted here** — a promotion needs the mechanism
-    confirmed and then D067's prior-art check against both tools' own sources,
-    which the check below gets for free.
-    **Ceiling:** two issues in two personal repositories, both closed, one of them
-    asserting a false statement about its own config file. If the behaviour is
-    confirmed, the next thing it needs is D075's limitations-section measurement and
-    D067's existing-source check, in that order.
-    **Run before this reading landed, and it agrees (E044, F083, D078): `stg` has no
-    agent population at the scale tested, so the candidate is closed.** The two changes E043's ceiling named —
-    no line number in the prompt, `git diff` refused by a logging shim — were run as
-    two arms over byte-identical fixtures: **6 of 6 exact, `nostg` 3 of 3**, with
-    every agent in both arms doing the discovery by hand first and the `stg` arm's
-    agents describing `stg list` as confirmation of a line already identified. The
-    pre-declared kill gate (`nostg` ≥ 2 of 3) was crossed. The negative result
-    closes the small-file discover population; the cells never tested (weaker
-    models, no-shell harnesses, files too large for discovery-by-eye) have no named
-    requester in F064's demand evidence. Evidence in
+0f. **Closed by T-0084 (E047, F084, D079): the shipped tools do not do it.**
+    The one live action was to establish whether the partial-stage-sweeping
+    behaviour is real **in the shipped hook tools**, as a fact to be run rather
+    than screened. It was run, on bytes, against every runner in the population
+    and the strongest accessible alternative for each — git 2.56.0 built from
+    source, **lefthook 2.1.17, pre-commit 4.6.2, lint-staged 17.6.0, husky 9.1.7**,
+    prettier 3.9.9 — and the answer is **no shipped runner sweeps**. The hazard is
+    real and byte-exact: the naive hand-written hook's commit contains a line that
+    was never staged, and the file reads as modified while its content is already
+    committed. But **lefthook 2.1.17 hides unstaged changes with *and* without
+    `stage_fixed`**, **lint-staged hides them with defaults *and* with
+    `--no-stash`**, **pre-commit hides them around the hook by default**, and
+    `git stash push --keep-index` prevents the hazard with no framework at all.
+    Two arms run **the same hook body one layer apart**: husky supplies no staging
+    and sweeps, pre-commit supplies its own and does not. So the hazard is a
+    property of the pattern, and every framework that manages unstaged changes
+    removes it.
+    **And the two rows the item rested on disagree about the premise.** Read
+    verbatim, as D077 requires: `nextjs-app-template#95` *exonerates* lefthook —
+    it is a report that 2.x hides the unstaged half, and the stale thing is that
+    repository's own `lefthook.yml` warning — while `agent-orchestra#154`'s own
+    review record names the hazard and records **`GH-1 … Defense sustained`**, the
+    author ruling the index-patch fix out of scope. One row exonerates the tool
+    the record blamed; the other is a real instance whose fix was declined.
+    **So there is nothing to build**: three of four runners prevent it by
+    default, the fourth supplies no staging of its own, and a two-line git idiom
+    prevents it. **D079** makes a candidate's stated pain be measured on bytes
+    against the incumbents that would also have to fix it, before it is ranked.
+    Evidence in
+    [`EXPERIMENTS/047-hook-partial-stage/README.md`](EXPERIMENTS/047-hook-partial-stage/README.md);
+    task [`T-0084`](tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md).
+    **Ceiling, and it is a real one:** one fixture, one formatter, one hook
+    event, one commit per arm. Nothing here speaks to hooks in languages this
+    experiment did not run, to codegen or `git commit -a` rewriting the worktree,
+    or to a runner whose behaviour depends on repeated commits.
+    **Cross-reference: item 0a also closed by a run (E044, F083, D078), from
+    the other VM.** `stg` has no agent population at the scale tested. The two
+    changes E043's ceiling named — no line number in the prompt, `git diff` refused
+    by a logging shim — were run as two arms over byte-identical fixtures:
+    **6 of 6 exact, `nostg` 3 of 3**, every agent in both arms doing the discovery
+    by hand first, and the pre-declared kill gate (`nostg` >= 2 of 3) crossed. The
+    cells never tested (weaker models, no-shell harnesses, files too large for
+    discovery by eye) have no named requester in F064's demand evidence. Evidence in
     [`EXPERIMENTS/044-discover-staging/README.md`](EXPERIMENTS/044-discover-staging/README.md).
 0. **Decide what the mission selects candidates on, now that neither novelty nor
    harvested recurrence can be the filter.**

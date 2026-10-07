@@ -53,15 +53,18 @@ if [ ! -x "$ROOT/git/bin/git" ]; then
   sha256sum "$ROOT/logs/git.tar.xz" | tee "$ROOT/logs/git.sha256"
   mkdir -p "$ROOT/git-src"
   tar -xJf "$ROOT/logs/git.tar.xz" -C "$ROOT/git-src" --strip-components=1
-  # NO_RUST=1: git 2.5x builds a Rust `libgitcore` by default and this VM has no
-  # cargo, so the default target fails at `target/release/libgitcore.a`. NO_RUST
-  # is git's own documented switch for the pure-C build, and it changes nothing
-  # about the git porcelain these arms use.
+  # The three switches below are git's own, and each is a part of git these arms
+  # never call: NO_RUST because git 2.5x builds a Rust `libgitcore` by default
+  # and this VM has no cargo; NO_TCLTK because git-gui needs tcl/tk, which are
+  # absent and which no hook runner invokes; NO_GETTEXT for the same reason as
+  # --disable-nls. None of them touches the porcelain the experiment drives.
   ( cd "$ROOT/git-src" \
     && ./configure --prefix="$ROOT/git" --without-openssl \
                     --disable-nls CFLAGS="-O1" >"$ROOT/logs/git-configure.log" 2>&1 \
-    && make -j"$(nproc)" NO_RUST=1 >"$ROOT/logs/git-make.log" 2>&1 \
-    && make NO_RUST=1 install >>"$ROOT/logs/git-make.log" 2>&1 )
+    && make -j"$(nproc)" NO_RUST=1 NO_TCLTK=1 NO_GETTEXT=1 \
+         >"$ROOT/logs/git-make.log" 2>&1 \
+    && make NO_RUST=1 NO_TCLTK=1 NO_GETTEXT=1 install \
+         >>"$ROOT/logs/git-make.log" 2>&1 )
   printf '%s\n' "$ver" > "$ROOT/logs/git.version"
 fi
 say "git: $("$ROOT/git/bin/git" --version)  (built at $ROOT/git/bin/git)"
