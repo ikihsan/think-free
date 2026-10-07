@@ -1,0 +1,681 @@
+==============================================================================
+[seq 2] 2026-10-07T00:08:03+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/build.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-nostg	adjacent-modifications	line 8	two adjacent modified lines; stage only the first
+/tmp/opencode/e043/adjacent-modifications-stg	adjacent-modifications	line 8	two adjacent modified lines; stage only the first
+/tmp/opencode/e043/one-edit-among-three-nostg	one-edit-among-three	line 20	one edited line among three scattered edits; stage it
+/tmp/opencode/e043/one-edit-among-three-stg	one-edit-among-three	line 20	one edited line among three scattered edits; stage it
+/tmp/opencode/e043/two-line-insertion-nostg	two-line-insertion	line 3	two adjacent inserted lines; stage only the first
+/tmp/opencode/e043/two-line-insertion-stg	two-line-insertion	line 3	two adjacent inserted lines; stage only the first
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 417  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T00:08:30+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/build.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/build.py", line 175, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/build.py", line 170, in main
+    path, line = build(root, name, spec, want)
+  File "EXPERIMENTS/043-real-agent-staging/build.py", line 146, in build
+    raise AssertionError(
+AssertionError: adjacent-modifications: line 7 ('return fh.read()') is not a changed line; git says [6]
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1004  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T00:08:52+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/build.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-nostg	adjacent-modifications	line 7	two adjacent modified lines; stage only the second
+/tmp/opencode/e043/adjacent-modifications-stg	adjacent-modifications	line 7	two adjacent modified lines; stage only the second
+/tmp/opencode/e043/one-edit-among-three-nostg	one-edit-among-three	line 19	one edited line among three scattered edits; stage only it
+/tmp/opencode/e043/one-edit-among-three-stg	one-edit-among-three	line 19	one edited line among three scattered edits; stage only it
+/tmp/opencode/e043/two-line-insertion-nostg	two-line-insertion	line 3	two adjacent inserted lines; stage only the first
+/tmp/opencode/e043/two-line-insertion-stg	two-line-insertion	line 3	two adjacent inserted lines; stage only the first
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 803  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T00:09:04+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/check_oracle.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+scenario                     route        verdict          exit
+adjacent-modifications       stage-all    wrong            0
+adjacent-modifications       stage-none   wrong            0
+adjacent-modifications       diff-filter  wrong            128
+adjacent-modifications       stg          exact            1
+one-edit-among-three         stage-all    wrong            0
+one-edit-among-three         stage-none   wrong            0
+one-edit-among-three         diff-filter  wrong            128
+one-edit-among-three         stg          exact            1
+two-line-insertion           stage-all    wrong            0
+two-line-insertion           stage-none   wrong            0
+two-line-insertion           diff-filter  wrong            128
+two-line-insertion           stg          exact            1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 902  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T00:10:04+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/check_oracle.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/check_oracle.py", line 111, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/check_oracle.py", line 100, in main
+    rc, _ = diff_filter(work, line)
+ValueError: too many values to unpack (expected 2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 701  redactions: none
+==============================================================================
+[seq 7] 2026-10-07T00:10:12+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/check_oracle.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+scenario                   route        verdict          exit
+adjacent-modifications     stage-all    wrong            0
+adjacent-modifications     stage-none   wrong            0
+adjacent-modifications     diff-filter  wrong            0
+adjacent-modifications     stg          exact            1
+one-edit-among-three       stage-all    wrong            0
+one-edit-among-three       stage-none   wrong            0
+one-edit-among-three       diff-filter  exact            0
+one-edit-among-three       stg          exact            1
+two-line-insertion         stage-all    wrong            0
+two-line-insertion         stage-none   wrong            0
+two-line-insertion         diff-filter  wrong            0
+two-line-insertion         stg          exact            1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 884  redactions: none
+==============================================================================
+[seq 8] 2026-10-07T00:10:29+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/adjacent-modifications-nostg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 691  redactions: none
+==============================================================================
+[seq 9] 2026-10-07T00:10:30+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/adjacent-modifications-stg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 601  redactions: none
+==============================================================================
+[seq 10] 2026-10-07T00:10:31+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/two-line-insertion-nostg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 606  redactions: none
+==============================================================================
+[seq 11] 2026-10-07T00:10:32+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/two-line-insertion-stg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 595  redactions: none
+==============================================================================
+[seq 12] 2026-10-07T00:10:33+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/one-edit-among-three-nostg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 587  redactions: none
+==============================================================================
+[seq 13] 2026-10-07T00:10:34+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 81, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 56, in main
+    with open(os.path.join(trial, ".requested_line")) as fh:
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/opencode/e043/one-edit-among-three-stg-trial/.requested_line'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 589  redactions: none
+==============================================================================
+[seq 14] 2026-10-07T00:10:41+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 118  redactions: none
+==============================================================================
+[seq 15] 2026-10-07T00:10:42+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 176  redactions: none
+==============================================================================
+[seq 16] 2026-10-07T00:10:43+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/two-line-insertion-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 111  redactions: none
+==============================================================================
+[seq 17] 2026-10-07T00:10:43+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/two-line-insertion-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 119  redactions: none
+==============================================================================
+[seq 18] 2026-10-07T00:10:44+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/one-edit-among-three-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 144  redactions: none
+==============================================================================
+[seq 19] 2026-10-07T00:10:44+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/one-edit-among-three-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 120  redactions: none
+==============================================================================
+[seq 20] 2026-10-07T00:11:32+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043/adjacent-modifications-nostg-trial /tmp/opencode/e043/two-line-insertion-nostg-trial /tmp/opencode/e043/one-edit-among-three-nostg-trial
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[
+  {
+    "repo": "/tmp/opencode/e043/adjacent-modifications-nostg-trial",
+    "verdict": "exact",
+    "index_matches_expected": true,
+    "changes_remain_in_worktree": true
+  },
+  {
+    "repo": "/tmp/opencode/e043/two-line-insertion-nostg-trial",
+    "verdict": "exact",
+    "index_matches_expected": true,
+    "changes_remain_in_worktree": true
+  },
+  {
+    "repo": "/tmp/opencode/e043/one-edit-among-three-nostg-trial",
+    "verdict": "exact",
+    "index_matches_expected": true,
+    "changes_remain_in_worktree": true
+  }
+]
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 182  redactions: none
+==============================================================================
+[seq 21] 2026-10-07T00:11:59+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194  redactions: none
+==============================================================================
+[seq 22] 2026-10-07T00:12:00+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 127  redactions: none
+==============================================================================
+[seq 23] 2026-10-07T00:12:00+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/two-line-insertion-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none
+==============================================================================
+[seq 24] 2026-10-07T00:12:02+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/two-line-insertion-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 410  redactions: none
+==============================================================================
+[seq 25] 2026-10-07T00:12:03+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three nostg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/one-edit-among-three-nostg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 282  redactions: none
+==============================================================================
+[seq 26] 2026-10-07T00:12:04+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/one-edit-among-three-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 182  redactions: none
+==============================================================================
+[seq 27] 2026-10-07T00:13:07+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "wrong",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "wrong",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "wrong",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 3,
+  "of": 6
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 492  redactions: none
+==============================================================================
+[seq 28] 2026-10-07T00:13:28+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "nothing_staged",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "nothing_staged",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "nothing_staged",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 3,
+  "of": 6
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 311  redactions: none
+==============================================================================
+[seq 29] 2026-10-07T00:14:21+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 6,
+  "of": 6
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 395  redactions: none
+==============================================================================
+[seq 30] 2026-10-07T00:14:40+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 102, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 88, in main
+    raise RuntimeError("stg not resolvable on PATH: " + err)
+RuntimeError: stg not resolvable on PATH: /usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg_cli.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 771  redactions: none
+==============================================================================
+[seq 31] 2026-10-07T00:14:42+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 102, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 88, in main
+    raise RuntimeError("stg not resolvable on PATH: " + err)
+RuntimeError: stg not resolvable on PATH: /usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg_cli.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 673  redactions: none
+==============================================================================
+[seq 32] 2026-10-07T00:14:43+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 102, in <module>
+    main()
+  File "EXPERIMENTS/043-real-agent-staging/prepare.py", line 88, in main
+    raise RuntimeError("stg not resolvable on PATH: " + err)
+RuntimeError: stg not resolvable on PATH: /usr/bin/python3: can't open file '/home/ubuntu/think-free/EXPERIMENTS/stage-lines/stg_cli.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 697  redactions: none
+==============================================================================
+[seq 33] 2026-10-07T00:14:53+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 adjacent-modifications stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/adjacent-modifications-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 220  redactions: none
+==============================================================================
+[seq 34] 2026-10-07T00:14:53+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 two-line-insertion stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/two-line-insertion-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 220  redactions: none
+==============================================================================
+[seq 35] 2026-10-07T00:14:54+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/prepare.py /tmp/opencode/e043 one-edit-among-three stg
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+/tmp/opencode/e043/one-edit-among-three-stg-trial
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 210  redactions: none
+==============================================================================
+[seq 36] 2026-10-07T00:15:51+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 6,
+  "of": 6
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 309  redactions: none
+==============================================================================
+[seq 37] 2026-10-07T00:15:55+00:00
+$ sh -c ls /tmp/opencode/e043/*-trial/ | sort -u; echo "=== leaks checked ==="; find /tmp/opencode/e043 -name ".expected_index" -path "*-trial/*" | wc -l
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+/tmp/opencode/e043/adjacent-modifications-nostg-trial/:
+/tmp/opencode/e043/adjacent-modifications-stg-trial/:
+/tmp/opencode/e043/one-edit-among-three-nostg-trial/:
+/tmp/opencode/e043/one-edit-among-three-stg-trial/:
+/tmp/opencode/e043/two-line-insertion-nostg-trial/:
+/tmp/opencode/e043/two-line-insertion-stg-trial/:
+app.py
+=== leaks checked ===
+0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 107  redactions: none
+==============================================================================
+[seq 38] 2026-10-07T00:16:24+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/check_oracle.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+scenario                   route        verdict          exit
+adjacent-modifications     stage-all    wrong            0
+adjacent-modifications     stage-none   wrong            0
+adjacent-modifications     diff-filter  wrong            0
+adjacent-modifications     stg          exact            1
+one-edit-among-three       stage-all    wrong            0
+one-edit-among-three       stage-none   wrong            0
+one-edit-among-three       diff-filter  exact            0
+one-edit-among-three       stg          exact            1
+two-line-insertion         stage-all    wrong            0
+two-line-insertion         stage-none   wrong            0
+two-line-insertion         diff-filter  wrong            0
+two-line-insertion         stg          exact            1
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1887  redactions: none
+==============================================================================
+[seq 39] 2026-10-07T00:16:25+00:00
+$ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 6,
+  "of": 6
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 287  redactions: none

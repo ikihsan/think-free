@@ -146,3 +146,13 @@ exempt: .agents/skills/writing-skills/**
 Drift against **upstream** cannot be detected offline; `skills verify` only
 detects local modification of what is recorded in `hashes.json`. Checking
 upstream is step 1 of an update, deliberately a human decision.
+# `docs/INDEX.md` is a generated map, and the map is longer than the documents it
+# maps. It crossed 300 lines on 2026-10-07 at 303, one row past the cap, having
+# been at 302 before it. The rule it needs is the same one that already covers
+# session reports and raw captures: **the file is written by a tool from the tree,
+# is never hand-edited, and has a stronger check on it than length** — here that
+# is `doclint_tree.check_generated`, which fails if a generated file disagrees with
+# its generator. Splitting it would mean a map whose halves drift, which is the
+# failure the generated-file check exists to prevent. Exempting it by path is the
+# smallest intervention that leaves that check in place.
+exempt: docs/INDEX.md

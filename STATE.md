@@ -38,7 +38,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21). A gate's pattern for this repository's split records now reads a numbered split — `decisionindex.py` reported `DECISIONS-SCREENING-2.md` as unlisted while its row was in the table, and the pattern is held to the spellings `DECISIONS.md` uses (`tests/test_decision_row_pattern.py`, T-0063) |
 | Implemented (3) | **`stage-lines/`** — `stg`, a non-interactive `git add -p`. `list`, `list --json`, `stage`, `unstage`, `split`; addresses any change by the working-tree line it occupies, splitting adjacent modifications per line. **285 lines of library + a 297-line CLI, standard library only, no install step. 28 tests, all against real git repositories with no mocks** (`python3 -m unittest discover -s stage-lines`). Correctness is anchored to git itself: on a real file in this repository the resulting `.git/index` is **byte-identical** to the one a hand-built patch leaves. **Not released**; its header says `status: draft` |
-| Users and adoption | None. No product, no release, no claims. **E037's KILL-Q — does anyone want this — has been evaluated through real-world install and usage: tool is functional and installable via pip, but demand is at low rate (0.016-0.066 of matching GitHub issues, 2 named requesters in 589 need statements). The mechanism has been further validated through real-world staging tests (5/6 common scenarios succeed, 1 correct refusal for out-of-range line). KILL-Q is now `not_evaluated` only in the sense that no daily-adoption measurement has been conducted** — the mechanism works and the differentiator is packaging, not the algorithm. |
+| Users and adoption | None. No product, no release, no claims. **E037's KILL-Q — does anyone want this — has been evaluated through real-world install and usage: tool is functional and installable via pip, but demand is at low rate (0.016-0.066 of matching GitHub issues, 2 named requesters in 589 need statements). **E043 (F075) then ran the candidate's stated caller — six real agents on real staging tasks — and the packaging advantage that was to justify adoption is not observed: 6 of 6 exact with 3 of 3 succeeding with no tool at all, and 2 of the 3 agents that had `stg` on `PATH` ignoring it. `stg` is withdrawn as a release candidate on agent usability**; it remains a correct tool (30/30, byte-identical index). The population that might still need it — an agent that must discover which line changed, with no diff access — is untested. |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | **138 with an event stream, 137 closed** — `origin session verify` reads the tree on 2026-10-06 rather than a running total; only session 2026-10-06-016 is in flight. Older note: VM 0947's 054 and its past-lease T-0060 claim have since closed |
@@ -51,6 +51,21 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**The candidate's last surviving claim is now measured against real agents, and
+it did not survive (E043, F075, D074).** `stg` had kept a life on one claim —
+the differentiator is *packaging* — and E040, E041 and E042 each measured it
+without running a caller; E042's design document says it simulated the agent.
+**Six real agents on six real repositories: 6 of 6 exact, 3 of 3 with no tool at
+all, and 2 of the 3 that had `stg` on `PATH` declined to use it.** 180 lines is
+the cost of a *general* selector; these agents needed one patch. `stg` is no
+longer a candidate for release on agent usability. **The arm that shipped a
+binary not on `PATH`, reported `command not found` for all three of its agents,
+and still scored 6 of 6 — which reads as confirmation** — is why D074 requires an
+arm to be checked to have exercised the tool. What survives open is an agent that
+must *discover* which line changed, with no diff and no line number. Full reading
+in [`STATE-in-flight-5.md`](STATE-in-flight-5.md); evidence in
+[`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
+
 **A candidate with a working artifact exists, and the gap is the interface, not the
 capability — but E038 searched for prior art and found two tools that take the coordinate**
 (E038, **F062, F063, D069**, [`stage-lines/`](stage-lines/README.md)). E037's KILL-B rested on
@@ -58,7 +73,9 @@ git's own documentation because web search was unavailable, and said so; with a 
 available, **`filterdiff --lines=RANGE`** (patchutils 0.3.4, installed from a Debian `.deb` and
 run at 12 of 30) and **VS Code's `git.stageSelectedRanges`** both take a line coordinate. What
 survives is narrower and stated: **no *command-line* tool takes `file:line`, splits a run of
-adjacent changes correctly, and exits non-zero when it staged something else.**
+adjacent changes correctly, and exits non-zero when it staged something else.** The E043 result
+above is about what a caller does when it has that gap, and it found the gap costs less than
+this record had priced it.
 
 **E041 tested the strongest achievable shell baseline** (a ~180-line Python script
 implementing `stg`'s exact splitting algorithm) and found it matches `stg` on all 35 test
@@ -104,9 +121,25 @@ hand-run rebase records nothing and its paths are then attributed to whoever hol
 
 ## What changed recently
 
+- **Session 2026-10-07-001, VM 0944 (E043, F075, D074): the candidate's last
+  surviving claim was three experiments old, rested on a simulation, and did not
+  survive a real caller.** Six real agents on six real repositories, scored against
+  a hand-written oracle no agent could read: **6 of 6 exact, 3 of 3 with no tool at
+  all, and 2 of the 3 that had `stg` on `PATH` declined to use it.** Every no-tool
+  agent converged independently on `git diff` → hand-write a minimal patch →
+  `git apply --cached`. `stg` is no longer a candidate for release on agent
+  usability; it remains a correct tool and that is now the whole claim. **D074**
+  requires a candidate whose surviving claim names a caller to run that caller as an
+  arm before it is called validated, and requires the arm to be *checked to have
+  exercised the tool* — because the `stg` arm shipped a binary that was not on
+  `PATH`, three agents reported `command not found`, and **the run still scored 6 of
+  6, which reads as confirmation.** Evidence in
+  [`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
+
 - **Session 2026-10-06-015 (E041 reconcile/publish) finished: worked.** The 816-test
   suite is green (OK, 651s), doc lint exits 0, and the test-suite and release-check
   gates it had left "running in background" are captured in its command log.
+
 - **E041 (`EXPERIMENTS/041-need-index/`, this VM's second E-number collision, F070-F074, D072/D073): the needs-index premise closes on its own arithmetic.**
   The instrument was first validated on the positive control E040 could not build
   (**77 judged duplicate pairs**, both members in a 44,669-row corpus): G1/G3 pass,

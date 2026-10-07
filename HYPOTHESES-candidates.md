@@ -231,3 +231,46 @@ and [`EXPERIMENTS/042-agent-staging-e2e/results.json`](EXPERIMENTS/042-agent-sta
 The naive approach model may not match what a real agent would write. filterdiff unavailable
 on this host. Only git 2.25.1 tested. The 180x code reduction assumes the agent would
 otherwise write the shell baseline from scratch — a real agent might copy-paste or import.
+
+---
+
+## E043 — the agent-usability claim, run against real agents (F075)
+
+`observed` 2026-10-07, session 2026-10-07-001. Evidence:
+[`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
+
+E042's own ceiling said "simulated agent (not a real coding agent)". E043 ran six
+real agents on six real repositories — one committed file, a real dirty working
+tree, the instruction *"stage ONLY the change on line N; leave every other change
+unstaged"* — scored against a hand-written oracle that no agent could read.
+
+| arm | verdict | used `stg` |
+|---|---|---|
+| no tool offered (3 scenarios) | **3/3 exact** | n/a |
+| `stg` on `PATH`, named as available (3) | **3/3 exact** | **1 of 3** |
+
+**6 of 6 exact. Every `nostg` agent independently converged on `git diff` →
+hand-write a minimal patch → `git apply --cached`, one call each, no code
+written.** 2 of the 3 that had `stg` installed declined to use it.
+
+### What changed
+
+**The packaging advantage is not observed in the population the demand evidence
+names.** "1 line instead of 180" is true and worth nothing here: 180 lines is the
+cost of building a *general* selector, and these agents did not need one — they
+needed one patch, and `git diff` told them what it was.
+
+**`stg` is no longer a candidate for release on the strength of agent usability.**
+It remains a working, correct tool: 30 of 30 on E038, index byte-identical to a
+hand-built patch, honest exits at every boundary E039 measured. That is now the
+whole of its claim.
+
+**What survives open, and it is narrower:** an agent that must *discover* which
+line changed, without diff access and without a line number. That population is
+untested, and it is where a line-addressed interface could still pay. It is a
+two-arm rerun of this harness, not a new line of work.
+
+**Ceiling:** three scenarios, six runs, one model, synthetic Python, line numbers
+supplied, `git diff` available to every agent. The negative result closes the
+claim and that population only — not the tool, not the domain, and not the
+discovery route.

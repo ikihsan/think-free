@@ -285,6 +285,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`EXPERIMENTS/042-agent-staging-e2e/README.md`](../EXPERIMENTS/042-agent-staging-e2e/README.md) | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
 | [`EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md`](../EXPERIMENTS/042-stg-end-to-end/PROTOCOL.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | ## Goal |
 | [`EXPERIMENTS/042-stg-end-to-end/README.md`](../EXPERIMENTS/042-stg-end-to-end/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
+| [`EXPERIMENTS/043-real-agent-staging/README.md`](../EXPERIMENTS/043-real-agent-staging/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-001, VM instance-20260717-0944, git 2.25.1, |
 | [`EXPERIMENTS/PLAN.md`](../EXPERIMENTS/PLAN.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | [`EXPERIMENTS/README.md`](../EXPERIMENTS/README.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

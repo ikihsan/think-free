@@ -6,7 +6,7 @@ last-verified: 2026-10-06
 
 # Decisions — screening candidates and judging experiments, part 11
 
-Decisions **D072, D073**. Each entry records a choice that was genuinely open, the
+Decisions **D072, D073, D074**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** the same as [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) —
@@ -187,3 +187,65 @@ candidate's mechanism to be tested against its mechanism's existing source first
 D073 is the same rule applied to a candidate's *premise* — and it is the second time
 in this record it has paid, after F066 closed six requests' worth of work by reading
 the mechanism's availability first.
+
+## D074 — A candidate's surviving claim must meet the caller it names, and the arm must be checked to be exercising it
+
+`observed` 2026-10-07, session 2026-10-07-001. Evidence:
+[`EXPERIMENTS/043-real-agent-staging/`](EXPERIMENTS/043-real-agent-staging/README.md);
+F075.
+
+### The choice that was open
+
+`stg` had lost its mechanism three times over and kept a life on one claim: the
+differentiation is *packaging* — a caller writes 1 line instead of ~180. E040,
+E041 and E042 each measured that claim and each agreed, and none of them had run
+it against a caller. E042's design document says it simulated the agent, and the
+~180 figure descends from a baseline written by someone who had already read
+`stg`'s selector. The choice was whether a candidate whose only surviving claim
+rests on a simulated population may be called validated, or whether the caller
+has to run first.
+
+**It may not, and the caller runs first.** Six real agents on six real
+repositories: 6 of 6 exact, 3 of 3 with no tool at all, 2 of 3 declining to use
+`stg` when it was installed. The claim did not survive contact with the
+population it was about.
+
+### The rule, which is two rules
+
+**First: when a candidate's justification names a caller, that caller is an arm
+that runs before the candidate is called validated.** Not a route, not a script,
+not a reimplementation of the mechanism — the caller. `stg` spent three
+experiments being compared against artifacts this repository wrote, which is why
+three experiments agreed: they shared a premise rather than testing it. The
+premise was cheap to test — an afternoon and six runs — and was testable from the
+first day the claim was made.
+
+**Second, and this is the part that bit: an arm is not evidence unless it was
+observed to exercise the thing under test.** The `stg` arm shipped a tool that
+was not on `PATH`; all three agents reported `command not found`, the arm was a
+second control arm, **and the run still scored 6 of 6 — a clean result that
+would have been recorded as confirmation of the candidate.** F073 is the same
+shape (an arm producing a clean table because it was not running the thing
+under test) and the first time here that a control failed *open* rather than
+producing a visible zero. So the harness now refuses to emit a trial unless the
+tool resolves, and the general form is: **an arm that cannot fail is not a
+control, and the check that it can is part of building it.**
+
+### Why not the alternative
+
+Keeping the simulated agent and recording its ceiling would have been cheaper and
+defensible. It was rejected because **a simulated caller is a reimplementation of
+the caller's reasoning, written by the party that wants the claim to hold** — the
+same defect as the ~180-line baseline, one level up. Where a population is
+reachable, reaching it beats modelling it; where it is not, that is a finding
+about access and should be written as one.
+
+### What it does not decide
+
+It does not claim agents never need `stg`. Six runs, one model, one session,
+synthetic Python, line numbers supplied, and `git diff` available to every agent
+— the population where a line-addressed interface could still pay is an agent
+that must *discover* which line changed without diff access, and that is untested.
+It does not release or retire `stg`, which remains a correct tool (30/30 on E038,
+byte-identical index). It does not change what this repository selects candidates
+on; it changes when a candidate's last remaining claim has to be run.

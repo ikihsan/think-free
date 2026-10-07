@@ -1,0 +1,48 @@
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": []
+    }
+  ],
+  "exact": 6,
+  "of": 6
+}
