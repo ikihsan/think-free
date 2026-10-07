@@ -50,6 +50,8 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 13:27:47 | session_start | Recover context from leftover session 006; explore fresh observation for a testable opportunity |
+| 2 | 13:29:26 | milestone | recovered context; session 006 work committed as 175679f; doc lint OK |
+| 3 | 13:58:17 | milestone | diagnosed 37b645d CI red: release check failed, 4 unclassified top-level files; consolidated duplicated manifest rows and added the four |
 
 ## Reproduce this record
 
