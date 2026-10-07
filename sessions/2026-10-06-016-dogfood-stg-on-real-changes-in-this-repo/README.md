@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: sessions/INDEX.md
 status: active
-last-verified: 2026-10-06
+last-verified: 2026-10-07
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -50,6 +50,9 @@ _none_
 | seq | time | kind | summary |
 |---|---|---|---|
 | 1 | 23:19:22 | session_start | Dogfood stg on real changes in this repo; record observed friction vs git workflow alternatives |
+| 2 | 00:22:54 | task_rewrite | appended a create record for T-0082 |
+| 3 | 00:23:44 | base_advance | sync land: base moved ab4faeb1fb30 -> 363c6b7c1183, 1 commit(s) arrived from the shared base |
+| 4 | 00:23:51 | task_rewrite | rewrote tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md (status: claimed) |
 
 ## Reproduce this record
 
