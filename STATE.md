@@ -123,63 +123,11 @@ paths are then attributed to whoever holds the tree (T-0053).
   candidate's stated pain be measured on bytes against the incumbents that would
   also have to fix it, before it is ranked. Evidence in
   [`EXPERIMENTS/047-hook-partial-stage/README.md`](EXPERIMENTS/047-hook-partial-stage/README.md).
-- **Session 2026-10-07-002, VM 0947 (E045, T-0083, F081, F082, D077): the candidate is
-  withdrawn, and the kill was in the record's own corpus the whole time.** E045 read all 189
-  unique issues in E038's cached demand corpus, one row each, asking the two questions the
-  record never asked — who is making the request, and which interface do they lack.
-  **29 of 189 are about choosing which lines reach the index; 28 of those carry explicit
-  diff access and the 29th GUI-implied; 0 carry none.** All ten automated callers in the
-  need rows name their diff access in their own text. **Three of the four issues F064 cites
-  are not evidence of what they were cited for**: `sublime_merge#465` says the feature already
-  exists and asks for discoverability, `sublime_merge#976` asks for staging *within* a modified
-  line (sub-line, which `stg` does not provide), `vim-gitgutter#446` is a person in vim with a
-  visual selection. The rule classifier was measured before use per D069: precision 0.372,
-  recall 0.552, and its `line-coordinate` class matches `file:line` source citations inside CI
-  transcripts — 14 of its 43 rows are unrelated issues. **The same reading killed the
-  differentiator**: the 29 rows name **26 distinct repositories**, and two are command-line
-  tools taking `stg`'s coordinate that shipped before E037. `gah` (Rust, crates.io) offers
-  "line range" staging, documents `stg`'s exact hard case, targets AI coding agents by name and
-  ships a Claude Code plugin; `git-hunk` (Python, PyPI) has line-level control and has already
-  run the two-arm agent experiment item 0a was built around. Packaging goes with it: all three
-  are installable, two ship agent distribution, and `gah` addresses by a content anchor that
-  survives line shift — the mechanism E041 measured as absent, arriving from outside. E038's
-  prior-art check reported 2 of the 26 because it searched the web and read the corpus's titles.
-  **D077** makes the demand evidence of a named population be read row by row before anything is
-  built to measure that population. Evidence in
-  [`EXPERIMENTS/045-demand-evidence/README.md`](EXPERIMENTS/045-demand-evidence/README.md).
-- **Session 2026-10-07-002, VM 0944 (E044, F083, D078): the discovery population
-  doesn't need the tool either — the candidate closes.** E043's ceiling named the
-  last open population: an agent that must *discover* which line changed, with no
-  line number and no `git diff`. E044 reran the harness with exactly those two
-  changes — semantic task descriptions, and a logging policy shim refusing
-  `git diff` (passing `stg`'s own plumbing). Kill gate declared before the runs;
-  oracle validated on four routes × three scenarios including a no-diff route.
-  **6 of 6 exact, `nostg` 3 of 3** — every agent discovered by hand first
-  (`git show HEAD:app.py` vs `cat -n app.py`, correct line on the first attempt);
-  the three with `stg` describe `stg list` as *confirming* a line already
-  identified. A second no-tool route appeared: `git hash-object -w` +
-  `git update-index --cacheinfo`, no patch at all. **D078**: the one
-  policy-relevant event — a refused agent-facing `git diff --cached --stat` —
-  appears in no agent's self-report; compliance is logged at the enforcement
-  point. Evidence in
-  [`EXPERIMENTS/044-discover-staging/README.md`](EXPERIMENTS/044-discover-staging/README.md).
-- **Session 2026-10-07-001, VM 0944 (E043, F075, D074): the candidate's last
-  surviving claim was three experiments old, rested on a simulation, and did not
-  survive a real caller.** Six real agents on six real repositories, scored against
-  a hand-written oracle no agent could read: **6 of 6 exact, 3 of 3 with no tool at
-  all, and 2 of the 3 that had `stg` on `PATH` declined to use it.** Every no-tool
-  agent converged independently on `git diff` → hand-write a minimal patch →
-  `git apply --cached`. `stg` is no longer a candidate for release on agent
-  usability; it remains a correct tool and that is now the whole claim. **D074**
-  requires a candidate whose surviving claim names a caller to run that caller as an
-  arm before it is called validated, and requires the arm to be *checked to have
-  exercised the tool* — because the `stg` arm shipped a binary that was not on
-  `PATH`, three agents reported `command not found`, and **the run still scored 6 of
-  6, which reads as confirmation.** Evidence in
-  [`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
 - **Session highlights for the 2026-10-06 sessions** (015, 013, 012, 010, 011,
   009, 006) moved to [`STATE-history.md`](STATE-history.md) when the E046/E044
-  merge took this file past the 300-line cap.- **Items 0b, 1 and 2 left the ranked next-action list** — they are this repository's own
+  merge took this file past the 300-line cap. The 2026-10-07-001/002 session
+  entries moved to [`STATE-history.md`](STATE-history.md) in the same repair.
+- **Items 0b, 1 and 2 left the ranked next-action list** — they are this repository's own
   gates and CI, and F031's complaint that maintenance was reading as research was still
   true of a file headed *Ordered by information gained per unit of effort*. **The live items
   are now 0 and 0d, and only 0d is research.** Derivations in

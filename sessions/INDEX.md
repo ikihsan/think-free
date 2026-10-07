@@ -15,8 +15,8 @@ Showing the 25 most recent. 119 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | **unfinished** | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T08:44 |
-| [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | **unfinished** | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T07:17 |
+| [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
+| [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | worked | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T10:27 |
 | [2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh](2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/README.md) | unknown-agent | worked | E045 (T-0083): read the demand evidence behind the only candidate, ask | 2026-10-07T07:16 |
 | [2026-10-07-002-e044-rerun-e043-s-agent-staging-harness](2026-10-07-002-e044-rerun-e043-s-agent-staging-harness/README.md) | unknown-agent | worked | E044: rerun E043's agent-staging harness with no line number and no gi | 2026-10-07T07:09 |
 | [2026-10-07-001-e043-run-real-coding-agents-on-real-stag](2026-10-07-001-e043-run-real-coding-agents-on-real-stag/README.md) | unknown-agent | worked | E043: run real coding agents on real staging tasks, with and without s | 2026-10-07T00:59 |

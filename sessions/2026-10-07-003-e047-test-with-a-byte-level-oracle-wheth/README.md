@@ -10,10 +10,10 @@ last-verified: 2026-10-07
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-07T07:17:04+00:00
-- **Duration:** ?s
+- **Duration:** Nones
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ E047: test with a byte-level oracle whether any shipped git hook runner folds a 
 
 ## Summary
 
-_(none recorded)_
+E047 ran the hook-partial-stage question on bytes and closed the candidate it implied; landed in baac615. Session record closed on 2026-10-07 by the other VM after handoff without a finish event.
+
+## Next
+
+Nothing; F084/D079 landed, T-0084 answered.
 
 ## Artifacts
 
@@ -81,7 +85,6 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -136,6 +139,7 @@ _(none recorded)_
 | 43 | 08:59:58 | command | $ env PYTHONPATH=tools:tests python3 -m unittest tests.test_decision_files tests.test_decision_row_pattern tests.test_decision_index |
 | 44 | 09:11:39 | command | $ env PYTHONPATH=tools:tests python3 -m unittest discover -s tests -t tests |
 | 45 | 09:19:30 | command | $ tools/origin sync land |
+| 46 | 10:27:19 | session_end | E047 ran the hook-partial-stage question on bytes and closed the candidate it implied; landed in baac615. Session record closed on 2026-10-07 by the o |
 
 ## Reproduce this record
 

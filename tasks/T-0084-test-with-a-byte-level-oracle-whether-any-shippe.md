@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0084
-status: claimed
+status: done
 created: 2026-10-07
 claim-agent: unknown-agent
 claim-session: 2026-10-07-004-settle-the-hook-partial-stage-hazard-aga

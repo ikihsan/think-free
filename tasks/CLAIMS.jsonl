@@ -255,3 +255,4 @@
 {"action": "claim", "schema": "origin.task.claim/1", "task": "T-0083", "ts": "2026-10-07T02:22:44+00:00"}
 {"action": "create", "schema": "origin.task.claim/1", "task": "T-0084", "ts": "2026-10-07T07:55:06+00:00"}
 {"action": "claim", "agent": "unknown-agent", "schema": "origin.task.claim/1", "session": "2026-10-07-004-settle-the-hook-partial-stage-hazard-aga", "task": "T-0084", "ts": "2026-10-07T08:48:53+00:00"}
+{"action": "complete", "reason": "E047 answered it on bytes (session 003's run, baac615): every shipped hook runner is clean at its default configuration; sweep only where configured; F084/D079", "schema": "origin.task.claim/1", "task": "T-0084", "ts": "2026-10-07T10:27:35+00:00"}

@@ -10,10 +10,10 @@ last-verified: 2026-10-07
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-07T08:44:38+00:00
-- **Duration:** ?s
+- **Duration:** Nones
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Settle the hook-partial-stage hazard against the shipped runners with a byte-lev
 
 ## Summary
 
-_(none recorded)_
+Session 004 executed the same E047/T-0084 work concurrently on the second VM; the landed artifact is session 003's run (baac615). This session's local record of F084-F087/D079 was superseded in favor of the single landed record.
+
+## Next
+
+Keep one E047 record per repository tree; coordinate claims before re-running a claimed task.
 
 ## Artifacts
 
@@ -42,7 +46,6 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -57,6 +60,7 @@ _none_
 | 3 | 08:47:24 | command | $ tools/origin sync land |
 | 4 | 08:48:51 | task_rewrite | rewrote tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md (status: claimed) |
 | 5 | 08:48:53 | task_rewrite | appended a claim record for T-0084 |
+| 6 | 10:27:19 | session_end | Session 004 executed the same E047/T-0084 work concurrently on the second VM; the landed artifact is session 003's run (baac615). This session's local |
 
 ## Reproduce this record
 
