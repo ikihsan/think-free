@@ -63,6 +63,8 @@ _none_
 | 6 | 15:46:42 | command | $ sed -n 55,110p RESEARCH/E.md |
 | 7 | 15:47:43 | task_rewrite | appended a create record for T-0085 |
 | 8 | 15:48:21 | task_rewrite | rewrote tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md (status: claimed) |
+| 9 | 15:48:21 | task_rewrite | appended a claim record for T-0085 |
+| 10 | 15:48:46 | task_rewrite | rewrote tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md (status: open) |
 
 ## Reproduce this record
 
