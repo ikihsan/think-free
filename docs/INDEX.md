@@ -70,6 +70,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
 | [`docs/2026-10-06-strongest-shell-baseline.md`](2026-10-06-strongest-shell-baseline.md) | `docs/INDEX.md` | active | 2026-10-06 | > For agentic workers: This is an experiment plan, not a product implementation. It follows the  |
+| [`docs/METHODOLOGY-SUMMARY.md`](METHODOLOGY-SUMMARY.md) | `docs/INDEX.md` | active | 2026-10-07 | A concise synthesis of patterns across all closed invention claims in this repository. |
 
 ## sessions
 
@@ -243,7 +244,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/047-hook-partial-stage/` | `docs/INDEX.md` | complete | 2026-10-07 | Task T-0084. Corpus for the question: two rows of the 189-row demand corpus |
 | `EXPERIMENTS/048-formatter-review/` | `docs/INDEX.md` | complete | 2026-10-07 | Task T-0084's follow-on. E047 measured what the shipped hook runners do to |
 | `EXPERIMENTS/049-lockfile-closure/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0085. E2's claim: a lockfile is a weak witness of reproducibility because |
-| `EXPERIMENTS/050-registry-mechanisms/` | `docs/INDEX.md` | active | 2026-10-07 | T-0086. E049 measured that 10 of 11 lockfile closures |
+| `EXPERIMENTS/050-registry-mechanisms/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0086. E049 measured that 10 of 11 lockfile closures |
+| `EXPERIMENTS/051-claim-contradiction/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/052-real-abstracts-test/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
