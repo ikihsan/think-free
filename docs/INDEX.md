@@ -246,7 +246,6 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/049-lockfile-closure/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0085. E2's claim: a lockfile is a weak witness of reproducibility because |
 | `EXPERIMENTS/050-registry-mechanisms/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0086. E049 measured that 10 of 11 lockfile closures |
 | `EXPERIMENTS/051-claim-contradiction/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
-| `EXPERIMENTS/052-real-abstracts-test/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

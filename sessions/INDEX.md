@@ -8,14 +8,13 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-155 recorded session(s). One `events.jsonl` per session, so concurrent
+154 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 130 older session(s) are in the directory listing.
+Showing the 25 most recent. 129 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-07-016-test-e051-extractor-on-real-pubmed-centr](2026-10-07-016-test-e051-extractor-on-real-pubmed-centr/README.md) | unknown-agent | worked |  | 2026-10-07T22:05 |
 | [2026-10-07-015-fix-unlogged-predictions-jsonl-artifact](2026-10-07-015-fix-unlogged-predictions-jsonl-artifact/README.md) | unknown-agent | worked | Fix unlogged predictions.jsonl artifact and update DECISIONS.md for E0 | 2026-10-07T20:33 |
 | [2026-10-07-014-begin-fresh-exploration-for-a-new-candid](2026-10-07-014-begin-fresh-exploration-for-a-new-candid/README.md) | unknown-agent | worked | Begin fresh exploration for a new candidate after stg withdrawal; iden | 2026-10-07T20:28 |
 | [2026-10-07-013-land-e049-evidence-from-sessions-011-012](2026-10-07-013-land-e049-evidence-from-sessions-011-012/README.md) | unknown-agent | worked | Land E049 evidence from sessions 011/012; test lockfile registry-drift | 2026-10-07T19:47 |
@@ -40,6 +39,7 @@ Showing the 25 most recent. 130 older session(s) are in the directory listing.
 | [2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv](2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv/README.md) | unknown-agent | worked | E039: does stg's honest-exit claim survive the failure modes an agent  | 2026-10-06T11:18 |
 | [2026-10-06-010-reconcile-session-009-index-f062-f064-sp](2026-10-06-010-reconcile-session-009-index-f062-f064-sp/README.md) | unknown-agent | worked | Reconcile session 009: index F062-F064, split oversized files, declare | 2026-10-06T11:08 |
 | [2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos](2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/README.md) | unknown-agent | worked | Test E037's two open gates - does the ecosystem already serve line-add | 2026-10-06T11:06 |
+| [2026-10-06-008-declare-session-006-s-event-log-which-se](2026-10-06-008-declare-session-006-s-event-log-which-se/README.md) | unknown-agent | worked | declare session 006's event log, which session 007's reconciliation co | 2026-10-06T09:52 |
 
 
 ## Reading a session
