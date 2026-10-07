@@ -15,7 +15,7 @@ Showing the 25 most recent. 121 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | **unfinished** | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T13:27 |
+| [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | worked | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T14:09 |
 | [2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr](2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/README.md) | unknown-agent | worked | E048: measure what a formatter's own rewrite does to a partially-stage | 2026-10-07T12:49 |
 | [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
 | [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | worked | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T10:27 |
