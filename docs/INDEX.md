@@ -167,6 +167,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md`](../tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md`](../tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md`](../tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
+| [`tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md`](../tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 
 ## RESEARCH
 
@@ -241,6 +242,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/046-real-changes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-06-016, VM instance-20260717-0947, |
 | `EXPERIMENTS/047-hook-partial-stage/` | `docs/INDEX.md` | complete | 2026-10-07 | Task T-0084. Corpus for the question: two rows of the 189-row demand corpus |
 | `EXPERIMENTS/048-formatter-review/` | `docs/INDEX.md` | complete | 2026-10-07 | Task T-0084's follow-on. E047 measured what the shipped hook runners do to |
+| `EXPERIMENTS/049-lockfile-closure/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0085. E2's claim: a lockfile is a weak witness of reproducibility because |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
