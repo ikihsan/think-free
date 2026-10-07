@@ -10,10 +10,10 @@ last-verified: 2026-10-07
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `no-change`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-07T15:45:41+00:00
-- **Duration:** ?s
+- **Duration:** 576.6s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ fresh observation: find a concrete testable opportunity
 
 ## Summary
 
-_(none recorded)_
+Fresh-observation pass closed: E2 (lockfile closure drift) named as the live time-gated claim in HYPOTHESES.md; pivoted to testing it rather than screening more corpora. T-0085 created and claimed.
+
+## Next
+
+Run E049 (T-0085): measure lockfile closure drift on public projects and snapshot a fixed resolver closure for later comparison
 
 ## Artifacts
 
@@ -45,7 +49,6 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
@@ -65,6 +68,9 @@ _none_
 | 8 | 15:48:21 | task_rewrite | rewrote tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md (status: claimed) |
 | 9 | 15:48:21 | task_rewrite | appended a claim record for T-0085 |
 | 10 | 15:48:46 | task_rewrite | rewrote tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md (status: open) |
+| 11 | 15:48:46 | task_rewrite | appended a release record for T-0085 |
+| 12 | 15:48:53 | task_rewrite | appended a claim record for T-0085 |
+| 13 | 15:55:18 | session_end | Fresh-observation pass closed: E2 (lockfile closure drift) named as the live time-gated claim in HYPOTHESES.md; pivoted to testing it rather than scre |
 
 ## Reproduce this record
 
