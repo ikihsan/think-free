@@ -6,9 +6,12 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0083
-status: open
+status: claimed
 created: 2026-10-07
 verify: python3 EXPERIMENTS/045-demand-evidence/read.py
+claim-agent:
+claim-vm:
+claim-session: 
 -->
 
 # T-0083 — E045: read the demand evidence the candidate rests on, and ask who the requester is
