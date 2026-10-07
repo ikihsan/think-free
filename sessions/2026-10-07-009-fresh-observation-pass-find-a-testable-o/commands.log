@@ -1,0 +1,120 @@
+==============================================================================
+[seq 2] 2026-10-07T15:40:28+00:00
+$ bash -c curl -s "https://api.github.com/search/issues?q=is:issue+is:open+label:enhancement+created:>2026-06-01+stars:not+trivial" | head -c 400; echo
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+  "total_count": 0,
+  "incomplete_results": false,
+  "items": [
+
+  ],
+  "search_type": "lexical"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 423  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T15:40:40+00:00
+$ bash -c curl -s "https://api.github.com/search/issues?q=is:issue+is:open+label:enhancement+created:%3E2026-03-01&sort=comments&order=desc&per_page=20" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for it in d[\"items\"]:
+    print(it[\"comments\"], it[\"repository_url\"].split(\"/\")[-1], it[\"title\"][:90])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+2500 .github ops: diagnose and bound organization GitHub Actions queue starvation
+2500 kortana Add health check endpoint at /api/health
+1644 marvin Hard/ambiguous bench task design
+1247 marvin Brain-map: same-category no-edge connection pass
+1121 sub2api Spec: 持续选择性同步 upstream/main（第二阶段）
+1114 fe2o3 Compiler: make mixed-SSA KIR the single optimized and verified production middle end
+867 ChromIQ [Feature] Improve Measurement Report and Verification process to comply with standards
+805 atlantis-ai-enhanced PROGRAM: Deliver ATLANTIS 7-Day Operational Alpha
+741 openxFactory openDox + openXdox: two open-source layers, an installable app with users, projects and a 
+683 roo-extensions feat(harness): Connector V3 Roo/Claude/Copilot + Copilot scheduler bridge
+675 main Closure evidence: adopt the useful parts of the 10/10 closure proposal (decision record)
+651 php-compiler Performance: v2.0 targets and the codegen roadmap to reach them — typed code ≥ 3x Zend, un
+629 yelp_search_demo Redirect to the user's profile page after signup when no last-visited coffeeshop exists
+624 fe2o3 Deliver end-to-end SIMT and tile variants for every runnable tutorial kernel
+607 fe2o3 Compiler architecture: make GPU execution capabilities first-class across the production p
+588 pulp coverage: drive repo to compliance after lane expansion
+510 ProjectLibre OpenProj由来コードをJava 25の現代的な表記へ段階的に書き換える計画
+489 percussioncms [8.2] Developer module — post-P0 follow-ons
+488 fe2o3 Verification roadmap: formally verified complex kernels in fe2o3
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1137  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T15:41:53+00:00
+$ bash -c for q in "dedupe+photos+is:issue+is:open" "batch+rename+is:issue+is:open+label:enhancement" "csv+to+sql+is:issue+is:open" "merge+pdf+cli+is:issue+is:open" "compress+images+is:issue+is:open"; do echo "== $q"; curl -s "https://api.github.com/search/issues?q=$q&per_page=3" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+print(d.get(\"total_count\"))
+for it in d.get(\"items\",[]):
+    print(\" \",it[\"repository_url\"].split(\"/\")[-1],it[\"title\"][:80])
+"; sleep 7; done
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== dedupe+photos+is:issue+is:open
+565
+  PhotoAlbum Picker-imported photos are not deduped against a later Takeout import
+  bamware-ai Idea: Jev for venue curation — cheap typed verdicts on dedupe, photos, staleness
+  PhotoAlbum Import dedupe matches trashed photos: re-picks report 'already in album' and fil
+== batch+rename+is:issue+is:open+label:enhancement
+3451
+  raker Batch History Parameter Rename
+  butler Batch renaming
+  IPTVChecker Bulk rename selected channels
+== csv+to+sql+is:issue+is:open
+14414
+  usaspending-agent Structured analysis of downloaded spending data (text-to-SQL over CSV)
+  tools [Health Check] CSV to SQL (/csv-to-sql)
+  PrestaShop CSV export from the SQL manager can carry spreadsheet formulas
+== merge+pdf+cli+is:issue+is:open
+5714
+  rar2 FREE-PUB-PDF-CLI-01 — public bounded PUB→PDF with explicit fallback font
+  FileConverter feat(pdf): Split every page into its own PDF file
+  obsidian-marp-extended Export to PDF/PPTX fails
+== compress+images+is:issue+is:open
+61390
+  toolbox Compress Images
+  Hannah-Portfolio-Site Compress and resize oversized images
+  royaraqamia Compress oversized source images
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 37728  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T15:42:05+00:00
+$ bash -c curl -s "https://api.stackexchange.com/2.3/search/advanced?site=superuser&sort=votes&order=desc&answers=0&pagesize=10&filter=withbody" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for it in d.get(\"items\",[]):
+    print(it[\"score\"], it[\"view_count\"], it[\"title\"][:95])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+2435 3088063 How do I make a POST request using curl?
+2156 254924 Why does Windows think that my wireless keyboard is a toaster?
+2100 1975778 How do I scroll in tmux?
+1793 1741330 How can I sort the output of &#39;ls&#39; by last modified date?
+1582 165547 How do I make a machine &quot;blank screen&quot; for a period of time (as a penalty) if certain
+1520 2666494 Getting curl to output HTTP status code?
+1338 2089670 Find out which process is locking a file or folder in Windows
+1186 1555061 How to tell git which private key to use?
+1079 1235105 How to clear/flush the DNS cache in Google Chrome?
+1005 533261 What are the Windows A: and B: drives used for?
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 525  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T15:42:15+00:00
+$ bash -c curl -s "https://api.stackexchange.com/2.3/search/advanced?site=superuser&sort=votes&order=desc&pagesize=30&filter=!nNPvSNR4(" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for it in d.get(\"items\",[]):
+    if not it.get(\"is_answered\"):
+        print(it[\"score\"], it[\"view_count\"], it[\"title\"][:90])
+"
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 707  redactions: none
