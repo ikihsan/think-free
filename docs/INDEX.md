@@ -234,6 +234,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/042-agent-staging-e2e/` | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
 | `EXPERIMENTS/042-stg-end-to-end/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
 | `EXPERIMENTS/043-real-agent-staging/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-001, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/045-demand-evidence/` | `docs/INDEX.md` | complete | 2026-10-07 | owner: docs/INDEX.md |
 | `EXPERIMENTS/046-real-changes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-06-016, VM instance-20260717-0947, |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

@@ -1,0 +1,211 @@
+# E045 hand labels — a reader's own labelling of the 189 harvested issues
+#
+# Written by reading the title and the requester's own first paragraph of every
+# row in raw/issues.jsonl, with no access to the rule classifier's output. One
+# reader (the session's agent), no second reader: single-reader limitation is
+# declared in the README, not averaged away.
+#
+# Columns, tab-separated, indexed by the position of the row in the sorted order
+# used by read.py (repo asc, number asc):
+#
+#   idx  is_git_staging_need  requester  diff_access  operation  wants  basis
+#
+# is_git_staging_need  1 when the issue is about choosing *which lines/hunks*
+#                      of a working-tree change reach the index; 0 otherwise.
+# requester            gui-human | script | agent   (who runs the operation)
+# diff_access          explicit | gui-implied | none  (evidence that the
+#                      requester can see a diff; "none" means the issue says
+#                      nothing about it, NOT that the requester lacks one)
+# operation            what the issue asks to be able to do
+# wants                one line: the interface the requester says is missing
+
+# idx	is_git_staging_need	requester	diff_access	operation	wants
+0	0	-	-	-	-
+1	0	-	-	-	-
+2	0	-	-	-	-
+3	0	-	-	-	-
+4	0	-	-	-	-
+5	0	-	-	-	-
+6	1	gui-human	explicit	select a hunk or line in a diff view	a stage/unstage action on the hunk or line the cursor is on
+7	0	-	-	-	-
+8	0	-	-	-	-
+9	0	-	-	-	-
+10	0	-	-	-	-
+11	0	-	-	-	-
+12	0	-	-	-	-
+13	0	-	-	-	-
+14	0	-	-	-	-
+15	0	-	-	-	-
+16	0	-	-	-	-
+17	0	-	-	-	-
+18	0	-	-	-	-
+19	0	-	-	-	-
+20	0	-	-	-	-
+21	1	script	explicit	keep a formatter hook from re-staging a whole file	a hook that re-stages only the bytes it changed
+22	0	-	-	-	-
+23	0	-	-	-	-
+24	0	-	-	-	-
+25	0	-	-	-	-
+26	0	-	-	-	-
+27	0	-	-	-	-
+28	0	-	-	-	-
+29	0	-	-	-	-
+30	0	-	-	-	-
+31	1	gui-human	explicit	select a line range under a custom log_pager	a partial stage whose line numbers survive a custom pager
+32	1	gui-human	explicit	stage a hunk by constructing its patch	correct patch bytes when the index already has a file with different line endings
+33	0	-	-	-	-
+34	1	agent	explicit	split one file's edit into N commits by line range	a non-interactive line-range staging parameter on a commit tool
+35	0	-	-	-	-
+36	0	-	-	-	-
+37	0	-	-	-	-
+38	1	script	explicit	split merged hunks non-interactively, at zero context	a CLI that re-diffs at -U0 and applies each separable piece
+39	0	-	-	-	-
+40	0	-	-	-	-
+41	0	-	-	-	-
+42	1	gui-human	gui-implied	batch-stage a visual selection spanning several hunks	one command that stages every hunk the selection touches
+43	0	-	-	-	-
+44	0	-	-	-	-
+45	0	-	-	-	-
+46	0	-	-	-	-
+47	0	-	-	-	-
+48	0	-	-	-	-
+49	0	-	-	-	-
+50	0	-	-	-	-
+51	1	script	explicit	build and apply a unified diff by hand from a line range	a code path that turns "stage lines 120-180" into patch bytes
+52	0	-	-	-	-
+53	0	-	-	-	-
+54	0	-	-	-	-
+55	0	-	-	-	-
+56	0	-	-	-	-
+57	0	-	-	-	-
+58	0	-	-	-	-
+59	0	-	-	-	-
+60	0	-	-	-	-
+61	1	agent	explicit	cluster a mixed working tree into one commit per concern	a skill that reads the diff and chunks it by intent
+62	0	-	-	-	-
+63	0	-	-	-	-
+64	0	-	-	-	-
+65	0	-	-	-	-
+66	0	-	-	-	-
+67	0	-	-	-	-
+68	0	-	-	-	-
+69	0	-	-	-	-
+70	0	-	-	-	-
+71	0	-	-	-	-
+72	0	-	-	-	-
+73	0	-	-	-	-
+74	0	-	-	-	-
+75	0	-	-	-	-
+76	0	-	-	-	-
+77	1	gui-human	explicit	stage one change from the advanced commit view	a button beside each chunk
+78	1	gui-human	explicit	stage, unstage or discard single lines of a hunk	a click target left of the line numbers
+79	0	-	-	-	-
+80	0	-	-	-	-
+81	0	-	-	-	-
+82	0	-	-	-	-
+83	0	-	-	-	-
+84	0	-	-	-	-
+85	0	-	-	-	-
+86	0	-	-	-	-
+87	0	-	-	-	-
+88	0	-	-	-	-
+89	0	-	-	-	-
+90	0	-	-	-	-
+91	0	-	-	-	-
+92	0	-	-	-	-
+93	0	-	-	-	-
+94	0	-	-	-	-
+95	1	gui-human	explicit	edit a hunk by hand before staging it	same as git add -p's edit (e) mode, in a TUI
+96	0	-	-	-	-
+97	1	gui-human	explicit	pick hunks to stage in a pager	diff line numbers that match the file's own line numbers
+98	1	gui-human	explicit	revert one line of a multi-change file	the inverse of stage-one-line
+99	0	-	-	-	-
+100	0	-	-	-	-
+101	0	-	-	-	-
+102	0	-	-	-	-
+103	0	-	-	-	-
+104	0	-	-	-	-
+105	0	-	-	-	-
+106	0	-	-	-	-
+107	0	-	-	-	-
+108	0	-	-	-	-
+109	0	-	-	-	-
+110	0	-	-	-	-
+111	1	gui-human	explicit	stage chunks over a remote filesystem	a stage that does not hang Emacs
+112	0	-	-	-	-
+113	0	-	-	-	-
+114	0	-	-	-	-
+115	0	-	-	-	-
+116	1	gui-human	explicit	stage one change from the inline gutter	the list not jumping to top afterwards
+117	0	-	-	-	-
+118	0	-	-	-	-
+119	0	-	-	-	-
+120	0	-	-	-	-
+121	0	-	-	-	-
+122	0	-	-	-	-
+123	0	-	-	-	-
+124	0	-	-	-	-
+125	0	-	-	-	-
+126	0	-	-	-	-
+127	0	-	-	-	-
+128	0	-	-	-	-
+129	0	-	-	-	-
+130	0	-	-	-	-
+131	0	-	-	-	-
+132	0	-	-	-	-
+133	0	-	-	-	-
+134	0	-	-	-	-
+135	0	-	-	-	-
+136	0	-	-	-	-
+137	0	-	-	-	-
+138	0	-	-	-	-
+139	0	-	-	-	-
+140	1	agent	explicit	split one file's hunks into atomic commits, as an agent	non-interactive hunk splitting instead of git add -p
+141	0	-	-	-	-
+142	0	-	-	-	-
+143	0	-	-	-	-
+144	0	-	-	-	-
+145	0	-	-	-	-
+146	0	-	-	-	-
+147	0	-	-	-	-
+148	0	-	-	-	-
+149	0	-	-	-	-
+150	0	-	-	-	-
+151	1	gui-human	explicit	discard a selection in the diff visualizer	the discard counterpart of stage-selection
+152	1	gui-human	explicit	stage and unstage lines in a Review Changes dialog	correct diff bytes through that dialog
+153	0	-	-	-	-
+154	0	-	-	-	-
+155	1	agent	explicit	separate tangled work into coherent commits or branches	a skill that does it with non-destructive commands
+156	0	-	-	-	-
+157	0	-	-	-	-
+158	0	-	-	-	-
+159	0	-	-	-	-
+160	0	-	-	-	-
+161	0	-	-	-	-
+162	1	gui-human	explicit	stage a single line, including an emptied one	single-line staging without a right-click
+163	0	-	-	-	-
+164	1	gui-human	explicit	stage individual lines, which the tool already does	the affordance to be discoverable
+165	1	gui-human	explicit	stage the change *within* one modified line	sub-line staging, not whole-line staging
+166	0	-	-	-	-
+167	0	-	-	-	-
+168	0	-	-	-	-
+169	0	-	-	-	-
+170	1	script	explicit	run a formatter over a partially staged file	stage_fixed that re-stages only the bytes the formatter wrote
+171	1	script	explicit	autofix already-staged changes, including a single staged line	a cheaper temporary-index build
+172	0	-	-	-	-
+173	0	-	-	-	-
+174	0	-	-	-	-
+175	0	-	-	-	-
+176	1	gui-human	explicit	stage a multi-line selection in the SCM view	the selection honoured rather than the cursor line
+177	0	-	-	-	-
+178	1	gui-human	explicit	stage a selection in the SCM view	no encoding change as a side effect
+179	0	-	-	-	-
+180	0	-	-	-	-
+181	0	-	-	-	-
+182	1	script	explicit	operate on hunks from a CLI	hunk-addressed subcommands (repo named git-hunk)
+183	0	-	-	-	-
+184	0	-	-	-	-
+185	0	-	-	-	-
+186	0	-	-	-	-
+187	1	gui-human	explicit	stage individual lines from the editor's commit panel	a line-by-line staging action
+188	0	-	-	-	-

@@ -1,14 +1,27 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-06
+last-verified: 2026-10-07
 -->
 
 # Verified state
 
-Date: 2026-10-06, Asia/Kolkata. Phase: B — and for the first time there is **a candidate with
-a working artifact**: `stage-lines` / `stg`, line-addressable partial staging for git
-(E037, E038, F060, F062–F064, D068, D069). It is a candidate, not a product; **adoption is `not_evaluated` in the daily-use sense, but KILL-Q has been evaluated through real-world install and usage: the tool is functional and installable via pip, with demand measured at 0.016-0.066 of matching GitHub issues and 2 named requesters in 589 need statements. The score-tail backlog remains closed.**
+Date: 2026-10-07, Asia/Kolkata. Phase: B — and **the one candidate this mission has
+produced is now withdrawn.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
+D069) was the first candidate with a working artifact, and two experiments closed it.
+E043 ran the candidate's stated caller — six real agents — and the packaging advantage
+that was to justify adoption was not observed (F075). **E045 read the demand evidence
+the candidate rests on, all 189 unique issues in E038's cached corpus, and the
+population item 0a was to measure does not exist in it: 29 of 189 rows are about choosing
+which lines reach the index, 28 of those carry explicit diff access and the 29th
+GUI-implied, and none carries none (F081). The same reading killed the differentiator —
+those 29 rows name 26 distinct repositories, two of them shipped command-line tools that
+take `stg`'s coordinate, and both name `stg`'s exact hard case and target the agent
+population by name (F082).** `stg` stays in the repository, unreleased, as a correct
+tool: 37 of 37 tests, index byte-identical to a hand-built patch, honest exits. That is
+its final standing unless the incumbents change. **The application is not closed:** 29
+real issues in 26 real repositories is a real population and it is being served. The
+score-tail backlog remains closed.
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -38,7 +51,7 @@ This is the reload point. A cold session reads this file, then whatever it links
 | Implemented | Session logging, task dispatch, documentation lint, index generation, secret scanning, release-manifest enforcement, doctor. `doctor` reports the push-credential mechanism (T-0029). Identifier allocation reads the shared base and prints the record it read (T-0031, `origin id next`). `doctor` compares this VM's git and interpreter against the exercised-version records (T-0033). Multi-VM sync, worktree isolation, and remote-truth claims completed and verified green in session 017. Landed-work attribution, so a session that merges the base no longer reports a colleague's files as its own (T-0024). A colliding identifier is refused before publication (T-0030), and rule 7 reads every source of identifiers — findings, decisions, tasks, the defect list **and each decision record's own header** — through one entry point both publishing gates call (T-0036, T-0042). CI runs one row per CPython minor from 3.8 to 3.14, held to the exercised-version record by a gate that reads both (T-0034, 452 tests). Every file-reading CI gate now re-emits each violation as a check-run annotation naming the file (`tools/origin annotate`, T-0040, defect 17), GitHub files it on the path emitted (T-0046, F021), every such step runs whenever the job does, and `tools/origin probe` publishes one annotation per rendering shape on every run (defect 18) — measured on run `37196459285`, which filed all seven and answered the question the record had left open. A task command now also declares the task file it rewrote, with the digests of the bytes it wrote, so the tooling's own write is no longer a session's exit 4 (T-0047, D040) |
 | Implemented (2) | Every diagnostic CI step runs whenever the job does, after a red `Tests` step silently skipped all five (T-0048, defect 18); `sync land` finishes a rebase it stopped on, so its own "resolve it and land again" is followable by the tool that gave it (T-0048, D039); and a task claim publishes while the session that made it is open, and refuses foreign uncommitted work *before* writing anything (T-0055, defect 21). A gate's pattern for this repository's split records now reads a numbered split — `decisionindex.py` reported `DECISIONS-SCREENING-2.md` as unlisted while its row was in the table, and the pattern is held to the spellings `DECISIONS.md` uses (`tests/test_decision_row_pattern.py`, T-0063) |
 | Implemented (3) | **`stage-lines/`** — `stg`, a non-interactive `git add -p`. `list`, `list --json`, `stage`, `unstage`, `split`; addresses any change by the working-tree line it occupies, splitting adjacent modifications per line. **285 lines of library + a 297-line CLI, standard library only, no install step. 28 tests, all against real git repositories with no mocks** (`python3 -m unittest discover -s stage-lines`). Correctness is anchored to git itself: on a real file in this repository the resulting `.git/index` is **byte-identical** to the one a hand-built patch leaves. **Not released**; its header says `status: draft` |
-| Users and adoption | None. No product, no release, no claims. **E037's KILL-Q — does anyone want this — has been evaluated through real-world install and usage: tool is functional and installable via pip, but demand is at low rate (0.016-0.066 of matching GitHub issues, 2 named requesters in 589 need statements). **E043 (F075) then ran the candidate's stated caller — six real agents on real staging tasks — and the packaging advantage that was to justify adoption is not observed: 6 of 6 exact with 3 of 3 succeeding with no tool at all, and 2 of the 3 agents that had `stg` on `PATH` ignoring it. `stg` is withdrawn as a release candidate on agent usability**; it remains a correct tool (30/30, byte-identical index). The population that might still need it — an agent that must discover which line changed, with no diff access — is untested. |
+| Users and adoption | None. No product, no release, no claims. **KILL-Q is answered for `stg`, and the answer is no.** E037 measured demand at 0.016-0.066 of matching GitHub issues through a classifier of unmeasured precision; E043 ran the candidate's stated caller and found the packaging advantage absent (F075); **E045 read that demand evidence itself, row by row, and found 0 of 189 rows is the population the last open claim rested on — all ten automated callers in the need rows name their own diff access (F081)**; and the same reading found the differentiator shipped as two installable command-line tools named inside that same corpus (F082). `stg` is withdrawn as a candidate and remains a correct tool (37/37, byte-identical index, honest exits), unreleased, `status: draft` |
 | External release | None. `RELEASE-MANIFEST.md` defines the public front door and `origin release check` now enforces it (T-0022); nothing published |
 | Skills | 21 total: 14 vendored (Superpowers v6.2.0, MIT, hash-verified), 7 authored |
 | Sessions | **138 with an event stream, 137 closed** — `origin session verify` reads the tree on 2026-10-06 rather than a running total; only session 2026-10-06-016 is in flight. Older note: VM 0947's 054 and its past-lease T-0060 claim have since closed |
@@ -51,13 +64,40 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**The other half of the same question is now measured too, and it agrees: the artifact was
-broken on real changes (E046, F076-F080, D075).** 114 real file changes drawn from real
-commits in three repositories; four defects, one of them corrupting the index. Full reading
-in [`STATE-in-flight-6.md`](STATE-in-flight-6.md).
+**Nothing is in flight.** E046 measured the artifact against real repository
+changes and fixed four defects (E046, F076–F080, D075; full reading in
+[`STATE-in-flight-6.md`](STATE-in-flight-6.md)), and E045 then closed the
+candidate (E045, F081, F082, D077; reading in
+[`STATE-in-flight-7.md`](STATE-in-flight-7.md)). The seat for a candidate is
+empty and the emptiness is measured; the one live action is named under
+**Next actions**.
 
 ## What changed recently
 
+- **Session 2026-10-07-002, VM 0947 (E045, T-0083, F081, F082, D077): the candidate is
+  withdrawn, and the kill was in the record's own corpus the whole time.** E045 read all 189
+  unique issues in E038's cached demand corpus, one row each, asking the two questions the
+  record never asked — who is making the request, and which interface do they lack.
+  **29 of 189 are about choosing which lines reach the index; 28 of those carry explicit
+  diff access and the 29th GUI-implied; 0 carry none.** All ten automated callers in the
+  need rows name their diff access in their own text. **Three of the four issues F064 cites
+  are not evidence of what they were cited for**: `sublime_merge#465` says the feature already
+  exists and asks for discoverability, `sublime_merge#976` asks for staging *within* a modified
+  line (sub-line, which `stg` does not provide), `vim-gitgutter#446` is a person in vim with a
+  visual selection. The rule classifier was measured before use per D069: precision 0.372,
+  recall 0.552, and its `line-coordinate` class matches `file:line` source citations inside CI
+  transcripts — 14 of its 43 rows are unrelated issues. **The same reading killed the
+  differentiator**: the 29 rows name **26 distinct repositories**, and two are command-line
+  tools taking `stg`'s coordinate that shipped before E037. `gah` (Rust, crates.io) offers
+  "line range" staging, documents `stg`'s exact hard case, targets AI coding agents by name and
+  ships a Claude Code plugin; `git-hunk` (Python, PyPI) has line-level control and has already
+  run the two-arm agent experiment item 0a was built around. Packaging goes with it: all three
+  are installable, two ship agent distribution, and `gah` addresses by a content anchor that
+  survives line shift — the mechanism E041 measured as absent, arriving from outside. E038's
+  prior-art check reported 2 of the 26 because it searched the web and read the corpus's titles.
+  **D077** makes the demand evidence of a named population be read row by row before anything is
+  built to measure that population. Evidence in
+  [`EXPERIMENTS/045-demand-evidence/README.md`](EXPERIMENTS/045-demand-evidence/README.md).
 - **Session 2026-10-07-001, VM 0944 (E043, F075, D074): the candidate's last
   surviving claim was three experiments old, rested on a simulation, and did not
   survive a real caller.** Six real agents on six real repositories, scored against
@@ -150,15 +190,15 @@ re-read, F053/F054's venue, F055's refutation of the bound they built, F057's tw
 halves, and **F059's**. The 300-line cap has been hit thirteen times and each repair moved
 material to the file whose invariant owns it — **twice in this session**.
 
-**E046 changes what "done" means for a candidate's artifact, and that is the one
-continuation this record should carry into the next session.** Six experiments on
-`stg` closed with a sentence listing the shapes they had not tested; read as a
-work list, that sentence was worth four real defects, and the packaging claim —
-the only differentiator E041 left standing — was **false** on three of the common
-shapes and **corrupting** on a fourth. D075 now makes a candidate's limitations
-section a measurement plan to be executed before release-readiness is claimed.
-So the next session's first act on any candidate is not a new screen: it is to run
-that candidate's own declared ceiling over real input.
+**E046 changed what "done" means for a candidate's artifact, and D075 carries it.**
+Six experiments on `stg` closed with a sentence listing the shapes they had not
+tested; read as a work list, that sentence was worth four real defects. D075 makes
+a candidate's limitations section a measurement plan to be executed before
+release-readiness is claimed. **D077 is the same rule for populations**: a
+candidate's own declared population is to be read out of the evidence before
+anything is built to measure it. Both are in
+[`STATE-in-flight-6.md`](STATE-in-flight-6.md) and
+[`STATE-in-flight-7.md`](STATE-in-flight-7.md).
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -185,52 +225,66 @@ whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md). Ordered by information gained
 per unit of effort; the top item is:
 
-**Item 0a, a concrete experiment, is now at the top: does `stg` have any agent
-population left?** E043 closed the packaging claim for agents that are *told* a line
-number (3 of 3 exact with no tool at all). Its ceiling names the one caller that might
-still need a line-addressed interface — an agent that must **discover which line
-changed, with no line number and no `git diff`**. Rerunning the same harness with those
-two changes decides whether `stg` has a population or is a correct tool with none, and
-it is two arms, not a new line of work.
+**Item 0a is closed and its experiment is not run, because the population it
+measures does not exist (E045, F081).** The candidate's remaining claim rested on
+"an agent that must discover which line changed, with no line number and no
+`git diff`", and that population came from E043's harness. Reading the demand
+evidence itself — all 189 unique issues in E038's cached corpus, one row each —
+gives **29 rows about choosing which lines reach the index, 28 with explicit diff
+access and 1 GUI-implied, 0 with none**, and three of the four issues F064 cites
+are not evidence of what they were cited for. **Do not rerun the harness.** The
+same reading killed the differentiator: those 29 rows name **26 distinct
+repositories**, two of them shipped command-line tools that take `stg`'s
+coordinate, one of which has already run the two-arm agent experiment item 0a was
+built around (F082). `stg` is withdrawn; what remains is a correct tool.
 
-**Beneath that, the item this record's last kill produced, which is a rule about the
-order of work rather than another experiment.** Stack Overflow's own search **does**
-already return the population, from a documented filter pair, in one unauthenticated
-request, with the closure label in the payload (F059). **The score-tail worklist is closed
-and nothing is built.** The screen that killed most candidates has been measured on every
-axis and each measurement came out against it (D050, D051).
+**The single most useful next action, and it is a small one: read the observation
+E045 recorded and did not promote.** Two of the 29 need rows are about a
+difficulty *none* of the three shipped tools addresses — a formatter or lint hook
+that re-stages a whole file and sweeps a partially-staged file's unstaged hunks
+into the commit. `nextjs-app-template#95` states the warning its own
+`lefthook.yml` carries is **false**; `agent-orchestra#154` is the same class of bug.
+That is a correctness failure with a byte-level oracle, named by two independent
+repositories, and it is checkable against the real `lefthook` and `pre-commit`
+sources in an afternoon. **Two rows is not evidence for a candidate**, so nothing is
+promoted here — the action is to establish whether the hook behaviour is real in
+the shipped tools, which is a fact that can be read or run, not a screen.
 
-**What F059 costs and what it buys.** Three experiments and **1125 harvested rows** were
-spent measuring a population whose *mechanism* turned out to be a public query. F055, F058
-and F059 are the same shape three times over: a fact about the instrument's own selection,
-read after the measurement rather than before. **D067** requires a mechanism-bearing
-candidate to be tested against **its mechanism's existing source first**, and **D066**
-requires a reachability claim to name the interface surface it enumerated; both are cheap
-and executable from this host. The seat (0d) is empty and the emptiness is measured four
-ways (F029, F051, F039, F059). **The generator is not the blocker; the ordering of the
-work is.** Item 0 remains an owner decision; D067 narrows it, and D074 now narrows it
-further — a candidate whose surviving claim names a caller runs that caller first.
+**Beneath that: three rules about the order of work, not experiments.** Stack
+Overflow's own search **does** return the score-tail population from one
+unauthenticated request with the closure label in the payload (F059) — **the
+worklist is closed and nothing is built.** D066 requires a reachability claim to
+name the interface surface it enumerated. **D067**: a mechanism-bearing candidate
+is tested against its mechanism's existing source first. D074: a candidate whose
+surviving claim names a *caller* runs that caller first. **D077**: a candidate
+whose surviving claim names a *population* has that population read out of the
+evidence — row by row, requester and missing interface per row — before anything
+is built to measure it, **because the corpus already on disk named 26 incumbents
+where the web search returned 2 (F082)**. Item 0 remains an owner decision. The
+seat (0d) is empty and the emptiness is measured four ways (F029, F051, F039,
+F059). **The generator is not the blocker; the ordering of the work is.**
 
-**The four candidate-selection axes, and where each now stands.** Prior art, star-shaped
-adoption and harvested recurrence cannot carry it (F048 adds that the prior-art axis's own
-verdict is not shown to rest on evidence of fit); the need corpus behind them is 1250
-individual requesters each asking once, 167 of whose 241 shipped *before* they complained
-(F039, F049). E034 and E035 added a fourth that is neither an axis nor an audit — **a
-per-domain rate measured on someone else's label, against the orderings that domain's own
-readers actually see** — and **F059 closes it**: three of those four orderings cannot return
-the population, and the fourth is a first-party API route that needs one request. **So that
-fourth axis is not a selection rule either; it produced one measurement and one kill.** The
-numbers behind all of this are in item 0 and item 0d of
-[`STATE-next-actions.md`](STATE-next-actions.md).
+**The four candidate-selection axes, and where each now stands.** Prior art,
+star-shaped adoption and harvested recurrence cannot carry it (F048 adds that
+the prior-art axis's own verdict is not shown to rest on evidence of fit), and
+**E045 adds the sharpest instance: the prior-art axis was consulted by a search
+that returned 2 of 26 implementations named by the corpus already on disk
+(F082)**. The need corpus behind them is 1250 individual requesters each asking
+once, 167 of whose 241 shipped *before* they complained (F039, F049). The fourth
+axis E034 and E035 added is closed by F059 — three of four orderings cannot return
+the population and the fourth is a first-party API route. The numbers behind all
+of this are in item 0 and item 0d of
+[`STATE-next-actions.md`](STATE-next-actions.md) and, in full, in
+[`STATE-selection.md`](STATE-selection.md).
 
-**The gate pattern behind this repository's own red runs is carried in full by items 1 and
-2 in [`STATE-next-actions-closed.md`](STATE-next-actions-closed.md).** Its one rule is
-load-bearing enough to repeat: the problem is not gates that are missing but **gates that
-exist and are never run**, so the fix is to put a gate in the command the protocol already
-points at (T-0045) and to hold it to reading the property it claims (D025, F013). **F055 is
-the ninth instance of the same shape and the sharpest, because no gate was involved at
-all** — a selection rule declared for one reason draws a stratum 4.5× poorer in the thing
-being measured; the full statement is in [`STATE-constraints.md`](STATE-constraints.md).
+**The gate pattern behind this repository's own red runs is carried in full by
+items 1 and 2 in [`STATE-next-actions-closed.md`](STATE-next-actions-closed.md).**
+Its one rule is load-bearing enough to repeat: the problem is not gates that are
+missing but **gates that exist and are never run**, so the fix is to put a gate in
+the command the protocol already points at (T-0045) and to hold it to reading the
+property it claims (D025, F013). F055 is the ninth instance of the same shape and
+the sharpest, because no gate was involved at all. Full statement in
+[`STATE-constraints.md`](STATE-constraints.md).
 
 ## Capability evidence
 

@@ -1,0 +1,744 @@
+==============================================================================
+[seq 2] 2026-10-07T06:25:06+00:00
+$ python3 EXPERIMENTS/045-demand-evidence/read.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+E045 read of the demand evidence behind the only candidate
+========================================================================
+corpus: EXPERIMENTS/038-staging-prior-art/raw/requests.jsonl
+need arms: 10 (7 with a 200, 3 without: 403)
+harvested items: 195, unique issues: 189
+search universe (sum of total_count): 3124
+
+requester class:
+  script          81  0.429
+  gui-human       68  0.360
+  unclassified    26  0.138
+  agent           14  0.074
+
+interface the requester says it lacks:
+  other-or-unclear    93  0.492
+  non-interactive     53  0.280
+  line-coordinate     27  0.143
+  select-lines        14  0.074
+  unstage-one          2  0.011
+
+diff access:
+  none           149  0.788
+  explicit        35  0.185
+  gui-implied      5  0.026
+
+the four issues the record names:
+  sublime_merge#976          PRESENT
+  vim-gitgutter#446          PRESENT
+  sublime_merge#465          PRESENT
+  mcp-multi-root-git#3       PRESENT
+
+count over the declared denominator 189:
+  issues naming no diff access at all:            149
+  issues whose requester is an agent:              14
+  ... and with no diff access:                     13
+  ... and naming a line-coordinate gap:            1
+
+the rule classifier's `gap` class, against the reader's labels:
+  called the need: 43, of which the reader agrees: 16  precision 0.372
+  the need by the reader: 29, of which the rules missed: 13  recall 0.552
+
+the reader's own count over the declared denominator 189:
+  issues about choosing which lines reach the index: 29  (0.153)
+
+  of those 29, by requester:
+    gui-human  19
+    script      6
+    agent       4
+
+  of those 29, by diff access evidence:
+    explicit     28
+    gui-implied   1
+
+  the population STATE-next-actions.md item 0a measures
+  (an automated caller with no diff access at all):  0
+
+  every automated caller in the reader's need rows, with the evidence:
+      agent-orchestra#154            script    explicit a hook that re-stages only the bytes it changed
+      mcp-multi-root-git#3           agent     explicit a non-interactive line-range staging parameter on a commit t
+      gah#1                          script    explicit a CLI that re-diffs at -U0 and applies each separable piece
+      Chasma#228                     script    explicit a code path that turns "stage lines 120-180" into patch byte
+      claude#3                       agent     explicit a skill that reads the diff and chunks it by intent
+      skills#154                     agent     explicit non-interactive hunk splitting instead of git add -p
+      Claude-Skills#2                agent     explicit a skill that does it with non-destructive commands
+      nextjs-app-template#95         script    explicit stage_fixed that re-stages only the bytes the formatter wrot
+      git-autofixup#25               script    explicit a cheaper temporary-index build
+      git-hunk#7                     script    explicit hunk-addressed subcommands (repo named git-hunk)
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/045-demand-evidence/raw/issues.jsonl (189 rows)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7113  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T06:25:13+00:00
+$ python3 -c 
+import json
+rows=[json.loads(l) for l in open('EXPERIMENTS/045-demand-evidence/raw/issues.jsonl')]
+rows.sort(key=lambda r:(r['repo'],r['number']))
+need=[r for r in rows if r['hand']['need']]
+print('%-30s %-9s %-8s %-6s %s' % ('ref','requester','diff','cmts','state'))
+for r in need: print('%-30s %-9s %-8s %-6d %s' % (r['ref'],r['hand']['requester'],r['hand']['diff_access'],r['comments'],r['state']))
+print()
+print('distinct repositories named as implementing or planning it:', len({r['repo'] for r in need}))
+for repo in sorted({r['repo'] for r in need}): print('   ',repo)
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "<string>", line 5, in <module>
+  File "<string>", line 5, in <listcomp>
+KeyError: 'hand'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 591  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T06:25:31+00:00
+$ python3 -c 
+import json
+rows=[json.loads(l) for l in open('EXPERIMENTS/045-demand-evidence/raw/issues.jsonl')]
+need=[r for r in rows if r['hand']['need']]
+print('%-28s %-9s %-11s %-5s %-7s %s' % ('ref','requester','diff','cmts','state','title'))
+for r in need: print('%-28s %-9s %-11s %-5d %-7s %s' % (r['ref'],r['hand']['requester'],r['hand']['diff_access'],r['comments'],r['state'],r['title'][:56]))
+print()
+repos=sorted({r['repo'] for r in need})
+print('distinct repositories:',len(repos))
+for x in repos: print('   ',x)
+print()
+print('open rows:', sum(1 for r in need if r['state']=='open'), 'of', len(need))
+print('rows with >=1 reply:', sum(1 for r in need if r['comments']>0), 'of', len(need))
+print('rows with >=8 replies:', sum(1 for r in need if r['comments']>=8))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ref                          requester diff        cmts  state   title
+lazygitrs#28                 gui-human explicit    6     closed  Feature Request: Line/Hunk-level staging
+agent-orchestra#154          script    explicit    2     closed  fix(batch): pre-commit hook safety, qualify copilot-inst
+neogit#1973                  gui-human explicit    0     open    Have a "stage specific lines" flow with `log_pager`
+neogit#2012                  gui-human explicit    0     open    fix: stage hunk with existing index file endings
+mcp-multi-root-git#3         agent     explicit    1     closed  feat: batch_commit stage parameter — hunk-level staging 
+gah#1                        script    explicit    0     closed  :sparkles: feat: split hunks into smaller chunks
+vim-gitgutter#446            gui-human gui-implied 1     closed  Batch stage multiple hunks from visual selection / line 
+Chasma#228                   script    explicit    0     open    Create Stage by patch
+claude#3                     agent     explicit    0     closed  feat: add split-commits skill for atomic commit-chunking
+GitUp#115                    gui-human explicit    9     open    Add button to stage / unstage next to chunks in Advanced
+gitahead#401                 gui-human explicit    18    closed  stage/unstage/discard single lines of a hunk
+lazygit#1275                 gui-human explicit    4     closed  Suggestion: add ability to edit hunk
+tig#4                        gui-human explicit    0     open    line numbering and diff metadata
+tig#406                      gui-human explicit    9     open    Reset single diff line
+magit#4720                   gui-human explicit    25    closed  Emacs hangs on staging chunks over Tramp 
+vscode#39307                 gui-human explicit    9     closed  Stage change jumps right to top after clicking add
+skills#154                   agent     explicit    1     closed  commit: non-interactive hunk staging
+gitx#377                     gui-human explicit    1     open    Add discard line
+rstudio#14170                gui-human explicit    1     closed  fix issue with staging line / selections in Review Chang
+Claude-Skills#2              agent     explicit    0     closed  Feature - Add split-work for separating tangled commits 
+sourcegit#360                gui-human explicit    5     closed  Easier single line staging (allow empty line staging)
+sublime_merge#465            gui-human explicit    2     open    Ability to stage individual lines in a more discoverable
+sublime_merge#976            gui-human explicit    5     open    Allow more specific selection of lines to stage
+nextjs-app-template#95       script    explicit    0     closed  docs(gates): the partial-stage warning in lefthook.yml i
+git-autofixup#25             script    explicit    3     closed  Speed up creation of temporary index when autofixing sta
+vscode-neovim#1181           gui-human explicit    2     closed  "Stage Selected Ranges" only stages one line
+testissues#18056             gui-human explicit    0     open    "Stage selected ranges" command changes encoding to UTF-
+git-hunk#7                   script    explicit    0     closed  feat: add examples section to --help output
+zed#45295                    gui-human explicit    12    open    Commit partial changes / Line-by-line staging
+
+distinct repositories: 26
+    Blankeos/lazygitrs
+    Grimblaz/agent-orchestra
+    NeogitOrg/neogit
+    Rethunk-AI/mcp-multi-root-git
+    ThatXliner/gah
+    airblade/vim-gitgutter
+    bee0018/Chasma
+    connorhewick/claude
+    git-up/GitUp
+    gitahead/gitahead
+    jesseduffield/lazygit
+    jonas/tig
+    magit/magit
+    microsoft/vscode
+    pascalandy/skills
+    rowanj/gitx
+    rstudio/rstudio
+    ryanalexanderbrashear/Claude-Skills
+    sourcegit-scm/sourcegit
+    sublimehq/sublime_merge
+    tomada1114/nextjs-app-template
+    torbiak/git-autofixup
+    vscode-neovim/vscode-neovim
+    vscodenpa/testissues
+    wkentaro/git-hunk
+    zed-industries/zed
+
+open rows: 11 of 29
+rows with >=1 reply: 19 of 29
+rows with >=8 replies: 6
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 158  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T06:41:45+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1760 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: 359 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/045-demand-evidence/read.py: 406 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: must start with a level-1 title
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: broken link -> demo.gif
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: broken link -> skills/gah/SKILL.md
+  FAIL  FAILURES-findings-30.md: link leaves the repository -> ../EXPERIMENTS/045-demand-evidence/README.md
+  FAIL  FAILURES-findings-30.md: link leaves the repository -> ../EXPERIMENTS/045-demand-evidence/raw/prior-art/
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: orphan document; no other document links to it
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: orphan document; no other document links to it
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 12 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 728970  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T06:45:23+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1760 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: 359 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/045-demand-evidence/read.py: 406 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: must start with a level-1 title
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: missing <!-- origin-meta --> block
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: broken link -> demo.gif
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: broken link -> skills/gah/SKILL.md
+  FAIL  FAILURES-findings-30.md: link leaves the repository -> ../EXPERIMENTS/045-demand-evidence/README.md
+  FAIL  FAILURES-findings-30.md: link leaves the repository -> ../EXPERIMENTS/045-demand-evidence/raw/prior-art/
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/gah-README.md: orphan document; no other document links to it
+  FAIL  EXPERIMENTS/045-demand-evidence/raw/prior-art/git-hunk-README.md: orphan document; no other document links to it
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 12 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 867699  redactions: none
+==============================================================================
+[seq 18] 2026-10-07T07:12:18+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 1763 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/045-demand-evidence/raw/sources/git-hunk-README.txt: 359 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  info  sessions/2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/commands.log: 563 lines (exempt from cap)
+doc lint: OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 102503  redactions: none

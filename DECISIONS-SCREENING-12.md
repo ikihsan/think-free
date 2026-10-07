@@ -6,8 +6,8 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 12
 
-Decisions **D075, D076**. Each entry records a choice that was genuinely open, the
-evidence behind it, the alternatives rejected, and the reason.
+Decisions **D075, D076, D077**. Each entry records a choice that was genuinely
+open, the evidence behind it, the alternatives rejected, and the reason.
 
 **Renumbered on landing, 2026-10-07.** These were D074 and D075 on the side that
 had not been pushed; VM 0944 landed **D074** — *a candidate whose surviving claim
@@ -129,3 +129,52 @@ reference that was a function of the thing under test.
 added line content, and treats a residual apply that reproduces the working tree
 as sufficient evidence of position. Both were adequate for E046's rows; neither is
 established as sufficient in general.
+---
+
+## D077 — A candidate's demand evidence is read, in full, before its population is used
+
+**Decided 2026-10-07, VM 0947.** Evidence: E045 (T-0083), F081, F082.
+
+**The choice.** F081 killed the only population the mission's ranked top action
+had left, and F082 killed the differentiator. Both kills were available in
+evidence this repository had been holding since E038 and had read only at the
+level of titles and of a classifier's precision. So: when a candidate's demand
+claim names a population, that evidence is read row by row — requester, and the
+specific thing the requester says it lacks — **before** any experiment is built
+to measure that population, and before any next action is ranked against it.
+
+**Why this is a rule and not a one-off reading.** F082's shape is D067 already:
+test a candidate against its mechanism's existing source first. The new part is
+*which* source. A harvested corpus is not a sample of needs; it is a sample of
+**one retrieval route's ranking**, and the bodies of those rows name every
+incumbent that route could see. Here the corpus named 26 implementations where
+the web search returned 2, and the two it missed were the only command-line ones
+— the two that matched the candidate's interface. Running a search against the
+open web is not a substitute for reading the corpus already on disk, and in this
+case it was strictly worse, because the search could not rank by
+"implements the thing" while the corpus could name it in the issue title.
+
+**Rejected: read the corpus before building the next experiment, but keep ranking
+first.** The ranking is what makes the claim load-bearing. Item 0a was ranked
+top, described as "cheap and decides a live build question", and would have
+consumed a session establishing that its population is a construction of the
+proposing harness. A rank is an assertion about evidence that has been read, and
+this one had not been.
+
+**Rejected: treat "the corpus contains the kill" as a reason to distrust all
+harvested corpora.** The application here is real — 29 issues, 26 repositories,
+three shipped tools — and two of those rows name a difficulty none of the three
+tools addresses. A corpus that fails to support a candidate is not a corpus with
+nothing in it; it is a corpus that has to be read rather than counted.
+
+**Relation to D069 and D075.** D069 made a classifier's precision be measured
+before its output is read; E045 measured it (0.372) and found the reading still
+unnecessary, because the count that mattered came from the reader. D075 made a
+candidate's limitations section a measurement plan; F081 is what that plan would
+have found had it been aimed at *the population* rather than at the artifact's
+inputs.
+
+**Ceiling.** This rule costs one reading of one corpus per candidate, which for
+a corpus of 189 rows was an afternoon and is not affordable at the scale of a
+harvest. It is affordable at the scale of a candidate with a named population,
+which is the only time it is required.

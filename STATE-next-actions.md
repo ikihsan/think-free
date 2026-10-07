@@ -12,21 +12,45 @@ a rewrite of one does not force a rewrite of the other. Read an item's ceiling b
 spending effort on it: a pass still leaves prior art, usefulness and adoption
 untouched, and every item says which.
 ## Ordered by information gained per unit of effort
-0a. **Test `stg` against the one agent population E043 named as still open: an agent
-    that must *discover* which line changed, with no line number supplied and no
-    `git diff` to read.** E043 (F075) closed the packaging claim for agents that are
-    *told* a line number — 3 of 3 exact with no tool at all, 2 of 3 ignoring `stg`
-    when it was installed — and its ceiling names exactly where a line-addressed
-    interface could still pay: a caller that does not already know the coordinate.
-    That is the same harness with two changes, not a new line of work: drop the line
-    number from the prompt and withhold diff access, then re-run both arms.
-    **This is the highest-value next action because it is cheap and it decides a live
-    build question** — whether `stg` has any remaining population or is a correct
-    tool with none. Its ceiling, declared before the run: agent heterogeneity
-    (weaker models, harnesses without shell heredocs) is untested and remains the
-    most plausible place `stg` wins; one model and one session is a small sample of
-    this population, so a negative result closes the *discover* population only.
-    Evidence in [`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
+0a. **CLOSED by E045 — do not run it (F081, F082, D077).** The item was to test
+    `stg` against the one agent population E043 named as still open: an agent that
+    must *discover* which line changed, with no line number and no `git diff`. That
+    population came from E043's harness, and E045 read the demand evidence the
+    candidate rests on — all 189 unique issues in E038's cached corpus, one row at a
+    time — and it is **not there: 0 of 189**. The reader's own count of issues about
+    choosing which lines reach the index is 29 (0.153); **28 carry explicit diff
+    access, the 29th GUI-implied, none carries none**, and all ten automated callers
+    in the need rows name their diff access in their own text. Three of the four
+    issues F064 cites are not evidence of what they were cited for, and the classifier
+    behind the record's `0.033–0.067` was re-measured at **precision 0.372, recall
+    0.552** before its output was read. The same reading killed the differentiator:
+    those 29 rows name **26 distinct repositories**, two of them shipped command-line
+    tools taking `stg`'s coordinate (`gah`, `git-hunk`), and `git-hunk` has already
+    run the two-arm agent experiment this item was built around. Evidence in
+    [`EXPERIMENTS/045-demand-evidence/README.md`](EXPERIMENTS/045-demand-evidence/README.md);
+    reading in [`STATE-in-flight-7.md`](STATE-in-flight-7.md).
+0f. **The one live action, and it is a fact to establish, not a screen: is the
+    partial-stage-sweeping behaviour real in the shipped hook tools?** Two of
+    E045's 29 need rows are about something none of `stg`, `gah` or `git-hunk`
+    addresses — **a formatter or lint hook that re-stages a whole file and sweeps a
+    partially-staged file's unstaged hunks into the commit.**
+    `nextjs-app-template#95` states that the warning its own `lefthook.yml` carries
+    is **false**; `agent-orchestra#154` is the same class of bug in a pre-commit
+    hook that re-staged a reformatted file whole. That is a correctness failure
+    with a byte-level oracle — `.git/index` before and after the hook — and it is
+    **checkable by reading and running `lefthook` and `pre-commit`**, not by a
+    screen. Declared now, before the run: it is established if, on a repository
+    with one partially staged file and one hook that reformats a different
+    unstaged file in the same run, the unstaged hunks of the first end up in the
+    index; it is refuted if `lefthook`'s `stage_fixed` and `pre-commit`'s
+    unstaged-restoration both provably preserve them. **Two rows is not evidence for
+    a candidate and none is promoted here** — a promotion needs the mechanism
+    confirmed and then D067's prior-art check against both tools' own sources,
+    which the check below gets for free.
+    **Ceiling:** two issues in two personal repositories, both closed, one of them
+    asserting a false statement about its own config file. If the behaviour is
+    confirmed, the next thing it needs is D075's limitations-section measurement and
+    D067's existing-source check, in that order.
 0. **Decide what the mission selects candidates on, now that neither novelty nor
    harvested recurrence can be the filter.**
    **F044 measured the premise behind the old one: prior art is the plurality of

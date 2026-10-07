@@ -181,3 +181,102 @@ to differ from the referee's.
 have identical removed and added line content, and it accepts a residual apply
 that reproduces the working tree as sufficient evidence of position. Both were
 adequate here; neither is established as sufficient in general.
+---
+
+## F081 — The population the mission's ranked top action measures was invented by the harness that proposed it
+
+`STATE-next-actions.md` item 0a proposed six real agents against `stg` with the
+line number removed from the prompt and `git diff` withheld, to test "an agent
+that must *discover* which line changed". That population came from E043's
+harness. E045 read the demand evidence the candidate rests on — the 189 unique
+issues in E038's cached corpus — and asked who the requester is.
+
+**0 of 189.** The reader's own count of issues about choosing which lines reach
+the index is **29 (0.153)**, and **28 of those 29 carry explicit diff access,
+the 29th carries GUI-implied diff access, and none carries none.** All ten
+automated callers in the need rows name their diff access in their own text:
+`mcp-multi-root-git#3` writes its implementation as `git diff HEAD -- {file}` →
+`git apply --cached --unidiff-zero`; `skills#154` asks to "split one file's
+hunks" non-interactively, which presupposes knowing the hunks; `gah#1` is a CLI
+that re-diffs at `-U0`.
+
+Three of the four issues F064 cites are not evidence of what they were cited
+for. `sublime_merge#465` says in the requester's own words that line staging
+already exists and the problem is *"spending a week wishing it did"* exist — a
+discoverability request from someone who has the feature.
+`sublime_merge#976` asks for the diff *within* a modified line, which is
+sub-line staging: a capability `stg` does not provide and does not claim.
+`vim-gitgutter#446` is a person in vim with a visual selection wanting one
+command over it. The fourth, `mcp-multi-root-git#3`, is the agent case, and it
+has diff access by its own specification.
+
+The classifier the record used was also re-measured before its output was read,
+per D069: precision **0.372**, recall **0.552** against the reader's labels
+over the same 189 rows. Its `line-coordinate` class matches `file:line` source
+citations inside CI transcripts, not git staging coordinates — 14 of its 43
+rows are unrelated issues.
+
+**Evidence:** [`EXPERIMENTS/045-demand-evidence/README.md`](EXPERIMENTS/045-demand-evidence/README.md),
+`raw/hand-labels.tsv`, `raw/issues.jsonl`, reproducible with
+`python3 EXPERIMENTS/045-demand-evidence/read.py`.
+
+**What this does not close.** The application. 29 real issues in 26 real
+repositories is a real population, and it is being served. The claim closed is
+the population `stg` was to be evaluated against.
+
+**Ceiling.** One reader, no second coder, and the row labels are published so a
+disagreement can be attached to a specific row rather than to a summary. GitHub
+returned a top-30 slice per query, not a sample of the declared 3124-instance
+universe, so the reader cannot speak to the 3124.
+
+---
+
+## F082 — The record's own demand corpus contained the prior art that killed the candidate, and E038's prior-art check reported 2 of 26
+
+The 29 need rows name **26 distinct repositories**, all of them inside the corpus
+E045 read. E038 ran a prior-art check and reported two incumbents:
+`filterdiff --lines=RANGE` and VS Code's `git.stageSelectedRanges`. Two of the
+twenty-six are command-line tools that take the coordinate `stg` exists to take,
+and both were shipped and installable before this mission's first experiment on
+the candidate.
+
+**`gah`** (ThatXliner/gah, Rust, MIT, crates.io) — *"Non-interactive hunk-based
+staging for git. Stage specific hunks by index, content anchor, regex, or line
+range… Split hunks into smaller pieces and stage individual changed lines, the
+non-interactive equivalent of `git add -p`'s split and edit modes."* Its README
+names `stg`'s exact hard case: *"Adjacent changed lines can't be separated by
+`--split` (git keeps them in one hunk even at zero context) — use `--lines` to
+pick individual lines out of such a block."* Its address is a working-tree line
+range (`gah add src/main.rs --lines 100-150`). It names the population E045 was
+chartered to validate — *"unusable for: AI coding agents (Claude, Copilot,
+Cursor) that can't interact with prompts"* — and ships a Claude Code plugin that
+makes agents use it instead of `git add -p`.
+
+**`git-hunk`** (wkentaro/git-hunk, Python, MIT, PyPI) — *"Non-interactive,
+programmatic alternative to `git add -p`"*, line-level control **Yes** in its own
+comparison table, `git-hunk stage d161935 -l 3,5-7`. It has already run the
+experiment item 0a was built around: one agent, eight tasks, identical
+repository state, five runs per variant, with and without its bundled skills,
+graded on the exact commit partition, tree, index and leftovers.
+
+This removes the last differentiator E041 left standing. It was *packaging*: a
+ready-to-use CLI against writing your own git plumbing. `stg` is
+pip-installable, `gah` is crates-installable, `git-hunk` is PyPI-installable,
+and two of the three ship agent distribution. And `gah`'s address is a **content
+anchor** — a single-token hash that stays stable when line numbers shift,
+"chosen to be single tokens in common LLM tokenizers for maximum efficiency" —
+which is strictly better addressing for the agent caller than the working-tree
+line number `stg` uses. That is the mechanism E041 measured as absent, arriving
+from outside.
+
+**Why it was missed.** E038 searched the web for prior art and read the corpus's
+*titles*, and the titles are dominated by CI pipelines and project phases. The
+corpus the record held was better prior-art evidence than the search it ran
+instead of reading. This is D067's rule — test a candidate against its
+mechanism's existing source first — arriving as a fact about which source was
+read.
+
+**Evidence:** READMEs fetched 2026-10-07 and kept verbatim under
+[`EXPERIMENTS/045-demand-evidence/raw/sources/`](EXPERIMENTS/045-demand-evidence/raw/sources/).
+Only the two command-line repositories were fetched; the other twenty-four were
+identified by repository name from the corpus, not by reading their sources.

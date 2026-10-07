@@ -8,13 +8,14 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-140 recorded session(s). One `events.jsonl` per session, so concurrent
+141 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 115 older session(s) are in the directory listing.
+Showing the 25 most recent. 116 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh](2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/README.md) | unknown-agent | worked | E045 (T-0083): read the demand evidence behind the only candidate, ask | 2026-10-07T07:16 |
 | [2026-10-07-001-e043-run-real-coding-agents-on-real-stag](2026-10-07-001-e043-run-real-coding-agents-on-real-stag/README.md) | unknown-agent | worked | E043: run real coding agents on real staging tasks, with and without s | 2026-10-07T00:59 |
 | [2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo](2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo/README.md) | unknown-agent | worked | Dogfood stg on real changes in this repo; record observed friction vs  | 2026-10-07T06:18 |
 | [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 115 older session(s) are in the directory listing.
 | [2026-10-05-018-declare-the-raw-captures-and-files-sessi](2026-10-05-018-declare-the-raw-captures-and-files-sessi/README.md) | unknown-agent | worked | Declare the raw captures and files session 017 left undeclared in its  | 2026-10-05T20:03 |
 | [2026-10-05-017-e028-test-whether-the-incumbents-a-prior](2026-10-05-017-e028-test-whether-the-incumbents-a-prior/README.md) | unknown-agent | worked | E028: test whether the incumbents a prior-art screen named do what eac | 2026-10-05T20:02 |
 | [2026-10-05-016-repair-session-record-defects-blocking-s](2026-10-05-016-repair-session-record-defects-blocking-s/README.md) | unknown-agent | worked | repair session-record defects blocking strict verify | 2026-10-05T18:22 |
-| [2026-10-05-015-re-read-the-31-clause-killed-harvested-n](2026-10-05-015-re-read-the-31-clause-killed-harvested-n/README.md) | opencode | worked | Re-read the 31 clause-killed harvested needs from their full text and  | 2026-10-05T17:40 |
 
 
 ## Reading a session
