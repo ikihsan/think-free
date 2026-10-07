@@ -7,7 +7,9 @@ last-verified: 2026-10-06
 # E041 — strongest shell baseline for line-addressable staging
 
 `observed` 2026-10-06, session 2026-10-06-013, VM `instance-20260717-0944`, git 2.25.1,
-Python 3.8.10. Raw evidence: [`raw/comparison.jsonl`](raw/comparison.jsonl),
+Python 3.8.10. Plan, declared before the run:
+[`docs/2026-10-06-strongest-shell-baseline.md`](../../docs/2026-10-06-strongest-shell-baseline.md).
+Raw evidence: [`raw/comparison.jsonl`](raw/comparison.jsonl),
 [`raw/e038_comparison.jsonl`](raw/e038_comparison.jsonl). Reproduce:
 `python3 EXPERIMENTS/041-strongest-baseline/compare.py` and
 `python3 EXPERIMENTS/041-strongest-baseline/test_e038_cases.py`.

@@ -165,6 +165,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md`](../tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md`](../tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md) | `tasks/INDEX.md` | active | 2026-10-07 | # corpus needs three repositories, two of them clones, and a verify step that |
 | [`tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md`](../tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
+| [`tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md`](../tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 
 ## RESEARCH
 
@@ -216,7 +217,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/026-unserved-need-structure/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/027-cause-of-death-reread/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/028-incumbent-fit/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0072. Protocol declared before any label and |
-| `EXPERIMENTS/029-need-build-match/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0073. Protocol declared before the first fetch |
+| `EXPERIMENTS/029-need-build-match/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task |
 | `EXPERIMENTS/030-departure-recurrence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | Date: 2026-10-05. Task T-0074. Protocol declared in |
 | `EXPERIMENTS/031-unfilled-requirement/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-05 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/032-venue-recurrence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | owner: EXPERIMENTS/PLAN.md |
@@ -234,6 +235,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/042-agent-staging-e2e/` | `docs/INDEX.md` | active | 2026-10-06 | owner: docs/INDEX.md |
 | `EXPERIMENTS/042-stg-end-to-end/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-06 | observed 2026-10-06, session 2026-10-06-014, VM instance-20260717-0944, git 2.25.1, |
 | `EXPERIMENTS/043-real-agent-staging/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-001, VM instance-20260717-0944, git 2.25.1, |
+| `EXPERIMENTS/044-discover-staging/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-07-002, VM instance-20260717-0944, |
 | `EXPERIMENTS/045-demand-evidence/` | `docs/INDEX.md` | complete | 2026-10-07 | owner: docs/INDEX.md |
 | `EXPERIMENTS/046-real-changes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | observed 2026-10-07, session 2026-10-06-016, VM instance-20260717-0947, |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |

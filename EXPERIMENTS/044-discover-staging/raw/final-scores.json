@@ -1,0 +1,72 @@
+{
+  "trials": [
+    {
+      "trial": "adjacent-modifications-nostg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 7,
+      "diff_refused": 0,
+      "failures": 0,
+      "stg_internal_calls": 0
+    },
+    {
+      "trial": "adjacent-modifications-stg-trial",
+      "verdict": "exact",
+      "line": 7,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 12,
+      "diff_refused": 1,
+      "failures": 0,
+      "stg_internal_calls": 6
+    },
+    {
+      "trial": "one-edit-among-three-nostg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 10,
+      "diff_refused": 0,
+      "failures": 0,
+      "stg_internal_calls": 0
+    },
+    {
+      "trial": "one-edit-among-three-stg-trial",
+      "verdict": "exact",
+      "line": 19,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 11,
+      "diff_refused": 0,
+      "failures": 0,
+      "stg_internal_calls": 6
+    },
+    {
+      "trial": "two-line-insertion-nostg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 12,
+      "diff_refused": 0,
+      "failures": 2,
+      "stg_internal_calls": 0
+    },
+    {
+      "trial": "two-line-insertion-stg-trial",
+      "verdict": "exact",
+      "line": 3,
+      "unstaged_changes_remain": true,
+      "extra_files_left_behind": [],
+      "calls": 11,
+      "diff_refused": 0,
+      "failures": 0,
+      "stg_internal_calls": 6
+    }
+  ],
+  "exact": 6,
+  "of": 6
+}

@@ -81,3 +81,46 @@ candidate's justification names a caller, that caller should be the arm that
 runs, before the candidate is called validated** — and the instrument must be
 checked for whether the arm is actually exercising the tool, which here it was
 not, for three runs in a row.
+
+## F083 — the discovery population doesn't need the tool either, and the agent's self-report is not the compliance record
+
+`observed` 2026-10-07, session 2026-10-07-002. Evidence:
+[`EXPERIMENTS/044-discover-staging/`](EXPERIMENTS/044-discover-staging/README.md).
+
+E043's ceiling named the one population where a line-addressed interface could
+still pay: an agent that must *discover* which line changed, with no line number
+and no `git diff`. E044 reran E043's harness with exactly those two changes —
+a semantic description of the target change, and a logging policy shim that
+refuses `git diff`. Kill gate declared before the runs: `nostg` ≥ 2 of 3 exact
+kills the claim.
+
+**Result: 6 of 6 exact, and the `nostg` arm went 3 of 3.** Every agent in both
+arms opened with the same move — `git show HEAD:app.py` against `cat -n
+app.py`, compared by eye, correct line on the first attempt — so the work the
+surviving claim said needed an interface was done by hand, in both arms, in
+about twenty seconds. In the `stg` arm all three agents used the tool this
+time (E043: 1 of 3), and all three reports describe `stg list` as
+*confirming* a line they had already identified: the coordinate listing
+answered a question they had already answered. The `nostg` arm also produced
+a route no experiment here had seen: `git hash-object -w` +
+`git update-index --cacheinfo`, staging the intended blob directly with **no
+patch at all** — the second no-tool route in two experiments, found
+independently.
+
+**The candidate is closed.** `stg` is a correct tool — exact whenever used,
+30 of 30 on E038's matrix, honest exits on E039's boundary cases — and every
+population the demand evidence or any experiment's ceiling named is now
+tested and negative: not agents told a line (E043), not agents who must
+discover it without diff (E044). The untested cells (weaker models, no-shell
+harnesses, files too large for discovery-by-eye) have no named requester in
+F064's demand evidence.
+
+**The instrument finding, and it generalises.** Compliance with the no-diff
+constraint was enforced and logged at a shim on `PATH`. The log shows one
+agent-facing `git diff --cached --stat`, refused, in one trial; the run
+stayed valid because no diff output was produced. **That attempt appears in
+no agent's self-report.** Six reports were otherwise accurate command-by
+command — and still the one policy-relevant event survived only in the log.
+When a constraint is part of the treatment, the enforcement point is where
+compliance is measured; the subject's account of its own compliance is not
+evidence of it (D078).

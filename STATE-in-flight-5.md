@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-07
 -->
 
-# In flight, part 5 — E043, the candidate's last surviving claim against real agents
+# In flight, part 5 — E043/E044, the candidate's last two claims against real agents — **closed**
 
 Split out of [`STATE.md`](STATE.md) on 2026-10-07 at its 300-line cap, by invariant:
 this is one candidate's complete reading and its successor's correction, which is
@@ -112,6 +112,50 @@ untested and is the most plausible place `stg` still wins. An agent with only an
 edit tool and no diff access is a different population and is untested. The
 oracle was verified to discriminate on four routes but not against a second
 independent reader.
+
+## The discovery population doesn't need it either (E044, F083, D078)
+
+`observed` 2026-10-07, session 2026-10-07-002, same VM. Six real agent runs.
+Protocol: [`EXPERIMENTS/044-discover-staging/`](EXPERIMENTS/044-discover-staging/README.md).
+
+The population named above was run: byte-identical fixtures, but the prompt
+describes the change semantically and never names a line, and a logging policy
+shim on `PATH` refuses `git diff` (passing `stg`'s own plumbing — the
+candidate's exemption from the agent's restriction is the hypothesis under
+test). Kill gate declared before the runs: `nostg` ≥ 2 of 3 exact kills the
+claim. The oracle was checked first on four routes × three scenarios,
+including a no-diff difflib route proving every fixture solvable from file
+contents alone.
+
+| arm | exact | used `stg` |
+|---|---|---|
+| no tool, no line number, no diff | **3/3** | n/a |
+| `stg` on `PATH`, same constraint | **3/3** | 3 of 3 |
+
+**6 of 6 exact — and every agent in both arms did the discovery by hand
+first**: `git show HEAD:app.py` against `cat -n app.py`, compared by eye,
+correct line on the first attempt in all six. In the `stg` arm all three
+agents used the tool this time, and all three reports describe `stg list` as
+*confirming* a line they had already identified — the coordinate listing
+answered a question they had already answered. The `nostg` arm added a route
+no experiment here had seen: `git hash-object -w` +
+`git update-index --cacheinfo`, staging the intended blob with no patch at
+all.
+
+**The candidate is closed.** Every population the demand evidence or any
+experiment's ceiling named is tested and negative: not agents told a line
+(E043), not agents who must discover it without diff, at this scale (E044).
+`stg` is a correct tool — 30/30 on E038, exact whenever used in both real
+harnesses — with no observed population that needs it. The untested cells
+(weaker models, no-shell harnesses, files too large for discovery-by-eye)
+have no named requester in F064's demand evidence.
+
+**The instrument point that generalises (D078).** The shim log shows one
+agent-facing `git diff --cached --stat`, refused, in one trial — and that
+attempt appears in **no agent's self-report**, though all six reports were
+otherwise accurate command-by-command. When a constraint is part of the
+treatment, compliance is measured at the enforcement point; the subject's
+account of its own compliance is not evidence of it.
 
 ## Where the other VM's task files are linked from
 

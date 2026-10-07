@@ -6,7 +6,9 @@ last-verified: 2026-10-05
 
 # E029 — do the people who stated a need build that need?
 
-**Date:** 2026-10-05. Task T-0073. Protocol declared before the first fetch
+**Date:** 2026-10-05. Task
+[`T-0073`](../../tasks/T-0073-test-whether-the-need-staters-who-publicly-shipp.md).
+Protocol declared before the first fetch
 ([`PROTOCOL.md`](PROTOCOL.md)), amended three times before any rate was computed
 ([`1`](PROTOCOL-AMENDMENT-1.md), [`2`](PROTOCOL-AMENDMENT-2.md),
 [`3`](PROTOCOL-AMENDMENT-3.md)). One rubric for both readers

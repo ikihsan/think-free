@@ -1,0 +1,25 @@
+You are working in the git repository at /home/ubuntu/think-free/EXPERIMENTS/044-discover-staging/trials/two-line-insertion-nostg-trial. It has one committed file,
+app.py, which now has uncommitted edits.
+
+Environment policy: this harness does not give agents `git diff` output. The
+`git` on your PATH is a policy wrapper that refuses `git diff`. Do not bypass
+the wrapper -- for example by calling another git binary directly, or by
+re-enabling diff output: a run that reads diff output is invalid and will be
+discarded. You may read the committed version with `git show HEAD:app.py`,
+the staged version with `git show :app.py`, and the working copy with
+`cat app.py`.
+
+Begin EVERY shell command with:
+    export PATH=/home/ubuntu/think-free/EXPERIMENTS/044-discover-staging/gitbin/two-line-insertion-nostg-trial:$PATH &&
+(the shell may not remember environment between commands, so re-export each
+time).
+
+Task: Stage ONLY the change that adds the line `import json`. Leave the adjacent `import re` insertion unstaged. You are NOT told a line number. Work out which change is
+meant -- and exactly which working-tree line it sits on -- by comparing the
+committed and working versions. Stage only that change; leave every other
+change unstaged. Do not commit anything. Work only inside this repository
+directory; do not read or modify anything outside it.
+
+When you are done, report: how you identified the line to stage, the exact
+commands you ran in order, and whether staging succeeded. If you believe the
+staged result is wrong, say so.

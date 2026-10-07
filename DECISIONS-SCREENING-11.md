@@ -6,7 +6,7 @@ last-verified: 2026-10-06
 
 # Decisions — screening candidates and judging experiments, part 11
 
-Decisions **D072, D073, D074**. Each entry records a choice that was genuinely open, the
+Decisions **D072, D073, D074, D078**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 **Invariant:** the same as [`DECISIONS-SCREENING.md`](DECISIONS-SCREENING.md) —
@@ -249,3 +249,40 @@ that must *discover* which line changed without diff access, and that is unteste
 It does not release or retire `stg`, which remains a correct tool (30/30 on E038,
 byte-identical index). It does not change what this repository selects candidates
 on; it changes when a candidate's last remaining claim has to be run.
+
+## D078 — A constraint that is part of the treatment is logged at the enforcement point; the subject's self-report is not the compliance record
+
+`observed` 2026-10-07, session 2026-10-07-002. Evidence:
+[`EXPERIMENTS/044-discover-staging/`](EXPERIMENTS/044-discover-staging/README.md);
+F083.
+
+### The choice that was open
+
+E044's treatment included a constraint: no `git diff` output. The choice was
+how to know a run complied. Options: ask the agent not to and trust its
+report; sandbox so violation is impossible; or enforce softly at a shim on
+`PATH` and log every call there. Trusting the report was cheapest; the
+sandbox was rejected as measuring a different population (an adversary, not a
+harness restriction); the shim-plus-log was chosen.
+
+### The rule
+
+**When a constraint is part of the treatment, compliance is measured where
+the constraint is enforced, and the subject's account of its own compliance
+is not evidence of it.** E044's six agent reports were accurate
+command-by-command — and the one policy-relevant event in the whole
+experiment, an agent-facing `git diff --cached --stat` that the shim refused,
+appears in none of them. Not from dishonesty: the attempt failed, produced
+nothing, and was not worth a sentence. But "nothing worth a sentence" is
+exactly what a compliance record exists to catch, because the same omission
+in a run where the refusal *mattered* to the result would be invisible. The
+log also settles the converse: an agent whose report claims git calls the log
+does not show went around the shim, and that run is discarded, not debated.
+
+### What it does not decide
+
+It does not make the simulation adversarial — `git stash show -p`-style
+routes existed and were only logged. It does not say self-reports are
+useless: E043's contamination catch came from an agent's own honesty. It says
+a report is evidence about what the subject *noticed*, and compliance with a
+treatment constraint is not something the subject is asked to notice.

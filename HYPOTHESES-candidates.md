@@ -157,3 +157,48 @@ no second coder over a top-30-per-query slice of a 3124-instance universe, and
 only two of the 26 named repositories were read at the source. The negative
 result closes the claim and that population only — not the tool, not the domain,
 and not the discovery route.
+
+supplied, `git diff` available to every agent. The negative result closes the
+claim and that population only — not the tool, not the domain, and not the
+discovery route.
+
+---
+
+## E044 — the discovery population, run against real agents (F083)
+
+`observed` 2026-10-07, session 2026-10-07-002. Evidence:
+[`EXPERIMENTS/044-discover-staging/README.md`](EXPERIMENTS/044-discover-staging/README.md).
+
+E043's ceiling named the last open population: an agent that must *discover* which
+line changed, with no line number and no `git diff`. E044 reran the same harness —
+byte-identical fixtures — with exactly those two changes: the prompt describes the
+change semantically and never names a line, and a logging policy shim refuses
+`git diff` (passing `stg`'s own plumbing, which is the exemption under test).
+
+| arm | verdict | used `stg` |
+|---|---|---|
+| no tool, no line number, no diff (3 scenarios) | **3/3 exact** | n/a |
+| `stg` on `PATH`, same constraint (3) | **3/3 exact** | 3 of 3 |
+
+**6 of 6 exact, and all six agents did the discovery by hand first** — `git show
+HEAD:app.py` against `cat -n app.py`, compared by eye, correct line named on the
+first attempt in every scenario. In the `stg` arm, `stg list` was run *after* the
+agent had already identified the line, and is described in the agents' own reports
+as confirmation. The `nostg` arm produced a route E043 never saw: one agent built
+the staged blob directly (`git hash-object -w` + `git update-index --cacheinfo`)
+and never wrote a patch at all.
+
+### Final status: candidate closed
+
+**`stg` is withdrawn as a release candidate; it is a correct tool with no observed
+population that needs it.** Mechanism supported (E038: 30/30, byte-identical index;
+E039: honest exits 8/8); mechanism differentiation falsified (E041); packaging
+advantage not observed against agents told a line (E043); discovery population not
+observed to need it either, at this scale (E044). The one cell never tested —
+weaker models, harnesses without shell access, files large enough that
+discovery-by-eye is not free — has no named requester in the demand evidence
+(F064), and chasing it would be two hypotheticals past the last observation.
+
+**Ceiling:** as E043, plus the no-diff simulation is cooperative (logged, not
+sandboxed) and the files are 20 lines — a negative result at this scale closes the
+small-file discover population only.

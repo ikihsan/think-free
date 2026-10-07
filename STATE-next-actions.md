@@ -51,6 +51,17 @@ untouched, and every item says which.
     asserting a false statement about its own config file. If the behaviour is
     confirmed, the next thing it needs is D075's limitations-section measurement and
     D067's existing-source check, in that order.
+    **Run before this reading landed, and it agrees (E044, F083, D078): `stg` has no
+    agent population at the scale tested, so the candidate is closed.** The two changes E043's ceiling named —
+    no line number in the prompt, `git diff` refused by a logging shim — were run as
+    two arms over byte-identical fixtures: **6 of 6 exact, `nostg` 3 of 3**, with
+    every agent in both arms doing the discovery by hand first and the `stg` arm's
+    agents describing `stg list` as confirmation of a line already identified. The
+    pre-declared kill gate (`nostg` ≥ 2 of 3) was crossed. The negative result
+    closes the small-file discover population; the cells never tested (weaker
+    models, no-shell harnesses, files too large for discovery-by-eye) have no named
+    requester in F064's demand evidence. Evidence in
+    [`EXPERIMENTS/044-discover-staging/README.md`](EXPERIMENTS/044-discover-staging/README.md).
 0. **Decide what the mission selects candidates on, now that neither novelty nor
    harvested recurrence can be the filter.**
    **F044 measured the premise behind the old one: prior art is the plurality of
