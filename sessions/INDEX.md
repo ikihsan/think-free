@@ -8,13 +8,14 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-148 recorded session(s). One `events.jsonl` per session, so concurrent
+149 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 123 older session(s) are in the directory listing.
+Showing the 25 most recent. 124 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-07-010-fresh-observation-find-a-concrete-testab](2026-10-07-010-fresh-observation-find-a-concrete-testab/README.md) | unknown-agent | **unfinished** | fresh observation: find a concrete testable opportunity | 2026-10-07T15:45 |
 | [2026-10-07-009-fresh-observation-pass-find-a-testable-o](2026-10-07-009-fresh-observation-pass-find-a-testable-o/README.md) | unknown-agent | no-change | fresh observation pass: find a testable opportunity via live GitHub AP | 2026-10-07T15:43 |
 | [2026-10-07-008-fresh-observation-pass-for-a-new-candida](2026-10-07-008-fresh-observation-pass-for-a-new-candida/README.md) | unknown-agent | no-change | fresh observation pass for a new candidate after E048/F085 seat emptin | 2026-10-07T14:48 |
 | [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | worked | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T14:09 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 123 older session(s) are in the directory listing.
 | [2026-10-06-005-test-whether-stack-overflow-s-own-search](2026-10-06-005-test-whether-stack-overflow-s-own-search/README.md) | opencode | worked | Test whether Stack Overflow's own search box already returns the E034  | 2026-10-06T08:39 |
 | [2026-10-06-004-test-whether-the-population-e034-found-i](2026-10-06-004-test-whether-the-population-e034-found-i/README.md) | unknown-agent | worked | Test whether the population E034 found is reachable by the people who  | 2026-10-06T07:13 |
 | [2026-10-06-003-test-whether-stack-exchange-s-duplicate](2026-10-06-003-test-whether-stack-exchange-s-duplicate/README.md) | opencode | worked | Test whether Stack Exchange's duplicate-closure canonical is recoverab | 2026-10-06T06:09 |
-| [2026-10-06-002-e033-measure-the-rate-of-cross-author-re](2026-10-06-002-e033-measure-the-rate-of-cross-author-re/README.md) | unknown-agent | worked | E033: measure the rate of cross-author recurrence in public long-form  | 2026-10-06T04:55 |
 
 
 ## Reading a session

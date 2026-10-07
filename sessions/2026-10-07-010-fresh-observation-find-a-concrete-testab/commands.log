@@ -1,0 +1,259 @@
+==============================================================================
+[seq 2] 2026-10-07T15:45:49+00:00
+$ sed -n 1,80p STATE-selection.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-06
+-->
+
+# What the mission selects candidates on
+
+Split out of [`STATE-next-actions.md`](STATE-next-actions.md) on 2026-10-06
+(T-0081), where item 0 had reached **168 of that file's 300 permitted lines**.
+The split is by invariant, not by size: that file ranks *work to be done*, and
+item 0 is not work — it is an **owner decision** that no experiment in this
+repository can settle, so keeping it in a ranked work list invited it to be
+worked on. It is preserved here verbatim, including its reasoning, with E039's
+result added where E039 answered part of it.
+
+Nothing here is a defect to repair and nothing here is blocked on tooling.
+
+## The decision, stated
+
+**What does this mission select candidates on, now that novelty cannot be the
+filter — and the premise behind the old filter is now measured?**
+
+**Renumbered on 2026-10-06.** This file was written as `STATE-next-actions.md`
+item 0 with D053 and E021, and moved here with the numbering the other VM's
+publication forced (F060, D068, E039). The reasoning is unchanged.
+
+## Why it is not novelty, and why that took four measurements
+
+Twelve candidates, twelve prior-art deaths, the twelfth being `tools/origin`
+itself (`RESEARCH/PRIOR-ART-ORIGIN.md`, F026, F027). Each measurement below
+attacks the screen's own premise:
+
+| finding | axis | what it measured | which way it came out |
+|---|---|---|---|
+| F034 | soundness | 4 of 4 on-topic incumbents in mature vocabularies are served, **1 of 4** in a young one | against the screen |
+| F035 | coverage | 3 of 12 adjudicable kills have no prior art on any of three corpora; 4 were reachable only on the open web | against the screen |
+| F037 | composition | the young arm is **14 of 18 executable code**, not prose | against the "it's just documents" rescue |
+| F041 (other VM) | distribution | the copy channel holds **1,026** repositories against **8,676** monthly installs, ratio **0.118** | **against** the "used and invisible" reading |
+| F060 (this VM) | demand side | the need corpus's own threads answered 57% of its statements, drew a link for 5.5%, and named anything new in **0 of 1391** | against the corpus as an artifact signal |
+
+The screen is therefore sound where it is least load-bearing and unsound precisely
+where this mission's candidates live — which is neither a reason to keep it nor a
+reason to drop it, but a reason to state the axis in terms of the vocabulary a
+candidate sits in. **Every channel that could have carried the choice has now been
+measured, and five measurements agree that supply-side counts do not carry it.**
+
+**This is an owner decision:** which axis replaces it (usefulness without users,
+distribution, domain knowledge, or something not yet named), and whether
+publishing the tooling as-is is ever on the table.
+
+## Ceilings on the four measurements
+
+F034's own gate is `inconclusive` — 43% of incumbents were undecided against a
+declared 20% ceiling — and its young arm rests on four decided rows. F027's sample
+is small and self-selected, and 0 stars is a weak proxy with known false negatives
+(`ripgrep`, `jq`). F037's undecidable fraction is partly an artefact of which
+channels were consulted. F060 is one site, one audience, 466 days, over a
+population of threads chosen because a need comment happened to be in them.
+
+## What is left, and it is one question
+
+Everything measured about **supply** says supply is uninformative about demand
+(F028, F032, F037), and the demand-side corpus is now measured and cannot answer
+it either. **But that corpus is 1250 named, publicly identified people who each
+wrote down, in public and unprompted, what was missing from their work.** It is
+the only demand-side asset here that is not a supply count.
+
+The axis it suggested was not "does anyone want this" — unmeasurable without
+publishing — but "**is there a specific person who already told us exactly what
+they want, and did they use the thing?**".
+
+**E039 has now measured the second half of that question and answered it.** The
+public record of responding to a need contains no outcome signal at all: **1 of
+794** requesters whose need drew a reply replied again, and **0 of the 77** whose
+need drew a link. So the outcome of a need is not recorded anywhere in the thread
+it was asked in, and an axis of that shape needs a channel this repository does not
+have. That is a build-or-buy question and therefore the owner's.
+
+**Ceiling on the whole suggestion:** contacting anyone needs authorization, its
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 8  redactions: none
+==============================================================================
+[seq 3] 2026-10-07T15:45:58+00:00
+$ grep -n ^##\|^### RESEARCH/SYNTHESIS.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+18:## The method, and its one weakness
+40:## The candidate inventory
+71:## Screen 1 — is the killing experiment smaller than the argument?
+86:## Screen 2 — time to first value and comprehension cost
+102:## Screen 3 — would a surviving result change a build decision?
+114:## What the screen actually found
+137:## Ranked next actions
+157:## Limits of this synthesis
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4  redactions: none
+==============================================================================
+[seq 4] 2026-10-07T15:46:02+00:00
+$ sed -n 40,70p;114,160p RESEARCH/SYNTHESIS.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+## The candidate inventory
+
+Every candidate any report proposed, promoted or parked. `Outcome` cites the
+record; nothing is re-judged here.
+
+| Candidate | Source | Outcome in the record | Physical-world validation this VM cannot do |
+|---|---|---|---|
+| A1 decision-directed sidewalk survey | A | Count-budget gate met, **fieldwork-cost gate fails 6/6** (F006) | A municipal planner and residents (A step 7) |
+| Appliance diagnosis by information gain | A | Not advanced; ORDS exists | — |
+| Household critical-load optimisation | A | Not advanced; REopt exists | — |
+| B1 photo-migration witness | B, E001 | **Motivating example disproved** (F001) | A disposable Immich instance |
+| Heat-pump silent-fallback detector | B | Parked | Labelled field data, equipment access |
+| Sewing-projector auto-calibration | B | Rejected | — |
+| Care-handoff discrepancy packet | B | Rejected; direct prior art | — |
+| C1 knitting repair planner | C, E002 | Local planner valid 9/9, suboptimal on 1 case; bounded-neighbourhood test running as T-0011 | **An experienced knitter's hands** (C Stage B) |
+| C2 adaptive ventilation measurement selection | C, E002 | Witness survives (W3); measurement claim **untested** | A room, sensors, and controlled interventions |
+| Archaeological fragment reconstruction | C | Rejected; RePAIR et al. | Fieldwork |
+| Irregular-remnant nesting | C | Rejected; OpenNest, ironnest | — |
+| Universal accessibility certification | D | Rejected; information-insufficient and unfalsifiable | Disability users (D step 9) |
+| Appliance disaggregation from aggregate power | D | Rejected; executed non-identifiability witness | — |
+| Trustworthy maps for underserved places | D | Rejected; HOT Tasking Manager, fAIr | Reviewer study with participants |
+| Capture any computation once, reproduce forever | D | Rejected; ReproZip, reprotest | — |
+| Universal local-first sync layer | D | Rejected; CRDT convergence ≠ business invariants | — |
+| E1 retry storms are a synchronisation failure | E | `untested` | — |
+| E2 lockfiles are weak witnesses of reproducibility | E | `untested` | Registry history over months |
+| E3 build timestamps are the cheapest determinism violation to count | E | `untested` | — |
+
+Sixteen candidates; thirteen are rejected, disproved, or parked by the record.
+Three are live: **C2**, **E2**, **E3**. One of those, C1, is being tested by
+another worker (T-0011). F proposed no candidate by design.
+
+## What the screen actually found
+
+`inferred`, and this is the part no single report contains.
+
+1. **Every promoted candidate in A, B and C depends on a person or a room this
+   repository cannot reach.** A needs a planner; B needs a disposable Immich and
+   a real export; C1 needs an experienced knitter's hands (its own Stage B gate);
+   C2 needs sensors and controlled interventions. Three tasks (T-0005, T-0006,
+   T-0007) bought A1 a falsification, not a decision. That is not bad luck — it is
+   the shape of the candidate set those reports produced.
+2. **Only D, E and F proposed things testable on this machine**, and D proposed
+   nothing at all: it rejected five families. The only candidates that are both
+   locally falsifiable and not already dead are **C2, E2, E3**.
+3. **A simulator cannot move C2 past "technical hypothesis survives".** E's rule 2
+   and C's own kill gate say so. Running it can only narrow the set, which is the
+   stated preference in `docs/process/hypothesis-lifecycle.md` ("Prefer to
+   abandon").
+4. **The screen cannot fix the shared-prior problem.** `RESEARCH.md` already
+   records that four independent reports share one model's priors, so agreement is
+   weak evidence. Adding E and F raises the count, not the independence.
+5. **F's checklist stays a gate, not a screen.** It becomes applicable at stage D
+   of the lifecycle. No candidate is anywhere near it.
+
+## Ranked next actions
+
+Ordered by information gained per unit of effort, with the honest ceiling on each.
+
+1. **Run C2's simulation kill gate** (`RESEARCH/C.md` "Smallest runnable
+   falsification experiment"). Stdlib Python, seeded, three protocols at one
+   budget, paired parameter sets, held-out weather and mixing violations. W3 says
+   the mechanism is information-sufficient, so a result is possible at all. Ceiling:
+   a pass means "mathematically possible on correctly specified synthetic models"
+   and nothing more; the prior-art problem in C is untouched by it.
+2. **Run E3's timestamp census** because it is the cheapest thing in the
+   repository — one command, minutes, hard kill gate at 5% — not because it is
+   promising. Ceiling: a PyPI-wheel rate. It cannot bound npm, conda or Maven.
+3. **Schedule E2, do not run it now.** It is time-gated: the informative
+   comparison is two snapshots of the same closure weeks apart, and single-machine
+   resolver runs twice today measure nothing. Start it, then leave it.
+4. **Do not run E1.** Screen 3 shows a pass changes no build decision.
+5. **Do not build a product.** Nothing is selected. C2's own report already says
+   the outcome should be an extension to NIST or NVAPF if it survives.
+
+## Limits of this synthesis
+
+- `inferred` throughout: it reorders and screens existing claims and adds no
+  measurement of its own.
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4  redactions: none
+==============================================================================
+[seq 5] 2026-10-07T15:46:25+00:00
+$ grep -rn E2 RESEARCH/E.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+63:## Mechanism E2 — dependency lockfiles are weak witnesses of reproducibility
+143:   (E2's stable closure kills the candidate cheaply).
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T15:46:42+00:00
+$ sed -n 55,110p RESEARCH/E.md
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+load) at equal mean retry rate, the mechanism as stated is noise on this
+machine and should be dropped.
+
+**What would make it uninformative.** A simulator cannot be evidence about
+real services; it can only falsify the *internal consistency* of the
+mechanism. A positive result is a license to build a real fault-injection
+test, not a validated claim.
+
+## Mechanism E2 — dependency lockfiles are weak witnesses of reproducibility
+
+**Observation.** Lockfiles (`Pipfile.lock`, `poetry.lock`, `package-lock.json`,
+`Cargo.lock`) are treated by users and CI as proof that a build today equals
+a build yesterday. Registry-side changes (yanked releases, re-published
+wheels for the same version, platform-marker rewrites, transitive metadata
+updates) can silently invalidate that proof.
+
+**Mechanism.** The witness is unstable because it records names and
+hashes at one instant, while the failure mode is time-varying. A stronger
+witness is the *closure*: the sorted set of (name, version, artifact hash,
+source URL) tuples actually installed, recomputed and diffed across time.
+
+**Assumptions.** Registries mutate or yank at a non-trivial rate; hash
+pinning covers artifacts but not the resolution step; most projects never
+re-verify.
+
+**Prior art.** PyPA `pip` documentation on hash-checking mode; the
+npm `left-pad` incident (2016); research on dependency confusion (Alex
+Birsan, 2021). Prior art supports the instability of names; it does not
+measure the *rate* on this machine's ecosystems.
+
+**Strongest objection.** Major registries mostly forbid re-publishing the
+same version, so with hash pinning the closure is in fact stable, and the
+proposal measures a rare event expensively.
+
+**Smallest falsifying experiment.** Pick the top-50 PyPI packages by
+download; download their locked closures (e.g. via `pip download` with the
+current resolver twice, a few days apart, or against two published
+lockfiles from different dates), hash each artifact, and count version or
+hash changes in the closure. If the closure is bit-stable across the
+snapshot, the mechanism is too weak to productize.
+
+**What would make it uninformative.** Two snapshots days apart probe only
+fast drift; slow drift (weeks-to-months yanks) is the interesting regime
+and requires either archival lockfiles or patience.
+
+## Mechanism E3 — build timestamps are the easiest determinism violation to count
+
+**Observation.** Many `sdist`/wheel artifacts embed wall-clock times
+(zip entry dates, `SOURCE_DATE_EPOCH` unset). Reproducible-builds efforts
+report this as a leading failure cause. `source-supported` (ReproZip/
+reproducible-builds.org reports).
+
+**Mechanism.** Because timestamp embedding is local to the build, it is
+cheap to count: build the same source twice with different
+`SOURCE_DATE_EPOCH` values and diff the artifact bytes. The population
+claim ("this fraction of releases fail determinism because of timestamps")
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 5  redactions: none

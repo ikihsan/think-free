@@ -6,11 +6,11 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0085
-status: open
+status: claimed
 created: 2026-10-07
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-07-010-fresh-observation-find-a-concrete-testab
+claim-vm: 
 verify: python3 EXPERIMENTS/049-lockfile-closure/harness.py --verify; test 0 -eq 0
 -->
 

@@ -166,6 +166,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md`](../tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md) | `tasks/INDEX.md` | active | 2026-10-07 | # corpus needs three repositories, two of them clones, and a verify step that |
 | [`tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md`](../tasks/T-0083-e045-read-the-demand-evidence-the-candidate.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md`](../tasks/T-0084-test-with-a-byte-level-oracle-whether-any-shippe.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
+| [`tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md`](../tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 
 ## RESEARCH
 
