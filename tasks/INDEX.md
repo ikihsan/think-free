@@ -3,12 +3,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-06
+last-verified: 2026-10-07
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-81 task(s). Every task file declares a runnable verification command;
+82 task(s). Every task file declares a runnable verification command;
 `tools/origin task verify <id>` executes it and records the exit code.
 
 | Task | Status | Claimed by | Verify | Created |
@@ -53,7 +53,7 @@ last-verified: 2026-10-06
 | [`T-0038-record-that-the-public-check-run-annotations-wer.md`](T-0038-record-that-the-public-check-run-annotations-wer.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0039-make-acceptance-and-steps-append-on-task-new-so.md`](T-0039-make-acceptance-and-steps-append-on-task-new-so.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
 | [`T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md`](T-0040-make-a-red-doc-lint-release-check-or-skills-gate.md) | done |  | PYTHONPATH=tools:tests python3 -m unittest disco | 2026-10-04 |
-| _… 41 more in `tasks/`_ | | | | |
+| _… 42 more in `tasks/`_ | | | | |
 
 ## How tasks run on another machine
 

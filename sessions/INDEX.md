@@ -15,6 +15,7 @@ Showing the 25 most recent. 113 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo](2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo/README.md) | unknown-agent | **unfinished** | Dogfood stg on real changes in this repo; record observed friction vs  | 2026-10-06T23:19 |
 | [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
 | [2026-10-06-015-reconcile-and-publish-e041-need-index-re](2026-10-06-015-reconcile-and-publish-e041-need-index-re/README.md) | opencode | worked | Reconcile and publish E041 need-index records; finish the record, renu | 2026-10-06T23:19 |
 | [2026-10-06-014-run-agent-end-to-end-test-comparing-stg](2026-10-06-014-run-agent-end-to-end-test-comparing-stg/README.md) | unknown-agent | worked | Run agent end-to-end test comparing stg vs alternatives for line-addre | 2026-10-06T19:49 |
