@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-06
+last-verified: 2026-10-07
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -163,6 +163,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0079-e035-establish-whether-the-score-tail-population.md`](../tasks/T-0079-e035-establish-whether-the-score-tail-population.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md`](../tasks/T-0080-e036-test-whether-stack-overflow-s-own-search-bo.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
 | [`tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md`](../tasks/T-0081-measure-what-happened-to-e012-s-1401-pub.md) | `tasks/INDEX.md` | active | 2026-10-06 | ## Goal |
+| [`tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md`](../tasks/T-0082-e043-measure-stg-on-real-repository-changes-rena.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 
 ## RESEARCH
 
