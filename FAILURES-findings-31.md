@@ -81,3 +81,33 @@ two arms reported an error while having tested nothing.
 `raw/results.json` with per-arm blobs, logs and versions,
 `python3 EXPERIMENTS/047-hook-partial-stage/harness.py` exits 0 and non-zero
 otherwise (`origin task verify T-0084` → exit 0).
+
+## F085 — The formatted-worktree / unformatted-commit disagreement is visible in
+every configuration except lefthook without `stage_fixed`, and there it is caught
+by the standard format gate
+
+**What happened.** E048, same fixture, same controls, same arm predictions as
+E047, plus three new readings per arm: `prettier --check` on the `HEAD` blob, on
+the worktree file, and `git status --porcelain`. All nine E047 verdicts reproduced
+unchanged, which is the check that the added reading did not perturb the old one.
+
+| arm | HEAD formatted | worktree formatted | visible via |
+|---|---|---|---|
+| C0 / B0 (controls) | — | — | expected |
+| A1 lefthook + `stage_fixed` | yes | yes | `M app.js` (the marker only) |
+| **A1b lefthook, no `stage_fixed`** | **no** | **yes** | **nothing — silent** |
+| A2 pre-commit | yes | yes | `M app.js` |
+| A3 / A4 lint-staged | yes (base) | yes | `M app.js` + commit blocked |
+| A5 husky | yes | yes | clean |
+| X1 stash `--keep-index` | yes | no | `M app.js` (inverse direction) |
+
+**Why it is a failure.** The candidate direction STATE.md selected died by being
+measured: the disagreement between a formatted worktree and an unformatted
+commit is a review defect only when nothing shows it, and that holds for one
+configuration — the one whose remedy (`stage_fixed`) ships in the same tool and
+whose commit a CI format gate fails. In every other configuration the shell
+already prints it. A tool watching for this would duplicate a documented flag
+or a gate repositories already run. Not built.
+
+**Evidence:** [`EXPERIMENTS/048-formatter-review/README.md`](EXPERIMENTS/048-formatter-review/README.md),
+`raw/results.json` with per-arm blobs, checks and statuses.

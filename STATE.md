@@ -77,7 +77,11 @@ candidate is empty, the emptiness has now been measured five ways, and **the las
 named action derived from a candidate is closed too** — so the next action is not
 a measurement of something already chosen.
 
-**E044's concurrent run agrees with that reading, from the other VM.**
+**The mission's last derived action is closed (E047, F084, D079), and its
+named follow-on is answered (E048, F085): in every configuration except
+lefthook without `stage_fixed` the formatter/commit disagreement shows in
+`git status` or a blocked commit, and the one silent shape already has a
+documented remedy and is caught by a CI format gate. Nothing to build.** E044's concurrent run agrees with that reading, from the other VM.**
 The discovery population E043's ceiling named — agents with no line
 number and no `git diff` — was run on byte-identical fixtures: **6 of 6
 exact, `nostg` 3 of 3**, every agent in both arms discovering the line by
@@ -218,23 +222,21 @@ review record names the hazard and records **`GH-1 … Defense sustained`**.
 **So there is nothing to build and no candidate to promote**, and the ceiling is
 stated: one fixture, one formatter, one hook event, one commit per arm.
 
-**The single most useful next action is therefore not a measurement of something
-already chosen.** Both seats are empty and the emptiness is measured six ways
-(F029, F051, F039, F059, F081, F084), and every action derived from the withdrawn
-candidate is now closed — which means the next action is a **fresh observation**,
-and the cheapest place to look is the one E047 left untouched: E047 established
-what the *hook frameworks* do to a partially-staged file, and said nothing about
-what a **formatter's own rewrite** does to it. That direction has one measured
-result already and it is the opposite of the popular one: lefthook without
-`stage_fixed` **formatted the worktree and left the commit unformatted** (A1b),
-and lint-staged's `Prevented an empty git commit!` blocked two more arms — in all
-three cases the user's bytes and the committed bytes disagreed about what was
-formatted. That is a correctness property of the *toolchain*, not of a runner,
-it has a byte-level oracle of the same kind, and it is a question about what
-`git diff` will show a reviewer. **It is a candidate-shaped observation, not a
-candidate, and two arms are not a population.** The action is to read whether the
-disagreement is observable as a review defect — a formatted worktree whose commit
-does not match it — before anything is built.
+**The single most useful next action is spent.** Item 0a is closed twice (E044,
+F083, D078 run; E045 reading, F081, F082), and item 0f is closed by E047 (F084,
+D079). E048 then took the one observation E047 left behind — what a formatter's
+own rewrite does to a partially-staged file — and measured the user-visible
+disagreement instead of theorising about it: same fixture, same controls, same
+arm predictions as E047, plus `prettier --check` on the `HEAD` blob, on the
+worktree, and `git status --porcelain`. **In 8 of 9 configurations the
+disagreement is either blocked (lint-staged refuses the commit) or loud
+(`git status` shows the reformatted file); in exactly one — lefthook without
+`stage_fixed` — the worktree is formatted, the commit succeeds, `git status`
+is silent, and only `prettier --check` on HEAD reveals the unformatted commit.**
+That one silent shape already has a documented remedy in the same tool, and a
+CI format gate fires on it. Nothing to build; [`EXPERIMENTS/048-formatter-review/README.md`](EXPERIMENTS/048-formatter-review/README.md).
+The seat is empty, measured seven ways (F029, F051, F039, F059, F081, F084,
+F085).
 
 **Beneath that: three rules about the order of work, not experiments.** Stack
 Overflow's own search **does** return the score-tail population from one

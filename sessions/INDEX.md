@@ -8,13 +8,14 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-144 recorded session(s). One `events.jsonl` per session, so concurrent
+145 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 119 older session(s) are in the directory listing.
+Showing the 25 most recent. 120 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr](2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/README.md) | unknown-agent | worked | E048: measure what a formatter's own rewrite does to a partially-stage | 2026-10-07T12:49 |
 | [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
 | [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | worked | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T10:27 |
 | [2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh](2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/README.md) | unknown-agent | worked | E045 (T-0083): read the demand evidence behind the only candidate, ask | 2026-10-07T07:16 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 119 older session(s) are in the directory listing.
 | [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | worked | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T02:08 |
 | [2026-10-05-021-e031-test-whether-departure-accounts-tha](2026-10-05-021-e031-test-whether-departure-accounts-tha/README.md) | unknown-agent | worked | E031: test whether departure accounts that name no successor state a r | 2026-10-06T00:33 |
 | [2026-10-05-020-e030-test-whether-departure-accounts-peo](2026-10-05-020-e030-test-whether-departure-accounts-peo/README.md) | unknown-agent | worked | E030: test whether departure accounts (people publicly leaving a tool) | 2026-10-05T22:41 |
-| [2026-10-05-019-measure-whether-the-278-need-staters-who](2026-10-05-019-measure-whether-the-278-need-staters-who/README.md) | opencode | partial | Measure whether the 278 need-staters who shipped something shipped the | 2026-10-05T21:56 |
 
 
 ## Reading a session
