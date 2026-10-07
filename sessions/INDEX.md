@@ -8,13 +8,14 @@ last-verified: 2026-10-07
 
 <!-- generated-by: origin; do not edit by hand -->
 
-145 recorded session(s). One `events.jsonl` per session, so concurrent
+146 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 120 older session(s) are in the directory listing.
+Showing the 25 most recent. 121 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | **unfinished** | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T13:27 |
 | [2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr](2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/README.md) | unknown-agent | worked | E048: measure what a formatter's own rewrite does to a partially-stage | 2026-10-07T12:49 |
 | [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
 | [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | worked | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T10:27 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 120 older session(s) are in the directory listing.
 | [2026-10-06-002-e033-measure-the-rate-of-cross-author-re](2026-10-06-002-e033-measure-the-rate-of-cross-author-re/README.md) | unknown-agent | worked | E033: measure the rate of cross-author recurrence in public long-form  | 2026-10-06T04:55 |
 | [2026-10-06-001-e032-test-whether-the-mission-s-three-ze](2026-10-06-001-e032-test-whether-the-mission-s-three-ze/README.md) | unknown-agent | worked | E032: test whether the mission's three-zero recurrence result is a fac | 2026-10-06T02:08 |
 | [2026-10-05-021-e031-test-whether-departure-accounts-tha](2026-10-05-021-e031-test-whether-departure-accounts-tha/README.md) | unknown-agent | worked | E031: test whether departure accounts that name no successor state a r | 2026-10-06T00:33 |
-| [2026-10-05-020-e030-test-whether-departure-accounts-peo](2026-10-05-020-e030-test-whether-departure-accounts-peo/README.md) | unknown-agent | worked | E030: test whether departure accounts (people publicly leaving a tool) | 2026-10-05T22:41 |
 
 
 ## Reading a session
