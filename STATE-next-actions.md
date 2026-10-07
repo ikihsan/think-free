@@ -12,6 +12,21 @@ a rewrite of one does not force a rewrite of the other. Read an item's ceiling b
 spending effort on it: a pass still leaves prior art, usefulness and adoption
 untouched, and every item says which.
 ## Ordered by information gained per unit of effort
+0a. **Test `stg` against the one agent population E043 named as still open: an agent
+    that must *discover* which line changed, with no line number supplied and no
+    `git diff` to read.** E043 (F075) closed the packaging claim for agents that are
+    *told* a line number — 3 of 3 exact with no tool at all, 2 of 3 ignoring `stg`
+    when it was installed — and its ceiling names exactly where a line-addressed
+    interface could still pay: a caller that does not already know the coordinate.
+    That is the same harness with two changes, not a new line of work: drop the line
+    number from the prompt and withhold diff access, then re-run both arms.
+    **This is the highest-value next action because it is cheap and it decides a live
+    build question** — whether `stg` has any remaining population or is a correct
+    tool with none. Its ceiling, declared before the run: agent heterogeneity
+    (weaker models, harnesses without shell heredocs) is untested and remains the
+    most plausible place `stg` wins; one model and one session is a small sample of
+    this population, so a negative result closes the *discover* population only.
+    Evidence in [`EXPERIMENTS/043-real-agent-staging/README.md`](EXPERIMENTS/043-real-agent-staging/README.md).
 0. **Decide what the mission selects candidates on, now that neither novelty nor
    harvested recurrence can be the filter.**
    **F044 measured the premise behind the old one: prior art is the plurality of

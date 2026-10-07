@@ -15,7 +15,7 @@ Showing the 25 most recent. 115 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-07-001-e043-run-real-coding-agents-on-real-stag](2026-10-07-001-e043-run-real-coding-agents-on-real-stag/README.md) | unknown-agent | **unfinished** | E043: run real coding agents on real staging tasks, with and without s | 2026-10-07T00:07 |
+| [2026-10-07-001-e043-run-real-coding-agents-on-real-stag](2026-10-07-001-e043-run-real-coding-agents-on-real-stag/README.md) | unknown-agent | worked | E043: run real coding agents on real staging tasks, with and without s | 2026-10-07T00:59 |
 | [2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo](2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo/README.md) | unknown-agent | **unfinished** | Dogfood stg on real changes in this repo; record observed friction vs  | 2026-10-06T23:19 |
 | [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
 | [2026-10-06-015-reconcile-and-publish-e041-need-index-re](2026-10-06-015-reconcile-and-publish-e041-need-index-re/README.md) | opencode | worked | Reconcile and publish E041 need-index records; finish the record, renu | 2026-10-06T23:19 |

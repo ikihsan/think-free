@@ -10,10 +10,10 @@ last-verified: 2026-10-07
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-07T00:07:36+00:00
-- **Duration:** ?s
+- **Duration:** 3091.5s
 - **Host:** `instance-20260717-0944`
 - **Branch:** `research/origin`
 
@@ -23,11 +23,20 @@ E043: run real coding agents on real staging tasks, with and without stg, to rep
 
 ## Summary
 
-_(none recorded)_
+E043 ran six real coding agents on six real staging repositories, two arms (no tool offered / stg genuinely on PATH), scored against a hand-written oracle hoisted outside every trial directory and verified to discriminate on four routes. 6 of 6 exact, 3 of 3 in the arm with no tool at all, 2 of the 3 that had stg declined to use it. Every no-tool agent converged independently on git diff -> hand-write a minimal patch -> git apply --cached. stg is withdrawn as a release candidate on agent usability (F075); it remains a correct tool. Two instrument failures are recorded because both would have produced a wrong result: the oracle file was readable inside the trial in the first pass, and the stg arm shipped a binary that was not on PATH, so it silently ran as a second no-tool arm and still scored 6 of 6.
+
+## Next
+
+Two repairs this session: session 040's commands.log and events.jsonl were committed holding an unresolved rebase stash-pop conflict (three marker lines, empty stashed side) and are restored to HEAD; the E041 plan document is orphaned and needs an inbound link. Then run the two-arm rerun E043's ceiling names: an agent that must discover which line changed, with no line number in the prompt and no git diff available.
 
 ## Artifacts
 
-_none_
+| path | sha256 (first 12) | bytes |
+|---|---|---|
+| EXPERIMENTS/043-real-agent-staging/README.md | 8ee819830f94 | 7897 |
+| FAILURES-findings-29.md | e733cf41e3ab | 4534 |
+| STATE-in-flight-5.md | 731fd73ac184 | 6165 |
+| EXPERIMENTS/043-real-agent-staging/raw/final-scores.json | a110fba83b66 | 1134 |
 
 ## Commands
 
@@ -78,11 +87,20 @@ _none_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 13 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | DECISIONS-SCREENING-11.md |
+|   undeclared | DECISIONS.md |
+|   undeclared | EXPERIMENTS/043-real-agent-staging/build.py |
+|   undeclared | EXPERIMENTS/043-real-agent-staging/check_oracle.py |
+|   undeclared | EXPERIMENTS/043-real-agent-staging/prepare.py |
+|   undeclared | EXPERIMENTS/043-real-agent-staging/raw/oracle-check.txt |
+|   undeclared | EXPERIMENTS/043-real-agent-staging/score.py |
+|   undeclared | FAILURES.md |
+|   undeclared | HYPOTHESES-candidates.md |
+|   undeclared | RELEASE-MANIFEST.md |
 
 ## Timeline
 
@@ -127,6 +145,19 @@ _none_
 | 37 | 00:15:55 | command | $ sh -c ls /tmp/opencode/e043/*-trial/ \| sort -u; echo "=== leaks checked ==="; find /tmp/opencode/e043 -name ".expected_index" -path "*-trial |
 | 38 | 00:16:24 | command | $ python3 EXPERIMENTS/043-real-agent-staging/check_oracle.py /tmp/opencode/e043 |
 | 39 | 00:16:25 | command | $ python3 EXPERIMENTS/043-real-agent-staging/score.py /tmp/opencode/e043 |
+| 40 | 00:44:51 | artifact | wrote EXPERIMENTS/043-real-agent-staging/README.md |
+| 52 | 00:59:07 | unlogged_change | changed but never declared as an artifact: HYPOTHESES-candidates.md |
+| 53 | 00:59:07 | unlogged_change | changed but never declared as an artifact: RELEASE-MANIFEST.md |
+| 54 | 00:59:07 | unlogged_change | changed but never declared as an artifact: STATE-next-actions.md |
+| 55 | 00:59:07 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 56 | 00:59:07 | unlogged_change | changed but never declared as an artifact: vendor/MANIFEST.md |
+| 57 | 00:59:07 | doc_update | updated DECISIONS-SCREENING-11.md |
+| 58 | 00:59:07 | doc_update | updated DECISIONS.md |
+| 59 | 00:59:07 | doc_update | updated FAILURES.md |
+| 60 | 00:59:07 | doc_update | updated STATE.md |
+| 61 | 00:59:07 | session_end | E043 ran six real coding agents on six real staging repositories, two arms (no tool offered / stg genuinely on PATH), scored against a hand-written or |
+
+_11 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

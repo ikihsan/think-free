@@ -239,31 +239,31 @@ whichever item is next are in
 [`STATE-constraints.md`](STATE-constraints.md). Ordered by information gained
 per unit of effort; the top item is:
 
-**The top item is now the one this session's kill produced, and it is a rule about the
+**Item 0a, a concrete experiment, is now at the top: does `stg` have any agent
+population left?** E043 closed the packaging claim for agents that are *told* a line
+number (3 of 3 exact with no tool at all). Its ceiling names the one caller that might
+still need a line-addressed interface — an agent that must **discover which line
+changed, with no line number and no `git diff`**. Rerunning the same harness with those
+two changes decides whether `stg` has a population or is a correct tool with none, and
+it is two arms, not a new line of work.
+
+**Beneath that, the item this record's last kill produced, which is a rule about the
 order of work rather than another experiment.** Stack Overflow's own search **does**
 already return the population, from a documented filter pair, in one unauthenticated
 request, with the closure label in the payload (F059). **The score-tail worklist is closed
 and nothing is built.** The screen that killed most candidates has been measured on every
-axis and each measurement came out against it — F034 soundness, F035 coverage, F037
-composition, F040 distribution, F048 what-its-evidence-is — and what changed is the method,
-not a candidate (D050, D051).
+axis and each measurement came out against it (D050, D051).
 
 **What F059 costs and what it buys.** Three experiments and **1125 harvested rows** were
 spent measuring a population whose *mechanism* turned out to be a public query. F055, F058
 and F059 are the same shape three times over: a fact about the instrument's own selection,
 read after the measurement rather than before. **D067** requires a mechanism-bearing
-candidate to be tested against **its mechanism's existing source first** — about two
-requests, with a control that varies only the parameter under test, because `closed` is
-validated by nothing on this route while `order` and `filter` are. **D066** requires a
-reachability claim to name the interface surface it enumerated. Both are cheap, both are
-executable from this host, and **neither needs a population to be measured first.** The
-seat (0d) is empty and the emptiness is now measured four ways — the live need corpus
-(0 of 50, F029), the departure population (F051), the recurrence hypothesis as drawn (F039,
-F049), and a candidate that reached a real population and died against the incumbent itself
-(F059). **The generator is not the blocker; the ordering of the work is.** Item 0 — *what the
-mission selects candidates on* — remains an owner decision, and D067 narrows it: whatever axis
-is chosen, a candidate whose value is a mechanism faces a two-request check before it is
-worth promoting.
+candidate to be tested against **its mechanism's existing source first**, and **D066**
+requires a reachability claim to name the interface surface it enumerated; both are cheap
+and executable from this host. The seat (0d) is empty and the emptiness is measured four
+ways (F029, F051, F039, F059). **The generator is not the blocker; the ordering of the
+work is.** Item 0 remains an owner decision; D067 narrows it, and D074 now narrows it
+further — a candidate whose surviving claim names a caller runs that caller first.
 
 **The four candidate-selection axes, and where each now stands.** Prior art, star-shaped
 adoption and harvested recurrence cannot carry it (F048 adds that the prior-art axis's own
