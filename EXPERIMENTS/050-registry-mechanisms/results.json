@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-07",
+  "population": {
+    "snapshots": [
+      [
+        "encode_httpx_old.txt",
+        "requirements.txt"
+      ],
+      [
+        "python-poetry_poetry_old.txt",
+        "poetry.lock"
+      ],
+      [
+        "pallets_flask_old.txt",
+        "uv.lock"
+      ],
+      [
+        "encode_starlette_old.txt",
+        "uv.lock"
+      ],
+      [
+        "tornadoweb_tornado_old.txt",
+        "requirements.txt"
+      ],
+      [
+        "urllib3_urllib3_old.txt",
+        "uv.lock"
+      ],
+      [
+        "encode_uvicorn_old.txt",
+        "uv.lock"
+      ],
+      [
+        "samuelcolvin_pydantic_old.txt",
+        "uv.lock"
+      ],
+      [
+        "pallets_werkzeug_old.txt",
+        "uv.lock"
+      ],
+      [
+        "scrapy_scrapy_old.txt",
+        "docs/requirements.txt"
+      ]
+    ],
+    "unique_pairs": 421,
+    "local_entries_excluded": 5,
+    "recorded_urls": 3800
+  },
+  "positive_control": {
+    "project": "pip",
+    "version": "21.2",
+    "files_total": 2,
+    "files_yanked": 2,
+    "found_via": "project-level /pypi/{name}/json"
+  },
+  "q1_yank_absence": {
+    "pairs": 421,
+    "yanked": 0,
+    "absent": 0,
+    "errors": 0
+  },
+  "q2_artifact_existence": {
+    "urls": 3800,
+    "not_ok": 0
+  },
+  "q3_part_b_control": {
+    "requirements": [
+      "requests==2.32.3",
+      "rich==13.9.4",
+      "httpx==0.28.1"
+    ],
+    "identical": [
+      "anyio-4.5.2-py3-none-any.whl",
+      "certifi-2026.7.22-py3-none-any.whl",
+      "charset_normalizer-3.5.2-cp37-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "exceptiongroup-1.3.1-py3-none-any.whl",
+      "h11-0.16.0-py3-none-any.whl",
+      "httpcore-1.0.9-py3-none-any.whl",
+      "httpx-0.28.1-py3-none-any.whl",
+      "idna-3.15-py3-none-any.whl",
+      "markdown_it_py-3.0.0-py3-none-any.whl",
+      "mdurl-0.1.2-py3-none-any.whl",
+      "pygments-2.19.2-py3-none-any.whl",
+      "requests-2.32.3-py3-none-any.whl",
+      "rich-13.9.4-py3-none-any.whl",
+      "sniffio-1.3.1-py3-none-any.whl",
+      "typing_extensions-4.13.2-py3-none-any.whl",
+      "urllib3-2.2.3-py3-none-any.whl"
+    ],
+    "changed": []
+  },
+  "verdict": "no-registry-breakage"
+}

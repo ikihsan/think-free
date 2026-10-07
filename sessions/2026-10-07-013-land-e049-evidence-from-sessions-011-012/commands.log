@@ -6,3 +6,198 @@ cwd: /home/ubuntu/think-free
 results.json complete: drift-observed
 ------------------------------------------------------------------------------
 exit: 0  duration_ms: 717  redactions: none
+==============================================================================
+[seq 6] 2026-10-07T17:39:14+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+positive control: {'project': 'pip', 'version': '21.2', 'files_total': 2, 'files_yanked': 2, 'found_via': 'project-level /pypi/{name}/json releases'}
+Q1: 426 unique pinned (name, version) pairs
+  100/426 checked (yanked=0, absent=1, errors=0)
+  200/426 checked (yanked=0, absent=2, errors=0)
+  300/426 checked (yanked=0, absent=3, errors=0)
+  400/426 checked (yanked=0, absent=3, errors=0)
+Q2: 3800 unique recorded artifact URLs
+  100/3800 checked (bad=0)
+  200/3800 checked (bad=0)
+  300/3800 checked (bad=0)
+  400/3800 checked (bad=0)
+  500/3800 checked (bad=0)
+  600/3800 checked (bad=0)
+  700/3800 checked (bad=0)
+  800/3800 checked (bad=0)
+  900/3800 checked (bad=0)
+  1000/3800 checked (bad=0)
+  1100/3800 checked (bad=0)
+  1200/3800 checked (bad=0)
+  1300/3800 checked (bad=0)
+  1400/3800 checked (bad=0)
+  1500/3800 checked (bad=0)
+  1600/3800 checked (bad=0)
+  1700/3800 checked (bad=0)
+  1800/3800 checked (bad=0)
+  1900/3800 checked (bad=0)
+  2000/3800 checked (bad=0)
+  2100/3800 checked (bad=0)
+  2200/3800 checked (bad=0)
+  2300/3800 checked (bad=0)
+  2400/3800 checked (bad=0)
+  2500/3800 checked (bad=0)
+  2600/3800 checked (bad=0)
+  2700/3800 checked (bad=0)
+  2800/3800 checked (bad=0)
+  2900/3800 checked (bad=0)
+  3000/3800 checked (bad=0)
+  3100/3800 checked (bad=0)
+  3200/3800 checked (bad=0)
+  3300/3800 checked (bad=0)
+  3400/3800 checked (bad=0)
+  3500/3800 checked (bad=0)
+  3600/3800 checked (bad=0)
+  3700/3800 checked (bad=0)
+  3800/3800 checked (bad=0)
+Q3: Part B control re-run
+verdict: registry-breakage-observed (yanked=0, absent=4, urls_bad=0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1475206  redactions: none
+==============================================================================
+[seq 7] 2026-10-07T17:48:48+00:00
+$ python3 -c 
+import hashlib, json
+from pathlib import Path
+root = Path('EXPERIMENTS/049-lockfile-closure')
+res = json.loads((root/'results.json').read_text())
+# map repo -> row (has old/head sha, date, path)
+by_repo = {r['repo']: r for r in res['rows'] if r.get('status')=='ok'}
+manifest = {'generated': '2026-10-07', 'files': []}
+for f in sorted((root/'raw').glob('*.txt')):
+    stem = f.stem  # e.g. pallets_flask_old
+    repo_slug, kind = stem.rsplit('_', 1)
+    repo = repo_slug.replace('_', '/', 1)
+    row = by_repo[repo]
+    snap = row['head'] if kind == 'head' else row['old']
+    url = f"https://raw.githubusercontent.com/{repo}/{snap['sha']}/{row['path']}"
+    data = f.read_bytes()
+    manifest['files'].append({
+        'repo': repo, 'path': row['path'], 'snapshot': kind,
+        'commit_sha': snap['sha'], 'commit_date': snap['date'],
+        'url': url, 'bytes': len(data),
+        'sha256': hashlib.sha256(data).hexdigest(),
+        'file': f'raw/{f.name}',
+    })
+(root/'raw-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
+print('manifest entries:', len(manifest['files']))
+print('total bytes:', sum(e['bytes'] for e in manifest['files']))
+
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+manifest entries: 22
+total bytes: 5242156
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 292  redactions: none
+==============================================================================
+[seq 8] 2026-10-07T17:59:19+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+positive control: {'project': 'pip', 'version': '21.2', 'files_total': 2, 'files_yanked': 2, 'found_via': 'project-level /pypi/{name}/json'}
+Q1: 421 unique pinned pairs (5 local/workspace entries excluded)
+Q2: 3800 unique recorded artifact URLs
+  1255/3800 (pending 2545)
+  1355/3800 (pending 2445)
+  1455/3800 (pending 2345)
+  1555/3800 (pending 2245)
+  1655/3800 (pending 2145)
+  1755/3800 (pending 2045)
+  1855/3800 (pending 1945)
+  1955/3800 (pending 1845)
+  2055/3800 (pending 1745)
+  2155/3800 (pending 1645)
+  2255/3800 (pending 1545)
+  2355/3800 (pending 1445)
+  2455/3800 (pending 1345)
+  2555/3800 (pending 1245)
+  2655/3800 (pending 1145)
+  2755/3800 (pending 1045)
+  2855/3800 (pending 945)
+  2955/3800 (pending 845)
+  3055/3800 (pending 745)
+  3155/3800 (pending 645)
+  3255/3800 (pending 545)
+  3355/3800 (pending 445)
+  3455/3800 (pending 345)
+  3555/3800 (pending 245)
+  3655/3800 (pending 145)
+  3755/3800 (pending 45)
+  3800/3800 (pending 0)
+Q3: Part B control re-run
+verdict: no-registry-breakage (yanked=0, absent=0, urls_bad=0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1035020  redactions: none
+==============================================================================
+[seq 9] 2026-10-07T17:59:19+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+positive control: {'project': 'pip', 'version': '21.2', 'files_total': 2, 'files_yanked': 2, 'found_via': 'project-level /pypi/{name}/json'}
+Q1: 421 unique pinned pairs (5 local/workspace entries excluded)
+  100/421 (pending 321)
+  200/421 (pending 221)
+  300/421 (pending 121)
+  400/421 (pending 21)
+  421/421 (pending 0)
+Q2: 3800 unique recorded artifact URLs
+  100/3800 (pending 3700)
+  200/3800 (pending 3600)
+  300/3800 (pending 3500)
+  400/3800 (pending 3400)
+  500/3800 (pending 3300)
+  600/3800 (pending 3200)
+  700/3800 (pending 3100)
+  800/3800 (pending 3000)
+  900/3800 (pending 2900)
+  1000/3800 (pending 2800)
+  1100/3800 (pending 2700)
+  1200/3800 (pending 2600)
+  1300/3800 (pending 2500)
+  1400/3800 (pending 2400)
+  1500/3800 (pending 2300)
+  1600/3800 (pending 2200)
+  1700/3800 (pending 2100)
+  1800/3800 (pending 2000)
+  1900/3800 (pending 1900)
+  2000/3800 (pending 1800)
+  2100/3800 (pending 1700)
+  2200/3800 (pending 1600)
+  2300/3800 (pending 1500)
+  2400/3800 (pending 1400)
+  2500/3800 (pending 1300)
+  2600/3800 (pending 1200)
+  2700/3800 (pending 1100)
+  2800/3800 (pending 1000)
+  2900/3800 (pending 900)
+  3000/3800 (pending 800)
+  3100/3800 (pending 700)
+  3200/3800 (pending 600)
+  3300/3800 (pending 500)
+  3400/3800 (pending 400)
+  3500/3800 (pending 300)
+  3600/3800 (pending 200)
+  3700/3800 (pending 100)
+  3800/3800 (pending 0)
+Q3: Part B control re-run
+verdict: no-registry-breakage (yanked=0, absent=0, urls_bad=0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1486800  redactions: none
+==============================================================================
+[seq 10] 2026-10-07T18:04:09+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+positive control: {'project': 'pip', 'version': '21.2', 'files_total': 2, 'files_yanked': 2, 'found_via': 'project-level /pypi/{name}/json'}
+Q1: 421 unique pinned pairs (5 local/workspace entries excluded)
+Q2: 3800 unique recorded artifact URLs
+Q3: Part B control re-run
+verdict: no-registry-breakage (yanked=0, absent=0, urls_bad=0)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 14743  redactions: none

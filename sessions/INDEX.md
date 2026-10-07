@@ -15,7 +15,7 @@ Showing the 25 most recent. 127 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-07-013-land-e049-evidence-from-sessions-011-012](2026-10-07-013-land-e049-evidence-from-sessions-011-012/README.md) | unknown-agent | **unfinished** | Land E049 evidence from sessions 011/012; test lockfile registry-drift | 2026-10-07T17:06 |
+| [2026-10-07-013-land-e049-evidence-from-sessions-011-012](2026-10-07-013-land-e049-evidence-from-sessions-011-012/README.md) | unknown-agent | worked | Land E049 evidence from sessions 011/012; test lockfile registry-drift | 2026-10-07T19:47 |
 | [2026-10-07-012-explore-independently-until-a-specific-t](2026-10-07-012-explore-independently-until-a-specific-t/README.md) | unknown-agent | worked | explore independently until a specific testable opportunity appears | 2026-10-07T16:56 |
 | [2026-10-07-011-e049-measure-dependency-lockfile-closure](2026-10-07-011-e049-measure-dependency-lockfile-closure/README.md) | unknown-agent | worked | E049: measure dependency-lockfile closure drift (E2) | 2026-10-07T16:47 |
 | [2026-10-07-010-fresh-observation-find-a-concrete-testab](2026-10-07-010-fresh-observation-find-a-concrete-testab/README.md) | unknown-agent | no-change | fresh observation: find a concrete testable opportunity | 2026-10-07T15:55 |

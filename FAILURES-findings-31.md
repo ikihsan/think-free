@@ -111,3 +111,46 @@ or a gate repositories already run. Not built.
 
 **Evidence:** [`EXPERIMENTS/048-formatter-review/README.md`](EXPERIMENTS/048-formatter-review/README.md),
 `raw/results.json` with per-arm blobs, checks and statuses.
+
+## F086 — A pinned lockfile is a strong witness on PyPI: 0 of 421 pinned
+versions yanked or absent, 0 of 3800 recorded artifacts gone, over a
+~9-month window
+
+**What happened.** E050 (T-0086) tested E2's registry-breakage
+mechanism on E049's population: ten major Python projects' lockfile
+snapshots from 2025-09-16 to 2025-12-31 — 421 unique registry-pinned
+(name, version) pairs and 3800 recorded sdist/wheel URLs. Q1: every
+pinned version is present on PyPI today, none yanked. Q2: every
+recorded artifact URL still resolves. Q3: E049's fixed-requirements
+control re-downloaded 16 of 16 artifacts byte-identical. The positive
+control ran first and recovered a real yanked version (`pip` 21.2,
+2 of 2 files yanked) through the project-level metadata endpoint, so
+the zero is a measurement, not an instrument failure.
+
+**Why it is a failure.** E2's premise — a lockfile is a *weak* witness
+of reproducibility because the resolution it records goes stale — had
+exactly one registry-side mechanism measurable today (retraction of
+pinned versions or recorded artifacts), and it does not fire in this
+population. Part A's 10-of-11 closure change is project-initiated
+updating, not registry movement: the registry keeps every pinned
+version and every recorded byte. The temporal half (Part B) is
+deterministic by construction for `==` pins, which Q3 confirms
+same-day and Q2 confirms for the population's artifact availability.
+There is no failure mode left for a tool to watch, so there is
+nothing to build. This closes the last open action derived from E049
+and with it the E2 candidate thread.
+
+**Instrument defects found and fixed before the verdict counted**
+(the first run's four "absent" hits were all artifacts, each of
+which would have produced a wrong answer): pip-style extras parsed
+as part of the name (`coverage[toml]`); a project's editable
+self-entry in its own lock (`flask 3.2.0.dev0`) queried as a
+registry version; and a format dispatcher keyed on the on-disk
+filename suffix rather than the repo path, which dropped 74 of
+flask's 80 blocks. Fixed in `e049format.py` with the population
+rules stated there; the superseded first-run artifacts are preserved
+in `EXPERIMENTS/050-registry-mechanisms/raw/superseded-first-run/`.
+
+**Evidence:** [`EXPERIMENTS/050-registry-mechanisms/README.md`](EXPERIMENTS/050-registry-mechanisms/README.md),
+`results.json`, `raw/rows/` (421 version-level API responses),
+`raw/urls/` (3800 artifact-URL checks), `raw/positive_control.json`.

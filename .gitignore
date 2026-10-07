@@ -30,6 +30,20 @@ EXPERIMENTS/039-need-statement-response/raw/shard-*.jsonl
 EXPERIMENTS/039-need-statement-response/raw/log-*.jsonl
 EXPERIMENTS/039-need-statement-response/raw/comments.jsonl
 EXPERIMENTS/039-need-statement-response/raw/control.jsonl
+# E049's raw lockfile snapshots (22 files, ~5.2 MB fetched from
+# raw.githubusercontent.com at the commit SHAs results.json records).
+# The record is raw-manifest.json - repo, path, commit sha, url,
+# bytes and sha256 per file - and re-running harness.py part_a
+# re-fetches the same commits, by the same clause as sdists/.
+EXPERIMENTS/049-lockfile-closure/raw/
+# E049's Part B snapshot: 16 wheels pip downloaded for a fixed
+# requirements set. The record is results.json's part_b.artifacts
+# (filename -> sha256), and re-running the harness's part_b_control
+# re-downloads and re-hashes them, by the same clause as sdists/.
+EXPERIMENTS/049-lockfile-closure/snapshot-b/
+# E050's Part B control re-downloads the same requirements into its
+# own snapshot-b/; same record, same clause.
+EXPERIMENTS/050-registry-mechanisms/snapshot-b/
 # stories.done is capture.py's resume ledger: 1276 story ids, one per line. It
 # is machine state, not a document, and its count is in MANIFEST.json.
 EXPERIMENTS/039-need-statement-response/raw/stories.done
