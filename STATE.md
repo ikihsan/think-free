@@ -1,7 +1,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-07
+last-verified: 2026-10-08
 -->
 
 # Verified state
@@ -93,6 +93,19 @@ paths are then attributed to whoever holds the tree (T-0053).
 
 ## What changed recently
 
+- **Session 2026-10-08-001, VM 0947: registry thread closed; a day of
+  uncommitted work landed.** E054 tested E2's registry premise on bytes:
+  a deterministic 543-of-3800 stride sample of the artifact URLs E049's
+  old uv.lock snapshots recorded all hashed today to their
+  lockfile-recorded sha256 (0 mismatches, 0 fetch failures), so the
+  retraction mechanism E050 found dead at the version level is dead at
+  the byte level too (`no-artifact-drift`). T-0086 completed (E050
+  verified, `no-registry-breakage`). Sessions 2026-10-07-016/017's
+  uncommitted work landed: E051 (kill gates pass on 8/8 synthetic
+  contradictions; 0 of 38 real abstracts — domain bound), E052, E053
+  (synthetic-only; no public matched statement/ledger data exists),
+  plus the F086 row, the D080 header repair, the SESSION-SUMMARY
+  meta block. `doc lint` exits 0.
 - **Session 2026-10-07-003, VM 0947 (T-0084, E047, F084, D079): the last
   observation derived from a candidate is closed, and it closed by being run.**
   E045 left one thing unpromoted and `STATE.md` named it the single most useful

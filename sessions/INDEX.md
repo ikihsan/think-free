@@ -8,13 +8,14 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-157 recorded session(s). One `events.jsonl` per session, so concurrent
+158 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 132 older session(s) are in the directory listing.
+Showing the 25 most recent. 133 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |
 | [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
 | [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
 | [2026-10-07-016-conclude-e051-experiment-and-identify-ne](2026-10-07-016-conclude-e051-experiment-and-identify-ne/README.md) | unknown-agent | worked | Conclude E051 experiment and identify new candidate | 2026-10-07T22:40 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 132 older session(s) are in the directory listing.
 | [2026-10-06-014-run-agent-end-to-end-test-comparing-stg](2026-10-06-014-run-agent-end-to-end-test-comparing-stg/README.md) | unknown-agent | worked | Run agent end-to-end test comparing stg vs alternatives for line-addre | 2026-10-06T19:49 |
 | [2026-10-06-013-package-stage-lines-for-real-use-and-rec](2026-10-06-013-package-stage-lines-for-real-use-and-rec/README.md) | unknown-agent | partial | Package stage-lines for real use and record the KILL-Q evaluation | 2026-10-06T13:50 |
 | [2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag](2026-10-06-012-e040-test-stg-s-interface-claim-in-an-ag/README.md) | unknown-agent | worked | E040: test stg's interface claim in an agent-style tool-call loop agai | 2026-10-06T12:13 |
-| [2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv](2026-10-06-011-e039-does-stg-s-honest-exit-claim-surviv/README.md) | unknown-agent | worked | E039: does stg's honest-exit claim survive the failure modes an agent  | 2026-10-06T11:18 |
 
 
 ## Reading a session
