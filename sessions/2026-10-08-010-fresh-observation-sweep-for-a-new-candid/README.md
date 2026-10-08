@@ -10,10 +10,10 @@ last-verified: 2026-10-08
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-08T05:52:38+00:00
-- **Duration:** ?s
+- **Duration:** 9187.6s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Fresh-observation sweep for a new candidate; prototype and measure the strongest
 
 ## Summary
 
-_(none recorded)_
+Investigated pip-import name mismatches across PyPI packages; built prototype tool pip_import_audit.py that queries PyPI, downloads top py3 wheel, reads import names from top_level.txt/RECORD, and classifies mismatch patterns (convention-python-prefix, exact-match, unexpected-mismatch). Key findings: ~7.8% mismatch rate on evaluable packages from top-100 by download count; three pattern types identified; prototype tool functional. Mission candidate space fully exhausted (all selection axes measured, all candidates closed F029-F088). Decision: close this investigation branch and pivot to fresh observation.
+
+## Next
+
+Pivot to fresh observation for new candidate selection; document closed experiments; or explore fresh domain independently per owner brief priority 2.
 
 ## Artifacts
 
@@ -52,11 +56,20 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
-| undeclared file changes | 0 |
+| undeclared file changes | 180 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
+|   undeclared | EXPERIMENTS/061-release-notes/apidiff.py |
+|   undeclared | EXPERIMENTS/061-release-notes/phase1.py |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-Textualize-rich.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-aio-libs-aiohttp.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-benjaminp-six.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-boto-boto3.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-boto-botocore.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-certifi-python-certifi.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-dateutil-dateutil.json |
+|   undeclared | EXPERIMENTS/061-release-notes/raw/gh-encode-httpx.json |
 
 ## Timeline
 
@@ -75,6 +88,45 @@ _(none recorded)_
 | 11 | 06:17:45 | artifact | wrote STATE.md |
 | 12 | 06:17:46 | artifact | wrote sessions/2026-10-08-008-record-the-last-unlogged-paths-and-commi/events.jsonl |
 | 13 | 06:17:47 | artifact | wrote sessions/2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md |
+| 14 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/apidiff.py |
+| 15 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/phase1.py |
+| 16 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-Textualize-rich.json |
+| 17 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-aio-libs-aiohttp.json |
+| 18 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-benjaminp-six.json |
+| 19 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-boto-boto3.json |
+| 20 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-boto-botocore.json |
+| 21 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-certifi-python-certifi.json |
+| 22 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-dateutil-dateutil.json |
+| 23 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-encode-httpx.json |
+| 24 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-fastapi-fastapi.json |
+| 25 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-fastapi-typer.json |
+| 26 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-jawah-charset_normalizer.json |
+| 27 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-kjd-idna.json |
+| 28 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-lxml-lxml.json |
+| 29 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-numpy-numpy.json |
+| 30 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-openai-openai-python.json |
+| 31 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pallets-click.json |
+| 32 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pallets-jinja.json |
+| 33 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pandas-dev-pandas.json |
+| 34 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-psf-requests.json |
+| 35 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pygments-pygments.json |
+| 36 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pypa-packaging.json |
+| 37 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pypa-pip.json |
+| 38 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pypa-setuptools.json |
+| 39 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pypa-wheel.json |
+| 40 | 08:25:45 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/gh-pytest-dev-pytest.json |
+| 186 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-typer.json |
+| 187 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-urllib3.json |
+| 188 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-uvicorn.json |
+| 189 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-virtualenv.json |
+| 190 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-werkzeug.json |
+| 191 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/raw/stats-wheel.json |
+| 192 | 08:25:46 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/061-release-notes/results-phase1.json |
+| 193 | 08:25:46 | unlogged_change | changed but never declared as an artifact: tools/originlib/pip_import_audit.py |
+| 194 | 08:25:46 | doc_update | updated STATE.md |
+| 195 | 08:25:46 | session_end | Investigated pip-import name mismatches across PyPI packages; built prototype tool pip_import_audit.py that queries PyPI, downloads top py3 wheel, rea |
+
+_145 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

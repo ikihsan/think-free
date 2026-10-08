@@ -8,14 +8,15 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-168 recorded session(s). One `events.jsonl` per session, so concurrent
+169 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 143 older session(s) are in the directory listing.
+Showing the 25 most recent. 144 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-012-explore-fresh-observations-for-a-new-can](2026-10-08-012-explore-fresh-observations-for-a-new-can/README.md) | unknown-agent | **unfinished** | Explore fresh observations for a new candidate outside previously expl | 2026-10-08T11:12 |
+| [2026-10-08-013-begin-fresh-observation-for-a-new-candid](2026-10-08-013-begin-fresh-observation-for-a-new-candid/README.md) | unknown-agent | **unfinished** | Begin fresh observation for a new candidate through independent explor | 2026-10-08T12:35 |
+| [2026-10-08-012-explore-fresh-observations-for-a-new-can](2026-10-08-012-explore-fresh-observations-for-a-new-can/README.md) | unknown-agent | worked | Explore fresh observations for a new candidate outside previously expl | 2026-10-08T12:10 |
 | [2026-10-08-011-fresh-observation-probe-explore-a-new-pr](2026-10-08-011-fresh-observation-probe-explore-a-new-pr/README.md) | unknown-agent | worked | Fresh observation probe: explore a new practical difficulty outside pr | 2026-10-08T10:54 |
 | [2026-10-08-010-fresh-observation-sweep-for-a-new-candid](2026-10-08-010-fresh-observation-sweep-for-a-new-candid/README.md) | unknown-agent | worked | Fresh-observation sweep for a new candidate; prototype and measure the | 2026-10-08T08:25 |
 | [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 143 older session(s) are in the directory listing.
 | [2026-10-07-008-fresh-observation-pass-for-a-new-candida](2026-10-07-008-fresh-observation-pass-for-a-new-candida/README.md) | unknown-agent | no-change | fresh observation pass for a new candidate after E048/F085 seat emptin | 2026-10-07T14:48 |
 | [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | worked | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T14:09 |
 | [2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr](2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/README.md) | unknown-agent | worked | E048: measure what a formatter's own rewrite does to a partially-stage | 2026-10-07T12:49 |
-| [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
 
 
 ## Reading a session

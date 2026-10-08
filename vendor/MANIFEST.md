@@ -117,6 +117,10 @@ exempt: EXPERIMENTS/**/raw/view_*.txt
 exempt: EXPERIMENTS/**/superseded/view_*.txt
 exempt: EXPERIMENTS/**/superseded/view_key.json
 
+# Raw *HTML* captures, same class as raw text: bytes an external endpoint returned,
+# written before parsing, never hand-edited.
+exempt: EXPERIMENTS/**/raw/*.html
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**

@@ -256,6 +256,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/058-se-remaining-sites/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | # step appear there? |
 | `EXPERIMENTS/059-install-import-mismatch/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/060-badge-release-drift/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/061-supplement-drug-adulteration/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/062-package-importability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/063-text-organization/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/064-serialization-effectiveness/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
