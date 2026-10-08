@@ -6,11 +6,11 @@ last-verified: 2026-10-08
 
 <!-- task-meta
 id: T-0087
-status: open
+status: claimed
 created: 2026-10-08
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: unknown-agent
+claim-session: 2026-10-08-003-fresh-observation-to-find-a-testable-pra
+claim-vm: 
 verify: python3 EXPERIMENTS/055-index-postcondition/run.py --verify
 -->
 
