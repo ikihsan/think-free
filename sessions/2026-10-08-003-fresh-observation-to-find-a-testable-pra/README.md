@@ -10,10 +10,10 @@ last-verified: 2026-10-08
 
 ## Outcome
 
-- **Result:** `unfinished`
+- **Result:** `worked`
 - **Agent:** `unknown-agent`
 - **Started:** 2026-10-08T00:58:13+00:00
-- **Duration:** ?s
+- **Duration:** 12337.0s
 - **Host:** `instance-20260717-0947`
 - **Branch:** `research/origin`
 
@@ -23,7 +23,11 @@ Fresh observation to find a testable practical difficulty: name the population, 
 
 ## Summary
 
-_(none recorded)_
+E055 built the tool-neutral .git/index postcondition checker F082's prose-inferred gap called for and ran it on 210 arm-rows against E038's hand-written oracle. KILL-C = do_not_build: K2 fired (filterdiff exits 0 on a wrong index) but K3 did not, because filterdiff is self-describing -- its own patch names the carried line. F082's unlabelled-coordinate premise is falsified on bytes; what remains is a documented property (--lines selects whole hunks) visible in output the caller already holds. F088, D081. The seat for a candidate is still empty; what E055 leaves is an instrument, not a direction.
+
+## Next
+
+Fresh observation, not a measurement of something already chosen (D080): observe an independent population until a specific testable opportunity appears, and hold any candidate to D077, D079 and D081 before ranking it.
 
 ## Artifacts
 
@@ -114,11 +118,11 @@ _(none recorded)_
 
 | check | result |
 |---|---|
-| session_end event | MISSING - session may be unfinished |
 | undeclared file changes | 0 |
 | declared artifacts now missing | 0 |
-| integrity errors | 0 |
+| integrity errors | 1 |
 | redactions applied to command output | 0 |
+|   error | HYPOTHESES.md was not updated although the session recorded experiment_result |
 
 ## Timeline
 
@@ -164,18 +168,18 @@ _(none recorded)_
 | 38 | 03:12:19 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
 | 39 | 03:14:34 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
 | 40 | 03:24:09 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
-| 75 | 04:04:05 | artifact | wrote EXPERIMENTS/055-index-postcondition/PROTOCOL.md |
-| 76 | 04:04:08 | milestone | E055 closed: KILL-C do_not_build with all 12 controls fired and no not_evaluated; PROTOCOL.md split at the cap (amendments to siblings), doc index reg |
-| 77 | 04:19:02 | artifact | wrote STATE-in-flight-8.md |
-| 78 | 04:19:03 | artifact | wrote FAILURES-findings-31.md |
-| 79 | 04:19:04 | artifact | wrote DECISIONS-SCREENING-13.md |
-| 80 | 04:19:05 | artifact | wrote STATE.md |
-| 81 | 04:19:06 | artifact | wrote DECISIONS.md |
 | 82 | 04:19:07 | artifact | wrote FAILURES.md |
 | 83 | 04:19:10 | artifact | wrote RELEASE-MANIFEST.md |
 | 84 | 04:19:11 | artifact | wrote docs/INDEX.md |
+| 85 | 04:23:47 | base_advance | rebase completed outside land: base moved b6a98606323e -> 5d7fba5f984a, 3 commit(s) arrived from the shared base |
+| 86 | 04:23:50 | integrity_error | HYPOTHESES.md was not updated although the session recorded experiment_result |
+| 87 | 04:23:50 | doc_update | updated DECISIONS-SCREENING-13.md |
+| 88 | 04:23:50 | doc_update | updated DECISIONS.md |
+| 89 | 04:23:50 | doc_update | updated FAILURES.md |
+| 90 | 04:23:50 | doc_update | updated STATE.md |
+| 91 | 04:23:50 | session_end | E055 built the tool-neutral .git/index postcondition checker F082's prose-inferred gap called for and ran it on 210 arm-rows against E038's hand-writt |
 
-_34 middle events omitted; see `events.jsonl`._
+_41 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

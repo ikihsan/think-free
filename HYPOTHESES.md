@@ -214,8 +214,15 @@ silent failures, 50 agent code lines). **Mechanism parity confirmed** — shell 
 matches stg exactly, confirming E041. **Packaging is the differentiator**: 180× less
 agent code for stg vs shell baseline. Naive approach fails on adjacent modifications,
 multi-line insertions, and scattered changes — precisely where line-level splitting
-matters. KILL-Q remains `not_evaluated` for daily human adoption but is **strongly
-supported for agent usability**.
+matters. **This paragraph's reading was later overturned by the agent population
+itself and must not be read as current.** E043 ran the stated caller — six real
+agents — and the packaging advantage was not observed (F075); E044 ran the
+discovery population E043's ceiling named, with no line number and no `git diff`,
+and got 6 of 6 exact against `nostg` 3 of 3 (F083, D078); E045 read the demand
+evidence row by row and found 0 of 189 rows is a population without diff access
+(F081); and the two shipped incumbents F082 named from README prose were measured
+in E055, which falsified the gap the prose implied (F088, D081). **`stg` is
+withdrawn as a candidate and remains a correct unreleased tool.**
 
 ## Status summary
 
@@ -233,6 +240,7 @@ supported for agent usability**.
 | Automated trustworthy map building | `RESEARCH/D.md` | Rejected: coordination cost dominates | — |
 | Capture-and-reproduce-any-computation | `RESEARCH/D.md` | Rejected: ReproZip and reprotest prior art | — |
 | Need corpus as a candidate generator, and its reply subtrees as a serving signal | `EXPERIMENTS/012-candidate-harvest/` E012, `EXPERIMENTS/039-need-statement-response/` E039 | **Both generators closed, on measured grounds** (`FAILURES.md` F029, F060): 0 of 50 needs survive the screens, and the corpus's own threads name a tool in **0 of 1391** and record a requester returning in **1 of 794** | **Nothing to build from it.** D068 restates it as a recognition signal. The only route to a measured outcome is a prototype addressed to one named requester, which needs authorization |
+| Non-interactive line staging (`stage-lines`, `stg`) | `EXPERIMENTS/037-*`–`048-*`, `EXPERIMENTS/055-index-postcondition/` | **Withdrawn as a candidate, on three independent closes** (F075, F081, F083), and the last named action from it spent (F084, F085, F088). Correctness is not in question: 37/37 tests, index byte-identical to a hand-built patch. **Not released**, `status: draft` | Nothing to build. The population was measured and does not need it. E055's postcondition checker survives as a reusable instrument, not a direction |
 | Universal local-first sync layer | `RESEARCH/D.md` | Rejected: invariants not preserved | — |
 | Duplicate-closure rate of the score tail, and the worklist over it | `EXPERIMENTS/034-reask-tail/` E034, `EXPERIMENTS/036-search-backlog/` E036 | **The measurement stands and the candidate is prior art** (`FAILURES.md` F057, F059): pooled tail 0.1352 against the `Active` tab's 0.0303, per-tag 0.0000–0.4300, and the ordering plus the label both arrive from one unauthenticated `/search/advanced` query | **Nothing to build.** The one gap F059 names — whether the *rendered* site exposes this against the API — needs a browser or a user, not a request |
 
