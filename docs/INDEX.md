@@ -272,6 +272,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/066-berka-real-validation/` | `docs/INDEX.md` | active | 2026-10-08 | Date: 2026-10-08 · Status: complete — all four predeclared gates PASS |
 | `EXPERIMENTS/066-need-answerability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session: 2026-10-08-021, VM instance-20260717-0944, declared 2026-10-08. |
 | `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
+| `EXPERIMENTS/068-arxiv-spec-generator/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Complete — 2 of 4 kill gates PASSED, 2 FAILED |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
