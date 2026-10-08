@@ -110,16 +110,16 @@ Next D080 fresh-observation probe on a channel outside Stack Exchange
 | 38 | 05:25:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/lifehacks-tail.json |
 | 39 | 05:25:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/martialarts-head.json |
 | 40 | 05:25:08 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/martialarts-tail.json |
-| 153 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/woodworking-tail.json |
-| 154 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/writing-head.json |
-| 155 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/writing-tail.json |
-| 156 | 05:25:10 | unlogged_change | changed but never declared as an artifact: FAILURES-findings-32.md |
-| 157 | 05:25:10 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
-| 158 | 05:25:10 | unlogged_change | changed but never declared as an artifact: STATE.md |
-| 159 | 05:25:10 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/events.jsonl |
-| 160 | 05:25:10 | doc_update | updated FAILURES.md |
-| 161 | 05:25:10 | doc_update | updated STATE.md |
-| 162 | 05:25:10 | session_end | Recorded the paths session 007's finish listed as unlogged (PROTOCOL/fetch/cluster, both finished session dirs) and committed the E058 landing; doc li |
+| 172 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/woodworking-tail.json |
+| 173 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/writing-head.json |
+| 174 | 05:25:10 | unlogged_change | changed but never declared as an artifact: EXPERIMENTS/058-se-remaining-sites/raw/writing-tail.json |
+| 175 | 05:25:10 | unlogged_change | changed but never declared as an artifact: FAILURES-findings-32.md |
+| 176 | 05:25:10 | unlogged_change | changed but never declared as an artifact: FAILURES.md |
+| 177 | 05:25:10 | unlogged_change | changed but never declared as an artifact: STATE.md |
+| 178 | 05:25:10 | unlogged_change | changed but never declared as an artifact: sessions/2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/events.jsonl |
+| 179 | 05:25:10 | doc_update | updated FAILURES.md |
+| 180 | 05:25:10 | doc_update | updated STATE.md |
+| 181 | 05:25:10 | session_end | Recorded the paths session 007's finish listed as unlogged (PROTOCOL/fetch/cluster, both finished session dirs) and committed the E058 landing; doc li |
 
 _131 middle events omitted; see `events.jsonl`._
 

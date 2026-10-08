@@ -8,13 +8,14 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-165 recorded session(s). One `events.jsonl` per session, so concurrent
+166 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 140 older session(s) are in the directory listing.
+Showing the 25 most recent. 141 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-08-010-fresh-observation-sweep-for-a-new-candid](2026-10-08-010-fresh-observation-sweep-for-a-new-candid/README.md) | unknown-agent | **unfinished** | Fresh-observation sweep for a new candidate; prototype and measure the | 2026-10-08T05:52 |
 | [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 140 older session(s) are in the directory listing.
 | [2026-10-07-004-settle-the-hook-partial-stage-hazard-aga](2026-10-07-004-settle-the-hook-partial-stage-hazard-aga/README.md) | unknown-agent | worked | Settle the hook-partial-stage hazard against the shipped runners with  | 2026-10-07T10:27 |
 | [2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth](2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/README.md) | unknown-agent | worked | E047: test with a byte-level oracle whether any shipped git hook runne | 2026-10-07T10:27 |
 | [2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh](2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/README.md) | unknown-agent | worked | E045 (T-0083): read the demand evidence behind the only candidate, ask | 2026-10-07T07:16 |
-| [2026-10-07-002-e044-rerun-e043-s-agent-staging-harness](2026-10-07-002-e044-rerun-e043-s-agent-staging-harness/README.md) | unknown-agent | worked | E044: rerun E043's agent-staging harness with no line number and no gi | 2026-10-07T07:09 |
 
 
 ## Reading a session

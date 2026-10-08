@@ -112,3 +112,27 @@ to defect 3 still resolves here and defect 15 still resolves in the parent.
      withdrawn defect produce the same bytes; and there is no allocator here, so this
      is the detection half of a race it cannot prevent. See
      [`tests/README.md`](tests/README.md).
+
+24. **Two concurrent writers of one session's event stream each
+     appended the same seq** (solved in session 2026-10-08-010).
+     `events.append` computed `next_seq` and wrote in two steps, so
+     two processes on one session file — a live session and a
+     reconcile pass — each computed the same seq and both appended
+     it. Observed as 19 duplicated seqs in the finished stream of
+     `2026-10-08-008`, which `session verify` — and CI's
+     `session verify --strict` step — read as a non-contiguous
+     stream and exited 4 on. **Repair:** `events.locked` holds an
+     exclusive `flock` across the seq assignment and the append, and
+     `recorder.record_command` holds the same lock across the
+     commands.log header seq and the event append, so those two
+     numbers cannot drift apart either. The corrupted stream was
+     renumbered in file order (all 181 events preserved, the
+     session's generated report regenerated). Falsified three ways:
+     the gate failed on the corrupted bytes and passes on the
+     repair; the same two-process append produced duplicate seqs in
+     8 of 8 rounds on the pre-fix code and 0 of 8 on the repair;
+     and a regression test runs two processes against one stream and
+     asserts exactly 1..60 (`tests/test_events.py`). **Ceiling:**
+     the lock serializes writers; a reader that never takes it can
+     still observe a half-written line, which `read` already
+     tolerates as malformed.

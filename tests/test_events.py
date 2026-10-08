@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -18,6 +20,37 @@ class EventStreamTest(RepoTest):
             events.append("2026-10-03-001-x", "milestone", {"summary": f"m{index}"}, path=target)
         seqs = [event["seq"] for event in events.read(target)]
         self.assertEqual(seqs, [1, 2, 3, 4])
+
+    def test_concurrent_appends_never_share_a_sequence(self) -> None:
+        """Two processes appending to one stream assign distinct seqs.
+
+        The race this guards: `next_seq` and the append were two
+        steps, so two concurrent writers of one session file each
+        computed the same seq and both appended it — defect 24,
+        observed as duplicated seqs in a finished session's stream
+        that `session verify` read as non-contiguous. Each child
+        appends 30 events; the merged stream must be exactly 1..60.
+        """
+        target = self.repo / "events.jsonl"
+        child = (
+            "import sys; sys.path.insert(0, sys.argv[1]); "
+            "from pathlib import Path; "
+            "from originlib import events; "
+            "[events.append('2026-10-03-001-x', 'note', "
+            "{'summary': 'n'}, path=Path(sys.argv[2])) for _ in range(30)]"
+        )
+        tools = str(self.repo / "tools")
+        procs = [
+            subprocess.Popen(
+                [sys.executable, "-c", child, tools, str(target)],
+                cwd=str(self.repo),
+            )
+            for _ in range(2)
+        ]
+        for proc in procs:
+            self.assertEqual(proc.wait(), 0)
+        seqs = [event["seq"] for event in events.read(target)]
+        self.assertEqual(seqs, list(range(1, 61)))
 
     def test_events_are_written_one_per_line(self) -> None:
         target = self.repo / "events.jsonl"

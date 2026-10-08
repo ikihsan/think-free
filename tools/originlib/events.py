@@ -5,14 +5,20 @@ so the two can never silently disagree.
 
 One file per session (`sessions/<id>/events.jsonl`) rather than one global
 file, so that two sessions running on different branches never produce a merge
-conflict in an append-only log.
+conflict in an append-only log. Two processes writing the *same* session file
+— a live session and a reconcile pass, two land operations — are serialized
+by `locked`: assigning a seq and appending are two steps, and without the
+lock both writers computed the same seq and both appended it, which
+`verify` reads as a non-contiguous stream (defect 24).
 """
 
 from __future__ import annotations
 
+import fcntl
 import json
 import os
 import re
+from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -81,6 +87,25 @@ def next_seq(path: Path) -> int:
     return last + 1
 
 
+@contextmanager
+def locked(target: Path):
+    """Serialize every writer of one session's event stream.
+
+    An exclusive `flock` held across the seq assignment and the
+    append, so two concurrent processes on the same session file
+    cannot both append the same seq. Held by `append` and by
+    `recorder.record_command`, whose log-header seq and event seq
+    must also agree.
+    """
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with open(target, "a", encoding="utf-8") as handle:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
+
 def append(
     session: str,
     kind: str,
@@ -93,7 +118,19 @@ def append(
     if kind not in KINDS:
         raise ValueError(f"unknown event kind: {kind}")
     target = path or paths.events_file(session)
-    target.parent.mkdir(parents=True, exist_ok=True)
+    with locked(target):
+        return _append_locked(session, kind, data, target=target, **extra)
+
+
+def _append_locked(
+    session: str,
+    kind: str,
+    data: dict | None = None,
+    *,
+    target: Path,
+    **extra,
+) -> Event:
+    """Append one event. The caller holds `locked(target)`."""
     payload = {
         "schema": paths.EVENT_SCHEMA,
         "seq": next_seq(target),

@@ -1,0 +1,108 @@
+==============================================================================
+[seq 2] 2026-10-08T06:05:47+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_events -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_all_sessions_ignores_unrelated_directories (tests.test_events.EventStreamTest) ... ok
+test_append_assigns_contiguous_sequences (tests.test_events.EventStreamTest) ... ok
+test_concurrent_appends_never_share_a_sequence (tests.test_events.EventStreamTest)
+Two processes appending to one stream assign distinct seqs. ... Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <listcomp>
+  File "/tmp/origin-test-zanqwe7v/tools/originlib/events.py", line 121, in append
+    with locked(target):
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/tmp/origin-test-zanqwe7v/tools/originlib/events.py", line 100, in locked
+    target.parent.mkdir(parents=True, exist_ok=True)
+AttributeError: 'str' object has no attribute 'parent'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <listcomp>
+  File "/tmp/origin-test-zanqwe7v/tools/originlib/events.py", line 121, in append
+    with locked(target):
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/tmp/origin-test-zanqwe7v/tools/originlib/events.py", line 100, in locked
+    target.parent.mkdir(parents=True, exist_ok=True)
+AttributeError: 'str' object has no attribute 'parent'
+FAIL
+/usr/lib/python3.8/subprocess.py:946: ResourceWarning: subprocess 3902150 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_events_are_written_one_per_line (tests.test_events.EventStreamTest) ... ok
+test_malformed_line_is_preserved_not_dropped (tests.test_events.EventStreamTest) ... ok
+test_next_seq_survives_a_malformed_tail (tests.test_events.EventStreamTest) ... ok
+test_session_id_pattern (tests.test_events.EventStreamTest) ... ok
+test_summary_prefers_readable_fields (tests.test_events.EventStreamTest) ... ok
+test_unknown_kind_is_rejected (tests.test_events.EventStreamTest) ... ok
+test_validate_flags_unknown_kind (tests.test_events.EventStreamTest) ... ok
+test_validate_reports_missing_fields (tests.test_events.EventStreamTest) ... ok
+
+======================================================================
+FAIL: test_concurrent_appends_never_share_a_sequence (tests.test_events.EventStreamTest)
+Two processes appending to one stream assign distinct seqs.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/tests/test_events.py", line 50, in test_concurrent_appends_never_share_a_sequence
+    self.assertEqual(proc.wait(), 0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 11 tests in 4.869s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 5116  redactions: none
+==============================================================================
+[seq 3] 2026-10-08T06:07:53+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_events -v
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+test_all_sessions_ignores_unrelated_directories (tests.test_events.EventStreamTest) ... ok
+test_append_assigns_contiguous_sequences (tests.test_events.EventStreamTest) ... ok
+test_concurrent_appends_never_share_a_sequence (tests.test_events.EventStreamTest)
+Two processes appending to one stream assign distinct seqs. ... ok
+test_events_are_written_one_per_line (tests.test_events.EventStreamTest) ... ok
+test_malformed_line_is_preserved_not_dropped (tests.test_events.EventStreamTest) ... ok
+test_next_seq_survives_a_malformed_tail (tests.test_events.EventStreamTest) ... ok
+test_session_id_pattern (tests.test_events.EventStreamTest) ... ok
+test_summary_prefers_readable_fields (tests.test_events.EventStreamTest) ... ok
+test_unknown_kind_is_rejected (tests.test_events.EventStreamTest) ... ok
+test_validate_flags_unknown_kind (tests.test_events.EventStreamTest) ... ok
+test_validate_reports_missing_fields (tests.test_events.EventStreamTest) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 10.904s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 11645  redactions: none
+==============================================================================
+[seq 5] 2026-10-08T06:13:27+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_events tests.test_session tests.test_session_flow tests.test_session_verify_double_end tests.test_inflight_session tests.test_claim_in_session
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 48.392s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 48799  redactions: none
+==============================================================================
+[seq 6] 2026-10-08T06:14:50+00:00
+$ env PYTHONPATH=tools:tests python3 -m unittest tests.test_report_freshness
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 2.171s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2510  redactions: none

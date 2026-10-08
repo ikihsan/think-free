@@ -61,52 +61,58 @@ def record_command(
     clean, redactions = secrets.redact(output)
     log_path = paths.commands_log(target_session)
     log_path.parent.mkdir(parents=True, exist_ok=True)
-    existing = log_path.read_text(encoding="utf-8").splitlines() if log_path.exists() else []
-    seq = events.next_seq(paths.events_file(target_session))
-    block = format_block(seq, argv, cwd, returncode, duration_ms, clean, redactions)
-    with open(log_path, "a", encoding="utf-8") as handle:
-        handle.write("\n".join(block) + "\n")
-        handle.flush()
-    data = {
-        "summary": f"$ {' '.join(argv)[:140]}",
-        "argv": argv,
-        "cwd": cwd,
-        "exit_code": returncode,
-        "duration_ms": duration_ms,
-        "log": paths.paths_repo_relative(log_path),
-        "log_line_start": len(existing) + 1,
-        "log_line_end": len(existing) + len(block),
-        "redactions": redactions,
-    }
-    events.append(
-        target_session,
-        "command",
-        data,
-        actor=active.agent if active else None,
-        host=active.host if active else None,
-        duration_ms=duration_ms,
-        exit_code=returncode,
-    )
-    if redactions:
-        events.append(
+    # The log block's header seq and the event's seq must be the same
+    # number, and a second process appending in between would assign
+    # two. One lock covers both the log write and the event append.
+    with events.locked(paths.events_file(target_session)):
+        existing = log_path.read_text(encoding="utf-8").splitlines() if log_path.exists() else []
+        seq = events.next_seq(paths.events_file(target_session))
+        block = format_block(seq, argv, cwd, returncode, duration_ms, clean, redactions)
+        with open(log_path, "a", encoding="utf-8") as handle:
+            handle.write("\n".join(block) + "\n")
+            handle.flush()
+        data = {
+            "summary": f"$ {' '.join(argv)[:140]}",
+            "argv": argv,
+            "cwd": cwd,
+            "exit_code": returncode,
+            "duration_ms": duration_ms,
+            "log": paths.paths_repo_relative(log_path),
+            "log_line_start": len(existing) + 1,
+            "log_line_end": len(existing) + len(block),
+            "redactions": redactions,
+        }
+        events._append_locked(
             target_session,
-            "redaction",
-            {
-                "summary": f"redacted {len(redactions)} secret pattern(s) from command output",
-                "patterns": redactions,
-                "argv": argv,
-            },
+            "command",
+            data,
+            target=paths.events_file(target_session),
             actor=active.agent if active else None,
             host=active.host if active else None,
+            duration_ms=duration_ms,
+            exit_code=returncode,
         )
-    # The report is generated from this stream, so appending to the stream
-    # invalidates it. A commit made before the next regeneration publishes a
-    # stale report and reddens CI — observed as run 37180487906, where a capture
-    # and an artifact were recorded after the last write and the tree was
-    # committed in between.
-    from . import session as session_module
+        if redactions:
+            events._append_locked(
+                target_session,
+                "redaction",
+                {
+                    "summary": f"redacted {len(redactions)} secret pattern(s) from command output",
+                    "patterns": redactions,
+                    "argv": argv,
+                },
+                target=paths.events_file(target_session),
+                actor=active.agent if active else None,
+                host=active.host if active else None,
+            )
+        # The report is generated from this stream, so appending to the stream
+        # invalidates it. A commit made before the next regeneration publishes a
+        # stale report and reddens CI — observed as run 37180487906, where a capture
+        # and an artifact were recorded after the last write and the tree was
+        # committed in between.
+        from . import session as session_module
 
-    session_module.refresh_reports(target_session)
+        session_module.refresh_reports(target_session)
     return {
         "recorded": True,
         "seq": seq,
