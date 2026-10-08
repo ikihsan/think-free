@@ -113,7 +113,7 @@ to defect 3 still resolves here and defect 15 still resolves in the parent.
      is the detection half of a race it cannot prevent. See
      [`tests/README.md`](tests/README.md).
 
-24. **Two concurrent writers of one session's event stream each
+25. **Two concurrent writers of one session's event stream each
      appended the same seq** (solved in session 2026-10-08-010).
      `events.append` computed `next_seq` and wrote in two steps, so
      two processes on one session file — a live session and a

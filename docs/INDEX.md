@@ -76,6 +76,7 @@ Skill bodies under `.agents/skills/` are indexed by
 
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
+| [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`](../sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md) | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, 2026-10-08. Defect 24. |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
@@ -258,9 +259,18 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/059-install-import-mismatch/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/060-badge-release-drift/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/061-no-run-worklist/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | observed 2026-10-08, session 2026-10-08-005, VM instance-20260717-0944, |
+| `EXPERIMENTS/061-supplement-drug-adulteration/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/062-nonsw-need-shape/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-006, VM instance-20260717-0944, declared 2026-10-08. |
+| `EXPERIMENTS/062-package-importability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/063-own-corpus-answerability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-013, VM instance-20260717-0944, declared 2026-10-08. |
+| `EXPERIMENTS/063-text-organization/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/064-remedy-existence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-014, VM instance-20260717-0944, declared |
+| `EXPERIMENTS/064-serialization-effectiveness/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
+| `EXPERIMENTS/065-recurring-expense-detection/` | `docs/INDEX.md` | complete | 2026-10-08 | ## Experiment Summary |
+| `EXPERIMENTS/065-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-08 | 1 documents |
+| `EXPERIMENTS/066-berka-real-validation/` | `docs/INDEX.md` | active | 2026-10-08 | Date: 2026-10-08 · Status: complete — all four predeclared gates PASS |
+| `EXPERIMENTS/066-need-answerability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session: 2026-10-08-021, VM instance-20260717-0944, declared 2026-10-08. |
+| `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
