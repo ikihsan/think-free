@@ -1,0 +1,614 @@
+{
+ "fromdate": 1698123825,
+ "window_days": 1080,
+ "sites": [
+  {
+   "name": "Craft CMS",
+   "param": "craftcms",
+   "arm": "tail",
+   "file": "craftcms-tail.json",
+   "rows": 200,
+   "users": 137
+  },
+  {
+   "name": "Craft CMS",
+   "param": "craftcms",
+   "arm": "head",
+   "file": "craftcms-head.json",
+   "rows": 200,
+   "users": 126
+  },
+  {
+   "name": "Cross Validated",
+   "param": "stats",
+   "arm": "tail",
+   "file": "stats-tail.json",
+   "rows": 200,
+   "users": 187
+  },
+  {
+   "name": "Cross Validated",
+   "param": "stats",
+   "arm": "head",
+   "file": "stats-head.json",
+   "rows": 200,
+   "users": 177
+  },
+  {
+   "name": "EOS.IO",
+   "param": "eosio",
+   "arm": "tail",
+   "file": "eosio-tail.json",
+   "rows": 6,
+   "users": 5
+  },
+  {
+   "name": "EOS.IO",
+   "param": "eosio",
+   "arm": "head",
+   "file": "eosio-head.json",
+   "rows": 6,
+   "users": 5
+  },
+  {
+   "name": "Ebooks",
+   "param": "ebooks",
+   "arm": "tail",
+   "file": "ebooks-tail.json",
+   "rows": 46,
+   "users": 43
+  },
+  {
+   "name": "Ebooks",
+   "param": "ebooks",
+   "arm": "head",
+   "file": "ebooks-head.json",
+   "rows": 46,
+   "users": 43
+  },
+  {
+   "name": "Expatriates",
+   "param": "expatriates",
+   "arm": "tail",
+   "file": "expatriates-tail.json",
+   "rows": 200,
+   "users": 164
+  },
+  {
+   "name": "Expatriates",
+   "param": "expatriates",
+   "arm": "head",
+   "file": "expatriates-head.json",
+   "rows": 200,
+   "users": 158
+  },
+  {
+   "name": "ExpressionEngine&#174; Answers",
+   "param": "expressionengine",
+   "arm": "tail",
+   "file": "expressionengine-tail.json",
+   "rows": 47,
+   "users": 37
+  },
+  {
+   "name": "ExpressionEngine&#174; Answers",
+   "param": "expressionengine",
+   "arm": "head",
+   "file": "expressionengine-head.json",
+   "rows": 47,
+   "users": 37
+  },
+  {
+   "name": "Freelancing",
+   "param": "freelancing",
+   "arm": "tail",
+   "file": "freelancing-tail.json",
+   "rows": 64,
+   "users": 57
+  },
+  {
+   "name": "Freelancing",
+   "param": "freelancing",
+   "arm": "head",
+   "file": "freelancing-head.json",
+   "rows": 64,
+   "users": 57
+  },
+  {
+   "name": "GenAI",
+   "param": "genai",
+   "arm": "tail",
+   "file": "genai-tail.json",
+   "rows": 200,
+   "users": 86
+  },
+  {
+   "name": "GenAI",
+   "param": "genai",
+   "arm": "head",
+   "file": "genai-head.json",
+   "rows": 200,
+   "users": 127
+  },
+  {
+   "name": "Home Improvement",
+   "param": "diy",
+   "arm": "tail",
+   "file": "diy-tail.json",
+   "rows": 200,
+   "users": 192
+  },
+  {
+   "name": "Home Improvement",
+   "param": "diy",
+   "arm": "head",
+   "file": "diy-head.json",
+   "rows": 200,
+   "users": 187
+  },
+  {
+   "name": "Homebrewing",
+   "param": "homebrew",
+   "arm": "tail",
+   "file": "homebrew-tail.json",
+   "rows": 39,
+   "users": 31
+  },
+  {
+   "name": "Homebrewing",
+   "param": "homebrew",
+   "arm": "head",
+   "file": "homebrew-head.json",
+   "rows": 39,
+   "users": 31
+  },
+  {
+   "name": "Interpersonal Skills",
+   "param": "interpersonal",
+   "arm": "tail",
+   "file": "interpersonal-tail.json",
+   "rows": 42,
+   "users": 39
+  },
+  {
+   "name": "Interpersonal Skills",
+   "param": "interpersonal",
+   "arm": "head",
+   "file": "interpersonal-head.json",
+   "rows": 42,
+   "users": 39
+  },
+  {
+   "name": "Iota",
+   "param": "iota",
+   "arm": "tail",
+   "file": "iota-tail.json",
+   "rows": 20,
+   "users": 18
+  },
+  {
+   "name": "Iota",
+   "param": "iota",
+   "arm": "head",
+   "file": "iota-head.json",
+   "rows": 20,
+   "users": 18
+  },
+  {
+   "name": "Law",
+   "param": "law",
+   "arm": "tail",
+   "file": "law-tail.json",
+   "rows": 200,
+   "users": 132
+  },
+  {
+   "name": "Law",
+   "param": "law",
+   "arm": "head",
+   "file": "law-head.json",
+   "rows": 200,
+   "users": 130
+  },
+  {
+   "name": "Lifehacks",
+   "param": "lifehacks",
+   "arm": "tail",
+   "file": "lifehacks-tail.json",
+   "rows": 132,
+   "users": 97
+  },
+  {
+   "name": "Lifehacks",
+   "param": "lifehacks",
+   "arm": "head",
+   "file": "lifehacks-head.json",
+   "rows": 132,
+   "users": 97
+  },
+  {
+   "name": "Martial Arts",
+   "param": "martialarts",
+   "arm": "tail",
+   "file": "martialarts-tail.json",
+   "rows": 87,
+   "users": 61
+  },
+  {
+   "name": "Martial Arts",
+   "param": "martialarts",
+   "arm": "head",
+   "file": "martialarts-head.json",
+   "rows": 87,
+   "users": 61
+  },
+  {
+   "name": "MathOverflow",
+   "param": "mathoverflow.net",
+   "arm": "tail",
+   "file": "mathoverflow.net-tail.json",
+   "rows": 200,
+   "users": 151
+  },
+  {
+   "name": "MathOverflow",
+   "param": "mathoverflow.net",
+   "arm": "head",
+   "file": "mathoverflow.net-head.json",
+   "rows": 200,
+   "users": 148
+  },
+  {
+   "name": "Matter Modeling",
+   "param": "mattermodeling",
+   "arm": "tail",
+   "file": "mattermodeling-tail.json",
+   "rows": 200,
+   "users": 152
+  },
+  {
+   "name": "Matter Modeling",
+   "param": "mattermodeling",
+   "arm": "head",
+   "file": "mattermodeling-head.json",
+   "rows": 200,
+   "users": 126
+  },
+  {
+   "name": "Monero",
+   "param": "monero",
+   "arm": "tail",
+   "file": "monero-tail.json",
+   "rows": 111,
+   "users": 86
+  },
+  {
+   "name": "Monero",
+   "param": "monero",
+   "arm": "head",
+   "file": "monero-head.json",
+   "rows": 111,
+   "users": 86
+  },
+  {
+   "name": "Motor Vehicle Maintenance &amp; Repair",
+   "param": "mechanics",
+   "arm": "tail",
+   "file": "mechanics-tail.json",
+   "rows": 200,
+   "users": 171
+  },
+  {
+   "name": "Motor Vehicle Maintenance &amp; Repair",
+   "param": "mechanics",
+   "arm": "head",
+   "file": "mechanics-head.json",
+   "rows": 200,
+   "users": 166
+  },
+  {
+   "name": "Parenting",
+   "param": "parenting",
+   "arm": "tail",
+   "file": "parenting-tail.json",
+   "rows": 200,
+   "users": 156
+  },
+  {
+   "name": "Parenting",
+   "param": "parenting",
+   "arm": "head",
+   "file": "parenting-head.json",
+   "rows": 200,
+   "users": 155
+  },
+  {
+   "name": "Personal Finance &amp; Money",
+   "param": "money",
+   "arm": "tail",
+   "file": "money-tail.json",
+   "rows": 200,
+   "users": 162
+  },
+  {
+   "name": "Personal Finance &amp; Money",
+   "param": "money",
+   "arm": "head",
+   "file": "money-head.json",
+   "rows": 200,
+   "users": 179
+  },
+  {
+   "name": "Pets",
+   "param": "pets",
+   "arm": "tail",
+   "file": "pets-tail.json",
+   "rows": 200,
+   "users": 189
+  },
+  {
+   "name": "Pets",
+   "param": "pets",
+   "arm": "head",
+   "file": "pets-head.json",
+   "rows": 200,
+   "users": 174
+  },
+  {
+   "name": "Photography",
+   "param": "photo",
+   "arm": "tail",
+   "file": "photo-tail.json",
+   "rows": 200,
+   "users": 182
+  },
+  {
+   "name": "Photography",
+   "param": "photo",
+   "arm": "head",
+   "file": "photo-head.json",
+   "rows": 200,
+   "users": 173
+  },
+  {
+   "name": "Solana",
+   "param": "solana",
+   "arm": "tail",
+   "file": "solana-tail.json",
+   "rows": 200,
+   "users": 166
+  },
+  {
+   "name": "Solana",
+   "param": "solana",
+   "arm": "head",
+   "file": "solana-head.json",
+   "rows": 200,
+   "users": 159
+  },
+  {
+   "name": "Space Exploration",
+   "param": "space",
+   "arm": "tail",
+   "file": "space-tail.json",
+   "rows": 200,
+   "users": 137
+  },
+  {
+   "name": "Space Exploration",
+   "param": "space",
+   "arm": "head",
+   "file": "space-head.json",
+   "rows": 200,
+   "users": 117
+  },
+  {
+   "name": "Sports",
+   "param": "sports",
+   "arm": "tail",
+   "file": "sports-tail.json",
+   "rows": 200,
+   "users": 161
+  },
+  {
+   "name": "Sports",
+   "param": "sports",
+   "arm": "head",
+   "file": "sports-head.json",
+   "rows": 200,
+   "users": 155
+  },
+  {
+   "name": "Stellar",
+   "param": "stellar",
+   "arm": "tail",
+   "file": "stellar-tail.json",
+   "rows": 41,
+   "users": 39
+  },
+  {
+   "name": "Stellar",
+   "param": "stellar",
+   "arm": "head",
+   "file": "stellar-head.json",
+   "rows": 41,
+   "users": 39
+  },
+  {
+   "name": "Super User",
+   "param": "superuser",
+   "arm": "tail",
+   "file": "superuser-tail.json",
+   "rows": 200,
+   "users": 190
+  },
+  {
+   "name": "Super User",
+   "param": "superuser",
+   "arm": "head",
+   "file": "superuser-head.json",
+   "rows": 200,
+   "users": 189
+  },
+  {
+   "name": "Tezos",
+   "param": "tezos",
+   "arm": "tail",
+   "file": "tezos-tail.json",
+   "rows": 51,
+   "users": 35
+  },
+  {
+   "name": "Tezos",
+   "param": "tezos",
+   "arm": "head",
+   "file": "tezos-head.json",
+   "rows": 51,
+   "users": 35
+  },
+  {
+   "name": "Tor",
+   "param": "tor",
+   "arm": "tail",
+   "file": "tor-tail.json",
+   "rows": 128,
+   "users": 100
+  },
+  {
+   "name": "Tor",
+   "param": "tor",
+   "arm": "head",
+   "file": "tor-head.json",
+   "rows": 128,
+   "users": 100
+  },
+  {
+   "name": "Travel",
+   "param": "travel",
+   "arm": "tail",
+   "file": "travel-tail.json",
+   "rows": 200,
+   "users": 148
+  },
+  {
+   "name": "Travel",
+   "param": "travel",
+   "arm": "head",
+   "file": "travel-head.json",
+   "rows": 200,
+   "users": 155
+  },
+  {
+   "name": "Tridion",
+   "param": "tridion",
+   "arm": "tail",
+   "file": "tridion-tail.json",
+   "rows": 97,
+   "users": 53
+  },
+  {
+   "name": "Tridion",
+   "param": "tridion",
+   "arm": "head",
+   "file": "tridion-head.json",
+   "rows": 97,
+   "users": 53
+  },
+  {
+   "name": "User Experience",
+   "param": "ux",
+   "arm": "tail",
+   "file": "ux-tail.json",
+   "rows": 200,
+   "users": 178
+  },
+  {
+   "name": "User Experience",
+   "param": "ux",
+   "arm": "head",
+   "file": "ux-head.json",
+   "rows": 200,
+   "users": 175
+  },
+  {
+   "name": "Veganism &amp; Vegetarianism",
+   "param": "vegetarianism",
+   "arm": "tail",
+   "file": "vegetarianism-tail.json",
+   "rows": 35,
+   "users": 21
+  },
+  {
+   "name": "Veganism &amp; Vegetarianism",
+   "param": "vegetarianism",
+   "arm": "head",
+   "file": "vegetarianism-head.json",
+   "rows": 35,
+   "users": 21
+  },
+  {
+   "name": "Woodworking",
+   "param": "woodworking",
+   "arm": "tail",
+   "file": "woodworking-tail.json",
+   "rows": 200,
+   "users": 176
+  },
+  {
+   "name": "Woodworking",
+   "param": "woodworking",
+   "arm": "head",
+   "file": "woodworking-head.json",
+   "rows": 200,
+   "users": 156
+  },
+  {
+   "name": "Writing",
+   "param": "writing",
+   "arm": "tail",
+   "file": "writing-tail.json",
+   "rows": 200,
+   "users": 140
+  },
+  {
+   "name": "Writing",
+   "param": "writing",
+   "arm": "head",
+   "file": "writing-head.json",
+   "rows": 200,
+   "users": 144
+  },
+  {
+   "name": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u044f\u0437\u044b\u043a",
+   "param": "rus",
+   "arm": "tail",
+   "file": "rus-tail.json",
+   "rows": 200,
+   "users": 31
+  },
+  {
+   "name": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u044f\u0437\u044b\u043a",
+   "param": "rus",
+   "arm": "head",
+   "file": "rus-head.json",
+   "rows": 200,
+   "users": 98
+  },
+  {
+   "name": "\u30b9\u30bf\u30c3\u30af\u30fb\u30aa\u30fc\u30d0\u30fc\u30d5\u30ed\u30fc",
+   "param": "ja.stackoverflow",
+   "arm": "tail",
+   "file": "ja.stackoverflow-tail.json",
+   "rows": 200,
+   "users": 154
+  },
+  {
+   "name": "\u30b9\u30bf\u30c3\u30af\u30fb\u30aa\u30fc\u30d0\u30fc\u30d5\u30ed\u30fc",
+   "param": "ja.stackoverflow",
+   "arm": "head",
+   "file": "ja.stackoverflow-head.json",
+   "rows": 200,
+   "users": 155
+  }
+ ]
+}

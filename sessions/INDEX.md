@@ -8,13 +8,16 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-161 recorded session(s). One `events.jsonl` per session, so concurrent
+164 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 136 older session(s) are in the directory listing.
+Showing the 25 most recent. 139 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
+| [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
+| [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
 | [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | worked | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:56 |
 | [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | worked | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T04:23 |
 | [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 136 older session(s) are in the directory listing.
 | [2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh](2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/README.md) | unknown-agent | worked | E045 (T-0083): read the demand evidence behind the only candidate, ask | 2026-10-07T07:16 |
 | [2026-10-07-002-e044-rerun-e043-s-agent-staging-harness](2026-10-07-002-e044-rerun-e043-s-agent-staging-harness/README.md) | unknown-agent | worked | E044: rerun E043's agent-staging harness with no line number and no gi | 2026-10-07T07:09 |
 | [2026-10-07-001-e043-run-real-coding-agents-on-real-stag](2026-10-07-001-e043-run-real-coding-agents-on-real-stag/README.md) | unknown-agent | worked | E043: run real coding agents on real staging tasks, with and without s | 2026-10-07T00:59 |
-| [2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo](2026-10-06-016-dogfood-stg-on-real-changes-in-this-repo/README.md) | unknown-agent | worked | Dogfood stg on real changes in this repo; record observed friction vs  | 2026-10-07T06:18 |
-| [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
-| [2026-10-06-015-reconcile-and-publish-e041-need-index-re](2026-10-06-015-reconcile-and-publish-e041-need-index-re/README.md) | opencode | worked | Reconcile and publish E041 need-index records; finish the record, renu | 2026-10-06T23:19 |
 
 
 ## Reading a session
