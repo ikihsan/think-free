@@ -15,7 +15,7 @@ Showing the 25 most recent. 132 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | **unfinished** | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:24 |
+| [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
 | [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
 | [2026-10-07-016-conclude-e051-experiment-and-identify-ne](2026-10-07-016-conclude-e051-experiment-and-identify-ne/README.md) | unknown-agent | worked | Conclude E051 experiment and identify new candidate | 2026-10-07T22:40 |
 | [2026-10-07-015-fix-unlogged-predictions-jsonl-artifact](2026-10-07-015-fix-unlogged-predictions-jsonl-artifact/README.md) | unknown-agent | worked | Fix unlogged predictions.jsonl artifact and update DECISIONS.md for E0 | 2026-10-07T20:33 |
