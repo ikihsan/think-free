@@ -15,7 +15,7 @@ Showing the 25 most recent. 145 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-014-commit-the-finished-session-013-landing](2026-10-08-014-commit-the-finished-session-013-landing/README.md) | unknown-agent | **unfinished** | commit the finished session 013 landing and choose the next experiment | 2026-10-08T10:33 |
+| [2026-10-08-014-commit-the-finished-session-013-landing](2026-10-08-014-commit-the-finished-session-013-landing/README.md) | unknown-agent | worked | commit the finished session 013 landing and choose the next experiment | 2026-10-08T15:29 |
 | [2026-10-08-013-e063-run-the-e062-answerability-instrume](2026-10-08-013-e063-run-the-e062-answerability-instrume/README.md) | unknown-agent | worked | E063: run the E062 answerability instrument on the mission's own need  | 2026-10-08T09:58 |
 | [2026-10-08-012-land-the-interrupted-identifier-renumber](2026-10-08-012-land-the-interrupted-identifier-renumber/README.md) | unknown-agent | worked | land the interrupted identifier renumbering (057-no-run-worklist→061,  | 2026-10-08T08:04 |
 | [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |

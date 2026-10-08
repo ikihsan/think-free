@@ -1,0 +1,4906 @@
+[
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "",
+  "name": "requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "",
+  "name": "click",
+  "seed": "click"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "",
+  "name": "jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "",
+  "name": "sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "",
+  "name": "pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "",
+  "name": "httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "",
+  "name": "rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "",
+  "name": "loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "",
+  "name": "typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "",
+  "name": "arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "",
+  "name": "tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "",
+  "name": "boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "",
+  "name": "express",
+  "seed": "express"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "",
+  "name": "lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "",
+  "name": "axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "",
+  "name": "chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "",
+  "name": "zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "",
+  "name": "winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "",
+  "name": "commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "",
+  "name": "dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "",
+  "name": "nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "",
+  "name": "tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "",
+  "name": "regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "",
+  "name": "rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "",
+  "name": "clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "",
+  "name": "anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "",
+  "name": "itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "",
+  "name": "rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "",
+  "name": "rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "",
+  "name": "puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "",
+  "name": "sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "",
+  "name": "devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "",
+  "name": "redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "",
+  "name": "monolog/monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "",
+  "name": "laravel/framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "",
+  "name": "guzzlehttp/guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "seed",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "",
+  "name": "phpunit/phpunit",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-cli",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-utils",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-py",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-rs",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-js",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-x",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "suffix",
+  "name": "requests-go",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "prefix",
+  "name": "py-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "prefix",
+  "name": "django-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "prefix",
+  "name": "fastapi-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "prefix",
+  "name": "node-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "synonym",
+  "name": "async-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "synonym",
+  "name": "lite-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "synonym",
+  "name": "fast-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "synonym",
+  "name": "simple-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "requests",
+  "mutation": "synonym",
+  "name": "mini-requests",
+  "seed": "requests"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-cli",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-utils",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-py",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-rs",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-js",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-x",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "suffix",
+  "name": "click-go",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "prefix",
+  "name": "py-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "prefix",
+  "name": "django-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "prefix",
+  "name": "fastapi-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "prefix",
+  "name": "node-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "synonym",
+  "name": "async-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "synonym",
+  "name": "lite-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "synonym",
+  "name": "fast-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "synonym",
+  "name": "simple-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "click",
+  "mutation": "synonym",
+  "name": "mini-click",
+  "seed": "click"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-cli",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-utils",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-py",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-rs",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-js",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-x",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "suffix",
+  "name": "jinja2-go",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "prefix",
+  "name": "py-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "prefix",
+  "name": "django-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "prefix",
+  "name": "fastapi-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "prefix",
+  "name": "node-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "synonym",
+  "name": "async-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "synonym",
+  "name": "lite-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "synonym",
+  "name": "fast-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "synonym",
+  "name": "simple-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "jinja2",
+  "mutation": "synonym",
+  "name": "mini-jinja2",
+  "seed": "jinja2"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-cli",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-utils",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-py",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-rs",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-js",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-x",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "suffix",
+  "name": "sqlalchemy-go",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "prefix",
+  "name": "py-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "prefix",
+  "name": "django-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "prefix",
+  "name": "fastapi-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "prefix",
+  "name": "node-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "synonym",
+  "name": "async-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "synonym",
+  "name": "lite-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "synonym",
+  "name": "fast-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "synonym",
+  "name": "simple-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "sqlalchemy",
+  "mutation": "synonym",
+  "name": "mini-sqlalchemy",
+  "seed": "sqlalchemy"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-cli",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-utils",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-py",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-rs",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-js",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-x",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "suffix",
+  "name": "pydantic-go",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "prefix",
+  "name": "py-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "prefix",
+  "name": "django-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "prefix",
+  "name": "fastapi-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "prefix",
+  "name": "node-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "synonym",
+  "name": "async-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "synonym",
+  "name": "lite-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "synonym",
+  "name": "fast-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "synonym",
+  "name": "simple-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "pydantic",
+  "mutation": "synonym",
+  "name": "mini-pydantic",
+  "seed": "pydantic"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-cli",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-utils",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-py",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-rs",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-js",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-x",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "suffix",
+  "name": "httpx-go",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "prefix",
+  "name": "py-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "prefix",
+  "name": "django-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "prefix",
+  "name": "fastapi-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "prefix",
+  "name": "node-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "synonym",
+  "name": "async-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "synonym",
+  "name": "lite-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "synonym",
+  "name": "fast-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "synonym",
+  "name": "simple-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "httpx",
+  "mutation": "synonym",
+  "name": "mini-httpx",
+  "seed": "httpx"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-cli",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-utils",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-py",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-rs",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-js",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-x",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "suffix",
+  "name": "rich-go",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "prefix",
+  "name": "py-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "prefix",
+  "name": "django-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "prefix",
+  "name": "fastapi-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "prefix",
+  "name": "node-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "synonym",
+  "name": "async-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "synonym",
+  "name": "lite-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "synonym",
+  "name": "fast-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "synonym",
+  "name": "simple-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "rich",
+  "mutation": "synonym",
+  "name": "mini-rich",
+  "seed": "rich"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-cli",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-utils",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-py",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-rs",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-js",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-x",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "suffix",
+  "name": "loguru-go",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "prefix",
+  "name": "py-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "prefix",
+  "name": "django-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "prefix",
+  "name": "fastapi-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "prefix",
+  "name": "node-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "synonym",
+  "name": "async-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "synonym",
+  "name": "lite-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "synonym",
+  "name": "fast-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "synonym",
+  "name": "simple-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "loguru",
+  "mutation": "synonym",
+  "name": "mini-loguru",
+  "seed": "loguru"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-cli",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-utils",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-py",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-rs",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-js",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-x",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "suffix",
+  "name": "typer-go",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "prefix",
+  "name": "py-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "prefix",
+  "name": "django-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "prefix",
+  "name": "fastapi-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "prefix",
+  "name": "node-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "synonym",
+  "name": "async-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "synonym",
+  "name": "lite-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "synonym",
+  "name": "fast-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "synonym",
+  "name": "simple-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "typer",
+  "mutation": "synonym",
+  "name": "mini-typer",
+  "seed": "typer"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-cli",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-utils",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-py",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-rs",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-js",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-x",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "suffix",
+  "name": "arrow-go",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "prefix",
+  "name": "py-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "prefix",
+  "name": "django-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "prefix",
+  "name": "fastapi-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "prefix",
+  "name": "node-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "synonym",
+  "name": "async-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "synonym",
+  "name": "lite-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "synonym",
+  "name": "fast-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "synonym",
+  "name": "simple-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "arrow",
+  "mutation": "synonym",
+  "name": "mini-arrow",
+  "seed": "arrow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-cli",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-utils",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-py",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-rs",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-js",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-x",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "suffix",
+  "name": "tenacity-go",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "prefix",
+  "name": "py-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "prefix",
+  "name": "django-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "prefix",
+  "name": "fastapi-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "prefix",
+  "name": "node-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "synonym",
+  "name": "async-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "synonym",
+  "name": "lite-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "synonym",
+  "name": "fast-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "synonym",
+  "name": "simple-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "tenacity",
+  "mutation": "synonym",
+  "name": "mini-tenacity",
+  "seed": "tenacity"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-cli",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-utils",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-py",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-rs",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-js",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-x",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "suffix",
+  "name": "boto3-go",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "prefix",
+  "name": "py-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "prefix",
+  "name": "django-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "prefix",
+  "name": "fastapi-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "prefix",
+  "name": "node-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "synonym",
+  "name": "async-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "synonym",
+  "name": "lite-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "synonym",
+  "name": "fast-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "synonym",
+  "name": "simple-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "pypi",
+  "intended": "boto3",
+  "mutation": "synonym",
+  "name": "mini-boto3",
+  "seed": "boto3"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-cli",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-utils",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-py",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-rs",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-js",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-x",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "suffix",
+  "name": "express-go",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "prefix",
+  "name": "py-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "prefix",
+  "name": "django-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "prefix",
+  "name": "fastapi-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "prefix",
+  "name": "node-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "synonym",
+  "name": "async-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "synonym",
+  "name": "lite-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "synonym",
+  "name": "fast-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "synonym",
+  "name": "simple-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "express",
+  "mutation": "synonym",
+  "name": "mini-express",
+  "seed": "express"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-cli",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-utils",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-py",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-rs",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-js",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-x",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "suffix",
+  "name": "lodash-go",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "prefix",
+  "name": "py-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "prefix",
+  "name": "django-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "prefix",
+  "name": "fastapi-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "prefix",
+  "name": "node-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "synonym",
+  "name": "async-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "synonym",
+  "name": "lite-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "synonym",
+  "name": "fast-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "synonym",
+  "name": "simple-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "lodash",
+  "mutation": "synonym",
+  "name": "mini-lodash",
+  "seed": "lodash"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-cli",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-utils",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-py",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-rs",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-js",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-x",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "suffix",
+  "name": "axios-go",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "prefix",
+  "name": "py-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "prefix",
+  "name": "django-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "prefix",
+  "name": "fastapi-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "prefix",
+  "name": "node-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "synonym",
+  "name": "async-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "synonym",
+  "name": "lite-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "synonym",
+  "name": "fast-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "synonym",
+  "name": "simple-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "axios",
+  "mutation": "synonym",
+  "name": "mini-axios",
+  "seed": "axios"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-cli",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-utils",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-py",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-rs",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-js",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-x",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "suffix",
+  "name": "chalk-go",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "prefix",
+  "name": "py-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "prefix",
+  "name": "django-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "prefix",
+  "name": "fastapi-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "prefix",
+  "name": "node-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "synonym",
+  "name": "async-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "synonym",
+  "name": "lite-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "synonym",
+  "name": "fast-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "synonym",
+  "name": "simple-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "chalk",
+  "mutation": "synonym",
+  "name": "mini-chalk",
+  "seed": "chalk"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-cli",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-utils",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-py",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-rs",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-js",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-x",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "suffix",
+  "name": "zod-go",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "prefix",
+  "name": "py-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "prefix",
+  "name": "django-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "prefix",
+  "name": "fastapi-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "prefix",
+  "name": "node-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "synonym",
+  "name": "async-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "synonym",
+  "name": "lite-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "synonym",
+  "name": "fast-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "synonym",
+  "name": "simple-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "zod",
+  "mutation": "synonym",
+  "name": "mini-zod",
+  "seed": "zod"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-cli",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-utils",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-py",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-rs",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-js",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-x",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "suffix",
+  "name": "winston-go",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "prefix",
+  "name": "py-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "prefix",
+  "name": "django-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "prefix",
+  "name": "fastapi-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "prefix",
+  "name": "node-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "synonym",
+  "name": "async-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "synonym",
+  "name": "lite-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "synonym",
+  "name": "fast-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "synonym",
+  "name": "simple-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "winston",
+  "mutation": "synonym",
+  "name": "mini-winston",
+  "seed": "winston"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-cli",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-utils",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-py",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-rs",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-js",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-x",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "suffix",
+  "name": "commander-go",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "prefix",
+  "name": "py-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "prefix",
+  "name": "django-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "prefix",
+  "name": "fastapi-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "prefix",
+  "name": "node-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "synonym",
+  "name": "async-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "synonym",
+  "name": "lite-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "synonym",
+  "name": "fast-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "synonym",
+  "name": "simple-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "commander",
+  "mutation": "synonym",
+  "name": "mini-commander",
+  "seed": "commander"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-cli",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-utils",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-py",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-rs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-js",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-x",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "suffix",
+  "name": "dayjs-go",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "prefix",
+  "name": "py-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "prefix",
+  "name": "django-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "prefix",
+  "name": "fastapi-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "prefix",
+  "name": "node-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "synonym",
+  "name": "async-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "synonym",
+  "name": "lite-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "synonym",
+  "name": "fast-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "synonym",
+  "name": "simple-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "dayjs",
+  "mutation": "synonym",
+  "name": "mini-dayjs",
+  "seed": "dayjs"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-cli",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-utils",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-py",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-rs",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-js",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-x",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "suffix",
+  "name": "nanoid-go",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "prefix",
+  "name": "py-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "prefix",
+  "name": "django-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "prefix",
+  "name": "fastapi-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "prefix",
+  "name": "node-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "synonym",
+  "name": "async-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "synonym",
+  "name": "lite-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "synonym",
+  "name": "fast-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "synonym",
+  "name": "simple-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "npm",
+  "intended": "nanoid",
+  "mutation": "synonym",
+  "name": "mini-nanoid",
+  "seed": "nanoid"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-cli",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-utils",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-py",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-rs",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-js",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-x",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "suffix",
+  "name": "tokio-go",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "prefix",
+  "name": "py-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "prefix",
+  "name": "django-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "prefix",
+  "name": "fastapi-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "prefix",
+  "name": "node-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "synonym",
+  "name": "async-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "synonym",
+  "name": "lite-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "synonym",
+  "name": "fast-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "synonym",
+  "name": "simple-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "tokio",
+  "mutation": "synonym",
+  "name": "mini-tokio",
+  "seed": "tokio"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-cli",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-utils",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-py",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-rs",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-js",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-x",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "suffix",
+  "name": "regex-go",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "prefix",
+  "name": "py-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "prefix",
+  "name": "django-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "prefix",
+  "name": "fastapi-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "prefix",
+  "name": "node-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "synonym",
+  "name": "async-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "synonym",
+  "name": "lite-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "synonym",
+  "name": "fast-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "synonym",
+  "name": "simple-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "regex",
+  "mutation": "synonym",
+  "name": "mini-regex",
+  "seed": "regex"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-cli",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-utils",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-py",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-rs",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-js",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-x",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "suffix",
+  "name": "rand-go",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "prefix",
+  "name": "py-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "prefix",
+  "name": "django-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "prefix",
+  "name": "fastapi-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "prefix",
+  "name": "node-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "synonym",
+  "name": "async-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "synonym",
+  "name": "lite-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "synonym",
+  "name": "fast-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "synonym",
+  "name": "simple-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "rand",
+  "mutation": "synonym",
+  "name": "mini-rand",
+  "seed": "rand"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-cli",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-utils",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-py",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-rs",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-js",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-x",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "suffix",
+  "name": "clap-go",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "prefix",
+  "name": "py-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "prefix",
+  "name": "django-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "prefix",
+  "name": "fastapi-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "prefix",
+  "name": "node-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "synonym",
+  "name": "async-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "synonym",
+  "name": "lite-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "synonym",
+  "name": "fast-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "synonym",
+  "name": "simple-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "clap",
+  "mutation": "synonym",
+  "name": "mini-clap",
+  "seed": "clap"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-cli",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-utils",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-py",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-rs",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-js",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-x",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "suffix",
+  "name": "anyhow-go",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "prefix",
+  "name": "py-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "prefix",
+  "name": "django-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "prefix",
+  "name": "fastapi-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "prefix",
+  "name": "node-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "synonym",
+  "name": "async-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "synonym",
+  "name": "lite-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "synonym",
+  "name": "fast-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "synonym",
+  "name": "simple-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "anyhow",
+  "mutation": "synonym",
+  "name": "mini-anyhow",
+  "seed": "anyhow"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-cli",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-utils",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-py",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-rs",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-js",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-x",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "suffix",
+  "name": "itertools-go",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "prefix",
+  "name": "py-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "prefix",
+  "name": "django-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "prefix",
+  "name": "fastapi-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "prefix",
+  "name": "node-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "synonym",
+  "name": "async-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "synonym",
+  "name": "lite-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "synonym",
+  "name": "fast-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "synonym",
+  "name": "simple-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "crates",
+  "intended": "itertools",
+  "mutation": "synonym",
+  "name": "mini-itertools",
+  "seed": "itertools"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-cli",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-utils",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-py",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-rs",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-js",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-x",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "suffix",
+  "name": "rails-go",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "prefix",
+  "name": "py-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "prefix",
+  "name": "django-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "prefix",
+  "name": "fastapi-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "prefix",
+  "name": "node-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "synonym",
+  "name": "async-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "synonym",
+  "name": "lite-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "synonym",
+  "name": "fast-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "synonym",
+  "name": "simple-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rails",
+  "mutation": "synonym",
+  "name": "mini-rails",
+  "seed": "rails"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-cli",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-utils",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-py",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-rs",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-js",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-x",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "suffix",
+  "name": "rspec-go",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "prefix",
+  "name": "py-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "prefix",
+  "name": "django-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "prefix",
+  "name": "fastapi-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "prefix",
+  "name": "node-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "synonym",
+  "name": "async-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "synonym",
+  "name": "lite-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "synonym",
+  "name": "fast-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "synonym",
+  "name": "simple-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "rspec",
+  "mutation": "synonym",
+  "name": "mini-rspec",
+  "seed": "rspec"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-cli",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-utils",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-py",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-rs",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-js",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-x",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "suffix",
+  "name": "puma-go",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "prefix",
+  "name": "py-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "prefix",
+  "name": "django-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "prefix",
+  "name": "fastapi-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "prefix",
+  "name": "node-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "synonym",
+  "name": "async-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "synonym",
+  "name": "lite-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "synonym",
+  "name": "fast-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "synonym",
+  "name": "simple-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "puma",
+  "mutation": "synonym",
+  "name": "mini-puma",
+  "seed": "puma"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-cli",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-utils",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-py",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-rs",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-js",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-x",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "suffix",
+  "name": "sidekiq-go",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "prefix",
+  "name": "py-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "prefix",
+  "name": "django-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "prefix",
+  "name": "fastapi-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "prefix",
+  "name": "node-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "synonym",
+  "name": "async-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "synonym",
+  "name": "lite-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "synonym",
+  "name": "fast-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "synonym",
+  "name": "simple-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "sidekiq",
+  "mutation": "synonym",
+  "name": "mini-sidekiq",
+  "seed": "sidekiq"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-cli",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-utils",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-py",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-rs",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-js",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-x",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "suffix",
+  "name": "devise-go",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "prefix",
+  "name": "py-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "prefix",
+  "name": "django-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "prefix",
+  "name": "fastapi-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "prefix",
+  "name": "node-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "synonym",
+  "name": "async-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "synonym",
+  "name": "lite-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "synonym",
+  "name": "fast-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "synonym",
+  "name": "simple-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "devise",
+  "mutation": "synonym",
+  "name": "mini-devise",
+  "seed": "devise"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-cli",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-utils",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-py",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-rs",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-js",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-x",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "suffix",
+  "name": "redis-go",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "prefix",
+  "name": "py-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "prefix",
+  "name": "django-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "prefix",
+  "name": "fastapi-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "prefix",
+  "name": "node-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "synonym",
+  "name": "async-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "synonym",
+  "name": "lite-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "synonym",
+  "name": "fast-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "synonym",
+  "name": "simple-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "intended": "redis",
+  "mutation": "synonym",
+  "name": "mini-redis",
+  "seed": "redis"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-cli",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-utils",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-py",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-rs",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-js",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-x",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "suffix",
+  "name": "monolog/monolog-go",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "synonym",
+  "name": "monolog/async-monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "synonym",
+  "name": "monolog/lite-monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "synonym",
+  "name": "monolog/fast-monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "synonym",
+  "name": "monolog/simple-monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "monolog/monolog",
+  "mutation": "synonym",
+  "name": "monolog/mini-monolog",
+  "seed": "monolog/monolog"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-cli",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-utils",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-py",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-rs",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-js",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-x",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "suffix",
+  "name": "laravel/framework-go",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "synonym",
+  "name": "laravel/async-framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "synonym",
+  "name": "laravel/lite-framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "synonym",
+  "name": "laravel/fast-framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "synonym",
+  "name": "laravel/simple-framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "laravel/framework",
+  "mutation": "synonym",
+  "name": "laravel/mini-framework",
+  "seed": "laravel/framework"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-cli",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-utils",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-py",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-rs",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-js",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-x",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "suffix",
+  "name": "guzzlehttp/guzzle-go",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "synonym",
+  "name": "guzzlehttp/async-guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "synonym",
+  "name": "guzzlehttp/lite-guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "synonym",
+  "name": "guzzlehttp/fast-guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "synonym",
+  "name": "guzzlehttp/simple-guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "guzzlehttp/guzzle",
+  "mutation": "synonym",
+  "name": "guzzlehttp/mini-guzzle",
+  "seed": "guzzlehttp/guzzle"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-cli",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-utils",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-py",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-rs",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-js",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-x",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "suffix",
+  "name": "phpunit/phpunit-go",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "synonym",
+  "name": "phpunit/async-phpunit",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "synonym",
+  "name": "phpunit/lite-phpunit",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "synonym",
+  "name": "phpunit/fast-phpunit",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "synonym",
+  "name": "phpunit/simple-phpunit",
+  "seed": "phpunit/phpunit"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "packagist",
+  "intended": "phpunit/phpunit",
+  "mutation": "synonym",
+  "name": "phpunit/mini-phpunit",
+  "seed": "phpunit/phpunit"
+ }
+]

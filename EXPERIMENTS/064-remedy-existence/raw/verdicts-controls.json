@@ -1,0 +1,362 @@
+[
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "pydantic-settings-loader",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "fastapi-auth-kit",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "httpx-retry-cascade",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "asyncpg-migrate",
+  "verdict": "exists"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "structlog-contextvars",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "click-option-groups",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "rich-markdown-table",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "pyarrow-flight-sql",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "polars-lazy-expr",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "pypi",
+  "name": "sqlalchemy-utils-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "react-hook-forms-seeker",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "next-auth-edge-compat",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "zustand-persist-migrate",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "vite-plugin-route-sort",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "tailwind-truncate-lines",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "zod-coerce-env",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "esbuild-cache-plugin",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "npm",
+  "name": "rxjs-replay-until",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "crates",
+  "name": "tokio-cache-moka",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "crates",
+  "name": "axum-tower-sessions",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "crates",
+  "name": "serde-flatten-tagged",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "crates",
+  "name": "rayon-parallel-sort",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "go",
+  "name": "github.com/smartbuf/ringpool",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "go",
+  "name": "github.com/elasticbody/scrollq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "go",
+  "name": "github.com/tykio/limitered",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "go",
+  "name": "github.com/gocraft/workq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "gem",
+  "name": "sidekiq-profiler-ui",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "maven",
+  "name": "io.github.batchgr:batch-grace",
+  "verdict": "absent"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "maven",
+  "name": "com.streamforge:streamforge-core",
+  "verdict": "unknown"
+ },
+ {
+  "arm": "invented",
+  "ecosystem": "nuget",
+  "name": "Nito.AsyncEx.Coordination",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "hashbrown",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "syn",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "getrandom",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "bitflags",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "rand_core",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "crates",
+  "name": "rand",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "is-negative-zero",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "@stdlib/math-base-assert-is-negative-zero",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "@stdlib/math-base-assert-is-positive-zero",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "zero-fill",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "@dramaorg/delectus-culpa-reprehenderit",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "npm",
+  "name": "@zitterorg/magni-eos",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "Newtonsoft.Json",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "Microsoft.Extensions.DependencyInjection",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "Microsoft.Extensions.Logging",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "System.Text.Json",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "Microsoft.Bcl.AsyncInterfaces",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "nuget",
+  "name": "Azure.Core",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "nikic/php-parser",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "monolog/monolog",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "guzzlehttp/guzzle",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "webmozart/assert",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "symfony/property-access",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "packagist",
+  "name": "google/apiclient",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "a2ps",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "a52dec",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "aalib",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "aamath",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "aarch64-elf-binutils",
+  "verdict": "exists"
+ },
+ {
+  "arm": "real",
+  "ecosystem": "brew",
+  "name": "aarch64-elf-gcc",
+  "verdict": "exists"
+ }
+]

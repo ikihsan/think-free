@@ -1,0 +1,932 @@
+[
+ {
+  "desc": "`itertools` for `Stream`s",
+  "downloads": 458,
+  "ecosystem": "crates",
+  "n_versions": 5,
+  "name": "async-itertools",
+  "newest": "2026-04-07 11:05:21.484185Z",
+  "repo": "https://github.com/async-itertools/async-itertools",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Empower regex with streaming capabilities - high-performance async streaming pattern search using regex for multi-byte pattern matching in data streams",
+  "downloads": 956,
+  "ecosystem": "crates",
+  "n_versions": 2,
+  "name": "async-regex",
+  "newest": "2025-09-12 19:23:46.266163Z",
+  "repo": "https://gitlab.com/Efimster/slib",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A collection of utilities for building command line applications.",
+  "downloads": 12614,
+  "ecosystem": "crates",
+  "n_versions": 9,
+  "name": "clap-utils",
+  "newest": "2024-12-21 21:39:44.346859Z",
+  "repo": "https://github.com/tyrchen/clap-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A simple to use, efficient, and full-featured Command Line Argument Parser",
+  "downloads": 12557,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "fast-clap",
+  "newest": "2026-02-09 20:29:52.045491Z",
+  "repo": "https://github.com/frol/clap",
+  "verdict": "exists"
+ },
+ {
+  "desc": "basic asynchronous rust executor",
+  "downloads": 8147,
+  "ecosystem": "crates",
+  "n_versions": 8,
+  "name": "mini-tokio",
+  "newest": "2024-09-16 11:50:26.649305Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A small wrapper around the Python regex module via PyO3.",
+  "downloads": 1076,
+  "ecosystem": "crates",
+  "n_versions": 2,
+  "name": "py-regex",
+  "newest": "2025-05-13 18:06:18.129041Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Reserved",
+  "downloads": 202,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "rand-cli",
+  "newest": "2025-10-20 14:39:15.344437Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "helpers for large randon number generation",
+  "downloads": 180,
+  "ecosystem": "crates",
+  "n_versions": 2,
+  "name": "rand-utils",
+  "newest": "2026-02-08 19:35:35.688988Z",
+  "repo": "https://github.com/jameshuntt/rand_utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A command line tool for debugging, ad hoc benchmarking and generating regular\nexpressions.",
+  "downloads": 7979,
+  "ecosystem": "crates",
+  "n_versions": 7,
+  "name": "regex-cli",
+  "newest": "2025-10-11 00:09:47.771794Z",
+  "repo": "https://github.com/rust-lang/regex",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Safe wrapper for [POSIX regular expressions API][regex-h] (provided by libc on POSIX-compliant OSes).\nPart of libnewsboat lib dependencies",
+  "downloads": 4087,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "regex-rs",
+  "newest": "2024-12-23 13:25:59.364879Z",
+  "repo": "https://github.com/newsboat/newsboat",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Regex utilities, like enumerating all strings that match a regex",
+  "downloads": 1548,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "regex-utils",
+  "newest": "2023-07-16 16:00:51.607222Z",
+  "repo": "https://github.com/conradludgate/regex-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "\ud83d\ude0e Simple and readable way of writing regular expressions",
+  "downloads": 3015,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "simple-regex",
+  "newest": "2023-12-03 10:41:39.036493Z",
+  "repo": "https://github.com/Animemchik/simple-regex",
+  "verdict": "exists"
+ },
+ {
+  "desc": "reserved for in-progress crate",
+  "downloads": 1845,
+  "ecosystem": "crates",
+  "n_versions": 1,
+  "name": "tokio-cli",
+  "newest": "2019-12-19 21:46:52.326218Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Run async closures on reusable profile-dedicated Tokio runtimes",
+  "downloads": 5781,
+  "ecosystem": "crates",
+  "n_versions": 6,
+  "name": "tokio-go",
+  "newest": "2026-07-20 02:52:02.005063Z",
+  "repo": "https://github.com/zhchang/tokio-go",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Tools for asynchronous programming in Tokio applications",
+  "downloads": 560830,
+  "ecosystem": "crates",
+  "n_versions": 4,
+  "name": "tokio-utils",
+  "newest": "2023-03-31 05:06:05.747120Z",
+  "repo": "https://github.com/wcygan/tokio-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Rails asset pipeline wrapper for async.js",
+  "downloads": 214098,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "async-rails",
+  "newest": "2018-10-17T17:09:42.271Z",
+  "repo": "https://github.com/dbackowski/async-rails",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A Redis client library.",
+  "downloads": 863051,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "async-redis",
+  "newest": "2026-08-25T05:07:43.818Z",
+  "repo": "https://github.com/socketry/async-redis",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Helpers for writing specs against the async gem.",
+  "downloads": 560528,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "async-rspec",
+  "newest": "2025-03-04T21:02:43.061Z",
+  "repo": "https://github.com/socketry/async-rspec",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Access Redis with an ActiveRecord like ORM interface",
+  "downloads": 20593,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "lite-redis",
+  "newest": "2022-11-19T05:46:02.090Z",
+  "repo": "https://github.com/drexed/lite-redis",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Divide your javascript like you divide your ruby code. Put it in controllers and actions and write clean, scalable code. DEPRECATION WARNING: Gem has been renamed to 'rails-js-routes' for better findability.",
+  "downloads": 24998,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "rails-js",
+  "newest": "2014-11-24T13:58:09.062Z",
+  "repo": "https://github.com/tonekk/rails-js",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A set of tools to test programs on the command line",
+  "downloads": 6388,
+  "ecosystem": "gem",
+  "n_versions": null,
+  "name": "rspec-cli",
+  "newest": "2014-12-11T08:16:23.971Z",
+  "repo": "https://github.com/quazimodo/rspec-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Asynchronous method for axios using bluebird promise module.",
+  "downloads": 213,
+  "ecosystem": "npm",
+  "n_versions": 4,
+  "name": "async-axios",
+  "newest": "2022-01-23T04:04:58.989Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Allow async/await syntax in Express routes and middleware",
+  "downloads": 686,
+  "ecosystem": "npm",
+  "n_versions": 11,
+  "name": "async-express",
+  "newest": "2019-06-08T08:51:49.876Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Lodash wrapped to work with Promises",
+  "downloads": 558,
+  "ecosystem": "npm",
+  "n_versions": 10,
+  "name": "async-lodash",
+  "newest": "2017-07-08T00:55:39.447Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "+ \u751f\u6210 api",
+  "downloads": 363,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "axios-utils",
+  "newest": "2020-06-20T13:04:35.959Z",
+  "repo": "https://github.com/daGaiGuanYu/axios-util",
+  "verdict": "exists"
+ },
+ {
+  "desc": "support int64",
+  "downloads": 273,
+  "ecosystem": "npm",
+  "n_versions": 5,
+  "name": "axios-x",
+  "newest": "2019-09-03T03:18:06.546Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Terminal string styling done right",
+  "downloads": 430003,
+  "ecosystem": "npm",
+  "n_versions": 11,
+  "name": "chalk-cli",
+  "newest": "2025-05-01T09:25:07.367Z",
+  "repo": "https://github.com/chalk/chalk-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "",
+  "downloads": null,
+  "ecosystem": "npm",
+  "n_versions": 0,
+  "name": "chalk-utils",
+  "newest": "2026-05-14T09:35:45.857Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "a simple cli tool",
+  "downloads": 126,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "commander-cli",
+  "newest": "2019-06-26T09:39:24.822Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 4665,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "commander-js",
+  "newest": "2019-01-09T19:55:03.903Z",
+  "repo": "https://github.com/npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A wrapper of Django's template engine for Express.js",
+  "downloads": 481,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "django-express",
+  "newest": "2018-11-27T01:52:45.949Z",
+  "repo": "https://github.com/yanni4night/django",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A client to work with Express",
+  "downloads": 1376,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "express-cli",
+  "newest": "2016-06-26T20:12:46.768Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Express-go the Node.js Express based MVC framework engine.",
+  "downloads": 1778,
+  "ecosystem": "npm",
+  "n_versions": 27,
+  "name": "express-go",
+  "newest": "2015-12-30T12:55:16.453Z",
+  "repo": "https://github.com/express-go/express-go",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Utils for express/connect",
+  "downloads": 454,
+  "ecosystem": "npm",
+  "n_versions": 4,
+  "name": "express-utils",
+  "newest": "2015-01-08T13:19:53.327Z",
+  "repo": "https://github.com/bergos/express-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "use axios faster!!!",
+  "downloads": 115,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "fast-axios",
+  "newest": "2020-11-14T03:59:02.500Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Fast Api is building advanced api endpoints for express.js",
+  "downloads": 2350,
+  "ecosystem": "npm",
+  "n_versions": 65,
+  "name": "fastapi-express",
+  "newest": "2021-09-30T06:10:38.081Z",
+  "repo": "https://github.com/muhammetkocyigit0/fastapi-express",
+  "verdict": "exists"
+ },
+ {
+  "desc": "The Lodash command-line interface.",
+  "downloads": 338452,
+  "ecosystem": "npm",
+  "n_versions": 65,
+  "name": "lodash-cli",
+  "newest": "2018-02-04T04:43:59.681Z",
+  "repo": "https://github.com/lodash/lodash-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 246,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "lodash-utils",
+  "newest": "2022-08-18T06:08:03.812Z",
+  "repo": "npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "extend lodash basic functions",
+  "downloads": 203,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "lodash-x",
+  "newest": "2016-07-29T10:14:09.830Z",
+  "repo": "ssh://git@github.com/northlandsnow/lodash-x",
+  "verdict": "exists"
+ },
+ {
+  "desc": "\u57fa\u4e8e axios \u5c01\u88c5\u7684\u5fae\u4fe1\u5c0f\u7a0b\u5e8f\u8bf7\u6c42\u5de5\u5177\uff0c\u5b8c\u5168\u4f7f\u7528Promise\uff0c\u5e76\u63d0\u4f9b\u4e86\u8bf7\u6c42\u548c\u54cd\u5e94\u7684\u62e6\u622a\u5668",
+  "downloads": 282,
+  "ecosystem": "npm",
+  "n_versions": 4,
+  "name": "mini-axios",
+  "newest": "2023-02-20T08:53:20.391Z",
+  "repo": "https://github.com/xiaoqiujun/mini-axios",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A lightweight alternative to Chalk with no dependencies.",
+  "downloads": 130,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "mini-chalk",
+  "newest": "2025-09-26T10:37:29.603Z",
+  "repo": "https://github.com/ruveydayilmaz/mini-chalk",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A lightweight date manipulation library similar to Dayjs.",
+  "downloads": 141,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "mini-dayjs",
+  "newest": "2025-03-18T10:22:42.267Z",
+  "repo": "https://github.com/melos-simeneh/qenjs",
+  "verdict": "exists"
+ },
+ {
+  "desc": "real readme is in the ex submission",
+  "downloads": 227,
+  "ecosystem": "npm",
+  "n_versions": 3,
+  "name": "mini-express",
+  "newest": "2014-02-26T13:56:02.530Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "collection of common utils functions",
+  "downloads": 134,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "mini-lodash",
+  "newest": "2020-01-17T07:12:00.870Z",
+  "repo": "https://github.com/whu-luojian/mini-lodash",
+  "verdict": "exists"
+ },
+ {
+  "desc": "cli wrapper around nanoid",
+  "downloads": 3096,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "nanoid-cli",
+  "newest": "2018-02-23T19:05:06.804Z",
+  "repo": "https://github.com/twhitbeck/nanoid-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 102,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "nanoid-js",
+  "newest": "2026-01-21T04:46:55.638Z",
+  "repo": "npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "",
+  "downloads": 92,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "nanoid-rs",
+  "newest": "2022-01-04T08:17:46.341Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "",
+  "downloads": null,
+  "ecosystem": "npm",
+  "n_versions": 0,
+  "name": "node-axios",
+  "newest": "2020-04-08T20:11:35.637Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Terminal string styling done right. This is clone of chalk but only node version.",
+  "downloads": 449,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "node-chalk",
+  "newest": "2023-08-11T22:21:00.273Z",
+  "repo": "https://github.com/maxzz/node-chalk",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Command line tools for Node.js",
+  "downloads": 182,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "node-commander",
+  "newest": "2016-12-01T00:41:50.705Z",
+  "repo": "ssh://git@github.com/loretoparisi/commandline",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 278,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "node-winston",
+  "newest": "2025-08-21T03:11:51.248Z",
+  "repo": "npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "\u57fa\u4e8eaxios\u7684\u5f00\u53d1\u7684\u6269\u5c55\u8bf7\u6c42\u5305\uff0c\u5728axios\u7684\u57fa\u7840\u4e0a\u6269\u5c55\u4e86\u4e00\u4e9b\u8bf7\u6c42\u76f8\u5173\u7684\u8f85\u52a9\u51fd\u6570, \u4f7f\u5f00\u53d1\u65f6\u628a\u66f4\u591a\u7684\u7cbe\u529b\u5173\u6ce8\u5728\u4e1a\u52a1\u672c\u8eab\u4e0a, \u7b80\u5316\u8bf7\u6c42\u8c03\u7528\u7684\u590d\u6742\u6027\u3002",
+  "downloads": 113,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "simple-axios",
+  "newest": "2021-10-27T03:04:36.262Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "an alternative to chalk package",
+  "downloads": 462,
+  "ecosystem": "npm",
+  "n_versions": 5,
+  "name": "simple-chalk",
+  "newest": "2024-10-01T06:54:51.056Z",
+  "repo": "https://github.com/HarshitKumar9030/custom-chalk",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Common utilities for the lodash lib",
+  "downloads": 21988,
+  "ecosystem": "npm",
+  "n_versions": 6,
+  "name": "simple-lodash",
+  "newest": "2018-08-28T02:32:10.702Z",
+  "repo": "ssh://git@github.com/huxiaoqi567/simple-lodash",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Simple winston logger which can more simply take multiple args and create child loggers.",
+  "downloads": 240,
+  "ecosystem": "npm",
+  "n_versions": 6,
+  "name": "simple-winston",
+  "newest": "2020-03-21T12:16:09.913Z",
+  "repo": "ssh://git@github.com/princejonn/simple-winston",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Winston \u2014 \u043b\u0438\u0447\u043d\u044b\u0439 \u043f\u043e\u043c\u043e\u0449\u043d\u0438\u043a \u0432 \u0442\u0435\u0440\u043c\u0438\u043d\u0430\u043b\u0435",
+  "downloads": null,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "winston-cli",
+  "newest": "2026-10-06T08:34:17.264Z",
+  "repo": "https://github.com/vhvostenkov/AGENT_G",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 93,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "winston-js",
+  "newest": "2025-03-14T02:06:31.392Z",
+  "repo": "npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Utilites for the Winston logger",
+  "downloads": 107,
+  "ecosystem": "npm",
+  "n_versions": 2,
+  "name": "winston-utils",
+  "newest": "2019-12-03T19:53:06.288Z",
+  "repo": "https://github.com/rhatshell/winston-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "security holding package",
+  "downloads": 103,
+  "ecosystem": "npm",
+  "n_versions": 1,
+  "name": "zod-js",
+  "newest": "2026-01-19T00:45:39.500Z",
+  "repo": "npm/security-holder",
+  "verdict": "exists"
+ },
+ {
+  "desc": "TypeScript-first schema validation with static type inference, backed by a Rust core. Drop-in replacement for zod v4.",
+  "downloads": 661,
+  "ecosystem": "npm",
+  "n_versions": 4,
+  "name": "zod-rs",
+  "newest": "2026-08-12T14:42:27.964Z",
+  "repo": "https://github.com/metaphorics/zodrs",
+  "verdict": "exists"
+ },
+ {
+  "desc": "![zod-utils](./zod-utils.png)",
+  "downloads": 1882,
+  "ecosystem": "npm",
+  "n_versions": 24,
+  "name": "zod-utils",
+  "newest": "2023-12-09T14:35:54.133Z",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "asyncio sqlalchemy support",
+  "downloads": 23100,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "async-sqlalchemy",
+  "newest": "2019-04-04T08:59:13",
+  "repo": "https://github.com/aohan237/async-sqlalchemy",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Typer with first-class async support: unified sync/async commands, callbacks, and lifecycle event handlers.",
+  "downloads": 646800,
+  "ecosystem": "pypi",
+  "n_versions": 9,
+  "name": "async-typer",
+  "newest": "2026-09-04T11:13:46",
+  "repo": "https://github.com/byunjuneseok/async-typer/issues",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Convenience functions for AWS using boto3",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 20,
+  "name": "boto3-utils",
+  "newest": "2024-03-07T18:25:12",
+  "repo": "https://github.com/matthewhanson/boto3-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "a set of utilites for writing command line programs with Click",
+  "downloads": 264,
+  "ecosystem": "pypi",
+  "n_versions": 4,
+  "name": "click-utils",
+  "newest": "2015-01-30T12:15:23",
+  "repo": "https://github.com/slafs/click-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Build Django management commands using the click CLI package.",
+  "downloads": 1706868,
+  "ecosystem": "pypi",
+  "n_versions": 13,
+  "name": "django-click",
+  "newest": "2026-01-10T13:19:37",
+  "repo": "https://github.com/django-commons/django-click",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A drop in conditional template loader to use jinja2 if the filename / path meets custom criteria",
+  "downloads": 804,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "django-jinja2",
+  "newest": "2011-12-08T23:43:57",
+  "repo": "https://github.com/yuchant/django-jinja2",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A middleware to log the requests and responses using loguru.",
+  "downloads": 16932,
+  "ecosystem": "pypi",
+  "n_versions": 4,
+  "name": "django-loguru",
+  "newest": "2021-11-30T14:15:32",
+  "repo": "https://github.com/tarsil/django-loguru",
+  "verdict": "exists"
+ },
+ {
+  "desc": "django-pydantic",
+  "downloads": 360,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "django-pydantic",
+  "newest": "2021-01-08T14:16:43",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "",
+  "downloads": 4020,
+  "ecosystem": "pypi",
+  "n_versions": 2,
+  "name": "django-requests",
+  "newest": "2022-02-04T11:13:58",
+  "repo": "https://github.com/kfdm/django-requests",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Extensions for using Rich with Django.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 18,
+  "name": "django-rich",
+  "newest": "2025-09-18T11:42:17",
+  "repo": "https://github.com/adamchainz/django-rich/blob/main/CHANGELOG.rst",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Experimental project for integrating SQLAlchemy properly with django web framework.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "django-sqlalchemy",
+  "newest": null,
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Use Typer to define the CLI for your Django management commands.",
+  "downloads": 1638528,
+  "ecosystem": "pypi",
+  "n_versions": 63,
+  "name": "django-typer",
+  "newest": "2026-09-30T19:58:27",
+  "repo": "https://github.com/django-commons/membership/blob/main/CODE_OF_CONDUCT.md",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A simple yet robust API client for Robinhood",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 31,
+  "name": "fast-arrow",
+  "newest": "2019-09-23T17:46:51",
+  "repo": "https://github.com/westonplatter/fast_arrow/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "\u65e0\u4e0e\u4f26\u6bd4\u7684\u7b80\u5355\u4e14\u5f3a\u5927\u7684requests",
+  "downloads": 72,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "fast-requests",
+  "newest": "2020-04-20T10:29:21",
+  "repo": "https://github.com/jiangfubang/fast_requests",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A drop-in replacement for Python Rich, powered by Rust for maximum performance",
+  "downloads": 144,
+  "ecosystem": "pypi",
+  "n_versions": 2,
+  "name": "fast-rich",
+  "newest": "2025-12-30T23:26:45",
+  "repo": "https://github.com/mohammad-albarham/fast-rich",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Make application with Fastapi and Sqlalchemy with ease",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 4,
+  "name": "fast-sqlalchemy",
+  "newest": "2022-09-22T08:21:08",
+  "repo": "https://github.com/Chaisenbois/fast-alchemy",
+  "verdict": "exists"
+ },
+ {
+  "desc": "",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "fastapi-click",
+  "newest": "2023-05-25T12:52:38",
+  "repo": "https://pypi.org/project/fastapi-click",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Adds simple SQLAlchemy support to FastAPI",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 9,
+  "name": "fastapi-sqlalchemy",
+  "newest": "2020-09-25T16:26:30",
+  "repo": "https://github.com/mfreeborn/fastapi-sqlalchemy",
+  "verdict": "exists"
+ },
+ {
+  "desc": "The CLI for Jinja2",
+  "downloads": 11164368,
+  "ecosystem": "pypi",
+  "n_versions": 16,
+  "name": "jinja2-cli",
+  "newest": "2026-04-05T19:59:24",
+  "repo": "https://github.com/mattrobenolt/jinja2-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "An interactive commandline interface that brings intelligence to your logs.",
+  "downloads": 108,
+  "ecosystem": "pypi",
+  "n_versions": 4,
+  "name": "loguru-cli",
+  "newest": "2024-07-30T06:13:47",
+  "repo": "https://github.com/Loguru-AI/Loguru-CLI",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Turn Pydantic defined Data Models into CLI Tools",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 25,
+  "name": "pydantic-cli",
+  "newest": "2025-10-16T07:00:45",
+  "repo": "http://github.com/mpkocher/pydantic-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Pydantic-X: faster validation helpers, schema versioning, and sanitizers for Pydantic v2.",
+  "downloads": 84,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "pydantic-x",
+  "newest": "2026-04-20T15:51:15",
+  "repo": "https://github.com/yourname/pydantic-x",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Advanced Python HTTP/HTTP2 Client. Support tls/http2/ja3 Fingerprint Custom.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 24,
+  "name": "requests-go",
+  "newest": "2026-04-22T07:33:34",
+  "repo": "https://github.com/wangluozhe/requests-go",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Browser-fingerprint HTTP, HTTP/3 and WebSocket client powered by Rust",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 6,
+  "name": "requests-rs",
+  "newest": "2026-09-21T12:22:29",
+  "repo": "https://github.com/zt1901/requests-rs/blob/main/API_USAGE.md",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Various convenient features about requests.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 8,
+  "name": "requests-utils",
+  "newest": "2023-11-04T07:39:04",
+  "repo": "https://github.com/ilotoki0804/requests-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Command Line Interface to Rich",
+  "downloads": 265656,
+  "ecosystem": "pypi",
+  "n_versions": 18,
+  "name": "rich-cli",
+  "newest": "2025-07-04T09:30:21",
+  "repo": "https://github.com/Textualize/rich-cli",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Utility methods and classes for the \"rich\" package.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 5,
+  "name": "rich-utils",
+  "newest": "2020-10-27T22:33:48",
+  "repo": "",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Asynchronous requests in Python without thinking about it.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 6,
+  "name": "simple-requests",
+  "newest": "2014-06-27T16:59:53",
+  "repo": "https://github.com/ctheiss/simple-requests",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A simplified, enhanced SQLAlchemy package with common patterns and utilities",
+  "downloads": 132,
+  "ecosystem": "pypi",
+  "n_versions": 3,
+  "name": "simple-sqlalchemy",
+  "newest": "2025-08-18T01:34:36",
+  "repo": "https://github.com/simple-sqlalchemy/simple-sqlalchemy/issues",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Various utility functions for SQLAlchemy.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 217,
+  "name": "sqlalchemy-utils",
+  "newest": "2025-12-13T03:14:15",
+  "repo": "https://github.com/kvesteri/sqlalchemy-utils",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Drop-in replacement for tenacity with a Rust core. Same API, faster retries.",
+  "downloads": null,
+  "ecosystem": "pypi",
+  "n_versions": 1,
+  "name": "tenacity-rs",
+  "newest": "2026-03-13T11:52:21",
+  "repo": "https://github.com/wkargul/tenacity-rs#readme",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Typer, build great CLIs. Easy to code. Based on Python type hints.",
+  "downloads": 485772,
+  "ecosystem": "pypi",
+  "n_versions": 53,
+  "name": "typer-cli",
+  "newest": "2026-02-16T22:08:49",
+  "repo": "https://github.com/fastapi/typer",
+  "verdict": "exists"
+ }
+]

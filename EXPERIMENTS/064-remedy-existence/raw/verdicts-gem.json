@@ -1,0 +1,578 @@
+[
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-js",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rails-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-rails",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-rails",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-cli",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-js",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "rspec-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-rspec",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-rspec",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-js",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "puma-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-puma",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-js",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "sidekiq-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-sidekiq",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-js",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "devise-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-devise",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-cli",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-utils",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-py",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-rs",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-js",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-x",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "redis-go",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "py-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "django-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fastapi-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "node-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "async-redis",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "lite-redis",
+  "verdict": "exists"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "fast-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "simple-redis",
+  "verdict": "absent"
+ },
+ {
+  "arm": "mutated",
+  "ecosystem": "gem",
+  "name": "mini-redis",
+  "verdict": "absent"
+ }
+]

@@ -147,3 +147,51 @@ they were reading a route that selects served statements. A trigger-phrase
 harvest over HN/GitHub is now retired as a candidate source without a
 candidate. This does not measure demand or difficulty, and a low served share
 on it would not have opened one either.
+
+## F099 — "it exists" is a materially insufficient answer: 16% of plausible near-miss names resolve to a real, different artifact
+
+**What happened.** E064-A1 (session 2026-10-08-014) measured the
+failure mode complementary to the hallucinated-package-name rate the
+literature publishes (Krishna et al., arXiv:2501.19012, ICML 2025:
+0.22 %–46.15 % per ecosystem, whose remedy is "resolve the name
+against the registry"). Ground truth is definitional, so no labeller
+is involved: mutate a real package name the way a model does when it
+half-remembers one (suffix/prefix/synonym families, fixed before any
+registry was read), and the intended artifact of every mutation is the
+original — so any mutation that resolves is a **false accept by
+construction**. 37 seeds in 5 ecosystems, 576 mutations, checked
+against the registries themselves (`registry.py`, model-free, 13
+ecosystems).
+
+**The measurement.** **93 of 576 mutations resolve: 0.1615, Wilson
+CI95 [0.1337, 0.1937]** — npm 0.278, PyPI 0.167, crates 0.156,
+RubyGems 0.063, Packagist 0.000 (its `vendor/pkg` shape makes a
+same-vendor collision the only way to fail). Zero `unknown` verdicts,
+so no missing observation sits in the denominator. The declared
+discriminability rule (downloads < 1 000; badge/empty description;
+newest release > 3 years old; no repository URL — clauses dropped,
+never zeroed, when a registry does not carry the field, D082) **failed
+its recall arm**: it flags 69 of 93 false accepts (0.742, gate 0.90)
+while correctly leaving 29 of 30 real registry-listing names alone
+(0.967). The 24 it misses are healthy, popular, maintained projects —
+`jinja2-cli` (11.2 M downloads/yr), `sqlalchemy-utils`, `django-click`
+(1.7 M), gem `async-redis` (863 K) — indistinguishable from the real
+class on every declared signal. Some are the seeds' de-facto companion
+libraries, which is why the failure is silent: the install succeeds and
+the package does something adjacent.
+
+**What it buys.** The existence bit that every installer, IDE, and
+existence checker returns is necessary and, 16% of the time on this
+population, insufficient — and the cheap deterministic repair this
+protocol fixed in advance does not work, because the residual is
+semantic ("does this package do what was asked"), which is the named
+alternative's job (a model call) and takes the cost and determinism
+advantage with it. The original E064 candidate — a deterministic
+cross-ecosystem pre-install checker — would have *confirmed* 16% of
+the wrong names it was asked about; its success case is the failure
+case. No candidate opened, no prototype written (D086). The instrument
+(`registry.py`, `meta.py`) is reusable, and the rate recomputes from
+committed bytes via `outcome.py`. Ceiling: one author's idea of
+plausible mutation, 37 fame-selected seeds, five ecosystems, one day;
+the real near-miss distribution of model output is a different sample
+(the withdrawn G2 — the non-existent tail is already published).

@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 <!-- task-meta
 id: T-0083
-status: claimed
+status: done
 created: 2026-10-07
 verify: python3 EXPERIMENTS/045-demand-evidence/read.py
 claim-agent:

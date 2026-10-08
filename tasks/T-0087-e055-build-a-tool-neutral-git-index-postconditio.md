@@ -6,7 +6,7 @@ last-verified: 2026-10-08
 
 <!-- task-meta
 id: T-0087
-status: claimed
+status: done
 created: 2026-10-08
 claim-agent: unknown-agent
 claim-session: 2026-10-08-003-fresh-observation-to-find-a-testable-pra

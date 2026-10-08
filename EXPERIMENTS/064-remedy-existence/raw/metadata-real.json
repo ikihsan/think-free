@@ -1,0 +1,302 @@
+[
+ {
+  "desc": "A Rust port of Google's SwissTable hash map",
+  "downloads": 2647588210,
+  "ecosystem": "crates",
+  "n_versions": 56,
+  "name": "hashbrown",
+  "newest": "2026-05-09 04:35:04.251Z",
+  "repo": "https://github.com/rust-lang/hashbrown",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Parser for Rust source code",
+  "downloads": 2595555829,
+  "ecosystem": "crates",
+  "n_versions": 359,
+  "name": "syn",
+  "newest": "2026-09-16 22:31:12.314477Z",
+  "repo": "https://github.com/dtolnay/syn",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A small cross-platform library for retrieving random data from system source",
+  "downloads": 2192660955,
+  "ecosystem": "crates",
+  "n_versions": 48,
+  "name": "getrandom",
+  "newest": "2026-06-17 18:01:59.979552Z",
+  "repo": "https://github.com/rust-random/getrandom",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A macro to generate structures which behave like bitflags.",
+  "downloads": 1978631133,
+  "ecosystem": "crates",
+  "n_versions": 64,
+  "name": "bitflags",
+  "newest": "2026-09-10 01:11:38.500809Z",
+  "repo": "https://github.com/bitflags/bitflags",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Core random number generator traits and tools for implementation.",
+  "downloads": 1874153562,
+  "ecosystem": "crates",
+  "n_versions": 42,
+  "name": "rand_core",
+  "newest": "2026-09-02 08:19:33.285884Z",
+  "repo": "https://github.com/rust-lang-nursery/rand",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Random number generators and other randomness functionality.",
+  "downloads": 1857016793,
+  "ecosystem": "crates",
+  "n_versions": 94,
+  "name": "rand",
+  "newest": "2026-09-20 06:37:47.850624Z",
+  "repo": "https://github.com/rust-random/rand",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Is this value negative zero? === will lie to you",
+  "downloads": 2950354981,
+  "ecosystem": "npm",
+  "n_versions": 8,
+  "name": "is-negative-zero",
+  "newest": "2024-02-19T20:08:46.872Z",
+  "repo": "https://github.com/inspect-js/is-negative-zero",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Test if a double-precision floating-point numeric value is negative zero.",
+  "downloads": 7120031,
+  "ecosystem": "npm",
+  "n_versions": 14,
+  "name": "@stdlib/math-base-assert-is-negative-zero",
+  "newest": "2026-02-05T18:43:08.354Z",
+  "repo": "https://github.com/stdlib-js/math-base-assert-is-negative-zero",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Test if a double-precision floating-point numeric value is positive zero.",
+  "downloads": 7616807,
+  "ecosystem": "npm",
+  "n_versions": 14,
+  "name": "@stdlib/math-base-assert-is-positive-zero",
+  "newest": "2026-02-05T18:28:24.726Z",
+  "repo": "https://github.com/stdlib-js/math-base-assert-is-positive-zero",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Zero-fill a number to the given size.",
+  "downloads": 2001563,
+  "ecosystem": "npm",
+  "n_versions": 8,
+  "name": "zero-fill",
+  "newest": "2020-07-17T04:38:18.592Z",
+  "repo": "https://github.com/feross/zero-fill",
+  "verdict": "exists"
+ },
+ {
+  "desc": "[![github actions][actions-image]][actions-url] [![coverage][codecov-image]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-image]][license-url] [![Downloads][downloads-im",
+  "downloads": 301241,
+  "ecosystem": "npm",
+  "n_versions": 102,
+  "name": "@dramaorg/delectus-culpa-reprehenderit",
+  "newest": "2024-08-12T03:27:19.595Z",
+  "repo": "https://github.com/dramaorg/delectus-culpa-reprehenderit",
+  "verdict": "exists"
+ },
+ {
+  "desc": "[![github actions][actions-image]][actions-url] [![coverage][codecov-image]][codecov-url] [![dependency status][deps-svg]][deps-url] [![dev dependency status][dev-deps-svg]][dev-deps-url] [![License][license-image]][license-url] [![Downloads][downloads-im",
+  "downloads": 205631,
+  "ecosystem": "npm",
+  "n_versions": 73,
+  "name": "@zitterorg/magni-eos",
+  "newest": "2024-08-04T03:33:12.287Z",
+  "repo": "https://github.com/zitterorg/magni-eos",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Json.NET is a popular high-performance JSON framework for .NET",
+  "downloads": 9325394018,
+  "ecosystem": "nuget",
+  "n_versions": 53,
+  "name": "Newtonsoft.Json",
+  "newest": null,
+  "repo": "https://www.newtonsoft.com/json",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Default implementation of dependency injection for Microsoft.Extensions.DependencyInjection.",
+  "downloads": 8006766664,
+  "ecosystem": "nuget",
+  "n_versions": 89,
+  "name": "Microsoft.Extensions.DependencyInjection",
+  "newest": null,
+  "repo": "https://dot.net/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Logging infrastructure default implementation for Microsoft.Extensions.Logging.",
+  "downloads": 7886069432,
+  "ecosystem": "nuget",
+  "n_versions": 89,
+  "name": "Microsoft.Extensions.Logging",
+  "newest": null,
+  "repo": "https://dot.net/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Provides high-performance and low-allocating types that serialize objects to JavaScript Object Notation (JSON) text and deserialize JSON text to objects, with UTF-8 support built-in. Also provides types to read and write JSON text encoded as UTF-8, and to create an in-memory document object model (DOM), that is read-only, for random access of the JSON elements within a structured view of the data.\n\nThe System.Text.Json library is built-in as part of the shared framework in .NET Runtime. The package can be installed when you need to use it in other target frameworks.",
+  "downloads": 6428647531,
+  "ecosystem": "nuget",
+  "n_versions": 65,
+  "name": "System.Text.Json",
+  "newest": null,
+  "repo": "https://dot.net/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Provides the IAsyncEnumerable<T> and IAsyncDisposable interfaces and helper types for .NET Standard 2.0. This package is not required starting with .NET Standard 2.1 and .NET Core 3.0.",
+  "downloads": 4787985648,
+  "ecosystem": "nuget",
+  "n_versions": 41,
+  "name": "Microsoft.Bcl.AsyncInterfaces",
+  "newest": null,
+  "repo": "https://dot.net/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "This is the implementation of the Azure Client Pipeline",
+  "downloads": 4419872005,
+  "ecosystem": "nuget",
+  "n_versions": 72,
+  "name": "Azure.Core",
+  "newest": null,
+  "repo": "https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.63.0/sdk/core/Azure.Core/README.md",
+  "verdict": "exists"
+ },
+ {
+  "desc": "A PHP parser written in PHP",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 113,
+  "name": "nikic/php-parser",
+  "newest": "2026-09-13T18:51:52+00:00",
+  "repo": "https://github.com/nikic/PHP-Parser",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Sends your logs to files, sockets, inboxes, databases and various web services",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 91,
+  "name": "monolog/monolog",
+  "newest": "2026-09-29T19:21:12+00:00",
+  "repo": "https://github.com/Seldaek/monolog",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Guzzle is a PHP HTTP client library",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 185,
+  "name": "guzzlehttp/guzzle",
+  "newest": "2026-09-06T13:55:09+00:00",
+  "repo": "https://github.com/guzzle/guzzle",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Assertions to validate method input/output with nice error messages.",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 32,
+  "name": "webmozart/assert",
+  "newest": "2026-10-05T23:14:19+00:00",
+  "repo": "https://github.com/webmozarts/assert",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Provides functions to read and write from/to an object or array using a simple string notation",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 594,
+  "name": "symfony/property-access",
+  "newest": "2026-07-30T12:40:56+00:00",
+  "repo": "https://github.com/symfony/property-access",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Client library for Google APIs",
+  "downloads": null,
+  "ecosystem": "packagist",
+  "n_versions": 86,
+  "name": "google/apiclient",
+  "newest": "2026-09-25T18:54:19+00:00",
+  "repo": "https://github.com/googleapis/google-api-php-client",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Any-to-PostScript filter",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "a2ps",
+  "newest": null,
+  "repo": "https://www.gnu.org/software/a2ps/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Library for decoding ATSC A/52 streams (AKA 'AC-3')",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "a52dec",
+  "newest": null,
+  "repo": "https://git.adelielinux.org/community/a52dec/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Portable ASCII art graphics library",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "aalib",
+  "newest": null,
+  "repo": "https://aa-project.sourceforge.net/aalib/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "Renders mathematical expressions as ASCII art",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "aamath",
+  "newest": null,
+  "repo": "https://web.archive.org/web/20260501180020/http://fuse.superglue.se/aamath/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "GNU Binutils for aarch64-elf cross development",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "aarch64-elf-binutils",
+  "newest": null,
+  "repo": "https://www.gnu.org/software/binutils/",
+  "verdict": "exists"
+ },
+ {
+  "desc": "GNU compiler collection for aarch64-elf",
+  "downloads": null,
+  "ecosystem": "brew",
+  "n_versions": null,
+  "name": "aarch64-elf-gcc",
+  "newest": null,
+  "repo": "https://gcc.gnu.org",
+  "verdict": "exists"
+ }
+]
