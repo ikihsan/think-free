@@ -8,14 +8,15 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-169 recorded session(s). One `events.jsonl` per session, so concurrent
+170 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 144 older session(s) are in the directory listing.
+Showing the 25 most recent. 145 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-013-begin-fresh-observation-for-a-new-candid](2026-10-08-013-begin-fresh-observation-for-a-new-candid/README.md) | unknown-agent | **unfinished** | Begin fresh observation for a new candidate through independent explor | 2026-10-08T12:35 |
+| [2026-10-08-014-land-session-013-leftovers-repair-the-tw](2026-10-08-014-land-session-013-leftovers-repair-the-tw/README.md) | opencode | **unfinished** | Land session-013 leftovers, repair the two release-check violations, t | 2026-10-08T13:53 |
+| [2026-10-08-013-begin-fresh-observation-for-a-new-candid](2026-10-08-013-begin-fresh-observation-for-a-new-candid/README.md) | unknown-agent | worked | Begin fresh observation for a new candidate through independent explor | 2026-10-08T13:17 |
 | [2026-10-08-012-explore-fresh-observations-for-a-new-can](2026-10-08-012-explore-fresh-observations-for-a-new-can/README.md) | unknown-agent | worked | Explore fresh observations for a new candidate outside previously expl | 2026-10-08T12:10 |
 | [2026-10-08-011-fresh-observation-probe-explore-a-new-pr](2026-10-08-011-fresh-observation-probe-explore-a-new-pr/README.md) | unknown-agent | worked | Fresh observation probe: explore a new practical difficulty outside pr | 2026-10-08T10:54 |
 | [2026-10-08-010-fresh-observation-sweep-for-a-new-candid](2026-10-08-010-fresh-observation-sweep-for-a-new-candid/README.md) | unknown-agent | worked | Fresh-observation sweep for a new candidate; prototype and measure the | 2026-10-08T08:25 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 144 older session(s) are in the directory listing.
 | [2026-10-07-009-fresh-observation-pass-find-a-testable-o](2026-10-07-009-fresh-observation-pass-find-a-testable-o/README.md) | unknown-agent | no-change | fresh observation pass: find a testable opportunity via live GitHub AP | 2026-10-07T15:43 |
 | [2026-10-07-008-fresh-observation-pass-for-a-new-candida](2026-10-07-008-fresh-observation-pass-for-a-new-candida/README.md) | unknown-agent | no-change | fresh observation pass for a new candidate after E048/F085 seat emptin | 2026-10-07T14:48 |
 | [2026-10-07-007-recover-context-from-leftover-session-00](2026-10-07-007-recover-context-from-leftover-session-00/README.md) | unknown-agent | worked | Recover context from leftover session 006; explore fresh observation f | 2026-10-07T14:09 |
-| [2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr](2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/README.md) | unknown-agent | worked | E048: measure what a formatter's own rewrite does to a partially-stage | 2026-10-07T12:49 |
 
 
 ## Reading a session

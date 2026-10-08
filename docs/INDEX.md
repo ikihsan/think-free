@@ -76,6 +76,7 @@ Skill bodies under `.agents/skills/` are indexed by
 
 | Document | Owner index | Status | Verified | Summary |
 |---|---|---|---|---|
+| [`sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md`](../sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/SESSION-SUMMARY.md) | `docs/INDEX.md` | stale | 2026-10-08 | Date: 2026-10-07 |
 | [`sessions/README.md`](../sessions/README.md) | `docs/INDEX.md` | active | 2026-10-03 | The append-only record of every working session in this repository. |
 
 ## tasks
