@@ -47,7 +47,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-30.md`](FAILURES-findings-30.md) (F076, F077, F078, F079, F080,
 F081, F082) and
 [`FAILURES-findings-31.md`](FAILURES-findings-31.md) (F084–F089) and
-[`FAILURES-findings-32.md`](FAILURES-findings-32.md) (F090) and
+[`FAILURES-findings-32.md`](FAILURES-findings-32.md) (F090–F092) and
 [`FAILURES-findings-29.md`](FAILURES-findings-29.md) (F075) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 [`FAILURES-findings-25.md`](FAILURES-findings-25.md) (F060-F063), split because
@@ -282,3 +282,5 @@ firing is the record: **the gate fired before its sensitivity was run, and the
 sensitivity is what a firing gate is owed** (D058).
 | F089 | **Outside developer tooling a step can recur across requesters and still be served; G1 in that corpus is free to pass and the score-tail rule does not transfer.** E057 (D080): 12 sites off the API's own list, 24 arms, 3992 rows. G1 passed decisively (identify an unlabelled object/part, in Bricks, Bicycles, Biology). G2 failed — the corpus names Brickognize (Sensors 2023), RebrickNet, Brickit, BrickLink/Brickset/LEGO Builder, all serving. G3 decidable only for Bricks. Pre-registered rule: KILL, nothing built. Corrections: tail vs head rates are indistinguishable (51/43, 8/22, 17/5) so E033's rule does not carry; G1's discriminating power was nil and G2/G3 carried the gate. |
 | F090 | **A cluster of recurring questions is usually a topic, not a step; on the 38 remaining Stack Exchange survivors, E058's identical gates fire no step at all, extending E057's null to the whole survivor set.** E058 (D080): 38 sites, 76 arms, 11092 rows, 7022 requesters, same protocol, same instrument as E057. Nominal G1 clusters (23 tail/19 head at `edge=4, minusers=8`) all read as topics (visas, wallet errors, CMS fields); the only step-level clusters in the whole 50-site survivor set remain E057's three, killed at G2/G3. G1 matched across arms (23 vs 19), again no score-tail effect. KILL, nothing built. Corrections carry: G1 is topic-level free; the channel shows one class of recurring step and it is served. |
+| F091 | **The pip-name vs import-name mismatch class is real on wheels but served, not a demand gap (E059).** M1 gate fired (22/93), but rows are documented namespace families, convention-derivable renames, or a known short core absent from the sample; reverse mapping is prior art (`pyimport2pkg`), forward is served by package READMEs; SO demand query is topic noise. KILL, nothing built. |
+| F092 | **Static version badges in READMEs are not a population (E060).** 0 of 45 top-star Python/Rust/JS READMEs carry one; the candidate direction dies by absence at the most favorable stratum. KILL, nothing built. |

@@ -43,3 +43,31 @@ name the incumbents. The score-tail rule does not transfer here either
 **Evidence:** [`EXPERIMENTS/058-se-remaining-sites/README.md`](EXPERIMENTS/058-se-remaining-sites/README.md),
 `PROTOCOL.md` (gates declared before the fetch), `raw/` (76 arms, index),
 `cluster.py` (same instrument as E057).
+
+## F091 — The pip-name ≠ import-name class is real but served (E059)
+
+E059's M1 gate fired (22 of 93 evaluable import-name mismatches), so the
+mismatch population is `observed` on real wheels. It does not become a
+candidate: the rows split into documented namespace families
+(`google-cloud-*`→`google`, `opentelemetry-*`, typing stubs), convention-
+derivable renames (`dnspython`→`dns`, `clean-fid`→`cleanfid`), and the
+unpredictable core is a known short list (`Pillow`→`PIL`, `scikit-learn`→
+`sklearn`, `PyYAML`→`yaml`, `beautifulsoup4`→`bs4`, `opencv-python`→`cv2`,
+`python-dateutil`→`dateutil`) that **did not occur in the sample**. The
+serving channel is the package's own README (which states the import usage),
+the reverse mapping (import→pip) is built at `buptanswer/pyimport2pkg` and
+`yyds-fast/yyds-pip-audit` (GitHub search, 2026-10-08), and the SO demand
+query returns topic noise, not a concentrated unserved request stream.
+Evidence: [`EXPERIMENTS/059-install-import-mismatch/`](EXPERIMENTS/059-install-import-mismatch/README.md),
+`raw/top-pypi.json`, `raw/results.json`.
+
+## F092 — Static version badges in READMEs are not a population (E060)
+
+E060 sampled the top-starred Python/Rust/JavaScript repositories and found
+**zero** static version badges in 45 READMEs, against a pre-declared
+population-exists gate. The candidate direction is killed by absence at the
+stratum where the badge practice would most likely survive: modern repos use
+dynamic release badges or no version badge. Nothing built; nothing measured
+about drift, which is vacuous at zero population.
+Evidence: [`EXPERIMENTS/060-badge-release-drift/`](EXPERIMENTS/060-badge-release-drift/README.md),
+`raw/rows.json`.

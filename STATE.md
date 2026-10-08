@@ -115,6 +115,7 @@ paths are then attributed to whoever holds the tree (T-0053).
 
 ## What changed recently
 
+- **Session 2026-10-08-009, VM 0947: E059, E060, F091, F092.** Two fresh-observation probes under D080, both killed at their gates. E059: pip-name vs import-name mismatch is real on wheels (M1 22 of 93) but served — namespace families, convention-derivable renames, and a known short unpredictable core absent from the sample, reverse mapping prior-arted; nothing built. E060: static version badges in README do not exist — 0 of 45 top-star Python/Rust/JS repos carry one; nothing to measure drift on.
 - **Session 2026-10-08-006, VM 0947: E058, F090.** E057's exact
   protocol run on the 38 Stack Exchange survivors E057 skipped (same
   stratum, arms, instrument, gates, hand-read). 76 arms, 11092 rows,

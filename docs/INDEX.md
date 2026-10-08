@@ -254,6 +254,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/056-docs-cli-drift/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | (Renumbered from E055 on 2026-10-08: the public remote had already |
 | `EXPERIMENTS/057-unserved-step/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | observed 2026-10-08, session 2026-10-08-005, VM instance-20260717-0947. |
 | `EXPERIMENTS/058-se-remaining-sites/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | # step appear there? |
+| `EXPERIMENTS/059-install-import-mismatch/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/060-badge-release-drift/` | `EXPERIMENTS/PLAN.md` | complete | 2026-10-08 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
