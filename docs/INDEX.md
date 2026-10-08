@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-07
+last-verified: 2026-10-08
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -246,6 +246,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/049-lockfile-closure/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0085. E2's claim: a lockfile is a weak witness of reproducibility because |
 | `EXPERIMENTS/050-registry-mechanisms/` | `docs/INDEX.md` | complete | 2026-10-07 | T-0086. E049 measured that 10 of 11 lockfile closures |
 | `EXPERIMENTS/051-claim-contradiction/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/052-task-prioritization/` | `EXPERIMENTS/052-task-prioritization` | active | 2026-10-07 | owner: EXPERIMENTS/052-task-prioritization |
+| `EXPERIMENTS/053-financial-reconciliation/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
+| `EXPERIMENTS/054-lockfile-artifact-fidelity/` | `docs/INDEX.md` | complete | 2026-10-08 | owner: docs/INDEX.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

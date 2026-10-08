@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-07
+last-verified: 2026-10-08
 -->
 
 <!-- generated-by: origin; do not edit by hand -->

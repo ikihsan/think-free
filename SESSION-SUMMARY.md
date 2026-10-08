@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: stale
+last-verified: 2026-10-08
+-->
+
 # Session Summary: stg Agent Usability Experiment
 
 **Date:** 2026-10-07  

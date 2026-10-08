@@ -1,0 +1,571 @@
+{
+  "experiment": "053-financial-reconciliation",
+  "timestamp": "2026-10-07T23:39:33",
+  "scenarios": [
+    {
+      "scenario": "clean",
+      "seed": 789,
+      "config": {
+        "amount_exact": 100,
+        "amount_close_threshold": 1.0,
+        "amount_close": 50,
+        "amount_loose_threshold": 10.0,
+        "amount_loose": 10,
+        "date_exact": 50,
+        "date_close_threshold": 1,
+        "date_close": 30,
+        "date_loose_threshold": 3,
+        "date_loose": 15,
+        "date_very_loose_threshold": 5,
+        "date_very_loose": 5,
+        "desc_weight": 30,
+        "ref_match": 200,
+        "min_match_score": 100,
+        "split_amount_tolerance": 0.02,
+        "split_date_window": 3,
+        "split_desc_threshold": 0.6
+      },
+      "counts": {
+        "bank_transactions": 90,
+        "ledger_transactions": 90,
+        "true_matches": 80,
+        "predicted_matches": 80,
+        "predicted_splits": 0
+      },
+      "timing": {
+        "matching_seconds": 0.0018939850851893425
+      },
+      "metrics": {
+        "one_to_one": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_positive_rate": 0.0,
+          "tp": 80,
+          "fp": 0,
+          "fn": 0
+        },
+        "splits": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0
+        },
+        "combined": {
+          "total_true_matches": 80,
+          "total_predicted": 80
+        }
+      },
+      "kill_gate": {
+        "passed": true,
+        "failures": []
+      },
+      "matches_detail": [
+        {
+          "bank_id": "B0000",
+          "ledger_id": "L0000",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0001",
+          "ledger_id": "L0001",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0002",
+          "ledger_id": "L0002",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0003",
+          "ledger_id": "L0003",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0004",
+          "ledger_id": "L0004",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0005",
+          "ledger_id": "L0005",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0006",
+          "ledger_id": "L0006",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0007",
+          "ledger_id": "L0007",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0008",
+          "ledger_id": "L0008",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0009",
+          "ledger_id": "L0009",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0010",
+          "ledger_id": "L0010",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0011",
+          "ledger_id": "L0011",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0012",
+          "ledger_id": "L0012",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0013",
+          "ledger_id": "L0013",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0014",
+          "ledger_id": "L0014",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0015",
+          "ledger_id": "L0015",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0016",
+          "ledger_id": "L0016",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0017",
+          "ledger_id": "L0017",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0018",
+          "ledger_id": "L0018",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0019",
+          "ledger_id": "L0019",
+          "score": 380.0
+        }
+      ],
+      "splits_detail": []
+    },
+    {
+      "scenario": "realistic",
+      "seed": 789,
+      "config": {
+        "amount_exact": 100,
+        "amount_close_threshold": 1.0,
+        "amount_close": 50,
+        "amount_loose_threshold": 10.0,
+        "amount_loose": 10,
+        "date_exact": 50,
+        "date_close_threshold": 1,
+        "date_close": 30,
+        "date_loose_threshold": 3,
+        "date_loose": 15,
+        "date_very_loose_threshold": 5,
+        "date_very_loose": 5,
+        "desc_weight": 30,
+        "ref_match": 200,
+        "min_match_score": 100,
+        "split_amount_tolerance": 0.02,
+        "split_date_window": 3,
+        "split_desc_threshold": 0.6
+      },
+      "counts": {
+        "bank_transactions": 100,
+        "ledger_transactions": 105,
+        "true_matches": 95,
+        "predicted_matches": 80,
+        "predicted_splits": 5
+      },
+      "timing": {
+        "matching_seconds": 0.0019800690934062004
+      },
+      "metrics": {
+        "one_to_one": {
+          "precision": 1.0,
+          "recall": 0.8888888888888888,
+          "f1": 0.9411764705882353,
+          "false_positive_rate": 0.0,
+          "tp": 80,
+          "fp": 0,
+          "fn": 10
+        },
+        "splits": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positives": 5,
+          "false_positives": 0,
+          "false_negatives": 0
+        },
+        "combined": {
+          "total_true_matches": 95,
+          "total_predicted": 85
+        }
+      },
+      "kill_gate": {
+        "passed": true,
+        "failures": []
+      },
+      "matches_detail": [
+        {
+          "bank_id": "B0000",
+          "ledger_id": "L0000",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0001",
+          "ledger_id": "L0001",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0002",
+          "ledger_id": "L0002",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0003",
+          "ledger_id": "L0003",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0004",
+          "ledger_id": "L0004",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0005",
+          "ledger_id": "L0005",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0006",
+          "ledger_id": "L0006",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0007",
+          "ledger_id": "L0007",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0008",
+          "ledger_id": "L0008",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0009",
+          "ledger_id": "L0009",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0010",
+          "ledger_id": "L0010",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0011",
+          "ledger_id": "L0011",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0012",
+          "ledger_id": "L0012",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0013",
+          "ledger_id": "L0013",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0014",
+          "ledger_id": "L0014",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0015",
+          "ledger_id": "L0015",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0016",
+          "ledger_id": "L0016",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0017",
+          "ledger_id": "L0017",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0018",
+          "ledger_id": "L0018",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0019",
+          "ledger_id": "L0019",
+          "score": 380.0
+        }
+      ],
+      "splits_detail": [
+        {
+          "primary_id": "B0100",
+          "secondary_ids": [
+            "L0100",
+            "L0101"
+          ]
+        },
+        {
+          "primary_id": "B0102",
+          "secondary_ids": [
+            "L0102",
+            "L0103"
+          ]
+        },
+        {
+          "primary_id": "B0104",
+          "secondary_ids": [
+            "L0104",
+            "L0105"
+          ]
+        },
+        {
+          "primary_id": "B0106",
+          "secondary_ids": [
+            "L0106",
+            "L0107"
+          ]
+        },
+        {
+          "primary_id": "B0108",
+          "secondary_ids": [
+            "L0108",
+            "L0109"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "adversarial",
+      "seed": 789,
+      "config": {
+        "amount_exact": 100,
+        "amount_close_threshold": 1.0,
+        "amount_close": 50,
+        "amount_loose_threshold": 10.0,
+        "amount_loose": 10,
+        "date_exact": 50,
+        "date_close_threshold": 1,
+        "date_close": 30,
+        "date_loose_threshold": 3,
+        "date_loose": 15,
+        "date_very_loose_threshold": 5,
+        "date_very_loose": 5,
+        "desc_weight": 30,
+        "ref_match": 200,
+        "min_match_score": 100,
+        "split_amount_tolerance": 0.02,
+        "split_date_window": 3,
+        "split_desc_threshold": 0.6
+      },
+      "counts": {
+        "bank_transactions": 90,
+        "ledger_transactions": 95,
+        "true_matches": 80,
+        "predicted_matches": 58,
+        "predicted_splits": 5
+      },
+      "timing": {
+        "matching_seconds": 0.0019323872402310371
+      },
+      "metrics": {
+        "one_to_one": {
+          "precision": 1.0,
+          "recall": 0.7733333333333333,
+          "f1": 0.8721804511278195,
+          "false_positive_rate": 0.0,
+          "tp": 58,
+          "fp": 0,
+          "fn": 17
+        },
+        "splits": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positives": 5,
+          "false_positives": 0,
+          "false_negatives": 0
+        },
+        "combined": {
+          "total_true_matches": 80,
+          "total_predicted": 63
+        }
+      },
+      "kill_gate": {
+        "passed": true,
+        "failures": []
+      },
+      "matches_detail": [
+        {
+          "bank_id": "B0000",
+          "ledger_id": "L0000",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0001",
+          "ledger_id": "L0001",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0002",
+          "ledger_id": "L0002",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0003",
+          "ledger_id": "L0003",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0004",
+          "ledger_id": "L0004",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0005",
+          "ledger_id": "L0005",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0006",
+          "ledger_id": "L0006",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0007",
+          "ledger_id": "L0007",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0008",
+          "ledger_id": "L0008",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0009",
+          "ledger_id": "L0009",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0010",
+          "ledger_id": "L0010",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0011",
+          "ledger_id": "L0011",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0012",
+          "ledger_id": "L0012",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0013",
+          "ledger_id": "L0013",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0014",
+          "ledger_id": "L0014",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0015",
+          "ledger_id": "L0015",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0016",
+          "ledger_id": "L0016",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0017",
+          "ledger_id": "L0017",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0018",
+          "ledger_id": "L0018",
+          "score": 380.0
+        },
+        {
+          "bank_id": "B0019",
+          "ledger_id": "L0019",
+          "score": 380.0
+        }
+      ],
+      "splits_detail": [
+        {
+          "primary_id": "B0095",
+          "secondary_ids": [
+            "L0095",
+            "L0096"
+          ]
+        },
+        {
+          "primary_id": "B0097",
+          "secondary_ids": [
+            "L0097",
+            "L0098"
+          ]
+        },
+        {
+          "primary_id": "B0099",
+          "secondary_ids": [
+            "L0099",
+            "L0100"
+          ]
+        },
+        {
+          "primary_id": "B0101",
+          "secondary_ids": [
+            "L0101",
+            "L0102"
+          ]
+        },
+        {
+          "primary_id": "B0103",
+          "secondary_ids": [
+            "L0103",
+            "L0104"
+          ]
+        }
+      ]
+    }
+  ],
+  "overall_kill_gate_passed": true
+}

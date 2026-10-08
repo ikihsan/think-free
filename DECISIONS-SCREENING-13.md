@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079**. Each entry records a choice that was genuinely open, the
+Decisions **D079, D080**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that

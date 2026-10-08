@@ -1,0 +1,45 @@
+==============================================================================
+[seq 2] 2026-10-08T00:24:19+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+results.json complete: no-registry-breakage
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 195  redactions: none
+==============================================================================
+[seq 3] 2026-10-08T00:24:32+00:00
+$ python3 EXPERIMENTS/050-registry-mechanisms/harness.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+results.json complete: no-registry-breakage
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 213  redactions: none
+==============================================================================
+[seq 6] 2026-10-08T00:29:11+00:00
+$ python3 EXPERIMENTS/054-lockfile-artifact-fidelity/check.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+pool=3800 sample=543
+  50/543 done
+  100/543 done
+  150/543 done
+  200/543 done
+  250/543 done
+  300/543 done
+  350/543 done
+  400/543 done
+  450/543 done
+  500/543 done
+{
+  "date": "2026-10-08",
+  "pool": 3800,
+  "sample": 543,
+  "stride": 7,
+  "elapsed_s": 197.1,
+  "matches": 543,
+  "byte_mismatches": 0,
+  "fetch_failures": 0,
+  "verdict": "no-artifact-drift"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 197492  redactions: none
