@@ -1,0 +1,594 @@
+{
+ "K3_away_from_U0": "holds",
+ "ceiling_of_run3_K3": "none measured: K3 is decided at -U0 and at every context above, so the negative is not context-bound",
+ "controls": {
+  "C11_disagreements": [],
+  "C11_rows_agreeing": 16,
+  "C11_rows_compared": 16,
+  "C11_walk_agrees_with_git": true,
+  "C12_exact_selection_read_exactly": true
+ },
+ "provenance": {
+  "scripts": {
+   "arms.py": "e24621af302a1cf0a7597960d409b20cc4252b7501041689d7e10e0e1a7bdf70",
+   "ceiling.py": "3b0d8d3761b08a76af5686105ee629f612d1851c1a18754533db62068a63664e",
+   "controls.py": "672d257851843248a25e803936514dbc7c2444d9c8b3401f7e1a9517ceb59894",
+   "gitenv.py": "bf8d1386f553e949f03f26610300846ab7ce0d3e5de90ffc1068df02a1835843",
+   "indexcheck.py": "f710f74229bfe7bb971a3eee9f8695070a5a0722ec35c1992f59664e4b06dc61",
+   "k3probe.py": "97813656aaf0e9ca9564278156c3d3552c7bf2140bcdf21a753dd4fba9278ccc",
+   "patchwalk.py": "0f42691cac0347ef6ad62edb472733f6a0d86124ba820f7ef474e42586e28cc3",
+   "provenance.py": "e90d269660a0fcab380566f79e8f81f0e00b2862235776ed1e83e4103502475e",
+   "run.py": "edf63d130fbe41dbec0c16752bcbe41863c63b5bb45631179dee6d98acbb5aa6"
+  }
+ },
+ "rows": [
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "git_new_lines": [
+    1,
+    2
+   ],
+   "git_old_lines": [
+    1,
+    2
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,2 +1,2 @@\n-a\n-b\n+A\n+B\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1
+   ],
+   "walk_new_lines": [
+    1,
+    2
+   ],
+   "walk_old_lines": [
+    1,
+    2
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "git_new_lines": [
+    1,
+    2
+   ],
+   "git_old_lines": [
+    1,
+    2
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,2 +1,2 @@\n-a\n-b\n+A\n+B\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1
+   ],
+   "walk_new_lines": [
+    1,
+    2
+   ],
+   "walk_old_lines": [
+    1,
+    2
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "git_new_lines": [
+    4
+   ],
+   "git_old_lines": [
+    4
+   ],
+   "index_holds_intent": true,
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -4 +4 @@ three\n-four\n+FOUR\n",
+   "silent_wrong": false,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [],
+   "walk_new_lines": [
+    4
+   ],
+   "walk_old_lines": [
+    4
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "git_new_lines": [
+    3
+   ],
+   "git_old_lines": [
+    3
+   ],
+   "index_holds_intent": true,
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -3 +3 @@ b\n-c\n+C\n",
+   "silent_wrong": false,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [],
+   "walk_new_lines": [
+    3
+   ],
+   "walk_old_lines": [
+    3
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  }
+ ],
+ "supersedes": {
+  "K3_away_from_U0": "not_evaluated",
+  "artifact": "raw/ceiling-run1.json",
+  "verdict_state": "partial",
+  "why": "the first probe read --as-numbered-lines, whose line list cannot separate carried lines from context away from -U0; PROTOCOL.md Amendment 3"
+ },
+ "verdict": "At -U0: 2 of 4 rows over-stage at exit 0, and the tool's own output names the carried line in every one. Away from -U0: 12 of 12 rows over-stage at exit 0, and the tool's own primary output names a line beyond the want in 12 of 12 -- C11 holds the walk to git's own statement of the index on all 16 rows where anything was staged, and C12 shows the walk reports an exact selection as exactly that line. K3 therefore fails at every context measured, not only at -U0: the negative is a property of the tool's output, not of the pipeline's context. `-U0` remains load-bearing for correctness -- away from it filterdiff over-stages every case probed -- but not for auditability.",
+ "verdict_state": "observed"
+}

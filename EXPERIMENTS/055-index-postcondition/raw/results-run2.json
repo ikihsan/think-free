@@ -1,0 +1,4098 @@
+{
+ "KILL_C": {
+  "K1_controls_fired": true,
+  "K2_a_shipped_arm_exited_0_on_a_wrong_index": true,
+  "K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage": false,
+  "k3_evidence": [
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-edits",
+    "diff_context": null,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-edits",
+    "diff_context": 1,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-edits",
+    "diff_context": 3,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-pair-plus-far",
+    "diff_context": null,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-pair-plus-far",
+    "diff_context": 1,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   {
+    "arm": "filterdiff",
+    "arm_output": "",
+    "caller_can_derive_the_verdict": true,
+    "case": "adjacent-pair-plus-far",
+    "diff_context": 3,
+    "extra_beyond_want": [
+     1
+    ],
+    "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+    "probe_saw_a_line": true,
+    "reported_lines": [
+     1,
+     2
+    ],
+    "tool_says_exactly_the_wanted_line": false,
+    "why": null
+   }
+  ],
+  "k3_rows_probed": 6,
+  "k3_rows_undecided": [],
+  "silent_wrong_by_shipped_arm": {
+   "filterdiff": 6,
+   "git-hunk-native": 0
+  },
+  "silent_wrong_distinct_index_states": 1,
+  "silent_wrong_state_members": {
+   "678239f1620d": [
+    "adjacent-edits/ctx=None",
+    "adjacent-edits/ctx=1",
+    "adjacent-edits/ctx=3",
+    "adjacent-pair-plus-far/ctx=None",
+    "adjacent-pair-plus-far/ctx=1",
+    "adjacent-pair-plus-far/ctx=3"
+   ]
+  },
+  "verdict": "do_not_build"
+ },
+ "controls": [
+  {
+   "failed": [],
+   "fired": true,
+   "name": "C1_recovery",
+   "passed": 10,
+   "rows": 10
+  },
+  {
+   "fired": true,
+   "flagged": 23,
+   "injected": 23,
+   "injection_was_not_wrong": 1,
+   "missed": [],
+   "name": "C2_sensitivity"
+  },
+  {
+   "agreed": 9,
+   "decidable": 9,
+   "detail": [
+    {
+     "agree": true,
+     "case": "modify-one-of-three",
+     "harness_position": 6,
+     "shown_position": 6,
+     "want_line": 4
+    },
+    {
+     "agree": null,
+     "case": "deletion-among-edits",
+     "harness_position": null,
+     "want_line": 3,
+     "why": "line 3 is context; nothing to stage"
+    },
+    {
+     "agree": true,
+     "case": "insertion-among-edits",
+     "harness_position": 4,
+     "shown_position": 4,
+     "want_line": 5
+    },
+    {
+     "agree": true,
+     "case": "adjacent-edits",
+     "harness_position": 4,
+     "shown_position": 4,
+     "want_line": 2
+    },
+    {
+     "agree": true,
+     "case": "append-at-eof",
+     "harness_position": 4,
+     "shown_position": 4,
+     "want_line": 4
+    },
+    {
+     "agree": true,
+     "case": "adjacent-inserts",
+     "harness_position": 4,
+     "shown_position": 4,
+     "want_line": 4
+    },
+    {
+     "agree": true,
+     "case": "three-adjacent",
+     "harness_position": 5,
+     "shown_position": 5,
+     "want_line": 3
+    },
+    {
+     "agree": true,
+     "case": "adjacent-pair-plus-far",
+     "harness_position": 4,
+     "shown_position": 4,
+     "want_line": 2
+    },
+    {
+     "agree": true,
+     "case": "adjacent-insert-run",
+     "harness_position": 7,
+     "shown_position": 7,
+     "want_line": 6
+    },
+    {
+     "agree": true,
+     "case": "whole-file-rewrite",
+     "harness_position": 3,
+     "shown_position": 3,
+     "want_line": 2
+    }
+   ],
+   "fired": true,
+   "name": "C4_selector_mapping",
+   "rows": 10
+  },
+  {
+   "detail": [
+    {
+     "case": "adjacent-edits",
+     "extra_beyond_want": [
+      1
+     ],
+     "name": "c5_probe_sees_overstage",
+     "passed": true,
+     "reported_lines": [
+      1,
+      2
+     ],
+     "want_line": 2,
+     "why": null
+    }
+   ],
+   "fired": true,
+   "name": "C5_probe_sees_an_overstage",
+   "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+   "rows": 1
+  },
+  {
+   "detail": [
+    {
+     "case": "modify-one-of-three",
+     "extra_beyond_want": [],
+     "name": "c6_probe_reads_exact",
+     "passed": true,
+     "reported_lines": [
+      4
+     ],
+     "want_line": 4,
+     "why": null
+    }
+   ],
+   "fired": true,
+   "name": "C6_probe_reads_a_correct_selection",
+   "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+   "rows": 1
+  }
+ ],
+ "git_version": "2.56.0",
+ "rows": [
+  {
+   "arm": "stg",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 4\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 6, not 4\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "ONE\ntwo\nthree\nFOUR\nfive\nSIX\nseven\n",
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "out": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 5-6: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 6,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "modify-one-of-three",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 4\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 6, not 4\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "ONE\ntwo\nthree\nFOUR\nfive\nSIX\nseven\n",
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "out": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 5-6: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 6,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "modify-one-of-three",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "one\ntwo\nthree\nFOUR\nfive\nsix\nseven\n",
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 4\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 6, not 4\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "ONE\ntwo\nthree\nFOUR\nfive\nSIX\nseven\n",
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "out": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n+++ b/f.txt\n4\t:FOUR\n",
+    "reported": {
+     "4": "FOUR"
+    },
+    "reported_lines": [
+     4
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 5-6: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 6,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "modify-one-of-three",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "one\ntwo\nthree\nfour\nfive\nsix\nseven\n",
+   "index_sha256": "3b1cb15d6db3a85b246eb4a3eea8d7d8f8f6743869db4e477c77c9d9922ad4da",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "f6c7f48",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "modify-one-of-three",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n+++ b/f.txt\n",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 2, not 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nd\ne\nF\ng\nh\n",
+   "index_sha256": "4c703f943ba9fa7d4ce6461479bba902b3e3754dd99870a7715c2cebb55e7212",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,8 +1,7 @@\n a\n b\n-c\n d\n e\n-f\n+F\n g\n h\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "line 3 is context; nothing to stage"
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "  staged 811654d  f.txt  @@ -1,8 +1,7 @@  -1\n",
+   "selector": {
+    "hunk": "811654d",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n+++ b/f.txt\n",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"y\", \"why\": \"anchor is line 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nd\ne\nF\ng\nh\n",
+   "index_sha256": "4c703f943ba9fa7d4ce6461479bba902b3e3754dd99870a7715c2cebb55e7212",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -2,6 +2,5 @@ a\n b\n-c\n d\n e\n-f\n+F\n g\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "line 3 is context; nothing to stage"
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "  staged 811654d  f.txt  @@ -1,8 +1,7 @@  -1\n",
+   "selector": {
+    "hunk": "811654d",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n+++ b/f.txt\n",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 2, not 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nd\ne\nF\ng\nh\n",
+   "index_sha256": "4c703f943ba9fa7d4ce6461479bba902b3e3754dd99870a7715c2cebb55e7212",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..52203d7 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,8 +1,7 @@\n a\n b\n-c\n d\n e\n-f\n+F\n g\n h\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "line 3 is context; nothing to stage"
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "deletion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nd\ne\nf\ng\nh\n",
+   "index_sha256": "423439dd9d14a8a0d3ce1641c74367f36a5756aea1c83e663d1e66c42c5627c8",
+   "out": "  staged 811654d  f.txt  @@ -1,8 +1,7 @@  -1\n",
+   "selector": {
+    "hunk": "811654d",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "deletion-among-edits",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "stage f.txt:5\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 5\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..eab5b2d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -2,6 +2,7 @@ a\n b\n c\n d\n+NEW\n e\n f\n g\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 10a8c8c  f.txt  @@ -2,6 +2,7 @@  a  +1\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 5,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "insertion-among-edits",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "stage f.txt:5\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 5\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..eab5b2d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -4,2 +4,3 @@ c\n d\n+NEW\n e\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 10a8c8c  f.txt  @@ -2,6 +2,7 @@  a  +1\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 5,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "insertion-among-edits",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "stage f.txt:5\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 5\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 71ac1b5..eab5b2d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -2,6 +2,7 @@ a\n b\n c\n d\n+NEW\n e\n f\n g\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nNEW\ne\nf\ng\nh\n",
+   "index_sha256": "72179b6a3da93a6278bddf1a170f904298960a14473ebf3d074674b45ff2aa0d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 10a8c8c  f.txt  @@ -2,6 +2,7 @@  a  +1\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "insertion-among-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\nf\ng\nh\n",
+   "index_sha256": "a8cdd76642f0ecda0067f4d780d027935959e42dc16520220f295191b913efba",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "10a8c8c",
+    "passed": 5,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 5
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "insertion-among-edits",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 4, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nD\ne\n",
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-edits",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 4, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nD\ne\n",
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-edits",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 4, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nD\ne\n",
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-edits",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "1a3cf59",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-edits",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..9405325 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,5 @@\n a\n b\n c\n+d\n+e\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "append-at-eof",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..9405325 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -3 +3,3 @@ b\n c\n+d\n+e\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "append-at-eof",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..9405325 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,5 @@\n a\n b\n c\n+d\n+e\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "append-at-eof",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "  staged 2489d5e  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "2489d5e",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "append-at-eof",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..e38f209 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,5 @@\n a\n b\n c\n+X\n+Y\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-inserts",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..e38f209 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -3 +3,3 @@ b\n c\n+X\n+Y\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-inserts",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "stage f.txt:4\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\n",
+   "index_sha256": "880553fca8fcea94e325ee2cfb48e5a985cc797f39a14cc6d3cedecfeb2ae4d2",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 4\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\n",
+   "index_sha256": "a8c8f7292f1ac7a9f3178eb94b1f145193a6ce61d72d654b9b05c26774b78d72",
+   "out": "diff --git a/f.txt b/f.txt\nindex de98044..e38f209 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,5 @@\n a\n b\n c\n+X\n+Y\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-inserts",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nX\n",
+   "index_sha256": "783f49a9e617e372c60927fc0f34a4b7933c83e116709702b1acc731dd506f3d",
+   "out": "  staged 7c61a77  f.txt  @@ -1,3 +1,4 @@  +1\n",
+   "selector": {
+    "hunk": "7c61a77",
+    "passed": 4,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 4
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-inserts",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 3\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nb\nC\nd\nE\n",
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 4-5: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 5,
+    "space": "hunk body, context counted",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "three-adjacent",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 3\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nb\nC\nd\nE\n",
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 4-5: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 5,
+    "space": "hunk body, context counted",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "three-adjacent",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "stage f.txt:3\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nC\nd\ne\n",
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 3 changes, splitting\", \"runs\": 3}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 3\", \"runs\": 1}, {\"key\": \"y\", \"why\": \"anchor is line 3\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 3\", \"r",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nb\nC\nd\nE\n",
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n+++ b/f.txt\n3\t:C\n",
+    "reported": {
+     "3": "C"
+    },
+    "reported_lines": [
+     3
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 4-5: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 5,
+    "space": "hunk body, context counted",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "three-adjacent",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: no changes remain after line filtering\n",
+   "selector": {
+    "hunk": "8fb1414",
+    "passed": 3,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 3
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "three-adjacent",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\nE\n",
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-pair-plus-far",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\nE\n",
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-pair-plus-far",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nB\nc\nd\ne\n",
+   "index_sha256": "2de830c198f6325fd295fa0bbf3fbb68e75652d6d0ed2941033236428ef6066a",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\ne\n",
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "{\"actions\": [{\"key\": \"s\", \"why\": \"hunk holds 2 changes, splitting\", \"runs\": 2}, {\"key\": \"n\", \"why\": \"anchor is line 1, not 2\", \"runs\": 1}, {\"key\": \"n\", \"why\": \"anchor is line 5, not 2\", \"runs\": 1}], \"steps\": 3, \"splits\": 1}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "A\nB\nc\nd\nE\n",
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "out": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n(1/1) Stage this hunk [y,n,q,a,d,s,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "k3": {
+    "derivable": true,
+    "extra_lines_beyond_want": [
+     1
+    ],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n+++ b/f.txt\n1\t:A\n2\t:B\n",
+    "reported": {
+     "1": "A",
+     "2": "B"
+    },
+    "reported_lines": [
+     1,
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": false,
+    "why": null
+   },
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 4,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-pair-plus-far",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\ne\n",
+   "index_sha256": "86dc03602dcf385217216784784a8ecf20e6400decc3208170b12fcb0afb6698",
+   "out": "error: cannot partially select lines 1-4: grouped replacement (deletions: 2, \nadditions: 2); select all or none\n",
+   "selector": {
+    "hunk": "18db71f",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-pair-plus-far",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nZ\n",
+   "index_sha256": "b9594b585de3989663a0139f4865ebdeb896ff6391e5d78abceb180a0a74b93e",
+   "out": "stage f.txt:6\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "{\"actions\": [{\"key\": \"n\", \"why\": \"anchor is line 4, not 6\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\nZ\n",
+   "index_sha256": "c188ae604ab7533dbadb98aa4f4938652d0e2b8dac9684e4a93dfe5a3b72671c",
+   "out": "diff --git a/f.txt b/f.txt\nindex d68dd40..034c6e6 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,4 +1,6 @@\n a\n b\n c\n-d\n+X\n+Y\n+Z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 7,
+    "space": "hunk body, context counted",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 6,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-insert-run",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nZ\n",
+   "index_sha256": "b9594b585de3989663a0139f4865ebdeb896ff6391e5d78abceb180a0a74b93e",
+   "out": "stage f.txt:6\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "{\"actions\": [{\"key\": \"n\", \"why\": \"anchor is line 4, not 6\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\nZ\n",
+   "index_sha256": "c188ae604ab7533dbadb98aa4f4938652d0e2b8dac9684e4a93dfe5a3b72671c",
+   "out": "diff --git a/f.txt b/f.txt\nindex d68dd40..034c6e6 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -3,2 +3,4 @@ b\n c\n-d\n+X\n+Y\n+Z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 7,
+    "space": "hunk body, context counted",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 6,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-insert-run",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "a\nb\nc\nd\nZ\n",
+   "index_sha256": "b9594b585de3989663a0139f4865ebdeb896ff6391e5d78abceb180a0a74b93e",
+   "out": "stage f.txt:6\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 128,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: No valid patches in input (allow with \"--allow-empty\")\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "{\"actions\": [{\"key\": \"n\", \"why\": \"anchor is line 4, not 6\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nX\nY\nZ\n",
+   "index_sha256": "c188ae604ab7533dbadb98aa4f4938652d0e2b8dac9684e4a93dfe5a3b72671c",
+   "out": "diff --git a/f.txt b/f.txt\nindex d68dd40..034c6e6 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,4 +1,6 @@\n a\n b\n c\n-d\n+X\n+Y\n+Z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": true
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "",
+    "reported": {},
+    "reported_lines": [],
+    "saw_any_line": false,
+    "says_exactly_the_wanted_line": false,
+    "why": "no line was reported for this selection"
+   },
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 7,
+    "space": "hunk body, context counted",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "adjacent-insert-run",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "a\nb\nc\nd\n",
+   "index_sha256": "cf2c7f63055d2e84af6e3f01ac1bb7fce598d20cf213fab2b56b8e8047b46ced",
+   "out": "error: cannot partially select lines 4-7: grouped replacement (deletions: 1, \nadditions: 3); select all or none\n",
+   "selector": {
+    "hunk": "6d80bfb",
+    "passed": 6,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 6
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "adjacent-insert-run",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 2\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,3 @@\n x\n-y\n+Y\n z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 3,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": null,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "whole-file-rewrite",
+   "counted": false,
+   "diff_context": null,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 2\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,3 @@\n x\n-y\n+Y\n z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 3,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 1,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "whole-file-rewrite",
+   "counted": false,
+   "diff_context": 1,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  },
+  {
+   "arm": "stg",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "stage f.txt:2\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "filterdiff",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "pty_driver",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "{\"actions\": [{\"key\": \"y\", \"why\": \"anchor is line 2\", \"runs\": 1}], \"steps\": 1, \"splits\": 0}\n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 0,
+   "grader": "holds",
+   "index_holds_intent": true,
+   "index_preview": "x\nY\nz\n",
+   "index_sha256": "1645c8e205de32e93ea98d22c1b2203fa30a68ff93fde8f3bb8dd547f45d26c5",
+   "out": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,3 +1,3 @@\n x\n-y\n+Y\n z\n(1/1) Stage this hunk [y,n,q,a,d,e,p,P,?]? \n",
+   "selector": null,
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-native",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "k3": {
+    "derivable": false,
+    "extra_lines_beyond_want": [],
+    "raw": "diff --git a/f.txt b/f.txt\nindex 04ec35a..20a747d 100644\n+++ b/f.txt\n2\t:Y\n",
+    "reported": {
+     "2": "Y"
+    },
+    "reported_lines": [
+     2
+    ],
+    "saw_any_line": true,
+    "says_exactly_the_wanted_line": true,
+    "why": null
+   },
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 3,
+    "space": "hunk body, context counted",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "git-hunk-naive",
+   "case": "whole-file-rewrite",
+   "counted": true,
+   "diff_context": 3,
+   "exit": 1,
+   "grader": "mismatch",
+   "index_holds_intent": false,
+   "index_preview": "x\ny\nz\n",
+   "index_sha256": "81884b5f2cb68edc6286363dcc4699a913a2d5ba05818d0fdc43ba68bb990bd8",
+   "out": "error: cannot select one side of lines 2-3: one-for-one replacement; match text \nboth lines share, select both lines, or pass --allow-one-sided\n",
+   "selector": {
+    "hunk": "4fe2f1e",
+    "passed": 2,
+    "space": "file line passed as a body position on purpose",
+    "want_line": 2
+   },
+   "silent": false
+  },
+  {
+   "arm": "gah",
+   "case": "whole-file-rewrite",
+   "counted": false,
+   "diff_context": 3,
+   "grader": "not_evaluated",
+   "not_evaluated": "gah 0.3.0: no release binary exists on any channel (all five GitHub releases carry zero assets, no binstall entry, no container) and building it needs a Rust edition-2024 toolchain this host does not have"
+  }
+ ],
+ "tally": {
+  "filterdiff": {
+   "counted": 30,
+   "holds": 12,
+   "not_evaluated": 0,
+   "refused_nonzero": 12,
+   "silent_wrong": 6,
+   "wrong": 18
+  },
+  "gah": {
+   "counted": 0,
+   "holds": 0,
+   "not_evaluated": 30,
+   "refused_nonzero": 0,
+   "silent_wrong": 0,
+   "wrong": 0
+  },
+  "git-hunk-naive": {
+   "counted": 30,
+   "holds": 9,
+   "not_evaluated": 0,
+   "refused_nonzero": 21,
+   "silent_wrong": 0,
+   "wrong": 21
+  },
+  "git-hunk-native": {
+   "counted": 27,
+   "holds": 9,
+   "not_evaluated": 3,
+   "refused_nonzero": 18,
+   "silent_wrong": 0,
+   "wrong": 18
+  },
+  "naive": {
+   "counted": 30,
+   "holds": 6,
+   "not_evaluated": 0,
+   "refused_nonzero": 0,
+   "silent_wrong": 24,
+   "wrong": 24
+  },
+  "pty_driver": {
+   "counted": 30,
+   "holds": 13,
+   "not_evaluated": 0,
+   "refused_nonzero": 0,
+   "silent_wrong": 17,
+   "wrong": 17
+  },
+  "stg": {
+   "counted": 30,
+   "holds": 30,
+   "not_evaluated": 0,
+   "refused_nonzero": 0,
+   "silent_wrong": 0,
+   "wrong": 0
+  }
+ }
+}

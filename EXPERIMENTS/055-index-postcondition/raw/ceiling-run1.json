@@ -1,0 +1,451 @@
+{
+ "K3_away_from_U0": "not_evaluated",
+ "ceiling_of_run3_K3": "the negative holds at -U0, the context run 3's arm and probe were both pinned to; this probe cannot extend it in either direction elsewhere",
+ "controls": {
+  "C10_at_U0_only": true,
+  "C10_correct_selection_stays_correct": false,
+  "C9_reproduces_run3_at_U0": true
+ },
+ "rows": [
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "4": "FOUR"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "4": "four"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "3": "C"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "3": "c"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  }
+ ],
+ "verdict": "At -U0: 2 of 4 rows over-stage, and every one of them is named in the tool's own report (adjacent edits only); 2 of 4 rows are exact. Away from -U0: 12 of 12 rows over-stage, and the report names lines beyond the want in 12 of 12 -- but C10 is falsified there, so those names cannot be told from context and K3 is not_evaluated away from -U0.",
+ "verdict_state": "partial"
+}

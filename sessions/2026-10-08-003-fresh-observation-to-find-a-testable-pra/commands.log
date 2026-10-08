@@ -1,0 +1,3207 @@
+==============================================================================
+[seq 13] 2026-10-08T02:02:51+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 105027  redactions: none
+==============================================================================
+[seq 14] 2026-10-08T02:08:43+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 103622  redactions: none
+==============================================================================
+[seq 15] 2026-10-08T02:17:38+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 104686  redactions: none
+==============================================================================
+[seq 16] 2026-10-08T02:21:31+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+controls only (--verify)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18603  redactions: none
+==============================================================================
+[seq 17] 2026-10-08T02:22:13+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+......................................
+----------------------------------------------------------------------
+Ran 38 tests in 24.601s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 25213  redactions: none
+==============================================================================
+[seq 18] 2026-10-08T02:24:14+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 108111  redactions: none
+==============================================================================
+[seq 19] 2026-10-08T02:29:46+00:00
+$ bash /tmp/opencode/e055_manual.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+--- intent: stage working-tree line 2 only (b -> B); want a,B,c,d,e
+apply exit=0
+--- index holds:
+A
+B
+c
+d
+e
+--- the tool's own report of what it carried:
+(after) exit=0
+(before) exit=0
+--- git status:
+MM f.txt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 291  redactions: none
+==============================================================================
+[seq 20] 2026-10-08T02:29:57+00:00
+$ bash /tmp/opencode/e055_manual2.sh
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== intent: stage working-tree line 2 only (b -> B); want a,B,c,d,e
+--- (1) the tool's own report FIRST, before anything is staged:
+diff --git a/f.txt b/f.txt
+index 9405325..0dcc45a 100644
++++ b/f.txt
+1	:A
+2	:B
+--- (2) then apply:
+apply exit=0
+--- (3) index holds:
+A
+B
+c
+d
+e
+--- (4) the same probe AFTER staging (run 2's ordering defect):
+(empty above = blind probe)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 123  redactions: none
+==============================================================================
+[seq 21] 2026-10-08T02:34:43+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/ceiling.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "controls": {
+  "C10_correct_selection_stays_correct": false,
+  "C9_reproduces_run3_at_U0": true
+ },
+ "rows": [
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "4": "FOUR"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "4": "four"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "3": "C"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "3": "c"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  }
+ ],
+ "verdict": null,
+ "verdict_state": "not_evaluated"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4897  redactions: none
+==============================================================================
+[seq 22] 2026-10-08T02:35:49+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/ceiling.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "K3_away_from_U0": "not_evaluated",
+ "ceiling_of_run3_K3": "the negative holds at -U0, the context run 3's arm and probe were both pinned to; this probe cannot extend it in either direction elsewhere",
+ "controls": {
+  "C10_at_U0_only": true,
+  "C10_correct_selection_stays_correct": false,
+  "C9_reproduces_run3_at_U0": true
+ },
+ "rows": [
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "4": "FOUR"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "4": "four"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "3": "C"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "3": "c"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  }
+ ],
+ "verdict": "At -U0: 2 of 4 rows over-stage, and every one of them is named in the tool's own report (adjacent edits only); 2 of 4 rows are exact. Away from -U0: 12 of 12 rows over-stage, and the report names lines beyond the want in 12 of 12 -- but C10 is falsified there, so those names cannot be told from context and K3 is not_evaluated away from -U0.",
+ "verdict_state": "partial"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2921  redactions: none
+==============================================================================
+[seq 23] 2026-10-08T02:39:33+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+controls only (--verify)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18601  redactions: none
+==============================================================================
+[seq 26] 2026-10-08T02:48:17+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/ceiling.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "K3_away_from_U0": "not_evaluated",
+ "ceiling_of_run3_K3": "the negative holds at -U0, the context run 3's arm and probe were both pinned to; this probe cannot extend it in either direction elsewhere",
+ "controls": {
+  "C10_at_U0_only": true,
+  "C10_correct_selection_stays_correct": false,
+  "C9_reproduces_run3_at_U0": true
+ },
+ "provenance": {
+  "scripts": {
+   "arms.py": "e24621af302a1cf0a7597960d409b20cc4252b7501041689d7e10e0e1a7bdf70",
+   "ceiling.py": "6c92c29c745978731ec26f268fd00ab28cdde0af86b4794c25d274caff17a2d3",
+   "controls.py": "672d257851843248a25e803936514dbc7c2444d9c8b3401f7e1a9517ceb59894",
+   "gitenv.py": "bf8d1386f553e949f03f26610300846ab7ce0d3e5de90ffc1068df02a1835843",
+   "indexcheck.py": "f710f74229bfe7bb971a3eee9f8695070a5a0722ec35c1992f59664e4b06dc61",
+   "k3probe.py": "97813656aaf0e9ca9564278156c3d3552c7bf2140bcdf21a753dd4fba9278ccc",
+   "provenance.py": "e90d269660a0fcab380566f79e8f81f0e00b2862235776ed1e83e4103502475e",
+   "run.py": "edf63d130fbe41dbec0c16752bcbe41863c63b5bb45631179dee6d98acbb5aa6"
+  }
+ },
+ "rows": [
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "D",
+    "5": "e"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "B",
+    "3": "c",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "want": 2
+  },
+  {
+   "after_report": {
+    "4": "FOUR"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "4": "four"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "1": "ONE",
+    "2": "two",
+    "3": "three",
+    "4": "FOUR",
+    "5": "five",
+    "6": "SIX",
+    "7": "seven"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "want": 4
+  },
+  {
+   "after_report": {
+    "3": "C"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "3": "c"
+   },
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "index_holds_intent": true,
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "silent_wrong": false,
+   "tool_named_lines_beyond_want": [],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  },
+  {
+   "after_report": {
+    "1": "A",
+    "2": "b",
+    "3": "C",
+    "4": "d",
+    "5": "E"
+   },
+   "apply_exit": 0,
+   "before_report": {
+    "1": "a",
+    "2": "b",
+    "3": "c",
+    "4": "d",
+    "5": "e"
+   },
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "silent_wrong": true,
+   "tool_named_lines_beyond_want": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "want": 3
+  }
+ ],
+ "verdict": "At -U0: 2 of 4 rows over-stage, and every one of them is named in the tool's own report (adjacent edits only); 2 of 4 rows are exact. Away from -U0: 12 of 12 rows over-stage, and the report names lines beyond the want in 12 of 12 -- but C10 is falsified there, so those names cannot be told from context and K3 is not_evaluated away from -U0.",
+ "verdict_state": "partial"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3131  redactions: none
+==============================================================================
+[seq 28] 2026-10-08T02:54:06+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+controls only (--verify)
+provenance: artifact carries no provenance block; it predates this check  <- RE-RUN to rebind
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 18816  redactions: none
+==============================================================================
+[seq 29] 2026-10-08T02:57:51+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 108589  redactions: none
+==============================================================================
+[seq 30] 2026-10-08T02:58:15+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+controls only (--verify)
+provenance: written by the current bytes
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 17584  redactions: none
+==============================================================================
+[seq 31] 2026-10-08T02:58:49+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+...........................................
+----------------------------------------------------------------------
+Ran 43 tests in 25.752s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 26004  redactions: none
+==============================================================================
+[seq 33] 2026-10-08T03:07:09+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/ceiling.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/ceiling.py", line 236, in <module>
+    main()
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/ceiling.py", line 132, in main
+    old, new, why, raw = patchwalk.carried(d, want, ctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/patchwalk.py", line 88, in carried
+    rc, out = selected_patch(repo, want, context, env)
+    ^^^^^^^
+ValueError: too many values to unpack (expected 2)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 720  redactions: none
+==============================================================================
+[seq 34] 2026-10-08T03:08:26+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 EXPERIMENTS/055-index-postcondition/ceiling.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "K3_away_from_U0": "holds",
+ "ceiling_of_run3_K3": "none measured: K3 is decided at -U0 and at every context above, so the negative is not context-bound",
+ "controls": {
+  "C11_disagreements": [],
+  "C11_rows_agreeing": 16,
+  "C11_rows_compared": 16,
+  "C11_walk_agrees_with_git": true,
+  "C12_exact_selection_read_exactly": true
+ },
+ "provenance": {
+  "scripts": {
+   "arms.py": "e24621af302a1cf0a7597960d409b20cc4252b7501041689d7e10e0e1a7bdf70",
+   "ceiling.py": "3b0d8d3761b08a76af5686105ee629f612d1851c1a18754533db62068a63664e",
+   "controls.py": "672d257851843248a25e803936514dbc7c2444d9c8b3401f7e1a9517ceb59894",
+   "gitenv.py": "bf8d1386f553e949f03f26610300846ab7ce0d3e5de90ffc1068df02a1835843",
+   "indexcheck.py": "f710f74229bfe7bb971a3eee9f8695070a5a0722ec35c1992f59664e4b06dc61",
+   "k3probe.py": "97813656aaf0e9ca9564278156c3d3552c7bf2140bcdf21a753dd4fba9278ccc",
+   "patchwalk.py": "0f42691cac0347ef6ad62edb472733f6a0d86124ba820f7ef474e42586e28cc3",
+   "provenance.py": "e90d269660a0fcab380566f79e8f81f0e00b2862235776ed1e83e4103502475e",
+   "run.py": "edf63d130fbe41dbec0c16752bcbe41863c63b5bb45631179dee6d98acbb5aa6"
+  }
+ },
+ "rows": [
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 0,
+   "git_new_lines": [
+    1,
+    2
+   ],
+   "git_old_lines": [
+    1,
+    2
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,2 +1,2 @@\n-a\n-b\n+A\n+B\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1
+   ],
+   "walk_new_lines": [
+    1,
+    2
+   ],
+   "walk_old_lines": [
+    1,
+    2
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-edits",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b72b2f4a15cb756794db57dd993a9d2d545920fea34d7dc675a34a15f386f58f",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..0dcc45a 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n-d\n+D\n e\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    4
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    4
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    4
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 0,
+   "git_new_lines": [
+    1,
+    2
+   ],
+   "git_old_lines": [
+    1,
+    2
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "678239f1620de8787e6e401d43cead4113313dfc78f0d6ad48943efb53870d02",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,2 +1,2 @@\n-a\n-b\n+A\n+B\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1
+   ],
+   "walk_new_lines": [
+    1,
+    2
+   ],
+   "walk_old_lines": [
+    1,
+    2
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "adjacent-pair-plus-far",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "76e46f1c6540de032ef68c88f689a448b1a61fa2be306942740315d21c7a301d",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..aaa3a31 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n-b\n+A\n+B\n c\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    2,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    2,
+    5
+   ],
+   "want": 2,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": false,
+   "case": "modify-one-of-three",
+   "diff_context": 0,
+   "git_new_lines": [
+    4
+   ],
+   "git_old_lines": [
+    4
+   ],
+   "index_holds_intent": true,
+   "index_sha256": "ecbb4968b5250c37b7fceeef29d5c75e132edca1277449ae749d501cf4f65cb2",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -4 +4 @@ three\n-four\n+FOUR\n",
+   "silent_wrong": false,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [],
+   "walk_new_lines": [
+    4
+   ],
+   "walk_old_lines": [
+    4
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "modify-one-of-three",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "git_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "b1ba919665eae2a38a957e1c44ee3684bfeccb79b223d91cd1c3aa176bbbef69",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 2019eda..d1a7add 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,7 +1,7 @@\n-one\n+ONE\n two\n three\n-four\n+FOUR\n five\n-six\n+SIX\n seven\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    6
+   ],
+   "walk_new_lines": [
+    1,
+    4,
+    6
+   ],
+   "walk_old_lines": [
+    1,
+    4,
+    6
+   ],
+   "want": 4,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": false,
+   "case": "three-adjacent",
+   "diff_context": 0,
+   "git_new_lines": [
+    3
+   ],
+   "git_old_lines": [
+    3
+   ],
+   "index_holds_intent": true,
+   "index_sha256": "fc2cb6ca39dab25edd3324c7310cd450d3546f7dcf649453cdf88226698d56ae",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -3 +3 @@ b\n-c\n+C\n",
+   "silent_wrong": false,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [],
+   "walk_new_lines": [
+    3
+   ],
+   "walk_old_lines": [
+    3
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 1,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": 3,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  },
+  {
+   "apply_exit": 0,
+   "caller_can_derive_the_verdict": true,
+   "case": "three-adjacent",
+   "diff_context": null,
+   "git_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "git_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "index_holds_intent": false,
+   "index_sha256": "72a05408a5290b326f531e97832f7b1aa56eb8fb64bd6c4a4170a5f0f4209e45",
+   "selected_patch": "diff --git a/f.txt b/f.txt\nindex 9405325..5837e34 100644\n--- a/f.txt\n+++ b/f.txt\n@@ -1,5 +1,5 @@\n-a\n+A\n b\n-c\n+C\n d\n-e\n+E\n",
+   "silent_wrong": true,
+   "walk_matches_git": true,
+   "walk_named_beyond_want": [
+    1,
+    5
+   ],
+   "walk_new_lines": [
+    1,
+    3,
+    5
+   ],
+   "walk_old_lines": [
+    1,
+    3,
+    5
+   ],
+   "want": 3,
+   "why": null
+  }
+ ],
+ "supersedes": {
+  "K3_away_from_U0": "not_evaluated",
+  "artifact": "raw/ceiling-run1.json",
+  "verdict_state": "partial",
+  "why": "the first probe read --as-numbered-lines, whose line list cannot separate carried lines from context away from -U0; PROTOCOL.md Amendment 3"
+ },
+ "verdict": "At -U0: 2 of 4 rows over-stage at exit 0, and the tool's own output names the carried line in every one. Away from -U0: 12 of 12 rows over-stage at exit 0, and the tool's own primary output names a line beyond the want in 12 of 12 -- C11 holds the walk to git's own statement of the index on all 16 rows where anything was staged, and C12 shows the walk reports an exact selection as exactly that line. K3 therefore fails at every context measured, not only at -U0: the negative is a property of the tool's output, not of the pipeline's context. `-U0` remains load-bearing for correctness -- away from it filterdiff over-stages every case probed -- but not for auditability.",
+ "verdict_state": "observed"
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2714  redactions: none
+==============================================================================
+[seq 36] 2026-10-08T03:10:24+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+............EEEEEEEEE.EE.......F...........
+======================================================================
+ERROR: test_c5_fails_when_only_the_after_side_is_read (test_gates_falsified.TestProbeControlsCanFail.test_c5_fails_when_only_the_after_side_is_read)
+The first probe's fault, pinned as a control so it cannot come back.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 219, in test_c5_fails_when_only_the_after_side_is_read
+    result = scratch(controls.control_probe_sees_overstage, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_sees_overstage'
+
+======================================================================
+ERROR: test_c5_fires_on_the_real_probe (test_gates_falsified.TestProbeControlsCanFail.test_c5_fires_on_the_real_probe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 209, in test_c5_fires_on_the_real_probe
+    result = scratch(controls.control_probe_sees_overstage, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_sees_overstage'
+
+======================================================================
+ERROR: test_c6_fails_when_the_probe_reports_an_extra_line (test_gates_falsified.TestProbeControlsCanFail.test_c6_fails_when_the_probe_reports_an_extra_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 235, in test_c6_fails_when_the_probe_reports_an_extra_line
+    result = scratch(controls.control_probe_reads_exact, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_reads_exact'
+
+======================================================================
+ERROR: test_c6_fires_on_the_real_probe (test_gates_falsified.TestProbeControlsCanFail.test_c6_fires_on_the_real_probe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 226, in test_c6_fires_on_the_real_probe
+    result = scratch(controls.control_probe_reads_exact, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_reads_exact'
+
+======================================================================
+ERROR: test_c7_fails_when_only_the_after_side_is_read (test_gates_falsified.TestProbeControlsCanFail.test_c7_fails_when_only_the_after_side_is_read)
+`after` alone reports exactly the wanted line while a deletion is carried.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 251, in test_c7_fails_when_only_the_after_side_is_read
+    result = scratch(controls.control_probe_sees_carried_deletion, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_sees_carried_deletion'
+
+======================================================================
+ERROR: test_c7_fires_on_the_real_probe (test_gates_falsified.TestProbeControlsCanFail.test_c7_fires_on_the_real_probe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 242, in test_c7_fires_on_the_real_probe
+    result = scratch(controls.control_probe_sees_carried_deletion, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_sees_carried_deletion'
+
+======================================================================
+ERROR: test_c8_can_disagree (test_gates_falsified.TestProbeControlsCanFail.test_c8_can_disagree)
+A probe that under-reports must be caught, so C8 has a failing direction.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 315, in test_c8_can_disagree
+    result = scratch(controls.control_probe_describes_the_selection,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_describes_the_selection'
+
+======================================================================
+ERROR: test_c8_fires_on_the_real_probe (test_gates_falsified.TestProbeControlsCanFail.test_c8_fires_on_the_real_probe)
+The probe's two reports together must name the whole selection.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 300, in test_c8_fires_on_the_real_probe
+    result = scratch(controls.control_probe_describes_the_selection, E038_CASES)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'control_probe_describes_the_selection'
+
+======================================================================
+ERROR: test_patch_footprint_reads_git_not_the_tool (test_gates_falsified.TestProbeControlsCanFail.test_patch_footprint_reads_git_not_the_tool)
+The comparison must be against git's own statement, not filterdiff's.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 338, in test_patch_footprint_reads_git_not_the_tool
+    before, after = scratch(exercise)
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 37, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 330, in exercise
+    empty = controls._patch_footprint(d)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute '_patch_footprint'
+
+======================================================================
+ERROR: test_the_carried_deletion_fixture_really_deletes (test_gates_falsified.TestProbeControlsCanFail.test_the_carried_deletion_fixture_really_deletes)
+C7 asserts a probe is not merely wrong, so the fixture must carry the fault.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 259, in test_the_carried_deletion_fixture_really_deletes
+    base, edited, want = controls.DELETION_ADJACENT
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'DELETION_ADJACENT'
+
+======================================================================
+ERROR: test_a_deletion_bearing_fixture_is_not_in_the_e038_family (test_gates_falsified.TestProbeOrderIsLoadBearing.test_a_deletion_bearing_fixture_is_not_in_the_e038_family)
+Why C7 needs its own fixture: no E038 case has the shape it needs.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 402, in test_a_deletion_bearing_fixture_is_not_in_the_e038_family
+    base, edited, want = controls.DELETION_ADJACENT
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'controls' has no attribute 'DELETION_ADJACENT'
+
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_gates_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 603, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 5 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py']
+
+----------------------------------------------------------------------
+Ran 43 tests in 22.732s
+
+FAILED (failures=1, errors=11)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 23067  redactions: none
+==============================================================================
+[seq 37] 2026-10-08T03:11:12+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+...............................F...........
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_gates_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 605, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 5 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py']
+
+----------------------------------------------------------------------
+Ran 43 tests in 25.900s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 26504  redactions: none
+==============================================================================
+[seq 38] 2026-10-08T03:12:19+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.............................................F...........
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_gates_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 769, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 5 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py']
+
+----------------------------------------------------------------------
+Ran 57 tests in 25.242s
+
+FAILED (failures=1)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 25498  redactions: none
+==============================================================================
+[seq 39] 2026-10-08T03:14:34+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+EEE.EE...........................F
+======================================================================
+ERROR: test_gates_falsified (unittest.loader._FailedTest.test_gates_falsified)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_gates_falsified
+Traceback (most recent call last):
+  File "/tmp/opencode/py312/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/opencode/py312/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_gates_falsified.py", line 26, in <module>
+    from compare import CASES as E038_CASES                          # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'compare'
+
+
+======================================================================
+ERROR: test_probe_controls_falsified (unittest.loader._FailedTest.test_probe_controls_falsified)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_probe_controls_falsified
+Traceback (most recent call last):
+  File "/tmp/opencode/py312/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/opencode/py312/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 29, in <module>
+    from compare import CASES as E038_CASES                           # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'compare'
+
+
+======================================================================
+ERROR: test_a_deletion_bearing_fixture_is_not_in_the_e038_family (test_probe_order_falsified.TestProbeOrderIsLoadBearing.test_a_deletion_bearing_fixture_is_not_in_the_e038_family)
+Why C7 needs its own fixture: no E038 case has the shape it needs.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_order_falsified.py", line 90, in test_a_deletion_bearing_fixture_is_not_in_the_e038_family
+    base, edited, want = probecontrols.DELETION_ADJACENT
+                         ^^^^^^^^^^^^^
+NameError: name 'probecontrols' is not defined
+
+======================================================================
+ERROR: test_pristine_probe_sees_the_selection_and_post_staging_does_not (test_probe_order_falsified.TestProbeOrderIsLoadBearing.test_pristine_probe_sees_the_selection_and_post_staging_does_not)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_order_falsified.py", line 59, in test_pristine_probe_sees_the_selection_and_post_staging_does_not
+    before, after = scratch(exercise)
+                    ^^^^^^^
+NameError: name 'scratch' is not defined
+
+======================================================================
+ERROR: test_run_arms_probes_before_the_arm (test_probe_order_falsified.TestProbeOrderIsLoadBearing.test_run_arms_probes_before_the_arm)
+The recorded probe for a silent-wrong row must not be empty.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_order_falsified.py", line 76, in test_run_arms_probes_before_the_arm
+    rows = scratch(exercise)
+           ^^^^^^^
+NameError: name 'scratch' is not defined
+
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_verdict_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_verdict_falsified.py", line 208, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 5 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py']
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.603s
+
+FAILED (failures=1, errors=5)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1805  redactions: none
+==============================================================================
+[seq 40] 2026-10-08T03:24:09+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............EEE........E.EEEEEE...............................F
+======================================================================
+ERROR: test_gah_is_declared_unmeasured (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_gah_is_declared_unmeasured)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 201, in test_gah_is_declared_unmeasured
+    row = arms.arm_gah("/", 1, {})
+          ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_missing_tool_is_not_evaluated_not_pass (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_missing_tool_is_not_evaluated_not_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 191, in test_missing_tool_is_not_evaluated_not_pass
+    original = arms.FILTERDIFF
+               ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_results_json_is_parseable_and_carries_the_verdict (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_results_json_is_parseable_and_carries_the_verdict)
+`doc lint` reads this file; a results.json that cannot parse is a violation.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 211, in test_results_json_is_parseable_and_carries_the_verdict
+    doc = json.load(fh)
+          ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_patch_footprint_reads_git_not_the_tool (test_probe_controls_falsified.TestProbeControlsCanFail.test_patch_footprint_reads_git_not_the_tool)
+The comparison must be against git's own statement, not filterdiff's.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 180, in test_patch_footprint_reads_git_not_the_tool
+    before, after = scratch(exercise)
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 170, in exercise
+    d = controls.make_repo(base, edited, root, "fp")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_the_carried_deletion_fixture_really_deletes (test_probe_controls_falsified.TestProbeControlsCanFail.test_the_carried_deletion_fixture_really_deletes)
+C7 asserts a probe is not merely wrong, so the fixture must carry the fault.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 121, in test_the_carried_deletion_fixture_really_deletes
+    got = scratch(exercise)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 112, in exercise
+    d = controls.make_repo(base, edited, root, "c7fix")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_an_artifact_with_no_provenance_block_is_reported_not_assumed (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_an_artifact_with_no_provenance_block_is_reported_not_assumed)
+The artifact written before this check existed is not a pass.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 256, in test_an_artifact_with_no_provenance_block_is_reported_not_assumed
+    json.dump({"rows": []}, fh)
+    ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_it_fires_when_a_script_changes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_fires_when_a_script_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 242, in test_it_fires_when_a_script_changes
+    recorded = dict(provenance.stamp())
+                    ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_it_passes_when_the_bytes_agree (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_passes_when_the_bytes_agree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 236, in test_it_passes_when_the_bytes_agree
+    path = self._artifact(provenance.stamp())
+                          ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 262, in test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement
+    self.assertNotIn("test_gates_falsified.py", provenance.scripts())
+                                                ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 271, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    ok, diff, note = provenance.check(path)
+                     ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_verdict_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_verdict_falsified.py", line 208, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 6 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py', 'testharness.py']
+
+----------------------------------------------------------------------
+Ran 65 tests in 25.264s
+
+FAILED (failures=1, errors=10)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 25707  redactions: none
+==============================================================================
+[seq 41] 2026-10-08T03:26:52+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............EEE........E.EEEEEE...............................F
+======================================================================
+ERROR: test_gah_is_declared_unmeasured (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_gah_is_declared_unmeasured)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 201, in test_gah_is_declared_unmeasured
+    row = arms.arm_gah("/", 1, {})
+          ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_missing_tool_is_not_evaluated_not_pass (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_missing_tool_is_not_evaluated_not_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 191, in test_missing_tool_is_not_evaluated_not_pass
+    original = arms.FILTERDIFF
+               ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_results_json_is_parseable_and_carries_the_verdict (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_results_json_is_parseable_and_carries_the_verdict)
+`doc lint` reads this file; a results.json that cannot parse is a violation.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 211, in test_results_json_is_parseable_and_carries_the_verdict
+    doc = json.load(fh)
+          ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_patch_footprint_reads_git_not_the_tool (test_probe_controls_falsified.TestProbeControlsCanFail.test_patch_footprint_reads_git_not_the_tool)
+The comparison must be against git's own statement, not filterdiff's.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 180, in test_patch_footprint_reads_git_not_the_tool
+    before, after = scratch(exercise)
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 170, in exercise
+    d = controls.make_repo(base, edited, root, "fp")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_the_carried_deletion_fixture_really_deletes (test_probe_controls_falsified.TestProbeControlsCanFail.test_the_carried_deletion_fixture_really_deletes)
+C7 asserts a probe is not merely wrong, so the fixture must carry the fault.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 121, in test_the_carried_deletion_fixture_really_deletes
+    got = scratch(exercise)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 112, in exercise
+    d = controls.make_repo(base, edited, root, "c7fix")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_an_artifact_with_no_provenance_block_is_reported_not_assumed (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_an_artifact_with_no_provenance_block_is_reported_not_assumed)
+The artifact written before this check existed is not a pass.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 256, in test_an_artifact_with_no_provenance_block_is_reported_not_assumed
+    json.dump({"rows": []}, fh)
+    ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_it_fires_when_a_script_changes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_fires_when_a_script_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 242, in test_it_fires_when_a_script_changes
+    recorded = dict(provenance.stamp())
+                    ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_it_passes_when_the_bytes_agree (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_passes_when_the_bytes_agree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 236, in test_it_passes_when_the_bytes_agree
+    path = self._artifact(provenance.stamp())
+                          ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 262, in test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement
+    self.assertNotIn("test_gates_falsified.py", provenance.scripts())
+                                                ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 271, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    ok, diff, note = provenance.check(path)
+                     ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_verdict_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_verdict_falsified.py", line 208, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 6 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py', 'testharness.py']
+
+----------------------------------------------------------------------
+Ran 65 tests in 25.066s
+
+FAILED (failures=1, errors=10)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 25222  redactions: none
+==============================================================================
+[seq 42] 2026-10-08T03:27:38+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+..............EEE........E.EEEEEE...............................F
+======================================================================
+ERROR: test_gah_is_declared_unmeasured (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_gah_is_declared_unmeasured)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 201, in test_gah_is_declared_unmeasured
+    row = arms.arm_gah("/", 1, {})
+          ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_missing_tool_is_not_evaluated_not_pass (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_missing_tool_is_not_evaluated_not_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 191, in test_missing_tool_is_not_evaluated_not_pass
+    original = arms.FILTERDIFF
+               ^^^^
+NameError: name 'arms' is not defined
+
+======================================================================
+ERROR: test_results_json_is_parseable_and_carries_the_verdict (test_probe_controls_falsified.TestArmsDegradeQuietlyNeverCleanly.test_results_json_is_parseable_and_carries_the_verdict)
+`doc lint` reads this file; a results.json that cannot parse is a violation.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 211, in test_results_json_is_parseable_and_carries_the_verdict
+    doc = json.load(fh)
+          ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_patch_footprint_reads_git_not_the_tool (test_probe_controls_falsified.TestProbeControlsCanFail.test_patch_footprint_reads_git_not_the_tool)
+The comparison must be against git's own statement, not filterdiff's.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 180, in test_patch_footprint_reads_git_not_the_tool
+    before, after = scratch(exercise)
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 170, in exercise
+    d = controls.make_repo(base, edited, root, "fp")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_the_carried_deletion_fixture_really_deletes (test_probe_controls_falsified.TestProbeControlsCanFail.test_the_carried_deletion_fixture_really_deletes)
+C7 asserts a probe is not merely wrong, so the fixture must carry the fault.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 121, in test_the_carried_deletion_fixture_really_deletes
+    got = scratch(exercise)
+          ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/testharness.py", line 40, in scratch
+    return fn(root, *args)
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 112, in exercise
+    d = controls.make_repo(base, edited, root, "c7fix")
+        ^^^^^^^^
+NameError: name 'controls' is not defined
+
+======================================================================
+ERROR: test_an_artifact_with_no_provenance_block_is_reported_not_assumed (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_an_artifact_with_no_provenance_block_is_reported_not_assumed)
+The artifact written before this check existed is not a pass.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 256, in test_an_artifact_with_no_provenance_block_is_reported_not_assumed
+    json.dump({"rows": []}, fh)
+    ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+
+======================================================================
+ERROR: test_it_fires_when_a_script_changes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_fires_when_a_script_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 242, in test_it_fires_when_a_script_changes
+    recorded = dict(provenance.stamp())
+                    ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_it_passes_when_the_bytes_agree (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_it_passes_when_the_bytes_agree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 236, in test_it_passes_when_the_bytes_agree
+    path = self._artifact(provenance.stamp())
+                          ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 262, in test_tests_are_excluded_so_editing_one_does_not_look_like_a_new_measurement
+    self.assertNotIn("test_gates_falsified.py", provenance.scripts())
+                                                ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+ERROR: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_probe_controls_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_probe_controls_falsified.py", line 271, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    ok, diff, note = provenance.check(path)
+                     ^^^^^^^^^^
+NameError: name 'provenance' is not defined
+
+======================================================================
+FAIL: test_the_shipped_artifact_is_bound_to_the_current_bytes (test_verdict_falsified.TestProvenanceCanSeeADriftedScript.test_the_shipped_artifact_is_bound_to_the_current_bytes)
+The real check, on the real file. Skipped, never failed, when absent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ubuntu/think-free/EXPERIMENTS/055-index-postcondition/test_verdict_falsified.py", line 208, in test_the_shipped_artifact_is_bound_to_the_current_bytes
+    self.assertTrue(ok, "raw/results.json is not bound to these bytes: %s %s"
+AssertionError: False is not true : raw/results.json is not bound to these bytes: 6 script(s) differ ['ceiling.py', 'controls.py', 'patchwalk.py', 'probecontrols.py', 'run.py', 'testharness.py']
+
+----------------------------------------------------------------------
+Ran 65 tests in 26.419s
+
+FAILED (failures=1, errors=10)
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 26627  redactions: none
+==============================================================================
+[seq 43] 2026-10-08T03:30:59+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/run.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+
+arm                counted   holds   refused silent-wrong  not_evaluated
+filterdiff              30      12        12            6  0   <- carries K2
+gah                      0       0         0            0  30
+git-hunk-naive          30       9        21            0  0
+git-hunk-native         27       9        18            0  3   <- carries K2
+naive                   30       6         0           24  0
+pty_driver              30      13         0           17  0
+stg                     30      30         0            0  0
+
+KILL_C: do_not_build
+  K1_controls_fired                                          True
+  K2_a_shipped_arm_exited_0_on_a_wrong_index                 True
+  K3_a_shipped_arm_claimed_exactly_what_it_did_not_stage     False
+  silent-wrong rows in 1 distinct index state(s); 6 probed
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 113598  redactions: none
+==============================================================================
+[seq 44] 2026-10-08T03:31:34+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 -m unittest discover -s EXPERIMENTS/055-index-postcondition -t EXPERIMENTS/055-index-postcondition -p test_*.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.........................................................
+----------------------------------------------------------------------
+Ran 57 tests in 28.690s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 28914  redactions: none
+==============================================================================
+[seq 45] 2026-10-08T03:31:52+00:00
+$ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+git: 2.56.0 (need >= 2.28)
+C1_recovery                        fired=True  {'rows': 10, 'passed': 10}
+C2_sensitivity                     fired=True  {'injected': 23, 'flagged': 23, 'injection_was_not_wrong': 1}
+C4_selector_mapping                fired=True  {'rows': 10, 'decidable': 9, 'agreed': 9}
+C5_probe_sees_an_overstage         fired=True  {'rows': 1}
+C6_probe_reads_a_correct_selection fired=True  {'rows': 1}
+C7_probe_sees_a_carried_deletion   fired=True  {'rows': 1}
+C8_probe_describes_the_whole_selection fired=True  {'rows': 10, 'decidable': 6, 'agreed': 6, 'selected_nothing': 4, 'disagreements': []}
+controls only (--verify)
+provenance: written by the current bytes
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 16575  redactions: none
+==============================================================================
+[seq 46] 2026-10-08T03:34:50+00:00
+$ tools/origin doc lint
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+doc lint: 6157 file(s) checked
+  info  .agents/skills/brainstorming/scripts/server.cjs: 723 lines (exempt from cap)
+  info  .agents/skills/subagent-driven-development/SKILL.md: 503 lines (exempt from cap)
+  info  .agents/skills/test-driven-development/SKILL.md: 320 lines (exempt from cap)
+  info  .agents/skills/writing-skills/SKILL.md: 679 lines (exempt from cap)
+  info  .agents/skills/writing-skills/anthropic-best-practices.md: 1150 lines (exempt from cap)
+  info  .agents/skills/writing-skills/testing-skills-with-subagents.md: 384 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/results.json: 415 lines (exempt from cap)
+  info  EXPERIMENTS/002-a1-masking/sensitivity.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/003-information-sufficiency/results.json: 508 lines (exempt from cap)
+  info  EXPERIMENTS/004-knitting-stage-a/results.json: 634 lines (exempt from cap)
+  info  EXPERIMENTS/005-knitting-bounded-search/results.json: 22556 lines (exempt from cap)
+  info  EXPERIMENTS/006-ventilation-measurement-design/results.json: 9582 lines (exempt from cap)
+  info  EXPERIMENTS/007-build-timestamps/results.json: 3467 lines (exempt from cap)
+  info  EXPERIMENTS/008-build-timestamp-attribution/results.json: 977 lines (exempt from cap)
+  info  EXPERIMENTS/012-candidate-harvest/raw/hn_needs_2026-10-04.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/013-prior-art-predicts-adoption/results.json: 1832 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_classify.json: 497 lines (exempt from cap)
+  info  EXPERIMENTS/014-repository-signal-filter/raw/scrape_partial.json: 402 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/incumbents.json: 1890 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/raw/serving.json: 1424 lines (exempt from cap)
+  info  EXPERIMENTS/015-incumbent-serving/results.json: 5022 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q0.log: 325 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/1_q1.log: 317 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/brave/8_q0.log: 750 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/raw/openweb-one-capture.log: 626 lines (exempt from cap)
+  info  EXPERIMENTS/016-prior-art-adjudication/results.json: 540 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/raw/rootlistings.json: 6502 lines (exempt from cap)
+  info  EXPERIMENTS/017-incumbent-artifact-type/results.json: 1012 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/arm_b.json: 622 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.attempt1.jsonl: 1313 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/raw/corpus_authors.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/019-corpus-person-diversity/results.json: 499 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/bodies.json: 443 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/control.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/population.json: 1244 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/raw/trees.json: 8480 lines (exempt from cap)
+  info  EXPERIMENTS/020-copied-config-drift/results_a5.json: 399 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/copycount.json: 1612 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/coverage.json: 541 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-md-select-repo-count-20000.sse: 1824 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-settings-json-select-repo-count-4000.sse: 528 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-cursor-rules-select-repo-count-4000.sse: 442 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-githooks-pre-commit-select-repo-count-4000.sse: 304 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-github-workflows-ci-yml-select-repo-count-20000.sse: 846 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-pre-commit-config-yaml-select-repo-count-20000.sse: 690 lines (exempt from cap)
+  info  EXPERIMENTS/021-copied-artifact-serving/results.json: 355 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/length_adjusted.json: 329 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control.jsonl: 13409 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/control_depth.jsonl: 26650 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/depth_walk_fetches.jsonl: 1807 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/need_len.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/022-need-outcomes/raw/outcomes.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_arm.jsonl: 540 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/control_authors.jsonl: 1413 lines (exempt from cap)
+  info  EXPERIMENTS/025-need-staters-builderhood/raw/need_arm.jsonl: 1250 lines (exempt from cap)
+  info  EXPERIMENTS/026-unserved-need-structure/raw/texts.jsonl: 1401 lines (exempt from cap)
+  info  EXPERIMENTS/027-cause-of-death-reread/results.json: 380 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H03__github__MrNanko_webp4j.txt: 319 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H30__github__dubyte_dir2opds.txt: 303 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__domainanalyzer.com_domain-traffic-checker_.txt: 391 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__organicvisit.com_check-website-traffic.txt: 552 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__toolszu.com_tools_domain-rating-checker_.txt: 787 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H34__openweb__trafficchecker.net_en.txt: 935 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__cmake.org_LANG__STANDARD.txt: 514 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__github.com_cpp-linter.txt: 1994 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H35__openweb__learn.microsoft.com_C26475_Do_not_use_function_style_C-casts_.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H36__github__mojatter_s2.txt: 370 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Befriend_s_3_000_interest_tags_befriend.cc_.txt: 726 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H40__openweb__Instagram_suggestion_behaviour_derived_from_hashtags_and_geolocation_guidingtech.txt: 923 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__code.visualstudio.com_docs_sourcecontrol_staging-commits.txt: 1486 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__git-scm.com_book_en_v2_Git-Tools-Interactive-Staging.txt: 5939 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/docs/H42__openweb__learn.microsoft.com_visualstudio_git-line-staging.txt: 502 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r1_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2.json: 1561 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch1.json: 781 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/raw/view_b_r2_batch2.json: 832 lines (exempt from cap)
+  info  EXPERIMENTS/028-incumbent-fit/results.json: 543 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_key.json: 1408 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r1_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/raw/view_r2_v1.txt: 2589 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/results.json: 628 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_key.json: 1334 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r1_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2.txt: 2764 lines (exempt from cap)
+  info  EXPERIMENTS/029-need-build-match/superseded/view_r2_xonly.txt: 1090 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/control.jsonl: 2687 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/first_person_treatment.jsonl: 388 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/harvest.jsonl: 2461 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/mutual_control.jsonl: 346 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_control.jsonl: 451 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment.jsonl: 449 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_first_person.jsonl: 458 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/pairs_treatment_matched.jsonl: 466 lines (exempt from cap)
+  info  EXPERIMENTS/030-departure-recurrence/raw/treatment.jsonl: 919 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_candidates.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_e031_pairs_control.txt: 503 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_move.txt: 887 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_ordinary.txt: 881 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_reread.txt: 483 lines (exempt from cap)
+  info  EXPERIMENTS/031-unfilled-requirement/raw/view_seek.txt: 901 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest-attempt1.jsonl: 500 lines (exempt from cap)
+  info  EXPERIMENTS/033-question-recurrence/raw/harvest.jsonl: 1000 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/harvest.jsonl: 2124 lines (exempt from cap)
+  info  EXPERIMENTS/034-reask-tail/raw/tally.json: 696 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/attempts1.json: 338 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/relabel_attempts.json: 2346 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u1.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/035-unanswered-surface/raw/u_labelled.jsonl: 2050 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-filterdiff-man.txt: 1081 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-git-add-adoc.txt: 469 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-neogit-readme.txt: 614 lines (exempt from cap)
+  info  EXPERIMENTS/038-staging-prior-art/raw/sources/src-vscode-git-package.txt: 4415 lines (exempt from cap)
+  info  EXPERIMENTS/039-need-statement-response/raw/arms.jsonl: 1391 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/capture_log.json: 1329 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/corpus.jsonl: 46129 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/scaling.json: 1525 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/tally.json: 502 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U1.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/041-need-index/raw/unit_U2.json: 2163 lines (exempt from cap)
+  info  EXPERIMENTS/045-demand-evidence/raw/sources/git-hunk-README.txt: 359 lines (exempt from cap)
+  info  EXPERIMENTS/046-real-changes/raw/results.jsonl: 1795 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results_seed123.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results_seed42.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results_seed456.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results_seed789.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/053-financial-reconciliation/results_seed999.json: 571 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/ceiling-run1.json: 451 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/ceiling.json: 594 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/results-run1.json: 3102 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/results-run2.json: 4098 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/results-run3.json: 4064 lines (exempt from cap)
+  info  EXPERIMENTS/055-index-postcondition/raw/results.json: 4223 lines (exempt from cap)
+  info  sessions/2026-10-03-002-build-durable-session-infrastructure-ven/commands.log: 778 lines (exempt from cap)
+  info  sessions/2026-10-03-003-record-the-session-002-reconciliation-ga/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-009-rework-the-multi-vm-agent-flow-isolated/commands.log: 1885 lines (exempt from cap)
+  info  sessions/2026-10-03-023-t-0011-bounded-neighbourhood-knitting-pl/commands.log: 501 lines (exempt from cap)
+  info  sessions/2026-10-03-025-screen-all-six-sealed-investigations-wit/commands.log: 471 lines (exempt from cap)
+  info  sessions/2026-10-03-028-run-the-knitting-candidate-s-remaining-k/commands.log: 1812 lines (exempt from cap)
+  info  sessions/2026-10-03-029-diagnose-and-fix-the-ci-tests-step-that/commands.log: 1588 lines (exempt from cap)
+  info  sessions/2026-10-03-040-make-origin-doctor-read-the-push-credent/commands.log: 434 lines (exempt from cap)
+  info  sessions/2026-10-03-042-t-0024-stop-reconciliation-and-the-docum/commands.log: 614 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0030-refuse-a-commit-that-gives-one-fi/commands.log: 1382 lines (exempt from cap)
+  info  sessions/2026-10-04-005-t-0031-allocate-f-d-and-t-identifiers-fr/commands.log: 646 lines (exempt from cap)
+  info  sessions/2026-10-04-011-t-0033-make-doctor-compare-this-vm-s-git/commands.log: 425 lines (exempt from cap)
+  info  sessions/2026-10-04-012-measure-the-test-suite-on-every-cpython/commands.log: 302 lines (exempt from cap)
+  info  sessions/2026-10-04-017-t-0036-report-a-duplicate-defect-number/commands.log: 361 lines (exempt from cap)
+  info  sessions/2026-10-04-024-hold-each-decision-file-s-own-header-to/commands.log: 368 lines (exempt from cap)
+  info  sessions/2026-10-04-026-record-the-run-on-t-0043-s-landed-commit/commands.log: 402 lines (exempt from cap)
+  info  sessions/2026-10-04-027-classify-decisions-records-md-in-the-rel/commands.log: 541 lines (exempt from cap)
+  info  sessions/2026-10-04-030-attribute-a-task-file-that-a-task-comman/commands.log: 695 lines (exempt from cap)
+  info  sessions/2026-10-04-034-separate-the-line-cap-exemption-from-rec/commands.log: 2825 lines (exempt from cap)
+  info  sessions/2026-10-04-035-make-doc-lint-s-broken-link-verdict-a-fu/commands.log: 393 lines (exempt from cap)
+  info  sessions/2026-10-04-038-record-a-base-advance-when-a-paused-reba/commands.log: 438 lines (exempt from cap)
+  info  sessions/2026-10-04-040-measure-the-taskless-session-red-ci-run/commands.log: 1332 lines (exempt from cap)
+  info  sessions/2026-10-04-042-hold-a-mission-record-s-restated-experim/commands.log: 3107 lines (exempt from cap)
+  info  sessions/2026-10-04-043-test-whether-the-record-s-falsifiability/commands.log: 374 lines (exempt from cap)
+  info  sessions/2026-10-04-056-re-adjudicate-e012-s-19-prior-art-kills/commands.log: 576 lines (exempt from cap)
+  info  sessions/2026-10-05-002-test-whether-f033-s-project-level-denomi/commands.log: 514 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/README.md: 354 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/commands.log: 419 lines (exempt from cap)
+  info  sessions/2026-10-05-003-test-whether-agent-configuration-copied/events.jsonl: 373 lines (exempt from cap)
+  info  sessions/2026-10-05-004-measure-whether-the-young-vocabulary-is/commands.log: 981 lines (exempt from cap)
+  info  sessions/2026-10-05-006-measure-what-happened-to-e012-s-1401-pub/commands.log: 382 lines (exempt from cap)
+  info  sessions/2026-10-05-008-measure-the-outcome-distribution-of-e012/commands.log: 1142 lines (exempt from cap)
+  info  sessions/2026-10-05-009-falsify-e022-s-38-5-served-figure-agains/commands.log: 644 lines (exempt from cap)
+  info  sessions/2026-10-05-017-e028-test-whether-the-incumbents-a-prior/commands.log: 1997 lines (exempt from cap)
+  info  sessions/2026-10-05-019-measure-whether-the-278-need-staters-who/commands.log: 435 lines (exempt from cap)
+  info  sessions/2026-10-05-020-e030-test-whether-departure-accounts-peo/commands.log: 457 lines (exempt from cap)
+  info  sessions/2026-10-05-021-e031-test-whether-departure-accounts-tha/commands.log: 362 lines (exempt from cap)
+  info  sessions/2026-10-06-001-e032-test-whether-the-mission-s-three-ze/commands.log: 3306 lines (exempt from cap)
+  info  sessions/2026-10-06-003-test-whether-stack-exchange-s-duplicate/commands.log: 2838 lines (exempt from cap)
+  info  sessions/2026-10-06-004-test-whether-the-population-e034-found-i/commands.log: 481 lines (exempt from cap)
+  info  sessions/2026-10-06-005-test-whether-stack-overflow-s-own-search/commands.log: 2634 lines (exempt from cap)
+  info  sessions/2026-10-06-009-test-e037-s-two-open-gates-does-the-ecos/commands.log: 1305 lines (exempt from cap)
+  info  sessions/2026-10-06-015-reconcile-and-publish-e041-need-index-re/commands.log: 352 lines (exempt from cap)
+  info  sessions/2026-10-07-001-e043-run-real-coding-agents-on-real-stag/commands.log: 681 lines (exempt from cap)
+  info  sessions/2026-10-07-002-e044-rerun-e043-s-agent-staging-harness/commands.log: 848 lines (exempt from cap)
+  info  sessions/2026-10-07-002-e045-t-0083-read-the-demand-evidence-beh/commands.log: 744 lines (exempt from cap)
+  info  sessions/2026-10-07-003-e047-test-with-a-byte-level-oracle-wheth/commands.log: 848 lines (exempt from cap)
+  info  sessions/2026-10-07-006-e048-measure-what-a-formatter-s-own-rewr/commands.log: 806 lines (exempt from cap)
+  info  sessions/2026-10-07-013-land-e049-evidence-from-sessions-011-012/events.jsonl: 7771 lines (exempt from cap)
+  info  sessions/2026-10-08-003-fresh-observation-to-find-a-testable-pra/commands.log: 3007 lines (exempt from cap)
+  FAIL  EXPERIMENTS/055-index-postcondition/PROTOCOL.md: 302 lines exceeds the 300-line cap; split it (see docs/policy/doc-standards.md)
+  FAIL  docs/INDEX.md: generated file is stale; run 'tools/origin doc index'
+doc lint: 2 violation(s)
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 76715  redactions: none
