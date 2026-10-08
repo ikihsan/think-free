@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D085**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D087**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -280,3 +280,32 @@ institution or a record nobody kept, neither of which is a buildable gap.
 **Ceiling:** one labeller, one incumbent, two corpora, today, not then — this
 retires the route as a candidate generator, not every conceivable way of
 listening for need.
+
+## D087 — the need-harvest route is closed at the population level; fresh observation begins in a new domain (2026-10-08)
+
+`observed` 2026-10-08, session 2026-10-08-021, E066, F100.
+
+**The decision.** The mission's standing route for finding candidates — harvest
+statements of need by trigger phrase from Hacker News and GitHub issues, screen
+them, kill the ones that do not survive — is **closed** (not deferred) at the
+population level. E066 independently confirmed E063's finding with a separate
+classifier: GitHub corpus has 82% false positive rate (155 of 189 issues are
+about CI/CD/build stages, not git line staging); HN corpus has 55% non-software
+content in its top triggers; `unserved-open` is 0 of sampled rows. The seven
+emptiness measurements (F029, F039, F051, F059, F081, F084, F085) were not
+wrong about the domains they sampled — they were reading a route that selects
+served statements.
+
+**The choice.** The route is retired. Any successor session starts from fresh
+observation in a new domain, per D083: runnable falsification experiment first
+(stdlib-only, synthetic fixtures, predeclared kill gates), not a product design.
+The difference from D085 is that D085 deferred the route (the instrument
+needed work); E066 confirms the population itself has no unserved tail. The
+route is closed, not deferred.
+
+**Rejected: one more screen or one more corpus.** The population is the
+problem, not the screen. **Rejected: treat the HN corpus as a separate route.**
+The top triggers are dominated by non-software content; the software subset
+is 86.7% served. **Ceiling:** two independent classifiers, two corpora, one
+incumbent (the labeller), today not then. This closes the route; it does not
+close the mission.

@@ -51,6 +51,7 @@ F081, F082) and
 [`FAILURES-findings-32.md`](FAILURES-findings-32.md) (F093, F094) and
 [`FAILURES-findings-33.md`](FAILURES-findings-33.md) (F095, F096, F097,
 F098, F099, D083, D084) and
+[`FAILURES-findings-34.md`](FAILURES-findings-34.md) (F100) and
 [`FAILURES-findings-29.md`](FAILURES-findings-29.md) (F075) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 [`FAILURES-findings-25.md`](FAILURES-findings-25.md) (F060-F063), split because
