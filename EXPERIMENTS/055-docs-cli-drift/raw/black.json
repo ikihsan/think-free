@@ -1,0 +1,35 @@
+{
+ "slug": "psf/black",
+ "help_pages": [
+  "black"
+ ],
+ "doc_flags": 54,
+ "exposed_flags": 31,
+ "doc_not_exposed": [
+  "--bind-port",
+  "--cache-dir",
+  "--cors-allow-origin",
+  "--experimental-string-processing",
+  "--group",
+  "--ignore-rev",
+  "--ignore-revltrevgt",
+  "--ignore-revs-file",
+  "--max-body-size",
+  "--minimum-version",
+  "--no-binary",
+  "--no-cache",
+  "--no-cov",
+  "--no-diff",
+  "--parallel",
+  "--print-full-tree",
+  "--print-tree-diff",
+  "--projects",
+  "--py36",
+  "--rm",
+  "--skip-numeric-underscore-normalization",
+  "--volume",
+  "--workdir"
+ ],
+ "helpblock_not_exposed": [],
+ "exposed_not_in_docs": []
+}

@@ -1,0 +1,85 @@
+==============================================================================
+[seq 2] 2026-10-08T01:13:10+00:00
+$ python3 /tmp/opencode/e055/probe.py black httpie pre-commit cookiecutter
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+== black 26.10.0
+  github: https://github.com/psf/black/blob/main/CHANGES.md
+  scripts: {}
+  flags in PyPI description: 33 ['--check', '--code', '--config', '--diff', '--enable-unstable-feature', '--exclude', '--experimental-string-processing', '--extend-exclude', '--fast', '--force-exclude']
+  files: 406; flags in source: 43; flags in md/rst: 54
+  doc flags not found in source: 17 ['--experimental-string-processing', '--group', '--ignore-rev', '--ignore-revltrevgt', '--ignore-revs-file', '--no-binary', '--no-color', '--no-cov', '--no-diff', '--parallel', '--projects', '--py36', '--rm', '--skip-numeric-underscore-normalization', '--version']
+  source flags not in docs: 6 ['--bind-host', '--debug', '--no-preview-line-length-1', '--outfile', '--run-optional', '--schemastore']
+== httpie 3.2.4
+  github: https://github.com/httpie/cli
+  scripts: {}
+  flags in PyPI description: 1 ['--offline']
+  files: 157; flags in source: 87; flags in md/rst: 81
+  doc flags not found in source: 18 ['--allow-redirects', '--api-key', '--arguments', '--c31279ab254f40aeb06df32b433cbccb', '--c31279ab254f40aeb06df32b433cbccb--', '--dangerous', '--dearmor', '--depth', '--edge', '--no-option', '--no-session', '--no-style', '--printf', '--prompt', '--rm']
+  source flags not in docs: 24 ['--additional-hooks-dir', '--daemon', '--debug-single-value', '--description', '--file', '--lazy-option', '--license', '--local-bin', '--local-branch', '--min-speed', '--name', '--no-format-options', '--no-sorted', '--no-unsorted', '--no-verbose']
+== pre-commit 4.6.2
+  github: https://github.com/pre-commit/pre-commit
+  scripts: {}
+  flags in PyPI description: 0 []
+  files: 137; flags in source: 125; flags in md/rst: 46
+  doc flags not found in source: 13 ['--all', '--allow-unstaged-config', '--bin-dir', '--commit-enabled-brightgreen', '--devenv', '--format-executable', '--hook-types', '--no-rdoc', '--no-ri', '--no-stash', '--tags-only', '--textconv', '--user-install']
+  source flags not in docs: 92 ['--abort', '--add-source', '--allow-empty', '--amend', '--another-arg', '--bare', '--binary', '--bindir', '--bins', '--build-path', '--cached', '--channel', '--checkout-type', '--commit-object-name', '--configfile']
+== cookiecutter 2.7.1
+  github: https://github.com/cookiecutter/cookiecutter
+  scripts: {}
+  flags in PyPI description: 0 []
+  files: 203; flags in source: 19; flags in md/rst: 25
+  doc flags not found in source: 13 ['--add', '--bump', '--exclude', '--group', '--isolated', '--notes-file', '--python', '--quiet', '--template', '--title', '--upgrade', '--user', '--verify-tag']
+  source flags not in docs: 7 ['--accept-hooks', '--config', '--debugger', '--help', '--keep-project-on-failure', '--output-dir', '--verbose']
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4207  redactions: none
+==============================================================================
+[seq 3] 2026-10-08T01:17:07+00:00
+$ bash -c PYTHONPATH=/tmp/opencode/e055/pkgs python3 /tmp/opencode/e055/extract.py psf/black black black > EXPERIMENTS/055-docs-cli-drift/raw/black.json 2>&1; cat EXPERIMENTS/055-docs-cli-drift/raw/black.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+python3: can't open file '/tmp/opencode/e055/extract.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 97  redactions: none
+==============================================================================
+[seq 4] 2026-10-08T01:17:43+00:00
+$ bash -c PYTHONPATH=/tmp/opencode/e055/pkgs python3 /tmp/opencode/e055/extract.py psf/black black black > EXPERIMENTS/055-docs-cli-drift/raw/black.json 2>&1; cat EXPERIMENTS/055-docs-cli-drift/raw/black.json
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "slug": "psf/black",
+ "help_pages": [
+  "black"
+ ],
+ "doc_flags": 54,
+ "exposed_flags": 31,
+ "doc_not_exposed": [
+  "--bind-port",
+  "--cache-dir",
+  "--cors-allow-origin",
+  "--experimental-string-processing",
+  "--group",
+  "--ignore-rev",
+  "--ignore-revltrevgt",
+  "--ignore-revs-file",
+  "--max-body-size",
+  "--minimum-version",
+  "--no-binary",
+  "--no-cache",
+  "--no-cov",
+  "--no-diff",
+  "--parallel",
+  "--print-full-tree",
+  "--print-tree-diff",
+  "--projects",
+  "--py36",
+  "--rm",
+  "--skip-numeric-underscore-normalization",
+  "--volume",
+  "--workdir"
+ ],
+ "helpblock_not_exposed": [],
+ "exposed_not_in_docs": []
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1422  redactions: none

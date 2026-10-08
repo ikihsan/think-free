@@ -1,0 +1,13 @@
+--add << conda-forge to your channels:  .. code-block:: bash      conda config --add channels conda-forge  Once the conda-forge channe
+--bump << angelog:**    ```bash    uv version <version>        # or: uv version --bump minor    ```    Then write `CHANGELOG/<version>.m
+--exclude << Set parent directory as working directory    zip -r $ZIP $SOURCE_DIR --exclude $SOURCE_DIR/$ZIP --quiet && # ZIP cookiecutter
+--group << hanges on the documentation locally, you can do:  ```bash pip install --group dev just servedocs ```  This will compile the doc
+--isolated << of Python. To do this, the command is:  ```bash uv run --python=3.13 --isolated --group test -- pytest ```  This will run `pytest
+--notes-file << itle "Cookiecutter 2.7.1: The One Where It Knows Its Own Name" \      --notes-file CHANGELOG/2.7.1.md    ```  ### Process: Your ow
+--python << cific versions of Python. To do this, the command is:  ```bash uv run --python=3.13 --isolated --group test -- pytest ```  This
+--quiet << rking directory    zip -r $ZIP $SOURCE_DIR --exclude $SOURCE_DIR/$ZIP --quiet && # ZIP cookiecutter    mv $ZIP $SOURCE_DIR/$ZIP
+--template << ngc) for the review (#711, #714) * Update link to docs for Django\'s `--template` command line option, thanks to [@purplediane](ht
+--title << Release:**    ```bash    gh release create v2.7.1 --verify-tag \      --title "Cookiecutter 2.7.1: The One Where It Knows Its O
+--upgrade << ile.   Or with pip:  .. code-block:: bash      python3 -m pip install --upgrade cookiecutter  Upgrade Cookiecutter either with ea
+--user << t the command line:  .. code-block:: bash      python3 -m pip install --user cookiecutter  Or, if you do not have pip:  .. cod
+--verify-tag << **Create the GitHub Release:**    ```bash    gh release create v2.7.1 --verify-tag \      --title "Cookiecutter 2.7.1: The One Whe

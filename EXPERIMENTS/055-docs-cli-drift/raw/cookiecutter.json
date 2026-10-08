@@ -1,0 +1,31 @@
+{
+ "slug": "cookiecutter/cookiecutter",
+ "help_pages": [
+  "cookiecutter"
+ ],
+ "doc_flags": 25,
+ "exposed_flags": 17,
+ "doc_not_exposed": [
+  "--add",
+  "--bump",
+  "--exclude",
+  "--group",
+  "--isolated",
+  "--notes-file",
+  "--python",
+  "--quiet",
+  "--template",
+  "--title",
+  "--upgrade",
+  "--user",
+  "--verify-tag"
+ ],
+ "helpblock_not_exposed": [],
+ "exposed_not_in_docs": [
+  "--accept-hooks",
+  "--help",
+  "--keep-project-on-failure",
+  "--output-dir",
+  "--verbose"
+ ]
+}

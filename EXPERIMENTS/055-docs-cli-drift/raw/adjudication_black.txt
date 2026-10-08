@@ -1,0 +1,23 @@
+--bind-port << ```  You can test that blackd is working using `curl`:  ```sh blackd --bind-port 9090 &  # or let blackd choose a port curl -s -XP
+--cache-dir << onfiguration  <!-- Changes to how Black can be configured -->  - Add `--cache-dir` to configure the cache directory from the comma
+--cors-allow-origin << eed to access `blackd` from a browser-based client, pass one or more `--cors-allow-origin` options to allow specific origins.  ## 
+--experimental-string-processing << ed in false positive cache hits (#4128) - Remove the long-deprecated `--experimental-string-processing` flag. This feature can   c
+--group << his repository;    - run `pip install -e .[d]`;    - run `pip install --group tests`    - make sure it's sane by running `pytho
+--ignore-rev << blame](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revltrevgt) with the `--ignore-rev` option. You can
+--ignore-revltrevgt << blame](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revltrevgt) with the `--ignore-rev` option. You can
+--ignore-revs-file << . You can also pass a file listing the revisions to ignore using the `--ignore-revs-file` option. The changes made by the revision
+--max-body-size << assumes `UTF-8`. Request bodies are limited to 5 MiB by default; use `--max-body-size` to change that limit.  There are a few HTTP
+--minimum-version << ted are mostly a subset of those of _Black_ itself, except for the   `--minimum-version=` flag, which should be used when testing 
+--no-binary << ng exceptionally weird issues or even segfaults, you can try passing `--no-binary black` to your pip install invocation. This flag
+--no-cache << takes precedence over `XDG_CACHE_HOME`.  ### Disabling the cache with --no-cache  If you need Black to always perform a fresh anal
+--no-cov << ame> ```  Pass arguments to pytest:  ```console (.venv)$ tox -e py -- --no-cov ```  _Black_ also has two unique CLI options that
+--no-diff << eing called but with no arguments (#2182)  ### _Black-Primer_  - Add `--no-diff` to black-primer to suppress formatting changes (
+--parallel << n by CI) (.venv)$ tox -e fuzz # Fuzz testing (optional)  (.venv)$ tox --parallel=auto # Run format, tests, and fuzz in parallel ``
+--print-full-tree << h `tox` as shown above, or directly into pytest if not using `tox`.  `--print-full-tree` prints the full concrete syntax tree (CST
+--print-tree-diff << e same CST.  ```console (.venv)$ tox -e py -- --print-full-tree ```  `--print-tree-diff` prints the diff of the two CSTs described
+--projects << ersion to 3.7.4 (#2509)  ### _Black-Primer_  - Add primer support for --projects (#2555) - Print primer summary after individual f
+--py36 << 1)  - added `--force-exclude` argument (#1032)  - removed deprecated `--py36` option (#1236)  - fixed `--diff` output when EOF
+--rm << ](./the_basics.md).  ### Check Black version  ```console $ docker run --rm pyfound/black:latest_release black --version ```
+--skip-numeric-underscore-normalization << normalized to include `_` separators on Python 3.6+ code    - added `--skip-numeric-underscore-normalization` to disable the above
+--volume << ase black --version ```  ### Check code  ```console $ docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_r
+--workdir << ``  ### Check code  ```console $ docker run --rm --volume $(pwd):/src --workdir /src pyfound/black:latest_release black --check .

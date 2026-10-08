@@ -8,14 +8,15 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-159 recorded session(s). One `events.jsonl` per session, so concurrent
+160 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 134 older session(s) are in the directory listing.
+Showing the 25 most recent. 135 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | **unfinished** | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T00:58 |
+| [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
 | [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |
 | [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
 | [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 134 older session(s) are in the directory listing.
 | [2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end](2026-10-06-015-test-kill-q-for-stg-via-agent-end-to-end/README.md) | unknown-agent | worked | Test KILL-Q for stg via agent end-to-end experiment: measure whether a | 2026-10-06T20:44 |
 | [2026-10-06-015-reconcile-and-publish-e041-need-index-re](2026-10-06-015-reconcile-and-publish-e041-need-index-re/README.md) | opencode | worked | Reconcile and publish E041 need-index records; finish the record, renu | 2026-10-06T23:19 |
 | [2026-10-06-014-run-agent-end-to-end-test-comparing-stg](2026-10-06-014-run-agent-end-to-end-test-comparing-stg/README.md) | unknown-agent | worked | Run agent end-to-end test comparing stg vs alternatives for line-addre | 2026-10-06T19:49 |
-| [2026-10-06-013-package-stage-lines-for-real-use-and-rec](2026-10-06-013-package-stage-lines-for-real-use-and-rec/README.md) | unknown-agent | partial | Package stage-lines for real use and record the KILL-Q evaluation | 2026-10-06T13:50 |
 
 
 ## Reading a session

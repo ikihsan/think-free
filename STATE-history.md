@@ -13,6 +13,41 @@ the line cap. Identifiers here are the same ones `STATE.md` uses. Older history
 is in [`STATE-history-2.md`](STATE-history-2.md).
 
 
+- **Session 2026-10-07-003, VM 0947 (T-0084, E047, F084, D079): the last
+  observation derived from a candidate is closed, and it closed by being run.**
+  E045 left one thing unpromoted and `STATE.md` named it the single most useful
+  next action: establish whether a formatter hook that re-stages a whole file
+  sweeps a partially-staged file's unstaged hunks into the commit. Reading both
+  corpus rows verbatim first — which D077 requires, and which inverted half the
+  record — showed **one row exonerates lefthook** (`nextjs-app-template#95` is a
+  report that 2.x *hides* the unstaged half; the stale thing is that repository's
+  own warning) **and one row's own review record names the hazard and records
+  `GH-1 … Defense sustained`**, the author ruling the index-patch fix out of
+  scope. So the claim to test was *about the shipped tools*, and the shipped tools
+  were the thing that had to be measured. E047 ran all of them on bytes — git
+  2.56.0 built from source (this VM's 2.25.1 is below lefthook's 2.31 and
+  lint-staged's 2.32 minimums, and both refusing to start would have read as "no
+  sweep" for arms that never ran), lefthook 2.1.17, pre-commit 4.6.2,
+  lint-staged 17.6.0, husky 9.1.7, prettier 3.9.9:
+  **the hazard is real and byte-exact — the naive hook's commit contains a line
+  that was never staged, and the file reads as modified while its content is
+  already committed — and no shipped runner produces it.** lefthook hides
+  unstaged changes *with and without* `stage_fixed`; lint-staged hides them *with
+  defaults and with* `--no-stash`; pre-commit hides them around the hook by
+  default; `git stash push --keep-index` prevents it with no framework at all.
+  **Two arms run the same hook body one layer apart** and differ only in whether
+  the framework manages unstaged changes: husky sweeps, pre-commit does not. Both
+  controls behaved as required, including the positive control that must sweep or
+  the run is void (F010). **Three defects in the instrument itself** are recorded
+  because each would have produced a wrong answer rather than an error — a hunk
+  count that read `@@` occurrences where git writes two per header, hook bodies
+  that called `node` from a `PATH` git replaces inside a hook, and
+  `formatter_ran` read from the worktree alone. **A declared prediction also
+  failed**: pre-commit was expected to sweep and did not. **D079** makes a
+  candidate's stated pain be measured on bytes against the incumbents that would
+  also have to fix it, before it is ranked. Evidence in
+  [`EXPERIMENTS/047-hook-partial-stage/README.md`](EXPERIMENTS/047-hook-partial-stage/README.md).
+
 ## What changed in the 2026-10-07-001/002 sessions (moved from STATE.md, cap)
 
 - **Session 2026-10-07-002, VM 0947 (E045, T-0083, F081, F082, D077): the candidate is

@@ -154,3 +154,28 @@ in `EXPERIMENTS/050-registry-mechanisms/raw/superseded-first-run/`.
 **Evidence:** [`EXPERIMENTS/050-registry-mechanisms/README.md`](EXPERIMENTS/050-registry-mechanisms/README.md),
 `results.json`, `raw/rows/` (421 version-level API responses),
 `raw/urls/` (3800 artifact-URL checks), `raw/positive_control.json`.
+
+## F087 — Documented CLI flags do not observably drift from exposed `--help` flags in mature projects (E055 probe)
+
+**What happened.** Session 2026-10-08 probed the suspected population
+behind a docs-drift audit candidate before building it: five popular
+PyPI CLI packages (black, cookiecutter, httpie, mypy, pre-commit),
+install each, take `--help` over every subcommand, and compare against
+`--flags` mentioned in the project's `.md`/`.rst` docs. Adjudicated
+every `doc_not_exposed` row by reading its doc context.
+
+**What was found.** Embedded help blocks track `--help` exactly (0 of
+3 projects drift). Prose flag mentions "missing" from `--help` are
+other tools' flags inside examples — docker, git, pip, uv, conda, gh,
+pytest — essentially 100% of rows, with at most one stale entry
+(`--experimental-string-processing`, black changelog churn). The
+mechanism a tool would watch for did not appear in the sample where
+it was most likely to appear.
+
+**Why it is a failure.** The candidate population the probe looked for
+was not observed; an implementation must first clear a noise floor of
+foreign-tool flags that any naive detector will mislabel as drift.
+Combined with the prior art that already syncs help blocks into
+READMEs (`readme-cli-help`, `docsme`, `cli-help-from-readme`), there
+is no demonstrated unserved need here. Probe artifacts preserved;
+[`EXPERIMENTS/055-docs-cli-drift/README.md`](EXPERIMENTS/055-docs-cli-drift/README.md).
