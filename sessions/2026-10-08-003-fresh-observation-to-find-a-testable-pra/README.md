@@ -64,6 +64,15 @@ _(none recorded)_
 | EXPERIMENTS/055-index-postcondition/raw/results-run3.json | 82d4f8842eee | 127763 |
 | EXPERIMENTS/055-index-postcondition/raw/ceiling.json | d55fd577a93f | 13669 |
 | EXPERIMENTS/055-index-postcondition/raw/ceiling-run1.json | 8b58884a441d | 7921 |
+| EXPERIMENTS/055-index-postcondition/PROTOCOL.md | 67824912b333 | 8697 |
+| STATE-in-flight-8.md | 482770ee257e | 7074 |
+| FAILURES-findings-31.md | 2cf5b1c44a81 | 15466 |
+| DECISIONS-SCREENING-13.md | ffc01f89cab0 | 10909 |
+| STATE.md | 2886f70d739e | 37318 |
+| DECISIONS.md | 1e8302c81255 | 13647 |
+| FAILURES.md | 91da9e40197e | 52017 |
+| RELEASE-MANIFEST.md | 463a9af15319 | 6263 |
+| docs/INDEX.md | 0a9a76bb173f | 33151 |
 
 ## Commands
 
@@ -155,18 +164,18 @@ _(none recorded)_
 | 38 | 03:12:19 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
 | 39 | 03:14:34 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
 | 40 | 03:24:09 | command | $ env PATH=/tmp/opencode/gitenv/bin:/tmp/opencode/py312/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local |
-| 65 | 03:56:04 | artifact | wrote EXPERIMENTS/055-index-postcondition/test_probe_order_falsified.py |
-| 66 | 03:56:05 | artifact | wrote EXPERIMENTS/055-index-postcondition/test_probe_readers_falsified.py |
-| 67 | 03:56:06 | artifact | wrote EXPERIMENTS/055-index-postcondition/test_verdict_falsified.py |
-| 68 | 03:56:13 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/results.json |
-| 69 | 03:56:14 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/results-run1.json |
-| 70 | 03:56:16 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/results-run2.json |
-| 71 | 03:56:19 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/results-run3.json |
-| 72 | 03:56:20 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/ceiling.json |
-| 73 | 03:56:21 | artifact | wrote EXPERIMENTS/055-index-postcondition/raw/ceiling-run1.json |
-| 74 | 03:56:39 | experiment_result | KILL-C verdict do_not_build (F088, D081 pending): K1 and K2 fired, K3 false. 210 arm-rows scored against E038's hand-written oracle with a checker tha |
+| 75 | 04:04:05 | artifact | wrote EXPERIMENTS/055-index-postcondition/PROTOCOL.md |
+| 76 | 04:04:08 | milestone | E055 closed: KILL-C do_not_build with all 12 controls fired and no not_evaluated; PROTOCOL.md split at the cap (amendments to siblings), doc index reg |
+| 77 | 04:19:02 | artifact | wrote STATE-in-flight-8.md |
+| 78 | 04:19:03 | artifact | wrote FAILURES-findings-31.md |
+| 79 | 04:19:04 | artifact | wrote DECISIONS-SCREENING-13.md |
+| 80 | 04:19:05 | artifact | wrote STATE.md |
+| 81 | 04:19:06 | artifact | wrote DECISIONS.md |
+| 82 | 04:19:07 | artifact | wrote FAILURES.md |
+| 83 | 04:19:10 | artifact | wrote RELEASE-MANIFEST.md |
+| 84 | 04:19:11 | artifact | wrote docs/INDEX.md |
 
-_24 middle events omitted; see `events.jsonl`._
+_34 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

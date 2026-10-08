@@ -67,7 +67,29 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**Nothing is in flight.** E046 measured the artifact against real repository
+**One reading is in flight, and it does not open a candidate.** E055 (T-0087,
+F088, D081) built the tool-neutral `.git/index` postcondition checker that
+F082's prose-inferred gap called for and ran it on 210 arm-rows against E038's
+hand-written oracle: **KILL-C is `do_not_build`**. K2 fired — `filterdiff` exits 0
+on a wrong index, on 6 rows that are **one** distinct index state — and K3
+failed, because `filterdiff` is self-describing: the selected patch's own `+`/`-`
+markers name the line it carried, at `-U0` and at `-U1`/`-U3`/default (12 of 12
+away from `-U0`, C11 16/16 against `git diff --cached -U0`, C12 on an exact
+selection). **F082's premise is falsified on bytes**: neither coordinate space is
+unlabelled, and what remains — `--lines` selects whole hunks — is a documented
+property of the tool, visible in output the caller already holds. **D081** adds
+the last redundancy check a candidate must survive: a verifier's verdict must not
+be derivable from the incumbent's own primary output. Full reading in
+[`STATE-in-flight-8.md`](STATE-in-flight-8.md); evidence in
+[`EXPERIMENTS/055-index-postcondition/README.md`](EXPERIMENTS/055-index-postcondition/README.md).
+
+**The seat for a candidate is still empty, and E055 does not fill it.** What E055
+leaves is an *instrument*, not a direction: a byte-level oracle for "did the index
+get exactly this line's change", with C1/C2 bounding it and the gates falsified by
+tests that assert `kill_c()` can return the other answers. Reusing it is cheap;
+that is not the same as there being anything to check.
+
+**Nothing else is in flight.** E046 measured the artifact against real repository
 changes and fixed four defects (E046, F076–F080, D075; full reading in
 [`STATE-in-flight-6.md`](STATE-in-flight-6.md)), E045 closed the candidate
 (E045, F081, F082, D077; reading in

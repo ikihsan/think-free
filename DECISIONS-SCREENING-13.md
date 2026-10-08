@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079, D080**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D081**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -96,3 +96,61 @@ what that plan finds when the limitation is *someone else's default behaviour*.
 **Rejected: use an LLM for extraction.** The falsification must be cheap and deterministic. LLM calls add cost, variance, and API dependency. A rule-based extractor on synthetic fixtures is the minimum viable test of the mechanism.
 
 **Ceiling.** Synthetic fixtures only. Real abstracts use varied language, hedging, and indirect phrasing that verb matching will miss. A 100% result on synthetic data does not establish real-world precision/recall. The next step is testing on real PubMed Central abstracts; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
+
+## D081 — A verifier earns a tool only when its verdict is not already derivable from the incumbent's own primary output; "wrong at exit 0" is not sufficient
+
+`observed` 2026-10-08, session 2026-10-08-003, T-0087, E055, F088.
+
+**The situation.** F082 closed the line-staging application by naming two shipped
+incumbents, read from **README prose, never measured**. The prose implied a
+*postcondition* gap: neither tool reads `.git/index` back, and a caller scripting
+one gets exit 0 without learning what landed. E055 built the tool-neutral checker
+that gap implies and ran 210 arm-rows against E038's hand-written oracle — and the
+gap did not survive contact with bytes.
+
+**The choice.** Require, as the build gate, not only that the incumbent *can* be
+wrong at exit 0 but that its own **primary output** gives the caller no way to
+derive the same verdict. Only then does a verifier add a fact rather than restate
+one. Measure the incumbent's primary artifact — not its optional diagnostic
+report — because a report that spans a neighbourhood cannot distinguish a carried
+change from context the caller never asked about.
+
+**The evidence.** K2 fired: `filterdiff` exits 0 on a wrong index on 6 rows, which
+is **one** distinct index state reproduced across three contexts. K3 failed:
+`filterdiff` emits a unified diff in which a carried line is exactly a `+`/`-`
+body line, so the selected patch the caller already piped through the tool names
+line 1 while the caller named line 2. `ceiling.py` established this is not an
+artefact of `-U0`: at `-U1`, `-U3` and the default, 12 of 12 rows over-stage and
+the primary output names a line beyond the want in 12 of 12, with C11 holding the
+reader to `git diff --cached -U0` on all 16 staged rows and C12 holding it to an
+exact selection read exactly. Verdict `do_not_build`.
+
+**Why this is a rule and not a one-off.** D077 requires a candidate's *population*
+to be read out of its demand evidence; D079 requires its *stated pain* to be
+measured against the incumbents. This requires the **pain's mechanism** to be
+checked for redundancy in the incumbent's own output — the last place a redundant
+candidate can hide. F063 measured "wrong but exit 0" across three alternatives
+and correctly declined to build, but had no artefact for the shape and no stated
+criterion; the criterion is what turned 78 rows of wrongness into a build
+decision, and the oracle that scored them turned out to be the reusable part.
+
+**Rejected: build the checker because the incumbent exits 0 on a wrong index.**
+That is the shape F063 measured and it is real; it is also, on this population,
+information the caller already holds. Building here would ship a second reading of
+a patch the first tool printed.
+
+**Rejected: accept a probe that saw nothing as a negative.** Run 2's K3 did, and
+it returned `do_not_build` from an instrument with no observations — the F010 shape,
+where an arm that never ran reads as a clean result. An empty probe is now
+`undecided` and the whole verdict follows it.
+
+**Ceiling.** One fixture family (10 single-file LF cases × 3 contexts), one host,
+`gah` never measured, one change requested per file. The rule does not need a
+wider fixture to hold: it fired on the arm that over-stages, at every context
+measured. The cost is a checker and its controls — the instrument, not the
+experiment, was the expensive half.
+
+**Relation to D079 and D077.** D079 asks whether an incumbent *has* the defect;
+this asks whether anyone would *learn* something new from a tool that checks it.
+A candidate must survive both, and the second is the one that closes the larger
+share of them.

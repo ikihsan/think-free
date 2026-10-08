@@ -6,9 +6,8 @@ last-verified: 2026-10-08
 
 # E055 — can a caller verify that a stager staged what it was asked to stage?
 
-Task T-0087. Protocol [`PROTOCOL.md`](PROTOCOL.md) and its three declared
-amendments; raw results in [`raw/`](raw/); verdict `do_not_build`, and the
-artifact stays an experiment.
+Task T-0087. Protocol `PROTOCOL.md` and its three declared amendments; raw
+results in `raw/`; verdict `do_not_build`, and the artifact stays an experiment.
 
 ## The question
 

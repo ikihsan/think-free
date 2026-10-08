@@ -250,6 +250,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/052-task-prioritization/` | `EXPERIMENTS/052-task-prioritization` | active | 2026-10-07 | owner: EXPERIMENTS/052-task-prioritization |
 | `EXPERIMENTS/053-financial-reconciliation/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-07 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/054-lockfile-artifact-fidelity/` | `docs/INDEX.md` | complete | 2026-10-08 | owner: docs/INDEX.md |
+| `EXPERIMENTS/055-index-postcondition/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Task T-0087. Protocol PROTOCOL.md and its three declared amendments; raw |
 | `EXPERIMENTS/056-docs-cli-drift/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | (Renumbered from E055 on 2026-10-08: the public remote had already |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |

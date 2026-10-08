@@ -179,3 +179,88 @@ Combined with the prior art that already syncs help blocks into
 READMEs (`readme-cli-help`, `docsme`, `cli-help-from-readme`), there
 is no demonstrated unserved need here. Probe artifacts preserved;
 [`EXPERIMENTS/056-docs-cli-drift/README.md`](EXPERIMENTS/056-docs-cli-drift/README.md).
+
+## F088 — "Wrong at exit 0" is not a verifier's opening: the shipped stager's own
+## output already names the line it carried, and the gap F082 inferred was false
+
+`observed` 2026-10-08, session 2026-10-08-003, VM `instance-20260717-0947`,
+T-0087, E055.
+
+**What happened.** F082 closed the line-staging application on two incumbents
+(`git-hunk`, `gah`) read from **README prose, never measured**. E055 built the
+tool-neutral postcondition checker that gap implied — one that reads
+`.git/index` and never an arm's output — and scored **210 arm-rows** against
+E038's hand-written `want_content` oracle. git 2.56.0 built from source,
+patchutils 0.3.4, `git-hunk` 0.4.2 under a fetched CPython 3.12.15.
+
+| arm | counted | holds | refused (non-zero) | silent-wrong |
+|---|---|---|---|---|
+| `stg` (unreleased) | 30 | **30** | 0 | 0 |
+| `filterdiff` (shipped) | 30 | 12 | 12 | **6** |
+| `git-hunk-native` (shipped) | 27 | 9 | 18 | 0 |
+| `git-hunk-naive` | 30 | 9 | 21 | 0 |
+| `pty_driver` (`git add -p`) | 30 | 13 | 0 | 17 |
+| `naive` (`printf 'y\n'`) | 30 | 6 | 0 | 24 |
+| `gah` (shipped) | 0 | — | — | `not_evaluated` ×30 |
+
+**Why it is a failure — the declared gate.** `KILL-C` needs K1 (both grader
+controls fired: C1 10/10, C2 23/23 injected wrong states flagged, 0 missed), K2
+(a shipped arm exited 0 on a wrong index — **true**, `filterdiff`), *and* K3 (that
+arm's own output gives the caller no way to derive the same verdict —
+**false**). Verdict **`do_not_build`**; the checker earns no tool.
+
+K3 fails because `filterdiff` is self-describing: in a unified diff a carried line
+is exactly a `+`/`-` body line, so the selected patch the caller already piped
+through the tool prints `1 :A` and `2 :B` when the caller asked for line 2. A
+verifier that re-derives what the tool already said adds nothing. F063 had already
+measured the "wrong but exit 0" shape — 78 rows across three alternatives, with no
+reusable artefact for it — and that shape is **not** a tool's opening.
+
+**The count that must not be overstated.** The 6 silent-wrong rows are **one**
+distinct index state (`678239f1620d`), not six observations: `adjacent-edits` and
+`adjacent-pair-plus-far` share a base and an intent. So the shipped incumbent's
+silent-wrongness is a single observation reproduced across three `diff.context`
+values — F052's shape, which is why `kill_c()` counts by digest and never by
+case name.
+
+**F082's inferred gap is falsified on bytes.** The premise the instrument rested
+on — that the incumbents take *unlabelled, incompatible* coordinate spaces — is
+false. `man filterdiff` on this host says `--lines` selects "lines **from the
+original file**", and the measured arm agrees; `git-hunk show` prints its `-l`
+positions as its left column. What survives is narrower and is a **documented
+property of `filterdiff`**: `--lines` selects whole **hunks**, so a wanted line
+whose hunk carries another change is staged with it, at exit 0, with the carry
+visible in the patch the caller already sees. The remedy is to keep the patch in
+view, which is what the pipeline already does.
+
+**The negative is not context-bound.** Both the arm and the K3 probe ran
+`git diff -U0`, so `ceiling.py` re-ran the question at `-U1`, `-U3` and the
+default: **12 of 12** rows over-stage at exit 0 and the arm's **primary** output
+names a line beyond the want in **12 of 12**, with C11 holding the reader to `git
+diff --cached -U0` on all 16 staged rows and C12 showing an exact selection is
+read exactly. `-U0` stays load-bearing for *correctness* and not for
+*auditability*.
+
+**Three instruments had to be corrected, each declared before the next run and each
+adverse or neutral to building.** (1) The premise above was false. (2) Run 2's K3
+is **void**: `--as-numbered-lines=after` printed exactly the wanted line on a
+fixture whose index had *also* lost a line, because a deleted line has no number
+in the new file. (3) Run 2's probe ran *after* the arm had staged, so `git diff`
+no longer showed the selection, every probe came back empty, and `do_not_build`
+was returned **from an instrument that had seen nothing** — F010's shape. Runs 1–3
+and the first ceiling probe are preserved unedited under `raw/`. An empty probe is
+now `undecided`, and `test_probe_order_falsified.py` pins the ordering.
+
+**What this does not close.** `gah` was never measured (no release binary on any
+channel, no Rust edition-2024 toolchain here). The fixture family is 10
+single-file LF cases × 3 contexts; CRLF, new files, deletions and mode changes
+are outside it, and E046 covered those for `stg` only. The frame for the whole
+table is unchanged from F081/F043/F083: the population that would want a line
+stager was measured and **does not**, and agents route around the failure by doing
+the discovery by hand. `indexcheck.py` stays inside the experiment — where it was
+useful, as the grader for 210 rows.
+
+**Evidence:** [`EXPERIMENTS/055-index-postcondition/README.md`](EXPERIMENTS/055-index-postcondition/README.md),
+`PROTOCOL.md` and its three declared amendments, `raw/results.json` (210 rows with
+per-row index digests and grader verdicts), `raw/ceiling.json`, and
+`raw/results-run{1,2,3}.json` plus `raw/ceiling-run1.json` preserved unedited.
