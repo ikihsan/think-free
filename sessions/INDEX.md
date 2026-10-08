@@ -15,7 +15,7 @@ Showing the 25 most recent. 136 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | **unfinished** | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:27 |
+| [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | worked | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:56 |
 | [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | worked | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T04:23 |
 | [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
 | [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |

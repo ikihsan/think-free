@@ -205,3 +205,437 @@ cwd: /home/ubuntu/think-free
 origin: commit or revert before landing: HYPOTHESES.md, sessions/2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md, sessions/2026-10-08-003-fresh-observation-to-find-a-testable-pra/events.jsonl, sessions/INDEX.md, sessions/2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md, sessions/2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/commands.log, sessions/2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/events.jsonl
 ------------------------------------------------------------------------------
 exit: 1  duration_ms: 782  redactions: none
+==============================================================================
+[seq 4] 2026-10-08T04:29:12+00:00
+$ tools/origin sync land
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+landed on research/origin at 4a3706280ef3
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 7513  redactions: none
+==============================================================================
+[seq 6] 2026-10-08T04:34:21+00:00
+$ python3 EXPERIMENTS/057-unserved-step/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sites enumerated: 365
+after exclusion list: 50
+population (alphabetically first 12 of survivors):
+   3D Printing                                3dprinting
+   Amateur Radio                              ham
+   Arqade                                     gaming
+   Arts &amp; Crafts                          crafts
+   Beer, Wine &amp; Spirits                   alcohol
+   Biblical Hermeneutics                      hermeneutics
+   Bicycles                                   bicycles
+   Bioacoustics                               bioacoustics
+   Biology                                    biology
+   Bricks                                     bricks
+   CS50                                       cs50
+   Community Building                         communitybuilding
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 103, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 81, in main
+    d = get("questions", site=param, pagesize=PAGESIZE, page=page,
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 39, in get
+    with urllib.request.urlopen(req, timeout=40) as r:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2017  redactions: none
+==============================================================================
+[seq 7] 2026-10-08T04:34:37+00:00
+$ python3 EXPERIMENTS/057-unserved-step/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sites enumerated: 365
+after exclusion list: 50
+population (alphabetically first 12 of survivors):
+   3D Printing                                3dprinting
+   Amateur Radio                              ham
+   Arqade                                     gaming
+   Arts &amp; Crafts                          crafts
+   Beer, Wine &amp; Spirits                   alcohol
+   Biblical Hermeneutics                      hermeneutics
+   Bicycles                                   bicycles
+   Bioacoustics                               bioacoustics
+   Biology                                    biology
+   Bricks                                     bricks
+   CS50                                       cs50
+   Community Building                         communitybuilding
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 104, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 82, in main
+    d = get("questions", site=param, pagesize=PAGESIZE, page=page,
+  File "EXPERIMENTS/057-unserved-step/fetch.py", line 40, in get
+    with urllib.request.urlopen(req, timeout=40) as r:
+  File "/usr/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.8/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.8/urllib/request.py", line 640, in http_response
+    response = self.parent.error(
+  File "/usr/lib/python3.8/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.8/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 2232  redactions: none
+==============================================================================
+[seq 9] 2026-10-08T04:38:05+00:00
+$ python3 EXPERIMENTS/057-unserved-step/fetch.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sites enumerated: 365
+after exclusion list: 50
+population (alphabetically first 12 of survivors):
+   3D Printing                                3dprinting
+   Amateur Radio                              ham
+   Arqade                                     gaming
+   Arts &amp; Crafts                          crafts
+   Beer, Wine &amp; Spirits                   alcohol
+   Biblical Hermeneutics                      hermeneutics
+   Bicycles                                   bicycles
+   Bioacoustics                               bioacoustics
+   Biology                                    biology
+   Bricks                                     bricks
+   CS50                                       cs50
+   Community Building                         communitybuilding
+3D Printing                                tail rows= 200 users= 161
+3D Printing                                head rows= 200 users= 142
+Amateur Radio                              tail rows= 200 users= 139
+Amateur Radio                              head rows= 200 users= 131
+Arqade                                     tail rows= 200 users= 122
+Arqade                                     head rows= 200 users= 111
+Arts &amp; Crafts                          tail rows= 200 users= 147
+Arts &amp; Crafts                          head rows= 200 users= 151
+Beer, Wine &amp; Spirits                   tail rows=  30 users=  29
+Beer, Wine &amp; Spirits                   head rows=  30 users=  29
+Biblical Hermeneutics                      tail rows= 200 users=  99
+Biblical Hermeneutics                      head rows= 200 users= 101
+Bicycles                                   tail rows= 200 users= 178
+Bicycles                                   head rows= 200 users= 148
+Bioacoustics                               tail rows= 155 users= 124
+Bioacoustics                               head rows= 155 users= 124
+Biology                                    tail rows= 200 users= 174
+Biology                                    head rows= 200 users= 164
+Bricks                                     tail rows= 200 users= 176
+Bricks                                     head rows= 200 users= 156
+CS50                                       tail rows= 200 users= 159
+CS50                                       head rows= 200 users= 150
+Community Building                         tail rows=  11 users=  11
+Community Building                         head rows=  11 users=  11
+wrote /home/ubuntu/think-free/EXPERIMENTS/057-unserved-step/raw/index.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 96782  redactions: none
+==============================================================================
+[seq 10] 2026-10-08T04:40:11+00:00
+$ python3 EXPERIMENTS/057-unserved-step/cluster.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "0.25": {
+  "tail": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  },
+  "head": {
+   "n_clusters": 1,
+   "n_users_ge8": 1,
+   "max_users": 8
+  }
+ },
+ "0.3": {
+  "tail": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  },
+  "head": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  }
+ },
+ "0.34": {
+  "tail": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  },
+  "head": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  }
+ },
+ "0.4": {
+  "tail": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  },
+  "head": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  }
+ },
+ "0.5": {
+  "tail": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  },
+  "head": {
+   "n_clusters": 0,
+   "n_users_ge8": 0,
+   "max_users": 0
+  }
+ }
+}
+
+=== tail: 0 clusters (>=8 rows, >=8 users) ===
+
+=== head: 0 clusters (>=8 rows, >=8 users) ===
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 57791  redactions: none
+==============================================================================
+[seq 11] 2026-10-08T04:40:35+00:00
+$ python3 EXPERIMENTS/057-unserved-step/diagnose.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stemmer spot-check:
+   printing   -> print
+   printed    -> print
+   prints     -> print
+   levels     -> level
+   leveling   -> level
+   leveled    -> level
+   leaking    -> leak
+   leaked     -> leak
+   leaks      -> leak
+   adhesion   -> adhesion
+   adhering   -> adher
+   brim       -> brim
+   skirt      -> skirt
+
+3D Printing (tail) 200 rows
+token count per title: empty=0  mean=5.8  median=6
+distinct tokens=641  tokens with df>=8: 13
+top 30 df: print:57, ender:27, layer:20, printer:18, filament:15, creality:15, nozzle:13, bed:13, extruder:13, pro:10, after:8, marlin:8, first:8, error:7, fail:7, wall:7, file:7, cura:7, model:7, try:6, motor:6, stepper:6, material:6, infill:6, part:5, hom:5, lin:5, gaps:5, slicer:5, object:5
+
+nonzero title pairs: 3143 of 19900
+top 12 nearest pairs:
+  0.62  Creality K1 Max: filaments keep stuck between extruder gea ||  Creality K1 Max: filament stuck inside the extruder
+  0.50  Under extrusion problem                                    ||  Extrusions Not Joining Up
+  0.50  Print walls coming out with gaps/holes                     ||  Gaps in walls during printing
+  0.44  Creality Ender 3 after normal printing, lost the ability t ||  Creality Ender 5 S1 Z Axis wanders while printing
+  0.43  Ender V3 SE middle of print bed sticking but fine elsewher ||  Ender 3 not printing full bed
+  0.40  Gaps in walls during printing                              ||  Does anyone know what could be causing these gaps in my pr
+  0.40  Top of print has gaps while printing top layers            ||  Gaps in walls during printing
+  0.38  Marlin 2.1.2.2 Ender 3 Pro CR touch does not work properly ||  Upgrading Ender 3 Pro with 400XL Bed and BL Touch
+  0.33  Top of print has gaps while printing top layers            ||  Does anyone know what could be causing these gaps in my pr
+  0.33  Marlin restarts when it starts printing in DIY 3D printer  ||  QQS-Pro Marlin 2.x Freeze when Starting Prints from SD Car
+  0.33  Printing tilted TPU model on Tina 2S                       ||  Trouble printing TPU
+  0.33  Weird first layer ridges                                   ||  Uneven and &quot;pointy&quot; first layer
+
+how many titles share the single most common token with >=8 distinct users?
+   print        rows= 57 distinct_users= 52
+   ender        rows= 27 distinct_users= 24
+   layer        rows= 20 distinct_users= 20
+   printer      rows= 18 distinct_users= 16
+   filament     rows= 15 distinct_users= 11
+   creality     rows= 15 distinct_users= 10
+   nozzle       rows= 13 distinct_users= 11
+   bed          rows= 13 distinct_users= 13
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 232  redactions: none
+==============================================================================
+[seq 13] 2026-10-08T04:41:23+00:00
+$ python3 EXPERIMENTS/057-unserved-step/cluster.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/057-unserved-step/cluster.py", line 175, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/057-unserved-step/cluster.py", line 145, in main
+    cl, meta = one_site(name, rows, edge, 8, 2)
+  File "EXPERIMENTS/057-unserved-step/cluster.py", line 122, in one_site
+    groups, linked, ntok = components(tokens, df, edge, mindf)
+  File "EXPERIMENTS/057-unserved-step/cluster.py", line 94, in components
+    co[(a, b)] += 1
+  File "/usr/lib/python3.8/collections/__init__.py", line 816, in __iadd__
+    for elem, count in other.items():
+AttributeError: 'int' object has no attribute 'items'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 916  redactions: none
+==============================================================================
+[seq 14] 2026-10-08T04:41:35+00:00
+$ python3 EXPERIMENTS/057-unserved-step/cluster.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "edge=2,minusers=5": {
+  "tail": 9,
+  "head": 9
+ },
+ "edge=2,minusers=8": {
+  "tail": 8,
+  "head": 8
+ },
+ "edge=3,minusers=5": {
+  "tail": 8,
+  "head": 7
+ },
+ "edge=3,minusers=8": {
+  "tail": 8,
+  "head": 7
+ },
+ "edge=4,minusers=5": {
+  "tail": 8,
+  "head": 8
+ },
+ "edge=4,minusers=8": {
+  "tail": 8,
+  "head": 8
+ },
+ "edge=6,minusers=5": {
+  "tail": 7,
+  "head": 9
+ },
+ "edge=6,minusers=8": {
+  "tail": 4,
+  "head": 8
+ }
+}
+
+=== tail: 8 concepts with >=8 distinct requesters ===
+ 80 u  85 r  Bricks                     lego set identify bags brick ev3 part build instruction
+ 58 u  61 r  CS50                       cs50 pset code error check50 set test program finance
+ 49 u  49 r  Bicycles                   bike rear shimano tire identify derailleur bmx hub road
+ 42 u  48 r  3D Printing                print ender layer creality filament bed nozzle pro first
+ 13 u  17 r  Amateur Radio              antenna radio receiv dipole
+  9 u   9 r  Bioacoustics               pamguard click detector
+  8 u   8 r  Arqade                     play command block
+  8 u  22 r  Biblical Hermeneutics      god jesu john spirit fath son
+
+=== head: 8 concepts with >=8 distinct requesters ===
+ 65 u  69 r  Bricks                     lego set identify part brick technic train bags piec
+ 35 u  40 r  CS50                       pset cs50 code test finance filt spell exit caesar
+ 29 u  34 r  3D Printing                print bed filament ender heat creality material
+ 25 u  36 r  Biblical Hermeneutics      jesu mean god john genesi matthew
+ 23 u  24 r  CS50                       error check50 set program professor little
+ 17 u  29 r  Arqade                     game first steam play video
+ 13 u  13 r  Bicycles                   bike chain tire road
+  9 u   9 r  Bioacoustics               pamguard click detector
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 2514  redactions: none
+==============================================================================
+[seq 15] 2026-10-08T04:42:22+00:00
+$ python3 EXPERIMENTS/057-unserved-step/steps.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+corpus rows: 3992  sites: 12
+
+=== IDENTIFY-UNKNOWN: 203 rows, 167 distinct requesters ===
+site                          rows users
+Bricks                          94    75
+Biology                         30    30
+Bicycles                        22    21
+Amateur Radio                   13    12
+Arts &amp; Crafts               16     8
+Arqade                           8     7
+3D Printing                      5     5
+Bioacoustics                    10     5
+Biblical Hermeneutics            2     2
+Beer, Wine &amp; Spirits         2     1
+CS50                             1     1
+  wrote hits-identify-unknown.txt
+
+=== PHYSICAL-PROCEDURE: 23 rows, 19 distinct requesters ===
+site                          rows users
+Arqade                           5     5
+Bricks                           5     4
+3D Printing                      3     3
+Bicycles                         2     2
+CS50                             3     2
+Amateur Radio                    1     1
+Arts &amp; Crafts                2     1
+Bioacoustics                     2     1
+  wrote hits-physical-procedure.txt
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 323  redactions: none
+==============================================================================
+[seq 17] 2026-10-08T04:43:19+00:00
+$ python3 EXPERIMENTS/057-unserved-step/bodies.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+Bricks: 81 titles -> 81 ids
+   bodies fetched: 60
+Bicycles: 22 titles -> 22 ids
+   bodies fetched: 22
+Biology: 30 titles -> 30 ids
+   bodies fetched: 30
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 6201  redactions: none
+==============================================================================
+[seq 18] 2026-10-08T04:43:37+00:00
+$ python3 EXPERIMENTS/057-unserved-step/read.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "Bricks": {
+  "bodies": 60,
+  "named_tools": {
+   "bricklink": 2,
+   "brickset": 1,
+   "brickognize": 1
+  },
+  "rows_saying_they_tried_something": 10,
+  "rows_stating_what_is_missing": 14
+ },
+ "Bicycles": {
+  "bodies": 22,
+  "named_tools": {
+   "bike stamp": 1,
+   "serial number": 3
+  },
+  "rows_saying_they_tried_something": 1,
+  "rows_stating_what_is_missing": 3
+ },
+ "Biology": {
+  "bodies": 30,
+  "named_tools": {
+   "forum": 1
+  },
+  "rows_saying_they_tried_something": 1,
+  "rows_stating_what_is_missing": 0
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 181  redactions: none

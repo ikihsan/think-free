@@ -46,7 +46,7 @@ F001-F008, [`FAILURES-findings-2.md`](FAILURES-findings-2.md) for F009-F012,
 [`FAILURES-findings-28.md`](FAILURES-findings-28.md) (F070, F071, F072, F073, F074) and
 [`FAILURES-findings-30.md`](FAILURES-findings-30.md) (F076, F077, F078, F079, F080,
 F081, F082) and
-[`FAILURES-findings-31.md`](FAILURES-findings-31.md) (F084–F088) and
+[`FAILURES-findings-31.md`](FAILURES-findings-31.md) (F084–F089) and
 [`FAILURES-findings-29.md`](FAILURES-findings-29.md) (F075) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 [`FAILURES-findings-25.md`](FAILURES-findings-25.md) (F060-F063), split because
@@ -279,3 +279,4 @@ fetch**; `raw/texts.jsonl` holds all 1401 comment texts (100%, A1 passes);
 sensitivity that withdraws the B2 claim. The declared gate fired and its
 firing is the record: **the gate fired before its sensitivity was run, and the
 sensitivity is what a firing gate is owed** (D058).
+| F089 | **Outside developer tooling a step can recur across requesters and still be served; G1 in that corpus is free to pass and the score-tail rule does not transfer.** E057 (D080): 12 sites off the API's own list, 24 arms, 3992 rows. G1 passed decisively (identify an unlabelled object/part, in Bricks, Bicycles, Biology). G2 failed — the corpus names Brickognize (Sensors 2023), RebrickNet, Brickit, BrickLink/Brickset/LEGO Builder, all serving. G3 decidable only for Bricks. Pre-registered rule: KILL, nothing built. Corrections: tail vs head rates are indistinguishable (51/43, 8/22, 17/5) so E033's rule does not carry; G1's discriminating power was nil and G2/G3 carried the gate. |

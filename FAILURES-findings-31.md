@@ -264,3 +264,35 @@ useful, as the grader for 210 rows.
 `PROTOCOL.md` and its three declared amendments, `raw/results.json` (210 rows with
 per-row index digests and grader verdicts), `raw/ceiling.json`, and
 `raw/results-run{1,2,3}.json` plus `raw/ceiling-run1.json` preserved unedited.
+
+## F089 — A real recurring step outside developer tooling exists but is served; the score-tail rule does not transfer (E057)
+
+E057 ran the D080 fresh-observation design: 12 Stack Exchange sites chosen from
+the API's own site list by a published exclusion script (50 survivors, 12
+alphabetically first), open questions with no accepted answer over 36 months,
+two votes arms (ascending score tail, descending top tertile as control),
+24 arms, 3992 rows, 2336 distinct requesters. G1 passed decisively — the same
+step, *identify a physical object/part from partial evidence with its label
+lost*, recurs in three independent sites (Bricks 49+39 requesters, Bicycles
+16, Biology 8+22). G2 **failed**: the corpus names 4 incumbents (Brickognize
+— a peer-reviewed Sensors 2023 method — RebrickNet, Brickit, BrickLink,
+Brickset, LEGO Builder) and all perform the step. G3 reached only on
+Bicycles and failed: an unbranded frame has no ground truth. Pre-registered
+decision rule: `KILL`, nothing built. Two mission-level corrections: the
+E033 score-tail rule (recurrence concentrated in the score tail on developer
+tooling) does **not** transfer — the two arms carry the same rate here
+(51/43, 8/22, 17/5) — and G1, being free to pass in a corpus of 2336
+requesters, carried no discriminating power; only G2/G3 did.
+First linkage (average linkage on title tokens) returned 0 clusters at every
+threshold — a diagnosed instrument defect (3143 of 19900 title pairs share
+any token; true same-step pairs sit at J=0.40–0.62), repaired with connected
+components of a token co-occurrence graph, stable across EDGE 2–6. A silent
+HTTP 400 filter string first read as "no recurrence". G2's web search
+returned `cancelled` every query, so G2 rests on the corpus's own names,
+consistent with D077. What remains: an instrument, a positive recurrence
+result this mission has never had outside developer tooling, and one refuted
+transfer rule.
+
+**Evidence:** [`EXPERIMENTS/057-unserved-step/README.md`](EXPERIMENTS/057-unserved-step/README.md),
+`PROTOCOL.md` (gates declared before the fetch), `raw/` (24 arms,
+3361 question ids), `diagnose.py`, `sensitivity.py`.

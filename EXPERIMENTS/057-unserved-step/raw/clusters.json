@@ -1,0 +1,489 @@
+{
+ "params": {
+  "edge": 4,
+  "mindf": 8,
+  "hit": 2,
+  "minusers": 8
+ },
+ "sweep": {
+  "edge=2,minusers=5": {
+   "tail": 9,
+   "head": 9
+  },
+  "edge=2,minusers=8": {
+   "tail": 8,
+   "head": 8
+  },
+  "edge=3,minusers=5": {
+   "tail": 8,
+   "head": 7
+  },
+  "edge=3,minusers=8": {
+   "tail": 8,
+   "head": 7
+  },
+  "edge=4,minusers=5": {
+   "tail": 8,
+   "head": 8
+  },
+  "edge=4,minusers=8": {
+   "tail": 8,
+   "head": 8
+  },
+  "edge=6,minusers=5": {
+   "tail": 7,
+   "head": 9
+  },
+  "edge=6,minusers=8": {
+   "tail": 4,
+   "head": 8
+  }
+ },
+ "arms": {
+  "tail": [
+   {
+    "rows": 85,
+    "users": 80,
+    "titles": [
+     "Can I buy replacement bags through Lego?",
+     "Where can I find the assembly instructions of the chinese Ferrari Daytona gold/black variant?",
+     "Identify part for a build aggg stuck",
+     "Trouble building a LEGO gearbox",
+     "Alternative ways to build LEGO engines",
+     "How to completely remove the operating system from a Lego EV3 control box?",
+     "Identify this set: loose bag with rounded gears",
+     "How to identify which Millennium Falcon set I have?"
+    ],
+    "site": "Bricks",
+    "terms": [
+     "lego",
+     "set",
+     "identify",
+     "bags",
+     "brick",
+     "ev3",
+     "part",
+     "build",
+     "instruction",
+     "find"
+    ]
+   },
+   {
+    "rows": 61,
+    "users": 58,
+    "titles": [
+     "the check50 of the test_fuel is not working in cs50p",
+     "I can not get Check50 to pass &quot;buy handles valid purchase ...&quot; for pset9 finance",
+     "Little Professor CHECK50 errors can&#39;t pass tests",
+     "Filter-less keeps returning exit code 2",
+     "CS50 Week 1 credit card problem set",
+     "My convert function is broken and not passing tests but my program seems to do what i think it should",
+     "cs50 intro to AI, Tic Tac Toe project",
+     "Little Professor check50 shows error even though program run completely fine"
+    ],
+    "site": "CS50",
+    "terms": [
+     "cs50",
+     "pset",
+     "code",
+     "error",
+     "check50",
+     "set",
+     "test",
+     "program",
+     "finance",
+     "project",
+     "exit"
+    ]
+   },
+   {
+    "rows": 49,
+    "users": 49,
+    "titles": [
+     "Grinding from rear of bike while pedalling",
+     "I can\u2019t unscrew the rear tire dust cap and when I pump it not all the air from the pump goes in",
+     "Help identifying bmx bike stamp",
+     "I Have a Triban RC 100 (Small, Women&#39;s bike) I am upgrading the cransket to a Shimano 105, do I need to upgrade the entire transmission too?",
+     "My Shimano EZ fire plus on the right side isn&#39;t shifting below 3 and the left one wont shift above 3",
+     "Can anyone help me identify the model of this Viking mountain bike?",
+     "Replacement pulleys for Shimano Deore XT RD-M739 SGS derailleur (8sp)",
+     "Can anyone identify this BMX frame?"
+    ],
+    "site": "Bicycles",
+    "terms": [
+     "bike",
+     "rear",
+     "shimano",
+     "tire",
+     "identify",
+     "derailleur",
+     "bmx",
+     "hub",
+     "road",
+     "shift",
+     "frame"
+    ]
+   },
+   {
+    "rows": 48,
+    "users": 42,
+    "titles": [
+     "Nozzle hitting bed corner before it stars printing",
+     "Encountering some weird layer gaps on the last few lines of a particular print",
+     "Creality Ender 3 after normal printing, lost the ability to print in X and Z axis",
+     "Ender V3 SE middle of print bed sticking but fine elsewhere",
+     "Is there a way to set the installed nozzle size (and installed filament color) in the Marlin firmware (or OctoPrint software)?",
+     "Can a print test be performed to determine nozzle and filament quality?",
+     "Ender 3 s1 Pro, Cura, and Bondtech CHT 0.4 mm nozzle",
+     "How to successfully flash a DACAI LCD screen of a Creality Ender 3 V2?"
+    ],
+    "site": "3D Printing",
+    "terms": [
+     "print",
+     "ender",
+     "layer",
+     "creality",
+     "filament",
+     "bed",
+     "nozzle",
+     "pro",
+     "first"
+    ]
+   },
+   {
+    "rows": 17,
+    "users": 13,
+    "titles": [
+     "Do highly sensitive radio receivers experience less fading",
+     "Questions about radio antennas",
+     "How a diversity radio receiver works",
+     "How to determine the best length for a short dipole antenna",
+     "Input impedance of a shortened dipole antenna",
+     "Gap between a dipole antenna",
+     "Shortwave radio antenna",
+     "Why a longer antenna is able to receiving smaller bands?"
+    ],
+    "site": "Amateur Radio",
+    "terms": [
+     "antenna",
+     "radio",
+     "receiv",
+     "dipole"
+    ]
+   },
+   {
+    "rows": 9,
+    "users": 9,
+    "titles": [
+     "Click detector legend box doesn&#39;t show the colors by category",
+     "Pamguard problem: click detector not showing click trains",
+     "PamGuard Click Train Detector is not colouring detected click trains",
+     "How does PAMGuard echo detector work?",
+     "What frequency range does PAMGuard&#39;s click detector measure background noise?",
+     "Basic clic classification using click detector and ROCCA in PamGuard",
+     "How do the Long Filter, Long Filter 2, and Short Filter parameters affect detection in the PAMGuard Click Detector module?",
+     "has anyone used the PAMGuard beaked whale click classifier module for bottom mounted recorders?"
+    ],
+    "site": "Bioacoustics",
+    "terms": [
+     "pamguard",
+     "click",
+     "detector"
+    ]
+   },
+   {
+    "rows": 8,
+    "users": 8,
+    "titles": [
+     "How to make players die when they step on a certain block using a command block?",
+     "How to make a command block give the instant damage status effect to a player who steps in the pressure plate?",
+     "How to make all players die when they step on a certain block?",
+     "Is there a plug-in to give command blocks level 4?",
+     "Minecraft command block finding",
+     "Using a command, how can I deal damage to players in a range of five blocks from myself?",
+     "Lifesteal effect command: when an entity is hit or dies, it will give the player instant healing",
+     "Placing multiple different blocks with a relatively simple fast command"
+    ],
+    "site": "Arqade",
+    "terms": [
+     "play",
+     "command",
+     "block"
+    ]
+   },
+   {
+    "rows": 22,
+    "users": 8,
+    "titles": [
+     "Mark 13:32: If only the Father knows the Day and the Hour, then how can Jesus be God?",
+     "Can one have the Holy Spirit and acquire power and authority from God without being God?",
+     "Do ascriptions to Jesus in John 8 say that YHWH in Old Testament is Jesus Christ in New Testament, according to Exodus 3?",
+     "John 1:18: If no man has ever seen God, and Jesus is God, then how could any man have seen Jesus?",
+     "When Thomas said, &quot;My Lord and my God&quot;, did he address both the Son and the Father?",
+     "If Jesus said that kind of spirit can only come out by prayer, why didn\u2019t He pray at that moment?",
+     "Does Psalm 45:1 indicate that the Son originated from the Father&#39;s heart?",
+     "In Genesis 1:2, was the Holy Spirit \u05de\u05b0\u05e8\u05b7\u05d7\u05b6\u05e4\u05b6\u05ea (&quot;brooding&quot;) over the dark waters to prepare them for the generation of the Son from God&#39;s mouth?"
+    ],
+    "site": "Biblical Hermeneutics",
+    "terms": [
+     "god",
+     "jesu",
+     "john",
+     "spirit",
+     "fath",
+     "son"
+    ]
+   }
+  ],
+  "head": [
+   {
+    "rows": 69,
+    "users": 65,
+    "titles": [
+     "Which LEGO part can build this?",
+     "Identifying this Non-standard LEGO Minifig",
+     "In LEGO set 42170 (Kawasaki Ninja H2R), what is the purpose of the top-most red gear?",
+     "Should the LEGO Batcave step 264 use 1x1 Technic bricks?",
+     "What is inside the Technic Move hub of the set 42176 Porsche GT4 e-Performance?",
+     "How can you connect LEGO 12V train tracks with RC/9V tracks?",
+     "Functionality of new purple, orange and green Duplo train action bricks",
+     "Is the new Duplo bridge (10426) better than the old one (10872) in terms of how easily a train can pull itself up?"
+    ],
+    "site": "Bricks",
+    "terms": [
+     "lego",
+     "set",
+     "identify",
+     "part",
+     "brick",
+     "technic",
+     "train",
+     "bags",
+     "piec",
+     "duplo"
+    ]
+   },
+   {
+    "rows": 40,
+    "users": 35,
+    "titles": [
+     "pset 4: filter blur logic problem?",
+     "PSET 5 speller fails when solving a memory issue",
+     "PSET 5 Speller fails memory check",
+     "why it is showing &quot;setting up your code space&quot; when I log in cs50.dev?",
+     "PSET 2 Caesar : help debugging caesar : continued #2",
+     "PSET 2 Caesar : help part 3 : ciphertext rotating correctly but not printing out",
+     "PSET 7: test_numb3rs.py validation issue",
+     "pset 3 Tideman - vote function works differently using check50 than manual testing"
+    ],
+    "site": "CS50",
+    "terms": [
+     "pset",
+     "cs50",
+     "code",
+     "test",
+     "finance",
+     "filt",
+     "spell",
+     "exit",
+     "caesar"
+    ]
+   },
+   {
+    "rows": 34,
+    "users": 29,
+    "titles": [
+     "Creality Sprite Pro Immediately starts heating hotend on startup",
+     "At what bed temperature is it safe to remove PLA prints?",
+     "Why is MPC better than PID for 3D printers, and (why) is it more useful for &#39;high-power heaters&#39;?",
+     "Is there a possibility to reliably print PLA with an Ender 3 that has an all-metal hot end?",
+     "How could dual end-stop switches on each axis improve the functionality and precision of 3D printers like the Creality Ender 3 V2?",
+     "Ender 3 Pro Not Using the Whole Bed",
+     "Why is my Ender 3 nozzle z-axis raising before printing?",
+     "Increase of filament diameter near nozzle when printing long time"
+    ],
+    "site": "3D Printing",
+    "terms": [
+     "print",
+     "bed",
+     "filament",
+     "ender",
+     "heat",
+     "creality",
+     "material"
+    ]
+   },
+   {
+    "rows": 36,
+    "users": 25,
+    "titles": [
+     "Why did Jesus define faith as a matter of the law? Matthew 23:23",
+     "Is Genesis 2:7 sufficiently ambiguous to support an interpretation that God spent millions of years to form Adam from dust?",
+     "Does the Old Testament contain verses that interpret Jesus as the first-born of all creation in the sense of actually being created by God the Father?",
+     "Did God forsake Jesus while on the cross?",
+     "In James 1:7 is Lord referring to God the Father or Jesus Christ?",
+     "Is there theological significance regarding the way different translations render Jesus\u2019 words in Matthew 16:13?",
+     "Why did Jesus give Pilate &quot;no answer&quot; to the question \u201cWhere are You from?\u201d (John 19:9)?",
+     "What does &quot;glory/Doxan&quot; mean in &quot;I do not receive glory from people&quot;, John 5:41?"
+    ],
+    "site": "Biblical Hermeneutics",
+    "terms": [
+     "jesu",
+     "mean",
+     "god",
+     "john",
+     "genesi",
+     "matthew"
+    ]
+   },
+   {
+    "rows": 24,
+    "users": 23,
+    "titles": [
+     "Little Professor display number of problems correct",
+     ": ( Little Professor displays number of problems correct Cause: Did not find &quot;9&quot; in &quot;Level: 6 + 6 =...&quot;",
+     "Error given by check50",
+     "Error message Little Professor displays number of problems correct Cause: Did not find &quot;9&quot; in &quot;Level: 6 + 6 =...&quot;",
+     "Problem Set 2, Ceasar, Testing Check50",
+     "Get a MISSPELLED WORD memory error from check50 PSET5",
+     "Problem With Check50 for problem set &quot;Credit&quot;",
+     "Problem Set 4 - Recover (timed out while waiting for program to exit)"
+    ],
+    "site": "CS50",
+    "terms": [
+     "error",
+     "check50",
+     "set",
+     "program",
+     "professor",
+     "little"
+    ]
+   },
+   {
+    "rows": 29,
+    "users": 17,
+    "titles": [
+     "What was the first game to show toilets?",
+     "What is the first video game boss to have a second phase?",
+     "What was the first game where your guide/quest giver turned out to be a key antagonist/villain?",
+     "What video game is played in the movie \u201cDrugstore June\u201d?",
+     "Why is a game&#39;s minor update on Steam (e.g., New World) ~15 GB to download?",
+     "What was the first video game to feature a fake credits sequence?",
+     "What was the first video game where cold slowed enemies down?",
+     "What&#39;s the first game with an all-female cast?"
+    ],
+    "site": "Arqade",
+    "terms": [
+     "game",
+     "first",
+     "steam",
+     "play",
+     "video"
+    ]
+   },
+   {
+    "rows": 13,
+    "users": 13,
+    "titles": [
+     "Why did the Norm for Road Bike Tires Become Wider only Recently?",
+     "Eco-friendly methods for removing bike chain degreaser",
+     "What are the disadvantages of using an endurance gravel bike (with smooth tires) as an endurance road bike?",
+     "Road tire bulge - is it still safe to ride?",
+     "What are the drawbacks of having wider tires on endurance road bikes, as they may offer the same rolling resistance with lower pressure/more comfort?",
+     "New carbon road bike - scratches discovered on chain stay",
+     "I was given a used road bike, should I be concerned about the age of the frame, and can I replace it and reuse the other parts?",
+     "Do higher end road bike require less maintenance?"
+    ],
+    "site": "Bicycles",
+    "terms": [
+     "bike",
+     "chain",
+     "tire",
+     "road"
+    ]
+   },
+   {
+    "rows": 9,
+    "users": 9,
+    "titles": [
+     "Soundtrap PODs comparison in detecting Bottlenose Dolphins : click train detector in PAMGUARD advice",
+     "PamGuard Click Train Detector is not colouring detected click trains",
+     "How does PAMGuard echo detector work?",
+     "What frequency range does PAMGuard&#39;s click detector measure background noise?",
+     "Basic clic classification using click detector and ROCCA in PamGuard",
+     "How do the Long Filter, Long Filter 2, and Short Filter parameters affect detection in the PAMGuard Click Detector module?",
+     "has anyone used the PAMGuard beaked whale click classifier module for bottom mounted recorders?",
+     "Pamguard problem: click detector not showing click trains"
+    ],
+    "site": "Bioacoustics",
+    "terms": [
+     "pamguard",
+     "click",
+     "detector"
+    ]
+   }
+  ]
+ },
+ "meta": {
+  "3D Printing": {
+   "tokens": 13,
+   "edges_linked": 8,
+   "components": 7
+  },
+  "Amateur Radio": {
+   "tokens": 5,
+   "edges_linked": 1,
+   "components": 4
+  },
+  "Arqade": {
+   "tokens": 6,
+   "edges_linked": 6,
+   "components": 2
+  },
+  "Arts &amp; Crafts": {
+   "tokens": 6,
+   "edges_linked": 0,
+   "components": 6
+  },
+  "Beer, Wine &amp; Spirits": {
+   "tokens": 1,
+   "edges_linked": 0,
+   "components": 1
+  },
+  "Biblical Hermeneutics": {
+   "tokens": 13,
+   "edges_linked": 6,
+   "components": 8
+  },
+  "Bicycles": {
+   "tokens": 12,
+   "edges_linked": 4,
+   "components": 9
+  },
+  "Bioacoustics": {
+   "tokens": 12,
+   "edges_linked": 4,
+   "components": 9
+  },
+  "Biology": {
+   "tokens": 6,
+   "edges_linked": 0,
+   "components": 6
+  },
+  "Bricks": {
+   "tokens": 14,
+   "edges_linked": 16,
+   "components": 5
+  },
+  "CS50": {
+   "tokens": 22,
+   "edges_linked": 18,
+   "components": 8
+  },
+  "Community Building": {
+   "tokens": 0,
+   "edges_linked": 0,
+   "components": 0
+  }
+ }
+}
