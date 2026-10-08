@@ -1,12 +1,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-07
+last-verified: 2026-10-08
 -->
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D081**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D082**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -154,3 +154,21 @@ experiment, was the expensive half.
 this asks whether anyone would *learn* something new from a tool that checks it.
 A candidate must survive both, and the second is the one that closes the larger
 share of them.
+
+## D082 — Fresh observation experiments must be runnable on this machine with stdlib-only code, synthetic fixtures, and predeclared kill gates (2026-10-08)
+
+`observed` 2026-10-08, session 2026-10-08-012, E065.
+
+**The situation.** The mission's seat for a candidate is empty after seven measurements closed the stg candidate (F075, F081, F083, F084, F085, F088). The owner brief requires fresh exploration in a completely new domain until a specific testable opportunity appears. Prior domains (Python/git tooling, PyPI, need-corpora, text-organization, serialization) are exhausted.
+
+**The choice.** Select personal finance — specifically recurring expense detection from bank transaction CSVs — as a fresh observation domain. Design a deterministic, stdlib-only algorithm with predeclared kill gates (precision ≥85%, recall ≥80%, FPR ≤5%) and run it on 100 synthetic CSV files across 4 bank formats (Chase, Bank of America, Wells Fargo, Generic). The algorithm uses interval regularity, amount consistency, and variable-merchant handling.
+
+**The evidence.** All three kill gates passed on synthetic data: precision 100%, recall 83.86%, FPR 0%. The algorithm outperforms naive baseline (F1 91.22% vs 72.47%, +18.75%) by using multi-factor scoring instead of mere frequency counting. Negative controls verified: income transactions correctly NOT flagged, noise transactions correctly NOT flagged.
+
+**Why this is a rule and not a one-off.** The mission has repeatedly pivoted domains without establishing a reproducible experiment pattern. D082 makes explicit: fresh exploration = runnable falsification experiment first, with synthetic fixtures labeled as such, predeclared kill gates, and negative controls. Implementation only if gates pass. The experiment must be deterministic, stdlib-only, and runnable on this machine.
+
+**Rejected: build a personal finance app.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
+
+**Rejected: use ML/LLM for merchant normalization.** The falsification must be cheap and deterministic. Rule-based normalization on synthetic fixtures is the minimum viable test of the mechanism.
+
+**Ceiling.** Synthetic CSV files only. Real bank exports have additional complexities: merchant name variations, split/merged transactions, format inconsistencies, PDF statements. A 100% precision result on synthetic data does not establish real-world precision. The next step is testing on real bank CSV data from volunteer contributors; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
