@@ -7,6 +7,11 @@ node_modules/
 target/
 .origin/
 sessions/active.json
+
+# Lock files are advisory state of a running process, not repository content.
+# They are created beside the session stream they guard and must never be
+# committed: a committed lock is a lock nothing holds (defect 24).
+.finish.lock
 .env
 .env.*
 

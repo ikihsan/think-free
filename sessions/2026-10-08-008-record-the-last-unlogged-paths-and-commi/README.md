@@ -51,7 +51,7 @@ Next D080 fresh-observation probe on a channel outside Stack Exchange
 
 | check | result |
 |---|---|
-| undeclared file changes | 168 |
+| undeclared file changes | 150 |
 | declared artifacts now missing | 0 |
 | integrity errors | 0 |
 | redactions applied to command output | 0 |
@@ -121,7 +121,7 @@ Next D080 fresh-observation probe on a channel outside Stack Exchange
 | 180 | 05:25:10 | doc_update | updated STATE.md |
 | 181 | 05:25:10 | session_end | Recorded the paths session 007's finish listed as unlogged (PROTOCOL/fetch/cluster, both finished session dirs) and committed the E058 landing; doc li |
 
-_131 middle events omitted; see `events.jsonl`._
+_112 middle events omitted; see `events.jsonl`._
 
 ## Reproduce this record
 

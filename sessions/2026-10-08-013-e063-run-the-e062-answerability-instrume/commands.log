@@ -1,0 +1,365 @@
+==============================================================================
+[seq 9] 2026-10-08T08:57:12+00:00
+$ python3 -m unittest discover -s stage-lines
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+.....................................
+----------------------------------------------------------------------
+Ran 37 tests in 9.415s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 9879  redactions: none
+==============================================================================
+[seq 10] 2026-10-08T09:08:27+00:00
+$ python3 EXPERIMENTS/063-own-corpus-answerability/outcome.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms": {
+  "A": {
+   "ci95": [
+    0.5606,
+    0.7734
+   ],
+   "ci95_over_stated": [
+    0.6962,
+    0.8926
+   ],
+   "labels": {
+    "no-need-stated": 12,
+    "served": 48,
+    "unserved-data-absent": 2,
+    "unserved-remedy-is-human": 9
+   },
+   "n": 71,
+   "n_stating_a_need": 59,
+   "served": 48,
+   "served_over_stated": 48,
+   "share": 0.6761,
+   "share_over_stated": 0.8136,
+   "unserved_open": 0
+  },
+  "B": {
+   "ci95": [
+    0.8426,
+    0.9945
+   ],
+   "ci95_over_stated": [
+    0.8897,
+    1.0
+   ],
+   "labels": {
+    "no-need-stated": 1,
+    "served": 31
+   },
+   "n": 32,
+   "n_stating_a_need": 31,
+   "served": 31,
+   "served_over_stated": 31,
+   "share": 0.9688,
+   "share_over_stated": 1.0,
+   "state_at_read": {
+    "closed": 25,
+    "open": 7
+   },
+   "unserved_open": 0
+  },
+  "C": {
+   "ci95": [
+    0.3421,
+    0.7418
+   ],
+   "ci95_over_stated": [
+    0.3421,
+    0.7418
+   ],
+   "labels": {
+    "served": 11,
+    "unserved-data-absent": 9
+   },
+   "n": 20,
+   "n_stating_a_need": 20,
+   "served": 11,
+   "served_over_stated": 11,
+   "share": 0.55,
+   "share_over_stated": 0.55,
+   "unserved_open": 0
+  }
+ },
+ "controls": {
+  "gate_met": true,
+  "served_expected": {
+   "missed": [],
+   "n": 10,
+   "recovered": 10
+  },
+  "unserved_expected": {
+   "missed": [
+    "C08"
+   ],
+   "n": 10,
+   "recovered": 9
+  }
+ },
+ "rows_read": 123,
+ "sensitivity": {
+  "A_all_rows": {
+   "n": 71,
+   "served": 48,
+   "share": 0.6761
+  },
+  "A_excluding_no_need_stated": {
+   "n": 59,
+   "served": 48,
+   "share": 0.8136
+  },
+  "A_strictest": {
+   "flipped_out": [
+    "A200",
+    "A220",
+    "A320",
+    "A1380"
+   ],
+   "n": 71,
+   "note": "an assistant must hand over an existing artifact or a complete procedure, not implement the feature; and knowledge-only, no open-web lookup",
+   "served": 44,
+   "share": 0.6197
+  },
+  "B_strictest": {
+   "flipped_out": [
+    "B024",
+    "B030",
+    "B036",
+    "B042",
+    "B054",
+    "B060",
+    "B066",
+    "B072",
+    "B078",
+    "B090",
+    "B096",
+    "B102",
+    "B108",
+    "B114",
+    "B120",
+    "B126",
+    "B132",
+    "B138",
+    "B144",
+    "B150",
+    "B162",
+    "B168",
+    "B174",
+    "B180",
+    "B186"
+   ],
+   "n": 32,
+   "note": "same rule; every arm B served row is repo work that an assistant could implement",
+   "served": 6,
+   "share": 0.1875
+  }
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 291  redactions: none
+==============================================================================
+[seq 11] 2026-10-08T09:08:45+00:00
+$ python3 EXPERIMENTS/063-own-corpus-answerability/outcome.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{
+ "arms": {
+  "A": {
+   "ci95": [
+    0.5606,
+    0.7734
+   ],
+   "ci95_over_stated": [
+    0.6962,
+    0.8926
+   ],
+   "labels": {
+    "no-need-stated": 12,
+    "served": 48,
+    "unserved-data-absent": 2,
+    "unserved-remedy-is-human": 9
+   },
+   "n": 71,
+   "n_stating_a_need": 59,
+   "served": 48,
+   "served_over_stated": 48,
+   "share": 0.6761,
+   "share_over_stated": 0.8136,
+   "unserved_open": 0
+  },
+  "B": {
+   "ci95": [
+    0.8426,
+    0.9945
+   ],
+   "ci95_over_stated": [
+    0.8897,
+    1.0
+   ],
+   "labels": {
+    "no-need-stated": 1,
+    "served": 31
+   },
+   "n": 32,
+   "n_stating_a_need": 31,
+   "served": 31,
+   "served_over_stated": 31,
+   "share": 0.9688,
+   "share_over_stated": 1.0,
+   "state_at_read": {
+    "closed": 25,
+    "open": 7
+   },
+   "unserved_open": 0
+  },
+  "C": {
+   "ci95": [
+    0.3421,
+    0.7418
+   ],
+   "ci95_over_stated": [
+    0.3421,
+    0.7418
+   ],
+   "labels": {
+    "served": 11,
+    "unserved-data-absent": 9
+   },
+   "n": 20,
+   "n_stating_a_need": 20,
+   "served": 11,
+   "served_over_stated": 11,
+   "share": 0.55,
+   "share_over_stated": 0.55,
+   "unserved_open": 0
+  }
+ },
+ "controls": {
+  "gate_met": true,
+  "served_expected": {
+   "missed": [],
+   "n": 10,
+   "recovered": 10
+  },
+  "unserved_expected": {
+   "missed": [
+    "C08"
+   ],
+   "n": 10,
+   "recovered": 9
+  }
+ },
+ "rows_read": 123,
+ "sensitivity": {
+  "A_all_rows": {
+   "n": 71,
+   "served": 48,
+   "share": 0.6761
+  },
+  "A_excluding_no_need_stated": {
+   "n": 59,
+   "served": 48,
+   "share": 0.8136
+  },
+  "A_strictest": {
+   "flipped_out": [
+    "A200",
+    "A220",
+    "A320",
+    "A1380"
+   ],
+   "n": 71,
+   "note": "an assistant must hand over an existing artifact or a complete procedure, not implement the feature; and knowledge-only, no open-web lookup",
+   "served": 44,
+   "share": 0.6197
+  },
+  "B_strictest": {
+   "flipped_out": [
+    "B024",
+    "B030",
+    "B036",
+    "B042",
+    "B054",
+    "B060",
+    "B066",
+    "B072",
+    "B078",
+    "B090",
+    "B096",
+    "B102",
+    "B108",
+    "B114",
+    "B120",
+    "B126",
+    "B132",
+    "B138",
+    "B144",
+    "B150",
+    "B162",
+    "B168",
+    "B174",
+    "B180",
+    "B186"
+   ],
+   "n": 32,
+   "note": "same rule; every arm B served row is repo work that an assistant could implement",
+   "served": 6,
+   "share": 0.1875
+  }
+ }
+}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 210  redactions: none
+==============================================================================
+[seq 48] 2026-10-08T09:24:34+00:00
+$ python3 -m unittest discover -s tests -t tests
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+  ok  python package             expected executable  got executable
+  ok  binary only, no manifest   expected executable  got executable
+  ok  guide                      expected document    got document
+  ok  prompt collection          expected document    got document
+  ok  docker compose stack       expected executable  got executable
+  ok  cli entrypoint             expected executable  got executable
+  ok  bin directory              expected executable  got executable
+  ok  web page only              expected document    got document
+  ok  static site                expected executable  got executable
+  ok  empty repository           expected unreadable  got unreadable
+  ok  refused listing            expected unreadable  got unreadable
+  ok  not fetched                expected unreadable  got unreadable
+need comments    1401
+with a depth     1401
+absent           0
+depth null       0
+distribution     {0: 641, 1: 318, 2: 180, 3: 106, 4: 74, 5: 42, 6: 16, 7: 11, 8: 4, 9: 2, 10: 2, 12: 2, 13: 2, 20: 1}
+T-0001   open       -              T-0001-listed.md
+T-0001   open       -              T-0001-listed.md
+
+
+[stderr]
+................................................................................../home/ubuntu/think-free/tests/test_artifact_readfields.py:127: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/017-incumbent-artifact-type/reads.json' mode='r' encoding='UTF-8'>
+  reads = json.load(open(os.path.join(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................/home/ubuntu/think-free/tests/test_copy_channel.py:126: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  before = open(path).read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/ubuntu/think-free/tests/test_copy_channel.py:133: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/021-copied-artifact-serving/raw/context-global-file-claude-commands-select-repo-count-4000.sse' mode='r' encoding='UTF-8'>
+  self.assertEqual(open(path).read(), before,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+............................................................................................................................................................................................................................................................................................................/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/need_depth.py:168: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/ubuntu/think-free/EXPERIMENTS/022-need-outcomes/raw/need_depth.jsonl' mode='r' encoding='UTF-8'>
+  for line in open(OUT):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 829 tests in 1024.602s
+
+OK
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1027488  redactions: none

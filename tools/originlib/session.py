@@ -11,7 +11,7 @@ import sys
 import time
 from pathlib import Path
 
-from . import events, gitutil, paths, sessionflow, sync
+from . import events, gitutil, paths, sessionflow, sessionlock, sync
 from .activestate import (
     MAX_SLUG,
     OUTCOMES,
@@ -185,12 +185,22 @@ def _prepare_push(active: ActiveSession) -> str:
 
 
 def finish(outcome: str, summary: str, next_steps: str, push: bool = False) -> dict:
+    """Close the active session, emitting exactly one reconciliation and end.
+
+    `sessionlock.single_finish` holds ownership for the whole operation. The
+    in-stream check below is still needed — it is what refuses a *sequential*
+    re-finish — but it can no longer be the only guard, because a check that
+    reads and then appends cannot order two processes. That is how session 008
+    acquired two ends and two reconciliations (defect 24).
+    """
     if outcome not in OUTCOMES:
         raise SessionError(f"--outcome must be one of {', '.join(OUTCOMES)}")
+    with sessionlock.single_finish():
+        return _finish_locked(outcome, summary, next_steps, push)
+
+
+def _finish_locked(outcome: str, summary: str, next_steps: str, push: bool) -> dict:
     active = require_active()
-    # A session that already ended must not grow a second session_end:
-    # observed on session 014 (2026-10-05-014), finish ran twice and the
-    # event stream now carries two ends with the unlogged work between.
     prior_ends = [e for e in events.events_for(active.session) if e.kind == "session_end"]
     if prior_ends:
         raise SessionError(

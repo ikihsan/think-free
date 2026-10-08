@@ -118,3 +118,32 @@ statement of need). Both are recorded in
 [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md), which is where a rule
 belongs: this file holds findings, and no other findings file defines a
 decision.
+
+## F098 — the mission's need corpus selects statements that are already served, and it has no unserved tail
+
+**What happened.** E063 ran the E062 instrument on the two corpora every
+candidate screen in this repository consumed. G1 control 10 of 10 served
+recovered, 9 of 10 unserved recovered (the one miss, `C08`, reported rather
+than relabelled). G2 remedy verification 22 of 23 after a declared channel
+correction (the first round resolved 18 of 23 — five artifacts on the wrong
+channel or owner, kept in `raw/remedy-verification.json`). G3 was a same-reader
+pass and would have measured memory, so it was replaced by a declared
+sensitivity analysis (AMENDMENT-1, A3).
+
+**The measurement.** Arm A (71 HN need rows): **served share 0.676** (48 of 71,
+CI95 0.561–0.773); over the 59 rows that state a need at all, 0.814. Arm B (32
+`stg` demand issues): **0.969** (31 of 32). **`unserved-open` — the only label
+that can open a candidate — is 0 of 103 rows.** The resistant rows resist
+because the data was never recorded (F097's shape), because the remedy is human
+work or an institution, or because the row states no need at all. 12 of 71 arm A
+rows carry a trigger phrase and state nothing requestable: trigger filtering is
+not a need filter. Arm B's 0.969 is mostly already-met work — 25 of 32 rows were
+closed when read, including one GUI that shipped the exact line-level staging
+`stg` was built for — so it is not an independent confirmation of arm A.
+
+**What it buys.** Seven emptiness measurements in this repository (F029, F039,
+F051, F059, F081, F084, F085) were not wrong about the domains they sampled;
+they were reading a route that selects served statements. A trigger-phrase
+harvest over HN/GitHub is now retired as a candidate source without a
+candidate. This does not measure demand or difficulty, and a low served share
+on it would not have opened one either.

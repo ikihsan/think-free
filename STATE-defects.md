@@ -265,3 +265,21 @@ Numbering is continuous and never reused, so a solved defect keeps its number an
     so is `STATE.md`'s dashboard row, which names all nine experiments at once. A
     tool version written in a results row is *reported*, because `2.30` and `0.30`
     are the same shape.
+
+24. **Two concurrent `session finish` runs grew one event stream twice** (solved
+    in session 2026-10-08-013). Session 008's stream carried 181 lines for 162
+    sequence numbers — 19 numbers twice — because the two finishes each allocated
+    from the same tail read and both appended, writing `session_end` twice and two
+    complete reconciliations. The guard added for session 014 was a read for an
+    existing `session_end` followed by an append; two runs that both read before
+    either wrote both saw no end and both proceeded. **Repair:** `recorder.record`
+    allocates inside an `flock`-held `hold_stream()` across the command-log block
+    and its event, and `session.finish` holds a `.finish.lock` beside the stream
+    for its whole operation, so the second run exits 1 instead of appending.
+    `tests/test_event_stream_concurrency.py` runs four processes on one stream and
+    two concurrent finishes. Session 008's stream was repaired by dropping the 19
+    duplicate lines (first occurrence kept, row-by-row checked, recorded in
+    `sessions/2026-10-08-013-e063-run-the-e062-answerability-instrume/DEDUPE-008.md`);
+    `session verify` still reports the double end as a note, which is the evidence
+    the repair fired. **Ceiling:** the lock orders processes on one machine, not
+    a VM racing another over a pushed-but-unpulled tree.

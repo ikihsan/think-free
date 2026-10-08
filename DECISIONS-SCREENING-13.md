@@ -6,7 +6,7 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D084**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D085**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -250,3 +250,33 @@ is not wrong; the inference from it was, and D084 names which.
 **Ceiling.** `view_count` exists on Stack Exchange and not on most venues, which is
 why E062's harvest chose it, and arrival is not available for a private or
 single-tenant population at all. The rule governs reporting, not acquisition.
+
+## D085 — a trigger-phrase harvest of need statements is not a candidate source (2026-10-08)
+
+`observed` 2026-10-08, session 2026-10-08-013, E063, F098.
+
+**The decision.** The mission's standing route for finding candidates — harvest
+statements of need by trigger phrase from Hacker News and GitHub issues, screen
+them, kill the ones that do not survive — is retired. E063 ran the E062
+answerability instrument on both corpora: arm A served share 0.676 (48/71),
+arm B 0.969 (31/32), `unserved-open` 0 of 103 rows, and 12 of 71 arm A rows
+state no requestable need under a trigger phrase. The route selects rows the
+strongest accessible alternative already serves, and what resists it is never a
+tool-shaped need.
+
+**What still holds.** D083 stands — a rubric whose null branch would close a
+route permanently disarms that branch, so the find-a-new-venue route is
+deferred with its reason recorded, not closed. D084 stands — report arrivals and
+statements separately. D080 stands — fresh observation begins any future
+exploration. The difference is that the fresh observation must be of a need the
+harvest cannot show: a trigger phrase in a forum is now evidence of a statement,
+never of a service gap.
+
+**Rejected: keep screening such corpora with more gates.** The gates were not
+wrong; their inputs were. **Rejected: treat the 0.814 over-stated-need share as
+a route worth mining for the unserved 19%.** That 19% is `unserved-remedy-is-human`
+(9 rows) plus `unserved-data-absent` (2): the remedy is the requester's own
+institution or a record nobody kept, neither of which is a buildable gap.
+**Ceiling:** one labeller, one incumbent, two corpora, today, not then — this
+retires the route as a candidate generator, not every conceivable way of
+listening for need.

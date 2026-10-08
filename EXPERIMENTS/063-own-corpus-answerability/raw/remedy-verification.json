@@ -1,0 +1,345 @@
+{
+ "controls": {
+  "known_answer_status": 200,
+  "nonsense_statuses": [
+   404,
+   404
+  ]
+ },
+ "gate_met": true,
+ "n_named": 23,
+ "n_resolved_200": 22,
+ "per_artifact": {
+  "CONTROL-known-answer-requests": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/requests/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/requests/json",
+   "status": 200
+  },
+  "CONTROL-nonsense-token-4b1": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://api.github.com/repos/zzq-not-a-real-org-4b1/zzq-not-a-real-repo-4b1"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": null,
+   "status": 404
+  },
+  "CONTROL-nonsense-token-9f3": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://pypi.org/pypi/zzq-not-a-real-package-9f3/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": null,
+   "status": 404
+  },
+  "NeatVI": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://api.github.com/repos/vivid/NeatVI"
+    },
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/aligrudi/neatvi"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/aligrudi/neatvi",
+   "status": 200
+  },
+  "RSSHub": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/DIYgod/RSSHub"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/DIYgod/RSSHub",
+   "status": 200
+  },
+  "camelot-py": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/camelot-py/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/camelot-py/json",
+   "status": 200
+  },
+  "censusgeocode": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/censusgeocode/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/censusgeocode/json",
+   "status": 200
+  },
+  "chafa": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/hpjansson/chafa"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/hpjansson/chafa",
+   "status": 200
+  },
+  "chessground": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/lichess-org/chessground"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/lichess-org/chessground",
+   "status": 200
+  },
+  "difftastic": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/Wilfred/difftastic"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/Wilfred/difftastic",
+   "status": 200
+  },
+  "exiftool": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://exiftool.org/"
+    }
+   ],
+   "kind": "host",
+   "resolved_on": "https://exiftool.org/",
+   "status": 200
+  },
+  "geopy": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/geopy/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/geopy/json",
+   "status": 200
+  },
+  "hnrss.org": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://hnrss.org/user?id=pg"
+    }
+   ],
+   "kind": "host",
+   "resolved_on": "https://hnrss.org/user?id=pg",
+   "status": 200
+  },
+  "kyverno": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/kyverno/kyverno"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/kyverno/kyverno",
+   "status": 200
+  },
+  "migra": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/djrobstep/migra"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/djrobstep/migra",
+   "status": 200
+  },
+  "miniflux": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/miniflux/v2"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/miniflux/v2",
+   "status": 200
+  },
+  "newsboat": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/newsboat/newsboat"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/newsboat/newsboat",
+   "status": 200
+  },
+  "nominatim": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://nominatim.org/"
+    }
+   ],
+   "kind": "host",
+   "resolved_on": "https://nominatim.org/",
+   "status": 200
+  },
+  "pavucontrol": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://api.github.com/repos/pavucontrol/pavucontrol"
+    },
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/pulseaudio/pavucontrol"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/pulseaudio/pavucontrol",
+   "status": 200
+  },
+  "pdfplumber": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/pdfplumber/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/pdfplumber/json",
+   "status": 200
+  },
+  "pgn.js": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://api.github.com/repos/chessboardjs/pgn.js"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": null,
+   "status": 404
+  },
+  "qpwgraph": {
+   "attempts": [
+    {
+     "error": "http",
+     "status": 404,
+     "url": "https://api.github.com/repos/rpcosta/qpwgraph"
+    },
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/rncbc/qpwgraph"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/rncbc/qpwgraph",
+   "status": 200
+  },
+  "skopeo": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/containers/skopeo"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/containers/skopeo",
+   "status": 200
+  },
+  "tabula-py": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://pypi.org/pypi/tabula-py/json"
+    }
+   ],
+   "kind": "pypi",
+   "resolved_on": "https://pypi.org/pypi/tabula-py/json",
+   "status": 200
+  },
+  "umoci": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/opencontainers/umoci"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/opencontainers/umoci",
+   "status": 200
+  },
+  "xpra": {
+   "attempts": [
+    {
+     "bytes": 400,
+     "status": 200,
+     "url": "https://api.github.com/repos/Xpra-org/xpra"
+    }
+   ],
+   "kind": "github",
+   "resolved_on": "https://api.github.com/repos/Xpra-org/xpra",
+   "status": 200
+  }
+ },
+ "share_resolved": 0.9565,
+ "unverified": [
+  "pgn.js"
+ ]
+}

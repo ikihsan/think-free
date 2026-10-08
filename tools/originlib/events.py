@@ -5,11 +5,7 @@ so the two can never silently disagree.
 
 One file per session (`sessions/<id>/events.jsonl`) rather than one global
 file, so that two sessions running on different branches never produce a merge
-conflict in an append-only log. Two processes writing the *same* session file
-— a live session and a reconcile pass, two land operations — are serialized
-by `locked`: assigning a seq and appending are two steps, and without the
-lock both writers computed the same seq and both appended it, which
-`verify` reads as a non-contiguous stream (defect 24).
+conflict in an append-only log.
 """
 
 from __future__ import annotations
@@ -79,31 +75,48 @@ def now_iso() -> str:
 
 
 def next_seq(path: Path) -> int:
+    """The next sequence number, read without the lock.
+
+    Fine for a preview; not safe to write with, which is what `hold_stream` is
+    for. Defect 24: this read-then-write was the whole race.
+    """
+    return _last_seq(read(path)) + 1
+
+
+def _last_seq(events: list[dict]) -> int:
     last = 0
-    if path.exists():
-        for event in read(path):
-            if isinstance(event.get("seq"), int):
-                last = max(last, event["seq"])
-    return last + 1
+    for event in events:
+        if isinstance(event.get("seq"), int):
+            last = max(last, event["seq"])
+    return last
 
 
 @contextmanager
-def locked(target: Path):
-    """Serialize every writer of one session's event stream.
+def hold_stream(path: Path):
+    """Hold an exclusive advisory lock on one stream and yield the seq to use.
 
-    An exclusive `flock` held across the seq assignment and the
-    append, so two concurrent processes on the same session file
-    cannot both append the same seq. Held by `append` and by
-    `recorder.record_command`, whose log-header seq and event seq
-    must also agree.
+    `seq` is allocated by reading the file and writing `max + 1`, so two
+    processes appending without a lock both read the same tail and both write
+    the same number. That is not hypothetical: two concurrent `session finish`
+    runs on one session on 2026-10-08 produced 19 duplicated `seq` values and a
+    stream that `session verify` rejects, which is defect 24.
+
+    Every writer takes this lock. A caller that needs to write something else
+    against the same number — `recorder` writes the command log block first, so
+    the log header and the event agree — keeps the lock across both writes and
+    passes the number it was given as `append(seq=...)`.
     """
-    target.parent.mkdir(parents=True, exist_ok=True)
-    with open(target, "a", encoding="utf-8") as handle:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        path.touch()
+    handle = open(path, "a+", encoding="utf-8")
+    try:
         fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
-        try:
-            yield
-        finally:
-            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+        handle.seek(0)
+        yield _last_seq(_read_lines(handle)) + 1
+    finally:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+        handle.close()
 
 
 def append(
@@ -112,28 +125,28 @@ def append(
     data: dict | None = None,
     *,
     path: Path | None = None,
+    seq: int | None = None,
     **extra,
 ) -> Event:
-    """Append one event and return it. Flushes and fsyncs for durability."""
+    """Append one event and return it. Flushes and fsyncs for durability.
+
+    `seq` is for a caller already inside `hold_stream`. Passing it without that
+    lock reopens defect 24, and `tests/test_event_stream_concurrency.py` covers
+    the path that matters: concurrent `append` from separate processes.
+    """
     if kind not in KINDS:
         raise ValueError(f"unknown event kind: {kind}")
     target = path or paths.events_file(session)
-    with locked(target):
-        return _append_locked(session, kind, data, target=target, **extra)
+    if seq is None:
+        with hold_stream(target) as allocated:
+            return _emit(target, session, kind, data, allocated, extra)
+    return _emit(target, session, kind, data, seq, extra)
 
 
-def _append_locked(
-    session: str,
-    kind: str,
-    data: dict | None = None,
-    *,
-    target: Path,
-    **extra,
-) -> Event:
-    """Append one event. The caller holds `locked(target)`."""
+def _emit(target: Path, session: str, kind: str, data, seq: int, extra: dict) -> Event:
     payload = {
         "schema": paths.EVENT_SCHEMA,
-        "seq": next_seq(target),
+        "seq": seq,
         "ts": now_iso(),
         "session": session,
         "kind": kind,
@@ -152,8 +165,12 @@ def read(path: Path) -> list[dict]:
     """Read all events. Malformed lines are preserved as-is for the verifier."""
     if not path.exists():
         return []
+    return list(_read_lines(path.read_text(encoding="utf-8", errors="replace").splitlines()))
+
+
+def _read_lines(lines) -> list[dict]:
     events: list[dict] = []
-    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+    for line in lines:
         line = line.strip()
         if not line:
             continue

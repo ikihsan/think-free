@@ -1,0 +1,146 @@
+{
+ "arms": {
+  "A": {
+   "ci95": [
+    0.5606,
+    0.7734
+   ],
+   "ci95_over_stated": [
+    0.6962,
+    0.8926
+   ],
+   "labels": {
+    "no-need-stated": 12,
+    "served": 48,
+    "unserved-data-absent": 2,
+    "unserved-remedy-is-human": 9
+   },
+   "n": 71,
+   "n_stating_a_need": 59,
+   "served": 48,
+   "served_over_stated": 48,
+   "share": 0.6761,
+   "share_over_stated": 0.8136,
+   "unserved_open": 0
+  },
+  "B": {
+   "ci95": [
+    0.8426,
+    0.9945
+   ],
+   "ci95_over_stated": [
+    0.8897,
+    1.0
+   ],
+   "labels": {
+    "no-need-stated": 1,
+    "served": 31
+   },
+   "n": 32,
+   "n_stating_a_need": 31,
+   "served": 31,
+   "served_over_stated": 31,
+   "share": 0.9688,
+   "share_over_stated": 1.0,
+   "state_at_read": {
+    "closed": 25,
+    "open": 7
+   },
+   "unserved_open": 0
+  },
+  "C": {
+   "ci95": [
+    0.3421,
+    0.7418
+   ],
+   "ci95_over_stated": [
+    0.3421,
+    0.7418
+   ],
+   "labels": {
+    "served": 11,
+    "unserved-data-absent": 9
+   },
+   "n": 20,
+   "n_stating_a_need": 20,
+   "served": 11,
+   "served_over_stated": 11,
+   "share": 0.55,
+   "share_over_stated": 0.55,
+   "unserved_open": 0
+  }
+ },
+ "controls": {
+  "gate_met": true,
+  "served_expected": {
+   "missed": [],
+   "n": 10,
+   "recovered": 10
+  },
+  "unserved_expected": {
+   "missed": [
+    "C08"
+   ],
+   "n": 10,
+   "recovered": 9
+  }
+ },
+ "rows_read": 123,
+ "sensitivity": {
+  "A_all_rows": {
+   "n": 71,
+   "served": 48,
+   "share": 0.6761
+  },
+  "A_excluding_no_need_stated": {
+   "n": 59,
+   "served": 48,
+   "share": 0.8136
+  },
+  "A_strictest": {
+   "flipped_out": [
+    "A200",
+    "A220",
+    "A320",
+    "A1380"
+   ],
+   "n": 71,
+   "note": "an assistant must hand over an existing artifact or a complete procedure, not implement the feature; and knowledge-only, no open-web lookup",
+   "served": 44,
+   "share": 0.6197
+  },
+  "B_strictest": {
+   "flipped_out": [
+    "B024",
+    "B030",
+    "B036",
+    "B042",
+    "B054",
+    "B060",
+    "B066",
+    "B072",
+    "B078",
+    "B090",
+    "B096",
+    "B102",
+    "B108",
+    "B114",
+    "B120",
+    "B126",
+    "B132",
+    "B138",
+    "B144",
+    "B150",
+    "B162",
+    "B168",
+    "B174",
+    "B180",
+    "B186"
+   ],
+   "n": 32,
+   "note": "same rule; every arm B served row is repo work that an assistant could implement",
+   "served": 6,
+   "share": 0.1875
+  }
+ }
+}
