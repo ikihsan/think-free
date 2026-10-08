@@ -8,10 +8,10 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-171 recorded session(s). One `events.jsonl` per session, so concurrent
+173 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 146 older session(s) are in the directory listing.
+Showing the 25 most recent. 148 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
@@ -25,7 +25,9 @@ Showing the 25 most recent. 146 older session(s) are in the directory listing.
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
 | [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
+| [2026-10-08-006-fresh-observation-outside-software-measu](2026-10-08-006-fresh-observation-outside-software-measu/README.md) | unknown-agent | **unfinished** | Fresh observation outside software: measure what happens to publicly s | 2026-10-08T03:56 |
 | [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | worked | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:56 |
+| [2026-10-08-005-fresh-observation-measure-whether-a-proj](2026-10-08-005-fresh-observation-measure-whether-a-proj/README.md) | unknown-agent | worked | Fresh observation: measure whether a project's own tests, read statica | 2026-10-08T03:47 |
 | [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | worked | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T04:23 |
 | [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
 | [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 146 older session(s) are in the directory listing.
 | [2026-10-07-012-explore-independently-until-a-specific-t](2026-10-07-012-explore-independently-until-a-specific-t/README.md) | unknown-agent | worked | explore independently until a specific testable opportunity appears | 2026-10-07T16:56 |
 | [2026-10-07-011-e049-measure-dependency-lockfile-closure](2026-10-07-011-e049-measure-dependency-lockfile-closure/README.md) | unknown-agent | worked | E049: measure dependency-lockfile closure drift (E2) | 2026-10-07T16:47 |
 | [2026-10-07-010-fresh-observation-find-a-concrete-testab](2026-10-07-010-fresh-observation-find-a-concrete-testab/README.md) | unknown-agent | no-change | fresh observation: find a concrete testable opportunity | 2026-10-07T15:55 |
-| [2026-10-07-009-fresh-observation-pass-find-a-testable-o](2026-10-07-009-fresh-observation-pass-find-a-testable-o/README.md) | unknown-agent | no-change | fresh observation pass: find a testable opportunity via live GitHub AP | 2026-10-07T15:43 |
-| [2026-10-07-008-fresh-observation-pass-for-a-new-candida](2026-10-07-008-fresh-observation-pass-for-a-new-candida/README.md) | unknown-agent | no-change | fresh observation pass for a new candidate after E048/F085 seat emptin | 2026-10-07T14:48 |
 
 
 ## Reading a session

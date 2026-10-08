@@ -269,3 +269,28 @@ see it. Both halves are closed.
 - Unattended execution is not implemented. What exists is the record that makes an
   interrupted run recoverable, plus detection that reveals when it did not happen.
   The session-by-session account lives in the two history files named above.
+
+## How `STATE-next-actions.md` reached its present shape
+
+Moved here from `STATE-next-actions.md` on 2026-10-08, when that file passed the
+300-line cap and this one owned the record's own structure history.
+
+Split out of [`STATE.md`](STATE.md) on 2026-10-04, which was at 299 of the 300
+permitted lines and had to grow. The reload point keeps a pointer and the top
+item; the reasoning behind each item lives in
+[`STATE-next-actions.md`](STATE-next-actions.md) so that a rewrite of one does
+not force a rewrite of the other.
+**Two siblings, by invariant rather than by size.** The standing constraints —
+rules true whichever item is next — moved to
+[`STATE-constraints.md`](STATE-constraints.md) on 2026-10-04. **Item 0, the owner
+decision on what the mission selects candidates on, moved to
+[`STATE-selection.md`](STATE-selection.md) on 2026-10-06** when it reached 168
+lines: it is not work, no experiment here can settle it, and its presence in a
+ranked work list invited it to be worked on.
+Read the ceiling on an item before spending effort on it: a pass still leaves
+prior art, usefulness and adoption untouched, and every item says which.
+On 2026-10-08 the same repair ran again in the other direction: `STATE.md`
+passed the cap at 307 lines because session 2026-10-08-005 recorded E057 there,
+and its *Next actions* body — 99 lines that restated reasoning this file
+already held — moved here. A short-form duplicate of item 0 was removed at the
+same time, and the paragraphs that were not already here moved with it.

@@ -1,5 +1,6 @@
 <!-- origin-meta
 owner: docs/INDEX.md
+owner: FAILURES.md
 status: active
 last-verified: 2026-10-08
 -->
@@ -71,3 +72,96 @@ dynamic release badges or no version badge. Nothing built; nothing measured
 about drift, which is vacuous at zero population.
 Evidence: [`EXPERIMENTS/060-badge-release-drift/`](EXPERIMENTS/060-badge-release-drift/README.md),
 `raw/rows.json`.
+# Findings 32 — a population gate that closed before a prototype, and a
+# denominator this repository's own record wrote over three of five arms
+
+`observed` 2026-10-08, session 2026-10-08-005, VM `instance-20260717-0944`.
+Evidence: [`EXPERIMENTS/057-no-run-worklist/`](EXPERIMENTS/057-no-run-worklist/README.md).
+
+Split out of [`FAILURES-findings-31.md`](FAILURES-findings-31.md) on 2026-10-08.
+**Identifiers are stable across all findings files**; F084–F087 were not
+renumbered.
+
+## F088 — Nobody in the trackers that own the vocabulary asks to locate unexercised code without running the suite
+
+**What happened.** Session 2026-10-08-005 declared a goal with a condition in
+it: *measure whether a project's own tests, read statically, locate the code a
+real test run reports unexercised, and build a no-run worklist prototype if
+they agree.* D077 requires the population to be read out of the evidence before
+anything is built to measure the mechanism, so E057 ran the population gate and
+declared its kill condition first: if 0 of 30 rows in each of the two trackers
+whose vocabulary owns the need state the need, no prototype is written.
+
+**What was found. The gate fired, on every arm.**
+
+| arm | HTTP | `total_count` | read | stating the need |
+|---|---|---|---|---|
+| `coveragepy/coveragepy is:issue "without running"` | 200 | 32 | 30 | **0** |
+| `jendrikseipp/vulture is:issue "without running"` | 200 | 1 | 1 | **0** |
+| `pytest-dev/pytest-cov is:issue "without running"` | 200 | 13 | 13 | **0** |
+| `is:issue "without running the tests" untested` | 200 | 177 | 30 | **0** |
+| `is:issue "coverage" "without running the tests"` | 200 | 1217 | 30 | **0** |
+| `is:issue "never called" "statically"` | 200 | 1683 | 30 | **0** |
+| `is:issue "find" "dead code" "statically"` | 200 | 1483 | 30 | **0** |
+
+All 30 `coveragepy` rows are about coverage **when it ran** — lines that
+executed and were recorded as missed (asyncio/redis, `concurrency=multiprocessing`
+and coroutines, comprehensions under pytest's assertion rewriting, dotted
+`--source`), overhead (5×, 20× on PyPy, 77× with `Decimal`, 13 s of start-up),
+crashes, and platform compatibility. The one row that comes closest,
+`coveragepy#2211282948` *"Want to get coverage for 3rd party dependencies' code
+used by my project"* (10 comments), wants to know which dependency lines their
+own code reaches — and the answer is to run coverage with `--source` pointed at
+site-packages. They run the suite; the missing piece is a config flag.
+`vulture`'s single row asks for the diff of findings between two versions, not
+for a run-free substitute.
+
+**Why it is a failure.** The population the declared goal's condition depends on
+does not exist in the retrieval route that would have found it. The prototype was
+therefore not written, and the mechanism gate — whether a static read can
+substitute for a coverage run — was never run and is not answered.
+
+**What it does not close.** It does not close the idea that a static read cannot
+substitute; it removes the requester from the premise. It does not touch the
+real population the same 30 rows describe: coverage that under-reports lines
+that executed is a current, unsolved problem with 30 open rows in one tracker.
+And F049 already measured that 167 of 241 shipped features were released
+*before* anyone complained, so an issue tracker under-represents need by
+construction — this closes the population **as stated, in these two trackers**.
+
+## F089 — A verdict in this repository's own record was written over three of five arms, and the arms that never ran are invisible in its table
+
+**What happened, twice, in three days, in different code.**
+
+1. **E056 (F087), two days old.** Its results table has three rows — black,
+   cookiecutter, httpie. Its text says *"pre-commit and mypy runs timed out;
+   partial evidence only."* Its verdict is *"No observable drift population at
+   this sample"*, and the sampling is described as five packages. The denominator
+   a reader takes from the heading is 5; the arms that produced an observation
+   are 3. Nothing in the table records that two of the five are absent.
+2. **E057, this session.** Ten search arms. Two returned **HTTP 422** — a
+   misspelled repository owner in the `repo:` qualifier — and returned zero
+   items. Zero items from a 422 and zero items from a real negative are the same
+   value in the same field, and the two 422s were on `coveragepy` and `vulture`,
+   **the two arms carrying the most weight**. A readout that counted items rather
+   than statuses would have reported *0 of 7 arms found anything*, where the
+   truth is *2 arms never ran*.
+
+A tenth arm returned `total_count = 202343` because its query contained an `OR`.
+That is a query with no discriminating power, and it was discarded rather than
+counted as a fifth zero — the other handling, and the one to keep.
+
+**Why it is a failure.** It is the mission's own recurring class, one layer up
+from the instances already on record. F013 is *gates that exist and are never
+run, so a gate passing proves nothing*; F021 is *an annotator's rendering
+declared `unmeasured` on a run whose annotating steps never ran*; F025 is *a
+red-run cause made readable but never explained*. The common shape is a
+measurement step that **did not happen** being read as a measurement that came
+back empty, in a pipeline whose summary is a count or a rate. Two of the three
+instances above are in this repository's own records, and one of them is the
+verdict that closed the most recent candidate.
+
+**What it buys.** D081: an arm that produced no observation is a **missing
+observation**; a missing observation never enters a denominator and never
+becomes a zero. E056's verdict is not withdrawn — nothing here shows it is wrong
+— but it was reached over three of five arms and is now labelled as such.

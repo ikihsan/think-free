@@ -6,7 +6,7 @@ last-verified: 2026-10-08
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D082**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D083**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -166,6 +166,38 @@ share of them.
 **The evidence.** All three kill gates passed on synthetic data: precision 100%, recall 83.86%, FPR 0%. The algorithm outperforms naive baseline (F1 91.22% vs 72.47%, +18.75%) by using multi-factor scoring instead of mere frequency counting. Negative controls verified: income transactions correctly NOT flagged, noise transactions correctly NOT flagged.
 
 **Why this is a rule and not a one-off.** The mission has repeatedly pivoted domains without establishing a reproducible experiment pattern. D082 makes explicit: fresh exploration = runnable falsification experiment first, with synthetic fixtures labeled as such, predeclared kill gates, and negative controls. Implementation only if gates pass. The experiment must be deterministic, stdlib-only, and runnable on this machine.
+
+**Rejected: build a personal finance app.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
+
+**Rejected: use ML/LLM for merchant normalization.** The falsification must be cheap and deterministic. Rule-based normalization on synthetic fixtures is the minimum viable test of the mechanism.
+
+**Ceiling.** Synthetic CSV files only. Real bank exports have additional complexities: merchant name variations, split/merged transactions, format inconsistencies, PDF statements. A 100% precision result on synthetic data does not establish real-world precision. The next step is testing on real bank CSV data from volunteer contributors; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
+
+## D082 — An arm that produced no observation is a missing observation, never a zero and never a denominator (2026-10-08)
+
+`observed` 2026-10-08, session 2026-10-08-005, E057.
+
+**The situation.** E057's population gate declared its kill condition before reading a row, then ran ten search arms. Two returned **HTTP 422** — a misspelled repository owner in a `repo:` qualifier — and returned zero items. Zero items from a 422 and zero items from a real negative are the same value in the same field, and the two failed arms were `coveragepy` and `vulture`, the two carrying the most weight. Two days earlier E056 (F087) closed a candidate with a three-row results table under a heading describing a five-package sample, its text saying `pre-commit and mypy runs timed out; partial evidence only`.
+
+**The choice.** Every measurement in this repository states, per arm, whether an observation was produced, and a rate or count is only ever written over the arms that produced one. A missing arm is printed as missing, with the reason it is missing, and it is excluded from the denominator. A verdict reached over a subset names the subset in the verdict sentence itself.
+
+**Why this is a rule and not a one-off.** It is F013, F021 and F025 one layer up. F013 is a gate that exists and is never run, so a green run proves nothing; F021 is an annotator's rendering declared `unmeasured` on a run whose annotating steps never ran; F025 is a red-run cause made readable but never explained. All three are a step that did not happen, read as a step that came back empty. The mission's own instruments produce the shape whenever a summary is a count over independently-failing arms, and two of the three instances found so far are verdicts that closed candidates.
+
+**Rejected: fail the whole experiment on one missing arm.** The cost is the other arms, and the owner brief's bounded-audit rule applies — the missing arm is reported and the experiment continues over the arms that ran. **Rejected: retry until every arm succeeds.** Ten retries is how a bounded probe becomes an unbounded one, and the two 422s here were a misspelling, not a rate limit. **Rejected: treat a discarded arm as a zero.** A tenth arm returned `total_count = 202343` because its query contained an `OR`; counting that as a zero would have manufactured a population. It is discarded and named.
+
+**Ceiling.** D082 is a records rule and cannot make a partial measurement sufficient. E056's verdict is **not withdrawn** — nothing here shows it is wrong — but it now reads *over three observed arms of five attempted*, and a reader can see which three.
+
+## D083 — Fresh observation experiments must be runnable on this machine with stdlib-only code, synthetic fixtures, and predeclared kill gates (2026-10-08)
+
+`observed` 2026-10-08, session 2026-10-08-012, E065.
+
+**The situation.** The mission's seat for a candidate is empty after seven measurements closed the stg candidate (F075, F081, F083, F084, F085, F088). The owner brief requires fresh exploration in a completely new domain until a specific testable opportunity appears. Prior domains (Python/git tooling, PyPI, need-corpora, text-organization, serialization) are exhausted.
+
+**The choice.** Select personal finance — specifically recurring expense detection from bank transaction CSVs — as a fresh observation domain. Design a deterministic, stdlib-only algorithm with predeclared kill gates (precision ≥85%, recall ≥80%, FPR ≤5%) and run it on 100 synthetic CSV files across 4 bank formats (Chase, Bank of America, Wells Fargo, Generic). The algorithm uses interval regularity, amount consistency, and variable-merchant handling.
+
+**The evidence.** All three kill gates passed on synthetic data: precision 100%, recall 83.86%, FPR 0%. The algorithm outperforms naive baseline (F1 91.22% vs 72.47%, +18.75%) by using multi-factor scoring instead of mere frequency counting. Negative controls verified: income transactions correctly NOT flagged, noise transactions correctly NOT flagged.
+
+**Why this is a rule and not a one-off.** The mission has repeatedly pivoted domains without establishing a reproducible experiment pattern. D083 makes explicit: fresh exploration = runnable falsification experiment first, with synthetic fixtures labeled as such, predeclared kill gates, and negative controls. Implementation only if gates pass. The experiment must be deterministic, stdlib-only, and runnable on this machine.
 
 **Rejected: build a personal finance app.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
 

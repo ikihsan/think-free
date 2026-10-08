@@ -184,32 +184,6 @@ untouched, and every item says which.
      them**, and that is still the first demand-side instrument in this record to return
      positives at all. **D064** governs the decision rule that failed to be exclusive,
      **D063** the ten-literal label that makes E033's 0.0540 a floor.
-Split out of [`STATE.md`](STATE.md) on 2026-10-04, which was at 299 of the 300
-permitted lines and had to grow. The reload point keeps a pointer and the top
-item; the reasoning behind each item lives here so that a rewrite of one does
-not force a rewrite of the other.
-**Two siblings, by invariant rather than by size.** The standing constraints —
-rules true whichever item is next — moved to
-[`STATE-constraints.md`](STATE-constraints.md) on 2026-10-04. **Item 0, the owner
-decision on what the mission selects candidates on, moved to
-[`STATE-selection.md`](STATE-selection.md) on 2026-10-06** when it reached 168
-lines: it is not work, no experiment here can settle it, and its presence in a
-ranked work list invited it to be worked on.
-Read the ceiling on an item before spending effort on it: a pass still leaves
-prior art, usefulness and adoption untouched, and every item says which.
-0. **Decide what the mission selects candidates on — an owner decision, and
-   it is no longer a work item.** The full reasoning, the four measurements that
-   bear on it, and the ceilings on each are in
-   [`STATE-selection.md`](STATE-selection.md), where it was moved on 2026-10-06
-   because it had reached 168 of this file's 300 permitted lines and is not work:
-   no experiment in this repository can settle it. **Short version:** novelty cannot
-   be the filter, because the screen's premise has now been measured on four axes
-   and all four came out against it (F034 soundness, F035 coverage, F037
-   composition, F060 demand side). Neither is prior art nor star-shaped adoption
-   nor harvested recurrence able to carry the choice. **E039 closed the last
-   proposal:** the axis "did they use the thing?" has no channel, because 1 of 794
-   requesters replied again. What remains is the owner's.
-   **Ceiling:** this entry points at the decision; it does not make it.
 1. **A gate must read the property it claims to check, and must be falsified
    against the defect's own bytes before it is trusted** (D025, from F013). Nine
    gates now work that way, the newest being the rule that holds a restated
@@ -269,3 +243,51 @@ the 300-line cap. Read it when re-running a closed item looks tempting.
 Moved to [`STATE-constraints.md`](STATE-constraints.md) at the 300-line cap:
 they are true whichever item is next, and the rank has changed twice since they
 were last true of anything.
+
+## Moved here from `STATE.md` on 2026-10-08, at its 300-line cap
+
+Three paragraphs the reload point carried about items 0a, 0f and the selection axes.
+They live here because this file owns the reasoning behind each item; `STATE.md` keeps
+the pointer and the one-line status.
+
+**The single most useful next action is spent.** Item 0a is closed twice (E044,
+F083, D078 run; E045 reading, F081, F082), and item 0f is closed by E047 (F084,
+D079). E048 then took the one observation E047 left behind — what a formatter's
+own rewrite does to a partially-staged file — and measured the user-visible
+disagreement instead of theorising about it: same fixture, same controls, same
+arm predictions as E047, plus `prettier --check` on the `HEAD` blob, on the
+worktree, and `git status --porcelain`. **In 8 of 9 configurations the
+disagreement is either blocked (lint-staged refuses the commit) or loud
+(`git status` shows the reformatted file); in exactly one — lefthook without
+`stage_fixed` — the worktree is formatted, the commit succeeds, `git status`
+is silent, and only `prettier --check` on HEAD reveals the unformatted commit.**
+That one silent shape already has a documented remedy in the same tool, and a
+CI format gate fires on it. Nothing to build;
+[`EXPERIMENTS/048-formatter-review/README.md`](EXPERIMENTS/048-formatter-review/README.md).
+The seat is empty, measured seven ways (F029, F051, F039, F059, F081, F084,
+F085).
+
+**Beneath that: three rules about the order of work, not experiments.** Stack
+Overflow's own search **does** return the score-tail population from one
+unauthenticated request with the closure label in the payload (F059) — **the
+worklist is closed and nothing is built.** D066 requires a reachability claim to
+name the interface surface it enumerated. **D067**: a mechanism-bearing candidate
+is tested against its mechanism's existing source first. D074: a candidate whose
+surviving claim names a *caller* runs that caller first. **D077**: a candidate
+whose surviving claim names a *population* has that population read out of the
+evidence — row by row, requester and missing interface per row — before anything
+is built to measure it, **because the corpus already on disk named 26 incumbents
+where the web search returned 2 (F082)**. Item 0 remains an owner decision.
+**The generator is not the blocker; the ordering of the work is.**
+
+**The four candidate-selection axes, and where each now stands.** Prior art,
+star-shaped adoption and harvested recurrence cannot carry it (F048 adds that
+the prior-art axis's own verdict is not shown to rest on evidence of fit), and
+**E045 adds the sharpest instance: the prior-art axis was consulted by a search
+that returned 2 of 26 implementations named by the corpus already on disk
+(F082)**. The need corpus behind them is 1250 individual requesters each asking
+once, 167 of whose 241 shipped *before* they complained (F039, F049). The fourth
+axis E034 and E035 added is closed by F059 — three of four orderings cannot return
+the population and the fourth is a first-party API route. The numbers behind all
+of this are in item 0 and item 0d of this file and, in full, in
+[`STATE-selection.md`](STATE-selection.md).

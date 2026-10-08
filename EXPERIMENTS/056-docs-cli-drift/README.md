@@ -45,6 +45,12 @@ mypy, pre-commit. For each:
 
 (pre-commit and mypy runs timed out; partial evidence only.)
 
+**Denominator, stated per D081 on 2026-10-08 (F089): 5 packages attempted,
+3 arms produced an observation.** Every number in this file is over those 3.
+`pre-commit` and `mypy` are **missing observations, not zeros** — they are not
+rows of zero drift. Nothing observed here shows the verdict is wrong; it was
+reached over three of five arms, and this line is the correction.
+
 ## Adjudication of doc_not_exposed
 
 Read each flag alongside its doc context (script `raw/ctx.py` equivalent
@@ -63,7 +69,8 @@ recorded in session commands log):
 
 ## Verdict
 
-**No observable drift population at this sample.** Embedded help blocks
+**No observable drift population at this sample — reached over 3 observed
+arms of 5 attempted** (see the denominator note above). Embedded help blocks
 track `--help` exactly (0 drift across three projects), and prose flag
 mentions are overwhelmingly other tools' flags inside examples — a
 noise floor any implementation must adjudicate, not a signal. The one
