@@ -1,0 +1,1087 @@
+{
+  "harvest_date": "2026-10-08",
+  "categories": [
+    "cs:cs:LG",
+    "cs:cs:AI",
+    "stat:stat:ML",
+    "physics:physics:comp-ph",
+    "cs:cs:CV",
+    "cs:cs:CL"
+  ],
+  "date_range": "2024-01-01 to 2024-12-31",
+  "stride": 50,
+  "total_papers": 15397,
+  "papers_with_code_links": 1682,
+  "sampled_papers": 34,
+  "papers": [
+    {
+      "arxiv_id": "2205.11638",
+      "title": "DOGE-Train: Discrete Optimization on GPU with End-to-end Training",
+      "authors": [
+        "Abbas",
+        "Swoboda"
+      ],
+      "categories": [
+        "cs.LG",
+        "math.OC"
+      ],
+      "abstract": "We present a fast, scalable, data-driven approach for solving relaxations of 0-1 integer linear programs. We use a combination of graph neural networks (GNN) and the Lagrange decomposition based algorithm FastDOG (Abbas and Swoboda 2022b). We make the latter differentiable for end-to-end training and use GNNs to predict its algorithmic parameters. This allows to retain the algorithm's theoretical properties including dual feasibility and guaranteed non-decrease in the lower bound while improving it via training. We overcome suboptimal fixed points of the basic solver by additional non-parametric GNN update steps maintaining dual feasibility. For training we use an unsupervised loss. We train on smaller problems and test on larger ones showing strong generalization performance with a GNN comprising only around $10k$ parameters. Our solver achieves significantly faster performance and better dual objectives than its non-learned version, achieving close to optimal objective values of LP relaxations of very large structured prediction problems and on selected combinatorial ones. In particular, we achieve better objective values than specialized approximate solvers for specific problem classes while retaining their efficiency. Our solver has better any-time performance over a large time period compared to a commercial solver. Code available at https://github.com/LPMP/BDD",
+      "comments": "AAAI 2024. Alert before printing: pg. 16-20 only contain per instance results, can possibly be skipped",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2023-12-28",
+      "code_urls": [
+        "https://github.com/LPMP/BDD"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "LPMP",
+          "repo": "BDD",
+          "url": "https://github.com/LPMP/BDD"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2309.13016",
+      "title": "Understanding Deep Gradient Leakage via Inversion Influence Functions",
+      "authors": [
+        "Zhang",
+        "Hong",
+        "Deng",
+        "Mahdavi",
+        "Zhou"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "abstract": "Deep Gradient Leakage (DGL) is a highly effective attack that recovers private training images from gradient vectors. This attack casts significant privacy challenges on distributed learning from clients with sensitive data, where clients are required to share gradients. Defending against such attacks requires but lacks an understanding of when and how privacy leakage happens, mostly because of the black-box nature of deep networks. In this paper, we propose a novel Inversion Influence Function (I$^2$F) that establishes a closed-form connection between the recovered images and the private gradients by implicitly solving the DGL problem. Compared to directly solving DGL, I$^2$F is scalable for analyzing deep networks, requiring only oracle access to gradients and Jacobian-vector products. We empirically demonstrate that I$^2$F effectively approximated the DGL generally on different model architectures, datasets, modalities, attack implementations, and perturbation-based defenses. With this novel tool, we provide insights into effective gradient perturbation directions, the unfairness of privacy protection, and privacy-preferred model initialization. Our codes are provided in https://github.com/illidanlab/inversion-influence-function.",
+      "comments": "24 pages, 18 figures, accepted to NeurIPS2023",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-08",
+      "code_urls": [
+        "https://github.com/illidanlab/inversion-influence-function"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "illidanlab",
+          "repo": "inversion-influence-function",
+          "url": "https://github.com/illidanlab/inversion-influence-function"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.07985",
+      "title": "Neural Combinatorial Optimization with Heavy Decoder: Toward Large Scale Generalization",
+      "authors": [
+        "Luo",
+        "Lin",
+        "Liu",
+        "Zhang",
+        "Wang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.NE",
+        "math.OC"
+      ],
+      "abstract": "Neural combinatorial optimization (NCO) is a promising learning-based approach for solving challenging combinatorial optimization problems without specialized algorithm design by experts. However, most constructive NCO methods cannot solve problems with large-scale instance sizes, which significantly diminishes their usefulness for real-world applications. In this work, we propose a novel Light Encoder and Heavy Decoder (LEHD) model with a strong generalization ability to address this critical issue. The LEHD model can learn to dynamically capture the relationships between all available nodes of varying sizes, which is beneficial for model generalization to problems of various scales. Moreover, we develop a data-efficient training scheme and a flexible solution construction mechanism for the proposed LEHD model. By training on small-scale problem instances, the LEHD model can generate nearly optimal solutions for the Travelling Salesman Problem (TSP) and the Capacitated Vehicle Routing Problem (CVRP) with up to 1000 nodes, and also generalizes well to solve real-world TSPLib and CVRPLib problems. These results confirm our proposed LEHD model can significantly improve the state-of-the-art performance for constructive NCO. The code is available at https://github.com/CIAM-Group/NCO_code/tree/main/single_objective/LEHD.",
+      "comments": "Accepted at NeurIPS 2023",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-13",
+      "code_urls": [
+        "https://github.com/CIAM-Group/NCO_code"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "CIAM-Group",
+          "repo": "NCO_code",
+          "url": "https://github.com/CIAM-Group/NCO_code"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.10518",
+      "title": "Spatial-temporal Forecasting for Regions without Observations",
+      "authors": [
+        "Su",
+        "Qi",
+        "Tanin",
+        "Chang",
+        "Sarvi"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "abstract": "Spatial-temporal forecasting plays an important role in many real-world applications, such as traffic forecasting, air pollutant forecasting, crowd-flow forecasting, and so on. State-of-the-art spatial-temporal forecasting models take data-driven approaches and rely heavily on data availability. Such models suffer from accuracy issues when data is incomplete, which is common in reality due to the heavy costs of deploying and maintaining sensors for data collection. A few recent studies attempted to address the issue of incomplete data. They typically assume some data availability in a region of interest either for a short period or at a few locations. In this paper, we further study spatial-temporal forecasting for a region of interest without any historical observations, to address scenarios such as unbalanced region development, progressive deployment of sensors or lack of open data. We propose a model named STSM for the task. The model takes a contrastive learning-based approach to learn spatial-temporal patterns from adjacent regions that have recorded data. Our key insight is to learn from the locations that resemble those in the region of interest, and we propose a selective masking strategy to enable the learning. As a result, our model outperforms adapted state-of-the-art models, reducing errors consistently over both traffic and air pollutant forecasting tasks. The source code is available at https://github.com/suzy0223/STSM.",
+      "comments": "Accepted by EDBT2024",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-19",
+      "code_urls": [
+        "https://github.com/suzy0223/STSM"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "suzy0223",
+          "repo": "STSM",
+          "url": "https://github.com/suzy0223/STSM"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.14493",
+      "title": "K-QA: A Real-World Medical Q&A Benchmark",
+      "authors": [
+        "Manes",
+        "Ronn",
+        "Cohen",
+        "Ber",
+        "Horowitz-Kugler",
+        "Stanovsky"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.HC",
+        "cs.LG"
+      ],
+      "abstract": "Ensuring the accuracy of responses provided by large language models (LLMs) is crucial, particularly in clinical settings where incorrect information may directly impact patient health. To address this challenge, we construct K-QA, a dataset containing 1,212 patient questions originating from real-world conversations held on K Health (an AI-driven clinical platform). We employ a panel of in-house physicians to answer and manually decompose a subset of K-QA into self-contained statements. Additionally, we formulate two NLI-based evaluation metrics approximating recall and precision: (1) comprehensiveness, measuring the percentage of essential clinical information in the generated answer and (2) hallucination rate, measuring the number of statements from the physician-curated response contradicted by the LLM answer. Finally, we use K-QA along with these metrics to evaluate several state-of-the-art models, as well as the effect of in-context learning and medically-oriented augmented retrieval schemes developed by the authors. Our findings indicate that in-context learning improves the comprehensiveness of the models, and augmented retrieval is effective in reducing hallucinations. We make K-QA available to to the community to spur research into medically accurate NLP applications.",
+      "comments": "The data and the evaluation script are available at https://github.com/Itaymanes/K-QA. Results and model comparisons can be viewed at https://huggingface.co/spaces/Itaykhealth/K-QA",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-25",
+      "code_urls": [
+        "https://github.com/Itaymanes/K-QA"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Itaymanes",
+          "repo": "K-QA",
+          "url": "https://github.com/Itaymanes/K-QA"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.01183",
+      "title": "Unifying Structured Data as Graph for Data-to-Text Pre-Training",
+      "authors": [
+        "Li",
+        "Li",
+        "Geng",
+        "Yang",
+        "Li",
+        "Yuan",
+        "He",
+        "Yuan",
+        "Ma",
+        "Huang",
+        "Li"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "abstract": "Data-to-text (D2T) generation aims to transform structured data into natural language text. Data-to-text pre-training has proved to be powerful in enhancing D2T generation and yields impressive performances. However, previous pre-training methods either oversimplified structured data into a sequence without considering input structures or designed training objectives tailored for a specific data structure (e.g., table or knowledge graph). In this paper, we unify different types of structured data (i.e., table, key-value data, knowledge graph) into the graph format and cast different data-to-text generation tasks as graph-to-text generation. To effectively exploit the structural information of the input graph, we propose a structure-enhanced pre-training method for D2T generation by designing a structure-enhanced Transformer. Concretely, we devise a position matrix for the Transformer, encoding relative positional information of connected nodes in the input graph. In addition, we propose a new attention matrix to incorporate graph structures into the original Transformer by taking the available explicit connectivity structure into account. Extensive experiments on six benchmark datasets show the effectiveness of our model. Our source codes are available at https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/unid2t.",
+      "comments": "Accepted for TACL. Pre-MIT Press publication version",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-02",
+      "code_urls": [
+        "https://github.com/AlibabaResearch/DAMO-ConvAI"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "AlibabaResearch",
+          "repo": "DAMO-ConvAI",
+          "url": "https://github.com/AlibabaResearch/DAMO-ConvAI"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.06151",
+      "title": "Towards Joint Sequence-Structure Generation of Nucleic Acid and Protein Complexes with SE(3)-Discrete Diffusion",
+      "authors": [
+        "Morehead",
+        "Ruffolo",
+        "Bhatnagar",
+        "Madani"
+      ],
+      "categories": [
+        "q-bio.BM",
+        "cs.AI",
+        "cs.LG",
+        "q-bio.QM"
+      ],
+      "abstract": "Generative models of macromolecules carry abundant and impactful implications for industrial and biomedical efforts in protein engineering. However, existing methods are currently limited to modeling protein structures or sequences, independently or jointly, without regard to the interactions that commonly occur between proteins and other macromolecules. In this work, we introduce MMDiff, a generative model that jointly designs sequences and structures of nucleic acid and protein complexes, independently or in complex, using joint SE(3)-discrete diffusion noise. Such a model has important implications for emerging areas of macromolecular design including structure-based transcription factor design and design of noncoding RNA sequences. We demonstrate the utility of MMDiff through a rigorous new design benchmark for macromolecular complex generation that we introduce in this work. Our results demonstrate that MMDiff is able to successfully generate micro-RNA and single-stranded DNA molecules while being modestly capable of joint modeling DNA and RNA molecules in interaction with multi-chain protein complexes. Source code: https://github.com/Profluent-Internships/MMDiff.",
+      "comments": "15 pages, 11 figures, presented at the NeurIPS 2023 Machine Learning in Structural Biology (MLSB) workshop. Code available at https://github.com/Profluent-Internships/MMDiff",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2023-12-21",
+      "code_urls": [
+        "https://github.com/Profluent-Internships/MMDiff"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Profluent-Internships",
+          "repo": "MMDiff",
+          "url": "https://github.com/Profluent-Internships/MMDiff"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.11532",
+      "title": "Topic-VQ-VAE: Leveraging Latent Codebooks for Flexible Topic-Guided Document Generation",
+      "authors": [
+        "Yoo",
+        "Choi"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "This paper introduces a novel approach for topic modeling utilizing latent codebooks from Vector-Quantized Variational Auto-Encoder~(VQ-VAE), discretely encapsulating the rich information of the pre-trained embeddings such as the pre-trained language model. From the novel interpretation of the latent codebooks and embeddings as conceptual bag-of-words, we propose a new generative topic model called Topic-VQ-VAE~(TVQ-VAE) which inversely generates the original documents related to the respective latent codebook. The TVQ-VAE can visualize the topics with various generative distributions including the traditional BoW distribution and the autoregressive image generation. Our experimental results on document analysis and image generation demonstrate that TVQ-VAE effectively captures the topic context which reveals the underlying structures of the dataset and supports flexible forms of document generation. Official implementation of the proposed TVQ-VAE is available at https://github.com/clovaai/TVQ-VAE.",
+      "comments": "Published in the 38th annual AAAI conference on Artificial Intelligence",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-21",
+      "code_urls": [
+        "https://github.com/clovaai/TVQ-VAE"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "clovaai",
+          "repo": "TVQ-VAE",
+          "url": "https://github.com/clovaai/TVQ-VAE"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.16618",
+      "title": "A comparison of RL-based and PID controllers for 6-DOF swimming robots: hybrid underwater object tracking",
+      "authors": [
+        "Lotfi",
+        "Virji",
+        "Dudek",
+        "Dudek"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "abstract": "In this paper, we present an exploration and assessment of employing a centralized deep Q-network (DQN) controller as a substitute for the prevalent use of PID controllers in the context of 6DOF swimming robots. Our primary focus centers on illustrating this transition with the specific case of underwater object tracking. DQN offers advantages such as data efficiency and off-policy learning, while remaining simpler to implement than other reinforcement learning methods. Given the absence of a dynamic model for our robot, we propose an RL agent to control this multi-input-multi-output (MIMO) system, where a centralized controller may offer more robust control than distinct PIDs. Our approach involves initially using classical controllers for safe exploration, then gradually shifting to DQN to take full control of the robot.\n  We divide the underwater tracking task into vision and control modules. We use established methods for vision-based tracking and introduce a centralized DQN controller. By transmitting bounding box data from the vision module to the control module, we enable adaptation to various objects and effortless vision system replacement. Furthermore, dealing with low-dimensional data facilitates cost-effective online learning for the controller. Our experiments, conducted within a Unity-based simulator, validate the effectiveness of a centralized RL agent over separated PID controllers, showcasing the applicability of our framework for training the underwater RL agent and improved performance compared to traditional control methods. The code for both real and simulation implementations is at https://github.com/FARAZLOTFI/underwater-object-tracking.",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-29",
+      "code_urls": [
+        "https://github.com/FARAZLOTFI/underwater-object-tracking"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "FARAZLOTFI",
+          "repo": "underwater-object-tracking",
+          "url": "https://github.com/FARAZLOTFI/underwater-object-tracking"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.01694",
+      "title": "ARGS: Alignment as Reward-Guided Search",
+      "authors": [
+        "Khanov",
+        "Burapacheep",
+        "Li"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "Aligning large language models with human objectives is paramount, yet common approaches including RLHF suffer from unstable and resource-intensive training. In response to this challenge, we introduce ARGS, Alignment as Reward-Guided Search, a novel framework that integrates alignment into the decoding process, eliminating the need for expensive RL training. By adjusting the model's probabilistic predictions using a reward signal, ARGS generates texts with semantic diversity while being aligned with human preferences, offering a promising and flexible solution for aligning language models. Notably, ARGS demonstrates consistent enhancements in average reward compared to baselines across diverse alignment tasks and various model dimensions. For example, under the same greedy-based decoding strategy, our method improves the average reward by 19.56% relative to the baseline and secures a preference or tie score of 64.33% in GPT-4 evaluation. We believe that our framework, emphasizing decoding-time alignment, paves the way for more responsive language models in the future. Code is publicly available at: \\url{https://github.com/deeplearning-wisc/args}.",
+      "comments": "ICLR 2024",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-23",
+      "code_urls": [
+        "https://github.com/deeplearning-wisc/args"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "deeplearning-wisc",
+          "repo": "args",
+          "url": "https://github.com/deeplearning-wisc/args"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.01845",
+      "title": "Zero-Shot Refinement of Buildings' Segmentation Models using SAM",
+      "authors": [
+        "Mayladan",
+        "Nasrallah",
+        "Moughnieh",
+        "Shukor",
+        "Ghandour"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "abstract": "Foundation models have excelled in various tasks but are often evaluated on general benchmarks. The adaptation of these models for specific domains, such as remote sensing imagery, remains an underexplored area. In remote sensing, precise building instance segmentation is vital for applications like urban planning. While Convolutional Neural Networks (CNNs) perform well, their generalization can be limited. For this aim, we present a novel approach to adapt foundation models to address existing models' generalization dropback. Among several models, our focus centers on the Segment Anything Model (SAM), a potent foundation model renowned for its prowess in class-agnostic image segmentation capabilities. We start by identifying the limitations of SAM, revealing its suboptimal performance when applied to remote sensing imagery. Moreover, SAM does not offer recognition abilities and thus fails to classify and tag localized objects. To address these limitations, we introduce different prompting strategies, including integrating a pre-trained CNN as a prompt generator. This novel approach augments SAM with recognition abilities, a first of its kind. We evaluated our method on three remote sensing datasets, including the WHU Buildings dataset, the Massachusetts Buildings dataset, and the AICrowd Mapping Challenge. For out-of-distribution performance on the WHU dataset, we achieve a 5.47\\% increase in IoU and a 4.81\\% improvement in F1-score. For in-distribution performance on the WHU dataset, we observe a 2.72\\% and 1.58\\% increase in True-Positive-IoU and True-Positive-F1 score, respectively. Our code is publicly available at this Repo (https://github.com/geoaigroup/GEOAI-ECRS2023), hoping to inspire further exploration of foundation models for domain-specific tasks within the remote sensing community.",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-11",
+      "code_urls": [
+        "https://github.com/geoaigroup/GEOAI-ECRS2023"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "geoaigroup",
+          "repo": "GEOAI-ECRS2023",
+          "url": "https://github.com/geoaigroup/GEOAI-ECRS2023"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.11948",
+      "title": "Mini-Hes: A Parallelizable Second-order Latent Factor Analysis Model",
+      "authors": [
+        "Wang",
+        "Li",
+        "Zhong",
+        "Luo"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "abstract": "Interactions among large number of entities is naturally high-dimensional and incomplete (HDI) in many big data related tasks. Behavioral characteristics of users are hidden in these interactions, hence, effective representation of the HDI data is a fundamental task for understanding user behaviors. Latent factor analysis (LFA) model has proven to be effective in representing HDI data. The performance of an LFA model relies heavily on its training process, which is a non-convex optimization. It has been proven that incorporating local curvature and preprocessing gradients during its training process can lead to superior performance compared to LFA models built with first-order family methods. However, with the escalation of data volume, the feasibility of second-order algorithms encounters challenges. To address this pivotal issue, this paper proposes a mini-block diagonal hessian-free (Mini-Hes) optimization for building an LFA model. It leverages the dominant diagonal blocks in the generalized Gauss-Newton matrix based on the analysis of the Hessian matrix of LFA model and serves as an intermediary strategy bridging the gap between first-order and second-order optimization methods. Experiment results indicate that, with Mini-Hes, the LFA model outperforms several state-of-the-art models in addressing missing data estimation task on multiple real HDI datasets from recommender system. (The source code of Mini-Hes is available at https://github.com/Goallow/Mini-Hes)",
+      "comments": "6 pages",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-19",
+      "code_urls": [
+        "https://github.com/Goallow/Mini-Hes"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Goallow",
+          "repo": "Mini-Hes",
+          "url": "https://github.com/Goallow/Mini-Hes"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.14814",
+      "title": "Leveraging Ensemble Diversity for Robust Self-Training in the Presence of Sample Selection Bias",
+      "authors": [
+        "Odonnat",
+        "Feofanov",
+        "Redko"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "abstract": "Self-training is a well-known approach for semi-supervised learning. It consists of iteratively assigning pseudo-labels to unlabeled data for which the model is confident and treating them as labeled examples. For neural networks, softmax prediction probabilities are often used as a confidence measure, although they are known to be overconfident, even for wrong predictions. This phenomenon is particularly intensified in the presence of sample selection bias, i.e., when data labeling is subject to some constraint. To address this issue, we propose a novel confidence measure, called $\\mathcal{T}$-similarity, built upon the prediction diversity of an ensemble of linear classifiers. We provide the theoretical analysis of our approach by studying stationary points and describing the relationship between the diversity of the individual members and their performance. We empirically demonstrate the benefit of our confidence measure for three different pseudo-labeling policies on classification datasets of various data modalities. The code is available at https://github.com/ambroiseodt/tsim.",
+      "comments": "Accepted at AISTATS 2024, Valencia, Spain",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-04-03",
+      "code_urls": [
+        "https://github.com/ambroiseodt/tsim"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "ambroiseodt",
+          "repo": "tsim",
+          "url": "https://github.com/ambroiseodt/tsim"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2405.15505",
+      "title": "Revisiting Counterfactual Regression through the Lens of Gromov-Wasserstein Information Bottleneck",
+      "authors": [
+        "Yang",
+        "Sun",
+        "Xu",
+        "Chen"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "abstract": "As a promising individualized treatment effect (ITE) estimation method, counterfactual regression (CFR) maps individuals' covariates to a latent space and predicts their counterfactual outcomes. However, the selection bias between control and treatment groups often imbalances the two groups' latent distributions and negatively impacts this method's performance. In this study, we revisit counterfactual regression through the lens of information bottleneck and propose a novel learning paradigm called Gromov-Wasserstein information bottleneck (GWIB). In this paradigm, we learn CFR by maximizing the mutual information between covariates' latent representations and outcomes while penalizing the kernelized mutual information between the latent representations and the covariates. We demonstrate that the upper bound of the penalty term can be implemented as a new regularizer consisting of $i)$ the fused Gromov-Wasserstein distance between the latent representations of different groups and $ii)$ the gap between the transport cost generated by the model and the cross-group Gromov-Wasserstein distance between the latent representations and the covariates. GWIB effectively learns the CFR model through alternating optimization, suppressing selection bias while avoiding trivial latent distributions. Experiments on ITE estimation tasks show that GWIB consistently outperforms state-of-the-art CFR methods. To promote the research community, we release our project at https://github.com/peteryang1031/Causal-GWIB.",
+      "comments": "19 pages",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-05-24",
+      "code_urls": [
+        "https://github.com/peteryang1031/Causal-GWIB"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "peteryang1031",
+          "repo": "Causal-GWIB",
+          "url": "https://github.com/peteryang1031/Causal-GWIB"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2309.15783",
+      "title": "AutoEFT: Automated Operator Construction for Effective Field Theories",
+      "authors": [
+        "Harlander",
+        "Schaaf"
+      ],
+      "categories": [
+        "hep-ph",
+        "hep-th",
+        "physics.comp-ph"
+      ],
+      "abstract": "The program AutoEFT is described. It allows one to generate Effective Field Theories (EFTs) from a given set of fields and symmetries. Allowed fields include scalars, spinors, gauge bosons, and gravitons. The symmetries can be local or global Lie groups based on U(1) and SU(N). The mass dimension of the EFT is limited only by the available computing resources. The operators are stored in a compact, human and machine-readable format. Aside from the program itself, we provide input files for EFTs based on the Standard Model and a number of its extensions. These include additional particles and symmetries, EFTs with minimal flavor violation, and gravitons.",
+      "comments": "65 pages, 2 ancillary files; published version; the source code is available at https://gitlab.com/auto_eft/autoeft",
+      "journal_ref": "Comput. Phys. Commun. 300, 109198 (2024)",
+      "doi": "10.1016/j.cpc.2024.109198",
+      "submitted": "2024-04-25",
+      "code_urls": [
+        "https://gitlab.com/auto_eft/autoeft"
+      ],
+      "repo_info": [
+        {
+          "platform": "gitlab",
+          "owner": "auto_eft",
+          "repo": "autoeft",
+          "url": "https://gitlab.com/auto_eft/autoeft"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.17661",
+      "title": "Gemini in Reasoning: Unveiling Commonsense in Multimodal Large Language Models",
+      "authors": [
+        "Wang",
+        "Zhao"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "abstract": "The burgeoning interest in Multimodal Large Language Models (MLLMs), such as OpenAI's GPT-4V(ision), has significantly impacted both academic and industrial realms. These models enhance Large Language Models (LLMs) with advanced visual understanding capabilities, facilitating their application in a variety of multimodal tasks. Recently, Google introduced Gemini, a cutting-edge MLLM designed specifically for multimodal integration. Despite its advancements, preliminary benchmarks indicate that Gemini lags behind GPT models in commonsense reasoning tasks. However, this assessment, based on a limited dataset (i.e., HellaSWAG), does not fully capture Gemini's authentic commonsense reasoning potential. To address this gap, our study undertakes a thorough evaluation of Gemini's performance in complex reasoning tasks that necessitate the integration of commonsense knowledge across modalities. We carry out a comprehensive analysis of 12 commonsense reasoning datasets, ranging from general to domain-specific tasks. This includes 11 datasets focused solely on language, as well as one that incorporates multimodal elements. Our experiments across four LLMs and two MLLMs demonstrate Gemini's competitive commonsense reasoning capabilities. Additionally, we identify common challenges faced by current LLMs and MLLMs in addressing commonsense problems, underscoring the need for further advancements in enhancing the commonsense reasoning abilities of these models.",
+      "comments": "Data and results are available at: https://github.com/EternityYW/Gemini-Commonsense-Evaluation/",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2023-12-29",
+      "code_urls": [
+        "https://github.com/EternityYW/Gemini-Commonsense-Evaluation"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "EternityYW",
+          "repo": "Gemini-Commonsense-Evaluation",
+          "url": "https://github.com/EternityYW/Gemini-Commonsense-Evaluation"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.02138",
+      "title": "Explore Human Parsing Modality for Action Recognition",
+      "authors": [
+        "Liu",
+        "Ding",
+        "Wen",
+        "Dai",
+        "Meng",
+        "Zhao",
+        "Liu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Multimodal-based action recognition methods have achieved high success using pose and RGB modality. However, skeletons sequences lack appearance depiction and RGB images suffer irrelevant noise due to modality limitations. To address this, we introduce human parsing feature map as a novel modality, since it can selectively retain effective semantic features of the body parts, while filtering out most irrelevant noise. We propose a new dual-branch framework called Ensemble Human Parsing and Pose Network (EPP-Net), which is the first to leverage both skeletons and human parsing modalities for action recognition. The first human pose branch feeds robust skeletons in graph convolutional network to model pose features, while the second human parsing branch also leverages depictive parsing feature maps to model parsing festures via convolutional backbones. The two high-level features will be effectively combined through a late fusion strategy for better action recognition. Extensive experiments on NTU RGB+D and NTU RGB+D 120 benchmarks consistently verify the effectiveness of our proposed EPP-Net, which outperforms the existing action recognition methods. Our code is available at: https://github.com/liujf69/EPP-Net-Action.",
+      "comments": "arXiv admin note: text overlap with arXiv:2307.07977",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-04",
+      "code_urls": [
+        "https://github.com/liujf69/EPP-Net-Action"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "liujf69",
+          "repo": "EPP-Net-Action",
+          "url": "https://github.com/liujf69/EPP-Net-Action"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2302.10630",
+      "title": "LIT-Former: Linking In-plane and Through-plane Transformers for Simultaneous CT Image Denoising and Deblurring",
+      "authors": [
+        "Chen",
+        "Niu",
+        "Gao",
+        "Wang",
+        "Shan"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "physics.med-ph"
+      ],
+      "abstract": "This paper studies 3D low-dose computed tomography (CT) imaging. Although various deep learning methods were developed in this context, typically they focus on 2D images and perform denoising due to low-dose and deblurring for super-resolution separately. Up to date, little work was done for simultaneous in-plane denoising and through-plane deblurring, which is important to obtain high-quality 3D CT images with lower radiation and faster imaging speed. For this task, a straightforward method is to directly train an end-to-end 3D network. However, it demands much more training data and expensive computational costs. Here, we propose to link in-plane and through-plane transformers for simultaneous in-plane denoising and through-plane deblurring, termed as LIT-Former, which can efficiently synergize in-plane and through-plane sub-tasks for 3D CT imaging and enjoy the advantages of both convolution and transformer networks. LIT-Former has two novel designs: efficient multi-head self-attention modules (eMSM) and efficient convolutional feedforward networks (eCFN). First, eMSM integrates in-plane 2D self-attention and through-plane 1D self-attention to efficiently capture global interactions of 3D self-attention, the core unit of transformer networks. Second, eCFN integrates 2D convolution and 1D convolution to extract local information of 3D convolution in the same fashion. As a result, the proposed LIT-Former synergize these two subtasks, significantly reducing the computational complexity as compared to 3D counterparts and enabling rapid convergence. Extensive experimental results on simulated and clinical datasets demonstrate superior performance over state-of-the-art models. The source code is made available at https://github.com/hao1635/LIT-Former.",
+      "comments": "15 pages, 12 figures",
+      "journal_ref": "IEEE Transactions on Medical Imaging, 2024",
+      "doi": "10.1109/TMI.2024.3351723",
+      "submitted": "2024-01-07",
+      "code_urls": [
+        "https://github.com/hao1635/LIT-Former"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "hao1635",
+          "repo": "LIT-Former",
+          "url": "https://github.com/hao1635/LIT-Former"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.06010",
+      "title": "Attention to detail: inter-resolution knowledge distillation",
+      "authors": [
+        "del Amor",
+        "Silva-Rodr\u00edguez",
+        "Colomer",
+        "Naranjo"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "The development of computer vision solutions for gigapixel images in digital pathology is hampered by significant computational limitations due to the large size of whole slide images. In particular, digitizing biopsies at high resolutions is a time-consuming process, which is necessary due to the worsening results from the decrease in image detail. To alleviate this issue, recent literature has proposed using knowledge distillation to enhance the model performance at reduced image resolutions. In particular, soft labels and features extracted at the highest magnification level are distilled into a model that takes lower-magnification images as input. However, this approach fails to transfer knowledge about the most discriminative image regions in the classification process, which may be lost when the resolution is decreased. In this work, we propose to distill this information by incorporating attention maps during training. In particular, our formulation leverages saliency maps of the target class via grad-CAMs, which guides the lower-resolution Student model to match the Teacher distribution by minimizing the l2 distance between them. Comprehensive experiments on prostate histology image grading demonstrate that the proposed approach substantially improves the model performance across different image resolutions compared to previous literature.",
+      "comments": "EUSIPCO 2023 - Code available at https://github.com/cvblab/Mitosis-UTS",
+      "journal_ref": "",
+      "doi": "10.23919/EUSIPCO58844.2023.10289941",
+      "submitted": "2024-01-11",
+      "code_urls": [
+        "https://github.com/cvblab/Mitosis-UTS"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "cvblab",
+          "repo": "Mitosis-UTS",
+          "url": "https://github.com/cvblab/Mitosis-UTS"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.08171",
+      "title": "Deep Linear Array Pushbroom Image Restoration: A Degradation Pipeline and Jitter-Aware Restoration Network",
+      "authors": [
+        "Chen",
+        "Zhang",
+        "Li",
+        "Li",
+        "Chen",
+        "Li",
+        "Feng",
+        "Xu",
+        "Chen"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Linear Array Pushbroom (LAP) imaging technology is widely used in the realm of remote sensing. However, images acquired through LAP always suffer from distortion and blur because of camera jitter. Traditional methods for restoring LAP images, such as algorithms estimating the point spread function (PSF), exhibit limited performance. To tackle this issue, we propose a Jitter-Aware Restoration Network (JARNet), to remove the distortion and blur in two stages. In the first stage, we formulate an Optical Flow Correction (OFC) block to refine the optical flow of the degraded LAP images, resulting in pre-corrected images where most of the distortions are alleviated. In the second stage, for further enhancement of the pre-corrected images, we integrate two jitter-aware techniques within the Spatial and Frequency Residual (SFRes) block: 1) introducing Coordinate Attention (CoA) to the SFRes block in order to capture the jitter state in orthogonal direction; 2) manipulating image features in both spatial and frequency domains to leverage local and global priors. Additionally, we develop a data synthesis pipeline, which applies Continue Dynamic Shooting Model (CDSM) to simulate realistic degradation in LAP images. Both the proposed JARNet and LAP image synthesis pipeline establish a foundation for addressing this intricate challenge. Extensive experiments demonstrate that the proposed two-stage method outperforms state-of-the-art image restoration models. Code is available at https://github.com/JHW2000/JARNet.",
+      "comments": "Accepted by AAAI 2024",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-16",
+      "code_urls": [
+        "https://github.com/JHW2000/JARNet"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "JHW2000",
+          "repo": "JARNet",
+          "url": "https://github.com/JHW2000/JARNet"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.07567",
+      "title": "Bias-Conflict Sample Synthesis and Adversarial Removal Debias Strategy for Temporal Sentence Grounding in Video",
+      "authors": [
+        "Qi",
+        "Yuan",
+        "Ruan",
+        "Wang",
+        "Zhang",
+        "Huang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Temporal Sentence Grounding in Video (TSGV) is troubled by dataset bias issue, which is caused by the uneven temporal distribution of the target moments for samples with similar semantic components in input videos or query texts. Existing methods resort to utilizing prior knowledge about bias to artificially break this uneven distribution, which only removes a limited amount of significant language biases. In this work, we propose the bias-conflict sample synthesis and adversarial removal debias strategy (BSSARD), which dynamically generates bias-conflict samples by explicitly leveraging potentially spurious correlations between single-modality features and the temporal position of the target moments. Through adversarial training, its bias generators continuously introduce biases and generate bias-conflict samples to deceive its grounding model. Meanwhile, the grounding model continuously eliminates the introduced biases, which requires it to model multi-modality alignment information. BSSARD will cover most kinds of coupling relationships and disrupt language and visual biases simultaneously. Extensive experiments on Charades-CD and ActivityNet-CD demonstrate the promising debiasing capability of BSSARD. Source codes are available at https://github.com/qzhb/BSSARD.",
+      "comments": "accepted by AAAI 2024",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-19",
+      "code_urls": [
+        "https://github.com/qzhb/BSSARD"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "qzhb",
+          "repo": "BSSARD",
+          "url": "https://github.com/qzhb/BSSARD"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.06934",
+      "title": "Toward Real Text Manipulation Detection: New Dataset and New Solution",
+      "authors": [
+        "Luo",
+        "Liu",
+        "Yang",
+        "Liu",
+        "Zeng",
+        "Zhou",
+        "Bai"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "With the surge in realistic text tampering, detecting fraudulent text in images has gained prominence for maintaining information security. However, the high costs associated with professional text manipulation and annotation limit the availability of real-world datasets, with most relying on synthetic tampering, which inadequately replicates real-world tampering attributes. To address this issue, we present the Real Text Manipulation (RTM) dataset, encompassing 14,250 text images, which include 5,986 manually and 5,258 automatically tampered images, created using a variety of techniques, alongside 3,006 unaltered text images for evaluating solution stability. Our evaluations indicate that existing methods falter in text forgery detection on the RTM dataset. We propose a robust baseline solution featuring a Consistency-aware Aggregation Hub and a Gated Cross Neighborhood-attention Fusion module for efficient multi-modal information fusion, supplemented by a Tampered-Authentic Contrastive Learning module during training, enriching feature representation distinction. This framework, extendable to other dual-stream architectures, demonstrated notable localization performance improvements of 7.33% and 6.38% on manual and overall manipulations, respectively. Our contributions aim to propel advancements in real-world text tampering detection. Code and dataset will be made available at https://github.com/DrLuo/RTM",
+      "comments": "The paper needs to be improved",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-23",
+      "code_urls": [
+        "https://github.com/DrLuo/RTM"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "DrLuo",
+          "repo": "RTM",
+          "url": "https://github.com/DrLuo/RTM"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.09603",
+      "title": "Rethinking FID: Towards a Better Evaluation Metric for Image Generation",
+      "authors": [
+        "Jayasumana",
+        "Ramalingam",
+        "Veit",
+        "Glasner",
+        "Chakrabarti",
+        "Kumar"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "As with many machine learning problems, the progress of image generation methods hinges on good evaluation metrics. One of the most popular is the Frechet Inception Distance (FID). FID estimates the distance between a distribution of Inception-v3 features of real images, and those of images generated by the algorithm. We highlight important drawbacks of FID: Inception's poor representation of the rich and varied content generated by modern text-to-image models, incorrect normality assumptions, and poor sample complexity. We call for a reevaluation of FID's use as the primary quality metric for generated images. We empirically demonstrate that FID contradicts human raters, it does not reflect gradual improvement of iterative text-to-image models, it does not capture distortion levels, and that it produces inconsistent results when varying the sample size. We also propose an alternative new metric, CMMD, based on richer CLIP embeddings and the maximum mean discrepancy distance with the Gaussian RBF kernel. It is an unbiased estimator that does not make any assumptions on the probability distribution of the embeddings and is sample efficient. Through extensive experiments and analysis, we demonstrate that FID-based evaluations of text-to-image models may be unreliable, and that CMMD offers a more robust and reliable assessment of image quality.",
+      "comments": "Code is available at: https://github.com/google-research/google-research/tree/master/cmmd",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-25",
+      "code_urls": [
+        "https://github.com/google-research/google-research"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "google-research",
+          "repo": "google-research",
+          "url": "https://github.com/google-research/google-research"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2301.13530",
+      "title": "Domain-Generalizable Multiple-Domain Clustering",
+      "authors": [
+        "Rozner",
+        "Battash",
+        "Wolf",
+        "Lindenbaum"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "abstract": "This work generalizes the problem of unsupervised domain generalization to the case in which no labeled samples are available (completely unsupervised). We are given unlabeled samples from multiple source domains, and we aim to learn a shared predictor that assigns examples to semantically related clusters. Evaluation is done by predicting cluster assignments in previously unseen domains. Towards this goal, we propose a two-stage training framework: (1) self-supervised pre-training for extracting domain invariant semantic features. (2) multi-head cluster prediction with pseudo labels, which rely on both the feature space and cluster head prediction, further leveraging a novel prediction-based label smoothing scheme. We demonstrate empirically that our model is more accurate than baselines that require fine-tuning using samples from the target domain or some level of supervision. Our code is available at https://github.com/AmitRozner/domain-generalizable-multiple-domain-clustering.",
+      "comments": "13 pages, 3 figures",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-31",
+      "code_urls": [
+        "https://github.com/AmitRozner/domain-generalizable-multiple-domain-clustering"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "AmitRozner",
+          "repo": "domain-generalizable-multiple-domain-clustering",
+          "url": "https://github.com/AmitRozner/domain-generalizable-multiple-domain-clustering"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2303.10383",
+      "title": "Adaptive Multi-source Predictor for Zero-shot Video Object Segmentation",
+      "authors": [
+        "Zhao",
+        "Chang",
+        "Pang",
+        "Yang",
+        "Zhang",
+        "Lu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Static and moving objects often occur in real-life videos. Most video object segmentation methods only focus on extracting and exploiting motion cues to perceive moving objects. Once faced with the frames of static objects, the moving object predictors may predict failed results caused by uncertain motion information, such as low-quality optical flow maps. Besides, different sources such as RGB, depth, optical flow and static saliency can provide useful information about the objects. However, existing approaches only consider either the RGB or RGB and optical flow. In this paper, we propose a novel adaptive multi-source predictor for zero-shot video object segmentation (ZVOS). In the static object predictor, the RGB source is converted to depth and static saliency sources, simultaneously. In the moving object predictor, we propose the multi-source fusion structure. First, the spatial importance of each source is highlighted with the help of the interoceptive spatial attention module (ISAM). Second, the motion-enhanced module (MEM) is designed to generate pure foreground motion attention for improving the representation of static and moving features in the decoder. Furthermore, we design a feature purification module (FPM) to filter the inter-source incompatible features. By using the ISAM, MEM and FPM, the multi-source features are effectively fused. In addition, we put forward an adaptive predictor fusion network (APF) to evaluate the quality of the optical flow map and fuse the predictions from the static object predictor and the moving object predictor in order to prevent over-reliance on the failed results caused by low-quality optical flow maps. Experiments show that the proposed model outperforms the state-of-the-art methods on three challenging ZVOS benchmarks. And, the static object predictor precisely predicts a high-quality depth map and static saliency map at the same time.",
+      "comments": "Accepted to IJCV 2024. Code is available at: https://github.com/Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS. arXiv admin note: substantial text overlap with arXiv:2108.05076",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-03",
+      "code_urls": [
+        "https://github.com/Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Xiaoqi-Zhao-DLUT",
+          "repo": "Multi-Source-APS-ZVOS",
+          "url": "https://github.com/Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.03766",
+      "title": "MobileVLM V2: Faster and Stronger Baseline for Vision Language Model",
+      "authors": [
+        "Chu",
+        "Qiao",
+        "Zhang",
+        "Xu",
+        "Wei",
+        "Yang",
+        "Sun",
+        "Hu",
+        "Lin",
+        "Zhang",
+        "Shen"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "abstract": "We introduce MobileVLM V2, a family of significantly improved vision language models upon MobileVLM, which proves that a delicate orchestration of novel architectural design, an improved training scheme tailored for mobile VLMs, and rich high-quality dataset curation can substantially benefit VLMs' performance. Specifically, MobileVLM V2 1.7B achieves better or on-par performance on standard VLM benchmarks compared with much larger VLMs at the 3B scale. Notably, our 3B model outperforms a large variety of VLMs at the 7B+ scale. Our models will be released at https://github.com/Meituan-AutoML/MobileVLM .",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-06",
+      "code_urls": [
+        "https://github.com/Meituan-AutoML/MobileVLM"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Meituan-AutoML",
+          "repo": "MobileVLM",
+          "url": "https://github.com/Meituan-AutoML/MobileVLM"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.05035",
+      "title": "A Survey on Domain Generalization for Medical Image Analysis",
+      "authors": [
+        "Niu",
+        "Ouyang",
+        "Xie",
+        "Chen",
+        "Lin"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "abstract": "Medical Image Analysis (MedIA) has emerged as a crucial tool in computer-aided diagnosis systems, particularly with the advancement of deep learning (DL) in recent years. However, well-trained deep models often experience significant performance degradation when deployed in different medical sites, modalities, and sequences, known as a domain shift issue. In light of this, Domain Generalization (DG) for MedIA aims to address the domain shift challenge by generalizing effectively and performing robustly across unknown data distributions. This paper presents the a comprehensive review of substantial developments in this area. First, we provide a formal definition of domain shift and domain generalization in medical field, and discuss several related settings. Subsequently, we summarize the recent methods from three viewpoints: data manipulation level, feature representation level, and model training level, and present some algorithms in detail for each viewpoints. Furthermore, we introduce the commonly used datasets. Finally, we summarize existing literature and present some potential research topics for the future. For this survey, we also created a GitHub project by collecting the supporting resources, at the link: https://github.com/Ziwei-Niu/DG_for_MedIA",
+      "comments": "This is a withdrawn submission and will be considered invalid. Due to some errors and overlap with published papers, we have chosen to withdraw it",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-13",
+      "code_urls": [
+        "https://github.com/Ziwei-Niu/DG_for_MedIA"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "Ziwei-Niu",
+          "repo": "DG_for_MedIA",
+          "url": "https://github.com/Ziwei-Niu/DG_for_MedIA"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2303.13310",
+      "title": "SwissBERT: The Multilingual Language Model for Switzerland",
+      "authors": [
+        "Vamvas",
+        "Gra\u00ebn",
+        "Sennrich"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "abstract": "We present SwissBERT, a masked language model created specifically for processing Switzerland-related text. SwissBERT is a pre-trained model that we adapted to news articles written in the national languages of Switzerland -- German, French, Italian, and Romansh. We evaluate SwissBERT on natural language understanding tasks related to Switzerland and find that it tends to outperform previous models on these tasks, especially when processing contemporary news and/or Romansh Grischun. Since SwissBERT uses language adapters, it may be extended to Swiss German dialects in future work. The model and our open-source code are publicly released at https://github.com/ZurichNLP/swissbert.",
+      "comments": "SwissText 2023 [v3: Changed template because the proceedings moved to a different publisher. Same content.]",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-16",
+      "code_urls": [
+        "https://github.com/ZurichNLP/swissbert"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "ZurichNLP",
+          "repo": "swissbert",
+          "url": "https://github.com/ZurichNLP/swissbert"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2306.02272",
+      "title": "OWQ: Outlier-Aware Weight Quantization for Efficient Fine-Tuning and Inference of Large Language Models",
+      "authors": [
+        "Lee",
+        "Jin",
+        "Kim",
+        "Kim",
+        "Park"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "abstract": "Large language models (LLMs) with hundreds of billions of parameters require powerful server-grade GPUs for inference, limiting their practical deployment. To address this challenge, we introduce the outlier-aware weight quantization (OWQ) method, which aims to minimize LLM's footprint through low-precision representation. OWQ prioritizes a small subset of structured weights sensitive to quantization, storing them in high-precision, while applying highly tuned quantization to the remaining dense weights. This sensitivity-aware mixed-precision scheme reduces the quantization error notably, and extensive experiments demonstrate that 3.1-bit models using OWQ perform comparably to 4-bit models optimized by OPTQ. Furthermore, OWQ incorporates a parameter-efficient fine-tuning for task-specific adaptation, called weak column tuning (WCT), enabling accurate task-specific LLM adaptation with minimal memory overhead in the optimized format. OWQ represents a notable advancement in the flexibility, efficiency, and practicality of LLM optimization literature. The source code is available at https://github.com/xvyaward/owq",
+      "comments": "Accepted at AAAI 2024 (oral presentation)",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-24",
+      "code_urls": [
+        "https://github.com/xvyaward/owq"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "xvyaward",
+          "repo": "owq",
+          "url": "https://github.com/xvyaward/owq"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.18058",
+      "title": "LongAlign: A Recipe for Long Context Alignment of Large Language Models",
+      "authors": [
+        "Bai",
+        "Lv",
+        "Zhang",
+        "He",
+        "Qi",
+        "Hou",
+        "Tang",
+        "Dong",
+        "Li"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "abstract": "Extending large language models to effectively handle long contexts requires instruction fine-tuning on input sequences of similar length. To address this, we present LongAlign -- a recipe of the instruction data, training, and evaluation for long context alignment. First, we construct a long instruction-following dataset using Self-Instruct. To ensure the data diversity, it covers a broad range of tasks from various long context sources. Second, we adopt the packing and sorted batching strategies to speed up supervised fine-tuning on data with varied length distributions. Additionally, we develop a loss weighting method to balance the contribution to the loss across different sequences during packing training. Third, we introduce the LongBench-Chat benchmark for evaluating instruction-following capabilities on queries of 10k-100k in length. Experiments show that LongAlign outperforms existing recipes for LLMs in long context tasks by up to 30\\%, while also maintaining their proficiency in handling short, generic tasks. The code, data, and long-aligned models are open-sourced at https://github.com/THUDM/LongAlign.",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-01-31",
+      "code_urls": [
+        "https://github.com/THUDM/LongAlign"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "THUDM",
+          "repo": "LongAlign",
+          "url": "https://github.com/THUDM/LongAlign"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.05861",
+      "title": "Towards Boosting Many-to-Many Multilingual Machine Translation with Large Language Models",
+      "authors": [
+        "Gao",
+        "He",
+        "Wu",
+        "Wang"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "abstract": "The training paradigm for machine translation has gradually shifted, from learning neural machine translation (NMT) models with extensive parallel corpora to instruction finetuning on multilingual large language models (LLMs) with high-quality translation pairs. In this paper, we focus on boosting many-to-many multilingual translation of LLMs with an emphasis on zero-shot translation directions. We demonstrate that prompt strategies adopted during finetuning are crucial to zero-shot translation and introduce a cross-lingual consistency regularization, XConST, to bridge the representation gap among different languages and improve zero-shot translation performance. XConST is not a new method, but a version of CrossConST (Gao et al., 2023a) adapted for translation instruction finetuning with LLMs. Experimental results on ALMA (Xu et al., 2023), Tower (Team, 2024), and LLaMA-2 (Touvron et al., 2023) show that our approach consistently improves translation performance. Our implementations are available at https://github.com/gpengzhi/CrossConST-LLM.",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-07",
+      "code_urls": [
+        "https://github.com/gpengzhi/CrossConST-LLM"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "gpengzhi",
+          "repo": "CrossConST-LLM",
+          "url": "https://github.com/gpengzhi/CrossConST-LLM"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2308.07124",
+      "title": "OctoPack: Instruction Tuning Code Large Language Models",
+      "authors": [
+        "Muennighoff",
+        "Liu",
+        "Zebaze",
+        "Zheng",
+        "Hui",
+        "Zhuo",
+        "Singh",
+        "Tang",
+        "von Werra",
+        "Longpre"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "abstract": "Finetuning large language models (LLMs) on instructions leads to vast performance improvements on natural language tasks. We apply instruction tuning using code, leveraging the natural structure of Git commits, which pair code changes with human instructions. We compile CommitPack: 4 terabytes of Git commits across 350 programming languages. We benchmark CommitPack against other natural and synthetic code instructions (xP3x, Self-Instruct, OASST) on the 16B parameter StarCoder model, and achieve state-of-the-art performance among models not trained on OpenAI outputs, on the HumanEval Python benchmark (46.2% pass@1). We further introduce HumanEvalPack, expanding the HumanEval benchmark to a total of 3 coding tasks (Code Repair, Code Explanation, Code Synthesis) across 6 languages (Python, JavaScript, Java, Go, C++, Rust). Our models, OctoCoder and OctoGeeX, achieve the best performance across HumanEvalPack among all permissive models, demonstrating CommitPack's benefits in generalizing to a wider set of languages and natural coding tasks. Code, models and data are freely available at https://github.com/bigcode-project/octopack.",
+      "comments": "60 pages (9 main), 40 figures, 19 tables",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-18",
+      "code_urls": [
+        "https://github.com/bigcode-project/octopack"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "bigcode-project",
+          "repo": "octopack",
+          "url": "https://github.com/bigcode-project/octopack"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.14852",
+      "title": "HumanEval on Latest GPT Models -- 2024",
+      "authors": [
+        "Li",
+        "Murr"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "abstract": "In 2023, we are using the latest models of GPT-4 to advance program synthesis. The large language models have significantly improved the state-of-the-art for this purpose. To make these advancements more accessible, we have created a repository that connects these models to Huamn Eval. This dataset was initally developed to be used with a language model called CODEGEN on natural and programming language data. The utility of these trained models is showcased by demonstrating their competitive performance in zero-shot Python code generation on HumanEval tasks compared to previous state-of-the-art solutions. Additionally, this gives way to developing more multi-step paradigm synthesis. This benchmark features 160 diverse problem sets factorized into multistep prompts that our analysis shows significantly improves program synthesis over single-turn inputs. All code is open source at https://github.com/daniel442li/gpt-human-eval .",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-20",
+      "code_urls": [
+        "https://github.com/daniel442li/gpt-human-eval"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "daniel442li",
+          "repo": "gpt-human-eval",
+          "url": "https://github.com/daniel442li/gpt-human-eval"
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.16893",
+      "title": "The Good and The Bad: Exploring Privacy Issues in Retrieval-Augmented Generation (RAG)",
+      "authors": [
+        "Zeng",
+        "Zhang",
+        "He",
+        "Xing",
+        "Liu",
+        "Xu",
+        "Ren",
+        "Wang",
+        "Yin",
+        "Chang",
+        "Tang"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "abstract": "Retrieval-augmented generation (RAG) is a powerful technique to facilitate language model with proprietary and private data, where data privacy is a pivotal concern. Whereas extensive research has demonstrated the privacy risks of large language models (LLMs), the RAG technique could potentially reshape the inherent behaviors of LLM generation, posing new privacy issues that are currently under-explored. In this work, we conduct extensive empirical studies with novel attack methods, which demonstrate the vulnerability of RAG systems on leaking the private retrieval database. Despite the new risk brought by RAG on the retrieval data, we further reveal that RAG can mitigate the leakage of the LLMs' training data. Overall, we provide new insights in this paper for privacy protection of retrieval-augmented LLMs, which benefit both LLMs and RAG systems builders. Our code is available at https://github.com/phycholosogy/RAG-privacy.",
+      "comments": "",
+      "journal_ref": "",
+      "doi": "",
+      "submitted": "2024-02-23",
+      "code_urls": [
+        "https://github.com/phycholosogy/RAG-privacy"
+      ],
+      "repo_info": [
+        {
+          "platform": "github",
+          "owner": "phycholosogy",
+          "repo": "RAG-privacy",
+          "url": "https://github.com/phycholosogy/RAG-privacy"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "assessment_date": "2026-10-08",
+  "papers_assessed": 34,
+  "results": [
+    {
+      "arxiv_id": "2205.11638",
+      "title": "DOGE-Train: Discrete Optimization on GPU with End-to-end Training",
+      "repos": [
+        {
+          "owner": "LPMP",
+          "repo": "BDD",
+          "url": "https://github.com/LPMP/BDD",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2309.13016",
+      "title": "Understanding Deep Gradient Leakage via Inversion Influence Functions",
+      "repos": [
+        {
+          "owner": "illidanlab",
+          "repo": "inversion-influence-function",
+          "url": "https://github.com/illidanlab/inversion-influence-function",
+          "env_type": "conda",
+          "arm": "A1",
+          "pinned_score": 0.9950980392156863,
+          "files": [
+            "environment.yml"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.07985",
+      "title": "Neural Combinatorial Optimization with Heavy Decoder: Toward Large Scale Generalization",
+      "repos": [
+        {
+          "owner": "CIAM-Group",
+          "repo": "NCO_code",
+          "url": "https://github.com/CIAM-Group/NCO_code",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 1159
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.10518",
+      "title": "Spatial-temporal Forecasting for Regions without Observations",
+      "repos": [
+        {
+          "owner": "suzy0223",
+          "repo": "STSM",
+          "url": "https://github.com/suzy0223/STSM",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.14493",
+      "title": "K-QA: A Real-World Medical Q&A Benchmark",
+      "repos": [
+        {
+          "owner": "Itaymanes",
+          "repo": "K-QA",
+          "url": "https://github.com/Itaymanes/K-QA",
+          "env_type": "lockfile_only",
+          "arm": "A2",
+          "pinned_score": 0.5,
+          "files": [
+            "poetry.lock"
+          ],
+          "details": {
+            "lockfile": "poetry.lock"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.01183",
+      "title": "Unifying Structured Data as Graph for Data-to-Text Pre-Training",
+      "repos": [
+        {
+          "owner": "AlibabaResearch",
+          "repo": "DAMO-ConvAI",
+          "url": "https://github.com/AlibabaResearch/DAMO-ConvAI",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 5437
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.06151",
+      "title": "Towards Joint Sequence-Structure Generation of Nucleic Acid and Protein Complexes with SE(3)-Discrete Diffusion",
+      "repos": [
+        {
+          "owner": "Profluent-Internships",
+          "repo": "MMDiff",
+          "url": "https://github.com/Profluent-Internships/MMDiff",
+          "env_type": "conda",
+          "arm": "A1",
+          "pinned_score": 0.990632318501171,
+          "files": [
+            "environment.yaml"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.11532",
+      "title": "Topic-VQ-VAE: Leveraging Latent Codebooks for Flexible Topic-Guided Document Generation",
+      "repos": [
+        {
+          "owner": "clovaai",
+          "repo": "TVQ-VAE",
+          "url": "https://github.com/clovaai/TVQ-VAE",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 721
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.16618",
+      "title": "A comparison of RL-based and PID controllers for 6-DOF swimming robots: hybrid underwater object tracking",
+      "repos": [
+        {
+          "owner": "FARAZLOTFI",
+          "repo": "underwater-object-tracking",
+          "url": "https://github.com/FARAZLOTFI/underwater-object-tracking",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 38
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.01694",
+      "title": "ARGS: Alignment as Reward-Guided Search",
+      "repos": [
+        {
+          "owner": "deeplearning-wisc",
+          "repo": "args",
+          "url": "https://github.com/deeplearning-wisc/args",
+          "env_type": "pip",
+          "arm": "A1",
+          "pinned_score": 1.0,
+          "files": [
+            "requirements.txt"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.01845",
+      "title": "Zero-Shot Refinement of Buildings' Segmentation Models using SAM",
+      "repos": [
+        {
+          "owner": "geoaigroup",
+          "repo": "GEOAI-ECRS2023",
+          "url": "https://github.com/geoaigroup/GEOAI-ECRS2023",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 177
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.11948",
+      "title": "Mini-Hes: A Parallelizable Second-order Latent Factor Analysis Model",
+      "repos": [
+        {
+          "owner": "Goallow",
+          "repo": "Mini-Hes",
+          "url": "https://github.com/Goallow/Mini-Hes",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2310.14814",
+      "title": "Leveraging Ensemble Diversity for Robust Self-Training in the Presence of Sample Selection Bias",
+      "repos": [
+        {
+          "owner": "ambroiseodt",
+          "repo": "tsim",
+          "url": "https://github.com/ambroiseodt/tsim",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2405.15505",
+      "title": "Revisiting Counterfactual Regression through the Lens of Gromov-Wasserstein Information Bottleneck",
+      "repos": [
+        {
+          "owner": "peteryang1031",
+          "repo": "Causal-GWIB",
+          "url": "https://github.com/peteryang1031/Causal-GWIB",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 102
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2309.15783",
+      "title": "AutoEFT: Automated Operator Construction for Effective Field Theories",
+      "repos": [
+        {
+          "owner": "auto_eft",
+          "repo": "autoeft",
+          "url": "https://gitlab.com/auto_eft/autoeft",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.17661",
+      "title": "Gemini in Reasoning: Unveiling Commonsense in Multimodal Large Language Models",
+      "repos": [
+        {
+          "owner": "EternityYW",
+          "repo": "Gemini-Commonsense-Evaluation",
+          "url": "https://github.com/EternityYW/Gemini-Commonsense-Evaluation",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.02138",
+      "title": "Explore Human Parsing Modality for Action Recognition",
+      "repos": [
+        {
+          "owner": "liujf69",
+          "repo": "EPP-Net-Action",
+          "url": "https://github.com/liujf69/EPP-Net-Action",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2302.10630",
+      "title": "LIT-Former: Linking In-plane and Through-plane Transformers for Simultaneous CT Image Denoising and Deblurring",
+      "repos": [
+        {
+          "owner": "hao1635",
+          "repo": "LIT-Former",
+          "url": "https://github.com/hao1635/LIT-Former",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.06010",
+      "title": "Attention to detail: inter-resolution knowledge distillation",
+      "repos": [
+        {
+          "owner": "cvblab",
+          "repo": "Mitosis-UTS",
+          "url": "https://github.com/cvblab/Mitosis-UTS",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.08171",
+      "title": "Deep Linear Array Pushbroom Image Restoration: A Degradation Pipeline and Jitter-Aware Restoration Network",
+      "repos": [
+        {
+          "owner": "JHW2000",
+          "repo": "JARNet",
+          "url": "https://github.com/JHW2000/JARNet",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.07567",
+      "title": "Bias-Conflict Sample Synthesis and Adversarial Removal Debias Strategy for Temporal Sentence Grounding in Video",
+      "repos": [
+        {
+          "owner": "qzhb",
+          "repo": "BSSARD",
+          "url": "https://github.com/qzhb/BSSARD",
+          "env_type": "conda",
+          "arm": "A1",
+          "pinned_score": 0.995850622406639,
+          "files": [
+            "environment.yml"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2312.06934",
+      "title": "Toward Real Text Manipulation Detection: New Dataset and New Solution",
+      "repos": [
+        {
+          "owner": "DrLuo",
+          "repo": "RTM",
+          "url": "https://github.com/DrLuo/RTM",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.09603",
+      "title": "Rethinking FID: Towards a Better Evaluation Metric for Image Generation",
+      "repos": [
+        {
+          "owner": "google-research",
+          "repo": "google-research",
+          "url": "https://github.com/google-research/google-research",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 23236
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2301.13530",
+      "title": "Domain-Generalizable Multiple-Domain Clustering",
+      "repos": [
+        {
+          "owner": "AmitRozner",
+          "repo": "domain-generalizable-multiple-domain-clustering",
+          "url": "https://github.com/AmitRozner/domain-generalizable-multiple-domain-clustering",
+          "env_type": "readme",
+          "arm": "A3",
+          "pinned_score": 0.0,
+          "files": [
+            "README.md"
+          ],
+          "details": {}
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2303.10383",
+      "title": "Adaptive Multi-source Predictor for Zero-shot Video Object Segmentation",
+      "repos": [
+        {
+          "owner": "Xiaoqi-Zhao-DLUT",
+          "repo": "Multi-Source-APS-ZVOS",
+          "url": "https://github.com/Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "files_checked": 14
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.03766",
+      "title": "MobileVLM V2: Faster and Stronger Baseline for Vision Language Model",
+      "repos": [
+        {
+          "owner": "Meituan-AutoML",
+          "repo": "MobileVLM",
+          "url": "https://github.com/Meituan-AutoML/MobileVLM",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.05035",
+      "title": "A Survey on Domain Generalization for Medical Image Analysis",
+      "repos": [
+        {
+          "owner": "Ziwei-Niu",
+          "repo": "DG_for_MedIA",
+          "url": "https://github.com/Ziwei-Niu/DG_for_MedIA",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2303.13310",
+      "title": "SwissBERT: The Multilingual Language Model for Switzerland",
+      "repos": [
+        {
+          "owner": "ZurichNLP",
+          "repo": "swissbert",
+          "url": "https://github.com/ZurichNLP/swissbert",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2306.02272",
+      "title": "OWQ: Outlier-Aware Weight Quantization for Efficient Fine-Tuning and Inference of Large Language Models",
+      "repos": [
+        {
+          "owner": "xvyaward",
+          "repo": "owq",
+          "url": "https://github.com/xvyaward/owq",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.18058",
+      "title": "LongAlign: A Recipe for Long Context Alignment of Large Language Models",
+      "repos": [
+        {
+          "owner": "THUDM",
+          "repo": "LongAlign",
+          "url": "https://github.com/THUDM/LongAlign",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2401.05861",
+      "title": "Towards Boosting Many-to-Many Multilingual Machine Translation with Large Language Models",
+      "repos": [
+        {
+          "owner": "gpengzhi",
+          "repo": "CrossConST-LLM",
+          "url": "https://github.com/gpengzhi/CrossConST-LLM",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2308.07124",
+      "title": "OctoPack: Instruction Tuning Code Large Language Models",
+      "repos": [
+        {
+          "owner": "bigcode-project",
+          "repo": "octopack",
+          "url": "https://github.com/bigcode-project/octopack",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.14852",
+      "title": "HumanEval on Latest GPT Models -- 2024",
+      "repos": [
+        {
+          "owner": "daniel442li",
+          "repo": "gpt-human-eval",
+          "url": "https://github.com/daniel442li/gpt-human-eval",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    },
+    {
+      "arxiv_id": "2402.16893",
+      "title": "The Good and The Bad: Exploring Privacy Issues in Retrieval-Augmented Generation (RAG)",
+      "repos": [
+        {
+          "owner": "phycholosogy",
+          "repo": "RAG-privacy",
+          "url": "https://github.com/phycholosogy/RAG-privacy",
+          "env_type": "none",
+          "arm": "A4",
+          "pinned_score": 0.0,
+          "files": [],
+          "details": {
+            "error": "no tree"
+          }
+        }
+      ]
+    }
+  ]
+}
