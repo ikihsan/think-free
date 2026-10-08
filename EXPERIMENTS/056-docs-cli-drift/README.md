@@ -1,4 +1,8 @@
-# E055 — Do public CLI projects' docs drift from their actual CLI? (probe)
+# E056 — Do public CLI projects' docs drift from their actual CLI? (probe)
+
+*(Renumbered from E055 on 2026-10-08: the public remote had already
+claimed E055 for T-0087, the git-index postcondition checker, on
+instance-20260717-0947. F087's pointer updated alongside.)*
 
 <!-- origin-meta
 owner: EXPERIMENTS/PLAN.md

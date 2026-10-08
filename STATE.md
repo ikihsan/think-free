@@ -94,7 +94,7 @@ paths are then attributed to whoever holds the tree (T-0053).
 ## What changed recently
 
 - **Session 2026-10-08-003, VM 0944: fresh observation, docs-drift
-  probe closed (E055, F087).** First falsifiable pass at a
+  probe closed (E056, F087).** First falsifiable pass at a
   docs-drift audit candidate: five popular PyPI CLI packages
   (black, cookiecutter, httpie, mypy, pre-commit), `--help` over
   every subcommand versus `--flags` in the docs. Embedded help

@@ -155,7 +155,7 @@ in `EXPERIMENTS/050-registry-mechanisms/raw/superseded-first-run/`.
 `results.json`, `raw/rows/` (421 version-level API responses),
 `raw/urls/` (3800 artifact-URL checks), `raw/positive_control.json`.
 
-## F087 — Documented CLI flags do not observably drift from exposed `--help` flags in mature projects (E055 probe)
+## F087 — Documented CLI flags do not observably drift from exposed `--help` flags in mature projects (E056 probe)
 
 **What happened.** Session 2026-10-08 probed the suspected population
 behind a docs-drift audit candidate before building it: five popular
@@ -178,4 +178,4 @@ foreign-tool flags that any naive detector will mislabel as drift.
 Combined with the prior art that already syncs help blocks into
 READMEs (`readme-cli-help`, `docsme`, `cli-help-from-readme`), there
 is no demonstrated unserved need here. Probe artifacts preserved;
-[`EXPERIMENTS/055-docs-cli-drift/README.md`](EXPERIMENTS/055-docs-cli-drift/README.md).
+[`EXPERIMENTS/056-docs-cli-drift/README.md`](EXPERIMENTS/056-docs-cli-drift/README.md).

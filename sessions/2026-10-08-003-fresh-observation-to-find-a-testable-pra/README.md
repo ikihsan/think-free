@@ -52,6 +52,7 @@ _none_
 | 1 | 00:58:13 | session_start | Fresh observation to find a testable practical difficulty: name the population, evidence and strongest incumbent before any build |
 | 2 | 01:20:02 | task_rewrite | appended a create record for T-0087 |
 | 3 | 01:21:54 | task_rewrite | rewrote tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md (status: claimed) |
+| 4 | 01:21:55 | task_rewrite | appended a claim record for T-0087 |
 
 ## Reproduce this record
 
