@@ -15,7 +15,7 @@ Showing the 25 most recent. 143 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-012-land-the-interrupted-identifier-renumber](2026-10-08-012-land-the-interrupted-identifier-renumber/README.md) | unknown-agent | **unfinished** | land the interrupted identifier renumbering (057-no-run-worklist→061,  | 2026-10-08T07:08 |
+| [2026-10-08-012-land-the-interrupted-identifier-renumber](2026-10-08-012-land-the-interrupted-identifier-renumber/README.md) | unknown-agent | worked | land the interrupted identifier renumbering (057-no-run-worklist→061,  | 2026-10-08T08:04 |
 | [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
