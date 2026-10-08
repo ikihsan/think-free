@@ -15,7 +15,7 @@ Showing the 25 most recent. 145 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-08-014-land-session-013-leftovers-repair-the-tw](2026-10-08-014-land-session-013-leftovers-repair-the-tw/README.md) | opencode | **unfinished** | Land session-013 leftovers, repair the two release-check violations, t | 2026-10-08T13:53 |
+| [2026-10-08-014-land-session-013-leftovers-repair-the-tw](2026-10-08-014-land-session-013-leftovers-repair-the-tw/README.md) | opencode | worked | Land session-013 leftovers, repair the two release-check violations, t | 2026-10-08T15:02 |
 | [2026-10-08-013-begin-fresh-observation-for-a-new-candid](2026-10-08-013-begin-fresh-observation-for-a-new-candid/README.md) | unknown-agent | worked | Begin fresh observation for a new candidate through independent explor | 2026-10-08T13:17 |
 | [2026-10-08-012-explore-fresh-observations-for-a-new-can](2026-10-08-012-explore-fresh-observations-for-a-new-can/README.md) | unknown-agent | worked | Explore fresh observations for a new candidate outside previously expl | 2026-10-08T12:10 |
 | [2026-10-08-011-fresh-observation-probe-explore-a-new-pr](2026-10-08-011-fresh-observation-probe-explore-a-new-pr/README.md) | unknown-agent | worked | Fresh observation probe: explore a new practical difficulty outside pr | 2026-10-08T10:54 |
