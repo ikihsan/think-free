@@ -8,13 +8,15 @@ last-verified: 2026-10-08
 
 <!-- generated-by: origin; do not edit by hand -->
 
-177 recorded session(s). One `events.jsonl` per session, so concurrent
+179 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 152 older session(s) are in the directory listing.
+Showing the 25 most recent. 154 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi](2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi/README.md) | unknown-agent | worked | Log remaining artifacts from doc lint fixes | 2026-10-08T20:44 |
+| [2026-10-08-022-begin-fresh-observation-in-a-new-domain](2026-10-08-022-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain outside software: investigate  | 2026-10-08T20:43 |
 | [2026-10-08-021-test-e038-s-189-github-issues-and-e012-s](2026-10-08-021-test-e038-s-189-github-issues-and-e012-s/README.md) | unknown-agent | worked | Test E038's 189 GitHub issues and E012's 1401 HN needs against answera | 2026-10-08T17:38 |
 | [2026-10-08-015-design-and-run-a-fresh-observation-exper](2026-10-08-015-design-and-run-a-fresh-observation-exper/README.md) | unknown-agent | worked | Design and run a fresh observation experiment on ArXiv computational p | 2026-10-08T15:48 |
 | [2026-10-08-014-land-session-013-leftovers-repair-the-tw](2026-10-08-014-land-session-013-leftovers-repair-the-tw/README.md) | opencode | worked | Land session-013 leftovers, repair the two release-check violations, t | 2026-10-08T15:02 |
@@ -38,8 +40,6 @@ Showing the 25 most recent. 152 older session(s) are in the directory listing.
 | [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
 | [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
 | [2026-10-07-016-conclude-e051-experiment-and-identify-ne](2026-10-07-016-conclude-e051-experiment-and-identify-ne/README.md) | unknown-agent | worked | Conclude E051 experiment and identify new candidate | 2026-10-07T22:40 |
-| [2026-10-07-015-fix-unlogged-predictions-jsonl-artifact](2026-10-07-015-fix-unlogged-predictions-jsonl-artifact/README.md) | unknown-agent | worked | Fix unlogged predictions.jsonl artifact and update DECISIONS.md for E0 | 2026-10-07T20:33 |
-| [2026-10-07-014-begin-fresh-exploration-for-a-new-candid](2026-10-07-014-begin-fresh-exploration-for-a-new-candid/README.md) | unknown-agent | worked | Begin fresh exploration for a new candidate after stg withdrawal; iden | 2026-10-07T20:28 |
 
 
 ## Reading a session

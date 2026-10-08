@@ -1,12 +1,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-07
+last-verified: 2026-10-08
 -->
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D084**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D083**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
@@ -208,46 +208,4 @@ route's standing would rest on a number the instrument never produced.
 disqualifies requester-held inputs is not wrong for a software venue, where such
 an input usually means an account — the rule is that a disqualifying clause must
 be shown to fire on positives in its own domain, not that it may never fire.
-
-## D084 — Arrival at a need is a different quantity from a statement of need, and a non-reply is not an absence of service (2026-10-08)
-
-`observed` 2026-10-08, session 2026-10-08-006, E062, F096, F097.
-
-**The situation.** Every population this mission has measured counted
-*statements* of need and read them as service levels. F039 measured the closest
-available proxy — whether requesters came back — and read 1 reply of 794 as
-absence of demand. E062 read the whole no-remedy population of a second venue
-(110 rows) and attempted the top 20 **by arrival** against the strongest
-accessible alternative, a general-purpose assistant answering from its own
-knowledge, free and instant. **17 of 20 are answered in full today.** The
-residual 3 are a data absence: a 2001 BMX serial number nobody recorded, and
-per-model spec sheets nobody made queryable.
-
-**The choice.** `view_count` is adopted as the mission's arrival measure, and any
-future population carrying an arrival measure reports **both** a statement count
-and an arrival count with its denominators stated separately. A missing reply is
-never read as an absence of service.
-
-**Why this is a rule and not a one-off.** Someone whose boiler question is answered
-by an assistant in 2024 does not post on a forum either way, so reply rate cannot
-distinguish "served elsewhere" from "never served" — the two hypotheses F039's 1
-of 794 could not separate. The gap between statement and service measured 17 in
-20 here, which is large enough that a single reader's verdict on the strength of
-replies would have been wrong about nearly every row it touched.
-
-**Measured alongside it, and against expectation:** unremedied need is **not**
-heavy-tailed on this venue — the top 10% of unremedied rows carry **3.2%** of all
-views. Ranking rows by arrival is therefore *not* a privileged sample of unmet
-need, and the mission's habit of reading a screened subset as representative is
-wrong on this venue too. This is the same correction D063 made for a
-tag-stratified rate, arriving from the other direction.
-
-**Rejected: use `view_count` as a demand measure.** Views count arrivals at a
-question, not unmet need; the 15,635-view row is answered free today. Arrival
-ranks attention. **Rejected: keep F039's reply rate and discount it.** The number
-is not wrong; the inference from it was, and D084 names which.
-
-**Ceiling.** `view_count` exists on Stack Exchange and not on most venues, which is
-why E062's harvest chose it, and arrival is not available for a private or
-single-tenant population at all. The rule governs reporting, not acquisition.
 
