@@ -1,0 +1,63 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-08
+-->
+
+# E068 — view-count synthesis and next actions
+
+Session `2026-10-08-021`, VM `instance-20260717-0944`.
+
+## The instrument that was missing
+
+The mission's central instrument, identified in E062 and confirmed across E063–E066, is `view_count`: **independent arrivals at a need, on every row**. This measures arrivals at a need via a platform (views, searches, assistants) rather than counting need statements submitted by people. It directly answers the question the mission had been reading as data: not "how many people stated a need" but "how many independent arrivals does this need receive."
+
+## What has been measured
+
+| Finding | Source | Key number |
+|---|---|---|
+| **F096** | General assistant answers unremedied needs | 17 of 20 (85%) answered in full today |
+| **F097** | Resistant needs resist due to data absence | Data never recorded, not a software problem |
+| **F098** | Need-harvest route closed at population level | 0 of 103 rows unserved-open; route retired (D085) |
+| **F099** | Package name existence checking insufficient | 93 of 576 near-misses resolve (0.1615); metadata rule recall 0.742 vs gate 0.90 |
+| **E063** | Answerability on GH issues + HN corpus | Arm A served share 0.676 (48/71); arm B 0.969 (31/32); unserved-open 0 of 103 |
+| **E064** | Existence-checking failure mode | 93/576 near-miss package names resolve to real artifacts (0.1615, CI95 [0.134, 0.194]); metadata rule recall 0.742 vs gate 0.90 |
+
+## Key pattern: need statements ≠ service levels
+
+Every population this mission has measured counted *statements* of need while reading them as service levels. F096 provides the first direct evidence that the two come apart: 17 of 20 unremedied needs are served elsewhere (by a general assistant), and the resistant 5% resist because the data was never recorded — not because no tool exists.
+
+The instrument `view_count` (independent arrivals at a need, on every row) is the mechanism that separates these: it measures arrivals *on every row*, not just on rows where someone stated a need.
+
+## What is known
+
+- `view_count` is operationally viable: E062 measured it on a non-software population (Steam per-game feature requests); E063 measured answerability on GH issues and HN; E066 independently confirmed E063's findings on the mission's own corpora.
+- The need-harvest route (harvesting needs from HN/GitHub and building tools) is closed at the population level: 0 of sampled rows represent unserved needs awaiting a builder (F029, F039, F051, F059, F081, F084, F085).
+- No deterministic existence checker is worth building: the 16% false-accept rate material is insufficient, and the cheap metadata repair fails because the false accepts are healthy, popular projects (F099, D086).
+- The package-name space that matters is semantic ("does this package do what was asked"), which is the named alternative's job — a model call — and it takes the cost and determinism advantage that justified a deterministic checker with it (F099, D086).
+
+## What is unknown
+
+- **Can web search recover `view_count`-like arrival metrics?** E065 was designed to test this (web search for need statements, classifying served/partial/unserved) but cannot run in this environment (DuckDuckGo search times out; no internet access).
+- **Does the `view_count` principle generalize beyond software/tool needs?** F062–F064 tested it on non-software needs (bike serial numbers, home repair, refrigerator capacitors); the resistant 5% resist because data was never recorded, not because of a software gap.
+- **What is the practical difference of using `view_count` vs. need-statement counting?** F096 shows the two diverge significantly: need statements over-count unmet need because many stated needs are served elsewhere, and many unmet needs are not stated as such.
+- **Can a lightweight classifier identify needs that a general assistant could answer from knowledge, using only offline patterns?** Offline classification of E065 treatment needs yielded 12.7% assistant-servable (keywords like "how to", "what tool", "is there a"), 3.6% data-absence (serial numbers, model numbers, proprietary specs), 83.6% other. This is a restrictive proxy; the gold-standard 85% (17/20) from F096 used an actual general assistant.
+
+## Next testable opportunity
+
+Since E065 cannot run without web access, the next independent experiment should:
+
+1. **Apply `view_count` to a new domain** — e.g., a non-software need corpus (travel, cooking, home repair) and measure independent arrivals using platform-specific APIs or search, classifying needs as served/partial/unserved. This would extend the `view_count` principle beyond software tool needs and test whether the pattern holds across domains.
+
+2. **Or, if web access becomes available:** run E065 fully, harvesting both treatment (E062 non-remedy) and control (E063 GH issues) arms via DuckDuckGo search, evaluating gates G1–G4 as declared in the protocol. The critical gate is G4: "17 of 20 top-arrival need statements classified as served or partially served."
+
+3. **Or, document the gap and pivot** — if neither 1 nor 2 is feasible, record the technical limitation (view_count requires platform-specific API access or web search) and identify a fresh observation in a new domain, per D080: "any successor session starts from fresh observation in a new domain."
+
+## Evidence summary
+
+- **Measured**: `view_count` principle confirmed across multiple corpora and independent sessions (E062–E066).
+- **Closed**: need-harvest route (F029, F039, F051, F059, F081, F084, F085); package-name existence checker as deterministic repair (F099, D086).
+- **Negative**: no candidate validated; all invention claims tested and disproved (six claims closed, F001–F008, F029–F099).
+- **Instrument**: `view_count` (independent arrivals at a need, on every row) is the mission's last standing measurement tool; it is not a candidate generator but a measurement instrument.
+
+**The seat for a candidate remains empty.** What remains is the instrument (`view_count`), the measured failure modes (package-name existence checking, need-harvest), and the open question of whether `view_count` can be operationalized in a new domain or with web access.
