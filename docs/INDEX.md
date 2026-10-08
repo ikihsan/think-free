@@ -184,6 +184,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `RESEARCH/E.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/EXPERIMENT-PROTOCOL.md/` | `docs/process/experiment-protocol.md` | archived | 2026-10-03 | 1 documents |
 | `RESEARCH/F.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
+| `RESEARCH/PRIOR-ART-E065-E066-E067.md/` | `docs/INDEX.md` | active | 2026-10-08 | 1 documents |
 | `RESEARCH/PRIOR-ART-KNITTING.md/` | `RESEARCH.md` | sealed | 2026-10-03 | 1 documents |
 | `RESEARCH/PRIOR-ART-ORIGIN.md/` | `RESEARCH.md` | sealed | 2026-10-04 | 1 documents |
 | `RESEARCH/README.md/` | `RESEARCH.md` | active | 2026-10-03 | owner: RESEARCH.md |
