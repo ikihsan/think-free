@@ -1,0 +1,129 @@
+{
+  "g1": {
+    "has_more_true_on_all": true,
+    "items_declared_by_api": 1200,
+    "requests": 12,
+    "requests_all_200": true,
+    "rows": 1200,
+    "rows_with_body": 1200,
+    "rows_with_outcome_fields": 519,
+    "rows_written": 1200,
+    "sites": [
+      "astronomy",
+      "bicycles",
+      "cooking",
+      "diy",
+      "gardening",
+      "woodworking"
+    ],
+    "total_count_available_on_this_route": false
+  },
+  "g3_blocked_by": "PROTOCOL.md rubric clause 1 disqualifies any need that consumes an input the requester holds; in a physical domain that is nearly every row. The null branch of G3 permanently closes the new-venue route, so it must not be executed on an artifact of the rubric.",
+  "g3_computed": false,
+  "g4": {
+    "caveat": "not monotone and right-censored at the young end: a question asked last month has not had time to go unanswered. Reported as observed, not as a mechanism.",
+    "cohorts": [
+      {
+        "accepted_pct": 9.1,
+        "cohort": "<2y",
+        "n": 66,
+        "open_pct": 3.0
+      },
+      {
+        "accepted_pct": 32.3,
+        "cohort": "2-5y",
+        "n": 127,
+        "open_pct": 0.8
+      },
+      {
+        "accepted_pct": 25.2,
+        "cohort": "5-10y",
+        "n": 612,
+        "open_pct": 15.2
+      },
+      {
+        "accepted_pct": 32.2,
+        "cohort": ">10y",
+        "n": 395,
+        "open_pct": 3.5
+      }
+    ],
+    "max_gap_points": 14.4,
+    "meets_10_point_gate": true,
+    "monotone": false
+  },
+  "state_distribution": [
+    {
+      "max_views": 58699,
+      "median_views": 435,
+      "n": 328,
+      "p90_views": 3470,
+      "share_pct": 27.3,
+      "state": "accepted"
+    },
+    {
+      "max_views": 205093,
+      "median_views": 408,
+      "n": 740,
+      "p90_views": 4009,
+      "share_pct": 61.7,
+      "state": "answered"
+    },
+    {
+      "max_views": 15040,
+      "median_views": 304,
+      "n": 22,
+      "p90_views": 2779,
+      "share_pct": 1.8,
+      "state": "closed"
+    },
+    {
+      "max_views": 15635,
+      "median_views": 291,
+      "n": 110,
+      "p90_views": 3437,
+      "share_pct": 9.2,
+      "state": "open"
+    }
+  ],
+  "unremedied_arrival": {
+    "concentration": {
+      "top_10_pct": {
+        "rows": 11,
+        "share_of_unremedied_views_pct": 3.2
+      },
+      "top_25_pct": {
+        "rows": 28,
+        "share_of_unremedied_views_pct": 4.2
+      },
+      "top_5_pct": {
+        "rows": 6,
+        "share_of_unremedied_views_pct": 2.3
+      }
+    },
+    "median_views": 291,
+    "n": 110,
+    "share_of_all_views_pct": 5.0,
+    "top_row_title": "I need help to identify my bmx bike by using serial numbers",
+    "top_row_unanswered_years": 9.0,
+    "top_row_views": 15635,
+    "views_total": 118990
+  },
+  "unremedied_shape": {
+    "by_site": {
+      "bicycles": 3,
+      "cooking": 8,
+      "diy": 36,
+      "gardening": 37,
+      "woodworking": 26
+    },
+    "classes": {
+      "diagnose-own-artifact": 15,
+      "judgement": 4,
+      "purchase-source": 2,
+      "registry-lookup": 3,
+      "technique-or-expertise": 86
+    },
+    "n": 110
+  }
+}

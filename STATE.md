@@ -6,8 +6,9 @@ last-verified: 2026-10-08
 
 # Verified state
 
-Date: 2026-10-07, Asia/Kolkata. Phase: B — and **the one candidate this mission has
-produced is now withdrawn.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
+Date: 2026-10-08, Asia/Kolkata. Phase: B — **the one candidate this mission has
+produced is withdrawn, and the mission has found the instrument its whole record
+was missing.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 D069) was the first candidate with a working artifact, and three experiments closed it.
 E043 ran the candidate's stated caller — six real agents — and the packaging advantage
 that was to justify adoption was not observed (F075). **E045 read the demand evidence
@@ -21,7 +22,14 @@ population by name (F082).** **E044, run concurrently with that reading, tested
 that population directly — six real agents, no line number and no `git diff` — and
 it is not observed to need the tool either: 6 of 6 exact, `nostg` 3 of 3
 (F083, D078).** `stg` stays in the repository, unreleased, as a correct
-tool: 37 of 37 tests, index byte-identical to a hand-built patch, honest exits. That is
+tool: 37 of 37 tests, index byte-identical to a hand-built patch, honest exits. **E058 then took the question out of software and found the
+confound the mission has been reading as data all along: F091 — "the requester never
+came back" was never evidence that a need went unserved. Of the 20 highest-arrival
+unremedied needs in a non-software population, a free general assistant answers
+**17 of 20 in full today** (F091, D083). Unanswered on a platform is not unserved,
+and every population this mission has measured counted *statements* of need while
+reading them as service levels. The instrument that was missing is `view_count`:
+independent arrivals at a need, on every row.** That is
 its final standing unless the incumbents change. **The application is not closed:** 29
 real issues in 26 real repositories is a real population and it is being served. The
 score-tail backlog remains closed.
@@ -98,6 +106,18 @@ created and claimed T-0087 and stopped: its `EXPERIMENTS/055-index-postcondition
 does not exist, so **T-0087 is claimed and unwritten.** `2026-10-08-005` (this
 VM) ran E057 to a recorded verdict and stopped before committing; that work is
 committed here and its session closed. **T-0087's idea is not obviously
+**E058 is complete and it is the most useful result this mission has produced
+since `stg` was withdrawn, because it is an instrument rather than a candidate
+(F090–F092, D082, D083).** It moved the question out of software and found that
+the mission's standing reading of its own record confuses a *statement* of need
+with *service*: of the 20 highest-arrival unremedied needs in a non-software
+population, a free general assistant answers 17 in full today. The route E058's
+protocol would have closed permanently on a rubric artifact is **deferred with
+its reason recorded**. One seat remains as before: `T-0087` (VM 0947) is claimed
+and `EXPERIMENTS/055-index-postcondition/` does not exist, so **T-0087 is still
+claimed and unwritten**; whoever claims it should first ask whether a
+tool-neutral index postcondition checker has a population that is not this
+mission's own auditors. **T-0087's idea is not obviously
 settled** — the same postcondition-gap argument that closes it (F082/F063) is
 the argument the mission just used to close three other lines — so it is the one
 open seat, and whoever claims it should first ask whether a tool-neutral index
@@ -143,6 +163,28 @@ paths are then attributed to whoever holds the tree (T-0053).
   Corrections carried: the E033 score-tail rule does not transfer, G1 was a
   free pass in this corpus, and the first linkage instrument returned a clean
   zero until diagnosed.
+- **Session 2026-10-08-006, VM 0944: a fresh observation outside software,
+  and the mission's missing instrument (E058, F090–F092, D082, D083).**
+  Declared to test whether the empty seat is a property of human unmet need or
+  of its *software sample route*. Arm 1 retrieved **1200 rows across six
+  non-software Stack Exchange sites**, all with bodies and outcome fields;
+  G1 met, and `total_count` recorded as a missing observation on this route
+  (D081). **G4 met**: the still-open share by age cohort is 3.0 / 0.8 / 15.2 /
+  3.5 percent, a 14.4-point gap against a declared 10 — reported with its
+  non-monotonicity and right-censoring, no mechanism claimed. **G3 was not run
+  and its null branch is permanently disarmed** (F090, D082): the rubric's
+  clause 1 disqualifies needs that consume an input the requester holds, which
+  in a physical domain is nearly every row, and that protocol's null branch was
+  declared to close the find-a-new-venue route **permanently**. It was caught
+  by reading the whole 110-row no-remedy population before labelling any of it.
+  In its place: the top 20 unremedied rows **by arrival**, each attempted
+  against the strongest accessible alternative. **17 of 20 are answered in full
+  by a free general assistant today** (F091). The 5% that resists is the bike
+  serial nobody recorded in 2001 and the per-model spec sheets — a data
+  absence, not a software problem (F092). **The candidate source does not move
+  out of software, and the find-a-new-venue route is deferred with its reason
+  recorded rather than closed**, because the branch that would have closed it
+  was an artifact of the instrument.
 - **Session 2026-10-08-005, VM 0944: a fresh observation closed on its
   own declared gate, and it closed the prototype condition (E057, F088,
   D081).** The goal was conditional — *read a project's tests statically,
@@ -225,9 +267,22 @@ by the run (E044, F083, D078) and by reading the demand evidence (E045, F081, F0
 and item 0f is closed by E047 (F084, D079), with E048 (F085) answering its follow-on:
 in every configuration except lefthook without `stage_fixed` the
 formatter/commit disagreement is loud or blocked, and that one silent shape ships its
-remedy and trips any CI format gate. **Nothing to build.** The one line the reload
-point still needs: **a fresh observation for a new candidate**, because the generator
-is not the blocker and the ordering of the work is.
+remedy and trips any CI format gate. **Nothing to build.** The fresh observation the
+reload point asked for is now done (E058), and it returned the instrument rather than
+a candidate.
+
+**The one line the reload point still needs, and it is a different one from last
+session's. Every population this mission has screened was a population of
+*statements* of need, and E058 measured the gap between a statement and service at
+17 of 20 (F091). So the highest-information action left is not another domain and not
+another rubric: it is to re-run the mission's own need corpus — E038's 189 GitHub
+issues and the 1401-row Hacker News corpus already on disk — through the same
+answerability test E058 ran, against the same free alternative.** The decision it
+changes is whether the mission's need-harvest route is still a route to unmet need
+at all, or whether it has been selecting *statements* that are already served. No
+network fetch is needed; both corpora are committed. **A large served share would
+explain seven consecutive emptiness measurements without any of them being wrong
+about the domain they sampled** (F090, D082, D083).
 ## Capability evidence
 
 `EXPERIMENTS/000-capabilities/results.json`, probed 2026-10-03 on the development machine:

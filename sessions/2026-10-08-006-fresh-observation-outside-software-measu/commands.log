@@ -1,0 +1,147 @@
+==============================================================================
+[seq 7] 2026-10-08T04:13:18+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/harvest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cooking      page 1 status 200 items 100 total_count None
+cooking      page 2 status 200 items 100 total_count None
+gardening    page 1 status 200 items 100 total_count None
+gardening    page 2 status 200 items 100 total_count None
+bicycles     page 1 status 200 items 100 total_count None
+bicycles     page 2 status 200 items 100 total_count None
+woodworking  page 1 status 200 items 100 total_count None
+woodworking  page 2 status 200 items 100 total_count None
+diy          page 1 status 200 items 100 total_count None
+diy          page 2 status 200 items 100 total_count None
+astronomy    page 1 status 200 items 100 total_count None
+astronomy    page 2 status 200 items 100 total_count None
+rows recovered: 1200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 22327  redactions: none
+==============================================================================
+[seq 8] 2026-10-08T04:15:10+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/harvest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+cooking      page 1 status 200 items 100 total_count None
+cooking      page 2 status 200 items 100 total_count None
+gardening    page 1 status 200 items 100 total_count None
+gardening    page 2 status 200 items 100 total_count None
+bicycles     page 1 status 200 items 100 total_count None
+bicycles     page 2 status 200 items 100 total_count None
+woodworking  page 1 status 200 items 100 total_count None
+woodworking  page 2 status 200 items 100 total_count None
+diy          page 1 status 200 items 100 total_count None
+diy          page 2 status 200 items 100 total_count None
+astronomy    page 1 status 200 items 100 total_count None
+astronomy    page 2 status 200 items 100 total_count None
+rows recovered: 1200
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 21699  redactions: none
+==============================================================================
+[seq 9] 2026-10-08T04:16:01+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/harvest2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stackoverflow  page 1 status 200 items 100
+stackoverflow  page 2 status 400 items 0
+superuser      page 1 status 400 items 0
+superuser      page 2 status 400 items 0
+serverfault    page 1 status 429 items 0
+serverfault    page 2 status 429 items 0
+unix           page 1 status 429 items 0
+unix           page 2 status 429 items 0
+rows recovered: 100
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 12879  redactions: none
+==============================================================================
+[seq 10] 2026-10-08T04:19:45+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/harvest2.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+stackoverflow  page 1 status 429 -- NO OBSERVATION, not a zero
+superuser      page 1 status 429 -- NO OBSERVATION, not a zero
+serverfault    page 1 status 429 -- NO OBSERVATION, not a zero
+unix           page 1 status 429 -- NO OBSERVATION, not a zero
+rows recovered: 0
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 194165  redactions: none
+==============================================================================
+[seq 11] 2026-10-08T04:20:45+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+arm1 pool 1200 -> view 60
+arm2 pool 425 (stackoverflow tail, docker,excel-formula,git,python,regex) -> view 60
+G2a positive-rule pool 7 -> 20
+G2b negative-rule pool 6 -> 20
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 288  redactions: none
+==============================================================================
+[seq 13] 2026-10-08T04:30:50+00:00
+$ python3 -c print('ok')
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+ok
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 95  redactions: none
+==============================================================================
+[seq 14] 2026-10-08T04:31:32+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/outcome.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G1  rows=1200 sites=6 api_items=1200 all_200=True with_body=1200 outcome_fields=519 total_count_on_route=False
+G3  NOT COMPUTED -- PROTOCOL.md rubric clause 1 disqualifies any need that consumes an input the requester holds; in a physical domain that is nearly every row. The null branch of G3 permanently closes the new-venue route, so it must not be executed on an artifact of the rubric.
+G4  still-open share by age cohort:
+      <2y    n=  66 open   3.0%  accepted   9.1%
+      2-5y   n= 127 open   0.8%  accepted  32.3%
+      5-10y  n= 612 open  15.2%  accepted  25.2%
+      >10y   n= 395 open   3.5%  accepted  32.2%
+      max gap 14.4 points, gate(>=10)=True, monotone=False
+state distribution:
+      accepted  n= 328 (27.3%)  views median    435 p90    3470 max    58699
+      answered  n= 740 (61.7%)  views median    408 p90    4009 max   205093
+      closed    n=  22 ( 1.8%)  views median    304 p90    2779 max    15040
+      open      n= 110 ( 9.2%)  views median    291 p90    3437 max    15635
+unremedied arrival (n=110): 5.0% of all views, median 291 views; top row 15635 views unanswered 9.0y
+      top_10_pct of unremedied rows carry 3.2% of ALL views
+      top_25_pct of unremedied rows carry 4.2% of ALL views
+      top_5_pct of unremedied rows carry 2.3% of ALL views
+shape of the 110 no-remedy rows (all classified, see tsv):
+      technique-or-expertise    86   78.2%
+      diagnose-own-artifact     15   13.6%
+      judgement                  4    3.6%
+      registry-lookup            3    2.7%
+      purchase-source            2    1.8%
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 196  redactions: none
+==============================================================================
+[seq 15] 2026-10-08T04:36:07+00:00
+$ python3 EXPERIMENTS/058-nonsw-need-shape/outcome.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+G1  rows=1200 sites=6 api_items=1200 all_200=True with_body=1200 outcome_fields=519 total_count_on_route=False
+G3  NOT COMPUTED -- PROTOCOL.md rubric clause 1 disqualifies any need that consumes an input the requester holds; in a physical domain that is nearly every row. The null branch of G3 permanently closes the new-venue route, so it must not be executed on an artifact of the rubric.
+G4  still-open share by age cohort:
+      <2y    n=  66 open   3.0%  accepted   9.1%
+      2-5y   n= 127 open   0.8%  accepted  32.3%
+      5-10y  n= 612 open  15.2%  accepted  25.2%
+      >10y   n= 395 open   3.5%  accepted  32.2%
+      max gap 14.4 points, gate(>=10)=True, monotone=False
+state distribution:
+      accepted  n= 328 (27.3%)  views median    435 p90    3470 max    58699
+      answered  n= 740 (61.7%)  views median    408 p90    4009 max   205093
+      closed    n=  22 ( 1.8%)  views median    304 p90    2779 max    15040
+      open      n= 110 ( 9.2%)  views median    291 p90    3437 max    15635
+unremedied arrival (n=110): 5.0% of all views, median 291 views; top row 15635 views unanswered 9.0y
+      top_10_pct of unremedied rows carry 3.2% of ALL views
+      top_25_pct of unremedied rows carry 4.2% of ALL views
+      top_5_pct of unremedied rows carry 2.3% of ALL views
+shape of the 110 no-remedy rows (all classified, see tsv):
+      technique-or-expertise    86   78.2%
+      diagnose-own-artifact     15   13.6%
+      judgement                  4    3.6%
+      registry-lookup            3    2.7%
+      purchase-source            2    1.8%
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 197  redactions: none

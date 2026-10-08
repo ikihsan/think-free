@@ -1,0 +1,40 @@
+{
+ "purpose": "G1 route probe: does Steam still carry per-game feature-request boards?",
+ "probed_at": "2026-10-08",
+ "requests": [
+  {
+   "url": "https://steamcommunity.com/app/440/discussions/",
+   "status": 200,
+   "bytes": 76925,
+   "boards_found": [
+    "steamcommunity.com/app/440/discussions/0/",
+    "steamcommunity.com/app/440/discussions/1/",
+    "steamcommunity.com/app/440/discussions/2/",
+    "steamcommunity.com/app/440/discussions/3/"
+   ],
+   "feature_request_board_present": false,
+   "occurrences_of_the_word_feature": 4
+  },
+  {
+   "url": "https://steamcommunity.com/app/440/discussions/0/",
+   "status": 200,
+   "bytes": 76941,
+   "boards_found": [
+    "steamcommunity.com/app/440/discussions/0/",
+    "steamcommunity.com/app/440/discussions/1/",
+    "steamcommunity.com/app/440/discussions/2/",
+    "steamcommunity.com/app/440/discussions/3/"
+   ],
+   "feature_request_board_present": false,
+   "occurrences_of_the_word_feature": 4
+  },
+  {
+   "url": "https://steamcommunity.com/games/440/discussions/0/",
+   "status": 200,
+   "bytes": 26796,
+   "boards_found": [],
+   "feature_request_board_present": false,
+   "occurrences_of_the_word_feature": 1
+  }
+ ]
+}

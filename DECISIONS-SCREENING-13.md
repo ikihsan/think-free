@@ -1,13 +1,17 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-07
 -->
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D083**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D081**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
+Decisions **D079, D080, D081**. Each entry records a choice that was genuinely open,
+the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D079, D080, D081, D082, D083**. Each entry records a choice that was
+genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
 ## would also have to fix it, before it is ranked
@@ -154,26 +158,7 @@ experiment, was the expensive half.
 this asks whether anyone would *learn* something new from a tool that checks it.
 A candidate must survive both, and the second is the one that closes the larger
 share of them.
-
-## D082 — Fresh observation experiments must be runnable on this machine with stdlib-only code, synthetic fixtures, and predeclared kill gates (2026-10-08)
-
-`observed` 2026-10-08, session 2026-10-08-012, E065.
-
-**The situation.** The mission's seat for a candidate is empty after seven measurements closed the stg candidate (F075, F081, F083, F084, F085, F088). The owner brief requires fresh exploration in a completely new domain until a specific testable opportunity appears. Prior domains (Python/git tooling, PyPI, need-corpora, text-organization, serialization) are exhausted.
-
-**The choice.** Select personal finance — specifically recurring expense detection from bank transaction CSVs — as a fresh observation domain. Design a deterministic, stdlib-only algorithm with predeclared kill gates (precision ≥85%, recall ≥80%, FPR ≤5%) and run it on 100 synthetic CSV files across 4 bank formats (Chase, Bank of America, Wells Fargo, Generic). The algorithm uses interval regularity, amount consistency, and variable-merchant handling.
-
-**The evidence.** All three kill gates passed on synthetic data: precision 100%, recall 83.86%, FPR 0%. The algorithm outperforms naive baseline (F1 91.22% vs 72.47%, +18.75%) by using multi-factor scoring instead of mere frequency counting. Negative controls verified: income transactions correctly NOT flagged, noise transactions correctly NOT flagged.
-
-**Why this is a rule and not a one-off.** The mission has repeatedly pivoted domains without establishing a reproducible experiment pattern. D082 makes explicit: fresh exploration = runnable falsification experiment first, with synthetic fixtures labeled as such, predeclared kill gates, and negative controls. Implementation only if gates pass. The experiment must be deterministic, stdlib-only, and runnable on this machine.
-
-**Rejected: build a personal finance app.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
-
-**Rejected: use ML/LLM for merchant normalization.** The falsification must be cheap and deterministic. Rule-based normalization on synthetic fixtures is the minimum viable test of the mechanism.
-
-**Ceiling.** Synthetic CSV files only. Real bank exports have additional complexities: merchant name variations, split/merged transactions, format inconsistencies, PDF statements. A 100% precision result on synthetic data does not establish real-world precision. The next step is testing on real bank CSV data from volunteer contributors; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
-
-## D082 — An arm that produced no observation is a missing observation, never a zero and never a denominator (2026-10-08)
+## D081 — An arm that produced no observation is a missing observation, never a zero and never a denominator (2026-10-08)
 
 `observed` 2026-10-08, session 2026-10-08-005, E057.
 
@@ -185,22 +170,87 @@ share of them.
 
 **Rejected: fail the whole experiment on one missing arm.** The cost is the other arms, and the owner brief's bounded-audit rule applies — the missing arm is reported and the experiment continues over the arms that ran. **Rejected: retry until every arm succeeds.** Ten retries is how a bounded probe becomes an unbounded one, and the two 422s here were a misspelling, not a rate limit. **Rejected: treat a discarded arm as a zero.** A tenth arm returned `total_count = 202343` because its query contained an `OR`; counting that as a zero would have manufactured a population. It is discarded and named.
 
-**Ceiling.** D082 is a records rule and cannot make a partial measurement sufficient. E056's verdict is **not withdrawn** — nothing here shows it is wrong — but it now reads *over three observed arms of five attempted*, and a reader can see which three.
+**Ceiling.** D081 is a records rule and cannot make a partial measurement sufficient. E056's verdict is **not withdrawn** — nothing here shows it is wrong — but it now reads *over three observed arms of five attempted*, and a reader can see which three.
 
-## D083 — Fresh observation experiments must be runnable on this machine with stdlib-only code, synthetic fixtures, and predeclared kill gates (2026-10-08)
+## D082 — A rubric clause that cannot recover a positive on its own domain disarms its own null branch, permanently (2026-10-08)
 
-`observed` 2026-10-08, session 2026-10-08-012, E065.
+`observed` 2026-10-08, session 2026-10-08-006, E058, F090.
 
-**The situation.** The mission's seat for a candidate is empty after seven measurements closed the stg candidate (F075, F081, F083, F084, F085, F088). The owner brief requires fresh exploration in a completely new domain until a specific testable opportunity appears. Prior domains (Python/git tooling, PyPI, need-corpora, text-organization, serialization) are exhausted.
+**The situation.** E058 was declared to answer whether the mission's empty
+candidate seat is a property of *human unmet need* or of its *software sample
+route*. Arm 1 was a non-software population, and the rubric's clause 1
+disqualified any need consuming an input only the requester holds. That clause is
+right for a software venue, where the requester's own data means an account, a
+token, a private repository. In a physical domain it means their plant, their
+stain, their nameplate, their symptom. **All 110 no-remedy rows were read**, and
+the shape is 86 technique-or-material answers against 15 diagnoses of the
+requester's own physical thing: the disqualifying clause rejects the treatment
+arm's ontology, so it cannot recover a positive on it.
 
-**The choice.** Select personal finance — specifically recurring expense detection from bank transaction CSVs — as a fresh observation domain. Design a deterministic, stdlib-only algorithm with predeclared kill gates (precision ≥85%, recall ≥80%, FPR ≤5%) and run it on 100 synthetic CSV files across 4 bank formats (Chase, Bank of America, Wells Fargo, Generic). The algorithm uses interval regularity, amount consistency, and variable-merchant handling.
+**The choice.** G3 — the declared measurement — was not run, and its null branch
+is **permanently disarmed** rather than recorded as unfavourable. The
+find-a-new-venue route is **deferred with its reason recorded**, which is a
+different standing from closed. The clause was not rewritten to fit the data.
 
-**The evidence.** All three kill gates passed on synthetic data: precision 100%, recall 83.86%, FPR 0%. The algorithm outperforms naive baseline (F1 91.22% vs 72.47%, +18.75%) by using multi-factor scoring instead of mere frequency counting. Negative controls verified: income transactions correctly NOT flagged, noise transactions correctly NOT flagged.
+**Why this is a rule and not a one-off.** A gate whose null branch was declared
+permanent must not be computed by an instrument that cannot produce a positive on
+its own domain, because a permanent closure executed by a broken instrument is
+unrecoverable in a way an unfavourable result is not. It was caught by reading the
+population before labelling any of it — D077's rule applied to the instrument
+rather than to a candidate — and D077's rule did not exist for instruments. This
+generalises D075 (a candidate's limitations section is a measurement plan) and
+D077 (read the population before building to measure it) to the measuring
+apparatus itself.
 
-**Why this is a rule and not a one-off.** The mission has repeatedly pivoted domains without establishing a reproducible experiment pattern. D083 makes explicit: fresh exploration = runnable falsification experiment first, with synthetic fixtures labeled as such, predeclared kill gates, and negative controls. Implementation only if gates pass. The experiment must be deterministic, stdlib-only, and runnable on this machine.
+**Rejected: loosen the clause until the gate computes.** The declared decision was
+"comparable-or-lower closes the route permanently"; a rubric tuned until it
+returns that answer measures the tuning. **Rejected: record the null as
+unfavourable and leave the route closed.** Nothing observed a comparison; the
+route's standing would rest on a number the instrument never produced.
 
-**Rejected: build a personal finance app.** The mission has no validated user, no adoption evidence, and six failed candidates. Building without a passing kill gate is the failure mode this repository exists to avoid.
+**Ceiling.** The finding is about this clause on this population. A rubric that
+disqualifies requester-held inputs is not wrong for a software venue, where such
+an input usually means an account — the rule is that a disqualifying clause must
+be shown to fire on positives in its own domain, not that it may never fire.
 
-**Rejected: use ML/LLM for merchant normalization.** The falsification must be cheap and deterministic. Rule-based normalization on synthetic fixtures is the minimum viable test of the mechanism.
+## D083 — Arrival at a need is a different quantity from a statement of need, and a non-reply is not an absence of service (2026-10-08)
 
-**Ceiling.** Synthetic CSV files only. Real bank exports have additional complexities: merchant name variations, split/merged transactions, format inconsistencies, PDF statements. A 100% precision result on synthetic data does not establish real-world precision. The next step is testing on real bank CSV data from volunteer contributors; if precision/recall drops below kill gates, the claim is abandoned. Human evaluation of triage usefulness is required before any product claim.
+`observed` 2026-10-08, session 2026-10-08-006, E058, F091, F092.
+
+**The situation.** Every population this mission has measured counted
+*statements* of need and read them as service levels. F039 measured the closest
+available proxy — whether requesters came back — and read 1 reply of 794 as
+absence of demand. E058 read the whole no-remedy population of a second venue
+(110 rows) and attempted the top 20 **by arrival** against the strongest
+accessible alternative, a general-purpose assistant answering from its own
+knowledge, free and instant. **17 of 20 are answered in full today.** The
+residual 3 are a data absence: a 2001 BMX serial number nobody recorded, and
+per-model spec sheets nobody made queryable.
+
+**The choice.** `view_count` is adopted as the mission's arrival measure, and any
+future population carrying an arrival measure reports **both** a statement count
+and an arrival count with its denominators stated separately. A missing reply is
+never read as an absence of service.
+
+**Why this is a rule and not a one-off.** Someone whose boiler question is answered
+by an assistant in 2024 does not post on a forum either way, so reply rate cannot
+distinguish "served elsewhere" from "never served" — the two hypotheses F039's 1
+of 794 could not separate. The gap between statement and service measured 17 in
+20 here, which is large enough that a single reader's verdict on the strength of
+replies would have been wrong about nearly every row it touched.
+
+**Measured alongside it, and against expectation:** unremedied need is **not**
+heavy-tailed on this venue — the top 10% of unremedied rows carry **3.2%** of all
+views. Ranking rows by arrival is therefore *not* a privileged sample of unmet
+need, and the mission's habit of reading a screened subset as representative is
+wrong on this venue too. This is the same correction D063 made for a
+tag-stratified rate, arriving from the other direction.
+
+**Rejected: use `view_count` as a demand measure.** Views count arrivals at a
+question, not unmet need; the 15,635-view row is answered free today. Arrival
+ranks attention. **Rejected: keep F039's reply rate and discount it.** The number
+is not wrong; the inference from it was, and D083 names which.
+
+**Ceiling.** `view_count` exists on Stack Exchange and not on most venues, which is
+why E058's harvest chose it, and arrival is not available for a private or
+single-tenant population at all. The rule governs reporting, not acquisition.
