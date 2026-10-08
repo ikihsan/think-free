@@ -76,19 +76,19 @@ Evidence: [`EXPERIMENTS/060-badge-release-drift/`](EXPERIMENTS/060-badge-release
 # denominator this repository's own record wrote over three of five arms
 
 `observed` 2026-10-08, session 2026-10-08-005, VM `instance-20260717-0944`.
-Evidence: [`EXPERIMENTS/057-no-run-worklist/`](EXPERIMENTS/057-no-run-worklist/README.md).
+Evidence: [`EXPERIMENTS/061-no-run-worklist/`](EXPERIMENTS/061-no-run-worklist/README.md).
 
 Split out of [`FAILURES-findings-31.md`](FAILURES-findings-31.md) on 2026-10-08.
 **Identifiers are stable across all findings files**; F084–F087 were not
 renumbered.
 
-## F088 — Nobody in the trackers that own the vocabulary asks to locate unexercised code without running the suite
+## F093 — Nobody in the trackers that own the vocabulary asks to locate unexercised code without running the suite
 
 **What happened.** Session 2026-10-08-005 declared a goal with a condition in
 it: *measure whether a project's own tests, read statically, locate the code a
 real test run reports unexercised, and build a no-run worklist prototype if
 they agree.* D077 requires the population to be read out of the evidence before
-anything is built to measure the mechanism, so E057 ran the population gate and
+anything is built to measure the mechanism, so E061 ran the population gate and
 declared its kill condition first: if 0 of 30 rows in each of the two trackers
 whose vocabulary owns the need state the need, no prototype is written.
 
@@ -129,7 +129,7 @@ And F049 already measured that 167 of 241 shipped features were released
 *before* anyone complained, so an issue tracker under-represents need by
 construction — this closes the population **as stated, in these two trackers**.
 
-## F089 — A verdict in this repository's own record was written over three of five arms, and the arms that never ran are invisible in its table
+## F094 — A verdict in this repository's own record was written over three of five arms, and the arms that never ran are invisible in its table
 
 **What happened, twice, in three days, in different code.**
 
@@ -139,7 +139,7 @@ construction — this closes the population **as stated, in these two trackers**
    this sample"*, and the sampling is described as five packages. The denominator
    a reader takes from the heading is 5; the arms that produced an observation
    are 3. Nothing in the table records that two of the five are absent.
-2. **E057, this session.** Ten search arms. Two returned **HTTP 422** — a
+2. **E061, this session.** Ten search arms. Two returned **HTTP 422** — a
    misspelled repository owner in the `repo:` qualifier — and returned zero
    items. Zero items from a 422 and zero items from a real negative are the same
    value in the same field, and the two 422s were on `coveragepy` and `vulture`,
@@ -161,7 +161,7 @@ back empty, in a pipeline whose summary is a count or a rate. Two of the three
 instances above are in this repository's own records, and one of them is the
 verdict that closed the most recent candidate.
 
-**What it buys.** D081: an arm that produced no observation is a **missing
+**What it buys.** D082: an arm that produced no observation is a **missing
 observation**; a missing observation never enters a denominator and never
 becomes a zero. E056's verdict is not withdrawn — nothing here shows it is wrong
 — but it was reached over three of five arms and is now labelled as such.

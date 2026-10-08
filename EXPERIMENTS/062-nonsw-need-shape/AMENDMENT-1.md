@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-08
 -->
 
-# E058 — AMENDMENT-1: the venue changes, the question does not
+# E062 — AMENDMENT-1: the venue changes, the question does not
 
 2026-10-08, session `2026-10-08-006`, before any population row was fetched.
 
@@ -59,7 +59,7 @@ G4.** G1 is restated for the new venue and nothing else in the protocol moves.
 
 | gate | restated |
 |---|---|
-| **G1 retrieval** | ≥ 300 rows across ≥ 6 distinct non-software sites, each carrying title, body, tags, score and the outcome fields; the harvest reconciled against each site's own `total_count`, and rows that produced no body are reported as missing observations, never as zeros (D081) |
+| **G1 retrieval** | ≥ 300 rows across ≥ 6 distinct non-software sites, each carrying title, body, tags, score and the outcome fields; the harvest reconciled against each site's own `total_count`, and rows that produced no body are reported as missing observations, never as zeros (D082) |
 
 ## Ceiling added by this amendment
 

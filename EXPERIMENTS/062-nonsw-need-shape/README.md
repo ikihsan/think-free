@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-08
 -->
 
-# E058 — what a non-software population says about unmet need
+# E062 — what a non-software population says about unmet need
 
 Session `2026-10-08-006`, VM `instance-20260717-0944`, declared 2026-10-08.
 
@@ -16,7 +16,7 @@ reading of its own record is wrong.
 
 | gate | outcome |
 |---|---|
-| **G1 retrieval** | **met.** 1200 rows, 6 non-software sites, 12 requests all HTTP 200, API `items_returned` sums to 1200, every row has a body, 519 carry `closed_reason`. `total_count` is not returned by this route, so the declared reconciliation against it is a **missing observation, not a zero** (D081). |
+| **G1 retrieval** | **met.** 1200 rows, 6 non-software sites, 12 requests all HTTP 200, API `items_returned` sums to 1200, every row has a body, 519 carry `closed_reason`. `total_count` is not returned by this route, so the declared reconciliation against it is a **missing observation, not a zero** (D082). |
 | **G2 control validity** | **superseded.** The control pools recovered 7 and 6 rows against a declared 20 each; rather than loosen the rules to hit a target, the reader was replaced — see below. |
 | **G3 the measurement** | **not run, and permanently disarmed.** `AMENDMENT-2.md`. |
 | **G4 outcome gradient** | **met.** Still-open share by age cohort: 3.0% / 0.8% / 15.2% / 3.5%. Gap 14.4 points against a declared 10. **Not monotone, right-censored at the young end**; reported as observed, no mechanism claimed. |
@@ -113,9 +113,9 @@ one durable correction is that **unanswered is not unserved**.
 ## Reproduce
 
 ```bash
-python3 EXPERIMENTS/058-nonsw-need-shape/harvest.py     # arm 1, 1200 rows
-python3 EXPERIMENTS/058-nonsw-need-shape/harvest2.py    # software control (partial; 429s)
-python3 EXPERIMENTS/058-nonsw-need-shape/outcome.py     # every gate above
+python3 EXPERIMENTS/062-nonsw-need-shape/harvest.py     # arm 1, 1200 rows
+python3 EXPERIMENTS/062-nonsw-need-shape/harvest2.py    # software control (partial; 429s)
+python3 EXPERIMENTS/062-nonsw-need-shape/outcome.py     # every gate above
 ```
 
 Raw: `raw/requests.jsonl` (per-request status), `raw/arm1.jsonl`,

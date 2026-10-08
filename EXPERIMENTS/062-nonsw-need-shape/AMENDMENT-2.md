@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-08
 -->
 
-# E058 — AMENDMENT-2: the rubric does not transfer, so its null branch is disarmed
+# E062 — AMENDMENT-2: the rubric does not transfer, so its null branch is disarmed
 
 2026-10-08, session `2026-10-08-006`, after arm 1 was retrieved and reconciled
 (1200 rows, 6 sites, every row with body and outcome fields) and after the whole
@@ -115,7 +115,7 @@ Both stand and neither is affected.
   sums to 1200 and 1200 rows were written, every row carries a body, 519 carry
   `closed_reason`. `total_count` is **not returned by the `/questions` route at
   all**, so the declared reconciliation against it is recorded as a missing
-  observation, never as a zero (D081). `has_more` is `true` on all 12.
+  observation, never as a zero (D082). `has_more` is `true` on all 12.
 - **G4 met, with the shape reported rather than hidden.** The still-open share
   by age cohort is 3.0% (<2y), 0.8% (2–5y), 15.2% (5–10y), 3.5% (>10y). The
   gate asks for ≥10 points between two classes and the gap is 14.4. **It is not

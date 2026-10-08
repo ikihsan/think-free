@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""E058 arm 1 harvest: never-answered questions on six non-software Stack
+"""E062 arm 1 harvest: never-answered questions on six non-software Stack
 Exchange sites.
 
-Declared in EXPERIMENTS/058-nonsw-need-shape/PROTOCOL.md and restated for this
+Declared in EXPERIMENTS/062-nonsw-need-shape/PROTOCOL.md and restated for this
 venue in AMENDMENT-1.md. Writes every request, its status and its body to
 raw/requests.jsonl, and every recovered row to raw/arm1.jsonl.
 
 Standard library only. Reproduce:
 
-    python3 EXPERIMENTS/058-nonsw-need-shape/harvest.py
+    python3 EXPERIMENTS/062-nonsw-need-shape/harvest.py
 """
 
 import gzip
@@ -31,7 +31,7 @@ SITES = ["cooking", "gardening", "bicycles", "woodworking", "diy", "astronomy"]
 # G1 also asked for reconciliation against each site's own total_count. That
 # field is **not returned by the /questions route at all** -- only /search/* and
 # /questions/{ids} carry it -- so it is recorded as a missing observation, never
-# as a zero (D081). The reconciliation that is available is has_more plus
+# as a zero (D082). The reconciliation that is available is has_more plus
 # items_returned per request, and both are written per row.
 FILTER = "withbody"
 
@@ -40,7 +40,7 @@ FILTER = "withbody"
 # site, 100 rows each.
 PAGES = 2
 PER_PAGE = 100
-UA = "think-free-E058/1.0 (research harvest; unauthenticated)"
+UA = "think-free-E062/1.0 (research harvest; unauthenticated)"
 
 
 def fetch(url):
@@ -81,7 +81,7 @@ def main():
                    "has_more": (parsed or {}).get("has_more"),
                    "quota_max": (parsed or {}).get("quota_max"),
                    "backoff": (parsed or {}).get("backoff"),
-                   "total_count": (parsed or {}).get("total_count"),  # null on this route by design; see D081 note
+                   "total_count": (parsed or {}).get("total_count"),  # null on this route by design; see D082 note
                    "items_with_body": sum(1 for x in items if x.get("body")),
                    "items_returned": len(items),
                    "parse_error": err,

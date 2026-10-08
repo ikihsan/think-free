@@ -6,12 +6,8 @@ last-verified: 2026-10-07
 
 # Decisions — screening candidates and judging experiments, part 13
 
-Decisions **D079–D081**. Each entry records a choice that was genuinely open, the
+Decisions **D079–D084**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
-Decisions **D079, D080, D081**. Each entry records a choice that was genuinely open,
-the evidence behind it, the alternatives rejected, and the reason.
-Decisions **D079, D080, D081, D082, D083**. Each entry records a choice that was
-genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D079 — A candidate's stated pain is measured on bytes against the incumbents that
 ## would also have to fix it, before it is ranked
@@ -158,11 +154,11 @@ experiment, was the expensive half.
 this asks whether anyone would *learn* something new from a tool that checks it.
 A candidate must survive both, and the second is the one that closes the larger
 share of them.
-## D081 — An arm that produced no observation is a missing observation, never a zero and never a denominator (2026-10-08)
+## D082 — An arm that produced no observation is a missing observation, never a zero and never a denominator (2026-10-08)
 
-`observed` 2026-10-08, session 2026-10-08-005, E057.
+`observed` 2026-10-08, session 2026-10-08-005, E061.
 
-**The situation.** E057's population gate declared its kill condition before reading a row, then ran ten search arms. Two returned **HTTP 422** — a misspelled repository owner in a `repo:` qualifier — and returned zero items. Zero items from a 422 and zero items from a real negative are the same value in the same field, and the two failed arms were `coveragepy` and `vulture`, the two carrying the most weight. Two days earlier E056 (F087) closed a candidate with a three-row results table under a heading describing a five-package sample, its text saying `pre-commit and mypy runs timed out; partial evidence only`.
+**The situation.** E061's population gate declared its kill condition before reading a row, then ran ten search arms. Two returned **HTTP 422** — a misspelled repository owner in a `repo:` qualifier — and returned zero items. Zero items from a 422 and zero items from a real negative are the same value in the same field, and the two failed arms were `coveragepy` and `vulture`, the two carrying the most weight. Two days earlier E056 (F087) closed a candidate with a three-row results table under a heading describing a five-package sample, its text saying `pre-commit and mypy runs timed out; partial evidence only`.
 
 **The choice.** Every measurement in this repository states, per arm, whether an observation was produced, and a rate or count is only ever written over the arms that produced one. A missing arm is printed as missing, with the reason it is missing, and it is excluded from the denominator. A verdict reached over a subset names the subset in the verdict sentence itself.
 
@@ -170,13 +166,13 @@ share of them.
 
 **Rejected: fail the whole experiment on one missing arm.** The cost is the other arms, and the owner brief's bounded-audit rule applies — the missing arm is reported and the experiment continues over the arms that ran. **Rejected: retry until every arm succeeds.** Ten retries is how a bounded probe becomes an unbounded one, and the two 422s here were a misspelling, not a rate limit. **Rejected: treat a discarded arm as a zero.** A tenth arm returned `total_count = 202343` because its query contained an `OR`; counting that as a zero would have manufactured a population. It is discarded and named.
 
-**Ceiling.** D081 is a records rule and cannot make a partial measurement sufficient. E056's verdict is **not withdrawn** — nothing here shows it is wrong — but it now reads *over three observed arms of five attempted*, and a reader can see which three.
+**Ceiling.** D082 is a records rule and cannot make a partial measurement sufficient. E056's verdict is **not withdrawn** — nothing here shows it is wrong — but it now reads *over three observed arms of five attempted*, and a reader can see which three.
 
-## D082 — A rubric clause that cannot recover a positive on its own domain disarms its own null branch, permanently (2026-10-08)
+## D083 — A rubric clause that cannot recover a positive on its own domain disarms its own null branch, permanently (2026-10-08)
 
-`observed` 2026-10-08, session 2026-10-08-006, E058, F090.
+`observed` 2026-10-08, session 2026-10-08-006, E062, F095.
 
-**The situation.** E058 was declared to answer whether the mission's empty
+**The situation.** E062 was declared to answer whether the mission's empty
 candidate seat is a property of *human unmet need* or of its *software sample
 route*. Arm 1 was a non-software population, and the rubric's clause 1
 disqualified any need consuming an input only the requester holds. That clause is
@@ -213,14 +209,14 @@ disqualifies requester-held inputs is not wrong for a software venue, where such
 an input usually means an account — the rule is that a disqualifying clause must
 be shown to fire on positives in its own domain, not that it may never fire.
 
-## D083 — Arrival at a need is a different quantity from a statement of need, and a non-reply is not an absence of service (2026-10-08)
+## D084 — Arrival at a need is a different quantity from a statement of need, and a non-reply is not an absence of service (2026-10-08)
 
-`observed` 2026-10-08, session 2026-10-08-006, E058, F091, F092.
+`observed` 2026-10-08, session 2026-10-08-006, E062, F096, F097.
 
 **The situation.** Every population this mission has measured counted
 *statements* of need and read them as service levels. F039 measured the closest
 available proxy — whether requesters came back — and read 1 reply of 794 as
-absence of demand. E058 read the whole no-remedy population of a second venue
+absence of demand. E062 read the whole no-remedy population of a second venue
 (110 rows) and attempted the top 20 **by arrival** against the strongest
 accessible alternative, a general-purpose assistant answering from its own
 knowledge, free and instant. **17 of 20 are answered in full today.** The
@@ -249,8 +245,8 @@ tag-stratified rate, arriving from the other direction.
 **Rejected: use `view_count` as a demand measure.** Views count arrivals at a
 question, not unmet need; the 15,635-view row is answered free today. Arrival
 ranks attention. **Rejected: keep F039's reply rate and discount it.** The number
-is not wrong; the inference from it was, and D083 names which.
+is not wrong; the inference from it was, and D084 names which.
 
 **Ceiling.** `view_count` exists on Stack Exchange and not on most venues, which is
-why E058's harvest chose it, and arrival is not available for a private or
+why E062's harvest chose it, and arrival is not available for a private or
 single-tenant population at all. The rule governs reporting, not acquisition.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E058 arm 2 harvest: the matched software-domain control.
+"""E062 arm 2 harvest: the matched software-domain control.
 
 Arm 1 is six non-software Stack Exchange sites in their score tail. Arm 2 is
 four software/IT sites, same route, same filter, same pages, same tail -- so the
@@ -9,7 +9,7 @@ corpus could not serve as this control.
 
 Standard library only. Reproduce:
 
-    python3 EXPERIMENTS/058-nonsw-need-shape/harvest2.py
+    python3 EXPERIMENTS/062-nonsw-need-shape/harvest2.py
 """
 
 import json
@@ -24,7 +24,7 @@ import harvest  # noqa: E402  (same directory, deliberate)
 SITES = ["stackoverflow", "superuser", "serverfault", "unix"]
 # Attempt 1 asked for two pages per site and the unauthenticated route answered
 # 400 then 429: the first site returned one page, the rest returned nothing.
-# Per D081 those responses are **missing observations, not zeros**, and they are
+# Per D082 those responses are **missing observations, not zeros**, and they are
 # in raw/requests-arm2.jsonl as they happened. Attempt 2 asks for one page per
 # site, honours the API's own `backoff` field, and retries a 429 rather than
 # reading it as an absence.

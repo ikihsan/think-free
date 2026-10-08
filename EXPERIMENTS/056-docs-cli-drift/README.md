@@ -45,7 +45,7 @@ mypy, pre-commit. For each:
 
 (pre-commit and mypy runs timed out; partial evidence only.)
 
-**Denominator, stated per D081 on 2026-10-08 (F089): 5 packages attempted,
+**Denominator, stated per D082 on 2026-10-08 (F094): 5 packages attempted,
 3 arms produced an observation.** Every number in this file is over those 3.
 `pre-commit` and `mypy` are **missing observations, not zeros** — they are not
 rows of zero drift. Nothing observed here shows the verdict is wrong; it was

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E057 population probe.
+"""E061 population probe.
 
 Question: does a population exist of requesters who must locate *unexercised*
 code without running the test suite, in a form the incumbents do not serve?

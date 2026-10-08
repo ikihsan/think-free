@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E058 sampling: four deterministic views over the two populations.
+"""E062 sampling: four deterministic views over the two populations.
 
 Nothing here is random in the sense of unrepeatable. Every view is selected by
 sorting the population on question_id and taking a fixed stride, so a reader who
@@ -26,7 +26,7 @@ the bodies are unused for the fraction.
 
 Standard library only. Reproduce:
 
-    python3 EXPERIMENTS/058-nonsw-need-shape/sample.py
+    python3 EXPERIMENTS/062-nonsw-need-shape/sample.py
 """
 
 import json

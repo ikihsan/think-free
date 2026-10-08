@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""E058 outcome-channel measurement: the gates that are computable from the
+"""E062 outcome-channel measurement: the gates that are computable from the
 bytes already on disk, plus the one measurement this venue was chosen for.
 
 Written 2026-10-08 session 2026-10-08-006, after arm 1 was retrieved and
 reconciled and before any population row was labelled for G3. Standard library
 only. Reproduce:
 
-    python3 EXPERIMENTS/058-nonsw-need-shape/outcome.py
+    python3 EXPERIMENTS/062-nonsw-need-shape/outcome.py
 
 Writes raw/outcome.json and raw/noremedy-classified.tsv, and prints the table
 that PROTOCOL.md's G1 and G4 gate on.

@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-08
 -->
 
-# E058 — PROTOCOL
+# E062 — PROTOCOL
 
 Declared 2026-10-08, session `2026-10-08-006`, VM `instance-20260717-0944`, before
 any row of the new population was fetched or read.
@@ -85,7 +85,7 @@ the shape F029 took — 50 candidates screened, 0 survived, and the screens neve
 demonstrated they could find one.
 
 **Denominators.** Every fraction is over rows read, and rows not read are reported
-as rows not read. Per D081, an arm that produced no observation is a missing
+as rows not read. Per D082, an arm that produced no observation is a missing
 observation, never a zero and never a denominator.
 
 ## The rubric, written before the rows

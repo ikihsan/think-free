@@ -8,14 +8,14 @@ last-verified: 2026-10-08
 # instrument this mission never had
 
 `observed` 2026-10-08, session 2026-10-08-006, VM `instance-20260717-0944`.
-Evidence: [`EXPERIMENTS/058-nonsw-need-shape/`](EXPERIMENTS/058-nonsw-need-shape/README.md).
+Evidence: [`EXPERIMENTS/062-nonsw-need-shape/`](EXPERIMENTS/062-nonsw-need-shape/README.md).
 
 Split out of [`FAILURES-findings-32.md`](FAILURES-findings-32.md) on 2026-10-08.
 **Identifiers are stable across all findings files.**
 
-## F090 — a rubric clause written for a software venue disqualified a physical domain's needs, and its null branch would have closed a route permanently
+## F095 — a rubric clause written for a software venue disqualified a physical domain's needs, and its null branch would have closed a route permanently
 
-**What happened.** E058 was declared to answer whether the mission's empty
+**What happened.** E062 was declared to answer whether the mission's empty
 candidate seat is a property of *human unmet need* or of its *software sample
 route*, by comparing a non-software population against the software corpus
 already on disk. The decision was stated in advance, and the null branch was
@@ -51,16 +51,16 @@ find a candidate. The difference here is that it was caught **before** the
 closure, by reading the population before labelling it — D077's rule, applied to
 an instrument instead of a candidate.
 
-**What it buys.** D082, below. G3 is not merely unfavourable; its null branch is
+**What it buys.** D083, below. G3 is not merely unfavourable; its null branch is
 **permanently disarmed** and unavailable to any later session, and the
 find-a-new-venue route is **deferred with the reason recorded** — a different
 standing from closed, and the only honest one available.
 
-## F091 — "the requester never came back" was never evidence that the need went unserved
+## F096 — "the requester never came back" was never evidence that the need went unserved
 
 **What happened.** F039 measured, on 794 requesters in one corpus, that 1 replied
 again and that 0 of 77 whose need drew a link followed up, and read the result
-as the absence of demand. E058 read the whole no-remedy population of a second
+as the absence of demand. E062 read the whole no-remedy population of a second
 population (110 rows) and attempted the top 20 **by arrival** against the
 strongest accessible alternative — a general-purpose assistant answering from
 its own knowledge, free and instant.
@@ -87,9 +87,9 @@ the first direct evidence that the two come apart by a factor of 17 in 20.
 **What it buys.** The instrument: **`view_count` records independent arrivals at
 a need**, on every row, and it is the channel this mission has never had. The
 unremedied population here is 110 rows carrying 118,990 views, one of which has
-sat unanswered for 9.0 years at 15,635 views. D083 below.
+sat unanswered for 9.0 years at 15,635 views. D084 below.
 
-## F092 — the population that resists a program resists it because the data was never recorded
+## F097 — the population that resists a program resists it because the data was never recorded
 
 **What happened.** The 5% of the arrival-ranked top 20 that a free assistant does
 not answer is not a software problem. The bike serial number `SNACEOSF18391`
@@ -111,9 +111,9 @@ person who has the object. That is a design observation about the class, not a
 candidate, and it is stated here so a later session does not re-derive it by
 building one.
 
-The two rules this experiment's reading produced are **D082** (a rubric clause
+The two rules this experiment's reading produced are **D083** (a rubric clause
 that cannot recover a positive on its own domain disarms its own null branch,
-permanently) and **D083** (arrival at a need is a different quantity from a
+permanently) and **D084** (arrival at a need is a different quantity from a
 statement of need). Both are recorded in
 [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md), which is where a rule
 belongs: this file holds findings, and no other findings file defines a

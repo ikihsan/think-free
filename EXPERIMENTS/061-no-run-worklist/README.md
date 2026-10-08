@@ -4,7 +4,7 @@ status: active
 last-verified: 2026-10-08
 -->
 
-# E057 — the population gate for the "no-run worklist" idea
+# E061 — the population gate for the "no-run worklist" idea
 
 `observed` 2026-10-08, session 2026-10-08-005, VM `instance-20260717-0944`,
 Python 3.8.10. Public unauthenticated GitHub issue search, 10 requests,
@@ -13,8 +13,8 @@ status and its body. Scripts: [`harvest.py`](harvest.py),
 [`harvest2.py`](harvest2.py). Reproduce:
 
 ```bash
-python3 EXPERIMENTS/057-no-run-worklist/harvest.py
-python3 EXPERIMENTS/057-no-run-worklist/harvest2.py
+python3 EXPERIMENTS/061-no-run-worklist/harvest.py
+python3 EXPERIMENTS/061-no-run-worklist/harvest2.py
 ```
 
 ## Question
@@ -131,4 +131,4 @@ An arm that produced no observation is a **missing observation**, and a missing
 observation never enters a denominator and never becomes a zero. It is stated
 here because it was nearly lost inside this experiment, and because this
 repository's record already contains one verdict written over three of five arms
-(F087, E056). See `FAILURES-findings-32.md` F088.
+(F087, E056). See `FAILURES-findings-32.md` F093.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""E057 population probe, part 2: the incumbent trackers, with the repository
+"""E061 population probe, part 2: the incumbent trackers, with the repository
 names corrected after part 1's 422s.
 
 Part 1 recorded `repo:nedbat/coveragepy is:issue "without running"` and
