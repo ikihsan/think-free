@@ -262,6 +262,8 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/063-text-organization/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/064-serialization-effectiveness/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 1 documents |
 | `EXPERIMENTS/065-recurring-expense-detection/` | `docs/INDEX.md` | complete | 2026-10-08 | ## Experiment Summary |
+| `EXPERIMENTS/066-berka-real-validation/` | `docs/INDEX.md` | active | 2026-10-08 | Date: 2026-10-08 · Status: complete — all four predeclared gates PASS |
+| `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 
