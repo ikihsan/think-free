@@ -15,7 +15,7 @@ Showing the 25 most recent. 167 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-09-007-commit-pending-e070-experiment-artifacts](2026-10-09-007-commit-pending-e070-experiment-artifacts/README.md) | unknown-agent | **unfinished** | Commit pending E070 experiment artifacts and continue prototype work | 2026-10-09T10:42 |
+| [2026-10-09-007-commit-pending-e070-experiment-artifacts](2026-10-09-007-commit-pending-e070-experiment-artifacts/README.md) | unknown-agent | worked | Commit pending E070 experiment artifacts and continue prototype work | 2026-10-09T11:42 |
 | [2026-10-09-006-declare-e070-experiment-artifacts-and-cl](2026-10-09-006-declare-e070-experiment-artifacts-and-cl/README.md) | unknown-agent | worked | Declare E070 experiment artifacts and close session | 2026-10-09T10:30 |
 | [2026-10-09-005-e070-experiment-completion-and-session-c](2026-10-09-005-e070-experiment-completion-and-session-c/README.md) | unknown-agent | worked | E070 experiment completion and session close | 2026-10-09T10:28 |
 | [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | worked | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T09:49 |

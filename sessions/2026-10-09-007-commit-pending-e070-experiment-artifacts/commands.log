@@ -1,0 +1,40 @@
+==============================================================================
+[seq 2] 2026-10-09T10:42:54+00:00
+$ git add FAILURES-findings-35.md sessions/INDEX.md EXPERIMENTS/070-name-guard-gap/ sessions/2026-10-09-005-e070-experiment-completion-and-session-c/ sessions/2026-10-09-006-declare-e070-experiment-artifacts-and-cl/
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 94  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T10:42:56+00:00
+$ git commit -m Land E070 name-guard-gap: pip's 'did you mean' warns on 0/50 near-miss names (F103, KILL)
+
+0/50 PyPI and 0/50 Crates.io near-miss names received warnings from pip
+install --dry-run. Kill gate G3 FAILed (gap fraction lower CI95 = 0.929 >=
+0.15), verdict: KILL. The E069 lesson (gate with vacuous passing region
+cannot fail) was validated by designing G3 with non-vacuous passing/failing
+regions.
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[detached HEAD 87b10ea] Land E070 name-guard-gap: pip's 'did you mean' warns on 0/50 near-miss names (F103, KILL)
+ 9 files changed, 462 insertions(+), 6 deletions(-)
+ create mode 100644 EXPERIMENTS/070-name-guard-gap/PROTOCOL.md
+ create mode 100644 EXPERIMENTS/070-name-guard-gap/control.py
+ create mode 100644 EXPERIMENTS/070-name-guard-gap/results.json
+ create mode 100644 sessions/2026-10-09-005-e070-experiment-completion-and-session-c/README.md
+ create mode 100644 sessions/2026-10-09-005-e070-experiment-completion-and-session-c/events.jsonl
+ create mode 100644 sessions/2026-10-09-006-declare-e070-experiment-artifacts-and-cl/README.md
+ create mode 100644 sessions/2026-10-09-006-declare-e070-experiment-artifacts-and-cl/events.jsonl
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 286  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T10:43:25+00:00
+$ git push origin HEAD
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+To https://github.com/ikihsan/think-free.git
+   f3aa080..87b10ea  HEAD -> HEAD
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 4515  redactions: none
