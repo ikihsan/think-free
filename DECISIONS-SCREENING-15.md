@@ -10,7 +10,7 @@ Split out of [`DECISIONS-SCREENING-14.md`](DECISIONS-SCREENING-14.md) on 2026-10
 The rule is unchanged: a decision is recorded when the choice was genuinely open,
 with evidence, alternatives, and reason.
 
-Decisions **D089–D090**. Each entry records a choice that was genuinely open, the
+Decisions **D089–D092**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
 ## D089 — The arrival instrument is Stack-Exchange-shaped, and a field a platform does not publish is missing rather than zero (2026-10-09)
@@ -67,7 +67,7 @@ undocumented endpoint is untested, and GitHub's per-issue
 the narrow one that blocks the landing — the corpora carry no arrival field, so
 the software-arm cell cannot be a measured zero.
 
-## D090 — Land an unlanded tree on its corrected record, not on its summary, and never commit the bytes a manifest describes (2026-10-09)
+## D092 — Land an unlanded tree on its corrected record, not on its summary, and never commit the bytes a manifest describes (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-002, E070, F101, defect 26.
 
