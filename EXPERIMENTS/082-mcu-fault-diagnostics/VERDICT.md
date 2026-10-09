@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-09
+-->
+
 # E082 Verdict: Microcontroller Fault Codes Fresh Observation
 
 ## Summary

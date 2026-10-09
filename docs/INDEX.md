@@ -301,7 +301,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/079-arxiv-reproducibility/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/079-automotive-obd2-diagnostics/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/080-flaky-test-rootcause/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
-| `EXPERIMENTS/081-medical-device-fault-codes/` | `—` | — | — | ## Domain |
+| `EXPERIMENTS/081-medical-device-fault-codes/` | `docs/INDEX.md` | active | 2026-10-09 | ## Domain |
 | `EXPERIMENTS/082-mcu-fault-diagnostics/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/083-3dprint-fault-codes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |

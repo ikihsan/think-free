@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-09
+-->
+
 # Fresh Observation: Medical Device Fault Codes (FDA MAUDE Database)
 
 ## Domain
