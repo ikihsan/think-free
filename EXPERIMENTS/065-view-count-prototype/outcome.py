@@ -41,7 +41,8 @@ def classify_served(snippets, titles):
     ]
     info_keywords = [
         'definition', 'what is', 'overview', 'introduction',
-        'summary', 'characteristics'
+        'summary', 'characteristics', 'who is', 'where is', 'latest news',
+        'news about'
     ]
     has_solution = any(kw in all_text for kw in solution_keywords)
     has_info = any(kw in all_text for kw in info_keywords)
