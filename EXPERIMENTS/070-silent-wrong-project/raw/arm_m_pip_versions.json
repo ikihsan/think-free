@@ -1,0 +1,22 @@
+{
+  "question": "does pip's own guard suggest the intended name when the typed name does not resolve (E064's premise: 'pip's did you mean')?",
+  "runs": [
+    {
+      "pip": "23.0.1 (bundled with the uv Python 3.10.19)",
+      "command": "python -m pip install reqests",
+      "exit": 1,
+      "output": ["ERROR: Could not find a version that satisfies the requirement reqests (from versions: none)", "ERROR: No matching distribution found for reqests"],
+      "suggests_requests": false,
+      "note": "captured in raw/arm_m.json, row reqests"
+    },
+    {
+      "pip": "26.2.1 (upgraded in the same venv, the newest release pip itself offered)",
+      "command": "python -m pip install reqests",
+      "exit": 1,
+      "output": ["ERROR: Could not find a version that satisfies the requirement reqests (from versions: none)", "ERROR: No matching distribution found for reqests"],
+      "suggests_requests": false,
+      "note": "no 'did you mean' hint on either version; pip's command-name typo guard exists, but no package-name suggestion was printed for a nonexistent near-miss on this host"
+    }
+  ],
+  "conclusion": "E064's premise names a pip guard that does not fire on this host for package names. The class-A guard is the resolution failure itself, with no suggestion. The premise correction narrows the gap claim: class A is caught by an error (undecorated), class B is the only class that can succeed silently - which the telegram row of arm M shows it does."
+}

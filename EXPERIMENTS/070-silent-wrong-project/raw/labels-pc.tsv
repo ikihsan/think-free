@@ -1,0 +1,196 @@
+id	label	typed	intended	harm	notes
+38393613	B	beautifulsoup	beautifulsoup4	harmful	installed "beautifulsoup" in PyCharm; the old BS3 distribution's bs4/__init__.py raises SyntaxError (py2 "except Exception, e:") under Python 3; install succeeded, wrong project, failure only at import
+29814223	B	beautifulsoup	beautifulsoup4	harmful	dragged BS3 into Lib, then pip install "thought it was successful"; same bs4/__init__.py:175 SyntaxError; install succeeded, wrong project
+77514329	B	bs4	beautifulsoup4	unclear	pip shows "bs4 in site-packages (0.0.1)" - the dummy package - installed silently; "ImportError: No module named bs4" follows, but beautifulsoup4 4.12.2 was also installed (as the dummy's dependency), so the import failure may be environmental; the silent wrong-project install itself is on the report's bytes
+71017032	B	bs4	beautifulsoup4	benign	the report's own code runs "pip install bs4" (the dummy package) and the import then works, because the dummy depends on beautifulsoup4; the purest silent class: it happened, the user never noticed, and nothing warned
+78085129	A	python-beautifulsoup4	beautifulsoup4	n/a	cross-registry: the typed name is a Homebrew formula that does not exist ("No available formula"); the installer refuses; the intended install is beautifulsoup4 via pip
+58380490	G	beautifulsoup	beautifulsoup4	n/a	asked pipenv for beautifulsoup4; pipenv locked and tried to install beautifulsoup==3.2.2 (the old project) as a dependency; its 2008 setup.py cannot build, so the install is refused - by the wrong project's own unbuildable release, not by any guard
+79777039	F	bs4	beautifulsoup4	benign	"pip3 install scrapy beautifulsoup4 bs4" - the user also installed the bs4 dummy (pip list shows bs4 0.0.2); the reported failure is a Brew/pyenv path mismatch, not the dummy install
+78957750	F	bs4	beautifulsoup4	benign	installed beautifulsoup4 and then "pip install bs4" (the dummy); still not working - the failure is an interpreter mismatch; the dummy installed silently and harmlessly
+79478834	E				n/a	pip list shows beautifulsoup4 4.13.3 installed in the venv; the import fails on a different interpreter; "beautifulSoup" is the informal spelling, not a different project
+78687453	E				n/a	reinstalled python and "beautiful soup"; import fails on the framework python while pip targets another; no different project named
+78216322	E				n/a	pip install beautifulsoup4 succeeded ("Installing collected packages"); the import fails because `python` is aliased to /usr/bin/python3 outside the venv; correct name, environment failure
+76632300	E				n/a	pip 23.1.2 (framework 3.11) vs the interpreter VS Code runs; correct name, environment failure
+49042224	E				n/a	"!pip install beautifulSoup4" - correct name (case-insensitive); the failure is a py2 pandas/html5lib issue
+79019497	E				n/a	pip install requests beautifulsoup4 pandas - correct names; scraping-usage question
+79198978	E				n/a	pip install beautifulsoup4 pandas lxml requests - correct names; usage
+16939813	E				n/a	BeautifulSoup4 ampersand escaping; usage (py2-era code)
+78788573	E				n/a	pip install requests beautifulsoup4 pandas - correct names; usage
+75629558	E				n/a	pip install selenium chromedriver beautifulsoup4 - correct names; usage
+78683774	E				n/a	custom class vs bs4.element; usage
+78253701	E				n/a	Illegal instruction on import; hardware/usage
+78220584	E				n/a	code stopped working; installing older versions; usage
+79868581	E				n/a	GitHub Actions saving data; usage
+76568489	E				n/a	selenium chromedriver; usage
+7225900	E				n/a	pip install -r requirements.txt; usage
+63538152	E				n/a	pip itself broken on Mac; not a name confusion
+48948520	E				n/a	pip install -U multi-mechanize; usage
+78959829	E				n/a	script fails when called from C#; usage
+9444289	E				n/a	pip freeze output noise; usage
+22250483	E				n/a	stop pip from failing on one package; usage
+79104241	E				n/a	scheduled tasks in GitHub Actions; usage
+28775276	E				n/a	pyinstaller chardet; usage
+78829346	E				n/a	pip install selenium; usage
+61279917	E				n/a	pip install lxml; usage
+79681729	E				n/a	Vertex AI tooling; usage
+67145912	E				n/a	Wand install on Cygwin; usage
+79885438	E				n/a	LLVM linking; unrelated
+79877221	E				n/a	rpi_ws281x on Raspberry Pi; usage
+78177250	E				n/a	OpenAI API version removal; usage
+79803169	E				n/a	buildozer crash; usage
+79840931	E				n/a	PIL image.open; usage
+79833235	E				n/a	websockets install; usage
+65470602	E				n/a	colorama installed correctly; import works in cmd but not VS Code - interpreter mismatch, no name confusion
+79800146	E				n/a	pygame-ce in Jupyter; usage
+79721725	E				n/a	Playwright browser path; usage
+78152635	E				n/a	torchdiffeq solver; usage
+79512685	E				n/a	pre-commit auto-merge; usage
+79570967	E				n/a	Plotly zoom linking; usage
+79548492	E				n/a	numpy on PyPy; build failure
+79458104	E				n/a	torch torchvision pillow; usage
+79311303	E				n/a	catkin_pkg; usage
+79413114	E				n/a	numpy on Cygwin; build failure
+79370093	E				n/a	numpy on Cygwin; build failure
+79390160	E				n/a	Macports question; unrelated
+79389536	E				n/a	pandas read_excel recursion; usage
+77511345	E				n/a	mypy generics; usage
+68651351	E				n/a	BlurWindow install; usage
+53306150	E				n/a	kaggle CLI env vars; usage
+79203948	E				n/a	pygame vs SDL; usage
+74289412	E				n/a	pyclustertend; the typo is in the user's import statement (pyclustertent), not a package-name confusion
+79829106	E				n/a	certifi/OpenML SSL in conda; usage
+76252065	E				n/a	mediapipe/tensorflow; usage
+57362038	E				n/a	Sagemaker env vars; usage
+79743297	E				n/a	numpy._utils; version conflict
+79473553	E				n/a	alpine scikit-learn via poetry; usage
+61453581	E				n/a	MinMaxScaler import; usage
+77064579	E				n/a	numpy _no_nep50_warning; version conflict
+77290003	E				n/a	SentenceTransformer segfault; usage
+79014457	E				n/a	auto-sklearn via conda; usage
+75619847	E				n/a	sklearn OpenBLAS; usage
+79485777	E				n/a	GPU in docker; usage
+72150065	E				n/a	tox/pip._vendor.distlib; tooling
+79404473	E				n/a	RASA deploy; usage
+76294409	E				n/a	cupy wheels; build failure
+79329171	E				n/a	pytest FileNotFoundError; tooling
+75633185	E				n/a	missingpy/MissForest; usage
+79328155	E				n/a	keras_tuner/scipy; usage
+79270470	E				n/a	setup.py develop; usage
+62297482	E				n/a	wfdb installed, import fails; environment
+79730533	E				n/a	poetry add scikit-learn imbalanced-learn; version conflict
+76650779	E				n/a	Optuna vs sklearn AUC; usage
+59065058	E				n/a	Yocto recipe; usage
+62730016	E				n/a	StandardScaler attribute; usage
+40025406	E				n/a	inherit LassoCV; usage
+61829228	E				n/a	XGboost/sklearn keyerror; usage
+46113732	E				n/a	conda install scikit-learn (correct name); conda-vs-python environment
+65907089	E				n/a	saving scalers to json; usage
+79472873	E				n/a	deploy to AWS SageMaker; usage
+21105661	E				n/a	svm numpy.dtype; usage
+24088010	E				n/a	grid_search usage
+79946943	E				n/a	PyCaret vs scikit-learn results; usage
+80003089	E				n/a	sklearn learning_curve in Quarto; usage
+78341395	E				n/a	pickle dtype incompatibility; usage
+79917240	E				n/a	clustering usage
+45554138	E				n/a	dataset from csv; usage
+72579169	E				n/a	MAE criterion; usage
+65975815	E				n/a	plotting threshold; usage
+78994944	E				n/a	Snowflake/Snowpark package namespace; environment
+59286298	F	sklearn	scikit-learn	n/a	"how/where can I install packages like sklearn?" - names the wrong package, intends scikit-learn, no install outcome reported
+36404042	F	sklearn	scikit-learn	unclear	2016-era: typed both "pip install -U scikit-learn" and "pip3 install sklearn"; import fails; on the report's bytes the failure is attributable either to the sklearn dummy's emptiness or to a pip3/python mismatch - cannot be attributed
+65980952	F	sklearn	scikit-learn	n/a	"pip install sklearn" fails with an OSError (Errno 2, Microsoft Store python cache path) - an environment failure that would hit any name; the confusion (typed sklearn) is present but is not the failure's cause
+71090431	E				n/a	never installed anything ("every time I want to import functions like pandas, I need to pip install them"); inexperience, no typed-vs-intended pair
+79176937	E				n/a	venv created, "pip install -U scikit-learn" (correct name); the notebook runs a different kernel; environment
+42178070	E				n/a	scikit-learn 0.18.1 installed via conda (correct name); Jupyter kernel vs environment; environment
+77816881	E				n/a	aiogram is a different library, not a near-miss of python-telegram-bot; pip install succeeded; the import fails on VS Code's interpreter; environment
+65148440	G	telegram-bot	python-telegram-bot	n/a	pip install telegram-bot: the name resolves to a different real project whose 2013 setup.py dies with a circular-import ImportError that never names the right package; the refusal is cryptic, not a guard
+78587477	B	telegram	python-telegram-bot	harmful	the report shows "!pip install python-telegram", "!pip install telegram", "!pip install telegram.chat" (python-telegram and telegram both resolve to real different projects; telegram.chat does not resolve), then "ImportError: cannot import name 'Chat' from 'telegram'" - the abandoned telegram project ships only telegram/__init__.py with no Chat, so the silent install breaks the import; install succeeded, wrong project, failure only at import
+78528771	B	telegram	python-telegram-bot	harmful	environment block states python-telegram-bot 21.2 installed, yet the traceback runs v13-era telegram/ext/filters.py ("from telegram import Chat as TGChat") - only possible if a second distribution that ships the `telegram` package co-occupies site-packages; the abandoned `telegram` sdist (inspected: telegram/__init__.py only, no Chat) is exactly such a distribution; the typed wrong name is not stated in the report, so this row is inferred from the harm signature plus the dual-distribution mechanism - flagged uncertain for the second pass
+1706647885	B	telegram	python-telegram	harmful	the running app (crypto-signals) imports telegram.utils.request, the API of the `python-telegram` project; the user tried "pip install telegram" and "pip install python-telegram-bot" - both resolve to real different projects, both installs succeeded, and the failure (ModuleNotFoundError: No module named 'telegram.utils') persists because the project actually needed was never installed
+76888022	F	telegram	python-telegram-bot	unclear	a beginner's list: "I've installed pip, Telegram, Python Telegram bot and others"; whether the pip `telegram` package was installed is not stated; no failure attributable to it in the report
+58121141	F	telebot	pyTelegramBotAPI	unclear	installed pyTelegramBotAPI (--user, correct) and then "pip install --user telebot" - telebot resolves to a different real project - "installing the module did not solve" the ImportError, which is a system-python vs --user-site environment failure; the wrong install succeeded silently but is not the failure's cause
+75995740	E				n/a	uninstalled and reinstalled python-telegram-bot (correct name); "cannot import name 'Update'" is a v13/v20 API mismatch; usage
+78666790	E				n/a	telegram.error.NetworkError; usage
+75096233	E				n/a	telegram.ext.filters.text attribute; v20 API change; usage
+78312831	E				n/a	Telethon in GitHub Actions; usage
+72712963	E				n/a	pip install python-telegram-bot on Arch; environment
+78043986	E				n/a	pip install --upgrade asyncio telethon; usage
+76394714	E				n/a	pip install python-telegram-bot (correct); IDE import resolution; environment
+72892714	E				n/a	typed all four names (right and wrong); "'telegram' is not a package" is a module-shadow (a local telegram.py file), not a wrong-project install; environment
+77772217	E				n/a	python-telegram-bot==13.7 pinned (correct); "Update is unknown import symbol" is an API change; usage
+77635075	E				n/a	dependency conflict httpx/googletrans; usage
+75095107	E				n/a	"cannot import name 'Filters'"; v20 API change; usage
+51321151	E				n/a	telegram bot via proxy; usage
+74238922	E				n/a	scraping Telegram messages; usage
+70067696	E				n/a	"ModuleNotFoundError: No module named 'telegram'. What do I have to install?" - no name typed, so no typed-vs-intended pair
+45492171	E				n/a	upload audio by URL; usage
+79972767	E				n/a	async bot freezes; usage
+48526231	E				n/a	menu/sub-menu; usage
+60862027	E				n/a	BadRequest: Message is not modified; usage
+61090856	E				n/a	send_poll; usage
+50890205	E				n/a	systemd; usage
+79937273	E				n/a	Telegram channel UI; usage
+76891340	E				n/a	message_thread_id; usage
+43136722	E				n/a	start button; usage
+79892457	E				n/a	invite links; usage
+71079062	E				n/a	forwarding messages; usage
+76578983	E				n/a	auto forward; usage
+78986119	E				n/a	live streaming in a bot; usage
+68081378	E				n/a	telegram code after starting bot; usage
+65869010	E				n/a	authorization code not sent; usage
+53787759	E				n/a	read group messages; usage
+71011375	E				n/a	change avatar; usage
+68032750	E				n/a	send message to a bot; usage
+63529302	E				n/a	redirect to bot/channel; usage
+71086161	E				n/a	coroutine never awaited; usage
+79790390	E				n/a	pip install python-telegram-bot (correct); bot logic; usage
+72404096	E				n/a	pip install python-telegram-bot (correct); v13 examples vs v20 install; usage
+79558618	E				n/a	inline buttons unresponsive; usage
+76142431	E				n/a	event loops; usage
+79371673	E				n/a	docker requirements.txt; environment
+78348610	E				n/a	ODBC driver on pythonanywhere; usage
+79006390	E				n/a	uvicorn/fastapi docker; usage
+106829575	F	beautifulsoup	beautifulsoup4	n/a	a repository's instructions/requirements file pins the old `beautifulsoup` release; the issue says it "should be using BeautifulSoup4 instead"; name confusion present in a dependency declaration, no install outcome
+432938850	E				n/a	pip install beautifulsoup4 (correct name; the old download URL in the log is pip-era behaviour); environment
+502542446	E				n/a	conda install -y beautifulsoup4 (correct); usage
+2743334802	E				n/a	pip install beautifulsoup4 (correct); usage
+2922517913	E				n/a	pip install requests beautifulsoup4 tqdm selenium (correct); usage
+5687845313	E				n/a	pip install python-telegram-bot==20.7 (correct name, non-ASCII hyphens in the log); usage
+3703706873	E				n/a	install python-telegram-bot library; the issue is the install environment, no wrong name
+5300816987	E				n/a	pip install python-telegram-bot (correct); voting bot usage
+3307038003	E				n/a	pip install python-telegram-bot (correct); usage
+5547352743	E				n/a	lazy install of platform.telegram hard-fails on a pip.conf mirror; a packaging bug in one project, not a name confusion
+5265225023	E				n/a	hermes runtime-repair venv; tooling
+5658743472	E				n/a	SWE-bench log
+5658285246	E				n/a	SWE-bench log
+5509718910	F	sklearn	scikit-learn	n/a	issue titled "Sklearn depreciated", body "Replace with scikit-learn" - a repository dependency declared under the wrong name; no install outcome
+5180997632	E				n/a	discord.py not installed; environment
+5432501201	E				n/a	pip install python-telegram-bot pandas numpy requests (correct); usage
+5182384001	E				n/a	week-1 scraper task; usage
+5099902932	E				n/a	week-1 scraper task; usage
+5364361480	E				n/a	integrate-features bot; usage
+4090180015	E				n/a	pip install requests beautifulsoup4 (correct); usage
+5364377229	E				n/a	integrate-features bot; usage
+5494013946	E				n/a	vulnerability report for beautifulsoup4; usage
+5365268548	E				n/a	integrate-features bot; usage
+5456612589	E				n/a	convert-to-okf support; installs python-docx, beautifulsoup4, ebooklib (correct); usage
+3224780658	E				n/a	extract unsegmented text; usage
+931844486	E				n/a	BeautifulSoup dependency question; usage
+5364822122	E				n/a	integrate-features bot; usage
+5655792794	E				n/a	extraction inserts newlines; usage
+848276100	E				n/a	dependency on BeautifulSoup; usage
+5644663955	E				n/a	BeautifulSoup version; usage
+837085440	E				n/a	BeautifulSoup4 update crashes a site; usage
+5668176662	E				n/a	pip install -r requirements.txt; usage
+5618647396	E				n/a	pip install yfinance pandas numpy requests (correct); usage
+5770080036	E				n/a	mem0/pgvector drivers; usage
+5742851115	E				n/a	hermes venv rebuild; tooling
+5523145303	E				n/a	weather-alert workflow; usage
+5281714378	E				n/a	run-pipeline workflow; usage
+5591492268	E				n/a	forex signals workflow; usage
+5520221472	E				n/a	CI workflow hygiene; usage
+5594908106	E				n/a	integration healthcheck; usage
+5579676503	E				n/a	security audit; usage
+5513338523	E				n/a	workflows/run.yml; usage
+4281496319	E				n/a	pip install requests telethon (correct); usage
+5537378349	E				n/a	extract_content fails when beautifulsoup4 absent; a dependency-declaration bug in one project, not a name confusion

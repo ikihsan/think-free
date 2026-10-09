@@ -1,0 +1,717 @@
+{
+ "site": "stackoverflow",
+ "query": "pip install typo",
+ "class": "G",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "spotipy"
+   ],
+   "owner": {
+    "account_id": 25285296,
+    "reputation": 1,
+    "user_id": 19447702,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/afee46b53cde8a8a219870ac5e931240?s=256&d=identicon&r=PG",
+    "display_name": "bman2103",
+    "link": "https://stackoverflow.com/users/19447702/bman2103"
+   },
+   "is_answered": false,
+   "view_count": 189,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1741519513,
+   "creation_date": 1741519513,
+   "question_id": 79495845,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79495845/spotipy-invalid-client-error-despite-correct-credentials-and-setup",
+   "title": "Spotipy invalid_client error despite correct credentials and setup",
+   "body": "<p>I\u2019m facing a persistent invalid_client error with the description Invalid client secret when using Spotipy to authenticate with the Spotify API. Even though my client_id, client_secret, and redirect_uri are correctly set up in both my code and the Spotify Developer Dashboard, the error persists. I\u2019ve tried several troubleshooting steps (listed below), but nothing has worked so far.</p>\n<p>My Setup:\nSpotipy version: 2.25.1 (latest)\nPython version: 3.12\nEnvironment: macOS, running in VS Code with Anaconda base environment (/opt/anaconda3/bin/python)\nCode:\nHere\u2019s the minimal script I\u2019m using to test authentication:</p>\n<pre><code>import spotipy\nfrom spotipy.oauth2 import SpotifyOAuth\n\n# Credentials from Spotify Developer Dashboard\nCLIENT_ID = 'my_client_id'\nCLIENT_SECRET = 'my_client_secret'\nREDIRECT_URI = 'https://example.com:3000'\n\n# Authenticate\nsp = spotipy.Spotify(auth_manager=SpotifyOAuth(\n    client_id=CLIENT_ID,\n    client_secret=CLIENT_SECRET,\n    redirect_uri=REDIRECT_URI,\n    scope=&quot;user-library-read&quot;\n))\n\n# Test API call\nresults = sp.current_user_saved_tracks()\nprint(&quot;Fetched saved tracks successfully!&quot;)\n</code></pre>\n<p>when i run the code it opens Safari for authentication. After approving access, I get this error:</p>\n<pre><code>Using Python interpreter: /opt/anaconda3/bin/python\nFetching your saved tracks...\nTraceback (most recent call last):\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/oauth2.py&quot;, line 527, in get_access_token\n    response.raise_for_status()\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/requests/models.py&quot;, line 1024, in raise_for_status\n    raise HTTPError(http_error_msg, response=self)\nrequests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://accounts.spotify.com/api/token\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File &quot;/Users/-/Downloads/spotipy_new.py&quot;, line 26, in &lt;module&gt;\n    results = sp.current_user_saved_tracks()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/client.py&quot;, line 1324, in current_user_saved_tracks\n    return self._get(&quot;me/tracks&quot;, limit=limit, offset=offset, market=market)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/client.py&quot;, line 327, in _get\n    return self._internal_call(&quot;GET&quot;, url, payload, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/client.py&quot;, line 251, in _internal_call\n    headers = self._auth_headers()\n              ^^^^^^^^^^^^^^^^^^^^\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/client.py&quot;, line 242, in _auth_headers\n    token = self.auth_manager.get_access_token(as_dict=False)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/oauth2.py&quot;, line 533, in get_access_token\n    self._handle_oauth_error(http_error)\n  File &quot;/opt/anaconda3/lib/python3.12/site-packages/spotipy/oauth2.py&quot;, line 117, in _handle_oauth_error\n    raise SpotifyOauthError(\nspotipy.exceptions.SpotifyOauthError: error: invalid_client, error_description: Invalid client secret\n\n\n\n</code></pre>\n<p>Steps I\u2019ve Already Taken:</p>\n<p>Verified credentials: Confirmed client_id and client_secret match exactly with the Spotify Developer Dashboard.</p>\n<ol>\n<li><p>Checked redirect URI: Ensured <a href=\"https://example.com:3000\" rel=\"nofollow noreferrer\">https://example.com:3000</a> is correctly registered in the dashboard (no extra spaces or slashes).</p>\n</li>\n<li><p>Cleared cache: Removed the .cache file to force fresh authentication.</p>\n</li>\n<li><p>Unset environment variables: Executed unset CLIENT_ID and unset CLIENT_SECRET to rule out conflicts.</p>\n</li>\n<li><p>Updated Spotipy: Ran pip install --upgrade spotipy to ensure I\u2019m on the latest version.\nTested minimal script: Used the script above to isolate the issue, but it still fails.</p>\n</li>\n<li><p>Checked for typos: Verified no leading/trailing spaces in credentials or URI.</p>\n</li>\n<li><p>Additional Notes:\nThe OAuth flow starts correctly (Safari opens, and I can log in), but the error occurs during the token exchange.\nI\u2019m willing to recreate the Spotify app in the dashboard if needed, but I\u2019d prefer to avoid that unless it\u2019s the only solution.</p>\n</li>\n<li><p>Question:\nWhat might be causing this invalid_client error despite my setup appearing correct? Are there additional debugging steps or fixes I can try to resolve this?</p>\n</li>\n</ol>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "windows-10",
+    "msys2",
+    "pacman-package-manager"
+   ],
+   "owner": {
+    "account_id": 2180366,
+    "reputation": 2631,
+    "user_id": 1930011,
+    "user_type": "registered",
+    "accept_rate": 61,
+    "profile_image": "https://i.sstatic.net/L09ta.jpg?s=256",
+    "display_name": "Thijser",
+    "link": "https://stackoverflow.com/users/1930011/thijser"
+   },
+   "is_answered": false,
+   "view_count": 939,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1713765883,
+   "creation_date": 1571046430,
+   "last_edit_date": 1571052698,
+   "question_id": 58374149,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58374149/building-agg-in-msys2-causes-error-invalid-configuration-x86-64-pc-msys-syste",
+   "title": "Building AGG in msys2 causes error Invalid configuration `x86_64-pc-msys&#39;: system `msys&#39; not recognized",
+   "body": "<p>I want to install pypotrace. To this end I'm following this <a href=\"https://pypi.org/project/pypotrace/\" rel=\"nofollow noreferrer\">tutorial</a>. However when I get to the line \n    ./autogen.sh; make</p>\n\n<p>I get the error:</p>\n\n<p>(specifically  the line):</p>\n\n<blockquote>\n  <p>I extracted both packages in my C:\\src folder. Both are easy to build\n  by executing ./configure; make and ./autogen.sh; make respectively, on\n  MSYS prompt.</p>\n</blockquote>\n\n<pre><code>main::scan_file() called too early to check prototype at /usr/bin/aclocal-1.11 line 644.\nconfigure.in:15: warning: macro `AM_PROG_LIBTOOL' not found in library\nconfigure.in:103: warning: macro `AM_PATH_SDL' not found in library\nlibtoolize: $pkgltdldir is not a directory: `/mingw/share/libtool'\nexamples/Makefile.am:19: Libtool library used but `LIBTOOL' is undefined\nexamples/Makefile.am:19:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nexamples/Makefile.am:19:   to `configure.in' and run `aclocal' and `autoconf' again.\nexamples/Makefile.am:19:   If `LT_INIT' is in `configure.in', make sure\nexamples/Makefile.am:19:   its definition is in aclocal's search path.\nexamples/Makefile.am:222: variable `trans_curve2_ft_SOURCES' is defined but no program or\nexamples/Makefile.am:222: library has `trans_curve2_ft' as canonical name (possible typo)\nexamples/Makefile.am:227: variable `trans_curve1_ft_SOURCES' is defined but no program or\nexamples/Makefile.am:227: library has `trans_curve1_ft' as canonical name (possible typo)\nexamples/Makefile.am:224: variable `trans_curve2_ft_LDFLAGS' is defined but no program or\nexamples/Makefile.am:224: library has `trans_curve2_ft' as canonical name (possible typo)\nexamples/Makefile.am:229: variable `trans_curve1_ft_LDFLAGS' is defined but no program or\nexamples/Makefile.am:229: library has `trans_curve1_ft' as canonical name (possible typo)\nfont_freetype/Makefile.am:5: Libtool library used but `LIBTOOL' is undefined\nfont_freetype/Makefile.am:5:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nfont_freetype/Makefile.am:5:   to `configure.in' and run `aclocal' and `autoconf' again.\nfont_freetype/Makefile.am:5:   If `LT_INIT' is in `configure.in', make sure\nfont_freetype/Makefile.am:5:   its definition is in aclocal's search path.\nfont_win32_tt/Makefile.am:7: Libtool library used but `LIBTOOL' is undefined\nfont_win32_tt/Makefile.am:7:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nfont_win32_tt/Makefile.am:7:   to `configure.in' and run `aclocal' and `autoconf' again.\nfont_win32_tt/Makefile.am:7:   If `LT_INIT' is in `configure.in', make sure\nfont_win32_tt/Makefile.am:7:   its definition is in aclocal's search path.\ngpc/Makefile.am:2: Libtool library used but `LIBTOOL' is undefined\ngpc/Makefile.am:2:   The usual way to define `LIBTOOL' is to add `LT_INIT'\ngpc/Makefile.am:2:   to `configure.in' and run `aclocal' and `autoconf' again.\ngpc/Makefile.am:2:   If `LT_INIT' is in `configure.in', make sure\ngpc/Makefile.am:2:   its definition is in aclocal's search path.\nsrc/Makefile.am:5: Libtool library used but `LIBTOOL' is undefined\nsrc/Makefile.am:5:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/Makefile.am:5:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/Makefile.am:5:   If `LT_INIT' is in `configure.in', make sure\nsrc/Makefile.am:5:   its definition is in aclocal's search path.\nsrc/ctrl/Makefile.am:4: Libtool library used but `LIBTOOL' is undefined\nsrc/ctrl/Makefile.am:4:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/ctrl/Makefile.am:4:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/ctrl/Makefile.am:4:   If `LT_INIT' is in `configure.in', make sure\nsrc/ctrl/Makefile.am:4:   its definition is in aclocal's search path.\nsrc/platform/X11/Makefile.am:2: Libtool library used but `LIBTOOL' is undefined\nsrc/platform/X11/Makefile.am:2:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/platform/X11/Makefile.am:2:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/platform/X11/Makefile.am:2:   If `LT_INIT' is in `configure.in', make sure\nsrc/platform/X11/Makefile.am:2:   its definition is in aclocal's search path.\nsrc/platform/mac/Makefile.am:2: Libtool library used but `LIBTOOL' is undefined\nsrc/platform/mac/Makefile.am:2:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/platform/mac/Makefile.am:2:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/platform/mac/Makefile.am:2:   If `LT_INIT' is in `configure.in', make sure\nsrc/platform/mac/Makefile.am:2:   its definition is in aclocal's search path.\nsrc/platform/sdl/Makefile.am:3: Libtool library used but `LIBTOOL' is undefined\nsrc/platform/sdl/Makefile.am:3:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/platform/sdl/Makefile.am:3:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/platform/sdl/Makefile.am:3:   If `LT_INIT' is in `configure.in', make sure\nsrc/platform/sdl/Makefile.am:3:   its definition is in aclocal's search path.\nsrc/platform/win32/Makefile.am:4: Libtool library used but `LIBTOOL' is undefined\nsrc/platform/win32/Makefile.am:4:   The usual way to define `LIBTOOL' is to add `LT_INIT'\nsrc/platform/win32/Makefile.am:4:   to `configure.in' and run `aclocal' and `autoconf' again.\nsrc/platform/win32/Makefile.am:4:   If `LT_INIT' is in `configure.in', make sure\nsrc/platform/win32/Makefile.am:4:   its definition is in aclocal's search path.\nconfigure: loading site script /etc/config.site\nchecking build system type... Invalid configuration `x86_64-pc-msys': system `msys' not recognized\nconfigure: error: /bin/sh ./config.sub x86_64-pc-msys failed\ncd src; make\nmake[1]: Entering directory '/c/src/agg-2.4/src'\nMakefile:1: ../Makefile.in.MSYS_NT-10.0-18362: No such file or directory\nmake[1]: *** No rule to make target '../Makefile.in.MSYS_NT-10.0-18362'.  Stop.\nmake[1]: Leaving directory '/c/src/agg-2.4/src'\nmake: *** [Makefile:4: src/libagg.a] Error 2\n</code></pre>\n\n<p>I have also ran: \n    pacman -S automake autoconf make mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb mingw-w64-x86_64-SDL mingw-w64-x86_64-SDL_ttf</p>\n\n<p>in order to get my build tools. </p>\n\n<p>I looked at <a href=\"https://github.com/JuliaLang/julia/issues/6234\" rel=\"nofollow noreferrer\">this</a> discussion, however <code>gcc -dumpmachine</code>gives me the error </p>\n\n<blockquote>\n  <p>-bash: /usr/bin/gcc: No such file or directory</p>\n</blockquote>\n\n<p>I also tried installing pypotrace using pip via <code>pip install pypotrace</code>, however this gave the error </p>\n\n<pre><code>Collecting pypotrace\n  Using cached https://files.pythonhosted.org/packages/fa/10/cd7ce3148ac390032ad5c6f687ca20f924e4abcaf2f3d9a10dc13cbbe4b2/pypotrace-0.1.4.tar.gz\n    ERROR: Command errored out with exit status 1:\n     command: 'C:\\Users\\bst\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '\"'\"'C:\\\\Users\\\\bst\\\\AppData\\\\Local\\\\Temp\\\\pip-install-atfefoey\\\\pypotrace\\\\setup.py'\"'\"'; __file__='\"'\"'C:\\\\Users\\\\bst\\\\AppData\\\\Local\\\\Temp\\\\pip-install-atfefoey\\\\pypotrace\\\\setup.py'\"'\"';f=getattr(tokenize, '\"'\"'open'\"'\"', open)(__file__);code=f.read().replace('\"'\"'\\r\\n'\"'\"', '\"'\"'\\n'\"'\"');f.close();exec(compile(code, __file__, '\"'\"'exec'\"'\"'))' egg_info --egg-base pip-egg-info\n         cwd: C:\\Users\\bst\\AppData\\Local\\Temp\\pip-install-atfefoey\\pypotrace\\\n    Complete output (15 lines):\n    Package libagg was not found in the pkg-config search path.\n    Perhaps you should add the directory containing `libagg.pc'\n    to the PKG_CONFIG_PATH environment variable\n    No package 'libagg' found\n    Traceback (most recent call last):\n      File \"&lt;string&gt;\", line 1, in &lt;module&gt;\n      File \"C:\\Users\\bst\\AppData\\Local\\Temp\\pip-install-atfefoey\\pypotrace\\setup.py\", line 70, in &lt;module&gt;\n        cython=CYTHONIZE),\n      File \"C:\\Users\\bst\\AppData\\Local\\Temp\\pip-install-atfefoey\\pypotrace\\setup.py\", line 45, in create_ext_obj\n        pkg_config_output = subprocess.check_output(args)\n      File \"C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.7_3.7.1473.0_x64__qbz5n2kfra8p0\\lib\\subprocess.py\", line 411, in check_output\n        **kwargs).stdout\n      File \"C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.7_3.7.1473.0_x64__qbz5n2kfra8p0\\lib\\subprocess.py\", line 512, in run\n        output=stdout, stderr=stderr)\n    subprocess.CalledProcessError: Command '['pkg-config', '--libs', '--cflags', 'libagg']' returned non-zero exit status 1.\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n\n<p>As it may matter, here is my PATH environment variable I have seen mentioned a few times: <a href=\"https://i.sstatic.net/VwnA6.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/VwnA6.png\" alt=\"PATH environment\"></a> </p>\n\n<p>Anybody who knows how to get pypotrace to run on windows 10(so either one of the above methods or maybe something else entirely)? Or do you guys think that configuration issues are better posted in a place like superuser? </p>\n"
+  },
+  {
+   "tags": [
+    "jupyter",
+    "drake"
+   ],
+   "owner": {
+    "account_id": 4827985,
+    "reputation": 216,
+    "user_id": 4551684,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/9c85b2d079c57f484c7988fb7bbcb997?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "drC1Ron",
+    "link": "https://stackoverflow.com/users/4551684/drc1ron"
+   },
+   "is_answered": true,
+   "view_count": 75,
+   "accepted_answer_id": 78004178,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1708069958,
+   "creation_date": 1708025681,
+   "last_edit_date": 1708069958,
+   "question_id": 78003512,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78003512/modulenotfounderror-for-drake-in-jupyter-notebooks",
+   "title": "ModuleNotFoundError for Drake in Jupyter notebooks",
+   "body": "<p>I've installed pydrake using pip in a virtual environment</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ python3 -m venv drakeEnv\n$ drakeEnv/bin/pip install --upgrade pip\n$ drakeEnv/bin/pip install drake\n$ source env/bin/activate\n(drakeEnv) $ pip install jupyter\n(drakeEnv) $ pip install ipython\n(drakeEnv) $ ipython kernel install --name=drakeEnv\n(drakeEnv) $ jupyter notebook\n</code></pre>\n<p>Even though the <code>drakeEnv</code>shows up Jupyter's list of kernels, I still get\n<em>ModuleNotFoundError: No moudule named 'pydrake'</em>. When I'm in the <em>drakeEnv</em> environment, then running <code>which jupyter</code> tells me that I'm not running the global Jupyter installation, so what is the problem ?</p>\n<p>I'm trying to run this from Ubuntu Yammy 20.04</p>\n<p>EDIT: the activation command on the fourth line has a typo</p>\n"
+  },
+  {
+   "tags": [
+    "kedro"
+   ],
+   "owner": {
+    "account_id": 6785215,
+    "reputation": 6078,
+    "user_id": 5224236,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/eQ2O3.jpg?s=256",
+    "display_name": "gaut",
+    "link": "https://stackoverflow.com/users/5224236/gaut"
+   },
+   "is_answered": false,
+   "view_count": 463,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1706002615,
+   "creation_date": 1705997829,
+   "question_id": 77864823,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77864823/kedro-pyspark-starter-cannot-load-spark-sparkdataset",
+   "title": "kedro pyspark starter cannot load spark.SparkDataset",
+   "body": "<p>The kedro starter project immediately fails to recognize the spark dataset</p>\n<pre><code>kedro new --starter=spaceflights-pyspark-viz\ncd projectpath\npip install -r requirements.txt\nkedro ipython\nClass 'spark.SparkDataset' not found, is this a typo?\n</code></pre>\n<p>Tested with kedro 0.19.1 and .2</p>\n<p>any idea?</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "macos-ventura"
+   ],
+   "owner": {
+    "account_id": 1837920,
+    "reputation": 53,
+    "user_id": 1667906,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/783eae1276e482abf2ab9b51e82e84f3?s=256&d=identicon&r=PG",
+    "display_name": "user1667906",
+    "link": "https://stackoverflow.com/users/1667906/user1667906"
+   },
+   "is_answered": false,
+   "view_count": 2174,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1686065475,
+   "creation_date": 1686065475,
+   "question_id": 76416214,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76416214/using-pyserial-on-macos",
+   "title": "Using PySerial on macOS",
+   "body": "<p>I want to use pyserial to read data from a serial device with python but I seem to fail at the most basic example.</p>\n<p>I installed python with 'brew install python3', installed pyserial as said in the documentation 'python3 -m pip install pyserial' and took the following from the pyserial docs and changed the device:</p>\n<blockquote>\n<p>import serial</p>\n<p>ser = serial.Serial('/dev/tty.usbserial-130') print(ser.name)\nser.close()</p>\n</blockquote>\n<p>I ran it with 'sudo python3 serial.py' and got an error:</p>\n<blockquote>\n<p>Traceback (most recent call last):   File\n&quot;/Users/x/serial.py&quot;, line 1, in \nimport serial   File &quot;/Users/x/serial.py&quot;, line 3, in \nser = serial.Serial('/dev/tty.usbserial-130')\n^^^^^^^^^^^^^\nAttributeError: partially initialized module 'serial' has no attribute 'Serial' (most likely due to a circular import). Did you mean: 'serial'?</p>\n</blockquote>\n<p>It says the I might have a typo but with serial.serial instead of serial.Serial I just get another error and I cant imagine that their examples are that faulty. I guess its a problem with the python environment?</p>\n"
+  },
+  {
+   "tags": [
+    "cmake",
+    "dockerfile",
+    "python-3.9",
+    "pyarrow"
+   ],
+   "owner": {
+    "account_id": 21367367,
+    "reputation": 11,
+    "user_id": 15735341,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GjZOD9Yp1f1COJXDMbq_uG-yBS-EvnerqKlSY0UL-8=k-s256",
+    "display_name": "TJL",
+    "link": "https://stackoverflow.com/users/15735341/tjl"
+   },
+   "is_answered": false,
+   "view_count": 1841,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1683692835,
+   "creation_date": 1683246041,
+   "last_edit_date": 1683270477,
+   "question_id": 76178114,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76178114/building-wheel-for-pyarrow-has-cmake-error-target-arrow-python-links-to-arr",
+   "title": "Building wheel for pyarrow has CMake Error : Target &quot;arrow_python&quot; links to &quot;arrow_shared&quot; but target was not found",
+   "body": "<p>While doing a Docker build recently, encountered:</p>\n<pre><code>ERROR: Failed building wheel for pyarrow\n</code></pre>\n<p>Even though I didn't make any changes in the Dockerfile. Build was working fine ~2 weeks ago.\nDetails of error:</p>\n<pre><code>CMake Error at CMakeLists.txt:377 (target_link_libraries):\nTarget &quot;arrow_python&quot; links to:\n    Arrow::arrow_shared\n    but the target was not found.  Possible reasons include:\n    * There is a typo in the target name.\n    * A find_package call is missing for an IMPORTED target.\n    * An ALIAS target is missing.\n\nCMake Generate step failed.  Build files cannot be regenerated correctly.\nerror: command '/usr/bin/cmake' failed with exit code 1\n</code></pre>\n<p>While searching for solutions in StackOverflow, I tried to specify the CMake version, as well as upgrade setuptools wheel, but still having errors. Appreciate any help on solving this.</p>\n<p>======Tried the following suggested by other posts in StackOverflow in my Dockerfile:</p>\n<pre><code>RUN apk add cmake~3.23.5\nRUN pip install --upgrade pip setuptools wheel\n</code></pre>\n<p>=====Currently these are in my Docker file:</p>\n<pre><code>FROM python:3.9-alpine3.16\n\nRUN apk update \\\n    &amp;&amp; apk upgrade \\\n    &amp;&amp; apk add --no-cache build-base \\\n    autoconf bash cmake bison boost-dev flex libressl-dev zlib-dev\n\nRUN pip install pip --upgrade pip\nRUN apk add gcc python3-dev musl-dev libc-dev g++ unixodbc-dev postgresql-dev libevent-dev \\\n    libffi-dev libxml2-dev libxslt-dev libjpeg-turbo-dev\n\nARG ARROW_VERSION=3.0.0\nARG ARROW_SHA1=c1fed962cddfab1966a0e03461376ebb28cf17d3\nARG ARROW_BUILD_TYPE=release\n\nENV ARROW_HOME=/usr/local \\\n    PARQUET_HOME=/usr/local\n\nRUN mkdir /arrow \\\n    &amp;&amp; wget -q https://github.com/apache/arrow/archive/apache-arrow-${ARROW_VERSION}.tar.gz -O /tmp/apache-arrow.tar.gz \\\n    &amp;&amp; echo &quot;${ARROW_SHA1} *apache-arrow.tar.gz&quot; | sha1sum /tmp/apache-arrow.tar.gz \\\n    &amp;&amp; tar -xvf /tmp/apache-arrow.tar.gz -C /arrow --strip-components 1 \\\n    &amp;&amp; mkdir -p /arrow/cpp/build \\\n    &amp;&amp; cd /arrow/cpp/build \\\n    &amp;&amp; cmake -DCMAKE_BUILD_TYPE=$ARROW_BUILD_TYPE \\\n        -DOPENSSL_ROOT_DIR=/usr/local/ssl \\\n        -DCMAKE_FIND_DEBUG_MODE=ON \\\n        -DCMAKE_INSTALL_LIBDIR=lib \\\n        -DCMAKE_INSTALL_PREFIX=$ARROW_HOME \\\n        -DARROW_WITH_BZ2=ON \\\n        -DARROW_WITH_ZLIB=ON \\\n        -DARROW_WITH_ZSTD=ON \\\n        -DARROW_WITH_LZ4=ON \\\n        -DARROW_WITH_SNAPPY=ON \\\n        -DARROW_PARQUET=ON \\\n        -DARROW_PYTHON=ON \\\n        -DARROW_PLASMA=ON \\\n        -DARROW_BUILD_TESTS=OFF \\\n        .. \\\n    &amp;&amp; make -j$(nproc) \\\n    &amp;&amp; make install \\\n    &amp;&amp; cd /arrow/python \\\n    &amp;&amp; python setup.py build_ext --build-type=$ARROW_BUILD_TYPE --with-parquet \\\n    &amp;&amp; python setup.py install \\\n    &amp;&amp; rm -rf /arrow /tmp/apache-arrow.tar.gz\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "c++",
+    "cmake",
+    "python-packaging",
+    "pybind11",
+    "xtensor"
+   ],
+   "owner": {
+    "account_id": 3121331,
+    "reputation": 2035,
+    "user_id": 2641038,
+    "user_type": "registered",
+    "accept_rate": 89,
+    "profile_image": "https://www.gravatar.com/avatar/3d737f33994195915863709ddf876d0b?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Der F&#228;nger im Roggen",
+    "link": "https://stackoverflow.com/users/2641038/der-f%c3%a4nger-im-roggen"
+   },
+   "is_answered": false,
+   "view_count": 515,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1680841158,
+   "creation_date": 1680840538,
+   "last_edit_date": 1680841158,
+   "question_id": 75955406,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75955406/build-c-xtensor-project-as-python-package-so-users-can-pip-install-without-a",
+   "title": "Build C++ XTensor project as Python package so users can `pip install` without any additional dependencies",
+   "body": "<p>I am following <a href=\"https://github.com/xtensor-stack/xtensor-python\" rel=\"nofollow noreferrer\">XTensor-python</a> <a href=\"https://xtensor-python.readthedocs.io/en/latest/\" rel=\"nofollow noreferrer\">tutorial</a> to build a XTensor C++ project which has Python binding with CMake. The end goal is to create a self-contained Python package that users can install via <code>pip install</code> without requiring <strong>any</strong> additional dependencies.</p>\n<p>The issue is that the target <code>mymodule</code> cannot link to <code>xtensor::optimize</code> but only <code>xtensor</code>.</p>\n<h2>Minimal Reproducible Example</h2>\n<p>Here is the minimal reproducible example: (<a href=\"https://github.com/lionlai1989/xtensor_pybind11_cmake\" rel=\"nofollow noreferrer\">You can follow the instruction here</a> and reproduce the result)</p>\n<h4>Project Structure Explanation:</h4>\n<ul>\n<li>Project structure:</li>\n</ul>\n<pre class=\"lang-bash prettyprint-override\"><code>.\n\u251c\u2500\u2500 CMakeLists.txt\n\u251c\u2500\u2500 extern\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 pybind11\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 xsimd\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 xtensor\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 xtensor-python\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 xtl\n\u251c\u2500\u2500 pyproject.toml\n\u251c\u2500\u2500 setup.py\n\u2514\u2500\u2500 src\n    \u2514\u2500\u2500 main.cpp\n</code></pre>\n<ul>\n<li><p><code>extern/</code> folder: <code>pybind11</code>, <code>xtl</code>, <code>xtensor</code>, <code>xsimd</code>, and <code>xtensor-python</code> are all added as git submodules. The reason is that this project is a self-contained C++/Python project. Users can use only <code>pip install</code> to install it without installing anything other things manually.</p>\n</li>\n<li><p><code>CMakeLists.txt</code>: The content is copied and pasted from <a href=\"https://github.com/xtensor-stack/xtensor-python/blob/master/docs/source/examples/readme_example_1/CMakeLists.txt\" rel=\"nofollow noreferrer\">xtensor-python tutorial</a>, except <code>xtensor</code> packages are not installed and found by <code>find_package</code> but with <code>add_subdirectory</code> (I will explain the commented code FetchContent later). The reason of not using <code>find_package</code> is that I must first install packages so <code>find_package</code> will work. But I can't install packages for users on users' computer so packages are added as submodules and added by using <code>add_subdirectory</code>.</p>\n</li>\n</ul>\n<pre><code>cmake_minimum_required(VERSION 3.22)\n\nproject(mymodule)\n\n# Must be submodule. Cannot be installed with pip\nadd_subdirectory(extern/pybind11)\n\n# Use FetchContent\n# include(FetchContent)\n# # Download and configure xtl\n# FetchContent_Declare(xtl\n#     GIT_REPOSITORY https://github.com/xtensor-stack/xtl.git\n#     GIT_TAG master\n#     OVERRIDE_FIND_PACKAGE\n# )\n# FetchContent_MakeAvailable(xtl)\n# # Download and configure xsimd\n# FetchContent_Declare(xsimd\n#     GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git\n#     GIT_TAG master\n#     OVERRIDE_FIND_PACKAGE\n# )\n# FetchContent_MakeAvailable(xsimd)\n# # Download and configure xtensor\n# FetchContent_Declare(xtensor\n#     GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git\n#     GIT_TAG master\n#     OVERRIDE_FIND_PACKAGE\n# )\n# FetchContent_MakeAvailable(xtensor)\n\n# Use add_subdirectory\nadd_subdirectory(extern/xtl)\nadd_subdirectory(extern/xtensor)\nadd_subdirectory(extern/xsimd)\nadd_subdirectory(extern/xtensor-python)\n\nfind_package(Python REQUIRED COMPONENTS Interpreter Development NumPy)\n\npybind11_add_module(mymodule src/main.cpp)\ntarget_link_libraries(mymodule PUBLIC xtensor pybind11::module xtensor-python Python::NumPy)\n\ntarget_compile_definitions(mymodule PRIVATE VERSION_INFO=0.1.0)\n</code></pre>\n<ul>\n<li><code>pyproject.toml</code>: All required packages to build the system are added here.</li>\n</ul>\n<pre><code>[build-system]\nrequires = [\n    &quot;pip&lt;=23.0&quot;,\n    &quot;setuptools&gt;=62,&lt;=65&quot;,\n    &quot;wheel&quot;,\n    &quot;ninja&quot;,\n    &quot;cmake&gt;=3.22&quot;,\n    &quot;numpy&quot;\n]\nbuild-backend = &quot;setuptools.build_meta&quot;\n\n[project]\nname = &quot;mymodule&quot;\nversion = &quot;0.0.1&quot;\nrequires-python = &quot;&gt;=3.8&quot;\n\ndependencies = [\n    &quot;numpy&quot;\n]\n</code></pre>\n<ul>\n<li><code>setup.py</code>: The content is from Pybind11/CMake tutorial on <a href=\"https://github.com/pybind/cmake_example/blob/master/setup.py\" rel=\"nofollow noreferrer\">github</a></li>\n</ul>\n<pre><code>import os\nimport re\nimport subprocess\nimport sys\nfrom pathlib import Path\n\nfrom setuptools import Extension, setup\nfrom setuptools.command.build_ext import build_ext\n\n# Convert distutils Windows platform specifiers to CMake -A arguments\nPLAT_TO_CMAKE = {\n    &quot;win32&quot;: &quot;Win32&quot;,\n    &quot;win-amd64&quot;: &quot;x64&quot;,\n    &quot;win-arm32&quot;: &quot;ARM&quot;,\n    &quot;win-arm64&quot;: &quot;ARM64&quot;,\n}\n\n\n# A CMakeExtension needs a sourcedir instead of a file list.\n# The name must be the _single_ output extension from the CMake build.\n# If you need multiple extensions, see scikit-build.\nclass CMakeExtension(Extension):\n    def __init__(self, name: str, sourcedir: str = &quot;&quot;) -&gt; None:\n        super().__init__(name, sources=[])\n        self.sourcedir = os.fspath(Path(sourcedir).resolve())\n\n\nclass CMakeBuild(build_ext):\n    def build_extension(self, ext: CMakeExtension) -&gt; None:\n        # Must be in this form due to bug in .resolve() only fixed in Python 3.10+\n        ext_fullpath = Path.cwd() / self.get_ext_fullpath(ext.name)  # type: ignore[no-untyped-call]\n        extdir = ext_fullpath.parent.resolve()\n\n        # Using this requires trailing slash for auto-detection &amp; inclusion of\n        # auxiliary &quot;native&quot; libs\n\n        debug = int(os.environ.get(&quot;DEBUG&quot;, 0)) if self.debug is None else self.debug\n        cfg = &quot;Debug&quot; if debug else &quot;Release&quot;\n\n        # CMake lets you override the generator - we need to check this.\n        # Can be set with Conda-Build, for example.\n        cmake_generator = os.environ.get(&quot;CMAKE_GENERATOR&quot;, &quot;&quot;)\n\n        # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON\n        # EXAMPLE_VERSION_INFO shows you how to pass a value into the C++ code\n        # from Python.\n        cmake_args = [\n            f&quot;-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}{os.sep}&quot;,\n            f&quot;-DPYTHON_EXECUTABLE={sys.executable}&quot;,\n            f&quot;-DCMAKE_BUILD_TYPE={cfg}&quot;,  # not used on MSVC, but no harm\n        ]\n        build_args = []\n        # Adding CMake arguments set as environment variable\n        # (needed e.g. to build for ARM OSx on conda-forge)\n        if &quot;CMAKE_ARGS&quot; in os.environ:\n            cmake_args += [item for item in os.environ[&quot;CMAKE_ARGS&quot;].split(&quot; &quot;) if item]\n\n        # In this example, we pass in the version to C++. You might not need to.\n        cmake_args += [f&quot;-DEXAMPLE_VERSION_INFO={self.distribution.get_version()}&quot;]  # type: ignore[attr-defined]\n\n        if self.compiler.compiler_type != &quot;msvc&quot;:\n            # Using Ninja-build since it a) is available as a wheel and b)\n            # multithreads automatically. MSVC would require all variables be\n            # exported for Ninja to pick it up, which is a little tricky to do.\n            # Users can override the generator with CMAKE_GENERATOR in CMake\n            # 3.15+.\n            if not cmake_generator or cmake_generator == &quot;Ninja&quot;:\n                try:\n                    import ninja  # noqa: F401\n\n                    ninja_executable_path = Path(ninja.BIN_DIR) / &quot;ninja&quot;\n                    cmake_args += [\n                        &quot;-GNinja&quot;,\n                        f&quot;-DCMAKE_MAKE_PROGRAM:FILEPATH={ninja_executable_path}&quot;,\n                    ]\n                except ImportError:\n                    pass\n\n        else:\n\n            # Single config generators are handled &quot;normally&quot;\n            single_config = any(x in cmake_generator for x in {&quot;NMake&quot;, &quot;Ninja&quot;})\n\n            # CMake allows an arch-in-generator style for backward compatibility\n            contains_arch = any(x in cmake_generator for x in {&quot;ARM&quot;, &quot;Win64&quot;})\n\n            # Specify the arch if using MSVC generator, but only if it doesn't\n            # contain a backward-compatibility arch spec already in the\n            # generator name.\n            if not single_config and not contains_arch:\n                cmake_args += [&quot;-A&quot;, PLAT_TO_CMAKE[self.plat_name]]\n\n            # Multi-config generators have a different way to specify configs\n            if not single_config:\n                cmake_args += [\n                    f&quot;-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}&quot;\n                ]\n                build_args += [&quot;--config&quot;, cfg]\n\n        if sys.platform.startswith(&quot;darwin&quot;):\n            # Cross-compile support for macOS - respect ARCHFLAGS if set\n            archs = re.findall(r&quot;-arch (\\S+)&quot;, os.environ.get(&quot;ARCHFLAGS&quot;, &quot;&quot;))\n            if archs:\n                cmake_args += [&quot;-DCMAKE_OSX_ARCHITECTURES={}&quot;.format(&quot;;&quot;.join(archs))]\n\n        # Set CMAKE_BUILD_PARALLEL_LEVEL to control the parallel build level\n        # across all generators.\n        if &quot;CMAKE_BUILD_PARALLEL_LEVEL&quot; not in os.environ:\n            # self.parallel is a Python 3 only way to set parallel jobs by hand\n            # using -j in the build_ext call, not supported by pip or PyPA-build.\n            if hasattr(self, &quot;parallel&quot;) and self.parallel:\n                # CMake 3.12+ only.\n                build_args += [f&quot;-j{self.parallel}&quot;]\n\n        build_temp = Path(self.build_temp) / ext.name\n        if not build_temp.exists():\n            build_temp.mkdir(parents=True)\n\n        subprocess.run(\n            [&quot;cmake&quot;, ext.sourcedir] + cmake_args, cwd=build_temp, check=True\n        )\n        subprocess.run(\n            [&quot;cmake&quot;, &quot;--build&quot;, &quot;.&quot;] + build_args, cwd=build_temp, check=True\n        )\n\n\nsetup(\n    # Currently, build_ext only provides an optional &quot;highest supported C++\n    # level&quot; feature, but in the future it may provide more features.\n    ext_modules=[CMakeExtension(&quot;mymodule&quot;)],\n    cmdclass={&quot;build_ext&quot;: CMakeBuild},\n    zip_safe=False,\n)\n</code></pre>\n<ul>\n<li><code>src/main.cpp</code>: The content is from <code>xtensor-python</code> <a href=\"https://github.com/xtensor-stack/xtensor-python/blob/master/docs/source/examples/readme_example_1/main.cpp\" rel=\"nofollow noreferrer\">github</a></li>\n</ul>\n<pre><code>#include &lt;numeric&gt;\n#include &lt;pybind11/pybind11.h&gt;\n#include &lt;xtensor/xmath.hpp&gt;\n#define FORCE_IMPORT_ARRAY\n#include &lt;xtensor-python/pyarray.hpp&gt;\n\ndouble sum_of_sines(xt::pyarray&lt;double&gt; &amp;m) {\n  auto sines = xt::sin(m); // sines does not actually hold values.\n  return std::accumulate(sines.begin(), sines.end(), 0.0);\n}\n\nPYBIND11_MODULE(mymodule, m) {\n  xt::import_numpy();\n  m.doc() = &quot;Test module for xtensor python bindings&quot;;\n  m.def(&quot;sum_of_sines&quot;, sum_of_sines, &quot;Sum the sines of the input values&quot;);\n}\n</code></pre>\n<h4>Installation:</h4>\n<ul>\n<li>Create venv, activate venv, and update pip:</li>\n</ul>\n<pre class=\"lang-bash prettyprint-override\"><code>python3 -m venv venv &amp;&amp; source venv/bin/activate &amp;&amp; python3 -m pip install --upgrade pip\n</code></pre>\n<ul>\n<li>Install from Github repository directly:</li>\n</ul>\n<pre><code>python3 -m pip install &quot;mymodule @ git+ssh://git@github.com/lionlai1989/xtensor_pybind11_cmake.git&quot;\n</code></pre>\n<ul>\n<li>(Optional) Git clone repository and pip install:</li>\n</ul>\n<pre><code>git clone --recursive https://github.com/lionlai1989/xtensor_pybind11_cmake.git\npython3 -m pip install .\n</code></pre>\n<h4>Verify installation:</h4>\n<pre class=\"lang-py prettyprint-override\"><code>&gt;&gt;&gt; import numpy as np\n&gt;&gt;&gt; import mymodule\n&gt;&gt;&gt; v = np.arange(15).reshape(3, 5)\n&gt;&gt;&gt; mymodule.sum_of_sines(v)\n1.2853996391883833\n</code></pre>\n<p><em><strong>Everything works perfectly so far.</strong></em></p>\n<h2>Enable optimization and xsimd</h2>\n<p>Now I want to enable optimization. Follow the <a href=\"https://readthedocs.org/projects/xtensor/downloads/pdf/latest/\" rel=\"nofollow noreferrer\">xtensor documentation</a></p>\n<h4>Add <code>xtensor::optimize</code> and <code>xtensor::use_xsimd</code></h4>\n<ul>\n<li>Uncomment Line:44 in <code>CMakeLists.txt</code>:</li>\n</ul>\n<pre><code>target_link_libraries(mymodule PUBLIC xtensor pybind11::module xtensor-python Python::NumPy xtensor::optimize xtensor::use_xsimd)\n</code></pre>\n<ul>\n<li>Run <code>pip install .</code> again, and the error shows <code>cannot find target xtensor::optimize</code>:</li>\n</ul>\n<pre><code>Building wheels for collected packages: mymodule\n  Building wheel for mymodule (pyproject.toml) ... error\n  error: subprocess-exited-with-error\n  \n  \u00d7 Building wheel for mymodule (pyproject.toml) did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [86 lines of output]\n      running bdist_wheel\n      running build\n      running build_ext\n      -- pybind11 v2.11.0 dev1\n      -- Found PythonInterp: /home/lai/xtensor_pybind11_cmake/venv/bin/python3 (found suitable version &quot;3.8.10&quot;, minimum required is &quot;3.6&quot;)\n      -- xtl v0.7.5\n      -- Building xtensor v0.24.6\n      -- Found xtl v0.7.5\n      -- xsimd v10.0.0\n      -- xtensor-python v0.26.1\n      -- Found xtensor v0.24.6\n      -- Found pybind11 v\n      -- Found PythonInterp: /home/lai/xtensor_pybind11_cmake/venv/bin/python3 (found version &quot;3.8.10&quot;)\n      -- Found NumPy: version &quot;1.24.2&quot; /tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/numpy/core/include\n      -- Found numpy: /tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/numpy/core/include\n      -- Found Python: /home/lai/xtensor_pybind11_cmake/venv/bin/python3 (found version &quot;3.8.10&quot;) found components: Interpreter Development NumPy Development.Module Development.Embed\n      -- Configuring done (0.4s)\n      CMake Error at CMakeLists.txt:43 (target_link_libraries):\n        Target &quot;mymodule&quot; links to:\n      \n          xtensor::optimize\n      \n        but the target was not found.  Possible reasons include:\n      \n          * There is a typo in the target name.\n          * A find_package call is missing for an IMPORTED target.\n          * An ALIAS target is missing.\n      \n      \n      \n      -- Generating done (0.0s)\n      CMake Generate step failed.  Build files cannot be regenerated correctly.\n      Traceback (most recent call last):\n        File &quot;/home/lai/xtensor_pybind11_cmake/venv/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 353, in &lt;module&gt;\n          main()\n        File &quot;/home/lai/xtensor_pybind11_cmake/venv/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 335, in main\n          json_out['return_val'] = hook(**hook_input['kwargs'])\n        File &quot;/home/lai/xtensor_pybind11_cmake/venv/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py&quot;, line 251, in build_wheel\n          return _build_backend().build_wheel(wheel_directory, config_settings,\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/build_meta.py&quot;, line 404, in build_wheel\n          return self._build_with_temp_dir(['bdist_wheel'], '.whl',\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/build_meta.py&quot;, line 389, in _build_with_temp_dir\n          self.run_setup()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/build_meta.py&quot;, line 334, in run_setup\n          exec(code, locals())\n        File &quot;&lt;string&gt;&quot;, line 127, in &lt;module&gt;\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/__init__.py&quot;, line 87, in setup\n          return distutils.core.setup(**attrs)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py&quot;, line 185, in setup\n          return run_commands(dist)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py&quot;, line 201, in run_commands\n          dist.run_commands()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py&quot;, line 973, in run_commands\n          self.run_command(cmd)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/dist.py&quot;, line 1217, in run_command\n          super().run_command(command)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py&quot;, line 992, in run_command\n          cmd_obj.run()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/wheel/bdist_wheel.py&quot;, line 343, in run\n          self.run_command(&quot;build&quot;)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py&quot;, line 319, in run_command\n          self.distribution.run_command(command)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/dist.py&quot;, line 1217, in run_command\n          super().run_command(command)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py&quot;, line 992, in run_command\n          cmd_obj.run()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build.py&quot;, line 132, in run\n          self.run_command(cmd_name)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py&quot;, line 319, in run_command\n          self.distribution.run_command(command)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/dist.py&quot;, line 1217, in run_command\n          super().run_command(command)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py&quot;, line 992, in run_command\n          cmd_obj.run()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/command/build_ext.py&quot;, line 84, in run\n          _build_ext.run(self)\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build_ext.py&quot;, line 346, in run\n          self.build_extensions()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build_ext.py&quot;, line 466, in build_extensions\n          self._build_extensions_serial()\n        File &quot;/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build_ext.py&quot;, line 492, in _build_extensions_serial\n          self.build_extension(ext)\n        File &quot;&lt;string&gt;&quot;, line 119, in build_extension\n        File &quot;/usr/lib/python3.8/subprocess.py&quot;, line 516, in run\n          raise CalledProcessError(retcode, process.args,\n      subprocess.CalledProcessError: Command '['cmake', '/home/lai/xtensor_pybind11_cmake', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/lai/xtensor_pybind11_cmake/build/lib.linux-x86_64-cpython-38/', '-DPYTHON_EXECUTABLE=/home/lai/xtensor_pybind11_cmake/venv/bin/python3', '-DCMAKE_BUILD_TYPE=Release', '-DEXAMPLE_VERSION_INFO=0.0.1', '-GNinja', '-DCMAKE_MAKE_PROGRAM:FILEPATH=/tmp/pip-build-env-d762ck7q/overlay/lib/python3.8/site-packages/ninja/data/bin/ninja']' returned non-zero exit status 1.\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for mymodule\nFailed to build mymodule\nERROR: Could not build wheels for mymodule, which is required to install pyproject.toml-based projects\n</code></pre>\n<h4>Use <code>find_package</code> in <code>CMakeLists.txt</code>:</h4>\n<p>My previous experience tells me that using <code>find_package</code> could solve this problem. Thus, I tried:</p>\n<ul>\n<li>Install <code>xtl</code>, <code>xtensor</code> and <code>xsimd</code> in the computer under<code>/tmp</code>:</li>\n</ul>\n<pre><code>(cd extern/xtl &amp;&amp; cmake -D CMAKE_INSTALL_PREFIX=/tmp/xtl-install &amp;&amp; make install)\n(cd extern/xtensor &amp;&amp; cmake -D CMAKE_INSTALL_PREFIX=/tmp/xtensor-install -DCMAKE_PREFIX_PATH=/tmp/xtl-install &amp;&amp; make install)\n(cd extern/xsimd &amp;&amp; cmake -D CMAKE_INSTALL_PREFIX=/tmp/xsimd-install &amp;&amp; make install)\n</code></pre>\n<ul>\n<li>Delete <code>add_subdirectory</code> and add <code>find_package</code> in <code>CMakeLists.txt</code>:</li>\n</ul>\n<pre><code>list(APPEND CMAKE_PREFIX_PATH &quot;/tmp/xtl-install&quot;)\nlist(APPEND CMAKE_PREFIX_PATH &quot;/tmp/xtensor-install&quot;)\nlist(APPEND CMAKE_PREFIX_PATH &quot;/tmp/xsimd-install&quot;)\nfind_package(xtl REQUIRED)\nfind_package(xtensor REQUIRED)\nfind_package(xsimd REQUIRED)\n</code></pre>\n<ul>\n<li>Run <code>pip install .</code> again with <code>xtensor::optimize xtensor::use_xsimd</code>. And <strong>everything works</strong>. However, the problem is that <code>xtl</code>, <code>xtensor</code>, <code>xsimd</code> packages <strong>cannot</strong> be installed before users running <code>pip install</code> command.</li>\n</ul>\n<h4>Try FetchContent</h4>\n<p>I wan thinking if <code>add_subdirectory</code> doesn't work, maybe <code>FetchContent</code> will work. Unfortunately, it's not the case. The same error message still exists. You can uncomment the code block of <code>FetchContent</code> in <code>CMakeLists.txt</code> to test it out.</p>\n<h3>My questions are:</h3>\n<ol>\n<li>How can I make the target <code>mymodule</code> link to <code>xtensor::optimize</code> and  <code>xtensor::use_xsimd</code> when using <code>add_subdirectory</code> or <code>FetchContent</code>?</li>\n<li>If 1.) is not possible, is there a way to automate the installation of <code>xtensor</code>, <code>xtl</code>, and <code>xsimd</code> in CMake and pip installation process so that <code>find_package</code> can be used in <code>CMakeLists.txt</code>. Subsequently, anyone can install this package with a single and simple <code>pip install</code>.</li>\n</ol>\n<p>System Information:</p>\n<ul>\n<li>Ubuntu 20.04</li>\n<li>Python 3.8.10</li>\n<li>All submodules are at master branch.</li>\n<li>All other system build requirements are fixed by <code>pyproject.toml</code>.</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 1902188,
+    "reputation": 185,
+    "user_id": 1717820,
+    "user_type": "registered",
+    "accept_rate": 82,
+    "profile_image": "https://www.gravatar.com/avatar/f4ed1144cfbb38278b1e22cd340ec45e?s=256&d=identicon&r=PG",
+    "display_name": "gritts",
+    "link": "https://stackoverflow.com/users/1717820/gritts"
+   },
+   "is_answered": true,
+   "view_count": 2451,
+   "accepted_answer_id": 75367491,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1675725168,
+   "creation_date": 1675724865,
+   "question_id": 75367460,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75367460/unable-to-find-module-install-name-install-module-in-python",
+   "title": "Unable to find module install name / install module in Python",
+   "body": "<p>Appologies if this is confusing... I have spent most of today just trying to get the module for &quot;shutil&quot; installed in my instance of Python. I have tried what I thought would be the correct module from pypi.org to no avail. I have upgraded from 3.10 to 3.11 with no change in the message I have received. I am sure the pip install process works as I am able to install other modules fine. Despite my attempts, I continue to receive this message:</p>\n<pre><code>pip install shutil\nDefaulting to user installation because normal site-packages is not writeable\nERROR: Could not find a version that satisfies the requirement shutil (from versions: none)\nERROR: No matching distribution found for shutil\n</code></pre>\n<p>Yes, I have seen a number of other solutions but so far they do not seem to work for me. Somewhere I even read that it was now an included module. That prompted me to upgrade my Python instance. I have also attempted including --trusted-host in my pip install attempts. Perhaps there is some Python config I missed? The environment paths are updated for the Python 3.11 install.</p>\n<p>--corrected typo</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 26646166,
+    "reputation": 1,
+    "user_id": 20261072,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e57f38f5e29f2b371c544c16bce6eb8c?s=256&d=identicon&r=PG",
+    "display_name": "Yawnick",
+    "link": "https://stackoverflow.com/users/20261072/yawnick"
+   },
+   "is_answered": false,
+   "view_count": 477,
+   "answer_count": 1,
+   "score": -2,
+   "last_activity_date": 1666088883,
+   "creation_date": 1666011524,
+   "last_edit_date": 1666088883,
+   "question_id": 74097701,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74097701/modulenotfound-flask-httpauth",
+   "title": "ModuleNotFound: flask_httpauth",
+   "body": "<p>I am trying to use flask_httpauth for my flask app just like it is documented in <a href=\"https://flask-httpauth.readthedocs.io/en/latest/\" rel=\"nofollow noreferrer\">here</a></p>\n<p>I made sure to use <code>pip install flask_httpauth</code> while in the virtual environmnent.\nYet I encounter the ModuleNotFound error for <code>from flask_httpauth import HTTPBasicAuth</code> and I can't seem to find the reason why.\nThe import for <code>from werkzeug.security import generate_password_hash, check_password_hash</code> is working fine and so do all other imports too.</p>\n<p>I am still new to working on unix systems so I don't know if there could be a problem because I have my project folder under opt/\nSo maybe there are some restrictions that I don't know about why I can't use it.</p>\n<p>Okay so I have Python3.10.4 and Pip22.0.2.\nAlso used pipdeptree to see the installed packages and it gave me something like this: <a href=\"https://i.sstatic.net/rOpBq.png\" rel=\"nofollow noreferrer\">pipdeptree</a></p>\n<p>I created a service that starts the app and I also make sure to restart it when I am doing any changes. Calls to the app are with curl and just simple GET requests.</p>\n<p>Another edit:\nI didn't know about the which python and which pip before so I thought you wanted to just know the versions, my bad.\nBoth of them my python and pip are under home/user/project/venv/bin/\nI would assume maybe it should have been opt/project/venv/bin/ gonna look into how I change that. The typo was from when I typed it in here, sorry, in my code it is without the typo.</p>\n<p>I use nginx together with flask and followed the steps from <a href=\"https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04\" rel=\"nofollow noreferrer\">here</a> to also include a systemd service. So under /etc/systemd/system/project.service I have <code>ExecStart=/opt/myproject/myprojectenv/bin/uwsgi --ini myproject.ini</code> like it should be under Step 5 of the documentation.\nThe project.ini is identical to what you see under Step 4 only with a drifferent chmod-socket and I added touch-reload = /opt/project/project.py to have the service restart when I do changes to my code.\nExecuting <code>(venv):/opt/project/$python project.py</code> gives me <a href=\"https://i.sstatic.net/wAHTy.png\" rel=\"nofollow noreferrer\">this</a>\nand executing the curl GET request returns with an Internal Server Error.\nLooking into it with <code>sudo journalctl -u project</code> it tells me &quot;no python application found&quot; with the &quot;ModuleNotFoundError: No module named 'flask_httpauth' above and that's also what is highlighted in my vscode</p>\n"
+  },
+  {
+   "tags": [
+    "amazon-web-services",
+    "authentication",
+    "amazon-iam",
+    "aws-cloud9"
+   ],
+   "owner": {
+    "account_id": 6087592,
+    "reputation": 1875,
+    "user_id": 5803910,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/3e96477b88f83ffbe7edd8e993d8f235?s=256&d=identicon&r=PG",
+    "display_name": "NewSites",
+    "link": "https://stackoverflow.com/users/5803910/newsites"
+   },
+   "is_answered": false,
+   "view_count": 636,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1656222820,
+   "creation_date": 1656162653,
+   "last_edit_date": 1656222820,
+   "question_id": 72754120,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72754120/how-to-sign-in-to-aws-cloud9-as-iam-user-without-console-access",
+   "title": "How to sign in to AWS Cloud9 as IAM user without console access?",
+   "body": "<p>This question has been edited to indicate that I (a) went ahead and started using Cloud9 as the root user, and then (b) granted console access to the IAM user and switched to using that. Then, based on that, I modified the question that I'm asking. See the end of this question for those edits.</p>\n<p>===================================</p>\n<p>The documentation for <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html\" rel=\"nofollow noreferrer\"><em>Individual user setup for AWS Cloud9</em></a> is confusing. It tells me to sign in as a root user and &quot;you can now start using AWS Cloud9.&quot; But right after that, it tells me not to use it as a root user, but as an IAM user. So I created a new IAM user for Cloud9. But I don't see how to sign in with the credentials for that.</p>\n<p>The new IAM user has the following four permission policies applied:</p>\n<ul>\n<li>AWSCloud9EnvironmentMember</li>\n<li>AWSCloud9Administrator</li>\n<li>AWSCloud9User</li>\n<li>AWSCloud9SSM</li>\n</ul>\n<p>I applied those four because when I was offered a list of 757 policies to choose from, those were all the ones that included &quot;Cloud9&quot; in their names.</p>\n<p>The documentation mentioned above says, &quot;Open the AWS Cloud9 console, at <a href=\"https://console.aws.amazon.com/cloud9/\" rel=\"nofollow noreferrer\">https://console.aws.amazon.com/cloud9/</a>.&quot; When I click on that, I get the regular sign-in page for the AWS console:</p>\n<p><a href=\"https://i.sstatic.net/ibcVV.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/ibcVV.jpg\" alt=\"enter image description here\" /></a></p>\n<p>If I sign in as the root user, I get taken to the <a href=\"https://console.aws.amazon.com/cloud9/home/product\" rel=\"nofollow noreferrer\">Cloud9 homepage</a>, which has a button for &quot;Create environment&quot;. When I click on that, the page that comes up starts with the warning box:</p>\n<blockquote>\n<p>AWS root account login detected</p>\n</blockquote>\n<blockquote>\n<p>We do not recommend using your AWS root account to create or work with environments. Use an IAM user instead. This is an AWS security best practice.</p>\n</blockquote>\n<p>Okay, so I logged out and went back to that link for the Cloud 9 console. This time, I clicked on &quot;IAM user&quot;. Then it asked for my account ID.</p>\n<p><a href=\"https://i.sstatic.net/OlWzb.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/OlWzb.jpg\" alt=\"enter image description here\" /></a></p>\n<p>I entered that, and then it asked for my IAM user name and password.</p>\n<p><a href=\"https://i.sstatic.net/86WvB.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/86WvB.jpg\" alt=\"enter image description here\" /></a></p>\n<p>I entered the user name, but this IAM user doesn't have a password. I tried entering the access key ID, and then the secret access key, but with either of those as the password, AWS responded that &quot;Your authentication information is incorrect.&quot;</p>\n<p>So what do I need to do to access the Cloud9 system as this IAM user?</p>\n<p>There's an SO question, <a href=\"https://stackoverflow.com/questions/26703527/sign-in-to-aws-console-without-password\"><em>Sign in to AWS console without password</em></a>, which describes the exact same situation. But the accepted answer says to either (a) use the CLI and API, giving a link to the CLI, but the linked page has nothing about signing in, or (b) get a password from the administrator &quot;if you think you require web console access as well.&quot; This IAM user was created without console access on purpose because the whole point of this user is just for using Cloud9 without any access to the rest of AWS.</p>\n<p>Amazon has a page on <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot-aws-sign-in.html\" rel=\"nofollow noreferrer\"><em>Troubleshooting AWS sign-in or account issues</em></a>, but it doesn't say anything about the issue described here.</p>\n<p>So I'm stuck. How do I log in as this IAM user to create an environment in Cloud9?</p>\n<p>===================================</p>\n<p>EDIT Issue 1</p>\n<p>While I waited for an answer here, I went ahead and signed back in as root user and started using Cloud9 to get familiar with it. When the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-python.html\" rel=\"nofollow noreferrer\">Cloud9 Python tutorial</a> told me to install the Python SDK:</p>\n<ul>\n<li><code>sudo python3.7 -m pip install boto3</code> (Typo of &quot;python36&quot; corrected.)</li>\n</ul>\n<p>I got the warning:</p>\n<blockquote>\n<p>WARNING: Running pip install with root privileges is generally not a good idea. Try <code>python3.7 -m pip install --user</code> instead.</p>\n</blockquote>\n<p>This suggested alternative command makes no sense because it doesn't include specifying the module to be installed. But worse than that, after issuing the warning, it did not allow me to abort the command, but went ahead and did the installation. So I wonder if I've caused any security problem in my AWS account by doing that.</p>\n<p>EDIT Issue 2</p>\n<p>After not getting an answer here, I thought that maybe what I'm supposed to do is give console access to the IAM user, which would generate a password for it. So I went and edited the user to do that. I then was able to sign in as that user. When I did that, I went to several services: IAM, SES, and even Support, and found that they were all disabled for lack of permissions. Then I went to Cloud9 and seemed to have full access there. So signed out, signed back in as root user, deleted the Cloud9 environment I'd created there, signed out, signed back in as the IAM user, and created a new environment there.</p>\n<p>The reason I did not give this new user console access before is because I have two other IAM users from previous work in SES, and neither of them have console access. So I figured IAM users aren't supposed to have that. If Cloud9 is a special case in which an IAM user is supposed to have console access, whereas SES IAM users are not, then the <a href=\"https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html\" rel=\"nofollow noreferrer\">Cloud9 User Guide</a> should say so.</p>\n<p>EDIT Summary</p>\n<p>My original question of how to sign in without console access has now changed to two questions:</p>\n<ul>\n<li><p>Have I done the right thing to solve the problem (not being able to sign in as the IAM user) by granting console access to the IAM user?</p>\n</li>\n<li><p>Regarding any security problem caused by the root user creating and using a Cloud9 environment, have I healed any such problem by deleting that environment, or could there be any lingering effect of that problem that deserves further attention?</p>\n</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "keras",
+    "deep-learning"
+   ],
+   "owner": {
+    "account_id": 3820230,
+    "reputation": 11,
+    "user_id": 3168481,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/09c802411d72d15d1c555425a3cb6e94?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user3168481",
+    "link": "https://stackoverflow.com/users/3168481/user3168481"
+   },
+   "is_answered": false,
+   "view_count": 2073,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1652454239,
+   "creation_date": 1652405246,
+   "last_edit_date": 1652440535,
+   "question_id": 72223568,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72223568/keras-utils-importerror-in-colab-cannot-import-name-to-categorical",
+   "title": "keras.utils importError in Colab cannot import name &quot;to_categorical&quot;",
+   "body": "<p>I'm using Google's Colab to run the Deep Learning codes from the Book &quot; Deep Learning with python&quot; by Fran\u00e7ois Chollet.\nThe 1st exercise is to use the mnist dataset.\nI get the following error:</p>\n<pre><code>ImportError: cannot import name 'to_categorical' from 'keras.utils' (/usr/local/lib/python3.7/dist-packages/keras/utils/__init__.py)\n</code></pre>\n<p>I copied the code to make sure there are no typos.</p>\n<p>Colab suggests &quot;... manually install dependencies using either !pip or !apt.&quot;, in case a package is missing, which doesn't seem to be the case.</p>\n<p>I nevertheless tried:</p>\n<pre><code>!pip install keras\n</code></pre>\n<p>which is either incorrect or irrelevant; the error persists.</p>\n<p>What am I doing wrong? How can I correct it?</p>\n<p>The code causing the error is:</p>\n<pre><code>from keras.utils import to_categorical\n</code></pre>\n<p>And this is the complete program directly from the book's source code.</p>\n<pre><code>    from keras.datasets import mnist\n    from keras.utils import to_categorica\n    from jeras import models\n    from keras import layers\n\n    (train_images, train_labels), (test_images, test-labels) = mnist.load_data()\n\n    network = models.Sequential()\n    network.add(layers.Dense(512, activation=&quot;relu&quot;, input_shape=(28*28,)))\n    network.add(layers.Dense(10, activation=&quot;softmax&quot;))\n\n    network.compile(optimizer=&quot;rmsprop&quot;,\n                loss=&quot;categorical_crossentropy&quot;,\n                metrics=[&quot;accuracy&quot;])\n\n    train_images = train_images.reshape((60000, 28*28))\n    train_images = train_images.astype(&quot;float32&quot;) / 255\n\n    test_images = test_images.reshape((10000, 28*28))\n    test_images = test_images.astype(&quot;float32&quot;) / 255\n\n    train_labels = to_categorical(train_labels)\n    test_labels = to_categorical(test_labels)\n\n    network.fit(train_images, train_labels, epochs=5, batch_size=128)\n\n    test_loss, test_acc = network.evaluate(test_images, test-test_labels)\n    print(&quot;test_acc:&quot;, test_acc)\n</code></pre>\n<p>According to the book, this is &quot;to classify grayscale images of handwritten images&quot; and is supposedly the &quot;Hello World&quot; of deep learning.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "package",
+    "directory-structure",
+    "python-poetry",
+    "build-script"
+   ],
+   "owner": {
+    "account_id": 2676460,
+    "reputation": 336,
+    "user_id": 6213223,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/q4CLP.jpg?s=256",
+    "display_name": "Diapolo10",
+    "link": "https://stackoverflow.com/users/6213223/diapolo10"
+   },
+   "is_answered": true,
+   "view_count": 8517,
+   "answer_count": 1,
+   "score": 12,
+   "last_activity_date": 1641655099,
+   "creation_date": 1639698707,
+   "question_id": 70386944,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70386944/how-should-poetry-scripts-used-in-the-build-process-be-stored-in-the-project",
+   "title": "How should Poetry scripts used in the build process be stored in the project?",
+   "body": "<p>Let's say that you're using Poetry to manage a Python PyPI package. As it stands, your project has a <code>Makefile</code> that contains procedures for managing the installation, unit testing, and linting of your project. However, since this goes against the spirit of Poetry where you ideally have one configuration file to rule them all (<code>pyproject.toml</code>), and because said <code>Makefile</code> can be annoying on Windows builds, you would like to instead move the <code>Makefile</code> functionality to be managed by Poetry directly by making use of <a href=\"https://python-poetry.org/docs/pyproject/#scripts\" rel=\"noreferrer\">Poetry's support for <code>setuptools</code> scripts</a>.</p>\n<p>Here's an example of such a <code>Makefile</code>:</p>\n<pre><code>PYMODULE := awesome_sauce\nTESTS := tests\nINSTALL_STAMP := .install.stamp\nPOETRY := $(shell command -v poetry 2&gt; /dev/null)\nMYPY := $(shell command -v mypy 2&gt; /dev/null)\n\n.DEFAULT_GOAL := help\n\n.PHONY: all\nall: install lint test\n\n.PHONY: help\nhelp:\n    @echo &quot;Please use 'make &lt;target&gt;', where &lt;target&gt; is one of&quot;\n    @echo &quot;&quot;\n    @echo &quot;  install     install packages and prepare environment&quot;\n    @echo &quot;  lint        run the code linters&quot;\n    @echo &quot;  test        run all the tests&quot;\n    @echo &quot;  all         install, lint, and test the project&quot;\n    @echo &quot;  clean       remove all temporary files listed in .gitignore&quot;\n    @echo &quot;&quot;\n    @echo &quot;Check the Makefile to know exactly what each target is doing.&quot;\n    @echo &quot;Most actions are configured in 'pyproject.toml'.&quot;\n\ninstall: $(INSTALL_STAMP)\n$(INSTALL_STAMP): pyproject.toml\n    @if [ -z $(POETRY) ]; then echo &quot;Poetry could not be found. See https://python-poetry.org/docs/&quot;; exit 2; fi\n    $(POETRY) run pip install --upgrade pip setuptools\n    $(POETRY) install\n    touch $(INSTALL_STAMP)\n\n.PHONY: lint\nlint: $(INSTALL_STAMP)\n    # Configured in pyproject.toml\n    # Skips mypy if not installed\n    @if [ -z $(MYPY) ]; then echo &quot;Mypy not found, skipping...&quot;; else echo &quot;Running Mypy...&quot;; $(POETRY) run mypy $(PYMODULE) $(TESTS); fi\n    @echo &quot;Running Flake8...&quot;; $(POETRY) run pflake8 # This is not a typo\n    @echo &quot;Running Pylint...&quot;; $(POETRY) run pylint $(PYMODULE)\n\n.PHONY: test\ntest: $(INSTALL_STAMP)\n    # Configured in pyproject.toml\n    $(POETRY) run pytest\n\n.PHONY: clean\nclean:\n    # Delete all files in .gitignore\n    git clean -Xdf\n</code></pre>\n<p>But then, you face another problem; due to how these scripts operate, they're expected to be in a package or module of their own, so the first idea would be to simply include the scripts as part of the project package itself:</p>\n<pre><code>\ud83d\udce6awesome_sauce\n \u2523 \ud83d\udcc2awesome_sauce\n \u2503 \u2523 \ud83d\udcc2poetry_scripts\n \u2503 \u2503 \u2523 \ud83d\udcdc__init__.py\n \u2503 \u2503 \u2523 \ud83d\udcdcrun_unit_tests.py\n \u2503 \u2503 \u2517 \ud83d\udcdcrun_linters.py\n \u2503 \u2523 \ud83d\udcdc__init__.py\n \u2503 \u2517 \ud83d\udcdcsauce.py\n \u2523 \ud83d\udcc2docs\n \u2523 \ud83d\udcc2tests\n \u2523 \ud83d\udcdc.gitignore\n \u2523 \ud83d\udcdcpoetry.lock\n \u2517 \ud83d\udcdcpyproject.toml\n</code></pre>\n<p>In this case, you could add the following to <code>pyproject.toml</code></p>\n<pre><code>[tool.poetry.scripts]\ntests = 'awesome_sauce.poetry_scripts.run_unit_tests:main'\nlinters = 'awesome_sauce.poetry_scripts.run_linters:main'\n</code></pre>\n<p>and they could be run as</p>\n<pre class=\"lang-sh prettyprint-override\"><code>poetry run tests\npoetry run linters\n</code></pre>\n<p>But this isn't ideal; now your build configuration is part of the package and presumably goes straight into production, unless you pull off something fancy during the CI/CD process. It's dead weight to the end-users, and needlessly adds stuff to the package namespace.</p>\n<p>Then, another idea would be to have everything in a top-level script:</p>\n<pre><code>\ud83d\udce6awesome_sauce\n \u2523 \ud83d\udcc2awesome_sauce\n \u2503 \u2523 \ud83d\udcdc__init__.py\n \u2503 \u2517 \ud83d\udcdcsauce.py\n \u2523 \ud83d\udcc2docs\n \u2523 \ud83d\udcc2tests\n \u2523 \ud83d\udcdc.gitignore\n \u2523 \ud83d\udcdcpoetry.lock\n \u2523 \ud83d\udcdcpoetry_scripts.py\n \u2517 \ud83d\udcdcpyproject.toml\n</code></pre>\n<p>which would change the lines in <code>pyproject.toml</code> to</p>\n<pre><code>[tool.poetry.scripts]\ntests = 'poetry_scripts:run_unit_tests'\nlinters = 'poetry_scripts:run_linters'\n</code></pre>\n<p>but this isn't necessarily ideal either, because now you potentially have a relatively lengthy script sitting at the project root, and it can be subjectively ugly. Though at least now it shouldn't be part of the production package, which is a net gain.</p>\n<p>These two approaches could be combined, and the script package in the first version would simply be moved to the root, meaning the project now consists of two different packages.</p>\n<pre><code>\ud83d\udce6awesome_sauce\n \u2523 \ud83d\udcc2awesome_sauce\n \u2503 \u2523 \ud83d\udcdc__init__.py\n \u2503 \u2517 \ud83d\udcdcsauce.py\n \u2523 \ud83d\udcc2docs\n \u2523 \ud83d\udcc2poetry_scripts\n \u2503 \u2523 \ud83d\udcdc__init__.py\n \u2503 \u2523 \ud83d\udcdcrun_unit_tests.py\n \u2503 \u2517 \ud83d\udcdcrun_linters.py\n \u2523 \ud83d\udcc2tests\n \u2523 \ud83d\udcdc.gitignore\n \u2523 \ud83d\udcdcpoetry.lock\n \u2517 \ud83d\udcdcpyproject.toml\n</code></pre>\n<pre><code>[tool.poetry.scripts]\ntests = 'poetry_scripts.run_unit_tests:main'\nlinters = 'poetry_scripts.run_linters:main'\n</code></pre>\n<p>but it isn't clear whether this is a better approach.</p>\n<p>Does a consensus exist for handling the Poetry/<code>setuptools</code> scripts within a given project? If so, I don't believe that has been previously documented in public.</p>\n"
+  },
+  {
+   "tags": [
+    "php",
+    "wordpress",
+    "git",
+    "composer-php"
+   ],
+   "owner": {
+    "account_id": 76400,
+    "reputation": 1817,
+    "user_id": 218732,
+    "user_type": "registered",
+    "accept_rate": 58,
+    "profile_image": "https://www.gravatar.com/avatar/5857fdb092c4773021455bf24bf0f5b8?s=256&d=identicon&r=PG",
+    "display_name": "lysdexia",
+    "link": "https://stackoverflow.com/users/218732/lysdexia"
+   },
+   "is_answered": true,
+   "view_count": 2452,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1619295752,
+   "creation_date": 1459887114,
+   "question_id": 36436115,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/36436115/installing-a-custom-composer-package-from-gitlab",
+   "title": "Installing A Custom Composer Package from GitLab",
+   "body": "<p>I've created a simple test wordpress plugin. The plugin consists of a single php file (kreplach.php) and a composer.json:</p>\n\n<h1>kreplach.php</h1>\n\n<pre><code>&lt;?php\n    /*\n    Plugin Name: kreplach\n    Plugin URI: http://gitlab.example.com/sales/kreplach\n    Description: just a test\n    Author: Foo Bartok\n    Version: 1.0\n    Author URI: http://example.com\n    */\n?&gt;\n</code></pre>\n\n<h1>composer.json</h1>\n\n<pre><code>{\n    \"license\": \"MIT\",\n    \"name\": \"sales/kreplach\",\n    \"type\": \"wordpress-plugin\",\n    \"description\": \"just a test\",\n    \"authors\": [\n        {\n            \"name\": \"Foo Bartok\",\n            \"email\": \"foo@example.com\",\n            \"homepage\": \"example.com\"\n        }\n    ],\n    \"require\": {\n        \"composer/installers\": \"*\"\n    }\n}\n</code></pre>\n\n<p>On my dev server I have the following composer.json</p>\n\n<h1>Server's composer.json</h1>\n\n<pre><code>{\n    \"repositories\": [\n        {\n            \"type\": \"composer\",\n            \"url\": \"https://wpackagist.org\"\n        },\n        {\n            \"type\": \"vcs\",\n            \"url\": \"git@gitlab.example.com:sales/kreplach.git\"\n        }\n    ],\n    \"require\": {\n        \"php\": \"&gt;=5.4\",\n        \"wpackagist-plugin/akismet\": \"*\",\n        \"wpackagist-plugin/contact-form-7\": \"*\",\n        \"wpackagist-plugin/wordpress-importer\": \"*\",\n        \"sales/kreplach\": \"master\",\n        \"johnpbloch/wordpress\": \"4.*\",\n        \"composer/installers\": \"*\"\n    },\n    \"extra\": {\n        \"wordpress-install-dir\": \"wp\"\n    }\n}\n</code></pre>\n\n<h2>What I think SHOULD happen:</h2>\n\n<ol>\n<li>Composer looks through the git repo for composer.json</li>\n<li>Composer matches the name \"sales/kreplach\" found in the build host's composer.json</li>\n<li>Composer copies the contents of the master branch into <code>wp-content/plugins/kreplach</code> on my build host.</li>\n<li>My fake plug-in does nothing, as designed.</li>\n</ol>\n\n<h2>What actually happens:</h2>\n\n<p>Bitter, bitter failure.</p>\n\n<pre><code>Loading composer repositories with package information Updating dependencies (including require-dev)\nYour requirements could not be resolved to an installable set of packages.\n\n  Problem 1\n    - The requested package sales/kreplach could not be found in any version, there may be a typo in the package name.\n\nPotential causes:\n - A typo in the package name\n - The package is not available in a stable-enough version according to your minimum-stability setting\n     see &lt;https://getcomposer.org/doc/04-schema.md#minimum-stability&gt; for more details.\n\nRead &lt;https://getcomposer.org/doc/articles/troubleshooting.md&gt; for further common problems.\n</code></pre>\n\n<p>I have tested cloning the <code>sales/kreplach</code> repo onto the same host I'm attempting to install the plugin on.</p>\n\n<p>To make sure that composer is actually reading the composer.json file from the git repo, I introduced a typo (yeah, totally on purpose, like) which threw a \"hey, this json file is broken, Foam Head\" error. </p>\n\n<p>My version of gitlab is omnibus edition 8.6.4 (installed today).</p>\n\n<p>I have successfully done this same sort of trick with pip/requirements.txt to install custom python modules, so I'm not unused to following directions. Am I missing a step, or some sort of non-obvious (to me at least) nomenclature?</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "pypdf"
+   ],
+   "owner": {
+    "account_id": 19039913,
+    "reputation": 21,
+    "user_id": 13900263,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14Gi3myRaOjvk3ampU8bGXrngGmH39AU-CWw0Szot=k-s256",
+    "display_name": "Meng Ge",
+    "link": "https://stackoverflow.com/users/13900263/meng-ge"
+   },
+   "is_answered": true,
+   "view_count": 244,
+   "accepted_answer_id": 66199681,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1613333556,
+   "creation_date": 1613332998,
+   "last_edit_date": 1613333517,
+   "question_id": 66199589,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66199589/module-not-found-when-i-tried-to-import-pypdf2",
+   "title": "Module not found when I tried to import pyPDF2",
+   "body": "<p>My python version is 3.6. I am able to install the pyPDF2.\nRan pip install pyPDF2 successfully.</p>\n<p>Ran pip list, it shows up as 1.26.0\n<a href=\"https://i.sstatic.net/C13Lk.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/C13Lk.png\" alt=\"enter image description here\" /></a></p>\n<p>My environment is not base, but I set up an environment as pytorch. pyPDF2 is installed successfully in this environment.</p>\n<p>It pops error when I tried to import it. (typo fixed from the original post)\n<a href=\"https://i.sstatic.net/rt45i.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/rt45i.png\" alt=\" (t\" /></a></p>\n"
+  },
+  {
+   "tags": [
+    "docker",
+    "jenkins",
+    "dockerfile"
+   ],
+   "owner": {
+    "account_id": 18358844,
+    "reputation": 344,
+    "user_id": 13371338,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14GiCi4Vv9WFsGTzEH_TuHM42UFi8J9nfhuBPpjeOsA=k-s256",
+    "display_name": "Killerz0ne",
+    "link": "https://stackoverflow.com/users/13371338/killerz0ne"
+   },
+   "is_answered": false,
+   "view_count": 708,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1613288663,
+   "creation_date": 1611753213,
+   "last_edit_date": 1613288663,
+   "question_id": 65919920,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65919920/syntaxerror-when-installing-pip-inside-jenkins-dockerfile",
+   "title": "SyntaxError when installing pip inside Jenkins Dockerfile",
+   "body": "<p>I am training over Jenkins and created this simple jenkins image with added features:</p>\n<pre><code>FROM jenkins/jenkins\n\nUSER root\n\n# Install ansible\nRUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py &amp;&amp; python get-pip.py\n\nRUN pip install -U ansible\n\n# Install Docker\n\nRUN apt-get update &amp;&amp; \\\napt-get -y install apt-transport-https \\\n     ca-certificates \\\n     curl \\\n     gnupg2 \\\n     software-properties-common &amp;&amp; \\\ncurl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo &quot;$ID&quot;)/gpg &gt; /tmp/dkey; apt-key add /tmp/dkey &amp;&amp; \\\nadd-apt-repository \\\n   &quot;deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo &quot;$ID&quot;) \\\n   $(lsb_release -cs) \\\n   stable&quot; &amp;&amp; \\\napt-get update &amp;&amp; \\\napt-get -y install docker-ce\n\n\nRUN curl -L &quot;https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose &amp;&amp; chmod +x /usr/local/bin/docker-compose\n\nRUN usermod -aG docker jenkins\n\nUSER jenkins\n</code></pre>\n<p>This worked fine up until a few days ago when my Jenkins went down and now when I try to run this Dockerfile, I get the following error:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;get-pip.py&quot;, line 24226, in &lt;module&gt;\n    main()\n  File &quot;get-pip.py&quot;, line 199, in main\n    bootstrap(tmpdir=tmpdir)\n  File &quot;get-pip.py&quot;, line 82, in bootstrap\n    from pip._internal.cli.main import main as pip_entry_point\n  File &quot;/tmp/tmp0ZnKQ5/pip.zip/pip/_internal/cli/main.py&quot;, line 60\n    sys.stderr.write(f&quot;ERROR: {exc}&quot;)\n                                   ^\nSyntaxError: invalid syntax\n</code></pre>\n<p>The build fails over the first RUN command. I checked that I don't have any typos and that pip didn't change the installation link. If it matters, I am running this on a VM and I am logged through vscode ssh.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "import",
+    "pip",
+    "package"
+   ],
+   "owner": {
+    "account_id": 20589498,
+    "reputation": 41,
+    "user_id": 15113551,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/9104375007966354fa6d73b98e2c6ed1?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Terrortorpe",
+    "link": "https://stackoverflow.com/users/15113551/terrortorpe"
+   },
+   "is_answered": true,
+   "view_count": 4810,
+   "answer_count": 3,
+   "score": 2,
+   "last_activity_date": 1612039104,
+   "creation_date": 1612034253,
+   "last_edit_date": 1612034339,
+   "question_id": 65972140,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65972140/installed-python-package-with-pip-but-cant-import-said-package",
+   "title": "Installed python package with pip but can&#39;t import said package",
+   "body": "<p>I installed a python3 package called urllib3 using pip with the following command:</p>\n<p><code>pip install urllib3</code></p>\n<p>It seemed to be successful and when I type the command:</p>\n<p><code>pip list</code></p>\n<p>I get the following list which implies it is installed</p>\n<p><a href=\"https://i.sstatic.net/o0PQm.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/o0PQm.png\" alt=\"error\" /></a></p>\n<p>But when I try to import in in the python console I get the following error:</p>\n<p><code>ModuleNotFoundError: No module named 'urllib3</code></p>\n<p>I am using Python 3.8.5 (64bit) with a VS Code virtual enviroment, I have tried uninstalling it and reinstalling I've also checked typos but I can't seem to find any.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 6950390,
+    "reputation": 43,
+    "user_id": 5333207,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/10207481378141544/picture?type=large",
+    "display_name": "Mattia Tamellini",
+    "link": "https://stackoverflow.com/users/5333207/mattia-tamellini"
+   },
+   "is_answered": false,
+   "view_count": 481,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1607444438,
+   "creation_date": 1607441305,
+   "last_edit_date": 1607444438,
+   "question_id": 65201797,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65201797/pip-requirements-and-packages-hosted-on-vcs-server",
+   "title": "pip + requirements and packages hosted on VCS server",
+   "body": "\n<p>Hi all,</p>\n<p>suppose I have two python packages (<code>packageA</code> and <code>packageB</code>) in two git repositories hosted on a private server; <code>packageB</code> depends on <code>packageA</code>, so <code>setup.py</code> in <code>packageB</code> contains:</p>\n<pre class=\"lang-none prettyprint-override\"><code>install_requires=[packageA@git+ssh://my.git.server/packageA@master]\n</code></pre>\n<p>Then there's <code>packageC</code>, which uses both <code>packageA</code> and <code>packageB</code>. <code>packageC</code> is not an installable library, but a collection of scripts, so I have a <code>requirements.txt</code> which contains (among other pypi dependencies):</p>\n<pre class=\"lang-none prettyprint-override\"><code>git+ssh://my.git.server/packageA.git#egg=packageA\ngit+ssh://my.git.server/packageB.git#egg=packageB\n</code></pre>\n<p>If I now try to install all requirements by <code>pip install -r requirements.txt</code> I get the following error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>ERROR: Cannot install -r requirements.txt (line 5) and packageA 0.1.0 (from git+ssh://****@my.git.server/packageA.git#egg=packageA) because these package versions have conflicting dependencies.\nThe conflict is caused by:\n    the user requested packageA 0.1.0 (from git+ssh://****@my.git.server/packageA.git#egg=packageA)\n    packageB depends on packageA 0.1.0 (from git+ssh://****@my.git.server/packageA@master)\n</code></pre>\n<p>(Note: this is not a typo, the two versions requested are indeed the same.\n<code>0.1.0</code> is the latest version for both packages, and it was set using the <code>version</code> keyword to <code>setuptools.setup</code>).</p>\n<p>This started happening after I upgraded to pip version <code>20.3.1</code> from <code>20.2.4</code>.</p>\n<p>Checking the full output log, I <em>think</em> the issue is due to the fact that, with the new pip version, <code>packageA</code> gets downloaded twice, first to install it and then as a dependency of packageB, and, by the end, pip does not understand these are the same package and does not know which one to choose.</p>\n<p>I know that technically, in this case, a simple solution would be to simply remove packageA from <code>requirements.txt</code>, but this solution would not be feasible in a case where I have tens of packages.</p>\n<p>What happened? What am I doing wrong and how should I fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "pycharm",
+    "pyqt5",
+    "libraries"
+   ],
+   "owner": {
+    "account_id": 19957479,
+    "reputation": 77,
+    "user_id": 14625849,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Amx7M.jpg?s=256",
+    "display_name": "the_pie_in_the_sky_is_a_lie",
+    "link": "https://stackoverflow.com/users/14625849/the-pie-in-the-sky-is-a-lie"
+   },
+   "is_answered": true,
+   "view_count": 1447,
+   "closed_date": 1606230472,
+   "accepted_answer_id": 64986787,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1606287627,
+   "creation_date": 1606218794,
+   "last_edit_date": 1606287627,
+   "question_id": 64985940,
+   "link": "https://stackoverflow.com/questions/64985940/python-unable-to-import-module-within-library",
+   "closed_reason": "Not suitable for this site",
+   "title": "Python unable to import module within library",
+   "body": "<p>I'm trying to use the QSerialPort module of PyQt5. Everything I have found has indicated that QtSerial which contains QSerialPort should come with PyQt5. For example,</p>\n<pre><code>&gt;&gt;&gt; from PyQt5 import QtSerial\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nImportError: cannot import name 'QtSerial' from 'PyQt5' (/usr/lib/python3.8/site-packages/PyQt5/__init__.py)\n</code></pre>\n<p>I've tried installing PyQt5 from inside PyCharm, as well as on the command line with pip. I've tried upgrading pip and reinstalling PyQt5. I'm able to use other modules of PyQt5, for example PyQt5.QtWidgets imports without any problem. I've also tried installing <code>qt5-serialport-595</code> and <code>qt51-serialport</code> from the <a href=\"https://aur.archlinux.org\" rel=\"nofollow noreferrer\">AUR</a> (I'm using Archlinux), to no avail.</p>\n<p>I can see when I go to the command line and run <code>$ pip list -v PyQt5</code> that PyQt5 is installed at <code>/usr/lib/python3.8/site-packages/</code> and when I look there, I can see that the file <code>/usr/lib/python3.8/site-packages/PyQt5/QtSerialPort.abi3.so</code> exists. However I am also not able to import PyQt5.QtSerial as it is also not found, albeit with a slightly different message: <code>ImportError: libQt5SerialPort.so.5: cannot open shared object file: No such file or directory</code></p>\n<p>This is not caused by a typo in the import statement. I've tried pretty much every possible permutation of the letters Q and T and the words Serial and Port. How can I use the serial module of PyQt5?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "tensorflow",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 14774042,
+    "reputation": 645,
+    "user_id": 10669558,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/dcc84830ab401cf57b71d6763dca62f9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Altair21",
+    "link": "https://stackoverflow.com/users/10669558/altair21"
+   },
+   "is_answered": false,
+   "view_count": 81,
+   "closed_date": 1602938708,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1602802229,
+   "creation_date": 1602800532,
+   "last_edit_date": 1602802229,
+   "question_id": 64380452,
+   "link": "https://stackoverflow.com/questions/64380452/package-ensorflow-gpu-installed-in-python",
+   "closed_reason": "Duplicate",
+   "title": "Package &quot;-ensorflow-gpu&#39; installed in Python",
+   "body": "<p>I printed a list of packages in my python installation when I spotted this package &quot;-ensorflow-gpu&quot;. I tried uninstalling it but pip didn't work.</p>\n<p>I used\n<code>py -3.7 -m pip uninstall &quot;-ensorflow-gpu&quot;</code> and <code>py -3.7 -m pip uninstall -ensorflow-gpu</code> , the error for both times was</p>\n<pre><code>Usage:\n  C:\\Users\\Shaleen\\AppData\\Local\\Programs\\Python\\Python37\\python.exe -m pip uninstall [options] &lt;package&gt; ...\n  C:\\Users\\Shaleen\\AppData\\Local\\Programs\\Python\\Python37\\python.exe -m pip uninstall [options] -r &lt;requirements file&gt; ...\n\nno such option: -e\n</code></pre>\n<p>My question is should I leave it alone or should I clean install python again?</p>\n<p>Edit:</p>\n<p>it's not a typo , there literally is a package called -ensorflow-gpu</p>\n<p>I have attached my list of packages for reference</p>\n<pre><code>Package                  Version\n------------------------ ------------------\n-ensorflow-gpu           2.3.0\nabsl-py                  0.10.0\naio-pika                 6.4.1\naiormq                   3.2.2\nastunparse               1.6.3\nattrs                    20.2.0\nbackcall                 0.2.0\nbeautifulsoup4           4.9.1\nbs4                      0.0.1\ncachetools               4.1.1\ncertifi                  2020.6.20\ncffi                     1.14.0\nchardet                  3.0.4\nclick                    7.1.2\ncolorama                 0.4.3\ncryptography             3.0\ncycler                   0.10.0\nCython                   0.29.14\nDAWG-Python              0.7.2\ndecorator                4.4.2\ndeeppavlov               0.11.0\ndill                     0.3.2\ndm-tree                  0.1.5\ndocopt                   0.6.2\nfastapi                  0.47.1\nfuture                   0.18.2\ngast                     0.3.3\ngoogle-auth              1.21.1\ngoogle-auth-oauthlib     0.4.1\ngoogle-pasta             0.2.0\ngoogleapis-common-protos 1.52.0\ngrpcio                   1.32.0\nh11                      0.9.0\nh5py                     2.10.0\nidna                     2.8\nimportlib-metadata       1.7.0\nimportlib-resources      3.0.0\nipykernel                5.3.4\nipython                  7.16.1\nipython-genutils         0.2.0\njedi                     0.17.2\njoblib                   0.16.0\njupyter-client           6.1.6\njupyter-core             4.6.3\nKeras                    2.4.3\nKeras-Preprocessing      1.1.2\nkiwisolver               1.2.0\nlxml                     4.5.2\nMarkdown                 3.2.2\nmatplotlib               3.3.0\nmultidict                4.7.6\nnltk                     3.4.5\nnumpy                    1.18.0\noauthlib                 3.1.0\nopt-einsum               3.3.0\noverrides                2.7.0\npamqp                    2.3.0\npandas                   0.25.3\nparso                    0.7.1\npickleshare              0.7.5\nPillow                   7.2.0\npip                      20.1.1\npromise                  2.3\nprompt-toolkit           3.0.5\nprotobuf                 3.13.0\npyasn1                   0.4.8\npyasn1-modules           0.2.8\npycparser                2.20\npydantic                 1.3\nPygments                 2.6.1\npymorphy2                0.8\npymorphy2-dicts          2.4.393442.3710985\npymorphy2-dicts-ru       2.4.404381.4453942\npyOpenSSL                19.1.0\npyparsing                2.4.7\npyTelegramBotAPI         3.6.7\npython-dateutil          2.8.1\npytz                     2019.1\npywin32                  228\nPyYAML                   5.3.1\npyzmq                    19.0.1\nrequests                 2.22.0\nrequests-oauthlib        1.3.0\nrsa                      4.6\nruamel.yaml              0.15.100\nrusenttokenize           0.0.5\nsacremoses               0.0.35\nscikit-learn             0.21.2\nscipy                    1.4.1\nseaborn                  0.11.0\nsetuptools               41.2.0\nsix                      1.15.0\nslacker                  0.14.0\nsoupsieve                2.0.1\nstarlette                0.12.9\ntensorboard              2.3.0\ntensorboard-plugin-wit   1.7.0\ntensorflow               2.3.1\ntensorflow-datasets      4.0.1\ntensorflow-estimator     2.3.0\ntensorflow-gpu-estimator 2.3.0\ntensorflow-metadata      0.24.0\ntermcolor                1.1.0\ntornado                  6.0.4\ntqdm                     4.41.1\ntraitlets                4.3.3\ntyping-extensions        3.7.4.2\nUnidecode                1.1.1\nurllib3                  1.25.10\nuvicorn                  0.11.1\nwcwidth                  0.2.5\nwebsockets               8.1\nWerkzeug                 1.0.1\nwheel                    0.35.1\nwikiquotes               1.4\nwrapt                    1.12.1\nyarl                     1.5.0\nzipp                     3.1.0\n\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 18716416,
+    "reputation": 116,
+    "user_id": 13645324,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/96ee26f9f875ca7b0e20a9533d41b0f5?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "trevor-pope",
+    "link": "https://stackoverflow.com/users/13645324/trevor-pope"
+   },
+   "is_answered": false,
+   "view_count": 938,
+   "answer_count": 0,
+   "score": 2,
+   "last_activity_date": 1595594430,
+   "creation_date": 1595592715,
+   "last_edit_date": 1595594430,
+   "question_id": 63073307,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63073307/pip-install-gives-hash-mismatch-even-with-no-cache-dir",
+   "title": "pip install gives hash mismatch even with --no-cache-dir",
+   "body": "<p>This is on Windows 10, running under a proxy, both in a clean venv and a conda environment.</p>\n<p>I am trying to do\n<code>pip install pyinstaller</code>\nwhich gives me a Hash mismatch. It's not a pyinstaller issue since it works on a different machine. I get a different (incorrect) Hash every time, no matter what I try, even with --no-cache-dir. I don't remember what I did, but I gave pip a bad command (I think I had a typo with either my password in --proxy or in one of the URLs for --trusted-host and I ctrl+c'd to cancel it) and after that it I would always get a hash mismatch. As a quick workaround, doing <code>conda install pyinstaller</code> worked, but even after restarting my machine and trying again in a brand new venv, installing via pip won't work.</p>\n<p>Did pip download some kind of bad certificate (because I am using --trusted-host for pypi.org and files.pythonhosted.org) for pyinstaller only and whenever I try to use it I get a bad hash?</p>\n<p>My full pip command looks as follows:</p>\n<p><code>pip install pyinstaller --proxy https://user:pass@proxy.com:8080 --trusted-host pypi.org --trusted-host files.pythonhosted.org</code></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "flask"
+   ],
+   "owner": {
+    "account_id": 15635980,
+    "reputation": 137,
+    "user_id": 11280832,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/zNZzJ.png?s=256",
+    "display_name": "Onlyfood",
+    "link": "https://stackoverflow.com/users/11280832/onlyfood"
+   },
+   "is_answered": true,
+   "view_count": 281,
+   "accepted_answer_id": 62919434,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1594830311,
+   "creation_date": 1594686502,
+   "last_edit_date": 1594690940,
+   "question_id": 62886313,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/62886313/import-flask-wtf-works-fine-with-jupyter-notebook-but-command-prompt-rises-error",
+   "title": "Import flask_wtf works fine with jupyter notebook but command prompt rises error",
+   "body": "<p>jupyter notebook runs the code:\n<code>from flask_wtf import FlaskForm</code>\nwith no problem</p>\n<p>but command prompt rises error:\nModuleNotFoundError:no module named flask_wtf</p>\n<p>maybe has to do with anaconda?</p>\n<p>I have tried to run the solution from the instructor so there would be no typo, but flask_wtf still can not be found.</p>\n<p>I only have one version of python,</p>\n<p>I am not using a virtual environment</p>\n<p>I have installed Flask-WTF with pip and conda</p>\n<p>pip install flask_wtf shows satisfied already</p>\n<p>conda install flask_wtf shows not found in the channels.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matlab",
+    "terminal"
+   ],
+   "owner": {
+    "account_id": 17103978,
+    "reputation": 23,
+    "user_id": 12376428,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/de2711fcd76a2f142a9a051fa3d3fcaa?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "GeoStephanieRae",
+    "link": "https://stackoverflow.com/users/12376428/geostephanierae"
+   },
+   "is_answered": false,
+   "view_count": 773,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1573854941,
+   "creation_date": 1573792179,
+   "last_edit_date": 1592644375,
+   "question_id": 58870362,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58870362/pip-install-fail-terminal-lists-most-recent-attempts-of-package-installation-w",
+   "title": "pip install fail: Terminal lists most recent attempts of package installation, won&#39;t install packages",
+   "body": "<p>In an attempt to access and run Matlab code via Jupyter notebook and Python, I tried installing 'matlab_kernal' (w/ typo) and 'matlab_kernel' as suggested by a blog, I didn't realize I needed MatLab, not MatLab Compiler Runtime.</p>\n<p>I received the error:\n&quot;Collecting matlab_kernal\nCould not find a version that satisfies the requirement matlab_kernal (from versions: )\nNo matching distribution found for matlab_kernal&quot;</p>\n<p>As a work around, I found python code on GitHub that calculated the metric I wanted, but the author said I'd need to install 'MPI' from 'mpi4py'.</p>\n<p>However, it seems my Terminal is now stuck on my previous installation attempts of 'matlab_kernal'. It lists my previous attempts to install these packages (see all white text above red error message in the attached screen capture).</p>\n<p>I'm running: pip 18.1 from /anaconda3/lib/python3.7/site-packages/pip (python 3.7)</p>\n<p>I've tried:</p>\n<ul>\n<li>pip uninstall 'package'</li>\n<li>Terminal restart</li>\n<li>laptop restart</li>\n</ul>\n<p><a href=\"https://i.sstatic.net/oybdz.png\" rel=\"nofollow noreferrer\">Screenshot of Terminal error</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pyqt4",
+    "pyinstaller"
+   ],
+   "owner": {
+    "account_id": 11046617,
+    "reputation": 33,
+    "user_id": 8112472,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-lIDIk13slTs/AAAAAAAAAAI/AAAAAAAAAU4/UUChIaouCTQ/s256-rj/photo.jpg",
+    "display_name": "Casey Shoup",
+    "link": "https://stackoverflow.com/users/8112472/casey-shoup"
+   },
+   "is_answered": false,
+   "view_count": 1479,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1538460339,
+   "creation_date": 1502467935,
+   "question_id": 45639519,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/45639519/pyinstaller-exception-cannot-find-pyqt4-plugin-directories",
+   "title": "Pyinstaller Exception: Cannot find PyQt4 plugin directories",
+   "body": "<p>I will spare unnecessary details here and try to keep it short.  </p>\n\n<p>My issue:  I built my program using the following in command prompt</p>\n\n<pre><code>pyinstaller --onefile --icon=logo.ico H:\\&lt;script location&gt;\n</code></pre>\n\n<p>Originally, this compiled and output perfectly fine.  I opened up the exe to test it, and it worked like a charm.  However, I noticed a small typo of mine and adjusted my script to fix it.  When I went to use the same command prompt line to build the .exe again is when it gave me the PyQt4 error.  This actually happened earlier today as well, to which I solved it my uninstalling both PyInstaller and PyQt4, restarted my computer, then re-installed them.  Everything else I tried just did not work.</p>\n\n<p>I do not understand how it would work at one moment and then, literally not even 30 seconds later, it gives me this exception.  I would prefer not to constantly uninstall and then re-install PyQt4 and PyInstaller in order to build my .exe files.  </p>\n\n<p>I am running python 3.5 through idle if that makes any difference here.\nI do not have any other form of python installed either.<br>\nI have been downloading my packages using pip and from the wheels located at <a href=\"http://www.lfd.uci.edu/~gohlke/pythonlibs/\" rel=\"nofollow noreferrer\">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> if that also makes a difference.</p>\n\n<p>I saw the solution here <a href=\"https://stackoverflow.com/questions/39736000/exception-cannot-find-pyqt5-plugin-directories-when-using-pyinstaller-despite-p\">Exception: Cannot find PyQt5 plugin directories when using Pyinstaller despite PyQt5 not even being used</a> .  However, I do not have Anaconda installed that could be interfering like this guy found.</p>\n\n<p>Any help is appreciated!</p>\n"
+  },
+  {
+   "tags": [
+    "linux",
+    "python-3.x",
+    "pip",
+    "ubuntu-14.04",
+    "vowpalwabbit"
+   ],
+   "owner": {
+    "account_id": 1211489,
+    "reputation": 21928,
+    "user_id": 1179925,
+    "user_type": "registered",
+    "accept_rate": 47,
+    "profile_image": "https://www.gravatar.com/avatar/5403975c3b25b9407b19a26b65d1ce72?s=256&d=identicon&r=PG",
+    "display_name": "mrgloom",
+    "link": "https://stackoverflow.com/users/1179925/mrgloom"
+   },
+   "is_answered": true,
+   "view_count": 584,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1526661134,
+   "creation_date": 1526658887,
+   "last_edit_date": 1526661134,
+   "question_id": 50415144,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/50415144/how-to-install-vowpalwabbit-via-pip",
+   "title": "How to install vowpalwabbit via pip",
+   "body": "<p>I'm trying to install vowpalwabbit via pip:</p>\n\n<pre><code>sudo pip install vowpalwabbit\nThe directory '/home/user/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.\nThe directory '/home/user/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.\nCollecting vowpalwabbit\n  Downloading https://files.pythonhosted.org/packages/56/45/278a8427aa859888b3fb3e3debeea086557df8def22a23561bfe45e1fb03/vowpalwabbit-8.5.0.tar.gz (1.5MB)\n    100% |\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588| 1.5MB 938kB/s \nInstalling collected packages: vowpalwabbit\n  Running setup.py install for vowpalwabbit ... done\nSuccessfully installed vowpalwabbit-8.5.0\nYou are using pip version 9.0.1, however version 10.0.1 is available.\nYou should consider upgrading via the 'pip install --upgrade pip' command.\n</code></pre>\n\n<p>But get error:</p>\n\n<pre><code>python\nPython 3.6.4 |Anaconda, Inc.| (default, Jan 16 2018, 18:10:19) \n[GCC 7.2.0] on linux\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import vowpalwabbit\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nModuleNotFoundError: No module named 'vowpalwabbit'\n</code></pre>\n\n<p><strong>Update:</strong></p>\n\n<p>Checking python2:</p>\n\n<pre><code>python2\nPython 2.7.6 (default, Oct 26 2016, 20:30:19) \n[GCC 4.8.4] on linux2\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import vowpalwabbit\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nImportError: No module named vowpalwabbit\n\nwhich python\n/home/user/anaconda3/bin/python\nwhich pip\n/home/user/anaconda3/bin/pip\n\n\npython -m pip install vopalwabbit\nCollecting vopalwabbit\n  Could not find a version that satisfies the requirement vopalwabbit (from versions: )\nNo matching distribution found for vopalwabbit\n</code></pre>\n\n<p>And something strange on uninstall:</p>\n\n<pre><code>pip uninstall vopalwabbit\nSkipping vopalwabbit as it is not installed.\n</code></pre>\n\n<p><strong>Update2:</strong></p>\n\n<p>Last 2 command have a typo, here is real output:</p>\n\n<pre><code>sudo python -m pip install vowpalwabbit\nThe directory '/home/user/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.\nThe directory '/home/user/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.\nCollecting vowpalwabbit\n/usr/local/lib/python2.7/dist-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:318: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#snimissingwarning.\n  SNIMissingWarning\n/usr/local/lib/python2.7/dist-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.\n  InsecurePlatformWarning\n/usr/local/lib/python2.7/dist-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.\n  InsecurePlatformWarning\n/usr/local/lib/python2.7/dist-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.\n  InsecurePlatformWarning\n  Downloading https://files.pythonhosted.org/packages/56/45/278a8427aa859888b3fb3e3debeea086557df8def22a23561bfe45e1fb03/vowpalwabbit-8.5.0.tar.gz (1.5MB)\n    100% |\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588\\u2588| 1.5MB 787kB/s \nInstalling collected packages: vowpalwabbit\n  Running setup.py install for vowpalwabbit ... done\nSuccessfully installed vowpalwabbit-8.5.0\nYou are using pip version 9.0.1, however version 10.0.1 is available.\nYou should consider upgrading via the 'pip install --upgrade pip' command.\n</code></pre>\n\n<p>And <code>import vowpalwabbit</code> works in python2.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django",
+    "deployment",
+    "web-deployment"
+   ],
+   "owner": {
+    "account_id": 4175925,
+    "reputation": 9,
+    "user_id": 3422446,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/YOmza.jpg?s=256",
+    "display_name": "Goretzky",
+    "link": "https://stackoverflow.com/users/3422446/goretzky"
+   },
+   "is_answered": true,
+   "view_count": 638,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1487879310,
+   "creation_date": 1463929530,
+   "last_edit_date": 1487879310,
+   "question_id": 37375970,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/37375970/django-deployment-django-polls-tutorial-advanced-tutorial",
+   "title": "Django Deployment - Django Polls Tutorial: Advanced Tutorial",
+   "body": "<p>New to Django. I have some Python programming experience (beginner-intermediate). I was taking the Django Polls tutorial and can't resolve deployment problem in the Advanced Tutorial: How to write reusable apps: <a href=\"https://docs.djangoproject.com/en/1.9/intro/reusable-apps/\" rel=\"nofollow noreferrer\">https://docs.djangoproject.com/en/1.9/intro/reusable-apps/</a></p>\n\n<p>In the Using Your Own Package section, I have a problem when I pip install --user django-polls/dist/django-polls-0.1.tar.gz. I get this response:</p>\n\n<p>\"Requirement 'django-polls/dist/django-polls-0.1.tar.gz' looks like a filename, but the file does not exist.\"</p>\n\n<p>I'm using a Windows 10 computer and I noticed that the package extension is .zip not .tar.gz</p>\n\n<p>I did pip install --user django-polls/dist/django-polls-0.1.zip (changed the extension to .zip) but had the same response:</p>\n\n<p>\"Requirement 'django-polls/dist/django-polls-0.1.zip' looks like a filename, but the file does not exist.\"</p>\n\n<p>I am doing the pip install from the dist directory. In trying to figure out the source of the problem, I have some suspects:</p>\n\n<ol>\n<li><p>When I saved the README.rst file in Spyder I selected the web pages (.css .htm .html) option but changed the extension to .rst. In file explore under type, it says RST File, so I thought I did this correctly. Otherwise I'm not sure what program to use to create an .rst file.</p></li>\n<li><p>I couldn't figure out what program creates a .in file type. My MANIFEST.in file is a text document.</p></li>\n<li><p>Why was a .zip file created for the package instead of a .tar.gz file?</p></li>\n<li><p>My LICENSE file is an .html doc. Does that matter?</p></li>\n<li><p>Should I have created a virtual environment? Does python manage.py startapp polls from the first part of the tutorial create a virtual environment.</p></li>\n</ol>\n\n<p>I cut and pasted all of the code from the tutorial, so unless the tutorial has a typo I think the code is probably not the problem. I also have Anaconda installed if that makes a difference. </p>\n\n<p>This is my first deployment so please dumb-down the explanations if possible. Thank you.</p>\n"
+  }
+ ]
+}

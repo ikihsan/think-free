@@ -1,0 +1,736 @@
+{
+ "site": "stackoverflow",
+ "query": "pip install wrong package",
+ "class": "G",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "macos",
+    "installation",
+    "pycharm",
+    "cairo"
+   ],
+   "owner": {
+    "account_id": 166893,
+    "reputation": 9035,
+    "user_id": 391339,
+    "user_type": "registered",
+    "accept_rate": 63,
+    "profile_image": "https://www.gravatar.com/avatar/efa2e9771e789a25ad7f423f723ce184?s=256&d=identicon&r=PG",
+    "display_name": "user391339",
+    "link": "https://stackoverflow.com/users/391339/user391339"
+   },
+   "is_answered": false,
+   "view_count": 8475,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1790643655,
+   "creation_date": 1403390187,
+   "last_edit_date": 1403422875,
+   "question_id": 24346472,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/24346472/when-a-python-module-cairo-is-installed-successfully-but-fails-to-import-in-py",
+   "title": "When a python module (cairo) is installed successfully but fails to import in python, what could be the issue?",
+   "body": "<p>When a python module is installed successfully but fails to import in python (via PyCharm IDE), what could be the issue?  What checklist should I follow to diagnose the problem in this case and in the future when a module installs but later fails to import?</p>\n\n<p>For this specific case, I installed a vector graphics module for Python called <strong>cairo</strong>.\n<a href=\"http://cairographics.org/releases/pycairo-1.8.8.tar.gz\" rel=\"nofollow noreferrer\">http://cairographics.org/releases/pycairo-1.8.8.tar.gz</a></p>\n\n<p>See the successful install below:</p>\n\n<pre><code>sudo python setup.py install\ncairo &gt;= 1.8.8 detected\ncreating pycairo.pc\ncreating src/config.h\nrunning install\nrunning build\nrunning build_ext\nrunning install_lib\ncreating /Library/Python/2.7/site-packages/cairo\ncopying build/lib.macosx-10.9-intel-2.7/cairo/_cairo.so -&gt; /Library/Python/2.7/site-packages/cairo\nrunning install_data\ncreating /System/Library/Frameworks/Python.framework/Versions/2.7/include/pycairo\ncopying src/pycairo.h -&gt; /System/Library/Frameworks/Python.framework/Versions/2.7/include/pycairo\ncopying pycairo.pc -&gt; /System/Library/Frameworks/Python.framework/Versions/2.7/lib/pkgconfig\nrunning install_egg_info\nWriting /Library/Python/2.7/site-packages/pycairo-1.8.8-py2.7.egg-info\n</code></pre>\n\n<p>Everything seemed to proceed smoothly, but later this module failed to import when called for in Python:  <code>ImportError: No module named cairo</code>.    </p>\n\n<p>One possibility is that it was installed in the wrong directory - <code>/Library/Python/2.7/site-packages/</code>.\nAnother possibility is that I should be somehow telling python the location of the module explicitly.  i.e.:  <code>/Library/Python/2.7/site-packages/cairo</code>, based on the output of the install script found above.</p>\n\n<p>It is quite odd, because cairo is present in <code>/Library/Python/2.7/site-packages/</code>, and I am able to import other libraries such as PIL found in the same directory.</p>\n\n<p><img src=\"https://i.sstatic.net/8pXVL.png\" alt=\"enter image description here\"></p>\n\n<p>Based on aIKID's suggestion, I tried using pip to get the installed packages.  From this, I got a long list, including a module called pycairo.  I tried importing both pycairo and cairo and still got an import error.  It's interesting that \"cairo\" is found in <code>/Library/Python/2.7/site-packages/cairo</code>, but \"pycairo\" is found after a call of <code>pip.get_installed_distributions()</code>.  It seems that the distribution is called pycairo, and the module is called cairo.  import cairo should work, but either way both imports fail.</p>\n\n<p><img src=\"https://i.sstatic.net/dLAMO.png\" alt=\"enter image description here\"></p>\n\n<p>Based on Christopher's suggestion, I checked the <code>/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/</code> directory and did not find cairo.  By the same token, I did not find PIL (the python imaging library).  I am still able to import PIL, which is found in <code>/Library/Python/2.7/site-packages/</code>, together with cairo.</p>\n\n<pre><code>Python 2.7.5 (default, Aug 25 2013, 00:04:04) \n[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import PIL, cairo\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nImportError: No module named cairo\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "anaconda",
+    "environment"
+   ],
+   "owner": {
+    "account_id": 929093,
+    "reputation": 18342,
+    "user_id": 959306,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://i.sstatic.net/MJSQv.png?s=256",
+    "display_name": "jeffery_the_wind",
+    "link": "https://stackoverflow.com/users/959306/jeffery-the-wind"
+   },
+   "is_answered": true,
+   "view_count": 1185391,
+   "protected_date": 1632603563,
+   "accepted_answer_id": 43729857,
+   "answer_count": 20,
+   "score": 508,
+   "last_activity_date": 1785938502,
+   "creation_date": 1481286055,
+   "last_edit_date": 1746640346,
+   "question_id": 41060382,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/41060382/using-pip-to-install-packages-to-an-anaconda-environment",
+   "title": "Using Pip to install packages to an Anaconda environment",
+   "body": "<p>On</p>\n<ul>\n<li><a href=\"https://en.wikipedia.org/wiki/Conda_(package_manager)\" rel=\"nofollow noreferrer\">Conda</a> 4.2.13</li>\n<li><a href=\"https://en.wikipedia.org/wiki/MacOS_Sierra\" rel=\"nofollow noreferrer\">Mac OS X v10.12.1</a> (Sierra)</li>\n</ul>\n<p>I am trying to install packages from <code>pip</code> to a fresh environment (virtual) created using anaconda.  <a href=\"http://conda.pydata.org/docs/using/pkgs.html#install-non-conda-packages\" rel=\"nofollow noreferrer\">In the Anaconda documentation</a> it says this is perfectly fine.  It is done the same way as for virtualenv.</p>\n<blockquote>\n<p>Activate the environment where you want to put the program, then pip install a program...</p>\n</blockquote>\n<p>I created an empty environment in Anaconda like this:</p>\n<pre class=\"lang-none prettyprint-override\"><code>conda create -n shrink_venv\n</code></pre>\n<p>Activate it:</p>\n<pre class=\"lang-none prettyprint-override\"><code>source activate shrink_venv\n</code></pre>\n<p>I then can see in the terminal that I am working in my environment <code>(shrink_venv)</code>. A problem is coming up when I try to install a package using <code>pip</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip install Pillow\n</code></pre>\n<p>Output:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Requirement already satisfied (use --upgrade to upgrade): Pillow in /Library/Python/2.7/site-packages\n</code></pre>\n<p>So I can see it thinks the requirement is satisfied from the system-wide package.  So it seems the environment is not working correctly, definitely not like it said in the documentation.  Am I doing something wrong here?</p>\n<p>Just a note, I know you can use <code>conda install</code> for the packages, but I have had an issue with Pillow from anaconda, so I wanted to get it from <code>pip</code>, and since the docs say that is fine.</p>\n<p>Output of <code>which -a pip</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>/usr/local/bin/pip\n/Users/my_user/anaconda/bin/pip\n</code></pre>\n<p>I see this is pretty common issue. I have found that the Conda environment doesn't play well with the <code>PYTHONPATH</code>. The system seems to always look in the <code>PYTHONPATH</code> locations even when you're using a Conda environment. Now, I always run <code>unset PYTHONPATH</code> when using a Conda environment, and it works much better. I'm on a Mac.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "pip",
+    "conda",
+    "pep"
+   ],
+   "owner": {
+    "account_id": 2060264,
+    "reputation": 2812,
+    "user_id": 1837006,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://www.gravatar.com/avatar/971621454f029aeb2e99ac7c6475be77?s=256&d=identicon&r=PG",
+    "display_name": "DanielTuzes",
+    "link": "https://stackoverflow.com/users/1837006/danieltuzes"
+   },
+   "is_answered": false,
+   "view_count": 10173,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1784199925,
+   "creation_date": 1621011974,
+   "question_id": 67538271,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/67538271/what-is-the-best-way-to-import-local-modules",
+   "title": "What is the best way to import local modules?",
+   "body": "<p>&quot;What are the PEP-compatible ways to import a local package even from a parent folder with the least preassumptions&quot; could be the long title. I am looking for a solution to make it possible to use a local package. My requirements:</p>\n<ol>\n<li>it must be PEP-compatible, i.e. at least the most commonly accepted PEP must support it</li>\n<li>OS, terminal, user and environment independent, i.e. the solution must not rely on any specific circumstances</li>\n</ol>\n<p>Among these solutions, I am looking for the one that</p>\n<ul>\n<li>is the simplest to implement</li>\n<li>the scope of the modification is flexible (doesn't need to be executed every time, but is not permanent and system-wide)</li>\n<li>leaves the source code in the simplest form, i.e. the solution doesn't need a lot of extra lines in the code</li>\n</ul>\n<h1>Solutions</h1>\n<p>These are the ways I found on SO and other places so far. None of them suit my needs, and as it was told 8 years ago, <a href=\"https://stackoverflow.com/a/20749411/1837006\">every solution will have their cons</a>. Yet I hope in 2021 we can find a solution that meets at least my 2 requirements.</p>\n<h2>Use conda</h2>\n<p><a href=\"https://stackoverflow.com/questions/32715261/how-to-add-folder-to-search-path-for-a-given-anaconda-environment\">SO 1</a></p>\n<p>Use conda environments and issue conda to <a href=\"https://conda.io/projects/conda-build/en/latest/resources/commands/conda-develop.html\" rel=\"nofollow noreferrer\">include a directory in the python lookup path</a> by <code>conda develop &lt;path&gt;</code> where <code>&lt;path&gt;</code> can be either relative to pwd or absolute. Conda then creates a <code>conda.pth</code> file in the <code>site-packages</code> folder of the environment, and python will be provided the content of that file, therefore will be available in the <code>sys.path</code></p>\n<p>Drawback: it requires conda-build, but it is not always present.</p>\n<h2>Use pip</h2>\n<p><a href=\"https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder/50194143#50194143\">SO 2a</a>, <a href=\"https://stackoverflow.com/questions/6323860/sibling-package-imports/50193944#50193944\">SO 2b</a>, <a href=\"https://stackoverflow.com/questions/35064426/when-would-the-e-editable-option-be-useful-with-pip-install\">SO 3</a></p>\n<p>Use pip to install a package locally. Create a <code>setup.py</code>, configure it, cd into where it is, then install the package locally in editable mode with <code>pip install -e .</code></p>\n<p>Drawback: <a href=\"https://www.python.org/dev/peps/pep-0517/\" rel=\"nofollow noreferrer\">PEP 517</a> doesn\u2019t support editable installs as mentioned on <a href=\"https://setuptools.readthedocs.io/en/latest/setuptools.html#setup-cfg-only-projects\" rel=\"nofollow noreferrer\">setuptools</a>.</p>\n<h2>direct hack of <code>sys.path</code></h2>\n<p><a href=\"https://stackoverflow.com/a/11158224/1837006\">SO 2c</a></p>\n<p>Add paths to <code>sys.path</code> directly within the python script, e.g.:</p>\n<pre class=\"lang-py prettyprint-override\"><code>import os\nimport sys\n\nsys.path.insert(&quot;path&quot;)\n\nimport mymodule\n</code></pre>\n<p>Here path can be absolute or relative, and the latter can be OS independent e.g. by using <code>os.path.sep</code>.</p>\n<p>Drawback: it is not PEP-compatible, because not all import statements are in the top of the file. autopep8 will rearrange your code into a wrong order, however, there <a href=\"https://stackoverflow.com/a/36829884/1837006\">are workarounds</a>. One can say that it is a good example where PEP can be neglected but I'd like to believe imports are basic enough to apply PEP without exception.</p>\n<h2>modify pythonpath</h2>\n<p>Modify your system environemnt path or pythonpath by adding the necessary directory to it.</p>\n<p>Drawbacks: it is at least OS dependent and too global, or just the opposite, one needs to execute it every time.</p>\n<h2>use relative imports</h2>\n<p>From within the script, include the module using relative import</p>\n<pre class=\"lang-py prettyprint-override\"><code>from ..somewhere import mymodule\n</code></pre>\n<p>This <strong>doesn't</strong> work if this module is the main, you'll get a</p>\n<blockquote>\n<p><code>ImportError: attempted relative import with no known parent package</code></p>\n</blockquote>\n<p>furthermore, PEP 8 says: &quot;Relative imports for intra-package imports are highly discouraged.&quot;  <a href=\"https://mail.python.org/pipermail/python-dev/2010-October/104476.html\" rel=\"nofollow noreferrer\">Guido thinks it is ok</a>.</p>\n<h1>Related questions</h1>\n<p>This is <strong>not a duplicate</strong> of the general questions on how to import modules beyond top-level, because those questions already have accepted answers. <a href=\"https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder\">SO 2</a>, <a href=\"https://stackoverflow.com/questions/6323860/sibling-package-imports\">SO 3</a>, <a href=\"https://stackoverflow.com/questions/2349991/how-to-import-other-python-files\">SO 4</a>, <a href=\"https://stackoverflow.com/questions/8663076/python-best-way-to-add-to-sys-path-relative-to-the-current-running-script\">SO 5</a> <a href=\"https://stackoverflow.com/questions/66568800/what-is-the-best-way-to-import-local-package\">SO 6, not even python</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "pip",
+    "google-translate",
+    "modulenotfounderror"
+   ],
+   "owner": {
+    "account_id": 21492926,
+    "reputation": 69,
+    "user_id": 15838354,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/dac19deef9dbca37b0a88d06ae0a3859?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Zeyad Tarek",
+    "link": "https://stackoverflow.com/users/15838354/zeyad-tarek"
+   },
+   "is_answered": false,
+   "view_count": 11422,
+   "closed_date": 1775936090,
+   "answer_count": 3,
+   "score": 5,
+   "last_activity_date": 1775865930,
+   "creation_date": 1648711897,
+   "last_edit_date": 1648729115,
+   "question_id": 71688576,
+   "link": "https://stackoverflow.com/questions/71688576/modulenotfounderror-no-module-named-googletrans-although-i-installed-it-corre",
+   "closed_reason": "Not suitable for this site",
+   "title": "ModuleNotFoundError: No module named &#39;googletrans&#39; although I installed it correctly",
+   "body": "<p>I'm trying to import a googletrans package but I got a ModuleNotFoundError when I'm trying to import it although I installed it.</p>\n<p>I got this error</p>\n<pre><code>11 #to translate the text data\n12 get_ipython().system('pip install googletrans')\n---&gt; 13 from googletrans import Translator\n\nModuleNotFoundError: No module named 'googletrans'\n</code></pre>\n<p>I'm trying to install a <strong>googletrans</strong> package with all possible syntax on jupyter notebook</p>\n<pre><code>!pip install googletrans\n!pip install googletrans==4.0.0-rc1 #to avoid 'NoneType' object has no attribute 'group' error\n!pip install googletrans==3.1.0a0 #to avoid 'NoneType' object has no attribute 'group' error\n</code></pre>\n<p>after I'm installing it, I'm trying to import it</p>\n<p><code>from googletrans import Translator</code></p>\n<p>I got this error</p>\n<pre><code>11 #to translate the text data\n12 get_ipython().system('pip install googletrans')\n13 from googletrans import Translator\n\nModuleNotFoundError: No module named 'googletrans'\n</code></pre>\n<p><strong>ModuleNotFoundError: No module named 'googletrans'</strong></p>\n<p>but I have to notify you that the output from pip command is</p>\n<pre><code>Collecting googletrans\n  Using cached googletrans-3.0.0-py3-none-any.whl\nCollecting httpx==0.13.3\n  Using cached httpx-0.13.3-py3-none-any.whl (55 kB)\nRequirement already satisfied: certifi in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (2021.10.8)\nCollecting hstspreload\n  Using cached hstspreload-2021.12.1-py3-none-any.whl (1.3 MB)\nRequirement already satisfied: sniffio in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (1.2.0)\nRequirement already satisfied: rfc3986&lt;2,&gt;=1.3 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (1.5.0)\nRequirement already satisfied: chardet==3.* in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpx==0.13.3-&gt;googletrans) (3.0.4)\nCollecting httpcore==0.9.*\n  Using cached httpcore-0.9.1-py3-none-any.whl (42 kB)\nCollecting idna==2.*\n  Using cached idna-2.10-py2.py3-none-any.whl (58 kB)\nCollecting h2==3.*\n  Using cached h2-3.2.0-py2.py3-none-any.whl (65 kB)\nRequirement already satisfied: h11&lt;0.10,&gt;=0.8 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (0.9.0)\nRequirement already satisfied: hpack&lt;4,&gt;=3.0 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from h2==3.*-&gt;httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (3.0.0)\nRequirement already satisfied: hyperframe&lt;6,&gt;=5.2.0 in c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages (from h2==3.*-&gt;httpcore==0.9.*-&gt;httpx==0.13.3-&gt;googletrans) (5.2.0)\nInstalling collected packages: idna, hstspreload, h2, httpcore, httpx, googletrans\n  Attempting uninstall: idna\n    Found existing installation: idna 3.3\n    Uninstalling idna-3.3:\nOutput exceeds the size limit. Open the full output data in a text editor\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -2na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -1na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n    WARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\n...\nWARNING: Ignoring invalid distribution -na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -0na (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution - (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages)\nWARNING: Ignoring invalid distribution -dna (c:\\programdata\\anaconda3\\envs\\python310\\lib\\site-packages\n</code></pre>\n<p>It's installed with these warnings.</p>\n<p>What's the wrong here? is it with the installation or with the import syntax and how I can solve it.</p>\n<p>note: I'm using anaconda with 3.9.7 and 3.10</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "docker",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 2243802,
+    "reputation": 4918,
+    "user_id": 1977681,
+    "user_type": "registered",
+    "accept_rate": 92,
+    "profile_image": "https://i.sstatic.net/w1hPy.jpg?s=256",
+    "display_name": "AnjoMan",
+    "link": "https://stackoverflow.com/users/1977681/anjoman"
+   },
+   "is_answered": true,
+   "view_count": 50248,
+   "accepted_answer_id": 44708686,
+   "answer_count": 1,
+   "score": 54,
+   "last_activity_date": 1769329168,
+   "creation_date": 1498162029,
+   "question_id": 44708481,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/44708481/how-to-install-local-packages-using-pip-as-part-of-a-docker-build",
+   "title": "How to install local packages using pip as part of a docker build?",
+   "body": "<p>I've got a package that I want to build into a docker image which depends on an adjacent package on my system.</p>\n\n<p>My <code>requirements.txt</code> looks something like this:</p>\n\n<pre>\n-e ../other_module\nnumpy==1.0.0\nflask==0.12.5\n</pre>\n\n<p>When I call <code>pip install -r requirements.txt</code> in a virtualenv this works fine. However, if I call this in a Dockerfile, e.g.:</p>\n\n<pre>\nADD requirements.txt /app\nRUN pip install -r requirements.txt\n</pre>\n\n<p>and run using <code>docker build .</code> I get an error saying the following:</p>\n\n<p><code>../other_module should either be a path to a local project or a VCS url beginning with svn+, git+, hg+, or bzr+</code></p>\n\n<p>What, if anything, am I doing wrong here?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows"
+   ],
+   "owner": {
+    "account_id": 7602989,
+    "reputation": 563,
+    "user_id": 5766869,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/ffcea0b3833418a5a33f75d73ea7197f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Prabal Rakshit",
+    "link": "https://stackoverflow.com/users/5766869/prabal-rakshit"
+   },
+   "is_answered": false,
+   "view_count": 109,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1769301752,
+   "creation_date": 1768812752,
+   "last_edit_date": 1768812905,
+   "question_id": 79871030,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79871030/can-python-install-packages-on-a-shorter-path-on-windows",
+   "title": "Can Python install packages on a shorter path on Windows?",
+   "body": "<p>I am attempting to install the grpcio package, and seeing the following error:</p>\n<pre class=\"lang-none prettyprint-override\"><code>(myvenv) C:\\Work\\Arch\\Source\\langchain-monitoring-demo&gt;pip install grpcio==1.74.0\n\nCollecting grpcio==1.74.0\n  Using cached grpcio-1.74.0.tar.gz (12.8 MB)\nERROR: Could not install packages due to an OSError: [WinError 206] The filename or extension is too long: 'C:\\\\Users\\\\prabal_rakshit\\\\AppData\\\\Local\\\\Temp\\\\pip-install-6hu4fcd9\\\\grpcio_7653fcf0041e457db8a6b1d95d413a7b\\\\third_party\\\\boringssl-with-bazel\\\\src\\\\pki\\\\testdata\\\\verify_certificate_chain_unittest\\\\intermediate-wrong-signature-no-authority-key-identifier\\\\keys'\n</code></pre>\n<p>My pip version is</p>\n<pre class=\"lang-none prettyprint-override\"><code>(myvenv) C:\\Work\\Arch\\Source\\langchain-monitoring-demo&gt;pip list\nPackage Version\n------- -------\npip     25.3\n</code></pre>\n<p>Unfortunately I do not have the option to request Administrator access on my work laptop, so the option of reinstalling Python with the 260 char MAX_PATH limitation is not there. Moreover I cannot set the registry to accept Long Paths.</p>\n<p>Can I change the environment variables to make Python choose a smaller Temp folder? I have changed the following:</p>\n<pre class=\"lang-none prettyprint-override\"><code>TEMP=C:\\tmp\nTMP=C:\\tmp\nTMPDIR=C:\\tmp\nLOCALAPPDATA=C:\\tmp\n</code></pre>\n<p>but I still see the error above.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "best-practices"
+   ],
+   "owner": {
+    "account_id": 13773280,
+    "reputation": 689,
+    "user_id": 9940188,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f1762e6b8c93e3c824cc422aee7e8a47?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "musbur",
+    "link": "https://stackoverflow.com/users/9940188/musbur"
+   },
+   "is_answered": false,
+   "view_count": 63,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1768127930,
+   "creation_date": 1767945270,
+   "question_id": 79864021,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79864021/how-to-automatically-manage-local-python-package-interdependencies",
+   "title": "How to automatically manage local python package interdependencies?",
+   "body": "<p>I have a bunch of homemade packages on my system, each in its own source directory structure. My typical workflow is to just do <code>pip install .</code> after working on any of these. This may be clumsy but it works. But when one of those local packages depends on another one which may not be installed or has the wrong version, pip of course doesn't know how to build and install that other package first and then install the current one.</p>\n<p>What would need to happen for this to work? When pip encounters a dependency it cannot resolve by the usual means (i.e., find it on pypi or the local wheel cache), it would have to scan the source directories of potential packages, parse whatever <code>pyproject.toml</code> files it finds there, and if it finds one that provides the required package, install that first and then proceed with the task at hand.</p>\n<p>I wonder if such a system exists or if it is already built into pip and I just don't know it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "macos",
+    "numpy",
+    "pycharm"
+   ],
+   "owner": {
+    "account_id": 18247101,
+    "reputation": 117,
+    "user_id": 13282965,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d36b1b63ce238710c47f2b532982b7d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "NewDev",
+    "link": "https://stackoverflow.com/users/13282965/newdev"
+   },
+   "is_answered": true,
+   "view_count": 892,
+   "accepted_answer_id": 79857916,
+   "answer_count": 3,
+   "score": 2,
+   "last_activity_date": 1767230016,
+   "creation_date": 1767128978,
+   "question_id": 79857809,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79857809/python-packages-installation-pandas-nympy",
+   "title": "Python packages installation - pandas &amp; nympy",
+   "body": "<p>I have read close to all posts about this topic now but I can get it working, so sorry if you find this similar to other questions, but I can't just solve it based on existing posts.\nI find it very hard to install Python with its packages, and remember struggling on my PC a couple of years ago also.</p>\n<p>I have a macbook. I have installed python. Using PyCharm. I have tried to install a couple of packages, not sure they got installed in the right or wrong folder. So far I have tried (and in some cases been successful) installing requests, torch, wheel, pandas, numpy. All by using pip. I have tried uninstall and install again. Also tried upgrading.</p>\n<p>Line 8 in the response below is &quot;import pandas as pd&quot;</p>\n<p>The code in PyCharm gives the following response during execution:\nFile &quot;/Users/name/PycharmProjects/ABCProject/file.py&quot;, line 8, in \nimport pandas as pd\nFile &quot;/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pandas/<strong>init</strong>.py&quot;, line 19, in \nraise ImportError(\n&quot;Unable to import required dependencies:\\n&quot; + &quot;\\n&quot;.join(_missing_dependencies)\n)\nImportError: Unable to import required dependencies:\nnumpy:</p>\n<p>IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!</p>\n<p>Importing the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\nThe following compiled module files exist, but seem incompatible\nwith with either python 'cpython-314' or the platform 'darwin':</p>\n<ul>\n<li>_multiarray_umath.cpython-313-darwin.so</li>\n</ul>\n<p>We have compiled some common reasons and troubleshooting tips at:</p>\n<pre><code>https://numpy.org/devdocs/user/troubleshooting-importerror.html\n</code></pre>\n<p>Please note and check the following:</p>\n<ul>\n<li>The Python version is: Python 3.14 from &quot;/usr/local/bin/python3.14&quot;</li>\n<li>The NumPy version is: &quot;2.4.0&quot;</li>\n</ul>\n<p>and make sure that they are the versions you expect.</p>\n<p>Please carefully study the information and documentation linked above.\nThis is unlikely to be a NumPy issue but will be caused by a bad install\nor environment on your machine.</p>\n<p>Original error was: No module named 'numpy._core._multiarray_umath'</p>\n<p>Process finished with exit code 1</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "github",
+    "module"
+   ],
+   "owner": {
+    "account_id": 44950073,
+    "reputation": 9,
+    "user_id": 32020377,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/05cb192f589ed3eeb358ae94447dfbe7?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Buscando Alfa",
+    "link": "https://stackoverflow.com/users/32020377/buscando-alfa"
+   },
+   "is_answered": true,
+   "view_count": 231,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1765400583,
+   "creation_date": 1765313512,
+   "last_edit_date": 1765343445,
+   "question_id": 79842347,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79842347/jupyter-kernel-cant-find-local-package-after-editable-install",
+   "title": "Jupyter kernel can&#39;t find local package after editable install",
+   "body": "<p>I'm a beginner in Python and GitHub, so I apologize if this is a basic question. I'm trying to make some functions available in any notebook in my project by creating a local package and installing it in editable mode with pip install -e .. However, when I try to import from the package in a notebook, I get a ModuleNotFoundError.</p>\n<h4>Project Structure</h4>\n<p>My project structure is as follows:</p>\n<p>text</p>\n<pre><code>Quant-trading-journey/\n\u251c\u2500\u2500 .gitignore\n\u251c\u2500\u2500 Phase-0/\n\u2502   \u2514\u2500\u2500 Basic financial analysis.ipynb\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 data/\n\u2502   \u251c\u2500\u2500 spy.pkl\n\u2502   \u2514\u2500\u2500 tickers_20y.pkl\n\u251c\u2500\u2500 pyproject.toml\n\u2514\u2500\u2500 src/\n    \u2514\u2500\u2500 quant_utils/\n        \u251c\u2500\u2500 __init__.py  (empty file)\n        \u251c\u2500\u2500 data.py\n        \u2514\u2500\u2500 perf.py\n</code></pre>\n<h4>pyproject.toml Content</h4>\n<p>toml</p>\n<pre><code>[build-system]\nrequires = [&quot;setuptools&gt;=45&quot;, &quot;wheel&quot;]\nbuild-backend = &quot;setuptools.build_meta&quot;\n\n[project]\nname = &quot;quant-trading-journey&quot;\nversion = &quot;0.1.0&quot;\ndescription = &quot;My journey to become a systematic quant trader&quot;\nauthors = [{name = &quot;Sergio&quot;}]\n\n[project.optional-dependencies]\nfull = [\n    &quot;pandas&quot;,\n    &quot;numpy&quot;,\n    &quot;yfinance&quot;,\n    &quot;matplotlib&quot;,\n    &quot;seaborn&quot;,\n    &quot;plotly&quot;,\n    &quot;vectorbt&quot;,\n    &quot;scikit-learn&quot;,\n    &quot;xgboost&quot;,\n    &quot;jupyter&quot;,\n    &quot;ipykernel&quot;\n]\n\n[tool.setuptools.packages.find]\nwhere = [&quot;src&quot;]\ninclude = [&quot;quant_utils*&quot;]\n</code></pre>\n<h4>Debugging Logs and Commands Used</h4>\n<p>I ran the installation in the command prompt:</p>\n<pre><code>cd &quot;C:\\Users\\Sergio\\Documents\\GitHub\\Quant-trading-journey&quot;\n&quot;C:\\Users\\Sergio\\AppData\\Local\\Programs\\Python\\Python313\\python.exe&quot; -m pip install -e .\n</code></pre>\n<p>Output:</p>\n<pre><code>Obtaining file:///C:/Users/Sergio/Documents/GitHub/Quant-trading-journey\n  Installing build dependencies ... done\n  Checking if build backend supports build_editable ... done\n  Getting requirements to build editable ... done\n  Preparing editable metadata (pyproject.toml) ... done\nBuilding wheels for collected packages: quant-trading-journey\n  Building editable for quant-trading-journey (pyproject.toml) ... done\n  Created wheel for quant-trading-journey: filename=quant_trading_journey-0.1.0-0.editable-py3-none-any.whl size=3023 sha256=f20897b37e1fed7f460a0e20d108900424dd3865ff59a20f9e57fc4112fcaee6\n  Stored in directory: C:\\Users\\Sergio\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-7xr3encu\\wheels\\69\\44\\70\\524231754e134a85e4dd82010d6ce3613f53070c94d274b02a\nSuccessfully built quant-trading-journey\nInstalling collected packages: quant-trading-journey\nSuccessfully installed quant-trading-journey-0.1.0\n</code></pre>\n<p>Then, in a Jupyter notebook in Phase-0/, I run:</p>\n<pre><code>from quant_utils.data import download_data\n</code></pre>\n<p>Full error stack trace:</p>\n<pre><code>---------------------------------------------------------------------------\nModuleNotFoundError                       Traceback (most recent call last)\nCell In[1], line 1\n----&gt; 1 from quant_utils.data import download_data\n\nModuleNotFoundError: No module named 'quant_utils'\n</code></pre>\n<p>I launch Jupyter Notebook from Anaconda Navigator. I also tried from CMD with jupyter notebook. No virtual environment, just the base Python 3.13 installation. The kernel is the default Python 3 kernel from Anaconda .I checked with echo %PYTHONPATH% in CMD, and it returns %PYTHONPATH%. So, no PYTHONPATH is present in the environment.</p>\n<p>Test with env PYTHONPATH: I tried the command set PYTHONPATH=src;%PYTHONPATH% &amp; &quot;C:\\Users\\Sergio\\AppData\\Local\\Programs\\Python\\Python313\\python.exe&quot; src\\quant_utils\\perf.py. It executed without any error or output, returning to the prompt. To confirm, I added a print statement to perf.py (print(&quot;Hello from perf.py!&quot;)), and the command printed &quot;Hello from perf.py!&quot; successfully.</p>\n<h4>Additional Details</h4>\n<ul>\n<li><p>Python version: 3.13</p>\n</li>\n<li><p>The installation succeeds without errors, but the import fails when using the notebook in a subdirectory like Phase-0/.</p>\n</li>\n<li><p>I have tried reinstalling the package, restarting Jupyter, and ensuring no old installations are present.</p>\n</li>\n<li><p>The import works if I move the .py files to the same directory as the notebook, but that's not what I want for a modular project.</p>\n</li>\n</ul>\n<p>What am I doing wrong? How can I make the import work from any notebook in the project after the editable install?</p>\n<h4>GitHub Repo</h4>\n<p><a href=\"https://github.com/ImSeekingAlpha/Quant-trading-journey\" rel=\"nofollow noreferrer\">https://github.com/ImSeekingAlpha/Quant-trading-journey</a></p>\n<p>You won't see:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from quant_utils.data import download_data \n</code></pre>\n<p>Or any other import because I tried locally and it didn't work, but you can download the repo and try it yourself, you'll get a ModuleNotFound Error.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "conda"
+   ],
+   "owner": {
+    "account_id": 6656358,
+    "reputation": 1123,
+    "user_id": 5136799,
+    "user_type": "registered",
+    "accept_rate": 60,
+    "profile_image": "https://lh4.googleusercontent.com/-CGJ_uTsnzP8/AAAAAAAAAAI/AAAAAAAAK9E/58TvA4TCaAY/s256-rj/photo.jpg",
+    "display_name": "Ethan Keller",
+    "link": "https://stackoverflow.com/users/5136799/ethan-keller"
+   },
+   "is_answered": true,
+   "view_count": 3999,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1763630828,
+   "creation_date": 1497466209,
+   "last_edit_date": 1497474215,
+   "question_id": 44552507,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/44552507/conda-environment-pip-is-trying-to-install-dependencies-globally",
+   "title": "conda environment pip is trying to install dependencies globally",
+   "body": "<p>Somehow my Python/Conda/Pip installation is such that pip - even when operating within an active conda environment - attempts to install to the global site-packages directory. </p>\n\n<p>On my macbook pro running 10.12.4, I can reproduce by:</p>\n\n<ol>\n<li>creating a conda environment: <code>$conda create -n test python=3.6</code></li>\n<li>Activating the conda environment: <code>$source activate test</code></li>\n<li>Verify that the pip command references the correct pip binary: \n<code>\n$which pip\n/Users/ethankeller/anaconda3/envs/test/bin/pip\n</code></li>\n<li>Use pip to install any package - for instance numpy:\n<code>\n$pip install numpy\nCollecting numpy\nUsing cached numpy-1.13.0-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl\nInstalling collected packages: numpy\nException:\nTraceback (most recent call last):\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/basecommand.py\", line 215, in main\nstatus = self.run(options, args)\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/commands/install.py\", line 342, in run\nprefix=options.prefix_path,\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/req/req_set.py\", line 784, in install\n**kwargs\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/req/req_install.py\", line 851, in install\nself.move_wheel_files(self.source_dir, root=root, prefix=prefix)\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/req/req_install.py\", line 1064, in move_wheel_files\nisolated=self.isolated,\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/wheel.py\", line 345, in move_wheel_files\nclobber(source, lib_dir, True)\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/wheel.py\", line 316, in clobber\nensure_dir(destdir)\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/site-packages/pip/utils/__init__.py\", line 83, in ensure_dir\nos.makedirs(path)\nFile \"/Users/ethankeller/anaconda3/envs/test/lib/python3.6/os.py\", line 220, in makedirs\nmkdir(name, mode)\nPermissionError: [Errno 13] Permission denied: '/lib/python3.6/site-packages/numpy'\n</code></li>\n</ol>\n\n<p>I imagine that some environment variable is set wrong somehow... Any advice on what could be wrong, or where to start looking?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "visual-c++",
+    "pip",
+    "setuptools"
+   ],
+   "owner": {
+    "account_id": 20188089,
+    "reputation": 1904,
+    "user_id": 17472988,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/QsIeCPyn.png?s=256",
+    "display_name": "PChemGuy",
+    "link": "https://stackoverflow.com/users/17472988/pchemguy"
+   },
+   "is_answered": true,
+   "view_count": 735,
+   "accepted_answer_id": 79789606,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1760593190,
+   "creation_date": 1760383583,
+   "last_edit_date": 1760593190,
+   "question_id": 79789580,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79789580/python-pip-install-fails-to-detect-activated-msvc-build-tools",
+   "title": "Python &#39;pip install&#39; fails to detect activated MSVC Build Tools",
+   "body": "<p>When trying to install a package with pip on Windows 10 (Python=3.11.13, pip=25.2, setuptools=80.9.0) via</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip install --no-binary :all: pycryptodome\n</code></pre>\n<p>I get apparently infamous error with not particularly insightful message:</p>\n<pre><code>      Testing support for clang\n      Traceback (most recent call last):\n        File &quot;G:\\dev\\AIPY\\Anaconda\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 389, in &lt;module&gt;\n          main()\n        File &quot;G:\\dev\\AIPY\\Anaconda\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 373, in main\n          json_out[&quot;return_val&quot;] = hook(**hook_input[&quot;kwargs&quot;])\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        File &quot;G:\\dev\\AIPY\\Anaconda\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\_in_process.py&quot;, line 143, in get_requires_for_build_wheel\n          return hook(config_settings)\n                 ^^^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 331, in get_requires_for_build_wheel\n          return self._get_build_requires(config_settings, requirements=[])\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 301, in _get_build_requires\n          self.run_setup()\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\build_meta.py&quot;, line 317, in run_setup\n          exec(code, locals())\n        File &quot;&lt;string&gt;&quot;, line 497, in &lt;module&gt;\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-install-jgu9gndw\\pycryptodome_de2d839aee6b4295aed8e8f887f27c7f\\compiler_opt.py&quot;, line 333, in set_compiler_options\n          clang = compiler_is_clang()\n                  ^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-install-jgu9gndw\\pycryptodome_de2d839aee6b4295aed8e8f887f27c7f\\compiler_opt.py&quot;, line 257, in compiler_is_clang\n          return test_compilation(source, msg=&quot;clang&quot;)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-install-jgu9gndw\\pycryptodome_de2d839aee6b4295aed8e8f887f27c7f\\compiler_opt.py&quot;, line 82, in test_compilation\n          objects = compiler.compile([fname], extra_postargs=extra_cc_options)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\_distutils\\compilers\\C\\msvc.py&quot;, line 384, in compile\n          self.initialize()\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\_distutils\\compilers\\C\\msvc.py&quot;, line 294, in initialize\n          vc_env = _get_vc_env(plat_spec)\n                   ^^^^^^^^^^^^^^^^^^^^^^\n        File &quot;C:\\Users\\pcuser\\AppData\\Local\\Temp\\pip-build-env-6vq0slrk\\overlay\\Lib\\site-packages\\setuptools\\_distutils\\compilers\\C\\msvc.py&quot;, line 155, in _get_vc_env\n          raise DistutilsPlatformError(\n      distutils.errors.DistutilsPlatformError: Microsoft Visual C++ 14.0 or greater is required. Get it with &quot;Microsoft C++ Build Tools&quot;: https://visualstudio.microsoft.com/visual-cpp-build-tools/\n</code></pre>\n<p>Given that I have recent MSVC Build Tools installed (same shell):</p>\n<pre><code>G:\\dev\\AIPY\\Anaconda&gt;cl\nMicrosoft (R) C/C++ Optimizing Compiler Version 19.44.35217 for x64\nCopyright (C) Microsoft Corporation.  All rights reserved.\n\nusage: cl [ option... ] filename... [ /link linkoption... ]\n</code></pre>\n<p>the error message does not help at all. No helpful information in Google, similar SO questions, or from Gemini. So what is wrong and how do I fix it?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pytorch",
+    "azure-machine-learning-service",
+    "azure-ml-pipelines"
+   ],
+   "owner": {
+    "account_id": 20910742,
+    "reputation": 23,
+    "user_id": 15361720,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-jVJsjrtHg40/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmYu5wxPpXMCIWYfmAux_0BIDWkUQ/s96-c/s256-rj/photo.jpg",
+    "display_name": "Andrew Johnson",
+    "link": "https://stackoverflow.com/users/15361720/andrew-johnson"
+   },
+   "is_answered": false,
+   "view_count": 89,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1758467910,
+   "creation_date": 1753195565,
+   "last_edit_date": 1753842884,
+   "question_id": 79710660,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79710660/cant-prepare-pytorch-environment-in-ml-studio",
+   "title": "Can&#39;t prepare Pytorch environment in ML Studio",
+   "body": "<p>My model worked in notebooks, where I just pip installed the required packages. But I am trying to run on a pipeline, and when I submit the pipeline as a job I get stuck in the Preparing phase. I believe this is due to the environment not resolving correctly. I've attached my .yml files, and I'm wondering where the issue might be.</p>\n<p>conda_depencies.yml</p>\n<pre class=\"lang-yaml prettyprint-override\"><code>name: pytorch-env-with-optuna\nchannels:\n  - conda-forge\ndependencies:\n  - python=3.8\n  - numpy\n  - pandas\n  - scikit-learn\n  - pip\n  - pip:\n      - torch\n      - optuna\n      - mltable\n      - azure-ai-ml\n      - azure-identity\n</code></pre>\n<p>component.yml</p>\n<pre class=\"lang-yaml prettyprint-override\"><code>$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json\nname:\ndisplay_name:\nversion: 6.0.0\ntype: command\n\ndescription: &gt;\n\ninputs:\n\noutputs:\n\ncode: .\nenvironment:\n  image: mcr.microsoft.com/azureml/curated/acpt-pytorch-1.11-py38-cuda11.3-gpu:9\n  conda_file: conda_dependencies.yml\n\ncommand: &gt;\n</code></pre>\n<p>I've also tried removing optuna from the dependencies list just so I can get past the preparing phase, and that didn't work either. I'm not sure what I'm doing wrong.</p>\n"
+  },
+  {
+   "tags": [
+    "reactjs",
+    "netlify"
+   ],
+   "owner": {
+    "account_id": 21494586,
+    "reputation": 63,
+    "user_id": 15839783,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/b17892a39e4d331cd428392cec65c754?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Faris Helmi Permana",
+    "link": "https://stackoverflow.com/users/15839783/faris-helmi-permana"
+   },
+   "is_answered": true,
+   "view_count": 6019,
+   "accepted_answer_id": 72755758,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1758225560,
+   "creation_date": 1655955504,
+   "last_edit_date": 1655961140,
+   "question_id": 72724257,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72724257/i-cannot-deploy-next-js-to-netlify-deploy-failed-because-of-a-mistake-in-netli",
+   "title": "I cannot deploy Next.js to Netlify. Deploy failed because of a mistake in @netlify/plugin-nextjs plugin",
+   "body": "<p>i'm trying to deploy my nextjs app netlify but it's keep throwing me failed error an not deploying here's my github repo <a href=\"https://github.com/farishelmipermana/nextjs-portfolio.git\" rel=\"nofollow noreferrer\">https://github.com/farishelmipermana/nextjs-portfolio.git</a>, i'am trying to fix by change <code>yarn build &amp;&amp; next export</code>, and i've got the problem <code>Cannot deploy Next.js to Netlify. Deploy failed due to an error in @netlify/plugin-nextjs plugin</code></p>\n<p>Here is my log</p>\n<pre><code>12:10:08 PM: Build ready to start\n12:10:11 PM: build-image version: a49edbc55fc722f80f6b85963a5060f8d043a844 (focal)\n12:10:11 PM: build-image tag: v4.8.1\n12:10:11 PM: buildbot version: 4d0ac5fd74188fe527fa2a661368485be00b8be6\n12:10:12 PM: Fetching cached dependencies\n12:10:12 PM: Failed to fetch cache, continuing with build\n12:10:12 PM: Starting to prepare the repo for build\n12:10:12 PM: No cached dependencies found. Cloning fresh repo\n12:10:12 PM: git clone https://github.com/farishelmipermana/nextjs-portfolio\n12:10:12 PM: Preparing Git Reference refs/heads/master\n12:10:13 PM: Parsing package.json dependencies\n12:10:14 PM: Starting build script\n12:10:14 PM: Installing dependencies\n12:10:14 PM: Python version set to 2.7\n12:10:14 PM: v16.15.1 is already installed.\n12:10:15 PM: Now using node v16.15.1 (npm v8.11.0)\n12:10:15 PM: Started restoring cached build plugins\n12:10:15 PM: Finished restoring cached build plugins\n12:10:15 PM: Attempting ruby version 2.7.2, read from environment\n12:10:16 PM: Using ruby version 2.7.2\n12:10:16 PM: Using PHP version 8.0\n12:10:16 PM: Started restoring cached yarn cache\n12:10:16 PM: Finished restoring cached yarn cache\n12:10:17 PM: No yarn workspaces detected\n12:10:17 PM: Started restoring cached node modules\n12:10:17 PM: Finished restoring cached node modules\n12:10:17 PM: Installing NPM modules using Yarn version 1.22.10\n12:10:17 PM: npm WARN config tmp This setting is no longer used.  npm stores temporary files in a special\n12:10:17 PM: npm WARN config location in the cache, and they are managed by\n12:10:17 PM: npm WARN config     [`cacache`](http://npm.im/cacache).\n12:10:17 PM: yarn install v1.22.10\n12:10:18 PM: warning package-lock.json found. Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.\n12:10:18 PM: [1/4] Resolving packages...\n12:10:18 PM: [2/4] Fetching packages...\n12:10:25 PM: info @next/swc-win32-x64-msvc@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-win32-x64-msvc@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-android-arm64@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-android-arm64@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-android-arm64@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info @next/swc-android-arm-eabi@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-android-arm-eabi@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-android-arm-eabi@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info @next/swc-darwin-arm64@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-darwin-arm64@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-darwin-arm64@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info @next/swc-linux-arm-gnueabihf@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-linux-arm-gnueabihf@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-linux-arm64-gnu@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-linux-arm64-gnu@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-darwin-x64@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-darwin-x64@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-win32-ia32-msvc@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-win32-ia32-msvc@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-win32-ia32-msvc@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info @next/swc-win32-arm64-msvc@12.1.6: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-win32-arm64-msvc@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info @next/swc-win32-arm64-msvc@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info @next/swc-linux-arm64-musl@12.1.6: The CPU architecture &quot;x64&quot; is incompatible with this module.\n12:10:25 PM: info &quot;@next/swc-linux-arm64-musl@12.1.6&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: info fsevents@2.3.2: The platform &quot;linux&quot; is incompatible with this module.\n12:10:25 PM: info &quot;fsevents@2.3.2&quot; is an optional dependency and failed compatibility check. Excluding it from installation.\n12:10:25 PM: [3/4] Linking dependencies...\n12:10:25 PM: [4/4] Building fresh packages...\n12:10:25 PM: success Saved lockfile.\n12:10:25 PM: Done in 8.02s.\n12:10:25 PM: NPM modules installed using Yarn\n12:10:26 PM: Started restoring cached go cache\n12:10:26 PM: Finished restoring cached go cache\n12:10:26 PM: Installing Go version 1.17 (requested 1.17)\n12:10:31 PM: unset GOOS;\n12:10:31 PM: unset GOARCH;\n12:10:31 PM: export GOROOT='/opt/buildhome/.gimme/versions/go1.17.linux.amd64';\n12:10:31 PM: export PATH=&quot;/opt/buildhome/.gimme/versions/go1.17.linux.amd64/bin:${PATH}&quot;;\n12:10:31 PM: go version &gt;&amp;2;\n12:10:31 PM: export GIMME_ENV=&quot;/opt/buildhome/.gimme/env/go1.17.linux.amd64.env&quot;\n12:10:31 PM: go version go1.17 linux/amd64\n12:10:31 PM: Installing missing commands\n12:10:31 PM: Verify run directory\n12:10:33 PM: \u200b\n12:10:33 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:33 PM:   Netlify Build                                                 \n12:10:33 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Version\n12:10:33 PM:   @netlify/build 27.1.6\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Flags\n12:10:33 PM:   baseRelDir: true\n12:10:33 PM:   buildId: 62b3f5b0d3c7f33c0246be8c\n12:10:33 PM:   deployId: 62b3f5b0d3c7f33c0246be8e\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Current directory\n12:10:33 PM:   /opt/build/repo\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Config file\n12:10:33 PM:   No config file was defined: using default values.\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Context\n12:10:33 PM:   production\n12:10:33 PM: \u200b\n12:10:33 PM: \u276f Installing plugins\n12:10:33 PM:    - @netlify/plugin-nextjs@4.9.1\n12:10:43 PM: \u200b\n12:10:43 PM: \u276f Loading plugins\n12:10:43 PM:    - @netlify/plugin-nextjs@4.9.1 from Netlify app\n12:10:45 PM: \u200b\n12:10:45 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:45 PM:   1. @netlify/plugin-nextjs (onPreBuild event)                  \n12:10:45 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:45 PM: \u200b\n12:10:45 PM: No Next.js cache to restore.\n12:10:45 PM: Netlify configuration property &quot;build.environment.NEXT_PRIVATE_TARGET&quot; value changed.\n12:10:45 PM: \u200b\n12:10:45 PM: (@netlify/plugin-nextjs onPreBuild completed in 24ms)\n12:10:45 PM: \u200b\n12:10:45 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:45 PM:   2. Build command from Netlify app                             \n12:10:45 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:10:45 PM: \u200b\n12:10:45 PM: $ yarn build &amp;&amp; next export\n12:10:45 PM: yarn run v1.22.10\n12:10:45 PM: $ next build\n12:10:46 PM: warn  - No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache\n12:10:46 PM: info  - Checking validity of types...\n12:10:46 PM: warn  - No ESLint configuration detected. Run next lint to begin setup\n12:10:46 PM: info  - Creating an optimized production build...\n12:10:59 PM: info  - Compiled successfully\n12:10:59 PM: info  - Collecting page data...\n12:11:02 PM: info  - Generating static pages (0/6)\n12:11:02 PM: info  - Generating static pages (1/6)\n12:11:02 PM: info  - Generating static pages (2/6)\n12:11:02 PM: info  - Generating static pages (4/6)\n12:11:02 PM: info  - Generating static pages (6/6)\n12:11:03 PM: info  - Finalizing page optimization...\n12:11:03 PM: Page                                       Size     First Load JS\n12:11:03 PM: \u250c \u25cb /                                      1.86 kB        79.5 kB\n12:11:03 PM: \u251c   /_app                                  0 B            75.2 kB\n12:11:03 PM: \u251c \u25cb /404                                   193 B          75.4 kB\n12:11:03 PM: \u251c \u25cb /about                                 813 B          78.4 kB\n12:11:03 PM: \u251c \u25cb /contact                               728 B          78.3 kB\n12:11:03 PM: \u2514 \u25cb /portfolio                             747 B          78.4 kB\n12:11:03 PM: + First Load JS shared by all              75.2 kB\n12:11:03 PM:   \u251c chunks/framework-4556c45dd113b893.js   45.2 kB\n12:11:03 PM:   \u251c chunks/main-d8b1ff545a609496.js        28.6 kB\n12:11:03 PM:   \u251c chunks/pages/_app-fb3a3036b08bee65.js  508 B\n12:11:03 PM:   \u251c chunks/webpack-69bfa6990bb9e155.js     769 B\n12:11:03 PM:   \u2514 css/2ab3fddc65372c75.css               752 B\n12:11:03 PM: \u25cb  (Static)  automatically rendered as static HTML (uses no initial props)\n12:11:03 PM: Done in 17.71s.\n12:11:03 PM: info  - using build directory: /opt/build/repo/.next\n12:11:03 PM: info  - Copying &quot;static build&quot; directory\n12:11:03 PM: info  - No &quot;exportPathMap&quot; found in &quot;undefined&quot;. Generating map from &quot;./pages&quot;\n12:11:03 PM: info  - Launching 7 workers\n12:11:03 PM: info  - Exporting (0/5)\n12:11:03 PM: info  - Copying &quot;public&quot; directory\n12:11:04 PM: info  - Exporting (1/5)\n12:11:04 PM: info  - Exporting (2/5)\n12:11:04 PM: info  - Exporting (3/5)\n12:11:04 PM: info  - Exporting (5/5)\n12:11:04 PM: Export successful. Files written to /opt/build/repo/out\n12:11:04 PM: \u200b\n12:11:04 PM: (build.command completed in 19.4s)\n12:11:04 PM: \u200b\n12:11:04 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:11:04 PM:   3. @netlify/plugin-nextjs (onBuild event)                     \n12:11:04 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:11:04 PM: \u200b\n12:11:04 PM: \u200b\n12:11:04 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:11:04 PM:   Plugin &quot;@netlify/plugin-nextjs&quot; failed                        \n12:11:04 PM: \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n12:11:04 PM: \u200b\n12:11:04 PM:   Error message\n12:11:04 PM:   Error: The directory &quot;/opt/build/repo/out&quot; does not contain a Next.js production build. Perhaps the build command was not run, or you specified the wrong publish directory.\n12:11:04 PM:   Your publish directory is set to &quot;out&quot;, but in most cases it should be &quot;.next&quot;.\n12:11:04 PM:   If you are using &quot;next export&quot; then you should set the environment variable NETLIFY_NEXT_PLUGIN_SKIP to &quot;true&quot;.\n12:11:04 PM: \u200b\n12:11:04 PM:   Plugin details\n12:11:04 PM:   Package:        @netlify/plugin-nextjs\n12:11:04 PM:   Version:        4.9.1\n12:11:04 PM:   Repository:     git+https://github.com/netlify/netlify-plugin-nextjs.git\n12:11:04 PM:   npm link:       https://www.npmjs.com/package/@netlify/plugin-nextjs\n12:11:04 PM:   Report issues:  https://github.com/netlify/netlify-plugin-nextjs/issues\n12:11:04 PM: \u200b\n12:11:04 PM:   Error location\n12:11:04 PM:   In &quot;onBuild&quot; event in &quot;@netlify/plugin-nextjs&quot; from Netlify app\n12:11:04 PM:       at checkNextSiteHasBuilt (/.netlify/plugins/node_modules/@netlify/plugin-nextjs/lib/helpers/verification.js:72:16)\n12:11:04 PM:       at onBuild (/.netlify/plugins/node_modules/@netlify/plugin-nextjs/lib/index.js:41:50)\n12:11:04 PM: \u200b\n12:11:04 PM:   Resolved config\n12:11:04 PM:   build:\n12:11:04 PM:     command: yarn build &amp;&amp; next export\n12:11:04 PM:     commandOrigin: ui\n12:11:04 PM:     environment:\n12:11:04 PM:       - NEXT_PRIVATE_TARGET\n12:11:04 PM:     publish: /opt/build/repo/out\n12:11:04 PM:     publishOrigin: ui\n12:11:04 PM:   plugins:\n12:11:04 PM:     - inputs: {}\n12:11:04 PM:       origin: ui\n12:11:04 PM:       package: '@netlify/plugin-nextjs'\n12:11:05 PM: Caching artifacts\n12:11:05 PM: Started saving node modules\n12:11:05 PM: Finished saving node modules\n12:11:05 PM: Started saving build plugins\n12:11:05 PM: Finished saving build plugins\n12:11:05 PM: Started saving yarn cache\n12:11:05 PM: Finished saving yarn cache\n12:11:05 PM: Started saving pip cache\n12:11:05 PM: Finished saving pip cache\n12:11:05 PM: Started saving emacs cask dependencies\n12:11:05 PM: Finished saving emacs cask dependencies\n12:11:05 PM: Started saving maven dependencies\n12:11:05 PM: Finished saving maven dependencies\n12:11:05 PM: Started saving boot dependencies\n12:11:05 PM: Finished saving boot dependencies\n12:11:05 PM: Started saving rust rustup cache\n12:11:05 PM: Finished saving rust rustup cache\n12:11:05 PM: Started saving go dependencies\n12:11:05 PM: Finished saving go dependencies\n12:11:07 PM: Build failed due to a user error: Build script returned non-zero exit code: 2\n12:11:07 PM: Creating deploy upload records\n12:11:07 PM: Failing build: Failed to build site\n12:11:07 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2\n12:11:07 PM: Finished processing build request in 55.750494271s\n</code></pre>\n<p>I have tried to set the public directory to <code>out</code>, but I still get an error like this <code>Cannot deploy Next.js to Netlify. Deploy failed due to an error in @netlify/plugin-nextjs plugin</code></p>\n<p>I have also removed all the plugins in netlify but the error still occurs like this <code>Cannot deploy Next.js to Netlify. Deploy failed due to an error in @netlify/plugin-nextjs plugin</code></p>\n<p>Thank you for your help</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "virtualenv",
+    "homebrew"
+   ],
+   "owner": {
+    "account_id": 6214171,
+    "reputation": 291,
+    "user_id": 4839516,
+    "user_type": "registered",
+    "accept_rate": 57,
+    "profile_image": "https://lh5.googleusercontent.com/-mGj5ZPobb4M/AAAAAAAAAAI/AAAAAAAAAEA/cZTgby9ywmE/s256-rj/photo.jpg",
+    "display_name": "Sam Jaques",
+    "link": "https://stackoverflow.com/users/4839516/sam-jaques"
+   },
+   "is_answered": false,
+   "view_count": 464,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1755978822,
+   "creation_date": 1755965055,
+   "last_edit_date": 1755978822,
+   "question_id": 79744404,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79744404/installing-virtualenv-globally-with-homebrew",
+   "title": "Installing virtualenv globally with Homebrew",
+   "body": "<p>I am trying to build someone else's project that relies on the virtualenv package. On Mac OS with Homebrew, the python environment is externally managed, so I can't &quot;globally&quot; install packages with pip, only with homebrew. I've run</p>\n<p><code>brew install virtualenv</code></p>\n<p><code>brew install pyenv-virtualenv</code></p>\n<p>which seemed to succeed, but <code>python -m virtualenv</code> still gives a &quot;No module named virtualenv&quot; error.</p>\n<p>If it were any other package, I would do the usual thing and create a virtual environment with venv, and install it there. But it feels wrong to install virtualenv inside a virtual environment created by venv. Is there any way to install virtualenv &quot;globally&quot; in some way so the project I'm trying to install can reach it?</p>\n<p>Edit: <code>which -a python</code> gives <code>/opt/homebrew/opt/python@3.13/libexec/bin/python</code>, whereas <code>which -a virtualenv</code> gives <code>/opt/homebrew/bin/virtualenv</code>. Maybe this is an XY problem; is something more fundamentally wrong with by homebrew setup that python can't find this package?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pytorch"
+   ],
+   "owner": {
+    "account_id": 41970334,
+    "reputation": 31,
+    "user_id": 30534247,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/03aa3872f1ce566161bd82952761b4e9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "fabrizio",
+    "link": "https://stackoverflow.com/users/30534247/fabrizio"
+   },
+   "is_answered": true,
+   "view_count": 3267,
+   "closed_date": 1757087079,
+   "accepted_answer_id": 79711889,
+   "answer_count": 5,
+   "score": 3,
+   "last_activity_date": 1755161475,
+   "creation_date": 1747993996,
+   "last_edit_date": 1747997277,
+   "question_id": 79635282,
+   "link": "https://stackoverflow.com/questions/79635282/pytorch-installation-fails-on-macbook-arm64",
+   "closed_reason": "Not suitable for this site",
+   "title": "PyTorch Installation fails on MacBook ARM64",
+   "body": "<p>I'm working on a computer vision project, but I'm having trouble installing python packages as my MacBook seems to be confused about its own architecture.</p>\n<p>I'm trying to install pytorch using</p>\n<pre><code>uv add torch\n</code></pre>\n<p>However, I get the following error:</p>\n<pre><code>Resolved 60 packages in 113ms                                        \nerror: Distribution `torch==2.7.0 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform\n\nhint: You're on macOS (`macosx_15_0_x86_64`), but `torch` (v2.7.0) only has wheels for the following platforms: `manylinux_2_28_aarch64`, `manylinux_2_28_x86_64`, `macosx_11_0_arm64`, `win_amd64`\n</code></pre>\n<p>The problem seems to be that it makes wrong assumptions about what system it's running on.\nI'm working on a <strong>MacBook with M1 Max</strong> (ARM64), not an Intel chip. Also, my MacOS is not 15.0, but <strong>Sequoia 15.4.1</strong>. So this differs from what it states in the &quot;hint&quot; of the error message.</p>\n<p>My hypothesis is that it originates from a timemachine migration from an Intel MacBook to the current one with Apple Silicon chip.</p>\n<p>Does anyone have an idea how to fix this?</p>\n<p>I've spent quite some time and tried many other ways of installing pytorch (pip, conda, manual installation) and trying different Python versions, but I always end up getting this same message for pytorch (interestingly only for pytorch, other packages are installed without any issues).</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x"
+   ],
+   "owner": {
+    "account_id": 13068354,
+    "reputation": 71,
+    "user_id": 9442848,
+    "user_type": "registered",
+    "profile_image": "https://lh4.googleusercontent.com/-0ZFdv-GnFJQ/AAAAAAAAAAI/AAAAAAAAAI0/Iary8mbidTg/s256-rj/photo.jpg",
+    "display_name": "YasuoTouchedMySpaggett",
+    "link": "https://stackoverflow.com/users/9442848/yasuotouchedmyspaggett"
+   },
+   "is_answered": true,
+   "view_count": 17893,
+   "closed_date": 1754774993,
+   "answer_count": 5,
+   "score": 7,
+   "last_activity_date": 1754745729,
+   "creation_date": 1707807278,
+   "last_edit_date": 1754745729,
+   "question_id": 77985996,
+   "link": "https://stackoverflow.com/questions/77985996/python-3-13-modulenotfounderror-no-module-named-distutils",
+   "closed_reason": "Duplicate",
+   "title": "Python 3.13, ModuleNotFoundError: No module named &#39;distutils&#39;",
+   "body": "<p>Environment: Kubuntu 22.04  |  6.5.0-17 Kernel\nPython: Old 3.10 -&gt; New 3.13</p>\n<p>Wanted to try the new python version, so i added the repo in my installation and sudo apt installed python3.13 (Installed: python3.13 python3.13-dev python3.13-minimal)</p>\n<p>Then i tried to install all my old packages(the ones that have a 3.13 version) with this python script (using my old python)</p>\n<pre><code>pkgs = eval(str(sbp.run(&quot;pip3 list -o --format=json&quot;, shell=True,\n                         stdout=sbp.PIPE).stdout, encoding='utf-8'))\nfor pkg in pkgs:\n    sbp.run(&quot;python3.13 -m pip install &quot; + pkg['name'], shell=True)\n</code></pre>\n<p>and im greeted with errors. I then tried to do it from the terminal manually to try and see whats wrong.\nType python3.13 -m pip install SomePackage, i get:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main\n  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code\n  File &quot;/usr/lib/python3/dist-packages/pip/__main__.py&quot;, line 29, in &lt;module&gt;\n    from pip._internal.cli.main import main as _main\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/cli/main.py&quot;, line 9, in &lt;module&gt;\n    from pip._internal.cli.autocompletion import autocomplete\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/cli/autocompletion.py&quot;, line 10, in &lt;module&gt;\n    from pip._internal.cli.main_parser import create_main_parser\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/cli/main_parser.py&quot;, line 8, in &lt;module&gt;\n    from pip._internal.cli import cmdoptions\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/cli/cmdoptions.py&quot;, line 23, in &lt;module&gt;\n    from pip._internal.cli.parser import ConfigOptionParser\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/cli/parser.py&quot;, line 12, in &lt;module&gt;\n    from pip._internal.configuration import Configuration, ConfigurationError\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/configuration.py&quot;, line 26, in &lt;module&gt;\n    from pip._internal.utils.logging import getLogger\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/utils/logging.py&quot;, line 27, in &lt;module&gt;\n    from pip._internal.utils.misc import ensure_dir\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/utils/misc.py&quot;, line 39, in &lt;module&gt;\n    from pip._internal.locations import get_major_minor_version\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/locations/__init__.py&quot;, line 14, in &lt;module&gt;\n    from . import _distutils, _sysconfig\n  File &quot;/usr/lib/python3/dist-packages/pip/_internal/locations/_distutils.py&quot;, line 9, in &lt;module&gt;\n    from distutils.cmd import Command as DistutilsCommand\nModuleNotFoundError: No module named 'distutils'\n\n</code></pre>\n<p>And its not just for one package, but for all of them.</p>\n<p>What can i do to fix this?\nThank you in advance</p>\n<p>I tried installing and reinstalling python, nothing changed</p>\n<p>tried python3.13 -m pip install setuptools ,just throws the error above</p>\n<p>tried python3.13 -m pip install --upgrade setuptools, just throws the error above</p>\n<p>tried sudo apt install python3.13-distutils, doesnt exist</p>\n<p>tried sudo apt install python3.13-setuptools, doesnt exist</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "aws-lambda"
+   ],
+   "owner": {
+    "account_id": 11617150,
+    "reputation": 63,
+    "user_id": 9215011,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/10102478921867629/picture?type=large",
+    "display_name": "Mike Dergance",
+    "link": "https://stackoverflow.com/users/9215011/mike-dergance"
+   },
+   "is_answered": false,
+   "view_count": 156,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1754242624,
+   "creation_date": 1714022379,
+   "question_id": 78382379,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78382379/numpy-on-aws-govcloud-lambda",
+   "title": "Numpy on AWS GovCloud Lambda",
+   "body": "<p>I seem to have a unique issue which is quite surprising! I need to add Numpy to my Lambda function and I'm using a layer rather than Docker (not interested in using Docker at the moment). I use cloudwatch, which is on X86 architecture, to pip install numpy -t ./python, then zip up the python folder and use that as my layer. I'm also running my Lambda function on an x86 architecture. This method works for every other package I need, so there seems to be something wrong with the way Numpy is getting compiled. Also, unfortunately on GovCloud the AWS provided package <code>AWS SDK for Pandas</code> is not available.</p>\n<p>The error that I get is:</p>\n<pre><code>numpy: Error importing numpy: you should not try to import numpy from its source directory;\nplease exit the numpy source tree, and relaunch your python interpreter from there.\n</code></pre>\n<p>Anyone know how to fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows"
+   ],
+   "owner": {
+    "account_id": 41083313,
+    "reputation": 9,
+    "user_id": 30111192,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/984e498ffb9bd9f5d5b0d9c111723f25?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "malloww",
+    "link": "https://stackoverflow.com/users/30111192/malloww"
+   },
+   "is_answered": false,
+   "view_count": 99,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1753720436,
+   "creation_date": 1743343697,
+   "question_id": 79544701,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79544701/how-can-i-retrieve-the-data-from-the-windows-media-widget-in-python",
+   "title": "how can i retrieve the data from the windows media widget in python?",
+   "body": "<p>i'm trying to retrieve the data of the <a href=\"https://i.sstatic.net/XI7sDwEc.png\" rel=\"nofollow noreferrer\">the media widget</a> that shows what song, video or any media is currently playing on windows. what tool can i use to do that ? i tried using winrt but this package is deprecated since python 3.11\ni tried installing winrt, but even after switching to python 3.9, i get the same error:</p>\n<pre><code>&gt;&gt;C:\\Users\\****\\AppData\\Local\\Programs\\Python\\Python39&gt;pip install winrt\n&gt;&gt;ERROR: Could not find a version that satisfies the requirement winrt (from versions: none)\n&gt;&gt;ERROR: No matching distribution found for winrt\n</code></pre>\n<p>maybe i'm doing something wrong with the pip installing or maybe an alternative will work best. what should i do ?</p>\n"
+  },
+  {
+   "tags": [
+    "macos",
+    "pip",
+    "mezzanine",
+    "libtiff",
+    "python-imaging-library"
+   ],
+   "owner": {
+    "account_id": 98474,
+    "reputation": 10082,
+    "user_id": 266536,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://i.sstatic.net/myR4P.jpg?s=256",
+    "display_name": "Mike M. Lin",
+    "link": "https://stackoverflow.com/users/266536/mike-m-lin"
+   },
+   "is_answered": true,
+   "view_count": 5636,
+   "accepted_answer_id": 21033579,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1753060204,
+   "creation_date": 1386898099,
+   "last_edit_date": 1386901858,
+   "question_id": 20557557,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/20557557/missing-header-tiffio-h-installing-pillow-on-mac-os-x",
+   "title": "Missing header tiffio.h installing Pillow on Mac OS X",
+   "body": "<p>When trying to install Pillow using PIP, I get this include error:</p>\n\n<pre><code>\u03bc ~: pip install pillow\n...\nlibImaging/TiffDecode.h:10:10: fatal error: 'tiffio.h' file not found\n\n#include &lt;tiffio.h&gt;\n\n         ^\n\n1 error generated.\n\nerror: command 'cc' failed with exit status 1\n</code></pre>\n\n<p>Does anyone know how to resolve this? I'm on OS X 10.9 and have previously been able to build Pillow on this computer.</p>\n\n<p><strong>Update:</strong> Note that I have <code>tiffio.h</code> on my machine at <code>/usr/local/include/tiffio.h</code>. After setting that directory to the C include path, I am able to successfully compile Pillow.</p>\n\n<pre><code>\u03bc ~: C_INCLUDE_PATH=/usr/local/include\n\u03bc ~: pip install pillow\nDownloading/unpacking pillow\n...\nSuccessfully installed pillow\nCleaning up...\n</code></pre>\n\n<p>Is this how it's supposed to be done, or is there something wrong with my machine or the installation package?</p>\n"
+  },
+  {
+   "tags": [
+    "aws-lambda",
+    "sentiment-analysis",
+    "localstack"
+   ],
+   "owner": {
+    "account_id": 34491525,
+    "reputation": 1,
+    "user_id": 26599393,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a3dc30ded199a2d0350d9fe43d1f6bb5?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "acdm",
+    "link": "https://stackoverflow.com/users/26599393/acdm"
+   },
+   "is_answered": false,
+   "view_count": 58,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1751297578,
+   "creation_date": 1751297578,
+   "question_id": 79685014,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79685014/aws-lambda-localstack-how-to-package-nltk-vader-for-sentiment-analysis-withou",
+   "title": "AWS Lambda + LocalStack: How to Package NLTK/VADER for Sentiment Analysis Without Runtime Errors?",
+   "body": "<p>I'm working on a university project that involves building a serverless pipeline using AWS Lambda functions in a LocalStack environment. The pipeline processes customer reviews and performs preprocessing, profanity checking, and sentiment analysis.\nThe first two steps (preprocessing + profanity check) work fine (probably, but I might even be wrong here). But I\u2019m stuck on the sentiment analysis Lambda - after I trigger the even, the bucket is empty (not empty for preprocessing and profanity check)</p>\n<p>Here's what I\u2019m trying to do:\nUse nltk.sentiment.vader.SentimentIntensityAnalyzer in a Lambda</p>\n<p>I packaged all required files by:\nInstalling dependencies with pip install nltk -t package/\nDownloading the VADER lexicon with nltk.download('vader_lexicon')\nAdding it to the Lambda zip alongside the handler.py</p>\n<p>Deployed with:\nawslocal lambda create-function ...\nAt runtime, I get errors like:\nResource punkt not found.\nResource vader_lexicon not found.\nDespite including the nltk_data folder in my zip, it seems the Lambda doesn\u2019t find the files. I tried setting nltk.data.path.append(&quot;/var/task/nltk_data&quot;) but no luck.</p>\n<p>My Questions:</p>\n<ol>\n<li>How do I properly package NLTK (especially VADER) so it works in an AWS Lambda deployed via LocalStack?</li>\n<li>Is there a better way to include pre-downloaded corpora in the Lambda ZIP?\nShould I be using another library (e.g. TextBlob, transformers) that's more Lambda-friendly?</li>\n<li>Any help or working examples would be hugely appreciated. Let me know if logs or my handler.py would help.</li>\n</ol>\n<p>My handlers.py are here: <a href=\"https://github.com/acmorelli/DIC_ex03.git\" rel=\"nofollow noreferrer\">https://github.com/acmorelli/DIC_ex03.git</a></p>\n<p>Full folder from sentiment_analysis I couldn't upload because it had too many files inside (due to the packages and etc). So the handler.py is alone outside.</p>\n<p>I never did this before, so it is likely a beginner's mistake.\nThanks in advance</p>\n<p>What I've tried:\nIncluding the nltk_data in the root or package/nltk_data</p>\n<p>Hardcoding nltk.data.path in the Lambda handler</p>\n<p>Using absolute paths like /var/task/nltk_data/sentiment/vader_lexicon.zip</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "python-click"
+   ],
+   "owner": {
+    "account_id": 4518980,
+    "reputation": 5374,
+    "user_id": 3672883,
+    "user_type": "registered",
+    "accept_rate": 83,
+    "profile_image": "https://i.sstatic.net/bOBrL.png?s=256",
+    "display_name": "Tlaloc-ES",
+    "link": "https://stackoverflow.com/users/3672883/tlaloc-es"
+   },
+   "is_answered": true,
+   "view_count": 1812,
+   "accepted_answer_id": 73413674,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1750522554,
+   "creation_date": 1660893304,
+   "last_edit_date": 1750522554,
+   "question_id": 73413121,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/73413121/nonetype-object-has-no-attribute-group-building-a-package-with-click",
+   "title": "&#39;NoneType&#39; object has no attribute &#39;group&#39; building a package with click",
+   "body": "<p>Hello I am trying to building a python package I have the following folder structure</p>\n<pre><code>.\n\u251c\u2500\u2500 Dockerfile\n\u251c\u2500\u2500 entrypoint.sh\n\u251c\u2500\u2500 Pipfile\n\u251c\u2500\u2500 Pipfile.lock\n\u251c\u2500\u2500 setup.py\n\u2514\u2500\u2500 vms-backup\n    \u251c\u2500\u2500 commands\n    \u2502   \u251c\u2500\u2500 __init__.py\n    \u2502   \u251c\u2500\u2500 to_csv.py\n    \u2502   \u251c\u2500\u2500 to_sql.py\n    \u2502   \u2514\u2500\u2500 upload_to_s3.py\n    \u2514\u2500\u2500 __init__.py\n</code></pre>\n<p>the setup.py contains the following code:</p>\n<pre><code>from setuptools import setup, find_packages\nimport pipfile\n\npf = pipfile.load(&quot;Pipfile&quot;)\n\nsetup(\n    name=&quot;vms-backup&quot;,\n    version=&quot;1.0.0&quot;,\n    packages=find_packages(exclude=[&quot;tests&quot;]),\n    python_requires=&quot;==3.8.13&quot;,\n    install_requires=[&quot;click&quot;],\n    entry_points=&quot;&quot;&quot;\n        [console_scripts]\n        vms-backup=vms-backup:cli\n    &quot;&quot;&quot;,\n)\n</code></pre>\n<p>and vms-backup/.<strong>init</strong>.py</p>\n<pre><code>import click\nfrom commands import to_csv, to_sql, upload_to_s3\n\n\n@click.group()\ndef cli():\n    pass\n\n\ncli.add_command(to_csv)\ncli.add_command(to_sql)\ncli.add_command(upload_to_s3)\n\n\nif __name__ == &quot;__main__&quot;:\n    cli()\n</code></pre>\n<p>The code works perfectly if I execute, but when executing pip install -e . in order to test the entry_points I got the following output:</p>\n<pre><code>  Preparing metadata (setup.py) ... error\n  error: subprocess-exited-with-error\n  \n  \u00d7 python setup.py egg_info did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500&gt; [1 lines of output]\n      error in vms-backup setup command: 'NoneType' object has no attribute 'group'\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500&gt; See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n</code></pre>\n<p>Any idea about what is wrong with the code?</p>\n<p>Thanks</p>\n<p><strong>EDIT</strong></p>\n<p>If I execute inside a dockerfile the error change:</p>\n<pre><code>backup_1        | Obtaining file:///usr/app\nbackup_1        |   Preparing metadata (setup.py): started\nbackup_1        |   Preparing metadata (setup.py): finished with status 'error'\nbackup_1        |   error: subprocess-exited-with-error\nbackup_1        |   \nbackup_1        |   \u00d7 python setup.py egg_info did not run successfully.\nbackup_1        |   \u2502 exit code: 1\nbackup_1        |   \u2570\u2500&gt; [1 lines of output]\nbackup_1        |       error in vms-backup setup command: (&quot;EntryPoint must be in 'name=module:attrs [extras]' format&quot;, 'vms-backup=vms-backup:cli')\nbackup_1        |       [end of output]\nbackup_1        |   \nbackup_1        |   note: This error originates from a subprocess, and is likely not a problem with pip.\nbackup_1        | error: metadata-generation-failed\nbackup_1        | \nbackup_1        | \u00d7 Encountered error while generating package metadata.\nbackup_1        | \u2570\u2500&gt; See above for output.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "pip",
+    "command-line-interface",
+    "python-venv"
+   ],
+   "owner": {
+    "account_id": 15572671,
+    "reputation": 381,
+    "user_id": 11234624,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/ff2d320aecaa144c7f76e00e27d9f450?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "gittenger",
+    "link": "https://stackoverflow.com/users/11234624/gittenger"
+   },
+   "is_answered": false,
+   "view_count": 361,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1749446778,
+   "creation_date": 1613355607,
+   "last_edit_date": 1613358881,
+   "question_id": 66202012,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/66202012/how-to-access-cli-from-installed-pip-python-venv-script",
+   "title": "How to access CLI from installed Pip/Python venv script",
+   "body": "<p>I'm sorry if this is a basic question, but I'm hoping someone can clarify something that may be quite simple.</p>\n<p>What I want is to use the tool <code>eyeD3</code> which is <a href=\"https://eyed3.readthedocs.io/en/latest/cli.html\" rel=\"nofollow noreferrer\">a CLI</a>. The confusing bit is that on the <a href=\"https://eyed3.readthedocs.io/en/latest/installation.html\" rel=\"nofollow noreferrer\">install page</a> it says it should be installed with Pip. Thus, I created a virtual environment and installed the package there.</p>\n<p>Okay great, but how do I actually use it now? Because every instruction says to use it as a command line tool. But if it's installed as a pip package then the &quot;eyed3&quot; command is not magically going to be placed in my PATH to be used as intended. So what am I not getting here?</p>\n<p>Alternatively I may just download it using <code>sudo dnf install python-eyed3</code> which should work.</p>\n<p>But I really want to educate myself if I'm understanding something wrong, so I can better understand and utilize pip and virtual environments with Python.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 18923210,
+    "reputation": 543,
+    "user_id": 13806869,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6608708f2cb45ceb76c677cf916f3a91?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "SRJCoding",
+    "link": "https://stackoverflow.com/users/13806869/srjcoding"
+   },
+   "is_answered": true,
+   "view_count": 483,
+   "accepted_answer_id": 79614436,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1747406839,
+   "creation_date": 1746532895,
+   "last_edit_date": 1747092317,
+   "question_id": 79608662,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79608662/how-can-i-upgrade-pandas-via-pip",
+   "title": "How can I upgrade Pandas via pip?",
+   "body": "<p>I currently have Pandas 1.4.2 installed. I want to update to the latest version, so I entered this into the command prompt:</p>\n<blockquote>\n<p>pip install -U pandas</p>\n</blockquote>\n<p>However, it just returns this message:</p>\n<blockquote>\n<p>Requirement already satisfied: pandas in\nc:\\users\\my_username\\appdata\\local\\programs\\python\\python39\\lib\\site-packages\n(1.4.2)</p>\n</blockquote>\n<p>Which sounds like it won't install the new version because I already have Pandas installed. But I thought the -U specifies that you want to update an existing package?</p>\n<p>Where am I going wrong? I'm using pip 22.0.4 and Python 3.9.12 if that helps.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "raspberry-pi"
+   ],
+   "owner": {
+    "account_id": 29499281,
+    "reputation": 21,
+    "user_id": 22612708,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocKuf72mgiVayfQlfjEhSO-TvX_El0fHvHfTSKpXMoW7OqU=k-s256",
+    "display_name": "arjeplog",
+    "link": "https://stackoverflow.com/users/22612708/arjeplog"
+   },
+   "is_answered": true,
+   "view_count": 2932,
+   "closed_date": 1730831380,
+   "accepted_answer_id": 78003288,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1746630389,
+   "creation_date": 1708021145,
+   "last_edit_date": 1746630389,
+   "question_id": 78003100,
+   "link": "https://stackoverflow.com/questions/78003100/running-pip-install-in-a-virtual-environment-tries-to-install-packages-in-the",
+   "closed_reason": "Duplicate",
+   "title": "Running &#39;pip install&#39; in a virtual environment tries to install packages in the default Python directory",
+   "body": "<p>I am trying to install modules for Python on my <a href=\"https://en.wikipedia.org/wiki/Raspberry_Pi\" rel=\"nofollow noreferrer\">Raspberry Pi</a> 5 in a virtual environment, but it just says that the environment is externally managed.</p>\n<p>I started with activating the virtual environment and am trying to install the package I needed, but it just told me the environment was externally managed.</p>\n<pre class=\"lang-none prettyprint-override\"><code>clock@system-time:/clock $ source .venv/bin/activate\n(.venv) clock@system-time:/clock $ sudo python3 -m pip install inputimeout\nerror: externally-managed-environment\n\n\u00d7 This environment is externally managed\n\u2570\u2500&gt; To install Python packages system-wide, try apt install\n    python3-xyz, where xyz is the package you are trying to\n    install.\n\n    If you wish to install a non-Debian-packaged Python package,\n    create a virtual environment using python3 -m venv path/to/venv.\n    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make\n    sure you have python3-full installed.\n\n    For more information visit http://rptl.io/venv\n\nnote: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.\nhint: See PEP 668 for the detailed specification.\n</code></pre>\n<p>I checked which pip and Python interpreter it was using, and it was the one from the virtual environment.</p>\n<pre class=\"lang-none prettyprint-override\"><code>(.venv) clock@system-time:/clock $ which pip\n/clock/.venv/bin/pip\n(.venv) clock@system-time:/clock $ which python\n/clock/.venv/bin/python\n</code></pre>\n<p>So I tried using <code>--break-system-packages</code>, because I thought_ maybe there was just a something wrong. It downloaded and installed the package.</p>\n<pre class=\"lang-none prettyprint-override\"><code>(.venv) clock@system-time:/clock $ sudo python3 -m pip install inputimeout --break-system-packages\nLooking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple\nCollecting inputimeout\n  Downloading inputimeout-1.0.4-py3-none-any.whl (4.6 kB)\nInstalling collected packages: inputimeout\nSuccessfully installed inputimeout-1.0.4\nWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n</code></pre>\n<p>I then tried checking my list of installed packages and it was not there.</p>\n<pre class=\"lang-none prettyprint-override\"><code>(.venv) clock@system-time:/clock $ pip list\nPackage    Version\n---------- -------\npip        23.0.1\nsetuptools 66.1.1\n</code></pre>\n<p>So I exited and checked the list for the default installation of the Python interpreter and it was there.</p>\n<pre class=\"lang-none prettyprint-override\"><code>(.venv) clock@system-time:/clock $ deactivate\nclock@system-time:/clock $ pip list\nPackage                            Version\n---------------------------------- ----------\narandr                             0.1.11\nasgiref                            3.6.0\nastroid                            2.14.2\nasttokens                          2.2.1\nav                                 10.0.0\nBabel                              2.10.3\nbeautifulsoup4                     4.11.2\nblinker                            1.5\ncertifi                            2022.9.24\nchardet                            5.1.0\ncharset-normalizer                 3.0.1\nclick                              8.1.3\ncolorama                           0.4.6\ncolorzero                          2.0\ncryptography                       38.0.4\ncupshelpers                        1.0\ndbus-python                        1.3.2\ndill                               0.3.6\ndistro                             1.8.0\ndocutils                           0.19\nexecuting                          2.0.1\nFlask                              2.2.2\ngpiozero                           2.0\nhtml5lib                           1.1\nicecream                           2.1.3\nidna                               3.3\nimportlib-metadata                 4.12.0\ninputimeout                        1.0.4\n...\n</code></pre>\n<p>I also tried following <a href=\"https://stackoverflow.com/a/68851042/22612708\">this</a>, but it just didn't work either.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "huggingface-transformers",
+    "large-language-model",
+    "deepseek"
+   ],
+   "owner": {
+    "account_id": 34490111,
+    "reputation": 43,
+    "user_id": 26598303,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/3fdcea1817dc96adfdce29c34fe0e997?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user26598303",
+    "link": "https://stackoverflow.com/users/26598303/user26598303"
+   },
+   "is_answered": true,
+   "view_count": 553,
+   "accepted_answer_id": 79597068,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1745913093,
+   "creation_date": 1745844717,
+   "last_edit_date": 1745913093,
+   "question_id": 79596520,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79596520/where-to-import-the-models-for-deepseek-vl2-from",
+   "title": "Where to import the models for DeepSeek VL2 from?",
+   "body": "<p>I am trying to run the DeepSeek VL2 model (tiny version) locally and use the following code found on <a href=\"https://huggingface.co/deepseek-ai/deepseek-vl2-tiny\" rel=\"nofollow noreferrer\">Huggingface</a>:</p>\n<pre><code>import torch\nfrom transformers import AutoModelForCausalLM\n\nfrom deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM\nfrom deepseek_vl.utils.io import load_pil_images\n\n\n# specify the path to the model\nmodel_path = &quot;deepseek-ai/deepseek-vl2-tiny&quot;  # replaced 'small' with 'tiny'\nvl_chat_processor: DeepseekVLV2Processor = DeepseekVLV2Processor.from_pretrained(model_path)\ntokenizer = vl_chat_processor.tokenizer\n\nvl_gpt: DeepseekVLV2ForCausalLM = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True)\nvl_gpt = vl_gpt.to(torch.bfloat16).cuda().eval()\n\n## single image conversation example\nconversation = [\n    {\n        &quot;role&quot;: &quot;&lt;|User|&gt;&quot;,\n        &quot;content&quot;: &quot;&lt;image&gt;\\n&lt;|ref|&gt;The giraffe at the back.&lt;|/ref|&gt;.&quot;,\n        &quot;images&quot;: [&quot;./images/visual_grounding.jpeg&quot;],\n    },\n    {&quot;role&quot;: &quot;&lt;|Assistant|&gt;&quot;, &quot;content&quot;: &quot;&quot;},\n]\n\n# load images and prepare for inputs\npil_images = load_pil_images(conversation)\nprepare_inputs = vl_chat_processor(\n    conversations=conversation,\n    images=pil_images,\n    force_batchify=True,\n    system_prompt=&quot;&quot;\n).to(vl_gpt.device)\n\n# run image encoder to get the image embeddings\ninputs_embeds = vl_gpt.prepare_inputs_embeds(**prepare_inputs)\n\n# run the model to get the response\noutputs = vl_gpt.language_model.generate(\n    inputs_embeds=inputs_embeds,\n    attention_mask=prepare_inputs.attention_mask,\n    pad_token_id=tokenizer.eos_token_id,\n    bos_token_id=tokenizer.bos_token_id,\n    eos_token_id=tokenizer.eos_token_id,\n    max_new_tokens=512,\n    do_sample=False,\n    use_cache=True\n)\n\nanswer = tokenizer.decode(outputs[0].cpu().tolist(), skip_special_tokens=True)\nprint(f&quot;{prepare_inputs['sft_format'][0]}&quot;, answer)\n</code></pre>\n<p>However, I am unable to import</p>\n<pre><code>from deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM\nfrom deepseek_vl.utils.io import load_pil_images\n</code></pre>\n<p>I tried to install deepseek_vl through pip but the packages listed there with a similar name seem to be something completely different. Then I thought it might be required to download the DeepSeek-VL repository from Github. But the <a href=\"https://github.com/deepseek-ai/DeepSeek-VL/tree/main\" rel=\"nofollow noreferrer\">repository</a> does not contain classes named <code>DeepseekVLV2Processor</code> or <code>DeepseekVLV2ForCausalLM</code> in the <code>models</code> directory. The <code>load_pil_images</code> function can be found under <code>utils.io</code> though.</p>\n<p>I know that the Installation gudieline on Huggingface states that the dependencies are to be installed through <code>pip install -e .</code>. But when do I have to run this command? After downloading the repository?\nObviously, since I am new to running such models locally, I must be doing something completely wrong. How am I supposed to run the code above and to import the requirements correctly?</p>\n"
+  }
+ ]
+}

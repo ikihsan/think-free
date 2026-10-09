@@ -274,6 +274,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
 | `EXPERIMENTS/068-arxiv-spec-generator/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Complete — 4 of 4 kill gates PASSED (after conda parsing fix and fair K4 metric) |
 | `EXPERIMENTS/069-install-test/` | `docs/INDEX.md` | active | 2026-10-09 | Verdict: the direction closes, and its own gate passes vacuously. E068's |
+| `EXPERIMENTS/070-silent-wrong-project/` | `EXPERIMENTS/070-silent-wrong-project/PROTOCOL.md` | active | 2026-10-09 | Status: Complete. K1a met, K2 primary ≥ 0.10 (build authorized). |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

@@ -8,13 +8,14 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-188 recorded session(s). One `events.jsonl` per session, so concurrent
+189 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 163 older session(s) are in the directory listing.
+Showing the 25 most recent. 164 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | **unfinished** | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T08:19 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
 | [2026-10-09-001-record-decision-and-continuation-for-e06](2026-10-09-001-record-decision-and-continuation-for-e06/README.md) | unknown-agent | worked | Record decision and continuation for E065/E066 and E067 experiments | 2026-10-09T00:33 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 163 older session(s) are in the directory listing.
 | [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
-| [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
 
 
 ## Reading a session

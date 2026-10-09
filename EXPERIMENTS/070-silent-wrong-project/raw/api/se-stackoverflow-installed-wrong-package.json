@@ -1,0 +1,738 @@
+{
+ "site": "stackoverflow",
+ "query": "installed wrong package",
+ "class": "G",
+ "items": [
+  {
+   "tags": [
+    "wix",
+    "windows-installer",
+    "vsto",
+    "outlook-addin",
+    "csproj"
+   ],
+   "owner": {
+    "account_id": 4182221,
+    "reputation": 139,
+    "user_id": 3426897,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/af41a585e75609f52c3a0a01f0a8e029?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Mirec J.",
+    "link": "https://stackoverflow.com/users/3426897/mirec-j"
+   },
+   "is_answered": true,
+   "view_count": 194,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1791228879,
+   "creation_date": 1757086117,
+   "last_edit_date": 1791228879,
+   "question_id": 79756956,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79756956/vsto-outlook-add-in-sdk-style-project-works-with-direct-install-but-fails-with",
+   "title": "VSTO Outlook Add-in: SDK-style Project Works with Direct Install but Fails with WiX MSI",
+   "body": "<p>I have a critical issue with my SDK-Style generated VSTO Outlook add-in when deployed via WiX MSI installer. The same VSTO files work perfectly when installed directly (double-click .vsto file) but fail when packaged in an MSI installer.</p>\n<p>The same VSTO generated via OldStyle CSProj packed into an MSI installs and works perfectly.</p>\n<p><strong>TL-DR:</strong> solution is in this question below, thanks to @lauxjpn, @Nikolay and @Dmitry Streblechenko</p>\n<p>This question builds upon: <a href=\"https://stackoverflow.com/questions/79739439/vsto-outlook-add-in-sdk-style-project-fails-to-generate-vsto-and-dll-manifest\">VSTO Outlook Add-in SDK-style project fails to generate vsto and dll manifest</a></p>\n<p><strong>Environment</strong></p>\n<ul>\n<li>Project type: SDK-style .csproj with VSTO</li>\n<li>Target framework: .NET Framework 4.7.2</li>\n<li>Office version: Outlook 2016/2019/365</li>\n<li>WiX version: 3.14</li>\n<li>Build System: MSBuild 17.14</li>\n<li>OS: Windows 11 (64-bit)</li>\n</ul>\n<p><strong>Working vs non-working scenarios</strong></p>\n<p><strong>WORKING</strong>: Direct VSTO Installation</p>\n<p>Installed directly using double-click on the <code>.vsto</code> file, or:</p>\n<pre class=\"lang-bash prettyprint-override\"><code># This works perfectly\nVSTOInstaller.exe /install &quot;path\\to\\Minimal.BIEM.Outlook.vsto&quot; /silent\n</code></pre>\n<ul>\n<li>Installs to HKCU (per-user)</li>\n<li>Outlook loads add-in successfully</li>\n<li>All functionality works as expected</li>\n</ul>\n<p><strong>NOT WORKING</strong>: MSI Installation</p>\n<p>My WiX build process takes exactly the same VSTO files and packs them into an MSI. Then:</p>\n<pre class=\"lang-bash prettyprint-override\"><code># MSI installs without errors, but add-in won't load\nmsiexec /i &quot;Minimal.BIEM32Setup.msi&quot; /quiet\n</code></pre>\n<ul>\n<li>MSI installation completes successfully</li>\n<li>All files copied to the ususal Program Files destination correctly</li>\n<li>Registry entries created in HKLM as usual</li>\n<li>Outlook error: &quot;Not loaded. A runtime error occurred during the loading of the COM add-in.&quot;</li>\n</ul>\n<p>Or in German:</p>\n<blockquote>\n<p>Nicht geladen. W\u00e4hrend des Ladens des COM-Add-Ins ist ein Laufzeitfehler aufgetreten</p>\n</blockquote>\n<p><strong>Project structure</strong></p>\n<p><code>BIEM-SdkStyle.csproj</code> and <code>BIEM-OldStyle.csproj</code></p>\n<p>See here: <a href=\"https://stackoverflow.com/questions/79739439/vsto-outlook-add-in-sdk-style-project-fails-to-generate-vsto-and-dll-manifest\">VSTO Outlook Add-in SDK-style project fails to generate vsto and dll manifest</a></p>\n<p><strong>WiX project</strong> <code>SetupBIEM.wixproj</code>:</p>\n<pre class=\"lang-xml prettyprint-override\"><code>&lt;Project ToolsVersion=&quot;15.0&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;\n  &lt;PropertyGroup&gt;\n    &lt;Configuration Condition=&quot; '$(Configuration)' == '' &quot;&gt;Debug&lt;/Configuration&gt;\n    &lt;Platform Condition=&quot; '$(Platform)' == '' &quot;&gt;x86&lt;/Platform&gt;\n    &lt;ProductVersion&gt;3.7&lt;/ProductVersion&gt;\n    &lt;ProjectGuid&gt;{4a8159fb-f544-489b-9b6f-c6b048b929df}&lt;/ProjectGuid&gt;\n    &lt;SchemaVersion&gt;2.0&lt;/SchemaVersion&gt;\n    &lt;OutputName&gt;Minimal.BIEM32Setup&lt;/OutputName&gt;\n    &lt;OutputType&gt;Package&lt;/OutputType&gt;\n    &lt;WixTargetsPath Condition=&quot; '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' &quot;&gt;$(MSBuildExtensionsPath32)\\Microsoft\\WiX\\v3.x\\Wix.targets&lt;/WixTargetsPath&gt;\n    &lt;WixTargetsPath Condition=&quot; '$(WixTargetsPath)' == '' &quot;&gt;$(MSBuildExtensionsPath)\\Microsoft\\WiX\\v3.x\\Wix.targets&lt;/WixTargetsPath&gt;\n    &lt;!-- Override WixTargetsPath if the default locations don't exist (e.g., when using VS Build Tools) --&gt;\n    &lt;WixTargetsPath Condition=&quot; '$(WixTargetsPath)' != '' AND !Exists('$(WixTargetsPath)') &quot;&gt;C:\\Program Files (x86)\\MSBuild\\Microsoft\\WiX\\v3.x\\wix.targets&lt;/WixTargetsPath&gt;\n    &lt;Name&gt;SetupBIEM&lt;/Name&gt;\n    &lt;SuppressValidation&gt;true&lt;/SuppressValidation&gt;\n  &lt;/PropertyGroup&gt;\n  &lt;PropertyGroup Condition=&quot; '$(Configuration)|$(Platform)' == 'Debug|x86' &quot;&gt;\n    &lt;OutputPath&gt;bin\\$(Configuration)\\&lt;/OutputPath&gt;\n    &lt;IntermediateOutputPath&gt;obj\\$(Configuration)\\&lt;/IntermediateOutputPath&gt;\n    &lt;DefineConstants&gt;Debug&lt;/DefineConstants&gt;\n    &lt;SuppressAllWarnings&gt;False&lt;/SuppressAllWarnings&gt;\n    &lt;Pedantic&gt;True&lt;/Pedantic&gt;\n  &lt;/PropertyGroup&gt;\n  &lt;PropertyGroup Condition=&quot; '$(Configuration)|$(Platform)' == 'Release|x86' &quot;&gt;\n    &lt;OutputPath&gt;bin\\$(Configuration)\\&lt;/OutputPath&gt;\n    &lt;IntermediateOutputPath&gt;obj\\$(Configuration)\\&lt;/IntermediateOutputPath&gt;\n  &lt;/PropertyGroup&gt;\n  &lt;ItemGroup&gt;\n    &lt;Compile Include=&quot;Product.wxs&quot; /&gt;\n    &lt;Content Include=&quot;config\\postbuild.xml&quot; /&gt;\n    &lt;Content Include=&quot;IncludeBiem.wxi&quot; /&gt;\n    &lt;Folder Include=&quot;config&quot; /&gt;\n  &lt;/ItemGroup&gt;\n  &lt;Import Project=&quot;$(WixTargetsPath)&quot; /&gt;\n&lt;/Project&gt;\n</code></pre>\n<p>WiX configuration (<code>Product.wxs</code>):</p>\n<pre class=\"lang-xml prettyprint-override\"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\n&lt;Wix xmlns=&quot;http://schemas.microsoft.com/wix/2006/wi&quot;&gt;\n  &lt;Product Id=&quot;*&quot; UpgradeCode=&quot;...&quot; Name=&quot;MyCompany BIEM 3.2&quot; \n           Manufacturer=&quot;MyCompany&quot; Language=&quot;1031&quot; Version=&quot;3.2.2&quot;&gt;\n    \n    &lt;Package InstallerVersion=&quot;300&quot; Compressed=&quot;yes&quot; InstallScope=&quot;perMachine&quot; /&gt;\n    \n    &lt;Feature Id=&quot;AddInBIEM&quot; Title=&quot;Setup BIEM&quot; Level=&quot;1&quot;&gt;\n      &lt;ComponentRef Id=&quot;AddInBiem&quot; /&gt;\n    &lt;/Feature&gt;\n\n    &lt;Directory Id=&quot;TARGETDIR&quot; Name=&quot;SourceDir&quot;&gt;\n      &lt;Directory Id=&quot;ProgramFilesFolder&quot;&gt;\n        &lt;Directory Id=&quot;MyCompany&quot; Name=&quot;MyCompany&quot;&gt;\n          &lt;Directory Id=&quot;INSTALLLOCATION&quot; Name=&quot;BIEM&quot;&gt;\n            &lt;Component Id=&quot;AddInBiem&quot; Guid=&quot;...&quot; KeyPath=&quot;yes&quot;&gt;\n              \n              &lt;!-- VSTO Files --&gt;\n              &lt;File Source=&quot;$(var.ProjectDir)..\\Installation\\FilesForMSI\\Minimal.BIEM.Outlook.dll&quot; /&gt;\n              &lt;File Source=&quot;$(var.ProjectDir)..\\Installation\\FilesForMSI\\Minimal.BIEM.Outlook.dll.config&quot; /&gt;\n              &lt;File Source=&quot;$(var.ProjectDir)..\\Installation\\FilesForMSI\\Minimal.BIEM.Outlook.dll.manifest&quot; /&gt;\n              &lt;File Source=&quot;$(var.ProjectDir)..\\Installation\\FilesForMSI\\Minimal.BIEM.Outlook.vsto&quot; /&gt;\n              \n              &lt;!-- MS Office Tools DLLs --&gt;\n              &lt;File Source=&quot;$(var.ProjectDir)..\\Installation\\FilesForMSI\\Microsoft.Office.Tools.*.dll&quot;/&gt;\n              \n              &lt;!-- Outlook Add-in Registration --&gt;\n              &lt;RegistryKey Root=&quot;HKLM&quot; Key=&quot;Software\\WOW6432Node\\Microsoft\\Office\\Outlook\\Addins\\Minimal.BIEM.Outlook&quot;&gt;\n                &lt;RegistryValue Name=&quot;Description&quot; Value=&quot;Versenden von E-Mails nach Extern aus Outlook&quot; Type=&quot;string&quot;/&gt;\n                &lt;RegistryValue Name=&quot;FriendlyName&quot; Value=&quot;MyCompany BIEM 3.2&quot; Type=&quot;string&quot;/&gt;\n                &lt;RegistryValue Name=&quot;Manifest&quot; Value=&quot;C:\\Program Files (x86)\\MyCompany\\BIEM\\Minimal.BIEM.Outlook.vsto|vstolocal&quot; Type=&quot;string&quot;/&gt;\n                &lt;RegistryValue Name=&quot;LoadBehavior&quot; Value=&quot;3&quot; Type=&quot;integer&quot;/&gt;\n              &lt;/RegistryKey&gt;\n              \n            &lt;/Component&gt;\n          &lt;/Directory&gt;\n        &lt;/Directory&gt;\n      &lt;/Directory&gt;\n    &lt;/Directory&gt;\n  &lt;/Product&gt;\n&lt;/Wix&gt;\n</code></pre>\n<p><strong>Troubleshooting attempts</strong></p>\n<ol>\n<li>Registry Analysis</li>\n</ol>\n<p>I thoroughly cleaned up all registry entries between all tries (HKCU &amp; HKLM), but the problem remaines reproducible:</p>\n<ul>\n<li>SDK-Style generated VSTO add-ins fail, when installed via MSI (HKLM registry), but works perfectly when installed via double-click (HKCU registry).</li>\n<li>The <code>BIEM-OldStyle.csproj</code> generated VSTO packed into an MSI installs and works perfectly.</li>\n</ul>\n<p>Working VSTO installation (HKCU):</p>\n<pre><code>HKCU\\SOFTWARE\\Microsoft\\Office\\Outlook\\Addins\\Minimal.BIEM.Outlook\n\u251c\u2500\u2500 Description: &quot;Versenden von E-Mails nach Extern aus Outlook&quot;\n\u251c\u2500\u2500 FriendlyName: &quot;MyCompany BIEM 3.2&quot;\n\u251c\u2500\u2500 Manifest: &quot;file:///C:/Work/.../Minimal.BIEM.Outlook.vsto|vstolocal&quot;\n\u2514\u2500\u2500 LoadBehavior: 3\n</code></pre>\n<p>MSI installation (HKLM):</p>\n<pre><code>HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Office\\Outlook\\Addins\\Minimal.BIEM.Outlook\n\u251c\u2500\u2500 Description: &quot;Versenden von E-Mails nach Extern aus Outlook&quot;\n\u251c\u2500\u2500 FriendlyName: &quot;MyCompany BIEM 3.2&quot;\n\u251c\u2500\u2500 Manifest: &quot;C:\\Program Files (x86)\\MyCompany\\BIEM\\Minimal.BIEM.Outlook.vsto|vstolocal&quot;\n\u2514\u2500\u2500 LoadBehavior: 3\n</code></pre>\n<ol start=\"2\">\n<li>VSTO Security trust attempts</li>\n</ol>\n<p>I've tried adding VSTO security registry entries:</p>\n<pre class=\"lang-xml prettyprint-override\"><code>&lt;RegistryKey Root=&quot;HKLM&quot; Key=&quot;SOFTWARE\\Microsoft\\VSTO\\Security\\Inclusion\\{guid}&quot;&gt;\n  &lt;RegistryValue Name=&quot;Url&quot; Value=&quot;file:///C:/Program Files (x86)/MyCompany/BIEM/Minimal.BIEM.Outlook.vsto&quot; Type=&quot;string&quot;/&gt;\n  &lt;RegistryValue Name=&quot;PublicKey&quot; Value=&quot;&amp;lt;RSAKeyValue&amp;gt;...&amp;lt;/RSAKeyValue&amp;gt;&quot; Type=&quot;string&quot;/&gt;\n&lt;/RegistryKey&gt;\n</code></pre>\n<p>I have seen simmilar entries in <code>HKCU\\Software\\Microsoft\\VSTO</code> after I installed the VSTO directly (double-click .vsto file).</p>\n<ol start=\"3\">\n<li>File verification</li>\n</ol>\n<p>All files are identical between working and non-working installations, i.e. in my <code>bin\\Release</code> and Program Files destination directory:</p>\n<ul>\n<li><code>Minimal.BIEM.Outlook.dll</code> (same size, same timestamp)</li>\n<li><code>Minimal.BIEM.Outlook.vsto</code> (same content, same signature)</li>\n<li><code>Minimal.BIEM.Outlook.dll.manifest</code> (identical)</li>\n<li>All Microsoft.Office.Tools.*.dll files present</li>\n</ul>\n<ol start=\"4\">\n<li>Outlook diagnostics</li>\n</ol>\n<p>Event Viewer Analysis:</p>\n<pre class=\"lang-bash prettyprint-override\"><code># Outlook successfully loads other add-ins but not BIEM\nGet-WinEvent -FilterHashtable @{LogName='Application'; Id=45} | \n  Where-Object {$_.Message -like &quot;*Outlook loaded*&quot;}\n</code></pre>\n<p>Shows working add-ins but BIEM is completely missing from the list and there were no other messages, why my add-in was not loaded.</p>\n<ol start=\"5\">\n<li>MSI installation logs</li>\n</ol>\n<pre><code>MSI (s) (8C:30) [19:55:14:845]: Product: MyCompany BIEM 3.2 -- Installation completed successfully.\n</code></pre>\n<ul>\n<li>MSI installation reports success</li>\n<li>All files copied correctly</li>\n<li>Registry entries created as expected</li>\n<li>No error messages in MSI log</li>\n</ul>\n<p><strong>Comparison: Old-Style vs SDK-Style</strong></p>\n<p>Working solution with <code>BIEM-OldStyle.csproj</code>: the same MSI installer works perfectly with old-style project:</p>\n<pre class=\"lang-xml prettyprint-override\"><code>&lt;!-- Old-style project file that works with MSI --&gt;\n&lt;Project ToolsVersion=&quot;15.0&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;\n  &lt;PropertyGroup&gt;\n    &lt;Configuration Condition=&quot; '$(Configuration)' == '' &quot;&gt;Debug&lt;/Configuration&gt;\n    &lt;Platform Condition=&quot; '$(Platform)' == '' &quot;&gt;AnyCPU&lt;/Platform&gt;\n    &lt;ProjectTypeGuids&gt;{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}&lt;/ProjectTypeGuids&gt;\n    &lt;!-- ... standard VSTO properties ... --&gt;\n  &lt;/PropertyGroup&gt;\n  &lt;!-- ... rest of old-style configuration ... --&gt;\n&lt;/Project&gt;\n</code></pre>\n<p>This suggests the issue is specifically related to SDK-style project output compatibility with MSI deployment.</p>\n<p><strong>Current workaround</strong></p>\n<p>Due to this critical issue, I was forced to maintain two project files:</p>\n<ol>\n<li><code>BIEM-SdkStyle.csproj</code> - for modern .NET builds and CI/CD</li>\n<li><code>BIEM-OldStyle.csproj</code> - for VSTO generation and MSI packaging</li>\n</ol>\n<p>This is &quot;suboptimal&quot;.</p>\n<p><strong>Questions</strong></p>\n<ol>\n<li><p>What causes SDK-style VSTO projects to fail when deployed via MSI but work with direct installation?</p>\n</li>\n<li><p>Are there specific MSBuild properties or VSTO targets that need to be configured differently for SDK-style projects to work with MSI deployment?</p>\n</li>\n<li><p>Is there a difference in the generated VSTO manifest or assembly metadata between old-style and SDK-style projects that affects MSI deployment?</p>\n</li>\n<li><p>What's the recommended approach for deploying SDK-style VSTO projects machine-wide (HKLM) instead of per-user (HKCU)?</p>\n</li>\n<li><p>How to see some Outlook logs, which can say what's not satisfied or causing an error?</p>\n</li>\n</ol>\n<p><strong>Additional information</strong></p>\n<ul>\n<li>VSTO runtime: Microsoft Visual Studio 2010 Tools for Office Runtime installed</li>\n<li>Office installation: Click-to-Run Microsoft 365</li>\n<li>Code signing: assembly is properly signed with company certificate</li>\n<li>Trust settings: no ClickOnce trust issues (works with direct install)</li>\n</ul>\n<p>Any insights into why SDK-style VSTO projects behave differently in MSI deployments would be greatly appreciated!</p>\n<p><strong>Edit</strong> / Solution</p>\n<p>Thanks to guidance from @lauxjpn, @Nikolay and @Dmitry Streblechenko (see their answers and comments below), I was able to resolve this issue.</p>\n<p>The key takeaways were:</p>\n<ol>\n<li><p>The solution was to examine, what additional files are necessary to install the VSTO locally using double-click = Direct VSTO Installation in <code>HKCU</code>. I tried until it worked.</p>\n<p>After I estimated all necessary files, I closed Outlook and uninstalled the VSTO, leaving all necessary files still in place. So I only checked my registry to be clean after the uninstall.</p>\n</li>\n<li><p>Then I checked I have 64bit Win 11, but 32bit Outlook, and my VSTO is <code>AnyCPU</code>, so I used the <code>WOW6432Node</code> registry for my case (for more see the answer of @lauxjpn below).</p>\n<p>I used <code>HKLM</code> instead of <code>HKCU</code>, and the following registry entry worked for me immediately:</p>\n<pre><code>HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Office\\Outlook\\Addins\\Minimal.BIEM.Outlook\n\u251c\u2500\u2500 Description: &quot;Versenden von E-Mails nach Extern aus Outlook&quot;\n\u251c\u2500\u2500 FriendlyName: &quot;MyCompany BIEM 3.2&quot;\n\u251c\u2500\u2500 Manifest: &quot;file:///C:/Program Files (x86)/MyCompany/BIEM/Minimal.BIEM.Outlook.vsto|vstolocal&quot;\n\u2514\u2500\u2500 LoadBehavior: 3\n</code></pre>\n<p>The DLLs I was missing prior to the fix were 4 <code>System.*.dll</code>-s from my <code>bin</code> compile directory - here the full list of all necessary files for my case:</p>\n<pre><code>Minimal.BIEM.Outlook.dll\nMinimal.BIEM.Outlook.dll.config\nMinimal.BIEM.Outlook.dll.manifest\nMinimal.BIEM.Outlook.vsto\nMicrosoft.Office.Tools.Common.dll\nMicrosoft.Office.Tools.Common.v4.0.Utilities.dll\nMicrosoft.Office.Tools.dll\nMicrosoft.Office.Tools.Outlook.dll\nMicrosoft.Office.Tools.Outlook.v4.0.Utilities.dll\nMicrosoft.Office.Tools.v4.0.Framework.dll\nMicrosoft.VisualStudio.Tools.Applications.Runtime.dll\nSystem.Memory.dll\nSystem.Numerics.Vectors.dll\nSystem.Resources.Extensions.dll\nSystem.Runtime.CompilerServices.Unsafe.dll\n</code></pre>\n</li>\n</ol>\n<p>My original problem was, for the case of <code>file:///C:/Program Files (x86)/...</code> I always forgot to add the <code>|vstolocal</code> at the end of the entry in my tests.</p>\n<p>I did tons of frustrating tests and was wrong until this small changes. Even AI was no help in my case.</p>\n<p>So thank you guys: @lauxjpn, @Nikolay and @Dmitry Streblechenko for your very good hints!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "macos",
+    "installation",
+    "pycharm",
+    "cairo"
+   ],
+   "owner": {
+    "account_id": 166893,
+    "reputation": 9035,
+    "user_id": 391339,
+    "user_type": "registered",
+    "accept_rate": 63,
+    "profile_image": "https://www.gravatar.com/avatar/efa2e9771e789a25ad7f423f723ce184?s=256&d=identicon&r=PG",
+    "display_name": "user391339",
+    "link": "https://stackoverflow.com/users/391339/user391339"
+   },
+   "is_answered": false,
+   "view_count": 8475,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1790643655,
+   "creation_date": 1403390187,
+   "last_edit_date": 1403422875,
+   "question_id": 24346472,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/24346472/when-a-python-module-cairo-is-installed-successfully-but-fails-to-import-in-py",
+   "title": "When a python module (cairo) is installed successfully but fails to import in python, what could be the issue?",
+   "body": "<p>When a python module is installed successfully but fails to import in python (via PyCharm IDE), what could be the issue?  What checklist should I follow to diagnose the problem in this case and in the future when a module installs but later fails to import?</p>\n\n<p>For this specific case, I installed a vector graphics module for Python called <strong>cairo</strong>.\n<a href=\"http://cairographics.org/releases/pycairo-1.8.8.tar.gz\" rel=\"nofollow noreferrer\">http://cairographics.org/releases/pycairo-1.8.8.tar.gz</a></p>\n\n<p>See the successful install below:</p>\n\n<pre><code>sudo python setup.py install\ncairo &gt;= 1.8.8 detected\ncreating pycairo.pc\ncreating src/config.h\nrunning install\nrunning build\nrunning build_ext\nrunning install_lib\ncreating /Library/Python/2.7/site-packages/cairo\ncopying build/lib.macosx-10.9-intel-2.7/cairo/_cairo.so -&gt; /Library/Python/2.7/site-packages/cairo\nrunning install_data\ncreating /System/Library/Frameworks/Python.framework/Versions/2.7/include/pycairo\ncopying src/pycairo.h -&gt; /System/Library/Frameworks/Python.framework/Versions/2.7/include/pycairo\ncopying pycairo.pc -&gt; /System/Library/Frameworks/Python.framework/Versions/2.7/lib/pkgconfig\nrunning install_egg_info\nWriting /Library/Python/2.7/site-packages/pycairo-1.8.8-py2.7.egg-info\n</code></pre>\n\n<p>Everything seemed to proceed smoothly, but later this module failed to import when called for in Python:  <code>ImportError: No module named cairo</code>.    </p>\n\n<p>One possibility is that it was installed in the wrong directory - <code>/Library/Python/2.7/site-packages/</code>.\nAnother possibility is that I should be somehow telling python the location of the module explicitly.  i.e.:  <code>/Library/Python/2.7/site-packages/cairo</code>, based on the output of the install script found above.</p>\n\n<p>It is quite odd, because cairo is present in <code>/Library/Python/2.7/site-packages/</code>, and I am able to import other libraries such as PIL found in the same directory.</p>\n\n<p><img src=\"https://i.sstatic.net/8pXVL.png\" alt=\"enter image description here\"></p>\n\n<p>Based on aIKID's suggestion, I tried using pip to get the installed packages.  From this, I got a long list, including a module called pycairo.  I tried importing both pycairo and cairo and still got an import error.  It's interesting that \"cairo\" is found in <code>/Library/Python/2.7/site-packages/cairo</code>, but \"pycairo\" is found after a call of <code>pip.get_installed_distributions()</code>.  It seems that the distribution is called pycairo, and the module is called cairo.  import cairo should work, but either way both imports fail.</p>\n\n<p><img src=\"https://i.sstatic.net/dLAMO.png\" alt=\"enter image description here\"></p>\n\n<p>Based on Christopher's suggestion, I checked the <code>/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/</code> directory and did not find cairo.  By the same token, I did not find PIL (the python imaging library).  I am still able to import PIL, which is found in <code>/Library/Python/2.7/site-packages/</code>, together with cairo.</p>\n\n<pre><code>Python 2.7.5 (default, Aug 25 2013, 00:04:04) \n[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import PIL, cairo\nTraceback (most recent call last):\n  File \"&lt;stdin&gt;\", line 1, in &lt;module&gt;\nImportError: No module named cairo\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "tkinter",
+    "import",
+    "package",
+    "customtkinter"
+   ],
+   "owner": {
+    "account_id": 27403073,
+    "reputation": 21,
+    "user_id": 20904180,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AEdFTp52eRm7wIpNYnGEA2KQlRJs45ai_z-7rHbEPB3F=k-s256",
+    "display_name": "jj kk",
+    "link": "https://stackoverflow.com/users/20904180/jj-kk"
+   },
+   "is_answered": true,
+   "view_count": 51696,
+   "protected_date": 1790010127,
+   "answer_count": 6,
+   "score": 1,
+   "last_activity_date": 1790007682,
+   "creation_date": 1672566217,
+   "last_edit_date": 1705679948,
+   "question_id": 74973935,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74973935/python-customtkinter-library-how-to-install",
+   "title": "python customtkinter library - how to install",
+   "body": "<p>I need to install the customtkinter package for python.</p>\n<p>I used the command <code>pip install customtkinter</code> to install the package.\nWhen running <code>pip list</code> I can see the <code>customtkinter</code> package version.</p>\n<p>In the pycharm editor the package seam to get imported:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;C:\\Users\\tal.d\\PycharmProjects\\py1.py\\venv\\1.py&quot;, line 1, in &lt;module&gt;\n    import customtkinter\nModuleNotFoundError: No module named 'customtkinter'\n</code></pre>\n<p>What am I doing wrong?</p>\n"
+  },
+  {
+   "tags": [
+    "php",
+    "laravel",
+    "oracle-database",
+    "laravel-5",
+    "dbal"
+   ],
+   "owner": {
+    "account_id": 2389110,
+    "reputation": 1297,
+    "user_id": 2089354,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/ef3cae86b18da8bd0809680259ec7e78?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "ma1169",
+    "link": "https://stackoverflow.com/users/2089354/ma1169"
+   },
+   "is_answered": false,
+   "view_count": 798,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1789539939,
+   "creation_date": 1577449363,
+   "last_edit_date": 1789539939,
+   "question_id": 59500779,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59500779/undefined-index-comments",
+   "title": "Undefined index: COMMENTS",
+   "body": "<p>Basically i want to get column listings and types\nI\u2019m using \n    <code>$this-&gt;getConnection()-&gt;getSchemaBuilder()-&gt;getColumnListing(\u2018table\u2019);</code>\nTo get column listing and it\u2019s working without any problem, however when i tried to get column type using</p>\n\n<pre><code>$this-&gt;getConnection()-&gt;getSchemaBuilder()-&gt;getColumnType(\u2018table\u2019,\u2019column\u2019);\n</code></pre>\n\n<p>It didn\u2019t work at first, then i installed dbal package now i am getting this error</p>\n\n<blockquote>\n  <p>Undefined index: COMMENTS\n  Vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Schema\\OracleSchemaManager.php:402</p>\n</blockquote>\n\n<pre><code>Public function listTableDetails($tableName):table\n{\n    $table=parent::listTableDetails($tableName);\n    $sql = $platform-&gt;getListTableCommentSQL($tableName);\n    $tableOptions=$this-&gt;_conn-&gt;fetchAssoc($sql);\n    $table-&gt;addOptions(\u2018comment\u2019, $tableOptions[\u2018COMMENTS\u2019]);\n\n    return table;\n} \n</code></pre>\n\n<p>I have no clue what\u2019s wrong, comments is not anything in my db!!!</p>\n"
+  },
+  {
+   "tags": [
+    "r",
+    "linux"
+   ],
+   "owner": {
+    "account_id": 46931962,
+    "reputation": 1,
+    "user_id": 33052203,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/393b7c3ced5ef779ec5fd5424b14194b?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Alfred",
+    "link": "https://stackoverflow.com/users/33052203/alfred"
+   },
+   "is_answered": false,
+   "view_count": 41,
+   "closed_date": 1789081701,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1789071228,
+   "creation_date": 1789071228,
+   "question_id": 80002259,
+   "link": "https://stackoverflow.com/questions/80002259/dependency-deriv-not-available-installation-of-package-has-non-zero-exit-sta",
+   "closed_reason": "Duplicate",
+   "title": "Dependency &#39;Deriv&#39; not available / installation of package has non-zero exit status (Linux)",
+   "body": "<p>I recently changed my OS from Windows to Linux, and when trying to reinstall some basic packages I use often (e.g. car, glmmTMB, DHARMa..) the process fails and terminates. The first hint of anything being wrong is a warning that the 'Deriv' depedency isn't found, and the 'final' error message is about the package having a non-zero exit status.</p>\n<p>I tried both manually through the packages pane, and via the install.packages() command, and get the same errors. My R version is 4.3.3, if that changes anything.</p>\n<p>I am new to Linux and do-it-yourself coding, so any input would be appreciated :)</p>\n<p>Below the output for trying to install car, the other packages are much lengthier but with similar warnings.</p>\n<pre><code>&gt; install.packages(&quot;car&quot;)\nInstalling package into \u2018/home/alfred/R/x86_64-pc-linux-gnu-library/4.3\u2019\n(as \u2018lib\u2019 is unspecified)\nWarning: dependency \u2018Deriv\u2019 is not available\nalso installing the dependencies \u2018doBy\u2019, \u2018pbkrtest\u2019\ntrying URL 'https://cloud.r-project.org/src/contrib/doBy_4.7.2.tar.gz'\nContent type 'application/x-gzip' length 4477331 bytes (4.3 MB)\n==================================================\ndownloaded 4.3 MB\n\ntrying URL 'https://cloud.r-project.org/src/contrib/pbkrtest_0.5.5.tar.gz'\nContent type 'application/x-gzip' length 77353 bytes (75 KB)\n==================================================\ndownloaded 75 KB\n\ntrying URL 'https://cloud.r-project.org/src/contrib/car_3.1-5.tar.gz'\nContent type 'application/x-gzip' length 378895 bytes (370 KB)\n==================================================\ndownloaded 370 KB\n\nERROR: dependency \u2018Deriv\u2019 is not available for package \u2018doBy\u2019\n* removing \u2018/home/alfred/R/x86_64-pc-linux-gnu-library/4.3/doBy\u2019\nERROR: dependency \u2018doBy\u2019 is not available for package \u2018pbkrtest\u2019\n* removing \u2018/home/alfred/R/x86_64-pc-linux-gnu-library/4.3/pbkrtest\u2019\nERROR: dependency \u2018pbkrtest\u2019 is not available for package \u2018car\u2019\n* removing \u2018/home/alfred/R/x86_64-pc-linux-gnu-library/4.3/car\u2019\n\nThe downloaded source packages are in\n    \u2018/tmp/Rtmp94OngC/downloaded_packages\u2019\nWarning messages:\n1: In utils::install.packages(&quot;car&quot;) :\n  installation of package \u2018doBy\u2019 had non-zero exit status\n2: In utils::install.packages(&quot;car&quot;) :\n  installation of package \u2018pbkrtest\u2019 had non-zero exit status\n3: In utils::install.packages(&quot;car&quot;) :\n  installation of package \u2018car\u2019 had non-zero exit status\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "r",
+    "function",
+    "ggplot2",
+    "package"
+   ],
+   "owner": {
+    "account_id": 17091800,
+    "reputation": 87,
+    "user_id": 12367770,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-11RZjL-Y3eU/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rd1tM_Ffa0YSDiJISI0ZBjQYEa_OA/s256-rj/photo.jpg",
+    "display_name": "Christina",
+    "link": "https://stackoverflow.com/users/12367770/christina"
+   },
+   "is_answered": true,
+   "view_count": 16732,
+   "accepted_answer_id": 60980116,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1788534157,
+   "creation_date": 1585766339,
+   "last_edit_date": 1788534157,
+   "question_id": 60978023,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/60978023/what-is-the-difference-between-ggplot-and-ggplot2",
+   "title": "What is the difference between ggplot and ggplot2?",
+   "body": "<p>I am new to R. I have a disease rate data from different counties and I want to visualize them on the map.</p>\n<p>I follow the instructions on this website:<a href=\"https://socviz.co/maps.html\" rel=\"nofollow noreferrer\">https://socviz.co/maps.html</a></p>\n<p>I wanted to try their example first but R gave me a wrong message:</p>\n<pre><code>&gt; p &lt;- ggplot(data = county_full,\n        mapping = aes(x = long, y = lat,\n                      fill = pop_dens, \n                       group = group))\n</code></pre>\n<blockquote>\n<p>Error in ggplot(data = county_full, mapping = aes(x = long, y = lat,  :\ncould not find function &quot;ggplot&quot;</p>\n</blockquote>\n<p>I want to install the ggplot but it said:</p>\n<blockquote>\n<p>Warning in install.packages :package \u2018ggplot\u2019 is not available (for R version 3.6.1)</p>\n</blockquote>\n<p>I don't know how to modify the code so that I can use ggplot2 to try their examples.</p>\n"
+  },
+  {
+   "tags": [
+    "lua",
+    "luarocks",
+    "best-practices"
+   ],
+   "owner": {
+    "account_id": 5286655,
+    "reputation": 2746,
+    "user_id": 4987648,
+    "user_type": "registered",
+    "accept_rate": 0,
+    "profile_image": "https://www.gravatar.com/avatar/98a6ea6c57b93333bd074de495cdc1cf?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "tobiasBora",
+    "link": "https://stackoverflow.com/users/4987648/tobiasbora"
+   },
+   "is_answered": true,
+   "view_count": 83,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1788274411,
+   "creation_date": 1762631725,
+   "question_id": 79814420,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79814420/lua-install-via-rockspec-a-github-project-no-realease-no-version",
+   "title": "Lua: install via rockspec a github project, no realease, no version",
+   "body": "<p>I'd like to install with rockspec <a href=\"https://github.com/thenumbernine/lua-ext\" rel=\"nofollow noreferrer\">lua-ext</a> but I'm not sure what is the cleanest way to do it via <code>rockspec</code>:</p>\n<ul>\n<li>it has no release and <code>luarocks install --local https://github.com/thenumbernine/lua-ext</code> does not work (I tried just in case)</li>\n<li>if I clone the repo, running <code>luarocks make --local ext.rockspec</code> or <code>luarocks install --local ext.rockspec</code> fails with `Error: Expected filename in format 'name-version-revision.rockspec'.</li>\n<li>I then tried to rename it to <code>ext-dev-1.rockspec</code>, and modified <code>~&gt; 5.1</code> to <code>&gt; 5.3</code> and it does install\u2026 but I feel like I'm doing something wrong since not a single package name it like that.</li>\n<li>Then I tried to run <code>lua</code> and then <code>require('ext.table')</code> but then I get <code>module 'ext.table' not found</code>, so it means that I need to also run <strong>every-time</strong> I start lua <code>package.path = package.path .. &quot;;/home/leo/.luarocks/share/lua/5.3/?.lua&quot;</code>. It works but feels very flacky. And I feel like setting this in an environment variable is not much cleaner since the path depends on the lua version currently in use.</li>\n</ul>\n<p>So I'm curious:</p>\n<ul>\n<li>how would people install <code>lua-ext</code> quickly</li>\n<li>how would they develop modules based on <code>rockspec</code>? Do they create a local <code>foo-dev-1.rockspec</code> and run <code>luarocks make --local foo-dev-1.rockspec</code> everytime they change one line?</li>\n<li>how do people import luarocks-installed library?</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "android",
+    "android-download-manager"
+   ],
+   "owner": {
+    "account_id": 2529139,
+    "reputation": 63,
+    "user_id": 2197798,
+    "user_type": "registered",
+    "accept_rate": 20,
+    "profile_image": "https://www.gravatar.com/avatar/8c6c04bc92adfe4a135946d07ee85138?s=256&d=identicon&r=PG",
+    "display_name": "savari",
+    "link": "https://stackoverflow.com/users/2197798/savari"
+   },
+   "is_answered": false,
+   "view_count": 13537,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1787033340,
+   "creation_date": 1385368875,
+   "last_edit_date": 1385377549,
+   "question_id": 20188010,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/20188010/getting-parse-error-when-installing-the-apk-file",
+   "title": "Getting Parse Error when installing the .apk file",
+   "body": "<p>I am downloading .apk file from the server using DownloadManager after downloading when i am trying to install the app manually it is giving parse error with a message \"There is a problem parsing the package\".</p>\n\n<p>But same apk when i am downloading through browser and copying to SD card then installing, then it is installing successfully.</p>\n\n<p>So hope there is no issue with the minsdkversion and I already checked on Unknown Sources.</p>\n\n<p>My Code is like this for downloading the apk file </p>\n\n<pre><code>        public class UpdateCheckerService extends Service {\n\n\n    UpdateChecker update_checker;\n    DownloadManager downloadManager;\n    String Download_path=\"http://www.xxxxx.com/mobile_api/xxxxxx.apk\";\n\n    SharedPreferences preferenceManager;\n    String Download_ID = \"100\";\n\n\n    @Override\n    public IBinder onBind(Intent arg0) {\n        // TODO Auto-generated method stub\n        return null;\n    }\n    public void onCreate()\n    {\n        System.out.println(\"SERVICE ************ CREATED\");\n\n    }\n    public void onStart(Intent intent1, int start_id)\n    {\n        System.out.println(\"Service started\");\n        IntentFilter intentFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);\n         registerReceiver(downloadReceiver, intentFilter);\n         System.out.println(\"Service started\");\n\n        if(isNetworkAvailable())\n        {\n\n\n            if(true)\n            {\n                System.out.println(\"Update AVAAILLL:\");\n                preferenceManager = PreferenceManager.getDefaultSharedPreferences(this);\n                 downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);\n                 Environment\n                  .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)\n                  .mkdirs();\n\n                   Uri Download_Uri = Uri.parse(Download_path);\n\n\n                    DownloadManager.Request request = new DownloadManager.Request(Download_Uri);\n\n                    long download_id = downloadManager.enqueue(request.setTitle(\"Downloading...\")\n                            .setDescription(\"xxxx\").setMimeType(\"application/vnd.android.package-archive\").setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,\n                                    \"xxxxx.apk\"));\n\n\n                    Editor PrefEdit = preferenceManager.edit();\n                    PrefEdit.putLong(Download_ID, download_id);\n                    PrefEdit.commit();\n            }\n        }   \n    }\n    public void onDestroy()\n    {\n\n    }\n\n\n\n    private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {\n\n          @Override\n          public void onReceive(Context arg0, Intent arg1) {\n           // TODO Auto-generated method stub\n           DownloadManager.Query query = new DownloadManager.Query();\n           query.setFilterById(preferenceManager.getLong(Download_ID, 0));\n           Cursor cursor = downloadManager.query(query);\n\n           if(cursor.moveToFirst()){\n            int columnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);\n            int status = cursor.getInt(columnIndex);\n            int columnReason = cursor.getColumnIndex(DownloadManager.COLUMN_REASON);\n            int reason = cursor.getInt(columnReason);\n\n            if(status == DownloadManager.STATUS_SUCCESSFUL){\n             //Retrieve the saved download id\n             long downloadID = preferenceManager.getLong(Download_ID, 0);\n\n             ParcelFileDescriptor file;\n\n             try {\n              file = downloadManager.openDownloadedFile(downloadID);\n              Toast.makeText(UpdateCheckerService.this,\n                \"File Downloaded: \" + file.toString(),\n                Toast.LENGTH_LONG).show();\n\n             } catch (FileNotFoundException e) {\n              // TODO Auto-generated catch block\n              e.printStackTrace();\n              Toast.makeText(UpdateCheckerService.this,\n                e.toString(),\n                Toast.LENGTH_LONG).show();\n             }\n\n            }else if(status == DownloadManager.STATUS_FAILED){\n             Toast.makeText(UpdateCheckerService.this,\n               \"FAILED!\\n\" + \"reason of \" + reason,\n               Toast.LENGTH_LONG).show();\n            }else if(status == DownloadManager.STATUS_PAUSED){\n             Toast.makeText(UpdateCheckerService.this,\n               \"PAUSED!\\n\" + \"reason of \" + reason,\n               Toast.LENGTH_LONG).show();\n            }else if(status == DownloadManager.STATUS_PENDING){\n             Toast.makeText(UpdateCheckerService.this,\n               \"PENDING!\",\n               Toast.LENGTH_LONG).show();\n            }else if(status == DownloadManager.STATUS_RUNNING){\n             Toast.makeText(UpdateCheckerService.this,\n               \"RUNNING!\",\n               Toast.LENGTH_LONG).show();\n            }\n           }\n          }\n\n         };\n\n}\n</code></pre>\n\n<p>Here is the logcat </p>\n\n<pre><code>11-25 16:31:58.195: D/asset(3422): failed to open Zip archive '/mnt/sdcard/Download/SavariLocal.apk'\n11-25 16:31:58.210: W/PackageParser(3422): Unable to read AndroidManifest.xml of /mnt/sdcard/Download/SavariLocal.apk\n11-25 16:31:58.210: W/PackageParser(3422): java.io.FileNotFoundException: AndroidManifest.xml\n11-25 16:31:58.210: W/PackageParser(3422):  at android.content.res.AssetManager.openXmlAssetNative(Native Method)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.content.res.AssetManager.openXmlBlockAsset(AssetManager.java:486)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.content.res.AssetManager.openXmlResourceParser(AssetManager.java:454)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.content.pm.PackageParser.parsePackage(PackageParser.java:402)\n11-25 16:31:58.210: W/PackageParser(3422):  at com.android.packageinstaller.PackageUtil.getPackageInfo(PackageUtil.java:79)\n11-25 16:31:58.210: W/PackageParser(3422):  at com.android.packageinstaller.PackageInstallerActivity.onCreate(PackageInstallerActivity.java:242)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1615)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1667)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.ActivityThread.access$1500(ActivityThread.java:117)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:935)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.os.Handler.dispatchMessage(Handler.java:99)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.os.Looper.loop(Looper.java:130)\n11-25 16:31:58.210: W/PackageParser(3422):  at android.app.ActivityThread.main(ActivityThread.java:3687)\n11-25 16:31:58.210: W/PackageParser(3422):  at java.lang.reflect.Method.invokeNative(Native Method)\n11-25 16:31:58.210: W/PackageParser(3422):  at java.lang.reflect.Method.invoke(Method.java:507)\n11-25 16:31:58.210: W/PackageParser(3422):  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:867)\n11-25 16:31:58.210: W/PackageParser(3422):  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:625)\n11-25 16:31:58.210: W/PackageParser(3422):  at dalvik.system.NativeStart.main(Native Method)\n11-25 16:31:58.210: W/PackageInstaller(3422): Parse error when parsing manifest. Discontinuing installation\n</code></pre>\n\n<p>Please suggest me how to fix this issue, and where i am wrong..</p>\n\n<p>Thanks in advance.</p>\n"
+  },
+  {
+   "tags": [
+    "react-native",
+    "kotlin",
+    "expo"
+   ],
+   "owner": {
+    "account_id": 2275082,
+    "reputation": 97,
+    "user_id": 2001575,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/NxAFz.jpg?s=256",
+    "display_name": "Juan Jos&#233; Cumba",
+    "link": "https://stackoverflow.com/users/2001575/juan-jos%c3%a9-cumba"
+   },
+   "is_answered": false,
+   "view_count": 15724,
+   "answer_count": 4,
+   "score": 7,
+   "last_activity_date": 1786377905,
+   "creation_date": 1635499801,
+   "question_id": 69766570,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/69766570/error-task-expocompiledebugkotlin-failed",
+   "title": "ERROR Task :expo:compileDebugKotlin FAILED",
+   "body": "<p>I created an application using react-native init and was working fine until I tried to start using expo to test it on my telephone.</p>\n<p>Trying to start the app with expo (npx expo start), I have:</p>\n<pre><code>Developer tools running on http://localhost:19002\nOpening developer tools in the browser...\nSome dependencies are incompatible with the installed expo package version:\n- @react-native-community/slider - expected version: 4.1.7 - actual version installed: 4.1.10\nYour project may not work correctly until you install the correct versions of the packages.\nTo install the correct versions of these packages, please run: expo install [package-name ...]\nStarting Metro Bundler\n\nError: Problem validating fields in app.json. Learn more: https://docs.expo.dev/workflow/configuration/\nshould NOT have additional property 'displayName'.\n</code></pre>\n<p>and the application in expo becomes fully white.</p>\n<p>Also, if I try with react-native (npx react-native run-android) I have:</p>\n<pre><code>info Running jetifier to migrate libraries to AndroidX. You can disable it using &quot;--no-jetifier&quot; flag.\nJetifier found 1190 file(s) to forward-jetify. Using 6 workers...\n\n&gt; Configure project :expo\n\n&gt; Task :expo:compileDebugKotlin FAILED\n\nDeprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.\nUse '--warning-mode all' to show the individual deprecation warnings.\nSee https://docs.gradle.org/6.9/userguide/command_line_interface.html#sec:command_line_warnings\n87 actionable tasks: 3 executed, 84 up-to-date\nError: Autolinking is not set up in `settings.gradle`: expo modules won't be autolinked.\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (11, 18): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (11, 23): Unresolved reference: createApplicationLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (12, 10): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (12, 20): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (18, 18): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (18, 23): Unresolved reference: createApplicationLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (19, 10): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (19, 20): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (10, 21): Unresolved reference: adapters\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (11, 21): Unresolved reference: core\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (16, 31): Unresolved reference: ModuleRegistryAdapter\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (22, 14): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (22, 19): Unresolved reference: createReactActivityLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (53, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (60, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (66, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (73, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (23, 14): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (23, 19): Unresolved reference: createReactNativeHostHandlers\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (30, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (57, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (63, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (85, 31): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':expo:compileDebugKotlin'.\n&gt; Compilation error. See log for more details\n\n* Try:\nRun with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 10s\n\nerror Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup.\nError: Command failed: gradlew.bat app:installDebug -PreactNativeDevServerPort=8081\nError: Autolinking is not set up in `settings.gradle`: expo modules won't be autolinked.\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (11, 18): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (11, 23): Unresolved reference: createApplicationLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (12, 10): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (12, 20): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (18, 18): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (18, 23): Unresolved reference: createApplicationLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (19, 10): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ApplicationLifecycleDispatcher.kt: (19, 20): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (10, 21): Unresolved reference: adapters\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (11, 21): Unresolved reference: core\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ExpoModulesPackage.kt: (16, 31): Unresolved reference: ModuleRegistryAdapter\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (22, 14): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (22, 19): Unresolved reference: createReactActivityLifecycleListeners\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (53, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (60, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (66, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactActivityDelegateWrapper.kt: (73, 37): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (23, 14): Type mismatch: inferred type is Unit but Iterable&lt;TypeVariable(R)&gt; was expected\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (23, 19): Unresolved reference: createReactNativeHostHandlers\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (30, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (57, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (63, 14): Unresolved reference: it\ne: C:\\Proyectos\\propios\\Placit\\node_modules\\expo\\android\\src\\main\\java\\expo\\modules\\ReactNativeHostWrapper.kt: (85, 31): Overload resolution ambiguity:\npublic inline fun &lt;T&gt; Iterable&lt;TypeVariable(T)&gt;.forEach(action: (TypeVariable(T)) -&gt; Unit): Unit defined in kotlin.collections\npublic inline fun &lt;K, V&gt; Map&lt;out TypeVariable(K), TypeVariable(V)&gt;.forEach(action: (Map.Entry&lt;TypeVariable(K), TypeVariable(V)&gt;) -&gt; Unit): Unit defined in kotlin.collections\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':expo:compileDebugKotlin'.\n&gt; Compilation error. See log for more details\n\n* Try:\nRun with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 10s\n\n    at makeError (C:\\Proyectos\\propios\\Placit\\node_modules\\@react-native-community\\cli-platform-android\\node_modules\\execa\\index.js:174:9)\n    at C:\\Proyectos\\propios\\Placit\\node_modules\\@react-native-community\\cli-platform-android\\node_modules\\execa\\index.js:278:16\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async runOnAllDevices (C:\\Proyectos\\propios\\Placit\\node_modules\\@react-native-community\\cli-platform-android\\build\\commands\\runAndroid\\runOnAllDevices.js:106:5)\n    at async Command.handleAction (C:\\Proyectos\\propios\\Placit\\node_modules\\react-native\\node_modules\\@react-native-community\\cli\\build\\index.js:192:9)\n</code></pre>\n<p>This is my package.json:</p>\n<pre><code>{\n  &quot;name&quot;: &quot;placit&quot;,\n  &quot;version&quot;: &quot;0.0.1&quot;,\n  &quot;private&quot;: true,\n  &quot;scripts&quot;: {\n    &quot;android&quot;: &quot;react-native run-android&quot;,\n    &quot;ios&quot;: &quot;react-native run-ios&quot;,\n    &quot;start&quot;: &quot;react-native start&quot;,\n    &quot;test&quot;: &quot;jest&quot;,\n    &quot;lint&quot;: &quot;eslint .&quot;\n  },\n  &quot;dependencies&quot;: {\n    &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.2.36&quot;,\n    &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,\n    &quot;@fortawesome/react-native-fontawesome&quot;: &quot;^0.2.7&quot;,\n    &quot;@react-native-async-storage/async-storage&quot;: &quot;^1.15.9&quot;,\n    &quot;@react-native-community/geolocation&quot;: &quot;^2.0.2&quot;,\n    &quot;@react-native-community/slider&quot;: &quot;^4.1.10&quot;,\n    &quot;@react-navigation/native&quot;: &quot;^6.0.6&quot;,\n    &quot;@react-navigation/native-stack&quot;: &quot;^6.2.4&quot;,\n    &quot;expo&quot;: &quot;^43.0.1&quot;,\n    &quot;react&quot;: &quot;17.0.2&quot;,\n    &quot;react-native&quot;: &quot;0.66.0&quot;,\n    &quot;react-native-elements&quot;: &quot;^3.4.2&quot;,\n    &quot;react-native-safe-area-context&quot;: &quot;^3.3.2&quot;,\n    &quot;react-native-screens&quot;: &quot;^3.8.0&quot;,\n    &quot;react-native-svg&quot;: &quot;^12.1.1&quot;,\n    &quot;react-redux&quot;: &quot;^7.2.5&quot;,\n    &quot;redux&quot;: &quot;^4.1.1&quot;,\n    &quot;redux-devtools-extension&quot;: &quot;^2.13.9&quot;,\n    &quot;redux-thunk&quot;: &quot;^2.3.0&quot;\n  },\n  &quot;devDependencies&quot;: {\n    &quot;@babel/core&quot;: &quot;7.15.8&quot;,\n    &quot;@babel/runtime&quot;: &quot;7.15.4&quot;,\n    &quot;@react-native-community/eslint-config&quot;: &quot;2.0.0&quot;,\n    &quot;babel-jest&quot;: &quot;26.6.3&quot;,\n    &quot;eslint&quot;: &quot;7.14.0&quot;,\n    &quot;jest&quot;: &quot;26.6.3&quot;,\n    &quot;metro-react-native-babel-preset&quot;: &quot;0.66.2&quot;,\n    &quot;react-test-renderer&quot;: &quot;17.0.2&quot;\n  },\n  &quot;jest&quot;: {\n    &quot;preset&quot;: &quot;react-native&quot;\n  }\n}\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "discord",
+    "discord.py"
+   ],
+   "owner": {
+    "account_id": 22374628,
+    "reputation": 65,
+    "user_id": 16589100,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Vw3st.jpg?s=256",
+    "display_name": "Nicky",
+    "link": "https://stackoverflow.com/users/16589100/nicky"
+   },
+   "is_answered": false,
+   "view_count": 24239,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1786140440,
+   "creation_date": 1647583857,
+   "question_id": 71523082,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71523082/my-discord-bot-isnt-responding-to-my-commands",
+   "title": "My discord bot isn&#39;t responding to my commands",
+   "body": "<p>I have multiple discord bots but suddenly, they all just stopped responding to my commands. I copied this code from online to see if there was a problem with my code, but this doesn't seem to work either. When I type in &quot;$hello&quot;, nothing happens. The bot goes online when it runs but doesn't do anything aside from that. I have double-checked my python is up to date, the bot has server roles and permissions, tried it on multiple servers, and ensured that the bot has admin permissions on the discord developer portal. I'm not sure what else could be wrong. It may just be a coincidence but I installed some discord-ui packages when the problem occurred. However, I did uninstall it and the bot still does not work. And yes, my real token is in the code.</p>\n<pre><code>import discord\n\nclient = discord.Client()\n\n@client.event\nasync def on_ready():\n    print('We have logged in as {0.user}'.format(client))\n\n@client.event\nasync def on_message(message):\n    if message.author == client.user:\n        return\n\n    if message.content.startswith('$hello'):\n        await message.send('Hello!')\n\nclient.run('MY TOKEN IS HERE')\n\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "android",
+    "download",
+    "installation"
+   ],
+   "owner": {
+    "account_id": 1271691,
+    "reputation": 5767,
+    "user_id": 1227801,
+    "user_type": "registered",
+    "accept_rate": 82,
+    "profile_image": "https://www.gravatar.com/avatar/49d0e53f11bd835ed2789fbaca2b0cc8?s=256&d=identicon&r=PG",
+    "display_name": "NickF",
+    "link": "https://stackoverflow.com/users/1227801/nickf"
+   },
+   "is_answered": false,
+   "view_count": 12301,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1785942235,
+   "creation_date": 1417706643,
+   "last_edit_date": 1417706997,
+   "question_id": 27297652,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/27297652/android-parse-error-parsing-package",
+   "title": "android parse error parsing package",
+   "body": "<p>I'm developing auto update from inner server.<br/>\nThe download works good, but when I'm trying to install the downloaded apk I'm getting: \"parse error, problem parsing package\".</p>\n\n<pre><code>private BroadcastReceiver mDownloadReceiver = new BroadcastReceiver() {\n    @Override\n    public void onReceive(Context context, Intent intent) {\n        String action = intent.getAction();\n        if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)) {\n            long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);\n            Log.i(VERSION_LOG_TAG, \"received download id: \" + downloadId);\n\n            DownloadManager.Query query = new DownloadManager.Query();\n            query.setFilterById(enqueue);\n            Cursor cursor = dm.query(query);\n            if (cursor.moveToFirst()) {\n                int columnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);\n\n                if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(columnIndex)) {\n                    String uriString = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));\n                    Log.i(VERSION_LOG_TAG, uriString);\n\n                    Intent installIntent = new Intent(Intent.ACTION_VIEW);\n                    File apk = new File(Uri.parse(uriString).getPath());\n                    installIntent.setDataAndType(Uri.fromFile(apk), \"application/vnd.android.package-archive\");\n                    startActivity(installIntent);\n                }else{\n                    Log.e(VERSION_LOG_TAG, \"download failed\");\n                }\n            }\n        }\n    }\n};\n</code></pre>\n\n<p>I think it's because the url: <code>content://downloads/my_downloads/13</code>\n<strong>What do I do wrong?</strong></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "anaconda",
+    "environment"
+   ],
+   "owner": {
+    "account_id": 929093,
+    "reputation": 18342,
+    "user_id": 959306,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://i.sstatic.net/MJSQv.png?s=256",
+    "display_name": "jeffery_the_wind",
+    "link": "https://stackoverflow.com/users/959306/jeffery-the-wind"
+   },
+   "is_answered": true,
+   "view_count": 1185391,
+   "protected_date": 1632603563,
+   "accepted_answer_id": 43729857,
+   "answer_count": 20,
+   "score": 508,
+   "last_activity_date": 1785938502,
+   "creation_date": 1481286055,
+   "last_edit_date": 1746640346,
+   "question_id": 41060382,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/41060382/using-pip-to-install-packages-to-an-anaconda-environment",
+   "title": "Using Pip to install packages to an Anaconda environment",
+   "body": "<p>On</p>\n<ul>\n<li><a href=\"https://en.wikipedia.org/wiki/Conda_(package_manager)\" rel=\"nofollow noreferrer\">Conda</a> 4.2.13</li>\n<li><a href=\"https://en.wikipedia.org/wiki/MacOS_Sierra\" rel=\"nofollow noreferrer\">Mac OS X v10.12.1</a> (Sierra)</li>\n</ul>\n<p>I am trying to install packages from <code>pip</code> to a fresh environment (virtual) created using anaconda.  <a href=\"http://conda.pydata.org/docs/using/pkgs.html#install-non-conda-packages\" rel=\"nofollow noreferrer\">In the Anaconda documentation</a> it says this is perfectly fine.  It is done the same way as for virtualenv.</p>\n<blockquote>\n<p>Activate the environment where you want to put the program, then pip install a program...</p>\n</blockquote>\n<p>I created an empty environment in Anaconda like this:</p>\n<pre class=\"lang-none prettyprint-override\"><code>conda create -n shrink_venv\n</code></pre>\n<p>Activate it:</p>\n<pre class=\"lang-none prettyprint-override\"><code>source activate shrink_venv\n</code></pre>\n<p>I then can see in the terminal that I am working in my environment <code>(shrink_venv)</code>. A problem is coming up when I try to install a package using <code>pip</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>pip install Pillow\n</code></pre>\n<p>Output:</p>\n<pre class=\"lang-none prettyprint-override\"><code>Requirement already satisfied (use --upgrade to upgrade): Pillow in /Library/Python/2.7/site-packages\n</code></pre>\n<p>So I can see it thinks the requirement is satisfied from the system-wide package.  So it seems the environment is not working correctly, definitely not like it said in the documentation.  Am I doing something wrong here?</p>\n<p>Just a note, I know you can use <code>conda install</code> for the packages, but I have had an issue with Pillow from anaconda, so I wanted to get it from <code>pip</code>, and since the docs say that is fine.</p>\n<p>Output of <code>which -a pip</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>/usr/local/bin/pip\n/Users/my_user/anaconda/bin/pip\n</code></pre>\n<p>I see this is pretty common issue. I have found that the Conda environment doesn't play well with the <code>PYTHONPATH</code>. The system seems to always look in the <code>PYTHONPATH</code> locations even when you're using a Conda environment. Now, I always run <code>unset PYTHONPATH</code> when using a Conda environment, and it works much better. I'm on a Mac.</p>\n"
+  },
+  {
+   "tags": [
+    "windows",
+    "numpy",
+    "theano",
+    "lapack",
+    "openblas"
+   ],
+   "owner": {
+    "account_id": 2399079,
+    "reputation": 86772,
+    "user_id": 2097240,
+    "user_type": "registered",
+    "accept_rate": 58,
+    "profile_image": "https://i.sstatic.net/JskU5.jpg?s=256",
+    "display_name": "Daniel M&#246;ller",
+    "link": "https://stackoverflow.com/users/2097240/daniel-m%c3%b6ller"
+   },
+   "is_answered": true,
+   "view_count": 14085,
+   "answer_count": 4,
+   "score": 7,
+   "last_activity_date": 1785888807,
+   "creation_date": 1502914188,
+   "last_edit_date": 1785887760,
+   "question_id": 45722188,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/45722188/tutorial-for-installing-numpy-with-openblas-on-windows",
+   "title": "Tutorial for installing NumPy with OpenBLAS on Windows",
+   "body": "<p>I want to install NumPy using a good <a href=\"https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms\" rel=\"nofollow noreferrer\">BLAS</a>/<a href=\"https://en.wikipedia.org/wiki/LAPACK\" rel=\"nofollow noreferrer\">LAPACK</a> library <strong>on Windows</strong>, but absolutely no page explains the process well enough. It seems <a href=\"https://en.wikipedia.org/wiki/OpenBLAS\" rel=\"nofollow noreferrer\">OpenBLAS</a> is a good and fast option.</p>\n<p>The goal is to use <a href=\"https://en.wikipedia.org/wiki/Theano_(software)\" rel=\"nofollow noreferrer\">Theano</a> with <a href=\"https://en.wikipedia.org/wiki/Keras\" rel=\"nofollow noreferrer\">Keras</a>, and Theano requires that the libraries be &quot;dynamic&quot;, not static. (I am not sure I understand what that means, but it causes slowness and <a href=\"https://github.com/fchollet/keras/issues/5935\" rel=\"nofollow noreferrer\">memory issues</a>)</p>\n<p>What is a <strong>step by step</strong> tutorial on how to do it? Don't forget to tell me &quot;where&quot; files should go! Which folders should go in PATH! What commands exactly I call should, and what are their output, where? What do I do with their results or with compiled files? How does NumPy find them? Etc.</p>\n<p><strong>What I have tried:</strong></p>\n<ul>\n<li><p>Downloaded the compiled version of NumPy + mkl from <a href=\"http://www.lfd.uci.edu/%7Egohlke/pythonlibs/\" rel=\"nofollow noreferrer\">here</a>. This does install NumPy, and it becomes usable, but Theano presents the memory leak problem, besides working slowly. Is it a matter of setting the right <code>ldflags</code> in the <code>.theanorc</code> file? If so, which are the flags? About the MKL libraries, <a href=\"https://stackoverflow.com/questions/45757704/gohlkes-numpy-mkl-installation-change-mkl-install-directory-on-windows\">this answer</a> may be useful?</p>\n</li>\n<li><p>Tried installing <a href=\"https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)\" rel=\"nofollow noreferrer\">Anaconda</a>. It doesn't work either, and I didn\u2019t have any idea about what went wrong. It gave me messages suggesting installing some extra stuff. It worked, but incredibly slow. <strong>More than 10 times slower than my bugged NumPy version mentioned above</strong> (so, unacceptable, impossible to work at that speed). If I have to go changing everything about Anaconda, it's better to use a regular Python installation instead and know what is going on.</p>\n</li>\n<li><p>Found these already compiled <a href=\"http://icl.cs.utk.edu/lapack-for-windows/lapack/\" rel=\"nofollow noreferrer\">BLAS/LAPACK libraries</a> (.dll and .lib) files. But.... <strong>what am I supposed to do with them?</strong> -- Simply adding their folders to the <code>PATH</code> var and installing numpy gives me &quot;numpy-atlas&quot;, not the libraries I downloaded. <strong>How do I make numpy see them?</strong></p>\n</li>\n<li><p>Tried to understand <a href=\"https://github.com/xianyi/OpenBLAS/wiki/Installation-Guide\" rel=\"nofollow noreferrer\">this page</a>, but yet, it seems it will lead me exactly to the previous case, what will I do with the results? Where are the libs they suggest I use? What are the suggested <code>quickbuild</code> scripts, where are they?</p>\n</li>\n<li><p>Found the Cygwin option <a href=\"https://www.scipy.org/scipylib/building/windows.html#mingw\" rel=\"nofollow noreferrer\">here</a>. I haven't tried it, but it sounds it should be something easier than reinstalling all my python and packages, all from Cygwin</p>\n</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "postgresql",
+    "asp.net-core",
+    "entity-framework-core",
+    "scaffolding"
+   ],
+   "owner": {
+    "account_id": 12425660,
+    "reputation": 414,
+    "user_id": 9050495,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/P3XMA.png?s=256",
+    "display_name": "sanmolhec",
+    "link": "https://stackoverflow.com/users/9050495/sanmolhec"
+   },
+   "is_answered": false,
+   "view_count": 680,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1785607995,
+   "creation_date": 1573823764,
+   "last_edit_date": 1785511876,
+   "question_id": 58877869,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58877869/scaffolding-with-geometry-data-in-postgresql-mapping-error",
+   "title": "Scaffolding with geometry data in PostgreSql mapping error",
+   "body": "<p>I'm trying to do ModelFirst (scaffolding) of an existing bbdd in PostgreSQL with geometry data.</p>\n<p>In the VS project I have well installed all the necessary NuGet packages (EntityFrameworkCore, EntityFrameworkCore.Design, EntityFrameworkCore.Relational, EntityFrameworkCore.Tools, Npgsql.EntityFrameworkCore.PostgreSQL, Npgsql.EntityFrameworkCore.PostgreSQL.Design and Npgsql.NetTopologySuite).</p>\n<p>In VS PM, when launching the command:</p>\n<pre><code>Scaffold-DbContext &quot;Host=myserver;Database=spatial;Username=postgres;Password=xxxxxxxx&quot; Npgsql.EntityFrameworkCore.PostgreSQL -Schemas spu -OutputDir Spatials\n</code></pre>\n<p>He gives me these exceptions:</p>\n<blockquote>\n<p>Could not find type mapping for column 'spu.nuts.geom' with data type\n'geometry(Geometry,4326)'. Skipping column.</p>\n</blockquote>\n<p>And it doesn't map the geometry columns, all rest columns are ok.</p>\n<p>What am I doing wrong?  Can I specify scaffolding using NetTopologySuite?</p>\n"
+  },
+  {
+   "tags": [
+    "r",
+    "r-partykit"
+   ],
+   "owner": {
+    "account_id": 9816256,
+    "reputation": 1,
+    "user_id": 7961613,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/92a519b62fae93a1a79f344631ee470c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "D. Morales",
+    "link": "https://stackoverflow.com/users/7961613/d-morales"
+   },
+   "is_answered": true,
+   "view_count": 263,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1785530104,
+   "creation_date": 1493883948,
+   "last_edit_date": 1785530104,
+   "question_id": 43776850,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/43776850/cforest-computational-cost-ram-limit-exceeded",
+   "title": "Cforest computational cost, RAM limit exceeded",
+   "body": "<p>I'm trying to run a <code>cforest</code> (<code>party</code> package) with a dataset of ~70k observations and ~105 variables, one of them is the response variable (binary).</p>\n\n<p>The specific information for the cforest is <code>mtry = 10, ntree = 50, maxsurrogate = 3</code>.</p>\n\n<p>The problem is that it takes too long for building the <code>cforest</code> (2 hours and 50 minutes), when <code>ranger</code> for example only takes 6 minutes for 500 trees and <code>mtry=10</code>. I know the methodology behind each process is quite different, but is this computational cost normal? Am I doing something wrong with the tuning parameters?</p>\n\n<p>After building the cforest I try to evaluate it with the function <code>predict()</code> in a dataset with ~30k observations and I receive the following <strong>error message</strong>: </p>\n\n<pre><code>Reached total allocation of 8067Mb: see help(memory.size)\n</code></pre>\n\n<p>I'm working on a desktop computer with Windows 7, the technical features are:</p>\n\n<ul>\n<li>Processor: Intel core i5-5300U CPU @ 2.30GHz 2.30GHz</li>\n<li>Installed memory (RAM): 8,00 GB (7,88 GB usable)</li>\n<li>System type: 64-bit Operating System</li>\n</ul>\n\n<p>Thank you very much for your time.</p>\n"
+  },
+  {
+   "tags": [
+    "makefile",
+    "linker",
+    "cmake",
+    "x11"
+   ],
+   "owner": {
+    "account_id": 2443695,
+    "reputation": 798,
+    "user_id": 2131563,
+    "user_type": "registered",
+    "accept_rate": 82,
+    "profile_image": "https://www.gravatar.com/avatar/416d364742d38abc9d369705d442b04c?s=256&d=identicon&r=PG",
+    "display_name": "stanleyerror",
+    "link": "https://stackoverflow.com/users/2131563/stanleyerror"
+   },
+   "is_answered": false,
+   "view_count": 10969,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1784920015,
+   "creation_date": 1448955369,
+   "last_edit_date": 1495542617,
+   "question_id": 34014970,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/34014970/what-difference-lx11-option-vs-target-link-libraries-in-cmake",
+   "title": "What difference: -lX11 option vs. target_link_libraries in CMake",
+   "body": "<p>I need to use OpenGL as a library in my project on my Ubuntu 15.04 64bit PC, which is built by CMake 3.0.2. I install packages: <code>mesa-common-dev mesa-utils-extra libgl1-mesa-dev libglu1-mesa-dev libglapi-mesa libx11-dev libxi-dev libxinerama-dev libxcursor-dev libxrandr-dev</code></p>\n\n<p>After run cmake and Makefile, I got these link error:</p>\n\n<pre><code>/usr/bin/ld: /home/user/CMU462/DrawSVG/asst1_drawsvg/lib/libglfw.a(x11_window.c.o): undefined reference to symbol 'XConvertSelection'\n/usr/lib/gcc/x86_64-linux-gnu/4.9/../../../x86_64-linux-gnu/libX11.so: error adding symbols: DSO missing from command line\n</code></pre>\n\n<p>I checked <code>/usr/lib/x86_64-linux-gnu/libX11.so</code>, it does exist.</p>\n\n<p>I found a <a href=\"https://stackoverflow.com/questions/24989432/linking-error-dso-missing-from-command-line\">explanation</a>, it seems I failed to link my project with <em>X11</em> library. The answer says that add <code>-lX11</code> option may fix this.</p>\n\n<p>Alternatively I link \n<em>X11</em> library in <code>CMakeLists.txt</code> according to <a href=\"https://cmake.org/cmake/help/v3.0/module/FindX11.html\" rel=\"nofollow noreferrer\">FindX11.cmake</a>:</p>\n\n<pre><code>find_package(X11 REQUIRED)\n\nmessage(STATUS \"X11_FOUND = ${X11_FOUND}\")\nmessage(STATUS \"X11_INCLUDE_DIR = ${X11_INCLUDE_DIR}\")\nmessage(STATUS \"X11_LIBRARIES = ${X11_LIBRARIES}\")\n\ninclude_directories(${X11_INCLUDE_DIR})\n\nlink_directories(${X11_LIBRARIES})\n\ntarget_link_libraries(MyProj ... ${X11_LIBRARIES})\n</code></pre>\n\n<p>Run cmake I got these output:</p>\n\n<pre><code>-- X11_FOUND = 1\n-- X11_INCLUDE_DIR = /usr/include\n-- X11_LIBRARIES = /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n</code></pre>\n\n<p>But I still got the error aforementioned.</p>\n\n<p><strong>QUESTION</strong>: The <em>X11</em> library can be linked by</p>\n\n<ol>\n<li>using <code>target_link_libraries</code> in <code>CMakeLists.txt</code>, or </li>\n<li>adding <code>-lX11</code> option directly to compiling command</li>\n</ol>\n\n<p>What's the difference between them? Does the link in <code>CMakeLists.txt</code> directly lead to a <code>-lX11</code> option in <code>Makefile</code> generated? </p>\n\n<p>If so, did I do something wrong in <code>CMakeLists.txt</code>?</p>\n\n<hr>\n\n<p><strong>UPDATE</strong></p>\n\n<p>Let's take <a href=\"https://github.com/462cmu/asst1_drawsvg\" rel=\"nofollow noreferrer\">this project</a> as example, following is my build procedure.</p>\n\n<p><strong>Install required libraries</strong>: Install the <em>OpenGL</em> and other relative libraries (the <em>GLEW</em> and <em>GLFW</em> library is provided in this project): <code>mesa-common-dev mesa-utils-extra libgl1-mesa-dev libglu1-mesa-dev libglapi-mesa libxi-dev libxinerama-dev libxcursor-dev libxrandr-dev</code></p>\n\n<p><strong>Run CMake</strong>: Then use the provided <code>CMakeLists.txt</code>, everything goes right.</p>\n\n<p><strong>Make</strong>: When make the project, this error occurred:</p>\n\n<pre><code>/usr/bin/ld: /home/user/CMU462/DrawSVG/asst1_drawsvg/lib/libglfw.a(x11_window.c.o): undefined reference to symbol 'XConvertSelection'\n/usr/lib/gcc/x86_64-linux-gnu/4.9/../../../x86_64-linux-gnu/libX11.so: error adding symbols: DSO missing from command line\n</code></pre>\n\n<p>I have searched for many times, all of the answers say that the incorrect link of glfw3 and x11 lead to the error:</p>\n\n<ol>\n<li>missing the <code>-X11</code> option. However in line 26 of <a href=\"https://github.com/462cmu/asst1_drawsvg/blob/master/src/CMakeLists.txt\" rel=\"nofollow noreferrer\"><code>CMakeLists.txt</code></a> exists this option</li>\n<li>the libraries show arranged in order. I check the dependencies with <code>pkg-config --libs</code> command, all libraries are arranged in order in line 17 to 29 of <a href=\"https://github.com/462cmu/asst1_drawsvg/blob/master/src/CMakeLists.txt\" rel=\"nofollow noreferrer\"><code>CMakeLists.txt</code></a>.</li>\n</ol>\n\n<p>The only potential reason for this is the order of the compile options of libraries (line 17 to 29) and the <code>target_link_libraries</code> (line 116) of <a href=\"https://github.com/462cmu/asst1_drawsvg/blob/master/src/CMakeLists.txt\" rel=\"nofollow noreferrer\"><code>CMakeLists.txt</code></a>.</p>\n\n<p>Otherwise, there must be another error omitted by me during my procedure.</p>\n"
+  },
+  {
+   "tags": [
+    "windows",
+    "wix",
+    "windows-installer",
+    "installation",
+    "cab"
+   ],
+   "owner": {
+    "account_id": 2332787,
+    "reputation": 411,
+    "user_id": 2045755,
+    "user_type": "registered",
+    "accept_rate": 64,
+    "profile_image": "https://www.gravatar.com/avatar/2b904a97da435eb72bfe61f907d07a68?s=256&d=identicon&r=PG",
+    "display_name": "rsKRISH",
+    "link": "https://stackoverflow.com/users/2045755/rskrish"
+   },
+   "is_answered": false,
+   "view_count": 8980,
+   "answer_count": 1,
+   "score": 7,
+   "last_activity_date": 1784560120,
+   "creation_date": 1377167012,
+   "last_edit_date": 1450707589,
+   "question_id": 18377826,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/18377826/error-1334-file-cannot-be-found-in-the-data1-cab",
+   "title": "Error 1334 .File cannot be found in the Data1.cab",
+   "body": "<p>I am working on a Win 7-64 bit machine. I have a software installation package which contains the .msi file, a CAB file and some MST files. I wanted to modify the cabinet file. So I extracted the cab file using <a href=\"http://msdn.microsoft.com/en-us/library/bb417343.aspx#cabarc\" rel=\"noreferrer\">CABARC</a> utility. </p>\n\n<p>But before making any changes to the extracted files, just for testing the utility I removed the original cab file from the current directory. And created a new cab file from the files extracted from the original cab file, again using CABARC utility. </p>\n\n<p>But now if I run the .msi file, it shows the error:</p>\n\n<blockquote>\n  <p>ERROR:1334. The file \"XYZ\" cannot be installed because the file cannot be found in the cabinet file Data1.cab. This could indicate a network error, an error reading from the CD-ROM, or a problem with this package.  </p>\n</blockquote>\n\n<p>But the file is present in the cabinet file I can see that. The same installer is working fine with the original cab file.</p>\n\n<p>I have tried different compression types (MSZIP, LZX:&lt;15...21>) as well, but none of them work. I have not removed/added any file in the cabinet file. Am I doing anything wrong or if there is any other information that a cabinet file stores ?</p>\n\n<p>Thanks.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "import",
+    "pip",
+    "conda",
+    "pep"
+   ],
+   "owner": {
+    "account_id": 2060264,
+    "reputation": 2812,
+    "user_id": 1837006,
+    "user_type": "registered",
+    "accept_rate": 67,
+    "profile_image": "https://www.gravatar.com/avatar/971621454f029aeb2e99ac7c6475be77?s=256&d=identicon&r=PG",
+    "display_name": "DanielTuzes",
+    "link": "https://stackoverflow.com/users/1837006/danieltuzes"
+   },
+   "is_answered": false,
+   "view_count": 10173,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1784199925,
+   "creation_date": 1621011974,
+   "question_id": 67538271,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/67538271/what-is-the-best-way-to-import-local-modules",
+   "title": "What is the best way to import local modules?",
+   "body": "<p>&quot;What are the PEP-compatible ways to import a local package even from a parent folder with the least preassumptions&quot; could be the long title. I am looking for a solution to make it possible to use a local package. My requirements:</p>\n<ol>\n<li>it must be PEP-compatible, i.e. at least the most commonly accepted PEP must support it</li>\n<li>OS, terminal, user and environment independent, i.e. the solution must not rely on any specific circumstances</li>\n</ol>\n<p>Among these solutions, I am looking for the one that</p>\n<ul>\n<li>is the simplest to implement</li>\n<li>the scope of the modification is flexible (doesn't need to be executed every time, but is not permanent and system-wide)</li>\n<li>leaves the source code in the simplest form, i.e. the solution doesn't need a lot of extra lines in the code</li>\n</ul>\n<h1>Solutions</h1>\n<p>These are the ways I found on SO and other places so far. None of them suit my needs, and as it was told 8 years ago, <a href=\"https://stackoverflow.com/a/20749411/1837006\">every solution will have their cons</a>. Yet I hope in 2021 we can find a solution that meets at least my 2 requirements.</p>\n<h2>Use conda</h2>\n<p><a href=\"https://stackoverflow.com/questions/32715261/how-to-add-folder-to-search-path-for-a-given-anaconda-environment\">SO 1</a></p>\n<p>Use conda environments and issue conda to <a href=\"https://conda.io/projects/conda-build/en/latest/resources/commands/conda-develop.html\" rel=\"nofollow noreferrer\">include a directory in the python lookup path</a> by <code>conda develop &lt;path&gt;</code> where <code>&lt;path&gt;</code> can be either relative to pwd or absolute. Conda then creates a <code>conda.pth</code> file in the <code>site-packages</code> folder of the environment, and python will be provided the content of that file, therefore will be available in the <code>sys.path</code></p>\n<p>Drawback: it requires conda-build, but it is not always present.</p>\n<h2>Use pip</h2>\n<p><a href=\"https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder/50194143#50194143\">SO 2a</a>, <a href=\"https://stackoverflow.com/questions/6323860/sibling-package-imports/50193944#50193944\">SO 2b</a>, <a href=\"https://stackoverflow.com/questions/35064426/when-would-the-e-editable-option-be-useful-with-pip-install\">SO 3</a></p>\n<p>Use pip to install a package locally. Create a <code>setup.py</code>, configure it, cd into where it is, then install the package locally in editable mode with <code>pip install -e .</code></p>\n<p>Drawback: <a href=\"https://www.python.org/dev/peps/pep-0517/\" rel=\"nofollow noreferrer\">PEP 517</a> doesn\u2019t support editable installs as mentioned on <a href=\"https://setuptools.readthedocs.io/en/latest/setuptools.html#setup-cfg-only-projects\" rel=\"nofollow noreferrer\">setuptools</a>.</p>\n<h2>direct hack of <code>sys.path</code></h2>\n<p><a href=\"https://stackoverflow.com/a/11158224/1837006\">SO 2c</a></p>\n<p>Add paths to <code>sys.path</code> directly within the python script, e.g.:</p>\n<pre class=\"lang-py prettyprint-override\"><code>import os\nimport sys\n\nsys.path.insert(&quot;path&quot;)\n\nimport mymodule\n</code></pre>\n<p>Here path can be absolute or relative, and the latter can be OS independent e.g. by using <code>os.path.sep</code>.</p>\n<p>Drawback: it is not PEP-compatible, because not all import statements are in the top of the file. autopep8 will rearrange your code into a wrong order, however, there <a href=\"https://stackoverflow.com/a/36829884/1837006\">are workarounds</a>. One can say that it is a good example where PEP can be neglected but I'd like to believe imports are basic enough to apply PEP without exception.</p>\n<h2>modify pythonpath</h2>\n<p>Modify your system environemnt path or pythonpath by adding the necessary directory to it.</p>\n<p>Drawbacks: it is at least OS dependent and too global, or just the opposite, one needs to execute it every time.</p>\n<h2>use relative imports</h2>\n<p>From within the script, include the module using relative import</p>\n<pre class=\"lang-py prettyprint-override\"><code>from ..somewhere import mymodule\n</code></pre>\n<p>This <strong>doesn't</strong> work if this module is the main, you'll get a</p>\n<blockquote>\n<p><code>ImportError: attempted relative import with no known parent package</code></p>\n</blockquote>\n<p>furthermore, PEP 8 says: &quot;Relative imports for intra-package imports are highly discouraged.&quot;  <a href=\"https://mail.python.org/pipermail/python-dev/2010-October/104476.html\" rel=\"nofollow noreferrer\">Guido thinks it is ok</a>.</p>\n<h1>Related questions</h1>\n<p>This is <strong>not a duplicate</strong> of the general questions on how to import modules beyond top-level, because those questions already have accepted answers. <a href=\"https://stackoverflow.com/questions/714063/importing-modules-from-parent-folder\">SO 2</a>, <a href=\"https://stackoverflow.com/questions/6323860/sibling-package-imports\">SO 3</a>, <a href=\"https://stackoverflow.com/questions/2349991/how-to-import-other-python-files\">SO 4</a>, <a href=\"https://stackoverflow.com/questions/8663076/python-best-way-to-add-to-sys-path-relative-to-the-current-running-script\">SO 5</a> <a href=\"https://stackoverflow.com/questions/66568800/what-is-the-best-way-to-import-local-package\">SO 6, not even python</a></p>\n"
+  },
+  {
+   "tags": [
+    "node.js",
+    "typescript"
+   ],
+   "owner": {
+    "account_id": 2868631,
+    "reputation": 325,
+    "user_id": 2462409,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d429467349ad6672c9569c49da675a3?s=256&d=identicon&r=PG",
+    "display_name": "vizmo",
+    "link": "https://stackoverflow.com/users/2462409/vizmo"
+   },
+   "is_answered": false,
+   "view_count": 1260,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1783086076,
+   "creation_date": 1666771169,
+   "question_id": 74204452,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74204452/ts7016-could-not-find-a-declaration-file-for-module-even-though-declarations",
+   "title": "TS7016: &quot;Could not find a declaration file for module&quot; even though declarations are available",
+   "body": "<p>I'm writing an app in typescript and I'd like to use the <a href=\"https://www.npmjs.com/package/@cyclonedx/cyclonedx-library\" rel=\"nofollow noreferrer\">@cyclonedx/cyclonedx-library</a> package (v1.7.0 as of today).</p>\n<p>The problem is, tsc throws the following error. FWIW, the import statement was copied straight from the package's <a href=\"https://github.com/CycloneDX/cyclonedx-javascript-library/blob/main/examples/node-typescript/example.ts\" rel=\"nofollow noreferrer\">typescript example</a>.</p>\n<pre><code>src/enhancedCycloneDxSchema.ts:4:22 - error TS7016: Could not find a declaration file for module '@cyclonedx/cyclonedx-library'. 'C:/workspace/fv-sbom-generator/node_modules/@cyclonedx/cyclonedx-library/dist.node/index.node.js' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/cyclonedx__cyclonedx-library` if it exists or add a new declaration (.d.ts) file containing `declare module '@cyclonedx/cyclonedx-library';`\n\n4 import * as CDX from &quot;@cyclonedx/cyclonedx-library&quot;;\n</code></pre>\n<p>I've researched this error and here on SO as well as elsewhere, the solutions always fall into one of the following categories:</p>\n<ul>\n<li>The user had to install typings separately, as suggested by the error message.</li>\n<li>No typings were available for the package, so a module was manually declared for the package (either empty just to silence the compiler or with declarations inside).</li>\n<li>The error was disabled altogether in <code>tsconfig.json</code> with <code>&quot;noImplicitAny&quot;: false</code>.</li>\n</ul>\n<p>The thing is, this package <strong>does</strong> provide type declarations, starting in version 1.7.0 they are located under <code>node_modules/@cyclonedx/cyclonedx-library/dist.d</code> and the package.json contains the line <code>&quot;types&quot;: &quot;./dist.d/index.node.d.ts&quot;</code>.</p>\n<p>I must admit I'm a typescript beginner, so I have no clue what I'm doing wrong.</p>\n<p>This is my <code>tsconfig.json</code>:</p>\n<pre class=\"lang-json prettyprint-override\"><code>{\n  &quot;include&quot;: [&quot;src/**/*&quot;],\n  &quot;compilerOptions&quot;: {\n    &quot;target&quot;: &quot;ES2021&quot;,\n    &quot;module&quot;: &quot;Node16&quot;,\n    &quot;moduleResolution&quot;: &quot;Node16&quot;,\n    &quot;outDir&quot;: &quot;dist&quot;,\n    &quot;esModuleInterop&quot;: true,\n    &quot;forceConsistentCasingInFileNames&quot;: true,\n    &quot;strict&quot;: true,\n    &quot;skipLibCheck&quot;: true,\n    &quot;sourceMap&quot;: true\n  }\n}\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "javascript",
+    "node.js",
+    "error-handling",
+    "solana"
+   ],
+   "owner": {
+    "account_id": 41707392,
+    "reputation": 31,
+    "user_id": 30414355,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1e400200df8712281d19f7b4cbc97bd3?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Linda Baptiste",
+    "link": "https://stackoverflow.com/users/30414355/linda-baptiste"
+   },
+   "is_answered": true,
+   "view_count": 642,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1782970485,
+   "creation_date": 1746033738,
+   "question_id": 79600831,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79600831/typeerror-bs58-decode-is-not-a-function",
+   "title": "TypeError: bs58.decode is not a function",
+   "body": "<p>I'm working on a meme coin trading bot using Node.js and Solana's web3.js library. When I run my script, I get the following error:</p>\n<p>'TypeError: bs58.decode is not a function\nat Object. (C:\\Users\\charl\\meme-coin-bot\\meme-coin-bot\\bot.js:15:24)\nat Module._compile (node:internal/modules/cjs/loader:1730:14)\nat Object..js (node:internal/modules/cjs/loader:1895:10)\nat Module.load (node:internal/modules/cjs/loader:1465:32)\nat Function._load (node:internal/modules/cjs/loader:1282:12)\nat TracingChannel.traceSync (node:diagnostics_channel:322:14)\nat wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\nat Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)\nat node:internal/main/run_main_module:36:49'</p>\n<p>The error happens at this line:</p>\n<p>'const secretKey = bs58.decode(secretKeyBase58);'</p>\n<p>My script prompts the user to enter a wallet secret key in Base58 format. I\u2019ve installed bs58 using npm install bs58, and I'm importing it like this</p>\n<p><code>const bs58 = require('bs58')</code></p>\n<p>I'm not sure what I'm doing wrong. Could someone help me figure out why bs58.decode isn't recognized as a function?</p>\n<p>Thanks in advance!</p>\n<p>What I tried:</p>\n<p>I installed the bs58 package using npm install bs58.\nIn my code, I imported it with:</p>\n<p><code>const bs58 = require('bs58');</code></p>\n<p>Then I used:</p>\n<p>`const secretKey = bs58.decode(secretKeyBase58);'</p>\n<p>What I expected:\nI expected bs58.decode() to decode a Base58 string (my wallet secret key) into a Uint8Array that I could use to generate a Solana Keypair like this:</p>\n<p>const keypair = web3.Keypair.fromSecretKey(secretKey);\nWhat actually happened:</p>\n<p>I got this error\n<code>TypeError: bs58.decode is not a function at Object.&lt;anonymous&gt; (C:\\Users\\charl\\meme-coin-bot\\meme-coin-bot\\bot.js:15:24) at Module._compile (node:internal/modules/cjs/loader:1730:14) at Object..js (node:internal/modules/cjs/loader:1895:10) at Module.load (node:internal/modules/cjs/loader:1465:32) at Function._load (node:internal/modules/cjs/loader:1282:12) at TracingChannel.traceSync (node:diagnostics_channel:322:14) at wrapModuleLoad (node:internal/modules/cjs/loader:235:24) at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5) at node:internal/main/run_main_module:36:49 </code>\n`</p>\n"
+  },
+  {
+   "tags": [
+    "driver",
+    "opencl",
+    "intel",
+    "platform",
+    "buildconfiguration"
+   ],
+   "owner": {
+    "account_id": 514136,
+    "reputation": 141623,
+    "user_id": 1593077,
+    "user_type": "registered",
+    "accept_rate": 49,
+    "profile_image": "https://www.gravatar.com/avatar/10c44e0d9568e48d05708ae196ad936f?s=256&d=identicon&r=PG",
+    "display_name": "einpoklum",
+    "link": "https://stackoverflow.com/users/1593077/einpoklum"
+   },
+   "is_answered": false,
+   "view_count": 112,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1782549094,
+   "creation_date": 1782513562,
+   "last_edit_date": 1782513872,
+   "question_id": 79968491,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79968491/opencl-doesnt-see-the-intel-platform-despite-having-supposedly-installed-ever",
+   "title": "OpenCL doesn&#39;t &quot;see&quot; The Intel platform despite having supposedly installed everything",
+   "body": "<p>I'm trying to target my CPU (Intel i5-7600K) as an OpenCL platform. My OS is Devuan GNU/Linux Freia. I've installed for following APT packages:</p>\n<ul>\n<li><code>intel-opencl-icd</code></li>\n<li><code>ocl-icd-opencl-dev</code></li>\n<li>The &quot;Intel Compute Runtime&quot; packages from <a href=\"https://github.com/intel/compute-runtime\" rel=\"nofollow noreferrer\">github.com/intel/compute-runtime</a> (see the releases page)</li>\n</ul>\n<p>... and yet - the <code>clinfo</code> tool says I only have one platform, which is NVIDIA CUDA (associated with my GPU). And when I configure and build a program which problems the OpenCL platforms - I get same thing: Just one platform.</p>\n<p>My build configuration, BTW, is pretty straightforward; using CMake, I write (snippt):</p>\n<pre><code>find_package(OpenCL REQUIRED)\nadd_executable(my_program main.c)\ntarget_link_libraries(my_program OpenCL::OpenCL)\n</code></pre>\n<p>and this builds fine (with <code>OpenCL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libOpenCL.so</code>). It's just that the Intel CPU platform is missing.</p>\n<p>Am I doing something wrong? Is there some secret sauce I'm missing?</p>\n<p><sub>Note: This problem was also encountered by @chasep in <a href=\"https://stackoverflow.com/q/35820326/1593077\">this question</a>. But - that question got no answers. And I'm not sure the reason on their system and mine is the same; and I would not be able to help try anything out on the system in question there. So - I decided to ask this question anyway. Please consider not marking this as a dupe unless you have an answer which should probably fit both questions.</sub></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "linux",
+    "installation",
+    "pip",
+    "command-line"
+   ],
+   "owner": {
+    "account_id": 46599506,
+    "reputation": 21,
+    "user_id": 32870674,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/BHxPJ0kz.jpg?s=256",
+    "display_name": "D-Cat212",
+    "link": "https://stackoverflow.com/users/32870674/d-cat212"
+   },
+   "is_answered": true,
+   "view_count": 156,
+   "accepted_answer_id": 79966096,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1782414679,
+   "creation_date": 1782264251,
+   "last_edit_date": 1782414679,
+   "question_id": 79966087,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79966087/could-not-find-a-version-that-satisfies-the-requirement-libfreenect-from-versi",
+   "title": "&quot;Could not find a version that satisfies the requirement libfreenect (from versions: none)&quot; when trying to download libfreenect with pip",
+   "body": "<p>I am following instructions on how to install gravbox v1.0. In the instructions, it says to download several python packages, which all worked except for libfreenect. libfreenect instead gave an error I have copied below.</p>\n<pre><code>user:\\~$ pip install libfreenect\n</code></pre>\n<p>Defaulting to user installation because normal site-packages is not writeable.</p>\n<blockquote>\n<p>ERROR: Could not find a version that satisfies the requirement libfreenect (from versions: none)<br />\nERROR: No matching distribution found for libfreenect</p>\n</blockquote>\n<p>I tried using Gemini to help me, but it's solutions did not work, and I am worried it may push me the wrong way, or cause me to download packages that would cause errors.</p>\n<p>Gemini solution:</p>\n<pre><code>sudo apt-get update\nsudo apt-get instal libfreenect\npip install --upgrade setuptools wheel\npip install cython setuptools\npip install freenect --no-build-isolation\n</code></pre>\n<p>I did run the above commands, so if that causes issues please consider that too.</p>\n"
+  },
+  {
+   "tags": [
+    "cmake",
+    "cuda",
+    "nvtx"
+   ],
+   "owner": {
+    "account_id": 514136,
+    "reputation": 141623,
+    "user_id": 1593077,
+    "user_type": "registered",
+    "accept_rate": 49,
+    "profile_image": "https://www.gravatar.com/avatar/10c44e0d9568e48d05708ae196ad936f?s=256&d=identicon&r=PG",
+    "display_name": "einpoklum",
+    "link": "https://stackoverflow.com/users/1593077/einpoklum"
+   },
+   "is_answered": true,
+   "view_count": 3339,
+   "accepted_answer_id": 56605896,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1781704601,
+   "creation_date": 1560549983,
+   "last_edit_date": 1612859273,
+   "question_id": 56605670,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/56605670/finding-the-nvidia-toolkit-extensions-library-with-cmake",
+   "title": "Finding the nVIDIA Toolkit Extensions library with CMake",
+   "body": "<p>I'm using CMake 3.13, with inherent support for CUDA as a language, to build a project. This project requires the nVIDIA Toolkit Extensions library. On a previous system, I had it under <code>/usr/local/cuda/lib64</code>. I used a <code>find_library()</code> command which I thought should be sufficient, and all was well. But - it isn't, and it wasn't: On a system in which CUDA is installed using OS distribution packages, under /usr directly, my command doesn't work.</p>\n<p>To be more specific, I'm using:</p>\n<pre><code>find_library(CUDA_NVTX_LIBRARY\n  NAMES nvToolsExt nvTools nvtoolsext nvtools nvtx NVTX\n  PATHS ${CUDA_TOOLKIT_ROOT_DIR} ENV LD_LIBRARY_PATH\n  PATH_SUFFIXES &quot;lib64&quot; &quot;common/lib64&quot; &quot;common/lib&quot; &quot;lib&quot;\n  DOC &quot;Location of the CUDA Toolkit Extension (NVTX) library&quot;\n  NO_DEFAULT_PATH\n)\n</code></pre>\n<p>and this is missing <code>/usr/lib/x86_64-linux-gnu/libnvToolsExt.so</code>.</p>\n<p>Questions:</p>\n<ul>\n<li>How should I alter my find_library command not to miss such target-platform-specific folders?</li>\n<li>Am I looking for the NVTX library the wrong way? Can I somehow rely on what CMake finds internally instead?</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>I have basically the same issue with <code>libOpenCL.so</code>, nVIDIA's OpenCL layer.</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "opencv",
+    "image-processing",
+    "dlib"
+   ],
+   "owner": {
+    "account_id": 9472703,
+    "reputation": 31,
+    "user_id": 7043071,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1088880364560830/picture?type=large",
+    "display_name": "Rayhan Showrov",
+    "link": "https://stackoverflow.com/users/7043071/rayhan-showrov"
+   },
+   "is_answered": true,
+   "view_count": 2250,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1781488910,
+   "creation_date": 1539092789,
+   "question_id": 52722645,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/52722645/blink-detection-using-dlib-and-opencv",
+   "title": "Blink Detection using dlib and opencv",
+   "body": "<p>I have gotten this code from pyimagesearch and tried to run it but when i run the file i get these errors. Can anyone please tell me what is wrong here? I have installed all the needed packages and libraries. All conda packages are up to date. Please look in to the error codes section and have a look if you can figure out what is wrong here.</p>\n\n<pre><code>    # USAGE\n    # python detect_blinks.py --shape-predictor \n    shape_predictor_68_face_landmarks.dat --video blink_detection_demo.mp4\n    # python detect_blinks.py --shape-predictor \n      shape_predictor_68_face_landmarks.dat\n\n# import the necessary packages\nfrom scipy.spatial import distance as dist\nfrom imutils.video import FileVideoStream\nfrom imutils.video import VideoStream\nfrom imutils import face_utils\nimport numpy as np\nimport argparse\nimport imutils\nimport time\nimport dlib\nimport cv2\n\ndef eye_aspect_ratio(eye):\n    # compute the euclidean distances between the two sets of\n    # vertical eye landmarks (x, y)-coordinates\n    A = dist.euclidean(eye[1], eye[5])\n    B = dist.euclidean(eye[2], eye[4])\n\n    # compute the euclidean distance between the horizontal\n    # eye landmark (x, y)-coordinates\n    C = dist.euclidean(eye[0], eye[3])\n\n    # compute the eye aspect ratio\n    ear = (A + B) / (2.0 * C)\n\n    # return the eye aspect ratio\n    return ear\n\n# construct the argument parse and parse the arguments\nap = argparse.ArgumentParser()\nap.add_argument(\"-p\", \"--shape-predictor\", required=True,\n    help=\"path to facial landmark predictor\")\nap.add_argument(\"-v\", \"--video\", type=str, default=\"\",\n    help=\"path to input video file\")\nargs = vars(ap.parse_args())\n\n# define two constants, one for the eye aspect ratio to indicate\n# blink and then a second constant for the number of consecutive\n# frames the eye must be below the threshold\nEYE_AR_THRESH = 0.3\nEYE_AR_CONSEC_FRAMES = 3\n\n# initialize the frame counters and the total number of blinks\nCOUNTER = 0\nTOTAL = 0\n\n# initialize dlib's face detector (HOG-based) and then create\n# the facial landmark predictor\nprint(\"[INFO] loading facial landmark predictor...\")\ndetector = dlib.get_frontal_face_detector()\npredictor = dlib.shape_predictor(args[\"shape_predictor\"])\n\n# grab the indexes of the facial landmarks for the left and\n# right eye, respectively\n(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS[\"left_eye\"]\n(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS[\"right_eye\"]\n\n# start the video stream thread\nprint(\"[INFO] starting video stream thread...\")\nvs = FileVideoStream(args[\"video\"]).start()\nfileStream = True\n# vs = VideoStream(src=0).start()\n# vs = VideoStream(usePiCamera=True).start()\n# fileStream = False\ntime.sleep(1.0)\n\n# loop over frames from the video stream\nwhile True:\n    # if this is a file video stream, then we need to check if\n    # there any more frames left in the buffer to process\n    if fileStream and not vs.more():\n        break\n\n    # grab the frame from the threaded video file stream, resize\n    # it, and convert it to grayscale\n    # channels)\n    frame = vs.read()\n    frame = imutils.resize(frame, width=450)\n    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)\n\n    # detect faces in the grayscale frame\n    rects = detector(gray, 0)\n\n    # loop over the face detections\n    for rect in rects:\n        # determine the facial landmarks for the face region, then\n        # convert the facial landmark (x, y)-coordinates to a NumPy\n        # array\n        shape = predictor(gray, rect)\n        shape = face_utils.shape_to_np(shape)\n\n        # extract the left and right eye coordinates, then use the\n        # coordinates to compute the eye aspect ratio for both eyes\n        leftEye = shape[lStart:lEnd]\n        rightEye = shape[rStart:rEnd]\n        leftEAR = eye_aspect_ratio(leftEye)\n        rightEAR = eye_aspect_ratio(rightEye)\n\n        # average the eye aspect ratio together for both eyes\n        ear = (leftEAR + rightEAR) / 2.0\n\n        # compute the convex hull for the left and right eye, then\n        # visualize each of the eyes\n        leftEyeHull = cv2.convexHull(leftEye)\n        rightEyeHull = cv2.convexHull(rightEye)\n        cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)\n        cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)\n\n        # check to see if the eye aspect ratio is below the blink\n        # threshold, and if so, increment the blink frame counter\n        if ear &lt; EYE_AR_THRESH:\n            COUNTER += 1\n\n        # otherwise, the eye aspect ratio is not below the blink\n        # threshold\n        else:\n            # if the eyes were closed for a sufficient number of\n            # then increment the total number of blinks\n            if COUNTER &gt;= EYE_AR_CONSEC_FRAMES:\n                TOTAL += 1\n\n            # reset the eye frame counter\n            COUNTER = 0\n\n        # draw the total number of blinks on the frame along with\n        # the computed eye aspect ratio for the frame\n        cv2.putText(frame, \"Blinks: {}\".format(TOTAL), (10, 30),\n            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)\n        cv2.putText(frame, \"EAR: {:.2f}\".format(ear), (300, 30),\n            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)\n\n    # show the frame\n    cv2.imshow(\"Frame\", frame)\n    key = cv2.waitKey(1) &amp; 0xFF\n\n    # if the `q` key was pressed, break from the loop\n    if key == ord(\"q\"):\n        break\n\n# do a bit of cleanup\ncv2.destroyAllWindows()\nvs.stop()\n</code></pre>\n\n<p>the errors are </p>\n\n<pre><code>usage: detect_blinks.py [-h] -p SHAPE_PREDICTOR [-v VIDEO]\ndetect_blinks.py: error: the following arguments are required: -p/--shape- \n   predictor\nAn exception has occurred, use %tb to see the full traceback.\n\nSystemExit: 2\n\n\n\n\n%tb\nTraceback (most recent call last):\n\n  File \"&lt;ipython-input-6-55db51806586&gt;\", line 1, in &lt;module&gt;\n    runfile('C:/Users/Rayhan/Downloads/Compressed/blink-detection/blink-detection/detect_blinks.py', wdir='C:/Users/Rayhan/Downloads/Compressed/blink-detection/blink-detection')\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\site-packages\\spyder_kernels\\customize\\spydercustomize.py\", line 668, in runfile\n    execfile(filename, namespace)\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\site-packages\\spyder_kernels\\customize\\spydercustomize.py\", line 108, in execfile\n    exec(compile(f.read(), filename, 'exec'), namespace)\n\n  File \"C:/Users/Rayhan/Downloads/Compressed/blink-detection/blink-detection/detect_blinks.py\", line 39, in &lt;module&gt;\n    args = vars(ap.parse_args())\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\argparse.py\", line 1734, in parse_args\n    args, argv = self.parse_known_args(args, namespace)\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\argparse.py\", line 1766, in parse_known_args\n    namespace, args = self._parse_known_args(args, namespace)\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\argparse.py\", line 2001, in _parse_known_args\n    ', '.join(required_actions))\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\argparse.py\", line 2393, in error\n    self.exit(2, _('%(prog)s: error: %(message)s\\n') % args)\n\n  File \"C:\\ProgramData\\Anaconda3\\lib\\argparse.py\", line 2380, in exit\n    _sys.exit(status)\n\nSystemExit: 2\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "c#",
+    "asp.net-core"
+   ],
+   "owner": {
+    "account_id": 556598,
+    "reputation": 19018,
+    "user_id": 1592821,
+    "user_type": "registered",
+    "accept_rate": 74,
+    "profile_image": "https://www.gravatar.com/avatar/683f82a14ba9c318ef99ca8268826422?s=256&d=identicon&r=PG",
+    "display_name": "Kirsten",
+    "link": "https://stackoverflow.com/users/1592821/kirsten"
+   },
+   "is_answered": true,
+   "view_count": 103019,
+   "accepted_answer_id": 51433495,
+   "answer_count": 4,
+   "score": 20,
+   "last_activity_date": 1781175520,
+   "creation_date": 1531886535,
+   "last_edit_date": 1733109289,
+   "question_id": 51393395,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/51393395/msbuild-error-msb1003-specify-a-project-or-solution-file",
+   "title": "MSBUILD : error MSB1003: Specify a project or solution file",
+   "body": "<p>The instructions for a sample application that I am trying to build as me to type</p>\n<pre><code>dotnet restore\n</code></pre>\n<p>at the command line.</p>\n<pre><code>dotnet --version\n</code></pre>\n<p>reports</p>\n<pre><code>2.1.300\n</code></pre>\n<p>When I do this, I get the following error:</p>\n<pre><code>MSBUILD : error MSB1003: Specify a project or solution file.\nThe current working directory does not contain a project or solution file.\n</code></pre>\n<p>The folder I am executing the command in contains .cs files, but no .sln or .csproj file.</p>\n<p>Does .NET Core require a <em>.csproj</em> file?</p>\n<p>The code comes from an answer to <a href=\"https://stackoverflow.com/questions/50921099/invalid-provider-type-specified-cryptographicexception\">my question here</a> but the github project has since been deleted.</p>\n<p>I did try creating a <em>.csproj file</em>, but i had trouble guessing what packages to put in it.</p>\n<p>I added the following <em>.csproj</em> file:</p>\n<pre><code>&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;netcoreapp2.1&lt;/TargetFramework&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\n</code></pre>\n<p>Then I get the following namespaces missing:</p>\n<pre><code> Microsoft.IdentityModel\n Azure\n KeyVaultClient\n ClientAssertinCertificate\n Newtonsoft\n Org\n</code></pre>\n<p>I know how to use package manager, but how do I figure out the right versions of everything?</p>\n<p>Here is file <em>program.cs</em>:</p>\n<pre><code>using System;\nusing System.IO;\nusing Newtonsoft.Json;\nusing Newtonsoft.Json.Linq;\nusing System.Text.RegularExpressions;\nusing System.Threading.Tasks;\nusing System.Collections.ObjectModel;\nusing System.Runtime.InteropServices;\nusing System.Security.Cryptography.X509Certificates;\nusing Microsoft.Azure.KeyVault;\nusing Microsoft.IdentityModel.Clients.ActiveDirectory;\n\nnamespace dotnetconsole\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            Console.WriteLine(@&quot;This Application must be run after running the powershell script Setup.ps1!\n                                This DotNet Console Application authenticates to Key Vault!\n                                It also creates a Secret Key Value Pair!\n                                And then it gets the Secret Key Value Pair!&quot;);\n\n            bool isWindows = System.Runtime.InteropServices.RuntimeInformation\n                                               .IsOSPlatform(OSPlatform.Windows);\n            string KEYVAULT_URI = String.Empty;\n            string APPLICATION_ID = String.Empty;\n            string CERT_THUMBPRINT = String.Empty;\n            if(isWindows)\n            {\n                KEYVAULT_URI = System.Environment.GetEnvironmentVariable(&quot;VAULT_NAME&quot;, EnvironmentVariableTarget.User);\n                APPLICATION_ID = System.Environment.GetEnvironmentVariable(&quot;APPLICATION_ID&quot;, EnvironmentVariableTarget.User);\n                CERT_THUMBPRINT = System.Environment.GetEnvironmentVariable(&quot;CERT_THUMBPRINT&quot;, EnvironmentVariableTarget.User);\n            }\n            else\n            {\n                var result = GetVariablesFromJSON();\n                APPLICATION_ID = result.Item1;\n                CERT_THUMBPRINT = result.Item2;\n                KEYVAULT_URI = result.Item3;\n            }\n            KeyVault keyVaultObj = new KeyVault(APPLICATION_ID, CERT_THUMBPRINT);\n            var VaultName = &quot;https://&quot; + KEYVAULT_URI + &quot;.vault.azure.net/&quot;;\n            var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);\n            Console.WriteLine(&quot;Vault URI is! {0}&quot;, VaultName);\n            Console.WriteLine(&quot;Wait method is invoked to wait for Secret Key Value pair to be created&quot;);\n            waitHandle.Wait();\n            Console.WriteLine(&quot;Secret Key Value pair is now created&quot;);\n            keyVaultObj.GetResult(VaultName);\n        }\n\n        private static Tuple&lt;string, string, string&gt; GetVariablesFromJSON()\n        {\n            var ServicePrincipalJSON = Directory.GetCurrentDirectory() + &quot;/ServicePrincipal.json&quot;;\n            var CertThumbprintJSON = Directory.GetCurrentDirectory() + &quot;/CertThumbprint.txt&quot;;\n            var VaultJSON = Directory.GetCurrentDirectory() + &quot;/KeyVault.json&quot;;\n            if(File.Exists(ServicePrincipalJSON) &amp;&amp; File.Exists(CertThumbprintJSON) &amp;&amp; File.Exists(VaultJSON))\n            {\n                return new Tuple&lt;string, string, string&gt;(ProcessFile(ServicePrincipalJSON, &quot;appId&quot;, true), ProcessFile(CertThumbprintJSON, &quot;&quot;, false), ProcessFile(VaultJSON, &quot;name&quot;, true));\n            }\n\n            return new Tuple&lt;string, string, string&gt;(&quot;&quot;, &quot;&quot;, &quot;&quot;);\n        }\n\n        private static string ProcessFile(string fileName, string valueToLookFor, bool isJson)\n        {\n            var result = &quot;&quot;;\n            using (StreamReader ContentsOfFile = File.OpenText(fileName))\n            {\n                if(isJson){\n                    var stuff = (JObject)JsonConvert.DeserializeObject(ContentsOfFile.ReadToEnd());\n                    result = stuff[valueToLookFor].Value&lt;string&gt;();\n                }\n                else {\n                    var contents = ContentsOfFile.ReadToEnd();\n                    contents = contents.Split(&quot;=&quot;)[1];\n                    result = Regex.Replace(contents, @&quot;\\t|\\n|\\r&quot;, &quot;&quot;);\n                }\n            }\n            return result;\n        }\n    }\n}\n</code></pre>\n<p>Here is Util.cs</p>\n<pre><code>using System;\nusing System.IO;\nusing System.Security.Cryptography;\nusing System.Security.Cryptography.X509Certificates;\nusing System.Text;\nusing Org.BouncyCastle.Crypto;\nusing Org.BouncyCastle.Crypto.Encodings;\nusing Org.BouncyCastle.Crypto.Engines;\nusing Org.BouncyCastle.Crypto.Parameters;\nusing Org.BouncyCastle.OpenSsl;\n\npublic class Util\n{\n    public static X509Certificate2 ConvertFromPfxToPem(string filename)\n    {\n        using (System.IO.FileStream fs = System.IO.File.OpenRead(filename))\n        {\n            byte[] data = new byte[fs.Length];\n            byte[] res = null;\n            fs.Read(data, 0, data.Length);\n            if (data[0] != 0x30)\n            {\n                res = GetPem(&quot;CERTIFICATE&quot;, data);\n            }\n            X509Certificate2 x509 = new X509Certificate2(res); //Exception hit here\n            return x509;\n        }\n    }\n\n    private static byte[] GetPem(string type, byte[] data)\n    {\n        string pem = Encoding.UTF8.GetString(data);\n        string header = String.Format(&quot;-----BEGIN {0}-----&quot;, type);\n        string footer = String.Format(&quot;-----END {0}-----&quot;, type);\n        int start = pem.IndexOf(header) + header.Length;\n        int end = pem.IndexOf(footer, start);\n        string base64 = pem.Substring(start, (end - start));\n        base64 = base64.Replace(System.Environment.NewLine, &quot;&quot;);\n        base64 = base64.Replace('-', '+');\n        base64 = base64.Replace('_', '/');\n        return Convert.FromBase64String(base64);\n    }\n\n    public static RSACryptoServiceProvider PemFileReader(){\n        RsaPrivateCrtKeyParameters keyParams;\n        using (var reader = File.OpenText(&quot;cert.pem&quot;)) // file containing RSA PKCS1 private key\n        {\n            keyParams = ((RsaPrivateCrtKeyParameters)new PemReader(reader).ReadObject());\n        }\n\n        RSAParameters rsaParameters = new RSAParameters();\n\n        rsaParameters.Modulus = keyParams.Modulus.ToByteArrayUnsigned();\n        rsaParameters.P = keyParams.P.ToByteArrayUnsigned();\n        rsaParameters.Q = keyParams.Q.ToByteArrayUnsigned();\n        rsaParameters.DP = keyParams.DP.ToByteArrayUnsigned();\n        rsaParameters.DQ = keyParams.DQ.ToByteArrayUnsigned();\n        rsaParameters.InverseQ = keyParams.QInv.ToByteArrayUnsigned();\n        rsaParameters.D = keyParams.Exponent.ToByteArrayUnsigned();\n        rsaParameters.Exponent = keyParams.PublicExponent.ToByteArrayUnsigned();\n\n        RSACryptoServiceProvider rsaKey = new RSACryptoServiceProvider(2048);\n        rsaKey.ImportParameters(rsaParameters);\n        return rsaKey;\n    }\n}\n</code></pre>\n<p>Here is KeyVault.cs</p>\n<pre><code>using System;\nusing Microsoft.IdentityModel.Clients.ActiveDirectory;\nusing Microsoft.Azure.KeyVault;\nusing System.Threading.Tasks;\nusing System.Security.Cryptography.X509Certificates;\nusing Microsoft.Azure.KeyVault.Models;\nusing System.Runtime.InteropServices;\nusing System.Security.Cryptography;\n\nnamespace dotnetconsole\n{\n    public class KeyVault\n    {\n        KeyVaultClient _keyVaultClient;\n        string APPLICATION_ID, CERT_THUMBPRINT;\n        public KeyVault(string APPLICATION_ID, string CERT_THUMBPRINT) {\n            this.APPLICATION_ID = APPLICATION_ID;\n            this.CERT_THUMBPRINT = CERT_THUMBPRINT;\n            _keyVaultClient = new KeyVaultClient(this.GetAccessToken);\n        }\n\n        public static ClientAssertionCertificate AssertionCert { get; set; }\n\n        // This method is used to get a token from Azure Active Directory.\n        public async Task&lt;string&gt; GetAccessToken(string authority, string resource, string scope)\n        {\n            var context = new AuthenticationContext(authority, TokenCache.DefaultShared);\n            bool isWindows = System.Runtime.InteropServices.RuntimeInformation\n                                               .IsOSPlatform(OSPlatform.Windows);\n\n            X509Certificate2 certByThumbprint = new X509Certificate2();\n            if(isWindows){\n                certByThumbprint = FindCertificateByThumbprint(this.CERT_THUMBPRINT);\n            } else {\n                // If it's a pem file then we take the private key portion and create a\n                // RSACryptoServiceProvider and then we create a x509Certificate2 class from the cert portion\n                // and then we combine them both to become one x509Certificate2\n                RSACryptoServiceProvider rsaCryptoServiceProvider = Util.PemFileReader();\n                certByThumbprint = Util.ConvertFromPfxToPem(&quot;cert.pem&quot;);\n                certByThumbprint = certByThumbprint.CopyWithPrivateKey(rsaCryptoServiceProvider);\n            }\n\n            AssertionCert = new ClientAssertionCertificate(this.APPLICATION_ID, certByThumbprint);\n            var result = await context.AcquireTokenAsync(resource, AssertionCert);\n            return result.AccessToken;\n        }\n\n\n        public async Task CreateSecretKeyValuePair(string vaultBaseURL)\n        {\n            System.Console.WriteLine(&quot;Authenticating to Key Vault using ADAL Callback to create Secret Key Value Pair&quot;);\n            System.Console.WriteLine(vaultBaseURL);\n            KeyVaultClient kvClient = new KeyVaultClient(this.GetAccessToken);\n            await kvClient.SetSecretAsync(vaultBaseURL, &quot;TestKey&quot;, &quot;TestSecret&quot;);\n        }\n\n        // In this method we first get a token from Azure Active Directory by using the self signed cert we created in our powershell commands\n        // And then we pass that token to Azure Key Vault to authenticate the service principal to get access to the secrets\n        // Finally we retrieve the secret value that was created previously\n        public void GetResult(string keyvaultUri)\n        {\n            try\n            {\n                var result = this._keyVaultClient.GetSecretAsync(keyvaultUri, &quot;TestKey&quot;).Result.Value;\n                System.Console.WriteLine(&quot;Secret Key retrieved is {0} and value is {1}, &quot;, &quot;TestKey&quot;, result);\n            }\n            catch (System.Exception ex)\n            {\n                throw ex;\n            }\n        }\n\n        // In Windows this method would find the certificate that's stored in the certificate manager under current user\n        // Given a thumbprint this method finds the certificate\n        public static X509Certificate2 FindCertificateByThumbprint(string findValue)\n        {\n            X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);\n            try\n            {\n                store.Open(OpenFlags.ReadOnly);\n                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint,\n                    findValue, false); // Don't validate certs, since the test root isn't installed.\n                if (col == null || col.Count == 0 )\n                    return null;\n                return col[0];\n            }\n            finally\n            {\n                store.Close();\n            }\n        }\n    }\n}\n</code></pre>\n<p>[Update]\nNow I can run dotnet restore but dotnet run gives errors</p>\n<p>As follows</p>\n<pre><code>KeyVault.cs(2,17): error CS0234: The type or namespace name 'IdentityModel' does not exist in the namespace 'Microsoft' (are you missing an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    KeyVault.cs(3,17): error CS0234: The type or namespace name 'Azure' does not exist in the namespace 'Microsoft' (are you missing an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    KeyVault.cs(6,17): error CS0234: The type or namespace name 'Azure' does not exist in the namespace 'Microsoft' (are you missing an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Program.cs(3,7): error CS0246: The type or namespace name 'Newtonsoft' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Program.cs(4,7): error CS0246: The type or namespace name 'Newtonsoft' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Program.cs(10,17): error CS0234: The type or namespace name 'Azure' does not exist in the namespace 'Microsoft' (are you missing an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Program.cs(11,17): error CS0234: The type or namespace name 'IdentityModel' does not exist in the namespace 'Microsoft' (are you missing an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Util.cs(7,7): error CS0246: The type or namespace name 'Org' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Util.cs(8,7): error CS0246: The type or namespace name 'Org' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Util.cs(9,7): error CS0246: The type or namespace name 'Org' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Util.cs(10,7): error CS0246: The type or namespace name 'Org' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    Util.cs(11,7): error CS0246: The type or namespace name 'Org' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    KeyVault.cs(22,23): error CS0246: The type or namespace name 'ClientAssertionCertificate' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n    KeyVault.cs(14,9): error CS0246: The type or namespace name 'KeyVaultClient' could not be found (are you missing a using directive or an assembly reference?) [C:\\dev2018\\key-vault-dotnet-quickstart\\MyKeyVault.csproj]\n\n    The build failed. Please fix the build errors and run again.\n</code></pre>\n<p>[Update]</p>\n<p>Tools -&gt;Nuget Package Manager -&gt; Manage Packages for solution reports an error</p>\n<pre><code>Microsoft Visual Studio\nThe parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG))\n</code></pre>\n<p>[Update]</p>\n<p>I saved everything, closed the .sln file and reopened it. Then I was able to get into Nuget Package Manager.</p>\n<p>[Update]</p>\n<p>I have installed Microsoft.Azure.KeyVault(3.0.0) and Newtonsoft.Json(11.0.2)\nI am having problems with Microsoft.IdentityModel.Clients.ActiveDirectory\nWhen I tried Microsoft.IdentityModel it was the wrong framework.</p>\n<pre><code>Package 'Microsoft.IdentityModel 6.1.7600.16394' was restored using ''.NETFramework, Version=v4.61'\ninstead of the projecttargetframework '.NETCoreApp,Version=v2.1'\nThis package may not be fully compatible with your project\n</code></pre>\n<p>[Update]\nGoogled &quot;using Microsoft.IdentityModel.Clients.ActiveDirectory core&quot;</p>\n<p>Found <a href=\"https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/\" rel=\"nofollow noreferrer\">this link</a>\nand ran in PM</p>\n<pre><code>Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.19.8\n</code></pre>\n<p>[Update]\nTried googling the Bouncy Castle using statement and found</p>\n<pre><code>Install-Package BouncyCastle.NetCore -Version 1.8.2\n</code></pre>\n<p>[Update]</p>\n<p>Rebuild All succeeds, now I have a run time error in line 47 of</p>\n<p>var waitHandle = keyVaultObj.CreateSecretKeyValuePair(VaultName);</p>\n<pre><code>  System.AggregateException\n  HResult=0x80131500\n  Message=One or more errors occurred.\n  Source=System.Private.CoreLib\n  StackTrace:\n   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)\n   at System.Threading.Tasks.Task.Wait()\n   at dotnetconsole.Program.Main(String[] args) in C:\\dev2018\\key-vault-dotnet-quickstart\\Program.cs:line 47\n\nInner Exception 1:\nArgumentNullException: Value cannot be null.\n</code></pre>\n"
+  }
+ ]
+}
