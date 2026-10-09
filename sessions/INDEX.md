@@ -8,13 +8,14 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-187 recorded session(s). One `events.jsonl` per session, so concurrent
+188 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 162 older session(s) are in the directory listing.
+Showing the 25 most recent. 163 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-004-explore-a-fresh-non-software-domain-for](2026-10-09-004-explore-a-fresh-non-software-domain-for/README.md) | opencode | worked | Explore a fresh non-software domain for a concrete, testable opportuni | 2026-10-09T08:49 |
 | [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
 | [2026-10-09-002-land-the-unlanded-e067-e070-work-with-a](2026-10-09-002-land-the-unlanded-e067-e070-work-with-a/README.md) | unknown-agent | worked | Land the unlanded E067-E070 work with a source manifest for the 5.5GB  | 2026-10-09T02:54 |
 | [2026-10-09-001-declare-remaining-artifacts-from-e070-se](2026-10-09-001-declare-remaining-artifacts-from-e070-se/README.md) | unknown-agent | worked | Declare remaining artifacts from E070 session | 2026-10-09T00:10 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 162 older session(s) are in the directory listing.
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
 | [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
-| [2026-10-08-006-fresh-observation-outside-software-measu](2026-10-08-006-fresh-observation-outside-software-measu/README.md) | unknown-agent | worked | Fresh observation outside software: measure what happens to publicly s | 2026-10-08T05:53 |
 
 
 ## Reading a session
