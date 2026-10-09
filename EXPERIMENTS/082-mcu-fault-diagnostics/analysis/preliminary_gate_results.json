@@ -1,0 +1,23 @@
+{
+  "total_questions": 0,
+  "title_candidates": 0,
+  "total_fault_mentions": 0,
+  "unique_fault_categories": 0,
+  "fault_counts": {},
+  "top10_faults": [],
+  "top10_coverage": 0,
+  "mcu_families": {},
+  "families_for_top10": 0,
+  "answered_candidates": 0,
+  "avg_answer_count": 0,
+  "avg_view_count": 0,
+  "view_count_positive_rate": 0,
+  "gate_status": {
+    "G1_population": "PENDING - needs answer data",
+    "G2_fault_concentration": "FAIL",
+    "G3_mcu_coverage": "FAIL",
+    "G4_root_cause_specificity": "PENDING - needs answer data",
+    "G5_incumbent_gap": "PENDING - manual review needed"
+  },
+  "limitation": "API throttle (300 req/day) prevented fetching question bodies and answers. Full gate evaluation requires answer data."
+}
