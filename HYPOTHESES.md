@@ -257,3 +257,35 @@ when* clauses.
 **Decision:** `hold` — witness passed (demonstrated information-sufficiency bound), full experiment infrastructure ready but not executed due to environment constraints (needs `python3.8-venv`). Tool prototype over-generates packages from import extraction; static analysis alone cannot resolve version ambiguity without trial installs.
 
 **Reconsider when:** A cheaper version-inference method is found that passes the witness, or trial installation infrastructure is available. The witness FAIL is a structural bound, not an implementation defect.
+
+### Candidate under consideration: Food recall purchase matching (E080)
+
+#### H-01 — Food recall matching: a tool can match consumer purchases against FDA/USDA recall data
+
+**Observation:** FDA publishes recall data with UPC, lot codes, best-by dates, distribution patterns. Consumers have purchase records (receipts, loyalty exports). Matching them could warn consumers of recalled products. `observed` that recall data exists and purchase records exist.
+
+**Mechanism:** Match purchase records to recall records using UPC (exact or prefix), product name (fuzzy), lot code, best-by date. A match triggers a warning.
+
+**Assumptions:**
+1. Purchase records contain sufficient identifiers (UPC, product name, date, store)
+2. Recall records contain matchable identifiers (UPC, lot codes, best-by dates, distribution)
+3. Matching logic can handle real-world noise (truncated UPCs, store brands, missing lot codes)
+4. False alarms (warning on non-recalled products) are more damaging than missed recalls
+
+**Prior Art:** Store loyalty programs (Kroger, Safeway, Costco) notify members of recalls on purchased items. FDA recall API exists. Apps like "Food Recalls" show lists but don't match purchases. Claimed difference: universal matching across any purchase source, not store-specific.
+
+**Strongest Objection:** Receipts rarely contain full UPCs or lot codes. Store brands have different UPCs than national brands. Consumers won't manually enter purchases. The matching problem is harder than it appears.
+
+**Kill Gate:** On synthetic fixtures with known ground truth (3 formats × 30 purchases each, 15 recalled), the tool achieves precision ≥80%, recall ≥60% on ≥2 formats, specificity = 1.0. Baseline (random matching) must achieve <10% on same metric.
+
+**Baseline:** Random matching of purchases to recalls.
+
+**Experiment:** `EXPERIMENTS/080-food-recall-matching/` — generate synthetic fixtures with guaranteed identifier linkage, run matching, evaluate gates. Reproduction: `cd EXPERIMENTS/080-food-recall-matching && python3 run.py --gate`.
+
+**Result:** `observed` (synthetic: PASS on 5/5 seeds), `untested` (real-world)
+
+**Uncertainty:** Whether real receipts/loyalty exports have sufficient identifier coverage; whether store-brand UPC divergence breaks matching; whether FDA recall UPC sparsity (~40%) makes matching infeasible; whether consumers would use such a tool.
+
+**Decision:** `hold` — mechanism passes synthetic kill gates but real-world identifier linkage is the unaddressed bottleneck. Loyalty programs already serve their members. Not a candidate for product engineering.
+
+**Reconsider when:** Real receipt/loyalty corpus with ground truth is available for testing; or a store-agnostic purchase data source with UPCs emerges.

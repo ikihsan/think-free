@@ -72,3 +72,19 @@ Decisions **D084–D088**. Each entry records a choice that was genuinely open, 
 **Standing consequence: the analysis must read durable bytes, not a file the run writes at the end.** `analyze.py` originally read `raw_results.json`, which `harness.py` writes once when a whole run finishes — so mid-run it described the pilot's single repository — and read a `controls.json` that no run produces, so `oracle_valid` was `None` and the arms would have been interpreted without the controls that license interpreting them. It now reads the per-repository files and the two control files the control run actually writes, and a missing control counts as `not all_pass`. A verdict that cannot be regenerated from committed bytes is not a verdict.
 
 **Ceiling.** 16 of 20 repositories, one arXiv year, all deep-learning GitHub code, Python 3.10 only, no GPU. The oracle as amended cannot catch a spec that *omits* a needed dependency — it probes what the spec claimed, not what the code wants — so a generator that silently dropped half a dependency could pass every arm here. `DECL` is the strongest alternative available without inventing a mechanism; a colleague who fixes the install by hand is not measured and remains the honest ceiling. This closes E068's direction as implemented; it does not disprove that an environment can be inferred from a repository, and it says nothing about adoption.
+
+## D089 — A mechanism that passes synthetic kill gates but requires identifier linkage that does not exist in practice is not a candidate (2026-10-09)
+
+`observed` 2026-10-09, session 2026-10-09-018, E080.
+
+**The situation.** E080 tested food recall purchase matching: match consumer purchases (receipts, loyalty exports, manual entry) against FDA/USDA recall data using UPC, lot codes, best-by dates. Predeclared kill gates: G1 precision ≥80%, G2 recall ≥60%, G3 ≥2 of 3 formats pass both, G4 specificity = 1.0. The mechanism passed all gates on 5/5 random seeds with synthetic fixtures.
+
+**The evidence.** Synthetic fixtures were constructed so that each recall and its corresponding purchases share the same store (→ same UPC), lot code, and best-by date by design. The matching algorithm correctly exploits this guaranteed linkage. Receipts: UPC suffix match (1.00/1.00). Loyalty: exact UPC match (1.00/1.00). Manual entry: fuzzy name match (1.00/0.93).
+
+**The choice.** Record as technical feasibility only — the mechanism works when identifiers align. Do not advance as a candidate. The practical bottleneck is obtaining matchable purchase identifiers without store cooperation: real receipts rarely have UPCs (10-30%), almost never have lot codes; store brands use different UPCs than national brands; FDA recall data has UPC in ~40% of records. Loyalty programs (Kroger, Costco, Safeway) already notify members — they have the purchase UPC + store mapping.
+
+**Why this is a rule and not a one-off.** D088 requires enumerating a gate's reachable set before declaring it; this requires enumerating a mechanism's *real-world preconditions* before calling it validated. A mechanism that only works when its inputs are guaranteed by fixture construction has not been tested — it has been assumed. The kill gates passed, but the preconditions are the claim.
+
+**Rejected: advance to product engineering.** The identifier linkage problem is the hard part, not the matching logic. **Rejected: test on real receipts now.** Requires authorized data collection; not a reversible experiment. **Rejected: partner with a loyalty program.** Beyond current authorization.
+
+**Ceiling.** 5 seeds, 30 products, 3 formats, stdlib Python. Measures matching logic correctness given identifiers; does not measure identifier availability, OCR noise, store-brand UPC divergence, recall data sparsity, or user adoption.
