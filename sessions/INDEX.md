@@ -15,7 +15,7 @@ Showing the 25 most recent. 164 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | **unfinished** | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T08:19 |
+| [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | worked | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T09:49 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
 | [2026-10-09-001-record-decision-and-continuation-for-e06](2026-10-09-001-record-decision-and-continuation-for-e06/README.md) | unknown-agent | worked | Record decision and continuation for E065/E066 and E067 experiments | 2026-10-09T00:33 |
