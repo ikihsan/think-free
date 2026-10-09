@@ -134,3 +134,22 @@ Session `2026-10-09-001`, VM `instance-20260717-0944`.
 **The shortfall does not leave the claim standing.** The gap fraction of 1.0 means pip's "did you mean" warning provides zero protection against confusingly similar package names in either ecosystem. This closes the claim that pip's guard adequately protects users. The generalisable rule is D089: a kill gate whose passing region contains only vacuous cases cannot fail; enumerate the gate's reachable set before the run, and design both passing and failing regions that are non-vacuous for the gate to be informative.
 
 **What it buys, and what it does not.** This finding closes the claim that pip's "did you mean" warning protects users from name confusion. It does not measure whether downloaded packages are malicious, whether they serve the user's actual need, or whether adoption would change. The generalisable rule survives: E069's lesson generalizes — gates must enumerate their reachable sets, and both passing and failing regions must be non-vacuous for the gate to be informative.
+
+## F105 — Automotive OBD2 codes on Mechanics.SE show structure but insufficient concentration; answer data blocked by API throttle (E079)
+
+Session `2026-10-09-021`, VM `instance-20260717-0947`.
+
+**What was run.** E079 tested whether automotive OBD2 diagnostic trouble codes on Mechanics Stack Exchange form a concentrated, structured problem population. 10,251 questions fetched via API; 210 contained OBD2 codes in title; full answer data blocked by API throttle (300 req/day limit).
+
+**What was found.**
+- **262 code mentions** across **159 unique codes** — high dispersion (long tail)
+- **Top 10 codes cover 29.0%** of mentions (threshold: ≥30%) — **G2 FAIL**
+- **30 vehicle configs** (make+model) for top 10 codes — **G3 PASS** (≥15)
+- **G1 (population ≥200 structured cases) and G4 (root cause specificity ≥60%) blocked** — require answer bodies
+- **128/210 candidates marked answered** from metadata; average 1.1 answers each
+
+**The kill gate design lesson.** G2 failed by 1 percentage point. The long-tail distribution (159 codes for 262 mentions) is structural — automotive fault codes are inherently diverse across makes/models/systems. A computational tool would need to handle ~150 codes, not just the top 10. The API throttle is a solvable infrastructure problem (API key = 10,000 req/day), but the concentration finding is fundamental.
+
+**Why the API throttle matters.** Stack Exchange's unauthenticated limit (300 req/day) was exhausted fetching 10,251 title-only questions. Fetching 210 candidate bodies + answers requires ~20 more requests. Without an API key, the experiment cannot complete G1/G4 evaluation.
+
+**What it buys, and what it does not.** This finding closes the automotive OBD2 direction on Mechanics.SE as a candidate source. It does not disprove that OBD2 codes could be a population elsewhere (dealer tech forums, manufacturer portals, Reddit r/mechanicadvice, OEM service bulletins). The generalisable rule: **a fresh observation experiment must verify data accessibility (API limits, authentication, rate limits) before committing to a platform** — D089 extended to data access.

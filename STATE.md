@@ -126,6 +126,8 @@ the run** — a gate whose only reachable successes are empty files
 cannot fail. Per D080 the next exploration starts from fresh
 observation.
 
+**Session `2026-10-09-021` (this VM) ran E079 fresh observation in automotive OBD2 codes on Mechanics.SE.** G2 **FAIL** (29% code concentration vs 30% threshold), G3 PASS (30 vehicle configs), G1/G4 blocked by Stack Exchange API throttle (300 req/day limit). 210 title candidates, 262 code mentions, 159 unique codes — high dispersion. Long-tail distribution suggests insufficient concentration for a focused tool. Answer data inaccessible without API key or data dump.
+
 **Task-list hygiene, recorded rather than papered over.** T-0087
 (E055) is landed as F088/D081 but its row still reads `claimed`:
 its verify gate (`EXPERIMENTS/055-index-postcondition/run.py
@@ -160,6 +162,7 @@ and its paths are then attributed to whoever holds the tree
 (T-0053).
 
 ## What changed recently
+- **Session 2026-10-09-021 (this VM): E079.** Fresh observation in automotive OBD2 codes on Mechanics.SE. **G2 FAIL (29% vs 30%)**, G3 PASS (30 vehicle configs), G1/G4 blocked by API throttle. 210 title candidates, 262 code mentions, 159 unique codes — high dispersion. Long-tail distribution (top 10 = 29%) suggests insufficient concentration. Answer data inaccessible without API key.
 - **Session 2026-10-09-003, VM 0947: E069, F101, D088.** The arXiv spec
   generator was measured by installing its output. **Verified imports 0 of 16;
   the only 3 installable specs name nothing.** Its predeclared K1 *passes* on

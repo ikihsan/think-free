@@ -1,169 +1,18 @@
 #!/usr/bin/env python3
 """
-E077 — Classification and measurement helpers for Discourse forums.
+E077 — Measurement and aggregation for Discourse forums.
 """
 
 import json
 import math
-import re
-import time
-import urllib.request
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
+
+from classify import classify_topics
 
 
-# Keyword patterns from E074/E076 classification
-NEED_PATTERNS = [
-    r"\bhow (do|can|to|should|would|is|are)\b",
-    r"\bwhat (is|are|should|would|could|causes?|makes?)\b",
-    r"\bwhy (is|are|do|does|did|can|won|not)\b",
-    r"\bhelp\b",
-    r"\bissue|problem|error|broken|failure|not working\b",
-    r"\brecommend|suggestion|advice\b",
-    r"\bwhich (one|should|is best|to buy|to use|get)\b",
-    r"\bwhere (can|to|is|are)\b",
-    r"\bany (idea|suggestion|tip|advice|recommendation)\b",
-    r"\bcan (someone|anybody|anyone)\b",
-    r"\bstuck|confused|lost\b",
-    r"\btrying to\b",
-    r"\bwondering\b",
-    r"\bshould I\b",
-]
-
-NON_NEED_PATTERNS = [
-    r"\bIC\b",
-    r"\bshow.*(off|me)\b",
-    r"\bmy (new|first|latest) (setup|build|project|purchase)\b",
-    r"\blook at (this|my)\b",
-    r"\bjust (got|bought|picked up|received)\b",
-    r"\bwhat.*(you|getting|ordering|buying)\b",
-    r"\bwelcome to\b",
-    r"\bthank(s| you)\b",
-    r"\bimage(s)?\s*(only|thread)\b",
-    r"\bpicture(s)?\s*(only|thread|uno)\b",
-    r"\bintroductions?\b",
-]
-
-TOPICS_PER_FORUM = 50
-SLEEP_BETWEEN_REQUESTS = 1.0  # seconds, polite polling
-
-
-def fetch_latest_page(domain: str, page: int) -> Optional[Dict]:
-    """Fetch a page of topics from a Discourse forum."""
-    url = f"https://{domain}/latest.json?page={page}&per_page=30"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Think Free E077)"})
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return json.loads(resp.read())
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print(f"    Rate limited on {domain} page {page}, waiting 30 seconds...")
-            time.sleep(30)
-            return fetch_latest_page(domain, page)
-        print(f"    Error fetching {url}: {e}")
-        return None
-    except Exception as e:
-        print(f"    Error fetching {url}: {e}")
-        return None
-
-
-def harvest_forum_topics(domain: str, max_topics: int = TOPICS_PER_FORUM) -> List[Dict]:
-    """Harvest topics from a Discourse forum across multiple pages."""
-    all_topics: List[Dict] = []
-
-    for page in range(1, 10):  # Safety limit
-        data = fetch_latest_page(domain, page)
-        if data is None:
-            break
-
-        page_topics = data.get("topic_list", {}).get("topics", [])
-        if not page_topics:
-            break
-
-        all_topics.extend(page_topics)
-
-        if len(all_topics) >= max_topics:
-            break
-
-        time.sleep(SLEEP_BETWEEN_REQUESTS)
-
-    # Deduplicate by topic id
-    seen_ids: set = set()
-    deduped: List[Dict] = []
-    for t in all_topics:
-        tid = t.get("id", 0)
-        if tid not in seen_ids:
-            seen_ids.add(tid)
-            deduped.append(t)
-        if len(deduped) >= max_topics:
-            break
-
-    # Convert to our standardized topic dict format
-    topics: List[Dict] = []
-    for t in deduped[:max_topics]:
-        topic = {
-            "id": t.get("id"),
-            "title": t.get("title", ""),
-            "views": t.get("views", 0),
-            "reply_count": t.get("reply_count", 0),
-            "like_count": t.get("like_count", 0),
-            "op_like_count": t.get("op_like_count", 0),
-            "has_accepted_answer": t.get("has_accepted_answer", False),
-            "closed": t.get("closed", False),
-            "_domain": domain,
-        }
-        topics.append(topic)
-
-    return topics
-
-
-def is_need_topic(title: str) -> bool:
-    """Returns True if the topic title suggests a concrete need."""
-    title_lower = title.lower()
-    # First filter out non-need patterns
-    for pattern in NON_NEED_PATTERNS:
-        if re.search(pattern, title_lower):
-            return False
-    # Then check need patterns
-    for pattern in NEED_PATTERNS:
-        if re.search(pattern, title_lower):
-            return True
-    # If no pattern matches, it's not a need topic
-    return False
-
-
-def is_resolved(topic: dict) -> bool:
-    """Returns True if the topic has a platform-recorded resolution."""
-    # Check for accepted answer
-    if topic.get("has_accepted_answer", False):
-        return True
-    # Check for sufficient engagement (reply_count >= 3 and op_like_count >= 1)
-    if topic.get("reply_count", 0) >= 3 and topic.get("op_like_count", 0) >= 1:
-        return True
-    # Check if closed
-    if topic.get("closed", False):
-        return True
-    return False
-
-
-def is_unserved_open_like(topic: dict) -> tuple:
-    """Apply the three-clause rubric for unserved-open-like.
-
-    Returns (is_unserved_open_like, reason).
-    """
-    # Clause 1: No platform-recorded resolution
-    if is_resolved(topic):
-        return False, "resolved"
-
-    # Clause 2: States a concrete need
-    title = topic.get("title", "")
-    if not is_need_topic(title):
-        return False, "not_a_need"
-
-    # Clause 3: Not a request for content/service/price/access/human work
-    # (already filtered by NON_NEED_PATTERNS in is_need_topic)
-
-    return True, "unserved_open_like"
-
+# ---------------------------------------------------------------------------
+# Statistics
+# ---------------------------------------------------------------------------
 
 def wilson_ci95(k: int, n: int) -> tuple:
     """Wilson score interval 95%."""
@@ -177,45 +26,13 @@ def wilson_ci95(k: int, n: int) -> tuple:
     return (centre - half, centre + half)
 
 
-def classify_topics(topics: List[Dict]) -> List[Dict]:
-    """Classify each topic using the rubric."""
-    results: List[Dict] = []
-    for t in topics:
-        title = t.get("title", "")
-        resolved = is_resolved(t)
-        is_need = is_need_topic(title)
-        is_uol, reason = is_unserved_open_like(t) if not resolved and is_need else (False, "resolved")
+# ---------------------------------------------------------------------------
+# Measurement
+# ---------------------------------------------------------------------------
 
-        t["is_need"] = is_need
-        t["is_resolved"] = resolved
-        t["is_unserved_open_like"] = is_uol
-        t["classification_reason"] = reason
-        results.append(t)
-    return results
-
-
-def save_raw_data(domain: str, topics: List[Dict], classified: List[Dict], output_dir: str):
-    """Save raw topic data and classified data to JSONL files."""
-    import os
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Sanitize domain for filename
-    safe_domain = domain.replace(".", "_")
-
-    # Save raw topics
-    with open(os.path.join(output_dir, f"topics_{safe_domain}.jsonl"), "w") as f:
-        for t in topics:
-            f.write(json.dumps(t) + "\n")
-
-    # Save classified topics
-    with open(os.path.join(output_dir, f"classified_{safe_domain}.jsonl"), "w") as f:
-        for t in classified:
-            f.write(json.dumps(t) + "\n")
-
-
-def measure_forum(topics: List[Dict], domain: str) -> Dict:
-    """Full measurement pipeline for a single forum's topics."""
-    total = len(topics)
+def measure_forum(classified: List[Dict], domain: str) -> Dict:
+    """Full measurement pipeline for a single forum's classified topics."""
+    total = len(classified)
 
     if total == 0:
         return {
@@ -228,9 +45,6 @@ def measure_forum(topics: List[Dict], domain: str) -> Dict:
             "wilson_ci95": [0.0, 0.0],
             "view_counts": [],
         }
-
-    # Classify
-    classified = classify_topics(topics)
 
     # Count
     view_positive = sum(1 for t in classified if t.get("views", 0) > 0)

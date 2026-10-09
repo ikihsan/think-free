@@ -287,7 +287,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-pip-name-guard-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
-| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 |  |
+| `EXPERIMENTS/072-git-file-presence/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
 | `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
@@ -299,6 +299,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/078-nec220-load-calc/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/078-need-classification-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/079-arxiv-reproducibility/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
+| `EXPERIMENTS/079-automotive-obd2-diagnostics/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/080-flaky-test-rootcause/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
