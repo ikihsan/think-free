@@ -1,0 +1,19 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-09
+-->
+
+# Failures and negative results — other VM findings (F100+)
+
+Split from [`FAILURES.md`](FAILURES.md) on 2026-10-09 at the 300-line cap.
+
+This file holds findings from the other VM that were renumbered on this side per the multi-VM coordination rule. The primary FAILURES.md holds this VM's findings (F001–F099).
+
+| Id | Subject |
+|---|---|
+| F100 | **E066 confirms E063: the need-harvest route is closed at the population level.** E066 independently classified E038's 189 GitHub issues and 100 sampled HN needs: GitHub corpus has 82% false positives (only 34/189 actually about git line staging), all served by existing tools; HN corpus has 55% non-software content, 86.7% of software needs resolved-from-knowledge. The seven emptiness measurements (F029, F039, F051, F059, F081, F084, F085) were reading a route that selects served statements, not unmet needs. |
+| F101 | **A predeclared install gate whose only reachable successes are empty files cannot fail, and the tool computing it reported the pass as a verdict (E069).** E068's spec generator measured by installing its output: 3 arms, fresh Python 3.10.19 venvs, both oracle controls passing, 16 of 20 repositories. `GEN` installs cleanly in 3 of 16 — and all three install nothing importable (two empty files, one `temperature==2.7`); **verified imports 0 of 16**. K1 therefore PASSES, exactly as `PROTOCOL.md` Amendment 1 predicted before the run, and one additional empty-spec repository moved the tool's own label from `KILL` to `mechanism holds`. The direction closes on **K3**: on 4 of 16 the repository's own declared spec installs while the generated one does not, 2 fully working. Six instrumentation defects fixed, including an `analyze.py` that could not have produced the verdict and a README headline reporting 15 measured repos as 20 with a near-miss count ("149 of 383") no rule reproduces — computed **132 of 383**. Evidence in [`FAILURES-findings-35.md`](FAILURES-findings-35.md); every number regenerates byte-identically from `EXPERIMENTS/069-install-test/raw/` via `analyze.py`. |
+| F102 | **Web search cannot operationalize `view_count` for need-statement corpora (E065).** E065's harvest returned only 10/30 treatment and 0/30 control non-error results via DuckDuckGo; G1 failed on insufficient retrieved rows. `view_count` needs platform-specific API access (as E062 used Stack Exchange) or direct platform traversal. KILL, nothing built. **Renumbered from F093 on 2026-10-09** — two sessions on different VMs allocated F093 to different findings; the earlier one (E061's, with a body file and four inbound citations) is kept and this row takes the next free identifier. See [`FAILURES-findings-35.md`](FAILURES-findings-35.md) F102. |
+| F103 | **pip's "did you mean" name guard gap is too large across ecosystems (E070).** E070 tested 50 near-miss names on PyPI and 50 on Crates.io; 0 of 50 received a "did you mean" warning in either ecosystem (gap fraction 1.0, Wilson CI95 [0.929, 1.000]). Kill gate G3 FAILs (lower CI bound 0.929 > 0.15 threshold). The gate properly enumerated its reachable set before the run (D089). See [`FAILURES-findings-35.md`](FAILURES-findings-35.md). |
+| F104 | **the software arm's `view_count` zero was a missing observation, and E069's confirmation was a platform artifact.** E071 probed eight arrival-field spellings across 148 returned objects: Hacker News 0/60 items carry one, GitHub issues API 0/8, Stack Exchange 80/80 carry positive `view_count`. E069 read absence as measured zero (D082); its `CONFIRMED` verdict withdrawn. `view_count` is Stack-Exchange-shaped; need-harvest retirement (F098, F100) not reopened. See [`FAILURES-findings-34.md`](FAILURES-findings-34.md). |
