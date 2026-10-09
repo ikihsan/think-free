@@ -67,7 +67,7 @@ undocumented endpoint is untested, and GitHub's per-issue
 the narrow one that blocks the landing — the corpora carry no arrival field, so
 the software-arm cell cannot be a measured zero.
 
-## D089 — Land an unlanded tree on its corrected record, not on its summary, and never commit the bytes a manifest describes (2026-10-09)
+## D090 — Land an unlanded tree on its corrected record, not on its summary, and never commit the bytes a manifest describes (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-002, E070, F101, defect 26.
 
