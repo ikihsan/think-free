@@ -67,6 +67,18 @@ undocumented endpoint is untested, and GitHub's per-issue
 the narrow one that blocks the landing — the corpora carry no arrival field, so
 the software-arm cell cannot be a measured zero.
 
+## D090 — A detector's error budget is read by cause, and a mechanism is closed on the population that breaks it rather than the one that confirmed it (2026-10-09)
+
+`observed` 2026-10-09, session 2026-10-09-013/014/021, E072/E073, F185/F186.
+
+**Cross-reference.** This decision is recorded in [`DECISIONS-SCREENING-16.md`](DECISIONS-SCREENING-16.md) where it was made. E072 decomposed E065's detector's 20 misses into 6 from the merchant axis and 14 from an unquestioned amount-CV gate. Watchlist-scored precision 0.100 vs hand-read stratified 0.91 on the same detections. Actual Budget's 0.150 F1 is a lower bound on the incumbent. The mechanism is closed on the population that breaks it (E072's 36 real bank exports), not the one that confirmed it (E065's synthetic data).
+
+## D091 — The recurring-expense detector line is closed, and the closure names the repair and the population (2026-10-09)
+
+`observed` 2026-10-09, session 2026-10-09-013/014/021, E072/E073, F185/F186.
+
+**Cross-reference.** This decision is recorded in [`DECISIONS-SCREENING-16.md`](DECISIONS-SCREENING-16.md) where it was made. E073's piecewise-constant repair is strictly better than the CV ceiling on every count (recall 0.394→0.455, F1 0.160→0.197) but recovers only 2 of 14 CV-gate misses and fails both predeclared gates (recall ≥0.50, F1 margin ≥+0.05). A mechanism is closed when its predeclared repair fails its predeclared gates, even when the repair is strictly better. The remaining 12 misses need a richer model (drift, oscillation, multiple changes) or are not recurring at all.
+
 ## D092 — Land an unlanded tree on its corrected record, not on its summary, and never commit the bytes a manifest describes (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-002, E070, F101, defect 26.
