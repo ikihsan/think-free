@@ -1,0 +1,16 @@
+==============================================================================
+[seq 2] 2026-10-09T22:16:42+00:00
+$ curl -s https://api.stackexchange.com/2.3/info?site=electronics.stackexchange.com
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"error_id":502,"error_message":"too many requests from this IP, more requests available in 34359 seconds","error_name":"throttle_violation"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1584  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T22:18:03+00:00
+$ curl -s https://api.stackexchange.com/2.3/tags?site=electronics.stackexchange.com&pagesize=100&order=desc&sort=popular
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+{"error_id":502,"error_message":"too many requests from this IP, more requests available in 34279 seconds","error_name":"throttle_violation"}
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 3285  redactions: none
