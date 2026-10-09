@@ -1,0 +1,390 @@
+{
+  "aggregate": {
+    "all_evaluable_gates_pass": false,
+    "avg_models_per_fault_top10": 1.8,
+    "concentration_top10": 0.7341772151898734,
+    "fault_distribution": {
+      "BED_LEVELING_FAILED": 7,
+      "CALIBRATION_ERROR": 1,
+      "CONNECTIVITY_ERROR": 4,
+      "ERROR_CODE": 7,
+      "EXTRUDER_SKIP": 1,
+      "FILAMENT_RUNOUT": 1,
+      "FIRMWARE_ERROR": 8,
+      "HARDWARE_FAULT": 7,
+      "HEATING_FAILED": 4,
+      "HOMING_FAILED": 4,
+      "LAYER_SHIFT": 6,
+      "MCU_SHUTDOWN": 2,
+      "MECHANICAL_ISSUE": 5,
+      "PRINT_QUALITY": 6,
+      "PROBE_FAILED": 2,
+      "RETRACTION_ISSUE": 3,
+      "SD_CARD_ERROR": 3,
+      "STEPPER_DRIVER_ERROR": 1,
+      "TEMP_SENSOR_ERROR": 4,
+      "THERMAL_RUNAWAY": 1,
+      "UNDER_EXTRUSION": 2
+    },
+    "gates": {
+      "G1_population": "PENDING",
+      "G2_concentration": "PASS",
+      "G3_coverage": "FAIL",
+      "G4_specificity": "PENDING",
+      "G5_incumbent_gap": "PENDING"
+    },
+    "models_per_fault_agg": {
+      "BED_LEVELING_FAILED": 4,
+      "CONNECTIVITY_ERROR": 1,
+      "ERROR_CODE": 1,
+      "FIRMWARE_ERROR": 4,
+      "HARDWARE_FAULT": 3,
+      "HEATING_FAILED": 1,
+      "HOMING_FAILED": 1,
+      "LAYER_SHIFT": 1,
+      "MECHANICAL_ISSUE": 1,
+      "PRINT_QUALITY": 1
+    },
+    "need_rate": 0.158,
+    "top10_faults": [
+      [
+        "FIRMWARE_ERROR",
+        8
+      ],
+      [
+        "BED_LEVELING_FAILED",
+        7
+      ],
+      [
+        "ERROR_CODE",
+        7
+      ],
+      [
+        "HARDWARE_FAULT",
+        7
+      ],
+      [
+        "PRINT_QUALITY",
+        6
+      ],
+      [
+        "LAYER_SHIFT",
+        6
+      ],
+      [
+        "MECHANICAL_ISSUE",
+        5
+      ],
+      [
+        "CONNECTIVITY_ERROR",
+        4
+      ],
+      [
+        "HEATING_FAILED",
+        4
+      ],
+      [
+        "HOMING_FAILED",
+        4
+      ]
+    ],
+    "total_fault_topics": 79,
+    "total_topics": 500,
+    "vc_rate": 1.0
+  },
+  "forums": [
+    {
+      "avg_models_per_fault": 1.2,
+      "concentration_top10": 0.8,
+      "domain": "forum.creality.com",
+      "fault_count": 35,
+      "fault_distribution": {
+        "BED_LEVELING_FAILED": 4,
+        "CALIBRATION_ERROR": 1,
+        "CONNECTIVITY_ERROR": 2,
+        "ERROR_CODE": 3,
+        "FILAMENT_RUNOUT": 1,
+        "FIRMWARE_ERROR": 3,
+        "HARDWARE_FAULT": 4,
+        "HEATING_FAILED": 2,
+        "HOMING_FAILED": 1,
+        "LAYER_SHIFT": 1,
+        "MECHANICAL_ISSUE": 1,
+        "PRINT_QUALITY": 5,
+        "PROBE_FAILED": 1,
+        "RETRACTION_ISSUE": 3,
+        "SD_CARD_ERROR": 1,
+        "STEPPER_DRIVER_ERROR": 1,
+        "UNDER_EXTRUSION": 1
+      },
+      "models_per_fault": {
+        "BED_LEVELING_FAILED": [
+          "Ender 3",
+          "K2"
+        ],
+        "CALIBRATION_ERROR": [
+          "Ender 3"
+        ],
+        "CONNECTIVITY_ERROR": [
+          "K1"
+        ],
+        "ERROR_CODE": [],
+        "FIRMWARE_ERROR": [
+          "Ender 3",
+          "K1"
+        ],
+        "HARDWARE_FAULT": [
+          "K2",
+          "Ender 5"
+        ],
+        "HEATING_FAILED": [],
+        "PRINT_QUALITY": [
+          "K2"
+        ],
+        "PROBE_FAILED": [
+          "Ender 3"
+        ],
+        "RETRACTION_ISSUE": [
+          "K2",
+          "Ender 3"
+        ]
+      },
+      "need_rate": 0.35,
+      "top10_faults": [
+        [
+          "PRINT_QUALITY",
+          5
+        ],
+        [
+          "BED_LEVELING_FAILED",
+          4
+        ],
+        [
+          "HARDWARE_FAULT",
+          4
+        ],
+        [
+          "ERROR_CODE",
+          3
+        ],
+        [
+          "FIRMWARE_ERROR",
+          3
+        ],
+        [
+          "RETRACTION_ISSUE",
+          3
+        ],
+        [
+          "CONNECTIVITY_ERROR",
+          2
+        ],
+        [
+          "HEATING_FAILED",
+          2
+        ],
+        [
+          "PROBE_FAILED",
+          1
+        ],
+        [
+          "CALIBRATION_ERROR",
+          1
+        ]
+      ],
+      "total": 100,
+      "vc_positive": 100,
+      "vc_rate": 1.0
+    },
+    {
+      "avg_models_per_fault": 1.3,
+      "concentration_top10": 0.8108108108108109,
+      "domain": "forum.lulzbot.com",
+      "fault_count": 37,
+      "fault_distribution": {
+        "BED_LEVELING_FAILED": 3,
+        "CONNECTIVITY_ERROR": 1,
+        "ERROR_CODE": 2,
+        "EXTRUDER_SKIP": 1,
+        "FIRMWARE_ERROR": 4,
+        "HARDWARE_FAULT": 3,
+        "HEATING_FAILED": 2,
+        "HOMING_FAILED": 3,
+        "LAYER_SHIFT": 5,
+        "MCU_SHUTDOWN": 2,
+        "MECHANICAL_ISSUE": 3,
+        "PRINT_QUALITY": 1,
+        "PROBE_FAILED": 1,
+        "SD_CARD_ERROR": 1,
+        "TEMP_SENSOR_ERROR": 3,
+        "THERMAL_RUNAWAY": 1,
+        "UNDER_EXTRUSION": 1
+      },
+      "models_per_fault": {
+        "BED_LEVELING_FAILED": [
+          "Mini",
+          "TAZ"
+        ],
+        "ERROR_CODE": [
+          "TAZ"
+        ],
+        "FIRMWARE_ERROR": [
+          "TAZ",
+          "Mini"
+        ],
+        "HARDWARE_FAULT": [
+          "Mini"
+        ],
+        "HEATING_FAILED": [
+          "TAZ"
+        ],
+        "HOMING_FAILED": [
+          "TAZ"
+        ],
+        "LAYER_SHIFT": [
+          "TAZ"
+        ],
+        "MCU_SHUTDOWN": [
+          "Mini"
+        ],
+        "MECHANICAL_ISSUE": [
+          "TAZ"
+        ],
+        "TEMP_SENSOR_ERROR": [
+          "TAZ",
+          "Mini"
+        ]
+      },
+      "need_rate": 0.37,
+      "top10_faults": [
+        [
+          "LAYER_SHIFT",
+          5
+        ],
+        [
+          "FIRMWARE_ERROR",
+          4
+        ],
+        [
+          "BED_LEVELING_FAILED",
+          3
+        ],
+        [
+          "HARDWARE_FAULT",
+          3
+        ],
+        [
+          "HOMING_FAILED",
+          3
+        ],
+        [
+          "MECHANICAL_ISSUE",
+          3
+        ],
+        [
+          "TEMP_SENSOR_ERROR",
+          3
+        ],
+        [
+          "ERROR_CODE",
+          2
+        ],
+        [
+          "HEATING_FAILED",
+          2
+        ],
+        [
+          "MCU_SHUTDOWN",
+          2
+        ]
+      ],
+      "total": 100,
+      "vc_positive": 100,
+      "vc_rate": 1.0
+    },
+    {
+      "avg_models_per_fault": 0.0,
+      "concentration_top10": 1.0,
+      "domain": "community.home-assistant.io",
+      "fault_count": 1,
+      "fault_distribution": {
+        "TEMP_SENSOR_ERROR": 1
+      },
+      "models_per_fault": {
+        "TEMP_SENSOR_ERROR": []
+      },
+      "need_rate": 0.01,
+      "top10_faults": [
+        [
+          "TEMP_SENSOR_ERROR",
+          1
+        ]
+      ],
+      "total": 100,
+      "vc_positive": 100,
+      "vc_rate": 1.0
+    },
+    {
+      "avg_models_per_fault": 0.0,
+      "concentration_top10": 1.0,
+      "domain": "community.openhab.org",
+      "fault_count": 2,
+      "fault_distribution": {
+        "CONNECTIVITY_ERROR": 1,
+        "MECHANICAL_ISSUE": 1
+      },
+      "models_per_fault": {
+        "CONNECTIVITY_ERROR": [],
+        "MECHANICAL_ISSUE": []
+      },
+      "need_rate": 0.02,
+      "top10_faults": [
+        [
+          "CONNECTIVITY_ERROR",
+          1
+        ],
+        [
+          "MECHANICAL_ISSUE",
+          1
+        ]
+      ],
+      "total": 100,
+      "vc_positive": 100,
+      "vc_rate": 1.0
+    },
+    {
+      "avg_models_per_fault": 0.0,
+      "concentration_top10": 1.0,
+      "domain": "forum.arduino.cc",
+      "fault_count": 4,
+      "fault_distribution": {
+        "ERROR_CODE": 2,
+        "FIRMWARE_ERROR": 1,
+        "SD_CARD_ERROR": 1
+      },
+      "models_per_fault": {
+        "ERROR_CODE": [],
+        "FIRMWARE_ERROR": [],
+        "SD_CARD_ERROR": []
+      },
+      "need_rate": 0.04,
+      "top10_faults": [
+        [
+          "ERROR_CODE",
+          2
+        ],
+        [
+          "SD_CARD_ERROR",
+          1
+        ],
+        [
+          "FIRMWARE_ERROR",
+          1
+        ]
+      ],
+      "total": 100,
+      "vc_positive": 100,
+      "vc_rate": 1.0
+    }
+  ]
+}
