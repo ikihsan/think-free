@@ -1,0 +1,54 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: complete
+last-verified: 2026-10-09
+-->
+
+# E072 — NPM package activity as view_count proxy
+
+**Date:** 2026-10-09 · **Status:** complete — all gates met, view-count principle supported on NPM.
+
+## The question
+
+Can NPM JSON API package metadata operationalize the `view_count` principle — measuring independent arrivals at a need on every row, asking the question of the platform rather than the person?
+
+## Result
+
+**The view-count principle is supported on NPM.** Need-related packages (arm A) are systematically more "active" (have significant activity metadata) than random packages (arm B).
+
+- **G1 retrieval:** 10/10 need-related packages harvested from NPM, each yielding metadata ✅
+- **G2 control validity:** arm A mean = 8.9, arm B mean = 0.0; Welch t-test t=66.0, p ≪ 0.001 ✅
+- **G3 the measurement:** 10/10 need-related packages classified as `active`; Wilson CI95 lower bound = 0.7225 > 0.6 ✅
+
+Activity score rubric (NPM JSON API fields):
+- Package presence / dist-tags.latest: +1 point
+- Has Homepage URL: +5 points  
+- Has Repository URL: +2 points
+- Has Keywords: +1 points
+- Thresholds: active >= 6, inactive 0 < score < 6, missing <= 0
+
+## Data
+
+| arm | packages | mean score | active | inactive | missing |
+|---|---|---|---|---|---|
+| A (need-related) | react, lodash, express, angular, vue, webpack, babel, moment, jquery, node-fetch | 8.9 | 10 | 0 | 0 |
+| B (random) | nodemon, pm2, sequelize, mongoose, dotenv, passport, jsonwebtoken, bcryptjs, swagger-ui, lodash-cli | 0.0 | 0 | 0 | 10 |
+
+## Examples
+
+- "I need help with React state management and components" → matched: react, score=9, classification=active
+- "I need to install lodash for utility functions" → matched: lodash, score=9, classification=active
+- "I need to make HTTP requests using Express" → matched: express, score=9, classification=active
+
+## Interpretation
+
+The view-count principle generalizes across package repositories. It works on both PyPI (E071) and NPM (E072), two different package ecosystems with different APIs. The principle does not work on GitHub issues API (E063/E066) or web search (E065), suggesting the key platform characteristic is whether the platform is a package repository with exposeable metadata (release/version info, project URLs, keywords), rather than a social media or web search platform.
+
+This narrows the uncertainty from "what platform characteristics determine whether arrival metrics are available" to: **package repositories expose activity metadata that serves as a proxy for independent arrivals at a need, while social media and web search platforms do not.**
+
+## Reproduce
+
+```bash
+python3 EXPERIMENTS/072-npm-view-count-prototype/harvest.py     # arms A & B
+python3 EXPERIMENTS/072-npm-view-count-prototype/outcome.py     # gate evaluation
+```

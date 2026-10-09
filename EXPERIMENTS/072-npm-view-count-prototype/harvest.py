@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""E071 harvest: PyPI package activity measurement.
+"""E072 harvest: NPM package activity measurement.
 
 For each package in arms A (need-related) and B (random), query the
-PyPI JSON API and record metadata + activity score.
+NPM JSON API and record metadata + activity score.
 
 Usage:
     python3 harvest.py            # harvest both arms
@@ -15,37 +15,38 @@ import os
 import sys
 import time
 import urllib.request
+import urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 # Arm definitions: package names
+# Need-related packages: commonly used NPM packages that might appear in need statements
 ARM_A_PACKAGES = [
-    # Need-related packages (from E062/E063 corpora context)
-    "requests",
-    "pillow",
-    "numpy",
-    "flask",
-    "django",
-    "bcrypt",
-    "pytest",
-    "gitpython",
-    "sqlalchemy",
-    "jinja2",
+    "react",
+    "lodash",
+    "express",
+    "angular",
+    "vue",
+    "webpack",
+    "babel",
+    "moment",
+    "jquery",
+    "node-fetch",
 ]
 
+# Random packages not related to typical need statements
 ARM_B_PACKAGES = [
-    # Random packages not related to typical need statements
-    "black",
-    "mypy",
-    "pytest-xdist",
-    "sphinx",
-    "wheel",
-    "setuptools",
-    "twine",
-    "virtualenv",
-    "tox",
-    "cookiecutter",
+    "nodemon",
+    "pm2",
+    "sequelize",
+    "mongoose",
+    "dotenv",
+    "passport",
+    "jsonwebtoken",
+    "bcryptjs",
+    "swagger-ui",
+    "lodash-cli",
 ]
 
 # Output paths
@@ -54,76 +55,61 @@ ARM_B_RESULTS = os.path.join(HERE, "raw", "arm-b-results.jsonl")
 
 
 def compute_activity_score(info):
-    """Compute activity score from PyPI JSON API metadata.
+    """Compute activity score from NPM JSON API metadata.
 
-    adapts the rubric to the current PyPI JSON API key layout:
-    - release_count was removed; we score 1 point if a version is present
-    - has_homepage / has_documentation / has_source were removed from info;
-      we look in project_urls and the new home_page/docs_url fields
-    - classifiers remain available unchanged
+    adapts the rubric to the current NPM JSON API key layout:
+    - The NPM API response has fields at the top level, not nested under "info"
+    - homepage from data.homepage
+    - repository from data.repository.url
+    - keywords from data.keywords
+    - no version field at top level; use dist-tags.latest existence as proxy
+    - no classifiers available unlike PyPI
     """
     if "error" in info:
         return -1  # missing
 
     score = 0
-    # 1. Release presence (1 point if version string exists)
-    if info.get("version"):
+    # 1. Package existence / version presence (1 point)
+    # NPM API always returns data for existing packages;
+    # check dist-tags for latest tag presence
+    dist_tags = info.get("dist-tags")
+    if dist_tags and isinstance(dist_tags, dict) and "latest" in dist_tags:
         score += 1
     # 2. Has Homepage URL (5 points)
-    if info.get("home_page"):
+    if info.get("homepage"):
         score += 5
-    else:
-        pu = info.get("project_urls") or {}
-        for k in pu:
-            if "Homepage" in k or k.lower() == "homepage":
-                score += 5
-                break
-    # 3. Has Documentation URL (3 points)
-    if info.get("docs_url"):
-        score += 3
-    else:
-        pu = info.get("project_urls") or {}
-        for k in pu:
-            if "Documentation" in k or k.lower() == "documentation":
-                score += 3
-                break
-    # 4. Has Source URL (2 points)
-    pu = info.get("project_urls")
-    if pu:
-        for k in pu:
-            if "Source" in k or k.lower() == "source":
-                score += 2
-                break
-    # 5. Development Status classifier 5 — Production/Stable (5 points)
-    classifiers = info.get("classifiers", [])
-    if any("Development Status :: 5" in c for c in classifiers):
-        score += 5
-    # 6. Development Status classifier 4 — Beta (3 points)
-    if any("Development Status :: 4" in c for c in classifiers):
-        score += 3
+    # 3. Has Repository URL (2 points)
+    repo = info.get("repository")
+    if repo and isinstance(repo, dict) and repo.get("url"):
+        score += 2
+    # 4. Has Keywords (1 point)
+    keywords = info.get("keywords")
+    if keywords and isinstance(keywords, list) and len(keywords) > 0:
+        score += 1
 
     return score
 
 
 def harvest_arm(arm_id, packages, output_path):
     """Run one arm of the harvest."""
-    print(f"=== E071 Arm {arm_id} harvest ===")
+    print(f"=== E072 Arm {arm_id} harvest ===")
     results = []
 
     packages_to_use = packages[:]  # copy
 
     for i, name in enumerate(packages_to_use):
-        # Query PyPI JSON API
-        url = f"https://pypi.org/pypi/{name}/json"
+        # Query NPM JSON API
+        # The NPM JSON API v1 returns: https://registry.npmjs.org/{name}
+        url = f"https://registry.npmjs.org/{name}"
         try:
             with urllib.request.urlopen(url, timeout=15) as resp:
                 data = json.loads(resp.read().decode())
         except Exception as e:
             data = {"error": str(e), "name": name}
 
-        # The activity score function expects the nested "info" dict
-        info = data.get("info", {}) if isinstance(data, dict) else {}
-        score = compute_activity_score(info)
+        # The NPM API response is flat; fields are at the top level
+        # PyPI uses data["info"], NPM uses data directly
+        score = compute_activity_score(data)
         results.append({
             "statement_id": i,
             "package_name": name,
@@ -150,7 +136,7 @@ def harvest_arm(arm_id, packages, output_path):
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser(description="E071 harvest arm")
+    parser = argparse.ArgumentParser(description="E072 harvest arm")
     parser.add_argument("--arm", type=int, choices=[1, 2], default=1,
                         help="Arm to harvest (1=need-related, 2=random)")
     parser.add_argument("--limit", type=int, default=None,

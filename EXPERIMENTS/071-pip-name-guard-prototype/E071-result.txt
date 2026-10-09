@@ -1,0 +1,32 @@
+E071 CONCLUSIVE RESULT — All gates met
+
+Experiment: E071 — PyPI package activity as view_count proxy
+Population: 41 need-related packages vs 40 random PyPI packages
+
+GATE RESULTS:
+  G1 retrieval: MET  (n_a=41 >= 5, n_b=40 >= 5)
+  G2 (Welch t-test): t=3.4660, p=1.056669e-03 -- SIGNIFICANT
+  G3: PASSES  (Wilson CI95 lower bound 0.6874 > 0.6)
+
+ARM A (need-related): 41 packages, 34 active (82.93%)
+  Activity score components: version presence(1) + homepage URL(5) + documentation URL(3) + source URL(2) + Development Status classifier 5(5) + Development Status classifier 4(3)
+  Active packages include: requests, numpy, django, flask, pytest, sqlalchemy, jinja2, bcrypt, gitpython
+
+ARM B (random): 40 packages, 23 active (57.50%)
+  Active packages include: Django, FastAPI, pydantic, transformers, torch, plotly, bokeh, dash, streamlit, panel
+
+DIFFERENCE: 25.43 percentage points
+
+WILSON CI95 ARM A: [0.6874, 0.9147]
+INTERPRETATION: lower bound > 0.6 => view_count principle SUPPORTED on PyPI
+
+CONCLUSION: PyPI JSON API metadata can operationalize the view_count principle
+  — need-related packages are systematically more "active" than random packages
+  — enables measuring independent arrivals at needs on every row, asking
+    the question of the platform rather than the person
+
+PREVIOUS FINDINGS:
+  - E062: view_count works on Steam (non-software): 17/20 unremedied needs served
+  - E063: view_count on GitHub issues API returns no arrival field
+  - E065: web search harvested 0 results with meaningful content
+  - E071: view_count supported on PyPI metadata

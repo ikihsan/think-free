@@ -286,6 +286,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
 | `EXPERIMENTS/072-fresh-observation-protocol/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 met, G3 measured, G4 not applicable to prototype |
 | `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
+| `EXPERIMENTS/072-npm-view-count-prototype/` | `docs/INDEX.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
 | `EXPERIMENTS/074-mfg-cost-estimation/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/075-clinical-trial-failures/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Session 2026-10-09-008, VM instance-20260717-0944, declared 2026-10-09. |
