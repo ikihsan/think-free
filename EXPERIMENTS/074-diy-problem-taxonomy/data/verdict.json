@@ -1,0 +1,27 @@
+{
+  "G1_population": {
+    "pass": true,
+    "type": "PROC",
+    "detail": {
+      "count": 188,
+      "percentage": 27.8,
+      "structured_count": 2,
+      "structured_percentage": 1.1,
+      "label": "Procedure/method"
+    }
+  },
+  "G2_structure": {
+    "pass": false,
+    "type": "PROC",
+    "detail": {
+      "total": 188,
+      "structured": 2,
+      "rate": 1.1
+    }
+  },
+  "G3_gap": {
+    "pass": null,
+    "note": "Requires manual tool_check.md review"
+  },
+  "overall": "FAIL"
+}

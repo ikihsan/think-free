@@ -8,13 +8,14 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-209 recorded session(s). One `events.jsonl` per session, so concurrent
+210 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 184 older session(s) are in the directory listing.
+Showing the 25 most recent. 185 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | **unfinished** | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:19 |
 | [2026-10-09-019-mission-summary-and-evidence-integration](2026-10-09-019-mission-summary-and-evidence-integration/README.md) | unknown-agent | worked | Mission summary and evidence integration | 2026-10-09T18:09 |
 | [2026-10-09-018-e072-npm-view-count-prototype-verificati](2026-10-09-018-e072-npm-view-count-prototype-verificati/README.md) | unknown-agent | worked | E072 NPM view-count prototype verification | 2026-10-09T17:58 |
 | [2026-10-09-017-investigate-and-document-kill-gate-desig](2026-10-09-017-investigate-and-document-kill-gate-desig/README.md) | unknown-agent | worked | Investigate and document kill gate design lesson from E069/F101, compl | 2026-10-09T15:10 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 184 older session(s) are in the directory listing.
 | [2026-10-08-028-explore-fresh-observation-domain-for-nex](2026-10-08-028-explore-fresh-observation-domain-for-nex/README.md) | unknown-agent | worked | Explore fresh observation domain for next candidate after need-harvest | 2026-10-08T23:37 |
 | [2026-10-08-027-recover-context-and-document-mission-sta](2026-10-08-027-recover-context-and-document-mission-sta/README.md) | unknown-agent | worked | Recover context and document mission state | 2026-10-08T23:04 |
 | [2026-10-08-027-explore-the-existence-checking-false-acc](2026-10-08-027-explore-the-existence-checking-false-acc/README.md) | unknown-agent | worked | Explore the existence-checking false-accept problem from E064: measure | 2026-10-08T22:47 |
-| [2026-10-08-026-recover-context-and-decide-next-action-f](2026-10-08-026-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission | 2026-10-08T22:39 |
 
 
 ## Reading a session
