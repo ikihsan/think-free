@@ -10,10 +10,10 @@ Split out of [`DECISIONS-SCREENING-14.md`](DECISIONS-SCREENING-14.md) on 2026-10
 The rule is unchanged: a decision is recorded when the choice was genuinely open,
 with evidence, alternatives, and reason.
 
-Decisions **D088–D089**. Each entry records a choice that was genuinely open, the
+Decisions **D089–D090**. Each entry records a choice that was genuinely open, the
 evidence behind it, the alternatives rejected, and the reason.
 
-## D088 — The arrival instrument is Stack-Exchange-shaped, and a field a platform does not publish is missing rather than zero (2026-10-09)
+## D089 — The arrival instrument is Stack-Exchange-shaped, and a field a platform does not publish is missing rather than zero (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-002, E071, F101.
 
@@ -106,7 +106,7 @@ one thing an evidence repository must not do. **Rejected: commit the CFPB
 sample plus the bulk files.** 5.5 GB of vendored input that nothing verifies.
 **Rejected: rewrite `MISSION-OUTCOME.json` into the corrected claim.** A
 summary file is an artifact of the session that wrote it; the corrected claim
-belongs in F101, D088, and `STATE.md`, where a reader is told what was measured.
+belongs in F101, D089, and `STATE.md`, where a reader is told what was measured.
 
 **Ceiling.** This governs the landing of work already done. It does not make an
 unlanded experiment's *internal* analysis correct — E069's non-software arm is

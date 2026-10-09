@@ -51,8 +51,8 @@ F081, F082) and
 [`FAILURES-findings-32.md`](FAILURES-findings-32.md) (F093, F094) and
 [`FAILURES-findings-33.md`](FAILURES-findings-33.md) (F095, F096, F097,
 F098, F099, D083, D084) and
-[`FAILURES-findings-34.md`](FAILURES-findings-34.md) (F100) and
-[`FAILURES-findings-35.md`](FAILURES-findings-35.md) (F101, F102) and
+[`FAILURES-findings-34.md`](FAILURES-findings-34.md) (F100, F104) and
+[`FAILURES-findings-35.md`](FAILURES-findings-35.md) (F101, F102, F103) and
 [`FAILURES-findings-29.md`](FAILURES-findings-29.md) (F075) and
 [`FAILURES-findings-19.md`](FAILURES-findings-19.md) (F045, F046, F047), split because
 [`FAILURES-findings-25.md`](FAILURES-findings-25.md) (F060-F063), split because
@@ -298,3 +298,5 @@ sensitivity is what a firing gate is owed** (D058).
 | F091 | **The pip-name vs import-name mismatch class is real on wheels but served, not a demand gap (E059).** M1 gate fired (22/93), but rows are documented namespace families, convention-derivable renames, or a known short core absent from the sample; reverse mapping is prior art (`pyimport2pkg`), forward is served by package READMEs; SO demand query is topic noise. KILL, nothing built. |
 | F092 | **Static version badges in READMEs are not a population (E060).** 0 of 45 top-star Python/Rust/JS READMEs carry one; the candidate direction dies by absence at the most favorable stratum. KILL, nothing built. |
 | F102 | **Web search cannot operationalize `view_count` for need-statement corpora (E065).** E065's harvest returned only 10/30 treatment and 0/30 control non-error results via DuckDuckGo; G1 failed on insufficient retrieved rows. `view_count` needs platform-specific API access (as E062 used Stack Exchange) or direct platform traversal. KILL, nothing built. **Renumbered from F093 on 2026-10-09** — two sessions on different VMs allocated F093 to different findings; the earlier one (E061's, with a body file and four inbound citations) is kept and this row takes the next free identifier. See [`FAILURES-findings-35.md`](FAILURES-findings-35.md) F102. |
+| F103 | **pip's "did you mean" name guard gap is too large across ecosystems (E070).** E070 tested 50 near-miss names on PyPI and 50 on Crates.io; 0 of 50 received a "did you mean" warning in either ecosystem (gap fraction 1.0, Wilson CI95 [0.929, 1.000]). Kill gate G3 FAILs (lower CI bound 0.929 > 0.15 threshold). The gate properly enumerated its reachable set before the run (D089). See [`FAILURES-findings-35.md`](FAILURES-findings-35.md). |
+| F104 | **the software arm's `view_count` zero was a missing observation, and E069's confirmation was a platform artifact.** E071 probed eight arrival-field spellings across 148 returned objects: Hacker News 0/60 items carry one, GitHub issues API 0/8, Stack Exchange 80/80 carry positive `view_count`. E069 read absence as measured zero (D082); its `CONFIRMED` verdict withdrawn. `view_count` is Stack-Exchange-shaped; need-harvest retirement (F098, F100) not reopened. See [`FAILURES-findings-34.md`](FAILURES-findings-34.md). |

@@ -61,7 +61,7 @@ has no tail where a tool could start (`unserved-open` = 0). The route is
 retired as a candidate source. Per D083, any successor session starts from
 fresh observation in a new domain with a runnable falsification experiment
 (stdlib-only, synthetic fixtures, predeclared kill gates).
-## F101 — the software arm's `view_count` zero was a missing observation, and E069's confirmation was a platform artifact
+## F104 — the software arm's `view_count` zero was a missing observation, and E069's confirmation was a platform artifact
 
 **What happened.** Four experiments (E067, E067b, E069 ×2) and
 `MISSION-OUTCOME.json` were sitting unlanded on the tree, all resting on E069's
