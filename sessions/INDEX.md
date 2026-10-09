@@ -8,13 +8,16 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-189 recorded session(s). One `events.jsonl` per session, so concurrent
+192 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 164 older session(s) are in the directory listing.
+Showing the 25 most recent. 167 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-007-commit-pending-e070-experiment-artifacts](2026-10-09-007-commit-pending-e070-experiment-artifacts/README.md) | unknown-agent | **unfinished** | Commit pending E070 experiment artifacts and continue prototype work | 2026-10-09T10:42 |
+| [2026-10-09-006-declare-e070-experiment-artifacts-and-cl](2026-10-09-006-declare-e070-experiment-artifacts-and-cl/README.md) | unknown-agent | worked | Declare E070 experiment artifacts and close session | 2026-10-09T10:30 |
+| [2026-10-09-005-e070-experiment-completion-and-session-c](2026-10-09-005-e070-experiment-completion-and-session-c/README.md) | unknown-agent | worked | E070 experiment completion and session close | 2026-10-09T10:28 |
 | [2026-10-09-004-observe-whether-the-silent-wrong-project](2026-10-09-004-observe-whether-the-silent-wrong-project/README.md) | unknown-agent | worked | Observe whether the silent wrong-project install (E064's false-accept  | 2026-10-09T09:49 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
@@ -37,9 +40,6 @@ Showing the 25 most recent. 164 older session(s) are in the directory listing.
 | [2026-10-08-012-explore-fresh-observations-for-a-new-can](2026-10-08-012-explore-fresh-observations-for-a-new-can/README.md) | unknown-agent | worked | Explore fresh observations for a new candidate outside previously expl | 2026-10-08T12:10 |
 | [2026-10-08-011-fresh-observation-probe-explore-a-new-pr](2026-10-08-011-fresh-observation-probe-explore-a-new-pr/README.md) | unknown-agent | worked | Fresh observation probe: explore a new practical difficulty outside pr | 2026-10-08T10:54 |
 | [2026-10-08-010-fresh-observation-sweep-for-a-new-candid](2026-10-08-010-fresh-observation-sweep-for-a-new-candid/README.md) | unknown-agent | worked | Fresh-observation sweep for a new candidate; prototype and measure the | 2026-10-08T08:25 |
-| [2026-10-08-009-fresh-observation-identify-one-concrete](2026-10-08-009-fresh-observation-identify-one-concrete/README.md) | unknown-agent | worked | fresh observation: identify one concrete unserved need with a runnable | 2026-10-08T05:48 |
-| [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
-| [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
 
 
 ## Reading a session
