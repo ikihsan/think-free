@@ -274,8 +274,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
 | `EXPERIMENTS/067-viewcount-framework/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Prototype. Core measurement engine implemented and verified against E062's non-software  |
 | `EXPERIMENTS/067b-did-you-mean-test/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-08 · Session: 2026-10-08-021 · Status: complete — |
-| `EXPERIMENTS/068-arxiv-spec-generator/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Complete — 2 of 4 kill gates PASSED, 2 FAILED |
+| `EXPERIMENTS/068-arxiv-spec-generator/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Complete — 4 of 4 kill gates PASSED (after conda parsing fix and fair K4 metric) |
 | `EXPERIMENTS/069-false-accept-confusion/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-027-explore-the-existence-checking-false-acc, VM instance-20260717-0944, decl |
+| `EXPERIMENTS/069-install-test/` | `docs/INDEX.md` | active | 2026-10-09 | Verdict: the direction closes, and its own gate passes vacuously. E068's |
 | `EXPERIMENTS/069-view-count-nonsoftware/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-08 · Session: 2026-10-08-021 · Status: complete — |
 | `EXPERIMENTS/070-discourse-fresh-observation/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 2 documents |
 | `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |

@@ -1,0 +1,135 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "liujf69/EPP-Net-Action",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/liujf69_EPP-Net-Action__GEN/bin/python",
+  "needed": [
+   "blocks",
+   "bn",
+   "boxes",
+   "build",
+   "caffe2",
+   "cityscapesscripts",
+   "cloudpickle",
+   "coco",
+   "colormap",
+   "common",
+   "dataset_mapper",
+   "datasets",
+   "defaults",
+   "deform_conv",
+   "dense",
+   "detection_utils",
+   "functions",
+   "fvcore",
+   "h5py",
+   "hooks",
+   "joblib",
+   "launch",
+   "logger",
+   "lr_scheduler",
+   "lvis",
+   "masks",
+   "matcher",
+   "matplotlib",
+   "misc",
+   "mock",
+   "model_zoo",
+   "models",
+   "modules",
+   "networks",
+   "nms",
+   "numexpr",
+   "numpy",
+   "onnx",
+   "pascal_voc",
+   "patcher",
+   "pil",
+   "postprocessing",
+   "pycocotools",
+   "residual",
+   "resnet",
+   "rpn",
+   "sampling",
+   "setuptools",
+   "shapely",
+   "shared",
+   "skimage",
+   "sklearn",
+   "tabulate",
+   "tensorboardx",
+   "termcolor",
+   "testing",
+   "torch",
+   "torchpack",
+   "torchvision",
+   "tqdm",
+   "transform",
+   "util",
+   "utils",
+   "wrappers"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_liujf69_EPP-Net-Action.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Could not find a version that satisfies the requirement blocks==0.1.1 (from versions: none)",
+   "seconds": 2.1,
+   "failure_kinds": [
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 0,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "liujf69/EPP-Net-Action",
+  "decl_kind": "requirements",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/liujf69_EPP-Net-Action__DECL/bin/python",
+  "needed": [
+   "tensorboardx",
+   "torch",
+   "torchvision"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/repos/A3/liujf69_EPP-Net-Action/requirements.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 1026.2,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 6447.57,
+   "detail": "Successfully installed MarkupSafe-3.0.4 PyYAML-6.0.3 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 filelock-4.0.12 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 ninja-1.13.2 numpy-2.2.6 nvidia-cublas-13.1.1.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.24.0.43 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-"
+  },
+  "imports": {
+   "tensorboardx": "ModuleNotFoundError: No module named 'tensorboardx'",
+   "torch": "ok",
+   "torchvision": "ok"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "liujf69/EPP-Net-Action",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/liujf69_EPP-Net-Action__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

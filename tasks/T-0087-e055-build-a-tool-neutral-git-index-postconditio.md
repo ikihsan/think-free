@@ -6,12 +6,17 @@ last-verified: 2026-10-08
 
 <!-- task-meta
 id: T-0087
-status: done
+status: claimed
 created: 2026-10-08
 claim-agent: unknown-agent
 claim-session: 2026-10-08-003-fresh-observation-to-find-a-testable-pra
 claim-vm: 
 verify: python3 EXPERIMENTS/055-index-postcondition/run.py --verify
+notes: |
+  BLOCKED: git version 2.25.1 on this VM does not support the git-hunk arm
+  (requires git >= 2.28 per E038 compare.py CASES). The filterdiff arm may
+  also be affected. Task cannot be verified on this VM without git upgrade.
+  See: 5300360 for recorded decision.
 -->
 
 # T-0087 — E055: build a tool-neutral git index postcondition checker and falsify

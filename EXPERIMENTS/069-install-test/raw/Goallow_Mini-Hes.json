@@ -1,0 +1,43 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "Goallow/Mini-Hes",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/Goallow_Mini-Hes__GEN/bin/python",
+  "needed": [],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_Goallow_Mini-Hes.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 1.6,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 0,
+   "detail": null
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "Goallow/Mini-Hes",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/Goallow_Mini-Hes__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

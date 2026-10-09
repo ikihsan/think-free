@@ -1,0 +1,24 @@
+{
+ "p2": {
+  "control": "P2",
+  "requirement": "fixture imports a real pinned dependency",
+  "install": {
+   "mode": "requirements",
+   "spec": "/tmp/tmpps67lzwf/requirements.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 2.2,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 12.74,
+   "detail": "Successfully installed idna-3.10"
+  },
+  "imports": {
+   "fixture_pkg.uses_dep": "ok"
+  },
+  "pass": true
+ },
+ "all_pass": true,
+ "partial": true
+}

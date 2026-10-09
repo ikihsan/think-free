@@ -1,0 +1,59 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "hao1635/LIT-Former",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/hao1635_LIT-Former__GEN/bin/python",
+  "needed": [
+   "einops",
+   "ipdb",
+   "kornia",
+   "matplotlib",
+   "numpy",
+   "pytorch_ssim",
+   "scipy",
+   "skimage",
+   "torch",
+   "torchmetrics",
+   "torchvision",
+   "tqdm",
+   "wandb",
+   "warmup_scheduler"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_hao1635_LIT-Former.txt",
+   "exit": 1,
+   "first_failure": "error: metadata-generation-failed",
+   "seconds": 2.6,
+   "failure_kinds": [
+    "other_pip_error"
+   ],
+   "download_mb": 3.16,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "hao1635/LIT-Former",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/hao1635_LIT-Former__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

@@ -1,0 +1,44 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "google-research/google-research",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791529704/google-research_google-research__GEN/bin/python",
+  "needed": [],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_google-research_google-research.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 1.7,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 0,
+   "detail": null
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "google-research/google-research",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "google-research/google-research",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791529704/google-research_google-research__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

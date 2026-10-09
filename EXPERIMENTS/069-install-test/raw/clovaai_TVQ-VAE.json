@@ -1,0 +1,72 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "clovaai/TVQ-VAE",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/clovaai_TVQ-VAE__GEN/bin/python",
+  "needed": [
+   "academictorrents",
+   "albumentations",
+   "einops",
+   "gensim",
+   "imageio",
+   "model",
+   "more_itertools",
+   "nltk",
+   "numpy",
+   "omegaconf",
+   "pil",
+   "pudb",
+   "pytorch_lightning",
+   "requests",
+   "scipy",
+   "scripts",
+   "setuptools",
+   "skimage",
+   "sklearn",
+   "streamlit",
+   "torch",
+   "torchvision",
+   "tqdm",
+   "transformers",
+   "typing_extensions",
+   "utils"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_clovaai_TVQ-VAE.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 2.38.1 Requires-Python >=3.11",
+   "seconds": 7.9,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 162.78,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "clovaai/TVQ-VAE",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/clovaai_TVQ-VAE__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

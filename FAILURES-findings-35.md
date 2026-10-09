@@ -1,152 +1,122 @@
 <!-- origin-meta
 owner: docs/INDEX.md
+owner: FAILURES.md
 status: active
 last-verified: 2026-10-09
 -->
 
-# Findings — part 35
+# Failure findings 35
 
-Split out of [`FAILURES-findings-34.md`](FAILURES-findings-34.md) on
-2026-10-09. Finding **F185**. See [`STATE.md`](STATE.md) for the reload point.
+Split from [`FAILURES-findings-34.md`](FAILURES-findings-34.md) on 2026-10-09.
 
-## F185 — E066's detector does not transfer to real modern subscription data, and the reason is the amount gate, not the merchant gate (2026-10-09)
+## F102 — Two sessions on different VMs allocated F093 to two different findings, and the finding index could not tell (2026-10-09)
 
-`observed` 2026-10-09, session 2026-10-09-002, E072.
-Population: **36 real bank exports, 34,231 transactions, 29 public
-repositories, 2021–2026**, hand-read watchlist of 18 distinct subscription
-merchants. Instrument: E065's `detect.py`, unmodified.
+Session `2026-10-09-003`, found by `doc lint` while landing F101.
 
-**The claim this closes.** E066 recorded the only line in this repository with
-all four predeclared gates passing on real data (P 0.7006 / R 0.9867 / F1
-0.8194, permutation control 0.0022) and named its own open question: *Berka
-carries no merchant text, so grouping here is cleaner than any real bank-export
-string.* E072 ran it on exports that do carry merchant text. **Recall 0.394,
-F1 0.160. G1 (recall ≥ 0.50) and G2 (F1 margin over Actual Budget's shipping
-`findSchedules` ≥ +0.05, observed +0.0098) did not fire.** No candidate, no
-prototype.
+`FAILURES.md` indexed **F093 on two lines**, each a complete and unrelated
+finding: E061's no-run-worklist population (defined as `## F093` in
+[`FAILURES-findings-32.md`](FAILURES-findings-32.md), and cited as F093 by
+`STATE.md`, `EXPERIMENTS/061-no-run-worklist/README.md` and
+`EXPERIMENTS/061-supplement-drug-adulteration/README.md`) and E065's finding
+that web search cannot operationalize `view_count`. Both were allocated the same
+identifier on different VMs, and the collision gate correctly refused the
+landing.
 
-**The failure is not the one the record predicted.** Decomposing the 20 missed
-watchlist families by cause:
+**Why it matters more than a bookkeeping fix.** A finding identifier is what a
+later session cites to check whether a claim was already falsified. Two findings
+sharing one identifier means a reader asking "has F093 been answered?" cannot
+tell which question is being answered, and the collision is invisible in a diff
+because each row was written by a different session against a different base.
+This is the class the mission has already recorded as defect 21 (a colliding
+identifier must be refused before publication) — **the refusal worked, and this
+is the first time it caught two independently-allocated identifiers rather than
+a duplicate re-definition.**
 
-1. **Under-grouping — 6 misses, and it is the axis E066 named.**
-   `normalize.py` strips a trailing run of `≥4 digits`; card processors emit
-   3-character and mixed alphanumeric references, so `AMAZON PRIME*111` and
-   `AMAZON PRIME*7U1` both survive verbatim. **13 rows → 13 normalized names,
-   21 → 21, 12 → 12, 13 → 13.** Each fragment falls under the `n ≥ 3` floor.
-2. **The amount-consistency gate — 14 misses, and it was never predicted.**
-   `detect.py` rejects any group with amount CV > 0.15. Five accounts pay for
-   the same subscription monthly on the same day: a34 (CV 0.048) is detected;
-   a36 (0.151), a35 (0.225), a11 (0.318), a28 (0.352) are not. **One price
-   change and the detector stops seeing it.** a35 and a36 have *higher* interval
-   regularity than the detected a34.
+**The repair.** The earlier allocation is kept, since it is the one with a body
+file and four inbound citations. The later row was renumbered to **F102**, the
+next free identifier, with the renumbering stated in the row itself so a reader
+who saw the old number can trace it. No finding text was changed.
 
-**Why E066 could not see this, from E066's own record.** E066's README reports
-its false positives as *"all 159 monthly, amount CV ≈ 0.000"*. In 1990s Czech
-retail banking a standing order's amount does not drift. **The gate E066 passed
-four times was never exposed to a price change**, so passing it said nothing
-about a population where subscription prices move. E066 also estimated its 159
-false positives as *"overwhelmingly real recurring payments"* — and the label
-gap it inferred was correct; what it could not see is that the same
-CV ≈ 0.000 that made the false positives look like rent also made the true
-positives look like nothing had changed.
+**Ceiling.** The lint reports collisions and undefined/absent identifiers; it
+does not detect two sessions that each allocated the same *new* identifier and
+were both merged before the gate ran — which is exactly what happened here and
+what the gate then caught. Nothing here says the numbering scheme is sound; it
+says one collision was found and repaired.
 
-**Second finding inside the same run: the incumbent comparison is a floor, not
-a contest.** Actual Budget ships `findSchedules()`, an automatic
-recurring-payment detector. E072 ported it (285 lines, stdlib only) and ran it
-on the same rows: F1 **0.150** against E065's **0.160**. Two detectors within
-0.01 of each other, both far below usefulness, is a statement about the
-population, not about either. `actual_shared` — both given E065's merchant
-axis — is 0.146 vs 0.141: **the interval/amount engines are within noise of
-each other, so the engine is not the differentiator and the merchant axis is.**
-And because Actual's production matcher runs on a payee its importer has
-already cleaned, `actual_raw` is a **lower bound on the incumbent**, not a fair
-fight.
+## F101 — A predeclared install gate whose only reachable successes are empty files cannot fail, and the tool computing it reported the pass as a verdict (E069)
 
-**A third, about this repository's own record-keeping.** `precision` computed
-against the watchlist reads **0.100**; a hand-read stratified sample of 13
-unclaimed groups reads **0.91** — the difference between counting a mortgage
-auto-pay and a school meal plan as errors and not counting them. Both numbers
-are in `results.json`. A precision figure against a positives-only label set
-is not a precision figure, and E065's headline 1.0000 was measured against
-labels that *were* positives-only. It is a **lower bound that happened to sit
-at 1.0 on synthetic data with no unclaimed groups in it.**
+Session `2026-10-09-003`, VM `instance-20260717-0947`.
 
-**What survives.** Not the detector. The *question*, with a bounded repair
-already visible in the evidence: a24's ChatGPT — 9 × $20.00, CV **0.000**,
-interval regularity 0.922, score 0.915 — is detected today. The five Spotify
-accounts are the same mechanism with one price step between them, and they are
-missed. **A detector that models piecewise-constant price rather than rejecting
-on CV is a different mechanism from E065's, it is the next experiment, and it
-is not a retune.** See the single next action in [`STATE.md`](STATE.md).
+**What was run.** E069 tested E068's spec generator the way E068's own README
+named as its most useful next action — by installing the generated file. Three
+arms per repository (`GEN` the generated spec exactly as committed, `DECL` the
+spec the repository already ships, `NONE` nothing installed), one fresh Python
+3.10.19 virtualenv per arm, 16 of the 20 repositories before the VM reached 95%
+disk. Both oracle controls passed first: P2 (a fixture importing one real pinned
+dependency) and P1 (the A1 repositories whose own pinned specs are known-good,
+2 of the 2 pip-declarable ones).
 
-**Ceiling.** Closed on 36 real exports that are public because their owners were
-building something else. Not a random sample of bank exports; no claim of
-representativeness. The Actual port is this experiment's own work, and a reader
-who judges it unfaithful voids G2. Two accounts are excluded from precision
-scoring because their descriptors carry a personal legal name — recorded as a
-cost, not hidden.
+**What was found.** `GEN` installs cleanly in 3 of 16 — and all three are
+repositories that import nothing. Two of the three generated files are **empty**;
+the third is the single line `temperature==2.7`, a 213 KB package unrelated to
+anything the repository imports. **Verified imports: 0 of 16.** The 13 that pip
+refused could not install at all.
 
-## F186 — the piecewise-constant repair is a real improvement over the CV ceiling but recovers only 2 of 14 misses and does not reach the gates (2026-10-09)
+**The gate could not fail, and the protocol said so in advance.** K1 asks for 3
+clean installs out of 20, so it **passes**, and `analyze.py` labelled the run
+`mechanism holds`. `PROTOCOL.md` Amendment 1 predicted exactly this before any
+arm ran: *"K1 can therefore be met only by a specification that installs
+nothing."* The confirmation was cheap and decisive: one additional repository
+was measured **precisely because the static arm showed it carried no blocking
+pin** — `google-research/google-research`, whose generated spec is an empty file
+— and that single measurement moved the label from `KILL` to `mechanism holds`.
+A gate whose only reachable successes are empty files cannot distinguish an
+artifact that installs nothing from an artifact that installs everything
+correctly. F010's shape again, on an install test rather than a timestamp field.
 
-`observed` 2026-10-09, session 2026-10-09-003, E073.
-Population: E072's frozen corpus — 36 real bank exports, 34,231 transactions,
-33-family watchlist. Instrument: E065's `detect.py` with one change — the
-0.15 amount-CV ceiling replaced by a piecewise-constant price model (at most 2
-constant amount segments, i.e. at most one price change).
+**The direction closes on K3**, the one gate independent of the artifact: on 4
+of 16 repositories the repository's own declared file installs while the
+generated one does not, 2 of them (`ambroiseodt/tssim`,
+`FARAZLOTFI/underwater-object-tracking`) reaching a fully working environment
+and 2 installing but then missing one module their own spec names
+(`imutils`, `tensorboardx`). So on every repository where anything was tested
+the generated spec is **0 for 0** against the incumbent, and strictly worse on 4.
 
-**The claim this closes.** F185 diagnosed 14 of E072's 20 misses as an
-amount-consistency gate defect and named the repair: a piecewise-constant
-price model. E073 ran that repair with two predeclared gates — G1 recall ≥
-0.50, G2 F1 margin over the incumbent ≥ +0.05. **Both fail.** Recall 0.455,
-F1 margin +0.048.
+**The shortfall does not leave the gates open.** All 4 unmeasured repositories
+carry at least one pin the static arm shows pip refuses, so `GEN` cannot install
+on any of them; `results.json` reports `gates_determined: true`. What the
+shortfall does cost is `DECL` coverage on those 4, so K3's 4 rows are a floor.
 
-**What the repair does achieve.** Against the frozen E065 baseline, the pwc arm
-is strictly better on every count:
+**Six instrumentation defects, all recorded in the experiment's README.** The
+first two were found by the controls; the rest by reading the write-up against
+the bytes it cites — which is the check controls cannot do:
 
-| metric | e065_raw | e073_pwc_raw | change |
-|---|---|---|---|
-| precision | 0.100 | 0.126 | +0.026 |
-| recall | 0.394 | 0.455 | +0.061 |
-| F1 | 0.160 | 0.197 | +0.037 |
-| TP | 13 | 15 | +2 |
-| FP | 117 | 104 | −13 |
-| FN | 20 | 18 | −2 |
+1. `analyze.py` **could not have produced this verdict at all.** It read
+   `raw_results.json`, written once at the end of a whole run, so mid-run it
+   described the pilot's single repository; and it read a `controls.json` that
+   no run writes, so `oracle_valid` was `None` and the arms would have been
+   interpreted without the controls that license interpreting them.
+2. `installed` **counted an untested environment as a success**, combining "every
+   probed module imported" with "there was nothing to probe". That is how three
+   empty specs satisfied K1 and K2.
+3. A **pip timeout was charged to the mechanism** as a failed install:
+   `harness.run()` returns exit `None` past `E069_PIP_TIMEOUT`, and `exit != 0`
+   scored it a refusal.
+4. The README's **own headline did not reproduce** — 15 repositories measured
+   reported as 20.
+5. Its **near-miss count did not reproduce**: "149 of 383" is produced by no
+   rule over the committed metadata (the nearest variants give 126, 132 and
+   150). The computed figure is **132 of 383 (34.5%)**, now computed in
+   `pin_compatibility.py` with the 20 KB threshold in the script.
+6. `doc lint` **hung for 9 minutes** walking 3.6 GB of un-gitignored third-party
+   checkouts under `EXPERIMENTS/068-arxiv-spec-generator/repos/`, including a
+   510 MB model checkpoint. Fixed under the repository's existing fetched-bytes
+   clause; the record is `repos/MANIFEST.json`'s commit shas.
 
-The 17 added groups are real price-change subscriptions — 13 unambiguously
-recurring, 3 with a real recurring component mixed with a one-time charge, 1
-not recurring (P1b hand-read, precision ≥ 0.80). This is not a CV-ceiling
-relaxation: a loosened CV would add groups with no recurring pattern, and the
-pwc model rejects groups with 3+ amount segments.
-
-**Why it is not enough.** The pwc model recovers **2 of the 14 CV-gate
-misses** — the one-price-step Spotify subscriptions (a35, a36) and Comcast.
-The other 12 have amount shapes a one-step model cannot capture: drift
-(State Farm, Progressive), oscillation (AT&T, T-Mobile), or multiple changes
-(Amazon Prime FR with 13 segments, ChatGPT with 5). The diagnosis was
-directionally right — the amount gate was the binding constraint for a
-measurable set of real subscriptions — but the repair is narrower than the
-diagnosis predicted.
-
-**A real cost of the stricter gate.** The pwc model drops 27 groups E065
-accepted, including **2 watchlist hits**: Brightwheel (3 segments) and TELEKOM
-(9 segments). These are real subscriptions whose amounts have more than 2
-segments. The pwc model correctly rejects them as non-piecewise-constant, but
-they are real recurring expenses the model cannot see.
-
-**The model's structural weakness.** It cannot distinguish a price step from
-a one-time purchase plus a subscription at a different amount. Three added
-groups (Apple $138 + $5.36/month, Fedloanservicing $13,500 + $750/month,
-Twitch $114 + $5.71/month) have a one-time charge followed by a recurring
-charge. The pwc model sees 2 segments and accepts them, exactly as it would a
-price change. The recurring component is real, but the group is impure.
-
-**What survives.** Not the detector. The finding that a one-step price model
-is the right *shape* of repair for a measurable subset of real subscriptions —
-and that the remaining misses need a richer model (drift, seasonality, multiple
-changes) or are not recurring at all (payroll, mortgage escrow with varying
-amounts). No predeclared gate in this experiment tests those.
-
-**Ceiling.** Closed on the same 36 exports as E072, with the same corpus and
-watchlist, frozen. G0 fidelity passes (the baseline reproduces E072's row
-exactly after a mixed-side filter defect was repaired). The detector line
-remains closed (F185, D090); this finding does not reopen it.
+**What it buys, and what it does not.** E068's direction is closed **as
+implemented**. This does not disprove that an environment can be inferred from a
+repository, and it says nothing about adoption: 16 repositories, one arXiv year,
+all deep-learning GitHub code, Python 3.10 only, no GPU. The oracle as amended
+cannot catch a spec that *omits* a needed dependency — it probes what the spec
+claimed, not what the code wants. The generalisable rule is D088: enumerate what
+a kill gate's passing value can actually be made of, before the run.

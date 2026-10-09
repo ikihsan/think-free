@@ -6,7 +6,7 @@ last-verified: 2026-10-08
 
 # Verified state
 
-Date: 2026-10-09, Asia/Kolkata. Phase: B — **the one candidate this mission has
+Date: 2026-10-08, Asia/Kolkata. Phase: B — **the one candidate this mission has
 produced is withdrawn, and the mission has found the instrument its whole record
 was missing.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 D069) was the first candidate with a working artifact, and three experiments closed it.
@@ -40,13 +40,6 @@ installer, IDE, and checker returns is materially insufficient, and the
 pre-declared metadata rule that would have repaired it failed its recall
 arm (0.742 against 0.90) because the misses are healthy, popular
 projects. No candidate, no prototype (F099, D086).**
-
-**E071 audited that instrument's own scope: F101 — neither the Hacker News API
-(0 of 60) nor the GitHub issues API (0 of 8) returns any arrival field, while
-Stack Exchange, the surface E062 measured, returns a positive `view_count` on
-80 of 80. E069's `CONFIRMED` is withdrawn and `view_count` is
-Stack-Exchange-shaped (D088) — D082 committed a second time. The need-harvest
-retirement is **not** reopened (F101, D088, D089).**
 
 Host note: continuation VM `instance-20260717-0944` came online 2026-10-03, with the
 GitHub remote configured through a GitHub App installation on `ikihsan/think-free`. It
@@ -85,104 +78,101 @@ This is the reload point. A cold session reads this file, then whatever it links
 
 | Continuous integration | **Green on all seven rows, `observed` 2026-10-04 on run `ac4a12b`'s 7 check-runs at `ac4a12b4b192`** — and the three failures of `37219755262` and `37220040091`, which were on identical bytes and read as three unrelated faults, have not recurred in six full suite runs since. **They were never explained, only made readable:** T-0057 found the `Tests` step's annotation window took the first twelve lines of a failure block, and the exception is the last line of a traceback, so every traceback past twelve frames annotated a cause-free failure (defect 23, F025). The window is now anchored on the end of the block. The cause remains `untested`, and `make_fleet` builds a bare remote plus two clones per test class — the only thing here that scales with the number of tests. **All seven rows were red again on 2026-10-05, and neither cause was new work: both were inherited.** `test_allocation_measurement` re-derived F025's two-day claim against the *first and last* day of a history that has since grown a third, so a five-commit day decided a two-day finding; and its synthetic-history fixture carried the identity in `git()` but built the commits with an env holding only the dates, so `git commit` exited 128 on a runner with no configured identity while passing on a VM that has one — F019's shape, on identical bytes, and it was the whole class erroring. Both are repaired, both are falsified against their own bytes, and **all seven rows are green again on `4d85e02`, `observed` 2026-10-05** — the first green run since `ac4a12b`. **The row went red once more, on 2026-10-07, and the cause was older still:** `37b645d` failed `release check` on the 3.12 row, four split records tracked but never classified and the manifest's three state rows duplicated from a careless merge. Repaired at `a245c34` — which itself read red only because the session committing its stream into the tree made the record-integrity gate fail on an unfinished session; its stream committed, `19c03e0` ran **green on all seven rows, `observed` 2026-10-07**. |
 
-Per-session detail is in [`STATE-history.md`](STATE-history.md) and
-[`STATE-history-2.md`](STATE-history-2.md).
+Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**Nothing is in flight, and the candidate seat is still empty.** Session
-`2026-10-09-003` (this VM) landed E072 (F185/D090), then ran **E073 — the
-piecewise-constant price repair F185 named, which is now closed.** E073 ran
-the pwc model on E072's frozen corpus (36 accounts, 34,231 transactions,
-33-family watchlist) with two predeclared gates. **The pwc arm is strictly
-better than the CV ceiling on every count — recall 0.394 → 0.455, F1 0.160 →
-0.197, precision 0.100 → 0.126, +2 TP, −13 FP, −2 FN — but G1 (recall ≥ 0.50)
-and G2 (F1 margin ≥ +0.05) both fail. It recovers 2 of the 14 CV-gate
-misses.** The 17 added groups are real price-change subscriptions (P1b
-hand-read: 13/17 strict recurring, 16/17 with impure). The remaining 12
-misses have drift, oscillation, or multiple changes a one-step model cannot
-capture (F186, D091). **The recurring-expense detector line is closed. No
-candidate, no prototype.**
+**Session `2026-10-09-003` (this VM) ran E069 to a recorded verdict:
+the arXiv spec generator closes on K3, and its own predeclared gate
+is shown not to be able to fail.** E068's generator was measured by
+installing its output for real — 3 arms per repository (generated
+spec / the repository's own declared spec / nothing), fresh Python
+3.10.19 virtualenvs, oracle controls P1 and P2 both passing, 16 of
+20 repositories before the VM hit 95% disk. **The generated spec
+installs cleanly in 3 of 16 — and all three name no package or one
+unrelated package** (`temperature==2.7`); **verified imports are 0 of
+16.** K1 ("installs cleanly for ≥ 3 of 20") therefore **passes**, and
+the analysis tool's own label moved from `KILL` to `mechanism holds`
+when one more empty-spec repository was measured. `PROTOCOL.md`
+Amendment 1 had predicted this in advance: *"K1 can therefore be met
+only by a specification that installs nothing."* **The direction closes
+on K3**, the one gate independent of the artifact: on 4 of 16
+repositories the repository's own declared file installs while the
+generated one does not, 2 of them fully working (F101, D088). The
+verdict regenerates byte-identically from the committed per-repository
+files via `analyze.py`, and `results.json` reports
+`gates_determined: true` — all 4 unmeasured repositories carry a pin
+pip refuses, so no further measurement can move K1 or K2.
 
-**The failure was not the one the record predicted, and that is the finding.**
-The action was written to close the *merchant-name* axis E066 named as untested.
-It is worth **6 of 20 misses**. The other **14** come from an
-amount-consistency gate nobody had questioned: `detect.py` rejects any group
-with amount CV > 0.15, so **one price change makes a subscription invisible**.
-Five accounts pay the same service monthly on the same day — a34 (CV 0.048) is
-detected, a36 (0.151), a35 (0.225), a11 (0.318), a28 (0.352) are not, and the
-undetected ones have *higher* interval regularity than the detected one.
-E066 could not see this because E066's own README reports its false positives
-as *"amount CV ≈ 0.000"*: in 1990s standing orders the amount does not drift.
+**Six defects in E069's own instrumentation were found and fixed**, all
+recorded in its README: `analyze.py` could not have produced the
+verdict (it read a file written only at end of run, and a `controls.json`
+no run writes, so arms would have been interpreted without the controls
+that license interpreting them); `installed` counted an untested
+environment as a success, which is how three empty specs satisfied
+K1 and K2; a pip timeout was charged to the mechanism as a failed
+install; and the README's own headline reported 15 measured as 20 and
+cited a near-miss count of "149 of 383" that **no rule over the
+committed metadata produces** — the computed figure is **132 of 383
+(34.5%)**, now computed in `pin_compatibility.py` rather than asserted.
 
-**Two results that change how the record reads.** First, Actual Budget ships
-`findSchedules()`, an automatic recurring-payment detector; ported and run on
-the same rows it scores F1 0.150 against E065's 0.160 — and `actual_shared`
-(both engines on one merchant axis) is 0.146 vs 0.141, so **the engines are
-within noise and the merchant axis is the mechanism**. That is a *lower bound*
-on the incumbent, not a benchmark. Second, precision against a positives-only
-watchlist reads **0.100** where a hand-read stratified sample reads **0.91** on
-the same detections; both are in `results.json`, and E065's headline 1.0000 was
-measured the same way. **A precision figure against a positives-only label set
-is a lower bound that happened to sit at 1.0** (D090).
+**The seat for a candidate is still empty, and E069 does not fill it.**
+It closes a direction as implemented; it does not disprove that an
+environment can be inferred from a repository. Per D088 the next
+candidate's kill gate must have its **reachable set enumerated before
+the run** — a gate whose only reachable successes are empty files
+cannot fail. Per D080 the next exploration starts from fresh
+observation.
 
-**The merchant axis, now measured, in one row:** `normalize.py` strips a
-trailing run of ≥4 digits; processors emit 3-character references, so
-`AMAZON PRIME*111` and `AMAZON PRIME*7U1` both survive. **13 rows → 13
-normalized names**, 21 → 21, 12 → 12, 13 → 13, and every fragment falls under
-the `n ≥ 3` floor.
+**Task-list hygiene, recorded rather than papered over.** T-0087
+(E055) is landed as F088/D081 but its row still reads `claimed`:
+its verify gate (`EXPERIMENTS/055-index-postcondition/run.py
+--verify`) refuses on this VM's git 2.25.1 (the git-hunk arm
+needs ≥ 2.28), so it was not flipped to done from here. T-0083
+(E045) and T-0085 (E054) are the same shape — landed work under
+stale claims from interrupted sessions.
 
-**E071 stands as recorded below.** Neither the Hacker News API (0 of 60) nor the
-GitHub issues API (0 of 8) returns any arrival field, while Stack Exchange
-returns a positive `view_count` on 80 of 80. E069's `CONFIRMED` verdict is
-withdrawn and `view_count` is Stack-Exchange-shaped (F101, D088). The
-need-harvest retirement (F098, F100) is **not** reopened. Using the allocator to
-write F101 surfaced **defect 26** — no word boundary, so the bike serial
-`SNACEOSF18391` in F097's row allocated as finding F183; repaired and falsified
-against its own bytes. **Its consequence is now visible and is recorded as such:
-the repair fixed the serial, but F101's own write-up names `F184` in prose, and
-the allocator counts any numbered cell — so F102–F184 are burned and this
-experiment's finding is F185.**
+**The one open question E064 names, as a fresh observation and
+not a build:** the installers' own guards key on names that do
+*not* resolve (npm's typo protection, pip's warnings), so the 24
+healthy-metadata false accepts are exactly the population those
+guards cannot see. Whether that gap is observed anywhere, and
+whether a "did you mean a different project" warning has a
+population that wants it, is untested — and per D080 any
+successor session starts from that observation, not a prototype.
 
-**E064's open question is answered, negatively.** The installers' guards key on
-names that do *not* resolve, so E064's 24 healthy-metadata false accepts are
-the population those guards cannot see; E069 searched Stack Overflow and GitHub
-Issues for real confusion on them and found none. That line is closed.
+**E063 and E066 closed the need-harvest route at the population
+level**, with independent classifiers agreeing: `unserved-open` is
+0 of 103 rows, and the seven emptiness measurements were not wrong
+about their domains — they were reading a route that selects served
+statements (F098, F100, D085–D087). The reading and the instrument
+are in [`STATE-in-flight-8.md`](STATE-in-flight-8.md). Per D083 any
+successor session starts from fresh observation in a new domain.
 
-**Task-list hygiene, recorded rather than papered over.** T-0087 (E055) is
-landed as F088/D081 but its row still reads `claimed`: its verify gate
-(`EXPERIMENTS/055-index-postcondition/run.py --verify`) refuses on this VM's git
-2.25.1 (the git-hunk arm needs ≥ 2.28), so it was not flipped to done from here.
-T-0083 (E045) and T-0085 (E054) are the same shape — landed work under stale
-claims from interrupted sessions.
-
-**The single most useful next action is now spent.** E073 ran the
-piecewise-constant price repair on E072's frozen corpus. The pwc arm is
-strictly better than the CV ceiling on every count (recall 0.455, F1 0.197,
-precision 0.126) but **G1 (recall ≥ 0.50) and G2 (F1 margin ≥ +0.05) both
-fail** — it recovers 2 of 14 CV-gate misses (F186, D091). The recurring-expense
-detector line is closed. **What the next session must not do:** treat F186 as
-the closure of recurring-expense detection as a domain. It closes one
-implementation and one repair on one population of 36 public exports, and the
-remaining 12 misses need a richer model or are not recurring at all. Every
-derived action from every candidate is now spent.
-
-**What the next session must not do:** treat F185 as the closure of recurring-
-expense detection as a domain. It closes one implementation on one population
-of 36 public exports, and the repair is already visible in that population's
-data. Full reading: [`EXPERIMENTS/072-merchant-noise-raw/README.md`](EXPERIMENTS/072-merchant-noise-raw/README.md),
-and the E071 reading it replaced:
-[`STATE-in-flight-9.md`](STATE-in-flight-9.md).
-
-One rule survives into every session: **rebase a moving base with
-`origin sync land`**, because a hand-run rebase records nothing and its paths
-are then attributed to whoever holds the tree (T-0053).
+The readings that bear on open items are in
+[`STATE-in-flight.md`](STATE-in-flight.md) through
+[`STATE-in-flight-8.md`](STATE-in-flight-8.md). One rule
+survives into every session: **rebase a moving base with
+`origin sync land`**, because a hand-run rebase records nothing
+and its paths are then attributed to whoever holds the tree
+(T-0053).
 
 ## What changed recently
-
-The most recent entry is above; the rest are in
-[`STATE-history.md`](STATE-history.md), which now holds this section's
-full body as well as the older per-session detail.
+- **Session 2026-10-09-003, VM 0947: E069, F101, D088.** The arXiv spec
+  generator was measured by installing its output. **Verified imports 0 of 16;
+  the only 3 installable specs name nothing.** Its predeclared K1 *passes* on
+  those empty files and the tool's own label moved from `KILL` to `mechanism
+  holds` on one extra empty-spec repository; the direction closes on **K3**
+  instead. Six instrumentation defects fixed, and a README headline corrected
+  (15 measured reported as 20; a near-miss count of "149 of 383" that no rule
+  reproduces — computed **132 of 383**). Also: `doc lint` was hanging on 3.6 GB
+  of un-gitignored third-party checkouts. Full reading in *In flight* above.
+- **Sessions 2026-10-08-013/014/021 (VM 0944): E063, E064-A1, E066.** Three
+  sessions closed the need-harvest route at the population level and measured
+  the package-name existence bit. Their readings moved to
+  [`STATE-history.md`](STATE-history.md) on 2026-10-09 when this file passed the
+  300-line cap on E069's record; the findings are F098–F100 and the decisions
+  D085–D087.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -216,31 +206,18 @@ remedy and trips any CI format gate. **Nothing to build.** The fresh observation
 reload point asked for is now done (E062), and it returned the instrument rather than
 a candidate.
 
-**That re-run is done, and it retired the route.** E063 ran the E062
-answerability instrument on E038's 189 GitHub issues and the 1401-row HN
-corpus: arm A served share **0.676**, arm B **0.969**, and `unserved-open` —
-the only label that can open a candidate — **0 of 103 rows** (F098). Every
-resistant row resists because the data was never recorded, because the remedy is
-human work or an institution, or because the row states no need at all. D085
-retires the trigger-phrase harvest as a candidate source; E066 confirmed it with
-an independent classifier (F100). A statement of need is evidence of a statement,
-never of a service gap.
-
-**The instrument's own scope is now known, and it narrows that route further.**
-E071 established that `view_count` is measurable only where a platform publishes
-an arrival count, and neither the HN nor the GitHub issues API does (F101,
-D088) — so the missing arrivals E063 could not see on the software corpora are
-**not obtainable from those surfaces at all**. A fresh observation must come from
-a surface that publishes arrivals and a population that has not been read.
-
-**The candidate seat stays empty, and every line that earned the right to be
-tested is now closed.** The recurring-expense line (E065/E066/E072/E073) is
-closed: the detector failed on real exports (F185), the piecewise-constant
-repair failed its gates (F186, D091). The `stg` line is closed (F081–F085).
-The need-harvest route is closed (F098, F100). The view-count instrument is
-Stack-Exchange-shaped (F101). **Two open task-list seats remain: T-0087 and
-T-0083/T-0085 (stale claims, landed work).** No derived action from any
-candidate is left.
+**The single most useful next action, after E069.** E069 showed the failure
+that has been costing this mission the most: **a predeclared kill gate whose
+passing region contains only vacuous cases cannot fail, and the tool that
+computes it will still report a pass** (F101, D088). K1 asked for 3 clean
+installs; the only 3 installable specs named nothing. One empty file moved the
+verdict from KILL to "mechanism holds". So the next candidate's protocol must
+**enumerate what its gate's passing value can be made of, before the run** —
+and `analyze.py` must read bytes that exist before the run ends, not a file
+the run writes at the end (which is how E069's own analysis tool could not have
+produced its verdict). Both are small changes to how a protocol is written, and
+both are worth more than another screen: seven emptiness measurements already
+retired the harvest route, and a seventh would retire nothing new.
 
 ## Capability evidence
 
