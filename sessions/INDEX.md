@@ -15,7 +15,7 @@ Showing the 25 most recent. 162 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | **unfinished** | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T02:58 |
+| [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
 | [2026-10-09-002-land-the-unlanded-e067-e070-work-with-a](2026-10-09-002-land-the-unlanded-e067-e070-work-with-a/README.md) | unknown-agent | worked | Land the unlanded E067-E070 work with a source manifest for the 5.5GB  | 2026-10-09T02:54 |
 | [2026-10-09-001-declare-remaining-artifacts-from-e070-se](2026-10-09-001-declare-remaining-artifacts-from-e070-se/README.md) | unknown-agent | worked | Declare remaining artifacts from E070 session | 2026-10-09T00:10 |
 | [2026-10-08-028-fresh-observation-in-a-new-non-software](2026-10-08-028-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find convergent-unan | 2026-10-09T00:09 |
