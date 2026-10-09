@@ -62,6 +62,17 @@ Compare against naive baseline: `pip freeze` from a fresh virtualenv after `pip 
 - Import scanning is deterministic: stdlib `ast` module, no heuristics.
 - Synthetic fixture test: generator must produce known output for a hand-crafted repo fixture with known imports and requirements.
 
+## Gate enumeration requirement (D088, F101)
+
+Before a kill gate is declared, **enumerate what its passing value can actually be made of.** A gate is informative only if its passing region contains a case a working mechanism would produce and a broken one would not. 
+
+- **K1–K4 passing regions must be enumerated** before the run: specify what concrete values or repository states would cause the gate to pass.
+- If a gate's passing region consists only of vacuous cases (e.g., "empty files," "no packages named," "0 results"), the gate **cannot fail** — it will always report pass regardless of the generator's output. Such a gate must be redesigned with a stricter passing region or an additional `pass_strict` mode that counts only verified installations.
+- `analyze.py` must read from **durable bytes that exist before the run ends**, not from a file the run writes at the end (which is how E069's own analysis tool could not have produced its verdict).
+- All gates should report both `pass` (declared arithmetic meets threshold) and `pass_strict` (verified against actual measured outcomes), so the honest reading is visible in the same object and the declared arithmetic stays auditable.
+
+**Example from E069/K1:** The passing region ">= 3 of 20 repos install cleanly" was reachable by a generator emitting only empty files, making the gate non-falsifiable. The verdict was therefore read from K3 (which does not depend on the artifact) and from `pass_strict` counts.
+
 ## Reproduction
 
 ```bash
