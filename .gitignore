@@ -102,6 +102,15 @@ tasks/INDEX.md
 # Doctor output
 .origin/doctor.json
 
+# OpCode workspace state
+.opencode/
+
+# Worktrees
+.worktrees/
+
+# Experiment bulk inputs
+EXPERIMENTS/*/sdists/
+
 # Python version records
 tests/python-versions.json
 tests/git-versions.json
