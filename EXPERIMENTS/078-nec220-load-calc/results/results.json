@@ -1,0 +1,390 @@
+{
+  "splits": {
+    "train": {
+      "split": "train",
+      "total_cases": 30,
+      "profiles": {
+        "with_solar": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 3,
+          "oversized_200a": 3,
+          "oversized_va_div": 3,
+          "oversized_contractor": 4
+        },
+        "with_storage": {
+          "total": 5,
+          "correct": 5,
+          "oversized_no_demand": 2,
+          "oversized_200a": 2,
+          "oversized_va_div": 2,
+          "oversized_contractor": 5
+        },
+        "all_electric": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 3,
+          "oversized_200a": 0,
+          "oversized_va_div": 3,
+          "oversized_contractor": 4
+        },
+        "large_dwelling": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 0,
+          "oversized_200a": 0,
+          "oversized_va_div": 0,
+          "oversized_contractor": 0
+        },
+        "all_electric_solar": {
+          "total": 2,
+          "correct": 2,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 2
+        },
+        "standard": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 2,
+          "oversized_200a": 1,
+          "oversized_va_div": 2,
+          "oversized_contractor": 3
+        },
+        "ev_solar": {
+          "total": 1,
+          "correct": 1,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        },
+        "ev_heat_pump": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        },
+        "with_heat_pump": {
+          "total": 1,
+          "correct": 1,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        },
+        "with_ev": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 2
+        }
+      },
+      "models": {
+        "nec220_auto": {
+          "correct": 30,
+          "oversized": 0
+        },
+        "nec220_oracle": {
+          "correct": 30,
+          "oversized": 0
+        },
+        "no_demand_factors": {
+          "correct": 15,
+          "oversized": 15
+        },
+        "200a_default": {
+          "correct": 15,
+          "oversized": 6
+        },
+        "va_div_240": {
+          "correct": 15,
+          "oversized": 15
+        },
+        "contractor_heuristic": {
+          "correct": 4,
+          "oversized": 23
+        }
+      }
+    },
+    "val": {
+      "split": "val",
+      "total_cases": 30,
+      "profiles": {
+        "ev_heat_pump": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 0,
+          "oversized_200a": 0,
+          "oversized_va_div": 0,
+          "oversized_contractor": 0
+        },
+        "with_storage": {
+          "total": 5,
+          "correct": 5,
+          "oversized_no_demand": 3,
+          "oversized_200a": 2,
+          "oversized_va_div": 3,
+          "oversized_contractor": 5
+        },
+        "large_dwelling": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 0,
+          "oversized_200a": 0,
+          "oversized_va_div": 0,
+          "oversized_contractor": 0
+        },
+        "ev_solar": {
+          "total": 2,
+          "correct": 2,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        },
+        "all_electric": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 0,
+          "oversized_200a": 0,
+          "oversized_va_div": 0,
+          "oversized_contractor": 4
+        },
+        "all_electric_solar": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 3
+        },
+        "with_heat_pump": {
+          "total": 1,
+          "correct": 1,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        },
+        "with_ev": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 2,
+          "oversized_200a": 0,
+          "oversized_va_div": 2,
+          "oversized_contractor": 3
+        },
+        "standard": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 1,
+          "oversized_200a": 3,
+          "oversized_va_div": 1,
+          "oversized_contractor": 3
+        },
+        "with_solar": {
+          "total": 1,
+          "correct": 1,
+          "oversized_no_demand": 1,
+          "oversized_200a": 1,
+          "oversized_va_div": 1,
+          "oversized_contractor": 1
+        }
+      },
+      "models": {
+        "nec220_auto": {
+          "correct": 30,
+          "oversized": 0
+        },
+        "nec220_oracle": {
+          "correct": 30,
+          "oversized": 0
+        },
+        "no_demand_factors": {
+          "correct": 19,
+          "oversized": 10
+        },
+        "200a_default": {
+          "correct": 12,
+          "oversized": 6
+        },
+        "va_div_240": {
+          "correct": 19,
+          "oversized": 10
+        },
+        "contractor_heuristic": {
+          "correct": 5,
+          "oversized": 21
+        }
+      }
+    },
+    "test": {
+      "split": "test",
+      "total_cases": 40,
+      "profiles": {
+        "with_heat_pump": {
+          "total": 8,
+          "correct": 8,
+          "oversized_no_demand": 3,
+          "oversized_200a": 0,
+          "oversized_va_div": 3,
+          "oversized_contractor": 7
+        },
+        "ev_heat_pump": {
+          "total": 3,
+          "correct": 3,
+          "oversized_no_demand": 1,
+          "oversized_200a": 0,
+          "oversized_va_div": 1,
+          "oversized_contractor": 0
+        },
+        "all_electric_solar": {
+          "total": 5,
+          "correct": 5,
+          "oversized_no_demand": 2,
+          "oversized_200a": 0,
+          "oversized_va_div": 2,
+          "oversized_contractor": 5
+        },
+        "ev_solar": {
+          "total": 7,
+          "correct": 7,
+          "oversized_no_demand": 4,
+          "oversized_200a": 0,
+          "oversized_va_div": 4,
+          "oversized_contractor": 6
+        },
+        "with_ev": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 4,
+          "oversized_200a": 0,
+          "oversized_va_div": 4,
+          "oversized_contractor": 4
+        },
+        "large_dwelling": {
+          "total": 2,
+          "correct": 2,
+          "oversized_no_demand": 0,
+          "oversized_200a": 0,
+          "oversized_va_div": 0,
+          "oversized_contractor": 0
+        },
+        "with_solar": {
+          "total": 5,
+          "correct": 5,
+          "oversized_no_demand": 2,
+          "oversized_200a": 2,
+          "oversized_va_div": 2,
+          "oversized_contractor": 5
+        },
+        "standard": {
+          "total": 4,
+          "correct": 4,
+          "oversized_no_demand": 0,
+          "oversized_200a": 1,
+          "oversized_va_div": 0,
+          "oversized_contractor": 4
+        },
+        "all_electric": {
+          "total": 2,
+          "correct": 2,
+          "oversized_no_demand": 1,
+          "oversized_200a": 1,
+          "oversized_va_div": 1,
+          "oversized_contractor": 2
+        }
+      },
+      "models": {
+        "nec220_auto": {
+          "correct": 40,
+          "oversized": 0
+        },
+        "nec220_oracle": {
+          "correct": 40,
+          "oversized": 0
+        },
+        "no_demand_factors": {
+          "correct": 23,
+          "oversized": 17
+        },
+        "200a_default": {
+          "correct": 24,
+          "oversized": 4
+        },
+        "va_div_240": {
+          "correct": 23,
+          "oversized": 17
+        },
+        "contractor_heuristic": {
+          "correct": 6,
+          "oversized": 33
+        }
+      }
+    }
+  },
+  "gates": {
+    "G1_auto_correctness": {
+      "threshold": 1.0,
+      "achieved": 1.0,
+      "pass": true,
+      "detail": "40/40 correct"
+    },
+    "G2_baseline_no_demand_oversizing": {
+      "threshold": 0.3,
+      "achieved": 0.425,
+      "pass": true,
+      "detail": "17/40 oversized by \u22651 size"
+    },
+    "G3_baseline_200a_oversizing": {
+      "threshold": 0.05,
+      "achieved": 0.1,
+      "pass": true,
+      "detail": "4/40 oversized by \u22651 size"
+    },
+    "G4_baseline_va_div_oversizing": {
+      "threshold": 0.3,
+      "achieved": 0.425,
+      "pass": true,
+      "detail": "17/40 oversized by \u22651 size"
+    },
+    "G5_baseline_contractor_oversizing": {
+      "threshold": 0.4,
+      "achieved": 0.825,
+      "pass": true,
+      "detail": "33/40 oversized by \u22651 size"
+    },
+    "G6_auto_not_oversized": {
+      "threshold": 0.0,
+      "achieved": 0.0,
+      "pass": true,
+      "detail": "0/40 oversized by \u22651 size"
+    },
+    "G7_profile_coverage": {
+      "threshold": 9,
+      "achieved": 9,
+      "pass": true,
+      "detail": "9/9 profiles \u226580% correct"
+    }
+  },
+  "negative_controls": {
+    "random_schedule": {
+      "service_amps": 200,
+      "passed": true
+    },
+    "minimal_schedule": {
+      "service_amps": 100,
+      "passed": true
+    },
+    "empty_modern_loads": {
+      "service_amps": 150,
+      "passed": true
+    }
+  }
+}
