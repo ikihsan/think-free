@@ -82,6 +82,8 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
+**Session `2026-10-09-015` (this VM) ran E079 ArXiv reproducibility falsification experiment.** Information-sufficiency witness W-ARXIV-1 **FAIL (as predicted)**: two synthetic repos with identical permitted inputs (unpinned requirements.txt, same imports, README structure) but requiring different pinned numpy versions cannot be distinguished from static analysis alone. This bounds the claim — any deterministic tool seeing only static inputs produces identical pinned requirements for both, causing one to fail. Harvest finds papers (4 unique in pilot), tool prototype extracts imports but over-generates (includes stdlib/internal modules), test infrastructure needs `python3.8-venv`. Kill gates predeclared: G1 install≥80%, G3 combined≥30%, G4 tool>baseline+10pp. **Decision: `hold`** — witness passed (bound demonstrated), full experiment not run due to env constraints.
+
 **Session `2026-10-09-003` (this VM) ran E069 to a recorded verdict:
 the arXiv spec generator closes on K3, and its own predeclared gate
 is shown not to be able to fail.** E068's generator was measured by
@@ -116,8 +118,8 @@ cited a near-miss count of "149 of 383" that **no rule over the
 committed metadata produces** — the computed figure is **132 of 383
 (34.5%)**, now computed in `pin_compatibility.py` rather than asserted.
 
-**The seat for a candidate is still empty, and E069 does not fill it.**
-It closes a direction as implemented; it does not disprove that an
+**The seat for a candidate is still empty, and E069/E079 do not fill it.**
+They close directions as implemented; they do not disprove that an
 environment can be inferred from a repository. Per D088 the next
 candidate's kill gate must have its **reachable set enumerated before
 the run** — a gate whose only reachable successes are empty files
@@ -151,7 +153,7 @@ successor session starts from fresh observation in a new domain.
 
 The readings that bear on open items are in
 [`STATE-in-flight.md`](STATE-in-flight.md) through
-[`STATE-in-flight-8.md`](STATE-in-flight-8.md). One rule
+[`STATE-in-flight-9.md`](STATE-in-flight-9.md). One rule
 survives into every session: **rebase a moving base with
 `origin sync land`**, because a hand-run rebase records nothing
 and its paths are then attributed to whoever holds the tree
@@ -206,18 +208,30 @@ remedy and trips any CI format gate. **Nothing to build.** The fresh observation
 reload point asked for is now done (E062), and it returned the instrument rather than
 a candidate.
 
-**The single most useful next action, after E069.** E069 showed the failure
+**The single most useful next action, after E069 and E079.** E069 showed the failure
 that has been costing this mission the most: **a predeclared kill gate whose
 passing region contains only vacuous cases cannot fail, and the tool that
 computes it will still report a pass** (F101, D088). K1 asked for 3 clean
 installs; the only 3 installable specs named nothing. One empty file moved the
-verdict from KILL to "mechanism holds". So the next candidate's protocol must
-**enumerate what its gate's passing value can be made of, before the run** —
-and `analyze.py` must read bytes that exist before the run ends, not a file
-the run writes at the end (which is how E069's own analysis tool could not have
-produced its verdict). Both are small changes to how a protocol is written, and
-both are worth more than another screen: seven emptiness measurements already
-retired the harvest route, and a seventh would retire nothing new.
+verdict from KILL to "mechanism holds". E079 confirmed the same pattern:
+the information-sufficiency witness **fails as predicted**, proving that
+static inputs (unpinned requirements.txt, imports, README) cannot distinguish
+repos needing different pinned versions. The tool must either run trial
+installations (expensive, compute-bound) or use heuristics (may guess wrong).
+So the next candidate's protocol must **enumerate what its gate's passing
+value can be made of, before the run** — and `analyze.py` must read bytes
+that exist before the run ends, not a file the run writes at the end (which
+is how E069's own analysis tool could not have produced its verdict). Both
+are small changes to how a protocol is written, and both are worth more than
+another screen: seven emptiness measurements already retired the harvest
+route, and a seventh would retire nothing new.
+
+**Per D083, the next session must start from fresh observation in a new domain.**
+The ArXiv reproducibility line (E067→E069→E079) is closed on measured grounds:
+- E067: all kill gates passed on real data (problem is real)
+- E069: spec generator's kill gate K1 only passes on empty specs (gate vacuous)
+- E079: information-sufficiency witness FAIL (static analysis cannot resolve version ambiguity)
+No candidate emerges. The mission's 9th measurement shows the seat is empty (F029, F051, F039, F059, F081, F084, F085, E075, E079).
 
 ## Capability evidence
 

@@ -293,8 +293,9 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
 | `EXPERIMENTS/074-mfg-cost-estimation/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/075-clinical-trial-failures/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Session 2026-10-09-008, VM instance-20260717-0944, declared 2026-10-09. |
-| `EXPERIMENTS/077-se-nonsoftware-viewcount/` | `—` | — | — | ## Summary |
+| `EXPERIMENTS/077-se-nonsoftware-viewcount/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | ## Summary |
 | `EXPERIMENTS/078-nec220-load-calc/` | `docs/INDEX.md` | active | 2026-10-09 | owner: docs/INDEX.md |
+| `EXPERIMENTS/079-arxiv-reproducibility/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | 1 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

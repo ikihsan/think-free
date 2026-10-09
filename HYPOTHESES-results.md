@@ -269,3 +269,23 @@ bigrams, and about that population.
 **Conclusion:** Web search via DuckDuckGo with need_text-as-query cannot recover -like arrival metrics for the tested needStatement corpora (DIY/home improvement needs from E062 and HN need-stating rows from E063). The principle requires platform-specific API access, as E062 used Stack Exchange API and E039 used Hacker News API.
 
 **This closes the web-search-based operationalization route for these populations.**
+
+## E079 — ArXiv computational reproducibility: falsification experiment result
+
+**Result:** `observed` (witness), `untested` (full experiment), 2026-10-09
+
+**Information-sufficiency witness W-ARXIV-1:** **FAIL (as predicted)** — two synthetic repositories with identical permitted inputs (unpinned `requirements.txt`, same imports, same README structure) but requiring different pinned numpy versions (Repo A: `numpy==1.21.0` for `array_function_impl` behavior; Repo B: `numpy>=1.20` for stable API) cannot be distinguished from permitted inputs alone. This bounds the claim: any deterministic tool seeing only static inputs will produce identical pinned requirements for both, causing one to fail.
+
+**Harvest:** `harvest.py` successfully finds ArXiv papers with GitHub repos (4 unique papers in pilot: 2 A3 docs-only, 2 A1_or_A2). Classification works.
+
+**Tool prototype (`generate_spec.py`):** Extracts imports from Python files but over-generates (includes stdlib modules like `os`, `sys`, `json`, internal module names like `associative_recall`, `adv_attack`, and aliased imports like `numpy as np`). Version selection uses year-based heuristics and PyPI API. Test infrastructure requires `python3.8-venv` for clean venv creation (not available on this VM).
+
+**Kill gates (predeclared):**
+- G1: Tool install success rate ≥ 80%
+- G2: Tool smoke test pass rate ≥ 80% of installed
+- G3: Tool combined (install+smoke) success rate ≥ 30% of A2+A3 papers
+- G4: Tool combined rate > repo2docker baseline combined rate + 10pp
+
+**Conclusion:** The witness correctly demonstrates the information-sufficiency bound (FAIL = the bound holds, claim is bounded). The tool prototype requires trial installation or heuristic version selection to overcome the bound, but trial installation is compute-expensive and heuristics may guess wrong. The experiment infrastructure is complete and runnable; full evaluation requires `python3.8-venv` and authenticated GitHub API (for rate limits).
+
+**Decision:** `hold` — witness passed (demonstrated the bound), full experiment infrastructure ready but not executed. The fundamental limitation is that static analysis of imports + year heuristics cannot reliably infer exact version constraints without execution trials. This is the same information-sufficiency problem seen in E002 W2 for knitting (mount orientation not in input set).

@@ -8,13 +8,14 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-204 recorded session(s). One `events.jsonl` per session, so concurrent
+205 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 179 older session(s) are in the directory listing.
+Showing the 25 most recent. 180 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-015-determine-next-experiment-direction-afte](2026-10-09-015-determine-next-experiment-direction-afte/README.md) | unknown-agent | **unfinished** | Determine next experiment direction after E069/E073/E075/E078 closures | 2026-10-09T19:20 |
 | [2026-10-09-014-fresh-observation-in-a-new-non-software](2026-10-09-014-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find a testable oppo | 2026-10-09T18:15 |
 | [2026-10-09-013-continue-view-count-measurement-investig](2026-10-09-013-continue-view-count-measurement-investig/README.md) | unknown-agent | worked | Continue view_count measurement investigation | 2026-10-09T16:08 |
 | [2026-10-09-012-explore-fresh-observations-on-non-softwa](2026-10-09-012-explore-fresh-observations-on-non-softwa/README.md) | unknown-agent | worked | Explore fresh observations on non-software Stack Exchange sites as a n | 2026-10-09T15:45 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 179 older session(s) are in the directory listing.
 | [2026-10-08-025-recover-context-and-decide-next-action-f](2026-10-08-025-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission after ex | 2026-10-08T22:37 |
 | [2026-10-08-025-build-e067-view-count-measurement-framew](2026-10-08-025-build-e067-view-count-measurement-framew/README.md) | unknown-agent | worked | Build E067 view-count measurement framework prototype | 2026-10-08T21:59 |
 | [2026-10-08-024-synthesize-view-count-instrument-finding](2026-10-08-024-synthesize-view-count-instrument-finding/README.md) | unknown-agent | worked | Synthesize view_count instrument findings and identify next testable o | 2026-10-08T21:24 |
-| [2026-10-08-024-recover-context-and-decide-next-action-f](2026-10-08-024-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission after ex | 2026-10-08T22:34 |
 
 
 ## Reading a session
