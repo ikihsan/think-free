@@ -1,0 +1,20 @@
+{
+  "experiment": "E075",
+  "total_terminated": 300,
+  "scientific_fraction": 0.14666666666666667,
+  "scientific_ci95": [
+    0.11110461424509804,
+    0.19116340961996847
+  ],
+  "administrative_fraction": 0.47333333333333333,
+  "ambiguous_fraction": 0.38,
+  "gates": {
+    "G1 Retrieval": true,
+    "G2 Classification Validity": false,
+    "G3 Measurement": true,
+    "G4 Enrollment": true
+  },
+  "kappa": 0.7403846153846153,
+  "conclusion": "HYPOTHESIS NOT SUPPORTED",
+  "detail": "Terminated trials are predominantly administrative failures (recruitment, funding, business decisions), not scientific failures. No candidate emerges from failed mechanistic hypotheses."
+}
