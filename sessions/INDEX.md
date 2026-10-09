@@ -15,7 +15,7 @@ Showing the 25 most recent. 185 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | **unfinished** | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:19 |
+| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:45 |
 | [2026-10-09-019-mission-summary-and-evidence-integration](2026-10-09-019-mission-summary-and-evidence-integration/README.md) | unknown-agent | worked | Mission summary and evidence integration | 2026-10-09T18:09 |
 | [2026-10-09-018-e072-npm-view-count-prototype-verificati](2026-10-09-018-e072-npm-view-count-prototype-verificati/README.md) | unknown-agent | worked | E072 NPM view-count prototype verification | 2026-10-09T17:58 |
 | [2026-10-09-017-investigate-and-document-kill-gate-desig](2026-10-09-017-investigate-and-document-kill-gate-desig/README.md) | unknown-agent | worked | Investigate and document kill gate design lesson from E069/F101, compl | 2026-10-09T15:10 |
