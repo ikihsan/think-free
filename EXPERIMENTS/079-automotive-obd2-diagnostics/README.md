@@ -18,7 +18,6 @@ Fresh observation in the automotive OBD2 diagnostic codes domain to discover whe
 | [`fetch_test.py`](fetch_test.py) | Small test fetch (blocked by API throttle) |
 | [`fetch_candidates.py`](fetch_candidates.py) | Candidate-only fetch (blocked by API throttle) |
 | [`analyze_preliminary.py`](analyze_preliminary.py) | Analysis on title+tag data only |
-| [`raw/questions_raw.json`](raw/questions_raw.json) | 10,251 questions with titles/tags (exempt from line cap) |
 | [`analysis/preliminary_gate_results.json`](analysis/preliminary_gate_results.json) | Machine-readable gate results |
 | [`analysis/title_candidates.json`](analysis/title_candidates.json) | 210 title candidates (exempt from line cap) |
 | [`VERDICT.md`](VERDICT.md) | Gate evaluation results and decision |

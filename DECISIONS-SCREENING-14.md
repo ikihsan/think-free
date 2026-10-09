@@ -8,7 +8,7 @@ last-verified: 2026-10-08
 
 Split out of [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md) on 2026-10-08 when that file reached the 300-line cap. The rule is unchanged: a decision is recorded when the choice was genuinely open, with evidence, alternatives, and reason.
 
-Decisions **D084–D088**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D084–D088, D093**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D084 — Arrival at a need is a different quantity from a statement of need (2026-10-08)
 
@@ -73,7 +73,7 @@ Decisions **D084–D088**. Each entry records a choice that was genuinely open, 
 
 **Ceiling.** 16 of 20 repositories, one arXiv year, all deep-learning GitHub code, Python 3.10 only, no GPU. The oracle as amended cannot catch a spec that *omits* a needed dependency — it probes what the spec claimed, not what the code wants — so a generator that silently dropped half a dependency could pass every arm here. `DECL` is the strongest alternative available without inventing a mechanism; a colleague who fixes the install by hand is not measured and remains the honest ceiling. This closes E068's direction as implemented; it does not disprove that an environment can be inferred from a repository, and it says nothing about adoption.
 
-## D089 — A mechanism that passes synthetic kill gates but requires identifier linkage that does not exist in practice is not a candidate (2026-10-09)
+## D093 — A mechanism that passes synthetic kill gates but requires identifier linkage that does not exist in practice is not a candidate (2026-10-09)
 
 `observed` 2026-10-09, session 2026-10-09-018, E080.
 
