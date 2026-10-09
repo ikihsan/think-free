@@ -2,8 +2,9 @@
 """E065 harvest: web search for need statements.
 
 For each need statement in the treatment and control corpora, perform a
-DuckDuckGo web search and record the results. The harvest produces raw data
-that outcome.py uses for gate evaluation.
+web search and record the number of search results along with titles and
+snippets. The harvest produces raw data that outcome.py uses for gate
+evaluation.
 
 Usage:
     python3 harvest.py            # harvest both arms
@@ -13,7 +14,6 @@ Usage:
 
 import json
 import os
-import re
 import sys
 import time
 from urllib.parse import quote_plus
@@ -31,11 +31,102 @@ CONTROL_CORPUS = os.path.join(HERE, "raw", "control-needs.jsonl")
 TREATMENT_RESULTS = os.path.join(HERE, "raw", "treatment-results.jsonl")
 CONTROL_RESULTS = os.path.join(HERE, "raw", "control-results.jsonl")
 
-# DuckDuckGo search URL (no API key needed)
-DDG_SEARCH_URL = "https://html.duckduckgo.com/html/search"
+# Bing search URL (no API key needed for basic queries)
+BING_SEARCH_URL = "https://www.bing.com/search"
 
 # polite delay between searches (seconds)
-DELAY_BETWEEN_SEARCHES = 1.0
+DELAY_BETWEEN_SEARCHES = 2.0
+
+
+def bing_search(query, max_results=10):
+    """Perform a Bing search and return result titles/snippets.
+
+    Returns a list of (title, snippet) tuples for the top results.
+    """
+    try:
+        params = {"q": query}
+        resp = requests.get(BING_SEARCH_URL, params=params, timeout=15,
+                            headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"})
+        if resp.status_code != 200:
+            return []
+        html = resp.text
+
+        # Extract result blocks from Bing HTML
+        results = []
+        # Bing results are in li elements with class b_algo
+        result_start = html.find('<li class="b_algo"')
+        visited = set()
+        while result_start >= 0 and len(results) < max_results:
+            # Use a visited set to avoid infinite loops on malformed HTML
+            if result_start in visited:
+                break
+            visited.add(result_start)
+
+            # Find the closing </li> for this block
+            # Search from result_start+1 to avoid finding the same one
+            close_idx = html.find('</li>', result_start + 1)
+            if close_idx < 0:
+                break
+            result_html = html[result_start:close_idx + 5]
+
+            # Extract title from h2 element
+            title = ""
+            h2_idx = result_html.find('<h2')
+            if h2_idx >= 0:
+                h2_end = result_html.find("</h2>", h2_idx)
+                if h2_end >= 0:
+                    # The h2 contains an <a> tag with the actual title text
+                    a_idx = result_html.find('<a ', h2_idx)
+                    if a_idx >= 0 and a_idx < h2_end:
+                        # Extract text between > and </a>
+                        gt_idx = result_html.find('>', a_idx)
+                        if gt_idx >= 0 and gt_idx < h2_end:
+                            lt_idx = result_html.find('<', gt_idx + 1)
+                            if lt_idx >= 0 and lt_idx <= h2_end:
+                                title = result_html[gt_idx + 1:lt_idx].strip()
+                    if not title:
+                        # Fallback: extract text between <h2> and </h2>
+                        h2_text_start = result_html.find('>', h2_idx)
+                        if h2_text_start >= 0:
+                            h2_text_end = result_html.find('<', h2_text_start + 1)
+                            if h2_text_end >= 0:
+                                title = result_html[h2_text_start + 1:h2_text_end].strip()
+
+            # Extract snippet from p.b_lineclamp2 element
+            snippet = ""
+            snippet_start = result_html.find('class="b_lineclamp2"')
+            if snippet_start >= 0:
+                # Find the > that opens the text and the < that closes it
+                text_start = result_html.find('>', snippet_start)
+                if text_start >= 0:
+                    text_end = result_html.find('<', text_start + 1)
+                    if text_end >= 0:
+                        snippet = result_html[text_start + 1:text_end].strip()
+
+            # Alternative snippet: any <p> element within the result
+            if not snippet:
+                p_idx = result_html.find('<p ')
+                if p_idx >= 0:
+                    # Find the closing </p> within the b_algo block
+                    p_close = result_html.find('</p>', p_idx)
+                    if p_close >= 0:
+                        # Find > after <p
+                        gt = result_html.find('>', p_idx)
+                        if gt >= 0 and gt < p_close:
+                            lt = result_html.find('<', gt + 1)
+                            if lt >= 0 and lt <= p_close:
+                                snippet = result_html[gt + 1:lt].strip()
+
+            if title or snippet:
+                results.append((title, snippet))
+
+            # Move to next b_algo block
+            result_start = html.find('<li class="b_algo"', close_idx + 1)
+
+        return results
+    except Exception as e:
+        print(f"  search error for '{query}': {e}", file=sys.stderr)
+        return []
 
 
 def load_corpus(path, limit=None):
@@ -59,92 +150,6 @@ def load_corpus(path, limit=None):
     return statements
 
 
-def duckduckgo_search(query, max_results=10):
-    """Perform a DuckDuckGo search and return result titles/snippets.
-
-    Returns a list of (title, snippet) tuples for the top results.
-    """
-    try:
-        params = {"q": query}
-        resp = requests.get(DDG_SEARCH_URL, params=params, timeout=15)
-        if resp.status_code != 200:
-            return []
-        html = resp.text
-
-        # Extract result blocks
-        results = []
-        # DuckDuckGo result headers are in <a class="result-title"> tags
-        title_pattern = r'<a class="result-title"[^>]*>([^<]*</a>[^<]*)|<a class="result-title"[^>]*>([^<]+)</a>'
-        # Simpler: find all result-title divs
-        # Actually, let's use a more robust approach
-        # Find all result divs
-        result_starts = html.find('<div class="result"')
-        while result_start >= 0 and len(results) < max_results:
-            result_end = html.find("</div>", result_start)
-            if result_end < 0:
-                break
-            result_html = html[result_start:result_end]
-
-            # Extract title
-            title_start = result_html.find('<a class="result-title"')
-            if title_start >= 0:
-                title_end = result_html.find(">", title_start)
-                if title_end >= 0:
-                    title_body = result_html[title_end + 1:]
-                    title_close = title_body.find("</a>")
-                    if title_close >= 0:
-                        title = title_body[:title_close].strip()
-                    else:
-                        title = title_body.strip()
-                else:
-                    title = ""
-            else:
-                # Fallback: get first h3 or strong text
-                title = ""
-
-            # Extract snippet/description
-            snippet_start = result_html.find('<a class="result-snippet"')
-            if snippet_start >= 0:
-                snippet_end = result_html.find(">", snippet_start)
-                if snippet_end >= 0:
-                    snippet_body = result_html[snippet_end + 1:]
-                    snippet_close = snippet_body.find("</a>")
-                    if snippet_close >= 0:
-                        snippet = snippet_body[:snippet_close].strip()
-                    else:
-                        snippet = snippet_body.strip()
-                else:
-                    snippet = ""
-            else:
-                snippet = ""
-
-            if title or snippet:
-                results.append((title, snippet))
-
-            result_start = html.find('<div class="result"', result_end)
-
-        return results
-    except Exception as e:
-        print(f"  search error for '{query}': {e}", file=sys.stderr)
-        return []
-
-
-def search_need(need_text, max_results=10):
-    """Search for a need statement and return formatted results."""
-    # Use the need text as the query; truncate if very long
-    query = need_text.strip()
-    if len(query) > 200:
-        query = query[:200] + "..."
-
-    results = duckduckgo_search(query, max_results=max_results)
-    return {
-        "query": need_text[:100] if len(need_text) > 100 else need_text,
-        "query_normalized": query,
-        "num_results": len(results),
-        "results": results,
-    }
-
-
 def run_arm(arm_id, corpus_path, output_path, limit=None):
     """Run one arm of the harvest.
 
@@ -160,8 +165,15 @@ def run_arm(arm_id, corpus_path, output_path, limit=None):
 
     results = []
     for i, (sid, need_text) in enumerate(statements):
-        row = search_need(need_text, max_results=5)
-        row["statement_id"] = sid
+        search_results = bing_search(need_text, max_results=5)
+        row = {
+            "query": need_text[:100] if len(need_text) > 100 else need_text,
+            "query_normalized": need_text.strip(),
+            "num_results": len(search_results),
+            "titles": [t for t, s in search_results],
+            "snippets": [s for t, s in search_results],
+            "statement_id": sid,
+        }
         results.append(row)
 
         if (i + 1) % 10 == 0:
