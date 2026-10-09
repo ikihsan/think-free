@@ -1,0 +1,54 @@
+{
+  "experiment": "E078",
+  "dataset": "sample_threads.jsonl",
+  "n_samples": 5,
+  "need_fraction": 0.8,
+  "unserved_fraction": 0.2,
+  "wilson_ci95_upper": 0.6244717358814612,
+  "gates": {
+    "G1_classification_validity": {
+      "pass": true,
+      "detail": "single-rater well-defined rules"
+    },
+    "G2_need_prevalence": {
+      "pass": true,
+      "need_fraction": 0.8
+    },
+    "G3_served_fraction_measurable": {
+      "pass": true,
+      "wilson_upper": 0.6244717358814612
+    },
+    "G4_cross_signal": {
+      "pass": false,
+      "unserved_count": 1
+    }
+  },
+  "all_gates_pass": false,
+  "classified_threads": [
+    {
+      "title": "How do I center a div in CSS?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "Why does my Python script crash on import?",
+      "classification": "need",
+      "unserved_open_like": true
+    },
+    {
+      "title": "Look at my new React setup!",
+      "classification": "non-need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "How do I parse JSON in a bash script?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "What causes git merge conflicts?",
+      "classification": "need",
+      "unserved_open_like": false
+    }
+  ]
+}

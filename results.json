@@ -1,0 +1,74 @@
+{
+  "experiment": "E078",
+  "dataset": "e078_test_data.jsonl",
+  "n_samples": 9,
+  "need_fraction": 0.8888888888888888,
+  "unserved_fraction": 0.0,
+  "wilson_ci95_upper": 0.0,
+  "gates": {
+    "G1_classification_validity": {
+      "pass": true,
+      "detail": "single-rater well-defined rules"
+    },
+    "G2_need_prevalence": {
+      "pass": true,
+      "need_fraction": 0.8888888888888888
+    },
+    "G3_served_fraction_measurable": {
+      "pass": true,
+      "wilson_upper": 0.0
+    },
+    "G4_cross_signal": {
+      "pass": false,
+      "unserved_count": 0
+    }
+  },
+  "all_gates_pass": false,
+  "classified_threads": [
+    {
+      "title": "How do I fix my leaky faucet?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "Look at my new mechanical keyboard build!",
+      "classification": "non-need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "Why is my Python script giving a KeyError?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "How do I center a div in CSS?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "What laptop should I buy for programming?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "How to solve this integral calculus problem?",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "My database query is very slow, help!",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "Issue with git merge conflict",
+      "classification": "need",
+      "unserved_open_like": false
+    },
+    {
+      "title": "Recommend a good VS Code extension",
+      "classification": "need",
+      "unserved_open_like": false
+    }
+  ]
+}

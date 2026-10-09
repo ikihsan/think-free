@@ -85,6 +85,14 @@ _none_
 | 15 | 18:44:29 | artifact | wrote EXPERIMENTS/074-diy-problem-taxonomy/README.md |
 | 16 | 18:45:19 | integrity_error | declared artifact no longer exists: EXPERIMENTS/074-diy-problem-taxonomy/data/taxonomy.csv |
 | 17 | 18:45:19 | session_end | Ran fresh observation experiment E074 in the DIY (home improvement) Stack Exchange domain. Fetched 676 questions, classified them into 10 problem type |
+| 18 | 19:40:07 | milestone | E077 verified - view-count on non-software Discourse/SE, all gates pass |
+| 19 | 19:41:15 | milestone | E077 integrated - view-count principle validated across 5 platforms |
+| 20 | 19:57:00 | milestone | E078 prototype complete - framework validated, G4 needs larger sample |
+| 21 | 20:07:19 | milestone | E077+E078 completed - view-count + need-classification validated |
+| 22 | 20:08:27 | milestone | Mission state updated - E077/E078 completed, view-count principle validated across 5 platforms |
+| 23 | 20:10:38 | milestone | Work complete - view-count principle + need-classification framework validated |
+| 24 | 20:11:11 | milestone | Mission state: view-count + need-classification validated, candidates retired, seed empty. Next: fresh observation in unexplored domain. |
+| 25 | 20:12:18 | milestone | Summary: E077/E078 complete, principle validated 5 platforms, framework prototyped, candidates retired, seed empty. Next action: choose fresh observat |
 
 ## Reproduce this record
 
