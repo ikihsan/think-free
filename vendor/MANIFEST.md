@@ -121,6 +121,13 @@ exempt: EXPERIMENTS/**/superseded/view_key.json
 # written before parsing, never hand-edited.
 exempt: EXPERIMENTS/**/raw/*.html
 
+# Row-per-need classification tables, added by E066 on 2026-10-09. Tab-separated
+# rather than JSONL because a reader opens these to check a label against the row
+# it came from, and one line per row is what makes that check possible. Machine-
+# written by the labeller and never hand-edited, which is why the cap has nothing
+# to say: splitting the table would separate a row from its own verdict.
+exempt: EXPERIMENTS/**/raw/*.tsv
+
 exempt: .agents/skills/brainstorming/**
 exempt: .agents/skills/dispatching-parallel-agents/**
 exempt: .agents/skills/executing-plans/**

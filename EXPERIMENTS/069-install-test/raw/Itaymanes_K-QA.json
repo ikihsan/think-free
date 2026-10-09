@@ -1,0 +1,74 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "Itaymanes/K-QA",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/Itaymanes_K-QA__GEN/bin/python",
+  "needed": [
+   "langchain",
+   "numpy",
+   "openai",
+   "pandas"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A2_Itaymanes_K-QA.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 2.3.0 Requires-Python >=3.11; 2.3.1 Requires-Python >=3.11; 2.3.2 Requires-Python >=3.11; 2.3.3 Requires-Python >=3.11; 2.3.4 Requires-Python >=3.11; 2.3.5 Requires-Python >=3.11; 2.4.0 Requires-Python >=3.11; 2.4.0rc1 Requires-Python >=3.11; 2.4.1 Requires-Python >=3.11; 2.4.2 Requires-Python >=3.11; 2.4.3 Requires-Pyt",
+   "seconds": 22.1,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 1524.56,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "Itaymanes/K-QA",
+  "decl_kind": "pyproject",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/Itaymanes_K-QA__DECL/bin/python",
+  "needed": [
+   "langchain",
+   "openai",
+   "pandas"
+  ],
+  "install": {
+   "mode": "install_dir",
+   "spec": "/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A2/Itaymanes_K-QA",
+   "exit": 1,
+   "first_failure": "ERROR: Could not build wheels for K-QA, which is required to install pyproject.toml-based projects",
+   "seconds": 72.6,
+   "failure_kinds": [
+    "other_pip_error"
+   ],
+   "download_mb": 600.28,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "Itaymanes/K-QA",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/Itaymanes_K-QA__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

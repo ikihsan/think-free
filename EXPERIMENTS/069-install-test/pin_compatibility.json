@@ -1,0 +1,5296 @@
+{
+ "question": "do E068's pins admit the Python 3.10 it resolved against?",
+ "target": [
+  3,
+  10
+ ],
+ "metadata_source": "EXPERIMENTS/068-arxiv-spec-generator/cache/pypi/*.json",
+ "metadata_packages_cached": 392,
+ "pins_total": 383,
+ "pins_decided": 367,
+ "pins_excluded_from_target": 34,
+ "pins_with_no_downloadable_file": 24,
+ "pins_blocking_install": 58,
+ "pins_unparsed_not_counted_as_installable": 16,
+ "share_blocking_of_decided": 0.158,
+ "share_excluded_of_decided": 0.0926,
+ "interpretation_note": "share_blocking_of_decided is a floor: a pin this parser cannot read is counted neither blocking nor compatible",
+ "per_pin": [
+  {
+   "package": "absl",
+   "version": "0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "academictorrents",
+   "version": "2.3.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "accelerate",
+   "version": "1.15.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "adapter",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    "~=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "addict",
+   "version": "2.4.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "aiohttp",
+   "version": "3.14.4",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 161,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "aiosignal",
+   "version": "1.4.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "albumentations",
+   "version": "2.0.8",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "aligner",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "amg",
+   "version": "1.0.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "annotated_types",
+   "version": "0.8.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "anthropic",
+   "version": "1.12.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "anyio",
+   "version": "4.15.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "app",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "architectures",
+   "version": "0.2.7",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "argsearch",
+   "version": "0.3.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.6,<4.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "async_timeout",
+   "version": "5.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "attention",
+   "version": "5.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "attrs",
+   "version": "26.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "augmentation",
+   "version": "0.7",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "authors",
+   "version": "0.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "autograd",
+   "version": "1.9.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "av",
+   "version": "19.0.1",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 19,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "backend",
+   "version": "0.2.4.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "base",
+   "version": "0.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "base_agent",
+   "version": "2025.5.180920",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "basicsr",
+   "version": "1.4.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "bdd",
+   "version": "0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "beartype",
+   "version": "0.22.9",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "benchmark",
+   "version": "0.1.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "bio",
+   "version": "1.8.4",
+   "status": "admits",
+   "requires_python": [
+    "<3.15,>=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "biopandas",
+   "version": "0.5.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "biotite",
+   "version": "1.7.1",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 13,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "blocks",
+   "version": "0.1.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "bn",
+   "version": "0.1.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "bottleneck",
+   "version": "1.6.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 50,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "boxes",
+   "version": "0.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "build",
+   "version": "1.6.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "caffe2",
+   "version": "0.8.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 2
+  },
+  {
+   "package": "certifi",
+   "version": "2026.7.22",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "charset_normalizer",
+   "version": "3.5.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 172,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "chemical",
+   "version": "1.0.1",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.6.0"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "cityscapesscripts",
+   "version": "2.3.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "clip",
+   "version": "0.2.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "cloudpickle",
+   "version": "3.1.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "coco",
+   "version": "0.4.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "colorama",
+   "version": "0.4.6",
+   "status": "admits",
+   "requires_python": [
+    "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "colorlog",
+   "version": "6.12.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "colormap",
+   "version": "1.3.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    "<4.0,>=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "comm",
+   "version": "0.2.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "common",
+   "version": "0.1.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "config",
+   "version": "0.5.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "configs",
+   "version": "3.0.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "constants",
+   "version": "2023.2.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "consts",
+   "version": "1.0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "convnet",
+   "version": "2.5.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "css",
+   "version": "1.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 2
+  },
+  {
+   "package": "cupy",
+   "version": "14.2.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "cv_bridge",
+   "version": "1.13.0.post0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "cvx",
+   "version": "0.1.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "cvxopt",
+   "version": "1.3.3",
+   "status": "admits",
+   "requires_python": [
+    "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*,>=3"
+   ],
+   "files": 59,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "da",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "data",
+   "version": "0.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "data_processing",
+   "version": "0.1.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "data_utils",
+   "version": "0.0.7",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=2.6,<=3.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dataclasses_json",
+   "version": "0.6.7",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    "<4.0,>=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dataset",
+   "version": "2.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dataset_mapper",
+   "version": "0.1.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "datasets",
+   "version": "5.1.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "datatransform",
+   "version": "1.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "deepspeed",
+   "version": "0.19.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "defaults",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.5"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "defense",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "deform_conv",
+   "version": "0.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dense",
+   "version": "0.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "densenet",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "detection_utils",
+   "version": "1.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dgl",
+   "version": "2.2.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 5,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dill",
+   "version": "0.4.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dist_util",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "distributed",
+   "version": "2026.8.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "distutils",
+   "version": "1.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "dlib",
+   "version": "20.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "doge",
+   "version": "3.9.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "dynamic",
+   "version": "0.1.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "e3nn",
+   "version": "0.6.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "ecole",
+   "version": "0.8.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "einops",
+   "version": "0.8.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "embeddings",
+   "version": "0.0.8",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "engine",
+   "version": "0.6.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "epoch",
+   "version": "0.1.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "eval",
+   "version": "0.0.5",
+   "status": "admits",
+   "requires_python": [
+    ">=2.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "evaluation",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "exceptiongroup",
+   "version": "1.3.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "extras",
+   "version": "1.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "factored",
+   "version": "4.1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "ffindex",
+   "version": "0.0.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "fiber",
+   "version": "0.2.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "filelock",
+   "version": "4.0.12",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "filterpy",
+   "version": "1.4.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "fiona",
+   "version": "1.10.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 25,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "fire",
+   "version": "0.7.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "formatter",
+   "version": "1.0.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "frozenlist",
+   "version": "1.8.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 130,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "fsspec",
+   "version": "2026.9.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "function",
+   "version": "1.2.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "functions",
+   "version": "0.7.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "fvcore",
+   "version": "0.1.5.post20221221",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "gamma",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "gaussian",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "generate",
+   "version": "0.0.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "gensim",
+   "version": "4.4.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 26,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "geographiclib",
+   "version": "2.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "geopandas",
+   "version": "1.2.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "gin",
+   "version": "0.1.006",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "google",
+   "version": "3.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "gradio",
+   "version": "6.30.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "graphein",
+   "version": "1.7.8",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "greenlet",
+   "version": "3.5.6",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 79,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "gurobipy",
+   "version": "13.0.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 24,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "h5py",
+   "version": "3.16.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 48,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "hooks",
+   "version": "0.1.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "hparams",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.5"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "httpx",
+   "version": "0.28.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "huggingface_hub",
+   "version": "2.2.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "hydra",
+   "version": "2.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "idna",
+   "version": "3.20",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "idx",
+   "version": "0.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "image_encoder",
+   "version": "0.0.8",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "imageio",
+   "version": "2.38.1",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "importlib",
+   "version": "1.0.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "imutils",
+   "version": "0.5.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "inquirerpy",
+   "version": "0.3.4",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.7,<4.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "io",
+   "version": "0.0.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "ipdb",
+   "version": "0.13.13",
+   "status": "admits",
+   "requires_python": [
+    ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "jax",
+   "version": "0.11.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "jaxtyping",
+   "version": "0.3.11",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "jinja2",
+   "version": "3.1.6",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "joblib",
+   "version": "1.6.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "jsonpatch",
+   "version": "1.33",
+   "status": "admits",
+   "requires_python": [
+    ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "jsonpointer",
+   "version": "3.2.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "k",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "keywords",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "kinematics",
+   "version": "0.1.7",
+   "status": "admits",
+   "requires_python": [
+    ">=3.4"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "kornia",
+   "version": "0.8.3",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "langchain",
+   "version": "1.4.4",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    "<4.0.0,>=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "langchain_core",
+   "version": "1.6.9",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    "<4.0.0,>=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "langchain_openai",
+   "version": "1.7.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    "<4.0.0,>=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "langsmith",
+   "version": "0.14.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "launch",
+   "version": "0.1.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lehd",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "liger_kernel",
+   "version": "0.8.4",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lightning",
+   "version": "2.6.6",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "llamafactory",
+   "version": "0.9.5",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.11.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "llm_agent",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lmdb",
+   "version": "3.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 38,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "loader",
+   "version": "2017.9.11",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "locales",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "logger",
+   "version": "1.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "logs",
+   "version": "0.1.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "lookup_table",
+   "version": "0.6",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "loralib",
+   "version": "0.1.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "loss",
+   "version": "0.1.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.8,<4.0"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lp",
+   "version": "1.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lpips",
+   "version": "0.1.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lr_scheduler",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lvis",
+   "version": "0.5.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "lxml",
+   "version": "6.1.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 176,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "m",
+   "version": "0.0.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "manager",
+   "version": "2.0.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "markupsafe",
+   "version": "3.0.4",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 151,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "marshmallow",
+   "version": "4.3.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "masks",
+   "version": "0.1.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "matcher",
+   "version": "0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "matplotlib",
+   "version": "3.11.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 53,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mc",
+   "version": "0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "mdtraj",
+   "version": "1.11.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 13,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "menu",
+   "version": "3.2.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "messenger",
+   "version": "1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "metrics",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mid",
+   "version": "0.1.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "misc",
+   "version": "0.0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "ml_collections",
+   "version": "1.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mlflow",
+   "version": "3.17.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mlp",
+   "version": "1.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mmcv",
+   "version": "2.2.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mmengine",
+   "version": "0.10.7",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mmseg",
+   "version": "1.3.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mock",
+   "version": "5.2.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "moco",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mod",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "model",
+   "version": "0.6.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "model_zoo",
+   "version": "0.4.1",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.5.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "models",
+   "version": "0.9.7",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 16
+  },
+  {
+   "package": "modelscope",
+   "version": "1.40.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "modules",
+   "version": "1.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "more_itertools",
+   "version": "11.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mpmath",
+   "version": "1.4.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "multidict",
+   "version": "7.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 171,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "multiprocess",
+   "version": "0.70.19",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 16,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "mypy_extensions",
+   "version": "1.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "names",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "neptune",
+   "version": "1.14.0.post2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    "<4.0,>=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "net",
+   "version": "2.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nets",
+   "version": "0.0.3.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "networks",
+   "version": "0.3.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "networkx",
+   "version": "3.7",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    "!=3.14.1,>=3.12"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "ninja",
+   "version": "1.13.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 19,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nltk",
+   "version": "3.10.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nms",
+   "version": "0.1.6",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "norm",
+   "version": "1.6.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.7,<4.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "npy",
+   "version": "1.0.3",
+   "status": "admits",
+   "requires_python": [
+    "~=2.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "numexpr",
+   "version": "2.14.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 46,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "numpy",
+   "version": "2.5.3",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 66,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cublas_cu12",
+   "version": "12.9.2.10",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cuda_cupti_cu12",
+   "version": "12.9.79",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cuda_nvrtc_cu12",
+   "version": "12.9.86",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cuda_runtime_cu12",
+   "version": "12.9.79",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cudnn_cu12",
+   "version": "9.27.0.42",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cufft_cu12",
+   "version": "11.4.1.4",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_curand_cu12",
+   "version": "10.3.10.19",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cusolver_cu12",
+   "version": "11.7.5.82",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_cusparse_cu12",
+   "version": "12.5.10.65",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_nccl_cu12",
+   "version": "2.32.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_nvjitlink_cu12",
+   "version": "12.9.86",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "nvidia_nvtx_cu12",
+   "version": "12.9.79",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "omegaconf",
+   "version": "2.3.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "onnx",
+   "version": "1.23.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 24,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "onnxruntime",
+   "version": "1.30.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 24,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "openai",
+   "version": "3.26.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "opencv_python",
+   "version": "5.0.0.93",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 9,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "openfold",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "openmm",
+   "version": "8.6.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 21,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "openpyxl",
+   "version": "3.1.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "optim",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "options",
+   "version": "1.4.10",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "otree",
+   "version": "6.0.15",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "packaging",
+   "version": "26.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pandarallel",
+   "version": "1.6.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pandas",
+   "version": "3.0.6",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 58,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "parallel",
+   "version": "0.2.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "parser",
+   "version": "0.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "parsers",
+   "version": "0.1",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "partial",
+   "version": "1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pascal_voc",
+   "version": "2.1.12",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "patcher",
+   "version": "0.6",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 4
+  },
+  {
+   "package": "pdbfixer",
+   "version": "1.12.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pdbx",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "peft",
+   "version": "0.21.2",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pfzy",
+   "version": "0.3.4",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.7,<4.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pil",
+   "version": "1.1.6",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 6
+  },
+  {
+   "package": "pillow",
+   "version": "12.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 87,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pooling",
+   "version": "0.1.12",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "postprocessing",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pqdm",
+   "version": "0.2.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "predictor",
+   "version": "0.1.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "preprocess",
+   "version": "2.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "prettytable",
+   "version": "3.18.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "problems",
+   "version": "0.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "processor",
+   "version": "0.10.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "processors",
+   "version": "0.0.12",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "prompt_toolkit",
+   "version": "3.0.53",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "psutil",
+   "version": "7.2.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 21,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "ptflops",
+   "version": "0.7.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pudb",
+   "version": "2025.1.5",
+   "status": "admits",
+   "requires_python": [
+    "~=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pyarrow",
+   "version": "25.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 43,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pycocotools",
+   "version": "2.0.11",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 43,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pydantic",
+   "version": "2.14.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pydantic_core",
+   "version": "2.50.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 137,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pymanopt",
+   "version": "2.2.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pymoo",
+   "version": "0.6.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 36,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pynvml",
+   "version": "13.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pyrootutils",
+   "version": "1.0.4",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.7.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pytest",
+   "version": "9.1.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "python_dateutil",
+   "version": "2.9.0.post0",
+   "status": "admits",
+   "requires_python": [
+    "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pytorch",
+   "version": "1.0.2",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pytorch_lightning",
+   "version": "2.6.6",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pytorch_ssim",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pytz",
+   "version": "2026.5",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "pyyaml",
+   "version": "6.0.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 73,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "rasterio",
+   "version": "1.5.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 37,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "redis_om",
+   "version": "1.2.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    "<4.0,>=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "regex",
+   "version": "2026.9.29",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 130,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "requests",
+   "version": "2.34.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "residual",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "resnet",
+   "version": "0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "responses",
+   "version": "0.26.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "rich",
+   "version": "15.0.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.9.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "rich_pixels",
+   "version": "3.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "rpn",
+   "version": "1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "safetensors",
+   "version": "0.8.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 17,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sam",
+   "version": "6.0.2",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sampling",
+   "version": "0.0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "scene",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scheduler",
+   "version": "0.8.11",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scikit_image",
+   "version": "0.26.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 49,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scikit_learn",
+   "version": "1.9.1",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 43,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scipy",
+   "version": "1.18.1",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.12"
+   ],
+   "files": 61,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scoring",
+   "version": "0.0.9",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "scripts",
+   "version": "3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "seaborn",
+   "version": "0.13.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "search",
+   "version": "1.0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "seed",
+   "version": "0.11.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "segment_anything",
+   "version": "1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "segmentation_models_pytorch",
+   "version": "0.5.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "serialization",
+   "version": "1.2.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "setuptools",
+   "version": "84.0.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sh",
+   "version": "2.4.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    "<4.0,>=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "shapely",
+   "version": "2.2.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 64,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "shared",
+   "version": "0.0.32",
+   "status": "admits",
+   "requires_python": [
+    ">=3.5"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "simcse",
+   "version": "0.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "simtk",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "six",
+   "version": "1.17.0",
+   "status": "admits",
+   "requires_python": [
+    "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "skimage",
+   "version": "0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sklearn",
+   "version": "0.0.post12",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sliced",
+   "version": "0.7.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "smooth",
+   "version": "1.1.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 14,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sniffio",
+   "version": "1.3.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.7"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "solvers",
+   "version": "0.6",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sotopia",
+   "version": "0.1.5",
+   "status": "admits",
+   "requires_python": [
+    "<3.13,>=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "source",
+   "version": "1.2.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sqlalchemy",
+   "version": "2.1.4",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 72,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "src",
+   "version": "0.0.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "stl10",
+   "version": "0.0.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "streamlit",
+   "version": "1.65.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sympy",
+   "version": "1.14.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "sync",
+   "version": "1.0.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tabulate",
+   "version": "0.10.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "temperature",
+   "version": "2.7",
+   "status": "admits",
+   "requires_python": [
+    ">=3"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "template",
+   "version": "0.7.6",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tenacity",
+   "version": "9.2.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tensorboard_logger",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tensorboardx",
+   "version": "2.6.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tensorflow",
+   "version": "2.21.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 16,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "termcolor",
+   "version": "3.3.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tester",
+   "version": "1.0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "testing",
+   "version": "0.0",
+   "status": "version_has_no_downloadable_file",
+   "n_releases_listed": 1
+  },
+  {
+   "package": "thop",
+   "version": "0.1.1.post2209072238",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tiktoken",
+   "version": "0.14.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 64,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tmtools",
+   "version": "0.3.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 25,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "together",
+   "version": "2.40.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tokenizers",
+   "version": "0.23.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 17,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tool_utils",
+   "version": "0.0.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tools",
+   "version": "1.0.38",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torch",
+   "version": "2.14.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 24,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torch_geometric",
+   "version": "2.8.0.post1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torch_scatter",
+   "version": "2.1.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchaudio",
+   "version": "2.11.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 28,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchlight",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchmetrics",
+   "version": "1.9.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchpack",
+   "version": "0.3.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchstain",
+   "version": "1.4.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchsummary",
+   "version": "1.5.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "torchvision",
+   "version": "0.29.1",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    "!=3.14.1,>=3.10"
+   ],
+   "files": 24,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tqdm",
+   "version": "4.70.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "train",
+   "version": "0.0.5",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "trainer",
+   "version": "0.0.36",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.6.0, <3.12"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "transform",
+   "version": "1.4.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.8"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "transformers",
+   "version": "5.19.0",
+   "status": "unparsed_or_mixed",
+   "requires_python": [
+    ">=3.10.0"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tree",
+   "version": "0.2.4",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "triton",
+   "version": "3.8.0",
+   "status": "admits",
+   "requires_python": [
+    "<3.15,>=3.10"
+   ],
+   "files": 12,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "trl",
+   "version": "1.15.0",
+   "status": "excluded_by_every_file",
+   "requires_python": [
+    ">=3.11"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tsim",
+   "version": "0.1.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tsplib95",
+   "version": "0.7.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "typer",
+   "version": "0.27.3",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "typing_extensions",
+   "version": "4.16.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "typing_inspect",
+   "version": "0.9.0",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "tzdata",
+   "version": "2026.5",
+   "status": "admits",
+   "requires_python": [
+    ">=2"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "unsloth",
+   "version": "2026.10.3",
+   "status": "admits",
+   "requires_python": [
+    "<3.15,>=3.9"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "urllib3",
+   "version": "2.8.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "util",
+   "version": "0.0.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "utils",
+   "version": "1.0.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.6"
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "uvicorn",
+   "version": "0.54.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "w",
+   "version": "0.11.1",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "waiting_room",
+   "version": "1.1.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 2,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "wandb",
+   "version": "0.30.0",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 9,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "warmup_scheduler",
+   "version": "0.3",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "wcwidth",
+   "version": "0.9.2",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 29,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "webui",
+   "version": "0.1.7",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "wrappers",
+   "version": "0.1.9",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 1,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "xxhash",
+   "version": "4.0.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.9"
+   ],
+   "files": 214,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "yacs",
+   "version": "0.1.8",
+   "status": "admits",
+   "requires_python": [
+    ""
+   ],
+   "files": 3,
+   "targets": [
+    3,
+    10
+   ]
+  },
+  {
+   "package": "yarl",
+   "version": "1.25.1",
+   "status": "admits",
+   "requires_python": [
+    ">=3.10"
+   ],
+   "files": 138,
+   "targets": [
+    3,
+    10
+   ]
+  }
+ ],
+ "per_repo": {
+  "LPMP/BDD": {
+   "arm": "A3",
+   "pins": 20,
+   "pins_excluded_from_target": 1,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 3,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "numpy==2.5.3"
+   ],
+   "examples_no_file": [
+    "io==0.0.1",
+    "model==0.6.0"
+   ]
+  },
+  "CIAM-Group/NCO_code": {
+   "arm": "A4",
+   "pins": 22,
+   "pins_excluded_from_target": 4,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 5,
+   "pins_unparsed": 2,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "imageio==2.38.1",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "io==0.0.1"
+   ]
+  },
+  "suzy0223/STSM": {
+   "arm": "A3",
+   "pins": 7,
+   "pins_excluded_from_target": 2,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 3,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "numpy==2.5.3",
+    "pandas==3.0.6"
+   ],
+   "examples_no_file": [
+    "models==0.9.7"
+   ]
+  },
+  "Itaymanes/K-QA": {
+   "arm": "A2",
+   "pins": 42,
+   "pins_excluded_from_target": 4,
+   "pins_with_no_downloadable_file": 0,
+   "pins_blocking_install": 4,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "dataclasses_json==0.6.7",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "sqlalchemy==2.1.4"
+   ],
+   "examples_no_file": []
+  },
+  "AlibabaResearch/DAMO-ConvAI": {
+   "arm": "A4",
+   "pins": 89,
+   "pins_excluded_from_target": 8,
+   "pins_with_no_downloadable_file": 10,
+   "pins_blocking_install": 18,
+   "pins_unparsed": 9,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "av==19.0.1",
+    "data_utils==0.0.7",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "pandas==3.0.6"
+   ],
+   "examples_no_file": [
+    "absl==0.0",
+    "css==1.0",
+    "engine==0.6.0",
+    "generate==0.0.1",
+    "io==0.0.1"
+   ]
+  },
+  "clovaai/TVQ-VAE": {
+   "arm": "A4",
+   "pins": 27,
+   "pins_excluded_from_target": 3,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 5,
+   "pins_unparsed": 2,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "imageio==2.38.1",
+    "numpy==2.5.3",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "model==0.6.0",
+    "pil==1.1.6"
+   ]
+  },
+  "FARAZLOTFI/underwater-object-tracking": {
+   "arm": "A4",
+   "pins": 15,
+   "pins_excluded_from_target": 3,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 4,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "pil==1.1.6"
+   ]
+  },
+  "geoaigroup/GEOAI-ECRS2023": {
+   "arm": "A4",
+   "pins": 36,
+   "pins_excluded_from_target": 11,
+   "pins_with_no_downloadable_file": 4,
+   "pins_blocking_install": 15,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "geopandas==1.2.0",
+    "imageio==2.38.1",
+    "matplotlib==3.11.2",
+    "neptune==1.14.0.post2",
+    "numpy==2.5.3"
+   ],
+   "examples_no_file": [
+    "lookup_table==0.6",
+    "models==0.9.7",
+    "pil==1.1.6",
+    "sampling==0.0.0"
+   ]
+  },
+  "Goallow/Mini-Hes": {
+   "arm": "A3",
+   "pins": 0,
+   "pins_excluded_from_target": 0,
+   "pins_with_no_downloadable_file": 0,
+   "pins_blocking_install": 0,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": true,
+   "examples_excluded": [],
+   "examples_no_file": []
+  },
+  "ambroiseodt/tsim": {
+   "arm": "A3",
+   "pins": 18,
+   "pins_excluded_from_target": 4,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 5,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scikit_learn==1.9.1",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "m==0.0.1"
+   ]
+  },
+  "peteryang1031/Causal-GWIB": {
+   "arm": "A4",
+   "pins": 32,
+   "pins_excluded_from_target": 6,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 8,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "jax==0.11.2",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "distutils==1.0",
+    "models==0.9.7"
+   ]
+  },
+  "EternityYW/Gemini-Commonsense-Evaluation": {
+   "arm": "A3",
+   "pins": 1,
+   "pins_excluded_from_target": 0,
+   "pins_with_no_downloadable_file": 0,
+   "pins_blocking_install": 0,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": true,
+   "examples_excluded": [],
+   "examples_no_file": []
+  },
+  "liujf69/EPP-Net-Action": {
+   "arm": "A3",
+   "pins": 71,
+   "pins_excluded_from_target": 6,
+   "pins_with_no_downloadable_file": 9,
+   "pins_blocking_install": 15,
+   "pins_unparsed": 3,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "colormap==1.3.0",
+    "dataset_mapper==0.1.0",
+    "matplotlib==3.11.2",
+    "numexpr==2.14.2",
+    "numpy==2.5.3"
+   ],
+   "examples_no_file": [
+    "blocks==0.1.1",
+    "caffe2==0.8.1",
+    "io==0.0.1",
+    "misc==0.0.0",
+    "models==0.9.7"
+   ]
+  },
+  "hao1635/LIT-Former": {
+   "arm": "A3",
+   "pins": 20,
+   "pins_excluded_from_target": 4,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 5,
+   "pins_unparsed": 2,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "kornia==0.8.3",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "tester==1.0.0"
+   ]
+  },
+  "cvblab/Mitosis-UTS": {
+   "arm": "A3",
+   "pins": 21,
+   "pins_excluded_from_target": 7,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 8,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "kornia==0.8.3",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "scikit_image==0.26.0"
+   ],
+   "examples_no_file": [
+    "pil==1.1.6"
+   ]
+  },
+  "JHW2000/JARNet": {
+   "arm": "A3",
+   "pins": 24,
+   "pins_excluded_from_target": 4,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 6,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "scikit_image==0.26.0",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "mc==0.0",
+    "misc==0.0.0"
+   ]
+  },
+  "DrLuo/RTM": {
+   "arm": "A3",
+   "pins": 15,
+   "pins_excluded_from_target": 1,
+   "pins_with_no_downloadable_file": 1,
+   "pins_blocking_install": 2,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "numpy==2.5.3"
+   ],
+   "examples_no_file": [
+    "pil==1.1.6"
+   ]
+  },
+  "google-research/google-research": {
+   "arm": "A4",
+   "pins": 0,
+   "pins_excluded_from_target": 0,
+   "pins_with_no_downloadable_file": 0,
+   "pins_blocking_install": 0,
+   "pins_unparsed": 0,
+   "spec_installable_on_target": true,
+   "examples_excluded": [],
+   "examples_no_file": []
+  },
+  "AmitRozner/domain-generalizable-multiple-domain-clustering": {
+   "arm": "A3",
+   "pins": 35,
+   "pins_excluded_from_target": 5,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 7,
+   "pins_unparsed": 2,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "data_utils==0.0.7",
+    "matplotlib==3.11.2",
+    "numpy==2.5.3",
+    "pandas==3.0.6",
+    "scipy==1.18.1"
+   ],
+   "examples_no_file": [
+    "misc==0.0.0",
+    "pil==1.1.6"
+   ]
+  },
+  "Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS": {
+   "arm": "A4",
+   "pins": 9,
+   "pins_excluded_from_target": 1,
+   "pins_with_no_downloadable_file": 2,
+   "pins_blocking_install": 3,
+   "pins_unparsed": 1,
+   "spec_installable_on_target": false,
+   "examples_excluded": [
+    "numpy==2.5.3"
+   ],
+   "examples_no_file": [
+    "models==0.9.7",
+    "pil==1.1.6"
+   ]
+  }
+ },
+ "near_miss_names": {
+  "question": "how many pins name a project whose pinned release is under 20480 bytes - a name collision, not the intended library",
+  "threshold_bytes": 20480,
+  "rule": "largest distribution file for the pinned version",
+  "pins_total": 383,
+  "count": 132,
+  "share": 0.3446,
+  "examples": [
+   {
+    "package": "academictorrents",
+    "version": "2.3.3",
+    "largest_file_bytes": 16594
+   },
+   {
+    "package": "adapter",
+    "version": "0.1",
+    "largest_file_bytes": 2498
+   },
+   {
+    "package": "addict",
+    "version": "2.4.0",
+    "largest_file_bytes": 9186
+   },
+   {
+    "package": "aligner",
+    "version": "0.0.1",
+    "largest_file_bytes": 1968
+   },
+   {
+    "package": "amg",
+    "version": "1.0.7",
+    "largest_file_bytes": 2581
+   },
+   {
+    "package": "annotated_types",
+    "version": "0.8.0",
+    "largest_file_bytes": 15893
+   },
+   {
+    "package": "app",
+    "version": "0.0.1",
+    "largest_file_bytes": 2160
+   },
+   {
+    "package": "argsearch",
+    "version": "0.3.0",
+    "largest_file_bytes": 14067
+   },
+   {
+    "package": "async_timeout",
+    "version": "5.0.1",
+    "largest_file_bytes": 9274
+   },
+   {
+    "package": "attention",
+    "version": "5.0.0",
+    "largest_file_bytes": 9040
+   },
+   {
+    "package": "augmentation",
+    "version": "0.7",
+    "largest_file_bytes": 7577
+   },
+   {
+    "package": "backend",
+    "version": "0.2.4.1",
+    "largest_file_bytes": 7809
+   },
+   {
+    "package": "base",
+    "version": "0.0.0",
+    "largest_file_bytes": 622
+   },
+   {
+    "package": "base_agent",
+    "version": "2025.5.180920",
+    "largest_file_bytes": 4017
+   },
+   {
+    "package": "bdd",
+    "version": "0.2",
+    "largest_file_bytes": 4601
+   },
+   {
+    "package": "benchmark",
+    "version": "0.1.5",
+    "largest_file_bytes": 7136
+   },
+   {
+    "package": "bn",
+    "version": "0.1.5",
+    "largest_file_bytes": 2051
+   },
+   {
+    "package": "boxes",
+    "version": "0.0.0",
+    "largest_file_bytes": 7785
+   },
+   {
+    "package": "chemical",
+    "version": "1.0.1",
+    "largest_file_bytes": 11621
+   },
+   {
+    "package": "clip",
+    "version": "0.2.0",
+    "largest_file_bytes": 5453
+   }
+  ]
+ },
+ "generated_specs_installable_on_target": 3,
+ "generated_specs_installable_list": [
+  "Goallow/Mini-Hes",
+  "EternityYW/Gemini-Commonsense-Evaluation",
+  "google-research/google-research"
+ ]
+}

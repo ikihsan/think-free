@@ -11,137 +11,21 @@ import ast
 import sys
 from pathlib import Path
 
+# The per-file scanners (README, requirements, pyproject, poetry.lock, conda
+# env) live in declared_files.py, split out on 2026-10-09 at the 300-line cap.
+# This file owns the repository walk, the AST import scan and the output file.
+from declared_files import (  # noqa: F401
+    extract_from_readme, extract_from_requirements, extract_from_pyproject,
+    extract_from_poetry_lock, extract_from_conda_env, HAS_YAML,
+    STDLIB_MODULES, VERSION_PATTERNS,
+)
+
 REPOS_DIR = Path("/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos")
 CACHE_DIR = Path("/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/cache")
 OUTPUT_FILE = CACHE_DIR / "extracted.json"
 
-# Common patterns for version extraction from README
-VERSION_PATTERNS = [
-    r'python\s*[=:]\s*(\d+\.\d+)',  # Python 3.10, Python=3.10
-    r'(\w+)\s*[>=<]=?\s*(\d+(?:\.\d+)*)',  # torch>=1.12, numpy==1.24
-    r'pip install\s+(\w+)(?:==|>=|<=|~=)(\d+(?:\.\d+)*)',  # pip install pkg==1.0
-    r'(\w+)\s*=\s*(\d+(?:\.\d+)*)',  # package = 1.0 (in conda-like syntax)
-]
-
-# Known stdlib modules to exclude
-STDLIB_MODULES = {
-    'os', 'sys', 'json', 're', 'ast', 'pathlib', 'collections', 'itertools',
-    'functools', 'operator', 'math', 'random', 'datetime', 'time', 'typing',
-    'dataclasses', 'enum', 'hashlib', 'base64', 'urllib', 'http', 'socket',
-    'ssl', 'subprocess', 'threading', 'multiprocessing', 'asyncio', 'inspect',
-    'textwrap', 'string', 'numbers', 'fractions', 'decimal', 'statistics',
-    'copy', 'pprint', 'tempfile', 'shutil', 'glob', 'fnmatch', 'linecache',
-    'pickle', 'shelve', 'sqlite3', 'csv', 'configparser', 'argparse', 'logging',
-    'unittest', 'doctest', 'test', 'warnings', 'contextlib', 'abc', 'weakref',
-    'gc', 'atexit', 'signal', 'resource', 'select', 'poll', 'mmap', 'errno',
-    'ctypes', 'platform', 'sysconfig', 'site', 'builtins', '__future__', '__main__',
-    'copyreg', 'cmath', 'imp', 'cpickle', 'gzip', 'tarfile', 'zipfile', 'queue',
-    'pdb', 'traceback', 'xml', 'html', 'email', 'mimetypes', 'netrc', 'plistlib',
-    'uu', 'binascii', 'quopri', 'base64', 'hashlib', 'hmac', 'secrets', 'uuid',
-}
-
-def extract_from_readme(readme_path):
-    """Extract version hints from README."""
-    if not readme_path.exists():
-        return {}
-    
-    try:
-        content = readme_path.read_text(encoding='utf-8', errors='ignore')
-    except Exception:
-        return {}
-    
-    hints = {}
-    # Look for package version patterns
-    for pattern in VERSION_PATTERNS:
-        for match in re.finditer(pattern, content, re.IGNORECASE):
-            if len(match.groups()) == 1:
-                # Python version pattern
-                continue
-            elif len(match.groups()) == 2:
-                pkg, ver = match.groups()
-                pkg_lower = pkg.lower().replace('-', '_')
-                if pkg_lower not in STDLIB_MODULES:
-                    hints[pkg_lower] = ver
-    
-    return hints
-
-def extract_from_requirements(req_path):
-    """Extract package names from requirements.txt."""
-    if not req_path.exists():
-        return []
-    
-    packages = []
-    try:
-        content = req_path.read_text(encoding='utf-8', errors='ignore')
-        for line in content.splitlines():
-            line = line.strip()
-            if not line or line.startswith('#'):
-                continue
-            # Strip version specifiers
-            pkg = re.split(r'[<>=!~]', line)[0].strip()
-            pkg = pkg.replace('-', '_').lower()
-            if pkg and pkg not in STDLIB_MODULES:
-                packages.append(pkg)
-    except Exception:
-        pass
-    
-    return packages
-
-def extract_from_pyproject(pyproject_path):
-    """Extract dependencies from pyproject.toml (simplified parsing)."""
-    if not pyproject_path.exists():
-        return []
-    
-    packages = []
-    try:
-        content = pyproject_path.read_text(encoding='utf-8', errors='ignore')
-        # Look for dependencies in [project] or [tool.poetry.dependencies]
-        in_deps = False
-        for line in content.splitlines():
-            line = line.strip()
-            if line.startswith('[') and ('dependencies' in line or 'project' in line):
-                in_deps = True
-                continue
-            if line.startswith('[') and in_deps:
-                in_deps = False
-                continue
-            if in_deps and '=' in line and not line.startswith('#'):
-                pkg = line.split('=')[0].strip().strip('"\'')
-                pkg = pkg.replace('-', '_').lower()
-                if pkg and pkg not in STDLIB_MODULES and pkg != 'python':
-                    packages.append(pkg)
-    except Exception:
-        pass
-    
-    return packages
-
-def extract_from_poetry_lock(lock_path):
-    """Extract packages from poetry.lock."""
-    if not lock_path.exists():
-        return []
-    
-    packages = []
-    try:
-        content = lock_path.read_text(encoding='utf-8', errors='ignore')
-        # Simple parsing for [[package]] sections
-        in_package = False
-        current_pkg = None
-        for line in content.splitlines():
-            line = line.strip()
-            if line == '[[package]]':
-                in_package = True
-                current_pkg = {}
-                continue
-            if in_package and line.startswith('name = '):
-                current_pkg['name'] = line.split('=', 1)[1].strip().strip('"\'').replace('-', '_').lower()
-            if in_package and line.startswith('version = '):
-                if current_pkg and 'name' in current_pkg:
-                    packages.append(current_pkg['name'])
-                in_package = False
-    except Exception:
-        pass
-    
-    return packages
+# Known stdlib modules to exclude lives in declared_files.py, next to the
+# scanners that filter through it; re-exported here for the AST import scan.
 
 def extract_imports_from_python(py_path):
     """Extract import statements from a Python file using AST."""
@@ -182,10 +66,12 @@ def extract_repo_info(repo_path, arm):
         'requirements_packages': [],
         'pyproject_packages': [],
         'poetry_lock_packages': [],
+        'conda_env_packages': [],
         'imports': [],
         'has_setup_py': False,
         'has_pyproject_toml': False,
         'has_requirements': False,
+        'has_conda_env': False,
     }
     
     # Check for various files
@@ -207,6 +93,12 @@ def extract_repo_info(repo_path, arm):
     if poetry_lock.exists():
         info['poetry_lock_packages'].extend(extract_from_poetry_lock(poetry_lock))
     
+    # Check for conda environment.yml
+    conda_env_files = list(repo_path.glob('environment.yml')) + list(repo_path.glob('environment.yaml'))
+    for env_file in conda_env_files:
+        info['has_conda_env'] = True
+        info['conda_env_packages'].extend(extract_from_conda_env(env_file))
+    
     setup_py = repo_path / 'setup.py'
     if setup_py.exists():
         info['has_setup_py'] = True
@@ -219,6 +111,7 @@ def extract_repo_info(repo_path, arm):
     info['requirements_packages'] = sorted(set(info['requirements_packages']))
     info['pyproject_packages'] = sorted(set(info['pyproject_packages']))
     info['poetry_lock_packages'] = sorted(set(info['poetry_lock_packages']))
+    info['conda_env_packages'] = sorted(set(info['conda_env_packages']))
     
     return info
 
@@ -276,7 +169,7 @@ def main():
         for r in arm_repos:
             print(f"  {r['owner']}/{r['repo']}: imports={len(r['imports'])}, req={len(r['requirements_packages'])}, "
                   f"pyproject={len(r['pyproject_packages'])}, poetry={len(r['poetry_lock_packages'])}, "
-                  f"readme_hints={len(r['readme_hints'])}")
+                  f"conda={len(r.get('conda_env_packages', []))}, readme_hints={len(r['readme_hints'])}")
     
     return 0
 

@@ -1,0 +1,82 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "geoaigroup/GEOAI-ECRS2023",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/geoaigroup_GEOAI-ECRS2023__GEN/bin/python",
+  "needed": [
+   "albumentations",
+   "amg",
+   "common",
+   "config",
+   "datatransform",
+   "einops",
+   "epoch",
+   "fiona",
+   "geopandas",
+   "image_encoder",
+   "imageio",
+   "lookup_table",
+   "loralib",
+   "matplotlib",
+   "models",
+   "neptune",
+   "numpy",
+   "onnxruntime",
+   "pandas",
+   "pil",
+   "predictor",
+   "pycocotools",
+   "rasterio",
+   "sam",
+   "sampling",
+   "scipy",
+   "segment_anything",
+   "segmentation_models_pytorch",
+   "shapely",
+   "skimage",
+   "sklearn",
+   "tensorflow",
+   "torch",
+   "torchvision",
+   "tqdm",
+   "utils"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_geoaigroup_GEOAI-ECRS2023.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 1.2.0 Requires-Python >=3.11",
+   "seconds": 9.0,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 47.93,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "geoaigroup/GEOAI-ECRS2023",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/geoaigroup_GEOAI-ECRS2023__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

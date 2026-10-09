@@ -1,0 +1,300 @@
+{
+  "g1_recovery": [
+    {
+      "repo": "illidanlab/inversion-influence-function",
+      "recovered": 201,
+      "total_original": 201,
+      "rate": 1.0
+    },
+    {
+      "repo": "Profluent-Internships/MMDiff",
+      "recovered": 425,
+      "total_original": 425,
+      "rate": 1.0
+    },
+    {
+      "repo": "deeplearning-wisc/args",
+      "recovered": 57,
+      "total_original": 57,
+      "rate": 1.0
+    },
+    {
+      "repo": "qzhb/BSSARD",
+      "recovered": 239,
+      "total_original": 239,
+      "rate": 1.0
+    }
+  ],
+  "g2_syntactic": [
+    {
+      "repo": "Itaymanes/K-QA",
+      "valid": 42,
+      "total": 42,
+      "rate": 1.0
+    }
+  ],
+  "g3_syntactic": [
+    {
+      "repo": "LPMP/BDD",
+      "valid": 20,
+      "total": 20,
+      "rate": 1.0
+    },
+    {
+      "repo": "suzy0223/STSM",
+      "valid": 7,
+      "total": 7,
+      "rate": 1.0
+    },
+    {
+      "repo": "Goallow/Mini-Hes",
+      "valid": 0,
+      "total": 0,
+      "rate": 1.0
+    },
+    {
+      "repo": "ambroiseodt/tsim",
+      "valid": 18,
+      "total": 18,
+      "rate": 1.0
+    },
+    {
+      "repo": "EternityYW/Gemini-Commonsense-Evaluation",
+      "valid": 1,
+      "total": 1,
+      "rate": 1.0
+    },
+    {
+      "repo": "liujf69/EPP-Net-Action",
+      "valid": 71,
+      "total": 71,
+      "rate": 1.0
+    },
+    {
+      "repo": "hao1635/LIT-Former",
+      "valid": 20,
+      "total": 20,
+      "rate": 1.0
+    },
+    {
+      "repo": "cvblab/Mitosis-UTS",
+      "valid": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    {
+      "repo": "JHW2000/JARNet",
+      "valid": 24,
+      "total": 24,
+      "rate": 1.0
+    },
+    {
+      "repo": "DrLuo/RTM",
+      "valid": 15,
+      "total": 15,
+      "rate": 1.0
+    },
+    {
+      "repo": "AmitRozner/domain-generalizable-multiple-domain-clustering",
+      "valid": 35,
+      "total": 35,
+      "rate": 1.0
+    }
+  ],
+  "g4_syntactic": [
+    {
+      "repo": "CIAM-Group/NCO_code",
+      "valid": 22,
+      "total": 22,
+      "rate": 1.0
+    },
+    {
+      "repo": "AlibabaResearch/DAMO-ConvAI",
+      "valid": 89,
+      "total": 89,
+      "rate": 1.0
+    },
+    {
+      "repo": "clovaai/TVQ-VAE",
+      "valid": 27,
+      "total": 27,
+      "rate": 1.0
+    },
+    {
+      "repo": "FARAZLOTFI/underwater-object-tracking",
+      "valid": 15,
+      "total": 15,
+      "rate": 1.0
+    },
+    {
+      "repo": "geoaigroup/GEOAI-ECRS2023",
+      "valid": 36,
+      "total": 36,
+      "rate": 1.0
+    },
+    {
+      "repo": "peteryang1031/Causal-GWIB",
+      "valid": 32,
+      "total": 32,
+      "rate": 1.0
+    },
+    {
+      "repo": "google-research/google-research",
+      "valid": 0,
+      "total": 0,
+      "rate": 1.0
+    },
+    {
+      "repo": "Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS",
+      "valid": 9,
+      "total": 9,
+      "rate": 1.0
+    }
+  ],
+  "g3_coverage": [
+    {
+      "repo": "LPMP/BDD",
+      "covered": 20,
+      "total": 27,
+      "rate": 0.7407407407407407
+    },
+    {
+      "repo": "suzy0223/STSM",
+      "covered": 7,
+      "total": 7,
+      "rate": 1.0
+    },
+    {
+      "repo": "Goallow/Mini-Hes",
+      "covered": 0,
+      "total": 0,
+      "rate": 1.0
+    },
+    {
+      "repo": "ambroiseodt/tsim",
+      "covered": 8,
+      "total": 9,
+      "rate": 0.8888888888888888
+    },
+    {
+      "repo": "EternityYW/Gemini-Commonsense-Evaluation",
+      "covered": 0,
+      "total": 0,
+      "rate": 1.0
+    },
+    {
+      "repo": "liujf69/EPP-Net-Action",
+      "covered": 69,
+      "total": 136,
+      "rate": 0.5073529411764706
+    },
+    {
+      "repo": "hao1635/LIT-Former",
+      "covered": 20,
+      "total": 22,
+      "rate": 0.9090909090909091
+    },
+    {
+      "repo": "cvblab/Mitosis-UTS",
+      "covered": 14,
+      "total": 16,
+      "rate": 0.875
+    },
+    {
+      "repo": "JHW2000/JARNet",
+      "covered": 20,
+      "total": 28,
+      "rate": 0.7142857142857143
+    },
+    {
+      "repo": "DrLuo/RTM",
+      "covered": 13,
+      "total": 17,
+      "rate": 0.7647058823529411
+    },
+    {
+      "repo": "AmitRozner/domain-generalizable-multiple-domain-clustering",
+      "covered": 35,
+      "total": 60,
+      "rate": 0.5833333333333334
+    }
+  ],
+  "g4_coverage": [
+    {
+      "repo": "CIAM-Group/NCO_code",
+      "covered": 22,
+      "total": 74,
+      "rate": 0.2972972972972973
+    },
+    {
+      "repo": "AlibabaResearch/DAMO-ConvAI",
+      "covered": 89,
+      "total": 129,
+      "rate": 0.689922480620155
+    },
+    {
+      "repo": "clovaai/TVQ-VAE",
+      "covered": 27,
+      "total": 32,
+      "rate": 0.84375
+    },
+    {
+      "repo": "FARAZLOTFI/underwater-object-tracking",
+      "covered": 15,
+      "total": 26,
+      "rate": 0.5769230769230769
+    },
+    {
+      "repo": "geoaigroup/GEOAI-ECRS2023",
+      "covered": 36,
+      "total": 58,
+      "rate": 0.6206896551724138
+    },
+    {
+      "repo": "peteryang1031/Causal-GWIB",
+      "covered": 32,
+      "total": 49,
+      "rate": 0.6530612244897959
+    },
+    {
+      "repo": "google-research/google-research",
+      "covered": 0,
+      "total": 0,
+      "rate": 1.0
+    },
+    {
+      "repo": "Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS",
+      "covered": 6,
+      "total": 7,
+      "rate": 0.8571428571428571
+    }
+  ],
+  "resolution_rate": {
+    "resolved": 112,
+    "total": 142,
+    "rate": 0.7887323943661971
+  },
+  "gates": {
+    "K1": {
+      "condition": "G1 recovers >=80% pins for >=2 of 4 A1 repos",
+      "actual": "4/4 repos >=80%",
+      "pass": true
+    },
+    "K2": {
+      "condition": ">=90% syntactic validity across G2/G3/G4",
+      "actual": "504/504 = 100.0%",
+      "pass": true
+    },
+    "K3": {
+      "condition": ">=50% import coverage for G3/G4",
+      "actual": "avg coverage = 76.4%",
+      "pass": true
+    },
+    "K4": {
+      "condition": ">=70% version resolution",
+      "actual": "78.9%",
+      "pass": true
+    }
+  },
+  "overall_pass": true
+}

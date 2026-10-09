@@ -1,0 +1,83 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "LPMP/BDD",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/LPMP_BDD__GEN/bin/python",
+  "needed": [
+   "bdd",
+   "config",
+   "configs",
+   "data",
+   "doge",
+   "ecole",
+   "gurobipy",
+   "metrics",
+   "model",
+   "numpy",
+   "pytorch_lightning",
+   "setuptools",
+   "torch",
+   "torch_geometric",
+   "torch_scatter",
+   "torchmetrics",
+   "tqdm",
+   "yacs"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_LPMP_BDD.txt",
+   "exit": 1,
+   "first_failure": "error: metadata-generation-failed",
+   "seconds": 52.9,
+   "failure_kinds": [
+    "other_pip_error"
+   ],
+   "download_mb": 38.94,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "LPMP/BDD",
+  "decl_kind": "setup.py",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/LPMP_BDD__DECL/bin/python",
+  "needed": [],
+  "install": {
+   "mode": "install_dir",
+   "spec": "/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3/LPMP_BDD",
+   "exit": 1,
+   "first_failure": "error: legacy-install-failure",
+   "seconds": 3.1,
+   "failure_kinds": [
+    "missing_spec_file"
+   ],
+   "download_mb": 0,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "LPMP/BDD",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/LPMP_BDD__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

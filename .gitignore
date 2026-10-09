@@ -58,3 +58,17 @@ EXPERIMENTS/065-recurring-expense-detection/corpus/synthetic/
 # The record is raw/SOURCES.md - url, bytes and sha256 per file - and one curl
 # command per file rebuilds them, by the same clause as sdists/.
 EXPERIMENTS/066-berka-real-validation/raw/*.csv
+# E068's 25 shallow clones of arXiv papers' repositories (3.6 GB, including
+# multi-hundred-MB model checkpoints) and its PyPI metadata cache (392
+# packages). Both are re-fetchable inputs, not record: the record is
+# repos/MANIFEST.json for the checkouts - owner, repo, origin url and commit
+# sha per repository, written by repos_manifest.py, so `git clone --depth 1`
+# at that sha reproduces them - and for the cache it is generation_results.json
+# plus pin_compatibility.py, which reads only the cached metadata and re-derives
+# every figure in E069's results.json from it. Tracking the bytes would make
+# `doc lint` walk third-party source trees and 3.6 GB of binary weights.
+EXPERIMENTS/068-arxiv-spec-generator/repos/
+EXPERIMENTS/068-arxiv-spec-generator/cache/pypi/
+# E069's per-repository raw install records are small, and ARE tracked: they
+# are the observation every gate in results.json is computed from, and the
+# README's numbers are checked against them.

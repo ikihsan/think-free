@@ -1,0 +1,90 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "cvblab/Mitosis-UTS",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791522487/cvblab_Mitosis-UTS__GEN/bin/python",
+  "needed": [
+   "constants",
+   "imutils",
+   "kornia",
+   "matplotlib",
+   "numpy",
+   "pandas",
+   "pil",
+   "skimage",
+   "sklearn",
+   "torch",
+   "torchstain",
+   "torchvision"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_cvblab_Mitosis-UTS.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 0.8.3 Requires-Python >=3.11; 0.9.0rc1 Requires-Python >=3.11",
+   "seconds": 4.9,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 0.03,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "cvblab/Mitosis-UTS",
+  "decl_kind": "requirements",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791522487/cvblab_Mitosis-UTS__DECL/bin/python",
+  "needed": [
+   "imutils",
+   "kornia",
+   "matplotlib",
+   "numpy",
+   "pandas",
+   "torchstain"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/repos/A3/cvblab_Mitosis-UTS/requirements.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 1092.0,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 7164.78,
+   "detail": "Successfully installed MarkupSafe-3.0.4 PyWavelets-1.4.1 cloudpickle-3.1.2 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 cycler-0.12.1 et-xmlfile-2.0.0 filelock-4.0.12 fonttools-4.65.0 fsspec-2026.9.0 imageio-2.38.0 imutils-0.5.4 jinja2-3.1.6 joblib-1.6.0 kiwisolver-1.5.1 kornia-0.8.2 kornia_rs-0.2.0 matplotlib-3.5.3 mpmath-1.3.0 networkx-3.4.2 numpy-1.21.6 nvidia-cublas-13.1.1."
+  },
+  "imports": {
+   "imutils": "ModuleNotFoundError: No module named 'cv2'",
+   "kornia": "ok",
+   "matplotlib": "ok",
+   "numpy": "ok",
+   "pandas": "ok",
+   "torchstain": "ok"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "cvblab/Mitosis-UTS",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791522487/cvblab_Mitosis-UTS__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

@@ -9,6 +9,21 @@ last-verified: 2026-10-06
 Older session detail moved from `STATE-history.md` on 2026-10-06 to keep the
 main history file under the 300-line cap.
 
+# Session history, part 2
+
+Older per-session detail behind [`STATE.md`](STATE.md), and the thematic
+sections that came off [`STATE-history.md`](STATE-history.md). `STATE.md` is the
+reload point; `STATE-history.md` holds the newest sessions; this file holds
+what is behind them. Identifiers are the same ones `STATE.md` uses.
+
+**Split on 2026-10-09** when E069's record pushed `STATE-history.md` past 300
+lines and its oldest sections moved here. Nothing was edited in the move.
+
+| Sibling | Holds |
+|---|---|
+| [`STATE-history.md`](STATE-history.md) | the newest sessions, and the invariant behind these splits |
+| [`STATE-history-3.md`](STATE-history-3.md) | the sessions that moved out of this file in the 2026-10-09 split |
+
 ## What changed in sessions 001-003, VM 0947 (T-0025, T-0026, T-0027)
 
 Moved out of `STATE.md` on 2026-10-04, where three per-session bullets had
@@ -194,100 +209,3 @@ live defect on the VM that wrote it. Contract in
   own directory.
 
 ## What changed in session 039, VM 0944 (T-0023)
-
-Two documents a fresh VM relies on stated requirements the repository had
-already falsified. Both are public (`docs/` is public by
-`RELEASE-MANIFEST.md`), so a reader outside the mission was being misled.
-
-- **The Python floor was invented from one machine.** `vm-execution.md` and
-  `bootstrap.md` both required "3.11 or newer", justified by the development
-  machine's 3.14.6. `instance-20260717-0944` runs **3.8.10** and the whole suite
-  is green there; nothing in `tools/originlib` uses newer syntax. Both now state
-  what is exercised — 3.8.10 here, 3.12 in CI — and name the gap that no gate
-  pins a Python range, the same class of gap `tests/git-versions.json` closed
-  for git.
-- **The GitHub App exists.** `github-app.md` opened with "Status: design, not
-  implemented. No GitHub App exists yet" while 123 of 133 commits are authored
-  `Ihsan Ai Server Bot <ihsan-ai-server-bot[bot]@users.noreply.github.com>`, and
-  `[bot]` is how GitHub marks an App identity rather than a user. It now leads
-  with a table separating what is observable from what is not, and the
-  least-privilege table is explicitly marked as the design the real App should
-  be *checked against* rather than a reading of it.
-- **The key-handling check the document was waiting on was run, and it passed:**
-  111 files under `sessions/` and `.origin/doctor.json` carry no secret shape.
-  In the course of it, `~/.config/github-app/private-key.pem` on this VM was
-  found at mode `0644` inside a `0700` directory and repaired to `0600`. The
-  directory protected it; the file mode is what D018 requires, and it was wrong.
-- **Newly open, and recorded in the document rather than glossed:** `doctor`
-  checks four credential *environment variables* and the App uses a key file plus
-  a helper, so a VM whose helper is broken reports no credential problem at all.
-- `ci.md` was stale in the same family: it listed five gates, missed the sixth,
-  and claimed `preflight` covers "the first four" when it covers three.
-
-## What changed in session 038, VM 0944 (T-0022)
-
-`RELEASE-MANIFEST.md` said three times that nothing enforced it. Now something
-does, and the first run showed what that had been hiding.
-
-- **`origin release check`** (`tools/originlib/release.py`, 29 tests) parses the
-  manifest's two tables and checks six properties: no wildcards; every tracked
-  top-level entry classified by exactly one table; a declared path exists unless
-  marked `(pending)`, and a `pending` one does not; no path sits inside a
-  directory of the other audience; no classified path holds credential-shaped
-  text; and the release state declared in the manifest matches the one in
-  `README.md`.
-- **Run against the manifest as it stood, it reported 14 violations.** Nine
-  tracked top-level entries — `.agents/`, `.github/`, `.gitignore`,
-  `RELEASE-MANIFEST.md`, `STATE-history.md`, `HYPOTHESES-results.md`, the three
-  `FAILURES-findings*.md` — were classified by neither table, so each was being
-  published or withheld by accident. `LICENSE`, `CONTRIBUTING.md` and
-  `CODE_OF_CONDUCT.md` were declared public and absent with no way to say so;
-  they are now `(pending)`. All of that is fixed in the same commit.
-- **The check immediately found a real problem in its own new code:** a
-  token-shaped fixture in `tests/test_release.py`, in a directory the manifest
-  classifies public. D012's waiver (`origin-allow-secret-patterns`) is the
-  declared answer, and this is its second use.
-- **What it enforces is agreement, not truth**, and both the manifest and the CLI
-  reference say so: a manifest and a README that agree on a false claim still
-  pass. It does not read a path's meaning, and it does not judge whether a
-  classification is right.
-- One judgement call worth recording: a declared *file* classifies only itself,
-  so `docs/policy/one.md` does not make `docs/` public. Otherwise adding
-  `docs/private.md` would publish it with nobody deciding to. `.agents/` and
-  `.claude/` are therefore declared as directories rather than as
-  `.agents/skills/`.
-- CI gains a sixth step, inserted after `Documentation lint` rather than at the
-  end of the file so a VM editing the session gate below it rebase cleanly.
-
-## What changed in session 037, VM 0944 (T-0021)
-
-The shared base carried three corrupted mission records and no gate that could
-see it. Both halves are closed.
-
-- **Read the damage before repairing it.** All three conflict regions came from
-  one commit, `fd7b4a1`, whose message says the renumber deleted an F011 that
-  had meanwhile become the other VM's `sync land` finding. The "empty" side of
-  each conflict was therefore wrong, and the resolution keeps both sides: F011
-  (sync land) and F012 (E3's ordering claim) are different findings and both
-  exist now. `DECISIONS-GATING.md`'s block also had a terminator left behind
-  with nothing open, which the new rule reports as a separate defect.
-- **`doc lint` rule 6 reads file contents for merge conflicts**
-  (`tools/originlib/conflicts.py`, 23 tests). Exactly seven `<`, `|` or `>` at
-  column 0 opens or closes a block; a seven-character `=` is a divider only
-  inside an open block, so the ~80 bare `=======` separators in
-  `sessions/*/commands.log` stay silent. A block is reported once, at its
-  opening line, naming the terminator's line. A file may declare
-  `origin-allow-conflict-markers`, reported as `info` rather than silently
-  skipped.
-- **The rule was falsified against the defect's own bytes and failed first.**
-  Scanning `git show fd7b4a1:<file>` for all three files must report 4 findings.
-  The first implementation reported 1, because it only flagged *malformed*
-  blocks, and a well-formed `<<<<<<< / ======= / >>>>>>>` triple is exactly what
-  a committed unresolved conflict looks like. D025 records the general
-  obligation this establishes: a gate that reports a property it never
-  inspected is not a gate for that property.
-- **Stated limitation, not discovered later:** a marker indented inside a code
-  fence is not detected, because git's `text` merge driver writes markers at
-  column 0 and treating an indented example in a document as corruption would be
-  the worse failure.
-- 203 tests pass (178 before this session), `doc lint` and `session verify` green.

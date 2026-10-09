@@ -133,3 +133,27 @@ candidate to D077, D079 and D081 before it is ranked.
 **Ceilings of this reading:** `gah` never measured; 10 single-file LF cases × 3
 contexts, so CRLF, new files, deletions and mode changes are outside it (E046
 covered those for `stg` only); one change requested per file; one host.
+
+## E062 and E063 — the answerability instrument, and the route they retired
+
+Moved here from `STATE.md`'s *Next actions* on 2026-10-09, when that file passed
+the 300-line cap on E069's record. These two readings are closed and their
+reasoning is kept; the live pointer is in `STATE.md`.
+
+E063 ran E062's answerability instrument on the mission's own need corpora —
+E038's 189 GitHub issues and the 1401-row HN corpus. Arm A served share **0.676**
+(48/71; 0.814 over the 59 rows that state a need), arm B **0.969** (31/32), and
+`unserved-open` — the only label that can open a candidate — **0 of 103 rows**
+(F098). Every resistant row resists because the data was never recorded, because
+the remedy is human work or an institution, or because the row states no need at
+all. D085 retires the trigger-phrase harvest as a candidate source. A statement
+of need is evidence of a statement, never of a service gap.
+
+E062 had already established the instrument and its ceiling: of 20
+highest-arrival unremedied needs in a non-software population, a free general
+assistant answers **17 in full today** (F096), and the 5% that resists resists
+because the data was never recorded (F097). The `view_count` instrument —
+independent arrivals at a need, on every row — is what the mission was missing;
+it is an instrument, not a candidate generator. The find-a-new-venue route stays
+deferred with its reason recorded (F095), because the branch that would have
+closed it was an artifact of the instrument, not a property of the populations.

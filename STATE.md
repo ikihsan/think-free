@@ -82,26 +82,47 @@ Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
 
-**Nothing is in flight.** Session `2026-10-08-014` (this VM) ran
-E064 to a recorded verdict and landed it: **G5 fired — 93 of 576
-plausible near-miss package names resolve to a real, different
-artifact (0.1615, CI95 0.134–0.194), so the existence bit every
-installer and checker returns is materially insufficient — and G6
-failed its recall arm (0.742 against a 0.90 gate), because the
-false accepts the pre-declared metadata rule misses are healthy,
-popular, maintained projects (`jinja2-cli`, `sqlalchemy-utils`,
-`django-click`).** No candidate, no prototype (F099, D086). The
-full reading is
-[`EXPERIMENTS/064-remedy-existence/README.md`](EXPERIMENTS/064-remedy-existence/README.md),
-and every number reproduces from the committed bytes via
-`outcome.py`.
+**Session `2026-10-09-003` (this VM) ran E069 to a recorded verdict:
+the arXiv spec generator closes on K3, and its own predeclared gate
+is shown not to be able to fail.** E068's generator was measured by
+installing its output for real — 3 arms per repository (generated
+spec / the repository's own declared spec / nothing), fresh Python
+3.10.19 virtualenvs, oracle controls P1 and P2 both passing, 16 of
+20 repositories before the VM hit 95% disk. **The generated spec
+installs cleanly in 3 of 16 — and all three name no package or one
+unrelated package** (`temperature==2.7`); **verified imports are 0 of
+16.** K1 ("installs cleanly for ≥ 3 of 20") therefore **passes**, and
+the analysis tool's own label moved from `KILL` to `mechanism holds`
+when one more empty-spec repository was measured. `PROTOCOL.md`
+Amendment 1 had predicted this in advance: *"K1 can therefore be met
+only by a specification that installs nothing."* **The direction closes
+on K3**, the one gate independent of the artifact: on 4 of 16
+repositories the repository's own declared file installs while the
+generated one does not, 2 of them fully working (F101, D088). The
+verdict regenerates byte-identically from the committed per-repository
+files via `analyze.py`, and `results.json` reports
+`gates_determined: true` — all 4 unmeasured repositories carry a pin
+pip refuses, so no further measurement can move K1 or K2.
 
-**The seat for a candidate is still empty, and E064 does not fill
-it.** What E064 leaves is a *measured failure mode*, not a
-direction: the separator that remains is semantic ("does this
-package do what was asked"), which is the named alternative's job
-— a model call — and it takes the cost and determinism advantage
-that justified a deterministic checker with it.
+**Six defects in E069's own instrumentation were found and fixed**, all
+recorded in its README: `analyze.py` could not have produced the
+verdict (it read a file written only at end of run, and a `controls.json`
+no run writes, so arms would have been interpreted without the controls
+that license interpreting them); `installed` counted an untested
+environment as a success, which is how three empty specs satisfied
+K1 and K2; a pip timeout was charged to the mechanism as a failed
+install; and the README's own headline reported 15 measured as 20 and
+cited a near-miss count of "149 of 383" that **no rule over the
+committed metadata produces** — the computed figure is **132 of 383
+(34.5%)**, now computed in `pin_compatibility.py` rather than asserted.
+
+**The seat for a candidate is still empty, and E069 does not fill it.**
+It closes a direction as implemented; it does not disprove that an
+environment can be inferred from a repository. Per D088 the next
+candidate's kill gate must have its **reachable set enumerated before
+the run** — a gate whose only reachable successes are empty files
+cannot fail. Per D080 the next exploration starts from fresh
+observation.
 
 **Task-list hygiene, recorded rather than papered over.** T-0087
 (E055) is landed as F088/D081 but its row still reads `claimed`:
@@ -120,16 +141,13 @@ whether a "did you mean a different project" warning has a
 population that wants it, is untested — and per D080 any
 successor session starts from that observation, not a prototype.
 
-**E066 confirms E063: the need-harvest route is closed at the
-population level.** Session 2026-10-08-021 ran an independent
-classification of the same corpora (E038's 189 GitHub issues,
-E012's 1401 HN needs) and found the same result: GitHub corpus
-measures CI/CD/build stages (82% false positive rate), HN corpus
-measures wishes/politics (55% non-software), and `unserved-open`
-is 0 of sampled rows. The seven emptiness measurements were not
-wrong about their domains — they were reading a route that selects
-served statements. The route is retired; per D083 any successor
-session starts from fresh observation in a new domain.
+**E063 and E066 closed the need-harvest route at the population
+level**, with independent classifiers agreeing: `unserved-open` is
+0 of 103 rows, and the seven emptiness measurements were not wrong
+about their domains — they were reading a route that selects served
+statements (F098, F100, D085–D087). The reading and the instrument
+are in [`STATE-in-flight-8.md`](STATE-in-flight-8.md). Per D083 any
+successor session starts from fresh observation in a new domain.
 
 The readings that bear on open items are in
 [`STATE-in-flight.md`](STATE-in-flight.md) through
@@ -140,101 +158,21 @@ and its paths are then attributed to whoever holds the tree
 (T-0053).
 
 ## What changed recently
-- **Session 2026-10-08-021, VM 0944: E066, F100, D087.** E066 confirmed E063's finding on the mission's own need corpora: classified all 189 E038 GitHub issues (only 34 actually about git line staging, 155 false positives on CI/CD/build stages) and 100 HN needs (top 5 triggers, 20 each; 55% not-software, 39% resolved-from-knowledge). The need-harvest route retires at the population level: GitHub corpus measures CI stages not git staging; HN corpus measures wishes/politics not tool requests. `unserved-open` 0 of sampled rows. This replicates E063's arm A served share 0.676 and arm B 0.969 with an independent classifier. E063's instrument with controls (G1/G2/G4) is the primary result; E066 is an independent confirmation. The route is closed — seven emptiness measurements (F029, F039, F051, F059, F081, F084, F085) were reading a served-statement route.
-- **Session 2026-10-08-014, VM 0944: E064-A1, F099, D086.**
-  E064 re-aimed itself at the quantity the prior art does not
-  report (AMENDMENT-1 withdrew G2/G3 as prior art — the
-  hallucinated-name rate and the resolve-against-the-registry
-  check are published in arXiv:2501.19012) and measured the
-  false-accept rate of existence-checking: **93 of 576
-  near-miss mutations of real package names resolve to real,
-  different artifacts — 0.1615, CI95 [0.134, 0.194]** (npm
-  0.278, PyPI 0.167, crates 0.156, RubyGems 0.063, Packagist
-  0.000), ground truth definitional, zero missing observations.
-  The pre-declared metadata rule failed its recall arm (69/93 =
-  0.742 against a 0.90 gate; specificity 29/30 = 0.967 passed)
-  because the 24 it misses are healthy, popular projects. No
-  candidate, no prototype. The metadata run transiently lost all
-  NuGet and all Homebrew rows; they were re-fetched, recovered,
-  and the recovery is recorded in the tree.
-- **Session 2026-10-08-013, VM 0944: E063, F098, D085, and defect 24 repaired.**
-  E063 ran the E062 answerability instrument on the mission's own need corpora —
-  E038's 189 GitHub issues, the 1401-row HN corpus — and the route is retired:
-  arm A served share 0.676, arm B 0.969, `unserved-open` 0 of 103 rows, and 12
-  of 71 arm A rows state nothing under a trigger phrase. Defect 24: two
-  overlapping `session finish` runs grew one event stream twice (181 lines, 162
-  numbers); repaired with an flocked allocator and a `.finish.lock`, session
-  008's stream deduped row-by-row and the repair is recorded in its session.
-- **Session 2026-10-08-009, VM 0947: E059, E060, F091, F092.** Two fresh-observation probes under D080, both killed at their gates. E059: pip-name vs import-name mismatch is real on wheels (M1 22 of 93) but served — namespace families, convention-derivable renames, and a known short unpredictable core absent from the sample, reverse mapping prior-arted; nothing built. E060: static version badges in README do not exist — 0 of 45 top-star Python/Rust/JS repos carry one; nothing to measure drift on.
-- **Session 2026-10-08-006, VM 0947: E058, F090.** E057's exact
-  protocol run on the 38 Stack Exchange survivors E057 skipped (same
-  stratum, arms, instrument, gates, hand-read). 76 arms, 11092 rows,
-  7022 requesters. G1's 42 nominal clusters all read as topics, never
-  one step, so G2/G3 were never reached; KILL. The channel-level null
-  now covers the whole survivor set: one class of recurring step
-  (unlabelled-object identification, E057's three), and it is served.
-- **Session 2026-10-08-005 landed (VM 0947): E057, F089.** Fresh observation
-  per D080: 12 Stack Exchange sites, 24 arms, 3992 rows. G1 passed
-  decisively (the same step recurs in 3 independent sites), G2 failed (the
-  corpus's own names all serve it), pre-registered rule: KILL, nothing built.
-  Corrections carried: the E033 score-tail rule does not transfer, G1 was a
-  free pass in this corpus, and the first linkage instrument returned a clean
-  zero until diagnosed.
-- **Session 2026-10-08-006, VM 0944: a fresh observation outside software,
-  and the mission's missing instrument (E062, F095–F097, D083, D084).**
-  Declared to test whether the empty seat is a property of human unmet need or
-  of its *software sample route*. Arm 1 retrieved **1200 rows across six
-  non-software Stack Exchange sites**, all with bodies and outcome fields;
-  G1 met, and `total_count` recorded as a missing observation on this route
-  (D082). **G4 met**: the still-open share by age cohort is 3.0 / 0.8 / 15.2 /
-  3.5 percent, a 14.4-point gap against a declared 10 — reported with its
-  non-monotonicity and right-censoring, no mechanism claimed. **G3 was not run
-  and its null branch is permanently disarmed** (F095, D083): the rubric's
-  clause 1 disqualifies needs that consume an input the requester holds, which
-  in a physical domain is nearly every row, and that protocol's null branch was
-  declared to close the find-a-new-venue route **permanently**. It was caught
-  by reading the whole 110-row no-remedy population before labelling any of it.
-  In its place: the top 20 unremedied rows **by arrival**, each attempted
-  against the strongest accessible alternative. **17 of 20 are answered in full
-  by a free general assistant today** (F096). The 5% that resists is the bike
-  serial nobody recorded in 2001 and the per-model spec sheets — a data
-  absence, not a software problem (F097). **The candidate source does not move
-  out of software, and the find-a-new-venue route is deferred with its reason
-  recorded rather than closed**, because the branch that would have closed it
-  was an artifact of the instrument.
-- **Session 2026-10-08-005, VM 0944: a fresh observation closed on its
-  own declared gate, and it closed the prototype condition (E061, F093,
-  D082).** The goal was conditional — *read a project's tests statically,
-  locate what a real test run reports unexercised, prototype only if a
-  requester wants the substitute*. D077 puts the population first, so E061
-  ran the population gate and declared it before reading a row: **0 of 30
-  `coveragepy` rows, 0 of 1 `vulture`, 0 of 13 `pytest-cov`, 0 of 30 in
-  each of four vocabulary arms state the declared need.** All 30
-  `coveragepy` rows are coverage *when it ran* — lines executed and
-  recorded missed under asyncio, `concurrency=multiprocessing`, pytest's
-  assertion rewriting, dotted `--source` — plus 5x/20x/77x overhead and
-  13 s start-up. The closest row (`#2211282948`, 10 comments) is answered
-  by running coverage with `--source`. **No prototype was written**, the
-  mechanism gate was never run, and the candidate was not opened.
-  **Not closed:** coverage that under-reports lines that ran is a real,
-  unsolved population, and whether a static read substitutes for the run
-  is untested. Two of ten arms returned **422** (a misspelled `repo:`
-  owner) and produced no observation, which is now **D082**: a missing
-  observation is never a zero and never a denominator. That correction
-  was applied backwards to E056's own verdict (F087), which had been
-  written over 3 of 5 arms (F094).
-
-Older per-session highlights (2026-10-07-003, the 2026-10-06 sessions, items 0b/1/2 leaving the ranked list) are in [`STATE-history.md`](STATE-history.md), and the readings that bear on open items are in [`STATE-in-flight.md`](STATE-in-flight.md), [`STATE-in-flight-2.md`](STATE-in-flight-2.md), [`STATE-in-flight-3.md`](STATE-in-flight-3.md) and [`STATE-in-flight-8.md`](STATE-in-flight-8.md). The 300-line cap has been hit fourteen times; each repair moved material to the file whose invariant owns it.
-
-**E046 changed what "done" means for a candidate's artifact, and D075 carries it.**
-Six experiments on `stg` closed with a sentence listing the shapes they had not
-tested; read as a work list, that sentence was worth four real defects. D075 makes
-a candidate's limitations section a measurement plan to be executed before
-release-readiness is claimed. **D077 is the same rule for populations**: a
-candidate's own declared population is to be read out of the evidence before
-anything is built to measure it. Both are in
-[`STATE-in-flight-6.md`](STATE-in-flight-6.md) and
-[`STATE-in-flight-7.md`](STATE-in-flight-7.md).
+- **Session 2026-10-09-003, VM 0947: E069, F101, D088.** The arXiv spec
+  generator was measured by installing its output. **Verified imports 0 of 16;
+  the only 3 installable specs name nothing.** Its predeclared K1 *passes* on
+  those empty files and the tool's own label moved from `KILL` to `mechanism
+  holds` on one extra empty-spec repository; the direction closes on **K3**
+  instead. Six instrumentation defects fixed, and a README headline corrected
+  (15 measured reported as 20; a near-miss count of "149 of 383" that no rule
+  reproduces — computed **132 of 383**). Also: `doc lint` was hanging on 3.6 GB
+  of un-gitignored third-party checkouts. Full reading in *In flight* above.
+- **Sessions 2026-10-08-013/014/021 (VM 0944): E063, E064-A1, E066.** Three
+  sessions closed the need-harvest route at the population level and measured
+  the package-name existence bit. Their readings moved to
+  [`STATE-history.md`](STATE-history.md) on 2026-10-09 when this file passed the
+  300-line cap on E069's record; the findings are F098–F100 and the decisions
+  D085–D087.
 
 ## Infrastructure build (sessions 015–016, earlier)
 
@@ -268,20 +206,18 @@ remedy and trips any CI format gate. **Nothing to build.** The fresh observation
 reload point asked for is now done (E062), and it returned the instrument rather than
 a candidate.
 
-**That re-run is done, and it retired the route.** E063 ran the E062
-answerability instrument on E038's 189 GitHub issues and the 1401-row HN
-corpus: arm A served share **0.676** (48/71; 0.814 over the 59 rows that
-state a need), arm B **0.969** (31/32), and `unserved-open` — the only label
-that can open a candidate — **0 of 103 rows** (F098). Every resistant row
-resists because the data was never recorded, because the remedy is human work
-or an institution, or because the row states no need at all. D085 retires the
-trigger-phrase harvest as a candidate source. A statement of need is now
-evidence of a statement, never of a service gap. Any future exploration starts
-from a fresh observation of a need this harvest cannot show (D080), and the
-find-a-new-venue route stays deferred with its reason recorded (F095). **The
-candidate seat stays empty, and what remains is the instrument (E062's
-`view_count` + `unserved-open` labeller), the repaired record (defect 24), and
-one open seat: T-0087, still unwritten.**
+**The single most useful next action, after E069.** E069 showed the failure
+that has been costing this mission the most: **a predeclared kill gate whose
+passing region contains only vacuous cases cannot fail, and the tool that
+computes it will still report a pass** (F101, D088). K1 asked for 3 clean
+installs; the only 3 installable specs named nothing. One empty file moved the
+verdict from KILL to "mechanism holds". So the next candidate's protocol must
+**enumerate what its gate's passing value can be made of, before the run** —
+and `analyze.py` must read bytes that exist before the run ends, not a file
+the run writes at the end (which is how E069's own analysis tool could not have
+produced its verdict). Both are small changes to how a protocol is written, and
+both are worth more than another screen: seven emptiness measurements already
+retired the harvest route, and a seventh would retire nothing new.
 
 ## Capability evidence
 

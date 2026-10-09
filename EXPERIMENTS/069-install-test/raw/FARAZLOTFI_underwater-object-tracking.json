@@ -1,0 +1,83 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "FARAZLOTFI/underwater-object-tracking",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/FARAZLOTFI_underwater-object-tracking__GEN/bin/python",
+  "needed": [
+   "config",
+   "cv_bridge",
+   "filterpy",
+   "matplotlib",
+   "numpy",
+   "pil",
+   "pytest",
+   "requests",
+   "scipy",
+   "setuptools",
+   "src",
+   "thop",
+   "torch",
+   "torchsummary",
+   "torchvision"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_FARAZLOTFI_underwater-object-tracking.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 3.11.0 Requires-Python >=3.11; 3.11.0rc1 Requires-Python >=3.11; 3.11.0rc2 Requires-Python >=3.11; 3.11.1 Requires-Python >=3.11; 3.11.2 Requires-Python >=3.11",
+   "seconds": 4.5,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 5.68,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "FARAZLOTFI/underwater-object-tracking",
+  "decl_kind": "setup.py",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/FARAZLOTFI_underwater-object-tracking__DECL/bin/python",
+  "needed": [
+   "setuptools"
+  ],
+  "install": {
+   "mode": "install_dir",
+   "spec": "/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4/FARAZLOTFI_underwater-object-tracking",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 4.3,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 0,
+   "detail": "Successfully installed scuba_tracking-0.0.0"
+  },
+  "imports": {
+   "setuptools": "ok"
+  },
+  "working": true,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "FARAZLOTFI/underwater-object-tracking",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/FARAZLOTFI_underwater-object-tracking__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

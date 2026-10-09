@@ -1,0 +1,67 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "CIAM-Group/NCO_code",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/CIAM-Group_NCO_code__GEN/bin/python",
+  "needed": [
+   "functions",
+   "imageio",
+   "lehd",
+   "matplotlib",
+   "nets",
+   "networkx",
+   "numpy",
+   "options",
+   "problems",
+   "pymoo",
+   "pytz",
+   "scipy",
+   "seaborn",
+   "tensorboard_logger",
+   "torch",
+   "torch_geometric",
+   "torchvision",
+   "tqdm",
+   "train",
+   "tsplib95",
+   "utils"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_CIAM-Group_NCO_code.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Ignored the following versions that require a different python version: 2.38.1 Requires-Python >=3.11",
+   "seconds": 3.3,
+   "failure_kinds": [
+    "interpreter_incompatible_pin",
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 0.0,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "CIAM-Group/NCO_code",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/CIAM-Group_NCO_code__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

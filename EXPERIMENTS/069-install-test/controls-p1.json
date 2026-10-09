@@ -1,0 +1,86 @@
+{
+ "p1": {
+  "control": "P1",
+  "requirement": ">=1 pip-declarable A1 repo reaches working via DECL",
+  "n_pass": 2,
+  "n_exercised": 2,
+  "n_not_exercised": 2,
+  "pass": true,
+  "rows": [
+   {
+    "repo": "illidanlab/inversion-influence-function",
+    "status": "not_exercised",
+    "reason": "conda-only specification; pip cannot install it"
+   },
+   {
+    "arm": "DECL",
+    "repo": "Profluent-Internships/MMDiff",
+    "decl_kind": "pyproject",
+    "venv_python": "/tmp/opencode/e069-venvs/run1791515866/Profluent-Internships_MMDiff__DECL/bin/python",
+    "needed": [
+     "lightning"
+    ],
+    "install": {
+     "mode": "install_dir",
+     "spec": "/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A1/Profluent-Internships_MMDiff",
+     "exit": 0,
+     "first_failure": null,
+     "seconds": 1041.7,
+     "failure_kinds": [
+      "install_succeeded"
+     ],
+     "download_mb": 7294.76,
+     "detail": "Successfully installed MMDiff-0.0.1 MarkupSafe-3.0.4 PyYAML-6.0.3 aiohappyeyeballs-2.7.1 aiohttp-3.14.4 aiosignal-1.4.0 antlr4-python3-runtime-4.9.3 async-timeout-5.0.1 attrs-26.1.0 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 filelock-4.0.12 frozenlist-1.8.0 fsspec-2026.9.0 hydra-core-1.3.7 idna-3.20 jinja2-3.1.6 lightning-2.6.6 lightning-utilities-0.15.3 mpmath-1.3.0 multidic"
+    },
+    "imports": {
+     "lightning": "ok"
+    },
+    "working": true,
+    "venv_removed": true,
+    "status": "exercised"
+   },
+   {
+    "arm": "DECL",
+    "repo": "deeplearning-wisc/args",
+    "decl_kind": "requirements",
+    "venv_python": "/tmp/opencode/e069-venvs/run1791515866/deeplearning-wisc_args__DECL/bin/python",
+    "needed": [
+     "datasets",
+     "numpy",
+     "torch",
+     "tqdm",
+     "transformers"
+    ],
+    "install": {
+     "mode": "requirements",
+     "spec": "EXPERIMENTS/068-arxiv-spec-generator/repos/A1/deeplearning-wisc_args/requirements.txt",
+     "exit": 0,
+     "first_failure": null,
+     "seconds": 1071.1,
+     "failure_kinds": [
+      "install_succeeded"
+     ],
+     "download_mb": 7931.49,
+     "detail": "Successfully installed Jinja2-3.1.2 MarkupSafe-2.1.3 PyYAML-6.0.1 aiohttp-3.8.6 aiosignal-1.3.1 async-timeout-4.0.3 attrs-23.1.0 certifi-2023.7.22 charset-normalizer-3.3.0 datasets-2.14.5 dill-0.3.7 filelock-3.12.4 frozenlist-1.4.0 fsspec-2023.6.0 huggingface-hub-0.17.3 idna-3.4 inquirerpy-0.3.4 mpmath-1.3.0 multidict-6.0.4 multiprocess-0.70.15 networkx-3.2 numpy-1.26.1 nvidia-cublas-cu12-12.1.3.1"
+    },
+    "imports": {
+     "datasets": "ok",
+     "numpy": "ok",
+     "torch": "ok",
+     "tqdm": "ok",
+     "transformers": "ok"
+    },
+    "working": true,
+    "venv_removed": true,
+    "status": "exercised"
+   },
+   {
+    "repo": "qzhb/BSSARD",
+    "status": "not_exercised",
+    "reason": "conda-only specification; pip cannot install it"
+   }
+  ]
+ },
+ "all_pass": false,
+ "partial": true
+}

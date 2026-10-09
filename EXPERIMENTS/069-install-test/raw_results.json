@@ -1,0 +1,59 @@
+{
+ "interpreter": {
+  "path": "/home/ubuntu/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/bin/python3",
+  "expected": "3.10.19",
+  "observed_version": "3.10.19",
+  "machine": "x86_64",
+  "getpip_url": "https://bootstrap.pypa.io/pip/3.8/get-pip.py",
+  "getpip_sha256": "6ed6e98282a504ee0a6632856e16c39f222d313fc38be33de216d4afb6ac12f7"
+ },
+ "arms": [
+  "GEN",
+  "DECL",
+  "NONE"
+ ],
+ "records": [
+  {
+   "arm": "GEN",
+   "repo": "google-research/google-research",
+   "venv_python": "/tmp/opencode/e069-venvs/run1791529704/google-research_google-research__GEN/bin/python",
+   "needed": [],
+   "install": {
+    "mode": "requirements",
+    "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_google-research_google-research.txt",
+    "exit": 0,
+    "first_failure": null,
+    "seconds": 1.7,
+    "failure_kinds": [
+     "install_succeeded"
+    ],
+    "download_mb": 0,
+    "detail": null
+   },
+   "imports": {},
+   "working": null,
+   "note": "no third-party import to probe; install result only",
+   "venv_removed": true
+  },
+  {
+   "arm": "DECL",
+   "repo": "google-research/google-research",
+   "skipped": "no declared spec in repository"
+  },
+  {
+   "arm": "NONE",
+   "repo": "google-research/google-research",
+   "venv_python": "/tmp/opencode/e069-venvs/run1791529704/google-research_google-research__NONE/bin/python",
+   "needed": [],
+   "install": {
+    "spec": null,
+    "exit": 0,
+    "detail": "no spec installed (NONE arm)"
+   },
+   "imports": {},
+   "working": null,
+   "note": "no third-party import to probe; install result only",
+   "venv_removed": true
+  }
+ ]
+}

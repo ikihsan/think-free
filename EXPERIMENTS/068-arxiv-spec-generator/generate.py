@@ -28,6 +28,7 @@ def generate_spec(repo_info, resolved):
     all_packages.update(repo_info['requirements_packages'])
     all_packages.update(repo_info['pyproject_packages'])
     all_packages.update(repo_info['poetry_lock_packages'])
+    all_packages.update(repo_info.get('conda_env_packages', []))
     all_packages.update(repo_info['imports'])
     all_packages.update(repo_info['readme_hints'].keys())
     

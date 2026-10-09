@@ -254,3 +254,18 @@ establishes is that **the instrument this repository measured nine results throu
 cannot pick out a repeat a human identified**, and that the population it would index
 does not densify with size. The finding is about a TF-IDF cosine over unigrams and
 bigrams, and about that population.
+
+## E065 — view-count measurement prototype result
+
+**Result:** `untested`, 2026-10-08
+
+**Gate evaluation:**
+
+- **G1:** FAIL — only 10/30 treatment and 0/30 control statements yielded non-error web search results via DuckDuckGo. Route not measurable at this cost.
+- **G2:** Not evaluable in pilot — requires separately labelled seeded control statements with known served/unserved labels.
+- **G3:** FAIL — could not compute fraction classified as served with Wilson CI95 over ≥ 30 non-error rows per arm.
+- **G4:** FAIL — only 6 of 20 top-arrival treatment statements classified as served/partial.
+
+**Conclusion:** Web search via DuckDuckGo with need_text-as-query cannot recover -like arrival metrics for the tested needStatement corpora (DIY/home improvement needs from E062 and HN need-stating rows from E063). The principle requires platform-specific API access, as E062 used Stack Exchange API and E039 used Hacker News API.
+
+**This closes the web-search-based operationalization route for these populations.**

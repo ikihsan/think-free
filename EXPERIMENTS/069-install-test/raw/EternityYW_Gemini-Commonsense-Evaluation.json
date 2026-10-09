@@ -1,0 +1,43 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "EternityYW/Gemini-Commonsense-Evaluation",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/EternityYW_Gemini-Commonsense-Evaluation__GEN/bin/python",
+  "needed": [],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_EternityYW_Gemini-Commonsense-Evaluation.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 2.3,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 3.83,
+   "detail": "Successfully installed temperature-2.7"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "EternityYW/Gemini-Commonsense-Evaluation",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/EternityYW_Gemini-Commonsense-Evaluation__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

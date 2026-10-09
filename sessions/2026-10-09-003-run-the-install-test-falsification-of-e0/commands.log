@@ -1,0 +1,191 @@
+==============================================================================
+[seq 2] 2026-10-09T01:10:26+00:00
+$ python3 EXPERIMENTS/069-install-test/repos_manifest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+google-research/google-research                    incomplete HEAD
+
+1 repos recorded, 1 incomplete
+  incomplete: google-research/google-research
+
+
+[stderr]
+MISSING LPMP/BDD (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING CIAM-Group/NCO_code (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING suzy0223/STSM (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING Itaymanes/K-QA (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A2)
+MISSING AlibabaResearch/DAMO-ConvAI (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING clovaai/TVQ-VAE (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING FARAZLOTFI/underwater-object-tracking (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING geoaigroup/GEOAI-ECRS2023 (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING Goallow/Mini-Hes (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING ambroiseodt/tsim (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING peteryang1031/Causal-GWIB (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+MISSING EternityYW/Gemini-Commonsense-Evaluation (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING liujf69/EPP-Net-Action (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING hao1635/LIT-Former (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING cvblab/Mitosis-UTS (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING JHW2000/JARNet (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING DrLuo/RTM (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING AmitRozner/domain-generalizable-multiple-domain-clustering (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A3)
+MISSING Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS (looked under /home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/A4)
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 495  redactions: none
+==============================================================================
+[seq 3] 2026-10-09T01:10:43+00:00
+$ python3 EXPERIMENTS/069-install-test/repos_manifest.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+LPMP/BDD                                           complete 99d13dfe34ed
+CIAM-Group/NCO_code                                complete 274df3c49753
+suzy0223/STSM                                      complete c15689560fbe
+Itaymanes/K-QA                                     complete ef403d012e19
+AlibabaResearch/DAMO-ConvAI                        complete 188835d4f994
+clovaai/TVQ-VAE                                    complete f3c52cc019ee
+FARAZLOTFI/underwater-object-tracking              complete 1364e5c7b95a
+geoaigroup/GEOAI-ECRS2023                          complete 82a6f0585ad2
+Goallow/Mini-Hes                                   complete 8bd4b56da945
+ambroiseodt/tsim                                   complete c80abbd765cd
+peteryang1031/Causal-GWIB                          complete 864af3356830
+EternityYW/Gemini-Commonsense-Evaluation           complete 28f0763d022e
+liujf69/EPP-Net-Action                             complete abafd73028a8
+hao1635/LIT-Former                                 complete 74b5759cb9d2
+cvblab/Mitosis-UTS                                 complete 0903b70a9906
+JHW2000/JARNet                                     complete 839c8986ead2
+DrLuo/RTM                                          complete 732771896955
+google-research/google-research                    incomplete HEAD
+AmitRozner/domain-generalizable-multiple-domain-clustering complete 1c15e81b8560
+Xiaoqi-Zhao-DLUT/Multi-Source-APS-ZVOS             complete 94b827d64366
+
+20 repos recorded, 1 incomplete
+  incomplete: google-research/google-research
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 539  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T01:13:31+00:00
+$ python3 EXPERIMENTS/069-install-test/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/069-install-test/harness.py", line 366, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/069-install-test/harness.py", line 330, in main
+    manifest = load_manifest()
+  File "EXPERIMENTS/069-install-test/harness.py", line 64, in load_manifest
+    data = json.loads(MANIFEST.read_text())
+  File "/usr/lib/python3.8/pathlib.py", line 1236, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/think-free/EXPERIMENTS/068-arxiv-spec-generator/repos/MANIFEST.json'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 863  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T01:14:42+00:00
+$ python3 EXPERIMENTS/069-install-test/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== Itaymanes/K-QA (A2)
+    GEN   install_exit=1 working=False
+    DECL  install_exit=1 working=False
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/069-install-test/harness.py", line 366, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/069-install-test/harness.py", line 347, in main
+    rec = run_arm(key, row, "NONE", repo_dir, stdlib)
+  File "EXPERIMENTS/069-install-test/harness.py", line 299, in run_arm
+    record["imports"] = probe_imports(bin_path, repo_dir, needed)
+UnboundLocalError: local variable 'bin_path' referenced before assignment
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 54395  redactions: none
+==============================================================================
+[seq 6] 2026-10-09T01:16:18+00:00
+$ python3 EXPERIMENTS/069-install-test/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== Itaymanes/K-QA (A2)
+    GEN   install_exit=1 working=False
+    DECL  install_exit=1 working=False
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/069-install-test/harness.py", line 368, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/069-install-test/harness.py", line 349, in main
+    rec = run_arm(key, row, "NONE", repo_dir, stdlib)
+  File "EXPERIMENTS/069-install-test/harness.py", line 301, in run_arm
+    record["imports"] = probe_imports(bin_path, repo_dir, needed)
+  File "EXPERIMENTS/069-install-test/harness.py", line 209, in probe_imports
+    script = (
+TypeError: not enough arguments for format string
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 66588  redactions: none
+==============================================================================
+[seq 7] 2026-10-09T01:17:58+00:00
+$ python3 EXPERIMENTS/069-install-test/harness.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+=== Itaymanes/K-QA (A2)
+    GEN   install_exit=1 working=False
+    DECL  install_exit=1 working=False
+    NONE  install_exit=0 working=False
+
+wrote /home/ubuntu/think-free/EXPERIMENTS/069-install-test/raw_results.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 67987  redactions: none
+==============================================================================
+[seq 8] 2026-10-09T01:37:33+00:00
+$ python3 EXPERIMENTS/069-install-test/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+P1 illidanlab/inversion-influence-function       not_exercised (conda-only)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/069-install-test/controls.py", line 116, in <module>
+    sys.exit(main())
+  File "EXPERIMENTS/069-install-test/controls.py", line 103, in main
+    results = {"p1": p1(), "p2": p2()}
+  File "EXPERIMENTS/069-install-test/controls.py", line 66, in p1
+    rec = harness.run_arm(key, rows[key], "DECL", repo_dir, stdlib)
+  File "/home/ubuntu/think-free/EXPERIMENTS/069-install-test/harness.py", line 391, in run_arm
+    record["install"] = install(bin_path, spec, repo_dir)
+  File "/home/ubuntu/think-free/EXPERIMENTS/069-install-test/harness.py", line 239, in install
+    record["download_mb"] = round(sum(int(m) for m in re.findall(r"([\d.]+)\s*(MB|kB|GB)",
+  File "/home/ubuntu/think-free/EXPERIMENTS/069-install-test/harness.py", line 239, in <genexpr>
+    record["download_mb"] = round(sum(int(m) for m in re.findall(r"([\d.]+)\s*(MB|kB|GB)",
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 986713  redactions: none
+==============================================================================
+[seq 9] 2026-10-09T02:03:27+00:00
+$ python3 EXPERIMENTS/069-install-test/controls.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+P1 illidanlab/inversion-influence-function       not_exercised (conda-only)
+P1 Profluent-Internships/MMDiff                  exit=0 working=False
+P1 deeplearning-wisc/args                        exit=1 working=False
+P1 qzhb/BSSARD                                   not_exercised (conda-only)
+
+
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/069-install-test/controls.py", line 116, in <module>
+    
+  File "EXPERIMENTS/069-install-test/controls.py", line 103, in main
+    
+  File "EXPERIMENTS/069-install-test/controls.py", line 93, in p2
+    spec = tmp / "requirements.txt"
+  File "/home/ubuntu/think-free/EXPERIMENTS/069-install-test/harness.py", line 220, in install
+    kinds.add("interpreter_incompatible_pin")
+TypeError: 'PosixPath' object is not subscriptable
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 1514579  redactions: none

@@ -3,18 +3,27 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-09
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-179 recorded session(s). One `events.jsonl` per session, so concurrent
+188 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 154 older session(s) are in the directory listing.
+Showing the 25 most recent. 163 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
+| [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
+| [2026-10-09-001-record-decision-and-continuation-for-e06](2026-10-09-001-record-decision-and-continuation-for-e06/README.md) | unknown-agent | worked | Record decision and continuation for E065/E066 and E067 experiments | 2026-10-09T00:33 |
+| [2026-10-08-029-analyze-python-package-importability-pat](2026-10-08-029-analyze-python-package-importability-pat/README.md) | unknown-agent | worked | Analyze Python package importability patterns and decide next action | 2026-10-08T23:58 |
+| [2026-10-08-028-explore-fresh-observation-domain-for-nex](2026-10-08-028-explore-fresh-observation-domain-for-nex/README.md) | unknown-agent | worked | Explore fresh observation domain for next candidate after need-harvest | 2026-10-08T23:37 |
+| [2026-10-08-027-recover-context-and-document-mission-sta](2026-10-08-027-recover-context-and-document-mission-sta/README.md) | unknown-agent | worked | Recover context and document mission state | 2026-10-08T23:04 |
+| [2026-10-08-026-recover-context-and-decide-next-action-f](2026-10-08-026-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission | 2026-10-08T22:39 |
+| [2026-10-08-025-recover-context-and-decide-next-action-f](2026-10-08-025-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission after ex | 2026-10-08T22:37 |
+| [2026-10-08-024-recover-context-and-decide-next-action-f](2026-10-08-024-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission after ex | 2026-10-08T22:34 |
 | [2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi](2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi/README.md) | unknown-agent | worked | Log remaining artifacts from doc lint fixes | 2026-10-08T20:44 |
 | [2026-10-08-022-begin-fresh-observation-in-a-new-domain](2026-10-08-022-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain outside software: investigate  | 2026-10-08T20:43 |
 | [2026-10-08-021-test-e038-s-189-github-issues-and-e012-s](2026-10-08-021-test-e038-s-189-github-issues-and-e012-s/README.md) | unknown-agent | worked | Test E038's 189 GitHub issues and E012's 1401 HN needs against answera | 2026-10-08T17:38 |
@@ -31,15 +40,6 @@ Showing the 25 most recent. 154 older session(s) are in the directory listing.
 | [2026-10-08-008-record-the-last-unlogged-paths-and-commi](2026-10-08-008-record-the-last-unlogged-paths-and-commi/README.md) | unknown-agent | worked | Record the last unlogged paths and commit the E058 landing | 2026-10-08T05:25 |
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
 | [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
-| [2026-10-08-006-fresh-observation-outside-software-measu](2026-10-08-006-fresh-observation-outside-software-measu/README.md) | unknown-agent | worked | Fresh observation outside software: measure what happens to publicly s | 2026-10-08T05:53 |
-| [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | worked | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:56 |
-| [2026-10-08-005-fresh-observation-measure-whether-a-proj](2026-10-08-005-fresh-observation-measure-whether-a-proj/README.md) | unknown-agent | worked | Fresh observation: measure whether a project's own tests, read statica | 2026-10-08T03:47 |
-| [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | worked | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T04:23 |
-| [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
-| [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |
-| [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
-| [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
-| [2026-10-07-016-conclude-e051-experiment-and-identify-ne](2026-10-07-016-conclude-e051-experiment-and-identify-ne/README.md) | unknown-agent | worked | Conclude E051 experiment and identify new candidate | 2026-10-07T22:40 |
 
 
 ## Reading a session

@@ -1,0 +1,79 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "ambroiseodt/tsim",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/ambroiseodt_tsim__GEN/bin/python",
+  "needed": [
+   "architectures",
+   "numpy",
+   "scipy",
+   "setuptools",
+   "sklearn",
+   "torch",
+   "tsim",
+   "utils"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A3_ambroiseodt_tsim.txt",
+   "exit": 1,
+   "first_failure": "ERROR: Could not find a version that satisfies the requirement m==0.0.1 (from versions: none)",
+   "seconds": 10.8,
+   "failure_kinds": [
+    "pin_absent_for_interpreter"
+   ],
+   "download_mb": 159.38,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "repo": "ambroiseodt/tsim",
+  "decl_kind": "requirements",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/ambroiseodt_tsim__DECL/bin/python",
+  "needed": [
+   "numpy",
+   "scipy",
+   "torch"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/repos/A3/ambroiseodt_tsim/requirements.txt",
+   "exit": 0,
+   "first_failure": null,
+   "seconds": 1084.6,
+   "failure_kinds": [
+    "install_succeeded"
+   ],
+   "download_mb": 7247.74,
+   "detail": "Successfully installed MarkupSafe-3.0.4 cloudpickle-3.1.2 contourpy-1.3.2 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 cycler-0.12.1 filelock-4.0.12 fonttools-4.65.0 fsspec-2026.9.0 jinja2-3.1.6 joblib-1.6.0 kiwisolver-1.5.1 matplotlib-3.10.9 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 nvidia-cublas-13.1.1.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13"
+  },
+  "imports": {
+   "numpy": "ok",
+   "scipy": "ok",
+   "torch": "ok"
+  },
+  "working": true,
+  "venv_removed": true
+ },
+ {
+  "arm": "NONE",
+  "repo": "ambroiseodt/tsim",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/ambroiseodt_tsim__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

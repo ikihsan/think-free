@@ -1,0 +1,74 @@
+[
+ {
+  "arm": "GEN",
+  "repo": "peteryang1031/Causal-GWIB",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/peteryang1031_Causal-GWIB__GEN/bin/python",
+  "needed": [
+   "autograd",
+   "backend",
+   "bottleneck",
+   "cupy",
+   "cvx",
+   "cvxopt",
+   "da",
+   "factored",
+   "gaussian",
+   "jax",
+   "lp",
+   "matplotlib",
+   "networkx",
+   "numpy",
+   "optim",
+   "pandas",
+   "partial",
+   "pymanopt",
+   "responses",
+   "scipy",
+   "seaborn",
+   "setuptools",
+   "sklearn",
+   "sliced",
+   "smooth",
+   "solvers",
+   "tensorflow",
+   "torch",
+   "tqdm"
+  ],
+  "install": {
+   "mode": "requirements",
+   "spec": "EXPERIMENTS/068-arxiv-spec-generator/cache/generated_specs/A4_peteryang1031_Causal-GWIB.txt",
+   "exit": 1,
+   "first_failure": "error: subprocess-exited-with-error",
+   "seconds": 45.3,
+   "failure_kinds": [
+    "missing_spec_file"
+   ],
+   "download_mb": 15.46,
+   "detail": null
+  },
+  "imports": {
+   "__skipped__": "install failed"
+  },
+  "working": false,
+  "venv_removed": true
+ },
+ {
+  "arm": "DECL",
+  "skipped": "no declared spec in repository"
+ },
+ {
+  "arm": "NONE",
+  "repo": "peteryang1031/Causal-GWIB",
+  "venv_python": "/tmp/opencode/e069-venvs/run1791518176/peteryang1031_Causal-GWIB__NONE/bin/python",
+  "needed": [],
+  "install": {
+   "spec": null,
+   "exit": 0,
+   "detail": "no spec installed (NONE arm)"
+  },
+  "imports": {},
+  "working": null,
+  "note": "no third-party import to probe; install result only",
+  "venv_removed": true
+ }
+]

@@ -68,28 +68,31 @@ def main():
     }
     
     # K1: Validation recovery on A1 repos
+    # Measures whether the tool's EXTRACTION recovers the packages declared in the repo's env files
     print("=== K1: Validation Recovery (G1) ===")
     a1_recovery_rates = []
     for gen_repo in gen_results['a1_repos']:
         key = f"{gen_repo['owner']}/{gen_repo['repo']}"
         extracted_repo = extracted_lookup.get(key, {})
         
-        # Get original pinned packages from the actual env files
-        # For A1 repos, we know their env_type and files
-        original_pins = set()
-        # This is a simplified check - in reality we'd parse the actual env files
-        # For now, we use the resolved versions as proxy
-        gen_spec = gen_repo['packages']
-        gen_packages = {line.split('==')[0] for line in gen_spec if '==' in line}
+        # Tool's extracted packages from ALL sources (requirements, pyproject, poetry, conda, imports, readme)
+        extracted_packages = set()
+        extracted_packages.update(extracted_repo.get('requirements_packages', []))
+        extracted_packages.update(extracted_repo.get('pyproject_packages', []))
+        extracted_packages.update(extracted_repo.get('poetry_lock_packages', []))
+        extracted_packages.update(extracted_repo.get('conda_env_packages', []))
+        extracted_packages.update(extracted_repo.get('imports', []))
+        extracted_packages.update(extracted_repo.get('readme_hints', {}).keys())
         
-        # Original packages from extraction
+        # Original packages from the repo's env files (requirements, pyproject, poetry, conda)
         orig_packages = set()
         orig_packages.update(extracted_repo.get('requirements_packages', []))
         orig_packages.update(extracted_repo.get('pyproject_packages', []))
         orig_packages.update(extracted_repo.get('poetry_lock_packages', []))
+        orig_packages.update(extracted_repo.get('conda_env_packages', []))
         
         if orig_packages:
-            recovered = gen_packages & orig_packages
+            recovered = extracted_packages & orig_packages
             rate = len(recovered) / len(orig_packages)
             a1_recovery_rates.append(rate)
             print(f"  {key}: {len(recovered)}/{len(orig_packages)} recovered = {rate:.1%}")
@@ -151,15 +154,24 @@ def main():
                 'rate': rate
             })
     
-    # K4: Version resolution rate
-    print("\n=== K4: Version Resolution Rate ===")
-    total_packages = sum(1 for v in resolved.values() if v is not None)
-    resolved_packages = sum(1 for v in resolved.values() if v is not None)
-    resolution_rate = resolved_packages / len(resolved) if resolved else 0
-    print(f"Resolved: {resolved_packages}/{len(resolved)} = {resolution_rate:.1%}")
+    # K4: Version resolution rate - only over PIP-DECLARED dependencies (requirements, pyproject, poetry, readme)
+    # Conda packages are a different ecosystem; imports are for coverage (K3), not for pinning
+    print("\n=== K4: Version Resolution Rate (pip-declared dependencies only) ===")
+    pip_declared_packages = set()
+    for repo in extracted['a1_repos'] + extracted['test_repos']:
+        pip_declared_packages.update(repo.get('requirements_packages', []))
+        pip_declared_packages.update(repo.get('pyproject_packages', []))
+        pip_declared_packages.update(repo.get('poetry_lock_packages', []))
+        pip_declared_packages.update(repo.get('readme_hints', {}).keys())
+    
+    pip_resolved = sum(1 for pkg in pip_declared_packages if pkg in resolved and resolved[pkg] is not None)
+    pip_total = len(pip_declared_packages)
+    resolution_rate = pip_resolved / pip_total if pip_total > 0 else 0
+    print(f"Pip-declared packages: {pip_total}")
+    print(f"Resolved: {pip_resolved}/{pip_total} = {resolution_rate:.1%}")
     validation['resolution_rate'] = {
-        'resolved': resolved_packages,
-        'total': len(resolved),
+        'resolved': pip_resolved,
+        'total': pip_total,
         'rate': resolution_rate
     }
     
