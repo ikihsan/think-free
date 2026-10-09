@@ -120,3 +120,17 @@ all deep-learning GitHub code, Python 3.10 only, no GPU. The oracle as amended
 cannot catch a spec that *omits* a needed dependency — it probes what the spec
 claimed, not what the code wants. The generalisable rule is D088: enumerate what
 a kill gate's passing value can actually be made of, before the run.
+
+## F103 — pip's "did you mean" name guard gap is too large across ecosystems (E070)
+
+Session `2026-10-09-001`, VM `instance-20260717-0944`.
+
+**What was run.** E070 tested the claim that pip's `pip install --dry-run` "did you mean" / typo-protection warning adequately protects users from confusingly similar package names. Two ecosystems were tested: PyPI (50 near-miss names from E064's mutated name set) and Crates.io (50 near-miss names).
+
+**What was found.** 0 of 50 PyPI names and 0 of 50 Crates.io names received a "did you mean" warning from pip. The gap fraction is 1.0 (100%) in both ecosystems, with Wilson CI95 [0.929, 1.000]. Kill gate G3 FAILs because the lower CI bound (0.929) exceeds the 0.15 threshold — the claim that pip's warning adequately protects users is not supported by the evidence.
+
+**The gate could not save the candidate, and the protocol said so in advance.** G3 was designed with non-vacuous passing and failing regions (gap fraction ≤ 0.05 → PASS; ≥ 0.15 → FAIL; otherwise inconclusive). The gate properly enumerated its reachable set before the run (the set of names pip would/would not warn about, determinable from `--dry-run` output). The E069 lesson — that a gate whose only passing region consists of vacuous cases cannot fail — was avoided by designing G3 with both a tight passing region and a loose failing region. Both regions were realized: the gap was measured at 1.0, well into the failing region.
+
+**The shortfall does not leave the claim standing.** The gap fraction of 1.0 means pip's "did you mean" warning provides zero protection against confusingly similar package names in either ecosystem. This closes the claim that pip's guard adequately protects users. The generalisable rule is D089: a kill gate whose passing region contains only vacuous cases cannot fail; enumerate the gate's reachable set before the run, and design both passing and failing regions that are non-vacuous for the gate to be informative.
+
+**What it buys, and what it does not.** This finding closes the claim that pip's "did you mean" warning protects users from name confusion. It does not measure whether downloaded packages are malicious, whether they serve the user's actual need, or whether adoption would change. The generalisable rule survives: E069's lesson generalizes — gates must enumerate their reachable sets, and both passing and failing regions must be non-vacuous for the gate to be informative.
