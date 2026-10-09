@@ -1,0 +1,764 @@
+{
+ "accounts": [
+  {
+   "id": "a00",
+   "repo": "GeorgeCrossIV/JPMC-Chatbot-Langflow",
+   "path": "Transactions2024.csv",
+   "url": "https://raw.githubusercontent.com/GeorgeCrossIV/JPMC-Chatbot-Langflow/main/Transactions2024.csv",
+   "sha256": "9db2b907577edeb418e0be0f0e827c4e6daa4921992b662c841cf03517862f29",
+   "bytes": 285551,
+   "n_rows": 3777,
+   "span_days": 365,
+   "first": "2024-01-01",
+   "last": "2024-12-31",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a00.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a00.csv"
+  },
+  {
+   "id": "a01",
+   "repo": "nglaze00/budget",
+   "path": "expense.csv",
+   "url": "https://raw.githubusercontent.com/nglaze00/budget/main/expense.csv",
+   "sha256": "2fb9ee580d78015db027ab917fdd6736e815dfd02fff9b2577ec4edd0e980bcf",
+   "bytes": 278542,
+   "n_rows": 2862,
+   "span_days": 821,
+   "first": "2022-10-02",
+   "last": "2024-12-31",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Posting Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a01.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a01.csv"
+  },
+  {
+   "id": "a02",
+   "repo": "reserad/MintData-Api",
+   "path": "data/transactions.csv",
+   "url": "https://raw.githubusercontent.com/reserad/MintData-Api/main/data/transactions.csv",
+   "sha256": "f22579733571e2d183d26a7d2a789526397e4d0a09829d1689ded249e204cc37",
+   "bytes": 336209,
+   "n_rows": 2393,
+   "span_days": 1549,
+   "first": "2017-08-28",
+   "last": "2021-11-24",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "date",
+    "amount": "amount",
+    "merchant": "description"
+   },
+   "local": "raw/accounts/a02.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a02.csv"
+  },
+  {
+   "id": "a03",
+   "repo": "SandWGriffin/Home-budget",
+   "path": "data/_bank_upload.csv",
+   "url": "https://raw.githubusercontent.com/SandWGriffin/Home-budget/main/data/_bank_upload.csv",
+   "sha256": "2077ba7f12422ed785d01be256384773e66f704200e618940e870b21b3582b30",
+   "bytes": 180121,
+   "n_rows": 2159,
+   "span_days": 395,
+   "first": "2025-04-02",
+   "last": "2026-05-02",
+   "date_format": "%m/%d/%y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a03.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a03.csv"
+  },
+  {
+   "id": "a05",
+   "repo": "daedalus23/Budgetter",
+   "path": "web/files/Credit.csv",
+   "url": "https://raw.githubusercontent.com/daedalus23/Budgetter/main/web/files/Credit.csv",
+   "sha256": "bb85b9cb52ee3862df71744e135ae4748fab4e09f31645379fee988477463d75",
+   "bytes": 132067,
+   "n_rows": 1892,
+   "span_days": 623,
+   "first": "2021-11-29",
+   "last": "2023-08-14",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Posted Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a05.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a05.csv"
+  },
+  {
+   "id": "a06",
+   "repo": "jegood78/Financial_Planning",
+   "path": "monarch_transactions.csv",
+   "url": "https://raw.githubusercontent.com/jegood78/Financial_Planning/main/monarch_transactions.csv",
+   "sha256": "9baeb8da72dcff38b5f8a05b66da0a0c9605a02cab3e5013e17b12d272ef8bb1",
+   "bytes": 188425,
+   "n_rows": 1581,
+   "span_days": 369,
+   "first": "2025-01-01",
+   "last": "2026-01-05",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Merchant"
+   },
+   "local": "raw/accounts/a06.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a06.csv"
+  },
+  {
+   "id": "a07",
+   "repo": "jegood78/Financial_Planning",
+   "path": "usaa_historical.csv",
+   "url": "https://raw.githubusercontent.com/jegood78/Financial_Planning/main/usaa_historical.csv",
+   "sha256": "8181d01e77dc9a1648c80036c85a3734892af8881dc0c04456ec7deb681cd32d",
+   "bytes": 225600,
+   "n_rows": 1469,
+   "span_days": 370,
+   "first": "2024-01-12",
+   "last": "2025-01-16",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a07.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a07.csv"
+  },
+  {
+   "id": "a08",
+   "repo": "jegood78/Financial_Planning",
+   "path": "empower_transactions_raw.csv",
+   "url": "https://raw.githubusercontent.com/jegood78/Financial_Planning/main/empower_transactions_raw.csv",
+   "sha256": "fb737b07fc15d8c1bd2de945ad4808d0f020805e777eede6efc639502d34fea5",
+   "bytes": 86618,
+   "n_rows": 1331,
+   "span_days": 559,
+   "first": "2023-01-03",
+   "last": "2024-07-15",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a08.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a08.csv"
+  },
+  {
+   "id": "a09",
+   "repo": "amkchari/ExpenseManager",
+   "path": "statements/chase-common-till-2017.csv",
+   "url": "https://raw.githubusercontent.com/amkchari/ExpenseManager/main/statements/chase-common-till-2017.csv",
+   "sha256": "d463267c980a1c3d27a3b9ea7d4f708c41b200d7f543228d07c5c8869aafe4f9",
+   "bytes": 178530,
+   "n_rows": 1311,
+   "span_days": 2030,
+   "first": "2012-06-08",
+   "last": "2017-12-29",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Withdrawal",
+    "merchant": "Payee"
+   },
+   "local": "raw/accounts/a09.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a09.csv"
+  },
+  {
+   "id": "a10",
+   "repo": "Mamdou025/Expensetracker",
+   "path": "Database/transactions.csv",
+   "url": "https://raw.githubusercontent.com/Mamdou025/Expensetracker/main/Database/transactions.csv",
+   "sha256": "c516a11802be202dfdb451302a1c81ee7d134e360d78a71c6a7dd09094a1cb8a",
+   "bytes": 142938,
+   "n_rows": 1093,
+   "span_days": 527,
+   "first": "2024-01-01",
+   "last": "2025-06-11",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "date",
+    "amount": "amount",
+    "merchant": "description"
+   },
+   "local": "raw/accounts/a10.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a10.csv"
+  },
+  {
+   "id": "a11",
+   "repo": "mgmayaguari/Financial-Data-Analysis-Visualization",
+   "path": "data/combined_data.csv",
+   "url": "https://raw.githubusercontent.com/mgmayaguari/Financial-Data-Analysis-Visualization/main/data/combined_data.csv",
+   "sha256": "ef898bf81d806a8379a1a78c2ee6afc4ccddbbcbac877a396095545eeb046144",
+   "bytes": 87772,
+   "n_rows": 1064,
+   "span_days": 483,
+   "first": "2001-01-20",
+   "last": "2031-12-19",
+   "date_format": "%Y/%m/%d",
+   "cols": {
+    "date": "transaction_date",
+    "amount": "transaction_amount",
+    "merchant": "transaction_description"
+   },
+   "local": "raw/accounts/a11.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a11.csv"
+  },
+  {
+   "id": "a12",
+   "repo": "apiispanen/biohacker",
+   "path": "Resources/chase_history.CSV",
+   "url": "https://raw.githubusercontent.com/apiispanen/biohacker/main/Resources/chase_history.CSV",
+   "sha256": "b787267b3b6ddc93f0ea21948e72ad459ee7f38350b3ff2ea02eac51ace5e3b7",
+   "bytes": 56223,
+   "n_rows": 907,
+   "span_days": 421,
+   "first": "2021-12-30",
+   "last": "2023-02-24",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a12.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a12.csv"
+  },
+  {
+   "id": "a14",
+   "repo": "qvu3/portfolio",
+   "path": "Chase_2022_data.CSV",
+   "url": "https://raw.githubusercontent.com/qvu3/portfolio/main/Chase_2022_data.CSV",
+   "sha256": "76b730b9379500083d4c3ea6d76942bb70407b16baf2106bd04457f81223bdbd",
+   "bytes": 76754,
+   "n_rows": 835,
+   "span_days": 361,
+   "first": "2022-01-03",
+   "last": "2022-12-30",
+   "date_format": "%m/%d/%y",
+   "cols": {
+    "date": "Posting Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a14.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a14.csv"
+  },
+  {
+   "id": "a15",
+   "repo": "natekist/GT-OMS",
+   "path": "MGT 8823/Project/Raw Data/Credit Card 2022_2.CSV",
+   "url": "https://raw.githubusercontent.com/natekist/GT-OMS/main/MGT 8823/Project/Raw Data/Credit Card 2022_2.CSV",
+   "sha256": "703faac4b102ccd4185ce8bc8b2e2ba46a538d41854acdc138d6b669c0b28174",
+   "bytes": 52954,
+   "n_rows": 815,
+   "span_days": 184,
+   "first": "2022-06-29",
+   "last": "2022-12-30",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a15.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a15.csv"
+  },
+  {
+   "id": "a16",
+   "repo": "smmhk/credit_card_analysis",
+   "path": "data/bank_tracker.csv",
+   "url": "https://raw.githubusercontent.com/smmhk/credit_card_analysis/main/data/bank_tracker.csv",
+   "sha256": "226b52c9a95d2b73f5f6467fdb0b5ba3b28f03c27ab11bc3661349c11684c1ad",
+   "bytes": 45639,
+   "n_rows": 786,
+   "span_days": 524,
+   "first": "2023-06-23",
+   "last": "2024-11-28",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Merchant"
+   },
+   "local": "raw/accounts/a16.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a16.csv"
+  },
+  {
+   "id": "a17",
+   "repo": "sjcrivelli/AccessSwiftUI",
+   "path": "attached_assets/Expenses Upload_1759185300690.csv",
+   "url": "https://raw.githubusercontent.com/sjcrivelli/AccessSwiftUI/main/attached_assets/Expenses Upload_1759185300690.csv",
+   "sha256": "6a95657e1b7c615ae73fe95598ddf009abb883edbf431e6252689eb471386b53",
+   "bytes": 98302,
+   "n_rows": 693,
+   "span_days": 265,
+   "first": "2025-01-02",
+   "last": "2025-09-24",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount Debited",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a17.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a17.csv"
+  },
+  {
+   "id": "a18",
+   "repo": "YukioRivera/expenseTracker",
+   "path": "data/chase/raw/Chase9197_Activity20250101_20251231_20260105.CSV",
+   "url": "https://raw.githubusercontent.com/YukioRivera/expenseTracker/main/data/chase/raw/Chase9197_Activity20250101_20251231_20260105.CSV",
+   "sha256": "55df0cec2514e804bf7d263fc95ed18402aedf03dd7b5c755684bbe308f3b891",
+   "bytes": 45663,
+   "n_rows": 692,
+   "span_days": 364,
+   "first": "2024-12-31",
+   "last": "2025-12-30",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a18.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a18.csv"
+  },
+  {
+   "id": "a19",
+   "repo": "ShiweiHe0713/MoneyChat",
+   "path": "upload/checking.csv",
+   "url": "https://raw.githubusercontent.com/ShiweiHe0713/MoneyChat/main/upload/checking.csv",
+   "sha256": "01044db747e45966512c50a714d08ef39060544d4c9f18d4abdc0e1d51c5088f",
+   "bytes": 51271,
+   "n_rows": 660,
+   "span_days": 273,
+   "first": "2023-08-24",
+   "last": "2024-05-23",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a19.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a19.csv"
+  },
+  {
+   "id": "a20",
+   "repo": "CS222-UIUC/course-project-group-106",
+   "path": "src/transactions.csv",
+   "url": "https://raw.githubusercontent.com/CS222-UIUC/course-project-group-106/main/src/transactions.csv",
+   "sha256": "2b4e427c17be0520765f44af911a12a9882380606e097a97e988720a40f101d8",
+   "bytes": 89606,
+   "n_rows": 648,
+   "span_days": 429,
+   "first": "2021-07-19",
+   "last": "2022-09-21",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a20.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a20.csv"
+  },
+  {
+   "id": "a21",
+   "repo": "ihnjoonhur/ihnjoonhur.github.io",
+   "path": "Finance/python/Chase_2022.CSV",
+   "url": "https://raw.githubusercontent.com/ihnjoonhur/ihnjoonhur.github.io/main/Finance/python/Chase_2022.CSV",
+   "sha256": "55fbda949c2ab7c3d10b195ed62ba6ff93361cfed56a3636c845e63996ddf1a3",
+   "bytes": 40321,
+   "n_rows": 618,
+   "span_days": 406,
+   "first": "2021-11-17",
+   "last": "2022-12-28",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a21.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a21.csv"
+  },
+  {
+   "id": "a22",
+   "repo": null,
+   "path": null,
+   "url": null,
+   "sha256": "bbc3dbb38061123bc87fcaef0386beb0f431dd6d039b81f65d1f9250fcf13221",
+   "bytes": 70008,
+   "n_rows": 602,
+   "span_days": 361,
+   "first": "2023-07-03",
+   "last": "2024-06-28",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Posting Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a22.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a22.csv"
+  },
+  {
+   "id": "a23",
+   "repo": "YukioRivera/expenseTracker",
+   "path": "data/backup/Chase9197_Activity20240101_20241231_20251227.CSV",
+   "url": "https://raw.githubusercontent.com/YukioRivera/expenseTracker/main/data/backup/Chase9197_Activity20240101_20241231_20251227.CSV",
+   "sha256": "4131fc194ef39be94f9c2e5b0c349d0e155f94fa82b26b5543d19ea4caf28d37",
+   "bytes": 38304,
+   "n_rows": 592,
+   "span_days": 365,
+   "first": "2023-12-30",
+   "last": "2024-12-29",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a23.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a23.csv"
+  },
+  {
+   "id": "a24",
+   "repo": "MasonCotterill/CPSC-490",
+   "path": "finance/TestData/YearEndSummary.csv",
+   "url": "https://raw.githubusercontent.com/MasonCotterill/CPSC-490/main/finance/TestData/YearEndSummary.csv",
+   "sha256": "e59ff932cf985b449cb751b5641feccee564c6c86c92273a2d5469479d756540",
+   "bytes": 45524,
+   "n_rows": 536,
+   "span_days": 339,
+   "first": "2023-01-02",
+   "last": "2023-12-07",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Merchant"
+   },
+   "local": "raw/accounts/a24.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a24.csv"
+  },
+  {
+   "id": "a27",
+   "repo": null,
+   "path": null,
+   "url": null,
+   "sha256": "a846e087f0b952e91114bb7b0f384236d7a483bff2b932ca1e32c2c9953d917b",
+   "bytes": 43245,
+   "n_rows": 492,
+   "span_days": 233,
+   "first": "2024-06-02",
+   "last": "2025-01-21",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a27.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a27.csv"
+  },
+  {
+   "id": "a28",
+   "repo": "mgmayaguari/Financial-Data-Analysis-Visualization",
+   "path": "data/MM_2019_Data.csv",
+   "url": "https://raw.githubusercontent.com/mgmayaguari/Financial-Data-Analysis-Visualization/main/data/MM_2019_Data.csv",
+   "sha256": "078d7f34830e9f6a840a62ee4b34796197422ecb3f2b5ea31a7c56f587f78020",
+   "bytes": 39056,
+   "n_rows": 486,
+   "span_days": 364,
+   "first": "2019-01-01",
+   "last": "2019-12-31",
+   "date_format": "%m/%d/%y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Transaction Amount",
+    "merchant": "Transaction Description"
+   },
+   "local": "raw/accounts/a28.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a28.csv"
+  },
+  {
+   "id": "a29",
+   "repo": null,
+   "path": null,
+   "url": null,
+   "sha256": "136e856303094d98482b34691bfd219faa9f4d58daefb86c65b426d40a070965",
+   "bytes": 48249,
+   "n_rows": 442,
+   "span_days": 315,
+   "first": "2024-08-19",
+   "last": "2025-06-30",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Posting Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a29.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a29.csv"
+  },
+  {
+   "id": "a30",
+   "repo": "Viniciussteigleder/CoupleFin",
+   "path": "Sample_transaction_import/CSV/Amex/activity (8).csv",
+   "url": "https://raw.githubusercontent.com/Viniciussteigleder/CoupleFin/main/Sample_transaction_import/CSV/Amex/activity (8).csv",
+   "sha256": "b3a326612927e706c3316a47cff8679446e7f8641b6f716762ba4df940850890",
+   "bytes": 89869,
+   "n_rows": 426,
+   "span_days": 202,
+   "first": "2025-01-06",
+   "last": "2025-12-20",
+   "date_format": "%d/%m/%Y",
+   "cols": {
+    "date": "Datum",
+    "amount": "Betrag",
+    "merchant": "Beschreibung"
+   },
+   "local": "raw/accounts/a30.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a30.csv"
+  },
+  {
+   "id": "a31",
+   "repo": "natekist/GT-OMS",
+   "path": "MGT 8823/Project/Raw Data/Credit Card 2022_1.CSV",
+   "url": "https://raw.githubusercontent.com/natekist/GT-OMS/main/MGT 8823/Project/Raw Data/Credit Card 2022_1.CSV",
+   "sha256": "719f22352e3cf2128eee9289c107477afd5a1f00f0ce94e3c68c492fb2be3bd4",
+   "bytes": 27064,
+   "n_rows": 421,
+   "span_days": 180,
+   "first": "2021-12-31",
+   "last": "2022-06-29",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a31.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a31.csv"
+  },
+  {
+   "id": "a32",
+   "repo": "lakhbir/txn-tagger",
+   "path": "src/resources/chase.csv",
+   "url": "https://raw.githubusercontent.com/lakhbir/txn-tagger/main/src/resources/chase.csv",
+   "sha256": "e7ca7366e0d383dd78791c423352a97eb35fc0af771b5c7a0277b4db8150e10c",
+   "bytes": 23677,
+   "n_rows": 368,
+   "span_days": 277,
+   "first": "2024-01-31",
+   "last": "2024-11-03",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a32.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a32.csv"
+  },
+  {
+   "id": "a33",
+   "repo": "Octaloop-Technologies/Finnical-Backend",
+   "path": "user_files/user_4/354465641_20250619_190434_Chase3910_.csv",
+   "url": "https://raw.githubusercontent.com/Octaloop-Technologies/Finnical-Backend/main/user_files/user_4/354465641_20250619_190434_Chase3910_.csv",
+   "sha256": "617ca7d184e3382e4bd057e3ca708881b8012ca6787cece7f188d29b96ee12a4",
+   "bytes": 18432,
+   "n_rows": 363,
+   "span_days": 353,
+   "first": "2024-01-01",
+   "last": "2024-12-19",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a33.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a33.csv"
+  },
+  {
+   "id": "a34",
+   "repo": "YukioRivera/expenseTracker",
+   "path": "data/chase/raw/Chase1664_Activity20230101_20231231_20241127.CSV",
+   "url": "https://raw.githubusercontent.com/YukioRivera/expenseTracker/main/data/chase/raw/Chase1664_Activity20230101_20231231_20241127.CSV",
+   "sha256": "28b0bdcef9951051030dc4ea24aaebd7e7aa452f1e782e7fde1ba1208a2d7f94",
+   "bytes": 23302,
+   "n_rows": 358,
+   "span_days": 366,
+   "first": "2022-12-29",
+   "last": "2023-12-30",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a34.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a34.csv"
+  },
+  {
+   "id": "a35",
+   "repo": "YukioRivera/expenseTracker",
+   "path": "data/backup/Chase1664_Activity20240101_20241231_20251227.CSV",
+   "url": "https://raw.githubusercontent.com/YukioRivera/expenseTracker/main/data/backup/Chase1664_Activity20240101_20241231_20251227.CSV",
+   "sha256": "230fd1fbfd6aa083f46c085403b7a716bf8860caeb6bf9b3556de19d6471ce42",
+   "bytes": 22776,
+   "n_rows": 347,
+   "span_days": 363,
+   "first": "2024-01-01",
+   "last": "2024-12-29",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a35.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a35.csv"
+  },
+  {
+   "id": "a36",
+   "repo": "YukioRivera/expenseTracker",
+   "path": "data/chase/raw/Chase1664_Activity20250101_20251231_20260105.CSV",
+   "url": "https://raw.githubusercontent.com/YukioRivera/expenseTracker/main/data/chase/raw/Chase1664_Activity20250101_20251231_20260105.CSV",
+   "sha256": "3de3cc85c7bf06eb7287bc5a66f72a7b369cfc3df77759efdf6743b26f787837",
+   "bytes": 22033,
+   "n_rows": 340,
+   "span_days": 361,
+   "first": "2024-12-31",
+   "last": "2025-12-27",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a36.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a36.csv"
+  },
+  {
+   "id": "a37",
+   "repo": "derek-ye/apollo-offline",
+   "path": "src/scripts/archive/capone.csv",
+   "url": "https://raw.githubusercontent.com/derek-ye/apollo-offline/main/src/scripts/archive/capone.csv",
+   "sha256": "df39d3474f9ce2a8cdfaf2fb9b9bf25cfa6d0b97e2b0e71503f50e190f744805",
+   "bytes": 23295,
+   "n_rows": 336,
+   "span_days": 242,
+   "first": "2023-10-31",
+   "last": "2024-06-29",
+   "date_format": "%Y-%m-%d",
+   "cols": {
+    "date": "Transaction Date",
+    "amount": "Debit",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a37.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a37.csv"
+  },
+  {
+   "id": "a40",
+   "repo": "pdeepanraj/expensefiles",
+   "path": "files/2024/WellsFargo_2024.csv",
+   "url": "https://raw.githubusercontent.com/pdeepanraj/expensefiles/main/files/2024/WellsFargo_2024.csv",
+   "sha256": "18db020ac759000e4f32f26a0fce9fbdc670cefeee5b0720abad9fcae2784442",
+   "bytes": 15159,
+   "n_rows": 278,
+   "span_days": 365,
+   "first": "2024-01-01",
+   "last": "2024-12-31",
+   "date_format": "%m/%d/%Y",
+   "cols": {
+    "date": "Date",
+    "amount": "Amount",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a40.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a40.csv"
+  },
+  {
+   "id": "a41",
+   "repo": null,
+   "path": null,
+   "url": null,
+   "sha256": "9c643aa772f195fd3dbd3198a4583d5b663cc353cc5f2313d2b5b3c5f7c55449",
+   "bytes": 65580,
+   "n_rows": 258,
+   "span_days": 359,
+   "first": "2023-01-09",
+   "last": "2024-12-07",
+   "date_format": "%d/%m/%Y",
+   "cols": {
+    "date": "Posted Date",
+    "amount": "Debit",
+    "merchant": "Description"
+   },
+   "local": "raw/accounts/a41.csv",
+   "file": "/home/ubuntu/think-free/EXPERIMENTS/072-merchant-noise-raw/raw/accounts/a41.csv"
+  }
+ ],
+ "excluded": [
+  {
+   "id": "a04",
+   "repo": "jorb1/python_practice",
+   "reason": "ambiguous merchant columns [1, 11]"
+  },
+  {
+   "id": "a26",
+   "repo": "Shikha-7038/Expense-Tracker-App",
+   "reason": "merchant column holds hand-written budget categories, not bank descriptors (14/38 on the explicit list, 30/38 on the lowercase-two-words test; amounts run to 7392 which is a spending total, not a transaction)"
+  },
+  {
+   "id": "a13",
+   "repo": "mgmayaguari/Financial-Data-Analysis-Visualization",
+   "reason": "same transactions as a11 (Jaccard 0.834 on (date, amount))"
+  },
+  {
+   "id": "a25",
+   "repo": "YukioRivera/expenseTracker",
+   "reason": "same transactions as a23 (Jaccard 0.875 on (date, amount))"
+  },
+  {
+   "id": "a38",
+   "repo": "YukioRivera/expenseTracker",
+   "reason": "same transactions as a34 (Jaccard 0.927 on (date, amount))"
+  },
+  {
+   "id": "a39",
+   "repo": "YukioRivera/expenseTracker",
+   "reason": "same transactions as a35 (Jaccard 0.835 on (date, amount))"
+  },
+  {
+   "id": "a42",
+   "repo": null,
+   "reason": "same transactions as a41 (Jaccard 1.000 on (date, amount))"
+  }
+ ],
+ "n_accounts": 36,
+ "n_transactions": 34231,
+ "sha256_of_this_manifest": "fa18ec290ee31f5ae8354d51276e4ac24af2124b8357c7be33675deefcd03d1c"
+}

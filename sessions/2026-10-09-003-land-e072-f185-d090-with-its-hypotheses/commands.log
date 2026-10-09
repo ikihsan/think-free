@@ -1,0 +1,122 @@
+==============================================================================
+[seq 3] 2026-10-09T06:42:16+00:00
+$ python3 EXPERIMENTS/073-piecewise-price/eval_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/073-piecewise-price/eval_arms.py", line 328, in <module>
+    sys.exit(main() or 0)
+  File "EXPERIMENTS/073-piecewise-price/eval_arms.py", line 186, in main
+    keys = {brand(k) for k in det}
+  File "EXPERIMENTS/073-piecewise-price/eval_arms.py", line 186, in <setcomp>
+    keys = {brand(k) for k in det}
+  File "/home/ubuntu/think-free/EXPERIMENTS/073-piecewise-price/../072-merchant-noise-raw/probe_undergroup.py", line 30, in brand
+    s = raw.upper().strip()
+AttributeError: 'dict' object has no attribute 'upper'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 51517  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T06:46:47+00:00
+$ python3 EXPERIMENTS/073-piecewise-price/eval_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+Traceback (most recent call last):
+  File "EXPERIMENTS/073-piecewise-price/eval_arms.py", line 328, in <module>
+    sys.exit(main() or 0)
+  File "EXPERIMENTS/073-piecewise-price/eval_arms.py", line 202, in main
+    pwc_accepted["segments_%d" % g["segments"]] += 1
+KeyError: 'segments_4'
+------------------------------------------------------------------------------
+exit: 1  duration_ms: 87803  redactions: none
+==============================================================================
+[seq 7] 2026-10-09T07:03:21+00:00
+$ python3 EXPERIMENTS/073-piecewise-price/eval_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+corpus: 34 accounts, 29619 transactions
+watchlist: 33 families, 18 distinct merchants
+
+arm                    prec      rec       F1     TP     FP     FN   groups
+e065_raw             0.1165   0.3871   0.1791     12     91     19      103
+e073_pwc_raw         0.1489   0.4516   0.2240     14     80     17       94
+e073_pwc_norm        0.1414   0.4516   0.2154     14     85     17       99
+actual_raw           0.1081   0.3871   0.1690     12     99     19      111
+naive                0.0182   0.6774   0.0354     21   1135     10     1156
+
+permutation control e065_raw         baseline TP=12, 0/93 survive = 0.0000
+permutation control e073_pwc_raw     baseline TP=14, 0/93 survive = 0.0000
+
+leave-one-out (dropping a01, the largest account):
+   e065_raw           P 0.1200  R 0.4000  F1 0.1846
+   e073_pwc_raw       P 0.1429  R 0.4333  F1 0.2149
+   e073_pwc_norm      P 0.1354  R 0.4333  F1 0.2063
+   actual_raw         P 0.1009  R 0.3667  F1 0.1583
+   naive              P 0.0191  R 0.6667  F1 0.0372
+
+pwc accepted 105 groups: 76 one-segment, 29 two-segment (single-segment share 0.7238)
+added groups (pwc accepts, e065 rejects): 15, of which watchlist hits: 5
+dropped groups (e065 accepts, pwc rejects): 23, of which watchlist hits: 2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 33289  redactions: none
+==============================================================================
+[seq 8] 2026-10-09T07:06:39+00:00
+$ python3 EXPERIMENTS/073-piecewise-price/eval_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+corpus: 36 accounts, 34231 transactions
+watchlist: 33 families, 18 distinct merchants
+
+arm                    prec      rec       F1     TP     FP     FN   groups
+e065_raw             0.1000   0.3939   0.1595     13    117     20      130
+e073_pwc_raw         0.1261   0.4545   0.1974     15    104     18      119
+e073_pwc_norm        0.1210   0.4545   0.1911     15    109     18      124
+actual_raw           0.0909   0.4242   0.1497     14    140     19      154
+naive                0.0179   0.6970   0.0349     23   1263     10     1286
+
+permutation control e065_raw         baseline TP=13, 0/99 survive = 0.0000
+permutation control e073_pwc_raw     baseline TP=15, 0/99 survive = 0.0000
+
+leave-one-out (dropping a00, the largest account):
+   e065_raw           P 0.1143  R 0.3871  F1 0.1765
+   e073_pwc_raw       P 0.1474  R 0.4516  F1 0.2222
+   e073_pwc_norm      P 0.1400  R 0.4516  F1 0.2137
+   actual_raw         P 0.1062  R 0.3871  F1 0.1667
+   naive              P 0.0181  R 0.6774  F1 0.0353
+
+pwc accepted 132 groups: 98 one-segment, 34 two-segment (single-segment share 0.7424)
+added groups (pwc accepts, e065 rejects): 17, of which watchlist hits: 5
+dropped groups (e065 accepts, pwc rejects): 27, of which watchlist hits: 2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 35796  redactions: none
+==============================================================================
+[seq 19] 2026-10-09T07:29:40+00:00
+$ python3 EXPERIMENTS/073-piecewise-price/eval_arms.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+corpus: 36 accounts, 34231 transactions
+watchlist: 33 families, 18 distinct merchants
+
+arm                    prec      rec       F1     TP     FP     FN   groups
+e065_raw             0.1000   0.3939   0.1595     13    117     20      130
+e073_pwc_raw         0.1261   0.4545   0.1974     15    104     18      119
+e073_pwc_norm        0.1210   0.4545   0.1911     15    109     18      124
+actual_raw           0.0909   0.4242   0.1497     14    140     19      154
+naive                0.0179   0.6970   0.0349     23   1263     10     1286
+
+permutation control e065_raw         baseline TP=13, 0/99 survive = 0.0000
+permutation control e073_pwc_raw     baseline TP=15, 0/99 survive = 0.0000
+
+leave-one-out (dropping a00, the largest account):
+   e065_raw           P 0.1143  R 0.3871  F1 0.1765
+   e073_pwc_raw       P 0.1474  R 0.4516  F1 0.2222
+   e073_pwc_norm      P 0.1400  R 0.4516  F1 0.2137
+   actual_raw         P 0.1062  R 0.3871  F1 0.1667
+   naive              P 0.0181  R 0.6774  F1 0.0353
+
+pwc accepted 132 groups: 98 one-segment, 34 two-segment (single-segment share 0.7424)
+added groups (pwc accepts, e065 rejects): 17, of which watchlist hits: 5
+dropped groups (e065 accepts, pwc rejects): 27, of which watchlist hits: 2
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 43082  redactions: none

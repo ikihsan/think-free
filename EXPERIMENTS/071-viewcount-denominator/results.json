@@ -1,0 +1,87 @@
+{
+ "arms": {
+  "a_hackernews": {
+   "carrying_arrival_field": 0,
+   "keys_union": [],
+   "rate": 0.0,
+   "rows": 60,
+   "states": {
+    "absent": 60
+   },
+   "usable": 60
+  },
+  "b_github": {
+   "carrying_arrival_field": 0,
+   "keys_union": [],
+   "rate": 0.0,
+   "rows": 8,
+   "states": {
+    "absent": 7,
+    "not_an_object": 1
+   },
+   "usable": 8
+  },
+  "c_stackexchange_control": {
+   "carrying_arrival_field": 4,
+   "keys_union": [
+    "view_count"
+   ],
+   "rate": 1.0,
+   "rows": 4,
+   "states": {
+    "positive": 4
+   },
+   "usable": 4
+  }
+ },
+ "ceiling": "Scoped to the public documented API response objects, because that is the only surface E063/E066 harvested and the only one a reproduction can use. This does not claim HN and GitHub expose no view counters anywhere (a web UI or undocumented endpoint is untested); it claims the corpora carry no arrival field, so the software-arm cell cannot be a measured zero.",
+ "corrected_statement": "The E062 arrival instrument is measurable only where a platform publishes one. Stack Exchange does; the Hacker News and GitHub APIs do not. Every software-arm cell reading it in this record (E063, E066, E069, E070) is a missing observation, never a zero. The instrument is not falsified - it was never measured there.",
+ "date": "2026-10-09",
+ "effect_on_unlanded_work": [
+  "E069 (069-view-count-nonsoftware): the 'diametrically opposed / contradicts E063/E066' contrast compares a field that does not exist on the software platforms against one that does. Its CONFIRMED verdict is withdrawn; the 14% unserved-open-like share on non-software Stack Exchange is unaffected, because that arm measured a field the platform does return.",
+  "E070 (070-discourse-fresh-observation): inherits the same invalid ground_truth_context line ('0% view_count in software corpora'). Its own CFPB arms are unaffected (CFPB complaints are one arrival each by construction).",
+  "MISSION-OUTCOME.json: vc_always_100_percent and instrument_validated_outside_software cannot be recorded as observed; the corrected claim is that view_count is Stack-Exchange-shaped and unmeasured elsewhere."
+ ],
+ "experiment": "071-viewcount-denominator",
+ "gates": {
+  "G1_control_field_readable": {
+   "met": true,
+   "observed": "80 of 80 items positive (80 carry the key)",
+   "rate": 1.0,
+   "threshold": "Stack Exchange items carry a positive view_count on >= 95% of rows"
+  },
+  "G2_hackernews_field_absent": {
+   "met": true,
+   "observed": "0 of 60",
+   "rate": 0.0,
+   "threshold": "HN items carry any arrival field on 0% of rows"
+  },
+  "G3_github_field_absent": {
+   "met": true,
+   "observed": "0 of 8",
+   "rate": 0.0,
+   "threshold": "GitHub issue objects carry any arrival field on 0% of rows"
+  }
+ },
+ "kill_condition_met": true,
+ "question": "does the software arm's view_count zero exist, or is it a missing observation (D082)?",
+ "raw": {
+  "probe": "raw/probe.json",
+  "probed_keys": [
+   "view_count",
+   "views",
+   "viewCount",
+   "viewed",
+   "viewed_count",
+   "impressions",
+   "hits",
+   "pageviews"
+  ]
+ },
+ "stackexchange_item_level": {
+  "items": 80,
+  "positive": 80,
+  "with_key": 80
+ },
+ "verdict": "CONFIRMED: the software-arm '0% view_count' is a MISSING OBSERVATION, not a measured zero. Neither Hacker News nor the GitHub issues API returns any arrival/view field on any sampled object; Stack Exchange, the surface E062 actually measured, returns a positive view_count on every sampled item."
+}

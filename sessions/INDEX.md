@@ -3,18 +3,26 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-09
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
 
-179 recorded session(s). One `events.jsonl` per session, so concurrent
+187 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 154 older session(s) are in the directory listing.
+Showing the 25 most recent. 162 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | **unfinished** | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T02:58 |
+| [2026-10-09-002-land-the-unlanded-e067-e070-work-with-a](2026-10-09-002-land-the-unlanded-e067-e070-work-with-a/README.md) | unknown-agent | worked | Land the unlanded E067-E070 work with a source manifest for the 5.5GB  | 2026-10-09T02:54 |
+| [2026-10-09-001-declare-remaining-artifacts-from-e070-se](2026-10-09-001-declare-remaining-artifacts-from-e070-se/README.md) | unknown-agent | worked | Declare remaining artifacts from E070 session | 2026-10-09T00:10 |
+| [2026-10-08-028-fresh-observation-in-a-new-non-software](2026-10-08-028-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find convergent-unan | 2026-10-09T00:09 |
+| [2026-10-08-027-explore-the-existence-checking-false-acc](2026-10-08-027-explore-the-existence-checking-false-acc/README.md) | unknown-agent | worked | Explore the existence-checking false-accept problem from E064: measure | 2026-10-08T22:47 |
+| [2026-10-08-026-artifact-e067-framework-files](2026-10-08-026-artifact-e067-framework-files/README.md) | unknown-agent | worked | Artifact E067 framework files | 2026-10-08T22:01 |
+| [2026-10-08-025-build-e067-view-count-measurement-framew](2026-10-08-025-build-e067-view-count-measurement-framew/README.md) | unknown-agent | worked | Build E067 view-count measurement framework prototype | 2026-10-08T21:59 |
+| [2026-10-08-024-synthesize-view-count-instrument-finding](2026-10-08-024-synthesize-view-count-instrument-finding/README.md) | unknown-agent | worked | Synthesize view_count instrument findings and identify next testable o | 2026-10-08T21:24 |
 | [2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi](2026-10-08-023-log-remaining-artifacts-from-doc-lint-fi/README.md) | unknown-agent | worked | Log remaining artifacts from doc lint fixes | 2026-10-08T20:44 |
 | [2026-10-08-022-begin-fresh-observation-in-a-new-domain](2026-10-08-022-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain outside software: investigate  | 2026-10-08T20:43 |
 | [2026-10-08-021-test-e038-s-189-github-issues-and-e012-s](2026-10-08-021-test-e038-s-189-github-issues-and-e012-s/README.md) | unknown-agent | worked | Test E038's 189 GitHub issues and E012's 1401 HN needs against answera | 2026-10-08T17:38 |
@@ -32,14 +40,6 @@ Showing the 25 most recent. 154 older session(s) are in the directory listing.
 | [2026-10-08-007-declare-e058-raw-artifacts-and-land-sess](2026-10-08-007-declare-e058-raw-artifacts-and-land-sess/README.md) | unknown-agent | worked | Declare E058 raw artifacts and land session 2026-10-08-006's stream | 2026-10-08T05:22 |
 | [2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne](2026-10-08-006-fresh-observation-probe-per-d080-on-a-ne/README.md) | unknown-agent | worked | Fresh-observation probe per D080 on a new corpus/population; pre-regis | 2026-10-08T05:17 |
 | [2026-10-08-006-fresh-observation-outside-software-measu](2026-10-08-006-fresh-observation-outside-software-measu/README.md) | unknown-agent | worked | Fresh observation outside software: measure what happens to publicly s | 2026-10-08T05:53 |
-| [2026-10-08-005-land-session-2026-10-08-003-s-uncommitte](2026-10-08-005-land-session-2026-10-08-003-s-uncommitte/README.md) | unknown-agent | worked | Land session 2026-10-08-003's uncommitted stream, then run fresh obser | 2026-10-08T04:56 |
-| [2026-10-08-005-fresh-observation-measure-whether-a-proj](2026-10-08-005-fresh-observation-measure-whether-a-proj/README.md) | unknown-agent | worked | Fresh observation: measure whether a project's own tests, read statica | 2026-10-08T03:47 |
-| [2026-10-08-003-fresh-observation-to-find-a-testable-pra](2026-10-08-003-fresh-observation-to-find-a-testable-pra/README.md) | unknown-agent | worked | Fresh observation to find a testable practical difficulty: name the po | 2026-10-08T04:23 |
-| [2026-10-08-003-fresh-observation-identify-a-concrete-te](2026-10-08-003-fresh-observation-identify-a-concrete-te/README.md) | unknown-agent | worked | Fresh observation: identify a concrete testable problem and run its fi | 2026-10-08T01:34 |
-| [2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00](2026-10-08-002-record-e054-t-0086-and-the-2026-10-08-00/README.md) | unknown-agent | worked | record E054, T-0086, and the 2026-10-08-001 landing in STATE.md | 2026-10-08T00:55 |
-| [2026-10-08-001-land-pending-0947-artifacts-complete-t-0](2026-10-08-001-land-pending-0947-artifacts-complete-t-0/README.md) | unknown-agent | worked | land pending 0947 artifacts; complete T-0086; hash-fidelity check on E | 2026-10-08T00:49 |
-| [2026-10-07-017-fresh-exploration-for-a-new-candidate-af](2026-10-07-017-fresh-exploration-for-a-new-candidate-af/README.md) | unknown-agent | worked | Fresh exploration for a new candidate after stg withdrawal | 2026-10-08T00:08 |
-| [2026-10-07-016-conclude-e051-experiment-and-identify-ne](2026-10-07-016-conclude-e051-experiment-and-identify-ne/README.md) | unknown-agent | worked | Conclude E051 experiment and identify new candidate | 2026-10-07T22:40 |
 
 
 ## Reading a session

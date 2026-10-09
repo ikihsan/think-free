@@ -58,3 +58,21 @@ EXPERIMENTS/065-recurring-expense-detection/corpus/synthetic/
 # The record is raw/SOURCES.md - url, bytes and sha256 per file - and one curl
 # command per file rebuilds them, by the same clause as sdists/.
 EXPERIMENTS/066-berka-real-validation/raw/*.csv
+# E070's CFPB bulk archive (5.5 GB expanded, 352 MB zipped) from
+# files.consumerfinance.gov/ccdb/. The record is raw/SOURCES.md - url, sha256
+# and bytes per file - plus the 10,000-row sample process_csv.py wrote
+# (raw/cfpb_complaints.jsonl), which is tracked, by the same clause as sdists/.
+EXPERIMENTS/070-discourse-fresh-observation/raw/complaints.csv
+EXPERIMENTS/070-discourse-fresh-observation/raw/complaints.csv.zip
+# E072's corpus: 36 REAL bank exports belonging to identifiable people, 3.6 MB
+# across 43 files, fetched from raw.githubusercontent.com. The record is
+# raw/SOURCES.json - repo, path, url, bytes and sha256 per file, plus the column
+# names, row count and date span finalize.py computed from them. `finalize.py`
+# re-hashes every file on each run and refuses a corpus whose bytes do not match
+# their record. This is the same clause as E070's CFPB bulk archive and it is
+# the one that matters most here, because these files are other people's bank
+# statements rather than a published dataset: they are read, hashed, counted and
+# never copied into the repository. raw/CORPUS.json IS tracked, because it
+# carries no descriptor strings -- only account ids, hashes, row counts and the
+# reason each exclusion fired.
+EXPERIMENTS/072-merchant-noise-raw/raw/accounts/

@@ -61,3 +61,64 @@ has no tail where a tool could start (`unserved-open` = 0). The route is
 retired as a candidate source. Per D083, any successor session starts from
 fresh observation in a new domain with a runnable falsification experiment
 (stdlib-only, synthetic fixtures, predeclared kill gates).
+## F101 — the software arm's `view_count` zero was a missing observation, and E069's confirmation was a platform artifact
+
+**What happened.** Four experiments (E067, E067b, E069 ×2) and
+`MISSION-OUTCOME.json` were sitting unlanded on the tree, all resting on E069's
+headline: *100% of non-software need statements have `view_count` > 0 …
+this **directly contradicts the E063/E066 finding** … `view_count` is 0% in
+software need corpora … the instrument's domain scope is **not
+software-narrow**.* That contrast is what "validated the instrument outside
+software" rests on, and E070 lists it as `ground_truth_context`. E069 had read
+the software cells as **measured zeros**; the question of whether they are
+zeros at all had never been asked.
+
+E071 asked it, with three arms and a predeclared kill condition
+([`EXPERIMENTS/071-viewcount-denominator/`](EXPERIMENTS/071-viewcount-denominator/README.md)).
+Probing eight spellings of an arrival field across 148 returned objects:
+**Hacker News 0 of 60 items carry one, the GitHub issues API 0 of 8, and
+Stack Exchange — the surface E062 actually measured — 80 of 80 items carry a
+positive `view_count`.** All three gates fired. The instrument can say no: its
+classifier returns `zero` / `positive` / `absent` / `not_an_object` correctly
+on five fabricated cases, and arm C is what makes arms A and B interpretable,
+because it shows the harness reads the field when a platform returns it.
+
+**Why it happened.** The E063/E066 corpora were harvested from exactly those two
+APIs, which publish no arrival count — so the software arm of E069's comparison
+was reading a field that does not exist and recording its absence as `0`.
+That is **D082 committed a second time**: an arm that produced no observation
+is a missing observation, never a zero and never a denominator, and a session
+that had just written D082 down read its own rule and then harvested a field
+the platform does not serve. The same E063/E066 rows that produced eight
+`unserved-open` zeros — the result the route retirement rests on — are
+unaffected, because `unserved-open` was labelled from an outcome field both
+platforms do return. **This finding does not reopen the need-harvest
+retirement.**
+
+**What it costs.** E069's `CONFIRMED` verdict is withdrawn, and
+`MISSION-OUTCOME.json`'s `vc_always_100_percent` and
+`instrument_validated_outside_software` cannot be recorded as observed. The
+corrected statement is narrower and survives: **`view_count` is
+Stack-Exchange-shaped.** It is a real arrival measure where a platform
+publishes one, and every software-arm reading of it in this record
+(E063, E066, E069, E070) is missing rather than zero. It also retires a route
+rather than opening one — carrying `view_count` into software corpora to see
+arrivals E063 could not see is now known to be **impossible from those APIs**,
+not merely unmeasured, so a fresh observation has to come from a surface that
+publishes arrivals.
+
+**Ceiling:** scoped to the public documented API response objects, because
+that is the only surface E063/E066 harvested and the only one a reproduction
+can use. This does **not** claim HN and GitHub expose no view counters
+anywhere; a web UI or an undocumented endpoint is untested, and GitHub's
+per-issue `reactions.total_count` was probed for and is not an arrival count.
+The claim is the narrow one that blocks the landing: the corpora carry no
+arrival field, so the software-arm cell cannot be a measured zero.
+
+**A second defect, found by using the allocator to write this entry.** F097's
+own findings row quotes the bike serial `SNACEOSF18391`, and the allocator's
+cell pattern had no word boundary — so the serial's `F183` counted as a defined
+finding and `origin id next F` handed out **F184**, skipping 83 numbers. The
+rule against counting a citation as an allocation was already written in the
+same module, and the stricter pattern existed next door in `identifiers.py`.
+Repaired, falsified against its own bytes, and recorded as **defect 26**.

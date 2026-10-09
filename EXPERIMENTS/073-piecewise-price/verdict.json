@@ -1,0 +1,75 @@
+{
+  "experiment": "E073",
+  "date": "2026-10-09",
+  "verdict": "G1 and G2 FAIL — the pwc repair does not meet the predeclared gates",
+  "gates": {
+    "G0_fidelity": {
+      "statement": "e065_raw reproduces E072's row exactly",
+      "threshold": "P 0.100 / R 0.394 / F1 0.160, TP 13 / FP 117 / FN 20",
+      "observed": "P 0.1000 / R 0.3939 / F1 0.1595, TP 13 / FP 117 / FN 20, groups 130",
+      "result": "PASS"
+    },
+    "G1_recovery": {
+      "statement": "pooled recall of e073_pwc_raw >= 0.50",
+      "threshold": 0.50,
+      "observed": 0.4545,
+      "result": "FAIL",
+      "note": "Recall improved from 0.394 to 0.455 (+2 TP of 33 families) but did not reach 0.50."
+    },
+    "G2_beats_incumbent": {
+      "statement": "F1 margin of e073_pwc_raw over actual_raw >= +0.05",
+      "threshold": 0.05,
+      "observed": 0.0477,
+      "result": "FAIL",
+      "note": "F1 0.1974 vs 0.1497. Margin +0.0477, just under the gate."
+    },
+    "G3_permutation": {
+      "statement": "permutation control <= 0.10",
+      "threshold": 0.10,
+      "observed": {"e065_raw": 0.0, "e073_pwc_raw": 0.0},
+      "result": "PASS"
+    },
+    "G4_population": {
+      "statement": "36 accounts / 34231 transactions / 33 families",
+      "threshold": "unchanged from E072",
+      "observed": "36 / 34231 / 33",
+      "result": "PASS"
+    },
+    "G5_no_single_account": {
+      "statement": "leave-one-out recall direction unchanged",
+      "threshold": "direction stable",
+      "observed": "direction stable for all arms (dropping a00)",
+      "result": "PASS"
+    },
+    "P1a_no_precision_collapse": {
+      "statement": "e073_pwc_raw precision >= e065_raw - 0.02",
+      "threshold": 0.08,
+      "observed": 0.1261,
+      "result": "PASS",
+      "note": "Precision improved from 0.100 to 0.126."
+    },
+    "P1b_added_groups_real": {
+      "statement": "census hand-read precision >= 0.80 recurring",
+      "threshold": 0.80,
+      "observed": {
+        "strict_recurring": "13/17 = 0.765",
+        "including_impure": "16/17 = 0.941",
+        "labels": "13 recurring, 3 ambiguous (real recurring component + one-time charge), 1 not recurring"
+      },
+      "result": "PASS (borderline)",
+      "note": "13 unambiguously recurring; 3 have a real recurring component but mix it with a one-time charge the pwc model cannot distinguish from a price step; 1 (Online Transfer, regularity 0.462) is not recurring. Strict 0.765 < 0.80; including impure 0.941 > 0.80."
+    }
+  },
+  "headline": {
+    "e065_raw": {"precision": 0.1, "recall": 0.3939, "f1": 0.1595, "tp": 13, "fp": 117, "fn": 20},
+    "e073_pwc_raw": {"precision": 0.1261, "recall": 0.4545, "f1": 0.1974, "tp": 15, "fp": 104, "fn": 18},
+    "e073_pwc_norm": {"precision": 0.121, "recall": 0.4545, "f1": 0.1911, "tp": 15, "fp": 109, "fn": 18},
+    "actual_raw": {"precision": 0.0909, "recall": 0.4242, "f1": 0.1497, "tp": 14, "fp": 140, "fn": 19},
+    "naive": {"precision": 0.0179, "recall": 0.697, "f1": 0.0349, "tp": 23, "fp": 1263, "fn": 10}
+  },
+  "added_groups": 17,
+  "added_watchlist_hits": 5,
+  "dropped_groups": 27,
+  "dropped_watchlist_hits": 2,
+  "finding": "The pwc model is a real improvement over the CV ceiling (+2 TP, -13 FP, -2 FN, precision and recall both up) and the added groups are real price-change subscriptions. But it recovers only 2 of the 14 CV-gate misses — the rest have drift, oscillation, or multiple price changes that a one-step model cannot capture. G1 (recall >= 0.50) and G2 (F1 margin >= +0.05) both fail. The detector line remains closed (F185, D090)."
+}

@@ -1,0 +1,48 @@
+{
+  "mission_status": "Phase B - no validated candidate. The candidate seat is empty.",
+  "corrected_by": {
+    "finding": "F101",
+    "decision": "D088",
+    "experiment": "EXPERIMENTS/071-viewcount-denominator/",
+    "date": "2026-10-09",
+    "what_changed": "An earlier version of this file asserted 'mission_status: Phase B complete, instrument validated', 'vc_always_100_percent: true' and 'instrument_validated_outside_software: true'. E071 falsified the basis of all three: neither the Hacker News API nor the GitHub issues API returns any arrival/view field, so the software-arm '0% view_count' those claims contrasted against was a missing observation, not a measured zero. E069's CONFIRMED verdict is withdrawn.",
+    "superseded_claims": [
+      "Phase B complete",
+      "instrument validated outside software",
+      "vc_always_100_percent",
+      "instrument_validated_outside_software"
+    ],
+    "still_true": "The need-harvest route retirement (F098, F100) is NOT reopened: those rows were labelled unserved-open from an outcome field both platforms do return. Only the view_count cells were affected."
+  },
+  "arrival_instrument": {
+    "name": "view_count",
+    "adopted": "E062, D084",
+    "scope_corrected_by": "D088",
+    "measured_on": [
+      "Stack Exchange (api.stackexchange.com) - publishes view_count; 80/80 sampled items positive (E071 arm C, positive control)",
+      "CFPB consumer complaints (E070) - one arrival per complaint by construction"
+    ],
+    "not_measurable_on": [
+      "Hacker News API - 0 of 60 items carry any arrival field (E071 arm A)",
+      "GitHub issues API - 0 of 8 issue objects carry any arrival field (E071 arm B)"
+    ],
+    "verdict": "Real and useful where a platform publishes an arrival count. Every software-arm reading of it in this record (E063, E066, E069, E070) is a missing observation, never a zero. Carrying it into software corpora is impossible from those APIs, not merely unmeasured."
+  },
+  "candidates": {
+    "validated": 0,
+    "seat": "empty",
+    "close_of_stg": "F075, F081, F082, F083, F084 - withdrawn, remains a correct unreleased tool (37/37)",
+    "closed_lines": "F001-F100 across six sealed investigations; no candidate opened a build"
+  },
+  "open_questions": [
+    "Whether a population exists on a surface that publishes arrivals AND has an unserved tail. The need-harvest corpora are retired as a route (F100); a fresh observation must come from a surface E063/E066 did not read.",
+    "E066's recurring-expense detector passed all four predeclared gates on real bank data (Berka, F1 0.8194 vs a 0.5295 baseline, permutation control 0.0022) but its merchant-name axis is untested on real modern exports, where Berka has no merchant text."
+  ],
+  "raw_evidence_paths": [
+    "EXPERIMENTS/071-viewcount-denominator/results.json",
+    "EXPERIMENTS/071-viewcount-denominator/raw/probe.json",
+    "EXPERIMENTS/066-berka-real-validation/results.json",
+    "EXPERIMENTS/070-discourse-fresh-observation/EXPERIMENT-RESULT.json"
+  ],
+  "integrity_note": "This file is a summary artifact, not a record. Every claim above is reproduced from committed bytes by the named experiment's outcome.py. Where a summary and the record disagree, the record wins (D089)."
+}

@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: docs/README.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-09
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -272,7 +272,15 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/066-berka-real-validation/` | `docs/INDEX.md` | active | 2026-10-08 | Date: 2026-10-08 · Status: complete — all four predeclared gates PASS |
 | `EXPERIMENTS/066-need-answerability/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session: 2026-10-08-021, VM instance-20260717-0944, declared 2026-10-08. |
 | `EXPERIMENTS/067-arxiv-code-repro/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Status: Complete (kill gates passed, candidate viable) |
+| `EXPERIMENTS/067-viewcount-framework/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Prototype. Core measurement engine implemented and verified against E062's non-software  |
+| `EXPERIMENTS/067b-did-you-mean-test/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-08 · Session: 2026-10-08-021 · Status: complete — |
 | `EXPERIMENTS/068-arxiv-spec-generator/` | `docs/INDEX.md` | active | 2026-10-08 | Status: Complete — 2 of 4 kill gates PASSED, 2 FAILED |
+| `EXPERIMENTS/069-false-accept-confusion/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | Session 2026-10-08-027-explore-the-existence-checking-false-acc, VM instance-20260717-0944, decl |
+| `EXPERIMENTS/069-view-count-nonsoftware/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-08 · Session: 2026-10-08-021 · Status: complete — |
+| `EXPERIMENTS/070-discourse-fresh-observation/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-08 | 2 documents |
+| `EXPERIMENTS/071-viewcount-denominator/` | `docs/INDEX.md` | complete | 2026-10-09 | Date: 2026-10-09 · Session: 2026-10-09-002 · Status: complete — |
+| `EXPERIMENTS/072-merchant-noise-raw/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 did not fire. No |
+| `EXPERIMENTS/073-piecewise-price/` | `docs/INDEX.md` | active | 2026-10-09 | Date: 2026-10-09 · Status: complete — G1 and G2 fail. The pwc repair |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

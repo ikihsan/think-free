@@ -1,0 +1,63 @@
+{
+ "gates": [
+  {
+   "gate": "G4",
+   "name": "population is real and big enough",
+   "requirement": ">= 8 accounts, >= 3000 transactions, >= 12 hand-verified merchants",
+   "observed": "36 accounts, 34231 transactions, 18 distinct merchants",
+   "fired": true,
+   "consequence": "verdict is measurable"
+  },
+  {
+   "gate": "G1",
+   "name": "the mechanism survives merchant strings",
+   "requirement": "precision >= 0.60 AND recall >= 0.50 on real modern exports",
+   "observed": "precision 0.1000 (watchlist-scored, a LOWER BOUND), recall 0.3939",
+   "fired": false,
+   "consequence": "the merchant axis destroyed E066's result -- LINE CLOSED"
+  },
+  {
+   "gate": "G2",
+   "name": "beats the strongest accessible alternative",
+   "requirement": "F1 margin over Actual Budget findSchedules on the same raw strings >= +0.05",
+   "observed": "e065_raw F1 0.1595, actual_raw F1 0.1497, margin +0.0098",
+   "fired": false,
+   "consequence": "no differentiation against the strongest alternative -- NOTHING IS BUILT",
+   "handicap_note": "actual_raw is a LOWER BOUND on the incumbent: in production Actual matches on a payee its importer has already cleaned, and this arm gives it the same dirty strings E065 gets. A negative margin here is therefore not evidence that E065 is better."
+  },
+  {
+   "gate": "G3",
+   "name": "the instrument can say no",
+   "requirement": "permutation control <= 0.10",
+   "observed": "0 of 99 positives survive within-account date shuffling = 0.0000",
+   "fired": true,
+   "consequence": "results are not an artifact of date structure"
+  },
+  {
+   "gate": "G5",
+   "name": "no single account decides it",
+   "requirement": "the G1 direction is unchanged when the largest account is dropped",
+   "observed": "dropped a00; arms whose precision verdict flips: none",
+   "fired": true,
+   "consequence": "the result is not one person's spending"
+  }
+ ],
+ "verdict": "CLOSED on the E065 detector as shipped: G1, G2 did not fire. No candidate, no prototype.",
+ "fired": [
+  "G4",
+  "G3",
+  "G5"
+ ],
+ "failed": [
+  "G1",
+  "G2"
+ ],
+ "primary_arm": "e065_raw",
+ "arms_ranked_by_f1": [
+  "e065_raw",
+  "actual_raw",
+  "actual_shared",
+  "e065_normalized",
+  "naive"
+ ]
+}

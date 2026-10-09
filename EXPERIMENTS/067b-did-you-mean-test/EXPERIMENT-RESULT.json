@@ -1,0 +1,55 @@
+{
+  "experiment": "E067b",
+  "title": "Test did you mean prototype against E064 mutation set",
+  "session": "2026-10-08-021",
+  "date": "2026-10-08",
+  "hypothesis": "The E067 did you mean prototype will correctly identify a high proportion of E064 false accepts as did you mean cases, with recall >= 0.80 and specificity >= 0.90",
+  "ground_truth": {
+    "false_accept_count": 93,
+    "true_negative_count": 483,
+    "total_mutations": 576,
+    "source": "EXPERIMENTS/064-remedy-existence/raw/metadata-falseaccepts.json"
+  },
+  "results": {
+    "prototype": {
+      "name": "E067 didyoumean.py (prefix/suffix matching on PyPI)",
+      "tp": 0,
+      "fp": 93,
+      "tn": 483,
+      "fn": 0,
+      "recall": 0.0,
+      "specificity": 1.0,
+      "assessment": "0% recall - all false accepts missed"
+    },
+    "edit_distance_baseline": {
+      "name": "difflib.get_close_matches(cutoff=0.3) on 576 mutation names",
+      "tp": 93,
+      "fp": 0,
+      "tn": 0,
+      "fn": 483,
+      "recall": 1.0,
+      "specificity": 0.0,
+      "assessment": "100% recall, 0% specificity - flags everything"
+    }
+  },
+  "kill_gate": {
+    "recall_threshold": 0.8,
+    "specificity_threshold": 0.9,
+    "recall_met": false,
+    "specificity_met": true,
+    "overall": "FAIL",
+    "assessment": "Hypothesis falsified. Neither approach achieves both thresholds."
+  },
+  "raw_evidence": {
+    "results_file": "EXPERIMENTS/067b-did-you-mean-test/results-raw.json",
+    "mutation_names_file": "EXPERIMENTS/064-remedy-existence/raw/mutations.json (613 entries with arm/ecosystem/intended/seed; the 576 this experiment scored are a subset. A local mutation-names.txt copy was removed on 2026-10-09: it was byte-redundant with this committed source and its 576 lines tripped the doc-lint cap.)",
+    "e064_ground_truth": "EXPERIMENTS/064-remedy-existence/raw/metadata-falseaccepts.json",
+    "e064_mutations": "EXPERIMENTS/064-remedy-existence/raw/mutations.json"
+  },
+  "conclusion": "HYPOTHESIS FALSIFIED. The E067 did you mean prototype correctly identifies 0% of E064 false accepts (recall = 0.0). The edit-distance baseline achieves 100% recall but 0% specificity (flags all names as similar). The problem is fundamentally semantic: near-miss package names that resolve to different projects cannot be distinguished from syntactically similar names that resolve to the intended project using deterministic suffix/prefix or edit-distance methods alone. This closes the loop on E064's untested observation about \"did you mean\" warnings.",
+  "LANDING_NOTE": {
+    "finding": "F101",
+    "date": "2026-10-09",
+    "note": "No protocol was written before this run; the predeclared thresholds are the two in kill_gate. Verdict unchanged by E071 - this experiment never read a view_count field. See README.md for the protocol-after-the-fact reading and its ceiling."
+  }
+}

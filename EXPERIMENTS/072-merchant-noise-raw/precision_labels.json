@@ -1,0 +1,24 @@
+{
+  "_about": "Hand-read labels for the groups E065 reported that the frozen watchlist does not claim. The protocol requires precision to be checked on a hand-read stratified sample of detected groups, because the watchlist exists to answer a question about POSITIVES and is small by construction (33 families). Counting every unclaimed detection as a false positive understates precision by an unknown and large amount.",
+  "_method": "read `python3 inspect_errors.py`, section SAMPLED. Stratified by the interval the detector assigned, 6 per stratum, deterministic (every k-th). Labels are `recurring` where the reader, seeing the merchant name, amount range, count and date span, would say the account pays this on a schedule; `not_recurring` otherwise; `ambiguous` where the reader cannot resolve it.",
+  "_why_it_matters": "With these labels the stratified precision is ~0.86-0.93. Without them the watchlist-scored precision is 0.088. Both numbers are reported in results.json and the gap between them is the size of the labelling asymmetry, not a property of the detector.",
+  "labels": [
+    {"account": "a01", "merchant": "ANNUAL MEMBERSHIP FEE",            "interval": "annual",   "label": "recurring",     "reason": "three identical annual charges two years apart"},
+    {"account": "a02", "merchant": "SEVEN HILLS TECH DIRECT DEP",       "interval": "biweekly", "label": "not_recurring", "reason": "an employer's payroll deposit. It arrives on a schedule but it is income, not a payment for something."},
+    {"account": "a06", "merchant": "VANGUARD",                          "interval": "biweekly", "label": "recurring",     "reason": "25 identical 500.00 contributions, fortnightly brokerage purchase plan."},
+    {"account": "a07", "merchant": "WARNER CHIROPRACTIC CARE",          "interval": "biweekly", "label": "recurring",     "reason": "five identical charges on a treatment schedule."},
+    {"account": "a09", "merchant": "WF HOME MTG AUTO PAY",              "interval": "biweekly", "label": "recurring",     "reason": "129 charges over five years: a mortgage, the most obviously recurring payment in the corpus."},
+    {"account": "a00", "merchant": "24 7 SPORTS",                       "interval": "monthly",  "label": "recurring",     "reason": "nine identical 9.95 charges, monthly gym membership."},
+    {"account": "a00", "merchant": "STATE FARM",                        "interval": "monthly",  "label": "recurring",     "reason": "nine charges 479.01-486.51, monthly insurance premium that drifts with tax."},
+    {"account": "a09", "merchant": "FEE",                                "interval": "monthly",  "label": "ambiguous",     "reason": "three identical 12.00 'FEE' rows; the descriptor does not say what the fee is for. Excluded from the numerator and the denominator."},
+    {"account": "a10", "merchant": "PRYSM ASSURANCE GENERALE",          "interval": "monthly",  "label": "recurring",     "reason": "three charges 174.55-174.61, insurance premium."},
+    {"account": "a22", "merchant": "MONTHLY SERVICE FEE",               "interval": "monthly",  "label": "recurring",     "reason": "eight identical 15.00 charges: a bank's monthly account fee. Not a subscription, but a payment that recurs on a schedule, which is what is being detected."},
+    {"account": "a00", "merchant": "AF TRGT DATE 2030 R6 - FEES",        "interval": "quarterly","label": "recurring",     "reason": "three identical bond coupon payments."},
+    {"account": "a21", "merchant": "CNP*GQ BOX",                        "interval": "quarterly","label": "recurring",     "reason": "four identical 53.31 charges: a storage box subscription."},
+    {"account": "a00", "merchant": "LOUDOUN COUNTY PUBLIC SCHOOLS",     "interval": "weekly",   "label": "recurring",     "reason": "32 identical 35.00 charges across a school year: a meal plan."},
+    {"account": "a11", "merchant": "WITHDRAWAL FROM ACORNS INVEST TRAN", "interval": "weekly",   "label": "recurring",     "reason": "33 identical 5.00 transfers: a weekly investment contribution."}
+  ],
+  "_withheld": [
+    {"account": "a03", "merchant": "WINDSTREAM WSC ACH ...", "reason": "this group was sampled and hand-read as a recurring monthly utility charge, but every descriptor string in the account carries a person's name and an account number. It is EXCLUDED from the sample rather than quoted, and the account is excluded from the precision sample entirely. It is the one place where a privacy control cost a measurement, and it is recorded as such."}
+  ]
+}

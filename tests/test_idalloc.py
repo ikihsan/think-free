@@ -135,6 +135,27 @@ class FindingsAndDecisionTest(RepoTest):
         )
         self.assertEqual(idalloc.next_identifier("F"), "F004")
 
+    def test_an_identifier_inside_a_quoted_string_is_not_an_allocation(self) -> None:
+        """F097's own row quotes the bike serial SNACEOSF18391.
+
+        The cell pattern has no word boundary, so that serial reads as finding
+        183 and the allocator hands out F184. The boundary is what keeps a
+        quoted string from allocating an identifier (defect 26).
+        """
+        self.write(
+            "FAILURES.md",
+            "| Id | Subject |\n|---|---|\n"
+            "| F097 | Bike serial `SNACEOSF18391` decoded by no source. |\n",
+        )
+        self.assertEqual(idalloc.next_identifier("F"), "F098")
+
+    def test_the_boundary_holds_from_the_trailing_side_too(self) -> None:
+        self.write(
+            "FAILURES.md",
+            "| Id | Subject |\n|---|---|\n| F004 | the tag SNACEOSF1839A is one row |\n",
+        )
+        self.assertEqual(idalloc.next_identifier("F"), "F005")
+
     def test_decision_spans_declare_both_endpoints(self) -> None:
         self.write("DECISIONS.md", "| File | Decisions |\n|---|---|\n| DECISIONS-GATING.md | D024–D029 |\n")
         self.assertEqual(idalloc.next_identifier("D"), "D030")

@@ -1,0 +1,407 @@
+{
+ "_about": "Hand-read labels for E072. Every entry names a (account, brand) family that a person reading the raw descriptor strings would call a RECURRING PAYMENT: a subscription, a plan, or a monthly bill. Read from `python3 relabel.py` output; no detector output was consulted. Frozen before eval_arms.py ran. Accounts are the CORPUS.json ids; brands are the `probe_undergroup.brand()` token.",
+ "_labelling_rule": "A family is POSITIVE if the reader, seeing the raw strings and the dates and amounts, would say 'this is one thing I pay for on a schedule'. It is EXCLUDED (not counted as negative) when the family mixes a recurring charge with unrelated purchases under one brand token -- AMAZON is the standing example, where a cardholder's grocery orders and their Prime membership share the token. Excluded families are listed in `excluded_families` with the reason, so the exclusion is auditable and not silent.",
+ "_counts_note": "G4 requires >= 12 hand-verified subscription merchants. The gate is on DISTINCT MERCHANTS, so (a03 SPOTIFY) and (a04 SPOTIFY) count once.",
+ "families": [
+  {
+   "account": "a00",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "9 rows, 244d span, median gap 30.5d, amount cv 0.04 -- one monthly subscription."
+  },
+  {
+   "account": "a00",
+   "brand": "ADOBE",
+   "merchant": "Adobe",
+   "reason": "18 rows across a year; raw strings are plain 'Adobe' with occasional ids. Monthly Creative Cloud."
+  },
+  {
+   "account": "a01",
+   "brand": "COMCAST",
+   "merchant": "Comcast",
+   "reason": "24 rows over 700d, median gap 30d, identical 39.99 amount -- monthly broadband."
+  },
+  {
+   "account": "a02",
+   "brand": "SPECTRUM",
+   "merchant": "Spectrum",
+   "reason": "18 rows over 790d, median gap 31d, cv 0.08, amount 44.99 -- monthly broadband. Raw strings carry two different area codes, which is the merchant axis under test."
+  },
+  {
+   "account": "a02",
+   "brand": "YOUTUBE",
+   "merchant": "YouTube TV",
+   "reason": "18 rows over 729d, median gap 31d, cv 0.13, amount 61.52 -- monthly TV subscription."
+  },
+  {
+   "account": "a03",
+   "brand": "AMAZON",
+   "merchant": "Amazon Prime",
+   "reason": "13 rows, 365d span, median gap 30d, cv 0.000, amount 16.04 -- one annual-billed monthly subscription at a fixed price. Every raw string is a different AMAZON PRIME*<random> id."
+  },
+  {
+   "account": "a03",
+   "brand": "GOOGLE",
+   "merchant": "Google One",
+   "reason": "13 rows, 367d, gap 30.5d, cv 0.000, amount 9.99 -- monthly subscription at a fixed price."
+  },
+  {
+   "account": "a03",
+   "brand": "PRIME",
+   "merchant": "Prime Video",
+   "reason": "5 rows over 323d, median gap 49.5d, amount 3.20 -- the Prime Video channel fee, billed irregularly but a subscription."
+  },
+  {
+   "account": "a03",
+   "brand": "SPECTRUM",
+   "merchant": "Spectrum",
+   "reason": "12 rows, 334d, gap 30d, cv 0.02, amount 115.00 -- monthly broadband."
+  },
+  {
+   "account": "a05",
+   "brand": "AMAZON",
+   "merchant": "Amazon Prime",
+   "reason": "21 rows over 609d, median gap 30d, cv 0.038, amount 14.99 -- monthly Prime at a fixed price."
+  },
+  {
+   "account": "a05",
+   "brand": "PRIME",
+   "merchant": "Prime Video",
+   "reason": "41 rows over 610d, amount 8.99 -- Prime Video channel fees."
+  },
+  {
+   "account": "a05",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "8 rows over 214d, median gap 30d, cv 0.000, amount 9.99 -- monthly at a fixed price."
+  },
+  {
+   "account": "a06",
+   "brand": "HULU",
+   "merchant": "Hulu",
+   "reason": "13 rows over 334d, median gap 31d, cv 0.22, amount 23.64 -- monthly streaming subscription."
+  },
+  {
+   "account": "a06",
+   "brand": "VERIZON",
+   "merchant": "Verizon",
+   "reason": "11 rows over 347d, median gap 31d, cv 0.07, amount 80.59 -- monthly phone bill."
+  },
+  {
+   "account": "a06",
+   "brand": "BRIGHTWHEEL",
+   "merchant": "Brightwheel",
+   "reason": "12 rows over 334d, median gap 30d, amount 494 -- monthly childcare plan."
+  },
+  {
+   "account": "a07",
+   "brand": "HULU",
+   "merchant": "Hulu",
+   "reason": "12 rows over 335d, median gap 31d, cv 0.066, amount 20.41 -- monthly, fixed price. Raw strings split across two processor spellings."
+  },
+  {
+   "account": "a07",
+   "brand": "COMCAST",
+   "merchant": "Comcast",
+   "reason": "4 rows over 90d, median gap 30d, amount 39.99 -- monthly broadband, though only a quarter of a year is visible."
+  },
+  {
+   "account": "a08",
+   "brand": "HULU",
+   "merchant": "Hulu",
+   "reason": "9 rows over 274d, median gap 31d, cv 0.09, amount 20.41 -- monthly, fixed price."
+  },
+  {
+   "account": "a08",
+   "brand": "BRIGHTWHEEL",
+   "merchant": "Brightwheel",
+   "reason": "29 rows over 203d, amount 186.15, cv 0.013 -- monthly childcare plan at a fixed price. Raw strings split across three processor spellings."
+  },
+  {
+   "account": "a09",
+   "brand": "PLANET",
+   "merchant": "Planet Fitness",
+   "reason": "25 rows over 1247d, median gap 30d, amount 10.7 -- monthly gym membership across four years."
+  },
+  {
+   "account": "a11",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "14 rows over 409d, median gap 31d, amount 4.99 -- monthly. Raw strings differ only in whitespace, which is exactly the axis under test."
+  },
+  {
+   "account": "a17",
+   "brand": "NETFLIX",
+   "merchant": "Netflix",
+   "reason": "4 rows over 182d, gap 62d, cv 0.000, amount 24.99 -- bimonthly Netflix at a fixed price."
+  },
+  {
+   "account": "a17",
+   "brand": "VODAFONE",
+   "merchant": "Vodafone",
+   "reason": "10 rows over 263d, median gap 28d -- monthly mobile contract."
+  },
+  {
+   "account": "a17",
+   "brand": "TELEKOM",
+   "merchant": "Telekom",
+   "reason": "9 rows over 244d, median gap 29.5d, cv 0.07, amount 152.45 -- monthly fixed-line/mobile bill."
+  },
+  {
+   "account": "a18",
+   "brand": "DISNEY",
+   "merchant": "Disney Plus",
+   "reason": "8 rows over 211d, median gap 30d, amount 10.66 -- monthly streaming subscription."
+  },
+  {
+   "account": "a23",
+   "brand": "CHATGPT",
+   "merchant": "ChatGPT",
+   "reason": "4 rows over 91d, median gap 31d, cv 0.000, amount 20.00 -- monthly, fixed price."
+  },
+  {
+   "account": "a24",
+   "brand": "CHATGPT",
+   "merchant": "ChatGPT",
+   "reason": "9 rows over 245d, median gap 31d, cv 0.000, amount 20.00 -- monthly, fixed price."
+  },
+  {
+   "account": "a28",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "10 rows over 287d, median gap 31d, amount 4.99 -- monthly. Raw strings differ only in whitespace."
+  },
+  {
+   "account": "a31",
+   "brand": "PEACOCK",
+   "merchant": "Peacock",
+   "reason": "6 rows over 151d, median gap 31d, cv 0.000, amount 4.99 -- monthly, fixed price. Four distinct store ids."
+  },
+  {
+   "account": "a33",
+   "brand": "SPECTRUM",
+   "merchant": "Spectrum",
+   "reason": "6 rows over 267d, median gap 24d, amount 43.48 -- monthly broadband."
+  },
+  {
+   "account": "a34",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "12 rows over 334d, median gap 31d, amount 9.99 -- twelve consecutive monthly charges."
+  },
+  {
+   "account": "a35",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "12 rows over 335d, median gap 31d, amount 5.99 -- twelve consecutive monthly charges."
+  },
+  {
+   "account": "a36",
+   "brand": "SPOTIFY",
+   "merchant": "Spotify",
+   "reason": "12 rows over 334d, median gap 31d, amount 11.99 -- twelve consecutive monthly charges."
+  }
+ ],
+ "excluded_families": [
+  {
+   "account": "a00",
+   "brand": "AMAZON",
+   "reason": "98 rows, median gap 2d, cv 1.13 -- Amazon purchases and Prime Video and Amazon Marketplace under one token. Not separable by brand; excluded rather than counted as a negative."
+  },
+  {
+   "account": "a00",
+   "brand": "GOOGLE",
+   "reason": "14 rows mixing Google One, Google Cloud and YouTube Premium at three different amounts. One brand, three subscriptions."
+  },
+  {
+   "account": "a00",
+   "brand": "NETFLIX",
+   "reason": "15 rows, median gap 16.5d, cv 0.50 -- Netflix PLUS other Netflix-branded charges (likely an add-on). Excluded as mixed rather than counted as a clean monthly."
+  },
+  {
+   "account": "a01",
+   "brand": "GOOGLE",
+   "reason": "43 rows, median gap 17d, cv 2.52 -- Google One and Google Storage charges at wildly different amounts, plus one-off Play purchases."
+  },
+  {
+   "account": "a01",
+   "brand": "AMAZON",
+   "reason": "33 rows, cv 1.61 -- marketplace one-off orders."
+  },
+  {
+   "account": "a02",
+   "brand": "GOOGLE",
+   "reason": "121 rows, median gap 8d, cv 1.81 -- Google Pay purchases plus Google Play plus subscriptions. Three populations under one token."
+  },
+  {
+   "account": "a02",
+   "brand": "AMAZON",
+   "reason": "95 rows, median gap 11d, cv 0.92 -- mixed marketplace purchases."
+  },
+  {
+   "account": "a02",
+   "brand": "STATE",
+   "reason": "31 rows, median gap 30d, cv 0.077, amount 10.58 -- this LOOKS like a monthly premium but the descriptor is 'STATE FARM INSURANCE', i.e. an insurance policy payment, and 10.58 is too small to be a policy premium. Reader could not resolve what it is; excluded as unresolved rather than guessed."
+  },
+  {
+   "account": "a02",
+   "brand": "APPLE",
+   "reason": "5 rows, cv 1.66 -- mixed Apple Store and Apple services."
+  },
+  {
+   "account": "a03",
+   "brand": "WINDSTREAM",
+   "reason": "10 rows, gap 30d, but every raw string carries a person's name and an account number; amount 74.30 is a utility bill. Excluded on privacy grounds as well as because the reader should not have to quote it."
+  },
+  {
+   "account": "a06",
+   "brand": "AMAZON",
+   "reason": "57 rows, median gap 5d -- retail, not subscription."
+  },
+  {
+   "account": "a06",
+   "brand": "APPLE",
+   "reason": "37 rows, cv 3.89 -- mixed Apple Store retail with services."
+  },
+  {
+   "account": "a06",
+   "brand": "CHEWY",
+   "reason": "9 rows, median gap 39d, cv 0.78 -- variable pet orders; not resolvable as a fixed schedule from these rows."
+  },
+  {
+   "account": "a07",
+   "brand": "AMAZON",
+   "reason": "28 rows including 'Amazon Ret' (returns) -- mixed."
+  },
+  {
+   "account": "a07",
+   "brand": "APPLE",
+   "reason": "42 rows, median gap 5d, cv 1.29 -- mixed retail."
+  },
+  {
+   "account": "a07",
+   "brand": "BRIGHTWHEEL",
+   "reason": "21 rows, median gap 11d, cv 0.51 -- amount varies 186 vs 494 across the year; the reader could not tell plan change from one-off."
+  },
+  {
+   "account": "a08",
+   "brand": "AMAZON",
+   "reason": "45 rows -- mixed retail and Kindle and Prime."
+  },
+  {
+   "account": "a08",
+   "brand": "APPLE",
+   "reason": "25 rows, median gap 8d, cv 1.31 -- mixed retail."
+  },
+  {
+   "account": "a09",
+   "brand": "STATE",
+   "reason": "not present in the candidate list for a09; kept for completeness."
+  },
+  {
+   "account": "a10",
+   "brand": "ADOBE",
+   "reason": "4 rows over 40d, median gap 9d -- too short a window to call monthly."
+  },
+  {
+   "account": "a10",
+   "brand": "GOOGLE",
+   "reason": "23 rows mixing Google One, Google One AI Premium and Ellatio at different amounts."
+  },
+  {
+   "account": "a12",
+   "brand": "PRIME",
+   "reason": "4 rows over 153d, gap 31d, amount 8.99 -- looks monthly but only 4 rows; borderline, excluded so the threshold does not decide it."
+  },
+  {
+   "account": "a17",
+   "brand": "APPLE",
+   "reason": "6 rows, cv 0.31, several marked PRE-AUTHORIZATION -- resolver state, not settled charges."
+  },
+  {
+   "account": "a17",
+   "brand": "AMAZON",
+   "reason": "11 rows, median gap 11d, cv 1.54 -- grocery."
+  },
+  {
+   "account": "a18",
+   "brand": "AMAZON",
+   "reason": "41 rows, median gap 8d, cv 0.98 -- marketplace."
+  },
+  {
+   "account": "a19",
+   "brand": "AMAZON",
+   "reason": "30 rows, median gap 5d, cv 1.10 -- grocery."
+  },
+  {
+   "account": "a19",
+   "brand": "VERIZON",
+   "reason": "5 rows mixing a bill payment and a recurring pay at 3 different amounts."
+  },
+  {
+   "account": "a20",
+   "brand": "AMAZON",
+   "reason": "19 rows, cv 1.96 -- mixed music, Prime and marketplace."
+  },
+  {
+   "account": "a21",
+   "brand": "AMAZON",
+   "reason": "4 rows, 'Amazon seller repay' -- a repayment, not a payment for a thing."
+  },
+  {
+   "account": "a23",
+   "brand": "AMAZON",
+   "reason": "32 rows, median gap 6.5d, cv 1.37 -- marketplace."
+  },
+  {
+   "account": "a24",
+   "brand": "STATE",
+   "reason": "7 rows, cv 1.14, amount 10.83 -- insurance, amount implausible for a premium; unresolved."
+  },
+  {
+   "account": "a27",
+   "brand": "AMAZON",
+   "reason": "25 rows, median gap 2d -- retail."
+  },
+  {
+   "account": "a29",
+   "brand": "AMAZON",
+   "reason": "35 rows, median gap 7d -- marketplace."
+  },
+  {
+   "account": "a32",
+   "brand": "AMAZON",
+   "reason": "27 rows, median gap 8d -- marketplace."
+  },
+  {
+   "account": "a33",
+   "brand": "AMAZON",
+   "reason": "28 rows, median gap 5d -- marketplace."
+  },
+  {
+   "account": "a37",
+   "brand": "AMAZON",
+   "reason": "10 rows mixing Prime ids with marketplace ids."
+  }
+ ],
+ "_lost_to_corpus_exclusions": [
+  {
+   "account": "a04",
+   "merchants": [
+    "Netflix",
+    "Spotify",
+    "Chewy"
+   ],
+   "reason": "a04 is a budget app's export that concatenates an Actual block and an original Chase block, both with a column named `Payee`. It is excluded as ambiguous, so the corpus loses its LONGEST-VERIFIED subscription: 49 Spotify rows over 1461 days, a monthly charge confirmed across four years. That is a real loss of the strongest positive evidence in the corpus and it is stated rather than absorbed. a04 also produced the best-looking under-grouping numbers in the first probe run, while the loader was reading the app's already-cleaned payee column, so its absence removes a defect as well as data."
+  },
+  {
+   "account": "a26",
+   "merchants": [
+    "Netflix",
+    "Gym membership"
+   ],
+   "reason": "a26's 'Description' column holds hand-written budget categories and its amount column runs to 7392, i.e. spending totals rather than transactions. Excluded as not a bank export."
+  }
+ ],
+ "_excluded_families_note": "`excluded_families` is the audit trail for every candidate family that was read and NOT labelled a recurring payment. A family is excluded rather than counted as a negative when one brand token mixes a subscription with unrelated purchases (AMAZON is the standing case), or when the reader could not resolve what it is. Precision is therefore measured against a corpus that omits ambiguous families, which is stated as a limitation on every precision figure."
+}

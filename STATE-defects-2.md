@@ -136,3 +136,26 @@ to defect 3 still resolves here and defect 15 still resolves in the parent.
      the lock serializes writers; a reader that never takes it can
      still observe a half-written line, which `read` already
      tolerates as malformed.
+
+26. **The identifier allocator read a quoted string as an allocation** (solved
+    in session 2026-10-09-002). `NUMBERED_CELL` matched `F(\d{3})` with no
+    word boundary, and F097's own findings row quotes the bike serial
+    `SNACEOSF18391`. The serial's `F183` counted as a defined finding, so
+    `origin id next F` reported the highest as 183 and handed out **F184**,
+    skipping 83 numbers. The record's own prose names the trigger twice: the
+    module docstring says a citation must not count as an allocation, and the
+    gate next to it (`identifiers.py`, whose `DEFINITION` pattern *does* anchor
+    with `^`) was reading a different, stricter pattern than the allocator —
+    so a rule written for the problem existed and was not applied here.
+    **Repair:** both boundaries added to `NUMBERED_CELL`, with the comment
+    naming this serial as the reason they are load-bearing. **Falsified against
+    its own bytes:** two new tests in `tests/test_idalloc.py` (one quoting
+    `SNACEOSF18391`, one quoting `SNACEOSF1839A` for the trailing side) both
+    fail on the pre-fix pattern — `F184 != F098`, `F184 != F005` — and pass on
+    the repair; the full suite is 832 tests green. `origin id next F` now
+    returns **F101**. **Ceiling:** the boundary fixes quoted strings, not a
+    *cell* that is genuinely an allocation and should be counted — the pattern
+    still cannot tell `| F010 |` the allocation from `| see F010 |` the
+    citation, because both are table cells. Numbering is also only ever read,
+    never reserved, so two VMs allocating from a shared base can still collide;
+    that race is unchanged.

@@ -1,0 +1,139 @@
+{
+  "experiment": "E070",
+  "title": "Fresh observation in non-software domain via CFPB consumer complaints",
+  "session": "2026-10-08-028",
+  "date": "2026-10-09",
+  "hypothesis": "A genuinely non-technical domain (financial consumer complaints to CFPB) will show a higher unserved-open fraction than Stack Exchange non-software (14%) or software (0%), indicating candidate opportunities exist outside software venues.",
+  "ground_truth_context": {
+    "E069_non_software_SE": "14% unserved-open-like, 100% view_count > 0",
+    "E063_software": "0% unserved-open, 0% view_count > 0 in software corpora",
+    "E062_non_software_SE": "17/20 top-arrival unremedied needs served by general assistant today"
+  },
+  "sample": {
+    "size": 10000,
+    "source": "CFPB Consumer Complaint Database (full CSV download, 18M+ records)",
+    "domain": "Financial consumer complaints (credit reporting, debt collection, mortgages, credit cards, etc.)",
+    "user_base": "General consumers, non-technical",
+    "platform_mechanics": "Regulatory complaint portal, companies required to respond",
+    "outcome_channel": "Company response field (Closed with monetary/non-monetary relief/explanation, In progress, Untimely response)"
+  },
+  "results": {
+    "view_count": {
+      "total_rows": 10000,
+      "vc_positive": 10000,
+      "vc_zero": 0,
+      "vc_positive_rate": 1.0,
+      "gate_met": true,
+      "assessment": "100% of complaints have view_count > 0 (each complaint = 1 arrival). Independent arrivals at need are observed."
+    },
+    "classification": {
+      "served": 9920,
+      "unserved": 80,
+      "served_rate": 0.992,
+      "unserved_rate": 0.008,
+      "wilson_ci95": [
+        0.0064,
+        0.0099
+      ],
+      "assessment": "0.8% unserved-open in CFPB vs 14% in E069 non-software SE vs 0% in E063 software. CFPB shows even lower unserved fraction than non-software Stack Exchange."
+    },
+    "unserved_breakdown": {
+      "Untimely response": 48,
+      "In progress": 32
+    },
+    "by_product": {
+      "Student loan": {
+        "total": 31,
+        "unserved": 12,
+        "rate": 0.387
+      },
+      "Debt or credit management": {
+        "total": 6,
+        "unserved": 1,
+        "rate": 0.167
+      },
+      "Mortgage": {
+        "total": 56,
+        "unserved": 6,
+        "rate": 0.107
+      },
+      "Debt collection": {
+        "total": 378,
+        "unserved": 29,
+        "rate": 0.077
+      },
+      "Checking or savings account": {
+        "total": 127,
+        "unserved": 8,
+        "rate": 0.063
+      },
+      "Credit card": {
+        "total": 131,
+        "unserved": 5,
+        "rate": 0.038
+      },
+      "Payday loan": {
+        "total": 42,
+        "unserved": 1,
+        "rate": 0.024
+      },
+      "Vehicle loan or lease": {
+        "total": 46,
+        "unserved": 1,
+        "rate": 0.022
+      },
+      "Credit reporting": {
+        "total": 9119,
+        "unserved": 17,
+        "rate": 0.002
+      },
+      "Money transfer": {
+        "total": 49,
+        "unserved": 0,
+        "rate": 0.0
+      },
+      "Prepaid card": {
+        "total": 12,
+        "unserved": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "gates": {
+    "G1_retrieval": {
+      "met": true,
+      "detail": "10000 rows harvested from public CFPB CSV bulk download"
+    },
+    "G2_control_validity": {
+      "met": false,
+      "detail": "No seeded controls tested - limitation noted"
+    },
+    "G3_measurement": {
+      "met": true,
+      "detail": "Unserved fraction 0.008 (CI95 [0.0064, 0.0099]) measured over 10000 rows"
+    },
+    "G4_view_count": {
+      "met": true,
+      "detail": "100% view_count > 0, exceeds 95% threshold"
+    },
+    "overall": "CONFIRMED_NEGATIVE"
+  },
+  "conclusion": "HYPOTHESIS NOT SUPPORTED. The CFPB consumer complaint domain — a genuinely non-technical population on a regulatory platform with mandatory company response — shows an unserved fraction of only 0.8% (CI95 [0.6%, 1.0%]). This is LOWER than E069's non-software Stack Exchange (14%) and consistent with E063's software corpora (0%). The 'unserved' complaints are merely 'In progress' (32) or 'Untimely response' (48) — administrative delays, not genuinely unserved needs. This is the 8th measurement (F029, F051, F039, F059, F081, F084, F085, E070) showing the candidate seat is empty. The mission's finding generalizes: 'unanswered on a platform is not unserved in reality.' The view_count instrument (100% positive) confirms independent arrivals are measurable, but the outcome channel shows near-complete service. No candidate emerges. The find-a-new-venue route remains deferred per D083.",
+  "raw_evidence": {
+    "csv_source": "https://files.consumerfinance.gov/ccdb/complaints.csv.zip (352MB zip, 5.5GB CSV)",
+    "processed_jsonl": "EXPERIMENTS/070-discourse-fresh-observation/raw/cfpb_complaints.jsonl",
+    "processing_script": "EXPERIMENTS/070-discourse-fresh-observation/process_csv.py",
+    "analysis_script": "EXPERIMENTS/070-discourse-fresh-observation/outcome.py"
+  },
+  "CORRECTION": {
+    "finding": "F101",
+    "decision": "D088",
+    "experiment": "E071",
+    "date": "2026-10-09",
+    "affects": [
+      "ground_truth_context.E063_software"
+    ],
+    "why": "The stated ground truth '0% view_count > 0 in software corpora' is a missing observation: HN and the GitHub issues API return no arrival field at all (E071, 0/60 and 0/8; Stack Exchange control 80/80 positive).",
+    "unaffected": "This experiment's own CFPB arms. A complaint is one arrival by construction, and company_response is an outcome field the CFPB API does return. The 0.8% unserved fraction and the 100% VC-positive reading stand; only the comparison drawn against the software corpora is void."
+  }
+}

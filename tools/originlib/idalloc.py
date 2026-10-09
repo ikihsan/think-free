@@ -46,7 +46,12 @@ TASK_FILE = re.compile(r"^tasks/(T-(\d{4})-[^/]*\.md)$")
 LEDGER_TASK = re.compile(r'"task"\s*:\s*"T-(\d{4})"')
 DEFINITION = {"F": re.compile(r"^##\s+F(\d{3})\b"), "D": re.compile(r"^##\s+D(\d{3})\b")}
 # A table row, an index row, or an index span: `| F010 | ... |`, `| D024-D029 |`.
-NUMBERED_CELL = {"F": re.compile(r"F(\d{3})"), "D": re.compile(r"D(\d{3})")}
+# The leading `\b` is load-bearing, not decoration: a findings row quotes its
+# own subject matter, and F097 cites the bike serial `SNACEOSF18391`. Without
+# the boundary that serial reads as finding 183 and the allocator hands out
+# F184, skipping 83 numbers (defect 26). The trailing `\b` closes the same
+# hole from the other side, on `SNACEOSF1839` followed by a letter.
+NUMBERED_CELL = {"F": re.compile(r"\bF(\d{3})\b"), "D": re.compile(r"\bD(\d{3})\b")}
 DOCUMENTS = {"F": FAILURE_FILES, "D": DECISION_FILES}
 
 

@@ -1,0 +1,1902 @@
+{
+ "corpus": {
+  "accounts": 36,
+  "transactions": 34231
+ },
+ "watchlist": {
+  "families": 33,
+  "distinct_merchants": 18,
+  "excluded_families": 36
+ },
+ "arms": {
+  "e065_raw": {
+   "precision": 0.1,
+   "recall": 0.3939,
+   "f1": 0.1595,
+   "tp": 13,
+   "fp": 117,
+   "fn": 20,
+   "detected_groups": 130,
+   "accounts_with_positives": 20
+  },
+  "actual_raw": {
+   "precision": 0.0909,
+   "recall": 0.4242,
+   "f1": 0.1497,
+   "tp": 14,
+   "fp": 140,
+   "fn": 19,
+   "detected_groups": 154,
+   "accounts_with_positives": 20
+  },
+  "e065_normalized": {
+   "precision": 0.0876,
+   "recall": 0.3636,
+   "f1": 0.1412,
+   "tp": 12,
+   "fp": 125,
+   "fn": 21,
+   "detected_groups": 137,
+   "accounts_with_positives": 20
+  },
+  "actual_shared": {
+   "precision": 0.0881,
+   "recall": 0.4242,
+   "f1": 0.1458,
+   "tp": 14,
+   "fp": 145,
+   "fn": 19,
+   "detected_groups": 159,
+   "accounts_with_positives": 20
+  },
+  "naive": {
+   "precision": 0.0179,
+   "recall": 0.697,
+   "f1": 0.0349,
+   "tp": 23,
+   "fp": 1263,
+   "fn": 10,
+   "detected_groups": 1286,
+   "accounts_with_positives": 20
+  }
+ },
+ "per_account": {
+  "e065_raw": {
+   "a00": {
+    "detected_brands": 25,
+    "tp": 1,
+    "fp": 24,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "ADOBE"
+    ],
+    "side": "mixed"
+   },
+   "a01": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "COMCAST"
+    ],
+    "side": "negative"
+   },
+   "a02": {
+    "detected_brands": 7,
+    "tp": 1,
+    "fp": 6,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "YOUTUBE"
+    ],
+    "side": "positive"
+   },
+   "a03": {
+    "detected_brands": 7,
+    "tp": 0,
+    "fp": 7,
+    "fn": 4,
+    "positives_available": 4,
+    "missed": [
+     "AMAZON",
+     "GOOGLE",
+     "PRIME",
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a05": {
+    "detected_brands": 6,
+    "tp": 1,
+    "fp": 5,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "AMAZON",
+     "PRIME"
+    ],
+    "side": "negative"
+   },
+   "a06": {
+    "detected_brands": 6,
+    "tp": 1,
+    "fp": 5,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "BRIGHTWHEEL",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a07": {
+    "detected_brands": 7,
+    "tp": 2,
+    "fp": 5,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a08": {
+    "detected_brands": 5,
+    "tp": 2,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a09": {
+    "detected_brands": 10,
+    "tp": 1,
+    "fp": 9,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a10": {
+    "detected_brands": 11,
+    "tp": 0,
+    "fp": 11,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a11": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a12": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a14": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a15": {
+    "detected_brands": 5,
+    "tp": 0,
+    "fp": 5,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a16": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a17": {
+    "detected_brands": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "NETFLIX",
+     "VODAFONE"
+    ],
+    "side": "positive"
+   },
+   "a18": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "DISNEY"
+    ],
+    "side": "negative"
+   },
+   "a19": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a20": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a21": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a22": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a23": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a24": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "CHATGPT"
+    ],
+    "side": "negative"
+   },
+   "a27": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a28": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a29": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a30": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a31": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PEACOCK"
+    ],
+    "side": "negative"
+   },
+   "a32": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a33": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a34": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a35": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a36": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a37": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a40": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a41": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   }
+  },
+  "actual_raw": {
+   "a00": {
+    "detected_brands": 41,
+    "tp": 2,
+    "fp": 39,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a01": {
+    "detected_brands": 2,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a02": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "YOUTUBE"
+    ],
+    "side": "positive"
+   },
+   "a03": {
+    "detected_brands": 8,
+    "tp": 0,
+    "fp": 8,
+    "fn": 4,
+    "positives_available": 4,
+    "missed": [
+     "AMAZON",
+     "GOOGLE",
+     "PRIME",
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a05": {
+    "detected_brands": 8,
+    "tp": 1,
+    "fp": 7,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "AMAZON",
+     "PRIME"
+    ],
+    "side": "negative"
+   },
+   "a06": {
+    "detected_brands": 7,
+    "tp": 1,
+    "fp": 6,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "HULU",
+     "VERIZON"
+    ],
+    "side": "negative"
+   },
+   "a07": {
+    "detected_brands": 9,
+    "tp": 0,
+    "fp": 9,
+    "fn": 2,
+    "positives_available": 2,
+    "missed": [
+     "COMCAST",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a08": {
+    "detected_brands": 8,
+    "tp": 0,
+    "fp": 8,
+    "fn": 2,
+    "positives_available": 2,
+    "missed": [
+     "BRIGHTWHEEL",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a09": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PLANET"
+    ],
+    "side": "positive"
+   },
+   "a10": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a11": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a12": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a14": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a15": {
+    "detected_brands": 7,
+    "tp": 0,
+    "fp": 7,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a16": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a17": {
+    "detected_brands": 3,
+    "tp": 2,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 3,
+    "missed": [
+     "NETFLIX"
+    ],
+    "side": "positive"
+   },
+   "a18": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "DISNEY"
+    ],
+    "side": "negative"
+   },
+   "a19": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a20": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a21": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a22": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a23": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "CHATGPT"
+    ],
+    "side": "negative"
+   },
+   "a24": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a27": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a28": {
+    "detected_brands": 5,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a29": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a30": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a31": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PEACOCK"
+    ],
+    "side": "negative"
+   },
+   "a32": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a33": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a34": {
+    "detected_brands": 5,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a35": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a36": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a37": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a40": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a41": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   }
+  },
+  "e065_normalized": {
+   "a00": {
+    "detected_brands": 26,
+    "tp": 1,
+    "fp": 25,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "ADOBE"
+    ],
+    "side": "mixed"
+   },
+   "a01": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "COMCAST"
+    ],
+    "side": "negative"
+   },
+   "a02": {
+    "detected_brands": 8,
+    "tp": 1,
+    "fp": 7,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "YOUTUBE"
+    ],
+    "side": "positive"
+   },
+   "a03": {
+    "detected_brands": 7,
+    "tp": 0,
+    "fp": 7,
+    "fn": 4,
+    "positives_available": 4,
+    "missed": [
+     "AMAZON",
+     "GOOGLE",
+     "PRIME",
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a05": {
+    "detected_brands": 6,
+    "tp": 1,
+    "fp": 5,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "AMAZON",
+     "PRIME"
+    ],
+    "side": "negative"
+   },
+   "a06": {
+    "detected_brands": 6,
+    "tp": 1,
+    "fp": 5,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "BRIGHTWHEEL",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a07": {
+    "detected_brands": 7,
+    "tp": 2,
+    "fp": 5,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a08": {
+    "detected_brands": 5,
+    "tp": 2,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a09": {
+    "detected_brands": 12,
+    "tp": 1,
+    "fp": 11,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a10": {
+    "detected_brands": 13,
+    "tp": 0,
+    "fp": 13,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a11": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "positive"
+   },
+   "a12": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a14": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a15": {
+    "detected_brands": 5,
+    "tp": 0,
+    "fp": 5,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a16": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a17": {
+    "detected_brands": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "NETFLIX",
+     "VODAFONE"
+    ],
+    "side": "positive"
+   },
+   "a18": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "DISNEY"
+    ],
+    "side": "negative"
+   },
+   "a19": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a20": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a21": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a22": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a23": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a24": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "CHATGPT"
+    ],
+    "side": "negative"
+   },
+   "a27": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a28": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a29": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a30": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a31": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PEACOCK"
+    ],
+    "side": "negative"
+   },
+   "a32": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a33": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a34": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a35": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a36": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a37": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a40": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a41": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   }
+  },
+  "actual_shared": {
+   "a00": {
+    "detected_brands": 41,
+    "tp": 2,
+    "fp": 39,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a01": {
+    "detected_brands": 2,
+    "tp": 1,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a02": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 2,
+    "missed": [
+     "YOUTUBE"
+    ],
+    "side": "positive"
+   },
+   "a03": {
+    "detected_brands": 8,
+    "tp": 0,
+    "fp": 8,
+    "fn": 4,
+    "positives_available": 4,
+    "missed": [
+     "AMAZON",
+     "GOOGLE",
+     "PRIME",
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a05": {
+    "detected_brands": 8,
+    "tp": 1,
+    "fp": 7,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "AMAZON",
+     "PRIME"
+    ],
+    "side": "negative"
+   },
+   "a06": {
+    "detected_brands": 7,
+    "tp": 1,
+    "fp": 6,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "HULU",
+     "VERIZON"
+    ],
+    "side": "negative"
+   },
+   "a07": {
+    "detected_brands": 9,
+    "tp": 0,
+    "fp": 9,
+    "fn": 2,
+    "positives_available": 2,
+    "missed": [
+     "COMCAST",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a08": {
+    "detected_brands": 8,
+    "tp": 0,
+    "fp": 8,
+    "fn": 2,
+    "positives_available": 2,
+    "missed": [
+     "BRIGHTWHEEL",
+     "HULU"
+    ],
+    "side": "negative"
+   },
+   "a09": {
+    "detected_brands": 6,
+    "tp": 0,
+    "fp": 6,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PLANET"
+    ],
+    "side": "positive"
+   },
+   "a10": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a11": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a12": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a14": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a15": {
+    "detected_brands": 8,
+    "tp": 0,
+    "fp": 8,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a16": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a17": {
+    "detected_brands": 3,
+    "tp": 2,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 3,
+    "missed": [
+     "NETFLIX"
+    ],
+    "side": "positive"
+   },
+   "a18": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "DISNEY"
+    ],
+    "side": "negative"
+   },
+   "a19": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a20": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a21": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a22": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a23": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "CHATGPT"
+    ],
+    "side": "negative"
+   },
+   "a24": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a27": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a28": {
+    "detected_brands": 5,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a29": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a30": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a31": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PEACOCK"
+    ],
+    "side": "negative"
+   },
+   "a32": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a33": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a34": {
+    "detected_brands": 5,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a35": {
+    "detected_brands": 3,
+    "tp": 1,
+    "fp": 2,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a36": {
+    "detected_brands": 4,
+    "tp": 1,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a37": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a40": {
+    "detected_brands": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a41": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   }
+  },
+  "naive": {
+   "a00": {
+    "detected_brands": 127,
+    "tp": 2,
+    "fp": 125,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a01": {
+    "detected_brands": 110,
+    "tp": 1,
+    "fp": 109,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a02": {
+    "detected_brands": 103,
+    "tp": 2,
+    "fp": 101,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "positive"
+   },
+   "a03": {
+    "detected_brands": 15,
+    "tp": 0,
+    "fp": 15,
+    "fn": 4,
+    "positives_available": 4,
+    "missed": [
+     "AMAZON",
+     "GOOGLE",
+     "PRIME",
+     "SPECTRUM"
+    ],
+    "side": "negative"
+   },
+   "a05": {
+    "detected_brands": 107,
+    "tp": 1,
+    "fp": 106,
+    "fn": 2,
+    "positives_available": 3,
+    "missed": [
+     "AMAZON",
+     "PRIME"
+    ],
+    "side": "negative"
+   },
+   "a06": {
+    "detected_brands": 70,
+    "tp": 3,
+    "fp": 67,
+    "fn": 0,
+    "positives_available": 3,
+    "missed": [],
+    "side": "negative"
+   },
+   "a07": {
+    "detected_brands": 69,
+    "tp": 2,
+    "fp": 67,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a08": {
+    "detected_brands": 64,
+    "tp": 2,
+    "fp": 62,
+    "fn": 0,
+    "positives_available": 2,
+    "missed": [],
+    "side": "negative"
+   },
+   "a09": {
+    "detected_brands": 32,
+    "tp": 1,
+    "fp": 31,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a10": {
+    "detected_brands": 37,
+    "tp": 0,
+    "fp": 37,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a11": {
+    "detected_brands": 29,
+    "tp": 1,
+    "fp": 28,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "positive"
+   },
+   "a12": {
+    "detected_brands": 50,
+    "tp": 0,
+    "fp": 50,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a14": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "mixed"
+   },
+   "a15": {
+    "detected_brands": 45,
+    "tp": 0,
+    "fp": 45,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a16": {
+    "detected_brands": 53,
+    "tp": 0,
+    "fp": 53,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a17": {
+    "detected_brands": 7,
+    "tp": 2,
+    "fp": 5,
+    "fn": 1,
+    "positives_available": 3,
+    "missed": [
+     "NETFLIX"
+    ],
+    "side": "positive"
+   },
+   "a18": {
+    "detected_brands": 36,
+    "tp": 1,
+    "fp": 35,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a19": {
+    "detected_brands": 4,
+    "tp": 0,
+    "fp": 4,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a20": {
+    "detected_brands": 40,
+    "tp": 0,
+    "fp": 40,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a21": {
+    "detected_brands": 39,
+    "tp": 0,
+    "fp": 39,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a22": {
+    "detected_brands": 5,
+    "tp": 0,
+    "fp": 5,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a23": {
+    "detected_brands": 34,
+    "tp": 1,
+    "fp": 33,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a24": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "CHATGPT"
+    ],
+    "side": "negative"
+   },
+   "a27": {
+    "detected_brands": 20,
+    "tp": 0,
+    "fp": 20,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a28": {
+    "detected_brands": 2,
+    "tp": 0,
+    "fp": 2,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "SPOTIFY"
+    ],
+    "side": "negative"
+   },
+   "a29": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a30": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a31": {
+    "detected_brands": 24,
+    "tp": 0,
+    "fp": 24,
+    "fn": 1,
+    "positives_available": 1,
+    "missed": [
+     "PEACOCK"
+    ],
+    "side": "negative"
+   },
+   "a32": {
+    "detected_brands": 32,
+    "tp": 0,
+    "fp": 32,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a33": {
+    "detected_brands": 25,
+    "tp": 1,
+    "fp": 24,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a34": {
+    "detected_brands": 25,
+    "tp": 1,
+    "fp": 24,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a35": {
+    "detected_brands": 28,
+    "tp": 1,
+    "fp": 27,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a36": {
+    "detected_brands": 23,
+    "tp": 1,
+    "fp": 22,
+    "fn": 0,
+    "positives_available": 1,
+    "missed": [],
+    "side": "negative"
+   },
+   "a37": {
+    "detected_brands": 15,
+    "tp": 0,
+    "fp": 15,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   },
+   "a40": {
+    "detected_brands": 1,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "negative"
+   },
+   "a41": {
+    "detected_brands": 3,
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "positives_available": 0,
+    "missed": [],
+    "side": "positive"
+   }
+  }
+ },
+ "permutation_control": {
+  "e065_raw": {
+   "baseline_tp": 13,
+   "trials_positives": 99,
+   "survived": 0,
+   "rate": 0.0
+  },
+  "actual_raw": {
+   "baseline_tp": 14,
+   "trials_positives": 99,
+   "survived": 4,
+   "rate": 0.0404
+  }
+ },
+ "leave_one_out": {
+  "dropped": "a00",
+  "arms": {
+   "e065_raw": {
+    "precision": 0.1143,
+    "recall": 0.3871,
+    "f1": 0.1765,
+    "tp": 12,
+    "fp": 93,
+    "fn": 19
+   },
+   "actual_raw": {
+    "precision": 0.1062,
+    "recall": 0.3871,
+    "f1": 0.1667,
+    "tp": 12,
+    "fp": 101,
+    "fn": 19
+   },
+   "e065_normalized": {
+    "precision": 0.0991,
+    "recall": 0.3548,
+    "f1": 0.1549,
+    "tp": 11,
+    "fp": 100,
+    "fn": 20
+   },
+   "actual_shared": {
+    "precision": 0.1017,
+    "recall": 0.3871,
+    "f1": 0.1611,
+    "tp": 12,
+    "fp": 106,
+    "fn": 19
+   },
+   "naive": {
+    "precision": 0.0181,
+    "recall": 0.6774,
+    "f1": 0.0353,
+    "tp": 21,
+    "fp": 1138,
+    "fn": 10
+   }
+  }
+ }
+}
