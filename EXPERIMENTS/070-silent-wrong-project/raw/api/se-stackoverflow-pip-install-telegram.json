@@ -1,0 +1,712 @@
+{
+ "site": "stackoverflow",
+ "query": "pip install telegram",
+ "class": "PC",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "aiogram"
+   ],
+   "owner": {
+    "account_id": 27518749,
+    "reputation": 1,
+    "user_id": 20999264,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Vl4dC.jpg?s=256",
+    "display_name": "Slay",
+    "link": "https://stackoverflow.com/users/20999264/slay"
+   },
+   "is_answered": false,
+   "view_count": 9141,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1784279245,
+   "creation_date": 1705270450,
+   "last_edit_date": 1705340610,
+   "question_id": 77816881,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77816881/modulenotfounderror-no-module-named-aiogram",
+   "title": "ModuleNotFoundError: No module named &#39;aiogram&#39;",
+   "body": "<p>I work in VS Code and I was asked to change the telegram bot script from python-telegram-bot library to aiogram. I've installed that via 'pip install aiogram' and still getting errors like ModuleNotFoundError: No module named 'aiogram' and I don't know what to do.</p>\n<pre><code>import logging\nfrom aiogram import Bot, Dispatcher, types\nfrom aiogram.types import ParseMode\nfrom aiogram.utils import executor\nimport requests\n\nTELEGRAM_BOT_TOKEN = 'XXXXXXXX'\nCOINGECKO_API_KEY = 'XXXXXXXX'\n\nlogging.basicConfig(level=logging.INFO)\n\nbot = Bot(token=TELEGRAM_BOT_TOKEN)\ndp = Dispatcher(bot)\n\n# Function to get token price from CoinGecko\ndef get_token_price(token_id):\n    url = f'https://api.coingecko.com/api/v3/simple/price?ids={token_id}&amp;vs_currencies=usd'\n    headers = {'Authorization': f'Bearer {COINGECKO_API_KEY}'}\n    response = requests.get(url, headers=headers)\n    data = response.json()\n\n    if 'error' in data:\n        logging.error(f'Error from CoinGecko API: {data[&quot;error&quot;]}')\n        return None\n\n    try:\n        price = data[token_id]['usd']\n        return price\n    except KeyError:\n        logging.error(f'KeyError: Could not find price for token with ID {token_id}')\n        return None\n\n# Command handlers\n@dp.message_handler(commands=['btc'])\nasync def get_btc(message: types.Message):\n    price = get_token_price('bitcoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Bitcoin: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Bitcoin')\n\n@dp.message_handler(commands=['eth'])\nasync def get_eth(message: types.Message):\n    price = get_token_price('ethereum')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Ethereum: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Ethereum')\n\n@dp.message_handler(commands=['sfund'])\nasync def get_sfund(message: types.Message):\n    price = get_token_price('seedify-fund')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Seedify: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Seedify Fund')\n\n@dp.message_handler(commands=['cgpt'])\nasync def get_cgpt(message: types.Message):\n    price = get_token_price('chaingpt')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 ChainGPT: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f ChainGPT')\n\n@dp.message_handler(commands=['bnb'])\nasync def get_bnb(message: types.Message):\n    price = get_token_price('binancecoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 BNB: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Binance Coin (BNB)')\n\nif __name__ == '__main__':\n    from aiogram import executor\n    executor.start_polling(dp, skip_updates=True)\n</code></pre>\n<p>Tried to create a new project (sometimes helps) and still same error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 17414581,
+    "reputation": 9,
+    "user_id": 12621181,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1802527563214723/picture?type=large",
+    "display_name": "Miclo\u015f Edi",
+    "link": "https://stackoverflow.com/users/12621181/miclo%c5%9f-edi"
+   },
+   "is_answered": false,
+   "view_count": 8352,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771657425,
+   "creation_date": 1607104621,
+   "last_edit_date": 1607113747,
+   "question_id": 65148440,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65148440/importerror-cannot-import-name-bot-from-partially-initialized-module-telegra",
+   "title": "ImportError: cannot import name &#39;Bot&#39; from partially initialized module &#39;telegram&#39;",
+   "body": "<p>I'm getting this error whenever I use the command <em>pip install telegram-bot</em> in cmd:</p>\n<pre><code>    C:\\Windows\\system32&gt;pip install telegram-bot\nCollecting telegram-bot\nUsing cached telegram-bot-0.1.tar.gz (51 kB)\n    ERROR: Command errored out with exit status 1:\n     command: 'c:\\program files\\python39\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-4qf8pb7l'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I have installed the latest version of Python and upgraded pip, but nothing changed. I use <em>Pycharm</em> as IDE. When I try to install this module from Pycharm, I get the same error:</p>\n<pre><code>Collecting telegram-bot\n  Using cached telegram-bot-0.1.tar.gz (51 kB)\n\nDEPRECATION: The -b/--build/--build-dir/--build-directory option is deprecated and has no effect anymore. pip 21.1 will remove support for this functionality. A possible replacement is use the TMPDIR/TEMP/TMP environment variable, possibly combined with --no-clean. You can find discussion regarding this at https://github.com/pypa/pip/issues/8333.\n    ERROR: Command errored out with exit status 1:\n     command: 'D:\\Development\\telegram\\venv\\Scripts\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-0ihid_ld'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I'm trying to build a telegram bot and host it with Heroku. When typing <em>heroku logs -t</em> in cmd, I get something similar:</p>\n<pre><code>2020-12-04T20:24:35.852594+00:00 app[web.1]: File &quot;main.py&quot;, line 5, in &lt;module&gt;\n2020-12-04T20:24:35.852826+00:00 app[web.1]: from telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n2020-12-04T20:24:35.852831+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/__init__.py&quot;, line 21, in &lt;module&gt;\n2020-12-04T20:24:35.853028+00:00 app[web.1]: from .basepersistence import BasePersistence\n2020-12-04T20:24:35.853033+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/basepersistence.py&quot;, line 25, in &lt;module&gt;\n2020-12-04T20:24:35.853242+00:00 app[web.1]: from telegram import Bot\n2020-12-04T20:24:35.853243+00:00 app[web.1]: ImportError: cannot import name 'Bot'\n</code></pre>\n<p>These are my imports:</p>\n<pre><code>import os\nimport telebot\nimport xlrd\nfrom flask import Flask, request\nfrom telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 24509925,
+    "reputation": 33,
+    "user_id": 20214621,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/4760678234049620/picture?type=large",
+    "display_name": "Jin Siang",
+    "link": "https://stackoverflow.com/users/20214621/jin-siang"
+   },
+   "is_answered": true,
+   "view_count": 277,
+   "accepted_answer_id": 79790696,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1760494217,
+   "creation_date": 1760458497,
+   "question_id": 79790390,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79790390/python-telegram-chatbot-issue",
+   "title": "Python Telegram Chatbot Issue",
+   "body": "<p>I have a telegram bot (@TEVOProjAttBot) I created to upload event attendances on Google sheet. However, the commands &quot;/start&quot;, &quot;/help&quot;, &quot;/add&quot; doesn't work as it should, it doesn't run the functions I wrote in the Python code. I think there is a programming logic mistake I'm making. How should I correct either code?</p>\n<p><a href=\"https://i.sstatic.net/bm7LP6Ur.png\" rel=\"nofollow noreferrer\">Screenshot of Messages with Bot</a></p>\n<p>Below is my python code for the main.py file, and the 'credentials.json' file is working fine and installed in the same folder as the main.py file.</p>\n<pre><code>from typing import Final\n\n# pip install python-telegram-bot\nfrom telegram import Update\nfrom telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes\n\nprint('Bot is now starting up...')\n\nAPI_TOKEN: Final = 'MY_TOKEN'\nBOT_HANDLE: Final = '@TEVOProjAttBot'\n\n\n# Command to start the bot\nasync def initiate_command(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    await update.message.reply_text('Greetings! I am your Projected Attendance bot. How can I assist you today?')\n\n\n# Command to provide help information\nasync def assist_command(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    await update.message.reply_text('Here comes the help')\n\n\n# Command for custom functionality\nasync def personalize_command(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    await update.message.reply_text('This is a custom command, you can put whatever you want here.')\n\n\nasync def generate_response(user_input: str) -&gt; str:\n    # Custom logic for response generation\n    normalized_input: str = user_input.lower()\n\n    if 'hi' in normalized_input:\n        return 'Hello!'\n\n    if 'how are you doing' in normalized_input:\n        return 'I am functioning properly!'\n\n    if 'i would like to subscribe' in normalized_input:\n        return 'Sure go ahead!'\n\n    return 'I did not catch that, could you please rephrase?'\n\n\nasync def process_message(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    # Extract details of the incoming message\n    chat_type: str = update.message.chat.type\n    text: str = update.message.text\n\n    # Logging for troubleshooting\n    print(f'User ({update.message.chat.id}) in {chat_type}: &quot;{text}&quot;')\n\n    # Handle group messages only if bot is mentioned\n    if chat_type == 'group':\n        if BOT_HANDLE in text:\n            cleaned_text: str = text.replace(BOT_HANDLE, '').strip()\n            response: str = generate_response(cleaned_text)\n        else:\n            return  # Ignore messages where bot is not mentioned in a group\n    else:\n        response: str = generate_response(text)\n\n    # Reply to the user\n    print('Bot response:', response)\n    await update.message.reply_text(response)\n\n\n# Log errors\nasync def log_error(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    print(f'Update {update} caused error {context.error}')\n\n# Google Sheet access\nimport gspread\nfrom oauth2client.service_account import ServiceAccountCredentials\n\nscope = [&quot;https://spreadsheets.google.com/feeds&quot;,\n         &quot;https://www.googleapis.com/auth/drive&quot;,\n         &quot;https://www.googleapis.com/auth/spreadsheets&quot;]\n\ncredentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)\nclient = gspread.authorize(credentials)\n\nsheet = client.open(&quot;Projected Attendance List&quot;).sheet1\nsheet_ = client.open(&quot;Projected Attendance List&quot;).sheet2\n\n# Get summary\nasync def get_data(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    rows = sheet.get_all_values()\n    response = &quot;\\n&quot;.join([&quot;, &quot;.join(row) for row in rows])\n    update.message.reply_text(f&quot;\ud83d\udcca Sheet Data Obtained!&quot;)\n\ngetter = Updater('MY_TOKEN')\ngetter.start_polling()\ngetter.idle()\n\nasync def get_summary(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    rows = sheet_.get_all_values()\n    response = &quot;\\n&quot;.join([&quot;, &quot;.join(row) for row in rows])\n    update.message.reply_text(f&quot;\ud83d\udcca Sheet Data:\\n{response}&quot;)\n\nupdater = Updater('MY_TOKEN')\nupdater.start_polling()\nupdater.idle()\n\n# Add new row\nasync def add_entry(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    args = context.args\n    if len(args) &gt;= 4:\n        name, CG, category, date = args[0], args[1], args[2], args[3]\n        sheet.append_row([name, CG, category, date])\n        update.message.reply_text(&quot;\u2705 New entry added.&quot;)\n    else:\n        update.message.reply_text(&quot;\u2757 Usage: /add John A0 NF 05102025&quot;)\n\n# Delete a particular row\nasync def remove_row(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    args = context.args\n    no_of_rows = len(sheet.col_values(1))\n    if len(args) == 4:\n        name = args[0]\n        CG = args[1]\n        date = args[3]\n        rows_to_delete = []\n        for row in range(no_of_rows, -1, -1):\n            row_values_list = sheet.row_values(row)\n            if row_values_list[0] == name and row_values_list[1] == CG and row_values_list[3] == date:\n                rows_to_delete.append(row)\n        for row in rows_to_delete:\n            sheet.delete_rows(row)\n        update.message.reply_text(f&quot;\ud83d\udcdd Delete rows ({name},{CG},{date})&quot;)\n    else:\n        update.message.reply_text(&quot;\u2757 Usage: /delete David A0 05102025&quot;)\n\n# Start the bot\nif __name__ == '__main__':\n    app = Application.builder().token(API_TOKEN).build()\n\n    # Register command handlers\n    app.add_handler(CommandHandler('start', initiate_command))\n    app.add_handler(CommandHandler('help', assist_command))\n    app.add_handler(CommandHandler('access', get_data))\n    app.add_handler(CommandHandler('projected', get_summary))\n    app.add_handler(CommandHandler('add', add_entry))\n    app.add_handler(CommandHandler('delete', remove_row))\n\n    # Register message handler\n    app.add_handler(MessageHandler(filters.TEXT, process_message))\n\n    # Register error handler\n    app.add_error_handler(log_error)\n\n    print('Starting polling...')\n    # Run the bot\n    app.run_polling(poll_interval=2)\n</code></pre>\n<p>I also show my App Script of the Google Sheet below. I think the settings on the Google cloud console should be correct, I connected the Google Drive and Google Sheets API to the project, and created the 'credentials.json' file correctly.</p>\n<pre><code>var token = &quot;MY_TOKEN&quot;;\nvar telegramUrl = &quot;https://api.telegram.org/bot&quot; + token;\nvar webAppUrl = &quot;https://script.google.com/macros/s/AKfycbzxYOhndsh7SLgCeulgvIlm6dGVpl_kJKM9l1S6eT0_E_NebwtZ_F_zzxF2gLxPCH6l/exec&quot;;\nvar ssID = &quot;1KE2sJTNXif1KNJot1m6hVhWEOggprIiwh1lj8wqOYLw&quot;;\n\nfunction myFunction() {\n  var url = telegramUrl + &quot;/getMe&quot;;\n  var response = UrlFetchApp.fetch(url);\n  Logger.log(response.getContentText());\n}\n\nfunction setWebhook() {\n  var url = telegramUrl + &quot;/setWebhook?url=&quot; + webAppUrl;\n  var response = UrlFetchApp.fetch(url);\n  Logger.log(response.getContentText());\n}\n\nfunction sendText(id,text) {\n  var url = telegramUrl + &quot;/sendMessage?chat_id=&quot; + id + &quot;&amp;text=&quot; + text;\n  var response = UrlFetchApp.fetch(url);\n  Logger.log(response.getContentText());\n}\n\nfunction doGet(e) {\n  return HtmlService.createHtmlOutput(&quot;Hi there&quot;)\n}\n\nfunction doPost(e) {\n  // this is where telegram works\n  var data = JSON.parse(e.postData.contents);\n  var text = data.message.text;\n  var id = data.message.chat.id;\n  var name = data.message.chat.first_name + &quot; &quot; + data.message.chat.last_name;\n  var answer = &quot;Hi &quot; + name + &quot;, thank you for your comment &quot; + text;\n  sendText(id,answer);\n  SpreadsheetApp.openById(ssId).getSheets()[0].appendRow([new Date(),id,name,text,answer]);\n\n  if(/^@/.test(text)) {\n    var sheetName = text.slice(1).split(&quot; &quot;)[0];\n    var sheet = SpreadsheetApp.openById(ssId).getSheetByName(sheetName) ? SpreadsheetApp.openById(ssId).getSheetByName(sheetName) : SpreadsheetApp.openById(ssId).insertSheet(sheetName);\n    var comment = text.split(&quot; &quot;).slice(1).join(&quot; &quot;);\n    sheet.appendRow([new Date(),id,name,comment,answer]);\n  }\n}\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "render",
+    "telegram-bot",
+    "playwright",
+    "headless-browser"
+   ],
+   "owner": {
+    "account_id": 43308785,
+    "reputation": 1,
+    "user_id": 31184083,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/ed183ca37856170a1687d746f54c5a4d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ekaterina Ilina",
+    "link": "https://stackoverflow.com/users/31184083/ekaterina-ilina"
+   },
+   "is_answered": false,
+   "view_count": 1622,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1753987865,
+   "creation_date": 1753987865,
+   "question_id": 79721725,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79721725/browsertype-launch-executable-doesnt-exist-how-to-fix",
+   "title": "BrowserType.launch: Executable doesn&#39;t exist \u2014 how to fix?",
+   "body": "<p>I\u2019m building a Python Telegram bot (using paid version of Chat GPT), deployed as a background service on Render. The bot runs every 5 minutes and performs:</p>\n<p>Symbol screening via Bybit API (aiohttp)</p>\n<p>Saves filtered symbols to shortlisted.json</p>\n<p>Opens TradingView in headless Chromium via Playwright</p>\n<p>Analyzes candle colors via OpenCV and sends Telegram alerts</p>\n<p>Stack: Python 3.10 + Playwright + python-telegram-bot + aiohttp\nHosting: Render (Frankfurt region, background service)\nBrowser path: /tmp/playwright (set in render.yaml and code)</p>\n<p><strong>render.yaml:</strong></p>\n<pre><code>services:\n  - type: background\n    name: bybit-bot\n    env: python\n    region: frankfurt\n    branch: main\n    envVars:\n      - key: PLAYWRIGHT_BROWSERS_PATH\n        value: /tmp/playwright\n    buildCommand: |\n      pip install -r requirements.txt\n      playwright install chromium\n    startCommand: python bot.py\n</code></pre>\n<p><strong>requirements.txt (fragment):</strong></p>\n<pre><code>aiohttp\npython-telegram-bot==13.15\nopencv-python\nplaywright\n</code></pre>\n<p><strong>Key code from shortlist_filter.py:</strong></p>\n<pre><code>import os\nos.environ[&quot;PLAYWRIGHT_BROWSERS_PATH&quot;] = &quot;/tmp/playwright&quot;\n\nfrom check_candles import take_screenshot_and_analyze\n...\n\nawait take_screenshot_and_analyze(symbol)  # launches playwright.chromium\n</code></pre>\n<p>Persistent error on every run:</p>\n<blockquote>\n<p>BrowserType.launch: Executable doesn't exist at /tmp/playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\nPlease run: playwright install</p>\n</blockquote>\n<p>What I\u2019ve already tried:</p>\n<ul>\n<li>Added PLAYWRIGHT_BROWSERS_PATH to both render.yaml and code</li>\n<li>Set playwright install chromium in buildCommand</li>\n<li>Tried calling playwright install chromium manually</li>\n<li>Verified the bot deploys successfully, but fails at launch</li>\n<li>Playwright is installed, but browser binary seems missing</li>\n</ul>\n<p>The failure occurs at <code>browser = playwright.chromium.launch(...)</code></p>\n<p>I did run playwright install, and it's already included in the render.yaml as part of the buildCommand. Here\u2019s the part of the render.yaml: buildCommand: | pip install -r requirements.txt playwright install chromium startCommand: python bot.py / I also explicitly set the environment variable. BUT the Render log still shows error: BrowserType.launch: Executable doesn't exist at /tmp/playwright/chromium_headless_shell-1181/chrome-linux/headless_shell</p>\n<p>PS. I build this bot using Chat GPT and when I was building the first part of it, I discovered that it was using old data for the Exchange API documentation, for example - so I had to manually find path to latest version of API data and upload it to Chat GPT, so that it generates the correct code. I don't know if the same problem could be with Playwright documentation</p>\n<p>What I need:</p>\n<ul>\n<li>How to properly install and run Chromium in headless mode on Render? (PPS - when I was testing this code using VS Code on my Mac, I have noticed, that it doesn't work with headless browser, I don't know if non-headless one is supported on Render).</li>\n<li>Why doesn\u2019t playwright install chromium persist the binary to /tmp/playwright?</li>\n</ul>\n<p>Anyone faced similar issues with Playwright on render?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "telegram"
+   ],
+   "owner": {
+    "account_id": 19585019,
+    "reputation": 460,
+    "user_id": 14333315,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/HoaTR.jpg?s=256",
+    "display_name": "OcMaRUS",
+    "link": "https://stackoverflow.com/users/14333315/ocmarus"
+   },
+   "is_answered": true,
+   "view_count": 13784,
+   "accepted_answer_id": 72430714,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1748381393,
+   "creation_date": 1653647934,
+   "last_edit_date": 1653663466,
+   "question_id": 72404096,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72404096/how-to-install-python-telegram-bot-version-20-and-above",
+   "title": "How to Install python-telegram-bot version 20 and above",
+   "body": "<p>Trying to run examples or telegram bots from official site - <a href=\"https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples\" rel=\"nofollow noreferrer\">https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples</a>\nInstalled :</p>\n<pre><code>pip install python-telegram-bot\n</code></pre>\n<p>and when i run the example, i got error back that version is not compatible.</p>\n<pre><code>if __version_info__ &lt; (20, 0, 0, &quot;alpha&quot;, 1):\n    raise RuntimeError(\n        f&quot;This example is not compatible with your current PTB version {TG_VER}. To view the &quot;\n        f&quot;{TG_VER} version of this example, &quot;\n        f&quot;visit https://github.com/python-telegram-bot/python-telegram-bot/tree/v{TG_VER}/examples&quot;\n    )\n</code></pre>\n<p>It installs PyPi version 13.12 but example checks different version v20. So, the error is reasonable.\nHow can I let example working?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 25722645,
+    "reputation": 13,
+    "user_id": 19479449,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6f13a07f50381d198b238f49ab83d269?s=256&d=identicon&r=PG",
+    "display_name": "Kingston",
+    "link": "https://stackoverflow.com/users/19479449/kingston"
+   },
+   "is_answered": false,
+   "view_count": 489,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1744361149,
+   "creation_date": 1743966444,
+   "last_edit_date": 1743966555,
+   "question_id": 79558618,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79558618/python-telegram-bot-inline-buttons-unresponsive-after-long-5-hours-delay",
+   "title": "python-telegram-bot Inline Buttons Unresponsive After Long (~5+ hours) Delay",
+   "body": "<p>I'm developing a Python application (using PySide6 for the GUI) that interacts with users via Telegram using <code>python-telegram-bot</code> version 13.7. The application runs automated workflows that can take many hours and so I setup a status type message system via telegram, sometimes it needs user input via Telegram during the process if a function hits a wall or maybe some inputs for a function needs changing by the user. I currently do this via inline keyboard / buttons to present the user with an initial option to change an input or stop the process, if they choose to change an input they are given buttons of each potential input to change and then enter a value to change this variable. I need to present options to the user via Telegram using Inline Keyboard Buttons and have these buttons remain responsive even if the user doesn't interact with the message for a long period (e.g., 8+ hours, potentially overnight) as the user may have received this message at 1am for example and be asleep, then not have a chance to respond till maybe their lunchtime the next day as a pure example.</p>\n<p>Inline buttons sent by the bot currently become unresponsive after several hours. When the user clicks an &quot;old&quot; button:</p>\n<ul>\n<li>Telegram often shows the loading animation on the button indefinitely or at the top of the chat but nothing happens</li>\n<li>My bot's <code>CallbackQueryHandler</code> does <em>not</em> seem to trigger (no logs received for the callback).</li>\n<li>No error is explicitly logged by the <code>python-telegram-bot</code> library's error handler in many cases when this happens.</li>\n</ul>\n<p>So far I have tried the following:</p>\n<p>I suspected standard callback query timeouts. To mitigate this, I implemented a refresh mechanism in my application:</p>\n<ol>\n<li>My application tracks messages sent with buttons.</li>\n<li>A timer runs periodically (e.g., every ~45 minutes).</li>\n<li>If a tracked message is older than the threshold, the bot attempts to:\n<ul>\n<li>Delete the old message using <code>bot.delete_message()</code>.</li>\n<li>Send a completely <em>new</em> message with the same text content and freshly generated inline buttons using <code>bot.send_message()</code>.</li>\n<li>Track the new message ID.</li>\n</ul>\n</li>\n</ol>\n<p>When I initially tested this it seemed to work for a 1 hour test, then a 2 hour test and then even a 7 hour test and the buttons still remained responsive seemingly. However, the failure still seem to occur on a refular basis having now run this new code for a while. Especially when the PC running the script or compiled exe file (though configured not to sleep) and I am not at my house so just using a cellular connection to communicate with the application. It seems to fail more then, and I am not sure if this is a coincidence or something I need to address.</p>\n<p>I am running  Python 3.11.6, python-telegram-bot version 13.7 Running on  Windows 10 Pro and using polling (<code>updater.start_polling()</code>)</p>\n<p>I am wondering if anyone can help with this issue, is there a more reliable way to handle long-lived interactive choices via Telegram buttons with PTB v13.7? Am I missing something fundamental about callback query lifecycles or polling persistence?\nCould network interruptions or brief PC sleep cycles (despite power settings) cause polling to fail in a way that isn't easily recovered by the library's default handlers, leading to missed callbacks even after reconnection?\nAre there known best practices or alternative approaches (besides switching entirely to text replies or ConversationHandler, which I'm considering as a last resort) to ensure buttons work after many hours?</p>\n<p>I've created a minimal script (below) to demonstrate the core issue without my application's complexity. It starts the bot, sends a message with buttons to a specific chat ID, waits 8 hours, and logs whether the callback is received.</p>\n<p>Any help or suggestions anyone can offer would be greatly appreciated.</p>\n<p>Example Code:</p>\n<pre><code>import os\nimport time\nimport logging\nimport threading\nfrom telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot\n# Assumes pip install python-telegram-bot==13.7 (or your specific v13 version)\nfrom telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters\nfrom dotenv import load_dotenv # Optional: pip install python-dotenv\n\n# --- Configuration ---\nload_dotenv() # Load .env file if it exists\nBOT_TOKEN = os.getenv(&quot;TELEGRAM_BOT_TOKEN&quot;, &quot;YOUR_BOT_TOKEN&quot;) # &lt;&lt;&lt; REPLACE or use .env file\nTARGET_CHAT_ID = 123456789 # &lt;&lt;&lt; REPLACE with your Telegram Chat ID (integer)\n\n# --- Logging ---\nlogging.basicConfig(\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    level=logging.INFO\n)\nlogger = logging.getLogger(__name__)\n\n# --- State ---\nlast_callback_data = None\ncallback_received_event = threading.Event() # Used to signal if callback arrives during wait\n\n# --- Handlers ---\ndef start(update: Update, context: CallbackContext) -&gt; None:\n    logger.info(f&quot;Received /start from user {update.effective_user.id}&quot;)\n    update.message.reply_text(f&quot;Bot started. Use /sendmre to send the test message to chat ID {TARGET_CHAT_ID}.&quot;)\n\ndef send_mre_message_command(update: Update, context: CallbackContext) -&gt; None:\n    logger.info(f&quot;Received /sendmre from user {update.effective_user.id}&quot;)\n    if send_initial_mre_message(context.bot):\n        update.message.reply_text(&quot;MRE test message sent.&quot;)\n    else:\n        update.message.reply_text(&quot;Failed to send MRE test message. Check logs and config.&quot;)\n\ndef send_initial_mre_message(bot_instance: Bot) -&gt; bool:\n    &quot;&quot;&quot;Sends the message with buttons for the long wait test.&quot;&quot;&quot;\n    if not isinstance(TARGET_CHAT_ID, int) or TARGET_CHAT_ID == 123456789:\n         logger.error(&quot;TARGET_CHAT_ID is not set correctly (must be an integer).&quot;)\n         return False\n\n    keyboard = [\n        [InlineKeyboardButton(&quot;Option 1 (Long Wait)&quot;, callback_data='opt_1_long')],\n        [InlineKeyboardButton(&quot;Option 2 (Long Wait)&quot;, callback_data='opt_2_long')],\n        [InlineKeyboardButton(&quot;Cancel (Long Wait)&quot;, callback_data='cancel_long')],\n    ]\n    reply_markup = InlineKeyboardMarkup(keyboard)\n    try:\n        logger.info(f&quot;Sending MRE message to chat ID {TARGET_CHAT_ID}...&quot;)\n        bot_instance.send_message(\n            chat_id=TARGET_CHAT_ID,\n            text='MRE Started: Try clicking a button on this message after 8+ hours:',\n            reply_markup=reply_markup\n        )\n        logger.info(f&quot;MRE message sent successfully to {TARGET_CHAT_ID}.&quot;)\n        return True\n    except Exception as e:\n        logger.error(f&quot;Failed to send MRE message to {TARGET_CHAT_ID}: {e}&quot;)\n        return False\n\ndef button_callback(update: Update, context: CallbackContext) -&gt; None:\n    &quot;&quot;&quot;Handles button clicks.&quot;&quot;&quot;\n    global last_callback_data\n    query = update.callback_query\n    logger.info(f&quot;--- Button Callback Received (Data: {query.data}) ---&quot;)\n\n    try:\n        query.answer()\n    except Exception as e:\n        logger.warning(f&quot;Could not answer callback query: {e}&quot;)\n\n    last_callback_data = query.data\n    logger.info(f&quot;Stored callback data: {last_callback_data}&quot;)\n\n    try:\n        query.edit_message_text(text=f&quot;\u2705 Selection received: {query.data}\\n(Processed: {time.strftime('%H:%M:%S')})&quot;)\n    except Exception as e:\n        logger.warning(f&quot;Could not edit message: {e}&quot;)\n\n    callback_received_event.set()\n    logger.info(f&quot;--- Button Callback Finished ---&quot;)\n\ndef text_handler(update: Update, context: CallbackContext) -&gt; None:\n    logger.info(f&quot;Ignoring text message from {update.effective_user.id}&quot;)\n\ndef error_handler(update: object, context: CallbackContext) -&gt; None:\n    logger.error(f'Update &quot;{update}&quot; caused error &quot;{context.error}&quot;', exc_info=context.error)\n\n# --- Main ---\ndef main() -&gt; None:\n    if not BOT_TOKEN or BOT_TOKEN == &quot;YOUR_BOT_TOKEN&quot;:\n        print(&quot;ERROR: Telegram Bot Token not found.&quot;)\n        print(&quot;Set the BOT_TOKEN variable or use a .env file.&quot;)\n        return\n    if not isinstance(TARGET_CHAT_ID, int) or TARGET_CHAT_ID == 123456789:\n        print(&quot;ERROR: Please replace TARGET_CHAT_ID with your integer chat ID.&quot;)\n        return\n\n    # Ensure use_context=True for PTB v13.x\n    updater = Updater(BOT_TOKEN, use_context=True)\n    dispatcher = updater.dispatcher\n\n    dispatcher.add_handler(CommandHandler(&quot;start&quot;, start))\n    dispatcher.add_handler(CommandHandler(&quot;sendmre&quot;, send_mre_message_command))\n    dispatcher.add_handler(CallbackQueryHandler(button_callback))\n    dispatcher.add_handler(MessageHandler(Filters.text &amp; ~Filters.command, text_handler))\n    dispatcher.add_handler(error_handler)\n\n    logger.info(&quot;Starting bot polling...&quot;)\n    updater.start_polling()\n    logger.info(&quot;Bot polling started.&quot;)\n    print(&quot;Bot started. Send /start to the bot, then /sendmre.&quot;)\n    print(f&quot;(Test message will be sent to Chat ID: {TARGET_CHAT_ID})&quot;)\n    print(f&quot;Wait 8+ hours after the message appears, then click a button.&quot;)\n    print(&quot;Check console logs for callback details. Press Ctrl+C to stop.&quot;)\n\n    updater.idle()\n    logger.info(&quot;Bot stopping.&quot;)\n\nif __name__ == '__main__':\n    main()\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "python-asyncio",
+    "fastapi",
+    "python-telegram-bot",
+    "event-loop"
+   ],
+   "owner": {
+    "account_id": 15671743,
+    "reputation": 722,
+    "user_id": 11308029,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/alEih.jpg?s=256",
+    "display_name": "Archirk",
+    "link": "https://stackoverflow.com/users/11308029/archirk"
+   },
+   "is_answered": true,
+   "view_count": 17553,
+   "accepted_answer_id": 76148361,
+   "answer_count": 1,
+   "score": 11,
+   "last_activity_date": 1738049465,
+   "creation_date": 1682873447,
+   "last_edit_date": 1710686578,
+   "question_id": 76142431,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76142431/how-to-run-another-application-within-the-same-running-event-loop",
+   "title": "How to run another application within the same running event loop?",
+   "body": "<p>I want my FastAPI app to have access to always actual <code>bot_data</code> of <a href=\"https://docs.python-telegram-bot.org/en/stable/telegram.ext.application.html#telegram.ext.Application.bot_data\" rel=\"noreferrer\">python-telegram-bot</a>.\nI need that so when i call some endpoint in FastAPI could, for example, send messages to all chats, stored somewere in <code>bot_data</code>.</p>\n<p>As i understand the problem: <code>bot.run_polling()</code> and <code>uvicorn.run(...)</code> launch two independent async loops. And i need to run them in one.</p>\n<p><em><strong>UPD-1:</strong></em><br />\nThanks to @MatsLindh I created next function which i pass to <strong>main</strong> block, but it works <strong>inconsistent</strong>. Some times <a href=\"https://github.com/python-telegram-bot/python-telegram-bot/blob/4aedb33d377b3683b16965abb52ad4e1b2368012/telegram/ext/_application.py#L907\" rel=\"noreferrer\">bot.run_polling()</a> (gets correct loop and everything works, but other times and breaks with error that there are different loops):</p>\n<pre class=\"lang-py prettyprint-override\"><code>import asyncio\nfrom uvicorn import Config, Server\n# --snip--\ndef run(app: FastAPI, bot:Application):\n    # using get_event_loop leads to:\n    # RuntimeError: Cannot close a running event loop\n    # I guess it is because bot.run_polling()\n    # calls loop.run_until_complete() different tasks\n    # loop = asyncio.get_event_loop()\n    loop = asyncio.new_event_loop()\n    server = Server(Config(app=app, port=9001))\n    loop.create_task(server.serve())\n\n    t = Thread(target=loop.run_forever)\n    t.start()\n\n    bot.run_polling()\n\n    t.join()\n# --snip--\nif __name__ == &quot;__main__&quot;:\n# --snip--\n    run(f_app, bot_app)\n</code></pre>\n<p>Also i know I could decompose <code>bot.run_polling()</code> into several separate calls that are agregated inside, but I am sure it should work with just that shortuct funcion.</p>\n<p><strong>Initial</strong></p>\n<p>My simplified setup looks like below.</p>\n<p>Initially I tried to run not with threads but with <code>multiprocessing.Proccess</code>, however in that way my <code>bot_data</code> was always empty - i assumed it is because bot data not shared between processes so whole thing must be in one process.  And here I am failing in to run all these stuff in one async loop.</p>\n<pre class=\"lang-py prettyprint-override\"><code># main.py\n# python3.10\n# pip install fastapi[all] python-telegram-bot\nfrom threading import Thread\n\nimport uvicorn\nfrom telegram.ext import Application, ApplicationBuilder, PicklePersistence\nfrom fastapi import FastAPI, Request\n\nBOT_TOKEN = &quot;telegram-bot-token&quot;\nMY_CHAT = 123456\n\nclass MyApp(FastAPI):\n    def add_bot(self, bot_app: Application):\n        self.bot_app = bot_app\n\nasync def post_init(app: Application):\n    app.bot_data[&quot;key&quot;] = 42\n\nf_app = MyApp()\n\n@f_app.get(&quot;/&quot;)\nasync def test(request: Request):\n   app: MyApp = request.app\n   bot_app: Application = app.bot_app\n   val = bot_app.bot_data.get('key')\n   print(f&quot;{val=}&quot;)\n   await bot_app.bot.send_message(MY_CHAT, f&quot;Should be 42: {val}&quot;)\n\n\nif __name__ == &quot;__main__&quot;:\n    pers = PicklePersistence(&quot;storage&quot;)\n    bot_app = ApplicationBuilder().token(BOT_TOKEN).post_init(post_init).persistence(pers).build()\n    f_app.add_bot(bot_app)\n\n    t1 = Thread(target=uvicorn.run, args=(f_app,), kwargs={&quot;port&quot;: 9001})\n    t1.start()\n\n    # --- Launching polling in main thread causes\n    # telegram.error.NetworkError: Unknown error in HTTP implementation:\n    # RuntimeError('&lt;asyncio.locks.Event object at 0x7f2764e6fd00 [unset]&gt; is bound to a different event loop')\n    # message is sent and value is correct, BUT app breaks and return 500\n    # bot_app.run_polling()\n\n    # --- Launching polling in separate thread causes\n    # RuntimeError: There is no current event loop in thread 'Thread-2 (run_polling)'.\n    # t2 = Thread(target=bot_app.run_polling)\n    # t2.start()\n\n    # --- Launching with asyncio causes:\n    # ValueError: a coroutine was expected, got &lt;bound method Application.run_polling ...\n    # import asyncio\n    # t2 = Thread(target=asyncio.run, args=(bot_app.run_polling,))\n    # t2.start()\n\n    t1.join()\n   \n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "django",
+    "docker",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 19797264,
+    "reputation": 313,
+    "user_id": 14498998,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Dz6GM.jpg?s=256",
+    "display_name": "Alin",
+    "link": "https://stackoverflow.com/users/14498998/alin"
+   },
+   "is_answered": false,
+   "view_count": 476,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1737640000,
+   "creation_date": 1737384133,
+   "question_id": 79371673,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79371673/run-pip-install-no-cache-dir-r-requirements-txt-installing-but-no-working-wit",
+   "title": "RUN pip install --no-cache-dir -r requirements.txt installing but no working with Docker",
+   "body": "<p>I've trying to use docker for a couple of projects, one is a Django and another is a python telegram bot; But in both cases the problem is that no matter how I copy or install requirements.txt into the container, the libraries apparently get installed, but then all of a sudden I get errors like this in the main python container:</p>\n<blockquote>\n<p>telegram-bot-container  |   File &quot;/app/run.py&quot;, line 15, in &lt;module&gt;\ntelegram-bot-container  |     import logging, mysql_handler, cmc_handler, constants\ntelegram-bot-container  |   File &quot;/app/mysql_handler.py&quot;, line 2, in &lt;module&gt;\ntelegram-bot-container  |     from decouple import config\ntelegram-bot-container  | ModuleNotFoundError: No module named 'decouple'</p>\n</blockquote>\n<p>And I have to install all missing libraries like this, as if requirements.txt was redundant!:</p>\n<p><code>pip install python-telegram-bot mysql-connector-python python-coinmarketcap python-decouple</code></p>\n<p>Please help me identify the problem.</p>\n<p>My whole Dockerfile:</p>\n<pre><code>FROM python:3.10-slim\n\nWORKDIR /app\n\nCOPY ./requirements.txt /app/\n\nRUN python -m pip install --upgrade pip &amp;&amp; \\\n    pip install --no-cache-dir -r requirements.txt || echo &quot;Skipping problematic package.&quot; &amp;&amp; \\\n    pip install python-telegram-bot mysql-connector-python python-coinmarketcap \n\nCOPY . /app\n\nEXPOSE 8081\n\nCMD [&quot;python&quot;, &quot;run.py&quot; ]\n</code></pre>\n<p>I tried rebuilding with/without caching.\nI can see that the packages are being installed in logs.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "odbc",
+    "pyodbc",
+    "pythonanywhere",
+    "cloudsql"
+   ],
+   "owner": {
+    "account_id": 31653004,
+    "reputation": 11,
+    "user_id": 24471674,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/2480da750873a1febae8d9bfd6c10027?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "noname for the moment",
+    "link": "https://stackoverflow.com/users/24471674/noname-for-the-moment"
+   },
+   "is_answered": true,
+   "view_count": 574,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1737582544,
+   "creation_date": 1713453635,
+   "question_id": 78348610,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78348610/installing-odbc-driver-18-for-sql-server-on-pythonanywhere",
+   "title": "Installing ODBC Driver 18 for SQL Server on pythonanywhere",
+   "body": "<p>I am using Google Cloud SQL for a telegram bot and apart from all the pip installations like\npyTelgramBotAPI, pyodbc, requests, I need the ODBC Driver for it to work. Since, I did not find any possible ways to do it with the bash console I do not know what else to do.\nIs there any possible ways to connect this driver to pythonanywhere hosting service or not?</p>\n<p>I have done everything needed apart from installing the driver on this hosting service.\nIt is the last part remaining and I want to know if I can do something about that!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 29210227,
+    "reputation": 1,
+    "user_id": 22378363,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AAcHTtdGl7yYHcCk1h0Zx3mOa7e4vHCuBCasaE7nyQsgBD0M=k-s256",
+    "display_name": "Adorian Vinfo",
+    "link": "https://stackoverflow.com/users/22378363/adorian-vinfo"
+   },
+   "is_answered": false,
+   "view_count": 675,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1729178343,
+   "creation_date": 1691821103,
+   "last_edit_date": 1695048716,
+   "question_id": 76888022,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76888022/writing-a-python-script-for-telegram-mention-bot",
+   "title": "Writing a Python script for Telegram mention bot",
+   "body": "<p>I've installed latest version Python in my Windows 8.1 32 bit. I have created a Telegram bot. I've also written a script for my bot. I've installed pip, Telegram, Python Telegram bot and others which are needed to run my telegram bot.</p>\n<p>Here's the code I've written for my Telegram bot:</p>\n<pre><code>import logging\nfrom telegram import Update\n\n# from telegram.update import Update\n\nfrom telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, Filters\n\n\nlogging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)\n\nTOKEN = 'I removed it for now'\n\n# Initialize the Updater\nupdater = Updater(token=TOKEN, use_context=True)\ndispatcher = updater.dispatcher\n\n# Command handler\ndef start(update: Update, context: CallbackContext) -&gt; None:\n    update.message.reply_text(&quot;Hello! I am your mention bot. Use @everyone to mention all members.&quot;)\n\nstart_handler = CommandHandler('start', start)\ndispatcher.add_handler(start_handler)\n\n# Mention handler\ndef handle_mentions(update: Update, context: CallbackContext) -&gt; None:\n    message_text = update.message.text\n    if &quot;@everyone&quot; in message_text:\n        chat_id = update.message.chat_id\n        \n        # Get the list of all members in the group\n        all_members = context.bot.get_chat_members(chat_id)\n        \n        # Prepare the mention message\n        mention_message = &quot; &quot;.join([f&quot;@{member.user.username}&quot; for member in all_members if member.user.username])\n        if mention_message:\n            mention_message = f&quot;Mentioning all members: {mention_message}&quot;\n        else:\n            mention_message = &quot;No active members to mention.&quot;\n        \n        # Send the mention message\n        context.bot.send_message(chat_id, mention_message, reply_to_message_id=update.message.message_id)\n\nmention_handler = MessageHandler(Filters.text &amp; ~Filters.command, handle_mentions)\ndispatcher.add_handler(mention_handler)\n\n# Start the bot\nupdater.start_polling()\n\n# Run the bot until you press Ctrl-C\nupdater.idle()\n\n\n</code></pre>\n<p>Whenever I try to run these script saved as mention_bot.py by commanding <code>cd c:\\python\\bot\\python mention_bot.py</code>, it always shows me this error:</p>\n<pre><code>C:\\Python\\bot&gt;python mention_bot.py Traceback (most recent call last):\nFile &quot;C:\\Python\\bot\\mention_bot.py&quot;, line 2, in &lt;module&gt;\nfrom telegram import Update\nImportError: cannot import name 'Update' from 'telegram' (C:\\Python\\Lib\\site-pa kages\\telegram\\_____init__.py&gt;\n</code></pre>\n<p>How can I get rid of this error?</p>\n"
+  },
+  {
+   "tags": [
+    "docker-compose",
+    "fastapi",
+    "docker-container",
+    "uvicorn"
+   ],
+   "owner": {
+    "account_id": 22444648,
+    "reputation": 1,
+    "user_id": 16648728,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c0b7e88961547347ac0c2bef2139e0c5?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "xler",
+    "link": "https://stackoverflow.com/users/16648728/xler"
+   },
+   "is_answered": false,
+   "view_count": 217,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1726829107,
+   "creation_date": 1726828578,
+   "last_edit_date": 1726829107,
+   "question_id": 79006390,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79006390/how-do-i-connect-uvicorn-fastapi-through-docker-container",
+   "title": "How do I connect uvicorn/fastapi through docker container?",
+   "body": "<p>I'm currently building an app that connects to an API server through a script. Here\u2019s how I create posts by connecting to the API server:</p>\n<pre><code>            api_url = &quot;http://localhost:8013/posts/&quot;\n            print(&quot;Post wird erstellt...&quot;)\n            # Sende POST-Anfrage an FastAPI\n            async with httpx.AsyncClient() as client:\n                response = await client.post(api_url, json=post)\n                if response.status_code == 200:\n                    print(&quot;Post erfolgreich erstellt.&quot;)\n                else:\n                    print(f&quot;Fehler beim Erstellen des Posts: {response.status_code} {response.text}&quot;)\n</code></pre>\n<p>The API request is processed as follows:</p>\n<pre><code>....\n\napp = FastAPI()\n\n# Erlaube CORS-Anfragen von http://localhost:3000\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[&quot;0.0.0.0&quot;],#&quot;http://telegram-trigger:8014&quot;],\n    allow_credentials=True,\n    allow_methods=[&quot;*&quot;],\n    allow_headers=[&quot;*&quot;],\n)\n\n.... \n\n@app.post(&quot;/posts/&quot;)\nasync def create_post(post: Post):\n    # Validierung sicherstellen\n    if not (\n            post.asin and post.title and post.item_link and post.image_url and post.current_price and post.highest_price and post.category\n    ):\n        raise HTTPException(status_code=400, detail=&quot;Not all required information is available.&quot;)\n\n</code></pre>\n<p>Here\u2019s my docker-compose.yml:</p>\n<pre><code>services:\n  api:\n    image: python:3.11-slim  \n    working_dir: /app\n    volumes:\n      - ./backend:/app  \n    command:  sh -c &quot;pip install --no-cache-dir -r requirements.txt &amp;&amp; python3 -m uvicorn Service.postService:app --reload  --host 0.0.0.0 --port 8013&quot;\n    #expose:  \n    #  - &quot;8013&quot;\n    ports:\n      - &quot;8013:8013&quot;  \n    environment:\n     ....\n    networks:\n      - app-network\n\n  telegram-trigger:\n    image: python:3.11-slim\n    working_dir: /app/Service\n    volumes:\n      - ./backend:/app\n    command: sh -c &quot;cd .. &amp;&amp; pip install -r requirements.txt  &amp;&amp; PYTHONPATH=. python3 Trigger/telegramTrigger.py&quot;\n    depends_on:\n      - api\n    stdin_open: true  \n    tty: true         \n    environment:\n     ....\n    networks:\n      - app-network\n</code></pre>\n<p>When I attempt to create a post by sending it to the API, I encounter the following error:</p>\n<pre><code>2024-09-20 12:23:05 {'current_price': 129.19, 'highest_price': 319.99, 'discount': '-60%'}\n2024-09-20 12:23:05 Post wird erstellt...\n2024-09-20 12:23:05 Unhandled exception on new_message_handler\n2024-09-20 12:23:05 Traceback (most recent call last):\n...\nhttpx.ConnectError: All connection attempts failed\n\n\n</code></pre>\n<p>What could be causing this issue? How can I correctly connect the API server with the Telegram trigger?</p>\n<p>I have also specified the service names of the containers as hosts, adjusted the ports, and checked if the script works locally. It functions normally via localhost on my local machine.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot",
+    "zabbix",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 16765693,
+    "reputation": 131,
+    "user_id": 12119643,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/78ce708b8584034d39f114c28cc765a0?s=256&d=identicon&r=PG",
+    "display_name": "Lucas SF",
+    "link": "https://stackoverflow.com/users/12119643/lucas-sf"
+   },
+   "is_answered": true,
+   "view_count": 44500,
+   "accepted_answer_id": 58134805,
+   "answer_count": 2,
+   "score": 5,
+   "last_activity_date": 1725820131,
+   "creation_date": 1569515391,
+   "last_edit_date": 1725820131,
+   "question_id": 58121141,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/58121141/how-to-fix-importerror-no-module-named-telebot",
+   "title": "How to fix ImportError: No module named &#39;telebot&#39;",
+   "body": "<p>I'm configuring a bot to send alerts from Zabbix, so I installed Python and the modules:</p>\n<pre><code>sudo apt install python python-pip python-setuptools\n</code></pre>\n<p>After that, I installed the bot API to use on Zabbix:</p>\n<pre><code>python -m pip install --user pyTelegramBotAPI\n</code></pre>\n<p>Created the script in <strong>/usr/lib/zabbix/alertscripts/</strong> :</p>\n<pre><code>#!/usr/bin/env python\n     \nimport telebot,sys\n     \nBOT_TOKEN='123TOKENAQUI321'\nDESTINATION=sys.argv[1]\nSUBJECT=sys.argv[2]\nMESSAGE=sys.argv[3]\n     \nMESSAGE = MESSAGE.replace('/n','\\n')\ntb = telebot.TeleBot(BOT_TOKEN)\ntb.send_message(DESTINATION,SUBJECT + '\\n' + MESSAGE)\n</code></pre>\n<p>Changed permissions:</p>\n<pre><code>sudo chmod +x telegram\n\nsudo chown -R zabbix telegram\n</code></pre>\n<p>And when testing the script on terminal or Zabbix the following error appears:</p>\n<blockquote>\n<p>Traceback (most recent call last):   File\n&quot;/usr/lib/zabbix/alertscripts/telegram&quot;, line 2, in \nimport telebot,sys ImportError: No module named 'telebot'</p>\n</blockquote>\n<p>I tried to solve by installing the module:</p>\n<pre><code>python -m pip install --user telebot\n</code></pre>\n<p>Installing the module did not solve it, so I tried to use python3, and the script on the terminal worked, but in Zabbix still showing the same error. I ended up going back to python.</p>\n<p>The telebot module does not appear with <code>pip list</code>, only inside the python terminal using the  command <code>help (&quot;modules&quot;)</code>.</p>\n<p>What may be causing the problem and how to resolve it?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 14249823,
+    "reputation": 11,
+    "user_id": 10293731,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-ECvbcP-648Y/AAAAAAAAAAI/AAAAAAAAAF8/2BEs-NMBBms/s256-rj/photo.jpg",
+    "display_name": "nikalaev",
+    "link": "https://stackoverflow.com/users/10293731/nikalaev"
+   },
+   "is_answered": true,
+   "view_count": 18048,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1721812060,
+   "creation_date": 1681304255,
+   "question_id": 75995740,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75995740/importerror-cannot-import-name-update-from-telegram",
+   "title": "ImportError: cannot import name &#39;Update&#39; from &#39;telegram&#39;",
+   "body": "<p>from telegram import Update\nImportError: cannot import name 'Update' from 'telegram'</p>\n<pre><code>import requests\nfrom bs4 import BeautifulSoup\nfrom telegram import Update\n\n\nTOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'\n\n\ndef start(update: Update, context: CallbackContext):\n    context.bot.send_message(chat_id=update.effective_chat.id, text=&quot;Welcome to the product search bot! Please enter a product name to search for.&quot;)\n\n\ndef search_product(update: Update, context: CallbackContext):\n    product_name = update.message.text\n    url = f'https://example.com/search?q={product_name}'\n    response = requests.get(url)\n    soup = BeautifulSoup(response.content, 'html.parser')\n    products = soup.find_all('div', class_='product')\n\n    for product in products:\n        name = product.find('h3', class_='product-name').text.strip()\n        price = product.find('div', class_='product-price').text.strip()\n        context.bot.send_message(chat_id=update.effective_chat.id, text=f'{name}\\n{price}')\n\n\ndef main():\n    updater = Updater(TOKEN)\n    dp = updater.dispatcher\n    dp.add_handler(CommandHandler(&quot;start&quot;, start))\n    dp.add_handler(MessageHandler(Filters.text &amp; ~Filters.command, search_product))\n    updater.start_polling()\n    updater.idle()\n\n\nif __name__ == '__main__':\n    main()\n</code></pre>\n<p>I try pip uninstall python-telegram-bot\npip install python-telegram-bot --upgrade --force-reinstall\nfrom telegram import Update\nbut it didnt help</p>\n"
+  },
+  {
+   "tags": [
+    "flask",
+    "async-await",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 27596337,
+    "reputation": 5,
+    "user_id": 21062489,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a4a05285563e185bdc23019ca8343f27?s=256&d=identicon&r=PG",
+    "display_name": "EgasVegas",
+    "link": "https://stackoverflow.com/users/21062489/egasvegas"
+   },
+   "is_answered": false,
+   "view_count": 1416,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1719312372,
+   "creation_date": 1719311537,
+   "last_edit_date": 1719311968,
+   "question_id": 78666790,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78666790/using-flask-telegram-error-networkerror-unknown-error-in-http-implementation",
+   "title": "Using Flask: telegram.error.NetworkError: Unknown error in HTTP implementation: RuntimeError(&#39;Event loop is closed&#39;)",
+   "body": "<p>I use Flask to process an HTTP request and send a message using a telegram bot. The first time the message is processed normally and returns a 200 response</p>\n<pre><code>python3[322907]: INFO:httpx:HTTP Request: POST https://api.telegram.org/bot3123123:Aasfasfasf_asfasfY/sendMessage &quot;HTTP/1.1 200 OK&quot;\npython3[322907]: INFO:root:Port 10000 has been blocked for user 619977240.\npython3[322907]: INFO:root:Port 10000 has been blocked\nINFO:werkzeug:37.223.126.21 - - [25/Jun/2024 13:24:25] &quot;POST /block_port HTTP/1.1&quot; 200 -\n</code></pre>\n<p>, but the second time an error occurs</p>\n<pre><code>python3[322907]: telegram.error.NetworkError: Unknown error in HTTP implementation: RuntimeError('Event loop is closed')\npython3[322907]: INFO:werkzeug:37.223.126.21 - - [25/Jun/2024 13:24:40] &quot;POST /block_port HTTP/1.1&quot; 500 -  \n</code></pre>\n<pre><code>from flask import Flask, request, jsonify\nimport logging\nimport os\nfrom dotenv import load_dotenv\nimport telegram\nfrom telegram import InlineKeyboardButton, InlineKeyboardMarkup\nfrom database_central import find_user_by_port\n\nlogging.basicConfig(level=logging.INFO)\nload_dotenv()\n\napp = Flask(__name__)\nbot = telegram.Bot(token=os.getenv(&quot;BOT_TOKEN&quot;))\n\nasync def send_blocked_message(user_id, port):\n    keyboard = [[InlineKeyboardButton(&quot;\u0420\u0430\u0437\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u0442\u044c&quot;, callback_data='unlock')]]\n    reply_markup = InlineKeyboardMarkup(keyboard)\n    await bot.send_message(chat_id=user_id, text='\u0412\u0430\u0448 \u043a\u043b\u044e\u0447 \u0437\u0430\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u043d \u0438\u0437-\u0437\u0430 \u043f\u043e\u0434\u043e\u0437\u0440\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0439 \u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u0438. \u0415\u0441\u043b\u0438 \u0412\u044b \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0435 \u0447\u0442\u043e \u044d\u0442\u043e \u043e\u0448\u0438\u0431\u043a\u0430, \u0442\u043e \u043d\u0430\u0436\u043c\u0438\u0442\u0435 \u043a\u043d\u043e\u043f\u043a\u0443 \u043d\u0438\u0436\u0435.', reply_markup=reply_markup)\n    logging.info(f&quot;Port {port} has been blocked for user {user_id}.&quot;)\n\n@app.route('/block_port', methods=['POST'])\nasync def block_port():\n    port = request.form.get('port')\n    if port:\n        user_id = find_user_by_port(port)\n        if user_id:\n            await send_blocked_message(user_id, port)      &lt;------ Error here\n            logging.info(f&quot;Port {port} has been blocked&quot;)\n            return jsonify({'message': f'Port {port} has been blocked for user {user_id}.'}), 200\n        else:\n            logging.info(f&quot;Port {port} has been blocked, but no user found.&quot;)\n            return jsonify({'message': f'Port {port} has been blocked, but no user found.'}), 200\n    else:\n        return jsonify({'error': 'Port not provided.'}), 400\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5001)  \n</code></pre>\n<p>I used regular Flask and asynchronous (pip install flask[async]), but nothing helped. I also used asyncio, but nothing helped either. If you remove the <code>await send_blocked_message(user_id, port)</code> function call, then everything works fine.</p>\n"
+  },
+  {
+   "tags": [
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 32472042,
+    "reputation": 39,
+    "user_id": 25227618,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/b69a0fc1e58615d20c7fadd94eb7cbbc?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "David",
+    "link": "https://stackoverflow.com/users/25227618/david"
+   },
+   "is_answered": false,
+   "view_count": 59,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1717686189,
+   "creation_date": 1717685897,
+   "last_edit_date": 1717686189,
+   "question_id": 78587477,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78587477/i-cant-find-a-precise-answer-for-this-error-chat-imported-from-telelgram-bot",
+   "title": "I can&#39;t find a precise answer for this error Chat imported from Telelgram bot",
+   "body": "<p>ImportError: cannot import name 'Chat' from 'telegram' (/usr/local/lib/python3.10/dist-packages/telegram/<strong>init</strong>.py)</p>\n<p>How can I overcome this error?</p>\n<pre><code>!pip install python-telegram\n!pip install telegram\n!pip install telegram.chat\n\n\n\nimport time\nimport requests\nimport logging\nfrom telegram.ext import Updater, CommandHandler, CallbackContext\nfrom telegram.error import TelegramError\nfrom bs4 import BeautifulSoup\nfrom telegram import Bot, Chat\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 24383451,
+    "reputation": 11,
+    "user_id": 18314623,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/PrLzN.jpg?s=256",
+    "display_name": "Kamal",
+    "link": "https://stackoverflow.com/users/18314623/kamal"
+   },
+   "is_answered": false,
+   "view_count": 706,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1716556352,
+   "creation_date": 1716556102,
+   "last_edit_date": 1716556352,
+   "question_id": 78528771,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78528771/module-error-from-telegram-ext-import-updater-commandhandler-messagehandler",
+   "title": "Module error = from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext",
+   "body": "<p>I am creating a Telegram Python-based bot, but I encountered an error:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;C:\\Users\\Kamal Wixpa\\Desktop\\New folder\\bot.py&quot;, line 1, in &lt;module&gt;\n    from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext\n  File &quot;C:\\Users\\Kamal Wixpa\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\telegram\\ext\\__init__.py&quot;, line 66, in &lt;module&gt;\n    from . import filters\n  File &quot;C:\\Users\\Kamal Wixpa\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\telegram\\ext\\filters.py&quot;, line 122, in &lt;module&gt;\n    from telegram import Chat as TGChat\nImportError: cannot import name 'Chat' from 'telegram' (C:\\Users\\Kamal Wixpa\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\telegram\\__init__.py)\n</code></pre>\n<p>Environment:</p>\n<pre><code>Python Version: 3.12.3\npython-telegram-bot Version: 21.2 : pip install python-telegram-bot\n</code></pre>\n<p>Code:</p>\n<pre><code>from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext\nfrom telegram import Update\nimport random\n\nBOT_TOKEN = &quot;sdfdsf&quot;\n\ndef generate_luhn_digit(num):\n    digits = [int(d) for d in str(num)]\n    checksum = 0\n    reverse_digits = digits[::-1]\n\n    for i, digit in enumerate(reverse_digits):\n        if i % 2 == 0:\n            double = digit * 2\n            checksum += double - 9 if double &gt; 9 else double\n        else:\n            checksum += digit\n\n    return str((10 - (checksum % 10)) % 10)\n\ndef handle_cc_command(update: Update, context: CallbackContext):\n    try:\n        query = update.message.text.split(&quot; &quot;)[1]\n\n        if not query[:-1].isdigit() or not query[-1].isdigit():\n            update.message.reply_text(&quot;Invalid input. Please provide a numeric credit card base.&quot;)\n            return\n\n        luhn_num = generate_luhn_digit(query[:-1])\n\n        if &quot;|&quot; in query:\n            expiry_data = query.split(&quot;|&quot;)[1].split()\n            if len(expiry_data) == 2:\n                expiry_month, expiry_year = expiry_data\n            else:\n                expiry_month = expiry_data[0]\n                expiry_year = str(random.randint(20, 30)) + str(random.randint(0, 9))\n        else:\n            expiry_month = str(random.randint(1, 12)).zfill(2)\n            expiry_year = str(random.randint(20, 30)) + str(random.randint(0, 9))\n\n        cvv = str(random.randint(100, 999))\n\n        full_cc = f&quot;{query[:-1]}{luhn_num}|{expiry_month}|{expiry_year}|{cvv}&quot;\n        update.message.reply_text(f&quot;Generated Credit Card Number: {full_cc}&quot;)\n\n    except (IndexError, ValueError):\n        update.message.reply_text(&quot;Please provide a valid input format.&quot;)\n\ndef handle_unknown_message(update: Update, context: CallbackContext):\n    context.bot.send_message(chat_id=update.effective_chat.id, text=&quot;Unknown command&quot;)\n\n\nupdater = Updater(BOT_TOKEN, use_context=True)\ndp = updater.dispatcher\ndp.add_handler(CommandHandler(&quot;cc&quot;, handle_cc_command))\ndp.add_handler(MessageHandler(filters.command, handle_unknown_message))\n\nupdater.start_polling()\nupdater.idle()\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 27509276,
+    "reputation": 61,
+    "user_id": 20991484,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AEdFTp6lKRH0HjG4g934H6sLeCcogpayKWUFXka1T6r4=k-s256",
+    "display_name": "Rascal",
+    "link": "https://stackoverflow.com/users/20991484/rascal"
+   },
+   "is_answered": true,
+   "view_count": 12732,
+   "answer_count": 3,
+   "score": 4,
+   "last_activity_date": 1714267553,
+   "creation_date": 1673525944,
+   "question_id": 75096233,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75096233/attributeerror-module-telegram-ext-filters-has-no-attribute-text",
+   "title": "AttributeError: module &#39;telegram.ext.filters&#39; has no attribute &#39;text&#39;",
+   "body": "<p>states={\nMOB_NO: [MessageHandler(filters.text, reply_to)],</p>\n<p>},</p>\n<p>AttributeError: module 'telegram.ext.filters' has no attribute 'text'</p>\n<p>I install pip install python-telegram-bot.</p>\n<p>And here we import module.\nfrom telegram.ext import (Updater, CommandHandler, MessageHandler, filters,\nConversationHandler)</p>\n<p>When we handle messages it says.</p>\n<p>AttributeError: module 'telegram.ext.filters' has no attribute 'text</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "github",
+    "github-actions",
+    "telegram",
+    "telethon"
+   ],
+   "owner": {
+    "account_id": 21470561,
+    "reputation": 1,
+    "user_id": 23643296,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a4c2efe12f6b8bee859c1826d5dae49d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Amin Achak",
+    "link": "https://stackoverflow.com/users/23643296/amin-achak"
+   },
+   "is_answered": false,
+   "view_count": 229,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1712982542,
+   "creation_date": 1712866306,
+   "last_edit_date": 1712982542,
+   "question_id": 78312831,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78312831/how-to-use-telethon-on-github-actions",
+   "title": "How to use Telethon on Github Actions",
+   "body": "<p>I have a script that makes some files and it runs on GitHub actions.\nafter those files have been made, I want to send them with another scrips in telegram for some group with my own telegram account.</p>\n<p>Telegrams shows me a dialog that asks for bot token or phone number. then it sends me a message with a code that i have to enter the code. but as I'm running the code scheduled on GitHub actions there is no way for me to enter my phone number. the output is:</p>\n<pre><code>Run python Send_Telagram_Message.py\nTraceback (most recent call last):\nFile &quot;Send_Telagram_Message.py&quot;, line 33, in &lt;module&gt;\nwith client:\nFile &quot;/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/telethon/helpers.py&quot;, line 219, in _sync_enter\nreturn loop.run_until_complete(self.__aenter__())\nFile &quot;/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/base_events.py&quot;, line 616, in run_until_complete\nreturn future.result()\nFile &quot;/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/telethon/client/auth.py&quot;, line 657, in __aenter__\nreturn await self.start()\nFile &quot;/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/telethon/client/auth.py&quot;, line 165, in _start\nvalue = phone()\nFile &quot;/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/telethon/client/auth.py&quot;, line 22, in &lt;lambda&gt;\nphone: typing.Callable[[], str] = lambda: input('Please enter your phone (or bot token): '),\nEOFError: EOF when reading a line\nPlease enter your phone (or bot token): \nError: Process completed with exit code 1.\n</code></pre>\n<p>I used telethon library. and my code is:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from telethon.sync import TelegramClient\nimport os\n\n# Set up the Telegram client with your own account credentials\napi_id = os.environ['API_ID']\napi_hash = os.environ['API_HASH']\nphone_number = os.environ['PHONE_NUMBER']\n\nclient = TelegramClient('send things', api_id, api_hash)\n\nasync def main():\n    # Log in to your Telegram account\n    await client.start(phone_number)\n\n    # Replace 'group_username' with the username of your group\n    group_id = -4119703192\n    group_entity = await client.get_entity(group_id)\n\n    # Path to the folder containing images\n    folder_path = os.path.join(current_directory, 'To_Send')\n\n    # Iterate through the images in the folder\n    for filename in os.listdir(folder_path):\n        if filename.endswith('.jpg') or filename.endswith('.png'):\n            image_path = os.path.join(folder_path, filename)\n\n            # Send the image to the group\n            await client.send_file(group_entity, file=image_path)\n\n    print(&quot;All images sent to the group.&quot;)\n\n# Run the main function\nwith client:\n    client.loop.run_until_complete(main())\n</code></pre>\n<p>And this is my workflow:</p>\n<pre class=\"lang-yaml prettyprint-override\"><code>name: Send_Telagram_Message.py\n\non:\n  schedule:\n    - cron: '* * * * *' #10min\n\njobs:\n  run_script:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v2\n\n      - name: Set up Python\n        uses: actions/setup-python@v2\n        with:\n          python-version: 3.8\n\n      - name: Install dependencies\n        run: |\n          pip install telethon\n          \n      - name: Run script\n        env:\n          API_ID: ${{ secrets.TELEGRAM_API_ID }}\n          API_HASH: ${{ secrets.TELEGRAM_API_HASH }}\n          PHONE_NUMBER: ${{ secrets.TELEGRAM_PHONE_NUMBER }}\n        run: python Send_Telagram_Message.py\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "linux",
+    "pip",
+    "archlinux"
+   ],
+   "owner": {
+    "account_id": 25610735,
+    "reputation": 41,
+    "user_id": 19384213,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14Ggc5P7tcC1j9yP1UJ437Glc4LPaGe_Uo7cKmOz27w=k-s256",
+    "display_name": "Bourbon",
+    "link": "https://stackoverflow.com/users/19384213/bourbon"
+   },
+   "is_answered": true,
+   "view_count": 2323,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1709901252,
+   "creation_date": 1655890154,
+   "question_id": 72712963,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72712963/pip-install-python-telegram-bot-not-working-arch",
+   "title": "pip install python-telegram-bot not working (Arch)",
+   "body": "<p>I use Arch Linux.</p>\n<p>I'm trying to execute &quot;pip install&quot; to install packages and can't do it:</p>\n<pre><code>\u276f pip install python-telegram-bot\nDefaulting to user installation because normal site-packages is not writeable\nCollecting python-telegram-bot\n  Using cached python_telegram_bot-13.12-py3-none-any.whl (511 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/04/cc/f80083270fdab8ba8da3fb89679055dad6f9eb5a060ad63737804cbf1919/python_telegram_bot-13.12-py3-none-any.whl#sha256=08246ecccbb0e7b2ac43d3b545c3bdabc71194b20be9620cd0ed96a2eb66820d (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/04/cc/f80083270fdab8ba8da3fb89679055dad6f9eb5a060ad63737804cbf1919/python_telegram_bot-13.12-py3-none-any.whl#sha256=08246ecccbb0e7b2ac43d3b545c3bdabc71194b20be9620cd0ed96a2eb66820d has inconsistent version: filename has '13.12', but metadata has '13.12'\n  Using cached python-telegram-bot-13.12.tar.gz (349 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/3d/41/36e55985839805a9f916aed944686f6edb8db875bafa0da9b4e133d006d4/python-telegram-bot-13.12.tar.gz#sha256=daf55fb6f418b8752317fd12df824dd717e3229a87d83810a4cdd6e442f66de5 (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/3d/41/36e55985839805a9f916aed944686f6edb8db875bafa0da9b4e133d006d4/python-telegram-bot-13.12.tar.gz#sha256=daf55fb6f418b8752317fd12df824dd717e3229a87d83810a4cdd6e442f66de5 has inconsistent version: filename has '13.12', but metadata has '13.12'\n  Using cached python_telegram_bot-13.11-py3-none-any.whl (497 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/8f/a5/a18d45dc9bfafa26916dde9b067e031641fd541907950351fedad297ab46/python_telegram_bot-13.11-py3-none-any.whl#sha256=534f5bb0ff4ca34c9252e97e0b3bcdab81d97be0eb4821682a361cb426c00e55 (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/8f/a5/a18d45dc9bfafa26916dde9b067e031641fd541907950351fedad297ab46/python_telegram_bot-13.11-py3-none-any.whl#sha256=534f5bb0ff4ca34c9252e97e0b3bcdab81d97be0eb4821682a361cb426c00e55 has inconsistent version: filename has '13.11', but metadata has '13.11'\n  Using cached python-telegram-bot-13.11.tar.gz (343 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/28/be/b90ccd3bdf9dcdf32b9c8cdea1b97de690de70703245605301c1539cab66/python-telegram-bot-13.11.tar.gz#sha256=baeff704baa2ac3dc17a944c02da888228ad258e89be2e5bcbd13a8a5102d573 (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/28/be/b90ccd3bdf9dcdf32b9c8cdea1b97de690de70703245605301c1539cab66/python-telegram-bot-13.11.tar.gz#sha256=baeff704baa2ac3dc17a944c02da888228ad258e89be2e5bcbd13a8a5102d573 has inconsistent version: filename has '13.11', but metadata has '13.11'\n  Using cached python_telegram_bot-13.10-py3-none-any.whl (497 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/af/40/9e891037102c1e412e690aea2d0b23dfe405e123aca4d13709d4729b925e/python_telegram_bot-13.10-py3-none-any.whl#sha256=833f39110f5d019b39a6c6fcbabd6ea1627eaaa0a26e618c0be099568672d791 (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/af/40/9e891037102c1e412e690aea2d0b23dfe405e123aca4d13709d4729b925e/python_telegram_bot-13.10-py3-none-any.whl#sha256=833f39110f5d019b39a6c6fcbabd6ea1627eaaa0a26e618c0be099568672d791 has inconsistent version: filename has '13.10', but metadata has '13.10'\n  Using cached python-telegram-bot-13.10.tar.gz (342 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/bd/de/2a6d3e9fd8aebb0a8bb4c3fd9e40d3c6b29cdc3c17410caf8df651dfd35f/python-telegram-bot-13.10.tar.gz#sha256=d2c555431821f4ace0c1b7ce12af41999f01b793b275dee131f1034d08c01e3e (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/bd/de/2a6d3e9fd8aebb0a8bb4c3fd9e40d3c6b29cdc3c17410caf8df651dfd35f/python-telegram-bot-13.10.tar.gz#sha256=d2c555431821f4ace0c1b7ce12af41999f01b793b275dee131f1034d08c01e3e has inconsistent version: filename has '13.10', but metadata has '13.10'\n  Using cached python_telegram_bot-13.9-py3-none-any.whl (496 kB)\nWARNING: Discarding https://files.pythonhosted.org/packages/c4/d6/f5fe95fedbe2a7fd5ca1e60dbba422d7276580990f7006c0ff0e9fd2fde1/python_telegram_bot-13.9-py3-none-any.whl#sha256=a0018979585054f9c8da70198701053705ff1cd2839cc74b2da5371e3ada9ada (from https://pypi.org/simple/python-telegram-bot/) (requires-python:&gt;=3.6). Requested python-telegram-bot from https://files.pythonhosted.org/packages/c4/d6/f5fe95fedbe2a7fd5ca1e60dbba422d7276580990f7006c0ff0e9fd2fde1/python_telegram_bot-13.9-py3-none-any.whl#sha256=a0018979585054f9c8da70198701053705ff1cd2839cc74b2da5371e3ada9ada has inconsistent version: filename has '13.9', but metadata has '13.9'\n  Using cached python-telegram-bot-13.9.tar.gz (342 kB)\n</code></pre>\n<p>So it can continue until version 0 (after each &quot;WARNING&quot; the version number drops by 1 point).\nWhat's wrong? Why I can't use &quot;pip install&quot;?</p>\n<p>About versions:</p>\n<pre><code>\u276f python -V\nPython 3.10.5\n\u276f pip -V\npip 21.0 from /usr/lib/python3.10/site-packages/pip (python 3.10)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "python-asyncio",
+    "telegram",
+    "telethon"
+   ],
+   "owner": {
+    "account_id": 26325250,
+    "reputation": 123,
+    "user_id": 19986671,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AFdZucozKbb5yNxmtP7dPC2rFxwu-D1rDBi-NU0kd5xN=k-s256",
+    "display_name": "youjustmy",
+    "link": "https://stackoverflow.com/users/19986671/youjustmy"
+   },
+   "is_answered": false,
+   "view_count": 137,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1708635636,
+   "creation_date": 1708635636,
+   "question_id": 78043986,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78043986/problem-with-asyncio-in-python-script-cannot-fetch-telegram-bot-response",
+   "title": "Problem with asyncio in python script, cannot fetch telegram bot response",
+   "body": "<p>I wrote a python script which interacts with telegram bot.\nit's working fine on my machine, but working weird on other computer</p>\n<pre><code>import platform\nimport asyncio\nimport re\nfrom telethon import TelegramClient\n\n\nif platform.system() == &quot;Windows&quot;:\n  asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())\n\n\nclient = TelegramClient(&quot;dtrend&quot;, api_id, api_hash)\n\n\nasync def main():\n\n  await client.send_message(dtrend_bot_id, &quot;/delete&quot;)\n  delete_response = await get_last_message()\n  await handle_start(delete_response)\n\n  await handle_main()\n\n\nasync def handle_main():\n\n  network_select_message = await get_last_message()\n  await select_option(network_select_message, networks[network], 0)\n...\n\nasync def get_last_message():\n    history = await client.get_messages(bot_id)\n    return history[0]\n\nwith client:\n    client.loop.run_until_complete(main())\n\n</code></pre>\n<p>the problem is about fetching bot's reponse after sending message, or selecting option in bot's message.</p>\n<p>this code works fine on my machine, with modules installed with 'python3 -m pip install --upgrade asyncio telethon'</p>\n<p>but doesn't work on other machine, failing to fetch latest response of bot's messages,</p>\n<p>I believe this issue is something to do with asyncio module, since I see the similar behaviour before I reinstalled modules with 'python3 -m pip install --upgrade asyncio telethon' on my machine. but for some reason this doesn't work on other machine.</p>\n<p>I tried getting reponse with conversation context in telethon, but in this case, it fails to get response from option choose in bot's response, only getting response from send_message, I think just solving asyncio module issue will fix this problem.</p>\n<p>I also tried setting up virtual environment for this script, but faced another strange behaviour that installing modules into the local environments installs different source of asyncio, which is with the issue, although it seems the versions are the same, the contents of the module is different.</p>\n<p>FYI: I tested this on both Windows and Ubuntu on my machine.\ntarget machine OS is Ubuntu</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "bots",
+    "telegram"
+   ],
+   "owner": {
+    "account_id": 26523681,
+    "reputation": 1,
+    "user_id": 20156980,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ALm5wu2m2E2d-_ZGeQsqoI4gBwIFSi16BQ0iDIihh9u4=k-s256",
+    "display_name": "kris",
+    "link": "https://stackoverflow.com/users/20156980/kris"
+   },
+   "is_answered": false,
+   "view_count": 1598,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1707950916,
+   "creation_date": 1685771178,
+   "question_id": 76394714,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76394714/import-telegram-could-not-be-resolved-and-import-telegram-ext-could-not-be-r",
+   "title": "Import &quot;telegram&quot; could not be resolved and Import &quot;telegram.ext&quot; could not be resolved",
+   "body": "<p>I get errors when I run this</p>\n<p>import logging\nfrom telegram import Update, ParseMode\nfrom telegram.ext import Updater, CommandHandler, MessageHandler, filters</p>\n<p>and I already did the</p>\n<p>pip install python-telegram-bot in the terminal</p>\n<p>I just want it ot run so I can run my telegram bot</p>\n"
+  },
+  {
+   "tags": [
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 25746780,
+    "reputation": 91,
+    "user_id": 19499885,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AItbvmnpEme_RRM6vG7W2msZYfdy3XXV9erm1avBRoMb=k-s256",
+    "display_name": "user19499885",
+    "link": "https://stackoverflow.com/users/19499885/user19499885"
+   },
+   "is_answered": true,
+   "view_count": 22517,
+   "answer_count": 6,
+   "score": 4,
+   "last_activity_date": 1706756012,
+   "creation_date": 1657171924,
+   "last_edit_date": 1657172011,
+   "question_id": 72892714,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72892714/modulenotfounderror-no-module-named-telegram-ext-telegram-is-not-a-package",
+   "title": "ModuleNotFoundError: No module named &#39;telegram.ext&#39;; &#39;telegram&#39; is not a package",
+   "body": "<p>I tried:</p>\n<ul>\n<li>pip install python-telegram-bot</li>\n<li>pip3 install python-telegram-bot</li>\n<li>pip install telegram</li>\n<li>pip3 install telegram</li>\n</ul>\n<p>But the error keeps showing up telling me there is no such package of 'telegram.ext' offered by python-telegram-bot.\nHowever, my text editor with python plugin is able to find the package telegram.ext in my environment. I also tried using command prompt dirtectly on that virtual environment I created, still doesn't work.\nSeems that this same issue is faced by other posts on internet without any resolve.</p>\n<p><a href=\"https://i.sstatic.net/R8vkA.png\" rel=\"nofollow noreferrer\">my text editor plugin can find the package</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "bots",
+    "telegram",
+    "replit"
+   ],
+   "owner": {
+    "account_id": 29159228,
+    "reputation": 13,
+    "user_id": 22338333,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1b41f43ab8c742c1c99ebecf07fe0740?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Post",
+    "link": "https://stackoverflow.com/users/22338333/post"
+   },
+   "is_answered": false,
+   "view_count": 467,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1704613614,
+   "creation_date": 1704611722,
+   "last_edit_date": 1704612372,
+   "question_id": 77772217,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77772217/update-is-unknown-import-symbol",
+   "title": "&quot;Update&quot; is unknown import symbol",
+   "body": "<p>I wrote Python code for a basic Telegram bot through replit.</p>\n<p>In the shell I wrote: <code>pip install python-telegram-bot==13.7</code></p>\n<p>Until now it was working for me, but from now on, it writes me things like: &quot;Update&quot; is unknown import symbol, &quot;Filters&quot; is unknown import symbol, and the main error is:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;/home/runner/PeachpuffSquareTraining/main.py&quot;, line 1, in &lt;module&gt;\n    from telegram import Update\nImportError: cannot import name 'Update' from 'telegram' (/home/runner/PeachpuffSquareTraining/.pythonlibs/lib/python3.10/site-packages/telegram/__init__.py)\n</code></pre>\n<p>This is the code I tried, and until now with the above pip it was working for me:</p>\n<pre><code>from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext\n\n# Replace 'YOUR_BOT_TOKEN' with the actual token you obtained from BotFather\nTOKEN = 'the token is secret'\n\ndef start(update: Update, context: CallbackContext) -&gt; None:\n    update.message.reply_text('Hello! I am your bot.')\n\ndef echo(update: Update, context: CallbackContext) -&gt; None:\n    update.message.reply_text(update.message.text)\n\ndef main() -&gt; None:\n    updater = Updater(TOKEN)\n\n    dp = updater.dispatcher\n\n    # Command handlers\n    dp.add_handler(CommandHandler(&quot;start&quot;, start))\n\n    # Message handler for echoing messages\n    dp.add_handler(MessageHandler(Filters.text &amp; ~Filters.command, echo))\n\n    # Start the Bot\n    updater.start_polling()\n\n    # Run the bot until you send a signal to stop it\n    updater.idle()\n\nif __name__ == '__main__':\n    main()\n</code></pre>\n<p>What is the problem?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "fastapi",
+    "telegram-bot",
+    "google-translation-api",
+    "fastapi-middleware"
+   ],
+   "owner": {
+    "account_id": 30019032,
+    "reputation": 1,
+    "user_id": 23004815,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/d7c6aa0a05b3da1aaba8d0e2f5950de9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Rishi_2184",
+    "link": "https://stackoverflow.com/users/23004815/rishi-2184"
+   },
+   "is_answered": false,
+   "view_count": 760,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1702216754,
+   "creation_date": 1702216754,
+   "question_id": 77635075,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77635075/dependency-conflict-between-python-telegram-bot-httpx-and-googletrans",
+   "title": "Dependency conflict between python-telegram-bot, httpx, and googletrans",
+   "body": "<p>I am facing a dependency conflict issue while trying to install or upgrade the python-telegram-bot, httpx, and googletrans libraries in my Python project. The error message indicates that there is an incompatibility between the required versions of httpx for python-telegram-bot and googletrans.</p>\n<p>The specific versions I am dealing with are:</p>\n<ul>\n<li>python-telegram-bot version 20.7 requires httpx~=0.25.2.</li>\n<li>googletrans version 4.0.0rc1 requires httpx==0.13.3.</li>\n</ul>\n<p>When I attempt to upgrade httpx to version 0.25.2 as required by python-telegram-bot, it causes a conflict with the version required by googletrans.</p>\n<p>I have tried the following steps, but the issue persists:</p>\n<pre><code>pip install --upgrade httpx==0.13.3\npip install --upgrade googletrans==4.0.0rc1\npip install --upgrade python-telegram-bot\n\n</code></pre>\n<p>The error message mentions an inability of pip's dependency resolver to account for all installed packages and attributes this to the source of the conflict.</p>\n<ol>\n<li>How can I resolve this dependency conflict between python-telegram-bot, httpx, and googletrans to ensure compatibility?</li>\n<li>Are there specific versions of these libraries that are known to work well together?</li>\n<li>Is there an alternative approach or workaround to install these libraries without encountering the conflict?</li>\n</ol>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 26052630,
+    "reputation": 211,
+    "user_id": 19755542,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AItbvmndgELlz7MDNtRvROvwyaSUz7v6WPZu1lyvuXPE=k-s256",
+    "display_name": "Adil Akram",
+    "link": "https://stackoverflow.com/users/19755542/adil-akram"
+   },
+   "is_answered": true,
+   "view_count": 79095,
+   "answer_count": 3,
+   "score": 20,
+   "last_activity_date": 1701946564,
+   "creation_date": 1673520426,
+   "last_edit_date": 1673522023,
+   "question_id": 75095107,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75095107/importerror-cannot-import-name-filters-from-telegram-ext",
+   "title": "ImportError: cannot import name &#39;Filters&#39; from &#39;telegram.ext&#39;",
+   "body": "<p>I have installed <a href=\"https://python-telegram-bot.org\" rel=\"noreferrer\">python-telegram-bot</a> like this:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>pip install python-telegram-bot\n</code></pre>\n<p>And when I'm trying to do this:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext\n</code></pre>\n<p>I get this error:</p>\n<pre><code>ImportError: cannot import name 'Filters' from 'telegram.ext' (/home/mobitnlh/virtualenv/db_application/3.8/lib/python3.8/site-packages/telegram/ext/__init__.py)\n</code></pre>\n"
+  }
+ ]
+}

@@ -1,0 +1,714 @@
+{
+ "site": "stackoverflow",
+ "query": "telegram python-telegram-bot",
+ "class": "PC",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "proxy",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 13951414,
+    "reputation": 41,
+    "user_id": 10074850,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/27a5c3ee5d4ace2b02b842f7c415a3ab?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Tatyana K",
+    "link": "https://stackoverflow.com/users/10074850/tatyana-k"
+   },
+   "is_answered": false,
+   "view_count": 14628,
+   "answer_count": 4,
+   "score": 4,
+   "last_activity_date": 1789081660,
+   "creation_date": 1531471429,
+   "last_edit_date": 1531487550,
+   "question_id": 51321151,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/51321151/python-telegram-bot-via-proxy-with-authentification",
+   "title": "Python telegram bot via proxy with authentification",
+   "body": "<p>everyone.</p>\n\n<p>I am trying to create a simple telegram bot. In my country telegram is blocked so I need to work via proxy.</p>\n\n<pre><code>from telegram.ext import Updater         \nfrom telegram.ext import CommandHandler  \n\nimport os\n\ndef start(bot, update):\n    print(\"Hello\")\n    bot.sendMessage(chat_id=512562849, text=\"Hello.\")\n\nREQUEST_KWARGS={\n    'proxy_url': 'http://93.171.217.48:10996',\n    'urllib3_proxy_kwargs': {\n    'username': '***',\n    'password': '***',\n    }\n}\n\n\nupdater = Updater(token='&lt;BOT_TOKEN&gt;',\n                  request_kwargs=REQUEST_KWARGS)  \n\n\nstart_handler = CommandHandler('start', start)  \n\nupdater.dispatcher.add_handler(start_handler)   \nupdater.start_polling()\n</code></pre>\n\n<p>But I have the next log</p>\n\n<pre><code>Exception in thread updater:\n...\n    _HTTPConnection.__init__(self, *args, **kw)\nTypeError: __init__() got an unexpected keyword argument 'username'\n</code></pre>\n\n<p>I used <a href=\"https://github.com/python-telegram-bot/python-telegram-bot/wiki/Working-Behind-a-Proxy\" rel=\"nofollow noreferrer\">the next docs</a>.</p>\n\n<p>The free proxy works ok, but for my goals, it's bad to lose connection time after time. I prefer not to work under VPN either because of some bureaucracy in my company. </p>\n\n<p>Thanks in advance!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "web-scraping",
+    "telegram"
+   ],
+   "owner": {
+    "account_id": 26508853,
+    "reputation": 21,
+    "user_id": 20144532,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ALm5wu31BCYcVTrhXhoTD6jKqeTmXFP5A1Q8xfQbnRWlbQ=k-s256",
+    "display_name": "container",
+    "link": "https://stackoverflow.com/users/20144532/container"
+   },
+   "is_answered": true,
+   "view_count": 1940,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1788350111,
+   "creation_date": 1666978146,
+   "question_id": 74238922,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74238922/how-to-scrape-messages-from-telegram-without-having-to-get-a-bot-in-it",
+   "title": "How to scrape messages from Telegram without having to get a bot in it?",
+   "body": "<p>How would I scrape messages from a Telegram channel without having to get my own bot in the channel in python?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 23419618,
+    "reputation": 11,
+    "user_id": 17480039,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AATXAJwF4hTQmdwtoF4YIAh8ZZ7L4_2e_aPwX0jx0Gov=k-s256",
+    "display_name": "Maya Deian",
+    "link": "https://stackoverflow.com/users/17480039/maya-deian"
+   },
+   "is_answered": false,
+   "view_count": 15763,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1785787505,
+   "creation_date": 1637592585,
+   "question_id": 70067696,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/70067696/python-telegram-bot-telegram-ext",
+   "title": "Python telegram bot (telegram.ext)",
+   "body": "<p>First thing first, I'm a beginner in Python and programming.\nI want to make a telegram bot for my telegram group. I found a code o Github and I want to configure it for my needs.\nI have an error when I run the code: ModuleNotFoundError: No module named 'telegram'.\nWhat do I have to install? I believe it is something related to &quot;telegram.ext&quot; and I have no ideea how to solve this.\n<a href=\"https://i.sstatic.net/kwkRo.jpg\" rel=\"nofollow noreferrer\">code</a></p>\n<p>Thank you!</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "telegram",
+    "telegram-bot",
+    "python-telegram-bot",
+    "telegram-webhook"
+   ],
+   "owner": {
+    "account_id": 10946239,
+    "reputation": 353,
+    "user_id": 8375403,
+    "user_type": "registered",
+    "accept_rate": 25,
+    "profile_image": "https://www.gravatar.com/avatar/0e2a934a679a4dae50ff1e05acea0b9a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Trabel",
+    "link": "https://stackoverflow.com/users/8375403/trabel"
+   },
+   "is_answered": false,
+   "view_count": 8796,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1784527810,
+   "creation_date": 1501785744,
+   "question_id": 45492171,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/45492171/cant-upload-audio-to-telegram-bad-request-failed-to-get-http-url-content",
+   "title": "Can&#39;t upload audio to telegram Bad Request: failed to get HTTP URL content",
+   "body": "<p>I have working url to mp3, and I am trying to send audio to Telegram by this url. It works from time to time, but most of time it gives error </p>\n\n<pre><code>\"A request to the Telegram API was unsuccessful. The server returned HTTP 400 \nBad Request. Response body:\n[b'{\"ok\":false,\"error_code\":400,\"description\":\"Bad Request: failed to get HTTP \nURL content\"}']\"\n</code></pre>\n\n<p>And I can't understand why, because I've checked the size and type, everything is clear, I can't find no more limitations in documentation of Telegram API. Who knows what is the reason of error?</p>\n\n<p>link to mp3 - <a href=\"http://data3.api.xn--41a.ws/vkp/cs9-5v4.userapi.com/p15/51bdb5ec5899ed.mp3\" rel=\"noreferrer\">http://data3.api.xn--41a.ws/vkp/cs9-5v4.userapi.com/p15/51bdb5ec5899ed.mp3</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "aiogram"
+   ],
+   "owner": {
+    "account_id": 27518749,
+    "reputation": 1,
+    "user_id": 20999264,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Vl4dC.jpg?s=256",
+    "display_name": "Slay",
+    "link": "https://stackoverflow.com/users/20999264/slay"
+   },
+   "is_answered": false,
+   "view_count": 9141,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1784279245,
+   "creation_date": 1705270450,
+   "last_edit_date": 1705340610,
+   "question_id": 77816881,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77816881/modulenotfounderror-no-module-named-aiogram",
+   "title": "ModuleNotFoundError: No module named &#39;aiogram&#39;",
+   "body": "<p>I work in VS Code and I was asked to change the telegram bot script from python-telegram-bot library to aiogram. I've installed that via 'pip install aiogram' and still getting errors like ModuleNotFoundError: No module named 'aiogram' and I don't know what to do.</p>\n<pre><code>import logging\nfrom aiogram import Bot, Dispatcher, types\nfrom aiogram.types import ParseMode\nfrom aiogram.utils import executor\nimport requests\n\nTELEGRAM_BOT_TOKEN = 'XXXXXXXX'\nCOINGECKO_API_KEY = 'XXXXXXXX'\n\nlogging.basicConfig(level=logging.INFO)\n\nbot = Bot(token=TELEGRAM_BOT_TOKEN)\ndp = Dispatcher(bot)\n\n# Function to get token price from CoinGecko\ndef get_token_price(token_id):\n    url = f'https://api.coingecko.com/api/v3/simple/price?ids={token_id}&amp;vs_currencies=usd'\n    headers = {'Authorization': f'Bearer {COINGECKO_API_KEY}'}\n    response = requests.get(url, headers=headers)\n    data = response.json()\n\n    if 'error' in data:\n        logging.error(f'Error from CoinGecko API: {data[&quot;error&quot;]}')\n        return None\n\n    try:\n        price = data[token_id]['usd']\n        return price\n    except KeyError:\n        logging.error(f'KeyError: Could not find price for token with ID {token_id}')\n        return None\n\n# Command handlers\n@dp.message_handler(commands=['btc'])\nasync def get_btc(message: types.Message):\n    price = get_token_price('bitcoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Bitcoin: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Bitcoin')\n\n@dp.message_handler(commands=['eth'])\nasync def get_eth(message: types.Message):\n    price = get_token_price('ethereum')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Ethereum: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Ethereum')\n\n@dp.message_handler(commands=['sfund'])\nasync def get_sfund(message: types.Message):\n    price = get_token_price('seedify-fund')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 Seedify: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Seedify Fund')\n\n@dp.message_handler(commands=['cgpt'])\nasync def get_cgpt(message: types.Message):\n    price = get_token_price('chaingpt')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 ChainGPT: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f ChainGPT')\n\n@dp.message_handler(commands=['bnb'])\nasync def get_bnb(message: types.Message):\n    price = get_token_price('binancecoin')\n    if price is not None:\n        await message.reply(f'\u0426\u0456\u043d\u0430 BNB: {price} USD')\n    else:\n        await message.reply('\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0442\u0440\u0438\u043c\u0430\u0442\u0438 \u0446\u0456\u043d\u0443 \u0434\u043b\u044f Binance Coin (BNB)')\n\nif __name__ == '__main__':\n    from aiogram import executor\n    executor.start_polling(dp, skip_updates=True)\n</code></pre>\n<p>Tried to create a new project (sometimes helps) and still same error</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 46629965,
+    "reputation": 21,
+    "user_id": 32889390,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/c99283795d79e62495a3fa77294a6a19?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "jujutsu_kaizen",
+    "link": "https://stackoverflow.com/users/32889390/jujutsu-kaizen"
+   },
+   "is_answered": false,
+   "view_count": 119,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1783340938,
+   "creation_date": 1783020277,
+   "question_id": 79972767,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79972767/async-telegram-bot-freezes-while-processing-voice-messages-with-external-api-req",
+   "title": "Async Telegram bot freezes while processing voice messages with external API request",
+   "body": "<pre><code>import os\nimport tempfile\n\nimport requests\nfrom dotenv import load_dotenv\nfrom telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update\nfrom telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters\n\nload_dotenv()\n\nBOT_TOKEN = os.getenv(&quot;BOT_TOKEN&quot;)\nBACKEND_URL = os.getenv(&quot;BACKEND_URL&quot;, &quot;http://localhost:3000&quot;)\nVOICE_TIMEOUT = int(os.getenv(&quot;VOICE_TIMEOUT&quot;, 600))\n\n\ndef profile(update: Update):\n    user = update.effective_user\n    return {\n        &quot;telegramId&quot;: str(user.id),\n        &quot;username&quot;: user.username or &quot;&quot;,\n        &quot;firstName&quot;: user.first_name or &quot;&quot;,\n    }\n\n\ndef keyboard(buttons):\n    return InlineKeyboardMarkup([\n        [InlineKeyboardButton(button[&quot;text&quot;], callback_data=button[&quot;data&quot;]) for button in row]\n        for row in buttons\n    ])\n\n\nasync def send(update: Update, data):\n    target = update.message or update.callback_query.message\n    markup = keyboard(data.get(&quot;buttons&quot;, [])) if data.get(&quot;buttons&quot;) else None\n    await target.reply_text(data.get(&quot;reply&quot;, &quot;&quot;), reply_markup=markup)\n    if data.get(&quot;imagePath&quot;):\n        with open(data[&quot;imagePath&quot;], &quot;rb&quot;) as image:\n            await target.reply_photo(image)\n\n\ndef post(path, data=None, files=None, timeout=120):\n    kwargs = {&quot;data&quot;: data, &quot;files&quot;: files} if files else {&quot;json&quot;: data}\n    response = requests.post(f&quot;{BACKEND_URL}{path}&quot;, **kwargs, timeout=timeout)\n    response.raise_for_status()\n    return response.json()\n\n\ndef command(msg):\n    async def _handler(update: Update, context: ContextTypes.DEFAULT_TYPE):\n        await send(update, post(&quot;/chat&quot;, {**profile(update), &quot;message&quot;: msg}))\n    return _handler\n\n\nasync def text(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    data = post(&quot;/chat&quot;, {**profile(update), &quot;message&quot;: update.message.text})\n    await send(update, data)\n\n\nasync def callback(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    query = update.callback_query\n    await query.answer()\n    data = post(&quot;/callback&quot;, {&quot;telegramId&quot;: str(query.from_user.id), &quot;callbackData&quot;: query.data})\n    await send(update, data)\n\n\nasync def voice(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    voice_file = await update.message.voice.get_file()\n    path = None\n\n    try:\n        await update.message.reply_text(&quot;Processing your voice note. First run can take a little time.&quot;)\n\n        with tempfile.NamedTemporaryFile(suffix=&quot;.oga&quot;, delete=False) as temp:\n            path = temp.name\n\n        await voice_file.download_to_drive(path)\n\n        with open(path, &quot;rb&quot;) as audio:\n            data = post(&quot;/voice&quot;, profile(update), {&quot;audio&quot;: (&quot;voice.oga&quot;, audio, &quot;audio/ogg&quot;)}, timeout=VOICE_TIMEOUT)\n\n        await send(update, data)\n    except requests.exceptions.Timeout:\n        await update.message.reply_text(&quot;Voice processing is taking too long. Try a shorter voice note once the model finishes loading.&quot;)\n    except Exception as error:\n        print(&quot;[BOT ERROR]&quot;, error)\n        await update.message.reply_text(&quot;Could not process voice. Please try again.&quot;)\n    finally:\n        if path and os.path.exists(path):\n            os.remove(path)\n\n\ndef main():\n    app = Application.builder().token(BOT_TOKEN).build()\n    app.add_handler(CommandHandler(&quot;start&quot;, command(&quot;/start&quot;)))\n    app.add_handler(CommandHandler(&quot;menu&quot;, command(&quot;/menu&quot;)))\n    app.add_handler(CallbackQueryHandler(callback))\n    app.add_handler(MessageHandler(filters.VOICE, voice))\n    app.add_handler(MessageHandler(filters.TEXT &amp; ~filters.COMMAND, text))\n    print(&quot;[BOT] ArthSaathi bot is running...&quot;)\n    app.run_polling()\n\n\nif __name__ == &quot;__main__&quot;:\n    main()\n</code></pre>\n<p>I am building a Telegram bot in Python using <code>python-telegram-bot</code> (v20+) with async handlers. The bot receives text messages, callback queries, and voice messages. For voice messages, it downloads the <code>.oga</code> file, sends it to an external backend API for speech processing, and then replies with the API response.</p>\n<p>The problem is that while a voice message is being processed, the bot becomes unresponsive to all other users and messages. It appears to &quot;freeze&quot; until the external API call completes. Text messages and callback queries are not handled during this time.</p>\n<p>The backend processing can take anywhere from 30 seconds to several minutes because it loads an AI model and performs speech-to-text and LLM inference.</p>\n"
+  },
+  {
+   "tags": [
+    "python-2.7",
+    "bots",
+    "telegram-bot",
+    "submenu"
+   ],
+   "owner": {
+    "account_id": 12670407,
+    "reputation": 1,
+    "user_id": 9290091,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/71e4d50f17e888a653b83a3864d08d6d?s=256&d=identicon&r=PG",
+    "display_name": "farid",
+    "link": "https://stackoverflow.com/users/9290091/farid"
+   },
+   "is_answered": false,
+   "view_count": 8418,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1782082975,
+   "creation_date": 1517329822,
+   "last_edit_date": 1517341142,
+   "question_id": 48526231,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/48526231/how-to-create-a-menu-and-then-a-sub-menu-at-telegram-bot-with-python",
+   "title": "How to create a menu and then a sub-menu at telegram bot with Python?",
+   "body": "<p>I want to create a telegram bot with python.</p>\n\n<p>First when a user sends <code>/start command</code>, the bot send him/her and a welcome message. Then it ask users to click on menu button. After that, I want the bot to show new keyboard as sub-menu (for example 6 buttons).</p>\n\n<p>Here is my code:</p>\n\n<pre><code>from telegram import ReplyKeyboardMarkup , reply_markup\nfrom telegram.ext import Updater , CommandHandler\nfrom emoji import emojize\n\nupdater = Updater(\"token\")\n\ndef start(bot , update):\n    chat_id = update.message.chat_id\n    text1 = emojize(':rose: &lt;b&gt;Welcome to ....!&lt;/b&gt; :rose: \\n \\n :information_source: In this bot you can .....  \\n \\n &gt;&gt; Lets Start!', use_aliases=True)\n    bot.sendMessage(chat_id=chat_id, text=text1, parse_mode='html')\n\nmainbutton = [\n    ['Menu']\n]\n\nkeyBoard1 = ReplyKeyboardMarkup(mainbutton , resize_keyboard=True)\nbot.sendMessage(chat_id=chat_id , text=\"Click on Menu\" , reply_markup=keyBoard1)\n\ndef menu(bot , update):\n    chat_id = update.message.chat_id\n    bot.sendMessage(chat_id=chat_id , text='test' , parse_mode='html')\n\nmenubuttons = [\n    ['btn1' , 'btn2' ,'btn3'],\n    ['btn4' , 'btn5' ,'btn6']\n]\n\nkeyBoard2 = ReplyKeyboardMarkup(menubuttons, resize_keyboard=True)\nbot.sendMessage(chat_id=chat_id , text='Please choose one:', reply_markup=keyBoard2)\n\ncommand_start = CommandHandler('start', start)\nupdater.dispatcher.add_handler(command_start)\n\ncommand_Menu = CommandHandler('menu' , menu)\nupdater.dispatcher.add_handler(command_Menu)\n\n# Start my bot\nupdater.start_polling()\nupdater.idle()\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 16082185,
+    "reputation": 41,
+    "user_id": 11607777,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/8e619a123be5eec92c463f7ceed61f71?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Scid",
+    "link": "https://stackoverflow.com/users/11607777/scid"
+   },
+   "is_answered": false,
+   "view_count": 8618,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1781996525,
+   "creation_date": 1585204313,
+   "question_id": 60862027,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/60862027/telegram-bot-with-python-telegram-error-badrequest-message-is-not-modified",
+   "title": "Telegram bot with python - telegram.error.BadRequest: Message is not modified:",
+   "body": "<p>I have  a nested call back feature. Every inline keyboard ends up at the callback, which uses query.edit_message_text to send another set of inline keyboards. Every result is saved into the db using separate functions. </p>\n\n<p>Initially the code is functioning properly, but when the users messaging increases, a large chunk of messages goes into the exception - \n<em>telegram.error.BadRequest: Message is not modified</em> specified new message content and reply markup are exactly the same as a current content and reply markup of the message</p>\n\n<p>The callback code is - </p>\n\n<pre><code>def languageSelector(update, context):\n    # chatID = update.message.chat.id\n    query = update.callback_query\n    chatID = query.message.chat_id\n    callback_data = query.data\n\n    print (callback_data)\n    try:\n        option = int(callback_data)\n        c.updateLanguage(chatID, option)\n        query.edit_message_text(text = c.LanguageSet[option])\n        context.bot.send_message(chat_id=chatID, text = c.enterTicketNo[option])\n\n    except:\n        languageCode = c.getLanguageCode(chatID)\n        try:\n            response = inline_handler(context,update)\n            print (11)\n            if response:\n                keyboard = [[InlineKeyboardButton(c.domestic[languageCode], callback_data=\"dom\"), InlineKeyboardButton(c.intl[languageCode], callback_data=\"intl\")]]\n                reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n                query.edit_message_text(text = c.selectLocation[languageCode], reply_markup=reply_markup)\n\n        except Exception as e:\n            print (e)\n\n            if callback_data in [\"o1\", \"o2\", \"o3\", \"o4\"]:\n                print (1)\n                c.UpdateUserRecord(chatID, \"condition\", callback_data)\n\n                keyboard = [[InlineKeyboardButton(c.yes[languageCode], callback_data=\"True_infected\"), InlineKeyboardButton(c.no[languageCode], callback_data=\"False_infected\")]]\n                reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n\n                query.edit_message_text(text = c.q4[languageCode], reply_markup=reply_markup)\n\n            elif callback_data in [\"True\", \"False\"]:\n\n                if callback_data == \"True\":\n                    c.UpdateUserRecord(chatID, \"past-1\", callback_data)\n                    query.edit_message_text(text = c.selectDate[languageCode], reply_markup=telegramcalendar.create_calendar())\n\n                else:\n                    data = [callback_data, \"na\", \"na\"]\n                    c.UpdateUserRecord(chatID, \"past-all\", callback_data)\n                    keyboard = [[InlineKeyboardButton(c.yes[languageCode], callback_data=\"true\"), InlineKeyboardButton(c.no[languageCode], callback_data=\"false\")]]\n                    reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n                    query.edit_message_text(text = c.q3[languageCode], reply_markup=reply_markup)\n\n            elif callback_data in [\"dom\", \"intl\"]:\n                if callback_data == \"dom\":\n                    reply_markup = c.domesticKey(languageCode, \"past\")\n                    query.edit_message_reply_markup(inline_message_id=update.callback_query.inline_message_id, reply_markup=reply_markup)\n                else:\n                    c.UpdateUserRecord(chatID, \"past-3\", callback_data)\n\n                    keyboard = [[InlineKeyboardButton(c.yes[languageCode], callback_data=\"true\"), InlineKeyboardButton(c.no[languageCode], callback_data=\"false\")]]\n                    reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n                    query.edit_message_text(text = c.q3[languageCode], reply_markup=reply_markup)\n\n            elif callback_data in [\"True_infected\", \"False_infected\"]:\n                c.UpdateUserRecord(chatID, \"infected\", 1 if callback_data == \"True_infected\" else 0)\n\n                keyboard = [[InlineKeyboardButton(c.yes[languageCode], callback_data=\"True\"), InlineKeyboardButton(c.no[languageCode], callback_data=\"False\")]]\n                reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n\n                query.edit_message_text(text = c.q2[languageCode], reply_markup=reply_markup)\n\n\n\n            elif callback_data in [\"dom-post\", \"intl-post\"]:\n                if callback_data == \"dom-post\":\n                    reply_markup = c.domesticKey(languageCode, \"post\")\n                    query.edit_message_reply_markup(inline_message_id=update.callback_query.inline_message_id, reply_markup=reply_markup)\n                else:\n                    c.UpdateUserRecord(chatID, \"post-2\", \"dom\" if callback_data == \"dom-post\" else \"intl\")\n                    query.edit_message_text(text = c.thanksForResponse[languageCode])\n                    context.bot.send_photo(chat_id=chatID, photo=open(c.advisory[languageCode], 'rb'), timeout=70)\n                    context.bot.send_message(chat_id=chatID, text = c.helpline[languageCode])\n\n\n            elif callback_data in [\"true\", \"false\"]:\n                data = [callback_data, \"Pune\"]\n                c.UpdateUserRecord(chatID, \"post-1\", callback_data)\n\n                if callback_data == \"true\":\n                    keyboard = [[InlineKeyboardButton(c.domestic[languageCode], callback_data=\"dom-post\"), InlineKeyboardButton(c.intl[languageCode], callback_data=\"intl-post\")]]\n                    reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n                    query.edit_message_text(text = c.selectLocation[languageCode], reply_markup=reply_markup)\n\n                else:\n                    query.edit_message_text(text = c.thanksForResponse[languageCode])\n                    context.bot.send_photo(chat_id=chatID, photo=open(c.advisory[languageCode], 'rb'), timeout=70)\n                    context.bot.send_message(chat_id=chatID, text = c.helpline[languageCode])\n\n            elif callback_data in c.states_past:\n                c.UpdateUserRecord(chatID, \"past-3\", callback_data)\n                keyboard = [[InlineKeyboardButton(c.yes[languageCode], callback_data=\"true\"), InlineKeyboardButton(c.no[languageCode], callback_data=\"false\")]]\n                reply_markup = InlineKeyboardMarkup(keyboard, one_time_keyboard=True)\n                query.edit_message_text(text = c.q3[languageCode], reply_markup=reply_markup)\n\n            elif callback_data in c.states_post:\n                c.UpdateUserRecord(chatID, \"post-2\", callback_data.strip(\"_\"))\n                query.edit_message_text(text = c.thanksForResponse[languageCode])\n                context.bot.send_photo(chat_id=chatID, photo=open(c.advisory[languageCode], 'rb'), timeout=70)\n                context.bot.send_message(chat_id=chatID, text = c.helpline[languageCode])\n\n            else:\n                query.edit_message_text(text = c.thanksForResponse[languageCode])\n                context.bot.send_photo(chat_id=chatID, photo=open(c.advisory[languageCode], 'rb'), timeout=70)\n                context.bot.send_message(chat_id=chatID, text = c.helpline[languageCode])\n</code></pre>\n\n<p>Please help with this. </p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 18211474,
+    "reputation": 31,
+    "user_id": 13253920,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0b7a3dd05ea02d49b5a4ac1a50e3e281?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user13253920",
+    "link": "https://stackoverflow.com/users/13253920/user13253920"
+   },
+   "is_answered": false,
+   "view_count": 9421,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1781978695,
+   "creation_date": 1586301091,
+   "last_edit_date": 1586441315,
+   "question_id": 61090856,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/61090856/getting-the-poll-result-from-send-poll-telegram-bot-with-python",
+   "title": "Getting the poll result from send_poll telegram bot with python",
+   "body": "<p>It's a python code for a telegram bot to take a poll from the group chat. How can I get the final result of send_poll bot? I know the bot shows the result in the chat group but I need to save and use it for later. \nFor example, here I need the output to be like a or b.</p>\n\n<pre><code>    def poll(bot, update):\n        options=['a','b']  \n        bot.send_poll(update.message.chat_id, \"please choose option a or \n        b:\",options)\n    updater.dispatcher.add_handler(CommandHandler('set', poll))  \n    updater.start_polling()\n</code></pre>\n\n<p><a href=\"https://i.sstatic.net/xuLcI.png\" rel=\"nofollow noreferrer\">The following picture shows the output of send_poll bot in the group chat. I like to have the answer which here is 'b', not only in the group chat also as a returned answer.</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "raspberry-pi",
+    "systemd",
+    "debian-stretch"
+   ],
+   "owner": {
+    "account_id": 13728562,
+    "reputation": 55,
+    "user_id": 9906631,
+    "user_type": "registered",
+    "profile_image": "https://lh5.googleusercontent.com/-xzAlkFWIThM/AAAAAAAAAAI/AAAAAAAACUc/--NNOLrAVAY/s256-rj/photo.jpg",
+    "display_name": "Paolo",
+    "link": "https://stackoverflow.com/users/9906631/paolo"
+   },
+   "is_answered": true,
+   "view_count": 646,
+   "closed_date": 1781626685,
+   "accepted_answer_id": 50899813,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1781616958,
+   "creation_date": 1529170682,
+   "last_edit_date": 1781616958,
+   "question_id": 50890205,
+   "link": "https://stackoverflow.com/questions/50890205/otherwise-ok-running-code-wont-run-under-systemd",
+   "closed_reason": "Not suitable for this site",
+   "title": "Otherwise ok running code won&#39;t run under systemd",
+   "body": "<p>This code is working fine under normal circumstances.</p>\n<pre><code>import automationhat\nimport bluetooth\nimport time\nimport sys\nimport telegram\n\nbot = telegram.Bot(token='56915444444:AAEzP5jy-pMD3ZME0twxY5bXkxxxxxxxxxxxxxxxxxxd_U')\n\n\n# Import Adafruit IO MQTT client.\nfrom Adafruit_IO import MQTTClient\n\n\nADAFRUIT_IO_KEY      = '73c755488accccccc361a506f700000002ba'\nADAFRUIT_IO_USERNAME = 'flxxxxxxxx'\n\n\ndef connected(client):\n    print('Connected to Adafruit IO!  Listening for LockReg changes...')\n    # Subscribe to changes on a feed named LockReg.\n    client.subscribe('LockReg')\n\ndef disconnected(client):\n    print('Disconnected from Adafruit IO!')\n    sys.exit(1)\n\ndef message(client, feed_id, payload, retain):\n    print('Feed {0} received new value: {1}'.format(feed_id, payload))\n\nclient = MQTTClient(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)\n\n# Setup the callback functions defined above.\nclient.on_connect    = connected\nclient.on_disconnect = disconnected\nclient.on_message    = message\n\nPHONES = ['B0:xx:2D:x0:C9:xx', 'xx:8D:08:xx:C3:7C', 'xx:AB:37:EA:93:xx']\n\nwhile True:\n\n        print &quot;Checking &quot; + time.strftime(&quot;%a, %d %b %Y %H:%M:%S&quot;, time.gmtime())\n\n        for device in PHONES:\n                result = bluetooth.lookup_name(device, timeout=5)\n                if (result != None):\n                    # Connect to the Adafruit IO server.\n            client.connect()\n            print('Door unlocked. Nearby: %s (%s)' % (result, device))\n                        client.publish('lock.reg', result)\n                        automationhat.relay.one.on()\n                        time.sleep(2)\n                        automationhat.relay.one.off()\n            bot.sendMessage(-26934xxxxx, result)\n                        time.sleep(180)\n                else:\n                        print &quot;User out of range&quot;\n                        print('Door locked: No Bluetooth device detected. ' )\n        time.sleep(10)\n</code></pre>\n<p>My systemd lock.service file looks like this:</p>\n<pre><code>[Unit]\n Description=My Lock  Service\n After=multi-user.target\n\n [Service]\n Type=idle\n ExecStart=/usr/bin/python /home/pi/lockreg.py &gt; /home/pi/lock.log 2&gt;&amp;1\n\n [Install]\n WantedBy=multi-user.target\n</code></pre>\n<p>But if executed from systemd on initial boot i get the following error message:</p>\n<pre><code>pi@raspberrypi:~ $ systemctl status lock.service\n\u25cf lock.service - My Lock  Service\n   Loaded: loaded (/lib/systemd/system/lock.service; enabled; vendor preset: enabled)\n   Active: failed (Result: exit-code) since Sat 2018-06-16 18:33:32 CEST; 29min ago\n  Process: 492 ExecStart=/usr/bin/python /home/pi/lockreg.py &gt; /home/pi/lock.log 2&gt;&amp;1 (\n Main PID: 492 (code=exited, status=1/FAILURE)\n\nJun 16 18:33:29 raspberrypi systemd[1]: Started My Lock  Service.\nJun 16 18:33:32 raspberrypi python[492]: Traceback (most recent call last):\nJun 16 18:33:32 raspberrypi python[492]:   File &quot;/home/pi/lockreg.py&quot;, line 11, in &lt;mod\nJun 16 18:33:32 raspberrypi python[492]:     import telegram\nJun 16 18:33:32 raspberrypi python[492]: ImportError: No module named telegram\nJun 16 18:33:32 raspberrypi systemd[1]: lock.service: Main process exited, code=exited,\nJun 16 18:33:32 raspberrypi systemd[1]: lock.service: Unit entered failed state.\nJun 16 18:33:32 raspberrypi systemd[1]: lock.service: Failed with result 'exit-code'.\n</code></pre>\n<p>Why is the Telegram module not accessible when executed from systemd?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot",
+    "telegram-api"
+   ],
+   "owner": {
+    "account_id": 14739590,
+    "reputation": 442,
+    "user_id": 10644546,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/2Uc4bRM6.png?s=256",
+    "display_name": "Kidus",
+    "link": "https://stackoverflow.com/users/10644546/kidus"
+   },
+   "is_answered": true,
+   "view_count": 464,
+   "accepted_answer_id": 79939627,
+   "answer_count": 1,
+   "score": -1,
+   "last_activity_date": 1778536998,
+   "creation_date": 1778107247,
+   "question_id": 79937273,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79937273/how-to-keep-the-native-leave-a-comment-button-in-a-telegram-channel-or-maintai",
+   "title": "How to keep the native &quot;Leave a comment&quot; button in a Telegram Channel or maintain the native Thread View when adding an Inline Keyboard via Bot API?",
+   "body": "<p>I am developing a Telegram bot that posts content to a public channel. The channel is linked to a Discussion Group, so by default, every post has the native <strong>&quot;Leave a comment&quot;</strong> button. My primary objective is to allow users to click the Comment button and be taken to the <strong>native Telegram Thread View</strong>\u2014the specific UI where the original channel post is pinned at the top and only the replies for that specific post are shown below.</p>\n<p><strong>The Issue:</strong> Normally, Telegram provides the &quot;Leave a comment&quot; button automatically. However, when my bot adds a custom <code>inline_keyboard</code> (for a voting system), the native &quot;Leave a comment&quot; button disappears.</p>\n<p><strong>What I want to achieve:</strong> I want to create a custom button that replicates the exact deep-link behavior of the native button. It should open the <strong>dedicated discussion thread</strong> for that post, not just link to the general discussion group.</p>\n<p><strong>What I've tried (and why they failed):</strong></p>\n<ol>\n<li><p><code>t.me/ChannelName/MsgID?comment=1</code>: Returns &quot;Message does not exist&quot;</p>\n</li>\n<li><p><code>t.me/ChannelName/MsgID?discussion</code>: Simply opens the channel post itself, not the thread view.</p>\n</li>\n<li><p><code>t.me/ChannelName/1?thread=MsgID</code>: Returns &quot;Message does not exist&quot;</p>\n</li>\n</ol>\n<p><strong>The Question:</strong></p>\n<ol>\n<li><p>Is there a way to force Telegram to show the native &quot;Leave a comment&quot; button <em>alongside</em> my custom <code>inline_keyboard</code>?</p>\n</li>\n<li><p>If not, how can I replicate the same &quot;Leave a comment&quot; functionality using a custom button that will take the user to the native &quot;thread&quot; view that shows the specific post with its comments?</p>\n</li>\n</ol>\n<p><strong>Environment:</strong></p>\n<ul>\n<li><p>Python (Requests / <code>python-telegram-bot</code>)</p>\n</li>\n<li><p>Public Channel + Private/Public linked Discussion Group</p>\n</li>\n<li><p>Bot is Admin in both.</p>\n</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 29033959,
+    "reputation": 47,
+    "user_id": 22240284,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AAcHTtcZP5FIAOWvhE0Q9ZN45KS6usq_e9LxRuj8P5bMCU7c6Q=k-s256",
+    "display_name": "David Henson",
+    "link": "https://stackoverflow.com/users/22240284/david-henson"
+   },
+   "is_answered": true,
+   "view_count": 9040,
+   "accepted_answer_id": 76892714,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1775940293,
+   "creation_date": 1691879148,
+   "last_edit_date": 1691963662,
+   "question_id": 76891340,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76891340/send-messages-to-message-thread-id-with-telegram-bot",
+   "title": "Send messages to message_thread_id with telegram bot",
+   "body": "<p>I have been searching for a solution but have not been successful.</p>\n<p>Is there a way to make sure a telegram bot sends all its messages to a specific <code>message_thread_id(topic)</code> with in a group? Currently, when I type a command the bot replies to the initial channel and not in the topic I would like.</p>\n<p>Here is a code snippet of one of my commands:</p>\n<pre><code>async def add_point(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    user = update.effective_user\n    chat = update.effective_chat\n    is_admin = user.id in [admin.user.id for admin in await context.bot.get_chat_administrators(chat.id)]\n    if not is_admin:\n        await context.bot.send_message(chat_id=chat.id, text=&quot;Only admins use this command.&quot;)\n        return\n    \n    # check if the message is a reply to another message\n    if not update.message.reply_to_message:\n        await context.bot.send_message(chat_id=update.effective_chat.id, text=&quot;Please reply to a player to award a point.&quot;)\n        return\n</code></pre>\n<p>Thank you</p>\n<p>I have not currently found a solution to try.</p>\n"
+  },
+  {
+   "tags": [
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 10583720,
+    "reputation": 53,
+    "user_id": 7796730,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/97d7f46a3cb86249f1e8d4cfe9ba3935?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "snoba",
+    "link": "https://stackoverflow.com/users/7796730/snoba"
+   },
+   "is_answered": true,
+   "view_count": 10968,
+   "accepted_answer_id": 43156123,
+   "answer_count": 1,
+   "score": 5,
+   "last_activity_date": 1775006959,
+   "creation_date": 1490951214,
+   "question_id": 43136722,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/43136722/how-to-add-start-button-in-telegram-bot-with-python-telegran-bot-sdk",
+   "title": "how to add start button in telegram bot with python-telegran-bot sdk?",
+   "body": "<p>I want to write a simple bot for telegram with <a href=\"https://github.com/python-telegram-bot/python-telegram-bot\" rel=\"noreferrer\">python-telegram-bot</a> SDK. I want to show a \"START\" keyboard button instead of typing \"/start\" command to work with my bot. How to do this with python-telegram-bot?</p>\n"
+  },
+  {
+   "tags": [
+    "telegram",
+    "python-telegram-bot",
+    "telethon",
+    "tooling-recommendation"
+   ],
+   "owner": {
+    "account_id": 16400011,
+    "reputation": 1,
+    "user_id": 11846322,
+    "user_type": "registered",
+    "profile_image": "https://lh4.googleusercontent.com/-Hy_zCehg_tI/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcLboE6QOrHo9NPq4-r9Ktui19q1w/s256-rj/photo.jpg",
+    "display_name": "\u0414\u0430\u043d\u0438\u0438\u043b \u041a",
+    "link": "https://stackoverflow.com/users/11846322/%d0%94%d0%b0%d0%bd%d0%b8%d0%b8%d0%bb-%d0%9a"
+   },
+   "is_answered": false,
+   "view_count": 81,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1771795681,
+   "creation_date": 1771529326,
+   "question_id": 79892457,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79892457/request-of-all-generated-invite-links-in-chat",
+   "title": "Request of all generated invite links in chat",
+   "body": "<p>Is there some functional in Telethon to get all invite links for chat, like GetExportedChatInvites in <a href=\"https://docs.pyrogram.org/telegram/functions/messages/get-exported-chat-invites\" rel=\"nofollow noreferrer\">pyrogram</a>? Or how can I invoke this <a href=\"https://core.telegram.org/method/messages.getExportedChatInvites\" rel=\"nofollow noreferrer\">function</a> of core API?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 17414581,
+    "reputation": 9,
+    "user_id": 12621181,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/1802527563214723/picture?type=large",
+    "display_name": "Miclo\u015f Edi",
+    "link": "https://stackoverflow.com/users/12621181/miclo%c5%9f-edi"
+   },
+   "is_answered": false,
+   "view_count": 8352,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771657425,
+   "creation_date": 1607104621,
+   "last_edit_date": 1607113747,
+   "question_id": 65148440,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65148440/importerror-cannot-import-name-bot-from-partially-initialized-module-telegra",
+   "title": "ImportError: cannot import name &#39;Bot&#39; from partially initialized module &#39;telegram&#39;",
+   "body": "<p>I'm getting this error whenever I use the command <em>pip install telegram-bot</em> in cmd:</p>\n<pre><code>    C:\\Windows\\system32&gt;pip install telegram-bot\nCollecting telegram-bot\nUsing cached telegram-bot-0.1.tar.gz (51 kB)\n    ERROR: Command errored out with exit status 1:\n     command: 'c:\\program files\\python39\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-j1l7uwqx\\\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-4qf8pb7l'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-j1l7uwqx\\telegram-bot_a7d2b1d51c264e718c85210726554603\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I have installed the latest version of Python and upgraded pip, but nothing changed. I use <em>Pycharm</em> as IDE. When I try to install this module from Pycharm, I get the same error:</p>\n<pre><code>Collecting telegram-bot\n  Using cached telegram-bot-0.1.tar.gz (51 kB)\n\nDEPRECATION: The -b/--build/--build-dir/--build-directory option is deprecated and has no effect anymore. pip 21.1 will remove support for this functionality. A possible replacement is use the TMPDIR/TEMP/TMP environment variable, possibly combined with --no-clean. You can find discussion regarding this at https://github.com/pypa/pip/issues/8333.\n    ERROR: Command errored out with exit status 1:\n     command: 'D:\\Development\\telegram\\venv\\Scripts\\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;'; __file__='&quot;'&quot;'C:\\\\Users\\\\miclo\\\\AppData\\\\Local\\\\Temp\\\\pip-install-60osryel\\\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\\setup.py'&quot;'&quot;';f=getattr(tokenize, '&quot;'&quot;'open'&quot;'&quot;', open)(__file__);code=f.read().replace('&quot;'&quot;'\\r\\n'&quot;'&quot;', '&quot;'&quot;'\\n'&quot;'&quot;');f.close();exec(compile(code, __file__, '&quot;'&quot;'exec'&quot;'&quot;'))' egg_info --egg-base 'C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-pip-egg-info-0ihid_ld'\n         cwd: C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\\n    Complete output (7 lines):\n    Traceback (most recent call last):\n      File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\setup.py&quot;, line 12, in &lt;module&gt;\n        import telegram\n      File &quot;C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py&quot;, line 15, in &lt;module&gt;\n        from telegram import Bot, ChatActions\n    ImportError: cannot import name 'Bot' from partially initialized module 'telegram' (most likely due to a circular import) (C:\\Users\\miclo\\AppData\\Local\\Temp\\pip-install-60osryel\\telegram-bot_02585524af70443f98a2a69b3da7ae38\\telegram\\__init__.py)\n    ----------------------------------------\nERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.\n</code></pre>\n<p>I'm trying to build a telegram bot and host it with Heroku. When typing <em>heroku logs -t</em> in cmd, I get something similar:</p>\n<pre><code>2020-12-04T20:24:35.852594+00:00 app[web.1]: File &quot;main.py&quot;, line 5, in &lt;module&gt;\n2020-12-04T20:24:35.852826+00:00 app[web.1]: from telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n2020-12-04T20:24:35.852831+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/__init__.py&quot;, line 21, in &lt;module&gt;\n2020-12-04T20:24:35.853028+00:00 app[web.1]: from .basepersistence import BasePersistence\n2020-12-04T20:24:35.853033+00:00 app[web.1]: File &quot;/app/.heroku/python/lib/python3.6/site-packages/telegram/ext/basepersistence.py&quot;, line 25, in &lt;module&gt;\n2020-12-04T20:24:35.853242+00:00 app[web.1]: from telegram import Bot\n2020-12-04T20:24:35.853243+00:00 app[web.1]: ImportError: cannot import name 'Bot'\n</code></pre>\n<p>These are my imports:</p>\n<pre><code>import os\nimport telebot\nimport xlrd\nfrom flask import Flask, request\nfrom telegram.ext import CommandHandler, MessageHandler, Filters, Updater\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 18659911,
+    "reputation": 239,
+    "user_id": 13601371,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-tkBwVnMCa-s/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmhRHAYcqFgIqoCv6PL_1scer0sXQ/s256-rj/photo.jpg",
+    "display_name": "Duccio Borchi",
+    "link": "https://stackoverflow.com/users/13601371/duccio-borchi"
+   },
+   "is_answered": false,
+   "view_count": 9252,
+   "closed_date": 1771677932,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1771506265,
+   "creation_date": 1644577477,
+   "last_edit_date": 1644644858,
+   "question_id": 71079062,
+   "link": "https://stackoverflow.com/questions/71079062/creating-or-using-a-telegram-bot-that-forward-messages-received-from-a-bot-to-an",
+   "closed_reason": "Needs more focus",
+   "title": "Creating or using a telegram bot that forward messages received from a bot to another account",
+   "body": "<p>I'm new to telegram bot (especially programming one).</p>\n<p>Is there a bot that can forward a message from another bot to a second account?\nWhere the second account is not the admin of the bot writing.</p>\n<p>Alternatevely, is there a way to create one?\nI'm pretty skilled in Python but I get a little bit lost on using a Python script to make a bot work.</p>\n<p>I'm working on a Windows 11 environment</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telethon",
+    "forwarding"
+   ],
+   "owner": {
+    "account_id": 28612975,
+    "reputation": 27,
+    "user_id": 21907593,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AGNmyxZ_GdnKJCzmDTzyVoZUdUu922higfV4nun_NP0e=k-s256",
+    "display_name": "Marcello Gabrielli",
+    "link": "https://stackoverflow.com/users/21907593/marcello-gabrielli"
+   },
+   "is_answered": true,
+   "view_count": 1325,
+   "accepted_answer_id": 76579582,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771344225,
+   "creation_date": 1688024531,
+   "question_id": 76578983,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76578983/how-auto-forward-messages-from-a-channel-to-another-channel-using-python",
+   "title": "How auto forward messages from a channel to another channel using Python",
+   "body": "<p>How do I auto forward messages instantly from a channel to another channel? I created an example but doesn't work.</p>\n<p>This is my example:</p>\n<pre><code>    `from telethon import TelegramClient, events\n\n    api_id = 99999999\n    api_hash = 'xxxxxxxxxxxxxxxxxxxxxxxx'\n    client = TelegramClient('session_name', api_id, api_hash)\n    client.start()\n\n    @client.on(events.NewMessage)\n    async def my_event_handler(event):\n        chat = await event.get_chat()\n        if chat.id == 'Horse Racing Daily Tips Premium':\n            await client.forward_messages('Greyhounds Daily Tips Premium', event.message)\n\n    with client:\n        client.run_until_disconnected()`\n\n</code></pre>\n<p>I tried to send from my source channel &quot;Horse Racing Daily Tips Premium&quot; to my destination channel 'Greyhounds Daily Tips Premium'; I am new of Python and Telegram bot so I am not sure I did the correct way.\nI already launched the bot from my prompt command line, but doesn't work</p>\n"
+  },
+  {
+   "tags": [
+    "stream",
+    "bots",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 17860106,
+    "reputation": 532,
+    "user_id": 12973810,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AAuE7mA7AVnZvF-BNQkJIWKSA-P2cC2JACs4Y5vgyDTFRg=k-s256",
+    "display_name": "Miloud Mokkedem",
+    "link": "https://stackoverflow.com/users/12973810/miloud-mokkedem"
+   },
+   "is_answered": true,
+   "view_count": 2799,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1771257299,
+   "creation_date": 1726346390,
+   "last_edit_date": 1726397636,
+   "question_id": 78986119,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78986119/how-to-implement-live-streaming-in-a-telegram-bot",
+   "title": "How to implement live streaming in a Telegram bot?",
+   "body": "<p>I am trying to implement a live streaming feature in my Telegram bot but am not sure where to start. Specifically, I want to stream a live video/audio feed to the users who interact with my bot.</p>\n<p>I understand that Telegram supports sending various types of media, including videos and voice notes, but I couldn't find clear documentation or examples on live streaming directly through a bot.</p>\n<p>Here are my questions:</p>\n<ul>\n<li>Does the Telegram Bot API support live streaming?</li>\n<li>If so, how can I implement it using Python or any other language?</li>\n<li>Are there any specific libraries, services, or protocols (e.g., WebRTC, RTMP) that need to be integrated?</li>\n<li>Are there any limitations or restrictions I should be aware of regarding bandwidth or duration for streams in Telegram bots?</li>\n</ul>\n<p>Any code examples, suggestions, or documentation references would be greatly appreciated. Thanks in advance!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "heroku",
+    "telegram-bot",
+    "telethon",
+    "telegram-api"
+   ],
+   "owner": {
+    "account_id": 4690505,
+    "reputation": 15,
+    "user_id": 3796748,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/-jZk9TD56zyQ/AAAAAAAAAAI/AAAAAAAAAGg/Mp5D-UoJoEQ/s256-rj/photo.jpg",
+    "display_name": "Genome",
+    "link": "https://stackoverflow.com/users/3796748/genome"
+   },
+   "is_answered": true,
+   "view_count": 571,
+   "accepted_answer_id": 68081468,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1770416152,
+   "creation_date": 1624355586,
+   "question_id": 68081378,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68081378/need-to-enter-telegram-code-after-starting-python-bot",
+   "title": "Need to enter telegram code after starting python bot",
+   "body": "<p>I choose heroku for use my simple python script that gets telegram messages and parses them. So when i start the script on heroku it asked for telegram number and confirmation code, but i cant to enter them because i started it by command: <code>heroku ps:scale bot=1</code> and have no access to heroku terminal. Is there a solution to this problem?</p>\n"
+  },
+  {
+   "tags": [
+    "heroku",
+    "telegram",
+    "telethon",
+    "mtproto"
+   ],
+   "owner": {
+    "account_id": 8683002,
+    "reputation": 11594,
+    "user_id": 6498293,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/NhNtK.jpg?s=256",
+    "display_name": "David Dale",
+    "link": "https://stackoverflow.com/users/6498293/david-dale"
+   },
+   "is_answered": false,
+   "view_count": 1651,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1770416116,
+   "creation_date": 1611480896,
+   "last_edit_date": 1770416116,
+   "question_id": 65869010,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65869010/telegram-does-not-send-authorization-code-if-the-request-was-sent-from-telethon",
+   "title": "Telegram does not send authorization code if the request was sent from telethon code hosted on Heroku",
+   "body": "<p>I have a problem when using the <a href=\"https://github.com/LonamiWebs/Telethon\" rel=\"nofollow noreferrer\">Telethon</a> Python client for Telegram for logging in.</p>\n<p>The script below works perfectly fine when I run it on my own laptop: it prints a SentCode object, Telegram sends me a confirmation code, and I use it to log in.</p>\n<p>When I run exactly the same script  on Heroku, it still prints the same SentCode object, however, I don't receive any confirmation code from Telegram and cannot continue logging in.</p>\n<pre><code>from telethon import sync  # noqa\nfrom telethon import TelegramClient\nfrom telethon.sessions import StringSession\nclient = TelegramClient(session=StringSession(), api_hash=API_HASH, api_id=API_ID)\nclient.connect()\nresult = client.send_code_request(phone=PHONE)\nprint(result)\n# prints SentCode(type=SentCodeTypeApp(length=5), phone_code_hash=..., next_type=CodeTypeSms(), timeout=None)\n... the code for logging in and saving the session...\n</code></pre>\n<p>It seems that Telegram doesn't acknowledge authorization from Heroku for security reasons - maybe, Heroku is often used to host malicious bots, and Telegram fights them this way.\nHowever, neither <a href=\"https://docs.telethon.dev/en/stable/\" rel=\"nofollow noreferrer\">Telethon</a> nor <a href=\"https://core.telegram.org/mtproto\" rel=\"nofollow noreferrer\">MTProto</a> documentation reflects this restriction. So I wonder, how is it even possible to use MTProto clients like Telethon from a cloud platform? And if it is possible, what should I do to get around this restriction?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 167668,
+    "reputation": 1222,
+    "user_id": 392628,
+    "user_type": "registered",
+    "accept_rate": 62,
+    "profile_image": "https://www.gravatar.com/avatar/3385813661401a49873003be76a1139b?s=256&d=identicon&r=PG",
+    "display_name": "vinod",
+    "link": "https://stackoverflow.com/users/392628/vinod"
+   },
+   "is_answered": true,
+   "view_count": 7856,
+   "accepted_answer_id": 53787831,
+   "answer_count": 2,
+   "score": 2,
+   "last_activity_date": 1770416082,
+   "creation_date": 1544826950,
+   "question_id": 53787759,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/53787759/read-telegram-group-message",
+   "title": "Read telegram group message",
+   "body": "<p>I am into one telegram group. I wanted to read those messages in my python code. Is there any way to read those messages without adding bot in that group.. for example abc is my user id... And abc is added in xyz group. So wanted to read xyz group message in my python code.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram-bot",
+    "python-telegram-bot"
+   ],
+   "owner": {
+    "account_id": 24175180,
+    "reputation": 39,
+    "user_id": 18136661,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e4e1e70b0d46368b91e5fcaa9a8f1f17?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "qruim",
+    "link": "https://stackoverflow.com/users/18136661/qruim"
+   },
+   "is_answered": true,
+   "view_count": 5705,
+   "accepted_answer_id": 71011627,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1770415991,
+   "creation_date": 1644179420,
+   "question_id": 71011375,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71011375/is-there-a-way-to-change-avatar-in-telegram-bot-using-python",
+   "title": "Is there a way to change avatar in telegram bot using python?",
+   "body": "<p>I was trying to find some documentation, but i`ve failed. I would be grateful if you send me doc or example how to do it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telegram",
+    "telegram-bot"
+   ],
+   "owner": {
+    "account_id": 5100300,
+    "reputation": 11,
+    "user_id": 4090108,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/ulQ14.jpg?s=256",
+    "display_name": "Mohammad Noori",
+    "link": "https://stackoverflow.com/users/4090108/mohammad-noori"
+   },
+   "is_answered": true,
+   "view_count": 3320,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1770415905,
+   "creation_date": 1624008784,
+   "question_id": 68032750,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/68032750/how-can-i-send-message-to-a-telegram-bot-using-python",
+   "title": "How can I send message to a telegram bot using python?",
+   "body": "<p>I'm looking for a way to send a message to a bot using another bot. I have API of these two bots.\nThe library that I am using is telebot, and with below codes I can send a message to channel or any accounts, but I don't know how can I get chat id of a bot.</p>\n<pre><code>bot = telebot.TeleBot(TOKEN)\nbot.send_message(yourID, 'your_message')\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "telegram"
+   ],
+   "owner": {
+    "account_id": 17096999,
+    "reputation": 41,
+    "user_id": 12371788,
+    "user_type": "registered",
+    "profile_image": "https://lh4.googleusercontent.com/-Ps1ofittPt0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcxBD_LeuPQJwZAtqbNVrgh_icohg/s256-rj/photo.jpg",
+    "display_name": "Katerine Smirnova",
+    "link": "https://stackoverflow.com/users/12371788/katerine-smirnova"
+   },
+   "is_answered": true,
+   "view_count": 336,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1770415732,
+   "creation_date": 1598039596,
+   "last_edit_date": 1598041294,
+   "question_id": 63529302,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63529302/is-there-way-to-implement-redirect-to-bot-channel-in-telegram",
+   "title": "Is there way to implement redirect to bot / channel in Telegram?",
+   "body": "<p>I using Python 3.8.2.</p>\n<p>Is it possible to somehow implement in the code so that it goes to the desired @ (bot or channel) itself? My further actions are not particularly important. I cannot find information anywhere on how to implement my idea.</p>\n<p>Yes, if it was my bot, then I could just insert the TOKEN, but this is not my bot / channel</p>\n<p>I have an idea to implement this using Selenium so that it clicks in the browser to the right moment, but maybe there is another way? Yes, this will be related to the Web version, since there are no ideas yet how to implement this in the desktop version.\nI will describe the idea in more detail, immediately using the example of Selenium:</p>\n<p>There is a code - <em>it contains steps. One of the steps EITHER go to @, or search chats by element (of course, I have to be logged in in the browser)</em></p>\n<p>But maybe there is a simpler way, without Selenium, to implement the step of the script going to the bot / channel page in the Telegram?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "telethon"
+   ],
+   "owner": {
+    "account_id": 20375329,
+    "reputation": 303,
+    "user_id": 14946646,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/541dea5d4a796fb9d61c9da938c08293?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "omar",
+    "link": "https://stackoverflow.com/users/14946646/omar"
+   },
+   "is_answered": false,
+   "view_count": 2047,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1770415661,
+   "creation_date": 1644611019,
+   "last_edit_date": 1770415661,
+   "question_id": 71086161,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/71086161/coroutineauthmethods-start-was-never-awaited",
+   "title": "coroutine&#39;AuthMethods._start&#39; was never awaited",
+   "body": "<p>I'm just trying to get into making a bot that can read messages and reply... But I can't even execute the first <a href=\"https://docs.telethon.dev/en/stable/basic/signing-in.html\" rel=\"nofollow noreferrer\">example code</a> in the documentation:</p>\n<pre><code>import asyncio\nfrom telethon import TelegramClient\n\n# Use your own values from my.telegram.org\napi_id = 12345\napi_hash = '0123456789abcdef0123456789abcdef'\n\nasync def main():\n    # The first parameter is the .session file name (absolute paths allowed)\n    async with TelegramClient('anon', api_id, api_hash).start() as client:\n        await client.send_message('me', 'Hello, myself!')\n\nasyncio.run(main())\n</code></pre>\n<p>This is the error I keep getting:</p>\n<pre><code>\nd:\\Telegram bot\\telegram bot\\hello.py:10: RuntimeWarning: coroutine 'AuthMethods._start' was never awaited\n  async with TelegramClient('anon', api_id, api_hash).start() as client:\nRuntimeWarning: Enable tracemalloc to get the object allocation traceback\nTraceback (most recent call last):\n  File &quot;d:\\Telegram bot\\telegram bot\\hello.py&quot;, line 13, in &lt;module&gt;\n    asyncio.run(main())\n  File &quot;C:\\Users\\Bruh\\AppData\\Local\\Programs\\Python\\Python39\\lib\\asyncio\\runners.py&quot;, line 44, in run\n    return loop.run_until_complete(main)\n  File &quot;C:\\Users\\Bruh\\AppData\\Local\\Programs\\Python\\Python39\\lib\\asyncio\\base_events.py&quot;, line 642, in run_until_complete  \n    return future.result()\n  File &quot;d:\\Telegram bot\\telegram bot\\hello.py&quot;, line 10, in main\n    async with TelegramClient('anon', api_id, api_hash).start() as client:\nAttributeError: __aenter__\n</code></pre>\n<p>I'm not sure what's my problem exactly as I don't seem many people having the same problem, I've trible checked the dependencies and I have everything up to date (except the optional dependencies which I haven't installed)</p>\n"
+  }
+ ]
+}

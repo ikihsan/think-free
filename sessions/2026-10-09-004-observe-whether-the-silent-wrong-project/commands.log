@@ -1,0 +1,125 @@
+==============================================================================
+[seq 3] 2026-10-09T08:21:19+00:00
+$ python3 arm_m.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+python3: can't open file 'arm_m.py': [Errno 2] No such file or directory
+------------------------------------------------------------------------------
+exit: 2  duration_ms: 30  redactions: none
+==============================================================================
+[seq 4] 2026-10-09T08:21:27+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/arm_m.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/arm_m.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 1105  redactions: none
+==============================================================================
+[seq 5] 2026-10-09T08:25:56+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/arm_m.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+[stderr]
+done sklearn install exit 1
+done telegram install exit 0
+done beautifulsoup install exit 1
+done color install exit 1
+done reqests install exit 1
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/arm_m.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 97213  redactions: none
+==============================================================================
+[seq 6] 2026-10-09T08:30:38+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/fetch_reports.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+se stackoverflow 'sklearn scikit-learn' 25
+se stackoverflow 'telegram python-telegram-bot' 25
+se stackoverflow 'beautifulsoup beautifulsoup4' 25
+se stackoverflow 'pip install color vs colour' 1
+se stackoverflow 'pip install succeeded but import failed' 13
+se stackoverflow 'installed wrong package' 25
+se stackoverflow 'pip install wrong package' 25
+se stackoverflow 'pip install typo' 25
+se stackoverflow 'different pypi package than intended' 1
+se stackoverflow 'pip install similar name' 25
+se stackoverflow 'how to install numpy python' 25
+se stackoverflow 'pip cache clear' 25
+gh 'pip install succeeded but import failed' 25
+gh 'installed wrong pypi package' 25
+gh 'pip install typo wrong package' 25
+gh 'installed the wrong package github issue' 25
+gh 'sklearn scikit-learn' 25
+gh 'beautifulsoup beautifulsoup4' 25
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/api/manifest.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 139906  redactions: none
+==============================================================================
+[seq 7] 2026-10-09T08:34:13+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample rows: 159 {'PC': 51, 'G': 88, 'PL': 20}
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/sample.tsv
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 313  redactions: none
+==============================================================================
+[seq 8] 2026-10-09T08:43:16+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample rows: 190 {'PC': 61, 'G': 105, 'PL': 24}
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/sample.tsv
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 319  redactions: none
+==============================================================================
+[seq 9] 2026-10-09T08:53:20+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/fetch_reports.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+se stackoverflow 'sklearn scikit-learn' 25
+se stackoverflow 'telegram python-telegram-bot' 25
+se stackoverflow 'beautifulsoup beautifulsoup4' 25
+se stackoverflow 'pip install color vs colour' 1
+se stackoverflow 'pip install telegram' 25
+se stackoverflow 'pip install sklearn' 25
+se stackoverflow 'pip install beautifulsoup' 25
+se stackoverflow 'pip install color' 25
+se stackoverflow 'pip install succeeded but import failed' 13
+se stackoverflow 'installed wrong package' 25
+se stackoverflow 'pip install wrong package' 25
+se stackoverflow 'pip install typo' 25
+se stackoverflow 'different pypi package than intended' 1
+se stackoverflow 'pip install similar name' 25
+se stackoverflow 'how to install numpy python' 25
+se stackoverflow 'pip cache clear' 25
+gh 'pip install succeeded but import failed' 25
+gh 'installed wrong pypi package' 25
+gh 'pip install typo wrong package' 25
+gh 'installed the wrong package github issue' 25
+gh 'sklearn scikit-learn' 25
+gh 'beautifulsoup beautifulsoup4' 25
+gh 'pip install telegram' 25
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/api/manifest.json
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 177651  redactions: none
+==============================================================================
+[seq 10] 2026-10-09T08:54:37+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample rows: 242 {'PC': 113, 'G': 105, 'PL': 24}
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/sample.tsv
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 304  redactions: none
+==============================================================================
+[seq 11] 2026-10-09T08:58:20+00:00
+$ python3 EXPERIMENTS/070-silent-wrong-project/sample.py
+cwd: /home/ubuntu/think-free
+------------------------------------------------------------------------------
+sample rows: 362 {'PC': 233, 'G': 105, 'PL': 24}
+wrote /home/ubuntu/think-free/EXPERIMENTS/070-silent-wrong-project/raw/sample.tsv
+------------------------------------------------------------------------------
+exit: 0  duration_ms: 398  redactions: none

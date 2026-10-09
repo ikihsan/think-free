@@ -1,0 +1,785 @@
+{
+ "site": "stackoverflow",
+ "query": "sklearn scikit-learn",
+ "class": "PC",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "machine-learning",
+    "scikit-learn",
+    "pycaret"
+   ],
+   "owner": {
+    "account_id": 30973056,
+    "reputation": 1,
+    "user_id": 23788189,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a1d24e7656ba75bd717e45362453d661?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Guillermo Paz",
+    "link": "https://stackoverflow.com/users/23788189/guillermo-paz"
+   },
+   "is_answered": false,
+   "view_count": 133,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1789788769,
+   "creation_date": 1779822942,
+   "last_edit_date": 1779956420,
+   "question_id": 79946943,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79946943/pycaret-3-4-0-and-scikit-learn-return-different-results",
+   "title": "PyCaret 3.4.0 and scikit-learn return different results",
+   "body": "<p>I am currently working with PyCaret 3.4.0, since 4.0 lacks some configuration parameters that are useful for my case.<br />\nI tried to replicate PyCaret results using scikit-learn.</p>\n<p>This is my script, after running Pycaret's setup and obtaining the transformed data:</p>\n<pre><code>compare_models(include=['rf'],cross_validation=True)\n\nscoring=['accuracy','precision','recall','f1','f1_macro','f1_weighted','f1_micro', 'roc_auc']\nrfc = RandomForestClassifier(random_state=42, n_jobs=-1)\nscores = cross_validate(rfc, xtrain_trans, ytrain_trans, scoring=scoring, cv=cv)\n</code></pre>\n<p><code>compare_models</code> return these results:</p>\n<pre><code>    Model   Accuracy    AUC Recall  Prec.   F1  Kappa   MCC TT (Sec)\nrf  Random Forest Classifier    0.7164  0.7617  0.7164  0.7254  0.7137  0.4329  0.4416  0.25\n</code></pre>\n<p>but I get these results from sklearn:</p>\n<ul>\n<li><p>Accuracy=0.6948717948717947</p>\n</li>\n<li><p>AUC=0.7411665257819103</p>\n</li>\n<li><p>Recall=0.6908791208791208</p>\n</li>\n<li><p>Precission=0.7005056185644422</p>\n</li>\n<li><p>F1=0.6867142420587947</p>\n</li>\n<li><p>F1_macro=0.6910345427878428</p>\n</li>\n<li><p>F1_weighted=0.6911863570749788</p>\n</li>\n<li><p>F1_micro=0.6948717948717947</p>\n</li>\n</ul>\n<p>Just to clarify, I am using the exactly same CV splitter on both PyCaret and sklearn.</p>\n<p><code>cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=42)</code></p>\n<p>The setup used was:</p>\n<pre><code>setup(xtrain, \n            target = 'Group',\n            session_id=42,\n            test_data=xtest, #None default\n            imputation_type=None, \n            remove_multicollinearity=True,\n            multicollinearity_threshold=0.70,\n            remove_outliers=True,\n            transformation=True,\n            transformation_method='quantile',\n            normalize=True,\n            feature_selection=False,\n            fold_strategy=cv,\n            use_gpu=True)\n</code></pre>\n<p>I know the differences are small. But I would like to use RFECV to reduce the number of features. The problem is that if I perform RFECV, which I must perform using sklearn since it is not implemented in PyCaret, results are not comparable. After performing RFECV, the best average score I get (F1=0.70, reduced number of features) is smaller than the average score I get with PyCaret (F1=0.7137, all features), but higher than the average score I get with sklearn (F1=0.6867). So now I'm not sure how to move forward, and if I should use the reduced set.</p>\n<p><strong>REPRODUCIBLE EXAMPLE:</strong></p>\n<pre><code>from sklearn.model_selection import RepeatedStratifiedKFold\nfrom sklearn.model_selection import cross_validate\nfrom sklearn.ensemble import RandomForestClassifier\n\ncv = RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=42)\n\nfrom sklearn.datasets import make_classification\nX, y = make_classification(n_samples=100, n_features=5, n_informative=2, n_classes=2, flip_y=0.2, random_state=42)\ndataset = pd.DataFrame(X)\ndataset.columns = ['X1', 'X2', 'X3', 'X4', 'X5']\ndataset['y'] = y\nsetup0 = setup(dataset,target = 'y',session_id=42,train_size=0.7,imputation_type=None,remove_multicollinearity=True,multicollinearity_threshold=0.70,remove_outliers=True,transformation=True,transformation_method='quantile',normalize=True,feature_selection=False,fold_strategy=cv,use_gpu=True)\n\n# CV average results from PyCaret\ncompare_models(include=['rf'],sort='F1',errors='raise',cross_validation=True)\n\nxtrain_trans = setup0.get_config('X_train_transformed')\nytrain_trans = setup0.get_config('y_train_transformed')\nscoring=['accuracy', 'roc_auc', 'recall', 'precision', 'f1','f1_macro','f1_weighted','f1_micro']\nrfc = RandomForestClassifier(random_state=42, n_jobs=-1)\nscores = cross_validate(rfc, xtrain_trans, ytrain_trans, scoring=scoring, cv=cv)\nscores=pd.DataFrame(scores)\nscores=scores.mean().round(4)\n\n# CV average results from sklearn\npd.DataFrame(scores).transpose()\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "multithreading",
+    "scikit-learn",
+    "quarto",
+    "joblib"
+   ],
+   "owner": {
+    "account_id": 8629256,
+    "reputation": 36931,
+    "user_id": 6461462,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://i.sstatic.net/BlsdV.jpg?s=256",
+    "display_name": "M--",
+    "link": "https://stackoverflow.com/users/6461462/m"
+   },
+   "is_answered": false,
+   "view_count": 170,
+   "answer_count": 0,
+   "score": 4,
+   "last_activity_date": 1789462557,
+   "creation_date": 1789415213,
+   "question_id": 80003089,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/80003089/sklearn-learning-curven-jobs-1-crashes-with-terminatedworkererror-in-quarto-b",
+   "title": "sklearn.learning_curve(n_jobs=-1) crashes with TerminatedWorkerError in Quarto but not Jupyter",
+   "body": "<p>When rendering a Quarto document with <code>jupyter: python3</code>, calling <code>sklearn</code>'s <code>learning_curve()</code> with <code>n_jobs=-1</code> crashes with a <code>TerminatedWorkerError</code>. The same code runs fine in a plain Jupyter notebook.</p>\n<p>Here's a minimal reprex; save this as <code>test.qmd</code> and run <code>quarto render test.qmd</code>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>---\ntitle: &quot;reprex&quot;\nformat: pdf\njupyter: python3\n---\n\n```{python}\n#| error: true\n \nfrom sklearn.datasets import make_classification\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.model_selection import learning_curve\n\nX, y = make_classification(n_samples=1000, random_state=42)\n\ntrain_sizes, train_scores, test_scores = learning_curve(\n    KNeighborsClassifier(n_neighbors=5),\n    X, y,\n    cv=5,\n    n_jobs=-1\n)\n```\n</code></pre>\n<p>This give me</p>\n<pre class=\"lang-none prettyprint-override\"><code>TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated.\nThis could be caused by a segmentation fault while calling the function or by an excessive\nmemory usage causing the Operating System to kill the worker.\n</code></pre>\n<p>Changing <code>n_jobs=-1</code> to <code>n_jobs=1</code> resolves the error, but loses parallelism. Is there a clean way to use multiple cores inside a Quarto document?</p>\n<p>Here's my session info:</p>\n<pre class=\"lang-none prettyprint-override\"><code>OS: Windows-11-10.0.26200-SP0\nQuarto: 1.10.18\nPython: 3.13.5\nscikit-learn: 1.9.1\njoblib: 1.6.0\njupyter_client: 8.10.0\njupyterlab: 4.6.3\n</code></pre>\n<p>Detailed traceback:</p>\n<pre class=\"lang-py prettyprint-override\"><code>TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.\nDetailed tracebacks of the workers should have been printed to stderr in the executor process if faulthandler was not disabled.\n---------------------------------------------------------------------------\nTerminatedWorkerError Traceback (most recent call last)\nCell In[1], line 7\n3 from sklearn.model_selection import learning_curve\n4\n5 X, y = make_classification(n_samples=1000, random_state=42)\n6\n----&gt; 7 train_sizes, train_scores, test_scores = learning_curve(\n8 KNeighborsClassifier(n_neighbors=5),\n9 X, y,\n10 cv=5,\nFile ~\\Test\\.venv\\Lib\\site-packages\\sklearn\\utils\\_param_validation.py:218, in validate_params.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper(*args, **kwargs)\n212 try:\n213 with config_context(\n214 skip_parameter_validation=(\n215 prefer_skip_nested_validation or global_skip_validation\n216 )\n217 ):\n--&gt; 218 return func(*args, **kwargs)\n219 except InvalidParameterError as e:\n220 # When the function is just a wrapper around an estimator, we allow\n221 # the function to delegate validation to the estimator, but we replace\n222 # the name of the estimator by the name of the function in the error\n223 # message to avoid confusion.\n224 msg = re.sub(\n225 r&quot;parameter of \\w+ must be&quot;,\n226 f&quot;parameter of {func.__qualname__} must be&quot;,\n227 str(e),\n228 )\nFile ~\\Test\\.venv\\Lib\\site-packages\\sklearn\\model_selection\\_validation.py:2077, in learning_curve(estimator, X, y, groups, train_sizes, cv, scoring, exploit_incremental_learning, n_jobs, pre_dispatch, verbose, shuffle, random_state, error_score, return_times, params)\n2074 for n_train_samples in train_sizes_abs:\n2075 train_test_proportions.append((train[:n_train_samples], test))\n-&gt; 2077 results = parallel(\n2078 delayed(_fit_and_score)(\n2079 clone(estimator),\n2080 X,\n2081 y,\n2082 scorer=scorer,\n2083 train=train,\n2084 test=test,\n2085 verbose=verbose,\n2086 parameters=None,\n2087 fit_params=routed_params.estimator.fit,\n2088 score_params=routed_params.scorer.score,\n2089 return_train_score=True,\n2090 error_score=error_score,\n2091 return_times=return_times,\n2092 )\n2093 for train, test in train_test_proportions\n2094 )\n2095 _warn_or_raise_about_fit_failures(results, error_score)\n2096 results = _aggregate_score_dicts(results)\nFile ~\\Test\\.venv\\Lib\\site-packages\\sklearn\\utils\\parallel.py:91, in Parallel.__call__(self, iterable)\n79 warning_filters = (\n80 filters_func() if filters_func is not None else warnings.filters\n81 )\n83 iterable_with_config_and_warning_filters = (\n84 (\n85 _with_config_and_warning_filters(delayed_func, config, warning_filters),\n(...) 89 for delayed_func, args, kwargs in iterable\n90 )\n---&gt; 91 return super().__call__(iterable_with_config_and_warning_filters)\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:2098, in Parallel.__call__(self, iterable)\n2092 # The first item from the output is blank, but it makes the interpreter\n2093 # progress until it enters the Try/Except block of the generator and\n2094 # reaches the first `yield` statement. This starts the asynchronous\n2095 # dispatch of the tasks to the workers.\n2096 next(output)\n-&gt; 2098 return output if self.return_generator else list(output)\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:1704, in Parallel._get_outputs(self, iterator, pre_dispatch)\n1701 yield\n1703 with self._backend.retrieval_context():\n-&gt; 1704 yield from self._retrieve()\n1706 except GeneratorExit:\n1707 # The generator has been garbage collected before being fully\n1708 # consumed. This aborts the remaining tasks if possible and warn\n1709 # the user if necessary.\n1710 self._exception = True\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:1806, in Parallel._retrieve(self)\n1800 while self._wait_retrieval():\n1801 # If the callback thread of a worker has signaled that its task\n1802 # triggered an exception, or if the retrieval loop has raised an\n1803 # exception (e.g. `GeneratorExit`), exit the loop and surface the\n1804 # worker traceback.\n1805 if self._aborting:\n-&gt; 1806 self._raise_error_fast()\n1807 break\n1809 nb_jobs = len(self._jobs)\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:1885, in Parallel._raise_error_fast(self)\n1881 # If this error job exists, immediately raise the error by\n1882 # calling get_result. This job might not exists if abort has been\n1883 # called directly or if the generator is gc'ed.\n1884 if error_job is not None:\n-&gt; 1885 error_job.get_result(self.timeout)\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:780, in BatchCompletionCallBack.get_result(self, timeout)\n774 backend = self.parallel._backend\n776 if backend.supports_retrieve_callback:\n777 # We assume that the result has already been retrieved by the\n778 # callback thread, and is stored internally. It's just waiting to\n779 # be returned.\n--&gt; 780 return self._return_or_raise()\n782 # For other backends, the main thread needs to run the retrieval step.\n783 try:\nFile ~\\Test\\.venv\\Lib\\site-packages\\joblib\\parallel.py:795, in BatchCompletionCallBack._return_or_raise(self)\n793 try:\n794 if self.status == TASK_ERROR:\n--&gt; 795 raise self._result\n796 return self._result\n797 finally:\nTerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.\nDetailed tracebacks of the workers should have been printed to stderr in the executor process if faulthandler was not disabled.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "visual-studio",
+    "scikit-learn",
+    "package"
+   ],
+   "owner": {
+    "account_id": 938137,
+    "reputation": 5677,
+    "user_id": 966691,
+    "user_type": "registered",
+    "accept_rate": 71,
+    "profile_image": "https://i.sstatic.net/UmFwcwuE.png?s=256",
+    "display_name": "Davood",
+    "link": "https://stackoverflow.com/users/966691/davood"
+   },
+   "is_answered": false,
+   "view_count": 42006,
+   "protected_date": 1717163223,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1782604985,
+   "creation_date": 1576068824,
+   "question_id": 59286298,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59286298/how-to-install-sklearn-on-visual-studio-2019",
+   "title": "How to install sklearn on visual studio 2019?",
+   "body": "<p>I'm working on a sample project with python language and visual studio 2019 IDE and I want to know how/where can I install packages like \"sklearn\"?</p>\n\n<p>When I run my project I encounter with this error : </p>\n\n<pre><code>  Message=No module named 'sklearn'\n  Source=C:\\PythonApplication1\\PythonApplication.py\n  StackTrace:\n  File \"C:\\PythonApplication1\\PythonApplication.py\", line 12, in &lt;module&gt;\n  from sklearn.base import BaseEstimator\n</code></pre>\n\n<p>I was looking on the Internet and found <a href=\"https://scikit-learn.org/0.15/install.html\" rel=\"nofollow noreferrer\">this link about scikit-learn</a> but it doesn't help to resolve my issue.</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "django",
+    "scikit-learn",
+    "pickle"
+   ],
+   "owner": {
+    "account_id": 31199496,
+    "reputation": 51,
+    "user_id": 24005049,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1c87cff2d3f812f8d7b5a654c4153dc4?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Vang02",
+    "link": "https://stackoverflow.com/users/24005049/vang02"
+   },
+   "is_answered": true,
+   "view_count": 11790,
+   "answer_count": 2,
+   "score": 5,
+   "last_activity_date": 1778508053,
+   "creation_date": 1713361007,
+   "last_edit_date": 1713438857,
+   "question_id": 78341395,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78341395/exception-type-valueerror-node-array-from-the-pickle-has-an-incompatible-dtype",
+   "title": "Exception Type: ValueError: node array from the pickle has an incompatible dtype",
+   "body": "<p>So I copied a DjangoML project from Github. The ML model is essentially a diagnosis system that predicts whether or not a patient is at risk based on the values of their blood tests.</p>\n<p>I'm running this project locally in VSCode but have yet to deploy the backend/ML model.</p>\n<p>I encountered this problem while attempting to forecast the outcome in the web browser.</p>\n<p>I'm using Python 3.11.0 for this project.</p>\n<pre><code>The requirements.txt file includes:\n\n asgiref==3.5.0\n\n Django==4.0.3\n\n \u00a0joblib==1.1.0\n\n numpy~=1.26.4\n\n pandas==2.2.2\n\n python-dateutil==2.8.2\n\n pytz==2022.1\n\n scikit-learn==1.0.2\n\n scipy==1.8.0\n\n six==1.16.0\n\n sklearn==0.0\n\n sqlparse==0.4.2 \n\nthreadpoolctl==3.1.0 \n\ntzdata==2021.5 \n\n `Traceback (most recent call last):\n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\venv\\Lib\\site-packages\\django\\core\\handlers\\exception.py&quot;, line 55, in inner response = get_response(request) \n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\venv\\Lib\\site-packages\\django\\core\\handlers\\base.py&quot;, line 197, in _get_response response = wrapped_callback(request, *callback_args, **callback_kwargs)\n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\backend\\views.py&quot;, line 76, in lpredictor result = ValuePredictor(llis, 7, mname) \n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\backend\\views.py&quot;, line 60, in ValuePredictor trained_model = joblib.load(rf'{mdname}_model.pkl') \n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\venv\\Lib\\site-packages\\joblib\\numpy_pickle.py&quot;, line 658, in load obj = _unpickle(fobj, filename, mmap_mode) \n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\venv\\Lib\\site-packages\\joblib\\numpy_pickle.py&quot;, line 577, in _unpickle obj = unpickler.load()\n\nFile &quot;C:\\Users\\vanda\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\pickle.py&quot;, line 1213, in load dispatch[key[0]](self)\n\nFile &quot;D:\\Django_MachineLearning_HealthcareApp-main\\venv\\Lib\\site-packages\\joblib\\numpy_pickle.py&quot;, line 402, in load_build Unpickler.load_build(self)\n\nFile &quot;C:\\Users\\vang\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\pickle.py&quot;, line 1718, in load_build setstate(state) File &quot;sklearn\\tree\\_tree.pyx&quot;, line 865, in sklearn.tree._tree.Tree.setstate &lt;source code not available&gt;\n\nFile &quot;sklearn\\tree\\_tree.pyx&quot;, line 1571, in sklearn.tree._tree._check_node_ndarray &lt;source code not available&gt;\n\nException Type: ValueError at /diagnose/liver/report\n\nException Location:sklearn\\tree\\_tree.pyx, line 1571, in sklearn.tree._tree._check_node_ndarray Exception Value: node array from the pickle has an incompatible dtype:\n\nexpected: {'names': ['left_child', 'right_child', 'feature', 'threshold', 'impurity', 'n_node_samples', 'weighted_n_node_samples', 'missing_go_to_left'], 'formats': ['&lt;i8', '&lt;i8', '&lt;i8', '&lt;f8', '&lt;f8', '&lt;i8', '&lt;f8', 'u1'], 'offsets': [0, 8, 16, 24, 32, 40, 48, 56], 'itemsize': 64}\n\ngot     : [('left_child', '&lt;i8'), ('right_child', '&lt;i8'), ('feature', '&lt;i8'), ('threshold', '&lt;f8'), ('impurity', '&lt;f8'), ('n_node_samples', '&lt;i8'), ('weighted_n_node_samples', '&lt;f8')] `\n</code></pre>\n<p>I'm a rookie in Python and machine learning and will appreciate any help and explanation on this.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn",
+    "3d",
+    "cluster-analysis",
+    "advice"
+   ],
+   "owner": {
+    "account_id": 1072457,
+    "reputation": 725,
+    "user_id": 1071405,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://www.gravatar.com/avatar/f460d020753471e8c7c2215f0d141d0d?s=256&d=identicon&r=PG",
+    "display_name": "Jules",
+    "link": "https://stackoverflow.com/users/1071405/jules"
+   },
+   "is_answered": false,
+   "view_count": 97,
+   "answer_count": 3,
+   "score": -1,
+   "last_activity_date": 1774944826,
+   "creation_date": 1774888354,
+   "last_edit_date": 1774944826,
+   "question_id": 79917240,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79917240/how-to-cluster-data-based-on-a-single-value-in-python",
+   "title": "How to cluster data based on a single value in python?",
+   "body": "<p>I have a object data stored in a JSON:</p>\n<p><a href=\"https://1drv.ms/u/c/485c1f86e5afc6dc/IQB0LwXp99ozRYl-yw-j7BA_AbiqAb3sMf6R4uYLTWpHYaw?e=0MWj1v\" rel=\"nofollow noreferrer\">One Drive link to json</a></p>\n<p>These represent markers which I am placing on a 2D map (the lat/lng in the file are YX positions on the map).</p>\n<p>In reality the 3D objects have an alt (Z value) that is fairly stratified, and I would like to represent this Z value in some simple way on the 2D map. Probably in layers indicated by some additional marking on the map alongside the positional marker.</p>\n<p>I'm using Python to do pre-processing on the objects and I want to group them into a small number (say order 10 (5 min?)) of groups based on their Z coordinate to see if that will provide a logical separation. I'm looking for groups where all the objects in the group are close together.</p>\n<p>I suspect that some kind of clustering algorithm from sklearn (scikit-learn) would make sense. I'd like some way to optimise the number of clusters to give the &quot;best&quot; result, and maybe visualise or measure how &quot;good&quot; the grouping is. Though I'm not sure what kind of metric would work for this. Both sklearn and clustering are areas I really lack familiarity with.</p>\n<p>I think my data is structured in a way that will yield clusters. It would be interesting to be able to extend it to 3D clusters.</p>\n<p>Any pointers or suggestions would be greatly appreciated.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "machine-learning",
+    "ssl",
+    "openml"
+   ],
+   "owner": {
+    "account_id": 31062165,
+    "reputation": 1,
+    "user_id": 23874112,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f4311edf785a06aebacf67568c713625?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Alireza Khalaji",
+    "link": "https://stackoverflow.com/users/23874112/alireza-khalaji"
+   },
+   "is_answered": false,
+   "view_count": 231,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1764086280,
+   "creation_date": 1764018733,
+   "last_edit_date": 1764086280,
+   "question_id": 79829106,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79829106/sslcertverificationerror-when-fetching-openml-datasets-in-conda-environment-on-u",
+   "title": "SSLCertVerificationError when fetching OpenML datasets in conda environment on Ubuntu",
+   "body": "<p>I\u2019m on Ubuntu using a conda environment (ML(Python 3.12.9)), and I get a SSL certificate verification error when trying to load a dataset from OpenML with <code>sklearn.datasets.fetch_openml</code>. I already installed <code>certifi</code> inside the environment but the error persists.</p>\n<p>I ran:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from sklearn.datasets import fetch_openml\nhar = fetch_openml(name=&quot;HAR&quot;, as_frame=False)\n</code></pre>\n<p>and I got these errors:</p>\n<pre><code>SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]\ncertificate verify failed: Hostname mismatch, certificate is not valid for 'api.openml.org'. (_ssl.c:1010)\nURLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED]\ncertificate verify failed: Hostname mismatch, certificate is not valid for 'api.openml.org'. (_ssl.c:1010)&gt;\n</code></pre>\n<p>I also tried to get other datasets and encountered the same error.\nI tried everything every AI told me to do.</p>\n<p>What I\u2019ve already tried:</p>\n<ul>\n<li><p>Installed <code>certifi</code> in the ML environment: <code>pip install certifi</code> (it reports &quot;Requirement already satisfied&quot;).</p>\n</li>\n<li><p>Verified that using <code>certifi</code> explicitly allows <code>urllib</code> to fetch <a href=\"https://example.com\" rel=\"nofollow noreferrer\">https://example.com</a>:</p>\n<pre class=\"lang-py prettyprint-override\"><code>import urllib.request, ssl, certifi\nctx = ssl.create_default_context(cafile=certifi.where())\nurllib.request.urlopen(&quot;https://example.com&quot;, context=ctx)  # works\n</code></pre>\n</li>\n</ul>\n<p>The traceback indicates Python 3.12 inside my conda env: paths reference <code>~/anaconda3/envs/ML/lib/python3.12/...</code></p>\n<p>What I don\u2019t know / what I need</p>\n<ul>\n<li><p>Why is <code>fetch_openml</code> (through <code>scikit-learn</code>) failing with a hostname mismatch for api.openml.org, even though <code>certifi</code> is installed and I can fetch other HTTPS sites using the <code>certifi</code> bundle?</p>\n</li>\n<li><p>Whether this is caused by a local proxy / middlebox / DNS issue, an OpenML server certificate problem, or a mismatch in how <code>scikit-learn</code> / <code>urllib</code> is picking up CA bundles inside my conda environment.</p>\n</li>\n</ul>\n<p>Diagnostic info I can add if helpful<br />\nI can paste the outputs of the commands below, please tell me which ones you need:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>python -c &quot;import certifi; print(certifi.where())&quot;\nconda list scikit-learn\necho $SSL_CERT_FILE\n# TLS/SSL certificate details from the server:\nopenssl s_client -connect api.openml.org:443 -servername api.openml.org &lt;/dev/null 2&gt;/dev/null | openssl x509 -noout -text\n# or a quick curl:\ncurl -vI https://api.openml.org\n</code></pre>\n<p>I also added</p>\n<pre class=\"lang-bash prettyprint-override\"><code>export SSL_CERT_FILE=$(python -c &quot;import certifi; print(certifi.where())&quot;)\n</code></pre>\n<p>to my <code>~/.bashrc</code> and sourced my kernel again, but nothing happened</p>\n<p>The raw output:</p>\n<pre><code>---------------------------------------------------------------------------\nSSLCertVerificationError                  Traceback (most recent call last)\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:1344, in AbstractHTTPHandler.do_open(self, http_class, req, **http_conn_args)\n   1343 try:\n-&gt; 1344     h.request(req.get_method(), req.selector, req.data, headers,\n   1345               encode_chunked=req.has_header('Transfer-encoding'))\n   1346 except OSError as err: # timeout error\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1338, in HTTPConnection.request(self, method, url, body, headers, encode_chunked)\n   1337 &quot;&quot;&quot;Send a complete request to the server.&quot;&quot;&quot;\n-&gt; 1338 self._send_request(method, url, body, headers, encode_chunked)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1384, in HTTPConnection._send_request(self, method, url, body, headers, encode_chunked)\n   1383     body = _encode(body, 'body')\n-&gt; 1384 self.endheaders(body, encode_chunked=encode_chunked)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1333, in HTTPConnection.endheaders(self, message_body, encode_chunked)\n   1332     raise CannotSendHeader()\n-&gt; 1333 self._send_output(message_body, encode_chunked=encode_chunked)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1093, in HTTPConnection._send_output(self, message_body, encode_chunked)\n   1092 del self._buffer[:]\n-&gt; 1093 self.send(msg)\n   1095 if message_body is not None:\n   1096 \n   1097     # create a consistent interface to message_body\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1037, in HTTPConnection.send(self, data)\n   1036 if self.auto_open:\n-&gt; 1037     self.connect()\n   1038 else:\n\nFile ~/anaconda3/envs/ML/lib/python3.12/http/client.py:1479, in HTTPSConnection.connect(self)\n   1477     server_hostname = self.host\n-&gt; 1479 self.sock = self._context.wrap_socket(self.sock,\n   1480                                       server_hostname=server_hostname)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/ssl.py:455, in SSLContext.wrap_socket(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)\n    449 def wrap_socket(self, sock, server_side=False,\n    450                 do_handshake_on_connect=True,\n    451                 suppress_ragged_eofs=True,\n    452                 server_hostname=None, session=None):\n    453     # SSLSocket class handles server_hostname encoding before it calls\n    454     # ctx._wrap_socket()\n--&gt; 455     return self.sslsocket_class._create(\n    456         sock=sock,\n    457         server_side=server_side,\n    458         do_handshake_on_connect=do_handshake_on_connect,\n    459         suppress_ragged_eofs=suppress_ragged_eofs,\n    460         server_hostname=server_hostname,\n    461         context=self,\n    462         session=session\n    463     )\n\nFile ~/anaconda3/envs/ML/lib/python3.12/ssl.py:1041, in SSLSocket._create(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)\n   1040                 raise ValueError(&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;)\n-&gt; 1041             self.do_handshake()\n   1042 except:\n\nFile ~/anaconda3/envs/ML/lib/python3.12/ssl.py:1319, in SSLSocket.do_handshake(self, block)\n   1318         self.settimeout(None)\n-&gt; 1319     self._sslobj.do_handshake()\n   1320 finally:\n\nSSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.openml.org'. (_ssl.c:1010)\n\nDuring handling of the above exception, another exception occurred:\n\nURLError                                  Traceback (most recent call last)\nCell In[8], line 1\n----&gt; 1 har = fetch_openml(name=&quot;HAR&quot;, as_frame=False)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:216, in validate_params.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper(*args, **kwargs)\n    210 try:\n    211     with config_context(\n    212         skip_parameter_validation=(\n    213             prefer_skip_nested_validation or global_skip_validation\n    214         )\n    215     ):\n--&gt; 216         return func(*args, **kwargs)\n    217 except InvalidParameterError as e:\n    218     # When the function is just a wrapper around an estimator, we allow\n    219     # the function to delegate validation to the estimator, but we replace\n    220     # the name of the estimator by the name of the function in the error\n    221     # message to avoid confusion.\n    222     msg = re.sub(\n    223         r&quot;parameter of \\w+ must be&quot;,\n    224         f&quot;parameter of {func.__qualname__} must be&quot;,\n    225         str(e),\n    226     )\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:1011, in fetch_openml(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame, n_retries, delay, parser, read_csv_kwargs)\n   1005     if data_id is not None:\n   1006         raise ValueError(\n   1007             &quot;Dataset data_id={} and name={} passed, but you can only &quot;\n   1008             &quot;specify a numeric data_id or a name, not &quot;\n   1009             &quot;both.&quot;.format(data_id, name)\n   1010         )\n-&gt; 1011     data_info = _get_data_info_by_name(\n   1012         name, version, data_home, n_retries=n_retries, delay=delay\n   1013     )\n   1014     data_id = data_info[&quot;did&quot;]\n   1015 elif data_id is not None:\n   1016     # from the previous if statement, it is given that name is None\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:302, in _get_data_info_by_name(name, version, data_home, n_retries, delay)\n    300 url = _SEARCH_NAME.format(name) + &quot;/status/active/&quot;\n    301 error_msg = &quot;No active dataset {} found.&quot;.format(name)\n--&gt; 302 json_data = _get_json_content_from_openml_api(\n    303     url,\n    304     error_msg,\n    305     data_home=data_home,\n    306     n_retries=n_retries,\n    307     delay=delay,\n    308 )\n    309 res = json_data[&quot;data&quot;][&quot;dataset&quot;]\n    310 if len(res) &gt; 1:\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:246, in _get_json_content_from_openml_api(url, error_message, data_home, n_retries, delay)\n    243         return json.loads(response.read().decode(&quot;utf-8&quot;))\n    245 try:\n--&gt; 246     return _load_json()\n    247 except HTTPError as error:\n    248     # 412 is an OpenML specific error code, indicating a generic error\n    249     # (e.g., data not found)\n    250     if error.code != 412:\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:67, in _retry_with_clean_cache.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper(*args, **kw)\n     65     return f(*args, **kw)\n     66 try:\n---&gt; 67     return f(*args, **kw)\n     68 except URLError:\n     69     raise\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:241, in _get_json_content_from_openml_api.&lt;locals&gt;._load_json()\n    238 @_retry_with_clean_cache(url, data_home=data_home)\n    239 def _load_json():\n    240     with closing(\n--&gt; 241         _open_openml_url(url, data_home, n_retries=n_retries, delay=delay)\n    242     ) as response:\n    243         return json.loads(response.read().decode(&quot;utf-8&quot;))\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:173, in _open_openml_url(openml_path, data_home, n_retries, delay)\n    166 try:\n    167     # Create a tmpdir as a subfolder of dir_name where the final file will\n    168     # be moved to if the download is successful. This guarantees that the\n    169     # renaming operation to the final location is atomic to ensure the\n    170     # concurrence safety of the dataset caching mechanism.\n    171     with TemporaryDirectory(dir=dir_name) as tmpdir:\n    172         with closing(\n--&gt; 173             _retry_on_network_error(n_retries, delay, req.full_url)(urlopen)(\n    174                 req\n    175             )\n    176         ) as fsrc:\n    177             opener: Callable\n    178             if is_gzip_encoded(fsrc):\n\nFile ~/anaconda3/envs/ML/lib/python3.12/site-packages/sklearn/datasets/_openml.py:103, in _retry_on_network_error.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper(*args, **kwargs)\n    101 while True:\n    102     try:\n--&gt; 103         return f(*args, **kwargs)\n    104     except (URLError, TimeoutError) as e:\n    105         # 412 is a specific OpenML error code.\n    106         if isinstance(e, HTTPError) and e.code == 412:\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:215, in urlopen(url, data, timeout, cafile, capath, cadefault, context)\n    213 else:\n    214     opener = _opener\n--&gt; 215 return opener.open(url, data, timeout)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:515, in OpenerDirector.open(self, fullurl, data, timeout)\n    512     req = meth(req)\n    514 sys.audit('urllib.Request', req.full_url, req.data, req.headers, req.get_method())\n--&gt; 515 response = self._open(req, data)\n    517 # post-process response\n    518 meth_name = protocol+&quot;_response&quot;\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:532, in OpenerDirector._open(self, req, data)\n    529     return result\n    531 protocol = req.type\n--&gt; 532 result = self._call_chain(self.handle_open, protocol, protocol +\n    533                           '_open', req)\n    534 if result:\n    535     return result\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:492, in OpenerDirector._call_chain(self, chain, kind, meth_name, *args)\n    490 for handler in handlers:\n    491     func = getattr(handler, meth_name)\n--&gt; 492     result = func(*args)\n    493     if result is not None:\n    494         return result\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:1392, in HTTPSHandler.https_open(self, req)\n   1391 def https_open(self, req):\n-&gt; 1392     return self.do_open(http.client.HTTPSConnection, req,\n   1393                         context=self._context)\n\nFile ~/anaconda3/envs/ML/lib/python3.12/urllib/request.py:1347, in AbstractHTTPHandler.do_open(self, http_class, req, **http_conn_args)\n   1344         h.request(req.get_method(), req.selector, req.data, headers,\n   1345                   encode_chunked=req.has_header('Transfer-encoding'))\n   1346     except OSError as err: # timeout error\n-&gt; 1347         raise URLError(err)\n   1348     r = h.getresponse()\n   1349 except:\n\nURLError: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.openml.org'. (_ssl.c:1010)&gt;\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "csv",
+    "dataset"
+   ],
+   "owner": {
+    "account_id": 11326067,
+    "reputation": 597,
+    "user_id": 8304930,
+    "user_type": "registered",
+    "accept_rate": 75,
+    "profile_image": "https://i.sstatic.net/43zzF.jpg?s=256",
+    "display_name": "adurbin",
+    "link": "https://stackoverflow.com/users/8304930/adurbin"
+   },
+   "is_answered": true,
+   "view_count": 14187,
+   "accepted_answer_id": 45564117,
+   "answer_count": 3,
+   "score": 0,
+   "last_activity_date": 1759285432,
+   "creation_date": 1502133094,
+   "last_edit_date": 1502135795,
+   "question_id": 45554138,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/45554138/how-to-create-a-python-dataset-from-a-local-csv-file",
+   "title": "How to create a python dataset from a local csv file?",
+   "body": "<p>I have a <code>csv</code> file and am trying to create a dataset to use with <code>scikit-learn</code>.</p>\n\n<p>Loaded these packages:</p>\n\n<pre><code>import matplotlib.pyplot as plt\nimport pandas as pd\nimport numpy as np\nfrom sklearn import datasets, linear_model\n</code></pre>\n\n<p>I tried this:</p>\n\n<pre><code>sales = pd.read_csv(\"sales.csv\") \ndataset = np.loadtxt(sales, delimiter=\",\")\n</code></pre>\n\n<p>And it gave me this error: </p>\n\n<blockquote>\n  <p>AttributeError: 'DataFrame' object has no attribute 'endswith'</p>\n</blockquote>\n\n<p>Please help! I am having no luck finding out how to create a dataset from a <code>csv</code> file. </p>\n\n<p>Thanks!</p>\n\n<p><strong>EDIT</strong></p>\n\n<p>To clarify -- \nI'm try to follow this procedure <a href=\"http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html\" rel=\"nofollow noreferrer\">http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html</a>, except I want to use my own data. I want to figure how to turn a csv into a python dataset, if that's even possible.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "machine-learning",
+    "scikit-learn",
+    "random-forest",
+    "decision-tree"
+   ],
+   "owner": {
+    "account_id": 8217038,
+    "reputation": 3164,
+    "user_id": 6182971,
+    "user_type": "registered",
+    "accept_rate": 35,
+    "profile_image": "https://www.gravatar.com/avatar/2b059b1a6c310da5525e96a5af69f117?s=256&d=identicon&r=PG",
+    "display_name": "SuperCodeBrah",
+    "link": "https://stackoverflow.com/users/6182971/supercodebrah"
+   },
+   "is_answered": true,
+   "view_count": 781,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1758197459,
+   "creation_date": 1654890288,
+   "last_edit_date": 1654892437,
+   "question_id": 72579169,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72579169/scikit-learn-mae-criterion-using-mean-rather-than-median",
+   "title": "Scikit-learn: MAE criterion using mean (rather than median)",
+   "body": "<p>Scikit-learn's <code>absolute_error</code> criterion for decision trees and random forests (i.e., the MAE Criterion class: <a href=\"https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/tree/_criterion.pyx\" rel=\"nofollow noreferrer\">https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/tree/_criterion.pyx</a>) scales poorly compared to the default <code>squared_error</code> criterion.</p>\n<p>See discussion here: <a href=\"https://github.com/scikit-learn/scikit-learn/issues/9626\" rel=\"nofollow noreferrer\">https://github.com/scikit-learn/scikit-learn/issues/9626</a></p>\n<p>I'm working with a dataset that is too large to reasonably be able to use MAE, however, I'd like to do a little experimentation with MAE, or at least an approximation of it if possible.  Reading about how MAE works, I understand that it's based on using the median of individual leaves rather than the mean, which is what causes it to scale poorly compared to MSE.</p>\n<p>Based on an incredibly shallow understanding of how the decision tree training process works, I would assume that I might be able to modify the MSE Criterion class to get an approximation to MAE.  Specifically, if MSE uses squared error, I would think that somewhere in there, I could just apply square roots to existing calculations to get absolute error.</p>\n<p>For example, something like the following in the MSE class (see the first link):</p>\n<pre><code>for k in range(self.n_outputs):\n    impurity_left[0] -= (self.sum_left[k] / self.weighted_n_left) ** 2.0\n    impurity_right[0] -= (self.sum_right[k] / self.weighted_n_right) ** 2.0\n</code></pre>\n<p>might become:</p>\n<pre><code>for k in range(self.n_outputs):\n    impurity_left[0] -= ((self.sum_left[k] / self.weighted_n_left) ** 2.0)**0.5\n    impurity_right[0] -= ((self.sum_right[k] / self.weighted_n_right) ** 2.0)**0.5 \n</code></pre>\n<p>However, all of my experimentation is leading to individual tree estimators that don't fit beyond one leaf and therefore predict the same value for all samples.</p>\n<p>I'm just wondering whether this approach actually makes sense and, if so, what I would need to modify to make it work.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn",
+    "snowflake-cloud-data-platform"
+   ],
+   "owner": {
+    "account_id": 4498483,
+    "reputation": 983,
+    "user_id": 4560685,
+    "user_type": "registered",
+    "accept_rate": 47,
+    "profile_image": "https://www.gravatar.com/avatar/3121f0e05d00170a4b588ce098bdb233?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user45867",
+    "link": "https://stackoverflow.com/users/4560685/user45867"
+   },
+   "is_answered": true,
+   "view_count": 593,
+   "accepted_answer_id": 78995096,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1756998321,
+   "creation_date": 1726589647,
+   "last_edit_date": 1726609384,
+   "question_id": 78994944,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78994944/snowflake-snowpark-import-sklearn-results-in-no-module-found",
+   "title": "Snowflake/ Snowpark &quot;import sklearn&quot; results in &quot;no module found.&quot;",
+   "body": "<p>I'm using a python worksheet in Snowflake.</p>\n<p>When I got to information_schema.packages, scikit-learn is clearly there and installed.</p>\n<p>But when I reference <code>'sklearn'</code> (don't really understand where this full-name vs. shortened name comes from, but sklearn is obviously the reference to scikit-learn package). It says <code>module not found.</code></p>\n<p>My understanding is that it's pre-installed with Snowpark. So what's the deal? What am I doing wrong?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matplotlib",
+    "scikit-learn",
+    "precision-recall"
+   ],
+   "owner": {
+    "account_id": 19802561,
+    "reputation": 459,
+    "user_id": 14503219,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/10158233184584702/picture?type=large",
+    "display_name": "Rachel Cyr",
+    "link": "https://stackoverflow.com/users/14503219/rachel-cyr"
+   },
+   "is_answered": true,
+   "view_count": 7636,
+   "accepted_answer_id": 65976131,
+   "answer_count": 2,
+   "score": 6,
+   "last_activity_date": 1754934914,
+   "creation_date": 1612068297,
+   "last_edit_date": 1754934914,
+   "question_id": 65975815,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65975815/plotting-threshold-precision-recall-curve-matplotlib-sklearn-metrics",
+   "title": "Plotting Threshold (precision_recall curve) matplotlib/sklearn.metrics",
+   "body": "<p>I am trying to plot the thresholds for my precision/recall curve. I am just using the MNIST data, with the example from the book Hands On Machine Learning with scikit-learn, keras, and TensorFlow. Trying to train the model to detect the image of 5's. I don't know how much of the code you need to see. I have made my confusion matrix for the training set and have calculated the precision and recall values, along with the thresholds. I have plotted the pre/rec curve and the example in the book says to add axis label, ledged, grid and highlight the thresholds but the code cuts off in the book where I placed an asterisk below. I was able to figure out all but how to get the thresholds to show up on the plot. I have included a picture of what the graph in the book looks like vs what I have.\nThis is what the book shows:</p>\n<p><a href=\"https://i.sstatic.net/MuRHQ.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/MuRHQ.jpg\" alt=\"enter image description here\" /></a>\nvs my graph:</p>\n<p><a href=\"https://i.sstatic.net/kcwmN.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.sstatic.net/kcwmN.png\" alt=\"enter image description here\" /></a></p>\n<p>I can't get that red dotline with two threshold points to show up. Does anyone have any idea how I would do this? Here is my code below:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from sklearn.metrics import precision_recall_curve\n\nprecisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)\n\ndef plot_precision_recall_vs_thresholds(precisions, recalls, thresholds):\n    plt.plot(thresholds, precisions[:-1], &quot;b--&quot;, label=&quot;Precision&quot;)\n    plt.plot(thresholds, recalls[:-1], &quot;g--&quot;, label=&quot;Recall&quot;)\n    plt.xlabel(&quot;Threshold&quot;)\n    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n    plt.grid(b=True, which=&quot;both&quot;, axis=&quot;both&quot;, color='gray', linestyle='-', linewidth=1)\n\nplot_precision_recall_vs_thresholds(precisions, recalls, thresholds)\nplt.show()\n</code></pre>\n<p>I know there's a decent amount of questions on here about this with sklearn but none seem to cover getting that red line to show up. I would greatly appreciate the help!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 25307530,
+    "reputation": 952,
+    "user_id": 19130803,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/a3dc5964e639ecb3c005582981bdcc7b?s=256&d=identicon&r=PG",
+    "display_name": "winter",
+    "link": "https://stackoverflow.com/users/19130803/winter"
+   },
+   "is_answered": true,
+   "view_count": 166,
+   "accepted_answer_id": 79730580,
+   "answer_count": 2,
+   "score": -2,
+   "last_activity_date": 1754784011,
+   "creation_date": 1754732918,
+   "question_id": 79730533,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79730533/version-unsupported-imbalanced-learn",
+   "title": "Version unsupported imbalanced-learn",
+   "body": "<p>I am trying to install <code>scikit-learn</code> and <code>imbalanced-learn</code> for ML project using <code>poetry</code>.</p>\n<pre><code># File pyproject.toml\n\n[project]\nname = &quot;hello&quot;\nversion = &quot;0.1.0&quot;\ndescription = &quot;&quot;\nauthors = [\n    {name = &quot;&quot;,email = &quot;&quot;}\n]\nreadme = &quot;README.md&quot;\nrequires-python = &quot;&gt;=3.13&quot;\ndependencies = [\n]\n</code></pre>\n<p>python (version 3.13.6)</p>\n<p>Poetry (version 2.1.4)</p>\n<p>But, Getting error as below:</p>\n<pre><code>ubuntu@ubuntu:~/hello$ poetry add scikit-learn imbalanced-learn\nCreating virtualenv hello in /home/ubuntu/hello/.venv\nUsing version ^1.7.1 for scikit-learn\nUsing version ^0.13.0 for imbalanced-learn\n\nUpdating dependencies\nResolving dependencies... (0.4s)\n\nBecause no versions of sklearn-compat match &gt;0.1,&lt;0.1.1 || &gt;0.1.1,&lt;0.1.2 || &gt;0.1.2,&lt;0.1.3 || &gt;0.1.3,&lt;1\n and sklearn-compat (0.1.0) depends on scikit-learn (&gt;1.2,&lt;1.7), sklearn-compat (&gt;=0.1,&lt;0.1.1 || &gt;0.1.1,&lt;0.1.2 || &gt;0.1.2,&lt;0.1.3 || &gt;0.1.3,&lt;1) requires scikit-learn (&gt;1.2,&lt;1.7).\nAnd because sklearn-compat (0.1.1) depends on scikit-learn (&gt;=1.2,&lt;1.7), sklearn-compat (&gt;=0.1,&lt;0.1.2 || &gt;0.1.2,&lt;0.1.3 || &gt;0.1.3,&lt;1) requires scikit-learn (&gt;=1.2,&lt;1.7).\nAnd because sklearn-compat (0.1.2) depends on scikit-learn (&gt;=1.2,&lt;1.7)\n and sklearn-compat (0.1.3) depends on scikit-learn (&gt;=1.2,&lt;1.7), sklearn-compat (&gt;=0.1,&lt;1) requires scikit-learn (&gt;=1.2,&lt;1.7).\nBecause no versions of imbalanced-learn match &gt;0.13.0,&lt;0.14.0\n and imbalanced-learn (0.13.0) depends on sklearn-compat (&gt;=0.1,&lt;1), imbalanced-learn (&gt;=0.13.0,&lt;0.14.0) requires sklearn-compat (&gt;=0.1,&lt;1).\nThus, imbalanced-learn (&gt;=0.13.0,&lt;0.14.0) requires scikit-learn (&gt;=1.2,&lt;1.7).\nSo, because hello depends on both scikit-learn (^1.7.1) and imbalanced-learn (^0.13.0), version solving failed.\nubuntu@ubuntu:~/hello$ \n</code></pre>\n<p>please help.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "docker",
+    "scikit-learn",
+    "alpine-linux",
+    "python-poetry"
+   ],
+   "owner": {
+    "account_id": 25128239,
+    "reputation": 160,
+    "user_id": 18975804,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/908cf623ac73763a55f5d25d766860d7?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "ranemak",
+    "link": "https://stackoverflow.com/users/18975804/ranemak"
+   },
+   "is_answered": false,
+   "view_count": 227,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1754566270,
+   "creation_date": 1740679353,
+   "last_edit_date": 1740751305,
+   "question_id": 79473553,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79473553/how-to-add-alpine-scikit-learn-to-poetry-environment-on-alpine-docker-container",
+   "title": "How to add Alpine scikit-learn to poetry environment on Alpine Docker container?",
+   "body": "<p>I <strong>have to use an python alpine docker image</strong> for my python project.\nI use poetry for dependency management, and I need to add the scikit-learn package.</p>\n<p>The scikit-learn within poetry is not working on alpine linux images, so I figured out I have to use the <strong>official alpine sklearn package: <a href=\"https://pkgs.alpinelinux.org/package/edge/community/x86/py3-scikit-learn\" rel=\"nofollow noreferrer\">py3-scikit-learn</a></strong> .\nThe install goes through successfully\nthanks to <a href=\"https://stackoverflow.com/a/76184400/18975804\">https://stackoverflow.com/a/76184400/18975804</a></p>\n<p>But I'm using poetry for the other packages, and when runnig the scripts with poetry, the sklearn package is not recognized: <code>ModuleNotFoundError: No module named 'sklearn'</code></p>\n<p>All of the other modules are recognized. How can I get the alpine-sklearn recognized in the poetry environment?</p>\n<p>FYI: IT'S NOT AN OPTION TO USE OTHER LINUX DISTRIBUTION in the DOCKER container.</p>\n<p>Dockerfile:</p>\n<pre><code>FROM python:3.13.2-alpine3.21\nRUN apk --update add gcc build-base freetype-dev libpng-dev openblas-dev py3-scikit-learn\nRUN pip install --upgrade pip\nRUN pip install poetry==2.1.1\n\nENV POETRY_NO_INTERACTION=1 \\\n    POETRY_VIRTUALENVS_IN_PROJECT=1 \\\n    POETRY_VIRTUALENVS_CREATE=1 \\\n    POETRY_CACHE_DIR=/tmp/poetry_cache\n\nWORKDIR /app\n\nCOPY pyproject.toml poetry.lock ./\n\nRUN poetry install --without dev --no-root &amp;&amp; rm -rf $POETRY_CACHE_DIR\n\nCOPY app ./app\n\nWORKDIR ./app \n\nENTRYPOINT [&quot;poetry&quot;, &quot;run&quot;, &quot;python&quot;, &quot;main.py&quot;]\n</code></pre>\n<p>And I use <code>import sklearn</code> in my <code>main.py</code> python script.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "machine-learning",
+    "classification",
+    "xgboost",
+    "optuna"
+   ],
+   "owner": {
+    "account_id": 26248249,
+    "reputation": 11,
+    "user_id": 19921426,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AItbvmnRAkiD3uGp_mi2_ajhFNzbxlfXakD-wdub4PyV=k-s256",
+    "display_name": "Tanmay Gejapati",
+    "link": "https://stackoverflow.com/users/19921426/tanmay-gejapati"
+   },
+   "is_answered": false,
+   "view_count": 663,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1753299054,
+   "creation_date": 1688965615,
+   "last_edit_date": 1689057519,
+   "question_id": 76650779,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/76650779/discrepancy-between-optunas-auc-roc-and-scikit-learns-auc-roc-for-binary-class",
+   "title": "Discrepancy between Optuna&#39;s AUC ROC and scikit-learn&#39;s AUC ROC for binary classification problem",
+   "body": "<p>I'm working on a binary classification problem where I have ~30 features of enzyme substrates to predict EC1 and EC2. I'm using xgboost with optuna for hyperparameter tuning. However, I'm observing a discrepancy between the AUC ROC values reported by Optuna and the scikit-learn library.\n<br> The output from optuna:</p>\n<pre><code>AUC ROC score 1: 0.7109184689577985\nAUC ROC score 2: 0.6030927230046949\n</code></pre>\n<p>But the AUC ROC scores using sklearn for the best parameters found using optuna are:</p>\n<pre><code>AUC ROC score 1: 0.7065598459411416\nAUC ROC score 2: 0.5656470070422535\n</code></pre>\n<p>The code for it goes like this:</p>\n<pre><code>import xgboost as xgb\nimport optuna\nfrom sklearn.metrics import roc_auc_score\nfrom sklearn.model_selection import train_test_split\nimport numpy as np\n\n# Setting a fixed random seed for reproducibility\nnp.random.seed(42)\n\ndef train_model(x_train, y_train, x_eval, y_eval):\n    def objective(trial):\n        param = {\n            'objective': 'binary:logistic',\n            'eval_metric': 'auc',\n            'n_estimators': trial.suggest_int('n_estimators', 100, 1000),\n            'max_depth': trial.suggest_int('max_depth', 3, 6),\n            'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.1, log=True),\n            'subsample': trial.suggest_float('subsample', 0.5, 1),\n            'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1),\n            'reg_alpha': trial.suggest_float('reg_alpha', 0, 10),\n            'reg_lambda': trial.suggest_float('reg_lambda', 0, 10),\n            'gamma': trial.suggest_float('gamma', 0.01, 1, log=True),\n            'random_state': 42,\n            'early_stopping_rounds': 10\n        }\n\n        model = xgb.XGBClassifier(**param)\n\n        model.fit(x_train, y_train, eval_set=[(x_eval, y_eval)], verbose=False)\n        y_pred = model.predict_proba(x_eval)[:, 1]\n        auc_roc = roc_auc_score(y_eval, y_pred)\n\n        return auc_roc\n\n    study = optuna.create_study(direction='maximize')\n    study.optimize(objective, n_trials=100)\n\n    return study.best_trial.params, study.best_trial.value\n\n# Splitting the data into train and evaluation sets\nx_train, x_eval, y_train, y_eval = train_test_split(x_train, y_train, test_size=0.2, random_state=42)\n\n# For EC1\nbest_params_1, best_auc_1 = train_model(x_train, y_train[:, 0], x_eval, y_eval[:, 0])\nclassifier_1 = xgb.XGBClassifier(**best_params_1)\nclassifier_1.fit(x_train, y_train[:, 0])\ny_pred_1 = classifier_1.predict_proba(x_eval)[:, 1]\n\n# For EC2\nbest_params_2, best_auc_2 = train_model(x_train, y_train[:, 1], x_eval, y_eval[:, 1])\nclassifier_2 = xgb.XGBClassifier(**best_params_2)\nclassifier_2.fit(x_train, y_train[:, 1])\ny_pred_2 = classifier_2.predict_proba(x_eval)[:, 1]\n\nauc_score_1 = roc_auc_score(y_eval[:, 0], y_pred_1)\nauc_score_2 = roc_auc_score(y_eval[:, 1], y_pred_2)\n</code></pre>\n<p>I have implemented the xgboost model with hyperparameter tuning using optuna. I expected the AUC ROC values obtained from Optuna's output to be consistent with the AUC ROC values calculated using scikit-learn's roc_auc_score function. However, the actual results show a noticeable difference between these values.</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "linux",
+    "numpy",
+    "scikit-learn",
+    "yocto"
+   ],
+   "owner": {
+    "account_id": 7946912,
+    "reputation": 716,
+    "user_id": 5999131,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/d71f72e85acbf7b055d0ea88c3205164?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Varyag",
+    "link": "https://stackoverflow.com/users/5999131/varyag"
+   },
+   "is_answered": false,
+   "view_count": 1019,
+   "answer_count": 1,
+   "score": 6,
+   "last_activity_date": 1751007236,
+   "creation_date": 1574839515,
+   "last_edit_date": 1574844533,
+   "question_id": 59065058,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59065058/yocto-create-recipe-for-scikit-learn",
+   "title": "Yocto: create recipe for SciKit-learn",
+   "body": "<p>I'm attempting to create a recipe for <code>SciKit-Learn</code> from <a href=\"https://pypi.org/project/scikit-learn/\" rel=\"noreferrer\">pypi</a>. But it seems that <code>python3 setup.py build</code> is unable to find <code>NumPy</code>, even though i know i have it on the build host (both with <code>pip3 install numpy</code> and <code>bitbake python3-numpy-native</code>).</p>\n\n<p>Right now i have the following in my recipe:</p>\n\n<pre><code>DESCRIPTION = \"python3-scikit-learn\"\nSECTION = \"devel/python\"\nLICENSE = \"MIT\"\nLIC_FILES_CHKSUM = \"file://PKG-INFO;md5=4a2bb4f4ec2b68ec46d5d1be3371b2c7\"\n\nPR = \"r0\"\nSRCNAME = \"scikit-learn\"\n\nSRC_URI=\"https://files.pythonhosted.org/packages/1e/ce/9d8c88e68af0a5b5c5d78d8d2b7bcadfd45e1d6afc863ccb9aee30765b06/scikit-learn-0.21.3.tar.gz\"\n\nSRC_URI[md5sum] = \"d7bb030fea8d503d897a0dc8c50b9241\"\n\nSRC_URI[sha256sum] = \"eb9b8ebf59eddd8b96366428238ab27d05a19e89c5516ce294abc35cea75d003\"\n\nS = \"${WORKDIR}/${SRCNAME}-${PV}\"\n\ninherit setuptools3\n</code></pre>\n\n<p>This kind of recipe works for other python packages that aren't in openembedded yet, like <code>joblib</code> which i did get to install with this exact method.</p>\n\n<p>I can see when i run <code>bitbake python3-scikit-learn -c devshell</code> and running python3 there, i am unable to import numpy as it is missing from the path that the devshell python3 is looking (which is in <code>/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/</code>)</p>\n\n<p>I've tried copy-paste the build host numpy package folder manually to this directory but then this error occours:</p>\n\n<pre><code>Log data follows:\n| DEBUG: Executing shell function do_compile\n| C compiler: aarch64-poky-linux-gcc -march=armv8-a+crc -fstack-protector-strong -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security --sysroot=/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot -Wno-unused-result -Wsign-compare -DNDEBUG -g -O3 -Wall -O2 -pipe -g -feliminate-unused-debug-types -O2 -pipe -g -feliminate-unused-debug-types -O2 -pipe -g -feliminate-unused-debug-types -fPIC\n| \n| compile options: '-c'\n| extra options: '-fopenmp'\n| aarch64-poky-linux-gcc: test_openmp.c\n| aarch64-poky-linux-gcc -march=armv8-a+crc -fstack-protector-strong -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security --sysroot=/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -fstack-protector-strong -Wl,-z,relro,-z,now objects/test_openmp.o -o test_openmp -fopenmp\n| Partial import of sklearn during the build process.\n| /home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/distutils/dist.py:274: UserWarning: Unknown distribution option: 'project_urls'\n|   warnings.warn(msg)\n| /home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/distutils/dist.py:274: UserWarning: Unknown distribution option: 'python_requires'\n|   warnings.warn(msg)\n| /home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/distutils/dist.py:274: UserWarning: Unknown distribution option: 'install_requires'\n|   warnings.warn(msg)\n| Traceback (most recent call last):\n|   File \"setup.py\", line 291, in &lt;module&gt;\n|     setup_package()\n|   File \"setup.py\", line 287, in setup_package\n|     setup(**metadata)\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/numpy/distutils/core.py\", line 137, in setup\n|     config = configuration()\n|   File \"setup.py\", line 174, in configuration\n|     config.add_subpackage('sklearn')\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/numpy/distutils/misc_util.py\", line 1035, in add_subpackage\n|     caller_level = 2)\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/numpy/distutils/misc_util.py\", line 1004, in get_subpackage\n|     caller_level = caller_level + 1)\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/numpy/distutils/misc_util.py\", line 941, in _get_configuration_from_setup_py\n|     config = setup_module.configuration(*args)\n|   File \"sklearn/setup.py\", line 76, in configuration\n|     maybe_cythonize_extensions(top_path, config)\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/scikit-learn-0.21.3/sklearn/_build_utils/__init__.py\", line 42, in maybe_cythonize_extensions\n|     with_openmp = check_openmp_support()\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/scikit-learn-0.21.3/sklearn/_build_utils/openmp_helpers.py\", line 100, in check_openmp_support\n|     output = subprocess.check_output('./test_openmp')\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/subprocess.py\", line 395, in check_output\n|     **kwargs).stdout\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/subprocess.py\", line 472, in run\n|     with Popen(*popenargs, **kwargs) as process:\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/subprocess.py\", line 775, in __init__\n|     restore_signals, start_new_session)\n|   File \"/home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/recipe-sysroot-native/usr/lib/python3.7/subprocess.py\", line 1522, in _execute_child\n|     raise child_exception_type(errno_num, err_msg, err_filename)\n| OSError: [Errno 8] Exec format error: './test_openmp'\n| ERROR: 'python3 setup.py build ' execution failed.\n| WARNING: exit code 1 from a shell command.\n| ERROR: Function failed: do_compile (log file is located at /home/yoctouser/build/tmp/work/aarch64-poky-linux/python3-scikit-learn/0.21.3-r0/temp/log.do_compile.605)\n</code></pre>\n\n<p>Anyone have an idea on how to fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "scikit-learn",
+    "standardization"
+   ],
+   "owner": {
+    "account_id": 16422468,
+    "reputation": 39,
+    "user_id": 11863365,
+    "user_type": "registered",
+    "profile_image": "https://lh4.googleusercontent.com/-DqRG253Pdbo/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdwdKDwHrucaMtCZU-KrGerYbC9uQ/s256-rj/photo.jpg",
+    "display_name": "Kalpit Narvekar",
+    "link": "https://stackoverflow.com/users/11863365/kalpit-narvekar"
+   },
+   "is_answered": false,
+   "view_count": 10999,
+   "closed_date": 1749292012,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1749215985,
+   "creation_date": 1593871011,
+   "last_edit_date": 1749215985,
+   "question_id": 62730016,
+   "link": "https://stackoverflow.com/questions/62730016/python-standardscaler-object-has-no-attribute-validate-data",
+   "closed_reason": "Not suitable for this site",
+   "title": "Python: &#39;StandardScaler&#39; object has no attribute &#39;_validate_data&#39;",
+   "body": "<p>I recently updated my sklearn. However, since the upgrade I'm getting the error <code>AttributeError: 'StandardScaler' object has no attribute '_validate_data'</code>.<br />\nThe following is a snippet of the code:</p>\n<pre><code>Xs = pd.DataFrame([[10,20], [20,30], [30,40], [40,50]])\nscalerx = preprocessing.StandardScaler()\nscalerx.fit(Xs)\n</code></pre>\n<p>My scikit-learn version is 0.23.1.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "embedding",
+    "langchain"
+   ],
+   "owner": {
+    "account_id": 29392910,
+    "reputation": 131,
+    "user_id": 22520840,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AAcHTtfK1CDF9-11C6vH9rcyf0y19V0Mm344FovHjLI7my_a=k-s256",
+    "display_name": "msxplus",
+    "link": "https://stackoverflow.com/users/22520840/msxplus"
+   },
+   "is_answered": true,
+   "view_count": 20675,
+   "accepted_answer_id": 77064785,
+   "answer_count": 4,
+   "score": 6,
+   "last_activity_date": 1748539068,
+   "creation_date": 1694154072,
+   "last_edit_date": 1694155225,
+   "question_id": 77064579,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77064579/module-numpy-has-no-attribute-no-nep50-warning",
+   "title": "module &#39;numpy&#39; has no attribute &#39;_no_nep50_warning&#39;",
+   "body": "<p>When load HuggingFaceEmbeddings, always shows error like below.</p>\n<pre><code>---------------------------------------------------------------------------\nAttributeError                            Traceback (most recent call last)\n&lt;ipython-input-27-04d1583103a5&gt; in &lt;cell line: 2&gt;()\n      1 get_ipython().system('pip install --force-reinstall numpy==1.24.0')\n----&gt; 2 embeddings = HuggingFaceEmbeddings(\n      3     model_name=&quot;oshizo/sbert-jsnli-luke-japanese-base-lite&quot;\n      4 )\n\n12 frames\n/usr/local/lib/python3.10/dist-packages/numpy/__init__.py in __getattr__(attr)\n    309         &quot;&quot;&quot;\n    310         try:\n--&gt; 311             x = ones(2, dtype=float32)\n    312             if not abs(x.dot(x) - float32(2.0)) &lt; 1e-5:\n    313                 raise AssertionError()\n\nAttributeError: module 'numpy' has no attribute '_no_nep50_warning'\n</code></pre>\n<p>I tried to downgrade numpy version to</p>\n<pre><code>1.25.2 -&gt; 1.24.4 -&gt; 1.24.2 -&gt; 1.24.1 -&gt; 1.24.0\n</code></pre>\n<p>But always same errors happen. and googles has no answer about this.\nIf anyone know how to fixing it this problem... please tell me any information,</p>\n<p>Heres my pip installed source code.\nnumpy versions 1.24.0 was trying to downgrade version last time.</p>\n<pre><code>!pip install --force-reinstall numpy==1.24.0\nfrom langchain.embeddings import HuggingFaceEmbeddings\nembeddings = HuggingFaceEmbeddings(\n    model_name=&quot;intfloat/multilingual-e5-large&quot;\n)\n</code></pre>\n<p>Heres my pip list below</p>\n<pre><code>Package                          Version\n-------------------------------- ---------------------\nabsl-py                          1.4.0\naccelerate                       0.22.0\naiohttp                          3.8.5\naiosignal                        1.3.1\nalabaster                        0.7.13\nalbumentations                   1.3.1\naltair                           4.2.2\nannotated-types                  0.5.0\nanyio                            3.7.1\nappdirs                          1.4.4\nargon2-cffi                      23.1.0\nargon2-cffi-bindings             21.2.0\narray-record                     0.4.1\narviz                            0.15.1\nastropy                          5.3.2\nastunparse                       1.6.3\nasync-timeout                    4.0.3\nattrs                            23.1.0\naudioread                        3.0.0\nautograd                         1.6.2\nBabel                            2.12.1\nbackcall                         0.2.0\nbeautifulsoup4                   4.11.2\nbleach                           6.0.0\nblinker                          1.4\nblis                             0.7.10\nblosc2                           2.0.0\nbokeh                            3.2.2\nboto3                            1.28.43\nbotocore                         1.31.43\nbqplot                           0.12.40\nbranca                           0.6.0\nbuild                            1.0.0\nCacheControl                     0.13.1\ncachetools                       5.3.1\ncatalogue                        2.0.9\ncertifi                          2023.7.22\ncffi                             1.15.1\nchardet                          5.2.0\ncharset-normalizer               3.2.0\nchex                             0.1.7\nclick                            8.1.7\nclick-plugins                    1.1.1\ncligj                            0.7.2\ncloudpickle                      2.2.1\ncmake                            3.27.2\ncmdstanpy                        1.1.0\ncolorcet                         3.0.1\ncolorlover                       0.3.0\ncolour                           0.1.5\ncommunity                        1.0.0b1\nconfection                       0.1.1\ncons                             0.4.6\ncontextlib2                      21.6.0\ncontourpy                        1.1.0\nconvertdate                      2.4.0\ncryptography                     41.0.3\ncufflinks                        0.17.3\ncupy-cuda11x                     11.0.0\ncvxopt                           1.3.2\ncvxpy                            1.3.2\ncycler                           0.11.0\ncymem                            2.0.7\nCython                           0.29.36\ndask                             2023.8.1\ndataclasses-json                 0.5.14\ndatascience                      0.17.6\ndb-dtypes                        1.1.1\ndbus-python                      1.2.18\ndebugpy                          1.6.6\ndecorator                        4.4.2\ndefusedxml                       0.7.1\ndiskcache                        5.6.3\ndistributed                      2023.8.1\ndistro                           1.7.0\ndlib                             19.24.2\ndm-tree                          0.1.8\ndocutils                         0.18.1\ndopamine-rl                      4.0.6\nduckdb                           0.8.1\nearthengine-api                  0.1.367\neasydict                         1.10\necos                             2.0.12\neditdistance                     0.6.2\neerepr                           0.0.4\nen-core-web-sm                   3.6.0\nentrypoints                      0.4\nephem                            4.1.4\net-xmlfile                       1.1.0\netils                            1.4.1\netuples                          0.3.9\nexceptiongroup                   1.1.3\nfaiss-gpu                        1.7.2\nfastai                           2.7.12\nfastcore                         1.5.29\nfastdownload                     0.0.7\nfastjsonschema                   2.18.0\nfastprogress                     1.0.3\nfastrlock                        0.8.2\nfilelock                         3.12.3\nFiona                            1.9.4.post1\nfirebase-admin                   5.3.0\nFlask                            2.2.5\nflatbuffers                      23.5.26\nflax                             0.7.2\nfolium                           0.14.0\nfonttools                        4.42.1\nfrozendict                       2.3.8\nfrozenlist                       1.4.0\nfsspec                           2023.6.0\nfuture                           0.18.3\ngast                             0.4.0\ngcsfs                            2023.6.0\nGDAL                             3.4.3\ngdown                            4.6.6\ngeemap                           0.25.0\ngensim                           4.3.2\ngeocoder                         1.38.1\ngeographiclib                    2.0\ngeopandas                        0.13.2\ngeopy                            2.3.0\ngin-config                       0.5.0\nglob2                            0.7\ngoogle                           2.0.3\ngoogle-api-core                  2.11.1\ngoogle-api-python-client         2.84.0\ngoogle-auth                      2.17.3\ngoogle-auth-httplib2             0.1.0\ngoogle-auth-oauthlib             1.0.0\ngoogle-cloud-bigquery            3.10.0\ngoogle-cloud-bigquery-connection 1.12.1\ngoogle-cloud-bigquery-storage    2.22.0\ngoogle-cloud-core                2.3.3\ngoogle-cloud-datastore           2.15.2\ngoogle-cloud-firestore           2.11.1\ngoogle-cloud-functions           1.13.2\ngoogle-cloud-language            2.9.1\ngoogle-cloud-storage             2.8.0\ngoogle-cloud-translate           3.11.3\ngoogle-colab                     1.0.0\ngoogle-crc32c                    1.5.0\ngoogle-pasta                     0.2.0\ngoogle-resumable-media           2.5.0\ngoogleapis-common-protos         1.60.0\ngoogledrivedownloader            0.4\ngraphviz                         0.20.1\ngreenlet                         2.0.2\ngrpc-google-iam-v1               0.12.6\ngrpcio                           1.57.0\ngrpcio-status                    1.48.2\ngspread                          3.4.2\ngspread-dataframe                3.3.1\ngym                              0.25.2\ngym-notices                      0.0.8\nh5netcdf                         1.2.0\nh5py                             3.9.0\nholidays                         0.32\nholoviews                        1.17.1\nhtml5lib                         1.1\nhttpimport                       1.3.1\nhttplib2                         0.22.0\nhuggingface-hub                  0.16.4\nhumanize                         4.7.0\nhyperopt                         0.2.7\nidna                             3.4\nimageio                          2.31.3\nimageio-ffmpeg                   0.4.8\nimagesize                        1.4.1\nimbalanced-learn                 0.10.1\nimgaug                           0.4.0\nimportlib-metadata               6.8.0\nimportlib-resources              6.0.1\nimutils                          0.5.4\ninflect                          7.0.0\niniconfig                        2.0.0\nintel-openmp                     2023.2.0\nipyevents                        2.0.2\nipyfilechooser                   0.6.0\nipykernel                        5.5.6\nipyleaflet                       0.17.3\nipython                          7.34.0\nipython-genutils                 0.2.0\nipython-sql                      0.5.0\nipytree                          0.2.2\nipywidgets                       7.7.1\nitsdangerous                     2.1.2\njax                              0.4.14\njaxlib                           0.4.14+cuda11.cudnn86\njeepney                          0.7.1\njieba                            0.42.1\nJinja2                           3.1.2\njmespath                         1.0.1\njoblib                           1.3.2\njsonpickle                       3.0.2\njsonschema                       4.19.0\njsonschema-specifications        2023.7.1\njupyter-client                   6.1.12\njupyter-console                  6.1.0\njupyter_core                     5.3.1\njupyter-server                   1.24.0\njupyterlab-pygments              0.2.2\njupyterlab-widgets               3.0.8\nkaggle                           1.5.16\nkeras                            2.12.0\nkeyring                          23.5.0\nkiwisolver                       1.4.5\nlangchain                        0.0.284\nlangcodes                        3.3.0\nlangsmith                        0.0.33\nlaunchpadlib                     1.10.16\nlazr.restfulclient               0.14.4\nlazr.uri                         1.0.6\nlazy_loader                      0.3\nlibclang                         16.0.6\nlibrosa                          0.10.1\nlightgbm                         4.0.0\nlinkify-it-py                    2.0.2\nlit                              16.0.6\nllama-cpp-python                 0.1.83\nllvmlite                         0.39.1\nlocket                           1.0.0\nlogical-unification              0.4.6\nLunarCalendar                    0.0.9\nlxml                             4.9.3\nMarkdown                         3.4.4\nmarkdown-it-py                   3.0.0\nMarkupSafe                       2.1.3\nmarshmallow                      3.20.1\nmatplotlib                       3.7.1\nmatplotlib-inline                0.1.6\nmatplotlib-venn                  0.11.9\nmdit-py-plugins                  0.4.0\nmdurl                            0.1.2\nminiKanren                       1.0.3\nmissingno                        0.5.2\nmistune                          0.8.4\nmizani                           0.9.3\nmkl                              2023.2.0\nml-dtypes                        0.2.0\nmlxtend                          0.22.0\nmore-itertools                   10.1.0\nmoviepy                          1.0.3\nmpmath                           1.3.0\nmsgpack                          1.0.5\nmultidict                        6.0.4\nmultipledispatch                 1.0.0\nmultitasking                     0.0.11\nmurmurhash                       1.0.9\nmusic21                          9.1.0\nmypy-extensions                  1.0.0\nnatsort                          8.4.0\nnbclassic                        1.0.0\nnbclient                         0.8.0\nnbconvert                        6.5.4\nnbformat                         5.9.2\nnest-asyncio                     1.5.7\nnetworkx                         3.1\nnibabel                          4.0.2\nnltk                             3.8.1\nnotebook                         6.5.5\nnotebook_shim                    0.2.3\nnumba                            0.56.4\nnumexpr                          2.8.5\nnumpy                            1.24.0\noauth2client                     4.1.3\noauthlib                         3.2.2\nopenai                           0.28.0\nopencv-contrib-python            4.8.0.76\nopencv-python                    4.8.0.76\nopencv-python-headless           4.8.0.76\nopenpyxl                         3.1.2\nopt-einsum                       3.3.0\noptax                            0.1.7\norbax-checkpoint                 0.3.5\nosqp                             0.6.2.post8\npackaging                        23.1\npandas                           1.5.3\npandas-datareader                0.10.0\npandas-gbq                       0.17.9\npandocfilters                    1.5.0\npanel                            1.2.2\nparam                            1.13.0\nparso                            0.8.3\npartd                            1.4.0\npathlib                          1.0.1\npathy                            0.10.2\npatsy                            0.5.3\npexpect                          4.8.0\npickleshare                      0.7.5\nPillow                           9.4.0\npip                              23.2.1\npip-tools                        6.13.0\nplatformdirs                     3.10.0\nplotly                           5.15.0\nplotnine                         0.12.3\npluggy                           1.3.0\npolars                           0.17.3\npooch                            1.7.0\nportpicker                       1.5.2\nprefetch-generator               1.0.3\npreshed                          3.0.8\nprettytable                      3.8.0\nproglog                          0.1.10\nprogressbar2                     4.2.0\nprometheus-client                0.17.1\npromise                          2.3\nprompt-toolkit                   3.0.39\nprophet                          1.1.4\nproto-plus                       1.22.3\nprotobuf                         3.20.3\npsutil                           5.9.5\npsycopg2                         2.9.7\nptyprocess                       0.7.0\npy-cpuinfo                       9.0.0\npy4j                             0.10.9.7\npyarrow                          9.0.0\npyasn1                           0.5.0\npyasn1-modules                   0.3.0\npycocotools                      2.0.7\npycparser                        2.21\npyct                             0.5.0\npydantic                         2.3.0\npydantic_core                    2.6.3\npydata-google-auth               1.8.2\npydot                            1.4.2\npydot-ng                         2.0.0\npydotplus                        2.0.2\nPyDrive                          1.3.1\nPyDrive2                         1.6.3\npyerfa                           2.0.0.3\npygame                           2.5.1\nPygments                         2.16.1\nPyGObject                        3.42.1\nPyJWT                            2.3.0\npymc                             5.7.2\nPyMeeus                          0.5.12\nPyMuPDF                          1.23.3\nPyMuPDFb                         1.23.3\npymystem3                        0.2.0\nPyOpenGL                         3.1.7\npyOpenSSL                        23.2.0\npyparsing                        3.1.1\npyperclip                        1.8.2\npyproj                           3.6.0\npyproject_hooks                  1.0.0\npyshp                            2.3.1\nPySocks                          1.7.1\npytensor                         2.14.2\npytest                           7.4.1\npython-apt                       0.0.0\npython-box                       7.1.1\npython-dateutil                  2.8.2\npython-louvain                   0.16\npython-slugify                   8.0.1\npython-utils                     3.7.0\npytz                             2023.3.post1\npyviz_comms                      3.0.0\nPyWavelets                       1.4.1\nPyYAML                           6.0.1\npyzmq                            23.2.1\nqdldl                            0.1.7.post0\nqudida                           0.0.4\nratelim                          0.1.6\nreferencing                      0.30.2\nregex                            2023.6.3\nrequests                         2.31.0\nrequests-oauthlib                1.3.1\nrequirements-parser              0.5.0\nrich                             13.5.2\nrpds-py                          0.10.2\nrpy2                             3.4.2\nrsa                              4.9\ns3transfer                       0.6.2\nsafetensors                      0.3.3\nscikit-image                     0.19.3\nscikit-learn                     1.2.2\nscipy                            1.10.1\nscooby                           0.7.2\nscs                              3.2.3\nseaborn                          0.12.2\nSecretStorage                    3.3.1\nSend2Trash                       1.8.2\nsentence-transformers            2.2.2\nsentencepiece                    0.1.99\nsetuptools                       67.7.2\nshapely                          2.0.1\nsix                              1.16.0\nsklearn-pandas                   2.2.0\nsmart-open                       6.3.0\nsniffio                          1.3.0\nsnowballstemmer                  2.2.0\nsortedcontainers                 2.4.0\nsoundfile                        0.12.1\nsoupsieve                        2.5\nsoxr                             0.3.6\nspacy                            3.6.1\nspacy-legacy                     3.0.12\nspacy-loggers                    1.0.4\nSphinx                           5.0.2\nsphinxcontrib-applehelp          1.0.7\nsphinxcontrib-devhelp            1.0.5\nsphinxcontrib-htmlhelp           2.0.4\nsphinxcontrib-jsmath             1.0.1\nsphinxcontrib-qthelp             1.0.6\nsphinxcontrib-serializinghtml    1.1.9\nSQLAlchemy                       2.0.20\nsqlparse                         0.4.4\nsrsly                            2.4.7\nstatsmodels                      0.14.0\nsympy                            1.12\ntables                           3.8.0\ntabulate                         0.9.0\ntbb                              2021.10.0\ntblib                            2.0.0\ntenacity                         8.2.3\ntensorboard                      2.12.3\ntensorboard-data-server          0.7.1\ntensorflow                       2.12.0\ntensorflow-datasets              4.9.2\ntensorflow-estimator             2.12.0\ntensorflow-gcs-config            2.12.0\ntensorflow-hub                   0.14.0\ntensorflow-io-gcs-filesystem     0.33.0\ntensorflow-metadata              1.14.0\ntensorflow-probability           0.20.1\ntensorstore                      0.1.41\ntermcolor                        2.3.0\nterminado                        0.17.1\ntext-unidecode                   1.3\ntextblob                         0.17.1\ntf-slim                          1.1.0\nthinc                            8.1.12\nthreadpoolctl                    3.2.0\ntifffile                         2023.8.30\ntinycss2                         1.2.1\ntokenizers                       0.13.3\ntoml                             0.10.2\ntomli                            2.0.1\ntoolz                            0.12.0\ntorch                            2.0.1+cu118\ntorchaudio                       2.0.2+cu118\ntorchdata                        0.6.1\ntorchsummary                     1.5.1\ntorchtext                        0.15.2\ntorchvision                      0.15.2+cu118\ntornado                          6.3.2\ntqdm                             4.66.1\ntraitlets                        5.7.1\ntraittypes                       0.2.1\ntransformers                     4.33.1\ntriton                           2.0.0\ntweepy                           4.13.0\ntyper                            0.9.0\ntypes-setuptools                 68.1.0.1\ntyping_extensions                4.7.1\ntyping-inspect                   0.9.0\ntzlocal                          5.0.1\nuc-micro-py                      1.0.2\nuritemplate                      4.1.1\nurllib3                          1.26.16\nvega-datasets                    0.9.0\nwadllib                          1.3.6\nwasabi                           1.1.2\nwcwidth                          0.2.6\nwebcolors                        1.13\nwebencodings                     0.5.1\nwebsocket-client                 1.6.2\nWerkzeug                         2.3.7\nwheel                            0.41.2\nwidgetsnbextension               3.6.5\nwordcloud                        1.9.2\nwrapt                            1.14.1\nxarray                           2023.7.0\nxarray-einstats                  0.6.0\nxgboost                          1.7.6\nxlrd                             2.0.1\nxyzservices                      2023.7.0\nyarl                             1.9.2\nyellowbrick                      1.5\nyfinance                         0.2.28\nzict                             3.0.0\nzipp                             3.16.2\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "docker",
+    "apple-m1",
+    "sentence-transformers"
+   ],
+   "owner": {
+    "account_id": 6818878,
+    "reputation": 1093,
+    "user_id": 5246617,
+    "user_type": "registered",
+    "accept_rate": 64,
+    "profile_image": "https://www.gravatar.com/avatar/b59a622bcc562caa2e7c78a6b0ef3ada?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Pavol Travnik",
+    "link": "https://stackoverflow.com/users/5246617/pavol-travnik"
+   },
+   "is_answered": true,
+   "view_count": 3042,
+   "answer_count": 4,
+   "score": 9,
+   "last_activity_date": 1748064634,
+   "creation_date": 1697222192,
+   "last_edit_date": 1697295718,
+   "question_id": 77290003,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/77290003/segmentation-fault-when-using-sentencetransformer-inside-docker-container",
+   "title": "Segmentation Fault when Using SentenceTransformer Inside Docker Container",
+   "body": "<p>Edit: After test on different machines it is Apple M1 M2 specific bug.</p>\n<p>I am trying to run a Flask application inside a Docker container on Apple Silicon M2 (could be an issue), where I use the SentenceTransformer model to encode sentences. However, when I call the encode method on the model, the application crashes with a segmentation fault.</p>\n<p>Here's the relevant code:</p>\n<pre class=\"lang-py prettyprint-override\"><code>from sentence_transformers import SentenceTransformer\nmodel = SentenceTransformer('all-MiniLM-L6-v2')\n\n#Our sentences we like to encode\nsentences = ['This framework generates embeddings for each input sentence',\n    'Sentences are passed as a list of string.', \n    'The quick brown fox jumps over the lazy dog.']\n\n#Sentences are encoded by calling model.encode()\nsentence_embeddings = model.encode(sentences)\n</code></pre>\n<p>Source: <a href=\"https://www.sbert.net/docs/quickstart.html\" rel=\"noreferrer\">https://www.sbert.net/docs/quickstart.html</a></p>\n<p>after using <code>import faulthandler</code> and <code>faulthandler.enable()</code>\nThe error traceback is:</p>\n<pre><code>Fatal Python error: Segmentation fault\n\nThread 0x0000ffff640ff1a0 (most recent call first):\n  File &quot;/usr/local/lib/python3.11/threading.py&quot;, line 331 in wait\n  File &quot;/usr/local/lib/python3.11/threading.py&quot;, line 629 in wait\n  File &quot;/usr/local/lib/python3.11/site-packages/tqdm/_monitor.py&quot;, line 60 in run\n  File &quot;/usr/local/lib/python3.11/threading.py&quot;, line 1045 in _bootstrap_inner\n  File &quot;/usr/local/lib/python3.11/threading.py&quot;, line 1002 in _bootstrap\n\nCurrent thread 0x0000ffffa6814020 (most recent call first):\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/activations.py&quot;, line 78 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/models/bert/modeling_bert.py&quot;, line 452 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/models/bert/modeling_bert.py&quot;, line 551 in feed_forward_chunk\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/pytorch_utils.py&quot;, line 240 in apply_chunking_to_forward\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/models/bert/modeling_bert.py&quot;, line 539 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/models/bert/modeling_bert.py&quot;, line 612 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/transformers/models/bert/modeling_bert.py&quot;, line 1022 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/sentence_transformers/models/Transformer.py&quot;, line 66 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1527 in _call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py&quot;, line 1518 in _wrapped_call_impl\n  File &quot;/usr/local/lib/python3.11/site-packages/torch/nn/modules/container.py&quot;, line 215 in forward\n  File &quot;/usr/local/lib/python3.11/site-packages/sentence_transformers/SentenceTransformer.py&quot;, line 165 in encode\n  File &quot;&lt;stdin&gt;&quot;, line 1 in &lt;module&gt;\n\nExtension modules: numpy.core._multiarray_umath, numpy.core._multiarray_tests, numpy.linalg._umath_linalg, numpy.fft._pocketfft_internal, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, torch._C, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, scipy._lib._ccallback_c, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.sparse.linalg._isolve._iterative, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_sqrtm_triu, scipy.linalg.cython_blas, scipy.linalg._matfuncs_expm, scipy.linalg._decomp_update, scipy.linalg._flinalg, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpack, scipy.sparse.csgraph._tools, scipy.sparse.csgraph._shortest_path, scipy.sparse.csgraph._traversal, scipy.sparse.csgraph._min_spanning_tree, scipy.sparse.csgraph._flow, scipy.sparse.csgraph._matching, scipy.sparse.csgraph._reordering, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial._distance_wrap, scipy.spatial._hausdorff, scipy.special._ufuncs_cxx, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.special._ellip_harm_2, scipy.spatial.transform._rotation, scipy.ndimage._nd_image, _ni_label, scipy.ndimage._ni_label, scipy.optimize._minpack2, scipy.optimize._group_columns, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._cobyla, scipy.optimize._slsqp, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy.optimize.__nnls, scipy.optimize._highs.cython.src._highs_wrapper, scipy.optimize._highs._highs_wrapper, scipy.optimize._highs.cython.src._highs_constants, scipy.optimize._highs._highs_constants, scipy.linalg._interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.optimize._direct, scipy.integrate._odepack, scipy.integrate._quadpack, scipy.integrate._vode, scipy.integrate._dop, scipy.integrate._lsoda, scipy.special.cython_special, scipy.stats._stats, scipy.stats.beta_ufunc, scipy.stats._boost.beta_ufunc, scipy.stats.binom_ufunc, scipy.stats._boost.binom_ufunc, scipy.stats.nbinom_ufunc, scipy.stats._boost.nbinom_ufunc, scipy.stats.hypergeom_ufunc, scipy.stats._boost.hypergeom_ufunc, scipy.stats.ncf_ufunc, scipy.stats._boost.ncf_ufunc, scipy.stats.ncx2_ufunc, scipy.stats._boost.ncx2_ufunc, scipy.stats.nct_ufunc, scipy.stats._boost.nct_ufunc, scipy.stats.skewnorm_ufunc, scipy.stats._boost.skewnorm_ufunc, scipy.stats.invgauss_ufunc, scipy.stats._boost.invgauss_ufunc, scipy.interpolate._fitpack, scipy.interpolate.dfitpack, scipy.interpolate._bspl, scipy.interpolate._ppoly, scipy.interpolate.interpnd, scipy.interpolate._rbfinterp_pythran, scipy.interpolate._rgi_cython, scipy.stats._biasedurn, scipy.stats._levy_stable.levyst, scipy.stats._stats_pythran, scipy._lib._uarray._uarray, scipy.stats._statlib, scipy.stats._sobol, scipy.stats._qmc_cy, scipy.stats._mvn, scipy.stats._rcont.rcont, regex._regex, sklearn.__check_build._check_build, sklearn.utils._isfinite, sklearn.utils.murmurhash, sklearn.utils._openmp_helpers, sklearn.utils._logistic_sigmoid, sklearn.utils.sparsefuncs_fast, sklearn.preprocessing._csr_polynomial_expansion, sklearn.preprocessing._target_encoder_fast, sklearn.utils._vector_sentinel, sklearn.feature_extraction._hashing_fast, sklearn.utils._random, sklearn.utils._seq_dataset, sklearn.metrics.cluster._expected_mutual_info_fast, sklearn.metrics._dist_metrics, sklearn.metrics._pairwise_distances_reduction._datasets_pair, sklearn.utils._cython_blas, sklearn.metrics._pairwise_distances_reduction._base, sklearn.metrics._pairwise_distances_reduction._middle_term_computer, sklearn.utils._heap, sklearn.utils._sorting, sklearn.metrics._pairwise_distances_reduction._argkmin, sklearn.metrics._pairwise_distances_reduction._argkmin_classmode, sklearn.metrics._pairwise_distances_reduction._radius_neighbors, sklearn.metrics._pairwise_fast, sklearn.linear_model._cd_fast, sklearn._loss._loss, sklearn.utils.arrayfuncs, sklearn.svm._liblinear, sklearn.svm._libsvm, sklearn.svm._libsvm_sparse, sklearn.utils._weight_vector, sklearn.linear_model._sgd_fast, sklearn.linear_model._sag_fast, scipy.io.matlab._mio_utils, scipy.io.matlab._streams, scipy.io.matlab._mio5_utils, sklearn.datasets._svmlight_format_fast, charset_normalizer.md, yaml._yaml, sentencepiece._sentencepiece, PIL._imaging (total: 163)\nSegmentation fault\n</code></pre>\n<p>Some points:</p>\n<p>The Docker container has ample memory allocated.\nI've tried updating the libraries (torch, transformers, and sentence-transformers).\nThe same code works perfectly outside the Docker environment.\nHow can I resolve this segmentation fault when running the code inside Docker?</p>\n<p>Here is a pip list of actual versions.</p>\n<pre><code>Package               Version\n--------------------- ---------\nblinker               1.6.3\ncertifi               2023.7.22\ncharset-normalizer    3.3.0\nclick                 8.1.7\nfilelock              3.12.4\nFlask                 3.0.0\nfsspec                2023.9.2\nhuggingface-hub       0.17.3\nidna                  3.4\nitsdangerous          2.1.2\nJinja2                3.1.2\njoblib                1.3.2\nMarkupSafe            2.1.3\nmpmath                1.3.0\nnetworkx              3.1\nnltk                  3.8.1\nnumpy                 1.26.0\npackaging             23.2\nPillow                10.0.1\npip                   23.2.1\nPyYAML                6.0.1\nregex                 2023.10.3\nrequests              2.31.0\nsafetensors           0.4.0\nscikit-learn          1.3.1\nscipy                 1.11.3\nsentence-transformers 2.2.2\nsentencepiece         0.1.99\nsetuptools            65.5.1\nsympy                 1.12\nthreadpoolctl         3.2.0\ntokenizers            0.14.1\ntorch                 2.1.0\ntorchvision           0.16.0\ntqdm                  4.66.1\ntransformers          4.34.0\ntyping_extensions     4.8.0\nurllib3               2.0.6\nWerkzeug              3.0.0\nwheel                 0.41.2\n</code></pre>\n<p>For more clarification, here is the most important part of my Dockerfile.</p>\n<pre><code>FROM python:3.11\n\nRUN pip install --upgrade pip\nRUN pip install Flask==3.0.0 sentence-transformers==2.2.2\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 6744949,
+    "reputation": 344,
+    "user_id": 5196836,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e30ed980675f715f481a53517958101e?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "FooBar",
+    "link": "https://stackoverflow.com/users/5196836/foobar"
+   },
+   "is_answered": true,
+   "view_count": 5277,
+   "accepted_answer_id": 40027200,
+   "answer_count": 2,
+   "score": 11,
+   "last_activity_date": 1746664791,
+   "creation_date": 1476373212,
+   "question_id": 40025406,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/40025406/inherit-from-scikit-learns-lassocv-model",
+   "title": "Inherit from scikit-learn&#39;s LassoCV model",
+   "body": "<p>I tried to extend scikit-learn's RidgeCV model using inheritance:</p>\n\n<pre><code>from sklearn.linear_model import RidgeCV, LassoCV\n\nclass Extended(RidgeCV):\n    def __init__(self, *args, **kwargs):\n        super(Extended, self).__init__(*args, **kwargs)\n\n    def example(self):\n        print 'Foo'\n\n\nx = [[1,0],[2,0],[3,0],[4,0], [30, 1]]\ny = [2,4,6,8, 60]\nmodel = Extended(alphas = [float(a)/1000.0 for a in range(1, 10000)])\nmodel.fit(x,y)\nprint model.predict([[5,1]])\n</code></pre>\n\n<p>It worked perfectly fine, but when I tried to inherit from LassoCV, it yielded the following traceback:</p>\n\n<pre><code>Traceback (most recent call last):\n  File \"C:/Python27/so.py\", line 14, in &lt;module&gt;\n    model.fit(x,y)\n  File \"C:\\Python27\\lib\\site-packages\\sklearn\\linear_model\\coordinate_descent.py\", line 1098, in fit\n    path_params = self.get_params()\n  File \"C:\\Python27\\lib\\site-packages\\sklearn\\base.py\", line 214, in get_params\n    for key in self._get_param_names():\n  File \"C:\\Python27\\lib\\site-packages\\sklearn\\base.py\", line 195, in _get_param_names\n    % (cls, init_signature))\nRuntimeError: scikit-learn estimators should always specify their parameters in the signature of their __init__ (no varargs). &lt;class '__main__.Extended'&gt; with constructor (&lt;self&gt;, *args, **kwargs) doesn't  follow this convention.\n</code></pre>\n\n<p>Can somebody explain how to fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "scikit-learn",
+    "xgboost"
+   ],
+   "migrated_from": {
+    "other_site": {
+     "aliases": [
+      "https://statistics.stackexchange.com",
+      "https://crossvalidated.com"
+     ],
+     "styling": {
+      "tag_background_color": "#edefed",
+      "tag_foreground_color": "#5D5D5D",
+      "link_color": "#0077CC"
+     },
+     "related_sites": [
+      {
+       "relation": "meta",
+       "api_site_parameter": "stats.meta",
+       "site_url": "https://stats.meta.stackexchange.com",
+       "name": "Cross Validated Meta"
+      },
+      {
+       "relation": "chat",
+       "site_url": "https://chat.stackexchange.com?tab=site&host=stats.stackexchange.com",
+       "name": "Chat Stack Exchange"
+      }
+     ],
+     "markdown_extensions": [
+      "MathJax",
+      "Prettify"
+     ],
+     "launch_date": 1288900046,
+     "open_beta_date": 1280170800,
+     "closed_beta_date": 1279566000,
+     "site_state": "normal",
+     "high_resolution_icon_url": "https://stats.stackexchange.com/Content/Sites/stats/Img/apple-touch-icon@2.png",
+     "favicon_url": "https://stats.stackexchange.com/Content/Sites/stats/Img/favicon.ico",
+     "icon_url": "https://stats.stackexchange.com/Content/Sites/stats/Img/apple-touch-icon.png",
+     "audience": "people interested in statistics, machine learning, data analysis, data mining, and data visualization",
+     "site_url": "https://stats.stackexchange.com",
+     "api_site_parameter": "stats",
+     "logo_url": "https://stats.stackexchange.com/Content/Sites/stats/Img/logo.png",
+     "name": "Cross Validated",
+     "site_type": "main_site"
+    },
+    "on_date": 1589581084,
+    "question_id": 466732
+   },
+   "owner": {
+    "account_id": 2889041,
+    "reputation": 687,
+    "user_id": 2478236,
+    "user_type": "registered",
+    "accept_rate": 41,
+    "profile_image": "https://www.gravatar.com/avatar/affeca2cf2766c228e0b6d4daf47fc64?s=256&d=identicon&r=PG",
+    "display_name": "user2478236",
+    "link": "https://stackoverflow.com/users/2478236/user2478236"
+   },
+   "is_answered": false,
+   "view_count": 1264,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1743616644,
+   "creation_date": 1589564722,
+   "last_edit_date": 1743616644,
+   "question_id": 61829228,
+   "link": "https://stackoverflow.com/questions/61829228/latest-xgboost-and-sklearn-giving-keyerror",
+   "title": "Latest XGboost and Sklearn giving keyerror",
+   "body": "<pre><code>xgb=XGBClassifier(objective=&quot;binary:logistic&quot;, n_estimators=100, random_state=42, eval_metric=[&quot;auc&quot;])\nxgb.fit(X_train, y_train) \n---------------------------------------------------------------------------\nKeyError                                  Traceback (most recent call last)\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/IPython/core/formatters.py in __call__(self, obj, include, exclude)\n    968 \n    969             if method is not None:\n--&gt; 970                 return method(include=include, exclude=exclude)\n    971             return None\n    972         else:\n\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/sklearn/base.py in _repr_mimebundle_(self, **kwargs)\n    461 \n    462     def get_indices(self, i):\n--&gt; 463         &quot;&quot;&quot;Row and column indices of the i'th bicluster.\n    464 \n    465         Only works if ``rows_`` and ``columns_`` attributes exist.\n\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/sklearn/base.py in __repr__(self, N_CHAR_MAX)\n    277                 right_lim = re.match(regex, repr_[::-1]).end()\n    278 \n--&gt; 279             ellipsis = '...'\n    280             if left_lim + len(ellipsis) &lt; len(repr_) - right_lim:\n    281                 # Only add ellipsis if it results in a shorter repr\n\n~/.pyenv/versions/3.7.4/lib/python3.7/pprint.py in pformat(self, object)\n    142     def pformat(self, object):\n    143         sio = _StringIO()\n--&gt; 144         self._format(object, sio, 0, 0, {}, 0)\n    145         return sio.getvalue()\n    146 \n\n~/.pyenv/versions/3.7.4/lib/python3.7/pprint.py in _format(self, object, stream, indent, allowance, context, level)\n    159             self._readable = False\n    160             return\n--&gt; 161         rep = self._repr(object, context, level)\n    162         max_width = self._width - indent - allowance\n    163         if len(rep) &gt; max_width:\n\n~/.pyenv/versions/3.7.4/lib/python3.7/pprint.py in _repr(self, object, context, level)\n    391     def _repr(self, object, context, level):\n    392         repr, readable, recursive = self.format(object, context.copy(),\n--&gt; 393                                                 self._depth, level)\n    394         if not readable:\n    395             self._readable = False\n\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/sklearn/utils/_pprint.py in format(self, object, context, maxlevels, level)\n    168     def format(self, object, context, maxlevels, level):\n    169         return _safe_repr(object, context, maxlevels, level,\n--&gt; 170                           changed_only=self._changed_only)\n    171 \n    172     def _pprint_estimator(self, object, stream, indent, allowance, context,\n\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/sklearn/utils/_pprint.py in _safe_repr(object, context, maxlevels, level, changed_only)\n    412         if changed_only:\n    413             params = _changed_params(object)\n--&gt; 414         else:\n    415             params = object.get_params(deep=False)\n    416         components = []\n\n~/.pyenv/versions/3.7.4/envs/py3env/lib/python3.7/site-packages/sklearn/utils/_pprint.py in _changed_params(estimator)\n     96     init_params = {name: param.default for name, param in init_params.items()}\n     97     for k, v in params.items():\n---&gt; 98         if (repr(v) != repr(init_params[k]) and\n     99                 not (is_scalar_nan(init_params[k]) and is_scalar_nan(v))):\n    100             filtered_params[k] = v\n\nKeyError: 'base_score'\n</code></pre>\n<pre><code>xgboost 1.0.2\nscikit-learn-0.23.0\npython 3\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn",
+    "anaconda",
+    "package",
+    "conda"
+   ],
+   "owner": {
+    "account_id": 11720129,
+    "reputation": 2533,
+    "user_id": 8579356,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-XoA25WFOLb8/AAAAAAAAAAI/AAAAAAAACNE/RQOh2aXzIUc/s256-rj/photo.jpg",
+    "display_name": "Hareez Rana",
+    "link": "https://stackoverflow.com/users/8579356/hareez-rana"
+   },
+   "is_answered": true,
+   "view_count": 1074610,
+   "protected_date": 1672462416,
+   "answer_count": 17,
+   "score": 242,
+   "last_activity_date": 1742502705,
+   "creation_date": 1504864568,
+   "last_edit_date": 1737253539,
+   "question_id": 46113732,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/46113732/modulenotfounderror-no-module-named-sklearn",
+   "title": "ModuleNotFoundError: No module named &#39;sklearn&#39;",
+   "body": "<p>I want to import <a href=\"https://en.wikipedia.org/wiki/Scikit-learn\" rel=\"noreferrer\">scikit-learn</a>, but there isn't any module apparently:</p>\n<pre><code>ModuleNotFoundError: No module named 'sklearn'\n</code></pre>\n<p>I am using Anaconda and Python 3.6.1.</p>\n<p>When I use the command:\n<code>conda install scikit-learn</code>, should this not just work?</p>\n<p>Where does Anaconda install the package?</p>\n<p>I was checking the frameworks in my Python library, and there was nothing about sklearn, only <a href=\"https://en.wikipedia.org/wiki/NumPy\" rel=\"noreferrer\">NumPy</a> and <a href=\"https://en.wikipedia.org/wiki/SciPy\" rel=\"noreferrer\">SciPy</a>.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 20554210,
+    "reputation": 155,
+    "user_id": 15086185,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/141086d2fcbe33a425f08e8d3648eb43?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "nicktorba",
+    "link": "https://stackoverflow.com/users/15086185/nicktorba"
+   },
+   "is_answered": true,
+   "view_count": 3012,
+   "accepted_answer_id": 65907625,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1742386772,
+   "creation_date": 1611685506,
+   "last_edit_date": 1742386772,
+   "question_id": 65907089,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65907089/saving-sklearn-scaler-objects-to-json-instead-of-pickling",
+   "title": "Saving sklearn scaler objects to json instead of pickling",
+   "body": "<p>Is there an accepted solution to saving sklearn objects to json, instead of pickling them?</p>\n<p>I'm interested in this because saving to json will take up much less storage and make saving the objects to db's like redis much more straightforward.</p>\n<p>In particular, for something like a ColumnTransformer, all I need is the mean and std for a specific feature. With that, I can easily rebuild the transformer, but when reconstructing a transformer object from the saved json object, I have to manually set learned and private attributes, which feels hacky.</p>\n<p>The closest thing I've found is this article: <a href=\"https://stackabuse.com/scikit-learn-save-and-restore-models/\" rel=\"nofollow noreferrer\">https://stackabuse.com/scikit-learn-save-and-restore-models/</a></p>\n<p>Is this how others are going about this?</p>\n<p>What is stopping sklearn from building this functionality into the library?</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "k-means",
+    "openblas"
+   ],
+   "owner": {
+    "account_id": 10158257,
+    "reputation": 159,
+    "user_id": 7502624,
+    "user_type": "registered",
+    "accept_rate": 0,
+    "profile_image": "https://www.gravatar.com/avatar/24ca49bbb43c95c771e1767c8d6a5e35?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "P Ved",
+    "link": "https://stackoverflow.com/users/7502624/p-ved"
+   },
+   "is_answered": true,
+   "view_count": 8350,
+   "answer_count": 3,
+   "score": 4,
+   "last_activity_date": 1741589371,
+   "creation_date": 1677784011,
+   "last_edit_date": 1677790341,
+   "question_id": 75619847,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75619847/python-sklearn-openblas-error-for-kmeans",
+   "title": "Python:: Sklearn OpenBLAS Error for KMeans",
+   "body": "<p>I get the following error when I try to use Kmeans:</p>\n<p>kmeans = KMeans(init='k-means++', n_clusters=numClusters, max_iter=100, n_init='auto')</p>\n<pre><code>----------------------------------------------------------------------------------------------\nC:\\PythonVirtualEnv\\MLHogwarts\\lib\\site-packages\\sklearn\\cluster\\_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning\n  warnings.warn(\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOpenBLAS warning: precompiled NUM_THREADS exceeded, adding auxiliary array for thread metadata.\nOOOOOpOenpBLASOOOeOOOOppOenBOLAOS O: OPOOpOeOpenBLenBLpenBLAOpeOpenBpenBpnpenBLASOpenBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis AS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of  : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nOpS : Program is Terminated. Because you tried to allocate too many penBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nwith a larger NUM_THREADS value or set the environment variableOpenBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nwAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis librlibrary penBLAS : Program is Terminated. Because you tried to allocate too many OpenBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nwipary was built to support aenBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\nThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nwOwith a larger NUM_THREADS value or set the environment variable OPENBLAS_NUM_THREADS to\naenBLAS : Program is Terminated. Because you tried to allocate too many memory regions.\npenBLAS : Program is Terminated. Because you tried to allocate tThis library was built to support a maximum of 50 threads - either rebuild OpenBLAS\nwith a larger NUM_THREADS value or set the environment variable OPENBLAS_NUM_THREADS to\naith a larger NUM_THREADS value or set the environment variable OPENBLAS_NUM_THREADS to\na sufficiently small number. This error typically occurs when the software that relies on\nOpenBLAS calls BLAS functions from many threads in parallel, or when your computer has more\ncpu cores than what OpenBLAS was configured to handle.\nwenmpnOpmppnrL opL BOppt  5O pipaO\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n</code></pre>\n<p>I installed numpy and sklearn using pip install.</p>\n<p>I am aware of this thread for similar problem:\n<a href=\"https://github.com/xianyi/OpenBLAS/issues/3321\" rel=\"nofollow noreferrer\">https://github.com/xianyi/OpenBLAS/issues/3321</a></p>\n<p>Per suggestions, I added the following to my code</p>\n<pre><code>os.environ[&quot;OPENBLAS_NUM_THREADS&quot;] = &quot;1&quot;\nos.environ[&quot;NUM_THREADS&quot;] = &quot;1&quot;\nos.environ[&quot;OMP_NUM_THREADS&quot;] = &quot;1&quot;\n</code></pre>\n<p>However, I still get the same error as above.</p>\n<p>I have the following version of numpy and sklearn</p>\n<pre><code>scikit-learn==1.2.1\nscipy==1.10.1\nnumpy==1.24.2\nnumpydoc==1.5.0\nPython 3.9.12\n</code></pre>\n<p>can anyone help resolve this issue ?</p>\n<p>Thanks</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn",
+    "amazon-sagemaker"
+   ],
+   "owner": {
+    "account_id": 7362260,
+    "reputation": 197,
+    "user_id": 5605165,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/24c34dbd2ea06664458c6a5256f214c9?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Jimmy",
+    "link": "https://stackoverflow.com/users/5605165/jimmy"
+   },
+   "is_answered": false,
+   "view_count": 148,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1740751419,
+   "creation_date": 1740663966,
+   "last_edit_date": 1740751419,
+   "question_id": 79472873,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79472873/cannot-register-and-deploy-scikit-learn-linear-regression-model-on-aws-sagemaker",
+   "title": "Cannot register and deploy scikit-learn linear regression model on AWS Sagemaker AI",
+   "body": "<p>We are evaluating AWS Sagemaker AI pipeline for MLOps, using the step decorator approach as introduced <a href=\"https://community.aws/content/2bFfwOMvMaWfOuwUy30HMF1qgGb/sagemaker?lang=en\" rel=\"nofollow noreferrer\">here</a>, and mostly following the example <a href=\"https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/step-decorator/batch-examples/basic-pipeline-batch-inference.ipynb\" rel=\"nofollow noreferrer\">here</a>.</p>\n<p>Since we are just starting out we'd prefer to have full flexibility in how we script our models, so we are not using any of the built-in algos as shown in the example above, but instead we import algos directly from <code>scikit-learn</code>, specifically we are just using a basic linear regression model (i.e. <code>sklearn.linear_model</code>)</p>\n<p>Using the step decorator approach, we have built out a working pipeline that fetches data via Athena, performs feature engineering, trains a basic linear regression model, generates an model evaluation report, storing any outputs in S3 as we go, all of which are working fine.</p>\n<p>However, when we try to add a final step to the pipeline that registers and deploys the trained model on AWS Sagemaker using the Sagemaker <code>ModelBuilder</code> class, we are getting errors that don't seem to make sense.</p>\n<p>Our final step that registers and deploys the trained model looks like this:</p>\n<pre><code>@step(\n    name=&quot;register&quot;,\n    instance_type=instance_type,\n    keep_alive_period_in_seconds=300,\n)\ndef register(pipeline_execution_base_path, model, pickled_model_path, eval_report_path, model_approval_status, test_s3_path):\n    import json\n    import numpy as np\n    import pandas as pd\n    from pathlib import Path\n    from sagemaker import MetricsSource, ModelMetrics\n    from sagemaker.serve.builder.model_builder import ModelBuilder\n    from sagemaker.serve.builder.model_builder import ModelServer\n    from sagemaker.serve.builder.schema_builder import SchemaBuilder\n    from sagemaker.serve.spec.inference_spec import InferenceSpec\n    from sagemaker.utils import unique_name_from_base\n    from s3fs import S3FileSystem\n    from sklearn.linear_model import LinearRegression\n    import pickle\n\n    s3 = S3FileSystem()\n\n    class ModelInferenceSpec(InferenceSpec):\n        def load(self, model_dir: str):\n            print(model_dir)\n            model = pickle.load(s3.open(model_dir + &quot;/model.pkl&quot;, 'rb'))\n            return model\n\n        def invoke(self, input_object: object, model: object):\n            predictions = model.predict(input_object)\n            return predictions\n\n    # Create model_metrics as per evaluation report in s3\n    model_metrics = ModelMetrics(\n        model_statistics=MetricsSource(\n            s3_uri=eval_report_path,\n            content_type=&quot;application/json&quot;,\n        )\n    )\n\n    # take a small sample from test, generate predictions off it, and pass those into SchemaBuilder which infers the I/O schema\n    x_cols = ['x_variable_1', 'x_variable_2', 'x_variable_3', 'x_variable_4']\n    y_col = 'y_variable'\n    sample_data = pd.read_csv(test_s3_path, nrows=50)\n    sample_data.pop(&quot;y_variable&quot;)\n    schema_builder = SchemaBuilder(\n        sample_input=sample_data[x_cols].to_numpy(),\n        sample_output=model.predict(sample_data[x_cols]),\n    )\n\n    model_path = Path(&quot;/tmp/model/&quot;)\n    model_path.mkdir(parents=True, exist_ok=True)\n    with open(f&quot;{model_path}/model.pkl&quot;, 'wb') as f:\n        pickle.dump(model, f)\n\n    # Build the trained model and register it\n    model_package_path = f&quot;{pipeline_execution_base_path}/model_package/model-artifacts&quot;\n    model_builder = ModelBuilder(\n        model_path=str(model_path),\n        inference_spec=ModelInferenceSpec(),\n        schema_builder=schema_builder,\n        role_arn=role,\n        s3_model_data_url=model_package_path,\n        image_uri=&quot;141502667606.dkr.ecr.eu-west-1.amazonaws.com/sagemaker-scikit-learn:0.23-1-cpu-py3&quot;,\n    )\n    \n    model_package = model_builder.build().register(\n        model_package_group_name=model_package_group_name,\n        approval_status=model_approval_status,\n        model_metrics=model_metrics,\n    )\n\n    return model_package.model_package_arn\n</code></pre>\n<p>As mentioned, <code>model</code> here is an instance of <code>sklearn.linear_model</code>, which we trained in a model training step that happens before this final step. Also, since we are not using one of the built-in algos, we understood that we have to supply an <code>image_uri</code> parameter to <code>ModelBuilder</code>, which we fetched via the Sagemaker SDK by:</p>\n<pre><code>from sagemaker import image_uris\nimage_uris.retrieve(framework='sklearn',region='eu-west-1',version='0.23-1',image_scope='inference')\n</code></pre>\n<p>However, when we add this final step to the pipeline and execute the whole thing, we are getting the following error off the Sagemaker pipeline UI:</p>\n<pre><code>\n1740658570967 | [ 2025-02-27T12:16:10.967Z ] ValueError: Can only set one of the following: model, inference_spec.\n\n1740658570967 | [ 2025-02-27T12:16:10.967Z ] Traceback (most recent call last): File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/invoke_function.py&quot;, line 144, in main _execute_remote_function( File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/invoke_function.py&quot;, line 119, in _execute_remote_function stored_function.load_and_invoke() File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/core/stored_function.py&quot;, line 183, in load_and_invoke result = func(*resolved_args, **resolved_kwargs) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File &quot;/tmp/ipykernel_21287/2654039261.py&quot;, line 86, in register File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/utils/telemetry_logger.py&quot;, line 116, in wrapper raise e File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/utils/telemetry_logger.py&quot;, line 104, in wrapper response = func(self, *args, **kwargs) ^^^^^^^^^^^^^^^^^^^^^^^^^^^ File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/builder/model_builder.py&quot;, line 929, in build self._build_validations() File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/builder/model_builder.py&quot;, line 998, in _build_validations raise ValueError(&quot;Can only set one of the following: model, inference_spec.&quot;)\n\n1740658570967 | [ 2025-02-27T12:16:10.967Z ] 2025-02-27 12:16:10,566 sagemaker.remote_function ERROR Error encountered while invoking the remote function.\n</code></pre>\n<p>It seems to be complaining that we cannot supply both the <code>model</code> and <code>inference_spec</code> parameters to <code>ModelBuilder</code>, which is strange since we didn't use the <code>model</code> parameter. If we comment out the <code>inference_spec</code> parameter and execute the pipeline, we get this error instead:</p>\n<pre><code>\n1740657870421 | [ 2025-02-27T12:04:30.421Z ] ValueError: Cannot detect required model or inference spec\n\n1740657870421 | [ 2025-02-27T12:04:30.421Z ] Traceback (most recent call last): File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/invoke_function.py&quot;, line 144, in main _execute_remote_function( File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/invoke_function.py&quot;, line 119, in _execute_remote_function stored_function.load_and_invoke() File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/remote_function/core/stored_function.py&quot;, line 183, in load_and_invoke result = func(*resolved_args, **resolved_kwargs) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File &quot;/tmp/ipykernel_20133/2156326203.py&quot;, line 83, in register File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/utils/telemetry_logger.py&quot;, line 116, in wrapper raise e File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/utils/telemetry_logger.py&quot;, line 104, in wrapper response = func(self, *args, **kwargs) ^^^^^^^^^^^^^^^^^^^^^^^^^^^ File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/builder/model_builder.py&quot;, line 990, in build self.built_model = self._build_for_torchserve() ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/builder/model_builder.py&quot;, line 658, in _build_for_torchserve self._save_model_inference_spec() File &quot;/opt/conda/lib/python3.11/site-packages/sagemaker/serve/builder/model_builder.py&quot;, line 351, in _save_model_inference_spec raise ValueError(&quot;Cannot detect required model or inference spec&quot;)\n\n1740657870421 | [ 2025-02-27T12:04:30.421Z ] 2025-02-27 12:04:29,842 sagemaker.remote_function ERROR Error encountered while invoking the remote function.\n</code></pre>\n<p>So now it is complaining that we are supplying neither of <code>model</code> and <code>inference_spec</code> even though we only took out the <code>inference_spec</code> parameter.</p>\n<p>We have looked at tons of AWS documentation but nothing seems to help.</p>\n<p>We are using scikit-learn 1.5.2 and python 3.11.11.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "svm",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 3466614,
+    "reputation": 533,
+    "user_id": 2916950,
+    "user_type": "registered",
+    "accept_rate": 47,
+    "profile_image": "https://www.gravatar.com/avatar/f75d56d3a879cb05edb2275351f96fea?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "student001",
+    "link": "https://stackoverflow.com/users/2916950/student001"
+   },
+   "is_answered": true,
+   "view_count": 3303,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1740531341,
+   "creation_date": 1389670579,
+   "last_edit_date": 1740531341,
+   "question_id": 21105661,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/21105661/importing-svm-gives-valueerror-numpy-dtype-has-the-wrong-size-try-recompiling",
+   "title": "Importing svm gives ValueError: numpy.dtype has the wrong size, try recompiling",
+   "body": "<p>I am trying to use scikit-learn svm to classify emails based on the topic. However, I am unable to import the svm module from sklearn. I already have sklearn installed. The error I get is as follows:</p>\n<pre><code>&gt;&gt;&gt; from sklearn import svm\n\nTraceback (most recent call last):\n  File &quot;&lt;pyshell#3&gt;&quot;, line 1, in &lt;module&gt;\n    from sklearn import svm\n  File &quot;C:\\Python27\\lib\\site-packages\\sklearn\\svm\\__init__.py&quot;, line 13, in &lt;module&gt;\n    from .classes import SVC, NuSVC, SVR, NuSVR, OneClassSVM, LinearSVC\n  File &quot;C:\\Python27\\lib\\site-packages\\sklearn\\svm\\classes.py&quot;, line 1, in &lt;module&gt;\n    from .base import BaseLibLinear, BaseSVC, BaseLibSVM\n  File &quot;C:\\Python27\\lib\\site-packages\\sklearn\\svm\\base.py&quot;, line 8, in &lt;module&gt;\n    from . import libsvm, liblinear\n  File &quot;numpy.pxd&quot;, line 155, in init sklearn.svm.libsvm (sklearn\\svm\\libsvm.c:9096)\nValueError: numpy.dtype has the wrong size, try recompiling\n</code></pre>\n<p>How to resolve this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 4273340,
+    "reputation": 5188,
+    "user_id": 3494704,
+    "user_type": "registered",
+    "accept_rate": 77,
+    "profile_image": "https://i.sstatic.net/Ednqf.jpg?s=256",
+    "display_name": "monkeybiz7",
+    "link": "https://stackoverflow.com/users/3494704/monkeybiz7"
+   },
+   "is_answered": true,
+   "view_count": 4222,
+   "accepted_answer_id": 24091691,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1740483961,
+   "creation_date": 1402077629,
+   "last_edit_date": 1402084522,
+   "question_id": 24088010,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/24088010/python-scikit-learn-using-grid-search-gridsearchcv",
+   "title": "Python scikit-learn (using grid_search.GridSearchCV)",
+   "body": "<p>I'm using grid search to fit machine learning model parameters.</p>\n\n<p>I typed in the following code (modified from the sklearn documentation page: <a href=\"http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html\" rel=\"nofollow\">http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html</a>)</p>\n\n<pre><code>from sklearn import svm, grid_search, datasets, cross_validation\n\n# getting data\niris = datasets.load_iris()\n\n# grid of parameters\nparameters = {'kernel':('linear', 'poly'), 'C':[1, 10]}\n\n# predictive model (support vector machine)\nsvr = svm.SVC()\n\n# cross validation procedure\nmycv = cross_validation.StratifiedKFold(iris.target, n_folds = 2)\n\n# grid search engine\nclf = grid_search.GridSearchCV(svr, parameters, mycv)\n\n# fitting engine\nclf.fit(iris.data, iris.target)\n</code></pre>\n\n<p>However, when I look at <code>clf.estimator</code>, I get the following:</p>\n\n<pre><code>SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3, gamma=0.0,\n  kernel='rbf', max_iter=-1, probability=False, random_state=None,\n  shrinking=True, tol=0.001, verbose=False)\n</code></pre>\n\n<p>How did I end up with a 'rbf' kernel?  I didn't specify it as an option in my parameters.  </p>\n\n<p>What's going on?</p>\n\n<p>Thanks!</p>\n\n<p>P.S. I'm using '0.15-git' version for sklearn.  </p>\n\n<p><strong>Addendum</strong>: I noticed that <code>clf.best_estimator_</code> gives the right output. So what is <code>clf.estimator</code> doing?</p>\n"
+  }
+ ]
+}

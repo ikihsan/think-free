@@ -1,0 +1,131 @@
+[
+ {
+  "interpreter": "/home/ubuntu/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/bin/python3.10",
+  "interpreter_version": "Python 3.10.19"
+ },
+ {
+  "name": "sklearn",
+  "declared_class": "B",
+  "intended_project": "scikit-learn",
+  "pip_version": {
+   "exit": 0,
+   "stdout": "pip 23.0.1 from /tmp/e070-armm-qvxkl6pm/venv/lib/python3.10/site-packages/pip (python 3.10)\n",
+   "stderr": ""
+  },
+  "install": {
+   "exit": 1,
+   "stdout": "Collecting sklearn\n  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'error'\n",
+   "stderr": "  error: subprocess-exited-with-error\n  \n  \u00d7 python setup.py egg_info did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [15 lines of output]\n      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'\n      rather than 'sklearn' for pip commands.\n      \n      Here is how to fix this error in the main use cases:\n      - use 'pip install scikit-learn' rather than 'pip install sklearn'\n      - replace 'sklearn' by 'scikit-learn' in your pip requirements files\n        (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)\n      - if the 'sklearn' package is used by one of your dependencies,\n        it would be great if you take some time to track which package uses\n        'sklearn' instead of 'scikit-learn' and report it to their issue tracker\n      - as a last resort, set the environment variable\n        SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error\n      \n      More information is available at\n      https://github.com/scikit-learn/sklearn-pypi-package\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500> See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n\n[notice] A new release of pip is available: 23.0.1 -> 26.2.1\n[notice] To update, run: /tmp/e070-armm-qvxkl6pm/venv/bin/python -m pip install --upgrade pip\n"
+  },
+  "import_probe": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'sklearn'\n"
+  },
+  "pip_show": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "WARNING: Package(s) not found: sklearn\n"
+  }
+ },
+ {
+  "name": "telegram",
+  "declared_class": "B",
+  "intended_project": "python-telegram-bot",
+  "pip_version": {
+   "exit": 0,
+   "stdout": "pip 23.0.1 from /tmp/e070-armm-y0yvyd1f/venv/lib/python3.10/site-packages/pip (python 3.10)\n",
+   "stderr": ""
+  },
+  "install": {
+   "exit": 0,
+   "stdout": "Collecting telegram\n  Downloading telegram-0.0.1.tar.gz (879 bytes)\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nInstalling collected packages: telegram\n  Running setup.py install for telegram: started\n  Running setup.py install for telegram: finished with status 'done'\nSuccessfully installed telegram-0.0.1\n",
+   "stderr": "  DEPRECATION: telegram is being installed using the legacy 'setup.py install' method, because it does not have a 'pyproject.toml' and the 'wheel' package is not installed. pip 23.1 will enforce this behaviour change. A possible replacement is to enable the '--use-pep517' option. Discussion can be found at https://github.com/pypa/pip/issues/8559\n\n[notice] A new release of pip is available: 23.0.1 -> 26.2.1\n[notice] To update, run: /tmp/e070-armm-y0yvyd1f/venv/bin/python -m pip install --upgrade pip\n"
+  },
+  "import_probe": {
+   "exit": 0,
+   "stdout": "IMPORT_OK /tmp/e070-armm-y0yvyd1f/venv/lib/python3.10/site-packages/telegram/__init__.py\n",
+   "stderr": ""
+  },
+  "pip_show": {
+   "exit": 0,
+   "stdout": "Name: telegram\nVersion: 0.0.1\nSummary: Telegram APIs\nHome-page: https://github.com/liluo/telegram\nAuthor: liluo\nAuthor-email: i@liluo.org\nLicense: MIT\nLocation: /tmp/e070-armm-y0yvyd1f/venv/lib/python3.10/site-packages\nRequires: \nRequired-by: \n",
+   "stderr": ""
+  }
+ },
+ {
+  "name": "beautifulsoup",
+  "declared_class": "B",
+  "intended_project": "beautifulsoup4",
+  "pip_version": {
+   "exit": 0,
+   "stdout": "pip 23.0.1 from /tmp/e070-armm-033f_wlw/venv/lib/python3.10/site-packages/pip (python 3.10)\n",
+   "stderr": ""
+  },
+  "install": {
+   "exit": 1,
+   "stdout": "Collecting beautifulsoup\n  Downloading BeautifulSoup-3.2.2.tar.gz (32 kB)\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'error'\n",
+   "stderr": "  error: subprocess-exited-with-error\n  \n  \u00d7 python setup.py egg_info did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [7 lines of output]\n      Traceback (most recent call last):\n        File \"<string>\", line 2, in <module>\n        File \"<pip-setuptools-caller>\", line 34, in <module>\n        File \"/tmp/pip-install-e13c0nwf/beautifulsoup_a9535ec94950409ca42e852631278cab/setup.py\", line 3\n          \"You're trying to run a very old release of Beautiful Soup under Python 3. This will not work.\"<>\"Please use Beautiful Soup 4, available through the pip package 'beautifulsoup4'.\"\n                                                                                                         ^^\n      SyntaxError: invalid syntax\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: metadata-generation-failed\n\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500> See above for output.\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for details.\n\n[notice] A new release of pip is available: 23.0.1 -> 26.2.1\n[notice] To update, run: /tmp/e070-armm-033f_wlw/venv/bin/python -m pip install --upgrade pip\n"
+  },
+  "import_probe": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'bs4'\n"
+  },
+  "pip_show": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "WARNING: Package(s) not found: beautifulsoup\n"
+  }
+ },
+ {
+  "name": "color",
+  "declared_class": "B",
+  "intended_project": "colour",
+  "pip_version": {
+   "exit": 0,
+   "stdout": "pip 23.0.1 from /tmp/e070-armm-xmuem8mv/venv/lib/python3.10/site-packages/pip (python 3.10)\n",
+   "stderr": ""
+  },
+  "install": {
+   "exit": 1,
+   "stdout": "Collecting color\n  Downloading color-0.1.1.tar.gz (3.6 kB)\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nDiscarding https://files.pythonhosted.org/packages/88/04/0defd6f424e5bafb5abc75510cbe119a85d80b5505f1de5cd9a16d89ba8c/color-0.1.1.tar.gz (from https://pypi.org/simple/color/): Requested color from https://files.pythonhosted.org/packages/88/04/0defd6f424e5bafb5abc75510cbe119a85d80b5505f1de5cd9a16d89ba8c/color-0.1.1.tar.gz has inconsistent version: expected '0.1.1', but metadata has '0.1'\n",
+   "stderr": "ERROR: Could not find a version that satisfies the requirement color (from versions: 0.1.1)\nERROR: No matching distribution found for color\n\n[notice] A new release of pip is available: 23.0.1 -> 26.2.1\n[notice] To update, run: /tmp/e070-armm-xmuem8mv/venv/bin/python -m pip install --upgrade pip\n"
+  },
+  "import_probe": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'color'\n"
+  },
+  "pip_show": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "WARNING: Package(s) not found: color\n"
+  }
+ },
+ {
+  "name": "reqests",
+  "declared_class": "A",
+  "intended_project": "requests",
+  "pip_version": {
+   "exit": 0,
+   "stdout": "pip 23.0.1 from /tmp/e070-armm-8zsqmaw8/venv/lib/python3.10/site-packages/pip (python 3.10)\n",
+   "stderr": ""
+  },
+  "install": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "ERROR: Could not find a version that satisfies the requirement reqests (from versions: none)\nERROR: No matching distribution found for reqests\n\n[notice] A new release of pip is available: 23.0.1 -> 26.2.1\n[notice] To update, run: /tmp/e070-armm-8zsqmaw8/venv/bin/python -m pip install --upgrade pip\n"
+  },
+  "import_probe": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'requests'\n"
+  },
+  "pip_show": {
+   "exit": 1,
+   "stdout": "",
+   "stderr": "WARNING: Package(s) not found: reqests\n"
+  }
+ }
+]

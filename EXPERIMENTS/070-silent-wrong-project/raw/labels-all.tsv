@@ -1,0 +1,364 @@
+id	label	typed	intended	harm	notes
+38393613	B	beautifulsoup	beautifulsoup4	harmful	installed "beautifulsoup" in PyCharm; the old BS3 distribution's bs4/__init__.py raises SyntaxError (py2 "except Exception, e:") under Python 3; install succeeded, wrong project, failure only at import
+29814223	B	beautifulsoup	beautifulsoup4	harmful	dragged BS3 into Lib, then pip install "thought it was successful"; same bs4/__init__.py:175 SyntaxError; install succeeded, wrong project
+77514329	B	bs4	beautifulsoup4	unclear	pip shows "bs4 in site-packages (0.0.1)" - the dummy package - installed silently; "ImportError: No module named bs4" follows, but beautifulsoup4 4.12.2 was also installed (as the dummy's dependency), so the import failure may be environmental; the silent wrong-project install itself is on the report's bytes
+71017032	B	bs4	beautifulsoup4	benign	the report's own code runs "pip install bs4" (the dummy package) and the import then works, because the dummy depends on beautifulsoup4; the purest silent class: it happened, the user never noticed, and nothing warned
+78085129	A	python-beautifulsoup4	beautifulsoup4	n/a	cross-registry: the typed name is a Homebrew formula that does not exist ("No available formula"); the installer refuses; the intended install is beautifulsoup4 via pip
+58380490	G	beautifulsoup	beautifulsoup4	n/a	asked pipenv for beautifulsoup4; pipenv locked and tried to install beautifulsoup==3.2.2 (the old project) as a dependency; its 2008 setup.py cannot build, so the install is refused - by the wrong project's own unbuildable release, not by any guard
+79777039	F	bs4	beautifulsoup4	benign	pip3 install scrapy beautifulsoup4 bs4 - the user also installed the bs4 dummy (pip list shows bs4 0.0.2); the reported failure is a Brew/pyenv path mismatch, not the dummy install
+78957750	F	bs4	beautifulsoup4	benign	installed beautifulsoup4 and then "pip install bs4" (the dummy); still not working - the failure is an interpreter mismatch; the dummy installed silently and harmlessly
+79478834	E				n/a
+78687453	E				n/a
+78216322	E				n/a
+76632300	E				n/a
+49042224	E				n/a
+79019497	E				n/a
+79198978	E				n/a
+16939813	E				n/a
+78788573	E				n/a
+75629558	E				n/a
+78683774	E				n/a
+78253701	E				n/a
+78220584	E				n/a
+79868581	E				n/a
+76568489	E				n/a
+7225900	E				n/a
+63538152	E				n/a
+48948520	E				n/a
+78959829	E				n/a
+9444289	E				n/a
+22250483	E				n/a
+79104241	E				n/a
+28775276	E				n/a
+78829346	E				n/a
+61279917	E				n/a
+79681729	E				n/a
+67145912	E				n/a
+79885438	E				n/a
+79877221	E				n/a
+78177250	E				n/a
+79803169	E				n/a
+79840931	E				n/a
+79833235	E				n/a
+65470602	E				n/a
+79800146	E				n/a
+79721725	E				n/a
+78152635	E				n/a
+79512685	E				n/a
+79570967	E				n/a
+79548492	E				n/a
+79458104	E				n/a
+79311303	E				n/a
+79413114	E				n/a
+79370093	E				n/a
+79390160	E				n/a
+79389536	E				n/a
+77511345	E				n/a
+68651351	E				n/a
+53306150	E				n/a
+79203948	E				n/a
+74289412	E				n/a
+79829106	E				n/a
+76252065	E				n/a
+57362038	E				n/a
+79743297	E				n/a
+79473553	E				n/a
+61453581	E				n/a
+77064579	E				n/a
+77290003	E				n/a
+79014457	E				n/a
+75619847	E				n/a
+79485777	E				n/a
+72150065	E				n/a
+79404473	E				n/a
+76294409	E				n/a
+79329171	E				n/a
+75633185	E				n/a
+79328155	E				n/a
+79270470	E				n/a
+62297482	E				n/a
+79730533	E				n/a
+76650779	E				n/a
+59065058	E				n/a
+62730016	E				n/a
+40025406	E				n/a
+61829228	E				n/a
+46113732	E				n/a
+65907089	E				n/a
+79472873	E				n/a
+21105661	E				n/a
+24088010	E				n/a
+79946943	E				n/a
+80003089	E				n/a
+78341395	E				n/a
+79917240	E				n/a
+45554138	E				n/a
+72579169	E				n/a
+65975815	E				n/a
+78994944	E				n/a
+59286298	F	sklearn	scikit-learn	n/a	how/where can I install packages like sklearn? - names the wrong package, intends scikit-learn, no install outcome reported
+36404042	F	sklearn	scikit-learn	unclear	2016-era: typed both "pip install -U scikit-learn" and "pip3 install sklearn"; import fails; on the report's bytes the failure is attributable either to the sklearn dummy's emptiness or to a pip3/python mismatch - cannot be attributed
+65980952	F	sklearn	scikit-learn	n/a	pip install sklearn fails with an OSError (Errno 2, Microsoft Store python cache path) - an environment failure that would hit any name; the confusion (typed sklearn) is present but is not the failure's cause
+71090431	E				n/a
+79176937	E				n/a
+42178070	E				n/a
+77816881	E				n/a
+65148440	G	telegram-bot	python-telegram-bot	n/a	pip install telegram-bot: the name resolves to a different real project whose 2013 setup.py dies with a circular-import ImportError that never names the right package; the refusal is cryptic, not a guard
+78587477	B	telegram	python-telegram-bot	harmful	the report shows "!pip install python-telegram", "!pip install telegram", "!pip install telegram.chat" (python-telegram and telegram both resolve to real different projects; telegram.chat does not resolve), then "ImportError: cannot import name 'Chat' from 'telegram'" - the abandoned telegram project ships only telegram/__init__.py with no Chat, so the silent install breaks the import; install succeeded, wrong project, failure only at import
+78528771	B	telegram	python-telegram-bot	harmful	environment block states python-telegram-bot 21.2 installed, yet the traceback runs v13-era telegram/ext/filters.py ("from telegram import Chat as TGChat") - only possible if a second distribution that ships the `telegram` package co-occupies site-packages; the abandoned `telegram` sdist (inspected: telegram/__init__.py only, no Chat) is exactly such a distribution; the typed wrong name is not stated in the report, so this row is inferred from the harm signature plus the dual-distribution mechanism - flagged uncertain for the second pass
+1706647885	B	telegram	python-telegram	harmful	the running app (crypto-signals) imports telegram.utils.request, the API of the `python-telegram` project; the user tried "pip install telegram" and "pip install python-telegram-bot" - both resolve to real different projects, both installs succeeded, and the failure (ModuleNotFoundError: No module named 'telegram.utils') persists because the project actually needed was never installed
+76888022	F	telegram	python-telegram-bot	unclear	a beginner's list: "I've installed pip, Telegram, Python Telegram bot and others"; whether the pip `telegram` package was installed is not stated; no failure attributable to it in the report
+58121141	F	telebot	pyTelegramBotAPI	unclear	installed pyTelegramBotAPI (--user, correct) and then "pip install --user telebot" - telebot resolves to a different real project - "installing the module did not solve" the ImportError, which is a system-python vs --user-site environment failure; the wrong install succeeded silently but is not the failure's cause
+75995740	E				n/a
+78666790	E				n/a
+75096233	E				n/a
+78312831	E				n/a
+72712963	E				n/a
+78043986	E				n/a
+76394714	E				n/a
+72892714	E				n/a
+77772217	E				n/a
+77635075	E				n/a
+75095107	E				n/a
+51321151	E				n/a
+74238922	E				n/a
+70067696	E				n/a
+45492171	E				n/a
+79972767	E				n/a
+48526231	E				n/a
+60862027	E				n/a
+61090856	E				n/a
+50890205	E				n/a
+79937273	E				n/a
+76891340	E				n/a
+43136722	E				n/a
+79892457	E				n/a
+71079062	E				n/a
+76578983	E				n/a
+78986119	E				n/a
+68081378	E				n/a
+65869010	E				n/a
+53787759	E				n/a
+71011375	E				n/a
+68032750	E				n/a
+63529302	E				n/a
+71086161	E				n/a
+79790390	E				n/a
+72404096	E				n/a
+79558618	E				n/a
+76142431	E				n/a
+79371673	E				n/a
+78348610	E				n/a
+79006390	E				n/a
+106829575	F	beautifulsoup	beautifulsoup4	n/a	a repository's instructions/requirements file pins the old `beautifulsoup` release; the issue says it "should be using BeautifulSoup4 instead"; name confusion present in a dependency declaration, no install outcome
+432938850	E				n/a
+502542446	E				n/a
+2743334802	E				n/a
+2922517913	E				n/a
+5687845313	E				n/a
+3703706873	E				n/a
+5300816987	E				n/a
+3307038003	E				n/a
+5547352743	E				n/a
+5265225023	E				n/a
+5658743472	E				n/a
+5658285246	E				n/a
+5509718910	F	sklearn	scikit-learn	n/a	issue titled "Sklearn depreciated", body "Replace with scikit-learn" - a repository dependency declared under the wrong name; no install outcome
+5180997632	E				n/a
+5432501201	E				n/a
+5182384001	E				n/a
+5099902932	E				n/a
+5364361480	E				n/a
+4090180015	E				n/a
+5364377229	E				n/a
+5494013946	E				n/a
+5365268548	E				n/a
+5456612589	E				n/a
+3224780658	E				n/a
+931844486	E				n/a
+5364822122	E				n/a
+5655792794	E				n/a
+848276100	E				n/a
+5644663955	E				n/a
+837085440	E				n/a
+5668176662	E				n/a
+5618647396	E				n/a
+5770080036	E				n/a
+5742851115	E				n/a
+5523145303	E				n/a
+5281714378	E				n/a
+5591492268	E				n/a
+5520221472	E				n/a
+5594908106	E				n/a
+5579676503	E				n/a
+5513338523	E				n/a
+4281496319	E				n/a
+5537378349	E				n/a
+79958847	E			n/a	not a package-name-confusion report
+79833320	E			n/a	not a package-name-confusion report
+79597112	E			n/a	not a package-name-confusion report
+78934852	E			n/a	not a package-name-confusion report
+68027296	E			n/a	not a package-name-confusion report
+72416438	E			n/a	not a package-name-confusion report
+78502802	E			n/a	not a package-name-confusion report
+50082055	E			n/a	not a package-name-confusion report
+33239739	E			n/a	not a package-name-confusion report
+74359405	E			n/a	not a package-name-confusion report
+65212278	E			n/a	not a package-name-confusion report
+54475042	E			n/a	not a package-name-confusion report
+32992782	E			n/a	not a package-name-confusion report
+69986869	E			n/a	not a package-name-confusion report
+45722188	E			n/a	not a package-name-confusion report
+79975004	E			n/a	not a package-name-confusion report
+40185437	E			n/a	not a package-name-confusion report
+79898189	E			n/a	not a package-name-confusion report
+79821043	E			n/a	not a package-name-confusion report
+44515769	E			n/a	not a package-name-confusion report
+79756956	E			n/a	not a package-name-confusion report
+24346472	E			n/a	not a package-name-confusion report
+74973935	E			n/a	not a package-name-confusion report
+59500779	E			n/a	not a package-name-confusion report
+80002259	E			n/a	not a package-name-confusion report
+60978023	E			n/a	not a package-name-confusion report
+79814420	E			n/a	not a package-name-confusion report
+20188010	E			n/a	not a package-name-confusion report
+69766570	E			n/a	not a package-name-confusion report
+71523082	E			n/a	not a package-name-confusion report
+27297652	E			n/a	not a package-name-confusion report
+41060382	E			n/a	not a package-name-confusion report
+79997364	E			n/a	not a package-name-confusion report
+79443182	E			n/a	not a package-name-confusion report
+9510474	E			n/a	not a package-name-confusion report
+79276600	E			n/a	not a package-name-confusion report
+72724257	E			n/a	not a package-name-confusion report
+79678539	E			n/a	not a package-name-confusion report
+79654103	E			n/a	not a package-name-confusion report
+69911107	E			n/a	not a package-name-confusion report
+61750143	E			n/a	not a package-name-confusion report
+79495845	E			n/a	not a package-name-confusion report
+79459645	E			n/a	not a package-name-confusion report
+58814038	E			n/a	not a package-name-confusion report
+65819474	E			n/a	not a package-name-confusion report
+64580984	E			n/a	not a package-name-confusion report
+59519317	E			n/a	not a package-name-confusion report
+79857809	E			n/a	not a package-name-confusion report
+79808761	E			n/a	not a package-name-confusion report
+69013111	E			n/a	not a package-name-confusion report
+79752664	E			n/a	not a package-name-confusion report
+35643236	E			n/a	not a package-name-confusion report
+79626971	E			n/a	not a package-name-confusion report
+29364473	E			n/a	not a package-name-confusion report
+79596520	E			n/a	not a package-name-confusion report
+60032087	E			n/a	not a package-name-confusion report
+78743993	E			n/a	not a package-name-confusion report
+78884453	E			n/a	not a package-name-confusion report
+77686182	E			n/a	not a package-name-confusion report
+77435116	E			n/a	not a package-name-confusion report
+70017137	E			n/a	not a package-name-confusion report
+61360792	E			n/a	not a package-name-confusion report
+66448552	E			n/a	not a package-name-confusion report
+64635734	E			n/a	not a package-name-confusion report
+61214462	E			n/a	not a package-name-confusion report
+54622170	E			n/a	not a package-name-confusion report
+48479928	E			n/a	not a package-name-confusion report
+47048187	E			n/a	not a package-name-confusion report
+39581689	E			n/a	not a package-name-confusion report
+58374149	E			n/a	not a package-name-confusion report
+78003512	E			n/a	not a package-name-confusion report
+77864823	E			n/a	not a package-name-confusion report
+76416214	E			n/a	not a package-name-confusion report
+76178114	E			n/a	not a package-name-confusion report
+75955406	E			n/a	not a package-name-confusion report
+75367460	E			n/a	not a package-name-confusion report
+74097701	E			n/a	not a package-name-confusion report
+72754120	E			n/a	not a package-name-confusion report
+72223568	E			n/a	not a package-name-confusion report
+70386944	E			n/a	not a package-name-confusion report
+67538271	E			n/a	not a package-name-confusion report
+71688576	E			n/a	not a package-name-confusion report
+44708481	E			n/a	not a package-name-confusion report
+79871030	E			n/a	not a package-name-confusion report
+79864021	E			n/a	not a package-name-confusion report
+79842347	E			n/a	not a package-name-confusion report
+44552507	E			n/a	not a package-name-confusion report
+79789580	E			n/a	not a package-name-confusion report
+79710660	E			n/a	not a package-name-confusion report
+1068295755	E			n/a	not a package-name-confusion report
+3603746446	E			n/a	not a package-name-confusion report
+4850886920	E			n/a	not a package-name-confusion report
+2777924860	E			n/a	not a package-name-confusion report
+332530688	E			n/a	not a package-name-confusion report
+5601132731	E			n/a	not a package-name-confusion report
+5697009755	E			n/a	not a package-name-confusion report
+5703962689	E			n/a	not a package-name-confusion report
+5555242034	E			n/a	not a package-name-confusion report
+5753396800	E			n/a	not a package-name-confusion report
+5653500499	E			n/a	not a package-name-confusion report
+5739761871	E			n/a	not a package-name-confusion report
+5593796245	E			n/a	not a package-name-confusion report
+5694606213	E			n/a	not a package-name-confusion report
+5160867697	E			n/a	not a package-name-confusion report
+5759359458	E			n/a	not a package-name-confusion report
+5718246657	E			n/a	not a package-name-confusion report
+5763153062	B	headroom	headroom-ai	harmful	package error message says pip install headroom[langchain] but PyPI headroom is unrelated project; install succeeds, wrong project
+5703179774	E			n/a	not a package-name-confusion report
+5722160494	E			n/a	not a package-name-confusion report
+5623956570	E			n/a	not a package-name-confusion report
+5672125581	E			n/a	not a package-name-confusion report
+5622700117	E			n/a	not a package-name-confusion report
+5610522583	E			n/a	not a package-name-confusion report
+5007803463	E			n/a	not a package-name-confusion report
+5440945215	E			n/a	not a package-name-confusion report
+5751218550	E			n/a	not a package-name-confusion report
+3246701341	E			n/a	not a package-name-confusion report
+5643605884	E			n/a	not a package-name-confusion report
+5273738828	E			n/a	not a package-name-confusion report
+5478798022	E			n/a	not a package-name-confusion report
+5743311983	E			n/a	not a package-name-confusion report
+5672939879	E			n/a	not a package-name-confusion report
+5417592506	E			n/a	not a package-name-confusion report
+5659992768	E			n/a	not a package-name-confusion report
+5300728466	E			n/a	not a package-name-confusion report
+5695476951	E			n/a	not a package-name-confusion report
+5723226768	E			n/a	not a package-name-confusion report
+5756062169	E			n/a	not a package-name-confusion report
+5718114605	E			n/a	not a package-name-confusion report
+5425075610	E			n/a	not a package-name-confusion report
+5601576115	E			n/a	not a package-name-confusion report
+5688150036	E			n/a	not a package-name-confusion report
+5455025998	E			n/a	not a package-name-confusion report
+5448548820	E			n/a	not a package-name-confusion report
+5760670605	E			n/a	not a package-name-confusion report
+5725650039	B	tigl3	tixi3	harmful	conda tigl3 installs tixi not tixi3; name resolves, install succeeds, wrong dependency
+4439036308	F	bounty-hunter	bounty-hunters	n/a	documentation typo; no install outcome
+1213555093	E			n/a	not a package-name-confusion report
+5054089308	E			n/a	not a package-name-confusion report
+5675092654	E			n/a	not a package-name-confusion report
+235188075	A	bayes-jupyter-linter	bayes-jupyter-linter	n/a	name does not exist on PyPI; installer refuses
+4622896395	E			n/a	not a package-name-confusion report
+4296128802	B	clip	openai-clip	harmful	clip==1.0.1 resolves to old CLI tool not openai-clip; install succeeds, wrong project
+2281675574	F	pipx	pip	n/a	typo in install instructions; no install outcome
+5330641852	E			n/a	not a package-name-confusion report
+5604277539	E			n/a	not a package-name-confusion report
+5163924944	E			n/a	not a package-name-confusion report
+5163924967	E			n/a	not a package-name-confusion report
+5163924887	E			n/a	not a package-name-confusion report
+5163924912	E			n/a	not a package-name-confusion report
+5163924855	E			n/a	not a package-name-confusion report
+5773261898	E			n/a	not a package-name-confusion report
+5773306652	E			n/a	not a package-name-confusion report
+5449976511	E			n/a	not a package-name-confusion report
+5509036077	E			n/a	not a package-name-confusion report
+5769906667	E			n/a	not a package-name-confusion report
+5476307481	E			n/a	not a package-name-confusion report
+5499243588	E			n/a	not a package-name-confusion report
+5725890426	E			n/a	not a package-name-confusion report
+5224260543	E			n/a	not a package-name-confusion report
+5339737747	E			n/a	not a package-name-confusion report
+5172207165	E			n/a	not a package-name-confusion report
+5734263848	E			n/a	not a package-name-confusion report
+5043796660	E			n/a	not a package-name-confusion report
+5596334125	E			n/a	not a package-name-confusion report
+5516071450	E			n/a	not a package-name-confusion report
+5240562904	E			n/a	not a package-name-confusion report
+4193085962	E			n/a	not a package-name-confusion report

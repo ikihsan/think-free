@@ -1,0 +1,740 @@
+{
+ "site": "stackoverflow",
+ "query": "how to install numpy python",
+ "class": "PL",
+ "items": [
+  {
+   "tags": [
+    "numpy",
+    "import",
+    "ipython",
+    "importerror",
+    "jupyter"
+   ],
+   "owner": {
+    "account_id": 7154757,
+    "reputation": 11,
+    "user_id": 5467618,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/713694521eeeafdb4a0f3fa205248453?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "fxjedi",
+    "link": "https://stackoverflow.com/users/5467618/fxjedi"
+   },
+   "is_answered": false,
+   "view_count": 12141,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1791533085,
+   "creation_date": 1445352256,
+   "last_edit_date": 1445352659,
+   "question_id": 33239739,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/33239739/failure-to-import-numpy-in-jupyter-notebook",
+   "title": "Failure to import numpy in Jupyter notebook",
+   "body": "<p>I am new to iPython/Jupyter. Python skills limited, but learning. I am trying to import numpy as np and get the following:</p>\n\n<pre><code>---------------------------------------------------------------------------\nImportError                               Traceback (most recent call last)\n&lt;ipython-input-1-4ee716103900&gt; in &lt;module&gt;()\n----&gt; 1 import numpy as np\n\n/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/__init__.py in &lt;module&gt;()\n    166         return loader(*packages, **options)\n    167 \n--&gt; 168     from . import add_newdocs\n    169     __all__ = ['add_newdocs', 'ModuleDeprecationWarning']\n    170 \n\n/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/add_newdocs.py in &lt;module&gt;()\n     11 from __future__ import division, absolute_import, print_function\n     12 \n---&gt; 13 from numpy.lib import add_newdoc\n     14 \n     15 ###############################################################################\n\n/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/lib/__init__.py in &lt;module&gt;()\n      6 from numpy.version import version as __version__\n      7 \n----&gt; 8 from .type_check import *\n      9 from .index_tricks import *\n     10 from .function_base import *\n\n/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/lib/type_check.py in &lt;module&gt;()\n      9            'common_type']\n     10 \n---&gt; 11 import numpy.core.numeric as _nx\n     12 from numpy.core.numeric import asarray, asanyarray, array, isnan, \\\n     13                 obj2sctype, zeros\n\n/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/core/__init__.py in &lt;module&gt;()\n      4 from numpy.version import version as __version__\n      5 \n----&gt; 6 from . import multiarray\n      7 from . import umath\n      8 from . import _internal # for freeze programs\n\nImportError: dlopen(/Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/core/multiarray.so, 2): no suitable image found.  Did find:\n    /Users/jmmiii/Library/Enthought/Canopy_32bit/User/lib/python2.7/site-packages/numpy/core/multiarray.so: mach-o, but wrong architecture\n</code></pre>\n\n<p>I have several python installs on my Mac, which has Yosemite, including Canopy and Anaconda. I want my Jupyter notebook to use the Anaconda install including all the modules, libraries, etc. associated with it. It seems however that jupyter is targeting Canopy instead.  Thus, I think my problem might stem from the wrong linkage.</p>\n\n<p><strong>QUESTION 1</strong>: Does my conclusion hold water? If not, what might I be missing?</p>\n\n<p><strong>QUESTION 2</strong>: How can I direct/link jupyter with Anaconda and not with Canopy so that I import everything from anaconda only?</p>\n\n<p>Thanks for everyone's help!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pycaret"
+   ],
+   "owner": {
+    "account_id": 13825460,
+    "reputation": 78,
+    "user_id": 9979902,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/dEy3C.jpg?s=256",
+    "display_name": "Subrat Saxena",
+    "link": "https://stackoverflow.com/users/9979902/subrat-saxena"
+   },
+   "is_answered": false,
+   "view_count": 9375,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1789618100,
+   "creation_date": 1667904342,
+   "question_id": 74359405,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/74359405/error-while-installing-pycaret-no-module-named-numpy-distutils-msvccompiler",
+   "title": "Error while installing PyCaret: No module named &#39;numpy.distutils._msvccompiler&#39; in numpy.distutils in windows",
+   "body": "<p>I am getting a huge error while installing pycaret module in my system. Can anyone help me with this please. I am using python 3.10.8\nAlso, please suggest the best way to keep things clean version-wise. PyCaret always troubles me whenever I work on a new system. Thanks\nAdding more blocks of description in order to get approved to post this question.</p>\n<pre><code>    python setup.py bdist_wheel did not run successfully.\n    exit code: 1\n\n    [268 lines of output]\n    Running from numpy source directory.\n    blas_opt_info:\n    blas_mkl_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries mkl_rt not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    blis_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries blis not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    openblas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries openblas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n    get_default_fcompiler: matching types: '['gnu', 'intelv', 'absoft', 'compaqv', 'intelev', 'gnu95', 'g95', 'intelvem', 'intelem', 'flang']'  \n    customize GnuFCompiler\n    Could not locate executable g77\n    Could not locate executable f77\n    customize IntelVisualFCompiler\n    Could not locate executable ifort\n    Could not locate executable ifl\n    customize AbsoftFCompiler\n    Could not locate executable f90\n    customize CompaqVisualFCompiler\n    Could not locate executable DF\n    customize IntelItaniumVisualFCompiler\n    Could not locate executable efl\n    customize Gnu95FCompiler\n    Could not locate executable gfortran\n    Could not locate executable f95\n    customize G95FCompiler\n    Could not locate executable g95\n    customize IntelEM64VisualFCompiler\n    customize IntelEM64TFCompiler\n    Could not locate executable efort\n    Could not locate executable efc\n    customize PGroupFlangCompiler\n    Could not locate executable flang\n    don't know how to compile Fortran code on platform 'nt'\n      NOT AVAILABLE\n\n    atlas_3_10_blas_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries tatlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_3_10_blas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries satlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_blas_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries ptf77blas,ptcblas,atlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_blas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries f77blas,cblas,atlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    accelerate_info:\n      NOT AVAILABLE\n\n    \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries mkl_rt not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    blis_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries blis not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    openblas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries openblas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n    get_default_fcompiler: matching types: '['gnu', 'intelv', 'absoft', 'compaqv', 'intelev', 'gnu95', 'g95', 'intelvem', 'intelem', 'flang']'  \n    customize GnuFCompiler\n    Could not locate executable g77\n    Could not locate executable f77\n    customize IntelVisualFCompiler\n    Could not locate executable ifort\n    Could not locate executable ifl\n    customize AbsoftFCompiler\n    Could not locate executable f90\n    customize CompaqVisualFCompiler\n    Could not locate executable DF\n    customize IntelItaniumVisualFCompiler\n    Could not locate executable efl\n    customize Gnu95FCompiler\n    Could not locate executable gfortran\n    Could not locate executable f95\n    customize G95FCompiler\n    Could not locate executable g95\n    customize IntelEM64VisualFCompiler\n    customize IntelEM64TFCompiler\n    Could not locate executable efort\n    Could not locate executable efc\n    customize PGroupFlangCompiler\n    Could not locate executable flang\n    don't know how to compile Fortran code on platform 'nt'\n      NOT AVAILABLE\n\n    atlas_3_10_blas_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries tatlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_3_10_blas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries satlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_blas_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries ptf77blas,ptcblas,atlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_blas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries f77blas,cblas,atlas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    accelerate_info:\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Temp\\pip-install-7l7kgjyr\\numpy_4169e359f16040cf9da6b18e8f4a3b31\\numpy\\distutils\\system_info.py:690: UserWarning:\n        Optimized (vendor) Blas libraries are not found.\n        Falls back to netlib Blas library which has worse performance.\n        A better performance should be easily gained by switching\n        Blas library.\n      self.calc_info()\n    blas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries blas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Temp\\pip-install-7l7kgjyr\\numpy_4169e359f16040cf9da6b18e8f4a3b31\\numpy\\distutils\\system_info.py:690: UserWarning:\n        Blas (http://www.netlib.org/blas/) libraries not found.\n        Directories to search for the libraries can be specified in the\n        numpy/distutils/site.cfg file (section [blas]) or by setting\n        the BLAS environment variable.\n      self.calc_info()\n    blas_src_info:\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Temp\\pip-install-7l7kgjyr\\numpy_4169e359f16040cf9da6b18e8f4a3b31\\numpy\\distutils\\system_info.py:690: UserWarning:\n        Blas (http://www.netlib.org/blas/) sources not found.\n        Directories to search for the sources can be specified in the\n        numpy/distutils/site.cfg file (section [blas_src]) or by setting\n        the BLAS_SRC environment variable.\n      self.calc_info()\n      NOT AVAILABLE\n\n    'svnversion' is not recognized as an internal or external command,\n    operable program or batch file.\n    non-existing path in 'numpy\\\\distutils': 'site.cfg'\n    lapack_opt_info:\n    lapack_mkl_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries mkl_rt not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    openblas_lapack_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries openblas not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    openblas_clapack_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries openblas,lapack not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    flame_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries flame not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    atlas_3_10_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib  \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries tatlas,tatlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries tatlas,tatlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries tatlas,tatlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs\n    &lt;class 'numpy.distutils.system_info.atlas_3_10_threads_info'&gt;\n      NOT AVAILABLE\n\n    atlas_3_10_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib  \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries satlas,satlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries satlas,satlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries satlas,satlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs\n    &lt;class 'numpy.distutils.system_info.atlas_3_10_info'&gt;\n      NOT AVAILABLE\n\n    atlas_threads_info:\n    Setting PTATLAS=ATLAS\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib  \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries ptf77blas,ptcblas,atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries ptf77blas,ptcblas,atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries ptf77blas,ptcblas,atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs\n    &lt;class 'numpy.distutils.system_info.atlas_threads_info'&gt;\n      NOT AVAILABLE\n\n    atlas_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib  \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries f77blas,cblas,atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\lib\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries f77blas,cblas,atlas not found in C:\\\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack_atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs \n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries f77blas,cblas,atlas not found in C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\libs\n    &lt;class 'numpy.distutils.system_info.atlas_info'&gt;\n      NOT AVAILABLE\n\n    lapack_info:\n    No module named 'numpy.distutils._msvccompiler' in numpy.distutils; trying from distutils\n    customize MSVCCompiler\n      libraries lapack not found in ['C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\lib', 'C:\\\\', 'C:\\\\Program Files\\\\WindowsApps\\\\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\\\\libs']\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Temp\\pip-install-7l7kgjyr\\numpy_4169e359f16040cf9da6b18e8f4a3b31\\numpy\\distutils\\system_info.py:1712: UserWarning:\n        Lapack (http://www.netlib.org/lapack/) libraries not found.\n        Directories to search for the libraries can be specified in the\n        numpy/distutils/site.cfg file (section [lapack]) or by setting\n        the LAPACK environment variable.\n      if getattr(self, '_calc_info_{}'.format(lapack))():\n    lapack_src_info:\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Temp\\pip-install-7l7kgjyr\\numpy_4169e359f16040cf9da6b18e8f4a3b31\\numpy\\distutils\\system_info.py:1712: UserWarning:\n        Lapack (http://www.netlib.org/lapack/) sources not found.\n        Directories to search for the sources can be specified in the\n        numpy/distutils/site.cfg file (section [lapack_src]) or by setting\n        the LAPACK_SRC environment variable.\n      if getattr(self, '_calc_info_{}'.format(lapack))():\n      NOT AVAILABLE\n\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python310\\site-packages\\setuptools\\_distutils\\dist.py:262: UserWarning: Unknown distribution option: 'define_macros'\n      warnings.warn(msg)\n    running install\n    C:\\Users\\Subrat Mahim Saxena\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python310\\site-packages\\setuptools\\command\\install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n      warnings.warn(\n    running build\n    running config_cc\n    unifing config_cc, config, build_clib, build_ext, build commands --compiler options\n    running config_fc\n    unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options\n    running build_src\n    build_src\n</code></pre>\n<p>'''</p>\n"
+  },
+  {
+   "tags": [
+    "python-3.x",
+    "django-models",
+    "migrate"
+   ],
+   "owner": {
+    "account_id": 20164736,
+    "reputation": 11,
+    "user_id": 14788967,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/87dd7e3e6fbe8e903dbbde748f19ca42?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "BlueSquare",
+    "link": "https://stackoverflow.com/users/14788967/bluesquare"
+   },
+   "is_answered": false,
+   "view_count": 330,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1788895032,
+   "creation_date": 1607498547,
+   "last_edit_date": 1788895032,
+   "question_id": 65212278,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/65212278/importerror-unable-to-import-required-dependencies-numpy-error-when-trying-to",
+   "title": "ImportError: Unable to import required dependencies: numpy: error when trying to migrate",
+   "body": "<p>I am using Django and Python with Anaconda. At the beginning, I was able to migrate by the addition of a sqlite3.dll file. However, when I try to migrate again, it gives me this error. I have tried uninstalling and installing both numpy and pandas in Project Interpreter. I'm using Pycharm and I'm using Conda Package manager with the Conda environment. I also tried migrate --run-syncdb but it still gives me the error.\nHow would I fix this to be able to use .objects.bulk_create()?\nTo fix .objects.bulk_create(), one recommendation was to run migrate --run-syncdb and I cannot run it currently because of the error below.</p>\n<pre><code>numpy: \n\nIMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!\n\nImporting the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\n\nWe have compiled some common reasons and troubleshooting tips at:\n\n    https://numpy.org/devdocs/user/troubleshooting-importerror.html\n\nPlease note and check the following:\n\n  * The Python version is: Python3.8 from &quot;C:\\Users\\****\\anaconda3\\envs\\swe_project\\python.exe&quot;\n  * The NumPy version is: &quot;1.19.2&quot;\n\nand make sure that they are the versions you expect.\nPlease carefully study the documentation linked above for further help.\n\nOriginal error was: DLL load failed while importing _multiarray_umath: The specified module could not be found.```\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "best-practices",
+    "python",
+    "python-3.x",
+    "dependency-management"
+   ],
+   "owner": {
+    "account_id": 2488399,
+    "reputation": 3629,
+    "user_id": 4556479,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/14ee542862e2418b3559d736fa78e279?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Alex",
+    "link": "https://stackoverflow.com/users/4556479/alex"
+   },
+   "is_answered": true,
+   "view_count": 19873,
+   "accepted_answer_id": 54697985,
+   "answer_count": 4,
+   "score": 52,
+   "last_activity_date": 1788454221,
+   "creation_date": 1549007135,
+   "last_edit_date": 1788454221,
+   "question_id": 54475042,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/54475042/python-dependency-hell-a-compromise-between-virtualenv-and-global-dependencies",
+   "title": "Python dependency hell: A compromise between virtualenv and global dependencies?",
+   "body": "<p>I've tested various ways to <strong>manage my project dependencies</strong> in Python so far:</p>\n<ol>\n<li>Installing everything global with pip (saves spaces, but sooner or later gets you in trouble)</li>\n<li>pip &amp; venv or virtualenv (a bit of a pain to manage, but ok for many cases)</li>\n<li>pipenv &amp; pipfile (a little bit easier than venv/virtualenv, but slow and some vendor-lock, virtual envs hide somewhere else than the actual project folder)</li>\n<li>conda as package and environment manager (great as long as the packages are all available in conda, mixing pip &amp; conda is a bit hacky)</li>\n<li>Poetry - I haven't tried this one</li>\n<li>...</li>\n</ol>\n<p>My problem with all of these (except 1.) is that my harddrive space fills up pretty fast: I am not a developer, I use Python for my daily work. Therefore, I have hundreds of small projects that all do their thing. Unfortunately, for 80% of projects I need the &quot;big&quot; packages: <code>numpy</code>, <code>pandas</code>, <code>scipy</code>, <code>matplotlib</code> - you name it. A typical small project is about 1000 to 2000 lines of code, but has 800MB of package dependencies in venv/virtualenv/pipenv. <em>Virtually</em> I have about 100+ GB of my HDD filled with python virtual dependencies.</p>\n<p>Moreover, installing all of these in each virtual environment takes time. I am working in Windows, many packages cannot be easily installed from pip in windows: <code>Shapely</code>, <code>Fiona</code>, <code>GDAL</code> - I need the precompiled wheels from <a href=\"https://www.lfd.uci.edu/%7Egohlke/pythonlibs/\" rel=\"nofollow noreferrer\">Christoph Gohlke</a>. This is easy, but it breaks most workflows (e.g. <code>pip install -r requirements.txt</code> or <code>pipenv install</code> from pipfile). I feel like I am 40% installing/updating package dependencies and only 60% of my time writing code. Further, none of these package managers really help with publishing &amp; testing code, so I need other tools e.g. <code>setuptools</code>, <code>tox</code>, <code>semantic-release</code>, <code>twine</code>...</p>\n<p>I've talked to colleagues but they all face the same problem and no one seems to have a real solution. I was wondering if there is an approach to have some packages, e.g. the ones you use in most projects, installed globally - for example, <code>numpy</code>, <code>pandas</code>, <code>scipy</code>, <code>matplotlib</code> would be installed with pip in <code>C:\\Python36\\Lib\\site-packages</code> or with <code>conda</code> in <code>C:\\ProgramData\\Miniconda3\\Lib\\site-packages</code> - these are well developed packages that don't often break things. And if, I would like to fix that anyway soon in my projects.</p>\n<p>Other things would go in local virtualenv-folders - I am tempted to move my current workflow from <code>pipenv</code> to <code>conda</code>.</p>\n<p>Does such an approach make sense at all? At least there has been a lot of development lately in python, perhaps something emerged that I didn't see yet.\nIs there any best-practice guidance on how to setup files in such a mixed global-local environment, e.g. how to maintain <code>setup.py</code>, <code>requirements.txt</code> or <code>pyproject.toml</code> for sharing development projects through Gitlab, Github etc.? What are the pitfalls/caveats?</p>\n<p>There's also <a href=\"https://chriswarrick.com/blog/2018/07/17/pipenv-promises-a-lot-delivers-very-little/\" rel=\"nofollow noreferrer\">this great blog post</a> from Chris Warrick that explains it pretty much fully.</p>\n<p><strong>[Update 2020]</strong></p>\n<p>After half a year, I can say that working with Conda (<a href=\"https://docs.conda.io/en/latest/miniconda.html\" rel=\"nofollow noreferrer\">Miniconda</a>) has solved most of my problems:</p>\n<ul>\n<li>it runs on every system, WSL, Windows, native Linux etc. <code>conda env create -f myenv.yml</code> is the same on every platform</li>\n<li>most packages are already available on conda-forge, it is easy to get own packages accepted on conda-forge</li>\n<li>for those packages not on conda, I can install <code>pip</code> in conda environment and add packages from pypi with pip. Hint: <code>conda update --all -n myenv -c conda-forge</code> will only update packages from conda, not those installed with <code>pip</code>. Pip installed dependencies must be updated manually with <code>pip install pack_name --upgrade</code>. Note that installing packages with pip in conda is an emergency solution that should typically be <a href=\"https://stackoverflow.com/questions/54475042/python-dependency-hell-a-compromise-between-virtualenv-and-global-dependencies#comment96050647_54625714\">avoided</a></li>\n<li>I can create strict or open <code>environment.yml</code>, specifying the conda channel priority, the packages from conda and the packages from pip</li>\n<li>I can create conda environments from those ymls in a single statement, e.g. to setup a dev environment in Gitlab Continuous Integration, using the <code>Miniconda3 Docker</code> - this makes test-runs very simple and straight forward</li>\n<li>package versions in <code>yml</code>s can be defined strict or open, depending on the situation. E.g. you can fix the env to Python 3.6, but have it retrieve any security updates in this version-range (e.g. 3.6.9)</li>\n<li>I found that conda solves almost all problems with c-compiled dependencies in Windows; conda env's in Windows do allow <a href=\"https://github.com/marcelotduarte/cx_Freeze\" rel=\"nofollow noreferrer\">freezing</a> python code into an executable (tested!) that can be distributed to Windows end-users who cannot use package managers for some reason.</li>\n<li>regarding the issue with &quot;big dependencies&quot;: I ended up creating many specific (i.e. small) and a few unspecific (i.e. big) conda environments: For example, I have a quite big <code>jupyter_env</code>, where jupyter lab and most of my scientific packages are installed (numpy, geos, pandas scipy etc.) - I activate it whenever I need access to these tools, I can keep those up to date in a single place. For development of specific packages, I have extra environments that are only used for the package-dependencies (e.g. <code>packe1_env</code>). I have about 10 environemnts overall, which is manageable. Some general purpose tools are installed in the base conda environment, e.g. <code>pylint</code>. Be warned: to make pylint/pycodestyle/autopep8 etc. work (e.g.) in VS Code, it must be installed to the same env that contains the python-code-dependencies - otherwise, you'll get unresolved import warnings</li>\n<li>I installed <strong>mini</strong>conda with <a href=\"https://chocolatey.org\" rel=\"nofollow noreferrer\">Chocolatey</a> package manager for windows. I keep it up to date with <code>conda update -n base conda</code>, and my envs with <code>conda update --all -n myenv -c conda-forge</code> once a week, works like a charm!</li>\n<li><strong>New Update:</strong> there's a <code>--stack</code> flag available (as of <a href=\"https://github.com/conda/conda/blob/master/CHANGELOG.md#463-2019-02-07\" rel=\"nofollow noreferrer\">2019-02-07</a>) that allows stacking conda environments, e.g. <code>conda activate my_big_env</code> then <code>conda activate --stack dev_tools_env</code> allows making some general purpose packages available in many envs. However, use with caution - I found that code linters, such as pylint, must be in the same env as the dependencies of the code that is linted</li>\n<li><strong>New Update 2</strong>: I started using <code>conda</code> from <code>Windows Subsystem for Linux</code> (WSL), this improved again my workflow significantly: packages are installed faster, I can work with VS Code Insiders in Windows directly connected to WSL and there're far less bugs with python packages in the Linux environment.</li>\n<li><strong>Another Update</strong> on a side note, the <a href=\"https://hub.docker.com/r/continuumio/miniconda/\" rel=\"nofollow noreferrer\">Miniconda Docker</a> allows converting local conda env workflows flawlessly into containerized infrastructure (CI &amp; CD), tested this for a while now and pretty happy with it - the Dockerfile is cleaner than with Python Docker because conda manages more of the dependency work than pip does. I use this nowadays more and more, for example, when working with jupyter lab, which is started from within a container.</li>\n<li>yes, I stumbled into compatibility problems between certain packages in a conda env, but very rarely. There're two approaches: if it is an important env that must work stable, enable <code>conda config --env --set channel_priority strict</code> - this will only install versions that are compatible. With very few and rare package combinations, this may result in unsolvable dependency conflicts (i.e. the env cannot be created). In this case, I usually create smaller envs for experimental development, with less packages and <code>channel_priority</code> set to <code>flexible</code> (the default). Sometimes, package subsets exists that are easier to solve such as <code>geoviews-core</code> (instead of <code>geoviews</code>) or <code>matplotlib-base</code> (instead of <code>matplotlib</code>). It's also a good approach to try lower python versions for those experimental envs that are unsolvable with <code>strict</code>, e.g. <code>conda create -n jupyter_exp_env python=3.6 -c conda-forge</code>. A last-resort hack is installing packages with pip, which avoids conda's package resolver (but may result in unstable environments and other issues, you've been warned!). Make sure to explicitly install <code>pip</code> in your env first.</li>\n<li>One overall drawback is that conda gets kind of slow when using the large conda-forge channel. They're <a href=\"https://medium.com/@wolfv/making-conda-fast-again-4da4debfb3b7\" rel=\"nofollow noreferrer\">working on it</a>, but at the same time conda-forge index is growing really fast.</li>\n</ul>\n<p><strong>[Update 2021]</strong></p>\n<p>Since this post still gets many views, here is a subjective 2021 update:</p>\n<ul>\n<li>if you are in data science, (mini)<a href=\"https://docs.conda.io/en/latest/miniconda.html\" rel=\"nofollow noreferrer\">conda</a> is still worth a look</li>\n<li>otherwise, <a href=\"https://python-poetry.org/\" rel=\"nofollow noreferrer\">Poetry</a> and the <code>pyproject.toml</code> seem to be the common agreed upon denominator</li>\n</ul>\n<p><strong>[Update 2023]</strong></p>\n<p>I am slowly moving away from conda. <code>pip</code>+<code>venv</code> seem to be the more viable option and it frequently works better and faster (e.g. pytorch, transformers). Forget Windows: pip only works well in WSL/Linux. For package maintainers, <code>setuptools&gt;64</code> now allows <code>pyproject.toml</code>-only based packages, finally a unified packaging experience! Get rid of your <code>setup.py</code>'s.. Otherwise, I am mainly working in Jupyter in Docker these days, where the python envs are versioned inside docker containers, stored in a registry.</p>\n<p><strong>[Update 2026]</strong></p>\n<p>I made Carto-Lab: <a href=\"https://cartolab.fdz.ioer.info/\" rel=\"nofollow noreferrer\">https://cartolab.fdz.ioer.info/</a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "python-2.7",
+    "gpy"
+   ],
+   "owner": {
+    "account_id": 6964790,
+    "reputation": 381,
+    "user_id": 5343192,
+    "user_type": "registered",
+    "accept_rate": 17,
+    "profile_image": "https://graph.facebook.com/1034078656616277/picture?type=large",
+    "display_name": "Vinod Prime",
+    "link": "https://stackoverflow.com/users/5343192/vinod-prime"
+   },
+   "is_answered": false,
+   "view_count": 12840,
+   "answer_count": 3,
+   "score": 3,
+   "last_activity_date": 1788429995,
+   "creation_date": 1444222476,
+   "last_edit_date": 1646038378,
+   "question_id": 32992782,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/32992782/how-to-find-and-uninstall-the-numpy-duplicate-versions",
+   "title": "How to find and uninstall the numpy duplicate versions",
+   "body": "<p>I am trying to install the library GPy. Although the installation is successful, I have a question on my numpy version.</p>\n\n<p>GPy library can be found here <a href=\"https://github.com/SheffieldML/GPy\" rel=\"nofollow\">https://github.com/SheffieldML/GPy</a></p>\n\n<p>The current version of my numpy is 1.9.3</p>\n\n<pre><code>&gt;&gt;&gt; import numpy\n&gt;&gt;&gt; numpy.version.version\n'1.9.3'\n</code></pre>\n\n<p>But when I perform <code>python setup.py install</code> for GPy, it refers to numpy 1.10.0. I checked in python 2.7/site-packages there only one version of numpy exist that too 1.9.3 </p>\n\n<pre><code>Using /home/vinod/anaconda/lib/python2.7/site-packages\nSearching for scipy==0.16.0\nBest match: scipy 0.16.0\nAdding scipy 0.16.0 to easy-install.pth file\n\nUsing /home/vinod/anaconda/lib/python2.7/site-packages\nSearching for numpy==1.10.0\nBest match: numpy 1.10.0\nAdding numpy 1.10.0 to easy-install.pth file\n\nUsing /home/vinod/anaconda/lib/python2.7/site-packages\nFinished processing dependencies for GPy==0.8.8\nvinod@vinod-Lenovo-G580:~/GPy$ \n</code></pre>\n\n<p>Since it's referring to another version am getting error like  </p>\n\n<pre><code>File\"__init__.pxd\", line 155, in init GPy.util.linalg_cython (GPy/util/linalg_cython.c:4238)\nValueError: numpy.dtype has the wrong size, try recompiling\n</code></pre>\n\n<p>Could anyone tell me how to find and remove the numpy 1.10.0 ?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "intel-mkl"
+   ],
+   "owner": {
+    "account_id": 2313552,
+    "reputation": 1456,
+    "user_id": 2040705,
+    "user_type": "registered",
+    "accept_rate": 54,
+    "profile_image": "https://www.gravatar.com/avatar/cf315dc3d8b2fa3e0e5b01bf9ab82ec0?s=256&d=identicon&r=PG",
+    "display_name": "user40",
+    "link": "https://stackoverflow.com/users/2040705/user40"
+   },
+   "is_answered": true,
+   "view_count": 21833,
+   "accepted_answer_id": 70109517,
+   "answer_count": 2,
+   "score": 9,
+   "last_activity_date": 1786373699,
+   "creation_date": 1637056074,
+   "last_edit_date": 1780496657,
+   "question_id": 69986869,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/69986869/how-can-i-enable-and-disable-intel-mkl-in-numpy-python",
+   "title": "How can I enable and disable Intel MKL in NumPy Python?",
+   "body": "<p>I want to test and compare NumPy matrix multiplication and <a href=\"https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix\" rel=\"nofollow noreferrer\">eigendecomposition</a> performance with Intel MKL and without Intel MKL.</p>\n<p>I have installed MKL using <code>pip install mkl</code> (<a href=\"https://en.wikipedia.org/wiki/Windows_10\" rel=\"nofollow noreferrer\">Windows\u00a010</a> (64-bit), Python 3.8).</p>\n<p>I then used examples from <a href=\"https://github.com/lintseju/python_performance_benchmark/blob/master/numpy_example.py\" rel=\"nofollow noreferrer\">here</a> for matmul and eigendecompositions.</p>\n<p>How do I now enable and disable MKL in order to check NumPy performance with MKL and without it?</p>\n<p>Reference code:</p>\n<pre><code>import numpy as np\nfrom time import time\n\ndef matrix_mul(size, n=100):\n    # Reference: https://markus-beuckelmann.de/blog/boosting-numpy-blas.html\n    np.random.seed(112)\n    a, b = np.random.random((size, size)), np.random.random((size, size))\n    t = time()\n    for _ in range(n):\n        np.dot(a, b)\n    delta = time() - t\n    print('Dotted two matrices of size %dx%d in %0.4f ms.' % (size, size, delta / n * 1000))\n\n\ndef eigen_decomposition(size, n=10):\n    np.random.seed(112)\n    a = np.random.random((size, size))\n    t = time()\n    for _ in range(n):\n        np.linalg.eig(a)\n    delta = time() - t\n    print('Eigen decomposition of size %dx%d in %0.4f ms.' % (size, size, delta / n * 1000))\n\n# Obtaining computation times:\n\nfor i in range(20):\n    eigen_decomposition(500)\n\nfor i in range(20):\n    matrix_mul(500)\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "windows",
+    "numpy",
+    "theano",
+    "lapack",
+    "openblas"
+   ],
+   "owner": {
+    "account_id": 2399079,
+    "reputation": 86772,
+    "user_id": 2097240,
+    "user_type": "registered",
+    "accept_rate": 58,
+    "profile_image": "https://i.sstatic.net/JskU5.jpg?s=256",
+    "display_name": "Daniel M&#246;ller",
+    "link": "https://stackoverflow.com/users/2097240/daniel-m%c3%b6ller"
+   },
+   "is_answered": true,
+   "view_count": 14085,
+   "answer_count": 4,
+   "score": 7,
+   "last_activity_date": 1785888807,
+   "creation_date": 1502914188,
+   "last_edit_date": 1785887760,
+   "question_id": 45722188,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/45722188/tutorial-for-installing-numpy-with-openblas-on-windows",
+   "title": "Tutorial for installing NumPy with OpenBLAS on Windows",
+   "body": "<p>I want to install NumPy using a good <a href=\"https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms\" rel=\"nofollow noreferrer\">BLAS</a>/<a href=\"https://en.wikipedia.org/wiki/LAPACK\" rel=\"nofollow noreferrer\">LAPACK</a> library <strong>on Windows</strong>, but absolutely no page explains the process well enough. It seems <a href=\"https://en.wikipedia.org/wiki/OpenBLAS\" rel=\"nofollow noreferrer\">OpenBLAS</a> is a good and fast option.</p>\n<p>The goal is to use <a href=\"https://en.wikipedia.org/wiki/Theano_(software)\" rel=\"nofollow noreferrer\">Theano</a> with <a href=\"https://en.wikipedia.org/wiki/Keras\" rel=\"nofollow noreferrer\">Keras</a>, and Theano requires that the libraries be &quot;dynamic&quot;, not static. (I am not sure I understand what that means, but it causes slowness and <a href=\"https://github.com/fchollet/keras/issues/5935\" rel=\"nofollow noreferrer\">memory issues</a>)</p>\n<p>What is a <strong>step by step</strong> tutorial on how to do it? Don't forget to tell me &quot;where&quot; files should go! Which folders should go in PATH! What commands exactly I call should, and what are their output, where? What do I do with their results or with compiled files? How does NumPy find them? Etc.</p>\n<p><strong>What I have tried:</strong></p>\n<ul>\n<li><p>Downloaded the compiled version of NumPy + mkl from <a href=\"http://www.lfd.uci.edu/%7Egohlke/pythonlibs/\" rel=\"nofollow noreferrer\">here</a>. This does install NumPy, and it becomes usable, but Theano presents the memory leak problem, besides working slowly. Is it a matter of setting the right <code>ldflags</code> in the <code>.theanorc</code> file? If so, which are the flags? About the MKL libraries, <a href=\"https://stackoverflow.com/questions/45757704/gohlkes-numpy-mkl-installation-change-mkl-install-directory-on-windows\">this answer</a> may be useful?</p>\n</li>\n<li><p>Tried installing <a href=\"https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)\" rel=\"nofollow noreferrer\">Anaconda</a>. It doesn't work either, and I didn\u2019t have any idea about what went wrong. It gave me messages suggesting installing some extra stuff. It worked, but incredibly slow. <strong>More than 10 times slower than my bugged NumPy version mentioned above</strong> (so, unacceptable, impossible to work at that speed). If I have to go changing everything about Anaconda, it's better to use a regular Python installation instead and know what is going on.</p>\n</li>\n<li><p>Found these already compiled <a href=\"http://icl.cs.utk.edu/lapack-for-windows/lapack/\" rel=\"nofollow noreferrer\">BLAS/LAPACK libraries</a> (.dll and .lib) files. But.... <strong>what am I supposed to do with them?</strong> -- Simply adding their folders to the <code>PATH</code> var and installing numpy gives me &quot;numpy-atlas&quot;, not the libraries I downloaded. <strong>How do I make numpy see them?</strong></p>\n</li>\n<li><p>Tried to understand <a href=\"https://github.com/xianyi/OpenBLAS/wiki/Installation-Guide\" rel=\"nofollow noreferrer\">this page</a>, but yet, it seems it will lead me exactly to the previous case, what will I do with the results? Where are the libs they suggest I use? What are the suggested <code>quickbuild</code> scripts, where are they?</p>\n</li>\n<li><p>Found the Cygwin option <a href=\"https://www.scipy.org/scipylib/building/windows.html#mingw\" rel=\"nofollow noreferrer\">here</a>. I haven't tried it, but it sounds it should be something easier than reinstalling all my python and packages, all from Cygwin</p>\n</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "android",
+    "shared-libraries",
+    "cross-compiling",
+    "embedding",
+    "cpython"
+   ],
+   "owner": {
+    "account_id": 46669629,
+    "reputation": 1,
+    "user_id": 32911433,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6110db92b278e73c291fdb01c5e27eef?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Ayush Ghara",
+    "link": "https://stackoverflow.com/users/32911433/ayush-ghara"
+   },
+   "is_answered": false,
+   "view_count": 55,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1783336860,
+   "creation_date": 1783336860,
+   "question_id": 79975004,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79975004/cross-compiling-python-runtime-and-libraries-like-numpy",
+   "title": "Cross-compiling Python runtime and libraries like numpy",
+   "body": "<p>I was trying to embed python into Android and iOS by <strong>.so</strong> files. So I had to cross compile the python and other libraries. I tried using CPython for compiling. So far I learned how to compile a demo package for linux from ChatGPT but it couldn't explain how will I compile it for Andriod. I have the Android enviornment installed. Like is there any general method or syntax which i can use to compile the other libraries such as Pandas, NumPy ?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "numpy",
+    "vs-code"
+   ],
+   "owner": {
+    "account_id": 439578,
+    "reputation": 925,
+    "user_id": 828602,
+    "user_type": "registered",
+    "accept_rate": 63,
+    "profile_image": "https://www.gravatar.com/avatar/f4c6304a9b6d0b29a8f4fac1dc36e8e7?s=256&d=identicon&r=PG",
+    "display_name": "billboard",
+    "link": "https://stackoverflow.com/users/828602/billboard"
+   },
+   "is_answered": true,
+   "view_count": 384651,
+   "protected_date": 1772716983,
+   "accepted_answer_id": 40186317,
+   "answer_count": 16,
+   "score": 42,
+   "last_activity_date": 1772711407,
+   "creation_date": 1477083898,
+   "last_edit_date": 1567626532,
+   "question_id": 40185437,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/40185437/no-module-named-numpy-visual-studio-code",
+   "title": "No module named &#39;numpy&#39;: Visual Studio Code",
+   "body": "<p>I'm trying to setup Visual Studio Code for python development</p>\n\n<p>to begin with, I've installed </p>\n\n<ol>\n<li>Anaconda Python</li>\n<li>Visual Studio Code</li>\n</ol>\n\n<p>and in a new file I have the following code</p>\n\n<pre><code>import numpy as np\nimport pandas as pd\nfrom pandas import Series, DataFrame\n</code></pre>\n\n<p>upon hitting Ctrl+Shift+B I get the following error</p>\n\n<pre><code>import numpy as np\n</code></pre>\n\n<p>ImportError: No module named 'numpy'</p>\n\n<p>Also, is there python interactive window in VS Code? How to open it.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "visual-c++",
+    "pyaudio"
+   ],
+   "owner": {
+    "account_id": 3263852,
+    "reputation": 1113,
+    "user_id": 2748766,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://www.gravatar.com/avatar/296dbc4ef2c9ace9af2f4bf6f8a2025c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "steveOw",
+    "link": "https://stackoverflow.com/users/2748766/steveow"
+   },
+   "is_answered": false,
+   "view_count": 193,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1772297755,
+   "creation_date": 1772237709,
+   "last_edit_date": 1772297755,
+   "question_id": 79898189,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79898189/how-to-install-pyaudio-for-python-3-6-on-win7-32-bit-pc-with-vc-v-14-29-30139",
+   "title": "How to install pyaudio for python 3.6 on win7,32-bit PC (with VC++ v.14.29.30139 already installed)",
+   "body": "<p>I am trying to install <strong>pyaudio</strong> on an old win7 32-bit laptop, with <strong>Python 3.6.8</strong> already installed.</p>\n<p>I have installed the latest compatible version of <strong>pip</strong>, and then numpy and mapplotlib.</p>\n<p>I issue  the command</p>\n<pre><code>pip install pyaudio\n</code></pre>\n<p>It fails with the error &quot;MS Visual C++ v.14.0 or later is required&quot;.</p>\n<p>But MS Visual C++ v.14.29.30139 was installed &gt;3 years ago on this machine.</p>\n<p>I have looked for a newer version of MS Visual C++ that is compatible with this machine, but the newest one that is listed by microsoft is even older.</p>\n<p>Here is the installation &quot;log&quot;:-</p>\n<p><img src=\"https://i.sstatic.net/cKEq1BgY.png\" alt=\"installation log\" title=\"installation log\" /></p>\n<p>Following the recommendation in this SO Question <a href=\"https://stackoverflow.com/questions/54998028/how-do-i-install-pyaudio-on-python-3-7\">how do i install pyaudio on python 3.7</a> answer by u/<a href=\"https://stackoverflow.com/users/6919667/hiadore\">Hiadore</a> I looked at the <a href=\"https://www.cgohlke.com/#pyaudio\" rel=\"nofollow noreferrer\">website of Christoph Gohlke</a> but could not find a pyaudio for 32-bit architecture.</p>\n<p>This similar question <a href=\"https://stackoverflow.com/questions/66878305/unable-to-install-pyaudio-on-python-3-9\">unable-to-install-pyaudio-on-python-3-9</a> also does not seem to offer a solution.</p>\n<p>Maybe the warning about <strong>VCPKG_PATH</strong> is important, but I dont know what this is needed for and whether it is safe and/or feasible to install VCPKG on this machine. Also I don't have <strong>git</strong> installed on the machine, nor does there seem to be a compatible version available to download, so I dont know how to get VCPKG installed.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-typing",
+    "mypy"
+   ],
+   "owner": {
+    "account_id": 28516977,
+    "reputation": 2428,
+    "user_id": 21826195,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/8MOtvndT.jpg?s=256",
+    "display_name": "Mo_",
+    "link": "https://stackoverflow.com/users/21826195/mo"
+   },
+   "is_answered": true,
+   "view_count": 691,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1771857205,
+   "creation_date": 1763232753,
+   "last_edit_date": 1763238033,
+   "question_id": 79821043,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79821043/is-there-a-way-to-install-only-stubs-types-and-nothing-more-of-a-pypi-package",
+   "title": "Is there a way to install only stubs (types) and nothing more of a pypi package?",
+   "body": "<h4>Objective</h4>\n<p>I'm using <a href=\"https://github.com/python/mypy\" rel=\"nofollow noreferrer\">mypy</a> to type check my code.</p>\n<p>Locally, this works fine by running <code>mypy --install-types</code> once on setup. It installs e.g. <code>scipy-stubs</code>, because the stubs are in an extra package. It doesn't install a lot more. I assume it's due to all dependencies already being installed inside my virtual environment.</p>\n<p>In the CI, I also want to perform a quick type check and thus, only install the parts of the package needed for type checking. As it's a docker container that's newly set up on every run, I'd like to avoid installing the full packages.</p>\n<p>How do I install only the types of a pypi package?</p>\n<h4>Research: typeshed</h4>\n<p>Thanks to the effort of the typeshed project, it's possible to install <code>types-...</code> for many projects, like <a href=\"https://pypi.org/project/types-requests/\" rel=\"nofollow noreferrer\"><code>types-requests</code></a>:</p>\n<pre><code>pip install types-requests\n</code></pre>\n<p>However, I never needed to do this, I assume because <a href=\"https://mypy.readthedocs.io/en/stable/stubs.html\" rel=\"nofollow noreferrer\">mypy already bundles the standard library stubs for typeshed</a>:</p>\n<blockquote>\n<p>Mypy uses stub files stored in the typeshed repository to determine the types of standard library and third-party library functions, classes, and other definitions.</p>\n</blockquote>\n<h4>Third-party packages</h4>\n<p>Not all packages are contained in typeshed. For popular packages, <code>stub</code> packages exist normally, see e.g. <a href=\"https://stackoverflow.com/questions/60247157/how-can-i-get-stub-files-for-matplotlib-numpy-scipy-pandas-etc\">How can I get stub files for `matplotlib`, `numpy`, `scipy`, `pandas`, etc.?</a>.</p>\n<p>There are <code>pandas-stubs</code> or <code>scipy-stubs</code>, which are separate modules as explained <a href=\"https://typing.python.org/en/latest/tutorials/external_libraries.html\" rel=\"nofollow noreferrer\">here</a>. I also found <code>numpy.typing</code> as a separate module, which I can install. On the other hand, <code>matplotlib.typing</code> is a separate module, which isn't available via <code>pip install</code>. What's more, checking the dependencies, it seems that <code>numpy.typing</code> actually depends on a full <code>numpy</code> installation, while e.g. <code>scipy-stubs</code> it comes without a dependency on Python:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ uv tree\nResolved 10 packages in 1ms\ntmpuv v0.1.0\n\u251c\u2500\u2500 numpy-typing v1.1.1\n\u2502   \u2514\u2500\u2500 numpy v2.2.6\n\u2514\u2500\u2500 scipy-stubs v1.15.3.0\n    \u2514\u2500\u2500 optype v0.9.3\n        \u2514\u2500\u2500 typing-extensions v4.15.0\n</code></pre>\n<p>There were unofficial <code>...-stubs</code> repos (e.g. <code>matplotlib-stubs</code>, <code>data-science-types</code>), but they got archived, once the project itself added typing.</p>\n<h4>PEP specifications</h4>\n<p>The most recent document is <a href=\"https://typing.python.org/en/latest/spec/distributing.html\" rel=\"nofollow noreferrer\">Distributing type information</a>, which is part of Python's typing spec.\nIt is based on two superseded PEPs, <a href=\"https://peps.python.org/pep-0484/#stub-files\" rel=\"nofollow noreferrer\">PEP 484 \u2013 Type Hints, ch. Stub Files</a> and [PEP 561 \u2013 Distributing and Packaging Type Information](PEP 561 \u2013 Distributing and Packaging Type Information)</p>\n<p>Chapter <a href=\"https://typing.python.org/en/latest/spec/distributing.html#type-information-in-libraries\" rel=\"nofollow noreferrer\">Type information in libraries</a> emtnions three ways to distribute types:</p>\n<blockquote>\n<ol>\n<li>The package maintainer would like to add type information inline.</li>\n<li>The package maintainer would like to add type information via stubs.</li>\n<li>A third party or package maintainer would like to share stub files for a package</li>\n</ol>\n</blockquote>\n<p>It says <em>This specification aims to support all three scenarios and make them simple to add to packaging and deployment</em>, however, later this changes to:</p>\n<blockquote>\n<p>For package maintainers wishing to ship stub files containing all of their type information, it is preferred that the *.pyi stubs are alongside the corresponding *.py files. However, the stubs can also be put in a separate package and distributed separately.</p>\n</blockquote>\n<h4>My conclusions / assumptions</h4>\n<p>It seems, first  the 3. approach is used for many packages. Then numpy and matplotlib transitioned to the 1. approach, while scipy and pandas transitioned to the 2. approach, while the spec encourages the 1. approach. The typeshed project is using the 3. approach as well.</p>\n<p>For me this would mean, installing separate types is only possible in the 2. and 3. of above approaches and depends entirely on the decision of the maintainers, once they decide to use typing. Also, fewer and fewer packages will have separate stubs in the future, which would mean, what I want to do is not possible in the general case.</p>\n<p>Did someone still find a solution? I could imagine, it may be possible to extract types from a package. Or there's an entirely different way to solve my &quot;Y problem&quot;, i.e. quickly running type checks in a CI.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "anaconda",
+    "conda"
+   ],
+   "owner": {
+    "account_id": 5754316,
+    "reputation": 3975,
+    "user_id": 4542815,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/8a086d7d3271f3dbdab876d246cb7314?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Kshitiz ",
+    "link": "https://stackoverflow.com/users/4542815/kshitiz"
+   },
+   "is_answered": true,
+   "view_count": 1153558,
+   "protected_date": 1550985173,
+   "accepted_answer_id": 44527943,
+   "answer_count": 19,
+   "score": 321,
+   "last_activity_date": 1771220364,
+   "creation_date": 1497341379,
+   "last_edit_date": 1709655616,
+   "question_id": 44515769,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/44515769/conda-is-not-recognized-as-internal-or-external-command",
+   "title": "&#39;Conda&#39; is not recognized as internal or external command",
+   "body": "<p>I installed Anaconda3 4.4.0 (32 bit) on my Windows 7 Professional machine and imported NumPy and Pandas on Jupyter notebook so I assume Python was installed correctly. But when I type <code>conda list</code> and <code>conda --version</code> in command prompt, it says <code>conda is not recognized as internal or external command.</code></p>\n\n<p>I have set environment variable for Anaconda3; <code>Variable Name: Path</code>, <code>Variable Value: C:\\Users\\dipanwita.neogy\\Anaconda3</code></p>\n\n<p>How do I make it work?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "macos",
+    "numpy",
+    "pycharm"
+   ],
+   "owner": {
+    "account_id": 18247101,
+    "reputation": 117,
+    "user_id": 13282965,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d36b1b63ce238710c47f2b532982b7d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "NewDev",
+    "link": "https://stackoverflow.com/users/13282965/newdev"
+   },
+   "is_answered": true,
+   "view_count": 892,
+   "accepted_answer_id": 79857916,
+   "answer_count": 3,
+   "score": 2,
+   "last_activity_date": 1767230016,
+   "creation_date": 1767128978,
+   "question_id": 79857809,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79857809/python-packages-installation-pandas-nympy",
+   "title": "Python packages installation - pandas &amp; nympy",
+   "body": "<p>I have read close to all posts about this topic now but I can get it working, so sorry if you find this similar to other questions, but I can't just solve it based on existing posts.\nI find it very hard to install Python with its packages, and remember struggling on my PC a couple of years ago also.</p>\n<p>I have a macbook. I have installed python. Using PyCharm. I have tried to install a couple of packages, not sure they got installed in the right or wrong folder. So far I have tried (and in some cases been successful) installing requests, torch, wheel, pandas, numpy. All by using pip. I have tried uninstall and install again. Also tried upgrading.</p>\n<p>Line 8 in the response below is &quot;import pandas as pd&quot;</p>\n<p>The code in PyCharm gives the following response during execution:\nFile &quot;/Users/name/PycharmProjects/ABCProject/file.py&quot;, line 8, in \nimport pandas as pd\nFile &quot;/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pandas/<strong>init</strong>.py&quot;, line 19, in \nraise ImportError(\n&quot;Unable to import required dependencies:\\n&quot; + &quot;\\n&quot;.join(_missing_dependencies)\n)\nImportError: Unable to import required dependencies:\nnumpy:</p>\n<p>IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!</p>\n<p>Importing the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\nThe following compiled module files exist, but seem incompatible\nwith with either python 'cpython-314' or the platform 'darwin':</p>\n<ul>\n<li>_multiarray_umath.cpython-313-darwin.so</li>\n</ul>\n<p>We have compiled some common reasons and troubleshooting tips at:</p>\n<pre><code>https://numpy.org/devdocs/user/troubleshooting-importerror.html\n</code></pre>\n<p>Please note and check the following:</p>\n<ul>\n<li>The Python version is: Python 3.14 from &quot;/usr/local/bin/python3.14&quot;</li>\n<li>The NumPy version is: &quot;2.4.0&quot;</li>\n</ul>\n<p>and make sure that they are the versions you expect.</p>\n<p>Please carefully study the information and documentation linked above.\nThis is unlikely to be a NumPy issue but will be caused by a bad install\nor environment on your machine.</p>\n<p>Original error was: No module named 'numpy._core._multiarray_umath'</p>\n<p>Process finished with exit code 1</p>\n"
+  },
+  {
+   "tags": [
+    "python"
+   ],
+   "owner": {
+    "account_id": 28145,
+    "reputation": 61721,
+    "user_id": 74865,
+    "user_type": "registered",
+    "accept_rate": 79,
+    "profile_image": "https://www.gravatar.com/avatar/5c89bc294cd59812fee520aeb2e3dcd1?s=256&d=identicon&r=PG",
+    "display_name": "Andriy Drozdyuk",
+    "link": "https://stackoverflow.com/users/74865/andriy-drozdyuk"
+   },
+   "is_answered": true,
+   "view_count": 14462,
+   "accepted_answer_id": 47242312,
+   "answer_count": 9,
+   "score": 12,
+   "last_activity_date": 1764929144,
+   "creation_date": 1322428917,
+   "question_id": 8289157,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/8289157/alternative-to-scipy-and-numpy-for-linear-algebra",
+   "title": "Alternative to scipy and numpy for linear algebra?",
+   "body": "<p>Is there a good (small and light) alternative to numpy for python, to do linear algebra?\nI only need matrices (multiplication, addition), inverses, transposes and such.</p>\n\n<p>Why?</p>\n\n<blockquote>\n  <p>I am tired of trying to install numpy/scipy - it is such a pita to get\n  it to work - it never seems to install correctly (esp. since I have\n  two machines, one linux and one windows): no matter what I do: compile\n  it or install from pre-built binaries. How hard is it to make a\n  \"normal\" installer that just works?</p>\n</blockquote>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "automation",
+    "powerbi-desktop"
+   ],
+   "owner": {
+    "account_id": 25192234,
+    "reputation": 1,
+    "user_id": 19032294,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/7f2351de0ed1cd72cb910c836b941cd6?s=256&d=identicon&r=PG",
+    "display_name": "Becky L",
+    "link": "https://stackoverflow.com/users/19032294/becky-l"
+   },
+   "is_answered": true,
+   "view_count": 2176,
+   "closed_date": 1763893944,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1763735134,
+   "creation_date": 1651659321,
+   "question_id": 72111301,
+   "link": "https://stackoverflow.com/questions/72111301/error-when-scheduling-refresh-for-python-script-in-power-bi",
+   "closed_reason": "Not suitable for this site",
+   "title": "Error when scheduling refresh for Python script in Power BI",
+   "body": "<p>Hope to get some advice with Power BI schedule refershing Python script.</p>\n<p>I can run the Python script in Power BI successfully. I am using Anaconda environment and I do have issue before when running it directly in Power BI Python script. However, after following the artile, <a href=\"https://www.mssqltips.com/sqlservertip/7105/setting-up-python-environment-with-anaconda-vs-code-power-bi-sql-server/\" rel=\"nofollow noreferrer\">How to Get Started Using Python using Anaconda, VS Code, Power BI and SQL Server</a>, which I find oneline, it now works. I can run the script in Power BI Desktop successfully. The problem now is that when I try to automate the Python script using schedule refresh Gateway Personal mode connection, it pops up error again. Please see below for details. I am using personal gateway. I cannot find a solution online. Could anyone let me know what is wrong with it? Thanks!</p>\n<p>Failed to update data source credentials: ADO.NET: Python script error. C:\\Users\\becky.lam\\Anaconda3\\lib\\site-packages\\numpy_<em>init</em>_.py:143: UserWarning: mkl-service package failed to import, therefore Intel(R) MKL initialization ensuring its correct out-of-the box operation under condition when Gnu OpenMP had already been loaded by Python process is not assured. Please install mkl-service package, see <a href=\"http://github.com/IntelPython/mkl-service\" rel=\"nofollow noreferrer\">http://github.com/IntelPython/mkl-service</a> from . import <em>distributor_init Traceback (most recent call last): File &quot;C:\\Users\\becky.lam\\PythonScriptWrapper_a418e530-37dc-4b01-9ce1-9ef57887a15a\\PythonScriptWrapper.PY&quot;, line 2, in  import os, pandas, matplotlib File &quot;C:\\Users\\becky.lam\\Anaconda3\\lib\\site-packages\\pandas_<em>init</em></em>.py&quot;, line 16, in  raise ImportError( ImportError: Unable to import required dependencies: numpy: IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE! Importing the numpy C-extensions failed. This error can happen for many reasons, often due to issues with your setup or how NumPy was installed. We have compiled some common reasons and troubleshooting tips at: Please note and check the following: * The Python version is: Python3.9 from &quot;C:\\Users\\becky.lam\\Anaconda3\\python.exe&quot; * The NumPy version is: &quot;1.20.3&quot; and make sure that they are the versions you expect. Please carefully study the documentation linked above for further help. Original error was: DLL load failed while importing _multiarray_umath: The specified module could not be found. Hide details</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "python-poetry",
+    "nix"
+   ],
+   "owner": {
+    "account_id": 4120823,
+    "reputation": 1191,
+    "user_id": 3381215,
+    "user_type": "registered",
+    "accept_rate": 73,
+    "profile_image": "https://www.gravatar.com/avatar/37b66a41a19d30b3998fac5d6090bf51?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Freek",
+    "link": "https://stackoverflow.com/users/3381215/freek"
+   },
+   "is_answered": true,
+   "view_count": 1587,
+   "accepted_answer_id": 79577537,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1762980869,
+   "creation_date": 1744181475,
+   "last_edit_date": 1744190369,
+   "question_id": 79563650,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79563650/importerror-error-importing-numpy-you-should-not-try-to-import-numpy-from-its",
+   "title": "ImportError: Error importing numpy: you should not try to import numpy from its source directory",
+   "body": "<p>I'm starting a new Python project, I made the following pyproject.toml file (using poetry):</p>\n<pre class=\"lang-ini prettyprint-override\"><code>[tool.poetry]\nname = &quot;snaqs&quot;\nversion = &quot;3.0.0&quot;\ndescription = &quot;A minimal rewrite of Philips' snaqs for DCDC Tx&quot;\nauthors = [&quot;Freek van Hemert &lt;freek@qodon.bio&gt;&quot;]\nreadme = &quot;README.md&quot;\n\n[tool.poetry.dependencies]\npython = &quot;^3.12&quot;\npandas = &quot;^2.2.3&quot;\nnumpy = &quot;^2.2.4&quot;\n\n\n[tool.poetry.group.dev.dependencies]\njupyterlab = &quot;^4.4.0&quot;\n\n[tool.pytest.ini_options]\nminversion = &quot;6.0&quot;\naddopts = &quot;-ra -q&quot;\ntestpaths = [\n    &quot;tests&quot;,\n]\n\n[tool.poetry.group.test.dependencies]\npytest = &quot;^8.3.5&quot;\n\n[build-system]\nrequires = [&quot;poetry-core&quot;]\nbuild-backend = &quot;poetry.core.masonry.api&quot;\n\n</code></pre>\n<p>I then do <code>poetry install</code></p>\n<p>Usually I then start testing, but to keep it minimal, I open a python3 shell with <code>python3</code>. Now when I import numpy as np I get this error:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ python3\nPython 3.12.8 (main, Dec  3 2024, 18:42:41) [GCC 13.3.0] on linux\nType &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.\n&gt;&gt;&gt; import numpy as np\nTraceback (most recent call last):\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/_core/__init__.py&quot;, line 23, in &lt;module&gt;\n    from . import multiarray\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/_core/multiarray.py&quot;, line 10, in &lt;module&gt;\n    from . import overrides\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/_core/overrides.py&quot;, line 7, in &lt;module&gt;\n    from numpy._core._multiarray_umath import (\nImportError: libstdc++.so.6: cannot open shared object file: No such file or directory\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/__init__.py&quot;, line 114, in &lt;module&gt;\n    from numpy.__config__ import show_config\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/__config__.py&quot;, line 4, in &lt;module&gt;\n    from numpy._core._multiarray_umath import (\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/_core/__init__.py&quot;, line 49, in &lt;module&gt;\n    raise ImportError(msg)\nImportError: \n\nIMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!\n\nImporting the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\n\nWe have compiled some common reasons and troubleshooting tips at:\n\n    https://numpy.org/devdocs/user/troubleshooting-importerror.html\n\nPlease note and check the following:\n\n  * The Python version is: Python3.12 from &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/bin/python3&quot;\n  * The NumPy version is: &quot;2.2.4&quot;\n\nand make sure that they are the versions you expect.\nPlease carefully study the documentation linked above for further help.\n\nOriginal error was: libstdc++.so.6: cannot open shared object file: No such file or directory\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/numpy/__init__.py&quot;, line 119, in &lt;module&gt;\n    raise ImportError(msg) from e\nImportError: Error importing numpy: you should not try to import numpy from\n        its source directory; please exit the numpy source tree, and relaunch\n        your python interpreter from there.\n</code></pre>\n<p>It has been popping up for me on various occasions. It maybe good to say that I use NixOS and installed poetry using this <code>shell.nix</code> file:</p>\n<pre class=\"lang-hs prettyprint-override\"><code>{ pkgs ? import &lt;nixpkgs&gt; {} }:\n\npkgs.mkShell {\n\n  buildInputs = [\n    pkgs.python3\n    pkgs.poetry\n  ];\n\n}\n</code></pre>\n<p>There are a lot of reports out there with a lot of advice, ie:</p>\n<ul>\n<li><a href=\"https://www.pythonfixing.com/2023/11/fixed-explain-why-numpy-should-not-be.html\" rel=\"nofollow noreferrer\">https://www.pythonfixing.com/2023/11/fixed-explain-why-numpy-should-not-be.html</a></li>\n<li><a href=\"https://stackoverflow.com/questions/14570011/explain-why-numpy-should-not-be-imported-from-source-directory\">Explain why numpy should not be imported from source directory</a></li>\n</ul>\n<p>Some more info:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ which python3\n/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/bin/python3\nsnaqs-py3.12\n</code></pre>\n<p>(I believe that snaqs-py3.12 is the name of my poetry virtual env, confusingly it is added to the output of any command... Would love to get rid of it because it breaks ie loops over the output of <code>ls</code></p>\n<p>I have tried all the tips, but nothing works for me. Any help would be appreciated.</p>\n<p>Thanx.</p>\n<p>Edit: When I run a script, it becomes more clear that actually Pandas tries to import numpy and that is causing the error:</p>\n<pre class=\"lang-bash prettyprint-override\"><code>$ python pcs_interface.py -d\nTraceback (most recent call last):\n  File &quot;/home/freek/projects/snaqs3/src/snaqs/utils/pcs_interface.py&quot;, line 4, in &lt;module&gt;\n    import pandas as pd\n  File &quot;/home/freek/.cache/pypoetry/virtualenvs/snaqs-LIQmBdDd-py3.12/lib/python3.12/site-packages/pandas/__init__.py&quot;, line 19, in &lt;module&gt;\n    raise ImportError(\nImportError: Unable to import required dependencies:\nnumpy: Error importing numpy: you should not try to import numpy from\n        its source directory; please exit the numpy source tree, and relaunch\n        your python interpreter from there.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "numpy",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 40634068,
+    "reputation": 13,
+    "user_id": 31398462,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6d75fca150818ae89d65abc17fe0e85c?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Pietro Calogero",
+    "link": "https://stackoverflow.com/users/31398462/pietro-calogero"
+   },
+   "is_answered": true,
+   "view_count": 137,
+   "accepted_answer_id": 79805257,
+   "answer_count": 2,
+   "score": 0,
+   "last_activity_date": 1762126556,
+   "creation_date": 1761855132,
+   "last_edit_date": 1761855602,
+   "question_id": 79805180,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79805180/unable-to-install-pytidycensus",
+   "title": "unable to install pytidycensus",
+   "body": "<p>I tried to install pytidycensus per these instructions: <a href=\"https://mmann1123.github.io/pytidycensus/index.html\" rel=\"nofollow noreferrer\">https://mmann1123.github.io/pytidycensus/index.html</a>\n<code>pip install pytidycensus</code>\nOS Windows 11, current as of 10/31/2025, with Python 3.13.7 installed by standard vanilla install.\nThe pip-installer returned an error, beginning with:</p>\n<blockquote>\n<p>Preparing metadata (pyproject.toml) ... error<br />\nerror: subprocess-exited-with-error\n\u00d7 Preparing metadata (pyproject.toml) did not run successfully.\n\u2502 exit code: 1\n\u2570\u2500&gt; [21 lines of output]</p>\n</blockquote>\n<p>...it recommended that I upgrade the pip-installer:\n[notice] To update, run: <code>python.exe -m pip install --upgrade pip</code>\n...which I did. The system returned: &quot;Successfully installed pip-25.3.&quot;</p>\n<p>Second attempt at <code>pip install pytidycensus</code> also failed, with the same error message as above. However it identified another possible problem:</p>\n<blockquote>\n<p>error: metadata-generation-failed\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500&gt; numpy\nnote: This is an issue with the package mentioned above, not pip.\nSo I also updated NumPy:\n<code>python.exe -m pip install --upgrade numpy</code>\nAlso successful:</p>\n</blockquote>\n<blockquote>\n<pre><code>  Successfully uninstalled numpy-2.3.2 Successfully installed numpy-2.3.4\n</code></pre>\n</blockquote>\n<p>I tried to install pytidycensus a third time, and again it failed. Again, it pointed to an error with NumPy:</p>\n<blockquote>\n<p>error: metadata-generation-failed\n\u00d7 Encountered error while generating package metadata.\n\u2570\u2500&gt; numpy</p>\n</blockquote>\n<p>But perhaps the error is with pyproject.toml? That is where the error seems to begin: the failure to generate metadata during the installation process.\nAny ideas how to solve this?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "unity-game-engine",
+    "pip",
+    "ml-agent"
+   ],
+   "owner": {
+    "account_id": 2345937,
+    "reputation": 3724,
+    "user_id": 2056201,
+    "user_type": "registered",
+    "accept_rate": 23,
+    "profile_image": "https://www.gravatar.com/avatar/bba9995d4071b28c1f54bcb8ae03a1f2?s=256&d=identicon&r=PG",
+    "display_name": "Mich",
+    "link": "https://stackoverflow.com/users/2056201/mich"
+   },
+   "is_answered": false,
+   "view_count": 232,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1759347630,
+   "creation_date": 1759335689,
+   "last_edit_date": 1759347630,
+   "question_id": 79780282,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79780282/installing-onnx-package-broke-all-python-dependencies",
+   "title": "Installing Onnx package broke all python dependencies",
+   "body": "<p>I followed all of the instructions in this video and installed al the the proper packages on top of Python 3.10.0</p>\n<p><a href=\"https://www.youtube.com/watch?v=v1d7SinTzEY&amp;t=1s\" rel=\"nofollow noreferrer\">https://www.youtube.com/watch?v=v1d7SinTzEY&amp;t=1s</a></p>\n<p><code>pip install torch torchaudio torchvision mlagents protobuf==3.20.3</code></p>\n<p>However, mlagents-learn complained about no having the onnx module.</p>\n<p>When I tried to <code>pip install onnx</code>, it completely broke all of the the dependencies.</p>\n<p>I am getting these errors. Because one requires numpy 1.21 and the other one requires numpy 1.22.</p>\n<p>I tried <code>pip install onnx==1.11.0</code> which doesn't work.</p>\n<p>I dont know how people can use python in a professional environment with this package management system</p>\n<p>Is there a way to resolve all of these packages automatically so I dont have to guess which version I have to use for each one?</p>\n<pre><code>ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\nonnx 1.19.0 requires numpy&gt;=1.22, but you have numpy 1.21.2 which is incompatible.\nSuccessfully installed numpy-1.21.2\nWARNING: You are using pip version 21.2.3; however, version 25.2 is available.\nYou should consider upgrading via the 'C:\\Users\\me\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m pip install --upgrade pip' command.\n\nC:\\Users\\me&gt;pip install --force-reinstall &quot;numpy==1.22&quot;\nCollecting numpy==1.22\n  Downloading numpy-1.22.0-cp310-cp310-win_amd64.whl (14.7 MB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 14.7 MB 6.4 MB/s\nInstalling collected packages: numpy\n  Attempting uninstall: numpy\n    Found existing installation: numpy 1.21.2\n    Uninstalling numpy-1.21.2:\n      Successfully uninstalled numpy-1.21.2\nERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\nmlagents-envs 0.30.0 requires numpy==1.21.2, but you have numpy 1.22.0 which is incompatible.\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "numpy",
+    "linker",
+    "f2py",
+    "python-3.12"
+   ],
+   "owner": {
+    "account_id": 9576122,
+    "reputation": 31,
+    "user_id": 7112164,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/db780bb27a43e7e2704f045ea27da4fb?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Dany Page",
+    "link": "https://stackoverflow.com/users/7112164/dany-page"
+   },
+   "is_answered": false,
+   "view_count": 90,
+   "answer_count": 0,
+   "score": 2,
+   "last_activity_date": 1757187338,
+   "creation_date": 1757182051,
+   "last_edit_date": 1757187338,
+   "question_id": 79757716,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79757716/f2py-from-numpy-2-3-2-linking-a-fortran-77-code-with-many-subroutines-in-separa",
+   "title": "f2py from numpy 2.3.2: Linking a fortran 77 code with many subroutines in separate files fails",
+   "body": "<p>I have a large fortran 77 code, &quot;NSCool&quot;, distributed among many files which I compile into a python package using f2py. It used to work nicely with python 3.7, then it took me weeks to have it work with python 3.12, but now that I have updated numpy to version 2.3.2 it fails.\n<BR>\nI am working on Macos Ventura, 13.7.6, with the last available version of the command line tools and gfortran14, python3.12 and needed python packages all installed with Macports.\n<BR>\nI compile everything with a makefile with three options to generate three versions of the NSCool_Py*.so:</p>\n<ul>\n<li>A: linking directly all objects with the main subroutines in NSCool_2.f\n<li>B: putting all *.o of DEPENDS into a static library libNSCool_lib_stat.a\n<li>C: putting all *.o of DEPENDS into a dynamic library libNSCool_lib_dyn.so\n</ul>\n<p>Here is the makefile:</p>\n<pre><code>CODE_DIR = /Users/dany/Dropbox/Work/NStar/NSCool/Code\n\nCOMPILER     = /opt/local/bin/gfortran-mp-14\nCOMPILER_LIB = /opt/local/lib/gcc14\nOPTIONS = -O0 -fPIC -funderscoring\n\nF2PY = python -m numpy.f2py\n\n#--------------------------------------------------------------------------------\nDEPENDS  = NSCool_Read.o NSCool_Initialize.o NSCool_Help.o NSCool_Precool.o \\\n           \\\n           conductivity.o conductivity_core.o conductivity_crust.o \\\n           opacity.o Envelope_Opacity.o \\\n           neutrino.o neutrino_core.o neutrino_crust.o neutrino_pairing_control.o \\\n           heating.o spec_heat.o boundary.o tc.o tc_Ioffe.o \\\n           Envelope_NSCool.o Envelope_EOS.o Envelope_EOS_Fermi_Dirac.o Envelope_EOS_OCP.o \\\n           eff_mass.o accretion.o magnetic.o Tools.o Dump.o \\\n           \\\n           OMP_Void.o \\\n           Data_Crust.o Data_Crust_Plot_Void.o Weights.o \\\n           \\\n           ag_subroutines_A0.o ap_subroutines_A0.o pg_subroutines_A0.o wk_subroutines_A0.o \\\n           rates_reader.o isos_subroutines.o pp_and_3a.o Screening.o eps_nuc_and_rhs.o \\\n           Chemical_oz_time_dependent.o Tools_Maths.o\n#--------------------------------------------------------------------------------\n\nexport MACOSX_DEPLOYMENT_TARGET=13.7\n\nNSCool_Py_A: NSCool_2.f $(DEPENDS)\n    f2py -c -m NSCool_Py_A NSCool_2.f $(DEPENDS) \\\n    --f77exec=$(COMPILER) \\\n    --f77flags=&quot;$(OPTIONS)&quot; \\\n    --include-paths=$(CODE_DIR)\n    @echo &quot;This is NSCool_Py_A&quot;\n\nNSCool_Py_B: NSCool_2.f NSCool_lib_stat\n    f2py -c -m NSCool_Py_B NSCool_2.f \\\n    --include-paths=$(CODE_DIR) \\\n    --f77exec=$(COMPILER) \\\n    -L$(COMPILER_LIB) -lgfortran -L$(CODE_DIR) -lNSCool_lib_stat \\\n    --f77flags=&quot;-L$(COMPILER_LIB) -lgfortran -L$(CODE_DIR) -lNSCool_lib &quot; \\\n    --link-flags=&quot;-bundle -undefined dynamic_lookup -Wl,-L$(CODE_DIR),-lNSCool_lib&quot;\n    @echo &quot;This is NSCool_Py_B&quot;\n\nNSCool_Py_C: NSCool_2.f NSCool_lib_dyn\n    f2py -c -m NSCool_Py_C NSCool_2.f \\\n    --f77exec=$(COMPILER) \\\n    --include-paths=$(CODE_DIR) \\\n    -L$(CODE_DIR) -lNSCool_lib_dyn \\\n    -Wl,-force_load,$(CODE_DIR)/libNSCool_lib_dyn.so \\\n    --link-options=&quot;-bundle -undefined dynamic_lookup -Wl,-rpath,@loader_path&quot;\n    @echo &quot;This isNSCool_Py_C&quot;\n\nNSCool_lib_stat: $(DEPENDS)\n    libtool -static -o libNSCool_lib_stat.a $(DEPENDS)\n\nNSCool_lib_dyn: $(DEPENDS)\n    $(COMPILER) $(OPTIONS) -dynamiclib -install_name @rpath/libNSCool_lib_dyn.so -o libNSCool_lib_dyn.so $(DEPENDS) -lgfortran\n\n#--------------------------------------------------------------------------------\n\naccretion.o: accretion.f\n    $(COMPILER)  $(OPTIONS) -c accretion.f\n\n...\n\n</code></pre>\n<p>where &quot; ... &quot; means many similar commands to generate all the other object files</p>\n<p>If run three versions with python and get error messages (and I check if the missing symbols are really missing):</p>\n<p><B>Version A:</B><BR>\n%\n<BR>\n% python -c &quot;import NSCool_Py_A&quot;\n<BR>\nTraceback (most recent call last):\n<BR>\nFile &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n<BR>\nImportError: dlopen(/Users/dany/Dropbox/Work/NStar/NSCool/Code/NSCool_Py_A.cpython-312-darwin.so, 0x0002): symbol not found in flat namespace '<em>accretion_rate</em>'\n<BR>\n%\n<BR>\n% nm -gU NSCool_Py_A.cpython-312-darwin.so | grep <em>accretion_rate</em>\n<BR>\n%</p>\n<p>(accretion_rate is a subroutine that in the accretion.o object, itself listed in DEPENDS)</p>\n<p><B>Version B:</B><BR>\n%\n<BR>\n% python -c &quot;import NSCool_Py_B&quot;\n<BR>\nTraceback (most recent call last):\n<BR>\nFile &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n<BR>\nImportError: dynamic module does not define module export function (PyInit_NSCool_Py_B)\n<BR>\n%\n<BR>\n% nm -gU NSCool_Py_B.cpython-312-darwin.so | grep PyInit_NSCool_Py_B\n<BR>\n0000000000016350 T _PyInit_NSCool_Py_B\n<BR>\n%</p>\n<p><B>Version C:</B><BR>\n%\n<BR>\n% python -c &quot;import NSCool_Py_C&quot;\n<BR>\nTraceback (most recent call last):\n<BR>\nFile &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;\n<BR>\nImportError: dlopen(/Users/dany/Dropbox/Work/NStar/NSCool/Code/NSCool_Py_C.cpython-312-darwin.so, 0x0002): Symbol not found: <em>accretion_rate</em>\n<BR>\nReferenced from: &lt;38EA9BF8-7293-3099-B782-1E4E5583984C&gt; /Users/dany/Dropbox/Work/NStar/NSCool/Code/NSCool_Py_C.cpython-312-darwin.so\n<BR>\nExpected in:     &lt;6FEF4279-E414-3F36-98E5-526848F925F1&gt; /Users/dany/Dropbox/Work/NStar/NSCool/Code/libNSCool_lib_dyn.so\n<BR>\n%\n<BR>\n% nm -gU libNSCool_lib_dyn.so | grep <em>accretion_rate</em>\n<BR>\n000000000008cf73 T <em>accretion_rate</em>\n<BR>\n000000000008b2cc T <em>accretion_rate_swift_j1858</em>\n<BR>\n000000000008c3a0 T <em>initialize_accretion_rate</em>\n<BR>\n%</p>\n<p>Any idea how to fix this ? At least one of the three versions !</p>\n"
+  },
+  {
+   "tags": [
+    "installation",
+    "package",
+    "importerror",
+    "bloomberg"
+   ],
+   "owner": {
+    "account_id": 12876846,
+    "reputation": 11,
+    "user_id": 17140620,
+    "user_type": "registered",
+    "profile_image": "https://lh6.googleusercontent.com/-XjoiT9oJJaU/AAAAAAAAAAI/AAAAAAAAAp4/AnEMi3h9KHQ/s256-rj/photo.jpg",
+    "display_name": "Luca Canepa",
+    "link": "https://stackoverflow.com/users/17140620/luca-canepa"
+   },
+   "is_answered": true,
+   "view_count": 582,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1756435142,
+   "creation_date": 1715262688,
+   "question_id": 78454904,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78454904/bql-installation-issue-in-vscode",
+   "title": "BQL installation issue in VSCode",
+   "body": "<p>Referring to this <a href=\"https://stackoverflow.com/questions/67827337/how-get-bql-bloomberg-query-from-python\">How get BQL (bLOOMBERG) query from python</a></p>\n<p>I followed all steps and copy pasted the packages in my .venv folder, under lib/site_packages. I do not have an anaconda distribution as per their instructions though.</p>\n<p>I see the bql package in VSCode Explorer in the same folder as any other packages I normally use (e.g. numpy) as I always use that environment. It has the ini file etc.\nBut if I try import bql, it tells me it cannot find it.</p>\n<p>Did anybody have same issue and can help me understand why it cannot load the package?</p>\n<p>Please note I cannot use pip install as I need to copy it from BQuant</p>\n<p>Thank you very much</p>\n<p>Tried: steps as of <a href=\"https://stackoverflow.com/questions/67827337/how-get-bql-bloomberg-query-from-python\">How get BQL (bLOOMBERG) query from python</a> but saved in venv instead of anaconda3 as I use VSCode\nExpectation: import bql works fine\nOutcome: import bql can't find package</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 20682958,
+    "reputation": 35,
+    "user_id": 15186088,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e51cd4c9d626c4ed9a58988e01c816a8?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "TrafficDataAnalyst",
+    "link": "https://stackoverflow.com/users/15186088/trafficdataanalyst"
+   },
+   "is_answered": true,
+   "view_count": 746,
+   "accepted_answer_id": 75977057,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1756376595,
+   "creation_date": 1675975251,
+   "last_edit_date": 1675975747,
+   "question_id": 75404220,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/75404220/how-to-install-ruptures-with-python-3-11-1-on-windows-10",
+   "title": "How to install ruptures with Python 3.11.1 on Windows 10",
+   "body": "<p>I created a new Python environment with 3.11.1, and installed the numpy and scipy dependencies per documentation. But then when I try to pip install ruptures it gives this error:</p>\n<pre><code>Failed to build ruptures\nERROR: Could not build wheels for ruptures, which is required to install pyproject.toml-based projects\n</code></pre>\n<p>I also tried <code>pip install --no-binary :all: ruptures</code>\nAnd get this error:</p>\n<pre><code>pip subprocess to install build dependencies did not run successfully.\n\u2502 exit code: 1\n</code></pre>\n<p>Any ideas on how to resolve this issue? Thanks!</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "installation",
+    "pandas"
+   ],
+   "owner": {
+    "account_id": 1548064,
+    "reputation": 165,
+    "user_id": 1441107,
+    "user_type": "registered",
+    "accept_rate": 19,
+    "profile_image": "https://www.gravatar.com/avatar/93875f68d4c8c83d44698516f09d0514?s=256&d=identicon&r=PG",
+    "display_name": "googlekid",
+    "link": "https://stackoverflow.com/users/1441107/googlekid"
+   },
+   "is_answered": true,
+   "view_count": 90050,
+   "answer_count": 6,
+   "score": 10,
+   "last_activity_date": 1756066538,
+   "creation_date": 1387302448,
+   "last_edit_date": 1387310785,
+   "question_id": 20641199,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/20641199/how-to-install-numpy-and-pandas-on-windows",
+   "title": "how to install numpy and pandas on windows",
+   "body": "<p>I'll preface by saying I'm a programming n00b by stack standards. I have experience with data analysis and scripting -- this is what I do professionally at a financial firm -- but I have no idea what I'm doing on the back end.</p>\n\n<p>I'm trying to start using pandas and python --- moving away from matlab/vba but I can't figure out how to install the pandas library.</p>\n\n<p>When I try to import pandas I get an error that numpy module is not present. I tried to install ezsetup / pip (no idea what this is btw)... and I have no idea where to enter this command<code>$ python get-pip.py</code></p>\n\n<p>Sometimes when I try to <code>import pandas</code> I get an error cannot import name table hashable</p>\n\n<p>I have no idea what any of this means and I am not getting anywhere.</p>\n\n<p>Update</p>\n\n<p>Ok I installed anaconda and it seems to be allowing me to import numpy and pandas directly from the console. That being said when I try to write a basic time series and plot it using pandas syntax, i get an error that \"series is not defined\" as such I'm not sure if it is actually working </p>\n\n<pre><code>  In [1]: import matplotlib.pyplot as plt\n  In [2]: ts = Series(randn(1000), index=date_range('1/1/2000', periods=1000))\n  In [3]: ts = ts.cumsum()\n  In [4]: ts.plot()\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "numpy",
+    "tensorflow",
+    "scikit-learn"
+   ],
+   "owner": {
+    "account_id": 29699747,
+    "reputation": 31,
+    "user_id": 22762190,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/ACg8ocIYp6S5DR2Y6gDAjRs7r3xXVYKK0dQuF3Yu7XSW_3o_1g=k-s256",
+    "display_name": "Mohamed Reda",
+    "link": "https://stackoverflow.com/users/22762190/mohamed-reda"
+   },
+   "is_answered": true,
+   "view_count": 519,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1755973103,
+   "creation_date": 1755859320,
+   "last_edit_date": 1755973103,
+   "question_id": 79743297,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79743297/why-am-i-getting-modulenotfounderror-no-module-named-numpy-utils-when-import",
+   "title": "Why am I getting ModuleNotFoundError: No module named &#39;numpy._utils&#39; when importing scikit-learn or TensorFlow on Python 3.12?",
+   "body": "<p>I\u2019m trying to run Python scripts that import scikit-learn and TensorFlow, but I keep running into a NumPy-related error.</p>\n<hr />\n<h2>code example:</h2>\n<pre><code>from packaging import version\nimport sklearn\n\nassert version.parse(sklearn.__version__) &gt;= version.parse(&quot;1.0.1&quot;)\n</code></pre>\n<h2>error traceback:</h2>\n<pre><code>---------------------------------------------------------------------------\nModuleNotFoundError                       Traceback (most recent call last)\nCell In[2], line 2\n      1 from packaging import version\n----&gt; 2 import sklearn\n...\nFile ~\\AppData\\Roaming\\Python\\Python312\\site-packages\\numpy\\_globals.py:20\n     18 import enum\n---&gt; 20 from ._utils import set_module as _set_module\nModuleNotFoundError: No module named 'numpy._utils'\n</code></pre>\n<p>This exact same error also happens when I try to import TensorFlow.</p>\n<hr />\n<h2>What I expected:</h2>\n<p>Since I already installed NumPy, scikit-learn, and TensorFlow in my environment, I expected the imports to work normally.</p>\n<hr />\n<h2>Things I tried so far:</h2>\n<ul>\n<li><code>pip uninstall numpy &amp;&amp; pip install numpy==1.26.4</code></li>\n<li><code>pip install --no-cache-dir --force-reinstall numpy</code></li>\n<li>Upgraded <code>pip</code>, <code>setuptools</code>, <code>wheel</code></li>\n<li>Reinstalled TensorFlow</li>\n</ul>\n<hr />\n<h2>Environment details:</h2>\n<ul>\n<li>OS: Windows 10</li>\n<li>Python: 3.12</li>\n<li>NumPy: 1.26.4 (latest also tested)</li>\n<li>scikit-learn: latest from pip</li>\n<li>TensorFlow: latest from pip</li>\n</ul>\n<hr />\n<h2>Explicit question:</h2>\n<p>Why does Python 3.12 raise <code>ModuleNotFoundError: No module named 'numpy._utils'</code> even though NumPy is installed, and how can I fix this so that scikit-learn and TensorFlow import correctly?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "version",
+    "compatibility",
+    "gmat"
+   ],
+   "owner": {
+    "account_id": 6643322,
+    "reputation": 392,
+    "user_id": 5128346,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/6YySP.png?s=256",
+    "display_name": "Colin Helms",
+    "link": "https://stackoverflow.com/users/5128346/colin-helms"
+   },
+   "is_answered": true,
+   "view_count": 16415,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1754689839,
+   "creation_date": 1653859106,
+   "last_edit_date": 1754613532,
+   "question_id": 72427358,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72427358/what-numpy-version-is-compatible-with-python-3-7",
+   "title": "What numpy version is compatible with Python 3.7?",
+   "body": "<p>The <em>General Mission Analysis Tool</em> (<strong>GMAT</strong>), <code>GMAT 2020a</code> python version is constrained to Python 3.7 due to a binary dependency in GMAT libPythonInterface.dll.</p>\n<p>When running a python userfunction I get the notorious numpy exception:</p>\n<blockquote>\n<p><code>No module named 'numpy.core._multiarray_umath'</code></p>\n</blockquote>\n<p>Additional text in the error message attempts to be helpful and directs the user to their <a href=\"https://numpy.org/devdocs/user/troubleshooting-importerror.html\" rel=\"nofollow noreferrer\">trouble shooting page</a>, but the suggestions there are generic, erroneous, and incomplete.</p>\n<p>How do I know what <code>Numpy</code> version is compatible with my GMAT installation?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "numpy",
+    "aws-lambda",
+    "pyarrow"
+   ],
+   "owner": {
+    "account_id": 2880094,
+    "reputation": 485,
+    "user_id": 2471211,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/f618d1afdc8335868f7c0e564718912d?s=256&d=identicon&r=PG",
+    "display_name": "Flo",
+    "link": "https://stackoverflow.com/users/2471211/flo"
+   },
+   "is_answered": true,
+   "view_count": 380,
+   "accepted_answer_id": 79726676,
+   "answer_count": 1,
+   "score": 3,
+   "last_activity_date": 1754466794,
+   "creation_date": 1754429843,
+   "last_edit_date": 1754466794,
+   "question_id": 79726627,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79726627/lambda-container-pyarrow-and-numpy",
+   "title": "Lambda container - Pyarrow and numpy",
+   "body": "<p>I have difficulties from this: <a href=\"https://github.com/aws/aws-cdk/issues/34685\" rel=\"nofollow noreferrer\">(aws-lambda-python-alpha): Failed to install numpy 2.3.0 with Python 3.11 or lower</a></p>\n<p>My Dockerfile:</p>\n<pre class=\"lang-none prettyprint-override\"><code>FROM public.ecr.aws/lambda/python:3.11\n\n# Install\nRUN pip install 'numpy&lt;2.3.0'\nRUN pip install 'pyarrow[s3]'\n</code></pre>\n<p>The pyarrow package still fails on</p>\n<pre class=\"lang-none prettyprint-override\"><code>Collecting numpy&gt;=1.25\n  Downloading numpy-2.3.2.tar.gz (20.5 MB)\n  ...\n</code></pre>\n<p>I wanted to force pyarrow to use numpy==2.2.1 but I don't see how from here. Do I need to lower the version of pyarrow?</p>\n"
+  }
+ ]
+}

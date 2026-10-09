@@ -1,0 +1,739 @@
+{
+ "site": "stackoverflow",
+ "query": "pip install similar name",
+ "class": "G",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "sublimetext3",
+    "python-venv"
+   ],
+   "owner": {
+    "account_id": 66592,
+    "reputation": 1087,
+    "user_id": 195279,
+    "user_type": "registered",
+    "accept_rate": 88,
+    "profile_image": "https://www.gravatar.com/avatar/88dddba7e6bc7c4c3f952356e5f00095?s=256&d=identicon&r=PG",
+    "display_name": "Alex In Paris",
+    "link": "https://stackoverflow.com/users/195279/alex-in-paris"
+   },
+   "is_answered": true,
+   "view_count": 10569,
+   "accepted_answer_id": 64581299,
+   "answer_count": 2,
+   "score": 4,
+   "last_activity_date": 1786203826,
+   "creation_date": 1603917661,
+   "last_edit_date": 1603973248,
+   "question_id": 64580984,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/64580984/how-to-use-sublimetext-within-a-venv",
+   "title": "How to use SublimeText within a venv?",
+   "body": "<p>I've been following the steps to <a href=\"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world\" rel=\"nofollow noreferrer\">a tutorial</a> and (1) created a new directory for my project, (2) run <strong>C:\\Users\\JohnSmith\\AppData\\Local\\Programs\\Python\\Python38\\python -m venv .venv</strong> in that directory to create the virtual environment, (3) run <strong>.venv\\Scripts\\activate</strong> to activate it, (4) run to install <strong>python -m pip install flask</strong> which should only be available in this environment, (5) <strong>flask --version</strong> confirms that it is installed in (.venv), here is the output from this last command:</p>\n<p>Python 3.9.0</p>\n<p>Flask 1.1.2</p>\n<p>Werkzeug 1.0.1</p>\n<p>The issue is when I try to reference flask in my code it returns the following: <em>ModuleNotFoundError: No module named 'flask'.</em></p>\n<p>I saw some posts about creating a new <em>Build System</em> but I have no clue how to do that. Anyone else set up something similar? Please don't recommend some other virtual environment, since I'm committed to following this tutorial and <em>venv</em> is the tool he uses which comes included in Python 3.9.</p>\n<p>The first bit of code in the file ..\\app\\__init__.py has the following code that gives the above error (first line) when I hit CTRL+b:</p>\n<pre><code>from flask import Flask\n\napp = Flask(__name__)\n\nfrom app import routes\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "path",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 15872120,
+    "reputation": 493,
+    "user_id": 11452439,
+    "user_type": "registered",
+    "profile_image": "https://graph.facebook.com/2278816808828968/picture?type=large",
+    "display_name": "Julien Mertz",
+    "link": "https://stackoverflow.com/users/11452439/julien-mertz"
+   },
+   "is_answered": true,
+   "view_count": 14742,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1770102025,
+   "creation_date": 1577621790,
+   "last_edit_date": 1577648446,
+   "question_id": 59519317,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/59519317/unable-to-update-path-variable-for-pip-on-windows-10",
+   "title": "Unable to update PATH variable for pip on Windows 10",
+   "body": "<p>I know there are thousands of similar topics but my pip command has suddenly stopped to work and, despite all my researchs, I can't figure out why. It has been a while since I last used pip and surprisingly my computer doesn't recognize the command anymore. I reinstalled pip and the prompt tells me that the PATH variable is not correctly updated. So I update it but that doesn't solve the problem, the prompt still tells me the PATH variable is not updated. I've tried uninstalling and reinstalling python and pip and nothing works.\nIn my environment variables, I have a user variable named PATH and a system variable named PATH, both of them have the value :<br>\n<code>C:\\Users\\mertz\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\</code></p>\n\n<p>The user variable was already written by itself and I had to write the system variable myself.</p>\n\n<p>When I'm installing pip I get this warning : </p>\n\n<blockquote>\n  <p>WARNING: The scripts pip.exe, pip3.6.exe and pip3.exe are installed in 'C:\\Users\\mertz\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts' which is not on PATH.\n    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.</p>\n</blockquote>\n\n<p>And when I type pip in the command prompt, it tells me that pip is not recognized.</p>\n\n<p>What did I do wrong ?</p>\n\n<p>Thanks in advance</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas",
+    "macos",
+    "numpy",
+    "pycharm"
+   ],
+   "owner": {
+    "account_id": 18247101,
+    "reputation": 117,
+    "user_id": 13282965,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/0d36b1b63ce238710c47f2b532982b7d?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "NewDev",
+    "link": "https://stackoverflow.com/users/13282965/newdev"
+   },
+   "is_answered": true,
+   "view_count": 892,
+   "accepted_answer_id": 79857916,
+   "answer_count": 3,
+   "score": 2,
+   "last_activity_date": 1767230016,
+   "creation_date": 1767128978,
+   "question_id": 79857809,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79857809/python-packages-installation-pandas-nympy",
+   "title": "Python packages installation - pandas &amp; nympy",
+   "body": "<p>I have read close to all posts about this topic now but I can get it working, so sorry if you find this similar to other questions, but I can't just solve it based on existing posts.\nI find it very hard to install Python with its packages, and remember struggling on my PC a couple of years ago also.</p>\n<p>I have a macbook. I have installed python. Using PyCharm. I have tried to install a couple of packages, not sure they got installed in the right or wrong folder. So far I have tried (and in some cases been successful) installing requests, torch, wheel, pandas, numpy. All by using pip. I have tried uninstall and install again. Also tried upgrading.</p>\n<p>Line 8 in the response below is &quot;import pandas as pd&quot;</p>\n<p>The code in PyCharm gives the following response during execution:\nFile &quot;/Users/name/PycharmProjects/ABCProject/file.py&quot;, line 8, in \nimport pandas as pd\nFile &quot;/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pandas/<strong>init</strong>.py&quot;, line 19, in \nraise ImportError(\n&quot;Unable to import required dependencies:\\n&quot; + &quot;\\n&quot;.join(_missing_dependencies)\n)\nImportError: Unable to import required dependencies:\nnumpy:</p>\n<p>IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE!</p>\n<p>Importing the numpy C-extensions failed. This error can happen for\nmany reasons, often due to issues with your setup or how NumPy was\ninstalled.\nThe following compiled module files exist, but seem incompatible\nwith with either python 'cpython-314' or the platform 'darwin':</p>\n<ul>\n<li>_multiarray_umath.cpython-313-darwin.so</li>\n</ul>\n<p>We have compiled some common reasons and troubleshooting tips at:</p>\n<pre><code>https://numpy.org/devdocs/user/troubleshooting-importerror.html\n</code></pre>\n<p>Please note and check the following:</p>\n<ul>\n<li>The Python version is: Python 3.14 from &quot;/usr/local/bin/python3.14&quot;</li>\n<li>The NumPy version is: &quot;2.4.0&quot;</li>\n</ul>\n<p>and make sure that they are the versions you expect.</p>\n<p>Please carefully study the information and documentation linked above.\nThis is unlikely to be a NumPy issue but will be caused by a bad install\nor environment on your machine.</p>\n<p>Original error was: No module named 'numpy._core._multiarray_umath'</p>\n<p>Process finished with exit code 1</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "uv"
+   ],
+   "owner": {
+    "account_id": 38218382,
+    "reputation": 49,
+    "user_id": 28660759,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/6a941a115b3c389bccb89502bbe1262f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "23479h3427983249",
+    "link": "https://stackoverflow.com/users/28660759/23479h3427983249"
+   },
+   "is_answered": true,
+   "view_count": 1638,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1764190187,
+   "creation_date": 1762250074,
+   "last_edit_date": 1764190187,
+   "question_id": 79808761,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79808761/how-to-set-extra-index-with-credentials-for-uv-like-pip-configuration",
+   "title": "How to set extra index with credentials for uv like pip configuration",
+   "body": "<p>Similar to <a href=\"https://stackoverflow.com/questions/79603558/how-to-set-index-url-for-uv-like-pip-configurations\">this question</a>, we want to specify an extra package index to be used by uv. However, our package index url contains private information, i.e., user name and token.</p>\n<p>Up to now, we used pip to install packages and set the extra index within a non-versioned local file <code>pip.conf</code> which reads</p>\n<pre class=\"lang-ini prettyprint-override\"><code>[global]\nextra-index-url = https://&lt;user&gt;:&lt;token&gt;@artifacts.path.to.commercial.index\n</code></pre>\n<p>Using the &quot;global&quot; file <code>pip.conf</code> had the benefit that the index was consumed from within several local repositories.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "linux",
+    "postgresql",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 15462527,
+    "reputation": 10058,
+    "user_id": 11154841,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/a3cGr.png?s=256",
+    "display_name": "questionto42",
+    "link": "https://stackoverflow.com/users/11154841/questionto42"
+   },
+   "is_answered": true,
+   "view_count": 2294,
+   "accepted_answer_id": 69018882,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1756853107,
+   "creation_date": 1630496669,
+   "last_edit_date": 1756853107,
+   "question_id": 69013111,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/69013111/how-to-install-a-python-package-on-linux-so-that-it-is-found-by-the-already-work",
+   "title": "How to install a Python package on Linux so that it is found by the already working PostgreSQL 13 plpython3u extension",
+   "body": "<h3>Spin-off:</h3>\n<p>I have tried to catch the idea of <a href=\"https://stackoverflow.com/questions/57774168/module-not-found-when-importing-a-python-package-within-a-plpython3u-procedure\">\u201cModule not found\u201d when importing a Python package within a plpython3u procedure</a>, I did not know how to use the accepted answer there to make it run on Linux. Normally, this here should be a duplicate, but if there is a difference with with MacOS in the used paths, it might be good for a new question.</p>\n<h3>Installation of PostgreSQL 13</h3>\n<p>I am on WSL2 (Ubuntu 20.04). I installed with the commands of the official PostgreSQL Downloads page from the <a href=\"https://www.postgresql.org/download/linux/ubuntu/\" rel=\"nofollow noreferrer\">PostgreSQL Apt Repository for Ubuntu</a>.</p>\n<pre><code># Create the file repository configuration:\nsudo sh -c 'echo &quot;deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list'\n\n# Import the repository signing key:\nwget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -\n\n# Update the package lists:\nsudo apt-get update\n\n# Install the latest version of PostgreSQL.\n# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':\nsudo apt-get -y install postgresql\n</code></pre>\n<p>This gave me PostgreSQL 13.</p>\n<h3>Installation of the right plpython3u</h3>\n<p>I installed plpython3u with commands from <a href=\"https://stackoverflow.com/a/62150830/11154841\">PostgreSQL: how to install plpythonu extension</a>:</p>\n<pre><code>sudo apt-cache search &quot;.*plpython3.*&quot;\nsudo apt-get install postgresql-contrib postgresql-plpython3-13\n</code></pre>\n<p>Because I am on WSL, I start the service with:</p>\n<pre><code>service postgresql start\n</code></pre>\n<p>Change role and run psql:</p>\n<pre><code>sudo su postgres\npsql\n</code></pre>\n<h3>PostgreSQL with plpython3u installation and tests without imported packages</h3>\n<p>Checking the Python version directly as a stored procedure in postgreSQL:</p>\n<pre><code>CREATE OR REPLACE FUNCTION return_version()\n  RETURNS VARCHAR\nAS $$\n    import sys\n    return sys.version\n$$ LANGUAGE plpython3u;\n</code></pre>\n<p>Output:</p>\n<pre><code>CREATE FUNCTION\n</code></pre>\n<p>Test:</p>\n<pre><code>postgres=# SELECT return_version();\n              return_version\n------------------------------------------\n 3.8.10 (default, Jun  2 2021, 10:49:15) +\n [GCC 9.4.0]\n(1 row)\n</code></pre>\n<p>shows that for &quot;PostgreSQL 13&quot;, <strong>&quot;Python 3.8.10&quot;</strong> gets installed.</p>\n<p>And this is exactly the one to be found on Linux. If I just enter a Python version that I do not have, like <code>3.7</code>:</p>\n<pre><code>python3.7\n</code></pre>\n<p>I get the overview:</p>\n<pre><code>Command 'python3.7' not found, did you mean:\n\n  command 'python3.8' from deb python3.8 (3.8.10-0ubuntu1~20.04)\n  command 'python3.9' from deb python3.9 (3.9.5-3~20.04.1)\n  command 'python2.7' from deb python2.7 (2.7.18-1~20.04.1)\n</code></pre>\n<p>Confirming that there are no two parallel installations of Python <code>3.8</code> installed, it is clear that the Linux <code>3.8.10</code> is the used version for plpython3u in PostgreSQL.</p>\n<h3>plpython3u stored procedure tests with imported packages</h3>\n<p>I tried a function that imports packages, taken from <a href=\"https://www.cybertec-postgresql.com/en/machine-learning-in-postgresql-part-1-kmeans-clustering/\" rel=\"nofollow noreferrer\">Kmeans in PostgreSQL in a nutshell</a>:</p>\n<pre><code>CREATE OR replace FUNCTION kmeans(input_table text, columns text[], clus_num int) RETURNS bytea AS\n \n$$\n \nfrom pandas import DataFrame\nfrom sklearn.cluster import KMeans\nfrom pickle import dumps\n \nall_columns = &quot;,&quot;.join(columns)\nif all_columns == &quot;&quot;:\n    all_columns = &quot;*&quot;\n \nrv = plpy.execute('SELECT %s FROM %s;' % (all_columns, plpy.quote_ident(input_table)))\n \nframe = []\n \nfor i in rv:\n    frame.append(i)\ndf = DataFrame(frame).astype('float')\nkmeans = KMeans(n_clusters=clus_num, random_state=0).fit(df._get_numeric_data())\nreturn dumps(kmeans)\n \n$$ LANGUAGE plpython3u;\n</code></pre>\n<p>Output:</p>\n<pre><code>CREATE FUNCTION\n</code></pre>\n<p>Test throws the error:</p>\n<pre><code>postgres=# SELECT kmeans('my_table', ARRAY['col1', 'col2'],3);\nERROR:  ModuleNotFoundError: No module named 'pandas'\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function &quot;kmeans&quot;, line 3, in &lt;module&gt;\n    from pandas import DataFrame\nPL/Python function &quot;kmeans&quot;\n</code></pre>\n<p>Then, I installed pandas in Python <code>3.8</code>:</p>\n<pre><code>python3.8 -m pip install pandas\nCollecting pandas\n  Downloading pandas-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.5 MB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 11.5 MB 6.0 MB/s\nCollecting python-dateutil&gt;=2.7.3\n  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 247 kB 4.7 MB/s\nCollecting numpy&gt;=1.17.3\n  Downloading numpy-1.21.2-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (15.8 MB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 15.8 MB 131 kB/s\nCollecting pytz&gt;=2017.3\n  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)\n     |\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 510 kB 5.7 MB/s\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas) (1.14.0)\nInstalling collected packages: python-dateutil, numpy, pytz, pandas\n  WARNING: The scripts f2py, f2py3 and f2py3.8 are installed in '/home/my_user/.local/bin' which is not on PATH.\n  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.\nSuccessfully installed numpy-1.21.2 pandas-1.3.2 python-dateutil-2.8.2 pytz-2021.1\n</code></pre>\n<p>And pandas is now stored at:</p>\n<pre><code>python3.8 -m pip show pandas\nName: pandas\nVersion: 1.3.2\nSummary: Powerful data structures for data analysis, time series, and statistics\nHome-page: https://pandas.pydata.org\nAuthor: The Pandas Development Team\nAuthor-email: pandas-dev@python.org\nLicense: BSD-3-Clause\nLocation: /home/my_user/.local/lib/python3.8/site-packages\nRequires: numpy, python-dateutil, pytz\nRequired-by:\n</code></pre>\n<p>But the test still throws the same error:</p>\n<pre><code>postgres=# SELECT kmeans('my_table', ARRAY['col1', 'col2'],3);\nERROR:  ModuleNotFoundError: No module named 'pandas'\nCONTEXT:  Traceback (most recent call last):\n  PL/Python function &quot;kmeans&quot;, line 3, in &lt;module&gt;\n    from pandas import DataFrame\nPL/Python function &quot;kmeans&quot;\n</code></pre>\n<h3>Question</h3>\n<p>How do I install pandas (or any other package I need) so that it is found by the PostgreSQL 13 plpython3u extension on Linux?</p>\n<h3>PS: probably not needed side notes</h3>\n<h4>Probably not needed: Use &quot;which&quot; in a plpython3u stored procedure to check Python</h4>\n<p>The spun-off question had another version test in it, but that was not showing anything from inside the extension, the commands are just the same as in the normal bash. Therefore, the value of the following is reduced to just a random test of the a plpython3u function. I add this only because you should never be 100 % sure. To me, it is clear that this does not say anything about the Python version that is actually used by plpython3u.</p>\n<pre><code>CREATE OR REPLACE FUNCTION get_py()\n  RETURNS VARCHAR\nAS $$\n    import os\n    return os.popen('which python3').read()\n$$ LANGUAGE plpython3u;\n</code></pre>\n<p>Output:</p>\n<pre><code>CREATE FUNCTION\n</code></pre>\n<p>Test:</p>\n<pre><code>SELECT get_py();\n      get_py\n------------------\n /usr/bin/python3+\n\n(1 row)\n</code></pre>\n<p>And the same with <code>'which python3.8'</code>:</p>\n<pre><code>select get_py();\n       get_py\n--------------------\n /usr/bin/python3.8+\n\n(1 row)\n</code></pre>\n<h4>Probably not needed: use make and a default Python version to install</h4>\n<p>Perhaps the default version of Python must be changed somewhere before installation? This is just a very vague guess from <a href=\"https://forums.freebsd.org/threads/postgresql-plpython3u.67295/\" rel=\"nofollow noreferrer\">an installation using make, with Python settings in /etc/make.conf</a>, here is the code that is used there (question from 2018):</p>\n<p>Changing <code>/etc/make.conf</code> to</p>\n<pre><code>DEFAULT_VERSIONS+= python=3.6\n</code></pre>\n<p>It is said that this ran through and installed plpython3u (I have not tested this):</p>\n<pre><code>root@db% cd /usr/ports/databases/posgresql10-plpython\nroot@db% make fetch\nroot@db% make extract\nroot@db% cd /usr/ports/databases/postgresql10-plpython/work/postgresql-10.5\nroot@db% ./configure PYTHON=/usr/local/bin/python3 --with-python --with-libraries=/usr/local/lib --with-includes=/usr/local/include/\nroot@db% cd /usr/ports/databases/posgresql10-plpython\nroot@db% make install\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "jupyter-notebook",
+    "jupyter",
+    "python-install"
+   ],
+   "owner": {
+    "account_id": 25871422,
+    "reputation": 33,
+    "user_id": 19602238,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/Sbpic.jpg?s=256",
+    "display_name": "SleepingUgly",
+    "link": "https://stackoverflow.com/users/19602238/sleepingugly"
+   },
+   "is_answered": true,
+   "view_count": 384,
+   "accepted_answer_id": 79752683,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1756800109,
+   "creation_date": 1756738330,
+   "last_edit_date": 1756800109,
+   "question_id": 79752664,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79752664/error-when-opening-jupyter-notebook-from-cmd-power-shell-windows",
+   "title": "Error when opening Jupyter notebook from cmd/power shell (Windows)",
+   "body": "<p>[Problem solved] When I try to open jupyter notebook in cmd/power shell I get the following error:</p>\n<blockquote>\n<p>Fatal error in launcher: Unable to create process using '&quot;c:\\users\\NAME\\appdata\\local\\programs\\python\\python39\\python.exe&quot;  &quot;C:\\Users\\NAME\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\jupyter.exe&quot; notebook': The system cannot find the file specified.</p>\n</blockquote>\n<p>I use the command \u201cjupyter notebook\u201c and also \u201cpy -m jupyter notebook\u201d. After searching about it and reading posts of other people with similar problems to mine, I tried reinstalling jupyter and then python but the problem persists.</p>\n<p>I install jupyter with this command: \u201cpy -m pip install jupyter\u201d</p>\n<p>Also I HAVE python added to PATH and the command was successful in installing libraries such as pandas and matplotlib.</p>\n<p>I have also tried to repair python using python installer, both before and after reinstallation. Before the reinstallation it gave an error midway that I unfortunately didn\u2019t copy but it was about not having access to a file called python.llb/ldb or something like that. (I am sorry but I really didn\u2019t pay much attention at the time since I intended to uninstall it) After I installed python again, the repair was successful. But I still get the same error when I try to open Jupiter.</p>\n<p>My python version is 3.13 (64 bit) by the way and system is windows 10.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "installation",
+    "pip",
+    "pygraphviz"
+   ],
+   "owner": {
+    "account_id": 7625156,
+    "reputation": 43,
+    "user_id": 5781868,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/4f035b208e86bded0af29d0758c31e4a?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "SylarSong",
+    "link": "https://stackoverflow.com/users/5781868/sylarsong"
+   },
+   "is_answered": true,
+   "view_count": 12239,
+   "accepted_answer_id": 39300662,
+   "answer_count": 5,
+   "score": 4,
+   "last_activity_date": 1752510510,
+   "creation_date": 1456459370,
+   "question_id": 35643236,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/35643236/how-do-i-install-pygraphviz-with-pip",
+   "title": "How do I install pygraphviz with pip",
+   "body": "<p>this is brew list and pip list</p>\n\n<pre><code>(lebienv) \u279c  lebi git:(master) \u2717 brew list\ngraphviz    libpng      libxml2     mysql       openssl\n(lebienv) \u279c  lebi git:(master) \u2717 pip list\nFlask (0.10.1)\nitsdangerous (0.24)\nJinja2 (2.8)\nMarkupSafe (0.23)\npip (8.0.3)\nsetuptools (20.1.1)\nWerkzeug (0.11.4)\nwheel (0.29.0)\n(lebienv) \u279c  lebi git:(master) \u2717\n</code></pre>\n\n<p>and excute <code>pip install pygraphviz</code></p>\n\n<pre><code>(lebienv) \u279c  lebi git:(master) \u2717 pip install pygraphviz\nCollecting pygraphviz\n  Using cached pygraphviz-1.3.1.tar.gz\nBuilding wheels for collected packages: pygraphviz\n  Running setup.py bdist_wheel for pygraphviz ... error\n  Complete output from command /Users/zyl/song/lebi/lebienv/bin/python -u -c \"import setuptools, tokenize;__file__='/private/var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-build-x2Vstw/pygraphviz/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\\r\\n', '\\n'), __file__, 'exec'))\" bdist_wheel -d /var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/tmp7z72M3pip-wheel- --python-tag cp27:\n  running bdist_wheel\n  running build\n  running build_py\n  creating build\n  creating build/lib.macosx-10.11-intel-2.7\n  creating build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/__init__.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/agraph.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/graphviz.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/release.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/version.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  creating build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/__init__.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_attribute_defaults.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_attributes.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_clear.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_drawing.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_edge_attributes.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_graph.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_html.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_layout.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_node_attributes.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_readwrite.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_string.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_subgraph.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  copying pygraphviz/tests/test_unicode.py -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz/tests\n  running egg_info\n  writing pygraphviz.egg-info/PKG-INFO\n  writing top-level names to pygraphviz.egg-info/top_level.txt\n  writing dependency_links to pygraphviz.egg-info/dependency_links.txt\n  warning: manifest_maker: standard file '-c' not found\n\n  reading manifest file 'pygraphviz.egg-info/SOURCES.txt'\n  reading manifest template 'MANIFEST.in'\n  warning: no previously-included files matching '*~' found anywhere in distribution\n  warning: no previously-included files matching '*.pyc' found anywhere in distribution\n  warning: no previously-included files matching '.svn' found anywhere in distribution\n  no previously-included directories found matching 'doc/build'\n  writing manifest file 'pygraphviz.egg-info/SOURCES.txt'\n  copying pygraphviz/graphviz.i -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  copying pygraphviz/graphviz_wrap.c -&gt; build/lib.macosx-10.11-intel-2.7/pygraphviz\n  running build_ext\n  building 'pygraphviz._graphviz' extension\n  creating build/temp.macosx-10.11-intel-2.7\n  creating build/temp.macosx-10.11-intel-2.7/pygraphviz\n  cc -fno-strict-aliasing -fno-common -dynamic -arch i386 -arch x86_64 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch i386 -arch x86_64 -pipe -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -c pygraphviz/graphviz_wrap.c -o build/temp.macosx-10.11-intel-2.7/pygraphviz/graphviz_wrap.o\n  pygraphviz/graphviz_wrap.c:3321:12: warning: incompatible pointer to integer conversion returning 'Agsym_t *' (aka 'struct Agsym_s *') from a function with result type 'int' [-Wint-conversion]\n      return agattr(g, kind, name, val);\n             ^~~~~~~~~~~~~~~~~~~~~~~~~~\n  pygraphviz/graphviz_wrap.c:3405:7: warning: unused variable 'fd1' [-Wunused-variable]\n    int fd1 ;\n        ^\n  pygraphviz/graphviz_wrap.c:3406:13: warning: unused variable 'mode_obj1' [-Wunused-variable]\n    PyObject *mode_obj1 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3407:13: warning: unused variable 'mode_byte_obj1' [-Wunused-variable]\n    PyObject *mode_byte_obj1 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3408:9: warning: unused variable 'mode1' [-Wunused-variable]\n    char *mode1 ;\n          ^\n  pygraphviz/graphviz_wrap.c:3463:7: warning: unused variable 'fd2' [-Wunused-variable]\n    int fd2 ;\n        ^\n  pygraphviz/graphviz_wrap.c:3464:13: warning: unused variable 'mode_obj2' [-Wunused-variable]\n    PyObject *mode_obj2 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3465:13: warning: unused variable 'mode_byte_obj2' [-Wunused-variable]\n    PyObject *mode_byte_obj2 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3466:9: warning: unused variable 'mode2' [-Wunused-variable]\n    char *mode2 ;\n          ^\n  9 warnings generated.\n  pygraphviz/graphviz_wrap.c:3295:15: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]\n          len = strlen(val);\n              ~ ^~~~~~~~~~~\n  pygraphviz/graphviz_wrap.c:3321:12: warning: incompatible pointer to integer conversion returning 'Agsym_t *' (aka 'struct Agsym_s *') from a function with result type 'int' [-Wint-conversion]\n      return agattr(g, kind, name, val);\n             ^~~~~~~~~~~~~~~~~~~~~~~~~~\n  pygraphviz/graphviz_wrap.c:3313:15: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]\n          len = strlen(val);\n              ~ ^~~~~~~~~~~\n  pygraphviz/graphviz_wrap.c:3405:7: warning: unused variable 'fd1' [-Wunused-variable]\n    int fd1 ;\n        ^\n  pygraphviz/graphviz_wrap.c:3406:13: warning: unused variable 'mode_obj1' [-Wunused-variable]\n    PyObject *mode_obj1 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3407:13: warning: unused variable 'mode_byte_obj1' [-Wunused-variable]\n    PyObject *mode_byte_obj1 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3408:9: warning: unused variable 'mode1' [-Wunused-variable]\n    char *mode1 ;\n          ^\n  pygraphviz/graphviz_wrap.c:3463:7: warning: unused variable 'fd2' [-Wunused-variable]\n    int fd2 ;\n        ^\n  pygraphviz/graphviz_wrap.c:3464:13: warning: unused variable 'mode_obj2' [-Wunused-variable]\n    PyObject *mode_obj2 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3465:13: warning: unused variable 'mode_byte_obj2' [-Wunused-variable]\n    PyObject *mode_byte_obj2 ;\n              ^\n  pygraphviz/graphviz_wrap.c:3466:9: warning: unused variable 'mode2' [-Wunused-variable]\n    char *mode2 ;\n          ^\n  11 warnings generated.\n  cc -bundle -undefined dynamic_lookup -arch i386 -arch x86_64 -Wl,-F. build/temp.macosx-10.11-intel-2.7/pygraphviz/graphviz_wrap.o -lcgraph -lcdt -o build/lib.macosx-10.11-intel-2.7/pygraphviz/_graphviz.so\n  ld: warning: ignoring file /usr/local/lib/libcdt.dylib, file was built for x86_64 which is not the architecture being linked (i386): /usr/local/lib/libcdt.dylib\n  ld: warning: ignoring file /usr/local/lib/libcgraph.dylib, file was built for x86_64 which is not the architecture being linked (i386): /usr/local/lib/libcgraph.dylib\n  installing to build/bdist.macosx-10.11-intel/wheel\n  running install\n  Trying pkg-config\n  Failed to find pkg-config\n  Trying dotneato-config\n  Failed to find dotneato-config\n  Failed to find dotneato-config\n\n  Your Graphviz installation could not be found.\n\n          1) You don't have Graphviz installed:\n             Install Graphviz (http://graphviz.org)\n\n          2) Your Graphviz package might incomplete.\n             Install the binary development subpackage (e.g. libgraphviz-dev or similar.)\n\n          3) You are using Windows\n             There are no PyGraphviz binary packages for Windows but you might be\n             able to build it from this source.  See\n             http://networkx.lanl.gov/pygraphviz/reference/faq.html\n\n          If you think your installation is correct you will need to manually\n          change the include_dirs and library_dirs variables in setup.py to\n          point to the correct locations of your graphviz installation.\n\n          The current setting of library_dirs and include_dirs is:\n  library_dirs=None\n  include_dirs=None\n\n  error: Error locating graphviz.\n\n  ----------------------------------------\n  Failed building wheel for pygraphviz\n  Running setup.py clean for pygraphviz\nFailed to build pygraphviz\nInstalling collected packages: pygraphviz\n  Running setup.py install for pygraphviz ... error\n    Complete output from command /Users/zyl/song/lebi/lebienv/bin/python -u -c \"import setuptools, tokenize;__file__='/private/var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-build-x2Vstw/pygraphviz/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\\r\\n', '\\n'), __file__, 'exec'))\" install --record /var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-1imEXi-record/install-record.txt --single-version-externally-managed --compile --install-headers /Users/zyl/song/lebi/lebienv/include/site/python2.7/pygraphviz:\n    running install\n    Trying pkg-config\n    Failed to find pkg-config\n    Trying dotneato-config\n    Failed to find dotneato-config\n    Failed to find dotneato-config\n\n    Your Graphviz installation could not be found.\n\n            1) You don't have Graphviz installed:\n               Install Graphviz (http://graphviz.org)\n\n            2) Your Graphviz package might incomplete.\n               Install the binary development subpackage (e.g. libgraphviz-dev or similar.)\n\n            3) You are using Windows\n               There are no PyGraphviz binary packages for Windows but you might be\n               able to build it from this source.  See\n               http://networkx.lanl.gov/pygraphviz/reference/faq.html\n\n            If you think your installation is correct you will need to manually\n            change the include_dirs and library_dirs variables in setup.py to\n            point to the correct locations of your graphviz installation.\n\n            The current setting of library_dirs and include_dirs is:\n    library_dirs=None\n    include_dirs=None\n\n    error: Error locating graphviz.\n\n    ----------------------------------------\nCommand \"/Users/zyl/song/lebi/lebienv/bin/python -u -c \"import setuptools, tokenize;__file__='/private/var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-build-x2Vstw/pygraphviz/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\\r\\n', '\\n'), __file__, 'exec'))\" install --record /var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-1imEXi-record/install-record.txt --single-version-externally-managed --compile --install-headers /Users/zyl/song/lebi/lebienv/include/site/python2.7/pygraphviz\" failed with error code 1 in /private/var/folders/5t/965cgdc56ks37w8pmlmw4vx40000gn/T/pip-build-x2Vstw/pygraphviz\n</code></pre>\n\n<p>System :Mac OS X\nVersion:10.11.1</p>\n\n<p>how to fix the problem.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "linux",
+    "module",
+    "nuitka"
+   ],
+   "owner": {
+    "account_id": 36454176,
+    "reputation": 11,
+    "user_id": 27749118,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/516611a5ed5428fe178aa5b655e9d869?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user27749118",
+    "link": "https://stackoverflow.com/users/27749118/user27749118"
+   },
+   "is_answered": true,
+   "view_count": 681,
+   "accepted_answer_id": 79658160,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1749415880,
+   "creation_date": 1747514354,
+   "last_edit_date": 1747646244,
+   "question_id": 79626971,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79626971/how-can-i-use-nuitka-to-import-all-scripts-modules",
+   "title": "How can I use Nuitka to import all script&#39;s modules?",
+   "body": "<p>I try to turn a .py file into a .bin file with Nuitka.</p>\n<p>Since it have to work on machine without python installed, I use the --standalone option that comes with --follow-imports and --python-flag=no_site options to import my modules. I use --onefile too, if I understand well, this option makes folders useless (only the .bin is necessary).</p>\n<p>So I use the command: <code>python3 -m nuitka --standalone --follow-imports --python-flag=no_site --onefile myscript.py</code>.</p>\n<p>The command works and I have my .bin (plus 3 folders (.build, .dist, .onefile-dist)).</p>\n<p>I try to execute my program:</p>\n<p><code>./myscript.bin</code></p>\n<p>with the head:</p>\n<pre><code>#!/usr/bin/python3\nfrom pathlib import Path\nfrom cryptography.fernet import Fernet\nimport subprocess\nimport math\nfrom math import gcd\n</code></pre>\n<p>and I got a &quot;No module named&quot; error, but only on the second import I do. I conclude Nuitka import correctly the first package, so the .bin works as well as the .py on this point, but don't import this second package like the .py does.</p>\n<p>Looking for similar problems on the Internet, I only found differences between the versions of Nuitka and the package versions as follows.</p>\n<p>But when I use <code>python3 --version</code> and <code>nuitka --version</code>, I got this:</p>\n<pre><code>Python 3.12.3\n</code></pre>\n<p>and</p>\n<pre><code>2.7.2\nCommercial: None\nPython: 3.12.3 (main, Feb 4 2025, 14:48:35) [GCC 13.3.0]\nFlavor: Debian Python\nExecutable: ~/venv/bin/python3\nOS: Linux\nArch: x86_64\nDistribution: Linuxmint (based on Ubuntu) 22\nVersion C compiler: /urs/bin/gcc (gcc 13).\n</code></pre>\n<p>We can see the same Python version for both so it's not the problem. In this case, what is the problem? Are there some modules that we just can NOT import in the .bin?</p>\n<p>I specify that I'm on a Linux Mint 22 VM and in a virtual environment (create with <code>python -m venv venv</code>) because it was necessary to use pip to install (and in result use) Nuitka. Try to execute the .bin in or out the venv give the same result.</p>\n<p>Edit: I also try with Pyinstaller/auto-py-to-exe and cx_Freeze in the same conditions but I got the same result.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "automation",
+    "pip"
+   ],
+   "owner": {
+    "account_id": 1718514,
+    "reputation": 21683,
+    "user_id": 1575066,
+    "user_type": "registered",
+    "accept_rate": 65,
+    "profile_image": "https://i.sstatic.net/hGOuL.png?s=256",
+    "display_name": "PascalVKooten",
+    "link": "https://stackoverflow.com/users/1575066/pascalvkooten"
+   },
+   "is_answered": true,
+   "view_count": 6763,
+   "answer_count": 3,
+   "score": 9,
+   "last_activity_date": 1746685993,
+   "creation_date": 1427792031,
+   "last_edit_date": 1428351252,
+   "question_id": 29364473,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/29364473/modify-python-pip-to-automatically-install-modules-when-failed-to-import",
+   "title": "Modify Python/PIP to automatically install modules when failed to import",
+   "body": "<p>Is there a way to modify python/pip to, whenever an import fails <strong>at runtime</strong>, it would try to install the module (by the same name) from pip and then import the module?</p>\n\n<p>I'd say it would be a nicer default than to just throw an error. If after loading the module from pip any problems happen, then it would also throw an error, similar to when I notice I cannot import something, try <code>pip install</code> and then come to the <em>same exact error message</em>.</p>\n\n<p>I know we can use <code>requirements.txt</code> for bundling a package, but I'm talking from a \"client\" (person running the script) rather than \"provider\" (person providing the script) perspective; that is, I, as a client, would like to be able to import any script and have dependencies be solved automatically.</p>\n\n<p>I understand that this could potentially cause trouble, but whenever I see an ImportError I'd just try to <code>pip install</code> the module anyway. Only if the module wouldn't work after pip installation \"would I ask further questions\".</p>\n\n<p>I thought of something like this snippet that would be \"built in\" to the python process:</p>\n\n<pre><code>def getDirectoryOfInterpreter(p):\n    return \"someway to return the directory\"\n\ntry:\n    import somemodule\nexcept ImportError:\n    os.system(getDirectoryOfInterpreter('THIS_INTERPRETER_BINARY') + ' pip install ' + \"MODULE_NAME\")\n    import somemodule\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "huggingface-transformers",
+    "large-language-model",
+    "deepseek"
+   ],
+   "owner": {
+    "account_id": 34490111,
+    "reputation": 43,
+    "user_id": 26598303,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/3fdcea1817dc96adfdce29c34fe0e997?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "user26598303",
+    "link": "https://stackoverflow.com/users/26598303/user26598303"
+   },
+   "is_answered": true,
+   "view_count": 553,
+   "accepted_answer_id": 79597068,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1745913093,
+   "creation_date": 1745844717,
+   "last_edit_date": 1745913093,
+   "question_id": 79596520,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79596520/where-to-import-the-models-for-deepseek-vl2-from",
+   "title": "Where to import the models for DeepSeek VL2 from?",
+   "body": "<p>I am trying to run the DeepSeek VL2 model (tiny version) locally and use the following code found on <a href=\"https://huggingface.co/deepseek-ai/deepseek-vl2-tiny\" rel=\"nofollow noreferrer\">Huggingface</a>:</p>\n<pre><code>import torch\nfrom transformers import AutoModelForCausalLM\n\nfrom deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM\nfrom deepseek_vl.utils.io import load_pil_images\n\n\n# specify the path to the model\nmodel_path = &quot;deepseek-ai/deepseek-vl2-tiny&quot;  # replaced 'small' with 'tiny'\nvl_chat_processor: DeepseekVLV2Processor = DeepseekVLV2Processor.from_pretrained(model_path)\ntokenizer = vl_chat_processor.tokenizer\n\nvl_gpt: DeepseekVLV2ForCausalLM = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True)\nvl_gpt = vl_gpt.to(torch.bfloat16).cuda().eval()\n\n## single image conversation example\nconversation = [\n    {\n        &quot;role&quot;: &quot;&lt;|User|&gt;&quot;,\n        &quot;content&quot;: &quot;&lt;image&gt;\\n&lt;|ref|&gt;The giraffe at the back.&lt;|/ref|&gt;.&quot;,\n        &quot;images&quot;: [&quot;./images/visual_grounding.jpeg&quot;],\n    },\n    {&quot;role&quot;: &quot;&lt;|Assistant|&gt;&quot;, &quot;content&quot;: &quot;&quot;},\n]\n\n# load images and prepare for inputs\npil_images = load_pil_images(conversation)\nprepare_inputs = vl_chat_processor(\n    conversations=conversation,\n    images=pil_images,\n    force_batchify=True,\n    system_prompt=&quot;&quot;\n).to(vl_gpt.device)\n\n# run image encoder to get the image embeddings\ninputs_embeds = vl_gpt.prepare_inputs_embeds(**prepare_inputs)\n\n# run the model to get the response\noutputs = vl_gpt.language_model.generate(\n    inputs_embeds=inputs_embeds,\n    attention_mask=prepare_inputs.attention_mask,\n    pad_token_id=tokenizer.eos_token_id,\n    bos_token_id=tokenizer.bos_token_id,\n    eos_token_id=tokenizer.eos_token_id,\n    max_new_tokens=512,\n    do_sample=False,\n    use_cache=True\n)\n\nanswer = tokenizer.decode(outputs[0].cpu().tolist(), skip_special_tokens=True)\nprint(f&quot;{prepare_inputs['sft_format'][0]}&quot;, answer)\n</code></pre>\n<p>However, I am unable to import</p>\n<pre><code>from deepseek_vl.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM\nfrom deepseek_vl.utils.io import load_pil_images\n</code></pre>\n<p>I tried to install deepseek_vl through pip but the packages listed there with a similar name seem to be something completely different. Then I thought it might be required to download the DeepSeek-VL repository from Github. But the <a href=\"https://github.com/deepseek-ai/DeepSeek-VL/tree/main\" rel=\"nofollow noreferrer\">repository</a> does not contain classes named <code>DeepseekVLV2Processor</code> or <code>DeepseekVLV2ForCausalLM</code> in the <code>models</code> directory. The <code>load_pil_images</code> function can be found under <code>utils.io</code> though.</p>\n<p>I know that the Installation gudieline on Huggingface states that the dependencies are to be installed through <code>pip install -e .</code>. But when do I have to run this command? After downloading the repository?\nObviously, since I am new to running such models locally, I must be doing something completely wrong. How am I supposed to run the code above and to import the requirements correctly?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "setup.py",
+    "pypi"
+   ],
+   "owner": {
+    "account_id": 905223,
+    "reputation": 1440,
+    "user_id": 940259,
+    "user_type": "registered",
+    "accept_rate": 60,
+    "profile_image": "https://i.sstatic.net/RoldR.png?s=256",
+    "display_name": "MLu",
+    "link": "https://stackoverflow.com/users/940259/mlu"
+   },
+   "is_answered": true,
+   "view_count": 22300,
+   "accepted_answer_id": 60048549,
+   "answer_count": 1,
+   "score": 13,
+   "last_activity_date": 1742406774,
+   "creation_date": 1580692342,
+   "last_edit_date": 1580692667,
+   "question_id": 60032087,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/60032087/why-my-package-cant-be-installed-with-pipx",
+   "title": "Why my package can&#39;t be installed with &quot;pipx&quot;?",
+   "body": "<p>I've got a Python project <a href=\"https://github.com/mludvig/aws-ssm-tools\" rel=\"noreferrer\">aws-ssm-tools</a> that uses <code>setup.py</code> for packaging. It comes with 3 scripts: <code>ssm-tunnel</code>, <code>ssm-session</code> and <code>ssm-copy</code>.</p>\n\n<p>It can be installed with <code>pip install aws-ssm-tools</code> and puts the scripts to <code>~/.local/bin/</code>.</p>\n\n<p>However when I try to install it with <code>pipx</code> it fails:</p>\n\n<pre class=\"lang-sh prettyprint-override\"><code>~ $ pipx install aws-ssm-tools\n\nNo apps associated with package aws-ssm-tools. Try again with '--include-deps' \nto include apps of dependent packages, which are listed above. If you are \nattempting to install a library, pipx should not be used. Consider using pip or \na similar tool instead.\n</code></pre>\n\n<p>I have the scripts specified in <a href=\"https://github.com/mludvig/aws-ssm-tools/blob/master/setup.py\" rel=\"noreferrer\"><code>setup.py</code></a>:</p>\n\n<pre class=\"lang-py prettyprint-override\"><code>SCRIPTS = [\n    'ssm-session',\n    'ssm-copy',\n    'ssm-tunnel',\n    'ssm-tunnel-updown.dns-example',\n]\n\n# ...\n\nsetup(\n    name=\"aws-ssm-tools\",\n    version=VERSION,\n    packages=find_packages(),\n    scripts=SCRIPTS+[\n        'ssm-tunnel-agent'\n    ],\n    # ...\n)\n</code></pre>\n\n<p>What else do I have to do to make <code>pipx</code> happy?</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "windows",
+    "pip",
+    "windows-server-2019"
+   ],
+   "owner": {
+    "account_id": 5827926,
+    "reputation": 1281,
+    "user_id": 4599564,
+    "user_type": "registered",
+    "accept_rate": 90,
+    "profile_image": "https://i.sstatic.net/R6AiO.jpg?s=256",
+    "display_name": "Juan Antonio Tub&#237;o",
+    "link": "https://stackoverflow.com/users/4599564/juan-antonio-tub%c3%ado"
+   },
+   "is_answered": true,
+   "view_count": 7097,
+   "accepted_answer_id": 78744025,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1740824280,
+   "creation_date": 1720878196,
+   "last_edit_date": 1721130937,
+   "question_id": 78743993,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78743993/file-frozen-runpy-modulenotfounderror-no-module-named-pip-o-windows",
+   "title": "File &quot;&lt;frozen runpy&gt;&quot;, ModuleNotFoundError: No module named &#39;pip&#39; o Windows",
+   "body": "<p>Original title was: <em>Can't install pip on Windows Server 2019 Standard using Windows embeddable package for Python 3.12.4</em>\nEdited to: <em>File &quot;&quot;, ModuleNotFoundError: No module named 'pip' o Windows</em> to help finding it.</p>\n<p>I'm using a Windows Server 2019 Standard with admin rights.</p>\n<p>I had Python 3.11.0 portable under <code>C:\\Portable\\python</code> and I was using pip without problems.</p>\n<p>I thought it was time to upgrade my Python environment, so I renamed <code>C:\\Portable\\python</code> to <code>C:\\Portable\\python311</code>, downloaded <code>https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-amd64.zip</code>, and unzipped its content to a new <code>C:\\Portable\\python</code> folder.</p>\n<p>I tried to use pip but pip where not installed on this portable version.</p>\n<p>I ran <code>curl -o C:\\Portable\\python\\get-pip.py https://bootstrap.pypa.io/get-pip.py</code> to download <code>get-pip.py</code></p>\n<p>I ran: <code>python get-pip.py</code> and got:</p>\n<pre><code>Collecting pip\n  Using cached pip-24.1.2-py3-none-any.whl.metadata (3.6 kB)\nCollecting setuptools\n  Using cached setuptools-70.3.0-py3-none-any.whl.metadata (5.8 kB)\nCollecting wheel\n  Using cached wheel-0.43.0-py3-none-any.whl.metadata (2.2 kB)\nUsing cached pip-24.1.2-py3-none-any.whl (1.8 MB)\nUsing cached setuptools-70.3.0-py3-none-any.whl (931 kB)\nUsing cached wheel-0.43.0-py3-none-any.whl (65 kB)\nInstalling collected packages: wheel, setuptools, pip\nSuccessfully installed pip-24.1.2 setuptools-70.3.0 wheel-0.43.0\n</code></pre>\n<p>Then I ran: <code>python.exe -m pip --version</code> and got:\n<code>python.exe: No module named pip</code></p>\n<p>If I go to <code>C:\\Portable\\python\\Scripts</code>, I see these files:</p>\n<pre><code>pip.exe\npip3.12.exe\npip3.exe\nwheel.exe\n</code></pre>\n<p>If I run <code>C:\\Portable\\python\\Scripts&gt;pip</code> I get this error:</p>\n<pre><code>C:\\Portable\\python\\Scripts&gt;pip\nTraceback (most recent call last):\n  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main\n  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code\n  File &quot;C:\\Portable\\python\\Scripts\\pip.exe\\__main__.py&quot;, line 4, in &lt;module&gt;\nModuleNotFoundError: No module named 'pip'\n</code></pre>\n<p>I tried using <a href=\"https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-win32.zip\" rel=\"nofollow noreferrer\">https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-win32.zip</a> instead of <a href=\"https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-amd64.zip\" rel=\"nofollow noreferrer\">https://www.python.org/ftp/python/3.12.4/python-3.12.4-embed-amd64.zip</a>.</p>\n<p>I don't want to use and 'installable' version on this machine.</p>\n<p>If I delete <code>C:\\Portable\\python</code> folder and copy <code>C:\\Portable\\python311</code> to it, then go to <code>C:\\Portable\\python\\Scripts</code>, remove all files, and run <code>python get-pip.py</code>. pip is installed perfectly and works without problems.</p>\n<p>To be honest, I don't remember where I got my Python 3.11.0 version.</p>\n<p>So, what else can I do?\nIs the current <code>python-3.12.4-embed-amd</code> portable version not usable under Windows Server 2019 Standard?\nDo I need to take any additional steps before using it?\nIs there another portable version that comes with pip already working?</p>\n<p>P.S.: I checked some very similar questions with the same problems, but they were either not solved or too old.</p>\n"
+  },
+  {
+   "tags": [
+    "dependencies",
+    "setuptools",
+    "python-packaging",
+    "python-poetry",
+    "pyproject.toml"
+   ],
+   "owner": {
+    "account_id": 15809013,
+    "reputation": 174,
+    "user_id": 11406744,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/3qjcX.jpg?s=256",
+    "display_name": "n_prime",
+    "link": "https://stackoverflow.com/users/11406744/n-prime"
+   },
+   "is_answered": true,
+   "view_count": 674,
+   "accepted_answer_id": 78782737,
+   "answer_count": 2,
+   "score": 1,
+   "last_activity_date": 1740403214,
+   "creation_date": 1721723822,
+   "question_id": 78782421,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78782421/using-poetrys-tool-poetry-dependencies-in-setuptools-configuration-in-pyproje",
+   "title": "Using Poetry&#39;s [tool.poetry.dependencies] in Setuptools Configuration in pyproject.toml",
+   "body": "<p>I use <a href=\"https://python-poetry.org/\" rel=\"nofollow noreferrer\">poetry</a> to handle my dependencies in a project.</p>\n<p><code>poetry add package</code> etc.</p>\n<p>They are all specified in a section of <code>pyproject.toml</code> named <code>[tool.poetry.dependencies]</code>. Ex:</p>\n<pre class=\"lang-yaml prettyprint-override\"><code>[tool.poetry.dependencies]\npython = &quot;^3.12&quot;\nstreamlit = &quot;^1.36.0&quot;\n</code></pre>\n<p>I am trying to use setuptools to <a href=\"https://til.simonwillison.net/python/pyproject\" rel=\"nofollow noreferrer\">make my package installable through pip using <code>pyproject.toml</code></a>. But per the <a href=\"https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html\" rel=\"nofollow noreferrer\">documentation</a>, dependencies are specified like :</p>\n<pre class=\"lang-ini prettyprint-override\"><code>[project]\nname = &quot;my_package&quot;\nauthors = [\n    {name = &quot;Josiah Carberry&quot;, email = &quot;josiah_carberry@brown.edu&quot;},\n]\ndescription = &quot;My package description&quot;\nreadme = &quot;README.rst&quot;\nrequires-python = &quot;&gt;=3.8&quot;\nkeywords = [&quot;one&quot;, &quot;two&quot;]\nlicense = {text = &quot;BSD-3-Clause&quot;}\nclassifiers = [\n    &quot;Framework :: Django&quot;,\n    &quot;Programming Language :: Python :: 3&quot;,\n]\n# Here are the dependencies\ndependencies = [\n    &quot;requests&quot;,\n    'importlib-metadata; python_version&lt;&quot;3.10&quot;',\n]\n</code></pre>\n<p>It is very different from the native <code>[tool.poetry.dependencies]</code>.</p>\n<p>My question is when specifying the project setuptools config, how to reuse the <code>[tool.poetry.dependencies]</code> already defined by poetry and avoid (manual) duplication ?</p>\n<p>This <a href=\"https://stackoverflow.com/questions/78677096/setuptools-unable-to-read-requirements-txt-from-pyproject-toml-in-python-3-12-x\">question</a> seems similar but I am looking for a way to use <code>[tool.poetry.dependencies]</code> and not a requirements.txt file.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "vs-code",
+    "jupyter-notebook"
+   ],
+   "owner": {
+    "account_id": 8089112,
+    "reputation": 443,
+    "user_id": 6095646,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/2oTwX.jpg?s=256",
+    "display_name": "enoren5",
+    "link": "https://stackoverflow.com/users/6095646/enoren5"
+   },
+   "is_answered": true,
+   "view_count": 24563,
+   "accepted_answer_id": 73563339,
+   "answer_count": 4,
+   "score": 6,
+   "last_activity_date": 1739984547,
+   "creation_date": 1661762578,
+   "last_edit_date": 1661992998,
+   "question_id": 73526188,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/73526188/integrating-python-and-jupyter-notebook-with-visual-studio-code",
+   "title": "Integrating Python and Jupyter Notebook with Visual Studio Code",
+   "body": "<p><strong>Summary</strong>:</p>\n<p>I am trying to set up the Jupyter Notebook extension for VSCode but I can\u2019t get my Python code snippets to run. There is no &quot;Run&quot; button to select. I can't select a Python/ Jupyter kernel to work with.</p>\n<p><strong>The problem in greater detail</strong>:</p>\n<p>If you check out this YouTube clip at exactly 1 minute and 46 seconds (<a href=\"https://youtu.be/EZ_KDKoBBb4?t=107\" rel=\"noreferrer\">here</a> - - you can pause it to see the still) this is what I am trying to accomplish.\nBut here is what my VSCode actually looks like:</p>\n<p><img src=\"https://i.sstatic.net/2BvKL.jpg\" alt=\"My VSC showing missing features\" /></p>\n<p>As you can see in my screenshot, the \u201cPlay\u201d icon to the left of my code snippet is missing. Along the top border, the other \u201cPlay All\u201d button is missing.</p>\n<p>In Microsoft\u2019s official VSC doc for setting up Jupyter Notebooks, right near the top under this specific heading: \u201c<a href=\"https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_create-or-open-a-jupyter-notebook\" rel=\"noreferrer\">Create or open a Jupyter Notebook</a>\u201d their interface has way more options at the top of the cells when compared to mine. They have buttons named: \u201cVariables\u201d, \u201cRestart\u201d, \u201cInterrupt\u201d. That is expected for Jupyter Notebook funcionality. Mine is missing all of that. Clearly there is something wrong with my setup.</p>\n<p>Other SO users report having  <code>ms-python</code> extension installed (which includes Jupyter functionality) in addition to stand-alone Jupyter Notebook extensions installed. Apparently in situations when you have multiple Python extensions installed, they can interfere with each other. So after much wrangling, I resolved to uninstalling all my Jupyter extensions and keeping only the main <code>ms-python</code> extension.</p>\n<p>The issue persists.</p>\n<p>Here is a complete list of all my VSC installed extensions:</p>\n<pre><code>$ code --list-extensions --show-versions\narcticicestudio.nord-visual-studio-code@0.19.0\nbatisteo.vscode-django@1.8.0\nbibhasdn.django-html@1.3.0\nCompulim.indent4to2@0.1.2\nEquinusocio.vsc-community-material-theme@1.4.4\nEquinusocio.vsc-material-theme@33.5.0\nequinusocio.vsc-material-theme-icons@2.3.1\nesbenp.prettier-vscode@9.8.0\nformulahendry.code-runner@0.11.8\nGulajavaMinistudio.mayukaithemevsc@3.2.3\nicrawl.discord-vscode@5.8.0\njanisdd.vscode-edit-csv@0.6.10\nlonefy.vscode-JS-CSS-HTML-formatter@0.2.3\nm-thorsen.vscode-materia@0.4.4\nms-python.python@2022.12.1\nNikolaosGeorgiou.html-fmt-vscode@0.6.0\nPKief.material-icon-theme@4.20.0\nsamuelcolvin.jinjahtml@0.17.0\nstreetsidesoftware.code-spell-checker@2.7.0\nyzhang.markdown-all-in-one@3.5.0\nzamerick.black-ocean@1.0.2\nzhuangtongfa.material-theme@3.15.2\n</code></pre>\n<p>There is a bit of noise in that list. I'm not sure what all of them refer to. But for certain there is only one Python app (<code>ms-python</code>) and nothing related to Jupyter.</p>\n<p>Some SO members elsewhere have suggested selecting / setting the base Python version/environment. When I click the \u201cSelect Kernel\u201d button at the top right (as illustrated in the screenshot below), it reveals an empty menu (see at the top left):</p>\n<p><img src=\"https://i.sstatic.net/6c2yl.jpg\" alt=\"No Kernel options\" /></p>\n<p>Here is \u201cPython v3.8.5 (conda)\u201d showing as selected at the bottom and slightly to the left:</p>\n<p><img src=\"https://i.sstatic.net/37abC.jpg\" alt=\"Python v3.8.5 (conda) showing\" /></p>\n<p>Another exhaustive question and answer thread elsewhere on Stack Overflow involving an  issue similar to mine includes many, many creative potential solutions: <a href=\"https://stackoverflow.com/questions/60330837/jupyter-server-not-started-no-kernel-in-vs-code\">jupyter server : not started, no kernel in vs code</a>\nIn that Stack Overflow question, one prominent member answers:</p>\n<blockquote>\n<p>How I solved it:</p>\n<ol>\n<li>Press <code>Command+Shift+P</code> to open a new command pallete</li>\n<li>Type <code>&gt;Python: Select Intepreter to start jupyter notebook server</code></li>\n<li>Open the notebook again</li>\n</ol>\n</blockquote>\n<p>Someone else suggests:</p>\n<blockquote>\n<ol>\n<li>Press <code>Command+Shift+P</code> on mac, <code>Ctrl+Shift+p</code> on windows</li>\n<li>Type <code>Jupyter: Select Interpreter</code> to start Jupyterserver</li>\n<li>It would show you a dropdown of python versions installed.</li>\n<li>I chose python 3.7.5 and it worked for me. you can choose the python version installed on your machine.</li>\n</ol>\n</blockquote>\n<p>Another member says:</p>\n<blockquote>\n<p>I have seen all possible solutions but not work, finally I just\nupgrade <code>jupyter</code>, <code>notebook</code>, and <code>jupyterlab</code>, like <code>pip install -U jupyterlab</code>, and I can choose the kernel in VScode!</p>\n</blockquote>\n<p>None of the above resolves my issue.</p>\n<p>Here is a quirky new twist: After installing <code>jupyterlab</code> with pip, after restarting VSC, I encountered this weird error:</p>\n<p><img src=\"https://i.sstatic.net/ToV0R.jpg\" alt=\"enter image description here\" /></p>\n<p>It\u2019s a condition box. I clicked: \u201cYes\u201d.</p>\n<p>Jupyter is still not integrated properly.</p>\n<p><strong>UPDATED</strong>: Based on <em>JialeDu</em>\u2019s answer, I followed his instructions. I created a video shared below. It doesn\u2019t quite capture every step, but I did follow all the steps. What you can see in the gif video is that my current working directory is a folder called <code>Test</code>, a new terminal has been opened, and there is an active virtual environment with <code>$ source .venv/bin/activate</code>. Next, as you can see in the .gif, I am able to select the latest Python interpreter v3.10.5 showing as \u201cRecommended\u201d. So that is progress. I couldn\u2019t do that before. Going the virtual environment route was a great idea. However, I am still not able to get the Jupyter Notebook interface as the end product shared by JialeDu. When I invoke <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> again and type <code>&gt; create jup</code> a new Jupyter Notebook file is created but the kernel I selected previously does not show and the expected Jupyter interface buttons and options are still not  showing. Here is the video demo in .gif formatting:</p>\n<p><img src=\"https://i.imgur.com/ort7Yy6.gif\" alt=\"Imgur\" /></p>\n<p>Please note: Here you can see a list of 4 available Jupyter extensions:\n<img src=\"https://i.sstatic.net/eSopb.jpg\" alt=\"enter image description here\" /></p>\n<p>I avoided installing any of these separate Jupyter extensions in the store because according to the instructor (and as confirmed on the official Microsoft Python extension <code>ms-python</code> page  which I already have), <em>it includes Jupyter built in</em>. From the <code>ms-python</code> extension entry, it explains: &quot;This Python extension will automatically install the Pylance and Jupyter extensions to give you the best experience when working with Python files and Jupyter notebooks.&quot;</p>\n<p>Even though other Stack Overflow users indicated that mixing the above extensions such as <code>ms-python</code> with <code>ms-toolsai</code> was a bad idea, I experimented with having them both installed anyway. Didn\u2019t fix the issue. I tried uninstalling <code>ms-python</code> and keeping <code>ms-toolsai</code>. Still no dice.</p>\n<p>By the way, I\u2019ve also got the latest version (as of this writing) of VSCode v1.70.1 installed:\n<a href=\"https://i.sstatic.net/WCCsR.jpg\" rel=\"noreferrer\"><img src=\"https://i.sstatic.net/WCCsR.jpg\" alt=\"enter image description here\" /></a></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "matplotlib",
+    "manim"
+   ],
+   "owner": {
+    "account_id": 25603799,
+    "reputation": 15,
+    "user_id": 19738728,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AATXAJwjBOaYKimDMCfixgpWULoOSOG3yeZ1XUlvhLr0=k-s256",
+    "display_name": "demneptune",
+    "link": "https://stackoverflow.com/users/19738728/demneptune"
+   },
+   "is_answered": false,
+   "view_count": 181,
+   "answer_count": 0,
+   "score": 1,
+   "last_activity_date": 1733675049,
+   "creation_date": 1733675049,
+   "question_id": 79262865,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79262865/why-cant-python-find-matplotlib-after-installing-manim-in-windows-11",
+   "title": "Why can&#39;t Python find Matplotlib after installing Manim (in Windows 11)?",
+   "body": "<p>I am using Windows 11 on an HP laptop, purchased August 2024. I have installed Python, then added matplotlib (using the command line from PowerShell) and it seemed to be working (In PowerShell I simply typed <code>python -m pip install matplotlib</code> but note that now I have also tried <code>python3.13 -m pip install matplotlib</code> which was suggested by another question, but the console just said that python3.13 (my version) was not a command). I could run a simple program from w3schools.com using matplotlib.</p>\n<p>Then I installed Manim using the Chocolatey package manager (as recommended for the Manim community version). This was by typing: <code>choco install manimce</code>. Now I can't use matplotlib anymore. I can download the package using pip, but the following code won't run:</p>\n<pre><code>import matplotlib.pyplot as plt\nimport numpy as np\n\ny = np.array([35, 25, 25, 15])\nmylabels = [&quot;Apples&quot;, &quot;Bananas&quot;, &quot;Cherries&quot;, &quot;Dates&quot;]\n\nplt.pie(y, labels = mylabels)\nplt.show() \n</code></pre>\n<p>I have tried running this from the code editor and clicking &quot;run&quot; from the menu options. My editor is called &quot;IDLE&quot;, which I have used for every piece of code I have run.</p>\n<p>The output from the code: <code>import sys; print(sys.path)</code> is as follows:</p>\n<blockquote>\n<p>['C:/&lt;MYSTUFF&gt;/&lt;MY OWN PROGRAMS&gt;/Python code', 'C:\\\\Python312\\\\Lib\\\\idlelib', 'C:\\\\Python312\\\\python312.zip', 'C:\\\\Python312\\\\DLLs', 'C:\\\\Python312\\\\Lib', 'C:\\\\Python312', 'C:\\\\Users\\\\&lt;MY USERNAME&gt;\\\\AppData\\\\Roaming\\\\Python\\\\Python312\\\\site-packages', 'C:\\\\Python312\\\\Lib\\\\site-packages', 'C:\\\\tools\\\\Manim\\\\Lib\\\\site-packages']</p>\n</blockquote>\n<p>So whilst I use the command line for installing packages, I am not running <em>any</em> of these programs from the command line, just the code editor. Then the shell for my IDLE editor reports this:</p>\n<blockquote>\n<p>Traceback (most recent call last):\nFile &quot;C:\\MYFOLDERSETC\\python tester 2.py&quot;, line 1, in &lt;module&gt;\nimport matplotlib as plt\nModuleNotFoundError: No module named 'matplotlib'</p>\n</blockquote>\n<p>The output for the command <code>python -m pip freeze</code> is as follows:</p>\n<blockquote>\n<p>click==8.1.7</p>\n<p>cloup==3.0.5</p>\n<p>colorama==0.4.6</p>\n<p>contourpy==1.3.1</p>\n<p>cycler==0.12.1</p>\n<p>decorator==5.1.1</p>\n<p>fonttools==4.55.2</p>\n<p>glcontext==3.0.0</p>\n<p>isosurfaces==0.1.2</p>\n<p>kiwisolver==1.4.7</p>\n<p>manim==0.18.1</p>\n<p>ManimPango==0.6.0</p>\n<p>mapbox_earcut==1.0.2</p>\n<p>markdown-it-py==3.0.0</p>\n<p>matplotlib==3.9.3</p>\n<p>mdurl==0.1.2</p>\n<p>moderngl==5.12.0</p>\n<p>moderngl-window==3.0.3</p>\n<p>networkx==3.4.2</p>\n<p>numpy==2.1.3</p>\n<p>packaging==24.2</p>\n<p>pillow==11.0.0</p>\n<p>pycairo==1.27.0</p>\n<p>pydub==0.25.1</p>\n<p>pyglet==2.0.20</p>\n<p>PyGLM==2.7.3</p>\n<p>Pygments==2.18.0</p>\n<p>pyparsing==3.2.0</p>\n<p>python-dateutil==2.9.0.post0</p>\n<p>rich==13.9.4</p>\n<p>scipy==1.14.1</p>\n<p>screeninfo==0.8.1</p>\n<p>setuptools==75.6.0</p>\n<p>six==1.17.0</p>\n<p>skia-pathops==0.8.0.post2</p>\n<p>srt==3.5.3</p>\n<p>svgelements==1.9.6</p>\n<p>tqdm==4.67.1</p>\n<p>typing_extensions==4.12.2</p>\n<p>watchdog==6.0.0</p>\n<p>wheel==0.45.</p>\n</blockquote>\n<p>I have tried reinstalling matplotlib from the command line, but the same thing happens each time. I can use numpy to generate simple random numbers, so something is still working. I have tried all the solutions from similar questions on SO, but nothing changes.</p>\n<p>I used Chocolatey to install Manim, and tried using it to install matplotlib, but it wouldn't install. I previously have installed all packages (including matplotlib) from the command line) using pip.</p>\n<p>What is going wrong, and how can I fix this?</p>\n"
+  },
+  {
+   "tags": [
+    "tensorflow",
+    "keras",
+    "google-colaboratory"
+   ],
+   "owner": {
+    "account_id": 27988382,
+    "reputation": 13,
+    "user_id": 21374732,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a/AGNmyxagEC9RNr5H1iKyibFSv5C_Z0nswSj5C3GmXizd=k-s256",
+    "display_name": "TheMetaSetter",
+    "link": "https://stackoverflow.com/users/21374732/themetasetter"
+   },
+   "is_answered": true,
+   "view_count": 399,
+   "accepted_answer_id": 79140375,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1730279148,
+   "creation_date": 1725628507,
+   "question_id": 78957326,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78957326/attributeerror-in-tcn-layer-when-building-model-on-google-colab-tuple-object",
+   "title": "AttributeError in TCN Layer when Building Model on Google Colab: &#39;tuple&#39; object has no attribute &#39;as_list&#39;",
+   "body": "<p>I am doing a project that needs to use Temporal Convolutional Network and I found a package that supports building this conveniently: <a href=\"https://github.com/philipperemy/keras-tcn\" rel=\"nofollow noreferrer\">https://github.com/philipperemy/keras-tcn</a>\nBelow is the code that I am using to define the architecture of the TCN model.</p>\n<pre><code>!pip install keras-tcn\n</code></pre>\n<pre><code>from tensorflow.keras import Input, Model\nfrom tensorflow.keras.layers import Dense, Softmax, Lambda\nfrom tcn import TCN\n\n# Create the Input Layer\ninput_layer = Input(shape=(20, 225))\n\n# First TCN Layer - parameters based on the tcn.py file\ntcn_layer_1 = TCN(nb_filters=64,\n                  kernel_size=3,\n                  nb_stacks=1,\n                  dilations=(1, 2, 4, 8),\n                  padding='causal',\n                  use_skip_connections=True,\n                  return_sequences=True, # Important: Return sequences for stacked TCN layers\n                  dropout_rate=0.05,\n                  activation='relu',\n                  use_batch_norm=False,\n                  use_layer_norm=False)(input_layer)\n\n# Second TCN Layer - similar parameters as the first layer\ntcn_layer_2 = TCN(nb_filters=64,\n                  kernel_size=3,\n                  nb_stacks=1,\n                  dilations=(1, 2, 4, 8),\n                  padding='causal',\n                  use_skip_connections=True,\n                  return_sequences=False, # Final TCN layer, no need to return sequences\n                  dropout_rate=0.05,\n                  activation='relu',\n                  use_batch_norm=False,\n                  use_layer_norm=False)(tcn_layer_1)\n\n# Dense Layer to further process the TCN output\ndense_layer = Dense(128, activation='relu')(tcn_layer_2)\n\n# Softmax Output Layer for classification\noutput_layer = Dense(len(gloss_list), activation='softmax')(dense_layer)\n\n# Compile the model\nmodel = Model(inputs=input_layer, outputs=output_layer)\nmodel.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])\n\n# Print the model summary to verify the architecture\nmodel.summary()\n</code></pre>\n<p>This error below pops up after running the above block of code.</p>\n<pre><code>---------------------------------------------------------------------------\nAttributeError                            Traceback (most recent call last)\n&lt;ipython-input-7-3a050a142399&gt; in &lt;cell line: 9&gt;()\n      7 \n      8 # First TCN Layer - parameters based on the tcn.py file\n----&gt; 9 tcn_layer_1 = TCN(nb_filters=64,\n     10                   kernel_size=3,\n     11                   nb_stacks=1,\n\n1 frames\n/usr/local/lib/python3.10/dist-packages/tcn/tcn.py in build(self, input_shape)\n    314             self.output_slice_index = -1  # causal case.\n    315         self.slicer_layer = Lambda(lambda tt: tt[:, self.output_slice_index, :], name='Slice_Output')\n--&gt; 316         self.slicer_layer.build(self.build_output_shape.as_list())\n    317 \n    318     def compute_output_shape(self, input_shape):\n\nAttributeError: 'tuple' object has no attribute 'as_list'\n</code></pre>\n<p>The weirdest thing is I can actually run this code on my Macbook M1 Pro.</p>\n<p><em><a href=\"https://i.sstatic.net/Z4j7pSFm.png\" rel=\"nofollow noreferrer\">The summary of the model is printed out when I run the code on my local machine.</a></em></p>\n<p>I have tried to look inside the code of the keras-tcn package but found nothing. The error comes from the method below of the TCN class, specifically from the last line of code <code>self.slicer_layer.build(self.build_output_shape.as_list())</code>. As I understand, the <code>self.build_output_shape</code> is set as a tuple <code>input_shape</code> at the start of the method. For the code to work out, I think (actually GPT-4o) <code>self.build_output_shape</code> will be changed into a TensorShape object at the line <code>self.build_output_shape = self.residual_blocks[-1].res_output_shape</code>. But it seems like the object's type didn't change, which cause the error. Again, the weirdest thing is this happens only on Google Colab, not on my local machine.</p>\n<pre><code>def build(self, input_shape):\n\n        # member to hold current output shape of the layer for building purposes\n        self.build_output_shape = input_shape\n\n        # list to hold all the member ResidualBlocks\n        self.residual_blocks = []\n        total_num_blocks = self.nb_stacks * len(self.dilations)\n        if not self.use_skip_connections:\n            total_num_blocks += 1  # cheap way to do a false case for below\n\n        for s in range(self.nb_stacks):\n            for i, d in enumerate(self.dilations):\n                res_block_filters = self.nb_filters[i] if isinstance(self.nb_filters, list) else self.nb_filters\n                self.residual_blocks.append(ResidualBlock(dilation_rate=d,\n                                                          nb_filters=res_block_filters,\n                                                          kernel_size=self.kernel_size,\n                                                          padding=self.padding,\n                                                          activation=self.activation_name,\n                                                          dropout_rate=self.dropout_rate,\n                                                          use_batch_norm=self.use_batch_norm,\n                                                          use_layer_norm=self.use_layer_norm,\n                                                          use_weight_norm=self.use_weight_norm,\n                                                          kernel_initializer=self.kernel_initializer,\n                                                          name='residual_block_{}'.format(len(self.residual_blocks))))\n                # build newest residual block\n                self.residual_blocks[-1].build(self.build_output_shape)\n                self.build_output_shape = self.residual_blocks[-1].res_output_shape\n\n        # this is done to force keras to add the layers in the list to self._layers\n        for layer in self.residual_blocks:\n            self.__setattr__(layer.name, layer)\n\n        self.output_slice_index = None\n        if self.padding == 'same':\n            time = self.build_output_shape.as_list()[1]\n            if time is not None:  # if time dimension is defined. e.g. shape = (bs, 500, input_dim).\n                self.output_slice_index = int(self.build_output_shape.as_list()[1] / 2)\n            else:\n                # It will known at call time. c.f. self.call.\n                self.padding_same_and_time_dim_unknown = True\n\n        else:\n            self.output_slice_index = -1  # causal case.\n        self.slicer_layer = Lambda(lambda tt: tt[:, self.output_slice_index, :], name='Slice_Output')\n        self.slicer_layer.build(self.build_output_shape.as_list())\n</code></pre>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "ubuntu-24.04"
+   ],
+   "owner": {
+    "account_id": 6398720,
+    "reputation": 242,
+    "user_id": 5194614,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/aee173c6577de17515e3a36f9a7863e4?s=256&d=identicon&r=PG",
+    "display_name": "Franks",
+    "link": "https://stackoverflow.com/users/5194614/franks"
+   },
+   "is_answered": false,
+   "view_count": 677,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1729765603,
+   "creation_date": 1729762486,
+   "last_edit_date": 1729765603,
+   "question_id": 79121291,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/79121291/lintrunner-importerror-cannot-import-name-appdirs-from-pkg-resources-extern",
+   "title": "lintrunner: ImportError: cannot import name &#39;appdirs&#39; from &#39;pkg_resources.extern&#39;",
+   "body": "<p>Trying to install lintrunner with pip in a RISCV:</p>\n<pre><code>$ pip install lintrunner\nCollecting lintrunner\n  Using cached lintrunner-0.12.5.tar.gz (62 kB)\n  Installing build dependencies ... error\n  error: subprocess-exited-with-error\n[...]\nFile &quot;/tmp/pip-build-env-im5_kq1b/overlay/lib/python3.12/site-packages/pkg_resources/__init__.py&quot;, line 74, in &lt;module&gt;\n          from pkg_resources.extern import appdirs\n      ImportError: cannot import name 'appdirs' from 'pkg_resources.extern' (/tmp/pip-build-env-im5_kq1b/overlay/lib/python3.12/site-packages/pkg_resources/extern/__init__.py)\n</code></pre>\n<p>pkg_resources is provided by setuptools, and setuptools and appdirs packages are installed in my virtual env:</p>\n<pre><code>$ pip list\nPackage      Version\n------------ -------\nappdirs      1.4.4\npip          24.0\nplatformdirs 4.3.6\nsetuptools   69.5.1\n</code></pre>\n<p>Just in case, I also installed the system-wide package provided through repos:</p>\n<pre><code>$ apt search appdirs\nSorting... Done\nFull Text Search... Done\npython3-appdirs/noble,now 1.4.4-4 all [installed]\n</code></pre>\n<p>Running python 3.12.3 in Ubuntu 24-04.1 architecture RISCV64.</p>\n<p>Similar answered question here on stackoverflow from 2015: <a href=\"https://stackoverflow.com/questions/32798137/importerror-no-module-named-appdirs\">ImportError: No module named &#39;appdirs&#39;</a>\ndoes not work in my environment probably to RISCV64 architecture or new conflict between packages that are not present in the linked question (since answers are about reinstalling appdirs).\nAlso, notice that appdirs is currently deprecated in favor of platformdirs (<a href=\"https://github.com/ActiveState/appdirs/commit/8734277956c1df3b85385e6b308e954910533884\" rel=\"nofollow noreferrer\">https://github.com/ActiveState/appdirs/commit/8734277956c1df3b85385e6b308e954910533884</a>)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pandas"
+   ],
+   "owner": {
+    "account_id": 1374413,
+    "reputation": 2563,
+    "user_id": 1308706,
+    "user_type": "registered",
+    "accept_rate": 82,
+    "profile_image": "https://www.gravatar.com/avatar/a08e2c656e5348470959b18d7708881f?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Shatnerz",
+    "link": "https://stackoverflow.com/users/1308706/shatnerz"
+   },
+   "is_answered": true,
+   "view_count": 353184,
+   "accepted_answer_id": 35715029,
+   "answer_count": 13,
+   "score": 122,
+   "last_activity_date": 1727274613,
+   "creation_date": 1456421426,
+   "last_edit_date": 1495540024,
+   "question_id": 35634238,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/35634238/how-to-save-a-pandas-dataframe-table-as-a-png",
+   "title": "How to save a pandas DataFrame table as a png",
+   "body": "<p>I constructed a pandas dataframe of results. This data frame acts as a table. There are MultiIndexed columns and each row represents a name, ie <code>index=['name1','name2',...]</code> when creating the DataFrame. I would like to display this table and save it as a png (or any graphic format really). At the moment, the closest I can get is converting it to html, but I would like a png. It looks like similar questions have been asked such as <a href=\"https://stackoverflow.com/questions/19726663/how-to-save-the-pandas-dataframe-series-data-as-a-figure\">How to save the Pandas dataframe/series data as a figure?</a></p>\n\n<p>However, the marked solution converts the dataframe into a line plot (not a table) and the other solution relies on PySide which I would like to stay away simply because I cannot pip install it on linux. I would like this code to be easily portable. I really was expecting table creation to png to be easy with python. All help is appreciated.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django",
+    "labeling"
+   ],
+   "owner": {
+    "account_id": 4222341,
+    "reputation": 1305,
+    "user_id": 3456812,
+    "user_type": "registered",
+    "accept_rate": 53,
+    "profile_image": "https://www.gravatar.com/avatar/dc8ae0f05e65be31e3038b8b38e708cc?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "markaaronky",
+    "link": "https://stackoverflow.com/users/3456812/markaaronky"
+   },
+   "is_answered": false,
+   "view_count": 195,
+   "answer_count": 0,
+   "score": 0,
+   "last_activity_date": 1724707534,
+   "creation_date": 1724623151,
+   "last_edit_date": 1724707534,
+   "question_id": 78912354,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78912354/cannot-resolve-missing-djanjo-when-trying-to-run-label-studio",
+   "title": "Cannot resolve &quot;missing&quot; Djanjo when trying to run label-studio",
+   "body": "<p>I want to use the popular package label-studio to build training data using images that I'll apply the AI labelling steps on.</p>\n<p>The problem is that after cloning the repo from github and following all the instructions, I'm getting the following error:</p>\n<pre><code>Traceback (most recent call last):\n  File &quot;/Users/markalsip/label-studio/label_studio/manage.py&quot;, line 11, in &lt;module&gt;\n    from django.conf import settings\nModuleNotFoundError: No module named 'django'\nThe above exception was the direct cause of the following exception:\nTraceback (most recent call last):\n  File &quot;/Users/markalsip/label-studio/label_studio/manage.py&quot;, line 18, in &lt;module&gt;\n    raise ImportError(\nImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?\n</code></pre>\n<p>The first problem is that django IS installed and my PYTHONPATH environment variable, by all means at my disposal, is correct:</p>\n<pre><code>django-admin --version\n</code></pre>\n<p>returns:  <code>3.2.25</code></p>\n<pre><code>echo $PYTHONPATH\n</code></pre>\n<p>returns: <code>/Users/markalsip/label-studio/env/lib/python3.12/site-packages:</code></p>\n<p>I should point out the instructions for this program indicate I should run it in what I believe to be a virtual environment. I have done this (my current root folder is Marks-MBP:label-studio, thus the text shown in the prompt):</p>\n<pre><code>Marks-MBP:label-studio markalsip$ source /Users/markalsip/label-studio/env/bin/activate\n(env) Marks-MBP:label-studio markalsip$ python --version\n</code></pre>\n<p>returns: <code>Python 3.12.0</code></p>\n<p>To run the python program, I am told to:</p>\n<pre><code>python label_studio/manage.py runserver\n</code></pre>\n<p>I should back up and say that ALL of the things I'm doing here, such as checking paths, environment variables, etc., is done while I'm in this environment. I got there by the command:</p>\n<pre><code>source /Users/markalsip/label-studio/env/bin/activate\n</code></pre>\n<p>What I've tried:</p>\n<ul>\n<li>Uninstalling and reinstalling django</li>\n<li>Uninstalling and reinstalling the label_studio</li>\n<li>Listed installed packages from both the command line, as well as directly accessing them (e.g. the django django-admin --version, wbich returns 3.2.25)</li>\n</ul>\n<p>Verifying my environment variable don't look wonky. My entire .bash_profile is pretty simplistic:</p>\n<pre><code># Setting PATH for Python 3.12\n# The original version is saved in .bash_profile.pysave\nPATH=&quot;/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}&quot;\nPYTHONPATH=&quot;/Users/markalsip/label-studio/env/lib/python3.12/site-packages:$PYTHONPATH&quot;\nexport PATH\nexport PYTHONPATH\n</code></pre>\n<p>I also found a recommendation to ensure there are no .txt files in the label program source folder that list additional dependencies. I find no such file.</p>\n<p>I saw a note during the install process that django itself had two dependencies. I checked and both of those are installed.</p>\n<p>EDIT EDIT EDIT</p>\n<p>Following the suggestions in comments, I first saw the django wasn't in the environment path I set up, so I backed up, created a new environment, installed django, and verified that it is indeed in the path suggested in the comments. I've installed all packages &quot;clean&quot; in this new environment.</p>\n<p>The error I now receive is similar to the last one, but a bit different:</p>\n<p>(venv) Marks-MBP:label-studio markalsip$ python label_studio/manage.py runserver\nTraceback (most recent call last):\nFile &quot;/Users/markalsip/label-studio/label_studio/manage.py&quot;, line 11, in \nfrom django.conf import settings\nFile &quot;/Users/markalsip/label-studio/venv/lib/python3.12/site-packages/django/conf/<strong>init</strong>.py&quot;, line 19, in \nfrom django.utils.deprecation import RemovedInDjango60Warning\nFile &quot;/Users/markalsip/label-studio/venv/lib/python3.12/site-packages/django/utils/deprecation.py&quot;, line 4, in \nfrom asgiref.sync import iscoroutinefunction, markcoroutinefunction, sync_to_async\nModuleNotFoundError: No module named 'asgiref'</p>\n<p>The above exception was the direct cause of the following exception:</p>\n<p>Traceback (most recent call last):\nFile &quot;/Users/markalsip/label-studio/label_studio/manage.py&quot;, line 18, in \nraise ImportError(\nImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?\n(venv) Marks-MBP:label-studio markalsip$</p>\n<p>I'm clearly in a virtual environment. My PYTHONPATH is as follows:</p>\n<p>(venv) Marks-MBP:label-studio markalsip$ echo $PYTHONPATH\n/Users/markalsip/label-studio/venv/lib/python3.12/site-packages:</p>\n<p>A listing of the site-packages folder:</p>\n<p>drwxr-xr-x  12 markalsip  staff  384 Aug 26 16:57 Django-5.1.dist-info\ndrwxr-xr-x  21 markalsip  staff  672 Aug 26 16:57 django\ndrwxr-xr-x   9 markalsip  staff  288 Aug 26 16:57 pip\ndrwxr-xr-x  11 markalsip  staff  352 Aug 26 16:57 pip-23.2.1.dist-info</p>\n<p>So django IS THERE.</p>\n<p>I did find a somewhat related post that suggested I try the following:</p>\n<p>export DJANGO_SETTINGS_MODULE=core.settings.label_studio</p>\n<p>So I've tried that from within the environment but it didn't make a difference.</p>\n<p>The one thing that's worrisome is the very last line:</p>\n<p>(venv) Marks-MBP:site-packages markalsip$ django-admin --version\nTraceback (most recent call last):\nFile &quot;/Library/Frameworks/Python.framework/Versions/3.12/bin/django-admin&quot;, line 5, in \nfrom django.core.management import execute_from_command_line\nFile &quot;/Users/markalsip/label-studio/venv/lib/python3.12/site-packages/django/core/management/<strong>init</strong>.py&quot;, line 17, in \nfrom django.conf import settings\nFile &quot;/Users/markalsip/label-studio/venv/lib/python3.12/site-packages/django/conf/<strong>init</strong>.py&quot;, line 19, in \nfrom django.utils.deprecation import RemovedInDjango60Warning\nFile &quot;/Users/markalsip/label-studio/venv/lib/python3.12/site-packages/django/utils/deprecation.py&quot;, line 4, in \nfrom asgiref.sync import iscoroutinefunction, markcoroutinefunction, sync_to_async\n<strong>ModuleNotFoundError: No module named 'asgiref'</strong></p>\n<p><strong>I'm now trying to find out what the heck asgiref is and why I was never asked to install or otherwise reference it with django</strong></p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "apache-spark",
+    "databricks",
+    "distributed-computing",
+    "azure-databricks"
+   ],
+   "owner": {
+    "account_id": 6635936,
+    "reputation": 1369,
+    "user_id": 5123111,
+    "user_type": "registered",
+    "accept_rate": 56,
+    "profile_image": "https://www.gravatar.com/avatar/dc1e1a1ab491fccce6cff95b63c1c6bf?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "lazarea",
+    "link": "https://stackoverflow.com/users/5123111/lazarea"
+   },
+   "is_answered": false,
+   "view_count": 2865,
+   "answer_count": 1,
+   "score": 2,
+   "last_activity_date": 1724507674,
+   "creation_date": 1653923518,
+   "last_edit_date": 1653930949,
+   "question_id": 72436511,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/72436511/installing-python-package-across-spark-executors-not-finding-python-package-r",
+   "title": "Installing Python package across Spark executors - not finding python package, raising ModuleNotFoundError",
+   "body": "<p>I have a question regarding the correct way to install new packages on Spark worker nodes, using Databricks and Mlflow.</p>\n<p>What I currently have are the following:</p>\n<ol>\n<li>a training script (using cv2, i.e. opencv2-python library), which logs the tuned ML model, together with dependencies, on mlflow Model Registry</li>\n<li>an inference script which reads the logged ML model together with the saved conda environment, as a spark_udf</li>\n<li>an installation step which reads the conda environment and installs all packages to the required version, via pip install (wrapped in a subprocess.call)</li>\n<li>and then the actual prediction where the spark_udf is called on new data.</li>\n</ol>\n<p>The last step is what fails with ModuleNotFoundError.</p>\n<pre><code>SparkException: Job aborted due to stage failure: Task 8 in stage 95.0 \nfailed 4 times, most recent failure: Lost task 8.3 in stage 95.0 (TID 577 \n(xxx.xxx.xxx.xxx executor 0): org.apache.spark.api.python.PythonException: \n'ModuleNotFoundError: No module named 'cv2''\n</code></pre>\n<p>I have been closely following the content of <a href=\"https://gankrin.org/how-to-fix-importerror-no-module-named-error-in-spark/\" rel=\"nofollow noreferrer\">this article</a> which seems to cover this same problem:</p>\n<ul>\n<li>&quot;One major reason for such issues is using udfs. And sometimes the udfs don\u2019t get distributed to the cluster worker nodes.&quot;</li>\n<li>&quot;The respective dependency modules used in the udfs or in main spark program might be missing or inaccessible from\\in the cluster worker nodes.&quot;</li>\n</ul>\n<p>So it seems that at the moment, despite using spark_udf and conda environment logged to mlflow, installation of the cv2 module only happened on my driver node, but not on the worker nodes. If this is true, I now need to programatically specify these extra dependencies (namely, the cv2 Python module), to the executors/worker nodes.</p>\n<p>So what I did was, importing the cv2 in my inference script, and retrieving the path of the cv2's init file, and adding it to spark context, similarly to how it is done for the arbitrary &quot;A.py&quot; file in the blog post above.</p>\n<pre><code>import cv2\nspark.sparkContext.addFile(os.path.abspath(cv2.__file__))\n</code></pre>\n<p>This doesn't seem to do any change though. I assume the reason is, partly, that I want to add not just a single <code>__init__.py</code> file, but make the entire cv2 library accessible to the worker nodes; however, the above solution seems to only do it for the <code>__init__.py</code>. I'm certain that adding all files in all submodules of cv2 is also not the way to go, but I haven't been able to figure out how I could achieve this easily, with a similar command as the <code>addFile()</code> above.</p>\n<p>Similarly, I also tried the other option, <code>addPyFile()</code>, by pointing it to the cv2 module's root (parent of <code>__init__</code>):</p>\n<pre><code>import cv2\nspark.sparkContext.addPyFile(os.path.dirname(cv2.__file__))\n</code></pre>\n<p>but this also didn't help, and I still got stuck with the same error. Furthermore, I would like this process to be automatic, i.e. not having to manually set module paths in the inference code.</p>\n<p>Similar posts I came across to:</p>\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/61383523/running-spacy-in-pyspark-but-getting-modulenotfounderror-no-module-named-spac\">Running spacy in pyspark, but getting ModuleNotFoundError: No module named 'spacy'</a>, here the only answer suggests to &quot;restart spark session&quot; - not sure though what that means in my specific case, with an active Databricks notebook and a running cluster.</li>\n<li><a href=\"https://stackoverflow.com/questions/50865093/modulenotfounderror-in-pyspark-worker-on-rdd-collect\">ModuleNotFoundError in PySpark Worker on rdd.collect()</a>, here the answer states &quot;you're not allowed to access the spark context from executor tasks,&quot; which might explain why I failed with both of my approaches above (<code>addFile</code> and <code>addPyFile</code>). But if this is not allowed, what's the correct workaround then?</li>\n<li><a href=\"https://stackoverflow.com/questions/56901591/pyspark-modulenotfounderror-no-module-named-app\">PySpark: ModuleNotFoundError: No module named 'app'</a>, here there is an informative answer, stating &quot;Your Python code runs on driver, but you udf runs on executor PVM. (...) use the same environment in both driver and executors.&quot;, but it's really not clear how to do so programatically, inside of the notebook.</li>\n</ul>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "django"
+   ],
+   "owner": {
+    "account_id": 24279703,
+    "reputation": 19,
+    "user_id": 18226441,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/491f3152e3ade867694eabeaa29dfba6?s=256&d=identicon&r=PG",
+    "display_name": "SergeT",
+    "link": "https://stackoverflow.com/users/18226441/serget"
+   },
+   "is_answered": true,
+   "view_count": 62,
+   "answer_count": 1,
+   "score": 0,
+   "last_activity_date": 1724359432,
+   "creation_date": 1724357461,
+   "question_id": 78903359,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78903359/unable-to-run-django-admin-after-closing-vs-code",
+   "title": "Unable to run &quot;django-admin&quot; after closing vs code",
+   "body": "<p>I am working on a website project and someone suggested I do a Django tutorial.  Using my VS Code, I ran through the steps to install using pip and then during the project I was instructed to setup a virtual environment.  I had ended part of the project and when I went go back to the tutorial, nothing is working.  I tried to run &quot;django-admin&quot; to review the available commands but I get error &quot;django-admin : The term 'django-admin' is not recognized as the name of a cmdlet&quot;.  I go to check the version of Python and Django and I get similar error's regarding &quot;not recognized&quot;.  I am able to run a python file but no command line commands.   I'm wondering if something go messed up regarding the &quot;PATH&quot;.  I'm not an expert on any of these items, evidently just enough to make things break.\nPlease advise,</p>\n"
+  },
+  {
+   "tags": [
+    "function",
+    "aws-lambda",
+    "psycopg2"
+   ],
+   "owner": {
+    "account_id": 10075176,
+    "reputation": 424,
+    "user_id": 7447542,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/8a28bb356d34119cbb7a32678d9e32e3?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "Nikhil Ravindran",
+    "link": "https://stackoverflow.com/users/7447542/nikhil-ravindran"
+   },
+   "is_answered": true,
+   "view_count": 6055,
+   "answer_count": 2,
+   "score": 4,
+   "last_activity_date": 1723697103,
+   "creation_date": 1557168756,
+   "last_edit_date": 1723697103,
+   "question_id": 56010836,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/56010836/no-module-named-psycopg2-psycopg",
+   "title": "No module named &#39;psycopg2._psycopg&#39;",
+   "body": "<p>Im creating a lambda function to connect to an RDS Postgresql instance, using psycopg2 library.\nWhen i tried on my local desktop, it works fine, but when i upload the code to the AWS lambda and test it, it throws the error:</p>\n\n<p>Unable to import module 'lambda_function': No module named 'psycopg2._psycopg'</p>\n\n<p>I tried to pip install psycopg2 to the local folder on my pc where I saved the local copy of my lambda_function, and then created a zip out of it and uploaded it. But still its not working.\nAnyone who has faced similar issue, please advise.</p>\n\n<p>I have installed python 3.7 (32 bit) on my local. Not sure if AWS version of python is 64 bit or not.</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "google-cloud-platform",
+    "google-cloud-functions"
+   ],
+   "owner": {
+    "account_id": 19385985,
+    "reputation": 41,
+    "user_id": 14175671,
+    "user_type": "registered",
+    "profile_image": "https://lh3.googleusercontent.com/a-/AOh14Gja0-0qFBceBeUBgxMGezRjgpXjqT9BS13vji8j1g=k-s256",
+    "display_name": "Morgan Bouvet",
+    "link": "https://stackoverflow.com/users/14175671/morgan-bouvet"
+   },
+   "is_answered": true,
+   "view_count": 1665,
+   "answer_count": 2,
+   "score": 3,
+   "last_activity_date": 1723531276,
+   "creation_date": 1598531203,
+   "last_edit_date": 1598566884,
+   "question_id": 63615988,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63615988/cloud-function-web-ui-modulenotfounderror-no-module-named-googleapiclient",
+   "title": "(Cloud Function web UI) ModuleNotFoundError: No module named &#39;googleapiclient&#39;",
+   "body": "<p>I am using <code>from googleapiclient.discovery import build</code> inside my Cloud Function program <em>(python 3.8)</em>.</p>\n<p>I've been searching for help regarding an error I get when deploying my Google Cloud Function from the GCP console UI : <strong>ModuleNotFoundError: No module named 'googleapiclient'</strong></p>\n<p>Some of the answers, provided by the community, to similar problems were to <strong>update the module via pip</strong> with : <code>pip install --upgrade google-api-python-client</code>. Therefore I'm <strong>not</strong> able to <strong>update it or re-install it</strong> since I'm using the <strong>Cloud Function web UI</strong>.</p>\n<p>I have already added the right requirement inside the <em>requirements.txt</em> file : <code>google-api-python-client==1.2</code></p>\n<p><strong>Why am I using google-api-python-client 1.2 ?</strong><br />\nBecause of this error message when I tried to use the latest version:<br />\n<code>Build failed: gclient-service-account-auth 0.2.2 has requirement google-api-python-client==1.2, but you have google-api-python-client 1.10.1</code></p>\n<p>I can't find how to solve this <strong>ModuleNotFoundError: No module named 'googleapiclient'</strong>, do you have any clue/advice to share about this ?</p>\n<p>Thank you in advance, can't wait to see what's your take on this issue :)</p>\n"
+  },
+  {
+   "tags": [
+    "python",
+    "pip",
+    "python-import",
+    "python-packaging",
+    "python-importlib"
+   ],
+   "owner": {
+    "account_id": 15283046,
+    "reputation": 593,
+    "user_id": 11243073,
+    "user_type": "registered",
+    "profile_image": "https://i.sstatic.net/BS70O.jpg?s=256",
+    "display_name": "sarlacii",
+    "link": "https://stackoverflow.com/users/11243073/sarlacii"
+   },
+   "is_answered": true,
+   "view_count": 4499,
+   "accepted_answer_id": 63849982,
+   "answer_count": 2,
+   "score": 13,
+   "last_activity_date": 1719100355,
+   "creation_date": 1599830137,
+   "last_edit_date": 1684862557,
+   "question_id": 63847850,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/63847850/find-which-python-package-provides-a-specific-import-module",
+   "title": "Find which Python package provides a specific import module",
+   "body": "<p>Without getting confused, there are tons of questions about installing Python packages, how to import the resulting modules, and listing what packages are available. But there doesn't seem to be the equivalent of a <code>--what-provides</code> option for <a href=\"https://pypi.org/project/pip/\" rel=\"noreferrer\"><em>pip</em></a>, if you don't have a <em>pip</em>-style <a href=\"https://pip.pypa.io/en/stable/reference/requirements-file-format/\" rel=\"noreferrer\"><code>requirements.txt</code> file</a> or a <a href=\"https://pypi.org/project/pipenv/\" rel=\"noreferrer\"><em>Pipenv</em></a> <a href=\"https://pipenv.pypa.io/en/latest/pipfile/\" rel=\"noreferrer\"><em>Pipfile</em></a>. This question is similar to a previous question, but asks for the parent package, and not additional metadata. That said, these other questions did not get a lot of attention or many accepted answers - eg. <a href=\"https://stackoverflow.com/questions/60975090/how-do-you-find-python-package-metadata-information-given-a-module/60975978#60975978\">How do you find python package metadata information given a module</a>. So forging ahead...</p>\n<p>By way of example, there are two packages (to name a few) that will install a module called <code>serial</code> - namely <a href=\"https://pypi.org/project/pyserial/\" rel=\"noreferrer\"><em>pyserial</em></a> and <a href=\"https://pypi.org/project/serial/\" rel=\"noreferrer\"><em>serial</em></a>. So assuming that one of the packages was installed, we might find it by using pip list:</p>\n<pre class=\"lang-none prettyprint-override\"><code>python3 -m pip list | grep serial\n</code></pre>\n<p>However, the problem comes in if the name of the package does not match the name of the module, or if you just want to find out what package to install, working on a legacy server or development machine.</p>\n<p>You can check the path of the imported module - which can give you a clue. But continuing the example...</p>\n<pre><code>&gt;&gt;&gt; import serial\n&gt;&gt;&gt; print(serial.__file__)\n/usr/lib/python3.6/site-packages/serial/__init__.py\n</code></pre>\n<p>It is in a <code>serial</code> directory, but only <em>pyserial</em> is in fact installed, not <em>serial</em>:</p>\n<pre class=\"lang-none prettyprint-override\"><code>&gt; python3 -m pip list | grep serial\npyserial                 3.4\n</code></pre>\n<p>The closest I can come is to generate a <code>requirements.txt</code> via <a href=\"https://pypi.org/project/pipreqs/\" rel=\"noreferrer\"><code>pipreqs ./</code></a> which may fail on a dependent child file (as it does with me), or to reverse check dependencies via <em>Pipenv</em> (which brings a whole set of new issues along to get it all setup):</p>\n<pre class=\"lang-none prettyprint-override\"><code>&gt; pipenv graph --reverse\ncymysql==0.9.15\nftptool==0.7.1\nnetifaces==0.10.9\npip==20.2.2\nPyQt5-sip==12.8.1\n    - PyQt5==5.15.0 [requires: PyQt5-sip&gt;=12.8,&lt;13]\nsetuptools==50.3.0\nwheel==0.35.1\n</code></pre>\n<p>Does anyone know of a command that I have missed for a simple solution to finding what pip package provides a particular module?</p>\n"
+  },
+  {
+   "tags": [
+    "c++",
+    "linux",
+    "opencv",
+    "static-libraries",
+    "static-linking"
+   ],
+   "owner": {
+    "account_id": 32664591,
+    "reputation": 21,
+    "user_id": 25385550,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/e0c160675a26cf703c4ab22dd73ef212?s=256&d=identicon&r=PG&f=y&so-version=2",
+    "display_name": "smbape",
+    "link": "https://stackoverflow.com/users/25385550/smbape"
+   },
+   "is_answered": true,
+   "view_count": 254,
+   "accepted_answer_id": 78592890,
+   "answer_count": 1,
+   "score": 1,
+   "last_activity_date": 1717956715,
+   "creation_date": 1717401886,
+   "last_edit_date": 1717617848,
+   "question_id": 78569088,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/78569088/is-it-possible-to-build-opencv-statically-under-linux-without-having-problems-wi",
+   "title": "Is it possible to build opencv statically under Linux without having problems with missing/incompatible libraries?",
+   "body": "<p>I'm trying to distribute an opencv binary on different Linux operating systems, but I've failed because of dependency problems.\nWhat I'm aiming for is something similar to the opencv-python pip package that doesn't require additional software to be installed.</p>\n<p>My questions are as follows:</p>\n<ul>\n<li>Is it possible to build opencv statically under Linux without having problems with missing/incompatible libraries?\nIf so, can you show me how?</li>\n<li>If not, how did the opencv-python team succeed in doing this?\nopencv-python uses Qt.\nI looked at the project and couldn't find a clue.</li>\n</ul>\n<p>OpenCV were built statically.</p>\n<p>I first had a problem with glibc version incompatibility. An update on the different systems solved the problem.</p>\n<p>Then I had a missing libtiff.so error. set(BUILD_TIFF ON) solved the problem.</p>\n<p>Then I got an error that libQtWidgets.so was missing.\nI installed the qtbase5-dev package. However, I don't want users to have to install new software.\nI tried to build qtbase statically, but it complained that the opengl library was missing.\nThis means that the static library will still require opengl to be installed on the destination machines.\nWhich again is incompatible with my goal.</p>\n<p>Even after installing qtbase5-dev, I had another version incompatibility with libavcodec.</p>\n<p><strong>Update 1</strong></p>\n<p>Looking at <code>cv2.abi3.so</code> gave more information.</p>\n<p><code>readelf -d cv2.abi3.so</code> shows</p>\n<pre><code> 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN/../opencv_python.libs]\n 0x0000000000000001 (NEEDED)             Shared library: [libpng16-7379b3c3.so.16.40.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libavcodec-512f0acb.so.59.37.100]\n 0x0000000000000001 (NEEDED)             Shared library: [libavformat-3ff1be5b.so.59.27.100]\n 0x0000000000000001 (NEEDED)             Shared library: [libavutil-a0a0531e.so.57.28.100]\n 0x0000000000000001 (NEEDED)             Shared library: [libswscale-2c3c8be7.so.6.7.100]\n 0x0000000000000001 (NEEDED)             Shared library: [libQt5Widgets-e69d94fb.so.5.15.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libQt5Gui-a7aedf18.so.5.15.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libQt5Test-c38a5234.so.5.15.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libQt5Core-39545cc7.so.5.15.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libopenblas-r0-f650aae0.3.3.so]\n 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]\n 0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]\n 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]\n</code></pre>\n<p>Some of the dependencies names have been rewritten and shipped with the package in the <code>opencv_python.libs</code> directory.\nI intend to do the same.</p>\n<p>The renaming process seems to be part of the packaging process.\nNumpy has similiar renamings, making me think that the renaming process is outside python-opencv</p>\n<p>I am still looking for that renaming process</p>\n"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "site": "stackoverflow",
+ "query": "different pypi package than intended",
+ "class": "G",
+ "items": [
+  {
+   "tags": [
+    "python",
+    "python-3.x",
+    "blender",
+    "setuptools",
+    "pypi"
+   ],
+   "owner": {
+    "user_type": "does_not_exist",
+    "display_name": "user6767685"
+   },
+   "is_answered": true,
+   "view_count": 3955,
+   "accepted_answer_id": 51073815,
+   "answer_count": 1,
+   "score": 4,
+   "last_activity_date": 1532818078,
+   "creation_date": 1524959217,
+   "last_edit_date": 1524959881,
+   "question_id": 50082055,
+   "content_license": "CC BY-SA 3.0",
+   "link": "https://stackoverflow.com/questions/50082055/python-setuptools-first-build-from-sources-then-install",
+   "title": "Python setuptools: first build from sources then install",
+   "body": "<p>I am having some trouble understanding some of the basic paradigms around setuptools and am hoping to get some help understanding some of the principals and options surrounding setuptools for python.</p>\n\n<p>Currently, I am working on a cross platform implementation of the blender as a python module build cycle, such that bpy.pyd/ bpy.so could be installed from pip.</p>\n\n<p>I am successfully able to perform this build process from Windows. You can check out the repo here: <a href=\"https://github.com/TylerGubala/blenderpy\" rel=\"nofollow noreferrer\">https://github.com/TylerGubala/blenderpy</a></p>\n\n<p>My primary concerns are as follows:</p>\n\n<p>1) I have supplementary files to facilitate building for different system architectures; I want to upload <strong>these</strong> to pypi, not the built binaries</p>\n\n<p>2) The supplementary files should not live inside the package when it is installed, they are only relevant during the setup/ build process</p>\n\n<p>3) Currently, the way that the setup script works, is that it builds the modules, then sneakily copies the built files into the site-packages and executable directory for the given python environment. My concern here is: how, when the user runs <code>py -m pip uninstall blenderpy</code> will the package manager know to grab these files and remove them?</p>\n\n<p>4) What is the correct way to package such a module as this?</p>\n\n<p>I think my primary disconnect is coming from the fact that I would be using pypi as a build script delivery system, where the actual module that I intend to install is not present until midway through the setup.py execution.</p>\n\n<p>So how could I install these utilities onto a user's machine, run them, and have my resultant built bpy.pyd be the source for my package?</p>\n\n<p>Thanks in advance!</p>\n\n<p>EDIT: I feel I should mention that I read through the following post and, while it seems related it seems to be talking more about 'extras' handlers and the internals of setuptools rather than talking about installing a compiled library that's controlled by python build scripts.</p>\n\n<p><a href=\"https://stackoverflow.com/questions/41169711/python-setuptools-distutils-custom-build-for-the-extra-package-with-makefile\">Python setuptools/distutils custom build for the `extra` package with Makefile</a></p>\n"
+  }
+ ]
+}
