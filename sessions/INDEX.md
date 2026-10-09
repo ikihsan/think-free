@@ -8,24 +8,19 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-212 recorded session(s). One `events.jsonl` per session, so concurrent
+207 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 187 older session(s) are in the directory listing.
+Showing the 25 most recent. 182 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-09-021-fresh-observation-in-automotive-obd2-dia](2026-10-09-021-fresh-observation-in-automotive-obd2-dia/README.md) | unknown-agent | worked | Fresh observation in automotive OBD2 diagnostic codes domain to find a | 2026-10-09T21:27 |
 | [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:45 |
-| [2026-10-09-019-mission-summary-and-evidence-integration](2026-10-09-019-mission-summary-and-evidence-integration/README.md) | unknown-agent | worked | Mission summary and evidence integration | 2026-10-09T18:09 |
-| [2026-10-09-018-e072-npm-view-count-prototype-verificati](2026-10-09-018-e072-npm-view-count-prototype-verificati/README.md) | unknown-agent | worked | E072 NPM view-count prototype verification | 2026-10-09T17:58 |
-| [2026-10-09-017-investigate-and-document-kill-gate-desig](2026-10-09-017-investigate-and-document-kill-gate-desig/README.md) | unknown-agent | worked | Investigate and document kill gate design lesson from E069/F101, compl | 2026-10-09T15:10 |
-| [2026-10-09-016-run-e072-fresh-observation-prototype-imp](2026-10-09-016-run-e072-fresh-observation-prototype-imp/README.md) | unknown-agent | worked | Run E072 fresh observation prototype: implement classify_revised.py an | 2026-10-09T14:17 |
-| [2026-10-09-015-run-e073-discourse-fresh-observation-exp](2026-10-09-015-run-e073-discourse-fresh-observation-exp/README.md) | unknown-agent | partial | Run E073 Discourse fresh observation experiment | 2026-10-09T14:02 |
+| [2026-10-09-017-document-e065-e067-findings-and-decide-o](2026-10-09-017-document-e065-e067-findings-and-decide-o/README.md) | unknown-agent | worked | Document E065/E067 findings and decide on fresh observation direction | 2026-10-09T21:30 |
 | [2026-10-09-015-determine-next-experiment-direction-afte](2026-10-09-015-determine-next-experiment-direction-afte/README.md) | unknown-agent | worked | Determine next experiment direction after E069/E073/E075/E078 closures | 2026-10-09T20:13 |
-| [2026-10-09-014-fix-kill-gate-enumeration-per-f101-d088](2026-10-09-014-fix-kill-gate-enumeration-per-f101-d088/README.md) | unknown-agent | partial | Fix kill gate enumeration per F101/D088 - make gates able to fail on v | 2026-10-09T13:50 |
-| [2026-10-09-013-continue-e072-prototype-and-determine-ne](2026-10-09-013-continue-e072-prototype-and-determine-ne/README.md) | unknown-agent | partial | Continue E072 prototype and determine next experiment | 2026-10-09T13:36 |
-| [2026-10-09-012-fresh-observation-in-a-new-non-software](2026-10-09-012-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain: explore practitioner f | 2026-10-09T12:20 |
+| [2026-10-09-014-fresh-observation-in-a-new-non-software](2026-10-09-014-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find a testable oppo | 2026-10-09T18:15 |
+| [2026-10-09-013-continue-view-count-measurement-investig](2026-10-09-013-continue-view-count-measurement-investig/README.md) | unknown-agent | worked | Continue view_count measurement investigation | 2026-10-09T16:08 |
+| [2026-10-09-012-explore-fresh-observations-on-non-softwa](2026-10-09-012-explore-fresh-observations-on-non-softwa/README.md) | unknown-agent | worked | Explore fresh observations on non-software Stack Exchange sites as a n | 2026-10-09T15:45 |
 | [2026-10-09-007-commit-pending-e070-experiment-artifacts](2026-10-09-007-commit-pending-e070-experiment-artifacts/README.md) | unknown-agent | worked | Commit pending E070 experiment artifacts and continue prototype work | 2026-10-09T11:42 |
 | [2026-10-09-006-declare-e070-experiment-artifacts-and-cl](2026-10-09-006-declare-e070-experiment-artifacts-and-cl/README.md) | unknown-agent | worked | Declare E070 experiment artifacts and close session | 2026-10-09T10:30 |
 | [2026-10-09-005-e070-experiment-completion-and-session-c](2026-10-09-005-e070-experiment-completion-and-session-c/README.md) | unknown-agent | worked | E070 experiment completion and session close | 2026-10-09T10:28 |
@@ -40,6 +35,11 @@ Showing the 25 most recent. 187 older session(s) are in the directory listing.
 | [2026-10-08-029-analyze-python-package-importability-pat](2026-10-08-029-analyze-python-package-importability-pat/README.md) | unknown-agent | worked | Analyze Python package importability patterns and decide next action | 2026-10-08T23:58 |
 | [2026-10-08-028-fresh-observation-in-a-new-non-software](2026-10-08-028-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find convergent-unan | 2026-10-09T00:09 |
 | [2026-10-08-028-explore-fresh-observation-domain-for-nex](2026-10-08-028-explore-fresh-observation-domain-for-nex/README.md) | unknown-agent | worked | Explore fresh observation domain for next candidate after need-harvest | 2026-10-08T23:37 |
+| [2026-10-08-027-recover-context-and-document-mission-sta](2026-10-08-027-recover-context-and-document-mission-sta/README.md) | unknown-agent | worked | Recover context and document mission state | 2026-10-08T23:04 |
+| [2026-10-08-027-explore-the-existence-checking-false-acc](2026-10-08-027-explore-the-existence-checking-false-acc/README.md) | unknown-agent | worked | Explore the existence-checking false-accept problem from E064: measure | 2026-10-08T22:47 |
+| [2026-10-08-026-recover-context-and-decide-next-action-f](2026-10-08-026-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission | 2026-10-08T22:39 |
+| [2026-10-08-026-artifact-e067-framework-files](2026-10-08-026-artifact-e067-framework-files/README.md) | unknown-agent | worked | Artifact E067 framework files | 2026-10-08T22:01 |
+| [2026-10-08-025-recover-context-and-decide-next-action-f](2026-10-08-025-recover-context-and-decide-next-action-f/README.md) | unknown-agent | worked | Recover context and decide next action for Think Free mission after ex | 2026-10-08T22:37 |
 
 
 ## Reading a session
