@@ -1,9 +1,8 @@
 <!-- origin-meta
-owner: EXPERIMENTS/PLAN.md
-status: complete
+owner: docs/INDEX.md
+status: active
 last-verified: 2026-10-09
 -->
-
 # E077 — Non-software Discourse view_count + unserved-open measurement
 
 ## Summary

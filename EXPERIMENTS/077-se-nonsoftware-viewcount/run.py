@@ -6,82 +6,30 @@ Measures the view_count (arrival) instrument and unserved-open-like fraction
 across a stratified sample of non-software Discourse forums. Pivoted from
 Stack Exchange due to API rate limiting (Cloudflare error 1015).
 """
-
-# origin-meta
-# owner: EXPERIMENTS/PLAN.md
-# status: active
-# last-verified: 2026-10-09
-
 import json
+import math
 import os
 import sys
-import time
-import urllib.request
-from typing import Any, Dict, List, Optional
 
-from measure import (
-    harvest_forum_topics, measure_forum, aggregate_results,
-    save_raw_data, classify_topics
+from harvest_classify import (
+    TARGET_FORUMS,
+    TOPICS_PER_FORUM,
+    SLEEP_BETWEEN_REQUESTS,
+    fetch_latest_page,
+    classify_topics,
+    harvest_forum_topics,
+    wilson_ci95,
+    measure_forum,
+    save_raw_data,
 )
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-
-# Pre-declared Discourse forums (stratified across non-software categories)
-TARGET_FORUMS = [
-    "community.anovaculinary.com",   # Cooking/Food
-    "community.home-assistant.io",   # Home automation
-    "discourse.ubuntu.com",          # General tech/Linux
-    "meta.discourse.org",            # Meta (about Discourse)
-    "forum.arduino.cc",              # Electronics/Hardware
-    "community.openhab.org",         # Home automation
-    "forum.mysensors.org",           # IoT/Sensors
-    "community.linode.com",          # Cloud/Infrastructure
-    "forums.raspberrypi.com",        # Hardware/Raspberry Pi
-    "community.plotly.com",          # Data visualization
-]
-
-TOPICS_PER_FORUM = 50
-SLEEP_BETWEEN_REQUESTS = 1.0  # seconds, polite polling
-
-
-# ---------------------------------------------------------------------------
-# Discourse API helpers
-# ---------------------------------------------------------------------------
-
-def fetch_latest_page(domain: str, page: int) -> Optional[Dict]:
-    """Fetch a page of topics from a Discourse forum."""
-    url = f"https://{domain}/latest.json?page={page}&per_page=30"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Think Free E077)"})
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return json.loads(resp.read())
-    except urllib.error.HTTPError as e:
-        if e.code == 429:
-            print(f"    Rate limited on {domain} page {page}, waiting 30 seconds...")
-            time.sleep(30)
-            return fetch_latest_page(domain, page)
-        print(f"    Error fetching {url}: {e}")
-        return None
-    except Exception as e:
-        print(f"    Error fetching {url}: {e}")
-        return None
-
-
-# Move harvest_forum_topics to measure.py and import it
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
 
 def main() -> int:
-    """Main entry point."""
+    """Main entry point for E077 Discourse measurement."""
     print("=== E077 Non-software Discourse view_count + unserved-open Measurement ===")
     print(f"Target forums: {len(TARGET_FORUMS)}")
     print(f"Topics per forum: {TOPICS_PER_FORUM}")
-    print("NOTE: Pivoted from Stack Exchange due to API rate limiting (Cloudflare 1015)")
+    print("NOTE: Pivoted from Stack Exchange due to Cloudflare 1015 rate limiting")
     print()
 
     output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw")
@@ -103,7 +51,7 @@ def main() -> int:
             save_raw_data(domain, topics, classified, output_dir)
 
             # Measure
-            result = measure_forum(topics, domain)
+            result = measure_forum(domain)
             all_results.append(result)
 
             all_topics.extend(topics)
@@ -118,7 +66,48 @@ def main() -> int:
             })
 
     # Aggregate results
-    aggregate = aggregate_results(all_results)
+    total_all = sum(r["total"] for r in all_results if "error" not in r)
+    view_positive_all = sum(r["view_positive"] for r in all_results if "error" not in r)
+    need_topics_all = sum(r["need_topics"] for r in all_results if "error" not in r)
+    unserved_all = sum(r["unserved_open_like"] for r in all_results if "error" not in r)
+
+    ci_low, ci_high = wilson_ci95(unserved_all, total_all)
+
+    print(f"\n=== AGGREGATE RESULTS ===")
+    print(f"Total topics: {total_all}")
+    if total_all > 0:
+        print(f"view_count > 0: {view_positive_all} ({view_positive_all/total_all*100:.1f}%)")
+        print(f"Need topics: {need_topics_all} ({need_topics_all/total_all*100:.1f}%)")
+        print(f"Unserved-open-like: {unserved_all} ({unserved_all/total_all*100:.2f}%)")
+        print(f"Wilson CI95: [{ci_low*100:.2f}%, {ci_high*100:.2f}%]")
+    else:
+        print("No data collected")
+
+    # Gate assessments
+    print(f"\n=== GATE ASSESSMENTS ===")
+
+    # G1: view_count validation
+    vc_rate = view_positive_all / total_all if total_all > 0 else 0
+    g1_pass = vc_rate >= 0.95
+    print(f"G1 (view_count >= 95%): {'PASS' if g1_pass else 'FAIL'} — {vc_rate*100:.1f}%")
+
+    # G2: need prevalence
+    need_rate = need_topics_all / total_all if total_all > 0 else 0
+    g2_pass = need_rate >= 0.05
+    print(f"G2 (need prevalence >= 5%): {'PASS' if g2_pass else 'FAIL'} — {need_rate*100:.1f}%")
+
+    # G3: unserved fraction measurable
+    unserved_rate = unserved_all / total_all if total_all > 0 else 0
+    g3_pass = unserved_rate < 0.50 and ci_high < 0.60
+    print(f"G3 (unserved < 50%, CI95 upper < 60%): {'PASS' if g3_pass else 'FAIL'} — {unserved_rate*100:.1f}%, CI95=[{ci_low*100:.1f}%, {ci_high*100:.1f}%]")
+
+    # G4: cross-forum variance
+    forums_with_unserved = sum(1 for r in all_results if "error" not in r and r["unserved_open_like"] > 0)
+    g4_pass = forums_with_unserved >= 3
+    print(f"G4 (>= 3 forums with unserved > 0): {'PASS' if g4_pass else 'FAIL'} — {forums_with_unserved} forums")
+
+    all_gates_pass = g1_pass and g2_pass and g3_pass and g4_pass
+    print(f"\nALL GATES: {'PASS' if all_gates_pass else 'FAIL'}")
 
     # Save aggregated results
     output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results.json")
@@ -126,12 +115,26 @@ def main() -> int:
         json.dump({
             "pivot_note": "Pivoted from Stack Exchange to Discourse due to Cloudflare 1015 rate limiting",
             "forums": all_results,
-            "aggregate": aggregate,
+            "aggregate": {
+                "total": total_all,
+                "view_positive": view_positive_all,
+                "need_topics": need_topics_all,
+                "unserved_open_like": unserved_all,
+                "unserved_fraction": unserved_rate,
+                "wilson_ci95": [ci_low, ci_high],
+                "gates": {
+                    "G1_view_count": {"pass": g1_pass, "value": vc_rate},
+                    "G2_need_prevalence": {"pass": g2_pass, "value": need_rate},
+                    "G3_unserved_fraction": {"pass": g3_pass, "value": unserved_rate, "ci95": [ci_low, ci_high]},
+                    "G4_cross_forum_variance": {"pass": g4_pass, "forums_with_unserved": forums_with_unserved},
+                },
+                "all_gates_pass": all_gates_pass,
+            }
         }, f, sort_keys=True, indent=2)
 
     print(f"\n=== Results saved to {output_path} ===")
 
-    return 0 if aggregate["all_gates_pass"] else 1
+    return 0 if all_gates_pass else 1
 
 
 if __name__ == "__main__":
