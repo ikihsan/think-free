@@ -1,12 +1,12 @@
 <!-- origin-meta
 owner: docs/INDEX.md
 status: active
-last-verified: 2026-10-08
+last-verified: 2026-10-09
 -->
 
 # Verified state
 
-Date: 2026-10-08, Asia/Kolkata. Phase: B — **the one candidate this mission has
+Date: 2026-10-09, Asia/Kolkata. Phase: B — **the one candidate this mission has
 produced is withdrawn, and the mission has found the instrument its whole record
 was missing.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 D069) was the first candidate with a working artifact, and three experiments closed it.
@@ -162,6 +162,7 @@ and its paths are then attributed to whoever holds the tree
 (T-0053).
 
 ## What changed recently
+- **Session 2026-10-09-025 (this VM): E083.** Fresh observation in 3D printer fault codes on 5 Discourse forums (Creality, LulzBot, Home Assistant, openHAB, Arduino). **500 topics, 79 fault topics (15.8%)**. G2 PASS (73.4% concentration), **G3 FAIL (1.8 avg models/fault vs 10 threshold)** — manufacturer forums silo discussions by brand. G1/G4/G5 pending reply analysis. view_count instrument validated at 100%. Negative control (cooking forum) 5% false positive rate. **No candidate emerges** — brand silos prevent cross-model coverage. Recorded as F106.
 - **Session 2026-10-09-021 (this VM): E079.** Fresh observation in automotive OBD2 codes on Mechanics.SE. **G2 FAIL (29% vs 30%)**, G3 PASS (30 vehicle configs), G1/G4 blocked by API throttle. 210 title candidates, 262 code mentions, 159 unique codes — high dispersion. Long-tail distribution (top 10 = 29%) suggests insufficient concentration. Answer data inaccessible without API key.
 - **Session 2026-10-09-003, VM 0947: E069, F101, D088.** The arXiv spec
   generator was measured by installing its output. **Verified imports 0 of 16;
@@ -234,7 +235,8 @@ The ArXiv reproducibility line (E067→E069→E079) is closed on measured ground
 - E067: all kill gates passed on real data (problem is real)
 - E069: spec generator's kill gate K1 only passes on empty specs (gate vacuous)
 - E079: information-sufficiency witness FAIL (static analysis cannot resolve version ambiguity)
-No candidate emerges. The mission's 9th measurement shows the seat is empty (F029, F051, F039, F059, F081, F084, F085, E075, E079).
+- E083: 3D printer fault codes on manufacturer Discourse forums show concentration (G2 PASS 73.4%) but fail cross-model coverage (G3 FAIL 1.8 models/fault) due to brand silos; view_count instrument validated (100%).
+No candidate emerges. The mission's 10th measurement shows the seat is empty (F029, F051, F039, F059, F081, F084, F085, E075, E079, F106).
 
 ## Capability evidence
 
