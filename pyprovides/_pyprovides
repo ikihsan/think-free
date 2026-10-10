@@ -1,0 +1,50 @@
+#compdef pyprovides
+
+_phyprovides() {
+    local -a commands
+    local -a opts
+
+    commands=(
+        "which: which distribution provides a module"
+        "find: find which distribution provides a module"
+        "scan: scan a project for shadowed dependency names"
+        "fix-import: run a command and suggest correct distributions for import errors"
+    )
+
+    # Complete the subcommand
+    _arguments -s \
+        {-h--help}'[show help]' \
+        '*::command:->command' && return 0
+
+    case "$words[1]" in
+        which)
+            _arguments '1:module:->module' && return 0
+            ;;
+        find)
+            _arguments \
+                {-v--verbose}'[show detailed resolution info]' \
+                {--max-checks}'[max distributions to check (default: 500)]' \
+                {--no-cache}'[disable wheel metadata cache]' \
+                {--cache-dir}'[cache directory (default: .pyprovides-cache)]' \
+                {--timeout}'[HTTP timeout per request (default: 30)]' \
+                '1:module:->module' && return 0
+            ;;
+        scan)
+            _arguments \
+                {--json}'[output json]' \
+                'path:path to scan (default: .)' && return 0
+            ;;
+        fix-import)
+            _arguments \
+                {--max-checks}'[max distributions to check per module (default: 500)]' \
+                {--verbose}'[show detailed resolution info]' \
+                {--dry-run}'[show what would be done without running the command]' \
+                'command:command to run (e.g., -- python3 -c "import sklearn")'&& return 0
+            ;;
+        *)
+            _describe 'pyprovides command' commands && return 0
+            ;;
+    esac
+}
+
+_phyprovides "$@"
