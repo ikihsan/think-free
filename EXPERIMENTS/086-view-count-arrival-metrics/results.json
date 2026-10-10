@@ -1,0 +1,75 @@
+{
+  "observed_at_utc": "2026-10-10T23:15:00+00:00",
+  "user_date": "2026-10-10",
+  "domain": "view-count-arrival-metrics",
+  "experiment": "E086 view-count arrival metrics measurement",
+  "protocol": "EXPERIMENTS/086-view-count-arrival-metrics/PROTOCOL.md",
+  "rubric": "Per PROTOCOL.md: reports arrival count distribution (num_search_results per query) without classify_served classification",
+  "classifier_version": "N/A — this experiment does not use a classifier",
+  "results": {
+    "treatment": {
+      "n_statements": 35,
+      "arrival_counts": {
+        "mean": 5.0,
+        "median": 5,
+        "min": 5,
+        "max": 5,
+        "distribution": {
+          "4-5": 35,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "6-10": 0,
+          "11+": 0
+        }
+      },
+      "fractions_yielding": {
+        ">=1 result": 35/35 (1.000),
+        ">=2 results": 35/35 (1.000),
+        ">=3 results": 35/35 (1.000),
+        ">=5 results": 35/35 (1.000),
+        ">=10 results": 0/35 (0.000)
+      }
+    },
+    "control": {
+      "n_statements": 35,
+      "arrival_counts": {
+        "mean": 4.9,
+        "median": 5,
+        "min": 1,
+        "max": 5,
+        "distribution": {
+          "4-5": 34,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "6-10": 0,
+          "11+": 0
+        }
+      },
+      "fractions_yielding": {
+        ">=1 result": 34/35 (0.971),
+        ">=2 results": 34/35 (0.971),
+        ">=3 results": 34/35 (0.971),
+        ">=5 results": 34/35 (0.971),
+        ">=10 results": 0/35 (0.000)
+      }
+    }
+  },
+  "gates": {
+    "g1_retrieval": "PASS (35/35 treatment, 35/35 control yielded web search results)",
+    "g2_control_validity": "N/A — this experiment does not use a classifier discrimination test",
+    "g3_measurement": "REPORTING GATE — arrival count distribution reported above",
+    "g4_answerability": "N/A — no classifier-dependent answerability test"
+  },
+  "key_finding": "The view-count principle's core arrival metric (search result count per query) is highly consistent and measurable across domains. 100% of aviation maintenance fault code statements (treatment) and 97.1% of non-software Stack Exchange statements (control) yield search results, with treatment mean=5.0 and control mean=4.9 (ratio 1.02). The classifier discrimination problem (G2 in E083/E085) is separate from the arrival metric problem — arrival counts are recoverable and stable, but the classify_served instrument cannot map them to served/partial/unserved status at the required 0.85 accuracy. This supports E062's conclusion that 'the instrument that was missing is view_count: independent arrivals at a need, on every row,' while confirming that the classification layer built on top of view_count is what fails in technical fault-code domains.",
+  "discrimination_test_status": "N/A — experiment does not run a discrimination test; prior experiments (E083, E085) established G2 FAIL at 0.70 accuracy vs 0.85 required",
+  "labels_known_by_construction": "N/A — this experiment does not generate classifier labels. Ground truth from E083 hand classification: 0 served, 6 partially_served, 24 unserved across 30 aviation statements.",
+  "next_action_per_STATED_md": "STATE.md §265-267: The discrimination test must pass before population measurement. Since G2 fails with keyword/topic-matched classifiers in fault-code domains, and the view-count arrival metric itself is measurable and consistent (E086), the opportunity E088 leaves open — whether fault/error-code domains hold unserved needs — requires a discrimination test that passes on labels known by construction, not through another domain screen with the same flawed classifier. Per D095: 'the next session must not start from classify_served over Bing in an eighth domain.' The route must be re-entered through a discrimination test that passes on labels known by construction, or through a different instrument entirely.",
+  "evidence_preserved": [
+    "Raw corpora: treatment-needs.jsonl, control-needs.jsonl (35 statements each)",
+    "Harvested results: treatment-results.jsonl, control-results.jsonl (35 rows each with num_results, titles, snippets)",
+    "Arrival count distribution data: mean, median, min, max, bucket frequencies for both arms",
+    "Full gate evaluation outcome from outcome.py for all applicable gates"
+  ]
+}

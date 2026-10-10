@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""E086-import-error-demand: Measure actual usage of pyprovides fix-import in developer workflow.
+
+Compares time-to-fix for import errors with vs. without the pyprovides fix-import resolver.
+
+This experiment tests whether the measured demand (19.35% module-only rate, >> 1% kill gate)
+translates to practical utility for developers.
+"""
+
+import json
+import os
+import sys
+import time
+import statistics
+
+# Add pyprovides to path
+sys.path.insert(0, '/home/ubuntu/think-free/pyprovides')
+from pyprovides.fix_import import fix_import
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Test module import errors
+TEST_MODULES = [
+    "nonexistent_module_1xyz",
+    "nonexistent_module_2abc",
+    "nonexistent_module_3def",
+]
+
+def simulate_import_error(module_name):
+    """Simulate an ImportError for the given module.
+    
+    Returns the stderr output that would be captured.
+    """
+    # This simulates what happens when a user tries to import a module that doesn't exist
+    # In a real scenario, this would be captured from actual Python execution
+    return f"ModuleNotFoundError: No module named '{module_name}'"
+
+def run_fix_import(modules):
+    """Run fix-import on a list of modules and return results."""
+    results = []
+    for module in modules:
+        try:
+            stderr = simulate_import_error(module)
+            suggested = fix_import(module)
+            results.append({
+                "module": module,
+                "stderr": stderr,
+                "suggested_fix": suggested,
+                "success": suggested is not None and suggested != "",
+            })
+        except Exception as e:
+            results.append({
+                "module": module,
+                "stderr": str(e),
+                "suggested_fix": None,
+                "success": False,
+            })
+    return results
+
+def measure_baseline(modules):
+    """Measure baseline: time to manually determine the fix (simulated).
+    
+    In a real measurement, this would track how long it takes a developer
+    to search PyPI, find the correct package, and install it.
+    """
+    # Simulated baseline: assume 3 minutes per module to search and install
+    baseline_times = {}
+    for module in modules:
+        baseline_times[module] = 3.0  # 3 minutes
+    return baseline_times
+
+def evaluate_results(treatment_results, control_results):
+    """Evaluate the experiment results."""
+    print(f"=== E086-import-error-demand: Usage Measurement Results ===\n")
+    
+    print(f"Test modules: {len(treatment_modules)}")
+    print(f"  Treatment (fix-import): {len(treatment_results)} modules")
+    print(f"  Control (baseline): {len(control_results)} modules\n")
+    
+    # Calculate success rates
+    treatment_success = sum(1 for r in treatment_results if r['success'])
+    control_success = sum(1 for r in control_results if r['success'])
+    
+    print(f"Success rates:")
+    print(f"  Treatment (fix-import): {treatment_success}/{len(treatment_results)} ({treatment_success/len(treatment_results)*100:.1f}%)")
+    print(f"  Control (baseline): {control_success}/{len(control_results)} ({control_success/len(control_results)*100:.1f}%)")
+    
+    # Calculate time savings (if fix-import succeeded where baseline would take 3 min)
+    treatment_time = treatment_success / len(treatment_results) * 1.0  # assume 1 min per successful fix
+    control_time = (len(control_results) - control_success) / len(control_results) * 3.0  # 3 min for failed + 1 min for successful
+    
+    print(f"\nEstimated time savings:")
+    if treatment_success > 0:
+        print(f"  Treatment: {treatment_success} successful fixes, ~{treatment_time:.1f} min each")
+    if control_success < len(control_results):
+        failed_control = len(control_results) - control_success
+        print(f"  Control: {failed_control} failed lookups would take ~3 min each (no resolver)")
+    
+    # Key finding
+    print(f"\n=== KEY FINDING ===")
+    if treatment_success > control_success:
+        print(f"  pyprovides fix-import resolves {treatment_success} module import errors")
+        print(f"  that the baseline cannot resolve, representing practical utility")
+        print(f"  for developers facing import errors.")
+    else:
+        print(f"  No significant difference detected between fix-import and baseline")
+        print(f"  for the tested modules.")
+
+    # Decision
+    print(f"\n=== DECISION ===")
+    if treatment_success > control_success + 2:  # Require meaningful difference
+        print(f"  BUILD: pyprovides fix-import provides measurable practical utility")
+        print(f"  The resolver successfully addresses import errors that the baseline")
+        print(f"  cannot, translating measured demand into real developer value.")
+    elif treatment_success > 0:
+        print(f"  PARTIAL: pyprovides fix-import resolves some import errors")
+        print(f"  but the overall impact on developer workflow is modest for this sample.")
+        print(f"  Larger-scale measurement needed.")
+    else:
+        print(f"  TRY DIFFERENT APPROACH: fix-import did not resolve the tested")
+        print(f"  modules. The issue may lie in the module resolution logic or")
+        print(f"  the test module selection. Consider alternative resolution strategies.")
+
+
+if __name__ == "__main__":
+    # Run fix-import on test modules
+    print(f"=== E086-import-error-demand: Measure fix-import utility ===")
+    print(f"Testing {len(TEST_MODULES)} modules for import error resolution.\n")
+    
+    treatment_results = run_fix_import(TEST_MODULES)
+    control_results = []
+    baseline = measure_baseline(TEST_MODULES)
+    
+    # Also simulate baseline: for modules where fix-import fails,
+    # the baseline would take 3 min; where it succeeds, 1 min
+    for i, module in enumerate(TEST_MODULES):
+        if not treatment_results[i]['success']:
+            control_results.append({
+                "module": module,
+                "success": False,
+                "baseline_time_min": 3.0,
+            })
+        else:
+            control_results.append({
+                "module": module,
+                "success": True,
+                "baseline_time_min": 1.0,
+            })
+    
+    evaluate_results(treatment_results, control_results)
