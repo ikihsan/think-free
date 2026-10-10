@@ -14,6 +14,11 @@ import sys
 # Add the parent directory of pyprovides to sys.path so 'pyprovides' package is importable
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pyprovides import __version__, provides, find_provider, ResolveError  # noqa: E402
+from pyprovides.fix_import import (  # noqa: E402
+    extract_module_names,
+    resolve_module,
+    run_command,
+)
 
 # SKIP_DIRS for the scan command - expanded to avoid common VCS and build dirs
 CLI_SKIP_DIRS = {".git", ".github", "node_modules", "__pycache__", ".tox",
@@ -152,6 +157,65 @@ def cmd_scan(args):
     return 1 if findings else 0
 
 
+def cmd_fix_import(args):
+    """Run a command, detect import errors, and suggest correct distributions."""
+    if not args.command:
+        print("fix-import: no command provided", file=sys.stderr)
+        return 1
+
+    # Remove leading '--' if present
+    if args.command[0] == "--":
+        args.command = args.command[1:]
+
+    if args.dry_run:
+        print(f"Would run: {' '.join(args.command)}")
+        return 0
+
+    print(f"Running: {' '.join(args.command)}")
+    stdout, stderr, returncode = run_command(args.command)
+
+    if stdout:
+        print("STDOUT:")
+        print(stdout)
+
+    if stderr:
+        print("STDERR:")
+        print(stderr)
+
+    # Extract module names from stderr
+    modules = extract_module_names(stderr)
+
+    if not modules:
+        if returncode != 0:
+            print(f"\nCommand exited with code {returncode}, but no import errors detected.")
+        return returncode
+
+    print(f"\nDetected import errors for modules: {', '.join(modules)}")
+    print("\nResolving...")
+
+    all_found = True
+    for module in modules:
+        result = resolve_module(module, max_checks=args.max_checks, verbose=args.verbose)
+
+        if result["status"] == "found":
+            print(f"\n✓ {result['module']} is provided by {result['distribution']} {result['version']}")
+            print(f"  Method: {result['method']}")
+            print(f"  Wheel: {result['wheel']}")
+            print(f"  Install: {result['install_cmd']}")
+        elif result["status"] == "stdlib":
+            print(f"\n✓ {result['module']}: {result['message']}")
+        else:
+            print(f"\n✗ {result['module']}: {result['message']}")
+            all_found = False
+
+    if all_found:
+        print("\n✓ All import errors can be resolved with the suggested installs.")
+    else:
+        print("\n⚠ Some import errors could not be resolved.")
+
+    return returncode
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="pyprovides", description=__doc__)
     p.add_argument("--version", action="version", version=__version__)
@@ -171,6 +235,12 @@ def main(argv=None):
     s.add_argument("path", nargs="?", default=".")
     s.add_argument("--json", action="store_true")
     s.set_defaults(func=cmd_scan)
+    fi = sub.add_parser("fix-import", help="run a command, detect import errors, and suggest correct distributions")
+    fi.add_argument("--max-checks", type=int, default=500, help="maximum distributions to check per module (default: 500)")
+    fi.add_argument("--verbose", "-v", action="store_true", help="show detailed resolution info")
+    fi.add_argument("--dry-run", action="store_true", help="show what would be done without running the command")
+    fi.add_argument("command", nargs=argparse.REMAINDER, help="command to run (e.g., -- python3 -c \"import sklearn\")")
+    fi.set_defaults(func=cmd_fix_import)
     args = p.parse_args(argv)
     if not getattr(args, "func", None):
         p.print_help()

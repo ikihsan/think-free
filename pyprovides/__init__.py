@@ -22,6 +22,7 @@ from .core import (_get, _cache_path, _read_cache, _write_cache, pypi,
                    _central_directory, entry_names, top_level_modules,
                    _pick_wheel, provides)
 from .find import (_load_ranked_projects, ranked_project_names, find_provider)
+from .fix_import import extract_module_names
 
 __all__ = [
     "__version__",
@@ -49,4 +50,5 @@ __all__ = [
     "_load_ranked_projects",
     "ranked_project_names",
     "find_provider",
+    "extract_module_names",
 ]

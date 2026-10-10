@@ -8,13 +8,14 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-218 recorded session(s). One `events.jsonl` per session, so concurrent
+219 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 193 older session(s) are in the directory listing.
+Showing the 25 most recent. 194 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | **unfinished** | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T16:54 |
 | [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | worked | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T15:23 |
 | [2026-10-10-012-begin-fresh-observation-in-structured-fa](2026-10-10-012-begin-fresh-observation-in-structured-fa/README.md) | unknown-agent | worked | Begin fresh observation in structured fault/error-code domains by read | 2026-10-10T14:09 |
 | [2026-10-10-011-hand-read-practitioner-discussions-in-me](2026-10-10-011-hand-read-practitioner-discussions-in-me/README.md) | unknown-agent | partial | hand-read practitioner discussions in medical device fault code domain | 2026-10-10T14:11 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 193 older session(s) are in the directory listing.
 | [2026-10-09-004-explore-a-fresh-non-software-domain-for](2026-10-09-004-explore-a-fresh-non-software-domain-for/README.md) | opencode | worked | Explore a fresh non-software domain for a concrete, testable opportuni | 2026-10-09T08:49 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
-| [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
 
 
 ## Reading a session

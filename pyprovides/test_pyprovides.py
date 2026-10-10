@@ -18,7 +18,8 @@ import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pyprovides import (entry_names, provides, top_level_modules,  # noqa: E402
-                         _central_directory, _pick_wheel)
+                         _central_directory, _pick_wheel,
+                         find_provider, extract_module_names)
 
 try:
     import urllib.error
@@ -154,6 +155,87 @@ class TestAgainstPyPI(unittest.TestCase):
         self.assertEqual(a[0], b[0])
         self.assertEqual(a[1], b[1])
         self.assertEqual(second, os.path.getmtime(os.path.join(self.tmp, "tqdm.json")))
+
+
+class TestFixImport(unittest.TestCase):
+    """Tests for the fix_import module (import error detection and resolution)."""
+
+    def test_extract_module_names_single_quotes(self):
+        stderr = "ModuleNotFoundError: No module named 'sklearn'"
+        modules = extract_module_names(stderr)
+        self.assertEqual(modules, ["sklearn"])
+
+    def test_extract_module_names_double_quotes(self):
+        stderr = 'ImportError: No module named "cv2"'
+        modules = extract_module_names(stderr)
+        self.assertEqual(modules, ["cv2"])
+
+    def test_extract_module_names_no_quotes(self):
+        stderr = "ModuleNotFoundError: No module named yaml"
+        modules = extract_module_names(stderr)
+        self.assertEqual(modules, ["yaml"])
+
+    def test_extract_module_names_multiple(self):
+        stderr = "ModuleNotFoundError: No module named 'sklearn'\nModuleNotFoundError: No module named 'cv2'"
+        modules = extract_module_names(stderr)
+        self.assertEqual(set(modules), {"sklearn", "cv2"})
+
+    def test_extract_module_names_submodule(self):
+        stderr = "ModuleNotFoundError: No module named 'sklearn.utils'"
+        modules = extract_module_names(stderr)
+        # Should extract top-level module only
+        self.assertEqual(modules, ["sklearn"])
+
+    def test_extract_module_names_not_import_error(self):
+        stderr = "SyntaxError: invalid syntax"
+        modules = extract_module_names(stderr)
+        self.assertEqual(modules, [])
+
+    def test_extract_module_names_from_traceback(self):
+        stderr = """Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'bs4'"""
+        modules = extract_module_names(stderr)
+        self.assertEqual(modules, ["bs4"])
+
+
+@unittest.skipUnless(ONLINE, "PyPI unreachable; network tests skipped, not faked")
+class TestFindProvider(unittest.TestCase):
+    """Tests for query-time reverse lookup (find_provider)."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+
+    def test_known_aliases_resolved(self):
+        # These are the core alias cases from the discrimination test
+        for module, expected_dist in [
+            ("sklearn", "scikit-learn"),
+            ("cv2", "opencv-python"),
+            ("yaml", "PyYAML"),
+            ("PIL", "Pillow"),
+            ("bs4", "beautifulsoup4"),
+            ("dateutil", "python-dateutil"),
+            ("Crypto", "pycryptodome"),
+        ]:
+            with self.subTest(module=module):
+                status, matches, detail = find_provider(module, max_checks=10, cache_dir=self.tmp)
+                self.assertEqual(status, "found", f"Failed to find provider for {module}")
+                self.assertEqual(detail["provider"].lower().replace("-", "").replace("_", ""),
+                                 expected_dist.lower().replace("-", "").replace("_", ""))
+
+    def test_exact_match_resolved(self):
+        # These distributions have the same name as their module
+        for module in ("numpy", "requests", "redis", "elasticsearch", "kubernetes"):
+            with self.subTest(module=module):
+                status, matches, detail = find_provider(module, max_checks=10, cache_dir=self.tmp)
+                self.assertEqual(status, "found", f"Failed to find provider for {module}")
+                self.assertEqual(detail["provider"].lower(), module.lower())
+
+    def test_stdlib_instant(self):
+        status, matches, detail = find_provider("os", max_checks=10, cache_dir=self.tmp)
+        self.assertEqual(status, "stdlib")
+        self.assertEqual(detail["method"], "stdlib")
+        self.assertEqual(detail["checked"], 0)
 
 
 if __name__ == "__main__":
