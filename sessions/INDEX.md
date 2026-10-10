@@ -8,13 +8,14 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-218 recorded session(s). One `events.jsonl` per session, so concurrent
+219 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 193 older session(s) are in the directory listing.
+Showing the 25 most recent. 194 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-10-003-e086-measure-demand-for-a-module-to-dist](2026-10-10-003-e086-measure-demand-for-a-module-to-dist/README.md) | unknown-agent | **unfinished** | E086: measure demand for a module-to-distribution resolver in real imp | 2026-10-10T01:09 |
 | [2026-10-10-002-declare-the-four-controlled-comparison-f](2026-10-10-002-declare-the-four-controlled-comparison-f/README.md) | unknown-agent | worked | Declare the four controlled-comparison fixture files that session 2026 | 2026-10-10T01:03 |
 | [2026-10-10-001-e085-measure-the-incidence-of-declared-b](2026-10-10-001-e085-measure-the-incidence-of-declared-b/README.md) | unknown-agent | worked | E085: measure the incidence of declared-but-not-provided Python distri | 2026-10-10T01:02 |
 | [2026-10-09-026-fresh-observation-in-industrial-plc-scad](2026-10-09-026-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | worked | Fresh observation in industrial PLC/SCADA fault codes: measure code co | 2026-10-10T00:11 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 193 older session(s) are in the directory listing.
 | [2026-10-09-004-explore-a-fresh-non-software-domain-for](2026-10-09-004-explore-a-fresh-non-software-domain-for/README.md) | opencode | worked | Explore a fresh non-software domain for a concrete, testable opportuni | 2026-10-09T08:49 |
 | [2026-10-09-003-run-the-install-test-falsification-of-e0](2026-10-09-003-run-the-install-test-falsification-of-e0/README.md) | unknown-agent | worked | Run the install-test falsification of E068's spec generator against th | 2026-10-09T07:57 |
 | [2026-10-09-003-land-e072-f185-d090-with-its-hypotheses](2026-10-09-003-land-e072-f185-d090-with-its-hypotheses/README.md) | unknown-agent | worked | Land E072 (F185/D090) with its HYPOTHESES gap closed, then run E073: d | 2026-10-09T07:42 |
-| [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
 
 
 ## Reading a session

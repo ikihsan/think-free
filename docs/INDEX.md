@@ -172,6 +172,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md`](../tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md`](../tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md`](../tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md) | `tasks/INDEX.md` | active | 2026-10-08 | ## Goal |
+| [`tasks/T-0088-e086-measure-whether-real-python-import-error-re.md`](../tasks/T-0088-e086-measure-whether-real-python-import-error-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 
 ## RESEARCH
 
