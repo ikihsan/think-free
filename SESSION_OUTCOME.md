@@ -6,7 +6,7 @@ last-verified: 2026-10-10
 
 # Session Outcome
 
-Recorded on 2026-10-11.
+Recorded on 2026-10-10.
 
 ## 1. Package-name/pyprovides line closed on measured grounds
 
@@ -56,9 +56,11 @@ E096 experiment: Aviation maintenance fault codes on Aviation Stack Exchange, us
 
 - **Methodology revision for view-count principle**: Future experiments in structured fault-code domains should use platform-native metadata (view_count via API) rather than web search + keyword classifier. The latter approach has consistently failed (4/4 domains: E079 automotive OBD2, E083 aviation, plus this pilot for laboratory instruments).
 
-## 5. Single most useful next action
+- **pyprovides packaging completed**: MIT LICENSE added, pyproject.toml updated with classifiers/keywords/project-urls, setup.py updated, shell integrations (pyfix.zsh, pyfix.fish, _pyprovides) added, source distribution and wheel built, installation and fix-import tested successfully.
 
-**Per D083: "the next session must start from fresh observation in a new domain."**
+## 4. Single most useful next action
+
+Per D083: "the next session must start from fresh observation in a new domain."
 
 Given that:
 - The pyprovides/package-name line is closed on measured grounds
