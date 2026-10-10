@@ -15,7 +15,7 @@ Showing the 25 most recent. 193 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | **unfinished** | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T14:21 |
+| [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | worked | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T15:23 |
 | [2026-10-10-012-begin-fresh-observation-in-structured-fa](2026-10-10-012-begin-fresh-observation-in-structured-fa/README.md) | unknown-agent | worked | Begin fresh observation in structured fault/error-code domains by read | 2026-10-10T14:09 |
 | [2026-10-10-011-hand-read-practitioner-discussions-in-me](2026-10-10-011-hand-read-practitioner-discussions-in-me/README.md) | unknown-agent | partial | hand-read practitioner discussions in medical device fault code domain | 2026-10-10T14:11 |
 | [2026-10-10-010-fresh-observation-in-medical-device-alar](2026-10-10-010-fresh-observation-in-medical-device-alar/README.md) | unknown-agent | partial | Fresh observation in medical device alarm codes domain using FDA MAUDE | 2026-10-10T13:57 |
