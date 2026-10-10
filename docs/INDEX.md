@@ -172,6 +172,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | [`tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md`](../tasks/T-0085-e2-measure-whether-dependency-lockfile-closures.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md`](../tasks/T-0086-e2-registry-mechanisms-a-re-run-e049-part-b-cont.md) | `tasks/INDEX.md` | active | 2026-10-07 | ## Goal |
 | [`tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md`](../tasks/T-0087-e055-build-a-tool-neutral-git-index-postconditio.md) | `tasks/INDEX.md` | active | 2026-10-08 | ## Goal |
+| [`tasks/T-0088-e086-measure-whether-real-python-import-error-re.md`](../tasks/T-0088-e086-measure-whether-real-python-import-error-re.md) | `tasks/INDEX.md` | active | 2026-10-10 | ## Goal |
 
 ## RESEARCH
 
@@ -312,6 +313,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/084-industrial-equipment-fault-codes/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/084-px4-fault-codes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Session: 2026-10-09-026, VM instance-20260717-0947 |
 | `EXPERIMENTS/085-building-automation-hvac/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
+| `EXPERIMENTS/085-declared-not-provided/` | `EXPERIMENTS/085-declared-not-provided/PROTOCOL.md` | active | 2026-10-10 | Result: the candidate does not survive. The instrument works and the class |
 | `EXPERIMENTS/086-building-code-compliance/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/087-environmental-monitoring/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
 | `EXPERIMENTS/088-instrument-discrimination/` | `docs/INDEX.md` | active | 2026-10-10 | observed 2026-10-10, session 2026-10-10-004, VM instance-20260717-0944. |
