@@ -1,0 +1,28 @@
+[
+  {
+    "module": "cv2",
+    "expected_dist": "opencv-python",
+    "method": "manual",
+    "time_first_run": 0.5714118480682373,
+    "time_search": 15.0,
+    "time_pip_install": 10.520950317382812,
+    "time_second_run": 0.9859201908111572,
+    "total_time": 27.078282356262207,
+    "success": false,
+    "first_error": true,
+    "is_alias": true
+  },
+  {
+    "module": "cv2",
+    "expected_dist": "opencv-python",
+    "method": "pyfix",
+    "time_first_run": 0.800011396408081,
+    "time_search": 2.0,
+    "time_pip_install": 10.393592119216919,
+    "time_second_run": 2.975966215133667,
+    "total_time": 16.169569730758667,
+    "success": false,
+    "suggested_correctly": true,
+    "first_error": false
+  }
+]

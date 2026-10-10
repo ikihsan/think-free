@@ -1,0 +1,10 @@
+#!/bin/bash
+# pyfix - Wrapper that runs a command and auto-suggests fixes for ModuleNotFoundError/ImportError
+# Usage: pyfix python3 -c "import sklearn"
+
+set -euo pipefail
+
+PYTHONPATH="${PYTHONPATH:-}${PYTHONPATH:+:}/home/ubuntu/think-free"
+export PYTHONPATH
+
+python3 -m pyprovides.pyprovides_cli fix-import -- "$@"
