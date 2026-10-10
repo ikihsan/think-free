@@ -40,6 +40,8 @@ Run a real-world evaluation: test pyprovides find against the E086 import error 
 | pyprovides/pyprovides_cli.py | 29ad9ee28f4f | 8093 |
 | pyprovides/test_pyprovides.py | bf48a80850eb | 6575 |
 | pyprovides/README.md | abd3efebada7 | 5387 |
+| pyprovides/known_aliases.py | 596718d98550 | 4480 |
+| .pyprovides-ranked.json | 16b09805af0c | 847424 |
 
 ## Commands
 
@@ -75,6 +77,8 @@ _none_
 | 11 | 15:23:02 | unlogged_change | changed but never declared as an artifact: .pyprovides-ranked.json |
 | 12 | 15:23:02 | unlogged_change | changed but never declared as an artifact: pyprovides/known_aliases.py |
 | 13 | 15:23:02 | session_end | Built a query-time reverse lookup prototype (pyprovides find command) that resolves 'which distribution provides this module' by checking: 1) stdlib ( |
+| 14 | 18:46:56 | artifact | wrote pyprovides/known_aliases.py |
+| 15 | 18:46:57 | artifact | wrote .pyprovides-ranked.json |
 
 ## Reproduce this record
 
