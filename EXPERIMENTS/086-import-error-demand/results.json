@@ -1,0 +1,499 @@
+{
+  "results": {
+    "total_reports": 33,
+    "import_error_reports": 31,
+    "module_only": 6,
+    "distribution_named": 15,
+    "no_module": 10,
+    "module_only_rate": 0.1935483870967742,
+    "module_only_ci": [
+      0.09186883586347633,
+      0.36280603555459856
+    ],
+    "by_source": {
+      "github:scikit-learn/scikit-learn": {
+        "total": 1,
+        "import_errors": 1,
+        "module_only": 0,
+        "rate": 0.0,
+        "ci": [
+          0.0,
+          0.7934567085261071
+        ]
+      },
+      "github:sqlalchemy/sqlalchemy": {
+        "total": 2,
+        "import_errors": 1,
+        "module_only": 0,
+        "rate": 0.0,
+        "ci": [
+          0.0,
+          0.7934567085261071
+        ]
+      },
+      "github:numpy/numpy": {
+        "total": 1,
+        "import_errors": 1,
+        "module_only": 0,
+        "rate": 0.0,
+        "ci": [
+          0.0,
+          0.7934567085261071
+        ]
+      },
+      "github:pytorch/pytorch": {
+        "total": 1,
+        "import_errors": 1,
+        "module_only": 0,
+        "rate": 0.0,
+        "ci": [
+          0.0,
+          0.7934567085261071
+        ]
+      },
+      "stackexchange": {
+        "total": 26,
+        "import_errors": 25,
+        "module_only": 4,
+        "rate": 0.16,
+        "ci": [
+          0.06403347608577989,
+          0.34654013980238163
+        ]
+      },
+      "github:python/cpython": {
+        "total": 1,
+        "import_errors": 1,
+        "module_only": 1,
+        "rate": 1.0,
+        "ci": [
+          0.20654329147389294,
+          1.0
+        ]
+      },
+      "github:pallets/flask": {
+        "total": 1,
+        "import_errors": 1,
+        "module_only": 1,
+        "rate": 1.0,
+        "ci": [
+          0.20654329147389294,
+          1.0
+        ]
+      }
+    }
+  },
+  "decision": "BUILD \u2014 Prototype resolver integration",
+  "reports": [
+    {
+      "source": "stackexchange",
+      "report_id": "7225900",
+      "title": "How can I install packages using pip according to the requirements.txt file from a local directory?",
+      "body": "Here is the problem: I have a requirements.txt file that looks like: BeautifulSoup==3.2.0 Django==1.3 Fabric==1.2.0 Jinja2==2.5.5 PyYAML==3.09 Pygments==1.4 SQLAlchemy==0.7.1 South==0.7.3 amqplib==0.6.1 anyjson==0.3 ... I have a local archive directory containing all the packages + others. I have created a new virtualenv with bin/virtualenv testing Upon activating it, I tried to install the packages according to requirements.txt from the local archive directory. source bin/activate pip install -r /path/to/requirements.txt -f file:///path/to/archive/ I got some output that seems to indicate that the installation is fine: Downloading/unpacking Fabric==1.2.0 (from -r ../testing/requirements.txt (line 3)) Running setup.py egg_info for package Fabric warning: no previously-included files matching '*' found under directory 'docs/_build' warning: no files found matching 'fabfile.py' Downloading/unpacking South==0.7.3 (from -r ../testing/requirements.txt (line 8)) Running setup.py egg_info for package South .... But a later check revealed that none of the packages are installed properly. I cannot import the packages, and none are found in the site-packages directory of my virtualenv. So what went wrong?",
+      "url": "https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "pip",
+        "virtualenv",
+        "requirements.txt"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "14132789",
+      "title": "How to resolve the Python error &#39;attempted relative import&#39;",
+      "body": "I've been here: PEP 328 \u2013 Imports: Multi-Line and Absolute/Relative Modules, Packages Python packages: relative imports Python relative import example code does not work Relative imports in Python 2.5 Relative imports in Python Python: Disabling relative import and plenty of URLs that I did not copy, some on SO, some on other sites, back when I thought I'd have the solution quickly. The forever-recurring question is this: how do I solve this &quot;Attempted relative import in non-package&quot; message? ImportError: attempted relative import with no known parent package I built an exact replica of the package on pep-0328: package/ __init__.py subpackage1/ __init__.py moduleX.py moduleY.py subpackage2/ __init__.py moduleZ.py moduleA.py The imports were done from the console. I did make functions named spam and eggs in their appropriate modules. Naturally, it didn't work. The answer is apparently in the 4th URL I listed, but it's all alumni to me. There was this response on one of the URLs I visited: Relative imports use a module's name attribute to determine that module's position in the package hierarchy. If the module's name does not contain any package information (e.g. it is set to 'main') then relative imports are resolved as if the module were a top level module, regardless of where the module is actually located on the file system. The above response looks promising, but it's all hieroglyphs to me. How do I make Python not return to me &quot;Attempted relative import in non-package&quot;? It has an answer that involves -m, supposedly. Why does Python give that error message? What does by &quot;non-package&quot; mean? Why and how do you define a 'package'?",
+      "url": "https://stackoverflow.com/questions/14132789/how-to-resolve-the-python-error-attempted-relative-import",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "python-import",
+        "relative-path",
+        "python-packaging",
+        "relative-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "16981921",
+      "title": "Relative imports in Python 3",
+      "body": "I want to import a function from another file in the same directory. Usually, one of the following works: from .mymodule import myfunction from mymodule import myfunction ...but the other one gives me one of these errors: ImportError: attempted relative import with no known parent package ModuleNotFoundError: No module named 'mymodule' SystemError: Parent module '' not loaded, cannot perform relative import Why is this?",
+      "url": "https://stackoverflow.com/questions/16981921/relative-imports-in-python-3",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "python-3.x",
+        "python-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "17309288",
+      "title": "Error &quot;ImportError: No module named requests&quot;",
+      "body": "I tried importing requests: import requests But I get an error: ImportError: No module named requests",
+      "url": "https://stackoverflow.com/questions/17309288/error-importerror-no-module-named-requests",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "python-requests",
+        "python-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "23842713",
+      "title": "Using Python 3 in virtualenv",
+      "body": "Using virtualenv, I run my projects with the default version of Python (2.7). On one project, I need to use Python 3.4. I used brew install python3 to install it on my Mac. Now, how do I create a virtualenv that uses the new version? e.g. sudo virtualenv envPython3 If I try: virtualenv -p python3 test I get: Running virtualenv with interpreter /usr/local/bin/python3 Using base prefix '/usr/local/Cellar/python3/3.4.0_1/Frameworks/Python.framework/Versions/3.4' New python executable in test/bin/python3.4 Also creating executable in test/bin/python Failed to import the site module Traceback (most recent call last): File \"/Users/user/Documents/workspace/test/test/bin/../lib/python3.4/site.py\", line 67, in &lt;module&gt; import os File \"/Users/user/Documents/workspace/test/test/bin/../lib/python3.4/os.py\", line 634, in &lt;module&gt; from _collections_abc import MutableMapping ImportError: No module named '_collections_abc' ERROR: The executable test/bin/python3.4 is not functioning ERROR: It thinks sys.prefix is '/Users/user/Documents/workspace/test' (should be '/Users/user/Documents/workspace/test/test') ERROR: virtualenv is not compatible with this system or executable",
+      "url": "https://stackoverflow.com/questions/23842713/using-python-3-in-virtualenv",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "python-3.x",
+        "virtualenv"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "20309456",
+      "title": "How do I call a function from another .py file?",
+      "body": "file.py contains a function named function. How do I import it? from file.py import function(a,b) The above gives an error: ImportError: No module named 'file.py'; file is not a package",
+      "url": "https://stackoverflow.com/questions/20309456/how-do-i-call-a-function-from-another-py-file",
+      "classification": "module_only",
+      "tags": [
+        "python",
+        "file",
+        "function",
+        "import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "9252543",
+      "title": "What can I do about &quot;ImportError: Cannot import name X&quot; or &quot;AttributeError: ... (most likely due to a circular import)&quot;?",
+      "body": "I have some code spread across multiple files that try to import from each other, as follows: main.py: from entity import Ent entity.py: from physics import Physics class Ent: ... physics.py: from entity import Ent class Physics: ... I then run from main.py and I get the following error: Traceback (most recent call last): File &quot;main.py&quot;, line 2, in &lt;module&gt; from entity import Ent File &quot;.../entity.py&quot;, line 5, in &lt;module&gt; from physics import Physics File &quot;.../physics.py&quot;, line 2, in &lt;module&gt; from entity import Ent ImportError: cannot import name Ent I'm assume the error is due to importing entity twice - once in main.py and later in physics.py - but how can I work around the problem? See also What happens when using mutual or circular (cyclic) imports in Python? for a general overview of what is allowed and what causes a problem WRT circular imports. See Why do circular imports seemingly work further up in the call stack but then raise an ImportError further down? for technical details on why and how the problem occurs.",
+      "url": "https://stackoverflow.com/questions/9252543/what-can-i-do-about-importerror-cannot-import-name-x-or-attributeerror",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "python-import",
+        "importerror",
+        "circular-dependency"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "7446187",
+      "title": "No module named pkg_resources",
+      "body": "I'm deploying a Django app to a dev server and am hitting this error when I run pip install -r requirements.txt: Traceback (most recent call last): File &quot;/var/www/mydir/virtualenvs/dev/bin/pip&quot;, line 5, in &lt;module&gt; from pkg_resources import load_entry_point ImportError: No module named pkg_resources pkg_resources appears to be distributed with setuptools. Initially I thought this might not be installed to the Python in the virtualenv, so I installed setuptools 2.6 (same version as Python) to the Python site-packages in the virtualenv with the following command: sh setuptools-0.6c11-py2.6.egg --install-dir /var/www/mydir/virtualenvs/dev/lib/python2.6/site-packages This only happens inside the virtualenv. If I open a console outside the virtualenv then pkg_resources is present, but I am still getting the same error. Any ideas as to why pkg_resources is not on the path?",
+      "url": "https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "pip",
+        "virtualenv",
+        "setuptools"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "301134",
+      "title": "How can I import a module dynamically given its name as string?",
+      "body": "I'm writing a Python application that takes a command as an argument, for example: $ python myapp.py command1 I want the application to be extensible, that is, to be able to add new modules that implement new commands without having to change the main application source. The tree looks something like: myapp/ __init__.py commands/ __init__.py command1.py command2.py foo.py bar.py So I want the application to find the available command modules at runtime and execute the appropriate one. Python defines an __import__() function, which takes a string for a module name: __import__(name, globals=None, locals=None, fromlist=(), level=0) The function imports the module name, potentially using the given globals and locals to determine how to interpret the name in a package context. The fromlist gives the names of objects or submodules that should be imported from the module given by name. Source: https://docs.python.org/3/library/functions.html#__import__ So currently I have something like: command = sys.argv[1] try: command_module = __import__(&quot;myapp.commands.%s&quot; % command, fromlist=[&quot;myapp.commands&quot;]) except ImportError: # Display error message command_module.run() This works just fine, I'm just wondering if there is possibly a more idiomatic way to accomplish what we are doing with this code. Note that I specifically don't want to get in to using eggs or extension points. This is not an open-source project and I don't expect there to be &quot;plugins&quot;. The point is to simplify the main application code and remove the need to modify it each time a new command module is added. See also: How can I import a module dynamically given the full path?",
+      "url": "https://stackoverflow.com/questions/301134/how-can-i-import-a-module-dynamically-given-its-name-as-string",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "python-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "1260792",
+      "title": "Import a file from a subdirectory?",
+      "body": "I have a file called tester.py, located on /project. /project has a subdirectory called lib, with a file called BoxTime.py: /project/tester.py /project/lib/BoxTime.py I want to import BoxTime from tester. I have tried this: import lib.BoxTime Which resulted: Traceback (most recent call last): File \"./tester.py\", line 3, in &lt;module&gt; import lib.BoxTime ImportError: No module named lib.BoxTime Any ideas how to import BoxTime from the subdirectory? EDIT The __init__.py was the problem, but don't forget to refer to BoxTime as lib.BoxTime, or use: import lib.BoxTime as BT ... BT.bt_function()",
+      "url": "https://stackoverflow.com/questions/1260792/import-a-file-from-a-subdirectory",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "python-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "11914472",
+      "title": "How do you use StringIO in Python3 for numpy.genfromtxt()?",
+      "body": "I am using Python 3.2.1 and I can't import the StringIO module. I use io.StringIO and it works, but I can't use it with numpy's genfromtxt() like this: x=&quot;1 3\\n 4.5 8&quot; numpy.genfromtxt(io.StringIO(x)) I get the following error: TypeError: Can't convert 'bytes' object to str implicitly and when I write import StringIO it says ImportError: No module named 'StringIO'",
+      "url": "https://stackoverflow.com/questions/11914472/how-do-you-use-stringio-in-python3-for-numpy-genfromtxt",
+      "classification": "module_only",
+      "tags": [
+        "python",
+        "python-3.x",
+        "io"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "338768",
+      "title": "Python error &quot;ImportError: No module named&quot;",
+      "body": "Python is installed in a local directory. My directory tree looks like this: (local directory)/site-packages/toolkit/interface.py My code is in here: (local directory)/site-packages/toolkit/examples/mountain.py To run the example, I write python mountain.py, and in the code I have: from toolkit.interface import interface And I get the error: Traceback (most recent call last): File &quot;mountain.py&quot;, line 28, in ? from toolkit.interface import interface ImportError: No module named toolkit.interface I have already checked sys.path, and there I have the directory /site-packages. Also, I have the file init.py.bin in the toolkit folder to indicate to Python that this is a package. I also have a init.py.bin file in the examples directory. Why can Python not find the file when it is in sys.path? Can it be a permissions problem? Do I need some execution permission?",
+      "url": "https://stackoverflow.com/questions/338768/python-error-importerror-no-module-named",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "importerror",
+        "python-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "744373",
+      "title": "What happens when using mutual or circular (cyclic) imports?",
+      "body": "In Python, what happens when two modules attempt to import each other? More generally, what happens if multiple modules attempt to import in a cycle? See also What can I do about &quot;ImportError: Cannot import name X&quot; or &quot;AttributeError: ... (most likely due to a circular import)&quot;? for the common problem that may result, and advice on how to rewrite code to avoid such imports. See Why do circular imports seemingly work further up in the call stack but then raise an ImportError further down? for technical details on why and how the problem occurs.",
+      "url": "https://stackoverflow.com/questions/744373/what-happens-when-using-mutual-or-circular-cyclic-imports",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "python-import",
+        "circular-dependency",
+        "cyclic-reference"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "4256107",
+      "title": "Running Bash commands in Python",
+      "body": "On my local machine, I run a python script which contains this line bashCommand = \"cwm --rdf test.rdf --ntriples &gt; test.nt\" os.system(bashCommand) This works fine. Then I run the same code on a server and I get the following error message 'import site' failed; use -v for traceback Traceback (most recent call last): File \"/usr/bin/cwm\", line 48, in &lt;module&gt; from swap import diag ImportError: No module named swap So what I did then is I inserted a print bashCommand which prints me than the command in the terminal before it runs it with os.system(). Of course, I get again the error (caused by os.system(bashCommand)) but before that error it prints the command in the terminal. Then I just copied that output and did a copy paste into the terminal and hit enter and it works... Does anyone have a clue what's going on?",
+      "url": "https://stackoverflow.com/questions/4256107/running-bash-commands-in-python",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "bash"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "454854",
+      "title": "No module named MySQLdb",
+      "body": "I am using Python version 2.5.4 and install MySQL version 5.0 and Django. Django is working fine with Python, but not MySQL. I am using it in Windows Vista.",
+      "url": "https://stackoverflow.com/questions/454854/no-module-named-mysqldb",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "django",
+        "python-2.x"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "55313610",
+      "title": "ImportError: libGL.so.1: cannot open shared object file: No such file or directory",
+      "body": "I am trying to run cv2, but when I try to import it, I get the following error: ImportError: libGL.so.1: cannot open shared object file: No such file or directory My suggested solution online is to install apt install libgl1-mesa-glx but this is already installed and the latest version. NB: I am actually running this on Docker, and I am not able to check the OpenCV version. I tried importing matplotlib and that imports fine.",
+      "url": "https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "docker",
+        "ubuntu-14.04"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "49836676",
+      "title": "Error after upgrading pip: cannot import name &#39;main&#39;",
+      "body": "Whenever I am trying to install any package using pip, I am getting this import error: guru@guru-notebook:~$ pip3 install numpy Traceback (most recent call last): File \"/usr/bin/pip3\", line 9, in &lt;module&gt; from pip import main ImportError: cannot import name 'main' guru@guru-notebook:~$ cat `which pip3` #!/usr/bin/python3 # GENERATED BY DEBIAN import sys # Run the main entry point, similarly to how setuptools does it, but because # we didn't install the actual entry point from setup.py, don't use the # pkg_resources API. from pip import main if __name__ == '__main__': sys.exit(main()) It was working fine earlier, I am not sure why it is throwing this error. I have searched about this error, but can't find anything to fix it. Please let me know if you need any further detail, I will update my question.",
+      "url": "https://stackoverflow.com/questions/49836676/error-after-upgrading-pip-cannot-import-name-main",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "pip"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "56656777",
+      "title": "&quot;UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.&quot; when plotting figure with pyplot on Pycharm",
+      "body": "I am trying to plot a simple graph using pyplot, e.g.: import matplotlib.pyplot as plt plt.plot([1,2,3],[5,7,4]) plt.show() but the figure does not appear and I get the following message: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure. I found and tried some advice to re-configure the &quot;backend&quot; mentioned in that warning, like so: import matplotlib matplotlib.use('TkAgg') import matplotlib.pyplot as plt but this gives me an error message: ModuleNotFoundError: No module named 'tkinter' I assumed that I had to install this module separately, but pip install tkinter does not work: Collecting tkinter Could not find a version that satisfies the requirement tkinter (from versions: ) No matching distribution found for tkinter How can I make Matplotlib display the graph? See also: Why does tkinter (or turtle) seem to be missing or broken? Shouldn&#39;t it be part of the standard library? . This question is not a duplicate, because the answers discuss other backends besides the Tkinter one. Also see _tkinter.TclError: no display name and no $DISPLAY environment variable for issues with attempts to use Matplotlib remotely.",
+      "url": "https://stackoverflow.com/questions/56656777/userwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend-so",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "matplotlib",
+        "pycharm"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "3701646",
+      "title": "How to add to the PYTHONPATH in Windows, so it finds my modules/packages?",
+      "body": "I have a directory which hosts all of my Django apps (C:\\My_Projects). I want to add this directory to my PYTHONPATH so I can call the apps directly. I tried adding C:\\My_Projects\\; to my Windows Path variable from the Windows GUI (My Computer &gt; Properties &gt; Advanced System Settings &gt; Environment Variables). But it still doesn't read the coltrane module and generates this error: Error: No module named coltrane",
+      "url": "https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-so-it-finds-my-modules-packages",
+      "classification": "not_import_error",
+      "tags": [
+        "python",
+        "windows",
+        "environment-variables",
+        "pythonpath"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "25905540",
+      "title": "ImportError: No module named &#39;Tkinter&#39;",
+      "body": "For some reason, I can't use the Tkinter (or tkinter, on Python 3) module. After running the following command in the python shell: import Tkinter or this, in Python 3: import tkinter I got this error ModuleNotFoundError: No module named 'Tkinter' or this: ModuleNotFoundError: No module named 'tkinter' What could be the reason for these errors and how can I solve it?",
+      "url": "https://stackoverflow.com/questions/25905540/importerror-no-module-named-tkinter",
+      "classification": "module_only",
+      "tags": [
+        "python",
+        "tkinter",
+        "python-import",
+        "importerror"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "19876079",
+      "title": "Cannot find module cv2 when using OpenCV",
+      "body": "I have installed OpenCV on the Occidentalis operating system (a variant of Raspbian) on a Raspberry Pi, using this script by jayrambhia. It installed version 2.4.5. When I try import cv2 in a Python program, I get the following message: pi@raspberrypi~$ python cam.py Traceback (most recent call last) File &quot;cam.py&quot;, line 1, in &lt;module&gt; import cv2 ImportError: No module named cv2 The file cv2.so is stored in /usr/local/lib/python2.7/site-packages/... There are also folders in /usr/local/lib called python3.2 and python2.6, in case that is relevant. How can I fix the problem? Is this caused by a path misconfiguration?",
+      "url": "https://stackoverflow.com/questions/19876079/cannot-find-module-cv2-when-using-opencv",
+      "classification": "no_module",
+      "tags": [
+        "python",
+        "opencv",
+        "raspberry-pi"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "14426491",
+      "title": "Python 3: ImportError &quot;No Module named Setuptools&quot;",
+      "body": "I'm having troubles with installing packages in Python 3. I have always installed packages with setup.py install. But now, when I try to install the ansicolors package I get: importerror &quot;No Module named Setuptools&quot; I have no idea what to do because I didn't have setuptools installed in the past. Still, I was able to install many packages with setup.py install without setuptools. Why should I get setuptools now? I can't even install setuptools because I have Python 3.3 and setuptools doesn't support Python 3. Why doesn't my install command work anymore?",
+      "url": "https://stackoverflow.com/questions/14426491/python-3-importerror-no-module-named-setuptools",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "module",
+        "package",
+        "setup.py",
+        "python-3.3"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "43728431",
+      "title": "Relative imports - ModuleNotFoundError: No module named x",
+      "body": "This is the first time I've really sat down and tried python 3, and seem to be failing miserably. I have the following two files: test.py config.py config.py has a few functions defined in it as well as a few variables. I've stripped it down to the following: config.py debug = True test.py import config print (config.debug) I also have an __init__.py However, I'm getting the following error: ModuleNotFoundError: No module named 'config' I'm aware that the py3 convention is to use absolute imports: from . import config However, this leads to the following error: ImportError: cannot import name 'config' So I'm at a loss as to what to do here... Any help is greatly appreciated. :)",
+      "url": "https://stackoverflow.com/questions/43728431/relative-imports-modulenotfounderror-no-module-named-x",
+      "classification": "module_only",
+      "tags": [
+        "python",
+        "python-3.x",
+        "package",
+        "python-import",
+        "relative-import"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "18363022",
+      "title": "Error running &#39;pip install&#39;: &quot;ImportError: No module named pip&quot;",
+      "body": "OS: Mac OS X 10.7.5 (Lion) Python ver: 2.7.5 I have installed setuptools 1.0 with ez_setup.py from https://pypi.python.org/pypi/setuptools. Then I downloaded pip.1.4.1 pkg from https://pypi.python.org/pypi/pip/1.4.1. I ran (sudo) python setup.py install in iTerm, output: running install running bdist_egg running egg_info writing requirements to pip.egg-info/requires.txt writing pip.egg-info/PKG-INFO writing top-level names to pip.egg-info/top_level.txt writing dependency_links to pip.egg-info/dependency_links.txt writing entry points to pip.egg-info/entry_points.txt warning: manifest_maker: standard file 'setup.py' not found reading manifest file 'pip.egg-info/SOURCES.txt' writing manifest file 'pip.egg-info/SOURCES.txt' installing library code to build/bdist.macosx-10.6-intel/egg running install_lib warning: install_lib: 'build/lib' does not exist -- no Python modules to install creating build/bdist.macosx-10.6-intel/egg creating build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/PKG-INFO -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/SOURCES.txt -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/dependency_links.txt -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/entry_points.txt -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/not-zip-safe -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/requires.txt -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO copying pip.egg-info/top_level.txt -&gt; build/bdist.macosx-10.6-intel/egg/EGG-INFO creating 'dist/pip-1.4.1-py2.7.egg' and adding 'build/bdist.macosx-10.6-intel/egg' to it removing 'build/bdist.macosx-10.6-intel/egg' (and everything under it) Processing pip-1.4.1-py2.7.egg removing '/Users/dl/Library/Python/2.7/lib/python/site-packages/pip-1.4.1-py2.7.egg' (and everything under it) creating /Users/dl/Library/Python/2.7/lib/python/site-packages/pip-1.4.1-py2.7.egg Extracting pip-1.4.1-py2.7.egg to /Use",
+      "url": "https://stackoverflow.com/questions/18363022/error-running-pip-install-importerror-no-module-named-pip",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "macos",
+        "pip"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "37139786",
+      "title": "Is __init__.py not required for packages in Python 3.3+",
+      "body": "I am using Python 3.5.1. I read the document and the package section here: https://docs.python.org/3/tutorial/modules.html#packages Now, I have the following structure: /home/wujek/Playground/a/b/module.py module.py: class Foo: def __init__(self): print('initializing Foo') Now, while in /home/wujek/Playground: ~/Playground $ python3 &gt;&gt;&gt; import a.b.module &gt;&gt;&gt; a.b.module.Foo() initializing Foo &lt;a.b.module.Foo object at 0x100a8f0b8&gt; Similarly, now in home, superfolder of Playground: ~ $ PYTHONPATH=Playground python3 &gt;&gt;&gt; import a.b.module &gt;&gt;&gt; a.b.module.Foo() initializing Foo &lt;a.b.module.Foo object at 0x10a5fee10&gt; Actually, I can do all kinds of stuff: ~ $ PYTHONPATH=Playground python3 &gt;&gt;&gt; import a &gt;&gt;&gt; import a.b &gt;&gt;&gt; import Playground.a.b Why does this work? I though there needed to be __init__.py files (empty ones would work) in both a and b for module.py to be importable when the Python path points to the Playground folder? This seems to have changed from Python 2.7: ~ $ PYTHONPATH=Playground python &gt;&gt;&gt; import a ImportError: No module named a &gt;&gt;&gt; import a.b ImportError: No module named a.b &gt;&gt;&gt; import a.b.module ImportError: No module named a.b.module With __init__.py in both ~/Playground/a and ~/Playground/a/b it works fine.",
+      "url": "https://stackoverflow.com/questions/37139786/is-init-py-not-required-for-packages-in-python-3-3",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "python-3.x",
+        "package"
+      ]
+    },
+    {
+      "source": "stackexchange",
+      "report_id": "10253826",
+      "title": "PATH issue with pytest &#39;ImportError: No module named ...&#39;",
+      "body": "I used easy_install to install pytest on a Mac and started writing tests for a project with a file structure likes so: repo/ |--app.py |--settings.py |--models.py |--tests/ |--test_app.py Run py.test while in the repo directory, and everything behaves as you would expect. But when I try that same thing on either Linux or Windows (both have pytest 2.2.3 on them), it barks whenever it hits its first import of something from my application path. For instance, from app import some_def_in_app. Do I need to be editing my PATH to run py.test on these systems?",
+      "url": "https://stackoverflow.com/questions/10253826/path-issue-with-pytest-importerror-no-module-named",
+      "classification": "distribution_named",
+      "tags": [
+        "python",
+        "unit-testing",
+        "pytest"
+      ]
+    },
+    {
+      "source": "github:python/cpython",
+      "report_id": "158936",
+      "title": "Dataclass initialization inconsistently raises an error if a lazily imported annotation cannot be reified",
+      "body": "### Bug report ## Bug/Inconsistency Dataclass initialization errors out only if a lazily imported annotation that is represented as a string (such as when `from __future__ import annotations` is present) cannot be reified. ## Examples ### Repl without strs (success) ```python >>> from dataclasses import dataclass >>> lazy import fake >>> @dataclass ... class config: ... data: fake | None = None ... >>> ``` ### Repl using str annotations (failure) ```python >>> from __future__ import annotations >>> lazy import fake >>> @dataclass ... class config: ... data: fake | None = None ... Traceback (most recent call last): File \"\", line 1, in lazy import fake ImportError: lazy import of 'fake' raised an exception during resolution The above exception was the direct cause of the following exception: Traceback (most recent call last): File \"\", line 1, in @dataclass ^^^^^^^^^ File \"/home/breynoso/cpython/Lib/dataclasses.py\", line 1458, in dataclass return wrap(cls) File \"/home/breynoso/cpython/Lib/dataclasses.py\", line 1448, in wrap return _process_class(cls, init, repr, eq, order, unsafe_hash, frozen, match_args, kw_only, slots, weakref_slot) File \"/home/breynoso/cpython/Lib/dataclasses.py\", line 1066, in _process_class a_type_annotation = _get_type_from_annotation(type, cls) File \"/home/breynoso/cpython/Lib/dataclasses.py\", line 809, in _get_type_from_annotation root = getattr(root, path_item.strip(), None) ModuleNotFoundError: No module named 'fake' ``` ```python >>> from dataclasses import dataclass >>> lazy import fake >>> @dataclass ... class config: ... data: 'fake' ... Traceback (most recent call last): File \"\", line 1, in lazy import fake ImportError: lazy import of 'fake' raised an exception during resolution The above exception was the direct cause of the following exception: Traceback (most recent call last): File \"\", line 1, in @dataclass ^^^^^^^^^ File \"/home/breynoso/cpython/Lib/dataclasses.py\", line 1458, in dataclass return wrap(cls) File \"/home/breynoso/cpytho",
+      "url": "https://github.com/python/cpython/issues/158936",
+      "classification": "module_only",
+      "tags": []
+    },
+    {
+      "source": "github:numpy/numpy",
+      "report_id": "32794",
+      "title": "import error if numpy >2.3.5",
+      "body": "### Steps to reproduce: I'm on a fresh windows10 setup, python 3.13.15 x64 I installed numpy with `pip install numpy`: it installed numpy 2.5.3, but `imports numpy` fails. I tried installing numpy 2.4.1 and the same happened. The tips at [https://numpy.org/devdocs/user/troubleshooting-importerror.html](url) didn't solve the issue. I then installed numpy 2.3.5: this one imports fine and I can work with it with no issues. I searched here for issues on import like this one, but nothing seems relevant. Can someone help me? Thanks. ### Error message: ```shell Traceback (most recent call last): File \"C:\\Python\\Python313\\Lib\\site-packages\\numpy\\_core\\__init__.py\", line 24, in from . import multiarray File \"C:\\Python\\Python313\\Lib\\site-packages\\numpy\\_core\\multiarray.py\", line 11, in from . import _multiarray_umath, overrides ImportError: DLL load failed while importing _multiarray_umath: Routine di inizializzazione della libreria di collegamento dinamico (DLL) non riuscita. The above exception was the direct cause of the following exception: Traceback (most recent call last): File \"\", line 1, in import numpy File \"C:\\Python\\Python313\\Lib\\site-packages\\numpy\\__init__.py\", line 122, in from numpy.__config__ import show_config File \"C:\\Python\\Python313\\Lib\\site-packages\\numpy\\__config__.py\", line 4, in from numpy._core._multiarray_umath import ( File \"C:\\Python\\Python313\\Lib\\site-packages\\numpy\\_core\\__init__.py\", line 85, in raise ImportError(msg) from exc ImportError: IMPORTANT: PLEASE READ THIS FOR ADVICE ON HOW TO SOLVE THIS ISSUE! Importing the numpy C-extensions failed. This error can happen for many reasons, often due to issues with your setup or how NumPy was installed. We have compiled some common reasons and troubleshooting tips at: https://numpy.org/devdocs/user/troubleshooting-importerror.html Please note and check the following: * The Python version is: Python 3.13 from \"C:\\Python\\Python313\\pythonw.exe\" * The NumPy version is: \"2.5.3\" and make sure that they are ",
+      "url": "https://github.com/numpy/numpy/issues/32794",
+      "classification": "distribution_named",
+      "tags": []
+    },
+    {
+      "source": "github:pallets/flask",
+      "report_id": "6071",
+      "title": "Tests fail with pytest 9.1: _pytest.monkeypatch.notset removed",
+      "body": "Flask's test suite imports the private notset sentinel from _pytest.monkeypatch in both tests/conftest.py and tests/test_cli.py. pytest 9.1 removed this attribute, moving it to _pytest.compat.NOTSET. This causes a collection-time crash \u2014 no tests can run at all. ### Reproducing ``` pip install -e . pytest==9.1.1 pytest tests/ tests/test_cli.py:14: in from _pytest.monkeypatch import notset E ImportError: cannot import name 'notset' from '_pytest.monkeypatch' ``` Even after fixing test_cli.py, every test fails because tests/conftest.py accesses monkeypatch.notset as a module attribute in the _standard_os_environ session fixture: `tests/conftest.py:19: AttributeError: module '_pytest.monkeypatch' has no attribute 'notset'` ### Expected Behavior The test suite should work with pytest 9.1+. ### Environment: Python version: 3.15.0b2 Flask version: 3.1.3",
+      "url": "https://github.com/pallets/flask/issues/6071",
+      "classification": "module_only",
+      "tags": []
+    },
+    {
+      "source": "github:scikit-learn/scikit-learn",
+      "report_id": "35038",
+      "title": "`from sklearn.model_selection import *` raises ImportError since 1.8.0",
+      "body": "### Introduce yourself Hi, I'm a CS student and regular scikit-learn user, mostly through model_selection. I ran into this while star-importing the module in a notebook and traced it back to a specific commit. First time filing a bug here. ### Describe the bug and give evidence about its user-facing impact `from sklearn.model_selection import *` raises an ImportError on 1.8.0+. It worked in 1.7.2, and every other public submodule still star-imports fine. The cause: `HalvingGridSearchCV` and `HalvingRandomSearchCV` are listed in `__all__` (in `sklearn/model_selection/__init__.py`), but the module's `__getattr__` deliberately raises ImportError for both until you import `enable_halving_search_cv`. Star-import pulls every name in `__all__`, so it hits that guard and fails. The two names were added to `__all__` in #31847 (the ruff absolute-imports cleanup); before that they weren't exported. Impact: any notebook or script doing `from sklearn.model_selection import *` breaks on upgrade to 1.8.0, with an error that looks unrelated to what the user actually did. ### Steps/Code to Reproduce ```python from sklearn.model_selection import * ``` ### Expected Results Star-import succeeds like it did in 1.7.2, without exporting the experimental Halving classes. ### Actual Results ``` Traceback (most recent call last): File \"\", line 1, in File \".../sklearn/model_selection/__init__.py\", line 100, in __getattr__ raise ImportError( ImportError: HalvingGridSearchCV is experimental and the API might change without any deprecation cycle. To use it, you need to explicitly import enable_halving_search_cv: from sklearn.experimental import enable_halving_search_cv ``` ### Versions ```shell System: python: 3.12.10 (tags/v3.12.10:0cc8128, Apr 8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)] machine: Windows-11-10.0.26200-SP0 Python dependencies: sklearn: 1.10.dev0 pip: 25.0.1 numpy: 2.6.0.dev0 scipy: 2.0.0.dev0 pandas: 3.1.0.dev0+2081.ge909fc44ba joblib: 1.6.0 threadpoolctl: 3.7.0 narwhals: 2.26",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/35038",
+      "classification": "no_module",
+      "tags": []
+    },
+    {
+      "source": "github:pytorch/pytorch",
+      "report_id": "200511",
+      "title": "CI: torchtitan_features_integration fails at collection with \"pyarrow requires NumPy 2.0 or newer, found 1.26.4\"",
+      "body": "### \ud83d\udc1b Describe the bug The `torchtitan_features_integration` job fails during pytest **collection** (before any test case runs) with an environment-level dependency conflict: Failing example (triggered via ciflow on an unrelated dynamo PR): https://github.com/pytorch/pytorch/actions/runs/38022285205/job/114127342177?pr=198099 **How it happens** 1. The workflow uses the `pytorch-linux-jammy-cuda*-py3.12-gcc11` image (since #194260). That image pins `numpy==1.26.4` for py3.11/py3.12 in `.ci/docker/requirements-ci.txt`. 2. The job then runs `pip install torchtitan` (torchtitan 0.2.2 in the failing run), which pulls `datasets==4.7.0` \u2192 `pyarrow==26.0.0`. pyarrow \u2265 17 requires numpy \u2265 2.0. 3. pip resolves this as only a warning during install (numpy stays at 1.26.4 to match the torch binary built against the numpy-1.x ABI), and the conflict only explodes at import time: Since #197604 removed `torchtitan_models_integration` from the matrix, `torchtitan_features_integration` is now the only remaining torchtitan suite \u2014 so every PR that gets the torchtitan ciflow tag will hit this wall regardless of its own changes. It is expected to fail identically on trunk scheduled runs of the same workflow. ### Error messages / logs (install log of the same run shows: `Successfully installed ... datasets-4.7.0 ... pyarrow-26.0.0 ... torchtitan-0.2.2`, with numpy pinned at 1.26.4 from the CI image) ### Proposed fixes (any of) - Constrain the torchtitan install to a numpy-1-compatible pyarrow, e.g. `pip install \"pyarrow<17\"` after/before installing torchtitan, or pin `datasets` to a version that does not require pyarrow \u2265 17. - Install torchtitan in a separate venv from the pinned CI environment for this job. - Long-term: migrate the py3.12 CI image (and the torchtitan job) to numpy 2.x where the torch binary supports it. ### Repro Any PR where the torchtitan ciflow tag is applied, e.g. rerunning the failing job above; locally inside the py3.12 CI docker image: ```bash pip install torcht",
+      "url": "https://github.com/pytorch/pytorch/issues/200511",
+      "classification": "distribution_named",
+      "tags": []
+    },
+    {
+      "source": "github:sqlalchemy/sqlalchemy",
+      "report_id": "13566",
+      "title": "Disposed declarative classes are kept alive by _track_overlapping_sync_targets",
+      "body": "broken out from #13564 , which partially dupes #9147 > JoinCondition._track_overlapping_sync_targets (_JoinCondition on main). It is a class-level WeakKeyDictionary that only exists for the \"relationship X will copy column Q to column P, which conflicts with ...\" warning. The keys (to_ columns) are weak, but the values are plain Column objects (from_). As soon as the from_ column can reach the to_ column through strong references, the weak key is kept alive by the dictionary's own value and the entry never expires. That happens for example when an Index built from an ORM attribute (Index(\"ix\", Parent.id.desc())) is attached to the table: the expression is annotated with the mapper, so Table \u2192 mapper \u2192 registry \u2192 the other classes \u2192 the to_ column. In my case every rebuilt class left ~1000 Column objects, the mapper and the class behind, roughly 7\u20139 MB per rebuild per process. ```py import gc, weakref import sqlalchemy as sa from sqlalchemy.orm import registry, relationship, configure_mappers, Mapper try: from sqlalchemy.orm.relationships import JoinCondition except ImportError: # main from sqlalchemy.orm.relationships import _JoinCondition as JoinCondition def build(orm_index=False, declare_last=False): reg = registry() Base = reg.generate_base() class Parent(Base): __tablename__ = \"parent\" id = sa.Column(sa.Integer, primary_key=True) if declare_last: @classmethod def __declare_last__(cls): pass class Child(Base): __tablename__ = \"child\" id = sa.Column(sa.Integer, primary_key=True) parent_id = sa.Column(sa.ForeignKey(\"parent.id\")) parent = relationship(Parent) if orm_index: sa.Index(\"ix_parent_id_desc\", Parent.id.desc()) configure_mappers() refs = (weakref.ref(Parent), weakref.ref(Child), weakref.ref(Parent.__table__)) reg.dispose() return refs def listeners(): return sum(len(c) for c in Mapper.dispatch.after_configured._clslevel.values()) print(sa.__version__) for kwargs in ({}, {\"orm_index\": True}, {\"declare_last\": True}): alive = [] for _ in range(5): refs = buil",
+      "url": "https://github.com/sqlalchemy/sqlalchemy/issues/13566",
+      "classification": "no_module",
+      "tags": []
+    },
+    {
+      "source": "github:sqlalchemy/sqlalchemy",
+      "report_id": "13564",
+      "title": "Disposed declarative classes are kept alive by _track_overlapping_sync_targets and by the __declare_last__ \"after_configured\" listener",
+      "body": "### Describe the bug I rebuild ORM classes at runtime (tenant-defined tables, so a class gets re-created when its schema changes) and noticed the process grows by several MB every time, even though the old registry/mappers are disposed and nothing of mine references the old classes any more. Tracking it down with `gc.get_referrers` ended in two places inside SQLAlchemy that hold on to mapped classes for the whole process lifetime: 1. **`JoinCondition._track_overlapping_sync_targets`** (`_JoinCondition` on main). It is a class-level `WeakKeyDictionary` that only exists for the \"relationship X will copy column Q to column P, which conflicts with ...\" warning. The keys (`to_` columns) are weak, but the values are plain `Column` objects (`from_`). As soon as the `from_` column can reach the `to_` column through strong references, the weak key is kept alive by the dictionary's own value and the entry never expires. That happens for example when an `Index` built from an ORM attribute (`Index(\"ix\", Parent.id.desc())`) is attached to the table: the expression is annotated with the mapper, so Table \u2192 mapper \u2192 registry \u2192 the other classes \u2192 the `to_` column. In my case every rebuilt class left ~1000 `Column` objects, the mapper and the class behind, roughly 7\u20139 MB per rebuild per process. 2. **`__declare_last__` / `__declare_first__`**. `_ClassScanMapperConfig._setup_declared_events()` registers a closure on `Mapper` `\"after_configured\"` for every class that defines the hook. The closure holds the config object (and through it the class), it is never removed \u2014 `registry.dispose()` doesn't know about it \u2014 and the listener list on `Mapper` grows by one per class ever mapped and is run on every `configure_mappers()`. Reproduced on 1.4.54, 2.0.52 and current main. ### To Reproduce ```python import gc, weakref import sqlalchemy as sa from sqlalchemy.orm import registry, relationship, configure_mappers, Mapper try: from sqlalchemy.orm.relationships import JoinCondition except Impor",
+      "url": "https://github.com/sqlalchemy/sqlalchemy/issues/13564",
+      "classification": "not_import_error",
+      "tags": []
+    }
+  ]
+}
