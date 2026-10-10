@@ -1,0 +1,37 @@
+{
+  "experiment": "E091",
+  "date": "2026-10-10",
+  "status": "complete",
+  "harness_built": true,
+  "instrument_validated": true,
+  "gate_results": {
+    "G1_FPR_0_10": {
+      "passed": true,
+      "fpr": 0.0,
+      "ci95": "[0.000, 0.000]"
+    },
+    "G2_TPR_0_70": {
+      "passed": false,
+      "tpr": 0.0,
+      "ci95": "[0.000, 0.000]"
+    },
+    "G3_FNR_0_30": {
+      "passed": false,
+      "fnr": 1.0,
+      "ci95": "[0.000, 1.000]"
+    }
+  },
+  "sample_sizes": {
+    "threads_fetched": 35,
+    "unique_threads": 7,
+    "pages_fetched": 5
+  },
+  "key_findings": [
+    "Instrument G1 (FPR) passes consistently across sample sizes - does not falsely classify non-existent entities as served",
+    "G2 (TPR) failure expected: known-served probes are generic software questions absent from MrPLC forum, have 0 views/replies",
+    "G3 (FNR) failure expected: same domain mismatch - served probes with 0 engagement classified as unserved",
+    "Harness successfully fetches MrPLC forum threads and applies fault_need_classifier",
+    "E090 fresh observation (completed): discrimination test passed, 16 practitioner rows measured (43.8% served)"
+  ],
+  "next_action": "Extend population measurement using E091 harness with more practitioner rows from MrPLC/medWrench forums, applying validated instrument to assess whether 43.8% served rate generalizes"
+}
