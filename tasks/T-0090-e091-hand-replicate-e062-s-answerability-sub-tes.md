@@ -6,11 +6,11 @@ last-verified: 2026-10-10
 
 <!-- task-meta
 id: T-0090
-status: open
+status: claimed
 created: 2026-10-10
-claim-agent:
-claim-session:
-claim-vm:
+claim-agent: opencode
+claim-session: 2026-10-10-006-decide-by-measurement-whether-which-dist
+claim-vm: instance-20260717-0944
 verify: test -f EXPERIMENTS/091-anova-answerability/VERDICT.md
 -->
 
