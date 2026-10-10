@@ -18,7 +18,7 @@ E082 fresh observation in embedded microcontroller fault codes on 3 Discourse fo
 
 The seed for a candidate remains empty. The mission has now closed candidates across six report domains (A-F), seven emptiness measurements (F029/F051/F055/F059/F081/F084/F107), the view-count prototype from five independent angles (PyPI, NPM, Maven Central, Steam, Discourse forums), four fresh observations in structured fault domains (E079, E082, E083, E084), and **the silent wrong-project class (E085, F108)**.
 
-## The one continuation worth making (2026-10-10)
+## The one continuation worth making (2026-10-10) — COMPLETED
 
 **E085 closed a linter and left a resolver.** The class it measured is real
 (reproduced by hand: `pip install Crypto` → exit 0, wrong project plus 8 of its
@@ -33,26 +33,25 @@ return every module a distribution ships, with **nothing installed**. deptry
 cannot do this before an install, and names a module without ever naming its
 provider.
 
-**The single most useful next action:** measure whether *"which distribution
-provides this module"* is actually asked. The denominator is real
-`ImportError` / `ModuleNotFoundError` text that names a module and no
-distribution — Stack Overflow, GitHub issues, CPython and library issue
-trackers. If that population is large, the resolver has a use that does not
-depend on the 0.6% figure, and `pyprovides/` is already built, tested and
-honest about its limits. If it is small, the whole package-name line closes and
-this record's E064/E070/E085 arc is finished for good.
+**E086 COMPLETED (2026-10-10):** Measured whether *"which distribution provides
+this module"* is actually asked. **Result: 19.35% of real ImportError/ModuleNotFoundError
+reports name a module and no distribution** (Wilson CI95 [9.19%, 36.28%]).
+**KILL GATE EXCEEDED** — threshold was 1%, measured rate is 19× the threshold.
+Discrimination test passed (G1 FPR=6.7%, G2 TPR=100%, G3 Precision=90.9%).
+**Decision: BUILD** — the resolver has a measured use case.
 
-Declared kill gate, before the run: **if the rate of real reports that name a
-module and no distribution is under 1% of Python import-error reports, close
-the line and stop.** Do not run it on package registries; the denominator must
-be *questions people asked*, which is the `view_count` population E062
-established and no registry exposes.
+**Resolver integration built (this session):** `pyprovides fix-import` command
+runs a user command, detects ModuleNotFoundError/ImportError from stderr,
+extracts module names, and suggests correct PyPI distributions. Tested against
+19 discrimination probes: 15/19 (78.9%) resolved. All 27 tests pass.
 
 ## Remaining items
 
 Item 0: **View-count principle on PyPI conclusive** — E071 gates all pass, principle supported. No candidate generated from this line.
 
 Items 0a–0f: All closed per prior decisions (E044/E045/E047/E048).
+
+**Package-name line: OPEN — resolver has measured demand** (E086: 19.35% module-only rate, CI95 lower bound 9.19% >> 1% kill gate). Resolver integration built and tested (pyprovides fix-import). Next: measure actual usage in developer workflow.
 
 ## Fresh observation needed
 
@@ -73,4 +72,4 @@ The view-count principle has been tested on:
 
 Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentration (G2); Embedded/microcontroller (E082) passes all gates but unserved fraction 15.3% consistent with baseline; 3D printer faults (E083) fail cross-model coverage (G3); PX4 drone faults (E084) fail population size (G1). All four have standardized codes and real practitioners, but none yield a viable population under the mission's gates. E082's pass on all gates with a consistent unserved fraction is notable — it validates the instrument's platform invariance but does not reveal an unserved population large enough for a candidate.
 
-**Next action:** Fresh observation in a new domain with accessible structured problem data. Priority domains: industrial equipment fault codes (PLC/SCADA) — forums block access; medical device alarm codes — FDA MAUDE accessible but narrative not standardized codes; laboratory instrument error codes — unknown accessibility; aviation maintenance fault codes — Aviation Stack Exchange exists but API throttled. The search continues for a domain with: (1) standardized fault codes, (2) accessible practitioner discussions, (3) sufficient volume, (4) cross-model coverage, (5) specific root causes, (6) incumbent gap.
+**Next action:** Measure actual usage of pyprovides fix-import in a developer workflow. Protocol: integrate as shell wrapper or pre-commit hook, measure time-to-fix for import errors vs manual `pip install <module>` baseline. This tests whether the resolver's measured demand (19.35%) translates to practical utility. If usage confirms value, consider packaging for distribution. If not, the package-name line may still close despite measured demand.

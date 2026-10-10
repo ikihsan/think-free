@@ -15,7 +15,7 @@ Showing the 25 most recent. 194 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | **unfinished** | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T16:54 |
+| [2026-10-10-014-test-pyprovides-find-against-e086-import](2026-10-10-014-test-pyprovides-find-against-e086-import/README.md) | unknown-agent | worked | Test pyprovides find against E086 import error corpus to measure resol | 2026-10-10T17:13 |
 | [2026-10-10-013-prototype-query-time-reverse-lookup-give](2026-10-10-013-prototype-query-time-reverse-lookup-give/README.md) | opencode | worked | Prototype query-time reverse lookup: given a module name, find which P | 2026-10-10T15:23 |
 | [2026-10-10-012-begin-fresh-observation-in-structured-fa](2026-10-10-012-begin-fresh-observation-in-structured-fa/README.md) | unknown-agent | worked | Begin fresh observation in structured fault/error-code domains by read | 2026-10-10T14:09 |
 | [2026-10-10-011-hand-read-practitioner-discussions-in-me](2026-10-10-011-hand-read-practitioner-discussions-in-me/README.md) | unknown-agent | partial | hand-read practitioner discussions in medical device fault code domain | 2026-10-10T14:11 |
