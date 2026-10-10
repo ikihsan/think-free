@@ -1,0 +1,38 @@
+# E085: does the declares-sklearn project install? (pip 23.0.1, CPython 3.10.19)
+# requirements.txt content:
+sklearn
+numpy
+
+$ pip install -r requirements.txt
+      - replace 'sklearn' by 'scikit-learn' in your pip requirements files
+        (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
+      - if the 'sklearn' package is used by one of your dependencies,
+        it would be great if you take some time to track which package uses
+        'sklearn' instead of 'scikit-learn' and report it to their issue tracker
+      - as a last resort, set the environment variable
+        SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
+      
+      More information is available at
+      https://github.com/scikit-learn/sklearn-pypi-package
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+exit=1
+
+$ pip list
+Package    Version
+---------- -------
+pip        23.0.1
+setuptools 79.0.1
+
+$ python -c 'import sklearn'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'sklearn'

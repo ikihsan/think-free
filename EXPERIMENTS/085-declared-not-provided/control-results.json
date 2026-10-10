@@ -1,0 +1,253 @@
+{
+ "arm_b_positive": [
+  {
+   "written": "sklearn",
+   "true_provider": "scikit-learn",
+   "sub_test": "B2b-sdist-only-undecidable",
+   "written_status": "no-wheel",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "sklearn"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "PIL",
+   "true_provider": "pillow",
+   "sub_test": "B2b-sdist-only-undecidable",
+   "written_status": "no-wheel",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "PIL"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "cv2",
+   "true_provider": "opencv-python",
+   "sub_test": "B2-no-such-project",
+   "written_status": "no-pypi-record",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "cv2"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "skimage",
+   "true_provider": "scikit-image",
+   "sub_test": "B2b-sdist-only-undecidable",
+   "written_status": "no-wheel",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "skimage"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "yaml",
+   "true_provider": "PyYAML",
+   "sub_test": "B2-no-such-project",
+   "written_status": "no-pypi-record",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "_yaml",
+    "yaml"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "bs4",
+   "true_provider": "beautifulsoup4",
+   "sub_test": "B1-resolves-wrong-project",
+   "written_status": "ok",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "bs4"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "dateutil",
+   "true_provider": "python-dateutil",
+   "sub_test": "B2-no-such-project",
+   "written_status": "no-pypi-record",
+   "written_provides_module": false,
+   "written_modules": [],
+   "detector_fires": true,
+   "provider_modules": [
+    "dateutil"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "serial",
+   "true_provider": "pyserial",
+   "sub_test": "name-collision",
+   "written_status": "ok",
+   "written_provides_module": true,
+   "written_modules": [
+    "serial"
+   ],
+   "detector_fires": null,
+   "provider_modules": [
+    "serial"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "attr",
+   "true_provider": "attrs",
+   "sub_test": "name-collision",
+   "written_status": "ok",
+   "written_provides_module": true,
+   "written_modules": [
+    "attr",
+    "dry_attr"
+   ],
+   "detector_fires": null,
+   "provider_modules": [
+    "attr",
+    "attrs"
+   ],
+   "provider_recovered": true
+  },
+  {
+   "written": "Crypto",
+   "true_provider": "pycryptodome",
+   "sub_test": "B1-resolves-wrong-project",
+   "written_status": "ok",
+   "written_provides_module": false,
+   "written_modules": [
+    "crypto"
+   ],
+   "detector_fires": true,
+   "provider_modules": [
+    "Crypto"
+   ],
+   "provider_recovered": true
+  }
+ ],
+ "arm_c_negative": [
+  {
+   "distribution": "numpy",
+   "status": "ok",
+   "modules": [
+    "numpy"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "requests",
+   "status": "ok",
+   "modules": [
+    "requests"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "scipy",
+   "status": "ok",
+   "modules": [
+    "scipy"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "pandas",
+   "status": "ok",
+   "modules": [
+    "pandas"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "pytest",
+   "status": "ok",
+   "modules": [
+    "_pytest",
+    "py",
+    "pytest"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "click",
+   "status": "ok",
+   "modules": [
+    "click"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "flask",
+   "status": "ok",
+   "modules": [
+    "flask"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "tqdm",
+   "status": "ok",
+   "modules": [
+    "tqdm"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "matplotlib",
+   "status": "ok",
+   "modules": [
+    "matplotlib",
+    "mpl_toolkits",
+    "pylab"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  },
+  {
+   "distribution": "jinja2",
+   "status": "ok",
+   "modules": [
+    "jinja2"
+   ],
+   "provides_itself": true,
+   "flagged_as_mismatch": false
+  }
+ ],
+ "gates": {
+  "b1_fired": 2,
+  "b1_total": 2,
+  "b2_classified": 3,
+  "b2_total": 3,
+  "b2b_classified": 3,
+  "b2b_total": 3,
+  "b3_recovered": 10,
+  "b3_total": 10,
+  "arm_c_false_flags": 0,
+  "arm_c_total": 10,
+  "name_collisions_excluded": 2,
+  "g2_met": true
+ }
+}

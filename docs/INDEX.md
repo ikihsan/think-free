@@ -305,6 +305,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/082-mcu-fault-diagnostics/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/083-3dprint-fault-codes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | owner: docs/INDEX.md |
 | `EXPERIMENTS/084-px4-fault-codes/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-09 | Session: 2026-10-09-026, VM instance-20260717-0947 |
+| `EXPERIMENTS/085-declared-not-provided/` | `EXPERIMENTS/085-declared-not-provided/PROTOCOL.md` | active | 2026-10-10 | Result: the candidate does not survive. The instrument works and the class |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 

@@ -162,6 +162,32 @@ and its paths are then attributed to whoever holds the tree
 (T-0053).
 
 ## What changed recently
+- **Session 2026-10-10-001 (this VM): E085, F108, D093, D094.** The
+  authorized-but-unrun did-you-mean checker (E070's "a reversible prototype is
+  authorized") was run as the denominator-correct measurement nobody had made:
+  **of dependencies real projects declare, how often does the declared
+  distribution fail to provide a module the code imports?** A new instrument
+  reads a wheel's zip **central directory over HTTP `Range`** — two requests,
+  **zero payload bytes, nothing installed** — and resolved 538 of 578 declared
+  distributions (**0.931**), recovering the true provider for **10 of 10**
+  controls with **0 of 10** false flags. Across 13 usable repositories and 500
+  scored imported modules: **254 covered, 152 name-collisions where installing
+  the name works, 88 loud, 6 silent.** Rate **0.0120**, Wilson CI95
+  [0.0055, 0.0259] → declared G3 **HOLD**; the declared **G4 precision gate
+  FAILS** — all 6 rows hand-read, **3 true 3 false = 0.50** against 0.80 —
+  corrected **3 of 500 = 0.6%**, at the kill line. **E064's 0.1615 does not
+  transfer to declared names** (F108). The class is real and was reproduced by
+  hand: `pip install Crypto` exits 0, installs a different project **plus 8 of
+  its dependencies**, prints `Successfully installed Crypto-1.4.1` so `pip list`
+  shows the name satisfied, and `import Crypto` raises `ModuleNotFoundError`.
+  **deptry 0.25.1 cannot detect the class at all** — 951 of its 974 findings on
+  these repos are DEP001 noise with nothing installed, and **0 findings** on a
+  project that declares `sklearn`, imports it, and installs nothing (F108).
+  Five instrumentation defects found and repaired, **two of which moved the
+  verdict** (stdlib *packages* all missed: 6 findings became 12; module names
+  resolved only among declared distributions, which suppressed the target class
+  by construction and produced a spurious KILL). `pyprovides/` prototype, 17
+  tests, `status: draft`, unreleased.
 - **Session 2026-10-09-026 (this VM): E084.** Fresh observation in PX4 drone autopilot fault codes on `discuss.px4.io` Discourse forum. **854 topics, 54 fault topics (6.3%), 36 qualified (views>0, replies>0)**. G1 **FAIL** (~39 estimated structured cases vs 100 threshold), G2 PASS (100% concentration — only 8 fault types), G3 PASS* (17 airframe/FC combos from post bodies), G4 PASS (88.9% SPECIFIC root causes), G5 PENDING. Negative control (meta.discourse.org) 6.7% false positive rate. **No candidate emerges** — population too small. Recorded as F107.
 - **Session 2026-10-09-025 (this VM): E083.** Fresh observation in 3D printer fault codes on 5 Discourse forums (Creality, LulzBot, Home Assistant, openHAB, Arduino). **500 topics, 79 fault topics (15.8%)**. G2 PASS (73.4% concentration), **G3 FAIL (1.8 avg models/fault vs 10 threshold)** — manufacturer forums silo discussions by brand. G1/G4/G5 pending reply analysis. view_count instrument validated at 100%. Negative control (cooking forum) 5% false positive rate. **No candidate emerges** — brand silos prevent cross-model coverage. Recorded as F106.
 - **Session 2026-10-09-021 (this VM): E079.** Fresh observation in automotive OBD2 codes on Mechanics.SE. **G2 FAIL (29% vs 30%)**, G3 PASS (30 vehicle configs), G1/G4 blocked by API throttle. 210 title candidates, 262 code mentions, 159 unique codes — high dispersion. Long-tail distribution (top 10 = 29%) suggests insufficient concentration. Answer data inaccessible without API key.

@@ -153,3 +153,107 @@ Session `2026-10-09-021`, VM `instance-20260717-0947`.
 **Why the API throttle matters.** Stack Exchange's unauthenticated limit (300 req/day) was exhausted fetching 10,251 title-only questions. Fetching 210 candidate bodies + answers requires ~20 more requests. Without an API key, the experiment cannot complete G1/G4 evaluation.
 
 **What it buys, and what it does not.** This finding closes the automotive OBD2 direction on Mechanics.SE as a candidate source. It does not disprove that OBD2 codes could be a population elsewhere (dealer tech forums, manufacturer portals, Reddit r/mechanicadvice, OEM service bulletins). The generalisable rule: **a fresh observation experiment must verify data accessibility (API limits, authentication, rate limits) before committing to a platform** — D089 extended to data access.
+## F108 — E064's 0.1615 does not transfer to declared dependencies: what developers actually declare is right 81% of the time, loud 18%, silent 0.6% (E085)
+
+**The claim under test.** E064 measured that **93 of 576 plausible near-miss
+package names (0.1615, CI95 [0.134, 0.194]) resolve to a real, different
+artifact**, and concluded the existence bit every installer returns is
+materially insufficient. E070 then found the silent class occurs among real
+users (3 B rows) but on a primary denominator of **4**. The number that had
+never been measured is the one that decides whether a tool is worth building:
+**of the dependencies real projects declare, how often does the declared
+distribution fail to provide a module the code imports?**
+
+**Arm and instrument.** 24 real repositories already on disk from E068, 5,789
+`.py` files, 578 unique declared distributions. The unit of analysis is the
+imported top-level module (`AMENDMENT-4.md`, declared before any rate was
+read, replacing a declared-x-imported cross product whose denominator was an
+artefact of how the list was formed).
+
+The instrument is new and worth naming: **a wheel is a zip file, and a zip's
+central directory sits at the end of the file and names every entry**, so the
+complete list of modules a distribution ships is two HTTP `Range` requests and
+**zero payload bytes** away, with nothing installed. It resolved 538 of 578
+declared distributions (**0.931**) and recovered the true provider for **10 of
+10** positive controls, with **0 of 10** false flags on negative controls.
+
+**Result, 13 repositories with both declarations and imports, 500 scored modules:**
+
+| class | n | share |
+|---|---|---|
+| `covered` — some declared distribution provides it | 254 | 50.8% |
+| `name-collision` — the name resolves **and provides it**; installing works | 152 | 30.4% |
+| `undecidable-sdist-only` — a real project, no wheel | 55 | 11.0% |
+| `loud-no-such-project` — no such project; pip refuses | 33 | 6.6% |
+| **`silent-wrong-project`** | **6** | **1.2%** |
+
+**The silent rate is 0.0120, Wilson CI95 [0.0055, 0.0259]**; among
+unprovided imports it is **0.0638, CI95 [0.0296, 0.1323]**. The declared G3
+gate returned **HOLD** — above the 0.005 kill line, below the 0.020 build line,
+with the interval spanning both.
+
+**The precision gate is what decides it.** All six flagged rows were hand-read
+(only 6 existed, against a declared sample of 20). Three are true and three
+are not:
+
+- **`Bio`** (10 sites, MMDiff) — **true**. PyPI `Bio` is a bioinformatics
+  *workflow* tool shipping `biorun`; the wanted distribution is `biopython`.
+- **`vertexai`** (2 sites, DAMO-ConvAI) — **true**. PyPI `vertexai` ships
+  `version`; the real provider is `google-cloud-aiplatform`.
+- **`MoD`** (6 sites, DAMO-ConvAI) — **true**. Imported from a vendored
+  LLaMA-Factory tree; PyPI `MoD` ships `mod`.
+- **`pynvml`** — **false**. `pip install pynvml` succeeds and `import pynvml`
+  **works**: the 13.0.1 wheel ships a `.pth` redirector and no module, and the
+  redirector injects it at startup. A central directory is a list of what is in
+  the archive; a `.pth` makes something importable with nothing in the archive.
+- **`BDD`** (26 sites, LPMP_BDD) and **`LEHD`** (32 sites, NCO) — **false**.
+  Both are the repositories' own code, verified at the import sites.
+
+Precision **0.50** against a declared 0.80: **G4 FAILs.** The corrected rate
+is **3 of 500 = 0.6%**, at the kill line rather than above the build line. Per
+D093 the line closes on the corrected rate.
+
+**The class is real and was reproduced by hand, not argued.** On this VM,
+CPython 3.10.19, pip 23.0.1 (`silent-class-proof.txt`):
+
+```
+$ pip install Crypto
+Successfully installed Crypto-1.4.1 Naked-0.1.32 certifi-2026.7.22 ... urllib3-2.8.0
+exit=0
+$ python -c "import Crypto"
+ModuleNotFoundError: No module named 'Crypto'
+```
+
+A different project plus **eight of its dependencies**, installed, exit 0, and
+`pip list` shows `Crypto 1.4.1` — so the most natural check a developer makes
+says the dependency is satisfied. `pycryptodome` is never named.
+
+**The incumbent cannot detect the class at all.** deptry 0.25.1, run for real:
+on 13 repositories with nothing installed it emits 974 findings, **951 of them
+DEP001** reporting `numpy`, `scipy`, `sklearn` and each project's *own* package
+as missing; and on a project that declares `sklearn` and imports it, with
+`scikit-learn` installed, it returns **0 findings** on a project that installs
+nothing whatsoever. Its DEP003 names the module and never the provider.
+
+**What the finding is.** E064's 0.1615 is a rate over **mutated names**;
+declared dependencies are a **different population**. Developers name a
+dependency correctly 81% of the time, name one that fails loudly 18% of the
+time, and land in the silent class about 0.6% — and pip handles the loud 18%
+well (`sklearn` prints "replace 'sklearn' by 'scikit-learn' in your pip
+requirements files"). So the existence bit is insufficient exactly where the
+class is rarest, and deptry's blind spot costs little in aggregate.
+
+**Ceilings.** Deep-learning Python from one arXiv year; shadow names are more
+common here than in ordinary web development, so 0.6% is plausibly an
+over-estimate. Eleven of 24 repositories declare nothing and contribute 233
+missing observations, never zeros. Six true positives is a small numerator.
+PyPI metadata is the latest release, not a project's pin. Python only.
+
+**Evidence.** `EXPERIMENTS/085-declared-not-provided/` — `PROTOCOL.md` with
+`AMENDMENT-1` … `AMENDMENT-4`, all declared before the measurement they bear
+on; `results.json`, `classified-pairs.json`, `control-results.json`,
+`deptry-baseline.json`, `controlled-comparison.json`, `install-proof.txt`,
+`silent-class-proof.txt`, and one cached JSON per distribution so the whole run
+regenerates offline. **F106 and F107 were skipped when allocating this
+identifier: both are already claimed in prose (STATE.md, an E083 VERDICT) with
+no body, and `origin id next` reads bodies only, so it offered F106.**

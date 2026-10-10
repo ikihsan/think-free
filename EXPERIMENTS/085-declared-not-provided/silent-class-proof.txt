@@ -1,0 +1,42 @@
+# E085: the silent wrong-project class, reproduced by hand on this VM.
+# interpreter: CPython 3.10.19, pip 23.0.1. Fresh venv at /tmp/opencode/probe-venv.
+
+$ pip install Crypto
+    Found existing installation: requests 2.34.2
+    Uninstalling requests-2.34.2:
+      Successfully uninstalled requests-2.34.2
+  Attempting uninstall: Naked
+    Found existing installation: Naked 0.1.32
+    Uninstalling Naked-0.1.32:
+      Successfully uninstalled Naked-0.1.32
+  Attempting uninstall: Crypto
+    Found existing installation: crypto 1.4.1
+    Uninstalling crypto-1.4.1:
+      Successfully uninstalled crypto-1.4.1
+Successfully installed Crypto-1.4.1 Naked-0.1.32 certifi-2026.7.22 charset_normalizer-3.5.2 idna-3.20 pyyaml-6.0.3 requests-2.34.2 shellescape-3.8.1 urllib3-2.8.0
+exit=0
+
+$ pip list   # what actually got installed
+Package            Version
+------------------ ---------
+certifi            2026.7.22
+charset-normalizer 3.5.2
+crypto             1.4.1
+idna               3.20
+Naked              0.1.32
+pip                23.0.1
+PyYAML             6.0.3
+requests           2.34.2
+setuptools         79.0.1
+shellescape        3.8.1
+urllib3            2.8.0
+
+$ python -c "import Crypto"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'Crypto'
+
+$ python -c "import crypto"
+/tmp/opencode/probe-venv/lib/python3.10/site-packages/crypto/__init__.py
+
+# The package the user wanted, pycryptodome, was never named by pip.

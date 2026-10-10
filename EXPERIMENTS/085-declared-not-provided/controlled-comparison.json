@@ -1,0 +1,57 @@
+{
+ "condition": "deptry inside a venv with scikit-learn installed",
+ "cells": [
+  {
+   "cell": "declares-sklearn",
+   "declared": "sklearn",
+   "installed": "scikit-learn (provides module sklearn)",
+   "deptry": {
+    "exit_code": 0,
+    "findings": [],
+    "assumptions": [
+     "Assuming the corresponding module name of package 'sklearn' is 'sklearn'. Install the package or configure a package_module_name_map entry to override this behaviour."
+    ],
+    "names_provider": false
+   },
+   "e085_instrument": {
+    "distribution_named_sklearn": {
+     "status": "no-wheel",
+     "modules": [],
+     "detail": {
+      "why": "sdist-only",
+      "name": "sklearn"
+     }
+    },
+    "class": "sdist-only-undecidable",
+    "provider_recovered": true,
+    "names_provider": true
+   }
+  },
+  {
+   "cell": "declares-nothing",
+   "declared": "nothing",
+   "installed": "scikit-learn (provides module sklearn)",
+   "deptry": {
+    "exit_code": 1,
+    "findings": [
+     "app.py:2:8: DEP003 'sklearn' imported but it is a transitive dependency"
+    ],
+    "assumptions": [],
+    "names_provider": false
+   },
+   "e085_instrument": {
+    "distribution_named_sklearn": {
+     "status": "no-wheel",
+     "modules": [],
+     "detail": {
+      "why": "sdist-only",
+      "name": "sklearn"
+     }
+    },
+    "class": "sdist-only-undecidable",
+    "provider_recovered": true,
+    "names_provider": true
+   }
+  }
+ ]
+}

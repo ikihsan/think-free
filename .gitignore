@@ -121,3 +121,7 @@ tasks/CLAIMS.jsonl
 # Release manifest enforcement
 RELEASE-MANIFEST.md
 EXPERIMENTS/072-git-file-presence/repos/
+# E085's per-distribution resolution cache: 762 files, 3.1 MB, regenerable
+# from PyPI, and the repo already ignores E068's equivalent.
+EXPERIMENTS/085-declared-not-provided/cache/
+.pyprovides-cache/

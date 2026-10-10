@@ -1,0 +1,39 @@
+{
+ "counts": {
+  "silent-wrong-project": 6,
+  "undecidable-sdist-only": 55,
+  "loud-no-such-project": 33,
+  "name-collision": 152,
+  "covered": 254,
+  "missing-observation": 233
+ },
+ "cross_counts": {
+  "unprovided": 37280,
+  "missing-observation": 2714,
+  "correct": 222
+ },
+ "repos_total": 24,
+ "repos_with_both": 13,
+ "declared_distributions": 578,
+ "declared_resolved_ok": 538,
+ "declared_missing": 40,
+ "modules_scored": 500,
+ "modules_unprovided": 94,
+ "s_modules": 0.012,
+ "s_findings": 0.06382978723404255,
+ "s_cross": 0.0,
+ "silent_with_corpus_provider": 1,
+ "wilson_modules": [
+  0.0055109199671753584,
+  0.025930707718986326
+ ],
+ "wilson_findings": [
+  0.029579332197396002,
+  0.1323313479223077
+ ],
+ "gates": {
+  "g1_ceiling": 0.9307958477508651,
+  "g3_rate_s_modules": 0.012,
+  "g3_verdict": "HOLD"
+ }
+}

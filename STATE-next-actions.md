@@ -14,7 +14,37 @@ E079 fresh observation in automotive OBD2 codes on Mechanics.SE: **G2 FAIL (29% 
 
 E084 fresh observation in PX4 drone autopilot fault codes on discuss.px4.io: **G1 FAIL (~39 structured cases vs 100)**, G2 PASS (100% — 8 fault types), G3 PASS (17 airframe/FC combos from posts), G4 PASS (88.9% SPECIFIC), G5 PENDING. 854 topics, 54 fault topics, 36 qualified. Negative control 6.7% FP rate.
 
-The seed for a candidate remains empty. The mission has now closed candidates across six report domains (A-F), seven emptiness measurements (F029/F051/F055/F059/F081/F084/F107), the view-count prototype from five independent angles (PyPI, NPM, Maven Central, Steam, Discourse forums), and three fresh observations in structured fault domains (E079, E083, E084). The DECISIONS-SCREENING-14.md D084-D088 and D091-D092 record the arrival-instrument corrections and kill-gate design lessons.
+The seed for a candidate remains empty. The mission has now closed candidates across six report domains (A-F), seven emptiness measurements (F029/F051/F055/F059/F081/F084/F107), the view-count prototype from five independent angles (PyPI, NPM, Maven Central, Steam, Discourse forums), three fresh observations in structured fault domains (E079, E083, E084), and **the silent wrong-project class (E085, F108)**.
+
+## The one continuation worth making (2026-10-10)
+
+**E085 closed a linter and left a resolver.** The class it measured is real
+(reproduced by hand: `pip install Crypto` → exit 0, wrong project plus 8 of its
+dependencies, `import Crypto` then fails) and deptry 0.25.1 cannot detect it at
+all. But it occurs in **~0.6% of imported modules** (3 of 500, after the
+precision gate removed three instrument artifacts), which is not worth a CI
+gate. **Do not rebuild the linter.**
+
+What E085 did establish, and did not test, is that the *instrument* is cheap
+and correct: two HTTP `Range` requests read a wheel's central directory and
+return every module a distribution ships, with **nothing installed**. deptry
+cannot do this before an install, and names a module without ever naming its
+provider.
+
+**The single most useful next action:** measure whether *"which distribution
+provides this module"* is actually asked. The denominator is real
+`ImportError` / `ModuleNotFoundError` text that names a module and no
+distribution — Stack Overflow, GitHub issues, CPython and library issue
+trackers. If that population is large, the resolver has a use that does not
+depend on the 0.6% figure, and `pyprovides/` is already built, tested and
+honest about its limits. If it is small, the whole package-name line closes and
+this record's E064/E070/E085 arc is finished for good.
+
+Declared kill gate, before the run: **if the rate of real reports that name a
+module and no distribution is under 1% of Python import-error reports, close
+the line and stop.** Do not run it on package registries; the denominator must
+be *questions people asked*, which is the `view_count` population E062
+established and no registry exposes.
 
 ## Remaining items
 
