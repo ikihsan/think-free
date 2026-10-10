@@ -131,6 +131,7 @@ def run_gates(rows):
     
     # Wilson CI95
     z = 1.959963985
+    n = len(rows)
     if n == 0:
         lo, hi = 0.0, 0.0
     else:
@@ -186,7 +187,7 @@ def main():
     # Run classification
     for i, r in enumerate(rows[:5]):
         cat = classify_row(r)
-        print(f"  Row {i+1}: view_count={r.get('view_count')}, title='{r.get('title',')[:50']}'  →  {cat}")
+        print(f"  Row {i+1}: view_count={r.get('view_count')}, title='{r.get('title','')[:50]}'  →  {cat}")
     
     # Run gates
     if args.gate:

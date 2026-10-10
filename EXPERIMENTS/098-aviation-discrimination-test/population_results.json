@@ -1,0 +1,723 @@
+{
+ "experiment": "E098",
+ "population_measurement": {
+  "total_fault_topics": 77,
+  "served": 73,
+  "partially_served": 0,
+  "unserved": 4,
+  "served_fraction": 0.948051948051948,
+  "partially_served_fraction": 0.0,
+  "unserved_fraction": 0.05194805194805195,
+  "served_ci95": [
+   0.8739071685519821,
+   0.9796152815005672
+  ],
+  "partially_served_ci95": [
+   3.469446951953614e-18,
+   0.047518425303676656
+  ],
+  "unserved_ci95": [
+   0.02038471849943268,
+   0.1260928314480178
+  ],
+  "g4_answerability": {
+   "top20_served_or_partial": 20,
+   "pass": true
+  }
+ },
+ "details": [
+  {
+   "id": 60961,
+   "title": "How many serious airline accidents have been caused by design faults alone?",
+   "view_count": 1822,
+   "answer_count": 10,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 3722,
+   "title": "What is a &#39;Wing Loop Fault&#39; on an A320 series Aircraft?",
+   "view_count": 6718,
+   "answer_count": 4,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 22343,
+   "title": "which part of aircraft maintenance or inspection that could be automated to avoid maintenance error?",
+   "view_count": 406,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 80412,
+   "title": "Is there a standard on-board diagnostics protocol for FADEC aviation piston engines?",
+   "view_count": 674,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 97136,
+   "title": "Faults on Gulfstream G550/C-37B repairable in &lt; ~3hrs without aircraft specific tools or spares?",
+   "view_count": 379,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 98001,
+   "title": "On the A321neo, what determines the &#39;time to land&#39; when an Additional Center Tank System Fault is triggered?",
+   "view_count": 461,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 22264,
+   "title": "In case of a drone strike with an airplane below 400 feet, who is at fault?",
+   "view_count": 2078,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 69661,
+   "title": "Is there any current and/or upcoming technology that alerts Air Traffic Controllers in case of loss of aircraft separation?",
+   "view_count": 276,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 71977,
+   "title": "Are you mandated to use a Fault isolation manual when clearing a defect on an aircraft?",
+   "view_count": 642,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 77353,
+   "title": "Why does an ADIRU 1 failure disable all functions of the A330/340\u2019s GPWS - even those not requiring ADIRU data?",
+   "view_count": 1308,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 24873,
+   "title": "What details do EICAS systems provide?",
+   "view_count": 9378,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 39742,
+   "title": "Why does Airbus suppress stall warnings in certain situations?",
+   "view_count": 2956,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 50574,
+   "title": "What are the main sensor value that cause High pressure compressor fault in turbofan engine?",
+   "view_count": 401,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 22439,
+   "title": "Does Active Thermal Imaging (NDI method) detect all types of structural faults in modern civil aircraft?",
+   "view_count": 290,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 8574,
+   "title": "BLEED FAULT lamp illumination under various conditions",
+   "view_count": 437,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 78509,
+   "title": "Why aren&#39;t quadjets required to remain controllable after a sudden, simultaneous failure of two engines on one side?",
+   "view_count": 1359,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 104488,
+   "title": "Incidents where airline pilots recovered effectively from errors",
+   "view_count": 618,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 88284,
+   "title": "Hear-back/Read-back errors: ATC or Pilot responsibility",
+   "view_count": 2331,
+   "answer_count": 3,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 102612,
+   "title": "Glider Flying Handbook page 5-6 error on effects of weight to stall speed?",
+   "view_count": 607,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 102277,
+   "title": "What causes magnetic compass acceleration errors?",
+   "view_count": 3607,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 102143,
+   "title": "Why does aircraft weight influence position (installation) error in pitot-static systems?",
+   "view_count": 150,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 22137,
+   "title": "What steps have been taken to rule out instrument failure due to blocked static ports or pitot tubes?",
+   "view_count": 2261,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 94884,
+   "title": "Pilot NOT confirming checklist in Sully (2016). A script error?",
+   "view_count": 6768,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 91662,
+   "title": "Are more fatalities in commercial aircraft accidents caused by pilot error than by automated features?",
+   "view_count": 5541,
+   "answer_count": 4,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 90646,
+   "title": "What specific hazard is the practice of identifying an ILS LOC by Morse code trying to prevent?",
+   "view_count": 2898,
+   "answer_count": 5,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 81732,
+   "title": "Are warnings generally &quot;source-focused&quot; or &quot;effect-focused&quot;?",
+   "view_count": 542,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 75633,
+   "title": "When and how might a pilot use the 1-in-60 rule and the 10 degree drift rule for off track error corrections?",
+   "view_count": 494,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 75465,
+   "title": "What are some examples of pilot error with criminal negligence?",
+   "view_count": 1641,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 70927,
+   "title": "Why would Boeing be under review if crew-error is determined to be the cause?",
+   "view_count": 273,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 65056,
+   "title": "When an airliner gets lost, and receives warning shots from interceptors, how should the pilots react in order to save the aircraft?",
+   "view_count": 561,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 23990,
+   "title": "Do airline pilots routinely carry out &quot;gross error&quot; checks?",
+   "view_count": 1803,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 59066,
+   "title": "What margin of error should one reasonably allow regarding aircraft performance?",
+   "view_count": 1838,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 786,
+   "title": "Is it even remotely feasible to turnback a single engine aircraft with an engine failure?",
+   "view_count": 7019,
+   "answer_count": 10,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 55293,
+   "title": "What causes this error on the Collins 60A ADF system?",
+   "view_count": 545,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "unserved"
+  },
+  {
+   "id": 53013,
+   "title": "What are heat detection sensors and how can they cause a speed error?",
+   "view_count": 225,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 17550,
+   "title": "Are directional instruments like an HSI or AHRS immune to magnetic compass error?",
+   "view_count": 2627,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 30043,
+   "title": "Light Plane: Transition to Right-Seat Flying: How to Prepare, What are Common Errors?",
+   "view_count": 1083,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 25430,
+   "title": "How does ATC deal with apparent compass errors when giving vectors?",
+   "view_count": 556,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 1801,
+   "title": "How do &quot;fundamentally unstable&quot; aircraft deal with the risk of computer failure?",
+   "view_count": 3712,
+   "answer_count": 3,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 108396,
+   "title": "Weather phenomena malfunction - Help me understand?",
+   "view_count": 250,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 20963,
+   "title": "How are fly-by-wire airliners controlled in case of complete electrical failure?",
+   "view_count": 21510,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 47747,
+   "title": "Are there any failure-proof instruments on commercial airliners?",
+   "view_count": 348,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 107424,
+   "title": "Why do cabin alt warning and takeoff config warning sound the same?",
+   "view_count": 881,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 105425,
+   "title": "How are cockpit warning sounds recorded/chosen?",
+   "view_count": 692,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 78905,
+   "title": "Can 737NG GPWS and other warning voice lines/sounds be played in headphones instead of cockpit speaker?",
+   "view_count": 1708,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 70648,
+   "title": "Why was the Tu-104 so prone to navball-disabling electrical power failures?",
+   "view_count": 210,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "unserved"
+  },
+  {
+   "id": 64020,
+   "title": "Is the 737 Max&#39;s AOA disagreement warning light an actual light?",
+   "view_count": 1354,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 56656,
+   "title": "Mechanical vs Pneumatic Stall Warning Systems",
+   "view_count": 2033,
+   "answer_count": 3,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 36268,
+   "title": "Is a Control Law Degradation in Airbus Planes displayed on the ECAM?",
+   "view_count": 3674,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 3471,
+   "title": "Do any aircraft systems give spoken warnings in a language other than English?",
+   "view_count": 1772,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 62481,
+   "title": "Why do aircraft stall warning systems use angle-of-attack vanes rather than detecting airflow separation directly?",
+   "view_count": 2116,
+   "answer_count": 3,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 113613,
+   "title": "Why did a comms failure require a change of flight plan?",
+   "view_count": 1650,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 94645,
+   "title": "How is the hazard from a malfunctioned ejection seat system handled?",
+   "view_count": 448,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 72115,
+   "title": "What is the purpose of the Dash 8\u2019s \u201cTOUCHED RUNWAY\u201d warning light?",
+   "view_count": 5647,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 45490,
+   "title": "How does the Airbus ECAM / ND transfer work?",
+   "view_count": 2791,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 25137,
+   "title": "How are fuel injectors in a jet engine monitored to detect malfunction?",
+   "view_count": 1496,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 102207,
+   "title": "Why are many parts of an airliner required to be triplicated, but not the &quot;parts&quot; most likely to malfunction (i.e., the pilots)?",
+   "view_count": 10180,
+   "answer_count": 6,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 111470,
+   "title": "Why does A320 ECAM show a full bus fault when only a sub-bus fails?",
+   "view_count": 166,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": true,
+   "classification": "unserved"
+  },
+  {
+   "id": 30254,
+   "title": "Is pilot alerted of any physical or structural failures?",
+   "view_count": 693,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 98108,
+   "title": "Can a commercial aircraft fly at night with complete navigation and communication equipment failure?",
+   "view_count": 445,
+   "answer_count": 3,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 81501,
+   "title": "For purposes of the FAA instrument written, which system becomes primary for pitch following an AHRS failure?",
+   "view_count": 2354,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 25946,
+   "title": "Is it possible to detect a pitot static failure (blockage) of air data probe during flight and alert the pilot?",
+   "view_count": 2389,
+   "answer_count": 5,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 92505,
+   "title": "How do you get an &quot;FWC 1+2 FAULT&quot; warning, if at all, on the Airbus A320?",
+   "view_count": 6689,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 75427,
+   "title": "What are some common aileron failures?",
+   "view_count": 1875,
+   "answer_count": 3,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 84167,
+   "title": "Have attitude indicators ever had triple failure in a commercial aircraft?",
+   "view_count": 789,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 82888,
+   "title": "Does ELMS inhibit cabin pressure alarms on the 777, and would the MEC Override Vent be stuck open following an electrical failure?",
+   "view_count": 725,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 65216,
+   "title": "What failure modes did Airbus seek to eliminate or mitigate when they changed the design of the A310/A300-600&#39;s rudder travel limiter?",
+   "view_count": 512,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "unserved"
+  },
+  {
+   "id": 81265,
+   "title": "Writing Research: What stick sensation would you expect in an Su-15 with a total hydraulic flight system failure?",
+   "view_count": 308,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 80555,
+   "title": "Why is there no alternative mechanism to extend and lock the landing gear in case of failure?",
+   "view_count": 2124,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 71422,
+   "title": "What can cause a watchdog failure in an INDRA MSSR?",
+   "view_count": 334,
+   "answer_count": 2,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 77115,
+   "title": "Why does the DC-9&#39;s antiskid system have to be manually disarmed during landing rollout following a ground-shift-mechanism malfunction on takeoff?",
+   "view_count": 736,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 61796,
+   "title": "If the updated MCAS software needs two AOA sensors, doesn&#39;t that introduce a new single point of failure?",
+   "view_count": 2624,
+   "answer_count": 4,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 59119,
+   "title": "How do aircraft stall warning systems handle (or not) asymmetric-stall situations?",
+   "view_count": 881,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  },
+  {
+   "id": 60358,
+   "title": "How can a pilot deal with a magneto failure?",
+   "view_count": 11258,
+   "answer_count": 3,
+   "accepted": false,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 60209,
+   "title": "Why would one want to slow to V2 following an engine failure during takeoff?",
+   "view_count": 1745,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 36621,
+   "title": "Is the cargo door on this airplane really malfunctioning?",
+   "view_count": 971,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "classification": "served"
+  },
+  {
+   "id": 72084,
+   "title": "Is there any obvious warning when auto-pilot is disengaged or when the mode changes?",
+   "view_count": 4057,
+   "answer_count": 3,
+   "accepted": true,
+   "fault_code_specific": true,
+   "classification": "served"
+  }
+ ]
+}

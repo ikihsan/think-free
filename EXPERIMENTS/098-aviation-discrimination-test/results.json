@@ -1,0 +1,356 @@
+{
+ "experiment": "E098",
+ "discrimination_test": {
+  "g1_fpr": 0.0,
+  "g1_fpr_ci": [
+   0.0,
+   0.20388330111202968
+  ],
+  "g1_pass": true,
+  "g2_tpr": 0.8,
+  "g2_tpr_ci": [
+   0.5481455127861612,
+   0.9295245065466211
+  ],
+  "g2_pass": true,
+  "g3_fnr": 0.0,
+  "g3_fnr_ci": [
+   0.0,
+   0.20388330111202968
+  ],
+  "g3_pass": true,
+  "overall_pass": true
+ },
+ "probes": [
+  {
+   "query": "Wing Loop Fault A320",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 6718,
+   "answer_count": 4,
+   "accepted": true,
+   "fault_code_specific": false,
+   "title": "What is a &#39;Wing Loop Fault&#39; on an A320 series Aircraft?"
+  },
+  {
+   "query": "FWC 1+2 FAULT A320",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 6689,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": false,
+   "title": "How do you get an &quot;FWC 1+2 FAULT&quot; warning, if at all, on the Airbus A320?"
+  },
+  {
+   "query": "ECAM warning A320",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 14551,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "title": "Does SDAC display data for both the PFD, ND and the ECAM display?"
+  },
+  {
+   "query": "magneto failure procedure",
+   "expected": "served",
+   "predicted": "no_result",
+   "match": false,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "engine failure turnback",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 7019,
+   "answer_count": 10,
+   "accepted": true,
+   "fault_code_specific": false,
+   "title": "Is it even remotely feasible to turnback a single engine aircraft with an engine failure?"
+  },
+  {
+   "query": "pitot static blockage detection",
+   "expected": "served",
+   "predicted": "no_result",
+   "match": false,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "stall warning system AOA vane",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 856,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "title": "Why disable stall warning based only on low airspeed, rather than multiple criteria?"
+  },
+  {
+   "query": "ADIRU failure GPWS",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 1308,
+   "answer_count": 1,
+   "accepted": true,
+   "fault_code_specific": true,
+   "title": "Why does an ADIRU 1 failure disable all functions of the A330/340\u2019s GPWS - even those not requiring ADIRU data?"
+  },
+  {
+   "query": "landing gear failure extension",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 4288,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "title": "What is the essential purpose of making three control laws in Airbus aircraft?"
+  },
+  {
+   "query": "MCAS AOA sensor disagreement",
+   "expected": "served",
+   "predicted": "no_result",
+   "match": false,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "auto-pilot disengage warning",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 4057,
+   "answer_count": 3,
+   "accepted": true,
+   "fault_code_specific": true,
+   "title": "Is there any obvious warning when auto-pilot is disengaged or when the mode changes?"
+  },
+  {
+   "query": "Control Law Degradation Airbus",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 3674,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "title": "Is a Control Law Degradation in Airbus Planes displayed on the ECAM?"
+  },
+  {
+   "query": "FADEC diagnostics protocol",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 674,
+   "answer_count": 1,
+   "accepted": false,
+   "fault_code_specific": true,
+   "title": "Is there a standard on-board diagnostics protocol for FADEC aviation piston engines?"
+  },
+  {
+   "query": "EICAS system details",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 9378,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": true,
+   "title": "What details do EICAS systems provide?"
+  },
+  {
+   "query": "electrical failure fly-by-wire",
+   "expected": "served",
+   "predicted": "served",
+   "match": true,
+   "view_count": 21510,
+   "answer_count": 2,
+   "accepted": true,
+   "fault_code_specific": false,
+   "title": "How are fly-by-wire airliners controlled in case of complete electrical failure?"
+  },
+  {
+   "query": "QuantumFlux avionics error 0xDEADBEEF",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "HyperDrive flight computer fault 99999",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "NeuralLink aircraft system error XYZ-123",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "FluxCapacitor avionics timeout 8888",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "WarpCore engine breach code 1701",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Dilithium crystal fuel fault 0xFF",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Heisenberg compensator nav error 42",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Transporter buffer overflow 666",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Holodeck safety protocol violation",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Replicator pattern buffer error",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Vintage 1960s Concorde fault code 999",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Discontinued Lockheed L-1011 error 0xFFFF",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Obsolete Boeing 727 fault code 777",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Retired DC-10 hydraulic error 1234",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  },
+  {
+   "query": "Legacy Fokker F28 avionics fault 999",
+   "expected": "unserved",
+   "predicted": "no_result",
+   "match": true,
+   "view_count": 0,
+   "answer_count": 0,
+   "accepted": false,
+   "fault_code_specific": false,
+   "title": ""
+  }
+ ]
+}
