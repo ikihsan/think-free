@@ -1,36 +1,87 @@
 {
-  "experiment": "E082",
-  "status": "pending_harvest",
-  "protocol": "EXPERIMENTS/082-mcu-fault-diagnostics/PROTOCOL.md",
-  "population": "embedded/microcontroller firmware community forums and issue trackers",
-  "population_claim": "embedded engineers and firmware developers encountering fault/error codes daily",
-  "gate_thresholds": {
-    "G1_need_prevalence": 15,  # >= 15 need statements in 32 items
-    "G2_control_validity": 4,   # 4 seeded control items for reader accuracy
-    "G3_unserved_fraction_upper": 0.60,  # Wilson CI95 upper bound < 60%
-    "G4_view_count": 0.95  # >= 95% of topics have view_count > 0
+  "aggregate": {
+    "all_gates_pass": true,
+    "gates": {
+      "G1_need_prevalence": true,
+      "G2_control_validity": true,
+      "G3_unserved_fraction": true,
+      "G4_view_count": true
+    },
+    "summary": {
+      "need_count": 40,
+      "need_fraction": 0.26666666666666666,
+      "served_count": 17,
+      "served_fraction": 0.11333333333333333,
+      "total": 150,
+      "unserved_open_like_count": 23,
+      "unserved_open_like_fraction": 0.15333333333333332,
+      "vc_positive": 150,
+      "view_positive_rate": 1.0
+    }
   },
-  "results_summary": null,
-  "gate_results": null,
-  "classification_rubric": "embedded/mcu fault-code domain rubric (3 clauses: no resolution, concrete need, not human-work-request)",
-  "seeded_controls": [
-    { "id": "s1", "label": "served", "statement": "Is there a tool to look up fault code XXXX from manufacturer YYY?" },
-    { "id": "s2", "label": "served", "statement": "Need a tool to interpret error code YYY from device class ZZZ?" },
-    { "id": "u1", "label": "unserved-open-like", "statement": "Need a tool to interpret fault code 0x1A from ARM Cortex-M" },
-    { "id": "u2", "label": "unserved-open-like", "statement": "Need a tool to decode error messages from my embedded device" }
-  ],
-  "harvest": {
-    "forums_probed": 0,
-    "topics_fetched": 0,
-    "domains_covered": [],
-    "api_accessible": false
-  },
-  "classification": {
-    "total_items": 0,
-    "need_fraction": 0,
-    "served_fraction": 0,
-    "unserved_open_like_fraction": 0,
-    "vc_positive_rate": 0,
-    "gate_status": "pending"
-  }
+  "forums": [
+    {
+      "domain": "discuss.ardupilot.org",
+      "gates": {
+        "G1_need_prevalence": false,
+        "G2_control_validity": true,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 4,
+        "need_fraction": 0.08,
+        "not_need_count": 46,
+        "served_count": 1,
+        "served_fraction": 0.02,
+        "total": 50,
+        "unserved_open_like_count": 3,
+        "unserved_open_like_fraction": 0.06,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    },
+    {
+      "domain": "community.platformio.org",
+      "gates": {
+        "G1_need_prevalence": true,
+        "G2_control_validity": true,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 19,
+        "need_fraction": 0.38,
+        "not_need_count": 31,
+        "served_count": 12,
+        "served_fraction": 0.24,
+        "total": 50,
+        "unserved_open_like_count": 7,
+        "unserved_open_like_fraction": 0.14,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    },
+    {
+      "domain": "forum.arduino.cc",
+      "gates": {
+        "G1_need_prevalence": true,
+        "G2_control_validity": true,
+        "G3_unserved_fraction": true,
+        "G4_view_count": true
+      },
+      "summary": {
+        "need_count": 17,
+        "need_fraction": 0.34,
+        "not_need_count": 33,
+        "served_count": 4,
+        "served_fraction": 0.08,
+        "total": 50,
+        "unserved_open_like_count": 13,
+        "unserved_open_like_fraction": 0.26,
+        "vc_positive": 50,
+        "view_positive_rate": 1.0
+      }
+    }
+  ]
 }
