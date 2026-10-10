@@ -1,0 +1,326 @@
+{
+  "positive_controls": [
+    {
+      "id": "so-1",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'sklearn'",
+      "body": "I'm getting ImportError: No module named 'sklearn' when I try to import sklearn. What package do I need to install?",
+      "expected": "module-only",
+      "notes": "Classic sklearn/scikit-learn confusion"
+    },
+    {
+      "id": "so-2",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'PIL'",
+      "body": "Getting ModuleNotFoundError: No module named 'PIL' but I installed PIL. What's the correct package name?",
+      "expected": "module-only",
+      "notes": "PIL/Pillow confusion"
+    },
+    {
+      "id": "so-3",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'cv2'",
+      "body": "I get ImportError: No module named 'cv2'. I tried pip install cv2 but it doesn't work. What should I install?",
+      "expected": "module-only",
+      "notes": "cv2/opencv-python confusion"
+    },
+    {
+      "id": "so-4",
+      "source": "stackoverflow",
+      "title": "No module named 'yaml'",
+      "body": "Python says No module named 'yaml'. What pip package provides yaml?",
+      "expected": "module-only",
+      "notes": "yaml/PyYAML confusion"
+    },
+    {
+      "id": "so-5",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'bs4'",
+      "body": "Getting ModuleNotFoundError: No module named 'bs4'. Which package should I install?",
+      "expected": "module-only",
+      "notes": "bs4/beautifulsoup4 confusion"
+    },
+    {
+      "id": "so-6",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'dateutil'",
+      "body": "ImportError: No module named 'dateutil'. What's the pip package name?",
+      "expected": "module-only",
+      "notes": "dateutil/python-dateutil confusion"
+    },
+    {
+      "id": "so-7",
+      "source": "stackoverflow",
+      "title": "No module named 'serial'",
+      "body": "No module named 'serial'. I need to know what to pip install.",
+      "expected": "module-only",
+      "notes": "serial/pyserial confusion"
+    },
+    {
+      "id": "so-8",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'attr'",
+      "body": "Getting ImportError: No module named 'attr'. Which distribution provides this?",
+      "expected": "module-only",
+      "notes": "attr/attrs confusion"
+    },
+    {
+      "id": "so-9",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'Crypto'",
+      "body": "ModuleNotFoundError: No module named 'Crypto'. What package do I install?",
+      "expected": "module-only",
+      "notes": "Crypto/pycryptodome confusion (E070's flagship)"
+    },
+    {
+      "id": "so-10",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'skimage'",
+      "body": "ImportError: No module named 'skimage'. Is there a scikit-image package?",
+      "expected": "module-only",
+      "notes": "skimage/scikit-image confusion"
+    },
+    {
+      "id": "so-11",
+      "source": "stackoverflow",
+      "title": "No module named 'redis'",
+      "body": "Getting No module named 'redis'. What's the correct pip install command?",
+      "expected": "module-only",
+      "notes": "redis module name matches distribution but asker doesn't know"
+    },
+    {
+      "id": "so-12",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'pymongo'",
+      "body": "ModuleNotFoundError: No module named 'pymongo'. How do I fix this?",
+      "expected": "module-only",
+      "notes": "Module name matches distribution but asker doesn't know"
+    },
+    {
+      "id": "so-13",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'dotenv'",
+      "body": "ImportError: No module named 'dotenv'. Which package provides this module?",
+      "expected": "module-only",
+      "notes": "dotenv/python-dotenv confusion"
+    },
+    {
+      "id": "so-14",
+      "source": "stackoverflow",
+      "title": "No module named 'jwt'",
+      "body": "No module named 'jwt'. What should I pip install?",
+      "expected": "module-only",
+      "notes": "jwt/PyJWT confusion"
+    },
+    {
+      "id": "so-15",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'magic'",
+      "body": "ModuleNotFoundError: No module named 'magic'. What package?",
+      "expected": "module-only",
+      "notes": "magic/python-magic confusion"
+    },
+    {
+      "id": "so-16",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'ldap'",
+      "body": "ImportError: No module named 'ldap'. Which distribution?",
+      "expected": "module-only",
+      "notes": "ldap/python-ldap confusion"
+    },
+    {
+      "id": "so-17",
+      "source": "stackoverflow",
+      "title": "No module named 'mysql'",
+      "body": "No module named 'mysql'. What's the package name?",
+      "expected": "module-only",
+      "notes": "mysql/mysqlclient or mysql-connector-python confusion"
+    },
+    {
+      "id": "so-18",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'psycopg2'",
+      "body": "ModuleNotFoundError: No module named 'psycopg2'. How to install?",
+      "expected": "module-only",
+      "notes": "Module name matches distribution but asker doesn't know"
+    },
+    {
+      "id": "so-19",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'requests'",
+      "body": "ImportError: No module named 'requests'. What do I install?",
+      "expected": "module-only",
+      "notes": "Module name matches distribution but asker doesn't know"
+    },
+    {
+      "id": "so-20",
+      "source": "stackoverflow",
+      "title": "No module named 'flask'",
+      "body": "Getting No module named 'flask'. Which pip package?",
+      "expected": "module-only",
+      "notes": "Module name matches distribution but asker doesn't know"
+    }
+  ],
+  "negative_controls": [
+    {
+      "id": "so-neg-1",
+      "source": "stackoverflow",
+      "title": "ImportError after installing scikit-learn: No module named 'sklearn'",
+      "body": "I did pip install scikit-learn but still get ImportError: No module named 'sklearn'. Why?",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution"
+    },
+    {
+      "id": "so-neg-2",
+      "source": "stackoverflow",
+      "title": "pip install pillow but ImportError: No module named 'PIL'",
+      "body": "I installed pillow with pip install pillow but get ImportError: No module named 'PIL'. What's wrong?",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution"
+    },
+    {
+      "id": "so-neg-3",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'cv2' after pip install opencv-python",
+      "body": "I ran pip install opencv-python but still get ModuleNotFoundError: No module named 'cv2'.",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution"
+    },
+    {
+      "id": "so-neg-4",
+      "source": "stackoverflow",
+      "title": "Virtualenv activation issue: ImportError in one env but not another",
+      "body": "I have ImportError: No module named 'requests' in my virtualenv but it works globally. How to fix?",
+      "expected": "environment",
+      "notes": "Root cause is virtualenv, not missing distribution"
+    },
+    {
+      "id": "so-neg-5",
+      "source": "stackoverflow",
+      "title": "sys.path issue: ModuleNotFoundError for local package",
+      "body": "Getting ModuleNotFoundError for my local package. I think it's a sys.path problem.",
+      "expected": "environment",
+      "notes": "Root cause is sys.path, not missing distribution"
+    },
+    {
+      "id": "so-neg-6",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'os'",
+      "body": "Getting ImportError: No module named 'os'. What package provides os?",
+      "expected": "stdlib",
+      "notes": "os is standard library"
+    },
+    {
+      "id": "so-neg-7",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'sys'",
+      "body": "ModuleNotFoundError: No module named 'sys'. How to install?",
+      "expected": "stdlib",
+      "notes": "sys is standard library"
+    },
+    {
+      "id": "so-neg-8",
+      "source": "stackoverflow",
+      "title": "Multiple Python versions: import works in 3.8 but not 3.10",
+      "body": "I have ImportError: No module named 'numpy' in Python 3.10 but it works in 3.8. Same env.",
+      "expected": "environment",
+      "notes": "Root cause is multiple Python versions"
+    },
+    {
+      "id": "so-neg-9",
+      "source": "stackoverflow",
+      "title": "pip install numpy but ImportError in Jupyter notebook",
+      "body": "I did pip install numpy but Jupyter gives ImportError: No module named 'numpy'. Kernel issue?",
+      "expected": "environment",
+      "notes": "Root cause is Jupyter kernel/env mismatch"
+    },
+    {
+      "id": "so-neg-10",
+      "source": "stackoverflow",
+      "title": "conda install vs pip install: ImportError for pandas",
+      "body": "I installed pandas with conda but get ImportError in pip environment. What's the fix?",
+      "expected": "environment",
+      "notes": "Root cause is conda/pip env mismatch"
+    },
+    {
+      "id": "so-neg-11",
+      "source": "stackoverflow",
+      "title": "ImportError: No module named 'json'",
+      "body": "Getting ImportError: No module named 'json'. Which package?",
+      "expected": "stdlib",
+      "notes": "json is standard library"
+    },
+    {
+      "id": "so-neg-12",
+      "source": "stackoverflow",
+      "title": "ModuleNotFoundError: No module named 'datetime'",
+      "body": "ModuleNotFoundError: No module named 'datetime'. What to install?",
+      "expected": "stdlib",
+      "notes": "datetime is standard library"
+    },
+    {
+      "id": "so-neg-13",
+      "source": "github",
+      "title": "Issue: ImportError after pip install -r requirements.txt",
+      "body": "After running pip install -r requirements.txt, I get ImportError: No module named 'tensorflow'. Tensorflow is in requirements.txt.",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution (in requirements.txt)"
+    },
+    {
+      "id": "so-neg-14",
+      "source": "github",
+      "title": "Bug report: ModuleNotFoundError for 'torch' in CI",
+      "body": "Our CI fails with ModuleNotFoundError: No module named 'torch'. We have torch in requirements.txt.",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution"
+    },
+    {
+      "id": "so-neg-15",
+      "source": "github",
+      "title": "ImportError for local module 'utils'",
+      "body": "Getting ImportError: No module named 'utils'. This is our local module, not a package.",
+      "expected": "environment",
+      "notes": "Local module, not a PyPI distribution"
+    },
+    {
+      "id": "so-neg-16",
+      "source": "github",
+      "title": "Docker build fails: ModuleNotFoundError for 'psycopg2'",
+      "body": "Docker build fails with ModuleNotFoundError: No module named 'psycopg2'. We install it in Dockerfile.",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution (in Dockerfile)"
+    },
+    {
+      "id": "so-neg-17",
+      "source": "github",
+      "title": "ImportError: No module named 'pathlib' in Python 3.6",
+      "body": "Our code uses pathlib but gets ImportError in Python 3.6. Is pathlib a separate package?",
+      "expected": "stdlib",
+      "notes": "pathlib is stdlib in 3.4+, backport exists but rare"
+    },
+    {
+      "id": "so-neg-18",
+      "source": "github",
+      "title": "ModuleNotFoundError: No module named 'typing' in Python 3.4",
+      "body": "ModuleNotFoundError: No module named 'typing' on Python 3.4. What package?",
+      "expected": "stdlib",
+      "notes": "typing is stdlib in 3.5+, backport exists"
+    },
+    {
+      "id": "so-neg-19",
+      "source": "github",
+      "title": "poetry install but ImportError for 'click'",
+      "body": "poetry install completes but runtime gives ImportError: No module named 'click'. click is in pyproject.toml.",
+      "expected": "module-and-dist",
+      "notes": "Asker names both module and distribution (in pyproject.toml)"
+    },
+    {
+      "id": "so-neg-20",
+      "source": "github",
+      "title": "ImportError in pytest but not in python -m",
+      "body": "Running pytest gives ImportError: No module named 'myproject' but python -m myproject works. Path issue?",
+      "expected": "environment",
+      "notes": "Root cause is pytest collection/path, not missing distribution"
+    }
+  ]
+}

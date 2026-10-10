@@ -8,14 +8,15 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-212 recorded session(s). One `events.jsonl` per session, so concurrent
+213 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 187 older session(s) are in the directory listing.
+Showing the 25 most recent. 188 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
 | [2026-10-10-009-run-fresh-observation-in-embedded-microc](2026-10-10-009-run-fresh-observation-in-embedded-microc/README.md) | unknown-agent | worked | Run fresh observation in embedded/microcontroller fault codes domain u | 2026-10-10T10:53 |
+| [2026-10-10-008-measure-the-rate-of-real-importerror-mod](2026-10-10-008-measure-the-rate-of-real-importerror-mod/README.md) | unknown-agent | worked | Measure the rate of real ImportError/ModuleNotFoundError reports that  | 2026-10-10T11:54 |
 | [2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an](2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an/README.md) | unknown-agent | no-change | Run E091 (T-0090): hand-replicate E062's answerability sub-test on Ano | 2026-10-10T08:10 |
 | [2026-10-10-006-fresh-observation-in-structured-fault-er](2026-10-10-006-fresh-observation-in-structured-fault-er/README.md) | unknown-agent | worked | Fresh observation in structured fault/error-code domain (aviation/indu | 2026-10-10T10:16 |
 | [2026-10-10-006-decide-by-measurement-whether-which-dist](2026-10-10-006-decide-by-measurement-whether-which-dist/README.md) | unknown-agent | partial | Decide by measurement whether 'which distribution provides this module | 2026-10-10T06:42 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 187 older session(s) are in the directory listing.
 | [2026-10-09-001-declare-remaining-artifacts-from-e070-se](2026-10-09-001-declare-remaining-artifacts-from-e070-se/README.md) | unknown-agent | worked | Declare remaining artifacts from E070 session | 2026-10-09T00:10 |
 | [2026-10-08-029-analyze-python-package-importability-pat](2026-10-08-029-analyze-python-package-importability-pat/README.md) | unknown-agent | worked | Analyze Python package importability patterns and decide next action | 2026-10-08T23:58 |
 | [2026-10-08-028-fresh-observation-in-a-new-non-software](2026-10-08-028-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | worked | Fresh observation in a new non-software domain to find convergent-unan | 2026-10-09T00:09 |
-| [2026-10-08-028-explore-fresh-observation-domain-for-nex](2026-10-08-028-explore-fresh-observation-domain-for-nex/README.md) | unknown-agent | worked | Explore fresh observation domain for next candidate after need-harvest | 2026-10-08T23:37 |
 
 
 ## Reading a session

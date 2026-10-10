@@ -1,0 +1,2691 @@
+{
+ "total_harvested": 267,
+ "classifiable": 65,
+ "class_counts": {
+  "module-and-dist": 15,
+  "module-only": 37,
+  "distribution-only": 13
+ },
+ "module_only_count": 37,
+ "rate": 0.5692307692307692,
+ "wilson_ci95": [
+  0.44832757984982086,
+  0.6824073246265422
+ ],
+ "g3_decision": "BUILD",
+ "g4_view_rate": 0.05405405405405406,
+ "module_only_with_views": 2,
+ "module_only_total": 37,
+ "results": [
+  {
+   "id": 33720656,
+   "source": "stackoverflow",
+   "title": "Python 2 import error: cannot import name unpack_labeled_data",
+   "module": "cannot",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 8751,
+   "url": "https://stackoverflow.com/questions/33720656/python-2-import-error-cannot-import-name-unpack-labeled-data"
+  },
+  {
+   "id": 14132789,
+   "source": "stackoverflow",
+   "title": "How to resolve the Python error &#39;attempted relative import&#39;",
+   "module": "attempted",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 785967,
+   "url": "https://stackoverflow.com/questions/14132789/how-to-resolve-the-python-error-attempted-relative-import"
+  },
+  {
+   "id": 46068769,
+   "source": "stackoverflow",
+   "title": "Export dataframe in pyspark to excel file given the &#39;openpyxl&#39; module is not installed",
+   "module": "No",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 12018,
+   "url": "https://stackoverflow.com/questions/46068769/export-dataframe-in-pyspark-to-excel-file-given-the-openpyxl-module-is-not-ins"
+  },
+  {
+   "id": 61140297,
+   "source": "stackoverflow",
+   "title": "VS code cannot import local python modules",
+   "module": "backend",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 29952,
+   "url": "https://stackoverflow.com/questions/61140297/vs-code-cannot-import-local-python-modules"
+  },
+  {
+   "id": 12352626,
+   "source": "stackoverflow",
+   "title": "How do I change the name of an imported library?",
+   "module": "class",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 2863,
+   "url": "https://stackoverflow.com/questions/12352626/how-do-i-change-the-name-of-an-imported-library"
+  },
+  {
+   "id": 72672993,
+   "source": "stackoverflow",
+   "title": "ModuleNotFoundError: No module named &#39;keras.saving&#39;",
+   "module": "keras",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 8760,
+   "url": "https://stackoverflow.com/questions/72672993/modulenotfounderror-no-module-named-keras-saving"
+  },
+  {
+   "id": 51072007,
+   "source": "stackoverflow",
+   "title": "ImportError: No module named textblob",
+   "module": "No",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 12184,
+   "url": "https://stackoverflow.com/questions/51072007/importerror-no-module-named-textblob"
+  },
+  {
+   "id": 80007904,
+   "source": "stackoverflow",
+   "title": "ModuleNotFoundError: No module named &#39;nubra_sdk&#39; after pip install nubra-sdk",
+   "module": "nubra_sdk",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 165,
+   "url": "https://stackoverflow.com/questions/80007904/modulenotfounderror-no-module-named-nubra-sdk-after-pip-install-nubra-sdk"
+  },
+  {
+   "id": 62190596,
+   "source": "stackoverflow",
+   "title": "VS Code: Can&#39;t run Python Interactive Window",
+   "module": "attr",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 10420,
+   "url": "https://stackoverflow.com/questions/62190596/vs-code-cant-run-python-interactive-window"
+  },
+  {
+   "id": 78881018,
+   "source": "stackoverflow",
+   "title": "I cannot install flash-attention",
+   "module": "This",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 14146,
+   "url": "https://stackoverflow.com/questions/78881018/i-cannot-install-flash-attention"
+  },
+  {
+   "id": 78382074,
+   "source": "stackoverflow",
+   "title": "How to fix: pip is configured with locations that require TLS/SSL, however the ssl module in Python ",
+   "module": "_ssl",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 9483,
+   "url": "https://stackoverflow.com/questions/78382074/how-to-fix-pip-is-configured-with-locations-that-require-tls-ssl-however-the-s"
+  },
+  {
+   "id": 80007211,
+   "source": "stackoverflow",
+   "title": "matplot patchcollection(s) moving and rotating, all together and each seprately, what is best?",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 55,
+   "url": "https://stackoverflow.com/questions/80007211/matplot-patchcollections-moving-and-rotating-all-together-and-each-seprately"
+  },
+  {
+   "id": 24346472,
+   "source": "stackoverflow",
+   "title": "When a python module (cairo) is installed successfully but fails to import in python, what could be ",
+   "module": "No",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 8475,
+   "url": "https://stackoverflow.com/questions/24346472/when-a-python-module-cairo-is-installed-successfully-but-fails-to-import-in-py"
+  },
+  {
+   "id": 53212248,
+   "source": "stackoverflow",
+   "title": "Python 3.x ImportError: No module named configparser , but module is installed",
+   "module": "No",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 14814,
+   "url": "https://stackoverflow.com/questions/53212248/python-3-x-importerror-no-module-named-configparser-but-module-is-installed"
+  },
+  {
+   "id": 48690887,
+   "source": "stackoverflow",
+   "title": "python import from sibling folder",
+   "module": "gfolder",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 10251,
+   "url": "https://stackoverflow.com/questions/48690887/python-import-from-sibling-folder"
+  },
+  {
+   "id": 57012191,
+   "source": "stackoverflow",
+   "title": "Importing the Attention package in Keras gives ModuleNotFoundError: No module named &#39;attention&#",
+   "module": "attention",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 11002,
+   "url": "https://stackoverflow.com/questions/57012191/importing-the-attention-package-in-keras-gives-modulenotfounderror-no-module-na"
+  },
+  {
+   "id": 79709658,
+   "source": "stackoverflow",
+   "title": "Postgresql MCP server not running. Tool showing error",
+   "module": "asyncpg",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 498,
+   "url": "https://stackoverflow.com/questions/79709658/postgresql-mcp-server-not-running-tool-showing-error"
+  },
+  {
+   "id": 77566386,
+   "source": "stackoverflow",
+   "title": "How can I use dynamically defined enums in FastAPI/Pydantic models run on Uvicorn?",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 1862,
+   "url": "https://stackoverflow.com/questions/77566386/how-can-i-use-dynamically-defined-enums-in-fastapi-pydantic-models-run-on-uvicor"
+  },
+  {
+   "id": 70899910,
+   "source": "stackoverflow",
+   "title": "ImportError in &quot;from torch.utils.data import utils&quot;",
+   "module": "utils",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 9695,
+   "url": "https://stackoverflow.com/questions/70899910/importerror-in-from-torch-utils-data-import-utils"
+  },
+  {
+   "id": 28017942,
+   "source": "stackoverflow",
+   "title": "error importing pptx library python",
+   "module": "No",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 8816,
+   "url": "https://stackoverflow.com/questions/28017942/error-importing-pptx-library-python"
+  },
+  {
+   "id": 1119,
+   "source": "github",
+   "title": "feat(#1072): freeze Python-owned internal Sample DnD contract",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/jannekbuengener/sample-brain/pull/1119"
+  },
+  {
+   "id": 799,
+   "source": "github",
+   "title": "refactor(V2): move verify_model out of verify.py (#776)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/799"
+  },
+  {
+   "id": 416,
+   "source": "github",
+   "title": "gh-288: typed world-snapshot model shared by perception, candidates, brain, think and audit",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/um-dia-a-gente-faz/wow-server/pull/416"
+  },
+  {
+   "id": 11,
+   "source": "github",
+   "title": "Fix Desk deployment startup with current PostgreSQL driver",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/pravo123/wavervanir-platform/pull/11"
+  },
+  {
+   "id": 1530,
+   "source": "github",
+   "title": "Fix market_portfolio_stress_backtest_calibrator imports",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/pull/1530"
+  },
+  {
+   "id": 9,
+   "source": "github",
+   "title": "feat(reporting): add multi-format document generation and clinical figure library",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/NTWKKM/shinystat-skills/pull/9"
+  },
+  {
+   "id": 3696,
+   "source": "github",
+   "title": "feat(OMN-20071): the durable-evidence gate reads the product repository's contract first",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3696"
+  },
+  {
+   "id": 2994,
+   "source": "github",
+   "title": "fix(test): wait for the shared-channel run before shutdown in pause tests",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/xorbitsai/xagent/pull/2994"
+  },
+  {
+   "id": 3,
+   "source": "github",
+   "title": "Tighten YouTube tiering, cache fallback and the install remedy",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/ekelly95/youtube-transcript-notes/pull/3"
+  },
+  {
+   "id": 804,
+   "source": "github",
+   "title": "fix(ci): stop test pollution in the whole-app backend run; skip visual-regression off darwin",
+   "module": "agent_under_test",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/tridz-dev/huf/pull/804"
+  },
+  {
+   "id": 3252,
+   "source": "github",
+   "title": "deps(pip): bump the pip-major group across 1 directory with 10 updates",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/hashgraph-online/hol-guard/pull/3252"
+  },
+  {
+   "id": 3702,
+   "source": "github",
+   "title": "feat(OMN-20885): host the pr-title check-title decision as node_pr_title_check_compute",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3702"
+  },
+  {
+   "id": 30,
+   "source": "github",
+   "title": "Stop compiled modules replacing their Python module in sys.modules",
+   "module": "f",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/virgesmith/xenoform-rs/pull/30"
+  },
+  {
+   "id": 1739,
+   "source": "github",
+   "title": "Jules Task: \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u0431\u043e\u0439 \u043c\u043e\u0434\u0443\u043b\u044f market_portfolio_realtime_ws_listener",
+   "module": "websockets",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/issues/1739"
+  },
+  {
+   "id": 275,
+   "source": "github",
+   "title": "release: promote `dev` to `main` (v0.12.0)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/tomlupo/quantbox/pull/275"
+  },
+  {
+   "id": 940,
+   "source": "github",
+   "title": "fix(#851): edit/apply_patch \u5339\u914d\u5931\u8d25\u6587\u6848\u70b9\u540d\u884c\u5c3e\u4e8b\u5b9e\uff08\u9a8c\u6536 2\uff09",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/EricKingWhy/intelligence-agent/pull/940"
+  },
+  {
+   "id": 6623,
+   "source": "github",
+   "title": "[post-merge] main \u4e0a\u7684\u5224\u636e\u4e0e\u5b83\u7ea6\u675f\u7684\u6570\u636e\u4e0d\u540c\u523b\u843d\u5730\uff08\u5408\u5e76\u540e\u5b88\u62a4\u817f\u672a\u901a\u8fc7\uff09",
+   "module": "loguru",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/zhaokai-mgzn/migao/issues/6623"
+  },
+  {
+   "id": 2645,
+   "source": "github",
+   "title": "[P1] Tensor leaf: consolidate tensor identity sites onto tensor_digests with recorded retentions",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/RobTand/prismaquant/pull/2645"
+  },
+  {
+   "id": 2172,
+   "source": "github",
+   "title": "fix(capability-sweep): persist quality verification signal",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nikhilsoman/synlynk/pull/2172"
+  },
+  {
+   "id": 87,
+   "source": "github",
+   "title": "feat: HEALTHCHECK for streamable_http containers (dead MCP must not look 'running') (#75)",
+   "module": "healthcheck",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/fpittelo/coach/pull/87"
+  },
+  {
+   "id": 73,
+   "source": "github",
+   "title": "ESD Pages site is down",
+   "module": "requests",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/namo507/ESD-Lab-USC/issues/73"
+  },
+  {
+   "id": 890,
+   "source": "github",
+   "title": "Fix provider-details fetch import; keep regional titles",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/ryansinn/metatv/pull/890"
+  },
+  {
+   "id": 54,
+   "source": "github",
+   "title": "security(mcp): flow_get_skill_reference \u8def\u5f84\u7a7f\u8d8a\u2014\u2014MCP \u5de5\u5177\u53ef\u6309\u4efb\u610f\u8def\u5f84\uff08\u542b\u7edd\u5bf9\u8def\u5f84\uff09\u8bfb\u5bbf\u4e3b\u6587\u4ef6",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/jeffkit/plaita/issues/54"
+  },
+  {
+   "id": 53,
+   "source": "github",
+   "title": "`QtWebKit` / `QtWebKitWidgets` imports are gone in Qt 6",
+   "module": "QWebEngineView",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/osgeosuomi/flake8-qgis/issues/53"
+  },
+  {
+   "id": 798,
+   "source": "github",
+   "title": "refactor(V1): move scrubbed_run out of verify.py (#776)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/798"
+  },
+  {
+   "id": 333,
+   "source": "github",
+   "title": "fix(local-first): limiter la sortie des \u00e9checs pytest pour les agents",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/AlbanAndrieu/fastapi-sample/pull/333"
+  },
+  {
+   "id": 1,
+   "source": "github",
+   "title": "src/rebsgo/runtime/ is missing from the repo (excluded by .gitignore)",
+   "module": "rebsgo",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Shran21/reBSGO/issues/1"
+  },
+  {
+   "id": 12045,
+   "source": "github",
+   "title": "fix(native-viewer-export): MyoSuite worker supports myosuite 3.x (#11997)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/D-sorganization/UpstreamDrift/pull/12045"
+  },
+  {
+   "id": 4836,
+   "source": "github",
+   "title": "Full Suite Gate (OS x Python matrix) has been red on main for 40+ runs: Python 3.10 tomllib, Windows",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/squid-protocol/gitgalaxy/issues/4836"
+  },
+  {
+   "id": 43536,
+   "source": "github",
+   "title": "[diffusion] comfyui: fix 12 bugs in the SGLDiffusion ComfyUI plugin",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/sgl-project/sglang/pull/43536"
+  },
+  {
+   "id": 14,
+   "source": "github",
+   "title": "fix: resolve Ledger resources in native plugin namespaces",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/JoaoMarcos44/hermes-review-ledger/pull/14"
+  },
+  {
+   "id": 1528,
+   "source": "github",
+   "title": "Fix market portfolio stress extreme tail risk model failure",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/pull/1528"
+  },
+  {
+   "id": 2214,
+   "source": "github",
+   "title": "chore(deploy): set the edge body limit to the upload bound + 1 MiB (#2144)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nolte/kamerplanter/pull/2214"
+  },
+  {
+   "id": 10,
+   "source": "github",
+   "title": "fix(deploy): harden doctor/setup against broken deps and invalid config",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/wuan/voxoracle/pull/10"
+  },
+  {
+   "id": 80,
+   "source": "github",
+   "title": "feat(oled): \u591a\u9875\u8f6e\u64ad\u4e0b\u79fb B \u677f\u56fa\u4ef6\uff0cB \u6bcf 15s \u4e3b\u52a8\u62c9\u53d6\u6570\u636e (V2.12)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Attenna/Arduino-Uno-3-Smart-Home/pull/80"
+  },
+  {
+   "id": 2607,
+   "source": "github",
+   "title": "Make Rank20 START-CAS import bootstrap repository-root independent",
+   "module": "execution_guard",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/moxnixmdj/verification-capsule-runner/pull/2607"
+  },
+  {
+   "id": 8582,
+   "source": "github",
+   "title": "[Core] Add cost-aware replica routing for heterogeneous diffusion workloads",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/vllm-project/vllm-omni/pull/8582"
+  },
+  {
+   "id": 152,
+   "source": "github",
+   "title": "feat(webui): client status and crawl controls on the dashboard",
+   "module": "ClientReading",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/mission-titar/mulewatch/pull/152"
+  },
+  {
+   "id": 150,
+   "source": "github",
+   "title": "chore(adapters): remove MuleDownloadClient and aMule's old download calls",
+   "module": "mulewatch",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mission-titar/mulewatch/pull/150"
+  },
+  {
+   "id": 148,
+   "source": "github",
+   "title": "feat(adapters): aMule's start() and downloads() on a generic download port",
+   "module": "map_download_status",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/mission-titar/mulewatch/pull/148"
+  },
+  {
+   "id": 134,
+   "source": "github",
+   "title": "feat(adapters): aMule's status(), per channel, behind the StatusClient port",
+   "module": "mulewatch",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/mission-titar/mulewatch/pull/134"
+  },
+  {
+   "id": 127,
+   "source": "github",
+   "title": "refactor(ports): generic client errors",
+   "module": "mulewatch",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/mission-titar/mulewatch/pull/127"
+  },
+  {
+   "id": 467,
+   "source": "github",
+   "title": "fix(delegation): staged handshake budgets, liveness-aware timeout triage, and bootstrap error classi",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/codeo1io/hermes-agent/pull/467"
+  },
+  {
+   "id": 1737,
+   "source": "github",
+   "title": "Jules Task: \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u0431\u043e\u0439 \u043c\u043e\u0434\u0443\u043b\u044f market_portfolio_realtime_websocket_feed",
+   "module": "market_portfolio_realtime_stream_analytics_hub",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/issues/1737"
+  },
+  {
+   "id": 314,
+   "source": "github",
+   "title": "Run in browser: faster chapter 5 clicks, a Pyodide pin in conf.py, and Chromium CI",
+   "module": "scipy",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/kgdunn/pid-book/pull/314"
+  },
+  {
+   "id": 99,
+   "source": "github",
+   "title": "Fix ChatGPT token exchange: add PyJWT (Fixes PODSKRIFT-N)",
+   "module": "jwt",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Sinfjell/podcast-txt/pull/99"
+  },
+  {
+   "id": 1098,
+   "source": "github",
+   "title": "Fix packaged app SDK sources and manager runtime dependencies",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/ThalesGroup/agilab/pull/1098"
+  },
+  {
+   "id": 78,
+   "source": "github",
+   "title": "Apworld uploads: static inspection, worker import test, approval",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/TheReplenisher/archipelago-server-ui/pull/78"
+  },
+  {
+   "id": 1912,
+   "source": "github",
+   "title": "fix(llms): resolve broken imports in llms provenance wrappers",
+   "module": "semantica",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/semantica-agi/semantica/pull/1912"
+  },
+  {
+   "id": 5,
+   "source": "github",
+   "title": "feat: scale IBM dataset to 120k with global dashboard filters and ful\u2026",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/krishjoshi7/Mini_project_V4C/pull/5"
+  },
+  {
+   "id": 5203,
+   "source": "github",
+   "title": "fix(deps): detect any distribution that provides `cv2`",
+   "module": "libGL",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/PaddlePaddle/PaddleX/pull/5203"
+  },
+  {
+   "id": 3498,
+   "source": "github",
+   "title": "fix(agent-server): report the API error the stream named instead of the OOM guess (#3340)",
+   "module": "tests",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Abilityai/trinity/pull/3498"
+  },
+  {
+   "id": 17974,
+   "source": "github",
+   "title": "fix(ai-ml): the dynamic model loads consult the pinned registry, and every B615 suppression is enume",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mrveiss/AutoBot-AI/pull/17974"
+  },
+  {
+   "id": 3598,
+   "source": "github",
+   "title": "ci: install pytest for the scripts/tests suite",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Xore/APIARY/pull/3598"
+  },
+  {
+   "id": 5799,
+   "source": "github",
+   "title": "feat: let score() and score_async() name scores with a dict of scorers",
+   "module": "inspect_package",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5799"
+  },
+  {
+   "id": 114,
+   "source": "github",
+   "title": "fix(sci-workflow): install torch-geometric before running recipe",
+   "module": "torch_geometric",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Sharqascc/graf/pull/114"
+  },
+  {
+   "id": 97,
+   "source": "github",
+   "title": "Fix deploy: install requirements.txt so PyJWT reaches production (PODSKRIFT-N)",
+   "module": "jwt",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Sinfjell/podcast-txt/pull/97"
+  },
+  {
+   "id": 503,
+   "source": "github",
+   "title": "C1-NF paper shadow: tools/c1nf_shadow.py (draft)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/vaanai/MAL/pull/503"
+  },
+  {
+   "id": 1284,
+   "source": "github",
+   "title": "fix(agents,api): bound the manual investigation path and stop the LLM panel claiming Live while ever",
+   "module": "llm_health",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/beenuar/AiSOC/pull/1284"
+  },
+  {
+   "id": 3697,
+   "source": "github",
+   "title": "feat(OMN-20864): idle lab slots fall back to pr-land lanes on parked, escalated and unowned-red PRs",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3697"
+  },
+  {
+   "id": 10212,
+   "source": "github",
+   "title": "fix(knowledge): answer the /api/v1/index routes instead of 500 [Tier 3]",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/synaptent/aragora/pull/10212"
+  },
+  {
+   "id": 444,
+   "source": "github",
+   "title": "StructuralPro: shared 13-phase execution checkpoint",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Asanda021/StructuralPro/issues/444"
+  },
+  {
+   "id": 130,
+   "source": "github",
+   "title": "fix(queue): retry queued requests on transient errors instead of dropping them",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/ActivityWatch/aw-client/pull/130"
+  },
+  {
+   "id": 10609,
+   "source": "github",
+   "title": "LocalProvider.launch hangs forever when the server never accepts connections",
+   "module": "sglang",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/stanfordnlp/dspy/issues/10609"
+  },
+  {
+   "id": 1525,
+   "source": "github",
+   "title": "Fix market_portfolio_stress_var_calibrator module import and calibration storage",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/pull/1525"
+  },
+  {
+   "id": 3501,
+   "source": "github",
+   "title": "fix(retention): approving a prune reads an env-supplied window the way its sweep does (#3088)",
+   "module": "ensure_schema_tables",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Abilityai/trinity/pull/3501"
+  },
+  {
+   "id": 1850,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD 16d9148693d49428494c38e7c477b76a2ec83727 run 34357677762",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1850"
+  },
+  {
+   "id": 1849,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD 6772e48ddc95085f9c6bbca84be14ae9206613f1 run 34355961711",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1849"
+  },
+  {
+   "id": 1539,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD Pipeline run 32697455981",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1539"
+  },
+  {
+   "id": 1533,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD Pipeline run 32643158834",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1533"
+  },
+  {
+   "id": 1526,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD Pipeline run 32618440304",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1526"
+  },
+  {
+   "id": 1524,
+   "source": "github",
+   "title": "[auto-incident] Repair CI/CD Pipeline run 32617331457",
+   "module": "app",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/42433422/XCMAX/issues/1524"
+  },
+  {
+   "id": 1625,
+   "source": "github",
+   "title": "bug(vs-runtime): the linux-cpu profiler server cannot import its packages in the Docker editor conta",
+   "module": "vs_runtime",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/uw-syfi/vibesys/issues/1625"
+  },
+  {
+   "id": 1627,
+   "source": "github",
+   "title": "bug(vs-agent): the ROCm editor's python is Python 3.10, so the evaluation and rocprof servers cannot",
+   "module": "StrEnum",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/uw-syfi/vibesys/issues/1627"
+  },
+  {
+   "id": 1626,
+   "source": "github",
+   "title": "bug(vs-evaluation): the per-role evaluation tool server cannot import its packages in the container",
+   "module": "vs_evaluation",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/uw-syfi/vibesys/issues/1626"
+  },
+  {
+   "id": 1202,
+   "source": "github",
+   "title": "fix(kg_emb): migrate SampleKGDataset off the removed 1.x dataset API",
+   "module": "SampleBaseDataset",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/sunlabuiuc/PyHealth/pull/1202"
+  },
+  {
+   "id": 1373,
+   "source": "github",
+   "title": "Fix infertopics ignoring topiced neighbors when untopiced ones outnumber them",
+   "module": "Torch",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/neuml/txtai/pull/1373"
+  },
+  {
+   "id": 32,
+   "source": "github",
+   "title": "feat(ua_fop): \u0404\u0421\u0412 \u00ab\u0437\u0430 \u0441\u0435\u0431\u0435\u00bb \u2014 \u0437\u0432\u0456\u043b\u044c\u043d\u0435\u043d\u043d\u044f \u0456 \u043f\u0456\u043b\u044c\u0433\u0438 \u0443 FOP Profile \u0442\u0430 \u043f\u043e\u0434\u0430\u0442\u043a\u043e\u0432\u043e\u043c\u0443 \u043a\u0430\u043b\u0435\u043d\u0434\u0430\u0440\u0456",
+   "module": "defusedxml",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/romboman19/erpnext_ukraine/pull/32"
+  },
+  {
+   "id": 490,
+   "source": "github",
+   "title": "testing: The known-reds registry becomes a shared module, so the slow suite and the rpg gate report ",
+   "module": "tools",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/ttnhan18062000/rpg-based-simulation/pull/490"
+  },
+  {
+   "id": 179196,
+   "source": "github",
+   "title": "Teslemetry fails to load intermittently on startup: ImportError: cannot import name 'firmware_at_lea",
+   "module": "firmware_at_least",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/home-assistant/core/issues/179196"
+  },
+  {
+   "id": 466,
+   "source": "github",
+   "title": "Bump bzrformats minimum to 3.5.3 for views (3.4)",
+   "module": "views",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/breezy-team/breezy/pull/466"
+  },
+  {
+   "id": 7081,
+   "source": "github",
+   "title": "fix(search): restore DuckDuckGo runtime dependency",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/LearningCircuit/local-deep-research/pull/7081"
+  },
+  {
+   "id": 1257,
+   "source": "github",
+   "title": "[HWORKS-3398][5.0] Python client CI: unit tests fail with \"pyarrow requires NumPy 2.0 or newer\" on p",
+   "module": "pyarrow",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/logicalclocks/hopsworks-api/pull/1257"
+  },
+  {
+   "id": 329,
+   "source": "github",
+   "title": "Pin pyarrow<26 in cehrbert requirements to fix NumPy 1.x import error",
+   "module": "pyarrow",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Medical-Event-Data-Standard/MEDS-DEV/pull/329"
+  },
+  {
+   "id": 60,
+   "source": "github",
+   "title": "refactor(core): \u5f7b\u5e95\u7b80\u5316 Core Config \u6a21\u5757",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/luoshaozhuo/wind-hub/pull/60"
+  },
+  {
+   "id": 4959,
+   "source": "github",
+   "title": "Pull Request Dashboard",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/issues/4959"
+  },
+  {
+   "id": 43540,
+   "source": "github",
+   "title": "[Bug] OTEL to Perfetto converter rejects whitespace-prefixed arrays and SMG spans",
+   "module": "torch",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/sgl-project/sglang/issues/43540"
+  },
+  {
+   "id": 1522,
+   "source": "github",
+   "title": "Fix market portfolio audit storage snapshot index module and tests",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/pull/1522"
+  },
+  {
+   "id": 16838,
+   "source": "github",
+   "title": "qwen2.1 / minimax h3 etc.. is crash",
+   "module": "mpx_genai_sdk",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Comfy-Org/ComfyUI/issues/16838"
+  },
+  {
+   "id": 1031,
+   "source": "github",
+   "title": "build(ml): add the optional ml dependency group for the forecast models",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/TripAndCode/transit-app/pull/1031"
+  },
+  {
+   "id": 236,
+   "source": "github",
+   "title": "build: cap mcp dependency to <2 (fixes #235)",
+   "module": "request_ctx",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/sparfenyuk/mcp-proxy/pull/236"
+  },
+  {
+   "id": 553,
+   "source": "github",
+   "title": "mal_catalog: 09-09 block parses as exploration pool (owner read outside parentheses)",
+   "module": "jsonschema",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/vaanai/MAL/pull/553"
+  },
+  {
+   "id": 335,
+   "source": "github",
+   "title": "feat(server): add legacy /v1/completions endpoint for the inbuilt inference server",
+   "module": "test_utils",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/algorithmicsuperintelligence/optillm/pull/335"
+  },
+  {
+   "id": 495,
+   "source": "github",
+   "title": "[Residue] Review leftovers: one checklist instead of one issue per pull request",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/kebag-logic/milan-fpga/issues/495"
+  },
+  {
+   "id": 63,
+   "source": "github",
+   "title": "Originals page with automatic daily tips and Friday guides",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/imransinvestments-prog/Dadspace/issues/63"
+  },
+  {
+   "id": 1256,
+   "source": "github",
+   "title": "[HWORKS-3398][5.1] Python client CI: unit tests fail with \"pyarrow requires NumPy 2.0 or newer\" on p",
+   "module": "pyarrow",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/logicalclocks/hopsworks-api/pull/1256"
+  },
+  {
+   "id": 198,
+   "source": "github",
+   "title": "Provider concurrency limits and per-document error isolation (#162)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/deepskandpal/odke/pull/198"
+  },
+  {
+   "id": 2733,
+   "source": "github",
+   "title": "fix(usage): guard optional openai imports with ImportError in v2 usage accumulator",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/567-labs/instructor/pull/2733"
+  },
+  {
+   "id": 1733,
+   "source": "github",
+   "title": "Jules Task: \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u0431\u043e\u0439 \u043c\u043e\u0434\u0443\u043b\u044f market_portfolio_realtime_websocket_gateway_v2",
+   "module": "db_storage",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/issues/1733"
+  },
+  {
+   "id": 1612,
+   "source": "github",
+   "title": "build(deps): bump the python group across 1 directory with 26 updates",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/roflcoopter/viseron/pull/1612"
+  },
+  {
+   "id": 1117,
+   "source": "github",
+   "title": "feat(#1070): Python-owned Edit docking topology contract",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/jannekbuengener/sample-brain/pull/1117"
+  },
+  {
+   "id": 59912,
+   "source": "github",
+   "title": "[Bugfix] flashinfer_moe_ep_cutedsl: reject it without nvshmem4py and install nvshmem4py",
+   "module": "nvshmem",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/vllm-project/vllm/pull/59912"
+  },
+  {
+   "id": 213,
+   "source": "github",
+   "title": "Fix Capital Preflight diagnostic imports on Windows runner",
+   "module": "tools",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/afshinsaberone-a11y/grok-ai-trader/pull/213"
+  },
+  {
+   "id": 17973,
+   "source": "github",
+   "title": "fix(http): plugins use the pooled client, and a ratchet watches the raw sessions outside the backend",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mrveiss/AutoBot-AI/pull/17973"
+  },
+  {
+   "id": 7440,
+   "source": "github",
+   "title": "fix: import sqlalchemy.ext.asyncio lazily so reflex.model loads without greenlet",
+   "module": "The",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/reflex-dev/reflex/pull/7440"
+  },
+  {
+   "id": 270,
+   "source": "github",
+   "title": "Release 0.85.1: Community edition no longer points to an unpublished package",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/quantamixsol/graqle/pull/270"
+  },
+  {
+   "id": 264,
+   "source": "github",
+   "title": "fix(meta): discover categories and candle patterns through the import system",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/xgboosted/pandas-ta-classic/pull/264"
+  },
+  {
+   "id": 713,
+   "source": "github",
+   "title": "fix(ui): make click-drawn console controls keyboard-reachable",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/primerhq/primer/pull/713"
+  },
+  {
+   "id": 24,
+   "source": "github",
+   "title": "fix: bring kalshi to template v1.6.0 (HTTP auth, redaction, attestation)",
+   "module": "attempted",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/christianclaudio/mcp-server-kalshi/pull/24"
+  },
+  {
+   "id": 497,
+   "source": "github",
+   "title": "[P2] Enforce CLI error conventions repo-wide (stderr, exit 2, network timeouts) with a lint gate",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/tradermonty/claude-trading-skills/issues/497"
+  },
+  {
+   "id": 8187,
+   "source": "github",
+   "title": "[fsdp] fix: prevent NPU parameter corruption during FSDP2 CPU offload",
+   "module": "torch",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/verl-project/verl/pull/8187"
+  },
+  {
+   "id": 1729,
+   "source": "github",
+   "title": "Jules Task: \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u0431\u043e\u0439 \u043c\u043e\u0434\u0443\u043b\u044f market_portfolio_realtime_websocket_gateway",
+   "module": "db_storage",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/issues/1729"
+  },
+  {
+   "id": 3694,
+   "source": "github",
+   "title": "feat(OMN-20074): classify the writer app's plugin version and override pin bumps",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3694"
+  },
+  {
+   "id": 280,
+   "source": "github",
+   "title": "feat(evals): add EvalQuestion model and deterministic question checks",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 2,
+   "url": "https://github.com/vibhu-athavaria/kaihle/pull/280"
+  },
+  {
+   "id": 14131,
+   "source": "github",
+   "title": "autobot-infrastructure/shared is not in pytest.ini testpaths \u2014 14+ collection errors, 2 fatal sys.ex",
+   "module": "monitoring",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mrveiss/AutoBot-AI/issues/14131"
+  },
+  {
+   "id": 263,
+   "source": "github",
+   "title": "fix(custom)!: refuse a custom indicator whose module name is already taken",
+   "module": "ab",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/xgboosted/pandas-ta-classic/pull/263"
+  },
+  {
+   "id": 86,
+   "source": "github",
+   "title": "pip-installed zview fails with ModuleNotFoundError",
+   "module": "frontend",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/wkhadgar/zview/issues/86"
+  },
+  {
+   "id": 3687,
+   "source": "github",
+   "title": "feat(OMN-20867): lab-fill plan fails HEADROOM_UNKNOWN for idle hosts with no fresh bus reading",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3687"
+  },
+  {
+   "id": 396,
+   "source": "github",
+   "title": "Admit tree-sitter-bash as the shell parser dependency",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/ktogias/gnostoa/pull/396"
+  },
+  {
+   "id": 8,
+   "source": "github",
+   "title": "Gateway: pin rapidocr 3.9.2 (3.10 breaks docling 2.132); run.sh retries a failed CPU model download",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/osirisQdt2810/mentormind-inference/pull/8"
+  },
+  {
+   "id": 18,
+   "source": "github",
+   "title": "docs: fix the onboarding gaps found by a new-user walkthrough",
+   "module": "lark",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nexform-tech/litearm-python/pull/18"
+  },
+  {
+   "id": 561,
+   "source": "github",
+   "title": "fix(mlx): support mlx_lm 0.31 stop-sequence API and add response to math SFT loader",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/inclusionAI/AReno/pull/561"
+  },
+  {
+   "id": 5619,
+   "source": "github",
+   "title": "ci: fix lower dependency test",
+   "module": "pyarrow",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/embeddings-benchmark/mteb/pull/5619"
+  },
+  {
+   "id": 4,
+   "source": "github",
+   "title": "Setup notes and device info (Windows python3.dll, dependencies, SSDP, README, firmware version / ser",
+   "module": "DLL",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/ianloic/anycubic-orca-plugin/issues/4"
+  },
+  {
+   "id": 125,
+   "source": "github",
+   "title": "ModuleNotFoundError: No module named 'pkg_resources'",
+   "module": "pkg_resources",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/seemoo-lab/opendrop/issues/125"
+  },
+  {
+   "id": 7,
+   "source": "github",
+   "title": "check_project_complete blocks completion: hermes_cli not importable in cron context",
+   "module": "hermes_cli",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/yzy806806/agora/issues/7"
+  },
+  {
+   "id": 858,
+   "source": "github",
+   "title": "fix(rails): make opentelemetry imports optional in the rails import chain",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/858"
+  },
+  {
+   "id": 990,
+   "source": "github",
+   "title": "fix(context_evolver): drop undefined export and repair MaTTS import",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/990"
+  },
+  {
+   "id": 937,
+   "source": "github",
+   "title": "fix(tracer-otel): \u65b0\u589e OpenTelemetry \u53ef\u9009\u4f9d\u8d56 extra",
+   "module": "opentelemetry",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/937"
+  },
+  {
+   "id": 970,
+   "source": "github",
+   "title": "fix(security): let the host supply the tool permission prompt wording",
+   "module": "openjiuwen",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/970"
+  },
+  {
+   "id": 1796,
+   "source": "github",
+   "title": "fix(deps): declare aiosqlite, pypdf and pypdfium2 as runtime dependencies",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/1796"
+  },
+  {
+   "id": 1351,
+   "source": "github",
+   "title": "fix(session): re-export InMemoryCheckpointer and CheckpointerConfig from the checkpointer package",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/agent-core/pull/1351"
+  },
+  {
+   "id": 10284,
+   "source": "github",
+   "title": "feat(pipeline): add plan ownership columns and a one-time ownership backfill [Tier 3]",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/synaptent/aragora/pull/10284"
+  },
+  {
+   "id": 10285,
+   "source": "github",
+   "title": "feat(pipeline): persist plan ownership and add org-scoped PlanStore reads [Tier 3]",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/synaptent/aragora/pull/10285"
+  },
+  {
+   "id": 727,
+   "source": "github",
+   "title": "Public API: drop root imports of names outside __all__",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/davitf/archivey/pull/727"
+  },
+  {
+   "id": 41,
+   "source": "github",
+   "title": "single-source cleanup: one version of each pre-rollout artifact",
+   "module": "load_sources_config",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/debeule/auspex/pull/41"
+  },
+  {
+   "id": 108,
+   "source": "github",
+   "title": "Support Python linked against OpenSSL 4 in tls_versions handling",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mysql/mysql-connector-python/pull/108"
+  },
+  {
+   "id": 1273,
+   "source": "github",
+   "title": "paper-drive: standardise gears to 48DP/32DP PA20 inch cutters",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/pedropaulovc/harmonic-analyzer/pull/1273"
+  },
+  {
+   "id": 441,
+   "source": "github",
+   "title": "[L4][P9-verification_resolve_edges] verifier-resolution edge pins for courier_core.verification",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/happyhippovip/2026-courier/pull/441"
+  },
+  {
+   "id": 274,
+   "source": "github",
+   "title": "refactor!: remove the deprecated import shims (TOM-1457, 4d)",
+   "module": "quantbox",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/tomlupo/quantbox/pull/274"
+  },
+  {
+   "id": 182,
+   "source": "github",
+   "title": "feat(files): show file provenance from queue, history and own grabs (F-07)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Alountk/flow-controller/pull/182"
+  },
+  {
+   "id": 5501,
+   "source": "github",
+   "title": "fix(utils): functional group validation and NFS mount detection",
+   "module": "get_collect_output_path",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/dell/omnia/pull/5501"
+  },
+  {
+   "id": 215,
+   "source": "github",
+   "title": "fix(api): \uc7ac\uc0dd\uc131\uc774 \ub9c8\uc9c0\ub9c9 \ud134\uc758 \uc2a4\ud0ef\uc744 \ub418\ub3cc\ub824 \uc0c8 \uc751\ub2f5\uc73c\ub85c \ub2e4\uc2dc \ud310\uc815\ud55c\ub2e4",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/03hoho03/ai-chracter/pull/215"
+  },
+  {
+   "id": 214,
+   "source": "github",
+   "title": "Bring the docs and badges up to date",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/XBP-Europe/sagemath-mcp/pull/214"
+  },
+  {
+   "id": 25,
+   "source": "github",
+   "title": "no module named \"aiogram\"",
+   "module": "aiogram",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/dimondevceo/glazboga/issues/25"
+  },
+  {
+   "id": 6179,
+   "source": "github",
+   "title": "Merge branch 'harmony_dev' into dev-stable",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/6179"
+  },
+  {
+   "id": 337,
+   "source": "github",
+   "title": "fix(engine): onnxruntime in the Kaggle kernel and an export re-run mode (S21)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/gaurav-gandhi-2411/review-iq/pull/337"
+  },
+  {
+   "id": 442,
+   "source": "github",
+   "title": "test: the baseline generator reproduces the baseline it made",
+   "module": "tests",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Evgeniy2001Poluhin/-SORA.Earth/pull/442"
+  },
+  {
+   "id": 796,
+   "source": "github",
+   "title": "refactor(P5): move the review verdicts and the security gate out of pipeline.py (#776)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/796"
+  },
+  {
+   "id": 155989,
+   "source": "github",
+   "title": "[3.15] gh-123011: Fix warn_explicit() with the globals of the __main__ module (GH-155318)",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/python/cpython/pull/155989"
+  },
+  {
+   "id": 37,
+   "source": "github",
+   "title": "docs(remontee): micro-trading dans le relev\u00e9 review-required (0.22.4)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/benjaminge73/mes-skills/pull/37"
+  },
+  {
+   "id": 3469,
+   "source": "github",
+   "title": "[Ascend] Vendor the PTODSL SIMT allreduce helpers",
+   "module": "ptodsl",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/tile-ai/tilelang/pull/3469"
+  },
+  {
+   "id": 506,
+   "source": "github",
+   "title": "Add --evaluator-args flag forwarding kwargs to evaluate() via signature sniffing",
+   "module": "parse_evaluator_args",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/algorithmicsuperintelligence/openevolve/pull/506"
+  },
+  {
+   "id": 361,
+   "source": "github",
+   "title": "Extract OVERSTOCK_CATEGORIES into a runpy-safe data module",
+   "module": "common",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/commonbq/common-scrapy/pull/361"
+  },
+  {
+   "id": 942,
+   "source": "github",
+   "title": "fix(feishu): bind card action symbols in the ImportError fallback",
+   "module": "FEISHU_AVAILABLE",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/942"
+  },
+  {
+   "id": 2356,
+   "source": "github",
+   "title": "fix: make test suite runnable with [test] extra and align testing docs",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/2356"
+  },
+  {
+   "id": 6161,
+   "source": "github",
+   "title": "bugfix: \u5ba2\u6237\u7aef\u542f\u52a8\u5931\u8d25\u65f6\u5b50\u8fdb\u7a0b stdout/stderr \u843d\u76d8\uff0c\u4fbf\u4e8e\u5b9a\u4f4d traceback",
+   "module": "jiuwenswarm",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/6161"
+  },
+  {
+   "id": 7653,
+   "source": "github",
+   "title": "docs(memory): fix JiuwenMemory SDK import path in verification commands",
+   "module": "api",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/7653"
+  },
+  {
+   "id": 7692,
+   "source": "github",
+   "title": "fix(rail): classify a tool result stating ok: false as a failed call",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/openJiuwen-ai/jiuwenswarm/pull/7692"
+  },
+  {
+   "id": 293,
+   "source": "github",
+   "title": "B70: launch.sh checks the GraspGen-X host the runtime dials; no test port released before use",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/johnnynunez/cascade/pull/293"
+  },
+  {
+   "id": 2871,
+   "source": "github",
+   "title": "chore(deps): bump the python-minor-and-patch group with 7 updates",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/gyrinx-app/gyrinx/pull/2871"
+  },
+  {
+   "id": 3301,
+   "source": "github",
+   "title": "fix: follow-ups from the dev QA fixes (dataset-limit refusal, typed limit result, cleanups)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/future-agi/future-agi/pull/3301"
+  },
+  {
+   "id": 1517,
+   "source": "github",
+   "title": "Fix audit chain validator db_storage imports",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Badmaniren/my-userbot/pull/1517"
+  },
+  {
+   "id": 16,
+   "source": "github",
+   "title": "Overnight cleanup 2026-10-09",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/lgutsev/ClusterMLIP/pull/16"
+  },
+  {
+   "id": 61,
+   "source": "github",
+   "title": "Declare pytz runtime dependency for pandas 3 installations",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/stefan-jansen/empyrical-reloaded/pull/61"
+  },
+  {
+   "id": 672,
+   "source": "github",
+   "title": "refactor(textprims): share repetition and stylometry word tokens",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/anotherpanacea-eng/setec-voiceprint/pull/672"
+  },
+  {
+   "id": 6,
+   "source": "github",
+   "title": "refactor: remove unsafe runtime pip install; fail fast with clear error message",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Jondhilipsiva/NLWeb/pull/6"
+  },
+  {
+   "id": 3682,
+   "source": "github",
+   "title": "feat(OMN-20743): PR-state schema v2 per-check facts and webhook red-check path",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/OmniNode-ai/omnimarket/pull/3682"
+  },
+  {
+   "id": 249,
+   "source": "github",
+   "title": "build(deps): bump filelock from 4.0.8 to 4.0.12 in /scripts",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Ceratops-Code/Ceratops-AI-Agents-Kit/pull/249"
+  },
+  {
+   "id": 243,
+   "source": "github",
+   "title": "build(deps): bump filelock from 4.0.7 to 4.0.12 in /skills/sections/python",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Ceratops-Code/Ceratops-AI-Agents-Kit/pull/243"
+  },
+  {
+   "id": 633,
+   "source": "github",
+   "title": "fix: Android APK startet ohne optionales dnspython",
+   "module": "dns",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/JensKapitza/SimpleOffice4Me/pull/633"
+  },
+  {
+   "id": 85,
+   "source": "github",
+   "title": "fix(deps): update python monorepo dependency update",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/QA-Automation-Starter/qa-automation-python/pull/85"
+  },
+  {
+   "id": 338,
+   "source": "github",
+   "title": "fix(z3): statically gate solver code to the declared z3/sympy subset",
+   "module": "_validate_solver_ast",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/algorithmicsuperintelligence/optillm/pull/338"
+  },
+  {
+   "id": 145,
+   "source": "github",
+   "title": "fix(deps): update dependency selectolax to v1",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/trnila/assistant/pull/145"
+  },
+  {
+   "id": 109,
+   "source": "github",
+   "title": "feat!: framework-optional core + registration-time route verifier",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/betekk/canvastekk-workflow-sdk/pull/109"
+  },
+  {
+   "id": 17,
+   "source": "github",
+   "title": "Gate MLX on Apple Silicon, update dependencies, and install next to HuggingFace",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nodetool-ai/nodetool-mlx/pull/17"
+  },
+  {
+   "id": 795,
+   "source": "github",
+   "title": "refactor(P4): move the checks and the knowledge phase out of pipeline.py (#776)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/795"
+  },
+  {
+   "id": 3383,
+   "source": "github",
+   "title": "OWNER-PATH chart_facts divergence DROP DEFAULT, N-349 (prepared, not run)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Marsys-Technologies/Madhav/pull/3383"
+  },
+  {
+   "id": 1209,
+   "source": "github",
+   "title": "docs: fix QdrantDBConfig import in langdb example README",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/langroid/langroid/pull/1209"
+  },
+  {
+   "id": 220,
+   "source": "github",
+   "title": "Update dependency google-adk to v2.11.0",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/allenporter/home-assistant-google-adk/pull/220"
+  },
+  {
+   "id": 2,
+   "source": "github",
+   "title": "refactor(core): System Prompt \u5185\u8054\u4e3a\u5e38\u91cf\uff0c\u5220\u9664 Settings.load()",
+   "module": "CUSTOMER_SERVICE_SYSTEM",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/BaconTesla/MewHelp/pull/2"
+  },
+  {
+   "id": 62,
+   "source": "github",
+   "title": "Restore a clean documentation build on Python 3.12",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/stefan-jansen/empyrical-reloaded/issues/62"
+  },
+  {
+   "id": 2154,
+   "source": "github",
+   "title": "feat(presentation): hide the quiet turn pair in the TUI and relay folds (S1)",
+   "module": "QUIET_TURN_TOOL",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/damianvtran/local-operator/pull/2154"
+  },
+  {
+   "id": 958,
+   "source": "github",
+   "title": "test(models): no swallowed ImportError in the models hub may drop tables silently (GDXA-433)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/freePerro/gdx_dispatch/pull/958"
+  },
+  {
+   "id": 132,
+   "source": "github",
+   "title": "ModuleNotFoundError: No module named 'sounddevice'",
+   "module": "sounddevice",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/FatihMakes/Mark-LV/issues/132"
+  },
+  {
+   "id": 57,
+   "source": "github",
+   "title": "feat(interfaces): DatasetServices protocol for the extension-contract section 3 dataset services (#1",
+   "module": "DatasetServices",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/madeinoz67/benchweave-sdk/pull/57"
+  },
+  {
+   "id": 168,
+   "source": "github",
+   "title": "feat(region): editor build service on ionos1 with queue, limits and retention (editor phase 3)",
+   "module": "build",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/freaxnx01/game-rhyflitzer/issues/168"
+  },
+  {
+   "id": 31,
+   "source": "github",
+   "title": "fix(deploy): \u5bbf\u4e3b\u673a\u91c7\u96c6\u517c\u5bb9 Python 3.10\uff0c\u5bb9\u5668\u6539\u4e3a\u975e root",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/flyme8899/tick-stock-panel/pull/31"
+  },
+  {
+   "id": 376,
+   "source": "github",
+   "title": "feat(standards): #367 D1 \u2014 one corpus-rooted normative-row resolver, one vocabulary",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/madeinoz67/benchweave/pull/376"
+  },
+  {
+   "id": 5066,
+   "source": "github",
+   "title": "fix(ci): keep minimal policy tests independent of publisher imports",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/hapax-systems/hapax-council/pull/5066"
+  },
+  {
+   "id": 34,
+   "source": "github",
+   "title": "fix(deployer): db \uba48\ucdb0\uc788\uc744 \ub54c \uc0c8\ub85c \uc2e0\uccad\ud558\uba74 \uacc4\uc18d \ub9cc\ub4dc\ub294 \uc774\uc288",
+   "module": "langchain_openai",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/SoftBank-Hackathon-2026-in-Korea-Gold/SoftBank-Hackathon-2026-in-Korea/pull/34"
+  },
+  {
+   "id": 134469,
+   "source": "github",
+   "title": "hermes update rebuilds the staged runtime venv without plugin dependencies \u2014 provider plugins fail s",
+   "module": "mnemosyne",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/NousResearch/hermes-agent/issues/134469"
+  },
+  {
+   "id": 19,
+   "source": "github",
+   "title": "Weekly audit: web-scanner 2026-07-19",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/eliRap1/web-scanner/pull/19"
+  },
+  {
+   "id": 906,
+   "source": "github",
+   "title": "feat(env): Import Origin PR3 \u73af\u5883\u8986\u76d6\u5ea6\u2014\u2014\u68c0\u67e5\u5e26\u811a\u672c\u6240\u9700 import\uff0cnot_found / import_error \u5206\u5f00\uff0c\u6388\u6743\u68c0\u67e5\u5982\u5b9e\u6807\u6ce8\u5df2\u6267\u884c",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Tavotto/Tavotto/pull/906"
+  },
+  {
+   "id": 66,
+   "source": "github",
+   "title": "DX: green suite on the documented .[dev] setup",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/lgriffin/TER/pull/66"
+  },
+  {
+   "id": 55,
+   "source": "github",
+   "title": "feat(harness): OpenSpec minimum runnable Hatchet/PG dual-SDK loop + Run Inspector",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Bulls1986/Agent-Harness-Platform/pull/55"
+  },
+  {
+   "id": 574,
+   "source": "github",
+   "title": "[Bug]: unable to load integration after updating to 1.22.3",
+   "module": "homeassistant",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/bvis/aegis-hass/issues/574"
+  },
+  {
+   "id": 4704,
+   "source": "github",
+   "title": "fix(ledger): T10-240 verify \u547d\u4ee4\u6821\u6b63 (pytest \u8865 pyyaml + status --json \u56de\u9000)",
+   "module": "yaml",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/starlink-awaken/omostation/pull/4704"
+  },
+  {
+   "id": 1329,
+   "source": "github",
+   "title": "Update dependency momento to v1.29.0",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/masato/langchain_study/pull/1329"
+  },
+  {
+   "id": 575,
+   "source": "github",
+   "title": "fix(camera): load on Home Assistant before 2026.1 (#574)",
+   "module": null,
+   "classification": "distribution-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/bvis/aegis-hass/pull/575"
+  },
+  {
+   "id": 1480,
+   "source": "github",
+   "title": "Update dependency pytest to v9 [SECURITY]",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/masato/langchain_study/pull/1480"
+  },
+  {
+   "id": 13880,
+   "source": "github",
+   "title": "Build the FastAPI test app with LOCAL_DEV off",
+   "module": "pytest_postgresql",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/internetarchive/openlibrary/pull/13880"
+  },
+  {
+   "id": 15,
+   "source": "github",
+   "title": "Restore CONTROl_TOKENS_PATTERN, used by words-segmentation",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/sign/utf8-tokenizer/pull/15"
+  },
+  {
+   "id": 21,
+   "source": "github",
+   "title": "modeltest: start in the Docker image (laad_env moves to env.py)",
+   "module": "durfheilig",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Hopsakee/durfheiligtezijn/pull/21"
+  },
+  {
+   "id": 75,
+   "source": "github",
+   "title": "ci: run backend, Vitest and E2E tests as required PR checks",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/abti247/iron_verdict/pull/75"
+  },
+  {
+   "id": 1875,
+   "source": "github",
+   "title": "Spook 5.10.0 fails to load on HA 2026.11.0.dev: cannot import name 'CONF_STOP_ACTIONS'",
+   "module": "CONF_STOP_ACTIONS",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/frenck/spook/issues/1875"
+  },
+  {
+   "id": 212,
+   "source": "github",
+   "title": "deps(package): bump the python-major group with 2 updates",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/FredrikM97/py-surepetcare/pull/212"
+  },
+  {
+   "id": 794,
+   "source": "github",
+   "title": "refactor(P3): move the transitions out of pipeline.py (#776)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/794"
+  },
+  {
+   "id": 29,
+   "source": "github",
+   "title": "docs: stop describing the SDK's scale as a 120 mm nominal",
+   "module": "PyQt5",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nexform-tech/litegrip-studio/pull/29"
+  },
+  {
+   "id": 257,
+   "source": "github",
+   "title": "feat(presence): declare the agent's status in the chat snapshot",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/bedah-kym/kazi-core/pull/257"
+  },
+  {
+   "id": 237,
+   "source": "github",
+   "title": "[github_actions] `extra-arguments` can override run-identity inputs and desynchronize the litellm in",
+   "module": "litellm",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/sentimentalmija-lgtm/AIBenchMark-ESW/issues/237"
+  },
+  {
+   "id": 284,
+   "source": "github",
+   "title": "fix(elements-complaint): v0.16.1 \u4fee\u590d09\u9010\u680f\u586b\u5145\u4e0e\u5931\u8d25\u5173\u95ed",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/cat-xierluo/legal-skills/pull/284"
+  },
+  {
+   "id": 5950,
+   "source": "github",
+   "title": "[#3930] Surface decision log commit refusal in next JSON",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/spec-kitty/spec-kitty/pull/5950"
+  },
+  {
+   "id": 211,
+   "source": "github",
+   "title": "feat(ag2-classic): traceAI-ag2-classic for autogen 0.14.x (TH-8237)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/future-agi/traceAI/pull/211"
+  },
+  {
+   "id": 200511,
+   "source": "github",
+   "title": "CI: torchtitan_features_integration fails at collection with \"pyarrow requires NumPy 2.0 or newer, f",
+   "module": "pyarrow",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/pytorch/pytorch/issues/200511"
+  },
+  {
+   "id": 18161,
+   "source": "github",
+   "title": "[BugFix]: Cap pyarrow below 26 in the dev environment",
+   "module": "pyarrow",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 1,
+   "url": "https://github.com/vllm-project/vllm-ascend/pull/18161"
+  },
+  {
+   "id": 536,
+   "source": "github",
+   "title": "fix: lock and verify config rollback",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/sixtyops/manager/pull/536"
+  },
+  {
+   "id": 2936,
+   "source": "github",
+   "title": "TODO Debt Report",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/pytorch/torchtitan/issues/2936"
+  },
+  {
+   "id": 224,
+   "source": "github",
+   "title": "feat(discoveryengine): trace Google Discovery Engine search and answer calls (TH-8332)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/future-agi/traceAI/pull/224"
+  },
+  {
+   "id": 18122,
+   "source": "github",
+   "title": "[Cherry-pick][releases/v0.30.0][Performance][MoE] Improve shared expert multistream overlap",
+   "module": "vllm",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/vllm-project/vllm-ascend/pull/18122"
+  },
+  {
+   "id": 221,
+   "source": "github",
+   "title": "[CI Monitor] Daily Report - 2026-10-10",
+   "module": "ScalingType",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/bingxche/sglang-ci-bot/issues/221"
+  },
+  {
+   "id": 60602,
+   "source": "github",
+   "title": "[Model][Qwen4Exp] FP8 QSA main KV cache on Ampere (sm_80, sm_86)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/vllm-project/vllm/pull/60602"
+  },
+  {
+   "id": 1568,
+   "source": "github",
+   "title": "fix(ci): run the base branch copy of the review checks, so older branches pass (#1561, #1563)",
+   "module": "Start",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/Altinity/clickhouse-sink-connector/pull/1568"
+  },
+  {
+   "id": 522,
+   "source": "github",
+   "title": "The Mill into 0.6: app gateway + proxy security fixes",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/jerpint/woltspace/pull/522"
+  },
+  {
+   "id": 18180,
+   "source": "github",
+   "title": "[Cherry-pick][releases/v0.30.0][BugFix]: Cap pyarrow below 26 in the dev environment (from #18161)",
+   "module": "pyarrow",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 1,
+   "url": "https://github.com/vllm-project/vllm-ascend/pull/18180"
+  },
+  {
+   "id": 81,
+   "source": "github",
+   "title": "Stage 1 training data: pilot, trait 4, all five kinds (40)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/mcp-tool-shop-org/aspire-si/pull/81"
+  },
+  {
+   "id": 373,
+   "source": "github",
+   "title": "ci(prompt-eval): skip the model A/B for dependency-only changes; import smoke instead",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/christopherqueenconsulting/cpcc_task_automation/pull/373"
+  },
+  {
+   "id": 1629,
+   "source": "github",
+   "title": "test: start every in-container process in a minimal real container on a GPU-less host",
+   "module": "vs_evaluation",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/uw-syfi/vibesys/pull/1629"
+  },
+  {
+   "id": 207,
+   "source": "github",
+   "title": "[feature] \u8fc1\u79fb cache-dit \u7684 examples \u5b88\u62a4\u7ba1\u7ebf\u5230 docs \u4ed3",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Ascend/docs/pull/207"
+  },
+  {
+   "id": 5074,
+   "source": "github",
+   "title": "feat(digigraph): carry the MCP tool-allowlist contract across the HTTP boundary",
+   "module": "mcp_server_allows_raw_tool",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/digithings-ai/digithings/pull/5074"
+  },
+  {
+   "id": 2633,
+   "source": "github",
+   "title": "[P2] Option B candidate layer configs record the CLI target_bits, not the candidate's solved target",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/RobTand/prismaquant/pull/2633"
+  },
+  {
+   "id": 10282,
+   "source": "github",
+   "title": "feat(tenancy): add record-scope helper for decision records [Tier 3]",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/synaptent/aragora/pull/10282"
+  },
+  {
+   "id": 101,
+   "source": "github",
+   "title": "fix(release): \u51fa\u5382\u5305\u8865 hive/id_charset_blocks.txt\uff08\u300c\u51fa\u8d27\u9762\u7f3a\u4ef6\u300d\u7b2c\u4e09\u6b21\u590d\u53d1\uff09",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/FuRongJun-1999/dsh-memory/pull/101"
+  },
+  {
+   "id": 124,
+   "source": "github",
+   "title": "Windows: launcher fails to detect venv and startup crashes due to Unix-only fcntl dependency",
+   "module": "flask",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/anvie/evonic/issues/124"
+  },
+  {
+   "id": 793,
+   "source": "github",
+   "title": "refactor(P2): move the ledger, attempt and inbox layers out of pipeline.py (#776)",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/0xfauzi/kstrl/pull/793"
+  },
+  {
+   "id": 59,
+   "source": "github",
+   "title": "[CRITICAL] [DEPLOYMENT] Fresh installs cannot reach Postgres: SQLAlchemy 2.1 maps postgresql:// to p",
+   "module": "psycopg",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/sohaibm05/Gym-tracker/issues/59"
+  },
+  {
+   "id": 3019,
+   "source": "github",
+   "title": "fix: fingerprint \u975e ready \u306e trusted go \u304c trusted blocked \u3092\u96a0\u3059 false-go \u3092\u9632\u3050",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/squne121/loop-protocol/pull/3019"
+  },
+  {
+   "id": 307,
+   "source": "github",
+   "title": "refactor: name dataset modules by the LR/HR contract they implement",
+   "module": "sisr",
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/YeapJieShen/single-image-super-resolution/pull/307"
+  },
+  {
+   "id": 199,
+   "source": "github",
+   "title": "build(deps): bump the minor-and-patch group across 1 directory with 11 updates",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Jakub-Pinkowski/trading-bot/pull/199"
+  },
+  {
+   "id": 1291,
+   "source": "github",
+   "title": "fix: \u518d\u5229\u7528\u3055\u308c\u308b Codex tracker \u306e Round 2 \u4ee5\u964d\u306e\u6d3b\u52d5\u3092\u8a8d\u8b58\u3059\u308b (#1274)",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 1,
+   "url": "https://github.com/Saltmu/orchestune/pull/1291"
+  },
+  {
+   "id": 1005,
+   "source": "github",
+   "title": "refactor(openai): type-only imports in llms/openai/utils.py",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nerdai/llm-agents-from-scratch/pull/1005"
+  },
+  {
+   "id": 269,
+   "source": "github",
+   "title": "Unable to import component: cannot import name 'enum24' from 'zigpy.types'",
+   "module": "enum24",
+   "classification": "module-and-dist",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/zigpy/zigpy-znp/issues/269"
+  },
+  {
+   "id": 43,
+   "source": "github",
+   "title": "pipeline alerting gaps: source silence at 30 h, health reporter, eight rules, daily health summary",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/debeule/auspex/pull/43"
+  },
+  {
+   "id": 36,
+   "source": "github",
+   "title": "fix: refuse a non-finite command instead of sending it",
+   "module": null,
+   "classification": "unclear",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nexform-tech/litegrip-python/pull/36"
+  },
+  {
+   "id": 738,
+   "source": "github",
+   "title": "feat(data): add a purged and embargoed walk-forward splitter",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/Vaquum/Limen/issues/738"
+  },
+  {
+   "id": 856,
+   "source": "github",
+   "title": "test: skip optional-extra tests when the extra is not installed",
+   "module": null,
+   "classification": "environment",
+   "excluded": true,
+   "view_count": 0,
+   "url": "https://github.com/nerdai/llm-agents-from-scratch/pull/856"
+  },
+  {
+   "id": 28,
+   "source": "github",
+   "title": "fix(promote): the gate's whitelisted environment lets Python's own path configuration through",
+   "module": "yaml",
+   "classification": "module-only",
+   "excluded": false,
+   "view_count": 0,
+   "url": "https://github.com/netcanon/kontroll-public/pull/28"
+  }
+ ]
+}
