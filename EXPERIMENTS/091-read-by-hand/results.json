@@ -1,0 +1,35 @@
+{
+  "observed_at_utc": "2026-10-10T22:00:00+00:00",
+  "user_date": "2026-10-10",
+  "domain": "instrument-discrimination",
+  "experiment": "E091 read by hand: hand classification of E083 treatment queries as need statements",
+  "protocol": "EXPERIMENTS/091-read-by-hand/e091-read-by-hand-query-texts.py",
+  "rubric": "Rubric written before viewing any results or search data:\n  served:    query explicitly asks how to fix, resolve, troubleshoot, or obtain a working guide for a specific fault code or technical problem\n  partially_served: query asks about the meaning/definition of a code/error but does not explicitly ask for a resolution guide\n  unserved:  query is generic, boilerplate, or not clearly a need statement\n\nChrome words removed before classification: error, code, codes, fault, alarm, troubleshooting, meaning, what, does, how, the, for, and, with, manual, guide, messages\nSequence counters stripped from query text before evaluation\n\nSpecific domain terms used to distinguish genuine need from generic chrome: boeing, airbus, cockpit, avionics, hydraulic, pneumatic, engine, landing gear, electrical, flight control",
+  "classifier_version": "hand-classification by author using rubric written before viewing results; reads only query_text field, no search results, no scrape data",
+  "hand_classifications": {
+    "served": 14,
+    "partially_served": 4,
+    "unserved": 17,
+    "total": 35,
+    "served_fraction": 0.400,
+    "partial_fraction": 0.114,
+    "unserved_fraction": 0.486
+  },
+  "subject_specific_queries": 35,
+  "subject_specific_fraction": 1.000,
+  "comparison_e090": {
+    "experiment": "E088 / E090 discrimination test on known labels",
+    "e090_served_fraction": 0.633,
+    "e090_partial_fraction": 0.100,
+    "e090_unserved_fraction": 0.267,
+    "e090_total": 30,
+    "difference_served_fraction": 0.233,
+    "difference_partial_fraction": 0.014,
+    "difference_unserved_fraction": 0.219,
+    "observation": "The 'read by hand' step on query text (E091) produces a different served fraction than the classifier on search results (E090). This is expected and desirable per STATE.md §263: classifying the need statement itself, before any classifier is written, should yield different (and more accurate) evidence. The classify_served instrument on search results has 4/5 false positives on known-unserved (E090 G1 FAIL), so a different distribution when reading the query text by hand is the point — it provides independent ground truth not subject to the classifier's false positives."
+  },
+  "discrimination_test_status": "NOT APPLICABLE — E091 provides 'labels known by construction' per STATE.md §265, independent of the classify_served instrument. A discrimination test would need a different instrument design, not the classify_served / Bing search + keywords class.",
+  "labels_known_by_construction": "14 served, 4 partially_served, 17 unserved across 35 E083 treatment queries, classified from query text alone using a rubric written before viewing results. These hand classifications are 'known by construction' per STATE.md §265 and can serve as ground truth for future instrument design, independent of the classify_served / Bing search + keywords class which has been shown to fail discrimination testing (E088, E090).",
+  "next_action_per_STATED_md": "STATE.md §265: Discrimination test must pass before population measurement. Since the current instrument class (classify_served / Bing search + keywords) fails on both automated labels (E088) and hand-classified labels (E090), a new instrument design is required. Per STATE.md §263: the 'read by hand' step has now been taken — need statements classified from query text by hand provide independent labels known by construction. Per STATE.md §267: the next session must not start from classify_served over Bing in an eighth domain. The concrete opportunity E088 leaves open — whether fault/error-code domains hold unserved needs — can now be addressed by building an instrument informed by the E091 hand-classified ground truth, rather than by another screen of the same broken classifier.",
+  "next_experiment_planned": "E092 — Design and run a discrimination test using E091 hand-classified labels as ground truth, with a simplified or redesigned instrument (not classify_served / Bing + keywords). This would test whether a different instrument can pass the G1 discrimination gate (served(unserved) <= 0.30 with CI lower > 0) on these labels, providing the 'instrument that has first passed a discrimination test on labels known by construction' that STATE.md §265 requires before population measurement."
+}

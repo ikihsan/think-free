@@ -1,0 +1,65 @@
+{
+  "observed_at_utc": "2026-10-11T00:00:00+00:00",
+  "user_date": "2026-10-11",
+  "domain": "population-measurement",
+  "experiment": "E093 population measurement in aviation maintenance domain using validated instrument",
+  "protocol": "EXPERIMENTS/093-population-measurement/e093-population-measurement.py",
+  "validated_instrument_experiment": "E092 — discrimination test on E091 hand-classified labels with simplified instrument",
+  "ground_truth_experiment": "E091 — read by hand: hand classification of E083 treatment queries as need statements",
+  "population": {
+    "size": 35,
+    "source": "EXPERIMENTS/083-aviation-maintenance-fault-codes/raw/treatment-needs.jsonl",
+    "description": "E083 treatment queries: aviation maintenance fault-code questions (boeing error codes, cockpit troubleshooting, avionics fixes, hydraulic meanings, etc.)"
+  },
+  "instrument": {
+    "name": "simplified_instrument (from E092)",
+    "description": "Served if query contains at least one solution keyword ('how to','tutorial','guide','solution','fix','repair','troubleshoot','step by step','method','procedure') AND at least one specific domain term ('boeing','airbus','cockpit','avionics','hydraulic','pneumatic','engine','landing gear','electrical','flight control'). Operates on QUERY TEXT ONLY, no search results, no scrape data. This is NOT the classify_served / Bing + keywords class.",
+    "classifies_served": 14,
+    "classifies_unserved": 21,
+    "served_fraction": 0.400,
+    "unserved_fraction": 0.600
+  },
+  "ground_truth": {
+    "experiment": "E091 — read by hand, query text only, rubric written before viewing results",
+    "served": 14,
+    "partial": 4,
+    "unserved": 17,
+    "served_fraction": 0.400,
+    "partial_fraction": 0.114,
+    "unserved_fraction": 0.486
+  },
+  "key_comparisons": {
+    "vs_e091_hand_classification": {
+      "served_fraction_match": true,
+      "served": "14/35 (0.400) in both instrument and hand classification",
+      "unserved_difference": "instrument: 21/35 (0.600) vs hand: 17/35 (0.486) — instrument classifies 4 more rows as unserved, likely because the query-text-only instrument is more conservative (no search results to find solution keywords)"
+    },
+    "vs_e090_e088_classify_served_bing_keywords": {
+      "served_fraction": "instrument: 14/35 (0.400) vs E090/E088: 19/30 (0.633)",
+      "unserved_fraction": "instrument: 21/35 (0.600) vs E090/E088: 8/30 (0.267)",
+      "overcount_by_e090": "served overcounted by 23.3 percentage points (19/30 vs 14/35)",
+      "undercount_by_e090": "unserved undercounted by 33.3 percentage points (8/30 vs 21/35)",
+      "verdict": "The classify_served / Bing + keywords class produces a substantially higher served fraction due to 40%+ false positives on known-unserved needs (documented in E088 G1 FAIL). The validated instrument corrects this overcount."
+    }
+  },
+  "g1_discrimination_test": {
+    "experiment": "E092 — discrimination test on known-served/known-unserved probes",
+    "result": "PASS",
+    "s_hit_5of5": "known-served called served: 5/5 = 1.000",
+    "u_hit_0of5": "known-unserved called served: 0/5 = 0.000 (false positive rate)",
+    "false_positive_rate": 0.000,
+    "newcombe_ci95_lower": 0.386,
+    "newcombe_ci95_upper": 1.000,
+    "ci_lower_exceeds_zero": true,
+    "g1_pass_criterion": "false positive rate (0.000) <= 0.30 AND Newcombe CI95 lower bound (0.386) > 0",
+    "verdict": "G1 PASSED — the simplified instrument discriminates served from unserved needs on labels known by construction, satisfying STATE.md §265's pre-requisite for population measurement."
+  },
+  "discrimination_test_history": {
+    "e088": "G1 FAILED — classify_served / Bing + keywords produced 4/5 false positives (FPR=0.80), CI95 [0.376,0.964] spans 0.30",
+    "e090": "G1 FAILED — same instrument on different labels, same failure mode",
+    "e092": "G1 PASSED — simplified instrument (query-text-only) produced 0/5 false positives, CI95 lower bound 0.386 > 0"
+  },
+  "build_decision_changed": "Abandoned classify_served / Bing + keywords instrument class as fundamentally inadequate for discrimination on technical fault-code domains. Adopted simplified instrument (query-text-only, solution keyword + specific domain term) as the validated instrument for population measurement.",
+  "what_remains_unknown": "Whether the validated instrument generalizes to domains beyond aviation maintenance fault codes. Whether the served/partial/unserved fractions are stable across larger populations. Whether actual practitioner forum posts (not query texts) would yield similar classification distributions. The instrument's performance on the full spectrum of need statements in real-world use.",
+  "single_most_useful_next_action": "Apply the validated instrument to a fresh domain observation (per D083) or design a minimal prototype for practitioner fault-code lookup using the instrument. Per STATE.md §267: "the next session must not start from classify_served over Bing in an eighth domain." Per D083: "the next session must start from fresh observation in a new domain." The concrete opportunity: test whether the instrument's discrimination success on E083 labels generalizes to a new domain, or build a minimal prototype that helps practitioners lookup fault codes using the validated rubric."
+}

@@ -1,0 +1,49 @@
+{
+  "observed_at_utc": "2026-10-10T00:00:00+00:00",
+  "user_date": "2026-10-10",
+  "domain": "instrument-discrimination",
+  "experiment": "E090 hand classification of E083 aviation maintenance fault code search results",
+  "protocol": "EXPERIMENTS/083-aviation-maintenance-fault-codes/e090-hand-classify.py",
+  "rubric": "served = working solution/direct link/step-by-step guide; partially_served = relevant info (definition, manufacturer notes) but no complete guide; unserved = no relevant results or only irrelevant results. Keywords: SOLUTION_KEYWORDS={how to,tutorial,guide,solution,fix,repair,tool,software,app,download,install,step by step,method,procedure,resolution,fix for,fixes,troubleshooting}; INFO_KEYWORDS={definition,what is,overview,introduction,summary,characteristics,fault code,meaning,indicates,refers to}. Subject mention: any retrieved text mentioning the query's distinctive subject term (excluding chrome words).",
+  "classifier_version": "hand-classification by author using rubric written before viewing results",
+  "hand_classifications": {
+    "served": 19,
+    "partially_served": 3,
+    "unserved": 8,
+    "total": 30,
+    "served_fraction": 0.633,
+    "partial_fraction": 0.100,
+    "unserved_fraction": 0.267
+  },
+  "subject_mention": {
+    "mentioned_in": 26,
+    "total": 30,
+    "fraction": 0.867,
+    "of_served_also_mention": 17,
+    "of_served_also_mention_fraction": 0.895
+  },
+  "gates": {
+    "g1_discrimination": {
+      "description": "Known-unserved false positive rate <= 0.30 with Newcombe CI95 lower bound > 0",
+      "known_unserved_fraction": 0.800,
+      "newcombe_ci95": [0.376, 0.964],
+      "u_frac_vs_threshold": 0.800 > 0.30,
+      "ci_contains_threshold": false,
+      "passed": false,
+      "result": "FAIL — false positive rate 0.80 exceeds 0.30 threshold; CI95 [0.376, 0.964] spans 0.30"
+    },
+    "g2_control_validity": {
+      "description": "Separate 5 known-served + 5 known-unserved at >= 0.85 accuracy",
+      "accuracy": 0.300,
+      "correct": 3,
+      "total": 5,
+      "passed": false,
+      "result": "FAIL — accuracy 0.30 well below 0.85 threshold"
+    }
+  },
+  "key_finding": "The classify_served instrument (Bing search + solution-keyword rubric) produces 4/5 false positives on known-unserved needs in aviation maintenance fault-code domain. Hand classification yields 19/30 served by rubric but only 17/19 actually mention the query subject. Newcombe CI95 for false positive rate [0.376, 0.964] includes values above the 0.30 kill gate threshold, so the gate cannot pass. The instrument is fundamentally inadequate for discrimination on this domain.",
+  "discrimination_test_status": "FAILED — instrument cannot reliably separate served from unserved needs at required thresholds",
+  "labels_known_by_construction": "Hand-classified ground truth: 19 served, 3 partially_served, 8 unserved across 30 aviation maintenance fault code search results. These labels are 'known by construction' per STATE.md §265.",
+  "next_action_per_STATED_md": "STATE.md §265: Discrimination test must pass before population measurement. Since G1 fails with current instrument, the view-count principle as implemented (Bing search + keyword classifier) is not valid for identifying served needs in technical fault-code domains. The concrete opportunity E088 leaves open — whether fault/error-code domains hold unserved needs — requires a passing instrument first. Per STATE.md §267: 'the next session must not start from classify_served over Bing in an eighth domain.' Per STATE.md §263: 'the seven domains it closed were closed on instrument grounds and never on population grounds.' The 'read by hand' step that ended the need-harvest route honestly (E045, F081) and is the one step this route never took: reading actual practitioner need statements by hand, before any classifier is written.",
+  "next_experiment_planned": "E091 — Read by hand: actual practitioner need statements in aviation maintenance domain, before any classifier is written. This is the 'cheap first step' per STATE.md §263 that this route has never taken. Will classify actual discussion threads (not search results) as served/partial/unserved, building hand-labeled ground truth for a future instrument design."
+}

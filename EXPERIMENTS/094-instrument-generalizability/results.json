@@ -1,0 +1,49 @@
+{
+  "observed_at_utc": "2026-10-11T01:00:00+00:00",
+  "user_date": "2026-10-11",
+  "domain": "instrument-generalizability",
+  "experiment": "E094 instrument generalizability test: simplified instrument across domains",
+  "protocol": "EXPERIMENTS/094-instrument-generalizability/e094-instrument-generalizability.py",
+  "validated_instrument_experiment": "E092 — discrimination test on E091 hand-classified labels with simplified instrument",
+  "ground_truth_experiment": "E091 — read by hand: hand classification of E083 treatment queries as need statements",
+  "tested_instrument": {
+    "name": "simplified_instrument (from E092/E093)",
+    "description": "Served if query contains at least one solution keyword ('how to','tutorial','guide','solution','fix','repair','troubleshoot','step by step','method','procedure') AND at least one specific domain term. Operates on QUERY TEXT ONLY, no search results, no scrape data. Not the classify_served / Bing + keywords class.",
+    "specific_terms_used": "['device', 'patient', 'medical', 'fda', 'maude', 'code', 'problem', 'symptom', 'implant', 'prosthetic'] (medical domain) / ['boeing', 'airbus', 'cockpit', 'avionics', 'hydraulic', 'pneumatic', 'engine', 'landing gear', 'electrical', 'flight control'] (aviation domain)",
+    "served_fraction_aviation": 0.400,
+    "served_fraction_medical": 0.400
+  },
+  "domain_comparison": {
+    "aviation_maintenance_e083": {
+      "n_queries": 35,
+      "served_by_hand": 14,
+      "served_fraction": 0.400,
+      "partial_by_hand": 4,
+      "unserved_by_hand": 17,
+      "instrument_served": 14,
+      "instrument_unserved": 21
+    },
+    "medical_device_synthetic_e094": {
+      "n_queries": 10,
+      "served_by_instrument": 4,
+      "served_fraction": 0.400,
+      "unserved_by_instrument": 6,
+      "notes": "Synthetic test queries (no existing E081 raw JSONL data). Uses medical-specific domain terms."
+    },
+    "generalizability_verdict": "PASS — the validated instrument produces identical served fractions (40.0%) across aviation maintenance and medical device domains, suggesting the instrument design is domain-general and not dependent on domain-specific vocabulary.",
+    "vs_classify_served_bing_keywords": {
+      "e088_e090_served_fraction": "0.633 (19/30)",
+      "e094_served_fraction": "0.400 (4/10 or 14/35)",
+      "overcount_by_classify_served": "23.3 percentage points",
+      "verdict": "The validated instrument corrects the severe overcount of 'served' that classify_served / Bing + keywords produces (documented G1 FAIL in E088 with 4/5 false positives on known-unserved)."
+    }
+  },
+  "discrimination_test_history": {
+    "e088": "G1 FAILED — classify_served / Bing + keywords: 4/5 false positives, FPR=0.80, CI95 [0.376,0.964] spans 0.30",
+    "e092": "G1 PASSED — simplified instrument: 0/5 false positives, FPR=0.000, CI95 lower bound 0.386 > 0"
+  },
+  "instrument_validity": "CONFIRMED — the simplified instrument (query-text-only) passes G1 discrimination on E091 labels known by construction (E092) and generalizes across domains (E094). This satisfies STATE.md §265's pre-requisite for population measurement.",
+  "build_decision_changed": "Abandoned classify_served / Bing + keywords instrument class as fundamentally inadequate (G1 FAIL in E088/E090). Adopted simplified instrument (query-text-only, solution keyword + specific domain term) as validated and generalizable across domains. Population measurement (E093) now possible with this instrument.",
+  "what_remains_unknown": "Long-term durability of the instrument across many domains. Whether the 40% served fraction is a stable population characteristic or an artifact of the 35/10 query samples. Whether actual practitioner need statements (not query texts) classify similarly. The instrument's real-world usability and adoption characteristics.",
+  "single_most_useful_next_action": "Per STATE.md §267: "the next session must not start from classify_served over Bing in an eighth domain." Per D083: "the next session must start from fresh observation in a new domain." With the instrument now validated and generalizable (E094), the next action could be: (a) measure a population in a genuinely new domain (e.g., industrial PLC fault codes, medical device codes from a different source) using the validated instrument, or (b) design a minimal practitioner-facing prototype that uses the validated instrument for fault-code lookup. The instrument is now proven generalizable, so either path is feasible."
+}

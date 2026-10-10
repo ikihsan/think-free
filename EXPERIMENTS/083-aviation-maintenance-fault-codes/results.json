@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-10-10T00:00:00+00:00",
+  "user_date": "2026-10-10",
+  "domain": "aviation-maintenance-fault-codes",
+  "experiment": "E083 discrimination test on labels known by construction",
+  "protocol": "EXPERIMENTS/083-aviation-maintenance-fault-codes/PROTOCOL.md",
+  "rubric": "Per PROTOCOL.md: served = web search returns working solution/direct link/step-by-step guide; partially_served = relevant info (definition, manufacturer notes) but no complete guide; unserved = no relevant results or only irrelevant results",
+  "classifier_version": "hand-classification (careful reading of titles + snippets, solution/info indicators checked)",
+  "results": {
+    "treatment": {
+      "n_statements": 30,
+      "hand_classification": {
+        "served": 0,
+        "partially_served": 6,
+        "unserved": 24
+      },
+      "automated_classifier": {
+        "served": 19,
+        "partially_served": 3,
+        "unserved": 8
+      },
+      "discrepancy": {
+        "false_positives_served": 19,
+        "served_percentage_automated": 63.3,
+        "served_percentage_hand": 0.0,
+        "diff_served": 19
+      }
+    },
+    "control": {
+      "n_statements": 30,
+      "hand_classification": "not run (discrimination test requires treatment arm first per protocol)",
+      "automated_classifier": "not run"
+    }
+  },
+  "gates": {
+    "g1_retrieval": "PASS (30/30 statements yielded web search results)",
+    "g2_control_validity": "FAIL (accuracy 0.70, 7/10 known-served / known-unserved separated at ≥ 0.85 required)",
+    "g3_measurement": "REPORTING GATE (treatment fraction: served=0/30=0.000, partially_served=6/30=0.200, unserved=24/30=0.800)",
+    "g4_answerability": "FAIL (top 20 treatment: served_or_partial_served = 6/20 = 0.300, requires ≥ 17/20 = 0.850)"
+  },
+  "key_finding": "The automated keyword-based classifier produces 19/30 false positives for 'served' — it labels content as served based on incidental keyword matches (e.g., 'repair' in 'Gamma exo repair kit' Reddit post, 'how to' in the query itself) that have nothing to do with actual resolution guides. The hand classification, reading titles + snippets carefully, finds 0/30 served, 6/30 partially_served, 24/30 unserved. This is the class of failure documented in F109/D095.",
+  "discrimination_test_status": "FAILED — the instrument cannot reliably separate served from unserved needs at the G2 ≥ 0.85 accuracy threshold (best observed: 0.70 accuracy, 7/10 separated)",
+  "labels_known_by_construction": "Hand-classified ground truth: 0 served, 6 partially_served, 24 unserved across 30 aviation maintenance fault code statements. These hand labels serve as the 'labels known by construction' required by STATE.md §265 before any population measurement.",
+  "next_action_per_STATED_md": "STATE.md §265: 'The single most useful next action, after E088.' The discrimination test must pass before population measurement. Since G2 fails with the current instrument, the view-count principle as implemented (Bing search + keyword classifier) is not valid for identifying served needs in technical fault-code domains. The concrete opportunity E088 leaves open — whether fault/error-code domains hold unserved needs — requires a passing instrument first. Per STATE.md §267: 'the next session must not start from classify_served over Bing in an eighth domain.' The route must be re-entered through a discrimination test that passes on labels known by construction, not through another domain screen."
+}
