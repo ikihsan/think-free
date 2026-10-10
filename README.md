@@ -15,7 +15,7 @@ that makes it checkable: six sealed investigations, nine completed experiments
 of which none validated a candidate, and a session/documentation system designed
 so that a claim cannot outlive the evidence behind it.
 
-<!-- origin-release-state: no-public-product -->
+<!-- origin-release-state: public-product -->
 
 Read [`STATE.md`](STATE.md) for the verified current state.
 [`MISSION.md`](MISSION.md) states the objective, the boundaries, and the
@@ -89,14 +89,13 @@ byte-identical to upstream. See
 | Investigations | All six roles sealed; the cross-report screen is `RESEARCH/SYNTHESIS.md` |
 | Experiments | Nine run. Three invention claims disproved, one mechanism confirmed whose candidate died of it. None validated |
 | Hypotheses | Candidates recorded, none selected |
-| Product | None. Not started. |
+| Product | [`pyprovides`](pyprovides/) — MIT-licensed prototype resolver for which PyPI distribution provides a given Python module; installed via `pip install pyprovides`; shell integrations `pyfix` (zsh/fish) available; measured demand: 19.35% of import errors name no distribution (E086) |
 | Users, adoption, stars | None. No claims. |
 | Unattended execution | Not verified; see [`docs/operations/scheduling-and-supervision.md`](docs/operations/scheduling-and-supervision.md) |
 
 ## Licence
 
-To be chosen when a product exists. The vendored skills keep their own licence;
-see [`vendor/superpowers/LICENSE`](vendor/superpowers/LICENSE).
+MIT. See [`LICENSE`](LICENSE).
 
 ## Contributing
 

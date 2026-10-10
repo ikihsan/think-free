@@ -8,13 +8,17 @@ last-verified: 2026-10-10
 
 <!-- generated-by: origin; do not edit by hand -->
 
-230 recorded session(s). One `events.jsonl` per session, so concurrent
+234 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 205 older session(s) are in the directory listing.
+Showing the 25 most recent. 209 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-10-021-package-pyprovides-resolver-for-pypi-dis](2026-10-10-021-package-pyprovides-resolver-for-pypi-dis/README.md) | unknown-agent | **unfinished** | Package pyprovides resolver for PyPI distribution and prepare shell in | 2026-10-10T22:25 |
+| [2026-10-10-020-measure-pyprovides-adoption-and-evaluate](2026-10-10-020-measure-pyprovides-adoption-and-evaluate/README.md) | unknown-agent | worked | Measure pyprovides adoption and evaluate integrations | 2026-10-10T22:22 |
+| [2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a](2026-10-10-019-publish-pyprovides-to-pypi-and-measure-a/README.md) | unknown-agent | worked | Publish pyprovides to PyPI and measure adoption | 2026-10-10T20:51 |
+| [2026-10-10-018-finalize-pyprovides-packaging-for-distri](2026-10-10-018-finalize-pyprovides-packaging-for-distri/README.md) | unknown-agent | worked | Finalize pyprovides packaging for distribution and record outcomes | 2026-10-10T19:51 |
 | [2026-10-10-017-package-pyprovides-for-distribution-and](2026-10-10-017-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations | 2026-10-10T19:37 |
 | [2026-10-10-016-package-pyprovides-for-distribution-and](2026-10-10-016-package-pyprovides-for-distribution-and/README.md) | unknown-agent | worked | Package pyprovides for distribution and create shell integrations (fis | 2026-10-10T19:36 |
 | [2026-10-10-015-run-real-world-evaluation-of-pyprovides](2026-10-10-015-run-real-world-evaluation-of-pyprovides/README.md) | unknown-agent | worked | Run real-world evaluation of pyprovides against E086 import error corp | 2026-10-10T19:11 |
@@ -36,10 +40,6 @@ Showing the 25 most recent. 205 older session(s) are in the directory listing.
 | [2026-10-09-024-run-fresh-observation-experiment-in-elec](2026-10-09-024-run-fresh-observation-experiment-in-elec/README.md) | unknown-agent | partial | Run fresh observation experiment in electronics.stackexchange.com doma | 2026-10-09T22:31 |
 | [2026-10-09-022-fresh-observation-in-new-domain-medical](2026-10-09-022-fresh-observation-in-new-domain-medical/README.md) | unknown-agent | worked | Fresh observation in new domain: medical device alarm codes via view-c | 2026-10-10T00:01 |
 | [2026-10-09-021-fresh-observation-in-new-domain-laborato](2026-10-09-021-fresh-observation-in-new-domain-laborato/README.md) | unknown-agent | worked | Fresh observation in new domain: laboratory instrument error codes via | 2026-10-09T23:56 |
-| [2026-10-09-020-fresh-observation-in-a-new-non-software](2026-10-09-020-fresh-observation-in-a-new-non-software/README.md) | unknown-agent | no-change | Fresh observation in a new non-software domain per D083: measure view_ | 2026-10-09T23:31 |
-| [2026-10-09-020-begin-fresh-observation-in-a-new-domain](2026-10-09-020-begin-fresh-observation-in-a-new-domain/README.md) | unknown-agent | worked | Begin fresh observation in a new domain to find a testable invention o | 2026-10-09T18:45 |
-| [2026-10-09-018-fresh-observation-in-a-new-domain-per-d0](2026-10-09-018-fresh-observation-in-a-new-domain-per-d0/README.md) | unknown-agent | worked | Fresh observation in a new domain per D083 - explore an unmeasured pra | 2026-10-09T21:51 |
-| [2026-10-09-017-document-e065-e067-findings-and-decide-o](2026-10-09-017-document-e065-e067-findings-and-decide-o/README.md) | unknown-agent | worked | Document E065/E067 findings and decide on fresh observation direction | 2026-10-09T21:30 |
 
 
 ## Reading a session

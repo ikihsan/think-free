@@ -121,6 +121,11 @@ def main():
         help="Show what would be done without running the command",
     )
     parser.add_argument(
+        "--scan-stdout",
+        action="store_true",
+        help="Also scan stdout for import errors (for scripts that catch and print them)",
+    )
+    parser.add_argument(
         "command",
         nargs=argparse.REMAINDER,
         help="Command to run (e.g., -- python3 -c \"import sklearn\")",
@@ -150,8 +155,13 @@ def main():
         print("STDERR:")
         print(stderr)
 
-    # Extract module names from stderr
+    # Extract module names from stderr (and stdout if requested)
     modules = extract_module_names(stderr)
+    if args.scan_stdout:
+        modules.extend(extract_module_names(stdout))
+    # Deduplicate while preserving order
+    seen = set()
+    modules = [m for m in modules if not (m in seen or seen.add(m))]
     
     if not modules:
         if returncode != 0:

@@ -6,6 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "pyprovides"
 version = "0.1.0"
 description = "which distribution provides this module, with nothing installed"
+readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.8"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -16,4 +18,21 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Software Distribution",
+    "Typing :: Typed",
 ]
+keywords = ["pypi", "package", "module", "import", "distribution", "resolver", "dependency"]
+
+[project.urls]
+Homepage = "https://github.com/ikihsan/think-free"
+Repository = "https://github.com/ikihsan/think-free"
+Issues = "https://github.com/ikihsan/think-free/issues"
+
+[project.scripts]
+pyprovides = "pyprovides.pyprovides_cli:main"
+
+[tool.setuptools.package-dir]
+"" = "."

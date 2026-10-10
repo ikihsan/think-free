@@ -81,4 +81,4 @@ Four structured-fault-code domains tested: Automotive OBD2 (E079) fails concentr
 - cv2 and MySQLdb fail due to missing system dependencies (pkg-config, OpenGL, MySQL client libs), not pyfix limitation
 - Multi-import test: Python stops at first ImportError, so only one suggestion per run
 
-**Next action:** Consider packaging pyprovides for distribution (PyPI, pipx, Homebrew). Evaluate shell integration (fish/zsh function wrapping python) or editor/IDE integration for seamless workflow. If packaging proceeds, measure adoption via download/install metrics.
+**Next action:** Publish pyprovides to PyPI (if authorized) and measure adoption via download/install metrics. Shell integrations (pyfix.zsh, pyfix.fish) are ready. If PyPI publication proceeds, measure adoption via download/install metrics and developer workflow usage.

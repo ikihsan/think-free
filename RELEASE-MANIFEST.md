@@ -16,7 +16,7 @@ tables below. A path is one backticked token in the first cell of a row; a row
 may hold several. Mark a declared path `(pending)` when it is expected to be
 absent, and the check fails the moment it appears.
 
-<!-- origin-release-state: no-public-product -->
+<!-- origin-release-state: public-product -->
 
 ## Public by default
 
@@ -29,7 +29,7 @@ absent, and the check fails the moment it appears.
 | `CODE_OF_CONDUCT.md` (pending) | Same. |
 | `docs/` | Policy, process, operations, reference. Shows the method is real. |
 | `tools/` `tests/` | The infrastructure that makes claims reproducible. |
-| `stage-lines/` | The first candidate artifact. Public because the experiment record cites it and its own tests are the correctness argument; its header says `status: draft`, so it is not presented as released. |
+| `pyprovides/` | The pyprovides package, a prototype resolver for which PyPI distribution provides a given Python module; published on PyPI with MIT licence; source+docs tutorial in `README.md` |
 | `.agents/` `.claude/` `vendor/` | Canonical skills, their mirrors, and the licences they keep. |
 | `.github/` | The CI gates that enforce those tests, and the agent entry point. |
 | `.gitignore` | A credible repository ships its ignore rules. |

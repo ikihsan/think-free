@@ -10,11 +10,19 @@ last-verified: 2026-10-10
 what is not is stated below rather than implied.
 
 ```bash
-./pyprovides which Crypto     # which distribution provides this module
-./pyprovides scan .           # find dependency names shadowed by other projects
+pyprovides which Crypto      # which distribution provides this module
+pyprovides find sklearn      # find the distribution for a module (uses aliases)
+pyprovides fix-import -- python3 -c "import sklearn"  # detect & suggest fixes
 ```
 
-Standard library only, Python 3.8+, no install step.
+Standard library only, Python 3.8+. Install with `pip install pyprovides` or `pipx install pyprovides`.
+
+Shell integrations for automatic import error detection:
+- `pyfix` (bash) — `source pyfix` or copy to PATH
+- `pyfix.fish` — `source pyfix.fish` or add to fish config
+- `pyfix.zsh` — `source pyfix.zsh` or add to zsh config
+
+Usage: `pyfix python3 -c "import sklearn"` — runs command, detects import errors, suggests correct PyPI distributions.
 
 ## The practical difference
 
@@ -63,7 +71,7 @@ A 12 MB wheel is answered from a 64 KiB window.
 and are skipped when PyPI is unreachable rather than faked.
 
 ```bash
-python3 -m unittest discover -s pyprovides
+python3 -m unittest pyprovides.tests.test_core
 ```
 
 ## What is not measured

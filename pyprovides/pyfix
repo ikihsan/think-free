@@ -4,7 +4,4 @@
 
 set -euo pipefail
 
-PYTHONPATH="${PYTHONPATH:-}${PYTHONPATH:+:}/home/ubuntu/think-free"
-export PYTHONPATH
-
-python3 -m pyprovides.pyprovides_cli fix-import -- "$@"
+exec python3 -m pyprovides.pyprovides_cli fix-import -- "$@"

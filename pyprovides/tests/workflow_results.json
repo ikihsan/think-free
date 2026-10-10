@@ -1,0 +1,164 @@
+[
+  {
+    "module": "sklearn",
+    "expected_dist": "scikit-learn",
+    "method": "manual",
+    "time_first_run": 0.5180432796478271,
+    "time_pip_install": 17.018789529800415,
+    "time_second_run": 2.681057929992676,
+    "total_time": 20.217890739440918,
+    "success": true,
+    "first_error": true
+  },
+  {
+    "module": "cv2",
+    "expected_dist": "opencv-python",
+    "method": "manual",
+    "time_first_run": 0.7162313461303711,
+    "time_pip_install": 9.272032737731934,
+    "time_second_run": 1.300752878189087,
+    "total_time": 11.289016962051392,
+    "success": false,
+    "first_error": true
+  },
+  {
+    "module": "bs4",
+    "expected_dist": "beautifulsoup4",
+    "method": "manual",
+    "time_first_run": 0.5213162899017334,
+    "time_pip_install": 2.3109335899353027,
+    "time_second_run": 0.36156463623046875,
+    "total_time": 3.193814516067505,
+    "success": true,
+    "first_error": true
+  },
+  {
+    "module": "yaml",
+    "expected_dist": "PyYAML",
+    "method": "manual",
+    "time_first_run": 0.5489563941955566,
+    "time_pip_install": 2.8597354888916016,
+    "time_second_run": 0.2997853755950928,
+    "total_time": 3.708477258682251,
+    "success": true,
+    "first_error": false
+  },
+  {
+    "module": "PIL",
+    "expected_dist": "Pillow",
+    "method": "manual",
+    "time_first_run": 1.7924251556396484,
+    "time_pip_install": 4.931581258773804,
+    "time_second_run": 0.08297848701477051,
+    "total_time": 6.806984901428223,
+    "success": true,
+    "first_error": true
+  },
+  {
+    "module": "dateutil",
+    "expected_dist": "python-dateutil",
+    "method": "manual",
+    "time_first_run": 0.5213863849639893,
+    "time_pip_install": 2.8044488430023193,
+    "time_second_run": 0.0857846736907959,
+    "total_time": 3.4116199016571045,
+    "success": true,
+    "first_error": true
+  },
+  {
+    "module": "Crypto",
+    "expected_dist": "pycryptodome",
+    "method": "manual",
+    "time_first_run": 0.5720343589782715,
+    "time_pip_install": 3.532242774963379,
+    "time_second_run": 0.06919574737548828,
+    "total_time": 4.173472881317139,
+    "success": true,
+    "first_error": true
+  },
+  {
+    "module": "requests",
+    "expected_dist": "requests",
+    "method": "manual",
+    "time_first_run": 0.42656970024108887,
+    "time_pip_install": 2.685248851776123,
+    "time_second_run": 0.6950423717498779,
+    "total_time": 3.80686092376709,
+    "success": true,
+    "first_error": false
+  },
+  {
+    "module": "numpy",
+    "expected_dist": "numpy",
+    "method": "manual",
+    "time_first_run": 0.5943706035614014,
+    "time_pip_install": 1.9442408084869385,
+    "time_second_run": 0.3777425289154053,
+    "total_time": 2.916353940963745,
+    "success": true,
+    "first_error": false
+  },
+  {
+    "module": "sklearn",
+    "expected_dist": "scikit-learn",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "cv2",
+    "expected_dist": "opencv-python",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "bs4",
+    "expected_dist": "beautifulsoup4",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "yaml",
+    "expected_dist": "PyYAML",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "PIL",
+    "expected_dist": "Pillow",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "dateutil",
+    "expected_dist": "python-dateutil",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "Crypto",
+    "expected_dist": "pycryptodome",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "requests",
+    "expected_dist": "requests",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  },
+  {
+    "module": "numpy",
+    "expected_dist": "numpy",
+    "method": "pyfix",
+    "error": "[Errno 2] No such file or directory: 'tests/pyfix'",
+    "success": false
+  }
+]

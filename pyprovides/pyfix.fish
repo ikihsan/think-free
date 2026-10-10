@@ -4,8 +4,5 @@
 function pyfix --description "Run a command and suggest fixes for import errors"
     set -euo pipefail
 
-    # Set PYTHONPATH to include the think-free repository
-    set -gx PYTHONPATH ${PYTHONPATH:-}${PYTHONPATH:+:}/home/ubuntu/think-free
-
-    python3 -m pyprovides.pyprovides_cli fix-import -- "$argv"
+    pyprovides fix-import -- "$argv"
 end
