@@ -1,40 +1,14 @@
 #!/usr/bin/env python3
-"""pyprovides - which distribution provides this module, with nothing installed.
-
-The mechanism this rests on was built and measured in
-EXPERIMENTS/085-declared-not-provided. This is a prototype: the resolver's
-mechanism and its correctness are observed; its usefulness to anyone is not.
-
-A wheel is a zip file, and a zip's central directory sits at the end of the
-file and names every entry. So the full list of modules a distribution ships
-can be read with two HTTP Range requests and zero payload bytes. Nothing is
-downloaded and nothing is installed, which is the gap this fills: deptry
-0.25.1 resolves imports against an installed virtualenv and reports nothing
-at all when the project is uninstalled.
-
-Standard library only. Python 3.8+.
-"""
+"""Core wheel inspection functions for pyprovides."""
 
 import json
 import os
 import struct
-import sys
-import time
 import urllib.error
 import urllib.request
 
-__version__ = "0.1.0"
-
-USER_AGENT = "pyprovides/%s" % __version__
-EOCD_SIG = b"PK\x05\x06"
-CD_SIG = b"PK\x01\x02"
-TAIL_BYTES = 65536
-CODE_EXT = (".py", ".pyi", ".pyd", ".so", ".dll", ".dylib")
-CACHE_DIR = os.environ.get("PYPROVIDES_CACHE", ".pyprovides-cache")
-
-
-class ResolveError(Exception):
-    """The distribution could not be resolved. Never means 'provides nothing'."""
+from .constants import (USER_AGENT, EOCD_SIG, CD_SIG, TAIL_BYTES, CODE_EXT,
+                        CACHE_DIR, ResolveError)
 
 
 def _get(url, headers=None, timeout=30):

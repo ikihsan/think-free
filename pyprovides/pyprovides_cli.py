@@ -11,8 +11,17 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from pyprovides import __version__, provides, ResolveError  # noqa: E402
+# Add the parent directory of pyprovides to sys.path so 'pyprovides' package is importable
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from pyprovides import __version__, provides, find_provider, ResolveError  # noqa: E402
+
+# SKIP_DIRS for the scan command - expanded to avoid common VCS and build dirs
+CLI_SKIP_DIRS = {".git", ".github", "node_modules", "__pycache__", ".tox",
+                 ".venv", "venv", "build", "dist", ".eggs", "site-packages",
+                 ".mypy_cache", ".pytest_cache", ".idea", ".vscode",
+                 "EXPERIMENTS", "sessions", ".pyprovides-cache", "docs",
+                 "tests", "tools", "vendor", "RESEARCH", ".origin",
+                 ".agents", ".claude", "stage-lines", "tasks", "vendor"}
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, os.pardir, "EXPERIMENTS",
@@ -49,14 +58,54 @@ def cmd_which(args):
     return 0
 
 
+def cmd_find(args):
+    """Find which distribution provides a module (query-time reverse lookup)."""
+    try:
+        status, matches, detail = find_provider(
+            args.module,
+            max_checks=args.max_checks,
+            cache=not args.no_cache,
+            cache_dir=args.cache_dir,
+            timeout=args.timeout,
+        )
+    except ResolveError as exc:
+        print("cannot resolve: %s" % exc, file=sys.stderr)
+        return 3
+    except Exception as exc:  # noqa: BLE001
+        print("error during search: %s" % exc, file=sys.stderr)
+        return 3
+
+    method = detail.get("method", "unknown")
+    
+    if status == "found":
+        dist_name, mods, prov_detail = matches[0]
+        print("%s is provided by %s %s" % (args.module, prov_detail["canonical"], prov_detail["version"]))
+        print("  method: %s" % method)
+        print("  checked %d distributions in %.2fs" % (detail["checked"], detail["elapsed_seconds"]))
+        print("  wheel: %s (%d bytes, fetched %d bytes)" % (
+            prov_detail["wheel"], prov_detail["wheel_bytes"], prov_detail["bytes_fetched"]))
+        if args.verbose:
+            print("  also provides: %s" % ", ".join(sorted(mods)[:20]))
+        return 0
+    elif status == "stdlib":
+        print("%s is in the Python standard library (no install needed)" % args.module)
+        print("  method: stdlib (instant)")
+        return 0
+    else:
+        print("%s: no provider found among top %d PyPI distributions" % (args.module, detail["checked"]))
+        print("  method: %s" % method)
+        print("  checked %d distributions in %.2fs" % (detail["checked"], detail["elapsed_seconds"]))
+        return 1
+
+
 def cmd_scan(args):
     from scan_repos import (extract_imports, parse_requirements,
                             project_local_modules_safe, setup_install_requires,
-                            SKIP_DIRS, stdlib_modules)
+                            stdlib_modules)
     root = os.path.abspath(args.path)
     declared = set()
     for dirpath, dirnames, filenames in os.walk(root):
-        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        dirnames[:] = [d for d in dirnames if d not in CLI_SKIP_DIRS]
         for fn in filenames:
             full = os.path.join(dirpath, fn)
             if fn.startswith("requirements") and fn.endswith((".txt", ".in")):
@@ -110,6 +159,14 @@ def main(argv=None):
     w = sub.add_parser("which", help="which distribution provides this module")
     w.add_argument("module")
     w.set_defaults(func=cmd_which)
+    f = sub.add_parser("find", help="find which distribution provides a module (query-time reverse lookup)")
+    f.add_argument("module")
+    f.add_argument("--max-checks", type=int, default=500, help="maximum distributions to check (default: 500)")
+    f.add_argument("--no-cache", action="store_true", help="disable wheel metadata cache")
+    f.add_argument("--cache-dir", default=os.environ.get("PYPROVIDES_CACHE", ".pyprovides-cache"))
+    f.add_argument("--timeout", type=int, default=30, help="HTTP timeout per request (default: 30)")
+    f.add_argument("--verbose", "-v", action="store_true", help="show all modules the provider ships")
+    f.set_defaults(func=cmd_find)
     s = sub.add_parser("scan", help="scan a project for shadowed dependency names")
     s.add_argument("path", nargs="?", default=".")
     s.add_argument("--json", action="store_true")
