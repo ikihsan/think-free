@@ -8,7 +8,7 @@ last-verified: 2026-10-10
 
 Split out of [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md) on 2026-10-08 when that file reached the 300-line cap. The rule is unchanged: a decision is recorded when the choice was genuinely open, with evidence, alternatives, and reason.
 
-Decisions **D084–D088, D095–D097**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D084–D088, D095–D100**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D084 — Arrival at a need is a different quantity from a statement of need (2026-10-08)
 
