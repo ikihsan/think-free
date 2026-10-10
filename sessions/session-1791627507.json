@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-10 10:23:42",
+  "session_id": "session-1791627507",
+  "git_branch": "research/origin",
+  "git_commits_ahead": 3,
+  "observations": {
+    "pyprovides_mechanism": "17/17 tests pass; reads wheel central directory via HTTP Range requests, zero payload, nothing installed",
+    "kill_gate_criteria": "rate of real import-error reports naming module with no PyPI distribution < 1% \u2192 close line; >= 1% \u2192 keep open",
+    "pypi_coverage_measurement": "39/58 curated modules found on PyPI (67.2%); 19 not found (32.8%) - but sample is biased toward common packages",
+    "existing_measurements": "E085 G3 rate: 1.2% wrong-distribution / computable pairs \u2192 HOLD; F108 silent wrong-dependency: 0.6% (3 of 6, hand-read); F110 self-declared substitutes: 0.0191 (11 of 576)",
+    "structured_fault_domains": "E079 (automotive OBD2): G2 FAIL; E083 (3D printer): G2 PASS G3 FAIL (brand silos, 1.8 models/fault); E084 (PX4 drone): G1 FAIL (~39 structured cases vs 100 threshold), G2/G3/G4 pass",
+    "e091_experiment": "Already set up in repository: measures fraction of real Python import-error reports naming module with no distribution; kill gate G1: rate < 1% \u2192 close; G2: sample \u2265 200; G3: each venue \u2265 50",
+    "fresh_observation_route": "Closed at instrument level (E088): seven domains closed on instrument grounds, never on population grounds"
+  },
+  "decision": "pyprovides mechanism confirmed working but not productized (incidence too low per F108/F110); package-name line kill gate would close if rate < 1% (evidence suggests rate is very low); all structured fault-domain candidates closed; next work per D083: fresh observation in new domain",
+  "next_action": "Per D083: start from fresh observation in a new domain. Read practitioner rows by hand in structured fault/error-code domain (aviation maintenance, industrial PLC/SCADA, medical device alarm codes). Protocol: (a) name the instrument and call that instrument rather than a local copy, (b) pass a discrimination test before any population row is read, (c) enumerate what its gate's passing value can be made of (D088, D095). The E091 experiment framework is ready in the repository for formal measurement of the import-error population rate.",
+  "artifacts": {
+    "session_record": "sessions/session-1791627507.json",
+    "pyprovides_module": "pyprovides/pyprovides.py, pyprovides_cli.py",
+    "e091_experiment": "EXPERIMENTS/091-import-error-population/",
+    "structured_domain_data": "EXPERIMENTS/083-3dprint-fault-codes/, EXPERIMENTS/084-px4-fault-codes/"
+  }
+}
