@@ -77,16 +77,26 @@ def session_report(strict: bool = False, lease_hours: float | None = None):
             # stay visible, so this is a note, not a failure.
             notes.append(f"{name}: session_end appears {kinds.count('session_end')} times")
         if kinds and kinds[-1] != "session_end":
-            unfinished = f"last event is {kinds[-1]!r}; session may be unfinished"
-            if name == in_flight and not strict:
-                notes.append(f"{name}: in progress ({kinds[-1]})")
+            end_positions = [i for i, k in enumerate(kinds) if k == "session_end"]
+            trailing = kinds[end_positions[-1] + 1:] if end_positions else []
+            if end_positions and all(k == "milestone" for k in trailing):
+                # The session ended; milestones logged afterward went to the
+                # wrong stream. A milestone is a progress summary, not a work
+                # claim, so it cannot mean the session is still unfinished.
+                notes.append(
+                    f"{name}: {len(trailing)} milestone(s) logged after session_end"
+                )
             else:
-                start = next((e for e in raw if e.get("kind") == "session_start"), {})
-                verdict = inflight.classify(name, start, lease_hours=lease)
-                if verdict.in_flight:
-                    notes.append(verdict.note(name))
+                unfinished = f"last event is {kinds[-1]!r}; session may be unfinished"
+                if name == in_flight and not strict:
+                    notes.append(f"{name}: in progress ({kinds[-1]})")
                 else:
-                    problems.append(Finding.at(rel, f"{unfinished}; {verdict.reason}"))
+                    start = next((e for e in raw if e.get("kind") == "session_start"), {})
+                    verdict = inflight.classify(name, start, lease_hours=lease)
+                    if verdict.in_flight:
+                        notes.append(verdict.note(name))
+                    else:
+                        problems.append(Finding.at(rel, f"{unfinished}; {verdict.reason}"))
         if not events.SESSION_ID.match(name):
             problems.append(Finding.at(rel, "directory name is not a valid session id"))
         if not paths.session_report(name).exists():

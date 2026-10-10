@@ -60,6 +60,26 @@ class DoubleEndTest(RepoTest):
         make_stream([("session_end", {"outcome": "worked", "unlogged_changes": 0})])
         self.assertEqual(self.problems(), [])
 
+    def test_milestones_after_end_are_a_note_not_a_failure(self):
+        make_stream(
+            [
+                ("session_end", {"outcome": "worked", "unlogged_changes": 0}),
+                ("milestone", {"summary": "E077 verified"}),
+                ("milestone", {"summary": "E078 complete"}),
+            ]
+        )
+        self.assertEqual(self.problems(), [])
+
+    def test_real_work_after_end_still_fails(self):
+        make_stream(
+            [
+                ("session_end", {"outcome": "worked", "unlogged_changes": 0}),
+                ("milestone", {"summary": "E077 verified"}),
+                ("artifact", {"path": "EXPERIMENTS/x/PROTOCOL.md", "sha256": "0" * 64}),
+            ]
+        )
+        self.assertTrue(any("unfinished" in m for m in self.problems()))
+
 
 if __name__ == "__main__":
     unittest.main()
