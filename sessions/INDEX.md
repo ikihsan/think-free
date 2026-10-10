@@ -15,7 +15,7 @@ Showing the 25 most recent. 197 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
-| [2026-10-10-009-run-fresh-observation-in-embedded-microc](2026-10-10-009-run-fresh-observation-in-embedded-microc/README.md) | unknown-agent | **unfinished** | Run fresh observation in embedded/microcontroller fault codes domain u | 2026-10-10T10:37 |
+| [2026-10-10-009-run-fresh-observation-in-embedded-microc](2026-10-10-009-run-fresh-observation-in-embedded-microc/README.md) | unknown-agent | worked | Run fresh observation in embedded/microcontroller fault codes domain u | 2026-10-10T10:53 |
 | [2026-10-10-008-measure-import-error-population-asking-w](2026-10-10-008-measure-import-error-population-asking-w/README.md) | unknown-agent | worked | Measure import-error population asking 'which distribution provides th | 2026-10-10T09:08 |
 | [2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an](2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an/README.md) | unknown-agent | partial | Run E091 (T-0090): hand-replicate E062's answerability sub-test on Ano | 2026-10-10T08:43 |
 | [2026-10-10-006-decide-by-measurement-whether-which-dist](2026-10-10-006-decide-by-measurement-whether-which-dist/README.md) | unknown-agent | partial | Decide by measurement whether 'which distribution provides this module | 2026-10-10T06:42 |
