@@ -332,6 +332,7 @@ Skill bodies under `.agents/skills/` are indexed by
 | `EXPERIMENTS/092-module-provider-demand/` | `EXPERIMENTS/092-module-provider-demand/PROTOCOL.md` | active | 2026-10-10 | 3 documents |
 | `EXPERIMENTS/095-instrument-discrimination-aviation/` | `docs/INDEX.md` | active | 2026-10-10 | 1 documents |
 | `EXPERIMENTS/096-aviation-view-count/` | `docs/INDEX.md` | active | 2026-10-11 | 1 documents |
+| `EXPERIMENTS/097-ros-error-codes-fresh/` | `docs/INDEX.md` | active | 2026-10-10 | 2 documents |
 | `EXPERIMENTS/PLAN.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | 1 documents |
 | `EXPERIMENTS/README.md/` | `EXPERIMENTS/PLAN.md` | active | 2026-10-03 | owner: EXPERIMENTS/PLAN.md |
 | `EXPERIMENTS/synthesis-view-count-principle.md/` | `EXPERIMENTS/PLAN.md` | withdrawn | 2026-10-10 | 1 documents |
