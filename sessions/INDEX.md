@@ -8,13 +8,14 @@ last-verified: 2026-10-09
 
 <!-- generated-by: origin; do not edit by hand -->
 
-215 recorded session(s). One `events.jsonl` per session, so concurrent
+216 recorded session(s). One `events.jsonl` per session, so concurrent
 sessions on separate branches never conflict.
 
-Showing the 25 most recent. 190 older session(s) are in the directory listing.
+Showing the 25 most recent. 191 older session(s) are in the directory listing.
 
 | session | agent | outcome | goal | ended |
 |---|---|---|---|---|
+| [2026-10-09-026-fresh-observation-in-industrial-plc-scad](2026-10-09-026-fresh-observation-in-industrial-plc-scad/README.md) | unknown-agent | **unfinished** | Fresh observation in industrial PLC/SCADA fault codes: measure code co | 2026-10-09T23:40 |
 | [2026-10-09-025-fresh-observation-in-a-new-domain-to-ide](2026-10-09-025-fresh-observation-in-a-new-domain-to-ide/README.md) | unknown-agent | worked | Fresh observation in a new domain to identify a testable invention can | 2026-10-09T23:13 |
 | [2026-10-09-024-run-fresh-observation-experiment-in-elec](2026-10-09-024-run-fresh-observation-experiment-in-elec/README.md) | unknown-agent | partial | Run fresh observation experiment in electronics.stackexchange.com doma | 2026-10-09T22:31 |
 | [2026-10-09-023-fresh-observation-in-industrial-equipmen](2026-10-09-023-fresh-observation-in-industrial-equipmen/README.md) | unknown-agent | worked | Fresh observation in industrial equipment fault codes (PLC/SCADA) doma | 2026-10-09T22:09 |
@@ -39,7 +40,6 @@ Showing the 25 most recent. 190 older session(s) are in the directory listing.
 | [2026-10-09-002-record-artifact-for-e067-generate-py](2026-10-09-002-record-artifact-for-e067-generate-py/README.md) | unknown-agent | worked | Record artifact for E067 generate.py | 2026-10-09T00:35 |
 | [2026-10-09-002-land-the-unlanded-e067-e070-work-with-a](2026-10-09-002-land-the-unlanded-e067-e070-work-with-a/README.md) | unknown-agent | worked | Land the unlanded E067-E070 work with a source manifest for the 5.5GB  | 2026-10-09T02:54 |
 | [2026-10-09-001-record-decision-and-continuation-for-e06](2026-10-09-001-record-decision-and-continuation-for-e06/README.md) | unknown-agent | worked | Record decision and continuation for E065/E066 and E067 experiments | 2026-10-09T00:33 |
-| [2026-10-09-001-declare-remaining-artifacts-from-e070-se](2026-10-09-001-declare-remaining-artifacts-from-e070-se/README.md) | unknown-agent | worked | Declare remaining artifacts from E070 session | 2026-10-09T00:10 |
 
 
 ## Reading a session

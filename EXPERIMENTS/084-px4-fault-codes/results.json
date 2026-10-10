@@ -1,0 +1,54 @@
+{
+  "g1_population_proxy": false,
+  "g2_fault_concentration": true,
+  "g3_airframe_coverage": false,
+  "g4_root_cause_specificity": null,
+  "g5_incumbent_gap": null,
+  "fault_distribution": {
+    "EKF_FAILURE": 12,
+    "VIBRATION_ISSUE": 3,
+    "ACTUATOR_FAILURE": 4,
+    "FAILSAFE_TRIGGER": 6,
+    "PREARM_FAILURE": 3,
+    "SENSOR_FAILURE": 4,
+    "HARDWARE_FAILURE": 1,
+    "GPS_ISSUE": 3
+  },
+  "top10_faults": [
+    [
+      "EKF_FAILURE",
+      12
+    ],
+    [
+      "FAILSAFE_TRIGGER",
+      6
+    ],
+    [
+      "ACTUATOR_FAILURE",
+      4
+    ],
+    [
+      "SENSOR_FAILURE",
+      4
+    ],
+    [
+      "VIBRATION_ISSUE",
+      3
+    ],
+    [
+      "PREARM_FAILURE",
+      3
+    ],
+    [
+      "GPS_ISSUE",
+      3
+    ],
+    [
+      "HARDWARE_FAILURE",
+      1
+    ]
+  ],
+  "top10_pct": 1.0,
+  "distinct_combos": 6,
+  "qualified_count": 36
+}
