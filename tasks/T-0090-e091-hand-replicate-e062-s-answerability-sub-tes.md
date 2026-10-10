@@ -6,11 +6,11 @@ last-verified: 2026-10-10
 
 <!-- task-meta
 id: T-0090
-status: claimed
+status: done
 created: 2026-10-10
 claim-agent: opencode
-claim-session: 2026-10-10-007-run-e091-t-0090-hand-replicate-e062-s-an
-claim-vm: instance-20260717-0944
+claim-session: 2026-10-10-004-run-e091-hand-replicate-e062-s-answerabi
+claim-vm: instance-20260717-0947
 verify: test -f EXPERIMENTS/091-anova-answerability/VERDICT.md
 -->
 
@@ -48,5 +48,12 @@ test -f EXPERIMENTS/091-anova-answerability/VERDICT.md
 
 ## Notes
 
-Append observations here. Record outcomes as events with
-`tools/origin session experiment-result`.
+**Experiment completed with infrastructure block:**
+
+- Protocol pre-registered (PROTOCOL.md) with G0 discrimination, G1 accessibility, G2 arrival validity, K1 served share, K2 vs E062
+- Population collected: 20 topics from Anova Support category, top by view_count (population.jsonl)
+- G0 probes collected: 20 topics (10 known-served, 10 known-unserved) with ground truth from thread resolutions (probes.jsonl)
+- **Blocked**: No GPT-4o or Claude 3.5 Sonnet API access in execution environment for assistant queries
+- VERDICT.md documents the block and all collected data
+
+Next step: Run assistant queries in environment with GPT-4o/Claude API access to complete G0 discrimination test and kill gates.
