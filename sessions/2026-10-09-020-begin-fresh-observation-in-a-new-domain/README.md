@@ -3,7 +3,7 @@
 <!-- origin-meta
 owner: sessions/INDEX.md
 status: active
-last-verified: 2026-10-09
+last-verified: 2026-10-10
 -->
 
 <!-- generated-by: origin; do not edit by hand -->
@@ -93,6 +93,7 @@ _none_
 | 23 | 20:10:38 | milestone | Work complete - view-count principle + need-classification framework validated |
 | 24 | 20:11:11 | milestone | Mission state: view-count + need-classification validated, candidates retired, seed empty. Next: fresh observation in unexplored domain. |
 | 25 | 20:12:18 | milestone | Summary: E077/E078 complete, principle validated 5 platforms, framework prototyped, candidates retired, seed empty. Next action: choose fresh observat |
+| 26 | 08:56:00 | session_end | Retroactive close: session had session_end at seq 17 but continued with milestones; this final session_end properly terminates the record |
 
 ## Reproduce this record
 
