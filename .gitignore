@@ -125,3 +125,6 @@ EXPERIMENTS/072-git-file-presence/repos/
 # from PyPI, and the repo already ignores E068's equivalent.
 EXPERIMENTS/085-declared-not-provided/cache/
 .pyprovides-cache/
+
+# `origin session finish` lock: a committed lock is a lock nothing holds
+.finish.lock
