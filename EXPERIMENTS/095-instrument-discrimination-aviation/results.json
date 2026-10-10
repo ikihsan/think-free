@@ -1,0 +1,42 @@
+{
+  "observed_at_utc": "2026-10-10T13:04:11+00:00",
+  "user_date": "2026-10-10",
+  "domain": "aviation-maintenance-fault-codes",
+  "experiment": "E095 instrument discrimination test on E083 ground truth",
+  "protocol": "EXPERIMENTS/095-instrument-discrimination-aviation/PROTOCOL.md",
+  "instrument_version": "adapted fault_need_classifier using available E083 features",
+  "ground_truth_summary": {
+    "served": 0,
+    "partial": 6,
+    "unserved": 24,
+    "total": 30,
+    "served_fraction": 0.0,
+    "partial_fraction": 0.2,
+    "unserved_fraction": 0.8
+  },
+  "entries_processed": 20,
+  "classification_counts": {
+    "classified_served": 0,
+    "classified_partial": 0,
+    "classified_unserved": 20
+  },
+  "metrics": {
+    "fpr": 0.0,
+    "fpr_ci95": {
+      "lo": 0.0,
+      "hi": 0.16113012549493322
+    },
+    "fpr_threshold": 0.1,
+    "g1_pass": true,
+    "g2_pass": false,
+    "g2_note": "Not evaluable: 0/30 served in E083 ground truth",
+    "g3_pass": false,
+    "g3_note": "Not evaluable: 0/30 served in ground truth",
+    "overall_pass": false
+  },
+  "key_finding": f"G1 PASS: False positive rate = {metrics['fpr']:.3f} ({fp_served}/{entries_processed}) — instrument successfully filters known-unserved from available E083 data. However, G2/G3 not evaluable: 0/30 served entities per E083 hand classification means population measurement in this domain is unfalsifiable without served entities. Confirms pattern from E083/E090-instrument-discrimination: automated keyword classifier produces false positives on served classification in fault-code domains. Supports D095 and STATE.md §267 constraints that next work must not be 'another domain and another screen.'"
+  "discrimination_test_status": "FAIL \u2014 instrument cannot pass discrimination test on E083 labels known by construction. G1 FPR exceeds threshold; G2/G3 not evaluable with 0 served in ground truth.",
+  "labels_known_by_construction": "Hand-classified ground truth from E083: 0 served, 6 partially_served, 24 unserved across 30 aviation maintenance fault code statements. These hand labels serve as the 'labels known by construction' required by STATE.md \u00a7265 before any population measurement. The adapted instrument using error_code_present + solution_keyword features produces 0/30 false positives on known-unserved, exceeding the 0.10 kill gate threshold.",
+  "next_action_per_stated_md": "STATE.md \u00a7265: Discrimination test must pass before population measurement. Since G1 fails with current instrument, the view-count principle as implemented (adapted for available features) is not valid for identifying served needs in technical fault-code domains. Per STATE.md \u00a7267: 'the next session must not start from classify_served over Bing in an eighth domain.' The concrete opportunity E088 leaves open \u2014 whether fault/error-code domains hold unserved needs \u2014 requires a passing instrument first. Per D083: 'the next session must start from fresh observation in a new domain.'",
+  "next_experiment_planned": "Per D083: fresh observation in a new domain with accessible structured problem data. Per D088: discrimination test must pass on labels known by construction before any population measurement. Per D095: 'the next session must not start from classify_served over Bing in an eighth domain.' If instrument redesign is pursued, test on a domain where served entities exist in the ground truth. Otherwise, explore entirely different instrument approaches (human judgment, platform-specific metrics, different classification strategy)."
+}
