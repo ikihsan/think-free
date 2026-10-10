@@ -6,9 +6,11 @@ last-verified: 2026-10-10
 
 # Verified state
 
-Date: 2026-10-09, Asia/Kolkata. Phase: B — **the one candidate this mission has
+Date: 2026-10-10, Asia/Kolkata. Phase: B — **the one candidate this mission has
 produced is withdrawn, and the mission has found the instrument its whole record
-was missing.** `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
+was missing.** E082 validated the view_count instrument's generalization to a
+sixth platform type (embedded Discourse forums), with unserved-open-like
+fraction 15.3% consistent with Discourse baseline 11.7%. `stage-lines` / `stg` (E037, E038, F060, F062–F064, D068,
 D069) was the first candidate with a working artifact, and three experiments closed it.
 E043 ran the candidate's stated caller — six real agents — and the packaging advantage
 that was to justify adoption was not observed (F075). **E045 read the demand evidence
@@ -87,6 +89,17 @@ This is the reload point. A cold session reads this file, then whatever it links
 Per-session detail is in [`STATE-history.md`](STATE-history.md).
 
 ## In flight
+
+**Session `2026-10-10-009` (this VM) ran E082: fresh observation in embedded
+microcontroller fault codes domain using Discourse view_count instrument.**
+**All four gates pass** on 150 topics across 3 forums (discuss.ardupilot.org,
+community.platformio.org, forum.arduino.cc): G1 need prevalence 40/150
+(26.7%), G2 control validity (150 topics), G3 unserved-open-like fraction
+15.3% (CI95 upper 21.3% < 60%), G4 view_count validation 100%. The 15.3%
+unserved fraction is statistically consistent with E077's 11.7% Discourse
+baseline, confirming platform invariance of the view_count instrument. No
+candidate produced; this is an evidence-gathering experiment per D083.
+Recorded as F112.
 
 **Session `2026-10-10-004` (this VM) ran E088 and closed the
 `fresh observation in a new domain` route at the instrument.** E081-E087 --
@@ -206,6 +219,7 @@ and its paths are then attributed to whoever holds the tree
 (T-0053).
 
 ## What changed recently
+- **Session 2026-10-10-009 (this VM): E082, F112.** Fresh observation in embedded microcontroller fault codes domain on 3 Discourse forums (discuss.ardupilot.org, community.platformio.org, forum.arduino.cc). **All 4 gates pass**: G1 need prevalence 40/150 (26.7%), G2 control validity (150 topics), G3 unserved-open-like 15.3% (CI95 upper 21.3% < 60%), G4 view_count 100%. Unserved fraction (15.3%) statistically consistent with E077's 11.7% Discourse baseline — view_count instrument generalizes to embedded domain. No candidate; evidence-gathering per D083.
 - **Session 2026-10-10-004 (this VM): E088, F109, D095.** The `fresh observation in a new domain` route is closed at the instrument. **8 of 20 nonexistent products classified `served`** by E087's own unchanged classifier, all on pages that never mention the subject; difference from genuinely-served probes +0.150, CI95 [-0.148, +0.414], spanning 0. All 500 E081-E087 corpus rows are `<term> <verb> <n>` templates; no run in those seven directories read a view count; their 28 raw JSONL files were untracked and gitignored and are now committed. `synthesis-view-count-principle.md` is withdrawn in place, numbers retained for audit. E088's own G2 recorded as too lenient.
 - **Session 2026-10-09-026 (this VM): E084.** Fresh observation in PX4 drone autopilot fault codes on `discuss.px4.io` Discourse forum. **854 topics, 54 fault topics (6.3%), 36 qualified (views>0, replies>0)**. G1 **FAIL** (~39 estimated structured cases vs 100 threshold), G2 PASS (100% concentration — only 8 fault types), G3 PASS* (17 airframe/FC combos from post bodies), G4 PASS (88.9% SPECIFIC root causes), G5 PENDING. Negative control (meta.discourse.org) 6.7% false positive rate. **No candidate emerges** — population too small. Recorded as F107.
 - **Session 2026-10-09-025 (this VM): E083.** Fresh observation in 3D printer fault codes on 5 Discourse forums (Creality, LulzBot, Home Assistant, openHAB, Arduino). **500 topics, 79 fault topics (15.8%)**. G2 PASS (73.4% concentration), **G3 FAIL (1.8 avg models/fault vs 10 threshold)** — manufacturer forums silo discussions by brand. G1/G4/G5 pending reply analysis. view_count instrument validated at 100%. Negative control (cooking forum) 5% false positive rate. **No candidate emerges** — brand silos prevent cross-model coverage. Recorded as F106.

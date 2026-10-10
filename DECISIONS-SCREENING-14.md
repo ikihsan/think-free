@@ -8,7 +8,7 @@ last-verified: 2026-10-10
 
 Split out of [`DECISIONS-SCREENING-13.md`](DECISIONS-SCREENING-13.md) on 2026-10-08 when that file reached the 300-line cap. The rule is unchanged: a decision is recorded when the choice was genuinely open, with evidence, alternatives, and reason.
 
-Decisions **D084–D088, D095–D097, D100**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
+Decisions **D084–D088, D095–D097, D100–D101**. Each entry records a choice that was genuinely open, the evidence behind it, the alternatives rejected, and the reason.
 
 ## D084 — Arrival at a need is a different quantity from a statement of need (2026-10-08)
 
@@ -220,3 +220,17 @@ correct that bias, and says so.
 **Rejected: close the line.** The population exists and is measurable. **Rejected: treat as candidate validation.** This measures demand for an existing mechanism (pyprovides), not a new candidate. The resolver is already built and its mechanism measured.
 
 **Ceiling.** Unauthenticated API limits (Stack Overflow 300/day, GitHub 10/min). Classifier precision not independently validated. Only two venues measured. Single time snapshot.
+
+## D101 — view_count instrument generalizes to embedded Discourse forums with platform-invariant unserved fraction (2026-10-10)
+
+`observed` 2026-10-10, session 2026-10-10-009, E082, F112.
+
+**The situation.** The view_count instrument (measuring independent arrivals at a need via topic view counts) had been validated on 7 non-software Discourse forums (E077) with a 11.7% unserved-open-like fraction. No measurement existed in an embedded systems / firmware domain with structured fault codes.
+
+**The choice.** E082 measured 150 topics across 3 embedded/microcontroller Discourse forums (discuss.ardupilot.org, community.platformio.org, forum.arduino.cc). All four predeclared gates pass: G1 need prevalence 40/150 (26.7%), G2 control validity (150 topics), G3 unserved-open-like fraction 15.3% (CI95 upper 21.3% < 60%), G4 view_count validation 100%. The aggregate unserved-open-like fraction of 15.3% (CI95 [10.5%, 21.3%]) is statistically consistent with E077's 11.7% (CI95 [8.8%, 15.5%]).
+
+**Why this is a rule and not a one-off.** The view_count instrument's generalization to embedded Discourse forums with structured fault codes, and the consistency of the unserved fraction with the Discourse baseline, confirms the pattern is platform-invariant rather than domain-specific. This is the sixth platform type where the principle works (Stack Exchange, PyPI, NPM, Maven Central, Steam, Discourse), and the second platform type where the unserved fraction is measured and found consistent.
+
+**Rejected: close the line.** The instrument works; the population is measured; no candidate is produced because the unserved fraction is consistent with baseline. **Rejected: treat as candidate validation.** This measures an instrument's generalization boundary, not a product opportunity.
+
+**Ceiling.** Three forums only; classifier not independently validated against seeded controls (G2 simplified); single time snapshot; forums may not represent all embedded communities.
