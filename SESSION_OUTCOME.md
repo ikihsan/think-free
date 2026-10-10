@@ -1,3 +1,9 @@
+<!-- origin-meta
+owner: docs/INDEX.md
+status: active
+last-verified: 2026-10-10
+-->
+
 # Session Outcome
 
 Recorded on 2026-10-11.
